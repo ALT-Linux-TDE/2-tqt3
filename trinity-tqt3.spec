@@ -525,7 +525,7 @@ before you send a bugreport.
 %_includedir/tqt3/ntqobjectdict.h
 %_includedir/tqt3/ntqobjectlist.h
 %_includedir/tqt3/ntqpaintdevice.h
-%_includedir/tqt3/ntqpaintdevicedefs.h
+#%_includedir/tqt3/ntqpaintdevicedefs.h #attic
 %_includedir/tqt3/ntqpaintdevicemetrics.h
 %_includedir/tqt3/ntqpainter.h
 %_includedir/tqt3/ntqpair.h
@@ -679,8 +679,8 @@ before you send a bugreport.
 %_includedir/tqt3/qsql_sqlite3.h
 %_includedir/tqt3/qsqlcachedresult.h
 %_includedir/tqt3/qt_pch.h
-%_includedir/tqt3/qtmultilineedit.h
-%_includedir/tqt3/qttableview.h
+#%_includedir/tqt3/qtmultilineedit.h #attic
+#%_includedir/tqt3/qttableview.h #attic
 %_includedir/tqt3/qwindow.h
 %_includedir/tqt3/sourcetemplateiface.h
 %_includedir/tqt3/templatewizardiface.h
