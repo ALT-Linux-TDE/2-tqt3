@@ -1421,9 +1421,6 @@ export LD_LIBRARY_PATH=${QTDIR}/lib
 cp tools/designer/interfaces/*.h "%{?buildroot}%{?_includedir}/tqt3/"
 cp tools/designer/editor/*.h "%{?buildroot}%{?_includedir}/tqt3/"
 
-# language file for linguist
-%__install -D -m644 "translations/qt_untranslated.ts" "%{?buildroot}%{?_docdir}/tqt3-linguist/qt_untranslated.ts"
-
 # fix that stupid friggin professional file
 perl -pi -e 's{\$$\$$QT_SOURCE_TREE}{$(QTDIR)}' "src/qt_professional.pri"
 
