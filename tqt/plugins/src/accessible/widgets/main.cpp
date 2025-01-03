@@ -11,7 +11,7 @@ public:
     AccessibleFactory();
 
     TQRESULT queryInterface( const TQUuid &, TQUnknownInterface **iface );
-    Q_REFCOUNT
+    TQ_REFCOUNT
 
     TQStringList featureList() const;
     TQRESULT createAccessibleInterface( const TQString &classname, TQObject *object, TQAccessibleInterface **iface );
@@ -60,7 +60,7 @@ TQStringList AccessibleFactory::featureList() const
     list << "TQViewportWidget";
     list << "TQClipperWidget";
     list << "TQTextEdit";
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
     list << "TQIconView";
 #endif
     list << "TQListView";
@@ -132,7 +132,7 @@ TQRESULT AccessibleFactory::createAccessibleInterface( const TQString &classname
 	*iface = new TQAccessibleViewport( object, object->parent()->parent() );
     } else if ( classname == "TQTextEdit" ) {
 	*iface = new TQAccessibleTextEdit( object );
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
     } else if ( classname == "TQIconView" ) {
 	*iface = new TQAccessibleIconView( object );
 #endif

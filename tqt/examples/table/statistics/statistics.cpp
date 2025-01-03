@@ -39,8 +39,8 @@ Table::Table()
     adjustColumn( 0 );
 
     // if the user edited something we might need to recalculate the sum
-    connect( this, SIGNAL( valueChanged( int, int ) ),
-	     this, SLOT( recalcSum( int, int ) ) );
+    connect( this, TQ_SIGNAL( valueChanged( int, int ) ),
+	     this, TQ_SLOT( recalcSum( int, int ) ) );
 }
 
 void Table::initTable()
@@ -140,7 +140,7 @@ TQWidget *ComboItem::createEditor() const
 {
     // create an editor - a combobox in our case
     ( (ComboItem*)this )->cb = new TQComboBox( table()->viewport() );
-    TQObject::connect( cb, SIGNAL( activated( int ) ), table(), SLOT( doValueChanged() ) );
+    TQObject::connect( cb, TQ_SIGNAL( activated( int ) ), table(), TQ_SLOT( doValueChanged() ) );
     cb->insertItem( "Yes" );
     cb->insertItem( "No" );
     // and initialize it

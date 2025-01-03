@@ -11,7 +11,7 @@ GLControlWidget::GLControlWidget( TQWidget *parent, const char *name, TQGLWidget
 {
     setCursor( pointingHandCursor  );
     timer = new TQTimer( this );
-    connect( timer, SIGNAL(timeout()), SLOT(animate()) );
+    connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(animate()) );
     timer->start( delay );
 }
 

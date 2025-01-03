@@ -88,7 +88,7 @@ The QSizePolicy class is a layout attribute describing horizontal and vertical r
 .PP
 The size policy of a widget is an expression of its willingness to be resized in various ways.
 .PP
-Widgets that reimplement QWidget::sizePolicy() return a QSizePolicy that describes the horizontal and vertical resizing policy they prefer when being laid out. Only one of the constructors is of interest in most applications.
+Widgets that reimplement TQWidget::sizePolicy() return a QSizePolicy that describes the horizontal and vertical resizing policy they prefer when being laid out. Only one of the constructors is of interest in most applications.
 .PP
 QSizePolicy contains two independent SizeType objects; one describes the widgets's horizontal size policy, and the other describes its vertical size policy. It also contains a flag to indicate whether the height and width of its preferred size are related.
 .PP
@@ -111,13 +111,13 @@ This enum type describes in which directions a widget can make use of extra spac
 .SH "QSizePolicy::SizeType"
 The per-dimension sizing types used when constructing a QSizePolicy are:
 .TP
-\fCQSizePolicy::Fixed\fR - The QWidget::sizeHint() is the only acceptable alternative, so the widget can never grow or shrink (e.g. the vertical direction of a push button).
+\fCQSizePolicy::Fixed\fR - The TQWidget::sizeHint() is the only acceptable alternative, so the widget can never grow or shrink (e.g. the vertical direction of a push button).
 .TP
 \fCQSizePolicy::Minimum\fR - The sizeHint() is minimal, and sufficient. The widget can be expanded, but there is no advantage to it being larger (e.g. the horizontal direction of a push button). It cannot be smaller than the size provided by sizeHint().
 .TP
 \fCQSizePolicy::Maximum\fR - The sizeHint() is a maximum. The widget can be shrunk any amount without detriment if other widgets need the space (e.g. a separator line). It cannot be larger than the size provided by sizeHint().
 .TP
-\fCQSizePolicy::Preferred\fR - The sizeHint() is best, but the widget can be shrunk and still be useful. The widget can be expanded, but there is no advantage to it being larger than sizeHint() (the default QWidget policy).
+\fCQSizePolicy::Preferred\fR - The sizeHint() is best, but the widget can be shrunk and still be useful. The widget can be expanded, but there is no advantage to it being larger than sizeHint() (the default TQWidget policy).
 .TP
 \fCQSizePolicy::Expanding\fR - The sizeHint() is a sensible size, but the widget can be shrunk and still be useful. The widget can make use of extra space, so it should get as much space as possible (e.g. the horizontal direction of a slider).
 .TP
@@ -128,7 +128,7 @@ The per-dimension sizing types used when constructing a QSizePolicy are:
 .SH "QSizePolicy::QSizePolicy ()"
 Constructs a minimally initialized QSizePolicy.
 .SH "QSizePolicy::QSizePolicy ( SizeType hor, SizeType ver, bool hfw = FALSE )"
-This is the constructor normally used to return a value in the overridden QWidget::sizePolicy() function of a QWidget subclass.
+This is the constructor normally used to return a value in the overridden TQWidget::sizePolicy() function of a TQWidget subclass.
 .PP
 It constructs a QSizePolicy with independent horizontal and vertical sizing types, \fIhor\fR and \fIver\fR respectively. These sizing types affect how the widget is treated by the layout engine.
 .PP
@@ -226,8 +226,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

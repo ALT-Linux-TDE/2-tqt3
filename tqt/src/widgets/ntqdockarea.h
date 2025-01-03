@@ -51,7 +51,7 @@
 #include "ntqtextstream.h"
 #endif // QT_H
 
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 
 class TQSplitter;
 class TQBoxLayout;
@@ -60,7 +60,7 @@ class TQMouseEvent;
 class TQDockWindowResizeHandle;
 class TQDockAreaPrivate;
 
-class Q_EXPORT TQDockAreaLayout : public TQLayout
+class TQ_EXPORT TQDockAreaLayout : public TQLayout
 {
     TQ_OBJECT
     friend class TQDockArea;
@@ -103,7 +103,7 @@ private:
 #endif
 };
 
-class Q_EXPORT TQDockArea : public TQWidget
+class TQ_EXPORT TQDockArea : public TQWidget
 {
     TQ_OBJECT
     TQ_ENUMS( HandlePosition )
@@ -179,13 +179,13 @@ private:	// Disabled copy constructor and operator=
 
 };
 
-#ifndef QT_NO_TEXTSTREAM
-Q_EXPORT TQTextStream &operator<<( TQTextStream &, const TQDockArea & );
-Q_EXPORT TQTextStream &operator>>( TQTextStream &, TQDockArea & );
+#ifndef TQT_NO_TEXTSTREAM
+TQ_EXPORT TQTextStream &operator<<( TQTextStream &, const TQDockArea & );
+TQ_EXPORT TQTextStream &operator>>( TQTextStream &, TQDockArea & );
 #endif
 
 #define Q_DEFINED_QDOCKAREA
 #include "ntqwinexport.h"
 #endif
 
-#endif //QT_NO_MAINWINDOW
+#endif //TQT_NO_MAINWINDOW

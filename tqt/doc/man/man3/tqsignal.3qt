@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QSignal \- Can be used to send signals for classes that don't inherit QObject
+QSignal \- Can be used to send signals for classes that don't inherit TQObject
 .SH SYNOPSIS
 \fC#include <ntqsignal.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSignal\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQSignal\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QSignal\fR ()"
 .br
 .ti -1c
-.BI "bool \fBconnect\fR ( const QObject * receiver, const char * member )"
+.BI "bool \fBconnect\fR ( const TQObject * receiver, const char * member )"
 .br
 .ti -1c
-.BI "bool \fBdisconnect\fR ( const QObject * receiver, const char * member = 0 )"
+.BI "bool \fBdisconnect\fR ( const TQObject * receiver, const char * member = 0 )"
 .br
 .ti -1c
 .BI "void \fBactivate\fR ()"
@@ -50,15 +50,15 @@ Inherits QObject.
 .br
 .in -1c
 .SH DESCRIPTION
-The QSignal class can be used to send signals for classes that don't inherit QObject.
+The QSignal class can be used to send signals for classes that don't inherit TQObject.
 .PP
-If you want to send signals from a class that does not inherit QObject, you can create an internal QSignal object to emit the signal. You must also provide a function that connects the signal to an outside object slot. This is how we have implemented signals in the QMenuData class, which is not a QObject.
+If you want to send signals from a class that does not inherit TQObject, you can create an internal QSignal object to emit the signal. You must also provide a function that connects the signal to an outside object slot. This is how we have implemented signals in the QMenuData class, which is not a TQObject.
 .PP
-In general, we recommend inheriting QObject instead. QObject provides much more functionality.
+In general, we recommend inheriting TQObject instead. TQObject provides much more functionality.
 .PP
 You can set a single QVariant parameter for the signal with setValue().
 .PP
-Note that QObject is a \fIprivate\fR base class of QSignal, i.e. you cannot call any QObject member functions from a QSignal object.
+Note that TQObject is a \fIprivate\fR base class of QSignal, i.e. you cannot call any TQObject member functions from a QSignal object.
 .PP
 Example:
 .PP
@@ -81,7 +81,7 @@ Example:
             void doSomething();
 .br
 .br
-            void connect( QObject *receiver, const char *member );
+            void connect( TQObject *receiver, const char *member );
 .br
 .br
         private:
@@ -120,7 +120,7 @@ Example:
         }
 .br
 .br
-        void MyClass::connect( QObject *receiver, const char *member )
+        void MyClass::connect( TQObject *receiver, const char *member )
 .br
         {
 .br
@@ -132,10 +132,10 @@ Example:
 .PP
 See also Input/Output and Networking and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSignal::QSignal ( QObject * parent = 0, const char * name = 0 )"
-Constructs a signal object called \fIname\fR, with the parent object \fIparent\fR. These arguments are passed directly to QObject.
+.SH "QSignal::QSignal ( TQObject * parent = 0, const char * name = 0 )"
+Constructs a signal object called \fIname\fR, with the parent object \fIparent\fR. These arguments are passed directly to TQObject.
 .SH "QSignal::~QSignal ()"
-Destroys the signal. All connections are removed, as is the case with all QObjects.
+Destroys the signal. All connections are removed, as is the case with all TQObjects.
 .SH "void QSignal::activate ()"
 Emits the signal. If the platform supports QVariant and a parameter has been set with setValue(), this value is passed in the signal.
 .SH "void QSignal::block ( bool b )"
@@ -145,15 +145,15 @@ Blocks the signal if \fIb\fR is TRUE, or unblocks the signal if \fIb\fR is FALSE
 .PP
 An activated signal disappears into hyperspace if it is blocked.
 .PP
-See also isBlocked(), activate(), and QObject::blockSignals().
-.SH "bool QSignal::connect ( const QObject * receiver, const char * member )"
+See also isBlocked(), activate(), and TQObject::blockSignals().
+.SH "bool QSignal::connect ( const TQObject * receiver, const char * member )"
 Connects the signal to \fImember\fR in object \fIreceiver\fR.
 .PP
-See also disconnect() and QObject::connect().
-.SH "bool QSignal::disconnect ( const QObject * receiver, const char * member = 0 )"
+See also disconnect() and TQObject::connect().
+.SH "bool QSignal::disconnect ( const TQObject * receiver, const char * member = 0 )"
 Disonnects the signal from \fImember\fR in object \fIreceiver\fR.
 .PP
-See also connect() and QObject::disconnect().
+See also connect() and TQObject::disconnect().
 .SH "bool QSignal::isBlocked () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
@@ -161,7 +161,7 @@ Returns TRUE if the signal is blocked, or FALSE if it is not blocked.
 .PP
 The signal is not blocked by default.
 .PP
-See also block() and QObject::signalsBlocked().
+See also block() and TQObject::signalsBlocked().
 .SH "int QSignal::parameter () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .SH "void QSignal::setParameter ( int value )"
@@ -185,8 +185,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

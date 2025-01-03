@@ -40,18 +40,18 @@
 **
 **********************************************************************/
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "qmultiinputcontext.h"
 #include <ntqinputcontextfactory.h>
 #include <ntqstringlist.h>
 #include <ntqpopupmenu.h>
-#ifndef QT_NO_IM_EXTENSIONS
+#ifndef TQT_NO_IM_EXTENSIONS
 #include <ntqsettings.h>
 #endif
 
 #include <cstdlib>
 
-#define QT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX
+#define TQT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX
 
 TQMultiInputContext::TQMultiInputContext()
     : TQInputContext(), _slave( 0 ), imIndex( 0 ), cachedFocus( FALSE ),
@@ -61,10 +61,10 @@ TQMultiInputContext::TQMultiInputContext()
     keyDict.setAutoDelete( true );
     keyDict.clear();
 
-    if ( getenv( "QT_IM_MODULE" ) ) {
-        currentIMKey = getenv( "QT_IM_MODULE" );
+    if ( getenv( "TQT_IM_MODULE" ) ) {
+        currentIMKey = getenv( "TQT_IM_MODULE" );
     } else {
-#ifndef QT_NO_IM_EXTENSIONS
+#ifndef TQT_NO_IM_EXTENSIONS
 	TQSettings settings;
         currentIMKey = settings.readEntry( "/qt/DefaultInputMethod", "xim" );
 #else
@@ -90,17 +90,17 @@ TQString TQMultiInputContext::language()
 }
 
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 bool TQMultiInputContext::x11FilterEvent( TQWidget *keywidget, XEvent *event )
 {
     return ( slave() ) ? slave()->x11FilterEvent( keywidget, event ) : FALSE;
 }
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 
 bool TQMultiInputContext::filterEvent( const TQEvent *event )
 {
-#if !defined(QT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX)
+#if !defined(TQT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX)
     if ( event->type() == TQEvent::KeyPress ) {
 	TQKeyEvent *keyevent = (TQKeyEvent *)event;
 
@@ -189,7 +189,7 @@ void TQMultiInputContext::postIMEvent( TQObject *receiver, TQIMEvent *event )
 }
 
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 TQWidget *TQMultiInputContext::focusWidget() const
 {
     return ( slave() ) ? slave()->focusWidget() : 0;
@@ -236,7 +236,7 @@ bool TQMultiInputContext::isPreeditRelocationEnabled()
 TQInputContext *TQMultiInputContext::slave()
 {
     if ( ! _slave ) {
-#if !defined(QT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX)
+#if !defined(TQT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX)
 	changeInputMethod( imIndex );
 #else
 	changeInputMethod( currentIMKey );
@@ -253,7 +253,7 @@ const TQInputContext *TQMultiInputContext::slave() const
 
 void TQMultiInputContext::changeInputMethod( int newIndex )
 {
-#if !defined(QT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX)
+#if !defined(TQT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX)
     TQStringList keys = TQInputContextFactory::keys();
     if ( keys.size() == 0 )
 	return;
@@ -290,14 +290,14 @@ void TQMultiInputContext::changeInputMethod( TQString key )
 
 	const char *method;
 	if ( beIndirectlyConnected ) {
-	    method = SLOT(imEventReceived(TQObject *,TQIMEvent *));
+	    method = TQ_SLOT(imEventReceived(TQObject *,TQIMEvent *));
 	} else {
-	    method = SIGNAL(imEventGenerated(TQObject *,TQIMEvent *));
+	    method = TQ_SIGNAL(imEventGenerated(TQObject *,TQIMEvent *));
 	}
-	connect( _slave, SIGNAL(imEventGenerated(TQObject *,TQIMEvent *)),
+	connect( _slave, TQ_SIGNAL(imEventGenerated(TQObject *,TQIMEvent *)),
 		 this, method );
-	connect( _slave, SIGNAL(deletionRequested()),
-		 this, SLOT(destroyInputContext()) );
+	connect( _slave, TQ_SIGNAL(deletionRequested()),
+		 this, TQ_SLOT(destroyInputContext()) );
 
 	if ( cachedFocus ) {
 	    _slave->setFocus();
@@ -364,8 +364,8 @@ TQPopupMenu *TQMultiInputContext::createImSelPopup()
 	}
     }
 
-    TQObject::connect( popup, SIGNAL(activated(int)),
-                      this, SLOT(changeInputMethodWithMenuId(int)) );
+    TQObject::connect( popup, TQ_SIGNAL(activated(int)),
+                      this, TQ_SLOT(changeInputMethodWithMenuId(int)) );
 
     return popup;
 }

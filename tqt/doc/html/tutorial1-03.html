@@ -56,7 +56,7 @@ int main( int argc, char **argv )
     <a href="ntqpushbutton.html">TQPushButton</a> quit( "Quit", &amp;box );
     quit.<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
     a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;box );
     box.<a href="ntqwidget.html#show">show</a>();

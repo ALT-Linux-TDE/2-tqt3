@@ -41,7 +41,7 @@
 #include "qstyleinterface_p.h" // up here for GCC 2.7.* compatibility
 #include "ntqstylefactory.h"
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 
 #include "ntqapplication.h"
 #include "ntqwindowsstyle.h"
@@ -51,17 +51,17 @@
 #include "ntqplatinumstyle.h"
 #include "ntqsgistyle.h"
 #include "ntqcompactstyle.h"
-#ifndef QT_NO_STYLE_WINDOWSXP
+#ifndef TQT_NO_STYLE_WINDOWSXP
 #include "qwindowsxpstyle.h"
 #endif
-#ifndef QT_NO_STYLE_AQUA
+#ifndef TQT_NO_STYLE_AQUA
 #include "qaquastyle.h"
 #endif
-#ifndef QT_NO_STYLE_POCKETPC
+#ifndef TQT_NO_STYLE_POCKETPC
 #include "qpocketpcstyle_wce.h"
 #endif
 
-#if !defined( QT_NO_STYLE_MAC ) && defined( Q_WS_MAC )
+#if !defined( TQT_NO_STYLE_MAC ) && defined( TQ_WS_MAC )
 TQString p2qstring(const unsigned char *c); //qglobal.cpp
 #include "qt_mac.h"
 #include "qmacstyle_mac.h"
@@ -69,7 +69,7 @@ TQString p2qstring(const unsigned char *c); //qglobal.cpp
 #include <stdlib.h>
 
 #include <private/qpluginmanager_p.h>
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 class TQStyleFactoryPrivate : public TQObject
 {
 public:
@@ -96,7 +96,7 @@ TQStyleFactoryPrivate::~TQStyleFactoryPrivate()
     instance = 0;
 }
 
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
 /*!
     \class TQStyleFactory ntqstylefactory.h
@@ -124,61 +124,61 @@ TQStyle *TQStyleFactory::create( const TQString& key )
 {
     TQStyle *ret = 0;
     TQString style = key.lower();
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
     if ( style == "windows" )
         ret = new TQWindowsStyle;
     else
 #endif
-#ifndef QT_NO_STYLE_WINDOWSXP
+#ifndef TQT_NO_STYLE_WINDOWSXP
     if ( style == "windowsxp" )
 	ret = new TQWindowsXPStyle;
     else
 #endif
-#ifndef QT_NO_STYLE_MOTIF
+#ifndef TQT_NO_STYLE_MOTIF
     if ( style == "motif" )
         ret = new TQMotifStyle;
     else
 #endif
-#ifndef QT_NO_STYLE_CDE
+#ifndef TQT_NO_STYLE_CDE
     if ( style == "cde" )
         ret = new TQCDEStyle;
     else
 #endif
-#ifndef QT_NO_STYLE_MOTIFPLUS
+#ifndef TQT_NO_STYLE_MOTIFPLUS
     if ( style == "motifplus" )
         ret = new TQMotifPlusStyle;
     else
 #endif
-#ifndef QT_NO_STYLE_PLATINUM
+#ifndef TQT_NO_STYLE_PLATINUM
     if ( style == "platinum" )
         ret = new TQPlatinumStyle;
     else
 #endif
-#ifndef QT_NO_STYLE_SGI
+#ifndef TQT_NO_STYLE_SGI
     if ( style == "sgi")
         ret = new TQSGIStyle;
     else
 #endif
-#ifndef QT_NO_STYLE_COMPACT
+#ifndef TQT_NO_STYLE_COMPACT
     if ( style == "compact" )
         ret = new TQCompactStyle;
     else
 #endif
-#ifndef QT_NO_STYLE_AQUA
+#ifndef TQT_NO_STYLE_AQUA
     if ( style == "aqua" )
         ret = new TQAquaStyle;
 #endif
-#ifndef QT_NO_STYLE_POCKETPC
+#ifndef TQT_NO_STYLE_POCKETPC
     if ( style == "pocketpc" )
 	ret = new TQPocketPCStyle;
 #endif
-#if !defined( QT_NO_STYLE_MAC ) && defined( Q_WS_MAC )
+#if !defined( TQT_NO_STYLE_MAC ) && defined( TQ_WS_MAC )
     if( style.left(9) == "macintosh" )
 	ret = new TQMacStyle;
 #endif
     { } // Keep these here - they make the #ifdefery above work
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     if(!ret) {
 	if ( !instance )
 	    instance = new TQStyleFactoryPrivate;
@@ -195,7 +195,7 @@ TQStyle *TQStyleFactory::create( const TQString& key )
     return ret;
 }
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 /*!
     Returns the list of keys this factory can create styles for.
 
@@ -204,50 +204,50 @@ TQStyle *TQStyleFactory::create( const TQString& key )
 TQStringList TQStyleFactory::keys()
 {
     TQStringList list;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     if ( !instance )
 	instance = new TQStyleFactoryPrivate;
 
     list = TQStyleFactoryPrivate::manager->featureList();
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
     if ( !list.contains( "Windows" ) )
 	list << "Windows";
 #endif
-#ifndef QT_NO_STYLE_WINDOWSXP
+#ifndef TQT_NO_STYLE_WINDOWSXP
     if ( !list.contains( "WindowsXP" ) && TQWindowsXPStyle::resolveSymbols() )
 	list << "WindowsXP";
 #endif
-#ifndef QT_NO_STYLE_MOTIF
+#ifndef TQT_NO_STYLE_MOTIF
     if ( !list.contains( "Motif" ) )
 	list << "Motif";
 #endif
-#ifndef QT_NO_STYLE_CDE
+#ifndef TQT_NO_STYLE_CDE
     if ( !list.contains( "CDE" ) )
 	list << "CDE";
 #endif
-#ifndef QT_NO_STYLE_MOTIFPLUS
+#ifndef TQT_NO_STYLE_MOTIFPLUS
     if ( !list.contains( "MotifPlus" ) )
 	list << "MotifPlus";
 #endif
-#ifndef QT_NO_STYLE_PLATINUM
+#ifndef TQT_NO_STYLE_PLATINUM
     if ( !list.contains( "Platinum" ) )
 	list << "Platinum";
 #endif
-#ifndef QT_NO_STYLE_SGI
+#ifndef TQT_NO_STYLE_SGI
     if ( !list.contains( "SGI" ) )
 	list << "SGI";
 #endif
-#ifndef QT_NO_STYLE_COMPACT
+#ifndef TQT_NO_STYLE_COMPACT
     if ( !list.contains( "Compact" ) )
 	list << "Compact";
 #endif
-#ifndef QT_NO_STYLE_AQUA
+#ifndef TQT_NO_STYLE_AQUA
     if ( !list.contains( "Aqua" ) )
 	list << "Aqua";
 #endif
-#if !defined( QT_NO_STYLE_MAC ) && defined( Q_WS_MAC )
+#if !defined( TQT_NO_STYLE_MAC ) && defined( TQ_WS_MAC )
     TQString mstyle = "Macintosh";
     Collection c = NewCollection();
     if (c) {
@@ -265,4 +265,4 @@ TQStringList TQStyleFactory::keys()
     return list;
 }
 #endif
-#endif // QT_NO_STYLE
+#endif // TQT_NO_STYLE

@@ -43,7 +43,7 @@
 
 #include "ntqwindowdefs.h"
 
-#ifndef QT_NO_FONTDIALOG
+#ifndef TQT_NO_FONTDIALOG
 
 //
 //  W A R N I N G
@@ -62,7 +62,7 @@
 
 class TQFontDialogPrivate;
 
-class Q_EXPORT TQFontDialog: public TQDialog
+class TQ_EXPORT TQFontDialog: public TQDialog
 {
     TQ_OBJECT
 

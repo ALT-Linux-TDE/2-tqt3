@@ -25,19 +25,19 @@ Inherits QTableItem.
 .BI "virtual void \fBsetCurrentItem\fR ( int i )"
 .br
 .ti -1c
-.BI "virtual void \fBsetCurrentItem\fR ( const QString & s )"
+.BI "virtual void \fBsetCurrentItem\fR ( const TQString & s )"
 .br
 .ti -1c
 .BI "int \fBcurrentItem\fR () const"
 .br
 .ti -1c
-.BI "QString \fBcurrentText\fR () const"
+.BI "TQString \fBcurrentText\fR () const"
 .br
 .ti -1c
 .BI "int \fBcount\fR () const"
 .br
 .ti -1c
-.BI "QString \fBtext\fR ( int i ) const"
+.BI "TQString \fBtext\fR ( int i ) const"
 .br
 .ti -1c
 .BI "virtual void \fBsetEditable\fR ( bool b )"
@@ -91,7 +91,7 @@ Returns the total number of list items in the combo table item.
 Returns the index of the combo table item's current list item.
 .PP
 See also setCurrentItem().
-.SH "QString QComboTableItem::currentText () const"
+.SH "TQString QComboTableItem::currentText () const"
 Returns the text of the combo table item's current list item.
 .PP
 See also currentItem() and text().
@@ -113,7 +113,7 @@ Sets the list item \fIi\fR to be the combo table item's current list item.
 See also currentItem().
 .PP
 Example: table/small-table-demo/main.cpp.
-.SH "void QComboTableItem::setCurrentItem ( const QString & s )\fC [virtual]\fR"
+.SH "void QComboTableItem::setCurrentItem ( const TQString & s )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the list item whose text is \fIs\fR to be the combo table item's current list item. Does nothing if no list item has the text \fIs\fR.
@@ -125,7 +125,7 @@ If \fIb\fR is TRUE the combo table item can be edited, i.e. the user may enter a
 See also isEditable().
 .SH "void QComboTableItem::setStringList ( const QStringList & l )\fC [virtual]\fR"
 Sets the list items of this QComboTableItem to the strings in the string list \fIl\fR.
-.SH "QString QComboTableItem::text ( int i ) const"
+.SH "TQString QComboTableItem::text ( int i ) const"
 Returns the text of the combo's list item at index \fIi\fR.
 .PP
 See also currentText().
@@ -144,8 +144,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

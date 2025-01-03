@@ -11,10 +11,10 @@
 
 /*! \page netscape-plugin.html
 
-\title Qt Netscape Plugin Extension
+\title TQt Netscape Plugin Extension
 \keyword Netscape
 
-The Qt Netscape Plugin software makes it easy to write browser plugins
+The TQt Netscape Plugin software makes it easy to write browser plugins
 that can be used on both Unix/Linux and MS-Windows, in Netscape,
 Mozilla, and any other web browser supporting Netscape's LiveConnect
 protocol. Modern versions of MSIE do not support this protocol. Use
@@ -36,7 +36,7 @@ The Netscape Plugin Extension consists of the follow classes:
  \i Download the
     \link http://home.netscape.com/comprod/development_partners/plugin_api/index.html
     Plugin SDK from Netscape \endlink, and copy the following files from there to
-    \c{$QTDIR/extensions/nsplugin/src}
+    \c{$TQTDIR/extensions/nsplugin/src}
     \list
 	\i \c common/npwin.cpp
 	\i \c common/npunix.c
@@ -47,11 +47,11 @@ The Netscape Plugin Extension consists of the follow classes:
 	\i \c include/jritypes.h
     \endlist
  \i Build the Netscape Plugin extension library, found in the
-	\c{extensions/nsplugin/src} directory of your Qt distribution.
+	\c{extensions/nsplugin/src} directory of your TQt distribution.
 	This produces a static library to be linked with your plugin code.
  \i Read the \link qnplugin.html plugin class documentation \endlink, and
 	examine the \link nsplugin-examples.html example plugins \endlink.
- \i Do most of your development as a stand-alone Qt application - debugging
+ \i Do most of your development as a stand-alone TQt application - debugging
 	Netscape Plugins is cumbersome.  You may want to use \c{signal(2)}
 	in your plugin to enable core-dumps if your browser disables them.
  \i Note the platform-specific build steps below.
@@ -81,7 +81,7 @@ The Netscape Plugin Extension consists of the follow classes:
 \section2 Building under Windows
 
 \list
- \i For Netscape plugins to work, Qt needs to be in the system DLL
+ \i For Netscape plugins to work, TQt needs to be in the system DLL
  path or be compiled into the plugin as a static library.
  \i Plugins must be named \c{np}\e{name}\c{.dll},
      or the browser will ignore them.

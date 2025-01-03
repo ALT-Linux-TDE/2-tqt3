@@ -60,9 +60,9 @@ user invokes it).
 </h2>
 <a name="2"></a><p> A lot of CPU and memory is used by the ELF linking process. You can
 make significant savings by using a static build of your application
-suite. This means that rather than having a dynamic library (<tt>libqte.so</tt>) and a collection of executables which link dynamically to
+suite. This means that rather than having a dynamic library (<tt>libtqte.so</tt>) and a collection of executables which link dynamically to
 that library, you build all the applications into a single executable
-and statically link that with a static library (<tt>libqt.a</tt>). This
+and statically link that with a static library (<tt>libtqt.a</tt>). This
 improves start-up time, and reduces memory usage, at the expense of
 flexibility (to add a new application, you must recompile the single
 executable) and robustness (if one application has a bug, it might

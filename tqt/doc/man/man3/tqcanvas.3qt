@@ -11,12 +11,12 @@ QCanvas \- 2D area that can contain QCanvasItem objects
 .SH SYNOPSIS
 \fC#include <ntqcanvas.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCanvas\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQCanvas\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fBQCanvas\fR ( int w, int h )"
@@ -37,10 +37,10 @@ Inherits QObject.
 .BI "QPixmap \fBbackgroundPixmap\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetBackgroundColor\fR ( const QColor & c )"
+.BI "virtual void \fBsetBackgroundColor\fR ( const TQColor & c )"
 .br
 .ti -1c
-.BI "QColor \fBbackgroundColor\fR () const"
+.BI "TQColor \fBbackgroundColor\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetTile\fR ( int x, int y, int tilenum )"
@@ -188,7 +188,7 @@ A canvas consists of a background, a number of canvas items organized by x, y an
 .PP
 The background is white by default, but can be set to a different color using setBackgroundColor(), or to a repeated pixmap using setBackgroundPixmap() or to a mosaic of smaller pixmaps using setTiles(). Individual tiles can be set with setTile(). There are corresponding get functions, e.g. backgroundColor() and backgroundPixmap().
 .PP
-Note that QCanvas does not inherit from QWidget, even though it has some functions which provide the same functionality as those in QWidget. One of these is setBackgroundPixmap(); some others are resize(), size(), width() and height(). QCanvasView is the widget used to display a canvas on the screen.
+Note that QCanvas does not inherit from TQWidget, even though it has some functions which provide the same functionality as those in TQWidget. One of these is setBackgroundPixmap(); some others are resize(), size(), width() and height(). QCanvasView is the widget used to display a canvas on the screen.
 .PP
 Canvas items are added to a canvas by constructing them and passing the canvas to the canvas item's constructor. An item can be moved to a different canvas using QCanvasItem::setCanvas().
 .PP
@@ -214,8 +214,8 @@ The examples/canvas application and the 2D graphics page of the examples/demo ap
 .PP
 See also QCanvasView, QCanvasItem, Abstract Widget Classes, Graphics Classes, and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCanvas::QCanvas ( QObject * parent = 0, const char * name = 0 )"
-Create a QCanvas with no size. \fIparent\fR and \fIname\fR are passed to the QObject superclass.
+.SH "QCanvas::QCanvas ( TQObject * parent = 0, const char * name = 0 )"
+Create a QCanvas with no size. \fIparent\fR and \fIname\fR are passed to the TQObject superclass.
 .PP
 \fBWarning:\fR You \fImust\fR call resize() at some time after creation to be able to use the canvas.
 .SH "QCanvas::QCanvas ( int w, int h )"
@@ -240,17 +240,17 @@ Destroys the canvas and all the canvas's canvas items.
 .SH "void QCanvas::advance ()\fC [virtual slot]\fR"
 Moves all QCanvasItem::animated() canvas items on the canvas and refreshes all changes to all views of the canvas. (An `animated' item is an item that is in motion; see setVelocity().)
 .PP
-The advance takes place in two phases. In phase 0, the QCanvasItem::advance() function of each QCanvasItem::animated() canvas item is called with paramater 0. Then all these canvas items are called again, with parameter 1. In phase 0, the canvas items should not change position, merely examine other items on the canvas for which special processing is required, such as collisions between items. In phase 1, all canvas items should change positions, ignoring any other items on the canvas. This two-phase approach allows for considerations of "fairness", although no QCanvasItem subclasses supplied with Qt do anything interesting in phase 0.
+The advance takes place in two phases. In phase 0, the QCanvasItem::advance() function of each QCanvasItem::animated() canvas item is called with paramater 0. Then all these canvas items are called again, with parameter 1. In phase 0, the canvas items should not change position, merely examine other items on the canvas for which special processing is required, such as collisions between items. In phase 1, all canvas items should change positions, ignoring any other items on the canvas. This two-phase approach allows for considerations of "fairness", although no QCanvasItem subclasses supplied with TQt do anything interesting in phase 0.
 .PP
 The canvas can be configured to call this function periodically with setAdvancePeriod().
 .PP
 See also update().
 .SH "QCanvasItemList QCanvas::allItems ()"
 Returns a list of all the items in the canvas.
-.SH "QColor QCanvas::backgroundColor () const"
+.SH "TQColor QCanvas::backgroundColor () const"
 Returns the color set by setBackgroundColor(). By default, this is white.
 .PP
-This function is not a reimplementation of QWidget::backgroundColor() (QCanvas is not a subclass of QWidget), but all QCanvasViews that are viewing the canvas will set their backgrounds to this color.
+This function is not a reimplementation of TQWidget::backgroundColor() (QCanvas is not a subclass of TQWidget), but all QCanvasViews that are viewing the canvas will set their backgrounds to this color.
 .PP
 See also setBackgroundColor() and backgroundPixmap().
 .SH "QPixmap QCanvas::backgroundPixmap () const"
@@ -344,7 +344,7 @@ If \fIms\fR is less than 0 advancing will be stopped.
 Example: canvas/main.cpp.
 .SH "void QCanvas::setAllChanged ()\fC [virtual]\fR"
 Marks the whole canvas as changed. All views of the canvas will be entirely redrawn when update() is called next.
-.SH "void QCanvas::setBackgroundColor ( const QColor & c )\fC [virtual]\fR"
+.SH "void QCanvas::setBackgroundColor ( const TQColor & c )\fC [virtual]\fR"
 Sets the solid background to be the color \fIc\fR.
 .PP
 See also backgroundColor(), setBackgroundPixmap(), and setTiles().
@@ -445,8 +445,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

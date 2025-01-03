@@ -37,7 +37,7 @@
 #include "database2.h"
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 #if defined(DESIGNER)
 #include "formwindow.h"

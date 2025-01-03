@@ -372,7 +372,7 @@ bool TQBitArray::toggleBit( uint index )
 	return FALSE;
     }
 #endif
-    register uchar *p = (uchar *)data() + (index>>3);
+    uchar *p = (uchar *)data() + (index>>3);
     uchar b = (1 << (index & 7));		// bit position
     uchar c = *p & b;				// read bit
     *p ^= b;					// toggle bit
@@ -436,8 +436,8 @@ bool TQBitArray::toggleBit( uint index )
 TQBitArray &TQBitArray::operator&=( const TQBitArray &a )
 {
     resize( TQMAX(size(), a.size()) );
-    register uchar *a1 = (uchar *)data();
-    register uchar *a2 = (uchar *)a.data();
+    uchar *a1 = (uchar *)data();
+    uchar *a2 = (uchar *)a.data();
     int n = TQMIN( TQByteArray::size(), a.TQByteArray::size() );
     int p = TQMAX( TQByteArray::size(), a.TQByteArray::size() ) - n;
     while ( n-- > 0 )
@@ -467,8 +467,8 @@ TQBitArray &TQBitArray::operator&=( const TQBitArray &a )
 TQBitArray &TQBitArray::operator|=( const TQBitArray &a )
 {
     resize( TQMAX(size(), a.size()) );
-    register uchar *a1 = (uchar *)data();
-    register uchar *a2 = (uchar *)a.data();
+    uchar *a1 = (uchar *)data();
+    uchar *a2 = (uchar *)a.data();
     int n = TQMIN( TQByteArray::size(), a.TQByteArray::size() );
     while ( n-- > 0 )
 	*a1++ |= *a2++;
@@ -495,8 +495,8 @@ TQBitArray &TQBitArray::operator|=( const TQBitArray &a )
 TQBitArray &TQBitArray::operator^=( const TQBitArray &a )
 {
     resize( TQMAX(size(), a.size()) );
-    register uchar *a1 = (uchar *)data();
-    register uchar *a2 = (uchar *)a.data();
+    uchar *a1 = (uchar *)data();
+    uchar *a2 = (uchar *)a.data();
     int n = TQMIN( TQByteArray::size(), a.TQByteArray::size() );
     while ( n-- > 0 )
 	*a1++ ^= *a2++;
@@ -517,8 +517,8 @@ TQBitArray &TQBitArray::operator^=( const TQBitArray &a )
 TQBitArray TQBitArray::operator~() const
 {
     TQBitArray a( size() );
-    register uchar *a1 = (uchar *)data();
-    register uchar *a2 = (uchar *)a.data();
+    uchar *a1 = (uchar *)data();
+    uchar *a2 = (uchar *)a.data();
     int n = TQByteArray::size();
     while ( n-- )
 	*a2++ = ~*a1++;
@@ -629,7 +629,7 @@ TQBitArray operator^( const TQBitArray &a1, const TQBitArray &a2 )
 
     \sa \link datastreamformat.html Format of the TQDataStream operators \endlink
 */
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 TQDataStream &operator<<( TQDataStream &s, const TQBitArray &a )
 {
     TQ_UINT32 len = a.size();
@@ -662,4 +662,4 @@ TQDataStream &operator>>( TQDataStream &s, TQBitArray &a )
     return s;
 }
 
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM

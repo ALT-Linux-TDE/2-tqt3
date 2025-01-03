@@ -80,19 +80,19 @@ body { background: #ffffff; color: black; }
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 class TQScreen;
 class TQGfxDriverPluginPrivate;
 
-class Q_EXPORT TQGfxDriverPlugin : public TQGPlugin
+class TQ_EXPORT TQGfxDriverPlugin : public TQGPlugin
 {
     TQ_OBJECT
 public:
     TQGfxDriverPlugin();
     ~TQGfxDriverPlugin();
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     virtual TQStringList keys() const = 0;
 #endif
     virtual TQScreen* create( const TQString&amp; driver, int displayId ) = 0;
@@ -101,7 +101,7 @@ private:
     TQGfxDriverPluginPrivate *d;
 };
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 #endif // TQGFXDRIVERPLUGIN_QWS_H
 </pre>

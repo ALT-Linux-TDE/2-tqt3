@@ -71,4 +71,4 @@ TQStringList TQSQLiteDriverPlugin::keys() const
     return l;
 }
 
-Q_EXPORT_PLUGIN( TQSQLiteDriverPlugin )
+TQ_EXPORT_PLUGIN( TQSQLiteDriverPlugin )

@@ -61,7 +61,7 @@ public:
     <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
     quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a href="ntqobject.html#connect">connect</a>( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
     LCDRange *angle = new LCDRange( this, "angle" );
     angle-&gt;setRange( 5, 70 );
@@ -69,10 +69,10 @@ public:
     CannonField *cannonField
         = new CannonField( this, "cannonField" );
 
-    <a href="ntqobject.html#connect">connect</a>( angle, SIGNAL(valueChanged(int)),
-             cannonField, SLOT(setAngle(int)) );
-    <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(angleChanged(int)),
-             angle, SLOT(setValue(int)) );
+    <a href="ntqobject.html#connect">connect</a>( angle, TQ_SIGNAL(valueChanged(int)),
+             cannonField, TQ_SLOT(setAngle(int)) );
+    <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(angleChanged(int)),
+             angle, TQ_SLOT(setValue(int)) );
 
     <a href="qgridlayout.html">TQGridLayout</a> *grid = new <a href="qgridlayout.html">TQGridLayout</a>( this, 2, 2, 10 );
     //2x2, 10 pixel border

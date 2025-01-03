@@ -43,11 +43,11 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 class TQInputContext;
 class TQInputContextPluginPrivate;
 
-class Q_EXPORT TQInputContextPlugin : public TQGPlugin
+class TQ_EXPORT TQInputContextPlugin : public TQGPlugin
 {
     TQ_OBJECT
 public:
@@ -63,5 +63,5 @@ public:
 private:
     TQInputContextPluginPrivate *d;
 };
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 #endif // TQINPUTCONTEXTPLUGIN_H

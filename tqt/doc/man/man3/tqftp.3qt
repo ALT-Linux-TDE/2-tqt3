@@ -19,7 +19,7 @@ Inherits QNetworkProtocol.
 .BI "\fBQFtp\fR ()"
 .br
 .ti -1c
-.BI "\fBQFtp\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQFtp\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "virtual \fB~QFtp\fR ()"
@@ -34,43 +34,43 @@ Inherits QNetworkProtocol.
 .BI "enum \fBCommand\fR { None, ConnectToHost, Login, Close, List, Cd, Get, Put, Remove, Mkdir, Rmdir, Rename, RawCommand }"
 .br
 .ti -1c
-.BI "int \fBconnectToHost\fR ( const QString & host, TQ_UINT16 port = 21 )"
+.BI "int \fBconnectToHost\fR ( const TQString & host, TQ_UINT16 port = 21 )"
 .br
 .ti -1c
-.BI "int \fBlogin\fR ( const QString & user = QString::null, const QString & password = QString::null )"
+.BI "int \fBlogin\fR ( const TQString & user = TQString::null, const TQString & password = TQString::null )"
 .br
 .ti -1c
 .BI "int \fBclose\fR ()"
 .br
 .ti -1c
-.BI "int \fBlist\fR ( const QString & dir = QString::null )"
+.BI "int \fBlist\fR ( const TQString & dir = TQString::null )"
 .br
 .ti -1c
-.BI "int \fBcd\fR ( const QString & dir )"
+.BI "int \fBcd\fR ( const TQString & dir )"
 .br
 .ti -1c
-.BI "int \fBget\fR ( const QString & file, QIODevice * dev = 0 )"
+.BI "int \fBget\fR ( const TQString & file, TQIODevice * dev = 0 )"
 .br
 .ti -1c
-.BI "int \fBput\fR ( const QByteArray & data, const QString & file )"
+.BI "int \fBput\fR ( const QByteArray & data, const TQString & file )"
 .br
 .ti -1c
-.BI "int \fBput\fR ( QIODevice * dev, const QString & file )"
+.BI "int \fBput\fR ( TQIODevice * dev, const TQString & file )"
 .br
 .ti -1c
-.BI "int \fBremove\fR ( const QString & file )"
+.BI "int \fBremove\fR ( const TQString & file )"
 .br
 .ti -1c
-.BI "int \fBmkdir\fR ( const QString & dir )"
+.BI "int \fBmkdir\fR ( const TQString & dir )"
 .br
 .ti -1c
-.BI "int \fBrmdir\fR ( const QString & dir )"
+.BI "int \fBrmdir\fR ( const TQString & dir )"
 .br
 .ti -1c
-.BI "int \fBrename\fR ( const QString & oldname, const QString & newname )"
+.BI "int \fBrename\fR ( const TQString & oldname, const TQString & newname )"
 .br
 .ti -1c
-.BI "int \fBrawCommand\fR ( const QString & command )"
+.BI "int \fBrawCommand\fR ( const TQString & command )"
 .br
 .ti -1c
 .BI "TQ_ULONG \fBbytesAvailable\fR () const"
@@ -85,7 +85,7 @@ Inherits QNetworkProtocol.
 .BI "int \fBcurrentId\fR () const"
 .br
 .ti -1c
-.BI "QIODevice * \fBcurrentDevice\fR () const"
+.BI "TQIODevice * \fBcurrentDevice\fR () const"
 .br
 .ti -1c
 .BI "Command \fBcurrentCommand\fR () const"
@@ -103,7 +103,7 @@ Inherits QNetworkProtocol.
 .BI "Error \fBerror\fR () const"
 .br
 .ti -1c
-.BI "QString \fBerrorString\fR () const"
+.BI "TQString \fBerrorString\fR () const"
 .br
 .in -1c
 .SS "Public Slots"
@@ -127,7 +127,7 @@ Inherits QNetworkProtocol.
 .BI "void \fBdataTransferProgress\fR ( int done, int total )"
 .br
 .ti -1c
-.BI "void \fBrawCommandReply\fR ( int replyCode, const QString & detail )"
+.BI "void \fBrawCommandReply\fR ( int replyCode, const TQString & detail )"
 .br
 .ti -1c
 .BI "void \fBcommandStarted\fR ( int id )"
@@ -170,7 +170,7 @@ In some cases, you might want to execute a sequence of commands, e.g. if you wan
 .PP
 .nf
 .br
-    QFtp *ftp = new QFtp( this ); // this is an optional QObject parent
+    QFtp *ftp = new QFtp( this ); // this is an optional TQObject parent
 .br
     ftp->connectToHost( "ftp.trolltech.com" );
 .br
@@ -289,7 +289,7 @@ The functions hasPendingCommands() and clearPendingCommands() allow you to query
 .PP
 The safest and easiest way to use the FTP protocol is to use QUrlOperator() or the FTP commands described above. If you are an experienced network programmer and want to have complete control you can use rawCommand() to execute arbitrary FTP commands.
 .PP
-See also Qt Network Documentation, QNetworkProtocol, QUrlOperator, QHttp, and Input/Output and Networking.
+See also TQt Network Documentation, QNetworkProtocol, QUrlOperator, QHttp, and Input/Output and Networking.
 .SS "Member Type Documentation"
 .SH "QFtp::Command"
 This enum is used as the return value for the currentCommand() function. This allows you to perform specific actions for particular commands, e.g. in a FTP client, you might want to clear the directory view when a list() command is started; in this case you can simply check in the slot connected to the start() signal if the currentCommand() is List.
@@ -354,8 +354,8 @@ See also stateChanged() and state().
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QFtp::QFtp ()"
 Constructs a QFtp object.
-.SH "QFtp::QFtp ( QObject * parent, const char * name = 0 )"
-Constructs a QFtp object. The \fIparent\fR and \fIname\fR parameters are passed to the QObject constructor.
+.SH "QFtp::QFtp ( TQObject * parent, const char * name = 0 )"
+Constructs a QFtp object. The \fIparent\fR and \fIname\fR parameters are passed to the TQObject constructor.
 .SH "QFtp::~QFtp ()\fC [virtual]\fR"
 Destructor.
 .SH "void QFtp::abort ()\fC [slot]\fR"
@@ -376,7 +376,7 @@ Example: network/ftpclient/ftpmainwindow.ui.h.
 Returns the number of bytes that can be read from the data socket at the moment.
 .PP
 See also get(), readyRead(), readBlock(), and readAll().
-.SH "int QFtp::cd ( const QString & dir )"
+.SH "int QFtp::cd ( const TQString & dir )"
 Changes the working directory of the server to \fIdir\fR.
 .PP
 The function does not block and returns immediately. The command is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by commandStarted() and commandFinished().
@@ -414,7 +414,7 @@ This signal is emitted when processing the command identified by \fIid\fR starts
 See also commandFinished() and done().
 .PP
 Example: network/ftpclient/ftpmainwindow.ui.h.
-.SH "int QFtp::connectToHost ( const QString & host, TQ_UINT16 port = 21 )"
+.SH "int QFtp::connectToHost ( const TQString & host, TQ_UINT16 port = 21 )"
 Connects to the FTP server \fIhost\fR using port \fIport\fR.
 .PP
 The stateChanged() signal is emitted when the state of the connecting process changes, e.g. to HostLookup, then Connecting, then Connected.
@@ -432,10 +432,10 @@ Returns the command type of the FTP command being executed or None if there is n
 See also currentId().
 .PP
 Example: network/ftpclient/ftpmainwindow.ui.h.
-.SH "QIODevice * QFtp::currentDevice () const"
-Returns the QIODevice pointer that is used by the FTP command to read data from or store data to. If there is no current FTP command being executed or if the command does not use an IO device, this function returns 0.
+.SH "TQIODevice * QFtp::currentDevice () const"
+Returns the TQIODevice pointer that is used by the FTP command to read data from or store data to. If there is no current FTP command being executed or if the command does not use an IO device, this function returns 0.
 .PP
-This function can be used to delete the QIODevice in the slot connected to the commandFinished() signal.
+This function can be used to delete the TQIODevice in the slot connected to the commandFinished() signal.
 .PP
 See also get() and put().
 .PP
@@ -464,13 +464,13 @@ Example: network/ftpclient/ftpmainwindow.ui.h.
 Returns the last error that occurred. This is useful to find out what when wrong when receiving a commandFinished() or a done() signal with the \fCerror\fR argument set to \fCTRUE\fR.
 .PP
 If you start a new command, the error status is reset to NoError.
-.SH "QString QFtp::errorString () const"
+.SH "TQString QFtp::errorString () const"
 Returns a human-readable description of the last error that occurred. This is useful for presenting a error message to the user when receiving a commandFinished() or a done() signal with the \fCerror\fR argument set to \fCTRUE\fR.
 .PP
 The error string is often (but not always) the reply from the server, so it is not always possible to translate the string. If the message comes from Qt, the string has already passed through tr().
 .PP
 Example: network/ftpclient/ftpmainwindow.ui.h.
-.SH "int QFtp::get ( const QString & file, QIODevice * dev = 0 )"
+.SH "int QFtp::get ( const TQString & file, TQIODevice * dev = 0 )"
 Downloads the file \fIfile\fR from the server.
 .PP
 If \fIdev\fR is 0, then the readyRead() signal is emitted when there is data available to read. You can then read the data with the readBlock() or readAll() functions.
@@ -494,7 +494,7 @@ Returns TRUE if there are any commands scheduled that have not yet been executed
 The command that is being executed is \fInot\fR considered as a scheduled command.
 .PP
 See also clearPendingCommands(), currentId(), and currentCommand().
-.SH "int QFtp::list ( const QString & dir = QString::null )"
+.SH "int QFtp::list ( const TQString & dir = TQString::null )"
 Lists the contents of directory \fIdir\fR on the FTP server. If \fIdir\fR is empty, it lists the contents of the current directory.
 .PP
 The listInfo() signal is emitted for each directory entry found.
@@ -512,7 +512,7 @@ This signal is emitted for each directory entry the list() command finds. The de
 See also list().
 .PP
 Example: network/ftpclient/ftpmainwindow.ui.h.
-.SH "int QFtp::login ( const QString & user = QString::null, const QString & password = QString::null )"
+.SH "int QFtp::login ( const TQString & user = TQString::null, const TQString & password = TQString::null )"
 Logs in to the FTP server with the username \fIuser\fR and the password \fIpassword\fR.
 .PP
 The stateChanged() signal is emitted when the state of the connecting process changes, e.g. to LoggedIn.
@@ -524,7 +524,7 @@ When the command is started the commandStarted() signal is emitted. When it is f
 See also commandStarted() and commandFinished().
 .PP
 Example: network/ftpclient/ftpmainwindow.ui.h.
-.SH "int QFtp::mkdir ( const QString & dir )"
+.SH "int QFtp::mkdir ( const TQString & dir )"
 Creates a directory called \fIdir\fR on the server.
 .PP
 The function does not block and returns immediately. The command is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by commandStarted() and commandFinished().
@@ -532,13 +532,13 @@ The function does not block and returns immediately. The command is scheduled, a
 When the command is started the commandStarted() signal is emitted. When it is finished the commandFinished() signal is emitted.
 .PP
 See also commandStarted() and commandFinished().
-.SH "int QFtp::put ( QIODevice * dev, const QString & file )"
+.SH "int QFtp::put ( TQIODevice * dev, const TQString & file )"
 Reads the data from the IO device \fIdev\fR, and writes it to the file called \fIfile\fR on the server. The data is read in chunks from the IO device, so this overload allows you to transmit large amounts of data without the need to read all the data into memory at once.
 .PP
 Make sure that the \fIdev\fR pointer is valid for the duration of the operation (it is safe to delete it when the commandFinished() is emitted).
 .PP
 Example: network/ftpclient/ftpmainwindow.ui.h.
-.SH "int QFtp::put ( const QByteArray & data, const QString & file )"
+.SH "int QFtp::put ( const QByteArray & data, const TQString & file )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Writes the data \fIdata\fR to the file called \fIfile\fR on the server. The progress of the upload is reported by the dataTransferProgress() signal.
@@ -548,7 +548,7 @@ The function does not block and returns immediately. The command is scheduled, a
 When the command is started the commandStarted() signal is emitted. When it is finished the commandFinished() signal is emitted.
 .PP
 See also dataTransferProgress(), commandStarted(), and commandFinished().
-.SH "int QFtp::rawCommand ( const QString & command )"
+.SH "int QFtp::rawCommand ( const TQString & command )"
 Sends the raw FTP command \fIcommand\fR to the FTP server. This is useful for low-level FTP access. If the operation you wish to perform has an equivalent QFtp function, we recommend using the function instead of raw FTP commands since the functions are easier and safer.
 .PP
 The function does not block and returns immediately. The command is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by commandStarted() and commandFinished().
@@ -558,7 +558,7 @@ When the command is started the commandStarted() signal is emitted. When it is f
 See also rawCommandReply(), commandStarted(), and commandFinished().
 .PP
 Example: network/ftpclient/ftpmainwindow.ui.h.
-.SH "void QFtp::rawCommandReply ( int replyCode, const QString & detail )\fC [signal]\fR"
+.SH "void QFtp::rawCommandReply ( int replyCode, const TQString & detail )\fC [signal]\fR"
 This signal is emitted in response to the rawCommand() function. \fIreplyCode\fR is the 3 digit reply code and \fIdetail\fR is the text that follows the reply code.
 .PP
 See also rawCommand().
@@ -582,7 +582,7 @@ You can read the data with the readAll() or readBlock() functions.
 This signal is useful if you want to process the data in chunks as soon as it becomes available. If you are only interested in the complete data, just connect to the commandFinished() signal and read the data then instead.
 .PP
 See also get(), readBlock(), readAll(), and bytesAvailable().
-.SH "int QFtp::remove ( const QString & file )"
+.SH "int QFtp::remove ( const TQString & file )"
 Deletes the file called \fIfile\fR from the server.
 .PP
 The function does not block and returns immediately. The command is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by commandStarted() and commandFinished().
@@ -592,7 +592,7 @@ When the command is started the commandStarted() signal is emitted. When it is f
 See also commandStarted() and commandFinished().
 .PP
 Example: network/ftpclient/ftpmainwindow.ui.h.
-.SH "int QFtp::rename ( const QString & oldname, const QString & newname )"
+.SH "int QFtp::rename ( const TQString & oldname, const TQString & newname )"
 Renames the file called \fIoldname\fR to \fInewname\fR on the server.
 .PP
 The function does not block and returns immediately. The command is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by commandStarted() and commandFinished().
@@ -600,7 +600,7 @@ The function does not block and returns immediately. The command is scheduled, a
 When the command is started the commandStarted() signal is emitted. When it is finished the commandFinished() signal is emitted.
 .PP
 See also commandStarted() and commandFinished().
-.SH "int QFtp::rmdir ( const QString & dir )"
+.SH "int QFtp::rmdir ( const TQString & dir )"
 Removes the directory called \fIdir\fR from the server.
 .PP
 The function does not block and returns immediately. The command is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by commandStarted() and commandFinished().
@@ -637,8 +637,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

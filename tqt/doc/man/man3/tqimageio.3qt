@@ -17,16 +17,16 @@ QImageIO \- Parameters for loading and saving images
 .BI "\fBQImageIO\fR ()"
 .br
 .ti -1c
-.BI "\fBQImageIO\fR ( QIODevice * ioDevice, const char * format )"
+.BI "\fBQImageIO\fR ( TQIODevice * ioDevice, const char * format )"
 .br
 .ti -1c
-.BI "\fBQImageIO\fR ( const QString & fileName, const char * format )"
+.BI "\fBQImageIO\fR ( const TQString & fileName, const char * format )"
 .br
 .ti -1c
 .BI "\fB~QImageIO\fR ()"
 .br
 .ti -1c
-.BI "const QImage & \fBimage\fR () const"
+.BI "const TQImage & \fBimage\fR () const"
 .br
 .ti -1c
 .BI "int \fBstatus\fR () const"
@@ -35,16 +35,16 @@ QImageIO \- Parameters for loading and saving images
 .BI "const char * \fBformat\fR () const"
 .br
 .ti -1c
-.BI "QIODevice * \fBioDevice\fR () const"
+.BI "TQIODevice * \fBioDevice\fR () const"
 .br
 .ti -1c
-.BI "QString \fBfileName\fR () const"
+.BI "TQString \fBfileName\fR () const"
 .br
 .ti -1c
 .BI "int \fBquality\fR () const"
 .br
 .ti -1c
-.BI "QString \fBdescription\fR () const"
+.BI "TQString \fBdescription\fR () const"
 .br
 .ti -1c
 .BI "const char * \fBparameters\fR () const"
@@ -53,7 +53,7 @@ QImageIO \- Parameters for loading and saving images
 .BI "float \fBgamma\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetImage\fR ( const QImage & image )"
+.BI "void \fBsetImage\fR ( const TQImage & image )"
 .br
 .ti -1c
 .BI "void \fBsetStatus\fR ( int status )"
@@ -62,16 +62,16 @@ QImageIO \- Parameters for loading and saving images
 .BI "void \fBsetFormat\fR ( const char * format )"
 .br
 .ti -1c
-.BI "void \fBsetIODevice\fR ( QIODevice * ioDevice )"
+.BI "void \fBsetIODevice\fR ( TQIODevice * ioDevice )"
 .br
 .ti -1c
-.BI "void \fBsetFileName\fR ( const QString & fileName )"
+.BI "void \fBsetFileName\fR ( const TQString & fileName )"
 .br
 .ti -1c
 .BI "void \fBsetQuality\fR ( int q )"
 .br
 .ti -1c
-.BI "void \fBsetDescription\fR ( const QString & description )"
+.BI "void \fBsetDescription\fR ( const TQString & description )"
 .br
 .ti -1c
 .BI "void \fBsetParameters\fR ( const char * parameters )"
@@ -89,10 +89,10 @@ QImageIO \- Parameters for loading and saving images
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "const char * \fBimageFormat\fR ( const QString & fileName )"
+.BI "const char * \fBimageFormat\fR ( const TQString & fileName )"
 .br
 .ti -1c
-.BI "const char * \fBimageFormat\fR ( QIODevice * d )"
+.BI "const char * \fBimageFormat\fR ( TQIODevice * d )"
 .br
 .ti -1c
 .BI "QStrList \fBinputFormats\fR ()"
@@ -107,11 +107,11 @@ QImageIO \- Parameters for loading and saving images
 .SH DESCRIPTION
 The QImageIO class contains parameters for loading and saving images.
 .PP
-QImageIO contains a QIODevice object that is used for image data I/O. The programmer can install new image file formats in addition to those that Qt provides.
+QImageIO contains a TQIODevice object that is used for image data I/O. The programmer can install new image file formats in addition to those that TQt provides.
 .PP
 Qt currently supports the following image file formats: PNG, BMP, XBM, XPM and PNM. It may also support JPEG, MNG and GIF, if specially configured during compilation. The different PNM formats are: PBM (P1 or P4), PGM (P2 or P5), and PPM (P3 or P6).
 .PP
-You don't normally need to use this class; QPixmap::load(), QPixmap::save(), and QImage contain sufficient functionality.
+You don't normally need to use this class; QPixmap::load(), QPixmap::save(), and TQImage contain sufficient functionality.
 .PP
 For image files that contain sequences of images, only the first is read. See QMovie for loading multiple images.
 .PP
@@ -121,22 +121,22 @@ PBM, PGM, and PPM format \fIoutput\fR is always in the more condensed raw format
 .PP
 GIF support may be removed completely in a future version of Qt. We recommend using the PNG format.
 .PP
-See also QImage, QPixmap, QFile, QMovie, Graphics Classes, Image Processing Classes, and Input/Output and Networking.
+See also TQImage, QPixmap, QFile, QMovie, Graphics Classes, Image Processing Classes, and Input/Output and Networking.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QImageIO::QImageIO ()"
 Constructs a QImageIO object with all parameters set to zero.
-.SH "QImageIO::QImageIO ( QIODevice * ioDevice, const char * format )"
+.SH "QImageIO::QImageIO ( TQIODevice * ioDevice, const char * format )"
 Constructs a QImageIO object with the I/O device \fIioDevice\fR and a \fIformat\fR tag.
-.SH "QImageIO::QImageIO ( const QString & fileName, const char * format )"
+.SH "QImageIO::QImageIO ( const TQString & fileName, const char * format )"
 Constructs a QImageIO object with the file name \fIfileName\fR and a \fIformat\fR tag.
 .SH "QImageIO::~QImageIO ()"
 Destroys the object and all related data.
 .SH "void QImageIO::defineIOHandler ( const char * format, const char * header, const char * flags, image_io_handler readImage, image_io_handler writeImage )\fC [static]\fR"
 Defines an image I/O handler for the image format called \fIformat\fR, which is recognized using the regular expression \fIheader\fR, read using \fIreadImage\fR and written using \fIwriteImage\fR.
 .PP
-\fIflags\fR is a string of single-character flags for this format. The only flag defined currently is T (upper case), so the only legal value for \fIflags\fR are "T" and the empty string. The "T" flag means that the image file is a text file, and Qt should treat all newline conventions as equivalent. (XPM files and some PPM files are text files for example.)
+\fIflags\fR is a string of single-character flags for this format. The only flag defined currently is T (upper case), so the only legal value for \fIflags\fR are "T" and the empty string. The "T" flag means that the image file is a text file, and TQt should treat all newline conventions as equivalent. (XPM files and some PPM files are text files for example.)
 .PP
-\fIformat\fR is used to select a handler to write a QImage; \fIheader\fR is used to select a handler to read an image file.
+\fIformat\fR is used to select a handler to write a TQImage; \fIheader\fR is used to select a handler to read an image file.
 .PP
 If \fIreadImage\fR is a null pointer, the QImageIO will not be able to read images in \fIformat\fR. If \fIwriteImage\fR is a null pointer, the QImageIO will not be able to write images in \fIformat\fR. If both are null, the QImageIO object is valid but useless.
 .PP
@@ -177,16 +177,16 @@ Example:
 .br
 .fi
 .PP
-Before the regex test, all the 0 bytes in the file header are converted to 1 bytes. This is done because when Qt was ASCII-based, QRegExp could not handle 0 bytes in strings.
+Before the regex test, all the 0 bytes in the file header are converted to 1 bytes. This is done because when TQt was ASCII-based, QRegExp could not handle 0 bytes in strings.
 .PP
 The regexp is only applied on the first 14 bytes of the file.
 .PP
-Note that Qt assumes that there is only one handler per format; if two handlers support the same format, Qt will choose one arbitrarily. It is not possible to have one handler support reading, and another support writing.
-.SH "QString QImageIO::description () const"
+Note that TQt assumes that there is only one handler per format; if two handlers support the same format, TQt will choose one arbitrarily. It is not possible to have one handler support reading, and another support writing.
+.SH "TQString QImageIO::description () const"
 Returns the image description string.
 .PP
 See also setDescription().
-.SH "QString QImageIO::fileName () const"
+.SH "TQString QImageIO::fileName () const"
 Returns the file name currently set.
 .PP
 See also setFileName().
@@ -196,23 +196,23 @@ Returns the image format string or 0 if no format has been explicitly set.
 Returns the gamma value at which the image will be viewed.
 .PP
 See also setGamma().
-.SH "const QImage & QImageIO::image () const"
+.SH "const TQImage & QImageIO::image () const"
 Returns the image currently set.
 .PP
 See also setImage().
-.SH "const char * QImageIO::imageFormat ( const QString & fileName )\fC [static]\fR"
+.SH "const char * QImageIO::imageFormat ( const TQString & fileName )\fC [static]\fR"
 Returns a string that specifies the image format of the file \fIfileName\fR, or null if the file cannot be read or if the format is not recognized.
-.SH "const char * QImageIO::imageFormat ( QIODevice * d )\fC [static]\fR"
+.SH "const char * QImageIO::imageFormat ( TQIODevice * d )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a string that specifies the image format of the image read from IO device \fId\fR, or 0 if the device cannot be read or if the format is not recognized.
 .PP
 Make sure that \fId\fR is at the right position in the device (for example, at the beginning of the file).
 .PP
-See also QIODevice::at().
+See also TQIODevice::at().
 .SH "QStrList QImageIO::inputFormats ()\fC [static]\fR"
 Returns a sorted list of image formats that are supported for image input.
-.SH "QIODevice * QImageIO::ioDevice () const"
+.SH "TQIODevice * QImageIO::ioDevice () const"
 Returns the IO device currently set.
 .PP
 See also setIODevice().
@@ -227,7 +227,7 @@ See also setParameters().
 .SH "int QImageIO::quality () const"
 Returns the quality of the written image, related to the compression ratio.
 .PP
-See also setQuality() and QImage::save().
+See also setQuality() and TQImage::save().
 .SH "bool QImageIO::read ()"
 Reads an image into memory and returns TRUE if the image was successfully read; otherwise returns FALSE.
 .PP
@@ -254,11 +254,11 @@ Example:
 .fi
 .PP
 See also setIODevice(), setFileName(), setFormat(), write(), and QPixmap::load().
-.SH "void QImageIO::setDescription ( const QString & description )"
+.SH "void QImageIO::setDescription ( const TQString & description )"
 Sets the image description string for image handlers that support image descriptions to \fIdescription\fR.
 .PP
-Currently, no image format supported by Qt uses the description string.
-.SH "void QImageIO::setFileName ( const QString & fileName )"
+Currently, no image format supported by TQt uses the description string.
+.SH "void QImageIO::setFileName ( const TQString & fileName )"
 Sets the name of the file to read or write an image from to \fIfileName\fR.
 .PP
 See also setIODevice().
@@ -267,7 +267,7 @@ Sets the image format to \fIformat\fR for the image to be read or written.
 .PP
 It is necessary to specify a format before writing an image, but it is not necessary to specify a format before reading an image.
 .PP
-If no format has been set, Qt guesses the image format before reading it. If a format is set the image will only be read if it has that format.
+If no format has been set, TQt guesses the image format before reading it. If a format is set the image will only be read if it has that format.
 .PP
 See also read(), write(), and format().
 .SH "void QImageIO::setGamma ( float gamma )"
@@ -276,22 +276,22 @@ Sets the gamma value at which the image will be viewed to \fIgamma\fR. If the im
 The default value is 0.0.
 .PP
 See also gamma().
-.SH "void QImageIO::setIODevice ( QIODevice * ioDevice )"
+.SH "void QImageIO::setIODevice ( TQIODevice * ioDevice )"
 Sets the IO device to be used for reading or writing an image.
 .PP
-Setting the IO device allows images to be read/written to any block-oriented QIODevice.
+Setting the IO device allows images to be read/written to any block-oriented TQIODevice.
 .PP
 If \fIioDevice\fR is not null, this IO device will override file name settings.
 .PP
 See also setFileName().
-.SH "void QImageIO::setImage ( const QImage & image )"
+.SH "void QImageIO::setImage ( const TQImage & image )"
 Sets the image to \fIimage\fR.
 .PP
 See also image().
 .SH "void QImageIO::setParameters ( const char * parameters )"
 Sets the image's parameter string to \fIparameters\fR. This is for image handlers that require special parameters.
 .PP
-Although the current image formats supported by Qt ignore the parameters string, it may be used in future extensions or by contributions (for example, JPEG).
+Although the current image formats supported by TQt ignore the parameters string, it may be used in future extensions or by contributions (for example, JPEG).
 .PP
 See also parameters().
 .SH "void QImageIO::setQuality ( int q )"
@@ -299,7 +299,7 @@ Sets the quality of the written image to \fIq\fR, related to the compression rat
 .PP
 \fIq\fR must be in the range -1..100. Specify 0 to obtain small compressed files, 100 for large uncompressed files. (-1 signifies the default compression.)
 .PP
-See also quality() and QImage::save().
+See also quality() and TQImage::save().
 .SH "void QImageIO::setStatus ( int status )"
 Sets the image IO status to \fIstatus\fR. A non-zero value indicates an error, whereas 0 means that the IO operation was successful.
 .PP
@@ -321,7 +321,7 @@ Example:
 .br
         QImageIO iio;
 .br
-        QImage   im;
+        TQImage   im;
 .br
         im = pixmap; // convert to image
 .br
@@ -353,8 +353,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

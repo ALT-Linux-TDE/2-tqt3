@@ -41,7 +41,7 @@
 #include <ntqsettings.h>
 #include <ntqsplashscreen.h>
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #include <qt_windows.h>
 #include <process.h>
 #endif
@@ -53,15 +53,15 @@ void set_splash_status( const TQString &txt )
     if ( !splash )
 	return;
     TQString splashText = "Licensed to "
-			 + TQString::fromLatin1( QT_PRODUCT_LICENSEE ) + "\n"
+			 + TQString::fromLatin1( TQT_PRODUCT_LICENSEE ) + "\n"
 			 + txt;
     splash->message( splashText, TQt::AlignRight|TQt::AlignTop );
 }
 
-Q_EXPORT DesignerApplication::DesignerApplication( int &argc, char **argv )
+TQ_EXPORT DesignerApplication::DesignerApplication( int &argc, char **argv )
     : TQApplication( argc, argv )
 {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( winVersion() & TQt::WV_NT_based )
 	DESIGNER_OPENFILE = RegisterWindowMessage((TCHAR*)"QT_DESIGNER_OPEN_FILE");
     else
@@ -69,7 +69,7 @@ Q_EXPORT DesignerApplication::DesignerApplication( int &argc, char **argv )
 #endif
 }
 
-Q_EXPORT TQSplashScreen *DesignerApplication::showSplash()
+TQ_EXPORT TQSplashScreen *DesignerApplication::showSplash()
 {
     TQRect screen = TQApplication::desktop()->screenGeometry();
     TQSettings config;
@@ -101,7 +101,7 @@ void DesignerApplication::closeSplash()
 static TQString *settings_key = 0;
 static TQString *old_settings_key = 0;
 
-Q_EXPORT TQString DesignerApplication::settingsKey()
+TQ_EXPORT TQString DesignerApplication::settingsKey()
 {
     if ( !settings_key )
 	settings_key = new TQString( "/TQt Designer/" +
@@ -136,7 +136,7 @@ void DesignerApplication::setSettingsKey( const TQString &key )
 	*settings_key = key;
 }
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 bool DesignerApplication::winEventFilter( MSG *msg )
 {
     if ( msg->message == DESIGNER_OPENFILE ) {

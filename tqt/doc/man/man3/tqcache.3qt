@@ -7,7 +7,7 @@
 .ad l
 .nh
 .SH NAME
-QCache \- Template class that provides a cache based on QString keys
+QCache \- Template class that provides a cache based on TQString keys
 .SH SYNOPSIS
 \fC#include <ntqcache.h>\fR
 .PP
@@ -43,19 +43,19 @@ Inherits QPtrCollection.
 .BI "virtual void \fBclear\fR ()"
 .br
 .ti -1c
-.BI "bool \fBinsert\fR ( const QString & k, const type * d, int c = 1, int p = 0 )"
+.BI "bool \fBinsert\fR ( const TQString & k, const type * d, int c = 1, int p = 0 )"
 .br
 .ti -1c
-.BI "bool \fBremove\fR ( const QString & k )"
+.BI "bool \fBremove\fR ( const TQString & k )"
 .br
 .ti -1c
-.BI "type * \fBtake\fR ( const QString & k )"
+.BI "type * \fBtake\fR ( const TQString & k )"
 .br
 .ti -1c
-.BI "type * \fBfind\fR ( const QString & k, bool ref = TRUE ) const"
+.BI "type * \fBfind\fR ( const TQString & k, bool ref = TRUE ) const"
 .br
 .ti -1c
-.BI "type * \fBoperator[]\fR ( const QString & k ) const"
+.BI "type * \fBoperator[]\fR ( const TQString & k ) const"
 .br
 .ti -1c
 .BI "void \fBstatistics\fR () const"
@@ -71,7 +71,7 @@ Inherits QPtrCollection.
 .br
 .in -1c
 .SH DESCRIPTION
-The QCache class is a template class that provides a cache based on QString keys.
+The QCache class is a template class that provides a cache based on TQString keys.
 .PP
 A cache is a least recently used (LRU) list of cache items. Each cache item has a key and a certain cost. The sum of item costs, totalCost(), never exceeds the maximum cache cost, maxCost(). If inserting a new item would cause the total cost to exceed the maximum cost, the least recently used items in the cache are removed.
 .PP
@@ -87,7 +87,7 @@ When removing a cache item, the virtual function QPtrCollection::deleteItem() is
 .PP
 There is a QCacheIterator that can be used to traverse the items in the cache in arbitrary order.
 .PP
-In QCache, the cache items are accessed via QString keys, which are Unicode strings. If you want to use non-Unicode, plain 8-bit \fCchar*\fR keys, use the QAsciiCache template. A QCache has the same performance as a QAsciiCache.
+In QCache, the cache items are accessed via TQString keys, which are Unicode strings. If you want to use non-Unicode, plain 8-bit \fCchar*\fR keys, use the QAsciiCache template. A QCache has the same performance as a QAsciiCache.
 .PP
 See also QCacheIterator, QAsciiCache, QIntCache, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
@@ -119,25 +119,25 @@ Returns the number of items in the cache.
 See also totalCost().
 .PP
 Reimplemented from QPtrCollection.
-.SH "type * QCache::find ( const QString & k, bool ref = TRUE ) const"
+.SH "type * QCache::find ( const TQString & k, bool ref = TRUE ) const"
 Returns the item associated with key \fIk\fR, or 0 if the key does not exist in the cache. If \fIref\fR is TRUE (the default), the item is moved to the front of the least recently used list.
 .PP
 If there are two or more items with equal keys, the one that was inserted last is returned.
-.SH "bool QCache::insert ( const QString & k, const type * d, int c = 1, int p = 0 )"
+.SH "bool QCache::insert ( const TQString & k, const type * d, int c = 1, int p = 0 )"
 Inserts the item \fId\fR into the cache with key \fIk\fR and associated cost, \fIc\fR. Returns TRUE if it is successfully inserted; otherwise returns FALSE.
 .PP
 The cache's size is limited, and if the total cost is too high, QCache will remove old, least recently used items until there is room for this new item.
 .PP
 The parameter \fIp\fR is internal and should be left at the default value (0).
 .PP
-\fBWarning:\fR If this function returns FALSE (which could happen, e.g. if the cost of this item alone exceeds maxCost()) you must delete \fId\fR yourself. Additionally, be very careful about using \fId\fR after calling this function because any other insertions into the cache, from anywhere in the application or within Qt itself, could cause the object to be discarded from the cache and the pointer to become invalid.
+\fBWarning:\fR If this function returns FALSE (which could happen, e.g. if the cost of this item alone exceeds maxCost()) you must delete \fId\fR yourself. Additionally, be very careful about using \fId\fR after calling this function because any other insertions into the cache, from anywhere in the application or within TQt itself, could cause the object to be discarded from the cache and the pointer to become invalid.
 .SH "bool QCache::isEmpty () const"
 Returns TRUE if the cache is empty; otherwise returns FALSE.
 .SH "int QCache::maxCost () const"
 Returns the maximum allowed total cost of the cache.
 .PP
 See also setMaxCost() and totalCost().
-.SH "type * QCache::operator[] ( const QString & k ) const"
+.SH "type * QCache::operator[] ( const TQString & k ) const"
 Returns the item associated with key \fIk\fR, or 0 if \fIk\fR does not exist in the cache, and moves the item to the front of the least recently used list.
 .PP
 If there are two or more items with equal keys, the one that was inserted last is returned.
@@ -145,7 +145,7 @@ If there are two or more items with equal keys, the one that was inserted last i
 This is the same as find( k, TRUE ).
 .PP
 See also find().
-.SH "bool QCache::remove ( const QString & k )"
+.SH "bool QCache::remove ( const TQString & k )"
 Removes the item associated with \fIk\fR, and returns TRUE if the item was present in the cache; otherwise returns FALSE.
 .PP
 The item is deleted if auto-deletion has been enabled, i.e., if you have called setAutoDelete(TRUE).
@@ -176,7 +176,7 @@ See also maxCost() and totalCost().
 Returns the size of the hash array used to implement the cache. This should be a bit bigger than count() is likely to be.
 .SH "void QCache::statistics () const"
 A debug-only utility function. Prints out cache usage, hit/miss, and distribution information using tqDebug(). This function does nothing in the release library.
-.SH "type * QCache::take ( const QString & k )"
+.SH "type * QCache::take ( const TQString & k )"
 Takes the item associated with \fIk\fR out of the cache without deleting it, and returns a pointer to the item taken out, or 0 if the key does not exist in the cache.
 .PP
 If there are two or more items with equal keys, the one that was inserted last is taken.
@@ -203,8 +203,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

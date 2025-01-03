@@ -47,11 +47,11 @@
 #include "ntqvaluelist.h"
 #endif // QT_H
 
-#ifndef QT_NO_TRANSLATION
+#ifndef TQT_NO_TRANSLATION
 
 class TQTranslatorPrivate;
 
-class Q_EXPORT TQTranslatorMessage
+class TQ_EXPORT TQTranslatorMessage
 {
 public:
     TQTranslatorMessage();
@@ -102,14 +102,14 @@ private:
 };
 
 
-class Q_EXPORT TQTranslator: public TQObject
+class TQ_EXPORT TQTranslator: public TQObject
 {
     TQ_OBJECT
 public:
     TQTranslator( TQObject * parent = 0, const char * name = 0 );
     ~TQTranslator();
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     TQString find( const char *context, const char *sourceText, const char * comment = 0 ) const {
 	return findMessage( context, sourceText, comment ).translation();
     }
@@ -128,7 +128,7 @@ public:
 
     void clear();
 
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
     enum SaveMode { Everything, Stripped };
 
     bool save( const TQString & filename, SaveMode mode = Everything );
@@ -162,6 +162,6 @@ private:
     TQTranslatorPrivate * d;
 };
 
-#endif // QT_NO_TRANSLATION
+#endif // TQT_NO_TRANSLATION
 
 #endif

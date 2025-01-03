@@ -18,16 +18,16 @@ Inherited by QButtonGroup, QHGroupBox, and QVGroupBox.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQGroupBox\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQGroupBox\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQGroupBox\fR ( const QString & title, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQGroupBox\fR ( const TQString & title, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQGroupBox\fR ( int strips, Orientation orientation, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQGroupBox\fR ( int strips, Orientation orientation, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQGroupBox\fR ( int strips, Orientation orientation, const QString & title, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQGroupBox\fR ( int strips, Orientation orientation, const TQString & title, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QGroupBox\fR ()"
@@ -36,10 +36,10 @@ Inherited by QButtonGroup, QHGroupBox, and QVGroupBox.
 .BI "virtual void \fBsetColumnLayout\fR ( int strips, Orientation direction )"
 .br
 .ti -1c
-.BI "QString \fBtitle\fR () const"
+.BI "TQString \fBtitle\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetTitle\fR ( const QString & )"
+.BI "virtual void \fBsetTitle\fR ( const TQString & )"
 .br
 .ti -1c
 .BI "int \fBalignment\fR () const"
@@ -123,7 +123,7 @@ Inherited by QButtonGroup, QHGroupBox, and QVGroupBox.
 .BI "Orientation \fBorientation\fR - the group box's orientation"
 .br
 .ti -1c
-.BI "QString \fBtitle\fR - the group box title text"
+.BI "TQString \fBtitle\fR - the group box title text"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -144,26 +144,26 @@ You can change the spacing used by the group box with setInsideMargin() and setI
 .PP
 See also QButtonGroup, Widget Appearance and Style, Layout Management, and Organizers.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QGroupBox::QGroupBox ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QGroupBox::QGroupBox ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a group box widget with no title.
 .PP
-The \fIparent\fR and \fIname\fR arguments are passed to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are passed to the TQWidget constructor.
 .PP
 This constructor does not do automatic layout.
-.SH "QGroupBox::QGroupBox ( const QString & title, QWidget * parent = 0, const char * name = 0 )"
+.SH "QGroupBox::QGroupBox ( const TQString & title, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a group box with the title \fItitle\fR.
 .PP
-The \fIparent\fR and \fIname\fR arguments are passed to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are passed to the TQWidget constructor.
 .PP
 This constructor does not do automatic layout.
-.SH "QGroupBox::QGroupBox ( int strips, Orientation orientation, QWidget * parent = 0, const char * name = 0 )"
+.SH "QGroupBox::QGroupBox ( int strips, Orientation orientation, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a group box with no title. Child widgets will be arranged in \fIstrips\fR rows or columns (depending on \fIorientation\fR).
 .PP
-The \fIparent\fR and \fIname\fR arguments are passed to the QWidget constructor.
-.SH "QGroupBox::QGroupBox ( int strips, Orientation orientation, const QString & title, QWidget * parent = 0, const char * name = 0 )"
+The \fIparent\fR and \fIname\fR arguments are passed to the TQWidget constructor.
+.SH "QGroupBox::QGroupBox ( int strips, Orientation orientation, const TQString & title, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a group box titled \fItitle\fR. Child widgets will be arranged in \fIstrips\fR rows or columns (depending on \fIorientation\fR).
 .PP
-The \fIparent\fR and \fIname\fR arguments are passed to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are passed to the TQWidget constructor.
 .SH "QGroupBox::~QGroupBox ()"
 Destroys the group box.
 .SH "void QGroupBox::addSpace ( int size )"
@@ -205,7 +205,7 @@ Sets whether the group box has a checkbox in its title to \fIb\fR. See the "chec
 .SH "void QGroupBox::setChecked ( bool b )\fC [slot]\fR"
 Sets whether the group box's checkbox is checked to \fIb\fR. See the "checked" property for details.
 .SH "void QGroupBox::setColumnLayout ( int strips, Orientation direction )\fC [virtual]\fR"
-Changes the layout of the group box. This function is only useful in combination with the default constructor that does not take any layout information. This function will put all existing children in the new layout. It is not good Qt programming style to call this function after children have been inserted. Sets the number of columns or rows to be \fIstrips\fR, depending on \fIdirection\fR.
+Changes the layout of the group box. This function is only useful in combination with the default constructor that does not take any layout information. This function will put all existing children in the new layout. It is not good TQt programming style to call this function after children have been inserted. Sets the number of columns or rows to be \fIstrips\fR, depending on \fIdirection\fR.
 .PP
 See also orientation and columns.
 .PP
@@ -224,9 +224,9 @@ Sets the width of the empty space between each of the items in the group to \fIs
 See also insideSpacing().
 .SH "void QGroupBox::setOrientation ( Orientation )"
 Sets the group box's orientation. See the "orientation" property for details.
-.SH "void QGroupBox::setTitle ( const QString & )\fC [virtual]\fR"
+.SH "void QGroupBox::setTitle ( const TQString & )\fC [virtual]\fR"
 Sets the group box title text. See the "title" property for details.
-.SH "QString QGroupBox::title () const"
+.SH "TQString QGroupBox::title () const"
 Returns the group box title text. See the "title" property for details.
 .SH "void QGroupBox::toggled ( bool on )\fC [signal]\fR"
 If the group box has a check box (see isCheckable()) this signal is emitted when the check box is toggled. \fIon\fR is TRUE if the check box is checked; otherwise it is FALSE.
@@ -248,7 +248,7 @@ AlignHCenter aligns the title text centered.
 .PP
 The default alignment is AlignAuto.
 .PP
-See also Qt::AlignmentFlags.
+See also TQt::AlignmentFlags.
 .PP
 Set this property's value with setAlignment() and get this property's value with alignment().
 .SH "bool checkable"
@@ -287,7 +287,7 @@ A horizontal group box arranges it's children in columns, while a vertical group
 Usually it is not a good idea to set this property because it is slow (it does a complete layout). It is better to set the orientation directly in the constructor.
 .PP
 Set this property's value with setOrientation() and get this property's value with orientation().
-.SH "QString title"
+.SH "TQString title"
 This property holds the group box title text.
 .PP
 The group box title text will have a focus-change keyboard accelerator if the title contains &, followed by a letter.
@@ -317,8 +317,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

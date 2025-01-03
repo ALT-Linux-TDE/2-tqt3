@@ -91,6 +91,8 @@
     the right button on left-handed mice.)
     \value RightButton  the right button.
     \value MidButton  the middle button.
+    \value HistoryBackButton  history navigation back button.
+    \value HistoryForwardButton  history navigation forward button.
     \value ShiftButton  a Shift key on the keyboard is also pressed.
     \value ControlButton  a Ctrl key on the keyboard is also pressed.
     \value AltButton  an Alt key on the keyboard is also pressed.
@@ -98,7 +100,8 @@
     \value Keypad  a keypad button is pressed.
     \value KeyButtonMask a mask for ShiftButton, ControlButton,
     AltButton and MetaButton.
-    \value MouseButtonMask a mask for LeftButton, RightButton and MidButton.
+    \value MouseButtonMask a mask for LeftButton, RightButton, MidButton,
+    HistoryBackButton and HistoryForwardButton.
 */
 
 /*!
@@ -523,7 +526,7 @@ TQt::ButtonState TQMouseEvent::stateAfter() const
 
     \sa pos(), delta(), state()
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 TQWheelEvent::TQWheelEvent( const TQPoint &pos, int delta, int state, Orientation orient )
     : TQEvent(Wheel), p(pos), d(delta), s((ushort)state),
       accpt(TRUE), o(orient)
@@ -1140,6 +1143,11 @@ TQt::ButtonState TQKeyEvent::stateAfter() const
     \value Key_LaunchD
     \value Key_LaunchE
     \value Key_LaunchF
+    \value Key_MonBrightnessUp
+    \value Key_MonBrightnessDown
+    \value Key_KeyboardLightOnOff
+    \value Key_KeyboardBrightnessUp
+    \value Key_KeyboardBrightnessDown
 
     \value Key_MediaLast
 

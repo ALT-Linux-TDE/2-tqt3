@@ -83,7 +83,7 @@ public:
         for (int y=0; y&lt;2000-h; y+=h+10) {
             if (y == 0) {
                 <a href="ntqbutton.html">TQButton</a>* q=new <a href="ntqpushbutton.html">TQPushButton</a>("Quit", this);
-                connect(q, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()));
+                connect(q, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
             } else {
                 <a href="ntqstring.html">TQString</a> str;
                 if ( b &gt; 0 ) {
@@ -247,14 +247,14 @@ public:
         <a href="ntqpopupmenu.html">TQPopupMenu</a>* file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
         <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( file );
 <a name="x634"></a>        menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;File", file );
-        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Quit", tqApp,  SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Quit", tqApp,  TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
         vp_options = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
         <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( vp_options );
 <a name="x644"></a>        vp_options-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
         menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;ScrollView", vp_options );
-<a name="x642"></a>        connect( vp_options, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
-            this, SLOT(doVPMenuItem(int)) );
+<a name="x642"></a>        connect( vp_options, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
+            this, TQ_SLOT(doVPMenuItem(int)) );
 
         vauto_id = vp_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Vertical Auto" );
         vaoff_id = vp_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Vertical AlwaysOff" );
@@ -271,8 +271,8 @@ public:
 <a name="x655"></a>            BigShrinker *bs = new BigShrinker(0);//(vp-&gt;<a href="ntqscrollview.html#viewport">viewport</a>());
 <a name="x645"></a>            vp-&gt;<a href="ntqscrollview.html#addChild">addChild</a>(bs);
 <a name="x659"></a>            bs-&gt;<a href="ntqwidget.html#setAcceptDrops">setAcceptDrops</a>(TRUE);
-            TQObject::<a href="ntqobject.html#connect">connect</a>(bs, SIGNAL(clicked(int,int)),
-<a name="x646"></a>                            vp, SLOT(<a href="ntqscrollview.html#center">center</a>(int,int)));
+            TQObject::<a href="ntqobject.html#connect">connect</a>(bs, TQ_SIGNAL(clicked(int,int)),
+<a name="x646"></a>                            vp, TQ_SLOT(<a href="ntqscrollview.html#center">center</a>(int,int)));
         } else {
             vp = new BigMatrix(this);
             if ( technique == 3 )
@@ -291,8 +291,8 @@ public:
         <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( f_options );
         f_options-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
         menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "F&amp;rame", f_options );
-        connect( f_options, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
-            this, SLOT(doFMenuItem(int)) );
+        connect( f_options, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
+            this, TQ_SLOT(doFMenuItem(int)) );
 
         f_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "No Frame", style_id );
         f_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Box", style_id|TQFrame::Box );
@@ -313,8 +313,8 @@ public:
             lw_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( str, lw_id | lw );
         }
         f_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Line Width", lw_options );
-        connect( lw_options, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
-            this, SLOT(doFMenuItem(int)) );
+        connect( lw_options, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
+            this, TQ_SLOT(doFMenuItem(int)) );
         mlw_options = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
         <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( mlw_options );
         mlw_options-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
@@ -324,8 +324,8 @@ public:
             mlw_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( str, mlw_id | mlw );
         }
         f_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Midline Width", mlw_options );
-        connect( mlw_options, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
-            this, SLOT(doFMenuItem(int)) );
+        connect( mlw_options, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
+            this, TQ_SLOT(doFMenuItem(int)) );
         mw_options = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
         <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( mw_options );
         mw_options-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
@@ -335,8 +335,8 @@ public:
             mw_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( str, mw_id | mw );
         }
         f_options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Margin Width", mw_options );
-        connect( mw_options, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
-            this, SLOT(doFMenuItem(int)) );
+        connect( mw_options, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
+            this, TQ_SLOT(doFMenuItem(int)) );
 
         setVPMenuItems();
         setFMenuItems();
@@ -473,7 +473,7 @@ int main( int argc, char **argv )
     ve3.<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - Scrollviews");
     ve3.<a href="ntqwidget.html#show">show</a>();
 
-    TQObject::<a href="ntqobject.html#connect">connect</a>(tqApp, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()));
+    TQObject::<a href="ntqobject.html#connect">connect</a>(tqApp, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
 
     return a.<a href="ntqapplication.html#exec">exec</a>();
 }

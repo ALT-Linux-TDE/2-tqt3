@@ -148,9 +148,9 @@ Operation::Operation( <a href="ntqobject.html">TQObject</a> *parent = 0 )
     : <a href="ntqobject.html">TQObject</a>( parent ), steps( 0 )
 {
     pd = new TQProgressDialog( "Operation in progress.", "Cancel", 100 );
-    <a href="ntqobject.html#connect">connect</a>( pd, SIGNAL(<a href="#canceled">canceled</a>()), this, SLOT(<a href="#cancel">cancel</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( pd, TQ_SIGNAL(<a href="#canceled">canceled</a>()), this, TQ_SLOT(<a href="#cancel">cancel</a>()) );
     t = new <a href="ntqtimer.html">TQTimer</a>( this );
-    <a href="ntqobject.html#connect">connect</a>( t, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), this, SLOT(perform()) );
+    <a href="ntqobject.html#connect">connect</a>( t, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), this, TQ_SLOT(perform()) );
     t-&gt;<a href="ntqtimer.html#start">start</a>( 0 );
 }
 

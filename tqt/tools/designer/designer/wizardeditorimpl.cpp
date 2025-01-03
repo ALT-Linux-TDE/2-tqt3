@@ -46,19 +46,19 @@
 WizardEditor::WizardEditor( TQWidget *parent, TQWizard *w, FormWindow *fw )
     : WizardEditorBase( parent, 0 ), formwindow( fw ), wizard( w ), draggedItem( 0 )
 {
-    connect( buttonHelp, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( buttonHelp, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
     fillListBox();
 
     // Add drag and drop
     ListBoxDnd *listBoxDnd = new ListBoxDnd( listBox );
     listBoxDnd->setDragMode( ListBoxDnd::Internal | ListBoxDnd::Move );
-    TQObject::connect( listBoxDnd, SIGNAL( dropped( TQListBoxItem * ) ),
-		      listBoxDnd, SLOT( confirmDrop( TQListBoxItem * ) ) );
+    TQObject::connect( listBoxDnd, TQ_SIGNAL( dropped( TQListBoxItem * ) ),
+		      listBoxDnd, TQ_SLOT( confirmDrop( TQListBoxItem * ) ) );
 
-    TQObject::connect( listBoxDnd, SIGNAL( dragged( TQListBoxItem * ) ),
-		      this, SLOT( itemDragged( TQListBoxItem * ) ) );
-    TQObject::connect( listBoxDnd, SIGNAL( dropped( TQListBoxItem * ) ),
-		      this, SLOT( itemDropped( TQListBoxItem * ) ) );
+    TQObject::connect( listBoxDnd, TQ_SIGNAL( dragged( TQListBoxItem * ) ),
+		      this, TQ_SLOT( itemDragged( TQListBoxItem * ) ) );
+    TQObject::connect( listBoxDnd, TQ_SIGNAL( dropped( TQListBoxItem * ) ),
+		      this, TQ_SLOT( itemDropped( TQListBoxItem * ) ) );
 
     // Add in-place rename
     new ListBoxRename( listBox );

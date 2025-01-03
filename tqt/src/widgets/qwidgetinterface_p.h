@@ -56,7 +56,7 @@
 #include "ntqiconset.h"
 #endif // QT_H
 
-#ifndef QT_NO_WIDGETPLUGIN
+#ifndef TQT_NO_WIDGETPLUGIN
 
 class TQWidget;
 
@@ -141,5 +141,5 @@ public:
 };
 
 #endif // QT_CONTAINER_CUSTOM_WIDGETS
-#endif // QT_NO_WIDGETPLUGIN
+#endif // TQT_NO_WIDGETPLUGIN
 #endif // TQWIDGETINTERFACE_P_H

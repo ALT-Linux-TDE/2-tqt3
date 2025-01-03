@@ -81,7 +81,7 @@ body { background: #ffffff; color: black; }
 #include "ntqdatastream.h"
 #endif // QT_H
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
 #include &lt;vector&gt;
 #endif
 
@@ -155,7 +155,7 @@ private:
 };
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES TQValueVectorPrivate&lt;T&gt;::TQValueVectorPrivate( const TQValueVectorPrivate&lt;T&gt;&amp; x )
+TQ_INLINE_TEMPLATES TQValueVectorPrivate&lt;T&gt;::TQValueVectorPrivate( const TQValueVectorPrivate&lt;T&gt;&amp; x )
     : TQShared()
 {
     size_t i = x.size();
@@ -176,7 +176,7 @@ Q_INLINE_TEMPLATES TQValueVectorPrivate&lt;T&gt;::TQValueVectorPrivate( const TQ
 }
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES TQValueVectorPrivate&lt;T&gt;::TQValueVectorPrivate( size_t size )
+TQ_INLINE_TEMPLATES TQValueVectorPrivate&lt;T&gt;::TQValueVectorPrivate( size_t size )
 {
     if ( size &gt; 0 ) {
 	start = new T[size];
@@ -190,7 +190,7 @@ Q_INLINE_TEMPLATES TQValueVectorPrivate&lt;T&gt;::TQValueVectorPrivate( size_t s
 }
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::insert( pointer pos, const T&amp; x )
+TQ_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::insert( pointer pos, const T&amp; x )
 {
     const size_t lastSize = size();
     const size_t n = lastSize !=0 ? 2*lastSize : 1;
@@ -207,7 +207,7 @@ Q_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::insert( pointer pos, cons
 }
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::insert( pointer pos, size_t n, const T&amp; x )
+TQ_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::insert( pointer pos, size_t n, const T&amp; x )
 {
     if ( size_t( end - finish ) &gt;= n ) {
 	// enough room
@@ -247,7 +247,7 @@ Q_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::insert( pointer pos, size
 }
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::reserve( size_t n )
+TQ_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::reserve( size_t n )
 {
     const size_t lastSize = size();
     pointer tmp = growAndCopy( n, start, finish );
@@ -257,7 +257,7 @@ Q_INLINE_TEMPLATES void TQValueVectorPrivate&lt;T&gt;::reserve( size_t n )
 }
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQValueVectorPrivate&lt;T&gt;::pointer TQValueVectorPrivate&lt;T&gt;::growAndCopy( size_t n, pointer s, pointer f )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQValueVectorPrivate&lt;T&gt;::pointer TQValueVectorPrivate&lt;T&gt;::growAndCopy( size_t n, pointer s, pointer f )
 {
     pointer newStart = new T[n];
     tqCopy( s, f, newStart );
@@ -279,7 +279,7 @@ public:
     typedef value_type&amp; reference;
     typedef const value_type&amp; const_reference;
     typedef size_t size_type;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef ptrdiff_t difference_type;
 #else
     typedef int difference_type;
@@ -298,7 +298,7 @@ public:
 
     TQValueVector( size_type n, const T&amp; val = T() );
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     TQValueVector( std::vector&lt;T&gt;&amp; v ) // ### remove in 4.0
     {
 	sh = new TQValueVectorPrivate&lt;T&gt;( v.size() );
@@ -325,7 +325,7 @@ public:
 	return *this;
     }
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     TQValueVector&lt;T&gt;&amp; operator= ( const std::vector&lt;T&gt;&amp; v )
     {
 	clear();
@@ -525,21 +525,21 @@ private:
 };
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES TQValueVector&lt;T&gt;::TQValueVector( size_type n, const T&amp; val )
+TQ_INLINE_TEMPLATES TQValueVector&lt;T&gt;::TQValueVector( size_type n, const T&amp; val )
 {
     sh = new TQValueVectorPrivate&lt;T&gt;( n );
     tqFill( begin(), end(), val );
 }
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES void TQValueVector&lt;T&gt;::detachInternal()
+TQ_INLINE_TEMPLATES void TQValueVector&lt;T&gt;::detachInternal()
 {
     sh-&gt;deref();
     sh = new TQValueVectorPrivate&lt;T&gt;( *sh );
 }
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQValueVector&lt;T&gt;::iterator TQValueVector&lt;T&gt;::insert( iterator pos, const T&amp; x )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQValueVector&lt;T&gt;::iterator TQValueVector&lt;T&gt;::insert( iterator pos, const T&amp; x )
 {
     size_type offset = pos - sh-&gt;start;
     detach();
@@ -564,7 +564,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQValueVector&lt;T&gt;::iterator TQValueVector&lt;
 }
 
 template &lt;class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQValueVector&lt;T&gt;::iterator TQValueVector&lt;T&gt;::insert( iterator pos, size_type n, const T&amp; x )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQValueVector&lt;T&gt;::iterator TQValueVector&lt;T&gt;::insert( iterator pos, size_type n, const T&amp; x )
 {
     if ( n != 0 ) {
 	size_type offset = pos - sh-&gt;start;
@@ -576,9 +576,9 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQValueVector&lt;T&gt;::iterator TQValueVector&lt;
 }
 
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 template&lt;class T&gt;
-Q_INLINE_TEMPLATES TQDataStream&amp; operator&gt;&gt;( TQDataStream&amp; s, TQValueVector&lt;T&gt;&amp; v )
+TQ_INLINE_TEMPLATES TQDataStream&amp; operator&gt;&gt;( TQDataStream&amp; s, TQValueVector&lt;T&gt;&amp; v )
 {
     v.clear();
     TQ_UINT32 c;
@@ -594,7 +594,7 @@ Q_INLINE_TEMPLATES TQDataStream&amp; operator&gt;&gt;( TQDataStream&amp; s, TQVa
 }
 
 template&lt;class T&gt;
-Q_INLINE_TEMPLATES TQDataStream&amp; operator&lt;&lt;( TQDataStream&amp; s, const TQValueVector&lt;T&gt;&amp; v )
+TQ_INLINE_TEMPLATES TQDataStream&amp; operator&lt;&lt;( TQDataStream&amp; s, const TQValueVector&lt;T&gt;&amp; v )
 {
     s &lt;&lt; (TQ_UINT32)v.size();
     // ### use typename TQValueVector&lt;T&gt;::const_iterator once all supported
@@ -604,7 +604,7 @@ Q_INLINE_TEMPLATES TQDataStream&amp; operator&lt;&lt;( TQDataStream&amp; s, cons
 	s &lt;&lt; *it;
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 #define Q_DEFINED_QVALUEVECTOR
 #include "ntqwinexport.h"

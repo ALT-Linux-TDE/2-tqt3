@@ -65,7 +65,7 @@ application at runtime.
 
 For \l lupdate to work successfully, it must know which translation
 files to produce. The files are simply listed in the application's \c
-.pro Qt project file, for example:
+.pro TQt project file, for example:
 \quotefile  tt2/tt2.pro
 \skipto TRANSLATIONS
 \printline TRANSLATIONS
@@ -83,7 +83,7 @@ See the \link lupdate "lupdate" \endlink and \link lrelease
 
 \index main()
 
-This is how a simple \c main() function of a Qt application begins.
+This is how a simple \c main() function of a TQt application begins.
 
 \index QTranslator!load()
 \index load()!QTranslator
@@ -116,7 +116,7 @@ will fall back to using the original source text.
 \section2 Making the Application Translate User-Visible Strings
 
 \index tr()
-\index QObject!tr()
+\index TQObject!tr()
 
 User-visible strings are marked as translation targets by wrapping them
 in a \c tr() call, for example:
@@ -132,11 +132,11 @@ would become
 
 \index TQ_OBJECT
 
-All \l QObject subclasses that use the \c TQ_OBJECT macro implement
+All \l TQObject subclasses that use the \c TQ_OBJECT macro implement
 the \c tr() function.
 
 Although the \c tr() call is normally made directly since it is
-usually called as a member function of a \l QObject subclass, in
+usually called as a member function of a \l TQObject subclass, in
 other cases an explicit class name can be supplied, for example:
 
 \code
@@ -146,7 +146,7 @@ other cases an explicit class name can be supplied, for example:
 or
 
 \code
-    QObject::tr("&Quit")
+    TQObject::tr("&Quit")
 \endcode
 
 \section2 Distinguishing Identical Strings That Require Different
@@ -235,13 +235,13 @@ MyClass::tr():
 After the comment, all references to \c MyClass::tr() will be
 understood as meaning \c MyNamespace::MyClass::tr().
 
-\section2 Translating Text that is Outside of a QObject subclass
+\section2 Translating Text that is Outside of a TQObject subclass
 
 \section3 Using QApplication::translate()
 
-If the quoted text is not in a member function of a QObject subclass,
+If the quoted text is not in a member function of a TQObject subclass,
 use either the tr() function of an appropriate class, or the
-QApplication::translate() function directly: 
+QApplication::translate() function directly:
 
 \code
     void some_global_function( LoginWidget *logwid )
@@ -258,38 +258,38 @@ QApplication::translate() function directly:
     }
 \endcode
 
-\section3 Using QT_TR_NOOP() and QT_TRANSLATE_NOOP()
+\section3 Using TQT_TR_NOOP() and TQT_TRANSLATE_NOOP()
 
 If you need to have translatable text completely outside a function,
-there are two macros to help: QT_TR_NOOP() and QT_TRANSLATE_NOOP().
+there are two macros to help: TQT_TR_NOOP() and TQT_TRANSLATE_NOOP().
 These macros merely mark the text for extraction by \l{lupdate}.
-The macros expand to just the text (without the context). 
+The macros expand to just the text (without the context).
 
-Example of QT_TR_NOOP(): 
+Example of TQT_TR_NOOP():
 \code
-    QString FriendlyConversation::greeting( int greet_type )
+    TQString FriendlyConversation::greeting( int greet_type )
     {
         static const char* greeting_strings[] = {
-            QT_TR_NOOP( "Hello" ),
-            QT_TR_NOOP( "Goodbye" )
+            TQT_TR_NOOP( "Hello" ),
+            TQT_TR_NOOP( "Goodbye" )
         };
         return tr( greeting_strings[greet_type] );
     }
 \endcode
 
-Example of QT_TRANSLATE_NOOP(): 
+Example of TQT_TRANSLATE_NOOP():
 \code
     static const char* greeting_strings[] = {
-        QT_TRANSLATE_NOOP( "FriendlyConversation", "Hello" ),
-        QT_TRANSLATE_NOOP( "FriendlyConversation", "Goodbye" )
+        TQT_TRANSLATE_NOOP( "FriendlyConversation", "Hello" ),
+        TQT_TRANSLATE_NOOP( "FriendlyConversation", "Goodbye" )
     };
 
-    QString FriendlyConversation::greeting( int greet_type )
+    TQString FriendlyConversation::greeting( int greet_type )
     {
         return tr( greeting_strings[greet_type] );
     }
 
-    QString global_greeting( int greet_type )
+    TQString global_greeting( int greet_type )
     {
         return tqApp->translate( "FriendlyConversation",
                                 greeting_strings[greet_type] );
@@ -337,7 +337,7 @@ English version}, above, shows the English version.
 
 \index QTranslator
 
-This line includes the definition of the \l QTranslator class. 
+This line includes the definition of the \l QTranslator class.
 Objects of this class provide translations for user-visible text.
 
 \skipto QTranslator
@@ -370,12 +370,12 @@ was found and contains a translation for "Hello world!", the
 translation appears; if not, the source text appears.
 
 \index tr()
-\index QObject!tr()
+\index TQObject!tr()
 
-All classes that inherit \l QObject have a \c tr() function. Inside
-a member function of a \l QObject class, we simply write \c tr("Hello
+All classes that inherit \l TQObject have a \c tr() function. Inside
+a member function of a \l TQObject class, we simply write \c tr("Hello
 world!") instead of \c QPushButton::tr("Hello world!") or \c
-QObject::tr("Hello world!").
+TQObject::tr("Hello world!").
 
 \section3 Running the Application in English
 
@@ -412,7 +412,7 @@ namely Latin.
 \index .ts Files
 \index Translation Source Files
 \index .qm Files
-\index Qt Message Files
+\index TQt Message Files
 
 Note that the file extension is \c .ts, not \c .qm. The \c .ts
 translation source format is designed for use during the
@@ -432,7 +432,7 @@ Latin-1 (ISO 8859-1). One way to type in a Latin-1 character such as
 "\&#xf8;". This will work for any Unicode character.
 
 Once the translations are complete the \l lrelease program is used to
-convert the \c .ts files into the \c .qm Qt message file format. The
+convert the \c .ts files into the \c .qm TQt message file format. The
 \c .qm format is a compact binary format designed to deliver very
 fast lookup performance. Both \l lupdate and \l lrelease read all the
 project's source and header files (as specified in the HEADERS and
@@ -472,9 +472,9 @@ the current directory, containing this:
 You don't need to understand the file format since it is read and
 updated using tools (\l lupdate, \e {Qt Linguist}, \l lrelease).
 
-\section3 Translating to Latin with Qt Linguist
+\section3 Translating to Latin with TQt Linguist
 
-\index Qt Linguist
+\index TQt Linguist
 \index Linguist
 
 We will use \e {Qt Linguist} to provide the translation, although
@@ -573,7 +573,7 @@ texts marked for translation with \c tr() calls and their contexts.
 \index English Language
 
 In \c arrowpad.h we define the \c ArrowPad subclass which is a
-subclass of \l QWidget. In the \e {Tutorial 2 Screenshot, English
+subclass of \l TQWidget. In the \e {Tutorial 2 Screenshot, English
 version}, above, the central widget with the four buttons is an
 \c ArrowPad.
 
@@ -583,14 +583,14 @@ version}, above, the central widget with the four buttons is an
 
 \index TQ_OBJECT
 \index tr()
-\index QObject!tr()
+\index TQObject!tr()
 \index Translation Contexts
 \index Contexts!for Translation
 
 When \l lupdate is run it not only extracts the source texts but it
 also groups them into contexts. A context is the name of the class in
 which the source text appears. Thus, in this example, "ArrowPad" is a
-context: it is the context of the texts in the \c ArrowPad class. 
+context: it is the context of the texts in the \c ArrowPad class.
 The \c TQ_OBJECT macro defines \c tr(x) in \c ArrowPad like this
 
 \index QApplication!translate()
@@ -796,7 +796,7 @@ then the example. What effect did this change have?
 \index Canada
 \index French Canada
 
-Set \c LANG=fr_CA (French Canada) and run the example program again. 
+Set \c LANG=fr_CA (French Canada) and run the example program again.
 Explain why the result is the same as with \c LANG=fr.
 
 Change one of the accelerators in the Dutch translation to eliminate the
@@ -856,7 +856,7 @@ The PrintPanel is defined in \c printpanel.h.
 
 \index PrintPanel!in Translation Tutorial
 
-PrintPanel is a \l QWidget. It needs the \c TQ_OBJECT macro for \c
+PrintPanel is a \l TQWidget. It needs the \c TQ_OBJECT macro for \c
 tr() to work properly.
 
 The implementation file is \c printpanel.cpp.
@@ -926,7 +926,7 @@ translation file based on the current locale.
 
 We will use the translations in the \c tt3_pt.ts file that is provided.
 
-Set the \c LANG environment variable to \c pt, and then run \c tt3. 
+Set the \c LANG environment variable to \c pt, and then run \c tt3.
 You should still see the English version, as shown in the \e
 {Tutorial 3 Screenshot, "Troll Print 1.0", English version}, above.
 Now run \l lrelease, e.g. \c {lrelease tt3.pro}, and then run the
@@ -1031,7 +1031,7 @@ Try adding these comments to some source files, particularly to
 dialog classes, describing the navigation necessary to reach the
 dialogs. You could also add them to the example files, e.g. \c
 mainwindow.cpp and \c printpanel.cpp are appropriate files. Run \l
-lupdate and then start \e {Qt Linguist} and load in \c tt3_pt.ts. 
+lupdate and then start \e {Qt Linguist} and load in \c tt3_pt.ts.
 You should see the comments in the \e {Source text and comments} area
 as you browse through the list of source texts.
 
@@ -1119,7 +1119,7 @@ Choose \e{Ajuda|Sobre}, (\e{Help|About}), to see the about box
 \index Qt!Translating Qt
 
 If you choose \e {Ajuda|Sobre Qt}, (\e {Help|About Qt}), you'll get
-an English dialog. Oops! Qt itself needs to be translated. See the
+an English dialog. Oops! TQt itself needs to be translated. See the
 document \link i18n.html#qt-itself Internationalization with Qt
 \endlink for details.
 

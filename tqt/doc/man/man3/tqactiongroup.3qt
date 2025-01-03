@@ -16,10 +16,10 @@ Inherits QAction.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQActionGroup\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQActionGroup\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQActionGroup\fR ( QObject * parent, const char * name, bool exclusive )"
+.BI "\fBQActionGroup\fR ( TQObject * parent, const char * name, bool exclusive )"
 .br
 .ti -1c
 .BI "\fB~QActionGroup\fR ()"
@@ -37,7 +37,7 @@ Inherits QAction.
 .BI "void \fBaddSeparator\fR ()"
 .br
 .ti -1c
-.BI "virtual bool \fBaddTo\fR ( QWidget * w )"
+.BI "virtual bool \fBaddTo\fR ( TQWidget * w )"
 .br
 .ti -1c
 .BI "void \fBsetUsesDropDown\fR ( bool enable )"
@@ -77,7 +77,7 @@ Here's an example from examples/textedit:
 .br
         QActionGroup *grp = new QActionGroup( this );
 .br
-        connect( grp, SIGNAL( selected( QAction* ) ), this, SLOT( textAlign( QAction* ) ) );
+        connect( grp, TQ_SIGNAL( selected( QAction* ) ), this, TQ_SLOT( textAlign( QAction* ) ) );
 .fi
 .PP
 Here we create a new action group. Since the action group is exclusive by default, only one of the actions in the group is ever active at any one time. We then connect the group's selected() signal to our textAlign() slot.
@@ -101,11 +101,11 @@ Actions can be added to an action group using add(), but normally they are added
 .PP
 See also Main Window and Related Classes and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QActionGroup::QActionGroup ( QObject * parent, const char * name = 0 )"
+.SH "QActionGroup::QActionGroup ( TQObject * parent, const char * name = 0 )"
 Constructs an action group called \fIname\fR, with parent \fIparent\fR.
 .PP
 The action group is exclusive by default. Call setExclusive(FALSE) to make the action group non-exclusive.
-.SH "QActionGroup::QActionGroup ( QObject * parent, const char * name, bool exclusive )"
+.SH "QActionGroup::QActionGroup ( TQObject * parent, const char * name, bool exclusive )"
 Constructs an action group called \fIname\fR, with parent \fIparent\fR.
 .PP
 If \fIexclusive\fR is TRUE only one toggle action in the group will ever be active.
@@ -121,7 +121,7 @@ Normally an action is added to a group by creating it with the group as parent, 
 See also addTo().
 .SH "void QActionGroup::addSeparator ()"
 Adds a separator to the group.
-.SH "bool QActionGroup::addTo ( QWidget * w )\fC [virtual]\fR"
+.SH "bool QActionGroup::addTo ( TQWidget * w )\fC [virtual]\fR"
 Adds this action group to the widget \fIw\fR.
 .PP
 If isExclusive() is FALSE or usesDropDown() is FALSE, the actions within the group are added to the widget individually. For example, if the widget is a menu, the actions will appear as individual menu options, and if the widget is a toolbar, the actions will appear as toolbar buttons.
@@ -194,8 +194,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

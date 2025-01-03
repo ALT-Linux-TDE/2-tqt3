@@ -11,7 +11,7 @@ QStyle \- The look and feel of a GUI
 .SH SYNOPSIS
 \fC#include <ntqstyle.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 Inherited by QCommonStyle.
 .PP
@@ -24,10 +24,10 @@ Inherited by QCommonStyle.
 .BI "virtual \fB~QStyle\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBpolish\fR ( QWidget * )"
+.BI "virtual void \fBpolish\fR ( TQWidget * )"
 .br
 .ti -1c
-.BI "virtual void \fBunPolish\fR ( QWidget * )"
+.BI "virtual void \fBunPolish\fR ( TQWidget * )"
 .br
 .ti -1c
 .BI "virtual void \fBpolish\fR ( QApplication * )"
@@ -42,10 +42,10 @@ Inherited by QCommonStyle.
 .BI "virtual void \fBpolishPopupMenu\fR ( QPopupMenu * ) = 0"
 .br
 .ti -1c
-.BI "virtual QRect \fBitemRect\fR ( QPainter * p, const QRect & r, int flags, bool enabled, const QPixmap * pixmap, const QString & text, int len = -1 ) const"
+.BI "virtual QRect \fBitemRect\fR ( QPainter * p, const QRect & r, int flags, bool enabled, const QPixmap * pixmap, const TQString & text, int len = -1 ) const"
 .br
 .ti -1c
-.BI "virtual void \fBdrawItem\fR ( QPainter * p, const QRect & r, int flags, const QColorGroup & g, bool enabled, const QPixmap * pixmap, const QString & text, int len = -1, const QColor * penColor = 0 ) const"
+.BI "virtual void \fBdrawItem\fR ( QPainter * p, const QRect & r, int flags, const QColorGroup & g, bool enabled, const QPixmap * pixmap, const TQString & text, int len = -1, const TQColor * penColor = 0 ) const"
 .br
 .ti -1c
 .BI "enum \fBPrimitiveElement\fR { PE_ButtonCommand, PE_ButtonDefault, PE_ButtonBevel, PE_ButtonTool, PE_ButtonDropDown, PE_FocusRect, PE_ArrowUp, PE_ArrowDown, PE_ArrowRight, PE_ArrowLeft, PE_SpinWidgetUp, PE_SpinWidgetDown, PE_SpinWidgetPlus, PE_SpinWidgetMinus, PE_Indicator, PE_IndicatorMask, PE_ExclusiveIndicator, PE_ExclusiveIndicatorMask, PE_DockWindowHandle, PE_DockWindowSeparator, PE_DockWindowResizeHandle, PE_Splitter, PE_Panel, PE_PanelPopup, PE_PanelMenuBar, PE_PanelDockWindow, PE_TabBarBase, PE_HeaderSection, PE_HeaderArrow, PE_StatusBarSection, PE_GroupBoxFrame, PE_Separator, PE_SizeGrip, PE_CheckMark, PE_ScrollBarAddLine, PE_ScrollBarSubLine, PE_ScrollBarAddPage, PE_ScrollBarSubPage, PE_ScrollBarSlider, PE_ScrollBarFirst, PE_ScrollBarLast, PE_ProgressBarChunk, PE_PanelLineEdit, PE_PanelTabWidget, PE_WindowFrame, PE_CheckListController, PE_CheckListIndicator, PE_CheckListExclusiveIndicator, PE_PanelGroupBox, PE_RubberBand, PE_CustomBase = 0xf000000 }"
@@ -60,16 +60,16 @@ Inherited by QCommonStyle.
 .BI "enum \fBControlElement\fR { CE_PushButton, CE_PushButtonLabel, CE_CheckBox, CE_CheckBoxLabel, CE_RadioButton, CE_RadioButtonLabel, CE_TabBarTab, CE_TabBarLabel, CE_ProgressBarGroove, CE_ProgressBarContents, CE_ProgressBarLabel, CE_PopupMenuItem, CE_MenuBarItem, CE_ToolButtonLabel, CE_MenuBarEmptyArea, CE_PopupMenuScroller, CE_DockWindowEmptyArea, CE_PopupMenuVerticalExtra, CE_PopupMenuHorizontalExtra, CE_ToolBoxTab, CE_HeaderLabel, CE_CustomBase = 0xf0000000 }"
 .br
 .ti -1c
-.BI "virtual void \fBdrawControl\fR ( ControlElement element, QPainter * p, const QWidget * widget, const QRect & r, const QColorGroup & cg, SFlags how = Style_Default, const QStyleOption & opt = QStyleOption::Default ) const = 0"
+.BI "virtual void \fBdrawControl\fR ( ControlElement element, QPainter * p, const TQWidget * widget, const QRect & r, const QColorGroup & cg, SFlags how = Style_Default, const QStyleOption & opt = QStyleOption::Default ) const = 0"
 .br
 .ti -1c
-.BI "virtual void \fBdrawControlMask\fR ( ControlElement element, QPainter * p, const QWidget * widget, const QRect & r, const QStyleOption & opt = QStyleOption::Default ) const = 0"
+.BI "virtual void \fBdrawControlMask\fR ( ControlElement element, QPainter * p, const TQWidget * widget, const QRect & r, const QStyleOption & opt = QStyleOption::Default ) const = 0"
 .br
 .ti -1c
 .BI "enum \fBSubRect\fR { SR_PushButtonContents, SR_PushButtonFocusRect, SR_CheckBoxIndicator, SR_CheckBoxContents, SR_CheckBoxFocusRect, SR_RadioButtonIndicator, SR_RadioButtonContents, SR_RadioButtonFocusRect, SR_ComboBoxFocusRect, SR_SliderFocusRect, SR_DockWindowHandleRect, SR_ProgressBarGroove, SR_ProgressBarContents, SR_ProgressBarLabel, SR_ToolButtonContents, SR_DialogButtonAccept, SR_DialogButtonReject, SR_DialogButtonApply, SR_DialogButtonHelp, SR_DialogButtonAll, SR_DialogButtonAbort, SR_DialogButtonIgnore, SR_DialogButtonRetry, SR_DialogButtonCustom, SR_ToolBoxTabContents, SR_CustomBase = 0xf0000000 }"
 .br
 .ti -1c
-.BI "virtual QRect \fBsubRect\fR ( SubRect subrect, const QWidget * widget ) const = 0"
+.BI "virtual QRect \fBsubRect\fR ( SubRect subrect, const TQWidget * widget ) const = 0"
 .br
 .ti -1c
 .BI "enum \fBComplexControl\fR { CC_SpinWidget, CC_ComboBox, CC_ScrollBar, CC_Slider, CC_ToolButton, CC_TitleBar, CC_ListView, CC_CustomBase = 0xf0000000 }"
@@ -78,46 +78,46 @@ Inherited by QCommonStyle.
 .BI "enum \fBSubControl\fR { SC_None = 0x00000000, SC_ScrollBarAddLine = 0x00000001, SC_ScrollBarSubLine = 0x00000002, SC_ScrollBarAddPage = 0x00000004, SC_ScrollBarSubPage = 0x00000008, SC_ScrollBarFirst = 0x00000010, SC_ScrollBarLast = 0x00000020, SC_ScrollBarSlider = 0x00000040, SC_ScrollBarGroove = 0x00000080, SC_SpinWidgetUp = 0x00000001, SC_SpinWidgetDown = 0x00000002, SC_SpinWidgetFrame = 0x00000004, SC_SpinWidgetEditField = 0x00000008, SC_SpinWidgetButtonField = 0x00000010, SC_ComboBoxFrame = 0x00000001, SC_ComboBoxEditField = 0x00000002, SC_ComboBoxArrow = 0x00000004, SC_ComboBoxListBoxPopup = 0x00000008, SC_SliderGroove = 0x00000001, SC_SliderHandle = 0x00000002, SC_SliderTickmarks = 0x00000004, SC_ToolButton = 0x00000001, SC_ToolButtonMenu = 0x00000002, SC_TitleBarLabel = 0x00000001, SC_TitleBarSysMenu = 0x00000002, SC_TitleBarMinButton = 0x00000004, SC_TitleBarMaxButton = 0x00000008, SC_TitleBarCloseButton = 0x00000010, SC_TitleBarNormalButton = 0x00000020, SC_TitleBarShadeButton = 0x00000040, SC_TitleBarUnshadeButton = 0x00000080, SC_ListView = 0x00000001, SC_ListViewBranch = 0x00000002, SC_ListViewExpand = 0x00000004, SC_All = 0xffffffff }"
 .br
 .ti -1c
-.BI "virtual void \fBdrawComplexControl\fR ( ComplexControl control, QPainter * p, const QWidget * widget, const QRect & r, const QColorGroup & cg, SFlags how = Style_Default, SCFlags sub = SC_All, SCFlags subActive = SC_None, const QStyleOption & opt = QStyleOption::Default ) const = 0"
+.BI "virtual void \fBdrawComplexControl\fR ( ComplexControl control, QPainter * p, const TQWidget * widget, const QRect & r, const QColorGroup & cg, SFlags how = Style_Default, SCFlags sub = SC_All, SCFlags subActive = SC_None, const QStyleOption & opt = QStyleOption::Default ) const = 0"
 .br
 .ti -1c
-.BI "virtual void \fBdrawComplexControlMask\fR ( ComplexControl control, QPainter * p, const QWidget * widget, const QRect & r, const QStyleOption & opt = QStyleOption::Default ) const = 0"
+.BI "virtual void \fBdrawComplexControlMask\fR ( ComplexControl control, QPainter * p, const TQWidget * widget, const QRect & r, const QStyleOption & opt = QStyleOption::Default ) const = 0"
 .br
 .ti -1c
-.BI "virtual QRect \fBquerySubControlMetrics\fR ( ComplexControl control, const QWidget * widget, SubControl subcontrol, const QStyleOption & opt = QStyleOption::Default ) const = 0"
+.BI "virtual QRect \fBquerySubControlMetrics\fR ( ComplexControl control, const TQWidget * widget, SubControl subcontrol, const QStyleOption & opt = QStyleOption::Default ) const = 0"
 .br
 .ti -1c
-.BI "virtual SubControl \fBquerySubControl\fR ( ComplexControl control, const QWidget * widget, const QPoint & pos, const QStyleOption & opt = QStyleOption::Default ) const = 0"
+.BI "virtual SubControl \fBquerySubControl\fR ( ComplexControl control, const TQWidget * widget, const QPoint & pos, const QStyleOption & opt = QStyleOption::Default ) const = 0"
 .br
 .ti -1c
 .BI "enum \fBPixelMetric\fR { PM_ButtonMargin, PM_ButtonDefaultIndicator, PM_MenuButtonIndicator, PM_ButtonShiftHorizontal, PM_ButtonShiftVertical, PM_DefaultFrameWidth, PM_SpinBoxFrameWidth, PM_MaximumDragDistance, PM_ScrollBarExtent, PM_ScrollBarSliderMin, PM_SliderThickness, PM_SliderControlThickness, PM_SliderLength, PM_SliderTickmarkOffset, PM_SliderSpaceAvailable, PM_DockWindowSeparatorExtent, PM_DockWindowHandleExtent, PM_DockWindowFrameWidth, PM_MenuBarFrameWidth, PM_TabBarTabOverlap, PM_TabBarTabHSpace, PM_TabBarTabVSpace, PM_TabBarBaseHeight, PM_TabBarBaseOverlap, PM_ProgressBarChunkWidth, PM_SplitterWidth, PM_TitleBarHeight, PM_IndicatorWidth, PM_IndicatorHeight, PM_ExclusiveIndicatorWidth, PM_ExclusiveIndicatorHeight, PM_PopupMenuScrollerHeight, PM_CheckListButtonSize, PM_CheckListControllerSize, PM_PopupMenuFrameHorizontalExtra, PM_PopupMenuFrameVerticalExtra, PM_DialogButtonsSeparator, PM_DialogButtonsButtonWidth, PM_DialogButtonsButtonHeight, PM_MDIFrameWidth, PM_MDIMinimizedWidth, PM_HeaderMargin, PM_HeaderMarkSize, PM_HeaderGripMargin, PM_TabBarTabShiftHorizontal, PM_TabBarTabShiftVertical, PM_TabBarScrollButtonWidth, PM_MenuBarItemSpacing, PM_ToolBarItemSpacing, PM_CustomBase = 0xf0000000 }"
 .br
 .ti -1c
-.BI "virtual int \fBpixelMetric\fR ( PixelMetric metric, const QWidget * widget = 0 ) const = 0"
+.BI "virtual int \fBpixelMetric\fR ( PixelMetric metric, const TQWidget * widget = 0 ) const = 0"
 .br
 .ti -1c
 .BI "enum \fBContentsType\fR { CT_PushButton, CT_CheckBox, CT_RadioButton, CT_ToolButton, CT_ComboBox, CT_Splitter, CT_DockWindow, CT_ProgressBar, CT_PopupMenuItem, CT_TabBarTab, CT_Slider, CT_Header, CT_LineEdit, CT_MenuBar, CT_SpinBox, CT_SizeGrip, CT_TabWidget, CT_DialogButtons, CT_CustomBase = 0xf0000000 }"
 .br
 .ti -1c
-.BI "virtual QSize \fBsizeFromContents\fR ( ContentsType contents, const QWidget * widget, const QSize & contentsSize, const QStyleOption & opt = QStyleOption::Default ) const = 0"
+.BI "virtual QSize \fBsizeFromContents\fR ( ContentsType contents, const TQWidget * widget, const QSize & contentsSize, const QStyleOption & opt = QStyleOption::Default ) const = 0"
 .br
 .ti -1c
 .BI "enum \fBStyleHint\fR { SH_EtchDisabledText, SH_GUIStyle, SH_ScrollBar_BackgroundMode, SH_ScrollBar_MiddleClickAbsolutePosition, SH_ScrollBar_ScrollWhenPointerLeavesControl, SH_TabBar_SelectMouseType, SH_TabBar_Alignment, SH_Header_ArrowAlignment, SH_Slider_SnapToValue, SH_Slider_SloppyKeyEvents, SH_ProgressDialog_CenterCancelButton, SH_ProgressDialog_TextLabelAlignment, SH_PrintDialog_RightAlignButtons, SH_MainWindow_SpaceBelowMenuBar, SH_FontDialog_SelectAssociatedText, SH_PopupMenu_AllowActiveAndDisabled, SH_PopupMenu_SpaceActivatesItem, SH_PopupMenu_SubMenuPopupDelay, SH_ScrollView_FrameOnlyAroundContents, SH_MenuBar_AltKeyNavigation, SH_ComboBox_ListMouseTracking, SH_PopupMenu_MouseTracking, SH_MenuBar_MouseTracking, SH_ItemView_ChangeHighlightOnFocus, SH_Widget_ShareActivation, SH_Workspace_FillSpaceOnMaximize, SH_ComboBox_Popup, SH_TitleBar_NoBorder, SH_ScrollBar_StopMouseOverSlider, SH_BlinkCursorWhenTextSelected, SH_RichText_FullWidthSelection, SH_PopupMenu_Scrollable, SH_GroupBox_TextLabelVerticalAlignment, SH_GroupBox_TextLabelColor, SH_PopupMenu_SloppySubMenus, SH_Table_GridLineColor, SH_LineEdit_PasswordCharacter, SH_DialogButtons_DefaultButton, SH_ToolBox_SelectedPageTitleBold, SH_TabBar_PreferNoArrows, SH_ScrollBar_LeftClickAbsolutePosition, SH_ListViewExpand_SelectMouseType, SH_UnderlineAccelerator, SH_ToolButton_Uses3D, SH_CustomBase = 0xf0000000 }"
 .br
 .ti -1c
-.BI "virtual int \fBstyleHint\fR ( StyleHint stylehint, const QWidget * widget = 0, const QStyleOption & opt = QStyleOption::Default, QStyleHintReturn * returnData = 0 ) const = 0"
+.BI "virtual int \fBstyleHint\fR ( StyleHint stylehint, const TQWidget * widget = 0, const QStyleOption & opt = QStyleOption::Default, QStyleHintReturn * returnData = 0 ) const = 0"
 .br
 .ti -1c
 .BI "enum \fBStylePixmap\fR { SP_TitleBarMinButton, SP_TitleBarMaxButton, SP_TitleBarCloseButton, SP_TitleBarNormalButton, SP_TitleBarShadeButton, SP_TitleBarUnshadeButton, SP_DockWindowCloseButton, SP_MessageBoxInformation, SP_MessageBoxWarning, SP_MessageBoxCritical, SP_MessageBoxQuestion, SP_CustomBase = 0xf0000000 }"
 .br
 .ti -1c
-.BI "virtual QPixmap \fBstylePixmap\fR ( StylePixmap stylepixmap, const QWidget * widget = 0, const QStyleOption & opt = QStyleOption::Default ) const = 0"
+.BI "virtual QPixmap \fBstylePixmap\fR ( StylePixmap stylepixmap, const TQWidget * widget = 0, const QStyleOption & opt = QStyleOption::Default ) const = 0"
 .br
 .ti -1c
 .BI "int defaultFrameWidth () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "void tabbarMetrics ( const QWidget * t, int & hf, int & vf, int & ov ) const  \fI(obsolete)\fR"
+.BI "void tabbarMetrics ( const TQWidget * t, int & hf, int & vf, int & ov ) const  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "QSize scrollBarExtent () const  \fI(obsolete)\fR"
@@ -126,7 +126,7 @@ Inherited by QCommonStyle.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QRect \fBvisualRect\fR ( const QRect & logical, const QWidget * w )"
+.BI "QRect \fBvisualRect\fR ( const QRect & logical, const TQWidget * w )"
 .br
 .ti -1c
 .BI "QRect \fBvisualRect\fR ( const QRect & logical, const QRect & bounding )"
@@ -139,7 +139,7 @@ A large number of GUI elements are common to many widgets. The QStyle class allo
 .PP
 Although it is not possible to fully enumerate the look of graphical elements and the feel of widgets in a GUI, QStyle provides a considerable amount of control and customisability.
 .PP
-In Qt 1.x the look and feel option for widgets was specified by a single value: the GUIStyle. Starting with Qt 2.0, this notion was expanded to allow the look to be specified by virtual drawing functions.
+In TQt 1.x the look and feel option for widgets was specified by a single value: the GUIStyle. Starting with TQt 2.0, this notion was expanded to allow the look to be specified by virtual drawing functions.
 .PP
 Derived classes may reimplement some or all of the drawing functions to modify the look of all widgets that use those functions.
 .PP
@@ -147,7 +147,7 @@ Languages written from right to left (such as Arabic and Hebrew) usually also mi
 .PP
 The actual reverse layout is performed automatically when possible. However, for the sake of flexibility, the translation cannot be performed everywhere. The documentation for each function in the QStyle API states whether the function expects/returns logical or screen coordinates. Using logical coordinates (in ComplexControls, for example) provides great flexibility in controlling the look of a widget. Use visualRect() when necessary to translate logical coordinates into screen coordinates for drawing.
 .PP
-In Qt versions prior to 3.0, if you wanted a low level route into changing the appearance of a widget, you would reimplement polish(). With the new 3.0 style engine the recommended approach is to reimplement the draw functions, for example drawItem(), drawPrimitive(), drawControl(), drawControlMask(), drawComplexControl() and drawComplexControlMask(). Each of these functions is called with a range of parameters that provide information that you can use to determine how to draw them, e.g. style flags, rectangle, color group, etc.
+In TQt versions prior to 3.0, if you wanted a low level route into changing the appearance of a widget, you would reimplement polish(). With the new 3.0 style engine the recommended approach is to reimplement the draw functions, for example drawItem(), drawPrimitive(), drawControl(), drawControlMask(), drawComplexControl() and drawComplexControlMask(). Each of these functions is called with a range of parameters that provide information that you can use to determine how to draw them, e.g. style flags, rectangle, color group, etc.
 .PP
 For information on changing elements of an existing style or creating your own style see the Style overview.
 .PP
@@ -536,9 +536,9 @@ This enum represents a StyleHint. A StyleHint is a general look and/or feel hint
 .TP
 \fCQStyle::SH_ScrollBar_ScrollWhenPointerLeavesControl\fR - a boolean value. If TRUE, when clicking a scrollbar SubControl, holding the mouse button down and moving the pointer outside the SubControl, the scrollbar continues to scroll. If FALSE, the scollbar stops scrolling when the pointer leaves the SubControl.
 .TP
-\fCQStyle::SH_TabBar_Alignment\fR - the alignment for tabs in a QTabWidget. Possible values are Qt::AlignLeft, Qt::AlignCenter and Qt::AlignRight.
+\fCQStyle::SH_TabBar_Alignment\fR - the alignment for tabs in a QTabWidget. Possible values are TQt::AlignLeft, TQt::AlignCenter and TQt::AlignRight.
 .TP
-\fCQStyle::SH_Header_ArrowAlignment\fR - the placement of the sorting indicator may appear in list or table headers. Possible values are Qt::Left or Qt::Right.
+\fCQStyle::SH_Header_ArrowAlignment\fR - the placement of the sorting indicator may appear in list or table headers. Possible values are TQt::Left or TQt::Right.
 .TP
 \fCQStyle::SH_Slider_SnapToValue\fR - sliders snap to values while moving, like Windows
 .TP
@@ -546,7 +546,7 @@ This enum represents a StyleHint. A StyleHint is a general look and/or feel hint
 .TP
 \fCQStyle::SH_ProgressDialog_CenterCancelButton\fR - center button on progress dialogs, like Motif, otherwise right aligned.
 .TP
-\fCQStyle::SH_ProgressDialog_TextLabelAlignment\fR - Qt::AlignmentFlags -- text label alignment in progress dialogs; Center on windows, Auto|VCenter otherwise.
+\fCQStyle::SH_ProgressDialog_TextLabelAlignment\fR - TQt::AlignmentFlags -- text label alignment in progress dialogs; Center on windows, Auto|VCenter otherwise.
 .TP
 \fCQStyle::SH_PrintDialog_RightAlignButtons\fR - right align buttons in the print dialog, like Windows.
 .TP
@@ -608,7 +608,7 @@ This enum represents a StyleHint. A StyleHint is a general look and/or feel hint
 .TP
 \fCQStyle::SH_ToolBox_SelectedPageTitleBold\fR - Boldness of the selected page title in a QToolBox.
 .TP
-\fCQStyle::SH_LineEdit_PasswordCharacter\fR - The QChar Unicode character to be used for passwords.
+\fCQStyle::SH_LineEdit_PasswordCharacter\fR - The TQChar Unicode character to be used for passwords.
 .TP
 \fCQStyle::SH_Table_GridLineColor\fR
 .TP
@@ -780,14 +780,14 @@ Constructs a QStyle.
 Destroys the style and frees all allocated resources.
 .SH "int QStyle::defaultFrameWidth () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "void QStyle::drawComplexControl ( ComplexControl control, QPainter * p, const QWidget * widget, const QRect & r, const QColorGroup & cg, SFlags how = Style_Default, SCFlags sub = SC_All, SCFlags subActive = SC_None, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
+.SH "void QStyle::drawComplexControl ( ComplexControl control, QPainter * p, const TQWidget * widget, const QRect & r, const QColorGroup & cg, SFlags how = Style_Default, SCFlags sub = SC_All, SCFlags subActive = SC_None, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
 Draws the ComplexControl \fIcontrol\fR using the painter \fIp\fR in the area \fIr\fR. Colors are used from the color group \fIcg\fR. The \fIsub\fR argument specifies which SubControls to draw. Multiple SubControls can be OR'ed together. The \fIsubActive\fR argument specifies which SubControl is active.
 .PP
 The rect \fIr\fR should be in logical coordinates. Reimplementations of this function should use visualRect() to change the logical coordinates into screen coordinates when using drawPrimitive() and drawControl().
 .PP
 The \fIhow\fR argument is used to control how the ComplexControl is drawn. Multiple flags can OR'ed together. See the table below for an explanation of which flags are used with the various ComplexControls.
 .PP
-The \fIwidget\fR argument is a pointer to a QWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIcontrol\fR. The \fIopt\fR argument can be used to pass extra information required when drawing the ComplexControl. Note that \fIopt\fR may be the default value even for ComplexControls that can make use of the extra options. See the table below for the appropriate \fIwidget\fR and \fIopt\fR usage:
+The \fIwidget\fR argument is a pointer to a TQWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIcontrol\fR. The \fIopt\fR argument can be used to pass extra information required when drawing the ComplexControl. Note that \fIopt\fR may be the default value even for ComplexControls that can make use of the extra options. See the table below for the appropriate \fIwidget\fR and \fIopt\fR usage:
 .PP
 <center>.nf
 .TS
@@ -795,7 +795,7 @@ l - l. ComplexControl
 .br
 & Widget Cast Style Flags Notes Options Notes CC_SpinWidget(const QSpinWidget *) Style_Enabled Set if the spinwidget is enabled. Unused. Style_HasFocus Set if the spinwidget has input focus. CC_ComboBox(const QComboBox *) Style_Enabled Set if the combobox is enabled. Unused. Style_HasFocus Set if the combobox has input focus. CC_ScrollBar(const QScrollBar *) Style_Enabled Set if the scrollbar is enabled. Unused. Style_HasFocus Set if the scrollbar has input focus. CC_Slider(const QSlider *) Style_Enabled Set if the slider is enabled. Unused. Style_HasFocus Set if the slider has input focus. CC_ToolButton(const QToolButton *) Style_Enabled Set if the toolbutton is enabled. QStyleOption ( ArrowType t )
 .TP
-opt.arrowType() When the tool button only contains an arrow, \fIt\fR is the arrow's type. Style_HasFocus Set if the toolbutton has input focus. Style_Down Set if the toolbutton is down (ie. mouse button or space pressed). Style_On Set if the toolbutton is a toggle button and is toggled on. Style_AutoRaise Set if the toolbutton has auto-raise enabled. Style_Raised Set if the button is not down, not on and doesn't contain the mouse when auto-raise is enabled. CC_TitleBar(const QWidget *) Style_Enabled Set if the titlebar is enabled. Unused. CC_ListView(const QListView *) Style_Enabled Set if the titlebar is enabled. QStyleOption ( QListViewItem *item )
+opt.arrowType() When the tool button only contains an arrow, \fIt\fR is the arrow's type. Style_HasFocus Set if the toolbutton has input focus. Style_Down Set if the toolbutton is down (ie. mouse button or space pressed). Style_On Set if the toolbutton is a toggle button and is toggled on. Style_AutoRaise Set if the toolbutton has auto-raise enabled. Style_Raised Set if the button is not down, not on and doesn't contain the mouse when auto-raise is enabled. CC_TitleBar(const TQWidget *) Style_Enabled Set if the titlebar is enabled. Unused. CC_ListView(const QListView *) Style_Enabled Set if the titlebar is enabled. QStyleOption ( QListViewItem *item )
 .TP
 opt.listViewItem()
 .TE
@@ -803,20 +803,20 @@ opt.listViewItem()
 </center>
 .PP
 See also ComplexControl and SubControl.
-.SH "void QStyle::drawComplexControlMask ( ComplexControl control, QPainter * p, const QWidget * widget, const QRect & r, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
+.SH "void QStyle::drawComplexControlMask ( ComplexControl control, QPainter * p, const TQWidget * widget, const QRect & r, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
 Draw a bitmask for the ComplexControl \fIcontrol\fR using the painter \fIp\fR in the area \fIr\fR. See drawComplexControl() for an explanation of the use of the \fIwidget\fR and \fIopt\fR arguments.
 .PP
 The rect \fIr\fR should be in logical coordinates. Reimplementations of this function should use visualRect() to change the logical corrdinates into screen coordinates when using drawPrimitive() and drawControl().
 .PP
 See also drawComplexControl() and ComplexControl.
-.SH "void QStyle::drawControl ( ControlElement element, QPainter * p, const QWidget * widget, const QRect & r, const QColorGroup & cg, SFlags how = Style_Default, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
+.SH "void QStyle::drawControl ( ControlElement element, QPainter * p, const TQWidget * widget, const QRect & r, const QColorGroup & cg, SFlags how = Style_Default, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
 Draws the ControlElement \fIelement\fR using the painter \fIp\fR in the area \fIr\fR. Colors are used from the color group \fIcg\fR.
 .PP
 The rect \fIr\fR should be in screen coordinates.
 .PP
 The \fIhow\fR argument is used to control how the ControlElement is drawn. Multiple flags can be OR'ed together. See the table below for an explanation of which flags are used with the various ControlElements.
 .PP
-The \fIwidget\fR argument is a pointer to a QWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIelement\fR. The \fIopt\fR argument can be used to pass extra information required when drawing the ControlElement. Note that \fIopt\fR may be the default value even for ControlElements that can make use of the extra options. See the table below for the appropriate \fIwidget\fR and \fIopt\fR usage:
+The \fIwidget\fR argument is a pointer to a TQWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIelement\fR. The \fIopt\fR argument can be used to pass extra information required when drawing the ControlElement. Note that \fIopt\fR may be the default value even for ControlElements that can make use of the extra options. See the table below for the appropriate \fIwidget\fR and \fIopt\fR usage:
 .PP
 <center>.nf
 .TS
@@ -869,14 +869,14 @@ opt.arrowType() When the tool button only contains an arrow, \fIt\fR is the arro
 </center>
 .PP
 See also ControlElement and StyleFlags.
-.SH "void QStyle::drawControlMask ( ControlElement element, QPainter * p, const QWidget * widget, const QRect & r, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
+.SH "void QStyle::drawControlMask ( ControlElement element, QPainter * p, const TQWidget * widget, const QRect & r, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
 Draw a bitmask for the ControlElement \fIelement\fR using the painter \fIp\fR in the area \fIr\fR. See drawControl() for an explanation of the use of the \fIwidget\fR and \fIopt\fR arguments.
 .PP
 The rect \fIr\fR should be in screen coordinates.
 .PP
 See also drawControl() and ControlElement.
-.SH "void QStyle::drawItem ( QPainter * p, const QRect & r, int flags, const QColorGroup & g, bool enabled, const QPixmap * pixmap, const QString & text, int len = -1, const QColor * penColor = 0 ) const\fC [virtual]\fR"
-Draws the \fItext\fR or \fIpixmap\fR in rectangle \fIr\fR using painter \fIp\fR and color group \fIg\fR. The pen color is specified with \fIpenColor\fR. The \fIenabled\fR bool indicates whether or not the item is enabled; when reimplementing this bool should influence how the item is drawn. If \fIlen\fR is -1 (the default) all the \fItext\fR is drawn; otherwise only the first \fIlen\fR characters of \fItext\fR are drawn. The text is aligned and wrapped according to the alignment \fIflags\fR (see Qt::AlignmentFlags).
+.SH "void QStyle::drawItem ( QPainter * p, const QRect & r, int flags, const QColorGroup & g, bool enabled, const QPixmap * pixmap, const TQString & text, int len = -1, const TQColor * penColor = 0 ) const\fC [virtual]\fR"
+Draws the \fItext\fR or \fIpixmap\fR in rectangle \fIr\fR using painter \fIp\fR and color group \fIg\fR. The pen color is specified with \fIpenColor\fR. The \fIenabled\fR bool indicates whether or not the item is enabled; when reimplementing this bool should influence how the item is drawn. If \fIlen\fR is -1 (the default) all the \fItext\fR is drawn; otherwise only the first \fIlen\fR characters of \fItext\fR are drawn. The text is aligned and wrapped according to the alignment \fIflags\fR (see TQt::AlignmentFlags).
 .PP
 By default, if both the text and the pixmap are not null, the pixmap is drawn and the text is ignored.
 .SH "void QStyle::drawPrimitive ( PrimitiveElement pe, QPainter * p, const QRect & r, const QColorGroup & cg, SFlags flags = Style_Default, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
@@ -892,7 +892,7 @@ The \fIopt\fR argument can be used to control how various PrimitiveElements are 
 .PP
 <center>.nf
 .TS
-l - l. PrimitiveElement Options Notes PE_FocusRect QStyleOption ( const QColor & bg )
+l - l. PrimitiveElement Options Notes PE_FocusRect QStyleOption ( const TQColor & bg )
 .TP
 opt.color() \fIbg\fR is the background color on which the focus rect is being drawn. PE_Panel QStyleOption ( int linewidth, int midlinewidth )
 .TP
@@ -928,14 +928,14 @@ For all other PrimitiveElements, \fIopt\fR is unused.
 See also StyleFlags.
 .PP
 Example: themes/wood.cpp.
-.SH "QRect QStyle::itemRect ( QPainter * p, const QRect & r, int flags, bool enabled, const QPixmap * pixmap, const QString & text, int len = -1 ) const\fC [virtual]\fR"
-Returns the appropriate area (see below) within rectangle \fIr\fR in which to draw the \fItext\fR or \fIpixmap\fR using painter \fIp\fR. If \fIlen\fR is -1 (the default) all the \fItext\fR is drawn; otherwise only the first \fIlen\fR characters of \fItext\fR are drawn. The text is aligned in accordance with the alignment \fIflags\fR (see Qt::AlignmentFlags). The \fIenabled\fR bool indicates whether or not the item is enabled.
+.SH "QRect QStyle::itemRect ( QPainter * p, const QRect & r, int flags, bool enabled, const QPixmap * pixmap, const TQString & text, int len = -1 ) const\fC [virtual]\fR"
+Returns the appropriate area (see below) within rectangle \fIr\fR in which to draw the \fItext\fR or \fIpixmap\fR using painter \fIp\fR. If \fIlen\fR is -1 (the default) all the \fItext\fR is drawn; otherwise only the first \fIlen\fR characters of \fItext\fR are drawn. The text is aligned in accordance with the alignment \fIflags\fR (see TQt::AlignmentFlags). The \fIenabled\fR bool indicates whether or not the item is enabled.
 .PP
 If \fIr\fR is larger than the area needed to render the \fItext\fR the rectangle that is returned will be offset within \fIr\fR in accordance with the alignment \fIflags\fR. For example if \fIflags\fR is AlignCenter the returned rectangle will be centered within \fIr\fR. If \fIr\fR is smaller than the area needed the rectangle that is returned will be \fIlarger\fR than \fIr\fR (the smallest rectangle large enough to render the \fItext\fR or \fIpixmap\fR).
 .PP
 By default, if both the text and the pixmap are not null, the pixmap is drawn and the text is ignored.
-.SH "int QStyle::pixelMetric ( PixelMetric metric, const QWidget * widget = 0 ) const\fC [pure virtual]\fR"
-Returns the pixel metric for \fImetric\fR. The \fIwidget\fR argument is a pointer to a QWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fImetric\fR. Note that \fIwidget\fR may be zero even for PixelMetrics that can make use of \fIwidget\fR. See the table below for the appropriate \fIwidget\fR casts:
+.SH "int QStyle::pixelMetric ( PixelMetric metric, const TQWidget * widget = 0 ) const\fC [pure virtual]\fR"
+Returns the pixel metric for \fImetric\fR. The \fIwidget\fR argument is a pointer to a TQWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fImetric\fR. Note that \fIwidget\fR may be zero even for PixelMetrics that can make use of \fIwidget\fR. See the table below for the appropriate \fIwidget\fR casts:
 .PP
 <center>.nf
 .TS
@@ -943,14 +943,14 @@ l - l. PixelMetric Widget Cast PM_SliderControlThickness (const QSlider *) PM_Sl
 .TE
 .fi
 </center>
-.SH "void QStyle::polish ( QWidget * )\fC [virtual]\fR"
+.SH "void QStyle::polish ( TQWidget * )\fC [virtual]\fR"
 Initializes the appearance of a widget.
 .PP
 This function is called for every widget at some point after it has been fully created but just \fIbefore\fR it is shown the very first time.
 .PP
-Reasonable actions in this function might be to call QWidget::setBackgroundMode() for the widget. An example of highly unreasonable use would be setting the geometry! Reimplementing this function gives you a back-door through which you can change the appearance of a widget. With Qt 3.0's style engine you will rarely need to write your own polish(); instead reimplement drawItem(), drawPrimitive(), etc.
+Reasonable actions in this function might be to call TQWidget::setBackgroundMode() for the widget. An example of highly unreasonable use would be setting the geometry! Reimplementing this function gives you a back-door through which you can change the appearance of a widget. With TQt 3.0's style engine you will rarely need to write your own polish(); instead reimplement drawItem(), drawPrimitive(), etc.
 .PP
-The QWidget::inherits() function may provide enough information to allow class-specific customizations. But be careful not to hard-code things too much because new QStyle subclasses are expected to work reasonably with all current and \fIfuture\fR widgets.
+The TQWidget::inherits() function may provide enough information to allow class-specific customizations. But be careful not to hard-code things too much because new QStyle subclasses are expected to work reasonably with all current and \fIfuture\fR widgets.
 .PP
 See also unPolish().
 .SH "void QStyle::polish ( QApplication * )\fC [virtual]\fR"
@@ -967,24 +967,24 @@ The style may have certain requirements for color palettes. In this function it 
 See also QPalette and QApplication::setPalette().
 .SH "void QStyle::polishPopupMenu ( QPopupMenu * )\fC [pure virtual]\fR"
 Polishes the popup menu according to the GUI style. This usually means setting the mouse tracking (QPopupMenu::setMouseTracking()) and whether the menu is checkable by default (QPopupMenu::setCheckable()).
-.SH "SubControl QStyle::querySubControl ( ComplexControl control, const QWidget * widget, const QPoint & pos, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
-Returns the SubControl for \fIwidget\fR at the point \fIpos\fR. The \fIwidget\fR argument is a pointer to a QWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIcontrol\fR. The \fIopt\fR argument can be used to pass extra information required when drawing the ComplexControl. Note that \fIopt\fR may be the default value even for ComplexControls that can make use of the extra options. See drawComplexControl() for an explanation of the \fIwidget\fR and \fIopt\fR arguments.
+.SH "SubControl QStyle::querySubControl ( ComplexControl control, const TQWidget * widget, const QPoint & pos, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
+Returns the SubControl for \fIwidget\fR at the point \fIpos\fR. The \fIwidget\fR argument is a pointer to a TQWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIcontrol\fR. The \fIopt\fR argument can be used to pass extra information required when drawing the ComplexControl. Note that \fIopt\fR may be the default value even for ComplexControls that can make use of the extra options. See drawComplexControl() for an explanation of the \fIwidget\fR and \fIopt\fR arguments.
 .PP
 Note that \fIpos\fR is passed in screen coordinates. When using querySubControlMetrics() to check for hits and misses, use visualRect() to change the logical coordinates into screen coordinates.
 .PP
 See also drawComplexControl(), ComplexControl, SubControl, and querySubControlMetrics().
-.SH "QRect QStyle::querySubControlMetrics ( ComplexControl control, const QWidget * widget, SubControl subcontrol, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
+.SH "QRect QStyle::querySubControlMetrics ( ComplexControl control, const TQWidget * widget, SubControl subcontrol, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
 Returns the rect for the SubControl \fIsubcontrol\fR for \fIwidget\fR in logical coordinates.
 .PP
-The \fIwidget\fR argument is a pointer to a QWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIcontrol\fR. The \fIopt\fR argument can be used to pass extra information required when drawing the ComplexControl. Note that \fIopt\fR may be the default value even for ComplexControls that can make use of the extra options. See drawComplexControl() for an explanation of the \fIwidget\fR and \fIopt\fR arguments.
+The \fIwidget\fR argument is a pointer to a TQWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIcontrol\fR. The \fIopt\fR argument can be used to pass extra information required when drawing the ComplexControl. Note that \fIopt\fR may be the default value even for ComplexControls that can make use of the extra options. See drawComplexControl() for an explanation of the \fIwidget\fR and \fIopt\fR arguments.
 .PP
 See also drawComplexControl(), ComplexControl, and SubControl.
 .SH "QSize QStyle::scrollBarExtent () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "QSize QStyle::sizeFromContents ( ContentsType contents, const QWidget * widget, const QSize & contentsSize, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
+.SH "QSize QStyle::sizeFromContents ( ContentsType contents, const TQWidget * widget, const QSize & contentsSize, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
 Returns the size of \fIwidget\fR based on the contents size \fIcontentsSize\fR.
 .PP
-The \fIwidget\fR argument is a pointer to a QWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIcontents\fR. The \fIopt\fR argument can be used to pass extra information required when calculating the size. Note that \fIopt\fR may be the default value even for ContentsTypes that can make use of the extra options. See the table below for the appropriate \fIwidget\fR and \fIopt\fR usage:
+The \fIwidget\fR argument is a pointer to a TQWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIcontents\fR. The \fIopt\fR argument can be used to pass extra information required when calculating the size. Note that \fIopt\fR may be the default value even for ContentsTypes that can make use of the extra options. See the table below for the appropriate \fIwidget\fR and \fIopt\fR usage:
 .PP
 <center>.nf
 .TS
@@ -994,38 +994,38 @@ opt.menuItem()
 .TE
 .fi
 </center>
-.SH "int QStyle::styleHint ( StyleHint stylehint, const QWidget * widget = 0, const QStyleOption & opt = QStyleOption::Default, QStyleHintReturn * returnData = 0 ) const\fC [pure virtual]\fR"
+.SH "int QStyle::styleHint ( StyleHint stylehint, const TQWidget * widget = 0, const QStyleOption & opt = QStyleOption::Default, QStyleHintReturn * returnData = 0 ) const\fC [pure virtual]\fR"
 Returns the style hint \fIstylehint\fR for \fIwidget\fR. Currently, \fIwidget\fR, \fIopt\fR, and \fIreturnData\fR are unused; they're included to allow for future enhancements.
 .PP
 For an explanation of the return value see StyleHint.
-.SH "QPixmap QStyle::stylePixmap ( StylePixmap stylepixmap, const QWidget * widget = 0, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
+.SH "QPixmap QStyle::stylePixmap ( StylePixmap stylepixmap, const TQWidget * widget = 0, const QStyleOption & opt = QStyleOption::Default ) const\fC [pure virtual]\fR"
 Returns a pixmap for \fIstylepixmap\fR.
 .PP
 The \fIopt\fR argument can be used to pass extra information required when drawing the ControlElement. Note that \fIopt\fR may be the default value even for StylePixmaps that can make use of the extra options. Currently, the \fIopt\fR argument is unused.
 .PP
-The \fIwidget\fR argument is a pointer to a QWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIstylepixmap\fR. See the table below for the appropriate \fIwidget\fR casts:
+The \fIwidget\fR argument is a pointer to a TQWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIstylepixmap\fR. See the table below for the appropriate \fIwidget\fR casts:
 .PP
 <center>.nf
 .TS
-l - l. StylePixmap Widget Cast SP_TitleBarMinButton (const QWidget *) SP_TitleBarMaxButton (const QWidget *) SP_TitleBarCloseButton (const QWidget *) SP_TitleBarNormalButton (const QWidget *) SP_TitleBarShadeButton (const QWidget *) SP_TitleBarUnshadeButton (const QWidget *) SP_DockWindowCloseButton
+l - l. StylePixmap Widget Cast SP_TitleBarMinButton (const TQWidget *) SP_TitleBarMaxButton (const TQWidget *) SP_TitleBarCloseButton (const TQWidget *) SP_TitleBarNormalButton (const TQWidget *) SP_TitleBarShadeButton (const TQWidget *) SP_TitleBarUnshadeButton (const TQWidget *) SP_DockWindowCloseButton
 .TE
 .fi
 </center>
 .PP
 See also StylePixmap.
-.SH "QRect QStyle::subRect ( SubRect subrect, const QWidget * widget ) const\fC [pure virtual]\fR"
+.SH "QRect QStyle::subRect ( SubRect subrect, const TQWidget * widget ) const\fC [pure virtual]\fR"
 Returns the sub-area \fIsubrect\fR for the \fIwidget\fR in logical coordinates.
 .PP
-The \fIwidget\fR argument is a pointer to a QWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIsubrect\fR. See the table below for the appropriate \fIwidget\fR casts:
+The \fIwidget\fR argument is a pointer to a TQWidget or one of its subclasses. The widget can be cast to the appropriate type based on the value of \fIsubrect\fR. See the table below for the appropriate \fIwidget\fR casts:
 .PP
 <center>.nf
 .TS
-l - l. SubRect Widget Cast SR_PushButtonContents (const QPushButton *) SR_PushButtonFocusRect (const QPushButton *) SR_CheckBoxIndicator (const QCheckBox *) SR_CheckBoxContents (const QCheckBox *) SR_CheckBoxFocusRect (const QCheckBox *) SR_RadioButtonIndicator (const QRadioButton *) SR_RadioButtonContents (const QRadioButton *) SR_RadioButtonFocusRect (const QRadioButton *) SR_ComboBoxFocusRect (const QComboBox *) SR_DockWindowHandleRect (const QWidget *) SR_ProgressBarGroove (const QProgressBar *) SR_ProgressBarContents (const QProgressBar *) SR_ProgressBarLabel
+l - l. SubRect Widget Cast SR_PushButtonContents (const QPushButton *) SR_PushButtonFocusRect (const QPushButton *) SR_CheckBoxIndicator (const QCheckBox *) SR_CheckBoxContents (const QCheckBox *) SR_CheckBoxFocusRect (const QCheckBox *) SR_RadioButtonIndicator (const QRadioButton *) SR_RadioButtonContents (const QRadioButton *) SR_RadioButtonFocusRect (const QRadioButton *) SR_ComboBoxFocusRect (const QComboBox *) SR_DockWindowHandleRect (const TQWidget *) SR_ProgressBarGroove (const QProgressBar *) SR_ProgressBarContents (const QProgressBar *) SR_ProgressBarLabel
 .TE
 .fi
 </center>
 .PP
-The tear-off handle (SR_DockWindowHandleRect) for QDockWindow is a private class. Use QWidget::parentWidget() to access the QDockWindow:
+The tear-off handle (SR_DockWindowHandleRect) for QDockWindow is a private class. Use TQWidget::parentWidget() to access the QDockWindow:
 .PP
 .nf
 .br
@@ -1038,9 +1038,9 @@ The tear-off handle (SR_DockWindowHandleRect) for QDockWindow is a private class
 .fi
 .PP
 See also SubRect.
-.SH "void QStyle::tabbarMetrics ( const QWidget * t, int & hf, int & vf, int & ov ) const"
+.SH "void QStyle::tabbarMetrics ( const TQWidget * t, int & hf, int & vf, int & ov ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "void QStyle::unPolish ( QWidget * )\fC [virtual]\fR"
+.SH "void QStyle::unPolish ( TQWidget * )\fC [virtual]\fR"
 Undoes the initialization of a widget's appearance.
 .PP
 This function is the counterpart to polish. It is called for every polished widget when the style is dynamically changed. The former style has to unpolish its settings before the new style can polish them again.
@@ -1052,7 +1052,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Undoes the application polish.
 .PP
 See also polish().
-.SH "QRect QStyle::visualRect ( const QRect & logical, const QWidget * w )\fC [static]\fR"
+.SH "QRect QStyle::visualRect ( const QRect & logical, const TQWidget * w )\fC [static]\fR"
 Returns the rect \fIlogical\fR in screen coordinates. The bounding rect for widget \fIw\fR is used to perform the translation. This function is provided to aid style implementors in supporting right-to-left mode.
 .PP
 See also QApplication::reverseLayout().
@@ -1077,8 +1077,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

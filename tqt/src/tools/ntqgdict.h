@@ -104,7 +104,7 @@ private:
 };
 
 
-class Q_EXPORT TQGDict : public TQPtrCollection	// generic dictionary class
+class TQ_EXPORT TQGDict : public TQPtrCollection	// generic dictionary class
 {
 public:
     uint	count() const	{ return numItems; }
@@ -114,7 +114,7 @@ public:
     TQPtrCollection::Item look_ascii( const char *key, TQPtrCollection::Item, int );
     TQPtrCollection::Item look_int( long key, TQPtrCollection::Item, int );
     TQPtrCollection::Item look_ptr( void *key, TQPtrCollection::Item, int );
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQDataStream &read( TQDataStream & );
     TQDataStream &write( TQDataStream & ) const;
 #endif
@@ -144,7 +144,7 @@ protected:
 
     void	statistics() const;
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     virtual TQDataStream &read( TQDataStream &, TQPtrCollection::Item & );
     virtual TQDataStream &write( TQDataStream &, TQPtrCollection::Item ) const;
 #endif
@@ -167,7 +167,7 @@ private:
 };
 
 
-class Q_EXPORT TQGDictIterator			// generic dictionary iterator
+class TQ_EXPORT TQGDictIterator			// generic dictionary iterator
 {
 friend class TQGDict;
 public:

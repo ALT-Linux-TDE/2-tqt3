@@ -25,7 +25,7 @@ TabDialog::TabDialog( TQWidget *parent, const char *name, const TQString &_filen
     setupTab2();
     setupTab3();
 
-    connect( this, SIGNAL( applyButtonPressed() ), tqApp, SLOT( quit() ) );
+    connect( this, TQ_SIGNAL( applyButtonPressed() ), tqApp, TQ_SLOT( quit() ) );
 }
 
 void TabDialog::setupTab1()

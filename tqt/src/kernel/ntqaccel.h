@@ -46,11 +46,11 @@
 #include "ntqkeysequence.h"
 #endif // QT_H
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 class TQAccelPrivate;
 
-class Q_EXPORT TQAccel : public TQObject			// accelerator class
+class TQ_EXPORT TQAccel : public TQObject			// accelerator class
 {
     TQ_OBJECT
 public:
@@ -106,5 +106,5 @@ private:
     friend class TQAccelManager;
 };
 
-#endif // QT_NO_ACCEL
+#endif // TQT_NO_ACCEL
 #endif // TQACCEL_H

@@ -83,7 +83,7 @@
 */
 
 #include "ntqjpunicode.h"
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
 #include "ntqcstring.h"
 #ifdef Q_OS_TEMP
 #include "qwinfunctions_wce.h"

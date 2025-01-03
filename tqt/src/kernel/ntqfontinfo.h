@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQFontInfo
+class TQ_EXPORT TQFontInfo
 {
 public:
     TQFontInfo( const TQFont & );

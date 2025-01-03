@@ -40,7 +40,7 @@
 
 #include "ntqinputdialog.h"
 
-#ifndef QT_NO_INPUTDIALOG
+#ifndef TQT_NO_INPUTDIALOG
 
 #include "ntqlayout.h"
 #include "ntqlabel.h"
@@ -160,13 +160,13 @@ TQInputDialog::TQInputDialog( const TQString &label, TQWidget* parent,
     hbox->addWidget( d->ok );
     hbox->addWidget( cancel );
 
-    connect( d->lineEdit, SIGNAL( returnPressed() ),
-	     this, SLOT( tryAccept() ) );
-    connect( d->lineEdit, SIGNAL( textChanged(const TQString&) ),
-	     this, SLOT( textChanged(const TQString&) ) );
+    connect( d->lineEdit, TQ_SIGNAL( returnPressed() ),
+	     this, TQ_SLOT( tryAccept() ) );
+    connect( d->lineEdit, TQ_SIGNAL( textChanged(const TQString&) ),
+	     this, TQ_SLOT( textChanged(const TQString&) ) );
 
-    connect( d->ok, SIGNAL( clicked() ), this, SLOT( accept() ) );
-    connect( cancel, SIGNAL( clicked() ), this, SLOT( reject() ) );
+    connect( d->ok, TQ_SIGNAL( clicked() ), this, TQ_SLOT( accept() ) );
+    connect( cancel, TQ_SIGNAL( clicked() ), this, TQ_SLOT( reject() ) );
 
     TQSize sh = sizeHint().expandedTo( TQSize(400, 10) );
     setType( type );
@@ -239,7 +239,7 @@ void TQInputDialog::setType( Type t )
 	d->stack->raiseWidget( input );
 	d->stack->setFixedHeight( input->sizeHint().height() );
 	input->setFocus();
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	d->label->setBuddy( input );
 #endif
     }
@@ -304,7 +304,7 @@ TQString TQInputDialog::getText( const TQString &caption, const TQString &label,
 					  name ? name : "qt_inputdlg_gettext",
 					  TRUE, LineEdit );
 
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     dlg->setCaption( caption );
 #endif
     dlg->lineEdit()->setText( text );
@@ -361,7 +361,7 @@ int TQInputDialog::getInteger( const TQString &caption, const TQString &label,
     TQInputDialog *dlg = new TQInputDialog( label, parent,
 					  name ? name : "qt_inputdlg_getint",
 					  TRUE, SpinBox );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     dlg->setCaption( caption );
 #endif
     dlg->spinBox()->setRange( minValue, maxValue );
@@ -419,7 +419,7 @@ double TQInputDialog::getDouble( const TQString &caption, const TQString &label,
 {
     TQInputDialog dlg( label, parent,
 		      name ? name : "qt_inputdlg_getdbl", TRUE, LineEdit );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     dlg.setCaption( caption );
 #endif
     dlg.lineEdit()->setValidator( new TQDoubleValidator( minValue, maxValue, decimals, dlg.lineEdit() ) );
@@ -472,7 +472,7 @@ TQString TQInputDialog::getItem( const TQString &caption, const TQString &label,
 			       bool *ok, TQWidget *parent, const char *name )
 {
     TQInputDialog *dlg = new TQInputDialog( label, parent, name ? name : "qt_inputdlg_getitem", TRUE, editable ? EditableComboBox : ComboBox );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     dlg->setCaption( caption );
 #endif
     if ( editable ) {

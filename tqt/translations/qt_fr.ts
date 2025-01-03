@@ -302,12 +302,12 @@
         <translation>LTR</translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>L&apos;exécutable &apos;%1&apos; requiert Qt %2 (Qt %3 présent).</translation>
+        <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+        <translation>L&apos;exécutable &apos;%1&apos; requiert TQt %2 (Qt %3 présent).</translation>
     </message>
     <message>
-        <source>Incompatible Qt Library Error</source>
-        <translation>Erreur: bibliothèque Qt incompatible</translation>
+        <source>Incompatible TQt Library Error</source>
+        <translation>Erreur: bibliothèque TQt incompatible</translation>
     </message>
 </context>
 <context>
@@ -1365,20 +1365,20 @@ en
         <translation>&amp;Ignorer</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This application was created with Qt version %1.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;h3&gt;À propos de Qt&lt;/h3&gt;&lt;p&gt;Ce programme utilise Qt version %1.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This application was created with TQt version %1.&lt;/p&gt;</source>
+        <translation type="obsolete">&lt;h3&gt;À propos de Qt&lt;/h3&gt;&lt;p&gt;Ce programme utilise TQt version %1.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;Ce programme utilise Qt version %1.&lt;/p&gt;&lt;p&gt;Qt est une boîte à outils C++ pour le développement multi-plateforme d&apos;applications graphiques. Qt permet de porter un même code source sur Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX et beaucoup d&apos;autres versions d&apos;Unix avec X11.&lt;br&gt;Qt est aussi disponible pour les systèmes embarqués.&lt;/p&gt;&lt;p&gt;Qt est un produit de Trolltech. Consultez &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; pour de plus amples renseignements.&lt;/p&gt;</translation>
+        <source>&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation type="obsolete">&lt;p&gt;Ce programme utilise TQt version %1.&lt;/p&gt;&lt;p&gt;Qt est une boîte à outils C++ pour le développement multi-plateforme d&apos;applications graphiques. TQt permet de porter un même code source sur Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX et beaucoup d&apos;autres versions d&apos;Unix avec X11.&lt;br&gt;Qt est aussi disponible pour les systèmes embarqués.&lt;/p&gt;&lt;p&gt;Qt est un produit de Trolltech. Consultez &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; pour de plus amples renseignements.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;h3&gt;À propos de Qt&lt;/h3&gt;&lt;p&gt;Ce programme utilise Qt version %1.&lt;/p&gt;&lt;p&gt;Qt est une boîte à outils C++ pour le développement multi-plateforme d&apos;applications graphiques. Qt permet de porter un même code source sur Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX et beaucoup d&apos;autres versions d&apos;Unix avec X11.&lt;br&gt;Qt est aussi disponible pour les systèmes embarqués.&lt;/p&gt;&lt;p&gt;Qt est un produit de Trolltech. Consultez &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; pour de plus amples renseignements.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation type="obsolete">&lt;h3&gt;À propos de Qt&lt;/h3&gt;&lt;p&gt;Ce programme utilise TQt version %1.&lt;/p&gt;&lt;p&gt;Qt est une boîte à outils C++ pour le développement multi-plateforme d&apos;applications graphiques. TQt permet de porter un même code source sur Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX et beaucoup d&apos;autres versions d&apos;Unix avec X11.&lt;br&gt;Qt est aussi disponible pour les systèmes embarqués.&lt;/p&gt;&lt;p&gt;Qt est un produit de Trolltech. Consultez &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; pour de plus amples renseignements.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;À propos de Qt&lt;/h3&gt;&lt;p&gt;Ce programme utilise Qt version %1.&lt;/p&gt;&lt;p&gt;Qt est une boîte à outils C++ pour le développement multi-plateforme d&apos;applications graphiques. Qt permet de porter un même code source sur MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux et toutes les versions commerciales majeures.&lt;br&gt;Qt est aussi disponible pour les systèmes embarqués.&lt;/p&gt;&lt;p&gt;Qt est un produit de Trolltech. Consultez &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; pour de plus amples renseignements.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;À propos de Qt&lt;/h3&gt;&lt;p&gt;Ce programme utilise TQt version %1.&lt;/p&gt;&lt;p&gt;Qt est une boîte à outils C++ pour le développement multi-plateforme d&apos;applications graphiques. TQt permet de porter un même code source sur MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux et toutes les versions commerciales majeures.&lt;br&gt;Qt est aussi disponible pour les systèmes embarqués.&lt;/p&gt;&lt;p&gt;Qt est un produit de Trolltech. Consultez &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; pour de plus amples renseignements.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>

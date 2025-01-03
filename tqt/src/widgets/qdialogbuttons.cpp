@@ -37,16 +37,16 @@
 **********************************************************************/
 
 #include "qdialogbuttons_p.h"
-#ifndef QT_NO_DIALOGBUTTONS
+#ifndef TQT_NO_DIALOGBUTTONS
 
 #include <ntqapplication.h>
 #include <ntqpushbutton.h>
 #include <ntqguardedptr.h>
 #include <ntqmap.h>
 #include <ntqvariant.h>
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
 #include <ntqdialog.h>
-#endif // QT_NO_DIALOG
+#endif // TQT_NO_DIALOG
 #include <ntqlayout.h>
 #include <ntqstyle.h>
 #include <ntqmap.h>
@@ -62,17 +62,17 @@ struct TQDialogButtonsPrivate
     bool questionMode;
 };
 
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
 TQDialogButtons::TQDialogButtons(TQDialog *parent, bool autoConnect, TQ_UINT32 buttons,
 			       Orientation orient, const char *name ) : TQWidget(parent, name)
 {
     init(buttons, orient);
     if(parent && autoConnect) {
-	TQObject::connect(this, SIGNAL(acceptClicked()), parent, SLOT(accept()));
-	TQObject::connect(this, SIGNAL(rejectClicked()), parent, SLOT(reject()));
+	TQObject::connect(this, TQ_SIGNAL(acceptClicked()), parent, TQ_SLOT(accept()));
+	TQObject::connect(this, TQ_SIGNAL(rejectClicked()), parent, TQ_SLOT(reject()));
     }
 }
-#endif // QT_NO_DIALOG
+#endif // TQT_NO_DIALOG
 
 TQDialogButtons::TQDialogButtons(TQWidget *parent, TQ_UINT32 buttons, 
 			       Orientation orient, const char *name ) : TQWidget(parent, name)
@@ -183,14 +183,14 @@ TQDialogButtons::setDefaultButton(Button button)
 	return;
     }
     if(d->def != button) {
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 	if(d->buttons.contains(d->def))
-	    d->buttons[d->def]->setProperty("default", TQVariant(FALSE,0));
+	    d->buttons[d->def]->setProperty("default", TQVariant(false));
 #endif
 	d->def = button;
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 	if(d->buttons.contains(d->def))
-	    d->buttons[d->def]->setProperty("default", TQVariant(FALSE,0));
+	    d->buttons[d->def]->setProperty("default", TQVariant(false));
 #endif
     }
 }
@@ -205,7 +205,7 @@ void
 TQDialogButtons::setButtonText(Button button, const TQString &str)
 {
     d->text[button] = str;
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     if(d->buttons.contains(button))
 	d->buttons[button]->setProperty("text", TQVariant(str));
 #endif
@@ -242,7 +242,7 @@ TQWidget *
 TQDialogButtons::createButton(Button b)
 {
     TQPushButton *ret = new TQPushButton(this, "qdialog_button");
-    TQObject::connect(ret, SIGNAL(clicked()), this, SLOT(handleClicked()));
+    TQObject::connect(ret, TQ_SIGNAL(clicked()), this, TQ_SLOT(handleClicked()));
     if(d->text.contains(b)) {
 	ret->setText(d->text[b]);
     } else {
@@ -412,8 +412,8 @@ TQDialogButtons::layoutButtons()
 		if(w) {
 		    if(b == d->def) {
 			w->setFocus();
-#ifndef QT_NO_PROPERTIES
-			w->setProperty("default", TQVariant(TRUE,0));
+#ifndef TQT_NO_PROPERTIES
+			w->setProperty("default", TQVariant(true));
 #endif
 		    }
 		    w->setEnabled(d->enabled & b);

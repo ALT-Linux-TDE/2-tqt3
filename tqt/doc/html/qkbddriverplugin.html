@@ -53,7 +53,7 @@ TQt/Embedded keyboard driver plugins.
 it easy to create custom keyboard drivers.
 <p> Writing a keyboard driver plugin is achieved by subclassing this
 base class, reimplementing the pure virtual functions <a href="#keys">keys</a>() and
-<a href="#create">create</a>(), and exporting the class with the <tt>Q_EXPORT_PLUGIN</tt>
+<a href="#create">create</a>(), and exporting the class with the <tt>TQ_EXPORT_PLUGIN</tt>
 macro. See the <a href="plugins-howto.html">Plugins
     documentation</a> for details.
 <p> This class is only available in TQt/Embedded.
@@ -63,7 +63,7 @@ macro. See the <a href="plugins-howto.html">Plugins
 <h3 class=fn><a name="TQKbdDriverPlugin"></a>TQKbdDriverPlugin::TQKbdDriverPlugin ()
 </h3>
 Constructs a keyboard driver plugin. This is invoked automatically
-by the <tt>Q_EXPORT_PLUGIN</tt> macro.
+by the <tt>TQ_EXPORT_PLUGIN</tt> macro.
 
 <h3 class=fn><a name="~TQKbdDriverPlugin"></a>TQKbdDriverPlugin::~TQKbdDriverPlugin ()
 </h3>

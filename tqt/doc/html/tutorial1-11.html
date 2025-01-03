@@ -92,8 +92,8 @@ when the shot was fired.
         f = 0;
         timerCount = 0;
         autoShootTimer = new <a href="ntqtimer.html">TQTimer</a>( this, "movement handler" );
-    <a name="x2379"></a>    <a href="ntqobject.html#connect">connect</a>( autoShootTimer, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
-                 this, SLOT(moveShot()) );
+    <a name="x2379"></a>    <a href="ntqobject.html#connect">connect</a>( autoShootTimer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
+                 this, TQ_SLOT(moveShot()) );
         shoot_ang = 0;
         shoot_f = 0;
         <a href="ntqwidget.html#setPalette">setPalette</a>( TQPalette( TQColor( 250, 250, 200) ) );
@@ -221,7 +221,7 @@ integer.
 <p> In the constructor we create and set up the Shoot button exactly like we
 did with the Quit button. Note that the first argument to the constructor
 is the button text, and the third is the widget's name.
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( shoot, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), cannonField, SLOT(shoot()) );
+<p> <pre>        <a href="ntqobject.html#connect">connect</a>( shoot, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), cannonField, TQ_SLOT(shoot()) );
 </pre>
 <p> Connects the clicked() signal of the Shoot button to the shoot() slot
 of the CannonField.

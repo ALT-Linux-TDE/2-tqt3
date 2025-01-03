@@ -36,7 +36,7 @@ Canvas::Canvas( TQWidget *parent, const char *name )
     if ((tqApp->argc() > 0) && !buffer.load(tqApp->argv()[1]))
 	buffer.fill( colorGroup().base() );
     setBackgroundMode( TQWidget::PaletteBase );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     setCursor( TQt::crossCursor );
 #endif
 }
@@ -123,24 +123,24 @@ Scribble::Scribble( TQWidget *parent, const char *name )
 
     TQToolBar *tools = new TQToolBar( this );
 
-    bSave = new TQToolButton( TQPixmap(), "Save", "Save as PNG image", this, SLOT( slotSave() ), tools );
+    bSave = new TQToolButton( TQPixmap(), "Save", "Save as PNG image", this, TQ_SLOT( slotSave() ), tools );
     bSave->setText( "Save as..." );
 
     tools->addSeparator();
 
-    bPColor = new TQToolButton( TQPixmap(), "Choose Pen Color", "Choose Pen Color", this, SLOT( slotColor() ), tools );
+    bPColor = new TQToolButton( TQPixmap(), "Choose Pen Color", "Choose Pen Color", this, TQ_SLOT( slotColor() ), tools );
     bPColor->setText( "Choose Pen Color..." );
 
     tools->addSeparator();
 
     bPWidth = new TQSpinBox( 1, 20, 1, tools );
     TQToolTip::add( bPWidth, "Choose Pen Width" );
-    connect( bPWidth, SIGNAL( valueChanged( int ) ), this, SLOT( slotWidth( int ) ) );
+    connect( bPWidth, TQ_SIGNAL( valueChanged( int ) ), this, TQ_SLOT( slotWidth( int ) ) );
     bPWidth->setValue( 3 );
 
     tools->addSeparator();
 
-    bClear = new TQToolButton( TQPixmap(), "Clear Screen", "Clear Screen", this, SLOT( slotClear() ), tools );
+    bClear = new TQToolButton( TQPixmap(), "Clear Screen", "Clear Screen", this, TQ_SLOT( slotClear() ), tools );
     bClear->setText( "Clear Screen" );
 }
 

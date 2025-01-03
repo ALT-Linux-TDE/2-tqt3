@@ -44,10 +44,10 @@
 #ifndef QT_H
 #endif // QT_H
 
-#ifndef QT_NO_IMAGEIO_MNG
+#ifndef TQT_NO_IMAGEIO_MNG
 
 void qInitMngIO();
 
-#endif // QT_NO_IMAGEIO_MNG
+#endif // TQT_NO_IMAGEIO_MNG
 
 #endif // TQMNGIO_H

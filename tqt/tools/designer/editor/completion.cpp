@@ -670,7 +670,7 @@ bool EditorCompletion::doArgumentHint( bool useIndex )
 	functionLabel->show();
 	curEditor->setFocus();
     }
-    TQTimer::singleShot( 0, functionLabel, SLOT( relayout() ) );
+    TQTimer::singleShot( 0, functionLabel, TQ_SLOT( relayout() ) );
 
     return TRUE;
 }

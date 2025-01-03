@@ -118,7 +118,7 @@ int main( int argc, char ** argv ) {
     ApplicationWindow *mw = new ApplicationWindow();
     mw-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Application" );
 <a name="x1598"></a>    mw-&gt;<a href="ntqwidget.html#show">show</a>();
-<a name="x1599"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<a name="x1599"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     return a.<a href="ntqapplication.html#exec">exec</a>();
 }
 </pre>
@@ -141,7 +141,7 @@ behave the way X clients are expected to.
 <p> We create an <em>ApplicationWindow</em> as a top-level widget, set its window
 system caption to "Document 1", and <em>show()</em> it.
 <p> <a name="close"></a>
-<pre>        a.<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<pre>        a.<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 </pre>
 <p> When the application's last window is closed, it should quit. Both
 the signal and the slot are predefined members of <a href="ntqapplication.html">TQApplication</a>.
@@ -197,7 +197,7 @@ show "File Operations" as caption.
 <p> <pre>        openIcon = TQPixmap( fileopen );
         TQToolButton * fileOpen
             = new <a href="ntqtoolbutton.html">TQToolButton</a>( openIcon, "Open File", <a href="ntqstring.html#TQString-null">TQString::null</a>,
-                               this, SLOT(choose()), fileTools, "open file" );
+                               this, TQ_SLOT(choose()), fileTools, "open file" );
 </pre>
 <p> Now we create the first tool button for the <em>fileTools</em> toolbar
 with the appropriate icon and the tool-tip text "Open File".
@@ -207,12 +207,12 @@ We use this icon to illustrate our first tool button.
 <p> <pre>        saveIcon = TQPixmap( filesave );
         TQToolButton * fileSave
             = new <a href="ntqtoolbutton.html">TQToolButton</a>( saveIcon, "Save File", TQString::null,
-                               this, SLOT(save()), fileTools, "save file" );
+                               this, TQ_SLOT(save()), fileTools, "save file" );
 
         printIcon = TQPixmap( fileprint );
         TQToolButton * filePrint
             = new <a href="ntqtoolbutton.html">TQToolButton</a>( printIcon, "Print File", TQString::null,
-                               this, SLOT(print()), fileTools, "print file" );
+                               this, TQ_SLOT(print()), fileTools, "print file" );
 </pre>
 <p> In a similar way we create two more tool buttons in this toolbar, each with 
 appropriate icons and tool-tip text. All three buttons are connected
@@ -260,21 +260,21 @@ this is not necessary.
 <p> Next we create a <a href="ntqpopupmenu.html">TQPopupMenu</a> for the <em>File</em> menu and 
 add it to the menu bar. With the ampersand in front of the letter F,
 we allow the user to use the shortcut <em>Alt+F</em> to pop up this menu.
-<p> <pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New", this, SLOT(newDoc()), CTRL+Key_N );
+<p> <pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New", this, TQ_SLOT(newDoc()), CTRL+Key_N );
 </pre>
 <p> Its first entry is connected to the (yet to be implemented) slot <tt>newDoc()</tt>. When the user chooses this <em>New</em> entry (e.g. by typing the
 letter N as marked by the ampersand) or uses the
 <em>Ctrl+N</em> accelerator, a new editor-window will pop up. 
 <p> <pre>        int id;
         id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( openIcon, "&amp;Open...",
-                               this, SLOT(choose()), CTRL+Key_O );
+                               this, TQ_SLOT(choose()), CTRL+Key_O );
         file-&gt;<a href="ntqmenudata.html#setWhatsThis">setWhatsThis</a>( id, fileOpenText );
 
         id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( saveIcon, "&amp;Save",
-                               this, SLOT(save()), CTRL+Key_S );
+                               this, TQ_SLOT(save()), CTRL+Key_S );
         file-&gt;<a href="ntqmenudata.html#setWhatsThis">setWhatsThis</a>( id, fileSaveText );
 
-        id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save &amp;As...", this, SLOT(saveAs()) );
+        id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save &amp;As...", this, TQ_SLOT(saveAs()) );
         file-&gt;<a href="ntqmenudata.html#setWhatsThis">setWhatsThis</a>( id, fileSaveText );
 </pre>
 <p> We populate the <em>File</em> menu with three more commands (<em>Open</em>, <em>Save</em> and
@@ -286,13 +286,13 @@ example for a shorter and easier approach.)
 </pre>
 <p> Then we insert a separator, ... 
 <p> <pre>        id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( printIcon, "&amp;Print...",
-                               this, SLOT(print()), CTRL+Key_P );
+                               this, TQ_SLOT(print()), CTRL+Key_P );
         file-&gt;<a href="ntqmenudata.html#setWhatsThis">setWhatsThis</a>( id, filePrintText );
 
         file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
 
-        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, SLOT(<a href="ntqwidget.html#close">close</a>()), CTRL+Key_W );
-        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, SLOT( <a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>() ), CTRL+Key_Q );
+        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, TQ_SLOT(<a href="ntqwidget.html#close">close</a>()), CTRL+Key_W );
+        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, TQ_SLOT( <a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>() ), CTRL+Key_Q );
 </pre>
 <p> ... the <em>Print</em> command with "What's This?" help, another separator and
 two more commands (<em>Close</em> and <em>Quit</em>) without "What's This?" and pixmaps.
@@ -311,10 +311,10 @@ will be aligned to the right if the windows system style requires it.
 <p> <pre>        <a href="ntqpopupmenu.html">TQPopupMenu</a> * help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
         <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", help );
 
-        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, SLOT(about()), Key_F1 );
-        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, SLOT(aboutTQt()) );
+        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), Key_F1 );
+        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()) );
         help-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this, SLOT(<a href="ntqmainwindow.html#whatsThis">whatsThis</a>()), SHIFT+Key_F1 );
+        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this, TQ_SLOT(<a href="ntqmainwindow.html#whatsThis">whatsThis</a>()), SHIFT+Key_F1 );
 </pre>
 <p> We create a <em>Help</em> menu, add it to the menu bar, and insert a few
 commands. Depending on the style it will appear on the right hand 

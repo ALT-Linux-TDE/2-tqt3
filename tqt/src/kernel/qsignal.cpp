@@ -115,7 +115,7 @@ TQSignal::TQSignal( TQObject *parent, const char *name )
     : TQObject( parent, name )
 {
     isSignal = TRUE;
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
     val = 0;
 #endif
 }
@@ -127,7 +127,7 @@ TQSignal::TQSignal( TQObject *parent, const char *name )
 TQSignal::~TQSignal()
 {
 }
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
 // Returns TRUE if it matches ".+(.*int.*"
 static inline bool intSignature( const char *member )
 {
@@ -144,12 +144,12 @@ static inline bool intSignature( const char *member )
 
 bool TQSignal::connect( const TQObject *receiver, const char *member )
 {
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
     if ( intSignature( member ) )
 #endif
-	return TQObject::connect( (TQObject *)this, SIGNAL(intSignal(int)), receiver, member );
-#ifndef QT_NO_VARIANT
-    return TQObject::connect( (TQObject *)this, SIGNAL(signal(const TQVariant&)),
+	return TQObject::connect( (TQObject *)this, TQ_SIGNAL(intSignal(int)), receiver, member );
+#ifndef TQT_NO_VARIANT
+    return TQObject::connect( (TQObject *)this, TQ_SIGNAL(signal(const TQVariant&)),
 			     receiver, member );
 #endif
 }
@@ -164,12 +164,12 @@ bool TQSignal::disconnect( const TQObject *receiver, const char *member )
 {
     if (!member)
 	return TQObject::disconnect( (TQObject *)this, 0, receiver, member);
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
     if ( intSignature( member ) )
 #endif
-	return TQObject::disconnect( (TQObject *)this, SIGNAL(intSignal(int)), receiver, member );
-#ifndef QT_NO_VARIANT
-    return TQObject::disconnect( (TQObject *)this, SIGNAL(signal(const TQVariant&)),
+	return TQObject::disconnect( (TQObject *)this, TQ_SIGNAL(intSignal(int)), receiver, member );
+#ifndef TQT_NO_VARIANT
+    return TQObject::disconnect( (TQObject *)this, TQ_SIGNAL(signal(const TQVariant&)),
 				receiver, member );
 #endif
 }
@@ -205,7 +205,7 @@ bool TQSignal::disconnect( const TQObject *receiver, const char *member )
 */
 void  TQSignal::activate()
 {
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
     /* Create this TQGuardedPtr on this, if we get destroyed after the intSignal (but before the variant signal)
        we cannot just emit the signal (because val has been destroyed already) */
     TQGuardedPtr<TQSignal> me = this;
@@ -218,7 +218,7 @@ void  TQSignal::activate()
 #endif
 }
 
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
 /*!
     Sets the signal's parameter to \a value
 */
@@ -241,7 +241,7 @@ TQVariant TQSignal::value() const
     \internal
 */
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 /*! \obsolete */
 void TQSignal::setParameter( int value )
 {
@@ -254,4 +254,4 @@ int TQSignal::parameter() const
     return val.toInt();
 }
 #endif
-#endif //QT_NO_VARIANT
+#endif //TQT_NO_VARIANT

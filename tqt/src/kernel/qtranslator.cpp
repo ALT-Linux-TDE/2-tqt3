@@ -54,7 +54,7 @@ static inline int qt_open(const char *pathname, int flags, mode_t mode)
 
 #include "ntqtranslator.h"
 
-#ifndef QT_NO_TRANSLATION
+#ifndef TQT_NO_TRANSLATION
 
 #include "ntqfileinfo.h"
 #include "ntqwidgetlist.h"
@@ -182,7 +182,7 @@ public:
 	bool operator<( const Offset&k ) const {
 	    return ( h != k.h ) ? h < k.h : o < k.o;
 	}
-	Q_DUMMY_COMPARISON_OPERATOR(TQTranslatorPrivate::Offset)
+	TQ_DUMMY_COMPARISON_OPERATOR(TQTranslatorPrivate::Offset)
 	uint h;
 	uint o;
     };
@@ -192,7 +192,7 @@ public:
     TQTranslatorPrivate() :
 	unmapPointer( 0 ), unmapLength( 0 ),
 	messageArray( 0 ), offsetArray( 0 ), contextArray( 0 )
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
 	, messages( 0 )
 #endif
     { }
@@ -207,10 +207,10 @@ public:
     TQByteArray * offsetArray;
     TQByteArray * contextArray;
 
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
     TQMap<TQTranslatorMessage, void *> * messages;
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     int oldPermissionLookup;
 #endif
 };
@@ -340,7 +340,7 @@ public:
     explicitly documented as such.
 */
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 extern int qt_ntfs_permission_lookup;
 #endif
 
@@ -353,7 +353,7 @@ TQTranslator::TQTranslator( TQObject * parent, const char * name )
     : TQObject( parent, name )
 {
     d = new TQTranslatorPrivate;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     d->oldPermissionLookup = qt_ntfs_permission_lookup;
 #endif
 }
@@ -419,7 +419,7 @@ bool TQTranslator::load( const TQString & filename, const TQString & directory,
     TQString prefix;
 
     if ( filename[0] == '/'
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	 || (filename[0] && filename[1] == ':') || filename[0] == '\\'
 #endif
 	 )
@@ -438,7 +438,7 @@ bool TQTranslator::load( const TQString & filename, const TQString & directory,
     delims = search_delimiters.isNull() ?
 	     TQString::fromLatin1( "_." ) : search_delimiters;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     qt_ntfs_permission_lookup--;
 #endif
     for ( ;; ) {
@@ -463,7 +463,7 @@ bool TQTranslator::load( const TQString & filename, const TQString & directory,
 
 	// no truncations? fail
         if ( rightmost == 0 ) {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
             if (d->oldPermissionLookup != qt_ntfs_permission_lookup)
                 qt_ntfs_permission_lookup++;
 #endif
@@ -472,7 +472,7 @@ bool TQTranslator::load( const TQString & filename, const TQString & directory,
 
 	fname.truncate( rightmost );
     }
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if (d->oldPermissionLookup != qt_ntfs_permission_lookup)
         qt_ntfs_permission_lookup++;
 #endif
@@ -602,7 +602,7 @@ bool TQTranslator::do_load( const uchar *data, int len )
     return ok;
 }
 
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
 
 /*!
     Saves this message file to \a filename, overwriting the previous
@@ -685,7 +685,7 @@ void TQTranslator::clear()
 	delete d->contextArray;
 	d->contextArray = 0;
     }
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
     delete d->messages;
     d->messages = 0;
 #endif
@@ -705,7 +705,7 @@ void TQTranslator::clear()
     }
 }
 
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
 
 /*!
     Converts this message file to the compact format used to store
@@ -973,7 +973,7 @@ TQTranslatorMessage TQTranslator::findMessage( const char* context,
     if ( comment == 0 )
 	comment = "";
 
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
     if ( d->messages ) {
 	TQMap<TQTranslatorMessage, void *>::ConstIterator it;
 
@@ -1078,14 +1078,14 @@ bool TQTranslator::isEmpty() const
 {
     return !( d->unmapPointer || d->unmapLength || d->messageArray ||
 	      d->offsetArray || d->contextArray
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
               || (d->messages && d->messages->count())
 #endif
         );
 }
 
 
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
 
 /*!
     Returns a list of the messages in the translator. This function is
@@ -1475,4 +1475,4 @@ bool TQTranslatorMessage::operator<( const TQTranslatorMessage& m ) const
     otherwise returns FALSE.
 */
 
-#endif // QT_NO_TRANSLATION
+#endif // TQT_NO_TRANSLATION

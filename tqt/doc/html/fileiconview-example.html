@@ -508,7 +508,7 @@ static void cleanup()
 {
     TQIconDrag::<a href="qicondrag.html#append">append</a>( item, pr, tr );
     <a href="ntqstring.html">TQString</a> ourUrl = url;
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     if (ourUrl.<a href="ntqstring.html#length">length</a>() &gt; 2 &amp;&amp; ourUrl[1] != ':') {
         <a href="ntqdir.html">TQDir</a> dir(ourUrl);
 <a name="x810"></a>        ourUrl = dir.<a href="ntqdir.html#absPath">absPath</a>();
@@ -544,8 +544,8 @@ static void cleanup()
 
     checkSetText = TRUE;
 
-    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;timer, SIGNAL( timeout() ),
-                      <a href="qiconviewitem.html#iconView">iconView</a>(), SLOT( openFolder() ) );
+    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;timer, TQ_SIGNAL( timeout() ),
+                      <a href="qiconviewitem.html#iconView">iconView</a>(), TQ_SLOT( openFolder() ) );
 }
 
 <a name="x842"></a>void TQtFileIconViewItem::<a href="qiconviewitem.html#paintItem">paintItem</a>( <a href="ntqpainter.html">TQPainter</a> *p, const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg )
@@ -716,14 +716,14 @@ TQtFileIconViewItem::~TQtFileIconViewItem()
     <a href="ntqiconview.html#setResizeMode">setResizeMode</a>( Adjust );
     <a href="ntqiconview.html#setWordWrapIconText">setWordWrapIconText</a>( FALSE );
 
-    <a href="ntqobject.html#connect">connect</a>( this, SIGNAL( <a href="ntqiconview.html#doubleClicked">doubleClicked</a>( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ),
-             this, SLOT( itemDoubleClicked( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ) );
-    <a href="ntqobject.html#connect">connect</a>( this, SIGNAL( <a href="ntqiconview.html#returnPressed">returnPressed</a>( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ),
-             this, SLOT( itemDoubleClicked( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ) );
-    <a href="ntqobject.html#connect">connect</a>( this, SIGNAL( <a href="ntqiconview.html#dropped">dropped</a>( <a href="qdropevent.html">TQDropEvent</a> *, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt; &amp; ) ),
-             this, SLOT( slotDropped( <a href="qdropevent.html">TQDropEvent</a> *, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt; &amp; ) ) );
-    <a href="ntqobject.html#connect">connect</a>( this, SIGNAL( <a href="ntqiconview.html#contextMenuRequested">contextMenuRequested</a>( <a href="qiconviewitem.html">TQIconViewItem</a> *, const <a href="ntqpoint.html">TQPoint</a> &amp; ) ),
-             this, SLOT( slotRightPressed( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ) );
+    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqiconview.html#doubleClicked">doubleClicked</a>( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ),
+             this, TQ_SLOT( itemDoubleClicked( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ) );
+    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqiconview.html#returnPressed">returnPressed</a>( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ),
+             this, TQ_SLOT( itemDoubleClicked( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ) );
+    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqiconview.html#dropped">dropped</a>( <a href="qdropevent.html">TQDropEvent</a> *, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt; &amp; ) ),
+             this, TQ_SLOT( slotDropped( <a href="qdropevent.html">TQDropEvent</a> *, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt; &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqiconview.html#contextMenuRequested">contextMenuRequested</a>( <a href="qiconviewitem.html">TQIconViewItem</a> *, const <a href="ntqpoint.html">TQPoint</a> &amp; ) ),
+             this, TQ_SLOT( slotRightPressed( <a href="qiconviewitem.html">TQIconViewItem</a> * ) ) );
 
     <a href="ntqscrollview.html#setHScrollBarMode">setHScrollBarMode</a>( AlwaysOff );
     <a href="ntqscrollview.html#setVScrollBarMode">setVScrollBarMode</a>( Auto );
@@ -998,22 +998,22 @@ void <a name="f320"></a>TQtFileIconView::slotRightPressed( <a href="qiconviewite
     if ( !item ) { // right pressed on viewport
         <a href="ntqpopupmenu.html">TQPopupMenu</a> menu( this );
 
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Large view", this, SLOT( viewLarge() ) );
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Small view", this, SLOT( viewSmall() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Large view", this, TQ_SLOT( viewLarge() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Small view", this, TQ_SLOT( viewSmall() ) );
         menu.<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Text at the &amp;bottom", this, SLOT( viewBottom() ) );
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Text at the &amp;right", this, SLOT( viewRight() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Text at the &amp;bottom", this, TQ_SLOT( viewBottom() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Text at the &amp;right", this, TQ_SLOT( viewRight() ) );
         menu.<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Arrange l&amp;eft to right", this, SLOT( flowEast() ) );
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Arrange t&amp;op to bottom", this, SLOT( flowSouth() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Arrange l&amp;eft to right", this, TQ_SLOT( flowEast() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Arrange t&amp;op to bottom", this, TQ_SLOT( flowSouth() ) );
         menu.<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Truncate item text", this, SLOT( itemTextTruncate() ) );
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Wordwrap item text", this, SLOT( itemTextWordWrap() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Truncate item text", this, TQ_SLOT( itemTextTruncate() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Wordwrap item text", this, TQ_SLOT( itemTextWordWrap() ) );
         menu.<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Arrange items in &amp;grid", this, SLOT( <a href="ntqiconview.html#arrangeItemsInGrid">arrangeItemsInGrid</a>() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Arrange items in &amp;grid", this, TQ_SLOT( <a href="ntqiconview.html#arrangeItemsInGrid">arrangeItemsInGrid</a>() ) );
         menu.<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Sort &amp;ascending", this, SLOT( sortAscending() ) );
-        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Sort &amp;descending", this, SLOT( sortDescending() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Sort &amp;ascending", this, TQ_SLOT( sortAscending() ) );
+        menu.<a href="ntqmenudata.html#insertItem">insertItem</a>( "Sort &amp;descending", this, TQ_SLOT( sortDescending() ) );
 
 <a name="x875"></a>        menu.<a href="ntqwidget.html#setMouseTracking">setMouseTracking</a>( TRUE );
 <a name="x866"></a>        menu.<a href="ntqpopupmenu.html#exec">exec</a>( TQCursor::<a href="ntqcursor.html#pos">pos</a>() );
@@ -1220,8 +1220,8 @@ void <a name="f325"></a>FileMainWindow::setup()
     pathCombo = new <a href="ntqcombobox.html">TQComboBox</a>( TRUE, toolbar );
 <a name="x880"></a>    pathCombo-&gt;<a href="ntqcombobox.html#setAutoCompletion">setAutoCompletion</a>( TRUE );
 <a name="x896"></a>    toolbar-&gt;<a href="ntqtoolbar.html#setStretchableWidget">setStretchableWidget</a>( pathCombo );
-<a name="x877"></a>    <a href="ntqobject.html#connect">connect</a>( pathCombo, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             this, SLOT ( changePath( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+<a name="x877"></a>    <a href="ntqobject.html#connect">connect</a>( pathCombo, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT ( changePath( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
 
 <a name="x895"></a>    toolbar-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
 
@@ -1229,22 +1229,22 @@ void <a name="f325"></a>FileMainWindow::setup()
 
     pix = TQPixmap( cdtoparent_xpm );
     upButton = new <a href="ntqtoolbutton.html">TQToolButton</a>( pix, "One directory up", <a href="ntqstring.html#TQString-null">TQString::null</a>,
-                                this, SLOT( cdUp() ), toolbar, "cd up" );
+                                this, TQ_SLOT( cdUp() ), toolbar, "cd up" );
 
     pix = TQPixmap( newfolder_xpm );
     mkdirButton = new <a href="ntqtoolbutton.html">TQToolButton</a>( pix, "New Folder", TQString::null,
-                                   this, SLOT( newFolder() ), toolbar, "new folder" );
+                                   this, TQ_SLOT( newFolder() ), toolbar, "new folder" );
 
-    <a href="ntqobject.html#connect">connect</a>( dirlist, SIGNAL( folderSelected( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             fileview, SLOT ( setDirectory( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
-    <a href="ntqobject.html#connect">connect</a>( fileview, SIGNAL( directoryChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             this, SLOT( directoryChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
-    <a href="ntqobject.html#connect">connect</a>( fileview, SIGNAL( startReadDir( int ) ),
-             this, SLOT( slotStartReadDir( int ) ) );
-    <a href="ntqobject.html#connect">connect</a>( fileview, SIGNAL( readNextDir() ),
-             this, SLOT( slotReadNextDir() ) );
-    <a href="ntqobject.html#connect">connect</a>( fileview, SIGNAL( readDirDone() ),
-             this, SLOT( slotReadDirDone() ) );
+    <a href="ntqobject.html#connect">connect</a>( dirlist, TQ_SIGNAL( folderSelected( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             fileview, TQ_SLOT ( setDirectory( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( fileview, TQ_SIGNAL( directoryChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT( directoryChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( fileview, TQ_SIGNAL( startReadDir( int ) ),
+             this, TQ_SLOT( slotStartReadDir( int ) ) );
+    <a href="ntqobject.html#connect">connect</a>( fileview, TQ_SIGNAL( readNextDir() ),
+             this, TQ_SLOT( slotReadNextDir() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileview, TQ_SIGNAL( readDirDone() ),
+             this, TQ_SLOT( slotReadDirDone() ) );
 
     <a href="ntqmainwindow.html#setDockEnabled">setDockEnabled</a>( DockLeft, FALSE );
     <a href="ntqmainwindow.html#setDockEnabled">setDockEnabled</a>( DockRight, FALSE );
@@ -1254,14 +1254,14 @@ void <a name="f325"></a>FileMainWindow::setup()
     progress = new <a href="ntqprogressbar.html">TQProgressBar</a>( <a href="ntqmainwindow.html#statusBar">statusBar</a>() );
     <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;addWidget( progress, 1, TRUE );
 
-    <a href="ntqobject.html#connect">connect</a>( fileview, SIGNAL( enableUp() ),
-             this, SLOT( enableUp() ) );
-    <a href="ntqobject.html#connect">connect</a>( fileview, SIGNAL( disableUp() ),
-             this, SLOT( disableUp() ) );
-    <a href="ntqobject.html#connect">connect</a>( fileview, SIGNAL( enableMkdir() ),
-             this, SLOT( enableMkdir() ) );
-    <a href="ntqobject.html#connect">connect</a>( fileview, SIGNAL( disableMkdir() ),
-             this, SLOT( disableMkdir() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileview, TQ_SIGNAL( enableUp() ),
+             this, TQ_SLOT( enableUp() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileview, TQ_SIGNAL( disableUp() ),
+             this, TQ_SLOT( disableUp() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileview, TQ_SIGNAL( enableMkdir() ),
+             this, TQ_SLOT( enableMkdir() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileview, TQ_SIGNAL( disableMkdir() ),
+             this, TQ_SLOT( disableMkdir() ) );
 }
 
 void <a name="f326"></a>FileMainWindow::setPathCombo()

@@ -19,10 +19,10 @@ Inherits QFrame.
 .BI "enum \fBResizeMode\fR { Stretch, KeepSize, FollowSizeHint, Auto }"
 .br
 .ti -1c
-.BI "\fBQSplitter\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQSplitter\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQSplitter\fR ( Orientation o, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQSplitter\fR ( Orientation o, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QSplitter\fR ()"
@@ -40,10 +40,10 @@ Inherits QFrame.
 .BI "bool \fBchildrenCollapsible\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetCollapsible\fR ( QWidget * w, bool collapse )"
+.BI "void \fBsetCollapsible\fR ( TQWidget * w, bool collapse )"
 .br
 .ti -1c
-.BI "virtual void \fBsetResizeMode\fR ( QWidget * w, ResizeMode mode )"
+.BI "virtual void \fBsetResizeMode\fR ( TQWidget * w, ResizeMode mode )"
 .br
 .ti -1c
 .BI "virtual void \fBsetOpaqueResize\fR ( bool = TRUE )"
@@ -52,10 +52,10 @@ Inherits QFrame.
 .BI "bool \fBopaqueResize\fR () const"
 .br
 .ti -1c
-.BI "void \fBmoveToFirst\fR ( QWidget * w )"
+.BI "void \fBmoveToFirst\fR ( TQWidget * w )"
 .br
 .ti -1c
-.BI "void \fBmoveToLast\fR ( QWidget * w )"
+.BI "void \fBmoveToLast\fR ( TQWidget * w )"
 .br
 .ti -1c
 .BI "void \fBrefresh\fR ()"
@@ -94,7 +94,7 @@ Inherits QFrame.
 .BI "virtual void \fBchildEvent\fR ( QChildEvent * c )"
 .br
 .ti -1c
-.BI "int \fBidAfter\fR ( QWidget * w ) const"
+.BI "int \fBidAfter\fR ( TQWidget * w ) const"
 .br
 .ti -1c
 .BI "void \fBmoveSplitter\fR ( QCOORD p, int id )"
@@ -170,9 +170,9 @@ This enum type describes how QSplitter will resize each of its child widgets.
 .TP
 \fCQSplitter::FollowSizeHint\fR - QSplitter will resize the widget when the widget's size hint changes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSplitter::QSplitter ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QSplitter::QSplitter ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a horizontal splitter with the \fIparent\fR and \fIname\fR arguments being passed on to the QFrame constructor.
-.SH "QSplitter::QSplitter ( Orientation o, QWidget * parent = 0, const char * name = 0 )"
+.SH "QSplitter::QSplitter ( Orientation o, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a splitter with orientation \fIo\fR with the \fIparent\fR and \fIname\fR arguments being passed on to the QFrame constructor.
 .SH "QSplitter::~QSplitter ()"
 Destroys the splitter and any children.
@@ -183,7 +183,7 @@ See also idAfter().
 .SH "void QSplitter::childEvent ( QChildEvent * c )\fC [virtual protected]\fR"
 Tells the splitter that the child widget described by \fIc\fR has been inserted or removed.
 .PP
-Reimplemented from QObject.
+Reimplemented from TQObject.
 .SH "bool QSplitter::childrenCollapsible () const"
 Returns TRUE if child widgets can be resized down to size 0 by the user; otherwise returns FALSE. See the "childrenCollapsible" property for details.
 .SH "void QSplitter::drawSplitter ( QPainter * p, QCOORD x, QCOORD y, QCOORD w, QCOORD h )\fC [virtual protected]\fR"
@@ -198,7 +198,7 @@ Returns the valid range of the splitter with ID \fIid\fR in \fI*min\fR and \fI*m
 See also idAfter().
 .SH "int QSplitter::handleWidth () const"
 Returns the width of the splitter handle. See the "handleWidth" property for details.
-.SH "int QSplitter::idAfter ( QWidget * w ) const\fC [protected]\fR"
+.SH "int QSplitter::idAfter ( TQWidget * w ) const\fC [protected]\fR"
 Returns the ID of the widget to the right of or below the widget \fIw\fR, or 0 if there is no such widget (i.e. it is either not in this QSplitter or \fIw\fR is at the end).
 .SH "void QSplitter::moveSplitter ( QCOORD p, int id )\fC [protected]\fR"
 Moves the left/top edge of the splitter handle with ID \fIid\fR as close as possible to position \fIp\fR, which is the distance from the left (or top) edge of the widget.
@@ -206,11 +206,11 @@ Moves the left/top edge of the splitter handle with ID \fIid\fR as close as poss
 For Arabic, Hebrew and other right-to-left languages the layout is reversed. \fIp\fR is then the distance from the right (or top) edge of the widget.
 .PP
 See also idAfter().
-.SH "void QSplitter::moveToFirst ( QWidget * w )"
+.SH "void QSplitter::moveToFirst ( TQWidget * w )"
 Moves widget \fIw\fR to the leftmost/top position.
 .PP
 Example: splitter/splitter.cpp.
-.SH "void QSplitter::moveToLast ( QWidget * w )"
+.SH "void QSplitter::moveToLast ( TQWidget * w )"
 Moves widget \fIw\fR to the rightmost/bottom position.
 .SH "bool QSplitter::opaqueResize () const"
 Returns TRUE if resizing is opaque; otherwise returns FALSE. See the "opaqueResize" property for details.
@@ -220,7 +220,7 @@ Returns the orientation of the splitter. See the "orientation" property for deta
 Updates the splitter's state. You should not need to call this function.
 .SH "void QSplitter::setChildrenCollapsible ( bool )"
 Sets whether child widgets can be resized down to size 0 by the user. See the "childrenCollapsible" property for details.
-.SH "void QSplitter::setCollapsible ( QWidget * w, bool collapse )"
+.SH "void QSplitter::setCollapsible ( TQWidget * w, bool collapse )"
 Sets whether the child widget \fIw\fR is collapsible to \fIcollapse\fR.
 .PP
 By default, children are collapsible, meaning that the user can resize them down to size 0, even if they have a non-zero minimumSize() or minimumSizeHint(). This behavior can be changed on a per-widget basis by calling this function, or globally for all the widgets in the splitter by setting the childrenCollapsible property.
@@ -232,7 +232,7 @@ Sets the width of the splitter handle. See the "handleWidth" property for detail
 Sets whether resizing is opaque. See the "opaqueResize" property for details.
 .SH "void QSplitter::setOrientation ( Orientation )\fC [virtual]\fR"
 Sets the orientation of the splitter. See the "orientation" property for details.
-.SH "void QSplitter::setResizeMode ( QWidget * w, ResizeMode mode )\fC [virtual]\fR"
+.SH "void QSplitter::setResizeMode ( TQWidget * w, ResizeMode mode )\fC [virtual]\fR"
 Sets resize mode of widget \fIw\fR to \fImode\fR. (The default is Auto.)
 .PP
 Examples:
@@ -300,11 +300,11 @@ Set this property's value with setOrientation() and get this property's value wi
 .SH "QTextStream & operator<< ( QTextStream & ts, const QSplitter & splitter )"
 Writes the sizes and the hidden state of the widgets in the splitter \fIsplitter\fR to the text stream \fIts\fR.
 .PP
-See also operator>>(), sizes(), and QWidget::hidden.
+See also operator>>(), sizes(), and TQWidget::hidden.
 .SH "QTextStream & operator>> ( QTextStream & ts, QSplitter & splitter )"
 Reads the sizes and the hidden state of the widgets in the splitter \fIsplitter\fR from the text stream \fIts\fR. The sizes must have been previously written by the operator<<() function.
 .PP
-See also operator<<(), setSizes(), and QWidget::hide().
+See also operator<<(), setSizes(), and TQWidget::hide().
 
 .SH "SEE ALSO"
 .BR http://doc.trolltech.com/ntqsplitter.html
@@ -320,8 +320,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

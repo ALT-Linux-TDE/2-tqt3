@@ -386,7 +386,7 @@ BorlandMakefileGenerator::init()
     if(project->isEmpty("QMAKE_INSTALL_DIR"))
 	project->variables()["QMAKE_INSTALL_DIR"].append("$(COPY_DIR)");
 
-    bool is_qt = (project->first("TARGET") == "qt"TQTDLL_POSTFIX || project->first("TARGET") == "qtmt"TQTDLL_POSTFIX);
+    bool is_qt = (project->first("TARGET") == "qt" TQTDLL_POSTFIX || project->first("TARGET") == "qtmt" TQTDLL_POSTFIX);
     TQStringList &configs = project->variables()["CONFIG"];
     if (project->isActiveConfig("shared"))
 	project->variables()["DEFINES"].append("QT_DLL");
@@ -427,7 +427,7 @@ BorlandMakefileGenerator::init()
     }
     if(project->isActiveConfig("qt")) {
 	if ( project->isActiveConfig("thread") )
-	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("QT_THREAD_SUPPORT");
+	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("TQT_THREAD_SUPPORT");
 	if ( project->isActiveConfig("accessibility" ) )
 	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("QT_ACCESSIBILITY_SUPPORT");
 	if ( project->isActiveConfig("tablet") )
@@ -469,18 +469,18 @@ BorlandMakefileGenerator::init()
 	project->variables()["CONFIG"].append("windows");
     }
     if ( project->isActiveConfig("qtopiainc") )
-	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_QTOPIA"];
+	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_TQTOPIA"];
     if ( project->isActiveConfig("qtopialib") ) {
-	if(!project->isEmpty("QMAKE_LIBDIR_QTOPIA"))
-	    project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_QTOPIA"];
+	if(!project->isEmpty("QMAKE_LIBDIR_TQTOPIA"))
+	    project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_TQTOPIA"];
 	project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QTOPIA"];
     }
     if ( project->isActiveConfig("qt") ) {
 	project->variables()["CONFIG"].append("moc");
-	project->variables()["INCLUDEPATH"] +=	project->variables()["QMAKE_INCDIR_QT"];
-	project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_QT"];
+	project->variables()["INCLUDEPATH"] +=	project->variables()["QMAKE_INCDIR_TQT"];
+	project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_TQT"];
 	if ( !project->isActiveConfig("debug") )
-	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("QT_NO_DEBUG");
+	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("TQT_NO_DEBUG");
 	if ( is_qt && !project->variables()["QMAKE_LIB_FLAG"].isEmpty() ) {
 	    if ( !project->variables()["QMAKE_QT_DLL"].isEmpty()) {
 		project->variables()["DEFINES"].append("QT_MAKEDLL");
@@ -492,9 +492,9 @@ BorlandMakefileGenerator::init()
 	    else
 		project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QT"];
 	    if ( !project->variables()["QMAKE_QT_DLL"].isEmpty() ) {
-		int hver = findHighestVersion(project->first("QMAKE_LIBDIR_QT"), "qt");
+		int hver = findHighestVersion(project->first("QMAKE_LIBDIR_TQT"), "qt");
 		if ( hver == -1 )
-		    hver = findHighestVersion(project->first("QMAKE_LIBDIR_QT"), "qtmt");
+		    hver = findHighestVersion(project->first("QMAKE_LIBDIR_TQT"), "qtmt");
 		if(hver != -1) {
 		    TQString ver;
 		    ver.sprintf("qt%s" TQTDLL_POSTFIX "%d.lib", (project->isActiveConfig("thread") ? "mt" : ""), hver);

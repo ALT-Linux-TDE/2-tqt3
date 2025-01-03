@@ -27,7 +27,7 @@ Inherited by QBitmap and QCanvasPixmap.
 .BI "\fBQPixmap\fR ()"
 .br
 .ti -1c
-.BI "\fBQPixmap\fR ( const QImage & image )"
+.BI "\fBQPixmap\fR ( const TQImage & image )"
 .br
 .ti -1c
 .BI "\fBQPixmap\fR ( int w, int h, int depth = -1, Optimization optimization = DefaultOptim )"
@@ -36,10 +36,10 @@ Inherited by QBitmap and QCanvasPixmap.
 .BI "\fBQPixmap\fR ( const QSize & size, int depth = -1, Optimization optimization = DefaultOptim )"
 .br
 .ti -1c
-.BI "\fBQPixmap\fR ( const QString & fileName, const char * format = 0, ColorMode mode = Auto )"
+.BI "\fBQPixmap\fR ( const TQString & fileName, const char * format = 0, ColorMode mode = Auto )"
 .br
 .ti -1c
-.BI "\fBQPixmap\fR ( const QString & fileName, const char * format, int conversion_flags )"
+.BI "\fBQPixmap\fR ( const TQString & fileName, const char * format, int conversion_flags )"
 .br
 .ti -1c
 .BI "\fBQPixmap\fR ( const char * xpm[] )"
@@ -57,7 +57,7 @@ Inherited by QBitmap and QCanvasPixmap.
 .BI "QPixmap & \fBoperator=\fR ( const QPixmap & pixmap )"
 .br
 .ti -1c
-.BI "QPixmap & \fBoperator=\fR ( const QImage & image )"
+.BI "QPixmap & \fBoperator=\fR ( const TQImage & image )"
 .br
 .ti -1c
 .BI "bool \fBisNull\fR () const"
@@ -78,13 +78,13 @@ Inherited by QBitmap and QCanvasPixmap.
 .BI "int \fBdepth\fR () const"
 .br
 .ti -1c
-.BI "void \fBfill\fR ( const QColor & fillColor = Qt::white )"
+.BI "void \fBfill\fR ( const TQColor & fillColor = TQt::white )"
 .br
 .ti -1c
-.BI "void \fBfill\fR ( const QWidget * widget, int xofs, int yofs )"
+.BI "void \fBfill\fR ( const TQWidget * widget, int xofs, int yofs )"
 .br
 .ti -1c
-.BI "void \fBfill\fR ( const QWidget * widget, const QPoint & ofs )"
+.BI "void \fBfill\fR ( const TQWidget * widget, const QPoint & ofs )"
 .br
 .ti -1c
 .BI "void \fBresize\fR ( int w, int h )"
@@ -114,19 +114,19 @@ Inherited by QBitmap and QCanvasPixmap.
 .BI "QPixmap \fBxForm\fR ( const QWMatrix & matrix ) const"
 .br
 .ti -1c
-.BI "QImage \fBconvertToImage\fR () const"
+.BI "TQImage \fBconvertToImage\fR () const"
 .br
 .ti -1c
-.BI "bool \fBconvertFromImage\fR ( const QImage & image, ColorMode mode = Auto )"
+.BI "bool \fBconvertFromImage\fR ( const TQImage & image, ColorMode mode = Auto )"
 .br
 .ti -1c
-.BI "bool \fBconvertFromImage\fR ( const QImage & img, int conversion_flags )"
+.BI "bool \fBconvertFromImage\fR ( const TQImage & img, int conversion_flags )"
 .br
 .ti -1c
-.BI "bool \fBload\fR ( const QString & fileName, const char * format = 0, ColorMode mode = Auto )"
+.BI "bool \fBload\fR ( const TQString & fileName, const char * format = 0, ColorMode mode = Auto )"
 .br
 .ti -1c
-.BI "bool \fBload\fR ( const QString & fileName, const char * format, int conversion_flags )"
+.BI "bool \fBload\fR ( const TQString & fileName, const char * format, int conversion_flags )"
 .br
 .ti -1c
 .BI "bool \fBloadFromData\fR ( const uchar * buf, uint len, const char * format = 0, ColorMode mode = Auto )"
@@ -138,10 +138,10 @@ Inherited by QBitmap and QCanvasPixmap.
 .BI "bool \fBloadFromData\fR ( const QByteArray & buf, const char * format = 0, int conversion_flags = 0 )"
 .br
 .ti -1c
-.BI "bool \fBsave\fR ( const QString & fileName, const char * format, int quality = -1 ) const"
+.BI "bool \fBsave\fR ( const TQString & fileName, const char * format, int quality = -1 ) const"
 .br
 .ti -1c
-.BI "bool \fBsave\fR ( QIODevice * device, const char * format, int quality = -1 ) const"
+.BI "bool \fBsave\fR ( TQIODevice * device, const char * format, int quality = -1 ) const"
 .br
 .ti -1c
 .BI "int \fBserialNumber\fR () const"
@@ -165,19 +165,19 @@ Inherited by QBitmap and QCanvasPixmap.
 .BI "int \fBdefaultDepth\fR ()"
 .br
 .ti -1c
-.BI "QPixmap \fBfromMimeSource\fR ( const QString & abs_name )"
+.BI "QPixmap \fBfromMimeSource\fR ( const TQString & abs_name )"
 .br
 .ti -1c
 .BI "QPixmap \fBgrabWindow\fR ( WId window, int x = 0, int y = 0, int w = -1, int h = -1 )"
 .br
 .ti -1c
-.BI "QPixmap \fBgrabWidget\fR ( QWidget * widget, int x = 0, int y = 0, int w = -1, int h = -1 )"
+.BI "QPixmap \fBgrabWidget\fR ( TQWidget * widget, int x = 0, int y = 0, int w = -1, int h = -1 )"
 .br
 .ti -1c
 .BI "QWMatrix \fBtrueMatrix\fR ( const QWMatrix & matrix, int w, int h )"
 .br
 .ti -1c
-.BI "const char * \fBimageFormat\fR ( const QString & fileName )"
+.BI "const char * \fBimageFormat\fR ( const TQString & fileName )"
 .br
 .ti -1c
 .BI "Optimization \fBdefaultOptimization\fR ()"
@@ -210,7 +210,7 @@ Inherited by QBitmap and QCanvasPixmap.
 .SH DESCRIPTION
 The QPixmap class is an off-screen, pixel-based paint device.
 .PP
-QPixmap is one of the two classes Qt provides for dealing with images; the other is QImage. QPixmap is designed and optimized for drawing; QImage is designed and optimized for I/O and for direct pixel access/manipulation. There are (slow) functions to convert between QImage and QPixmap: convertToImage() and convertFromImage().
+QPixmap is one of the two classes TQt provides for dealing with images; the other is TQImage. QPixmap is designed and optimized for drawing; TQImage is designed and optimized for I/O and for direct pixel access/manipulation. There are (slow) functions to convert between TQImage and QPixmap: convertToImage() and convertFromImage().
 .PP
 One common use of the QPixmap class is to enable smooth updating of widgets. Whenever something complex needs to be drawn, you can use a pixmap to obtain flicker-free drawing, like this:
 .PP
@@ -224,7 +224,7 @@ Paint the pixmap.
 .IP 4
 bitBlt() the pixmap contents onto the widget.
 .PP
-Pixel data in a pixmap is internal and is managed by the underlying window system. Pixels can be accessed only through QPainter functions, through bitBlt(), and by converting the QPixmap to a QImage.
+Pixel data in a pixmap is internal and is managed by the underlying window system. Pixels can be accessed only through QPainter functions, through bitBlt(), and by converting the QPixmap to a TQImage.
 .PP
 You can easily display a QPixmap on the screen using QLabel::setPixmap(). For example, all the QButton subclasses support pixmap use.
 .PP
@@ -236,7 +236,7 @@ In addition to loading a pixmap from file using load() you can also loadFromData
 .PP
 Note regarding Windows 95 and 98: on Windows 9x the system crashes if you create more than about 1000 pixmaps, independent of the size of the pixmaps or installed RAM. Windows NT-systems (including 2000, XP and following versions) do not have the same limitation, but depending on the graphics equipment the system will fail to allocate pixmap objects at some point (due to system running out of GDI resources).
 .PP
-Qt tries to work around the resource limitation. If you set the pixmap optimization to QPixmap::MemoryOptim and the width of your pixmap is less than or equal to 128 pixels, Qt stores the pixmap in a way that is very memory-efficient when there are many pixmaps.
+Qt tries to work around the resource limitation. If you set the pixmap optimization to QPixmap::MemoryOptim and the width of your pixmap is less than or equal to 128 pixels, TQt stores the pixmap in a way that is very memory-efficient when there are many pixmaps.
 .PP
 If your application uses dozens or hundreds of pixmaps (for example on tool bar buttons and in popup menus), and you plan to run it on Windows 95 or Windows 98, we recommend using code like this:
 .PP
@@ -258,10 +258,10 @@ If your application uses dozens or hundreds of pixmaps (for example on tool bar 
 .PP
 In general it is recommended to make as much use of QPixmap's implicit sharing and the QPixmapCache as possible.
 .PP
-See also QBitmap, QImage, QImageIO, Shared Classes, Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
+See also QBitmap, TQImage, QImageIO, Shared Classes, Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
 .SS "Member Type Documentation"
 .SH "QPixmap::ColorMode"
-This enum type defines the color modes that exist for converting QImage objects to QPixmap.
+This enum type defines the color modes that exist for converting TQImage objects to QPixmap.
 .TP
 \fCQPixmap::Auto\fR - Select Color or Mono on a case-by-case basis.
 .TP
@@ -288,8 +288,8 @@ We recommend using DefaultOptim.
 Constructs a null pixmap.
 .PP
 See also isNull().
-.SH "QPixmap::QPixmap ( const QImage & image )"
-Constructs a pixmap from the QImage \fIimage\fR.
+.SH "QPixmap::QPixmap ( const TQImage & image )"
+Constructs a pixmap from the TQImage \fIimage\fR.
 .PP
 See also convertFromImage().
 .SH "QPixmap::QPixmap ( int w, int h, int depth = -1, Optimization optimization = DefaultOptim )"
@@ -306,20 +306,20 @@ See also isNull() and QPixmap::Optimization.
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Constructs a pixmap of size \fIsize\fR, \fIdepth\fR bits per pixel, optimized in accordance with the \fIoptimization\fR value.
-.SH "QPixmap::QPixmap ( const QString & fileName, const char * format = 0, ColorMode mode = Auto )"
+.SH "QPixmap::QPixmap ( const TQString & fileName, const char * format = 0, ColorMode mode = Auto )"
 Constructs a pixmap from the file \fIfileName\fR. If the file does not exist or is of an unknown format, the pixmap becomes a null pixmap.
 .PP
 The \fIfileName\fR, \fIformat\fR and \fImode\fR parameters are passed on to load(). This means that the data in \fIfileName\fR is not compiled into the binary. If \fIfileName\fR contains a relative path (e.g. the filename only) the relevant file must be found relative to the runtime working directory.
 .PP
 See also QPixmap::ColorMode, isNull(), load(), loadFromData(), save(), and imageFormat().
-.SH "QPixmap::QPixmap ( const QString & fileName, const char * format, int conversion_flags )"
+.SH "QPixmap::QPixmap ( const TQString & fileName, const char * format, int conversion_flags )"
 Constructs a pixmap from the file \fIfileName\fR. If the file does not exist or is of an unknown format, the pixmap becomes a null pixmap.
 .PP
 The \fIfileName\fR, \fIformat\fR and \fIconversion_flags\fR parameters are passed on to load(). This means that the data in \fIfileName\fR is not compiled into the binary. If \fIfileName\fR contains a relative path (e.g. the filename only) the relevant file must be found relative to the runtime working directory.
 .PP
 If the image needs to be modified to fit in a lower-resolution result (e.g. converting from 32-bit to 8-bit), use the \fIconversion_flags\fR to specify how you'd prefer this to happen.
 .PP
-See also Qt::ImageConversionFlags, isNull(), load(), loadFromData(), save(), and imageFormat().
+See also TQt::ImageConversionFlags, isNull(), load(), loadFromData(), save(), and imageFormat().
 .SH "QPixmap::QPixmap ( const char * xpm[] )"
 Constructs a pixmap from \fIxpm\fR, which must be a valid XPM image.
 .PP
@@ -352,27 +352,27 @@ Constructs a pixmap that is a copy of \fIpixmap\fR.
 Constructs a monochrome pixmap, with width \fIw\fR and height \fIh\fR, that is initialized with the data in \fIbits\fR. The \fIisXbitmap\fR indicates whether the data is an X bitmap and defaults to FALSE. This constructor is protected and used by the QBitmap class.
 .SH "QPixmap::~QPixmap ()"
 Destroys the pixmap.
-.SH "bool QPixmap::convertFromImage ( const QImage & img, int conversion_flags )"
+.SH "bool QPixmap::convertFromImage ( const TQImage & img, int conversion_flags )"
 Converts image \fIimg\fR and sets this pixmap. Returns TRUE if successful; otherwise returns FALSE.
 .PP
-The \fIconversion_flags\fR argument is a bitwise-OR of the Qt::ImageConversionFlags. Passing 0 for \fIconversion_flags\fR sets all the default options.
+The \fIconversion_flags\fR argument is a bitwise-OR of the TQt::ImageConversionFlags. Passing 0 for \fIconversion_flags\fR sets all the default options.
 .PP
 Note that even though a QPixmap with depth 1 behaves much like a QBitmap, isQBitmap() returns FALSE.
 .PP
 If a pixmap with depth 1 is painted with color0 and color1 and converted to an image, the pixels painted with color0 will produce pixel index 0 in the image and those painted with color1 will produce pixel index 1.
 .PP
-See also convertToImage(), isQBitmap(), QImage::convertDepth(), defaultDepth(), and QImage::hasAlphaBuffer().
+See also convertToImage(), isQBitmap(), TQImage::convertDepth(), defaultDepth(), and TQImage::hasAlphaBuffer().
 .PP
 Examples:
 .)l canvas/canvas.cpp and themes/wood.cpp.
-.SH "bool QPixmap::convertFromImage ( const QImage & image, ColorMode mode = Auto )"
+.SH "bool QPixmap::convertFromImage ( const TQImage & image, ColorMode mode = Auto )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Converts \fIimage\fR and sets this pixmap using color mode \fImode\fR. Returns TRUE if successful; otherwise returns FALSE.
 .PP
 See also QPixmap::ColorMode.
-.SH "QImage QPixmap::convertToImage () const"
-Converts the pixmap to a QImage. Returns a null image if it fails.
+.SH "TQImage QPixmap::convertToImage () const"
+Converts the pixmap to a TQImage. Returns a null image if it fails.
 .PP
 If the pixmap has 1-bit depth, the returned image will also be 1 bit deep. If the pixmap has 2- to 8-bit depth, the returned image has 8-bit depth. If the pixmap has greater than 8-bit depth, the returned image has 32-bit depth.
 .PP
@@ -392,11 +392,11 @@ The mask may not be perfect but it should be reasonable, so you can do things su
 .br
 .fi
 .PP
-This function is slow because it involves transformation to a QImage, non-trivial computations and a transformation back to a QBitmap.
+This function is slow because it involves transformation to a TQImage, non-trivial computations and a transformation back to a QBitmap.
 .PP
 If \fIclipTight\fR is TRUE the mask is just large enough to cover the pixels; otherwise, the mask is larger than the data pixels.
 .PP
-See also QImage::createHeuristicMask().
+See also TQImage::createHeuristicMask().
 .SH "int QPixmap::defaultDepth ()\fC [static]\fR"
 Returns the default pixmap depth, i.e. the depth a pixmap gets if -1 is specified.
 .PP
@@ -410,25 +410,25 @@ Returns the depth of the pixmap.
 .PP
 The pixmap depth is also called bits per pixel (bpp) or bit planes of a pixmap. A null pixmap has depth 0.
 .PP
-See also defaultDepth(), isNull(), and QImage::convertDepth().
+See also defaultDepth(), isNull(), and TQImage::convertDepth().
 .SH "void QPixmap::detach ()\fC [virtual]\fR"
 This is a special-purpose function that detaches the pixmap from shared pixmap data.
 .PP
-A pixmap is automatically detached by Qt whenever its contents is about to change. This is done in all QPixmap member functions that modify the pixmap (fill(), resize(), convertFromImage(), load(), etc.), in bitBlt() for the destination pixmap and in QPainter::begin() on a pixmap.
+A pixmap is automatically detached by TQt whenever its contents is about to change. This is done in all QPixmap member functions that modify the pixmap (fill(), resize(), convertFromImage(), load(), etc.), in bitBlt() for the destination pixmap and in QPainter::begin() on a pixmap.
 .PP
-It is possible to modify a pixmap without letting Qt know. You can first obtain the system-dependent handle() and then call system-specific functions (for instance, BitBlt under Windows) that modify the pixmap contents. In such cases, you can call detach() to cut the pixmap loose from other pixmaps that share data with this one.
+It is possible to modify a pixmap without letting TQt know. You can first obtain the system-dependent handle() and then call system-specific functions (for instance, BitBlt under Windows) that modify the pixmap contents. In such cases, you can call detach() to cut the pixmap loose from other pixmaps that share data with this one.
 .PP
 detach() returns immediately if there is just a single reference or if the pixmap has not been initialized yet.
-.SH "void QPixmap::fill ( const QColor & fillColor = Qt::white )"
+.SH "void QPixmap::fill ( const TQColor & fillColor = TQt::white )"
 Fills the pixmap with the color \fIfillColor\fR.
 .PP
 Examples:
 .)l chart/setdataform.cpp, desktop/desktop.cpp, grapher/grapher.cpp, hello/hello.cpp, t10/cannon.cpp, themes/metal.cpp, and xform/xform.cpp.
-.SH "void QPixmap::fill ( const QWidget * widget, int xofs, int yofs )"
+.SH "void QPixmap::fill ( const TQWidget * widget, int xofs, int yofs )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Fills the pixmap with the \fIwidget\fR's background color or pixmap. If the background is empty, nothing is done. \fIxofs\fR, \fIyofs\fR is an offset in the widget.
-.SH "void QPixmap::fill ( const QWidget * widget, const QPoint & ofs )"
+.SH "void QPixmap::fill ( const TQWidget * widget, const QPoint & ofs )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Fills the pixmap with the \fIwidget\fR's background color or pixmap. If the background is empty, nothing is done.
@@ -469,13 +469,13 @@ Example:
     }
 .br
 .fi
-.SH "QPixmap QPixmap::fromMimeSource ( const QString & abs_name )\fC [static]\fR"
+.SH "QPixmap QPixmap::fromMimeSource ( const TQString & abs_name )\fC [static]\fR"
 Convenience function. Gets the data associated with the absolute name \fIabs_name\fR from the default mime source factory and decodes it to a pixmap.
 .PP
-See also QMimeSourceFactory, QImage::fromMimeSource(), and QImageDrag::decode().
+See also QMimeSourceFactory, TQImage::fromMimeSource(), and QImageDrag::decode().
 .PP
 Example: textedit/textedit.cpp.
-.SH "QPixmap QPixmap::grabWidget ( QWidget * widget, int x = 0, int y = 0, int w = -1, int h = -1 )\fC [static]\fR"
+.SH "QPixmap QPixmap::grabWidget ( TQWidget * widget, int x = 0, int y = 0, int w = -1, int h = -1 )\fC [static]\fR"
 Creates a pixmap and paints \fIwidget\fR in it.
 .PP
 If the \fIwidget\fR has any children, then they are also painted in the appropriate positions.
@@ -492,7 +492,7 @@ If there is overlap, it returns a pixmap of the size you want, containing a rend
 .PP
 If an error occurs when trying to grab the widget, such as the size of the widget being too large to fit in memory, an isNull() pixmap is returned.
 .PP
-See also grabWindow(), QPainter::redirect(), and QWidget::paintEvent().
+See also grabWindow(), QPainter::redirect(), and TQWidget::paintEvent().
 .SH "QPixmap QPixmap::grabWindow ( WId window, int x = 0, int y = 0, int w = -1, int h = -1 )\fC [static]\fR"
 Grabs the contents of the window \fIwindow\fR and makes a pixmap out of it. Returns the pixmap.
 .PP
@@ -504,7 +504,7 @@ Note that grabWindow() grabs pixels from the screen, not from the window. If the
 .PP
 Note also that the mouse cursor is generally not grabbed.
 .PP
-The reason we use a window identifier and not a QWidget is to enable grabbing of windows that are not part of the application, window system frames, and so on.
+The reason we use a window identifier and not a TQWidget is to enable grabbing of windows that are not part of the application, window system frames, and so on.
 .PP
 \fBWarning:\fR Grabbing an area outside the screen is not safe in general. This depends on the underlying window system.
 .PP
@@ -530,7 +530,7 @@ See also width(), size(), and rect().
 .PP
 Examples:
 .)l desktop/desktop.cpp, movies/main.cpp, scribble/scribble.cpp, scrollview/scrollview.cpp, t10/cannon.cpp, and xform/xform.cpp.
-.SH "const char * QPixmap::imageFormat ( const QString & fileName )\fC [static]\fR"
+.SH "const char * QPixmap::imageFormat ( const TQString & fileName )\fC [static]\fR"
 Returns a string that specifies the image format of the file \fIfileName\fR, or 0 if the file cannot be read or if the format cannot be recognized.
 .PP
 The QImageIO documentation lists the supported image formats.
@@ -549,7 +549,7 @@ Examples:
 .)l movies/main.cpp, qdir/qdir.cpp, qmag/qmag.cpp, and scrollview/scrollview.cpp.
 .SH "bool QPixmap::isQBitmap () const"
 Returns TRUE if this is a QBitmap; otherwise returns FALSE.
-.SH "bool QPixmap::load ( const QString & fileName, const char * format, int conversion_flags )"
+.SH "bool QPixmap::load ( const TQString & fileName, const char * format, int conversion_flags )"
 Loads a pixmap from the file \fIfileName\fR at runtime. Returns TRUE if successful; otherwise returns FALSE.
 .PP
 If \fIformat\fR is specified, the loader attempts to read the pixmap using the specified format. If \fIformat\fR is not specified (default), the loader reads a few bytes from the header to guess the file's format.
@@ -558,11 +558,11 @@ See the convertFromImage() documentation for a description of the \fIconversion_
 .PP
 The QImageIO documentation lists the supported image formats and explains how to add extra formats.
 .PP
-See also loadFromData(), save(), imageFormat(), QImage::load(), and QImageIO.
+See also loadFromData(), save(), imageFormat(), TQImage::load(), and QImageIO.
 .PP
 Examples:
 .)l picture/picture.cpp, scrollview/scrollview.cpp, and xform/xform.cpp.
-.SH "bool QPixmap::load ( const QString & fileName, const char * format = 0, ColorMode mode = Auto )"
+.SH "bool QPixmap::load ( const TQString & fileName, const char * format = 0, ColorMode mode = Auto )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Loads a pixmap from the file \fIfileName\fR at runtime.
@@ -581,7 +581,7 @@ See the convertFromImage() documentation for a description of the \fIconversion_
 .PP
 The QImageIO documentation lists the supported image formats and explains how to add extra formats.
 .PP
-See also load(), save(), imageFormat(), QImage::loadFromData(), and QImageIO.
+See also load(), save(), imageFormat(), TQImage::loadFromData(), and QImageIO.
 .SH "bool QPixmap::loadFromData ( const uchar * buf, uint len, const char * format = 0, ColorMode mode = Auto )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -604,7 +604,7 @@ Use the QPaintDeviceMetrics class instead.
 \fIm\fR is the metric to get.
 .SH "QPixmap & QPixmap::operator= ( const QPixmap & pixmap )"
 Assigns the pixmap \fIpixmap\fR to this pixmap and returns a reference to this pixmap.
-.SH "QPixmap & QPixmap::operator= ( const QImage & image )"
+.SH "QPixmap & QPixmap::operator= ( const TQImage & image )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Converts the image \fIimage\fR to a pixmap that is assigned to this pixmap. Returns a reference to the pixmap.
@@ -635,16 +635,16 @@ Examples:
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Resizes the pixmap to size \fIsize\fR.
-.SH "bool QPixmap::save ( const QString & fileName, const char * format, int quality = -1 ) const"
+.SH "bool QPixmap::save ( const TQString & fileName, const char * format, int quality = -1 ) const"
 Saves the pixmap to the file \fIfileName\fR using the image file format \fIformat\fR and a quality factor \fIquality\fR. \fIquality\fR must be in the range [0,100] or -1. Specify 0 to obtain small compressed files, 100 for large uncompressed files, and -1 to use the default settings. Returns TRUE if successful; otherwise returns FALSE.
 .PP
-See also load(), loadFromData(), imageFormat(), QImage::save(), and QImageIO.
+See also load(), loadFromData(), imageFormat(), TQImage::save(), and QImageIO.
 .PP
 Example: qmag/qmag.cpp.
-.SH "bool QPixmap::save ( QIODevice * device, const char * format, int quality = -1 ) const"
+.SH "bool QPixmap::save ( TQIODevice * device, const char * format, int quality = -1 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-This function writes a QPixmap to the QIODevice, \fIdevice\fR. This can be used, for example, to save a pixmap directly into a QByteArray:
+This function writes a QPixmap to the TQIODevice, \fIdevice\fR. This can be used, for example, to save a pixmap directly into a QByteArray:
 .PP
 .nf
 .br
@@ -736,9 +736,9 @@ Returns a copy of the pixmap that is transformed using \fImatrix\fR. The origina
 .PP
 The transformation \fImatrix\fR is internally adjusted to compensate for unwanted translation, i.e. xForm() returns the smallest image that contains all the transformed points of the original image.
 .PP
-This function is slow because it involves transformation to a QImage, non-trivial computations and a transformation back to a QPixmap.
+This function is slow because it involves transformation to a TQImage, non-trivial computations and a transformation back to a QPixmap.
 .PP
-See also trueMatrix(), QWMatrix, QPainter::setWorldMatrix(), and QImage::xForm().
+See also trueMatrix(), QWMatrix, QPainter::setWorldMatrix(), and TQImage::xForm().
 .PP
 Examples:
 .)l desktop/desktop.cpp, fileiconview/qfileiconview.cpp, movies/main.cpp, and qmag/qmag.cpp.
@@ -776,8 +776,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

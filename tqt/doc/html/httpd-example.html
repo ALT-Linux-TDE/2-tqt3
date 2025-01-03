@@ -81,8 +81,8 @@ public:
         // works asynchronouslyl, this means that all the communication is done
         // in the two slots readClient() and discardClient().
         <a href="ntqsocket.html">TQSocket</a>* s = new <a href="ntqsocket.html">TQSocket</a>( this );
-<a name="x731"></a>        connect( s, SIGNAL(<a href="ntqsocket.html#readyRead">readyRead</a>()), this, SLOT(readClient()) );
-<a name="x729"></a>        connect( s, SIGNAL(<a href="ntqsocket.html#delayedCloseFinished">delayedCloseFinished</a>()), this, SLOT(discardClient()) );
+<a name="x731"></a>        connect( s, TQ_SIGNAL(<a href="ntqsocket.html#readyRead">readyRead</a>()), this, TQ_SLOT(readClient()) );
+<a name="x729"></a>        connect( s, TQ_SIGNAL(<a href="ntqsocket.html#delayedCloseFinished">delayedCloseFinished</a>()), this, TQ_SLOT(discardClient()) );
 <a name="x732"></a>        s-&gt;<a href="ntqsocket.html#setSocket">setSocket</a>( socket );
         emit newConnect();
     }
@@ -142,10 +142,10 @@ public:
         infoText = new <a href="ntqtextview.html">TQTextView</a>( this );
         <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "quit" , this );
 
-        connect( httpd, SIGNAL(newConnect()), SLOT(newConnect()) );
-        connect( httpd, SIGNAL(endConnect()), SLOT(endConnect()) );
-        connect( httpd, SIGNAL(wroteToClient()), SLOT(wroteToClient()) );
-<a name="x724"></a>        connect( quit, SIGNAL(<a href="ntqbutton.html#pressed">pressed</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+        connect( httpd, TQ_SIGNAL(newConnect()), TQ_SLOT(newConnect()) );
+        connect( httpd, TQ_SIGNAL(endConnect()), TQ_SLOT(endConnect()) );
+        connect( httpd, TQ_SIGNAL(wroteToClient()), TQ_SLOT(wroteToClient()) );
+<a name="x724"></a>        connect( quit, TQ_SIGNAL(<a href="ntqbutton.html#pressed">pressed</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     }
 
     ~HttpInfo()

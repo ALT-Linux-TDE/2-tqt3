@@ -48,7 +48,7 @@ struct ContentItem {
     TQString title;
     TQString reference;
     int depth;
-    Q_DUMMY_COMPARISON_OPERATOR(ContentItem)
+    TQ_DUMMY_COMPARISON_OPERATOR(ContentItem)
 };
 
 TQDataStream &operator>>( TQDataStream &s, ContentItem &ci );

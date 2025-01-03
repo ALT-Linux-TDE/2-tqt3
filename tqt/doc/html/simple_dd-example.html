@@ -275,8 +275,8 @@ int main( int argc, char *argv[] )
 
     // Set up the connection so that we can drop items into the icon view
     TQObject::<a href="ntqobject.html#connect">connect</a>(
-<a name="x2821"></a>        iv, SIGNAL(<a href="ntqiconview.html#dropped">dropped</a>(TQDropEvent*, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt;&amp;)),
-        iv, SLOT(slotNewItem(TQDropEvent*, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt;&amp;)));
+<a name="x2821"></a>        iv, TQ_SIGNAL(<a href="ntqiconview.html#dropped">dropped</a>(TQDropEvent*, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt;&amp;)),
+        iv, TQ_SLOT(slotNewItem(TQDropEvent*, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt;&amp;)));
 
     // Populate the TQIconView with icons
     DDIconViewItem *item;

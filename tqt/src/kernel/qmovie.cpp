@@ -50,9 +50,9 @@
 #include "ntqobject.h"
 #include "ntqpixmapcache.h"
 
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 #include "qgfx_qws.h"
 #endif
 
@@ -234,7 +234,7 @@ TQMoviePrivate::TQMoviePrivate(TQDataSource* src, TQMovie* movie, int bufsize) :
 {
     frametimer = new TQTimer(this);
     pump = src ? new TQDataPump(src, this) : 0;
-    TQObject::connect(frametimer, SIGNAL(timeout()), this, SLOT(refresh()));
+    TQObject::connect(frametimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(refresh()));
     dirty_cache = FALSE;
     source = src;
     buffer = 0;
@@ -361,7 +361,7 @@ void TQMoviePrivate::updatePixmapFromImage(const TQPoint& off,
     // Convert to pixmap and paste that onto myself
     TQPixmap lines;
 
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_SPRINTF
     if (!(frameperiod < 0 && loop == -1)) {
         // its an animation, lets see if we converted
         // this frame already.
@@ -397,7 +397,7 @@ void TQMoviePrivate::updatePixmapFromImage(const TQPoint& off,
 		 &lines, off.x(), off.y(), area.width(), area.height() );
     }
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     if(display_widget) {
 	TQGfx * mygfx=display_widget->graphicsContext();
 	if(mygfx) {
@@ -679,7 +679,7 @@ void TQMovie::pushData(const uchar* data, int length)
     d->receive(data,length);
 }
 
-#ifdef Q_WS_QWS // ##### Temporary performance experiment
+#ifdef TQ_WS_QWS // ##### Temporary performance experiment
 /*!
     \internal
 */
@@ -993,7 +993,7 @@ void TQMovie::setSpeed(int percent)
 */
 void TQMovie::connectResize(TQObject* receiver, const char *member)
 {
-    TQObject::connect(d, SIGNAL(sizeChanged(const TQSize&)), receiver, member);
+    TQObject::connect(d, TQ_SIGNAL(sizeChanged(const TQSize&)), receiver, member);
 }
 
 /*!
@@ -1002,7 +1002,7 @@ void TQMovie::connectResize(TQObject* receiver, const char *member)
 */
 void TQMovie::disconnectResize(TQObject* receiver, const char *member)
 {
-    TQObject::disconnect(d, SIGNAL(sizeChanged(const TQSize&)), receiver, member);
+    TQObject::disconnect(d, TQ_SIGNAL(sizeChanged(const TQSize&)), receiver, member);
 }
 
 /*!
@@ -1017,7 +1017,7 @@ void TQMovie::disconnectResize(TQObject* receiver, const char *member)
 */
 void TQMovie::connectUpdate(TQObject* receiver, const char *member)
 {
-    TQObject::connect(d, SIGNAL(areaChanged(const TQRect&)), receiver, member);
+    TQObject::connect(d, TQ_SIGNAL(areaChanged(const TQRect&)), receiver, member);
 }
 
 /*!
@@ -1026,7 +1026,7 @@ void TQMovie::connectUpdate(TQObject* receiver, const char *member)
 */
 void TQMovie::disconnectUpdate(TQObject* receiver, const char *member)
 {
-    TQObject::disconnect(d, SIGNAL(areaChanged(const TQRect&)), receiver, member);
+    TQObject::disconnect(d, TQ_SIGNAL(areaChanged(const TQRect&)), receiver, member);
 }
 
 /*!
@@ -1063,7 +1063,7 @@ void TQMovie::disconnectUpdate(TQObject* receiver, const char *member)
 */
 void TQMovie::connectStatus(TQObject* receiver, const char *member)
 {
-    TQObject::connect(d, SIGNAL(dataStatus(int)), receiver, member);
+    TQObject::connect(d, TQ_SIGNAL(dataStatus(int)), receiver, member);
 }
 
 /*!
@@ -1072,10 +1072,10 @@ void TQMovie::connectStatus(TQObject* receiver, const char *member)
 */
 void TQMovie::disconnectStatus(TQObject* receiver, const char *member)
 {
-    TQObject::disconnect(d, SIGNAL(dataStatus(int)), receiver, member);
+    TQObject::disconnect(d, TQ_SIGNAL(dataStatus(int)), receiver, member);
 }
 
 
 #include "qmovie.moc"
 
-#endif	// QT_NO_MOVIE
+#endif	// TQT_NO_MOVIE

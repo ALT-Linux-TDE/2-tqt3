@@ -36,8 +36,10 @@
 **
 **********************************************************************/
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 
+#include "ntqapplication.h"
+#include "ntqthread.h"
 #include "qplatformdefs.h"
 
 #include "ntqthreadstorage.h"
@@ -88,6 +90,21 @@ TQThreadStorageData::TQThreadStorageData( void (*func)( void * ) )
 
 TQThreadStorageData::~TQThreadStorageData()
 {
+    // The Gui thread has static storage duration, TQThreadStorage are almost always static (it's
+    // technically possible to allocate those in the heap, but it's quite unusual). It's impossible
+    // to predict whichever of those one gets destroyed first, but usually it's a TQThreadStorage.
+    // In that case we have to do the cleanup of its storage ourself as it won't be possible after
+    // nullifying the destructor below.
+    TQThread *guiThread = TQApplication::guiThread();
+    if (guiThread) {
+	TQThreadInstance *d = guiThread->d;
+	TQMutexLocker locker( d->mutex() );
+	if (d->thread_storage && d->thread_storage[id]) {
+	    thread_storage_usage[id].func( d->thread_storage[id] );
+	    d->thread_storage[id] = nullptr;
+	}
+    }
+
     pthread_mutex_lock( &thread_storage_mutex );
     thread_storage_usage[id].used = FALSE;
     thread_storage_usage[id].func = 0;
@@ -346,4 +363,4 @@ void TQThreadStorageData::finish( void **thread_storage )
     \sa localData() hasLocalData()
 */
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT

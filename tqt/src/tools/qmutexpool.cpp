@@ -38,11 +38,11 @@
 
 #include "qmutexpool_p.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 
 #include <ntqthread.h>
 
-Q_EXPORT TQMutexPool *tqt_global_mutexpool = 0;
+TQ_EXPORT TQMutexPool *tqt_global_mutexpool = 0;
 
 
 /*!

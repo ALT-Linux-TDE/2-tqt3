@@ -159,14 +159,14 @@ TabletStats::TabletStats( TQWidget *parent, const char *name )
     lblXTilt->setMinimumSize( lblXTilt->sizeHint() );
     lblYTilt->setMinimumSize( lblYTilt->sizeHint() );
 
-    TQObject::connect( statCan, SIGNAL(signalNewTilt(int, int)),
-	              orient, SLOT(newOrient(int, int)) );
-    TQObject::connect( statCan, SIGNAL(signalNewTilt(int, int)),
-	              this, SLOT(slotTiltChanged(int, int)) );
-    TQObject::connect( statCan, SIGNAL(signalNewDev(int)),
-                      this, SLOT(slotDevChanged(int)) );
-    TQObject::connect( statCan, SIGNAL(signalNewLoc(int,int)),
-                      this, SLOT( slotLocationChanged(int,int)) );
+    TQObject::connect( statCan, TQ_SIGNAL(signalNewTilt(int, int)),
+	              orient, TQ_SLOT(newOrient(int, int)) );
+    TQObject::connect( statCan, TQ_SIGNAL(signalNewTilt(int, int)),
+	              this, TQ_SLOT(slotTiltChanged(int, int)) );
+    TQObject::connect( statCan, TQ_SIGNAL(signalNewDev(int)),
+                      this, TQ_SLOT(slotDevChanged(int)) );
+    TQObject::connect( statCan, TQ_SIGNAL(signalNewLoc(int,int)),
+                      this, TQ_SLOT( slotLocationChanged(int,int)) );
 }
 
 TabletStats::~TabletStats()

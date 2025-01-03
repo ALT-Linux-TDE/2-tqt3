@@ -52,11 +52,11 @@
 #define TQM_EXPORT_SQL
 #define TQM_TEMPLATE_EXTERN_SQL
 #else
-#define TQM_EXPORT_SQL Q_EXPORT
+#define TQM_EXPORT_SQL TQ_EXPORT
 #define TQM_TEMPLATE_EXTERN_SQL Q_TEMPLATE_EXTERN
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 class TQSqlCursor;
 
@@ -95,5 +95,5 @@ private:
 
 #define Q_DEFINED_QSQLINDEX
 #include "ntqwinexport.h"
-#endif	// QT_NO_SQL
+#endif	// TQT_NO_SQL
 #endif

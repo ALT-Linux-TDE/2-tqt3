@@ -53,7 +53,7 @@ void poly()
     int head = 0;
     int tail = -maxcurves + 2;
     TQPointArray *a = new TQPointArray[ maxcurves ];
-    register TQPointArray *p;
+    TQPointArray *p;
     TQRect r = d->rect();			// desktop rectangle
 
     int i;

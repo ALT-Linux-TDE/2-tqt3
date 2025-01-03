@@ -72,7 +72,7 @@
 #include "formsettings.h"
 #include "preferences.h"
 #include "pixmapcollectioneditor.h"
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include "dbconnectionimpl.h"
 #endif
 //#include "connectioneditor.h"
@@ -129,7 +129,7 @@ extern void set_splash_status( const TQString &txt );
 extern TQObject* qwf_form_object;
 extern TQString *qwf_plugin_dir;
 
-Q_EXPORT MainWindow *MainWindow::self = 0;
+TQ_EXPORT MainWindow *MainWindow::self = 0;
 
 TQString assistantPath()
 {
@@ -150,7 +150,7 @@ static TQString textNoAccel( const TQString& text)
 }
 
 
-Q_EXPORT MainWindow::MainWindow( bool asClient, bool single, const TQString &plgDir )
+TQ_EXPORT MainWindow::MainWindow( bool asClient, bool single, const TQString &plgDir )
     : TQMainWindow( 0, "designer_mainwindow", WType_TopLevel | (single ? 0 : WDestructiveClose) | WGroupLeader ),
       grd( 10, 10 ), sGrid( TRUE ), snGrid( TRUE ), restoreConfig( TRUE ), splashScreen( TRUE ),
       fileFilter( tr( "TQt User-Interface Files (*.ui)" ) ), client( asClient ),
@@ -174,12 +174,12 @@ Q_EXPORT MainWindow::MainWindow( bool asClient, bool single, const TQString &plg
     savePluginPaths = FALSE;
 
     updateFunctionsTimer = new TQTimer( this );
-    connect( updateFunctionsTimer, SIGNAL( timeout() ),
-	     this, SLOT( doFunctionsChanged() ) );
+    connect( updateFunctionsTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( doFunctionsChanged() ) );
 
     autoSaveTimer = new TQTimer( this );
-    connect( autoSaveTimer, SIGNAL( timeout() ),
-	     this, SLOT( fileSaveAll() ) );
+    connect( autoSaveTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( fileSaveAll() ) );
 
     set_splash_status( "Loading Plugins..." );
     setupPluginManagers();
@@ -187,7 +187,7 @@ Q_EXPORT MainWindow::MainWindow( bool asClient, bool single, const TQString &plg
     if ( !single )
 	tqApp->setMainWidget( this );
     TQWidgetFactory::addWidgetFactory( new CustomWidgetFactory );
-#ifndef Q_WS_MACX
+#ifndef TQ_WS_MACX
     setIcon( TQPixmap::fromMimeSource( "designer_appicon.png" ) );
 #endif
 
@@ -202,13 +202,7 @@ Q_EXPORT MainWindow::MainWindow( bool asClient, bool single, const TQString &plg
     singleProject = single;
 
     statusBar()->clear();
-#if defined(QT_NON_COMMERCIAL)
-    statusBar()->addWidget( new TQLabel(tr("Ready - This is the non-commercial version of TQt - "
-	"For commercial evaluations, use the help menu to register with Trolltech."), statusBar()), 1 );
-#else
     statusBar()->addWidget( new TQLabel("Ready", statusBar()), 1 );
-#endif
-
 
     set_splash_status( "Setting up GUI..." );
     setupMDI();
@@ -240,8 +234,8 @@ Q_EXPORT MainWindow::MainWindow( bool asClient, bool single, const TQString &plg
 
     setupRMBMenus();
 
-    connect( this, SIGNAL( projectChanged() ), this, SLOT( emitProjectSignals() ) );
-    connect( this, SIGNAL( hasActiveWindow(bool) ), this, SLOT( emitProjectSignals() ) );
+    connect( this, TQ_SIGNAL( projectChanged() ), this, TQ_SLOT( emitProjectSignals() ) );
+    connect( this, TQ_SIGNAL( hasActiveWindow(bool) ), this, TQ_SLOT( emitProjectSignals() ) );
 
     emit hasActiveForm( FALSE );
     emit hasActiveWindow( FALSE );
@@ -253,8 +247,8 @@ Q_EXPORT MainWindow::MainWindow( bool asClient, bool single, const TQString &plg
     as -= TQSize( 30, 30 );
     resize( TQSize( 1200, 1000 ).boundedTo( as ) );
 
-    connect( tqApp->clipboard(), SIGNAL( dataChanged() ),
-	     this, SLOT( clipboardChanged() ) );
+    connect( tqApp->clipboard(), TQ_SIGNAL( dataChanged() ),
+	     this, TQ_SLOT( clipboardChanged() ) );
     clipboardChanged();
     layoutChilds = FALSE;
     layoutSelected = FALSE;
@@ -282,7 +276,7 @@ Q_EXPORT MainWindow::MainWindow( bool asClient, bool single, const TQString &plg
     statusBar()->setSizeGripEnabled( TRUE );
     set_splash_status( "Initialization Done." );
     if ( shStartDialog )
-	TQTimer::singleShot( 0, this, SLOT( showStartDialog() ));
+	TQTimer::singleShot( 0, this, TQ_SLOT( showStartDialog() ));
 
     if ( autoSaveEnabled )
 	autoSaveTimer->start( autoSaveInterval * 1000 );
@@ -337,8 +331,8 @@ void MainWindow::setupMDI()
     qworkspace = new TQWorkspace( vbox );
     qworkspace->setPaletteBackgroundPixmap( TQPixmap::fromMimeSource( "designer_background.png" ) );
     qworkspace->setScrollBarsEnabled( TRUE );
-    connect( qworkspace, SIGNAL( windowActivated( TQWidget * ) ),
-	     this, SLOT( activeWindowChanged( TQWidget * ) ) );
+    connect( qworkspace, TQ_SIGNAL( windowActivated( TQWidget * ) ),
+	     this, TQ_SLOT( activeWindowChanged( TQWidget * ) ) );
     lastActiveFormWindow = 0;
     qworkspace->setAcceptDrops( TRUE );
 }
@@ -422,7 +416,7 @@ void MainWindow::setupWorkspace()
     TQCompletionEdit *edit = new TQCompletionEdit( vbox );
     TQToolTip::add( edit, tr( "Start typing the buffer you want to switch to here (ALT+B)" ) );
     TQAccel *a = new TQAccel( this );
-    a->connectItem( a->insertItem( ALT + Key_B ), edit, SLOT( setFocus() ) );
+    a->connectItem( a->insertItem( ALT + Key_B ), edit, TQ_SLOT( setFocus() ) );
     wspace = new Workspace( vbox, this );
     wspace->setBufferEdit( edit );
     wspace->setCurrentProject( currentProject );
@@ -1040,7 +1034,7 @@ bool MainWindow::eventFilter( TQObject *o, TQEvent *e )
 	}
 	lastPressWidget = (TQWidget*)o;
 	if ( passiveInteractor )
-	    TQTimer::singleShot( 0, formWindow(), SLOT( visibilityChanged() ) );
+	    TQTimer::singleShot( 0, formWindow(), TQ_SLOT( visibilityChanged() ) );
 	if ( currentTool() == CONNECT_TOOL || currentTool() == BUDDY_TOOL )
 	    return TRUE;
 	return !passiveInteractor;
@@ -1059,8 +1053,8 @@ bool MainWindow::eventFilter( TQObject *o, TQEvent *e )
 	    ( (FormWindow*)w )->handleMouseRelease( (TQMouseEvent*)e,
 						    ( (FormWindow*)w )->designerWidget( o ) );
 	if ( passiveInteractor ) {
-	    TQTimer::singleShot( 0, this, SLOT( selectionChanged() ) );
-	    TQTimer::singleShot( 0, formWindow(), SLOT( visibilityChanged() ) );
+	    TQTimer::singleShot( 0, this, TQ_SLOT( selectionChanged() ) );
+	    TQTimer::singleShot( 0, formWindow(), TQ_SLOT( visibilityChanged() ) );
 	}
 	return !passiveInteractor;
     case TQEvent::MouseMove:
@@ -1289,16 +1283,16 @@ void MainWindow::insertFormWindow( FormWindow *fw )
 			       "<p>You can have several forms open, and all open forms are listed "
 			       "in the <b>Form List</b>.") );
 
-    connect( fw, SIGNAL( showProperties( TQObject * ) ),
-	     this, SLOT( showProperties( TQObject * ) ) );
-    connect( fw, SIGNAL( updateProperties( TQObject * ) ),
-	     this, SLOT( updateProperties( TQObject * ) ) );
-    connect( this, SIGNAL( currentToolChanged() ),
-	     fw, SLOT( currentToolChanged() ) );
-    connect( fw, SIGNAL( selectionChanged() ),
-	     this, SLOT( selectionChanged() ) );
-    connect( fw, SIGNAL( undoRedoChanged( bool, bool, const TQString &, const TQString & ) ),
-	     this, SLOT( updateUndoRedo( bool, bool, const TQString &, const TQString & ) ) );
+    connect( fw, TQ_SIGNAL( showProperties( TQObject * ) ),
+	     this, TQ_SLOT( showProperties( TQObject * ) ) );
+    connect( fw, TQ_SIGNAL( updateProperties( TQObject * ) ),
+	     this, TQ_SLOT( updateProperties( TQObject * ) ) );
+    connect( this, TQ_SIGNAL( currentToolChanged() ),
+	     fw, TQ_SLOT( currentToolChanged() ) );
+    connect( fw, TQ_SIGNAL( selectionChanged() ),
+	     this, TQ_SLOT( selectionChanged() ) );
+    connect( fw, TQ_SIGNAL( undoRedoChanged( bool, bool, const TQString &, const TQString & ) ),
+	     this, TQ_SLOT( updateUndoRedo( bool, bool, const TQString &, const TQString & ) ) );
 
     if ( !mblockNewForms ) {
     } else {
@@ -1740,8 +1734,8 @@ void MainWindow::handleRMBProperties( int id, TQMap<TQString, int> &props, TQWid
 	    if ( oldDoWrap != doWrap ) {
 		TQString pn( tr( "Set 'wordwrap' of '%1'" ).arg( w->name() ) );
 		SetPropertyCommand *cmd = new SetPropertyCommand( pn, formWindow(), w, propertyEditor,
-								  "wordwrap", TQVariant( oldDoWrap, 0 ),
-								  TQVariant( doWrap, 0 ), TQString::null, TQString::null );
+								  "wordwrap", TQVariant( oldDoWrap ),
+								  TQVariant( doWrap ), TQString::null, TQString::null );
 		cmd->execute();
 		formWindow()->commandHistory()->addCommand( cmd );
 		MetaDataBase::setPropertyChanged( w, "wordwrap", TRUE );
@@ -2406,7 +2400,7 @@ void MainWindow::readConfig()
     if ( !restoreConfig )
 	return;
 
-#ifndef Q_WS_MAC
+#ifndef TQ_WS_MAC
     /* I'm sorry to make this not happen on the Mac, but it seems to hang somewhere deep
        in TQLayout, it gets into a very large loop - and seems it has to do with clever
        things the designer does ###Sam */
@@ -2647,8 +2641,8 @@ bool MainWindow::openEditor( TQWidget *w, FormWindow *f )
 	    if ( oldDoWrap != doWrap ) {
 		TQString pn( tr( "Set 'wordwrap' of '%1'" ).arg( w->name() ) );
 		SetPropertyCommand *cmd = new SetPropertyCommand( pn, formWindow(), w, propertyEditor,
-								  "wordwrap", TQVariant( oldDoWrap, 0 ),
-								  TQVariant( doWrap, 0 ), TQString::null, TQString::null );
+								  "wordwrap", TQVariant( oldDoWrap ),
+								  TQVariant( doWrap ), TQString::null, TQString::null );
 		cmd->execute();
 		formWindow()->commandHistory()->addCommand( cmd );
 		MetaDataBase::setPropertyChanged( w, "wordwrap", TRUE );
@@ -3572,11 +3566,11 @@ bool MainWindow::openProjectSettings( Project *pro )
 	    continue;
 	dia.tabWidget->addTab( t.w, t.title );
 	if ( t.receiver ) {
-	    connect( dia.buttonOk, SIGNAL( clicked() ), senderObject, SLOT( emitAcceptSignal() ) );
-	    connect( senderObject, SIGNAL( acceptSignal( TQUnknownInterface * ) ), t.receiver, t.accept_slot );
-	    connect( senderObject, SIGNAL( initSignal( TQUnknownInterface * ) ), t.receiver, t.init_slot );
+	    connect( dia.buttonOk, TQ_SIGNAL( clicked() ), senderObject, TQ_SLOT( emitAcceptSignal() ) );
+	    connect( senderObject, TQ_SIGNAL( acceptSignal( TQUnknownInterface * ) ), t.receiver, t.accept_slot );
+	    connect( senderObject, TQ_SIGNAL( initSignal( TQUnknownInterface * ) ), t.receiver, t.init_slot );
 	    senderObject->emitInitSignal();
-	    disconnect( senderObject, SIGNAL( initSignal( TQUnknownInterface * ) ), t.receiver, t.init_slot );
+	    disconnect( senderObject, TQ_SIGNAL( initSignal( TQUnknownInterface * ) ), t.receiver, t.init_slot );
 	}
     }
 
@@ -3701,11 +3695,11 @@ void MainWindow::showGUIStuff( bool b )
 	menubar->removeItem( toolsMenuId );
 	menubar->removeItem( toolsMenuId + 1 );
 	menubar->removeItem( toolsMenuId + 2 );
-	disconnect( this, SIGNAL( hasActiveForm(bool) ), actionEditAccels, SLOT( setEnabled(bool) ) );
-	disconnect( this, SIGNAL( hasActiveForm(bool) ), actionEditFunctions, SLOT( setEnabled(bool) ) );
-	disconnect( this, SIGNAL( hasActiveForm(bool) ), actionEditConnections, SLOT( setEnabled(bool) ) );
-	disconnect( this, SIGNAL( hasActiveForm(bool) ), actionEditSource, SLOT( setEnabled(bool) ) );
-	disconnect( this, SIGNAL( hasActiveForm(bool) ), actionEditFormSettings, SLOT( setEnabled(bool) ) );
+	disconnect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditAccels, TQ_SLOT( setEnabled(bool) ) );
+	disconnect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditFunctions, TQ_SLOT( setEnabled(bool) ) );
+	disconnect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditConnections, TQ_SLOT( setEnabled(bool) ) );
+	disconnect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditSource, TQ_SLOT( setEnabled(bool) ) );
+	disconnect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditFormSettings, TQ_SLOT( setEnabled(bool) ) );
 	actionEditFormSettings->setEnabled( FALSE );
 	actionEditSource->setEnabled( FALSE );
 	actionEditConnections->setEnabled( FALSE );
@@ -3738,11 +3732,11 @@ void MainWindow::showGUIStuff( bool b )
 	menubar->insertItem( tr( "&Tools" ), toolsMenu, toolsMenuId, toolsMenuIndex );
 	menubar->insertItem( tr( "&Layout" ), layoutMenu, toolsMenuId + 1, toolsMenuIndex + 1 );
 	menubar->insertItem( tr( "&Preview" ), previewMenu, toolsMenuId + 2, toolsMenuIndex + 2 );
-	connect( this, SIGNAL( hasActiveForm(bool) ), actionEditAccels, SLOT( setEnabled(bool) ) );
-	connect( this, SIGNAL( hasActiveForm(bool) ), actionEditFunctions, SLOT( setEnabled(bool) ) );
-	connect( this, SIGNAL( hasActiveForm(bool) ), actionEditConnections, SLOT( setEnabled(bool) ) );
-	connect( this, SIGNAL( hasActiveForm(bool) ), actionEditSource, SLOT( setEnabled(bool) ) );
-	connect( this, SIGNAL( hasActiveForm(bool) ), actionEditFormSettings, SLOT( setEnabled(bool) ) );
+	connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditAccels, TQ_SLOT( setEnabled(bool) ) );
+	connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditFunctions, TQ_SLOT( setEnabled(bool) ) );
+	connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditConnections, TQ_SLOT( setEnabled(bool) ) );
+	connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditSource, TQ_SLOT( setEnabled(bool) ) );
+	connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditFormSettings, TQ_SLOT( setEnabled(bool) ) );
 	actionEditFormSettings->setEnabled( TRUE );
 	actionEditSource->setEnabled( TRUE );
 	actionEditConnections->setEnabled( TRUE );

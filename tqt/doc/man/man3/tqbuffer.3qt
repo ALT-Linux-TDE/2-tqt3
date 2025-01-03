@@ -9,11 +9,11 @@
 .SH NAME
 QBuffer \- I/O device that operates on a QByteArray
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqbuffer.h>\fR
 .PP
-Inherits QIODevice.
+Inherits TQIODevice.
 .PP
 .SS "Public Members"
 .in +1c
@@ -50,9 +50,9 @@ Use open() to open the buffer before use and to set the mode (read-only, write-o
 .PP
 A common way to use QBuffer is through QDataStream or QTextStream, which have constructors that take a QBuffer parameter. For convenience, there are also QDataStream and QTextStream constructors that take a QByteArray parameter. These constructors create and open an internal QBuffer.
 .PP
-Note that QTextStream can also operate on a QString (a Unicode string); a QBuffer cannot.
+Note that QTextStream can also operate on a TQString (a Unicode string); a QBuffer cannot.
 .PP
-You can also use QBuffer directly through the standard QIODevice functions readBlock(), writeBlock() readLine(), at(), getch(), putch() and ungetch().
+You can also use QBuffer directly through the standard TQIODevice functions readBlock(), writeBlock() readLine(), at(), getch(), putch() and ungetch().
 .PP
 See also QFile, QDataStream, QTextStream, QByteArray, Shared Classes, Collection Classes, and Input/Output and Networking.
 .SH MEMBER FUNCTION DOCUMENTATION
@@ -105,7 +105,7 @@ Returns -1 if an error occurred.
 .PP
 See also readBlock().
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 .SH "TQ_LONG QBuffer::writeBlock ( const QByteArray & data )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -126,8 +126,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -55,18 +55,18 @@
 #include "ntqobject.h"
 #endif // QT_H
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
-#ifndef Q_EXTERN_C
+#ifndef TQ_EXTERN_C
 #ifdef __cplusplus
-#define Q_EXTERN_C    extern "C"
+#define TQ_EXTERN_C    extern "C"
 #else
-#define Q_EXTERN_C    extern
+#define TQ_EXTERN_C    extern
 #endif
 #endif
 
-#ifndef Q_EXPORT_PLUGIN
-#if defined(QT_THREAD_SUPPORT)
+#ifndef TQ_EXPORT_PLUGIN
+#if defined(TQT_THREAD_SUPPORT)
 #define QT_THREADED_BUILD 1
 #define Q_PLUGIN_FLAGS_STRING "11"
 #else
@@ -81,10 +81,10 @@
 #ifndef Q_PLUGIN_VERIFICATION_DATA
 #  define Q_PLUGIN_VERIFICATION_DATA \
 	static const char *qt_ucm_verification_data =			\
-            "pattern=""QT_UCM_VERIFICATION_DATA""\n"			\
-            "version="TQT_VERSION_STR"\n"				\
-            "flags="Q_PLUGIN_FLAGS_STRING"\n"				\
-	    "buildkey="TQT_BUILD_KEY"\0";
+            "pattern=" "QT_UCM_VERIFICATION_DATA" "\n"			\
+            "version=" TQT_VERSION_STR "\n"				\
+            "flags=" Q_PLUGIN_FLAGS_STRING "\n"				\
+	    "buildkey=" TQT_BUILD_KEY "\0";
 #endif // Q_PLUGIN_VERIFICATION_DATA
 
 #define Q_PLUGIN_INSTANTIATE( IMPLEMENTATION )	\
@@ -93,24 +93,24 @@
 	    return i->iface(); \
 	}
 
-#if defined(Q_WS_WIN) && defined(Q_CC_BOR)
+#if defined(TQ_WS_WIN) && defined(Q_CC_BOR)
 #   define Q_STDCALL __stdcall
 #else
 #   define Q_STDCALL
 #endif
 
-#define Q_EXPORT_PLUGIN(PLUGIN) \
+#define TQ_EXPORT_PLUGIN(PLUGIN) \
 	    Q_PLUGIN_VERIFICATION_DATA \
-	    Q_EXTERN_C Q_EXPORT \
+	    TQ_EXTERN_C TQ_EXPORT \
             const char * Q_STDCALL qt_ucm_query_verification_data() \
             { return qt_ucm_verification_data; } \
-	    Q_EXTERN_C Q_EXPORT TQUnknownInterface* Q_STDCALL ucm_instantiate() \
+	    TQ_EXTERN_C TQ_EXPORT TQUnknownInterface* Q_STDCALL ucm_instantiate() \
             Q_PLUGIN_INSTANTIATE( PLUGIN )
 #endif
 
 struct TQUnknownInterface;
 
-class Q_EXPORT TQGPlugin : public TQObject
+class TQ_EXPORT TQGPlugin : public TQObject
 {
     TQ_OBJECT
 public:
@@ -125,6 +125,6 @@ private:
     TQUnknownInterface* _iface;
 };
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 #endif // TQGPLUGIN_H

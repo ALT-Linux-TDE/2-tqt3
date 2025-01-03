@@ -47,7 +47,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQSignal : public TQObject
+class TQ_EXPORT TQSignal : public TQObject
 {
     TQ_OBJECT
 
@@ -60,27 +60,27 @@ public:
 
     void	activate();
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     bool	isBlocked()	 const		{ return TQObject::signalsBlocked(); }
     void	block( bool b )		{ TQObject::blockSignals( b ); }
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
     void	setParameter( int value );
     int		parameter() const;
 #endif
 #endif
 
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
     void	setValue( const TQVariant &value );
     TQVariant	value() const;
 #endif
 signals:
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
     void signal( const TQVariant& );
 #endif
     void intSignal( int );
 
 private:
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
     TQVariant val;
 #endif
 private:	// Disabled copy constructor and operator=

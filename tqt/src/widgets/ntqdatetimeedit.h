@@ -47,9 +47,9 @@
 #include "ntqdatetime.h"
 #endif // QT_H
 
-#ifndef QT_NO_DATETIMEEDIT
+#ifndef TQT_NO_DATETIMEEDIT
 
-class Q_EXPORT TQDateTimeEditBase : public TQWidget
+class TQ_EXPORT TQDateTimeEditBase : public TQWidget
 {
     TQ_OBJECT
 public:
@@ -74,7 +74,7 @@ private:
 
 class TQDateEditPrivate;
 
-class Q_EXPORT TQDateEdit : public TQDateTimeEditBase
+class TQ_EXPORT TQDateEdit : public TQDateTimeEditBase
 {
     TQ_OBJECT
     TQ_ENUMS( Order )
@@ -154,7 +154,7 @@ private:
 
 class TQTimeEditPrivate;
 
-class Q_EXPORT TQTimeEdit : public TQDateTimeEditBase
+class TQ_EXPORT TQTimeEdit : public TQDateTimeEditBase
 {
     TQ_OBJECT
     TQ_SETS( Display )
@@ -238,7 +238,7 @@ private:
 
 class TQDateTimeEditPrivate;
 
-class Q_EXPORT TQDateTimeEdit : public TQWidget
+class TQ_EXPORT TQDateTimeEdit : public TQWidget
 {
     TQ_OBJECT
     TQ_PROPERTY( TQDateTime dateTime READ dateTime WRITE setDateTime )

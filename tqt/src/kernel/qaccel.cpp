@@ -40,7 +40,7 @@
 
 #include "ntqaccel.h"
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 #include "ntqsignal.h"
 #include "ntqapplication.h"
@@ -73,7 +73,7 @@
     \code
 	TQPushButton p( "&Exit", parent ); // automatic shortcut ALT+Key_E
 	TQPopupMenu *fileMenu = new fileMenu( parent );
-	fileMenu->insertItem( "Undo", parent, SLOT(undo()), CTRL+Key_Z );
+	fileMenu->insertItem( "Undo", parent, TQ_SLOT(undo()), CTRL+Key_Z );
     \endcode
 
     A TQAccel contains a list of accelerator items that can be
@@ -131,7 +131,7 @@
 	TQAccel *a = new TQAccel( myWindow );	   // create accels for myWindow
 	a->connectItem( a->insertItem(Key_P+CTRL), // adds Ctrl+P accelerator
 			myWindow,		   // connected to myWindow's
-			SLOT(printDoc()) );	   // printDoc() slot
+			TQ_SLOT(printDoc()) );	   // printDoc() slot
     \endcode
 
     \sa TQKeyEvent TQWidget::keyPressEvent() TQMenuData::setAccel()
@@ -193,24 +193,24 @@ private:
 };
 TQAccelManager* TQAccelManager::self_ptr = 0;
 
-bool Q_EXPORT tqt_tryAccelEvent( TQWidget* w, TQKeyEvent*  e){
+bool TQ_EXPORT tqt_tryAccelEvent( TQWidget* w, TQKeyEvent*  e){
     return TQAccelManager::self()->tryAccelEvent( w, e );
 }
 
-bool Q_EXPORT tqt_dispatchAccelEvent( TQWidget* w, TQKeyEvent*  e){
+bool TQ_EXPORT tqt_dispatchAccelEvent( TQWidget* w, TQKeyEvent*  e){
     return TQAccelManager::self()->dispatchAccelEvent( w, e );
 }
 
-bool Q_EXPORT tqt_tryComposeUnicode( TQWidget* w, TQKeyEvent*  e){
+bool TQ_EXPORT tqt_tryComposeUnicode( TQWidget* w, TQKeyEvent*  e){
     return TQAccelManager::self()->tryComposeUnicode( w, e );
 }
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 static bool qt_accel_no_shortcuts = TRUE;
 #else
 static bool qt_accel_no_shortcuts = FALSE;
 #endif
-void Q_EXPORT tqt_setAccelAutoShortcuts(bool b) { qt_accel_no_shortcuts = b; }
+void TQ_EXPORT tqt_setAccelAutoShortcuts(bool b) { qt_accel_no_shortcuts = b; }
 
 /*
     \internal
@@ -228,7 +228,7 @@ bool TQAccelManager::correctSubWindow( TQWidget* w, TQAccelPrivate* d ) {
 
     /* if we live in a floating dock window, keep our parent's
      * accelerators working */
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
     if ( tlw->isDialog() && tlw->parentWidget() && ::tqt_cast<TQDockWindow*>(tlw) )
 	return tlw->parentWidget()->topLevelWidget() == wtlw;
 
@@ -391,7 +391,7 @@ bool TQAccelManager::tryComposeUnicode( TQWidget* w, TQKeyEvent* e )
 */
 bool TQAccelManager::dispatchAccelEvent( TQWidget* w, TQKeyEvent* e )
 {
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
     // Needs to be declared and used here because of "goto doclash"
     TQStatusBar* mainStatusBar = 0;
 #endif
@@ -459,12 +459,12 @@ bool TQAccelManager::dispatchAccelEvent( TQWidget* w, TQKeyEvent* e )
 	pe = TQKeyEvent( TQEvent::Accel, pe.key(), pe.ascii(), pe.state()&~TQt::ShiftButton, pe.text() );
     } while ( hasShift-- && !matchFound && !identicalDisabled );
 
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
     mainStatusBar = (TQStatusBar*) w->topLevelWidget()->child( 0, "TQStatusBar" );
 #endif
     if ( n < 0 ) { // no match found
 	currentState = partial.count() ? PartialMatch : NoMatch;
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
 	// Only display message if we are, or were, in a partial match
 	if ( mainStatusBar && (PartialMatch == currentState || intermediate.count() ) ) {
 	    if ( currentState == TQt::PartialMatch ) {
@@ -489,7 +489,7 @@ bool TQAccelManager::dispatchAccelEvent( TQWidget* w, TQKeyEvent* e )
 	return eatKey;
     } else if ( n == 0 ) { // found exactly one match
 	clash = -1; // reset
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
 	if ( currentState == TQt::PartialMatch && mainStatusBar )
 		mainStatusBar->clear();
 #endif
@@ -501,7 +501,7 @@ bool TQAccelManager::dispatchAccelEvent( TQWidget* w, TQKeyEvent* e )
     }
 
  doclash: // found more than one match
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
     if ( !mainStatusBar ) // if "goto doclash", we need to get statusbar again.
 	mainStatusBar = (TQStatusBar*) w->topLevelWidget()->child( 0, "TQStatusBar" );
 #endif
@@ -511,7 +511,7 @@ bool TQAccelManager::dispatchAccelEvent( TQWidget* w, TQKeyEvent* e )
 	intermediate = TQKeySequence();
 	currentState = TQt::NoMatch; // Free sequence keylock
 	clash++;
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
 	if ( mainStatusBar &&
 	     !lastitem->signal &&
 	     !(lastaccel->parent->receivers( "activatedAmbiguously(int)" )) )
@@ -522,7 +522,7 @@ bool TQAccelManager::dispatchAccelEvent( TQWidget* w, TQKeyEvent* e )
 	intermediate = TQKeySequence();
 	currentState = TQt::NoMatch; // Free sequence keylock
 	clash = 0;
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
 	if ( mainStatusBar &&
 	     !firstitem->signal &&
 	     !(firstaccel->parent->receivers( "activatedAmbiguously(int)" )) )
@@ -549,7 +549,7 @@ TQAccelPrivate::~TQAccelPrivate()
 
 static TQAccelItem *find_id( TQAccelList &list, int id )
 {
-    register TQAccelItem *item = list.first();
+    TQAccelItem *item = list.first();
     while ( item && item->id != id )
 	item = list.next();
     return item;
@@ -557,7 +557,7 @@ static TQAccelItem *find_id( TQAccelList &list, int id )
 
 static TQAccelItem *find_key( TQAccelList &list, const TQKeySequence &key )
 {
-    register TQAccelItem *item = list.first();
+    TQAccelItem *item = list.first();
     while ( item && !( item->key == key ) )
 	item = list.next();
     return item;
@@ -781,7 +781,7 @@ void TQAccel::setItemEnabled( int id, bool enable )
     receiver.
 
     \code
-	a->connectItem( 201, mainView, SLOT(quit()) );
+	a->connectItem( 201, mainView, TQ_SLOT(quit()) );
     \endcode
 
     Of course, you can also send a signal as \a member.
@@ -827,7 +827,7 @@ bool TQAccel::disconnectItem( int id, const TQObject *receiver,
 
 void TQAccelPrivate::activate( TQAccelItem* item )
 {
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
     if ( TQWhatsThis::inWhatsThisMode() && !ignorewhatsthis ) {
 	TQWhatsThis::leaveWhatsThisMode( item->whatsthis );
 	return;
@@ -917,7 +917,7 @@ TQString TQAccel::keyToString( TQKeySequence k )
 
   \code
     TQPopupMenu *file = new TQPopupMenu( this );
-    file->insertItem( p1, tr("&Open..."), this, SLOT(open()),
+    file->insertItem( p1, tr("&Open..."), this, TQ_SLOT(open()),
 		      TQAccel::stringToKey(tr("Ctrl+O", "File|Open")) );
   \endcode
 
@@ -1086,4 +1086,4 @@ to help. Ask them for ISBN 1859121047.
 void TQAccel::repairEventFilter() {}
 /*! \obsolete	serves no purpose anymore */
 bool TQAccel::eventFilter( TQObject *, TQEvent * ) { return FALSE; }
-#endif // QT_NO_ACCEL
+#endif // TQT_NO_ACCEL

@@ -1,6 +1,6 @@
 Qt 3.3.8 is a bug-fix release. It maintains both forward and backward
-compatibility (source and binary) with Qt 3.3.7, Qt 3.3.6, Qt 3.3.5, 3.3.4, Qt 3.3.3,
-Qt 3.3.2, Qt 3.3.1 and Qt 3.3.0.
+compatibility (source and binary) with TQt 3.3.7, TQt 3.3.6, TQt 3.3.5, 3.3.4, TQt 3.3.3,
+Qt 3.3.2, TQt 3.3.1 and TQt 3.3.0.
 
 ****************************************************************************
 *                           General                                        *
@@ -187,7 +187,7 @@ Windows:
 Mac OS X:
 
 - Made the endian preprocessor define dependent on the architecture. This means
-  that it is possible to build a universal Qt library on one machine. However,
+  that it is possible to build a universal TQt library on one machine. However,
   qmake_image_collection.cpp is still dependent upon the machine it was
   generated on.
 
@@ -237,18 +237,18 @@ X11:
 - Fixed problem with applications hanging while querying the clipboard. This is
   related to the KDE bug reported at http://bugs.kde.org/show_bug.cgi?id=80072.
 
-- Fixed a crash that could occur when Qt uses a DirectColor visual.
+- Fixed a crash that could occur when TQt uses a DirectColor visual.
 
 - Fixed a rare crash in QPixmap::convertToImage() when XGetImage() fails.
 
-- Fixed issue where events were not being processed by Qt when using the Qt
+- Fixed issue where events were not being processed by TQt when using the Qt
   Motif Extension.
 
 - The X input method language status window is no longer shown for popup menus
   on Solaris.
 
 - Fixed incorrect use of colors when painting on the default (TrueColor) screen
-  when running a Qt application on a multi-screen display where the default
+  when running a TQt application on a multi-screen display where the default
   screen uses a TrueColor visual and the secondary screen a PseudoColor visual.
 
 - Fixed a bug where calling newPage() directly before destroying the QPrinter

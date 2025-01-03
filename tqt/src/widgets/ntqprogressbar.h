@@ -45,13 +45,13 @@
 #include "ntqframe.h"
 #endif // QT_H
 
-#ifndef QT_NO_PROGRESSBAR
+#ifndef TQT_NO_PROGRESSBAR
 
 
 class TQProgressBarPrivate;
 
 
-class Q_EXPORT TQProgressBar : public TQFrame
+class TQ_EXPORT TQProgressBar : public TQFrame
 {
     TQ_OBJECT
     TQ_PROPERTY( int totalSteps READ totalSteps WRITE setTotalSteps )
@@ -154,6 +154,6 @@ inline bool TQProgressBar::percentageVisible() const
     return percentage_visible;
 }
 
-#endif // QT_NO_PROGRESSBAR
+#endif // TQT_NO_PROGRESSBAR
 
 #endif // TQPROGRESSBAR_H

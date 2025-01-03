@@ -11,14 +11,14 @@ QEventLoop \- Manages the event queue
 .SH SYNOPSIS
 \fC#include <ntqeventloop.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 Inherited by QMotif.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQEventLoop\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQEventLoop\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QEventLoop\fR ()"
@@ -91,7 +91,7 @@ It receives events from the window system and other sources. It then sends them 
 .PP
 QEventLoop allows the application programmer to have more control over event delivery. Programs that perform long operations can call either processOneEvent() or processEvents() with various ProcessEvent values OR'ed together to control which events should be delivered.
 .PP
-QEventLoop also allows the integration of an external event loop with the Qt event loop. The Motif Extension included with Qt includes a reimplementation of QEventLoop for merging Qt and Motif events together.
+QEventLoop also allows the integration of an external event loop with the TQt event loop. The Motif Extension included with TQt includes a reimplementation of QEventLoop for merging TQt and Motif events together.
 .PP
 To use your own instance of QEventLoop or QEventLoop subclass create it before you create the QApplication object.
 .PP
@@ -114,10 +114,10 @@ A \fCtypedef\fR to allow various ProcessEvents values to be OR'ed together.
 .PP
 See also ProcessEvents.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QEventLoop::QEventLoop ( QObject * parent = 0, const char * name = 0 )"
+.SH "QEventLoop::QEventLoop ( TQObject * parent = 0, const char * name = 0 )"
 Creates a QEventLoop object, this object becomes the global event loop object. There can only be one event loop object. The QEventLoop is usually constructed by calling QApplication::eventLoop(). To create your own event loop object create it before you instantiate the QApplication object.
 .PP
-The \fIparent\fR and \fIname\fR arguments are passed on to the QObject constructor.
+The \fIparent\fR and \fIname\fR arguments are passed on to the TQObject constructor.
 .SH "QEventLoop::~QEventLoop ()"
 Destructs the QEventLoop object.
 .SH "void QEventLoop::aboutToBlock ()\fC [signal]\fR"
@@ -127,7 +127,7 @@ See also awake().
 .SH "int QEventLoop::activateSocketNotifiers ()"
 Activates all pending socket notifiers and returns the number of socket notifiers that were activated.
 .SH "int QEventLoop::activateTimers ()"
-Activates all Qt timers and returns the number of timers that were activated.
+Activates all TQt timers and returns the number of timers that were activated.
 .PP
 QEventLoop subclasses that do their own timer handling need to call this after the time returned by timeToWait() has elapsed.
 .PP
@@ -200,7 +200,7 @@ Registers \fInotifier\fR with the event loop. Subclasses need to reimplement thi
 .SH "void QEventLoop::setSocketNotifierPending ( QSocketNotifier * notifier )"
 Marks \fInotifier\fR as pending. The socket notifier will be activated the next time activateSocketNotifiers() is called.
 .SH "int QEventLoop::timeToWait () const"
-Returns the number of milliseconds that Qt needs to handle its timers or -1 if there are no timers running.
+Returns the number of milliseconds that TQt needs to handle its timers or -1 if there are no timers running.
 .PP
 QEventLoop subclasses that do their own timer handling need to use this to make sure that Qt's timers continue to work.
 .PP
@@ -208,7 +208,7 @@ Note: This function is only useful on systems where \fCselect()\fR is used to bl
 .SH "void QEventLoop::unregisterSocketNotifier ( QSocketNotifier * notifier )\fC [virtual]\fR"
 Unregisters \fInotifier\fR from the event loop. Subclasses need to reimplement this method to tie a socket notifier into another event loop. Reimplementations \fIMUST\fR call the base implementation.
 .SH "void QEventLoop::wakeUp ()\fC [virtual]\fR"
-\fBNote:\fR This function is thread-safe when Qt is built withthread support.</p>
+\fBNote:\fR This function is thread-safe when TQt is built withthread support.</p>
 .PP
 Wakes up the event loop.
 .PP
@@ -228,8 +228,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

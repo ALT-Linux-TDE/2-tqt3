@@ -144,11 +144,11 @@ TQDragger::TQDragger()
 //    menu->insertItem( "Send child home", 4 );
     menu->insertItem( "Send all children home", 5 );
 
-    menu->connectItem( 1, this, SLOT(openDropWindow()) );
-    menu->connectItem( 2, this, SLOT(killDropWindow()) );
-    menu->connectItem( 3, this, SLOT(killAllDropWindows()) );
-//    menu->connectItem( 4, this, SLOT(sendChildHome()) );
-    menu->connectItem( 5, this, SLOT(sendAllChildrenHome()) );
+    menu->connectItem( 1, this, TQ_SLOT(openDropWindow()) );
+    menu->connectItem( 2, this, TQ_SLOT(killDropWindow()) );
+    menu->connectItem( 3, this, TQ_SLOT(killAllDropWindows()) );
+//    menu->connectItem( 4, this, TQ_SLOT(sendChildHome()) );
+    menu->connectItem( 5, this, TQ_SLOT(sendAllChildrenHome()) );
 }
 
 TQDragger::~TQDragger()

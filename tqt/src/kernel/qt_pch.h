@@ -16,7 +16,7 @@
 
 #if defined __cplusplus
 #  if defined(__GNUC__)
-#    ifndef QT_NO_STL
+#    ifndef TQT_NO_STL
 #      include <ios>
 #      undef _GLIBCPP_FULLY_COMPLIANT_HEADERS  // Makes qlocale.cpp compile
 #    endif
@@ -44,7 +44,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #if defined(__GNUC__)
-#  ifndef QT_NO_STL
+#  ifndef TQT_NO_STL
 #    define _GLIBCPP_FULLY_COMPLIANT_HEADERS
 #  endif
 #endif

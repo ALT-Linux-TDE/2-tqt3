@@ -84,20 +84,20 @@ body { background: #ffffff; color: black; }
 #endif // QT_H
 #endif
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 /*****************************************************************************
   TQKeySequence stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 class TQKeySequence;
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQKeySequence &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQKeySequence &amp; );
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQKeySequence &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQKeySequence &amp; );
 #endif
 
 class TQKeySequencePrivate;
 
-class Q_EXPORT TQKeySequence : public TQt
+class TQ_EXPORT TQKeySequence : public TQt
 {
 public:
     TQKeySequence();
@@ -126,21 +126,21 @@ private:
 
     TQKeySequencePrivate* d;
 
-    friend Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQKeySequence &amp; );
-    friend Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQKeySequence &amp; );
+    friend TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQKeySequence &amp; );
+    friend TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQKeySequence &amp; );
     friend class TQAccelManager;
 };
 
 #else
 
-class Q_EXPORT TQKeySequence : public TQt
+class TQ_EXPORT TQKeySequence : public TQt
 {
 public:
     TQKeySequence() {}
     TQKeySequence( int ) {}
 };
 
-#endif //QT_NO_ACCEL
+#endif //TQT_NO_ACCEL
 
 #endif
 </pre>

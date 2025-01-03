@@ -1,18 +1,18 @@
 unix {
-	!xinerama:DEFINES += QT_NO_XINERAMA
-	!xshape:DEFINES += QT_NO_SHAPE
-	!xcursor:DEFINES += QT_NO_XCURSOR
-	!xrandr:DEFINES += QT_NO_XRANDR
-	!xrender:DEFINES += QT_NO_XRENDER
-	!xftfreetype:DEFINES += QT_NO_XFTFREETYPE
-	!xkb:DEFINES += QT_NO_XKB
+	!xinerama:DEFINES += TQT_NO_XINERAMA
+	!xshape:DEFINES += TQT_NO_SHAPE
+	!xcursor:DEFINES += TQT_NO_XCURSOR
+	!xrandr:DEFINES += TQT_NO_XRANDR
+	!xrender:DEFINES += TQT_NO_XRENDER
+	!xftfreetype:DEFINES += TQT_NO_XFTFREETYPE
+	!xkb:DEFINES += TQT_NO_XKB
 	xft2header:DEFINES+=QT_USE_XFT2_HEADER
 
 	SOURCES += $$KERNEL_CPP/qtaddons_x11.cpp
 	PRECOMPILED_HEADER = kernel/qt_pch.h
         
-        SOURCES += $$KERNEL_CPP/qtkdeintegration_x11.cpp
-        HEADERS += $$KERNEL_H/qtkdeintegration_x11_p.h
+        SOURCES += $$KERNEL_CPP/tqttdeintegration_x11.cpp
+        HEADERS += $$KERNEL_H/tqttdeintegration_x11_p.h
 }
 
 nas {
@@ -20,4 +20,4 @@ nas {
 	LIBS	+= -laudio -lXt
 }
 
-!x11sm:DEFINES += QT_NO_SM_SUPPORT
+!x11sm:DEFINES += TQT_NO_SM_SUPPORT

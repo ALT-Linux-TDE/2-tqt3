@@ -64,9 +64,9 @@ void FancyPopup::popup( TQWidget* parent) {
 
 Frame::Frame(TQWidget* parent, const char* name): TQFrame(parent, name){
     button1 = new TQPushButton("Simple Popup", this);
-    connect ( button1, SIGNAL( clicked() ), SLOT( button1Clicked() ) );
+    connect ( button1, TQ_SIGNAL( clicked() ), TQ_SLOT( button1Clicked() ) );
     button2 = new TQPushButton("Fancy Popup", this);
-    connect ( button2, SIGNAL( pressed() ), SLOT( button2Pressed() ) );
+    connect ( button2, TQ_SIGNAL( pressed() ), TQ_SLOT( button2Pressed() ) );
 
     TQBoxLayout * l = new TQHBoxLayout( this );
     button1->setMaximumSize(button1->sizeHint());
@@ -86,11 +86,11 @@ Frame::Frame(TQWidget* parent, const char* name): TQFrame(parent, name){
     popup1->setFrameStyle( WinPanel|Raised );
     popup1->resize(150,100);
     TQLineEdit *tmpE = new TQLineEdit( popup1 );
-    connect( tmpE, SIGNAL( returnPressed() ), popup1, SLOT( hide() ) );
+    connect( tmpE, TQ_SIGNAL( returnPressed() ), popup1, TQ_SLOT( hide() ) );
     tmpE->setGeometry(10,10, 130, 30);
     tmpE->setFocus();
     TQPushButton *tmpB = new TQPushButton("Click me!", popup1);
-    connect( tmpB, SIGNAL( clicked() ), popup1, SLOT( close() ) );
+    connect( tmpB, TQ_SIGNAL( clicked() ), popup1, TQ_SLOT( close() ) );
     tmpB->setGeometry(10, 50, 130, 30);
 
     // the fancier version uses its own class. It will be shown when
@@ -105,7 +105,7 @@ Frame::Frame(TQWidget* parent, const char* name): TQFrame(parent, name){
 
 //     tmpE = new TQLineEdit( popup2 );
 //     tmpE->setFocus();
-//     connect( tmpE, SIGNAL( returnPressed() ), popup2, SLOT( close() ) );
+//     connect( tmpE, TQ_SIGNAL( returnPressed() ), popup2, TQ_SLOT( close() ) );
 //     tmpE->setGeometry(10, 10, 130, 30);
 }
 

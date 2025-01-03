@@ -16,28 +16,28 @@ Inherits QFrame.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQWidgetStack\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQWidgetStack\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQWidgetStack\fR ( QWidget * parent, const char * name, WFlags f )"
+.BI "\fBQWidgetStack\fR ( TQWidget * parent, const char * name, WFlags f )"
 .br
 .ti -1c
 .BI "\fB~QWidgetStack\fR ()"
 .br
 .ti -1c
-.BI "int \fBaddWidget\fR ( QWidget * w, int id = -1 )"
+.BI "int \fBaddWidget\fR ( TQWidget * w, int id = -1 )"
 .br
 .ti -1c
-.BI "void \fBremoveWidget\fR ( QWidget * w )"
+.BI "void \fBremoveWidget\fR ( TQWidget * w )"
 .br
 .ti -1c
-.BI "QWidget * \fBwidget\fR ( int id ) const"
+.BI "TQWidget * \fBwidget\fR ( int id ) const"
 .br
 .ti -1c
-.BI "int \fBid\fR ( QWidget * widget ) const"
+.BI "int \fBid\fR ( TQWidget * widget ) const"
 .br
 .ti -1c
-.BI "QWidget * \fBvisibleWidget\fR () const"
+.BI "TQWidget * \fBvisibleWidget\fR () const"
 .br
 .in -1c
 .SS "Public Slots"
@@ -46,7 +46,7 @@ Inherits QFrame.
 .BI "void \fBraiseWidget\fR ( int id )"
 .br
 .ti -1c
-.BI "void \fBraiseWidget\fR ( QWidget * w )"
+.BI "void \fBraiseWidget\fR ( TQWidget * w )"
 .br
 .in -1c
 .SS "Signals"
@@ -55,7 +55,7 @@ Inherits QFrame.
 .BI "void \fBaboutToShow\fR ( int )"
 .br
 .ti -1c
-.BI "void \fBaboutToShow\fR ( QWidget * )"
+.BI "void \fBaboutToShow\fR ( TQWidget * )"
 .br
 .in -1c
 .SS "Protected Members"
@@ -79,11 +79,11 @@ QWidgetStack provides a signal, aboutToShow(), which is emitted just before a ma
 .PP
 See also QTabDialog, QTabBar, QFrame, and Organizers.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWidgetStack::QWidgetStack ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QWidgetStack::QWidgetStack ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs an empty widget stack.
 .PP
 The \fIparent\fR and \fIname\fR arguments are passed to the QFrame constructor.
-.SH "QWidgetStack::QWidgetStack ( QWidget * parent, const char * name, WFlags f )"
+.SH "QWidgetStack::QWidgetStack ( TQWidget * parent, const char * name, WFlags f )"
 Constructs an empty widget stack.
 .PP
 The \fIparent\fR, \fIname\fR and \fIf\fR arguments are passed to the QFrame constructor.
@@ -93,13 +93,13 @@ Destroys the object and frees any allocated resources.
 This signal is emitted just before a managed widget is shown if that managed widget has an ID != -1. The argument is the numeric ID of the widget.
 .PP
 If you call visibleWidget() in a slot connected to aboutToShow(), the widget it returns is the one that is currently visible, not the one that is about to be shown.
-.SH "void QWidgetStack::aboutToShow ( QWidget * )\fC [signal]\fR"
+.SH "void QWidgetStack::aboutToShow ( TQWidget * )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted just before a managed widget is shown. The argument is a pointer to the widget.
 .PP
 If you call visibleWidget() in a slot connected to aboutToShow(), the widget returned is the one that is currently visible, not the one that is about to be shown.
-.SH "int QWidgetStack::addWidget ( QWidget * w, int id = -1 )"
+.SH "int QWidgetStack::addWidget ( TQWidget * w, int id = -1 )"
 Adds widget \fIw\fR to this stack of widgets, with ID \fIid\fR.
 .PP
 If you pass an id >= 0 this ID is used. If you pass an \fIid\fR of -1 (the default), the widgets will be numbered automatically. If you pass -2 a unique negative integer will be generated. No widget has an ID of -1. Returns the ID or -1 on failure (e.g. \fIw\fR is 0).
@@ -111,7 +111,7 @@ If \fIw\fR already exists in the stack the widget will be removed first.
 If \fIw\fR is not a child of this QWidgetStack moves it using reparent().
 .PP
 Example: xform/xform.cpp.
-.SH "int QWidgetStack::id ( QWidget * widget ) const"
+.SH "int QWidgetStack::id ( TQWidget * widget ) const"
 Returns the ID of the \fIwidget\fR. Returns -1 if \fIwidget\fR is 0 or is not being managed by this widget stack.
 .PP
 See also widget() and addWidget().
@@ -121,21 +121,21 @@ Raises the widget with ID \fIid\fR to the top of the widget stack.
 See also visibleWidget().
 .PP
 Example: xform/xform.cpp.
-.SH "void QWidgetStack::raiseWidget ( QWidget * w )\fC [slot]\fR"
+.SH "void QWidgetStack::raiseWidget ( TQWidget * w )\fC [slot]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Raises widget \fIw\fR to the top of the widget stack.
-.SH "void QWidgetStack::removeWidget ( QWidget * w )"
+.SH "void QWidgetStack::removeWidget ( TQWidget * w )"
 Removes widget \fIw\fR from this stack of widgets. Does not delete \fIw\fR. If \fIw\fR is the currently visible widget, no other widget is substituted.
 .PP
 See also visibleWidget() and raiseWidget().
 .SH "void QWidgetStack::setChildGeometries ()\fC [virtual protected]\fR"
 Fixes up the children's geometries.
-.SH "QWidget * QWidgetStack::visibleWidget () const"
+.SH "TQWidget * QWidgetStack::visibleWidget () const"
 Returns the currently visible widget (the one at the top of the stack), or 0 if nothing is currently being shown.
 .PP
 See also aboutToShow(), id(), and raiseWidget().
-.SH "QWidget * QWidgetStack::widget ( int id ) const"
+.SH "TQWidget * QWidgetStack::widget ( int id ) const"
 Returns the widget with ID \fIid\fR. Returns 0 if this widget stack does not manage a widget with ID \fIid\fR.
 .PP
 See also id() and addWidget().
@@ -154,8 +154,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

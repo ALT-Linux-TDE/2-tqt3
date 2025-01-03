@@ -43,7 +43,7 @@ ListBoxDemo::ListBoxDemo()
     bg->insert( b );
     v->addWidget( b );
     b->setChecked( TRUE );
-    connect( b, SIGNAL(clicked()), this, SLOT(setNumCols()) );
+    connect( b, TQ_SIGNAL(clicked()), this, TQ_SLOT(setNumCols()) );
     TQHBoxLayout * h = new TQHBoxLayout;
     v->addLayout( h );
     h->addSpacing( 30 );
@@ -59,7 +59,7 @@ ListBoxDemo::ListBoxDemo()
                           this );
     bg->insert( b );
     v->addWidget( b );
-    connect( b, SIGNAL(clicked()), this, SLOT(setColsByWidth()) );
+    connect( b, TQ_SIGNAL(clicked()), this, TQ_SLOT(setColsByWidth()) );
 
     v->addSpacing( 12 );
 
@@ -68,7 +68,7 @@ ListBoxDemo::ListBoxDemo()
                           this );
     bg->insert( b );
     v->addWidget( b );
-    connect( b, SIGNAL(clicked()), this, SLOT(setNumRows()) );
+    connect( b, TQ_SIGNAL(clicked()), this, TQ_SLOT(setNumRows()) );
     h = new TQHBoxLayout;
     v->addLayout( h );
     h->addSpacing( 30 );
@@ -85,30 +85,30 @@ ListBoxDemo::ListBoxDemo()
                           this );
     bg->insert( b );
     v->addWidget( b );
-    connect( b, SIGNAL(clicked()), this, SLOT(setRowsByHeight()) );
+    connect( b, TQ_SIGNAL(clicked()), this, TQ_SLOT(setRowsByHeight()) );
 
     v->addSpacing( 12 );
 
     TQCheckBox * cb = new TQCheckBox( "Variable-height rows", this );
     cb->setChecked( TRUE );
-    connect( cb, SIGNAL(toggled(bool)), this, SLOT(setVariableHeight(bool)) );
+    connect( cb, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(setVariableHeight(bool)) );
     v->addWidget( cb );
     v->addSpacing( 6 );
 
     cb = new TQCheckBox( "Variable-width columns", this );
-    connect( cb, SIGNAL(toggled(bool)), this, SLOT(setVariableWidth(bool)) );
+    connect( cb, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(setVariableWidth(bool)) );
     v->addWidget( cb );
 
     cb = new TQCheckBox( "Extended-Selection", this );
-    connect( cb, SIGNAL(toggled(bool)), this, SLOT(setMultiSelection(bool)) );
+    connect( cb, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(setMultiSelection(bool)) );
     v->addWidget( cb );
 
     TQPushButton *pb = new TQPushButton( "Sort ascending", this );
-    connect( pb, SIGNAL( clicked() ), this, SLOT( sortAscending() ) );
+    connect( pb, TQ_SIGNAL( clicked() ), this, TQ_SLOT( sortAscending() ) );
     v->addWidget( pb );
 
     pb = new TQPushButton( "Sort descending", this );
-    connect( pb, SIGNAL( clicked() ), this, SLOT( sortDescending() ) );
+    connect( pb, TQ_SIGNAL( clicked() ), this, TQ_SLOT( sortDescending() ) );
     v->addWidget( pb );
 
     v->addStretch( 100 );
@@ -122,8 +122,8 @@ ListBoxDemo::ListBoxDemo()
     rows->setRange( 1, 256 );
     rows->setValue( 256 );
 
-    connect( columns, SIGNAL(valueChanged(int)), this, SLOT(setNumCols()) );
-    connect( rows, SIGNAL(valueChanged(int)), this, SLOT(setNumRows()) );
+    connect( columns, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setNumCols()) );
+    connect( rows, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setNumRows()) );
 }
 
 

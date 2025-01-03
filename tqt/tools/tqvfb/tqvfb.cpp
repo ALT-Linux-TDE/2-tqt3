@@ -130,32 +130,32 @@ void TQVFb::enableCursor( bool e )
 void TQVFb::createMenu(TQMenuData *menu)
 {
     TQPopupMenu *file = new TQPopupMenu( this );
-    file->insertItem( "&Configure...", this, SLOT(configure()), ALT+CTRL+Key_C );
+    file->insertItem( "&Configure...", this, TQ_SLOT(configure()), ALT+CTRL+Key_C );
     file->insertSeparator();
-    file->insertItem( "&Save image...", this, SLOT(saveImage()), ALT+CTRL+Key_S );
-    file->insertItem( "&Animation...", this, SLOT(toggleAnimation()), ALT+CTRL+Key_A );
+    file->insertItem( "&Save image...", this, TQ_SLOT(saveImage()), ALT+CTRL+Key_S );
+    file->insertItem( "&Animation...", this, TQ_SLOT(toggleAnimation()), ALT+CTRL+Key_A );
     file->insertSeparator();
-    file->insertItem( "&Quit", tqApp, SLOT(quit()) );
+    file->insertItem( "&Quit", tqApp, TQ_SLOT(quit()) );
 
     menu->insertItem( "&File", file );
 
     viewMenu = new TQPopupMenu( this );
     viewMenu->setCheckable( TRUE );
-    cursorId = viewMenu->insertItem( "Show &Cursor", this, SLOT(toggleCursor()) );
+    cursorId = viewMenu->insertItem( "Show &Cursor", this, TQ_SLOT(toggleCursor()) );
     enableCursor(TRUE);
-    viewMenu->insertItem( "&Refresh Rate...", this, SLOT(changeRate()) );
+    viewMenu->insertItem( "&Refresh Rate...", this, TQ_SLOT(changeRate()) );
     viewMenu->insertSeparator();
-    viewMenu->insertItem( "Zoom scale &1", this, SLOT(setZoom1()) );
-    viewMenu->insertItem( "Zoom scale &2", this, SLOT(setZoom2()) );
-    viewMenu->insertItem( "Zoom scale &3", this, SLOT(setZoom3()) );
-    viewMenu->insertItem( "Zoom scale &4", this, SLOT(setZoom4()) );
-    viewMenu->insertItem( "Zoom scale &0.5", this, SLOT(setZoomHalf()) );
+    viewMenu->insertItem( "Zoom scale &1", this, TQ_SLOT(setZoom1()) );
+    viewMenu->insertItem( "Zoom scale &2", this, TQ_SLOT(setZoom2()) );
+    viewMenu->insertItem( "Zoom scale &3", this, TQ_SLOT(setZoom3()) );
+    viewMenu->insertItem( "Zoom scale &4", this, TQ_SLOT(setZoom4()) );
+    viewMenu->insertItem( "Zoom scale &0.5", this, TQ_SLOT(setZoomHalf()) );
 
     menu->insertItem( "&View", viewMenu );
 
     TQPopupMenu *help = new TQPopupMenu( this );
-    help->insertItem("&About", this, SLOT(about()));
-    help->insertItem("About &TQt", this, SLOT(aboutTQt()));
+    help->insertItem("&About", this, TQ_SLOT(about()));
+    help->insertItem("About &TQt", this, TQ_SLOT(aboutTQt()));
     menu->insertSeparator();
     menu->insertItem( "&Help", help );
 }
@@ -221,7 +221,7 @@ void TQVFb::changeRate()
 {
     if ( !rateDlg ) {
 	rateDlg = new TQVFbRateDialog( view->rate(), this );
-	connect( rateDlg, SIGNAL(updateRate(int)), view, SLOT(setRate(int)) );
+	connect( rateDlg, TQ_SIGNAL(updateRate(int)), view, TQ_SLOT(setRate(int)) );
     }
 
     rateDlg->show();
@@ -229,10 +229,10 @@ void TQVFb::changeRate()
 
 void TQVFb::about()
 {
-#if defined( Q_WS_MAC )
+#if defined( TQ_WS_MAC )
     TQString platform("Mac OS X");
     TQString qt("Mac");
-#elif defined( Q_WS_WIN )
+#elif defined( TQ_WS_WIN )
     TQString platform("Windows");
     TQString qt("Windows");
 #else
@@ -297,10 +297,10 @@ void TQVFb::configure()
 	config->gslider->setValue(int(view->gammaGreen()*400));
 	config->bslider->setValue(int(view->gammaBlue()*400));
     }
-    connect(config->gammaslider, SIGNAL(valueChanged(int)), this, SLOT(setGamma400(int)));
-    connect(config->rslider, SIGNAL(valueChanged(int)), this, SLOT(setR400(int)));
-    connect(config->gslider, SIGNAL(valueChanged(int)), this, SLOT(setG400(int)));
-    connect(config->bslider, SIGNAL(valueChanged(int)), this, SLOT(setB400(int)));
+    connect(config->gammaslider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setGamma400(int)));
+    connect(config->rslider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setR400(int)));
+    connect(config->gslider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setG400(int)));
+    connect(config->bslider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setB400(int)));
     updateGammaLabels();
 
     double ogr=view->gammaRed(), ogg=view->gammaGreen(), ogb=view->gammaBlue();

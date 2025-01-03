@@ -46,13 +46,13 @@
 
 TQPtrList<MainWindow> *MainWindow::windows = 0;
 
-#if defined(Q_WS_WIN)
-extern Q_EXPORT int qt_ntfs_permission_lookup;
+#if defined(TQ_WS_WIN)
+extern TQ_EXPORT int qt_ntfs_permission_lookup;
 #endif
 
 void MainWindow::init()
 {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     // Workaround for TQMimeSourceFactory failing in TQFileInfo::isReadable() for
     // certain user configs. See task: 34372
     qt_ntfs_permission_lookup = 0;
@@ -103,7 +103,7 @@ void MainWindow::init()
 	dw->hide();
 
     tabs->setup();
-    TQTimer::singleShot( 0, this, SLOT( setup() ) );
+    TQTimer::singleShot( 0, this, TQ_SLOT( setup() ) );
 #if defined(Q_OS_MACX)
     // Use the same forward and backward browser shortcuts as Safari and Internet Explorer do
     // on the Mac. This means that if you have access to one of those cool Intellimice, the thing
@@ -122,44 +122,44 @@ void MainWindow::setup()
     statusBar()->message( tr( "Initializing TQt Assistant..." ) );
     setupCompleted = TRUE;
     helpDock->initialize();
-    connect( actionGoPrevious, SIGNAL( activated() ), tabs, SLOT( backward() ) );
-    connect( actionGoNext, SIGNAL( activated() ), tabs, SLOT( forward() ) );
-    connect( actionEditCopy, SIGNAL( activated() ), tabs, SLOT( copy() ) );
-    connect( actionFileExit, SIGNAL( activated() ), tqApp, SLOT( closeAllWindows() ) );
-    connect( actionAddBookmark, SIGNAL( activated() ),
-	     helpDock, SLOT( addBookmark() ) );
-    connect( helpDock, SIGNAL( showLink( const TQString& ) ),
-	     this, SLOT( showLink( const TQString& ) ) );
-    connect( helpDock, SIGNAL( showSearchLink( const TQString&, const TQStringList& ) ),
-	     this, SLOT( showSearchLink( const TQString&, const TQStringList&) ) );
+    connect( actionGoPrevious, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( backward() ) );
+    connect( actionGoNext, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( forward() ) );
+    connect( actionEditCopy, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( copy() ) );
+    connect( actionFileExit, TQ_SIGNAL( activated() ), tqApp, TQ_SLOT( closeAllWindows() ) );
+    connect( actionAddBookmark, TQ_SIGNAL( activated() ),
+	     helpDock, TQ_SLOT( addBookmark() ) );
+    connect( helpDock, TQ_SIGNAL( showLink( const TQString& ) ),
+	     this, TQ_SLOT( showLink( const TQString& ) ) );
+    connect( helpDock, TQ_SIGNAL( showSearchLink( const TQString&, const TQStringList& ) ),
+	     this, TQ_SLOT( showSearchLink( const TQString&, const TQStringList&) ) );
 
-    connect( bookmarkMenu, SIGNAL( activated( int ) ),
-	     this, SLOT( showBookmark( int ) ) );
-    connect( actionZoomIn, SIGNAL( activated() ), tabs, SLOT( zoomIn() ) );
-    connect( actionZoomOut, SIGNAL( activated() ), tabs, SLOT( zoomOut() ) );
+    connect( bookmarkMenu, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( showBookmark( int ) ) );
+    connect( actionZoomIn, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( zoomIn() ) );
+    connect( actionZoomOut, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( zoomOut() ) );
 
-    connect( actionOpenPage, SIGNAL( activated() ), tabs, SLOT( newTab() ) );
-    connect( actionClosePage, SIGNAL( activated() ), tabs, SLOT( closeTab() ) );
-    connect( actionNextPage, SIGNAL( activated() ), tabs, SLOT( nextTab() ) );
-    connect( actionPrevPage, SIGNAL( activated() ), tabs, SLOT( previousTab() ) );
+    connect( actionOpenPage, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( newTab() ) );
+    connect( actionClosePage, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( closeTab() ) );
+    connect( actionNextPage, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( nextTab() ) );
+    connect( actionPrevPage, TQ_SIGNAL( activated() ), tabs, TQ_SLOT( previousTab() ) );
 
 
 
 #if defined(Q_OS_WIN32) || defined(Q_OS_WIN64)
     TQAccel *acc = new TQAccel( this );
-//     acc->connectItem( acc->insertItem( Key_F5 ), browser, SLOT( reload() ) );
-    acc->connectItem( acc->insertItem( TQKeySequence("SHIFT+CTRL+=") ), actionZoomIn, SIGNAL(activated()) );
+//     acc->connectItem( acc->insertItem( Key_F5 ), browser, TQ_SLOT( reload() ) );
+    acc->connectItem( acc->insertItem( TQKeySequence("SHIFT+CTRL+=") ), actionZoomIn, TQ_SIGNAL(activated()) );
 #endif
 
     TQAccel *a = new TQAccel( this, dw );
     a->connectItem( a->insertItem( TQAccel::stringToKey( tr("Ctrl+T") ) ),
-		    helpDock, SLOT( toggleContents() ) );
+		    helpDock, TQ_SLOT( toggleContents() ) );
     a->connectItem( a->insertItem( TQAccel::stringToKey( tr("Ctrl+I") ) ),
-		    helpDock, SLOT( toggleIndex() ) );
+		    helpDock, TQ_SLOT( toggleIndex() ) );
     a->connectItem( a->insertItem( TQAccel::stringToKey( tr("Ctrl+B") ) ),
-		    helpDock, SLOT( toggleBookmarks() ) );
+		    helpDock, TQ_SLOT( toggleBookmarks() ) );
     a->connectItem( a->insertItem( TQAccel::stringToKey( tr("Ctrl+S") ) ),
-		    helpDock, SLOT( toggleSearch() ) );
+		    helpDock, TQ_SLOT( toggleSearch() ) );
 
     Config *config = Config::configuration();
 
@@ -205,8 +205,8 @@ void MainWindow::setupGoActions()
 	    action->addTo( goActionToolbar );
 	    goActions->append( action );
 	    goActionDocFiles->insert( action, config->indexPage( title ) );
-	    connect( action, SIGNAL( activated() ),
-		     this, SLOT( showGoActionLink() ) );
+	    connect( action, TQ_SIGNAL( activated() ),
+		     this, TQ_SLOT( showGoActionLink() ) );
 	    ++addCount;
 	}
     }
@@ -679,7 +679,7 @@ void MainWindow::forwardAvailable( bool enable )
 void MainWindow::updateProfileSettings()
 {
     Config *config = Config::configuration();
-#ifndef Q_WS_MACX
+#ifndef TQ_WS_MACX
     setIcon( config->applicationIcon() );
 #endif
     helpMenu->clear();

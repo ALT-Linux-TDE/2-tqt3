@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqcombobox.h"
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 #include "ntqpopupmenu.h"
 #include "ntqlistbox.h"
 #include "ntqpainter.h"
@@ -444,7 +444,7 @@ void TQComboBoxData::setListBox( TQListBox *l )
     lBox = l;
     usingLBox = TRUE;
     l->setMouseTracking( TRUE );
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     l->x11SetWindowType( TQWidget::X11WindowTypeCombo );
     l->x11SetWindowTransient( combo->topLevelWidget());
 #endif
@@ -455,7 +455,7 @@ void TQComboBoxData::setPopupMenu( TQComboBoxPopup * pm, bool isPopup )
     pop = pm;
     if(isPopup)
         usingLBox = FALSE;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     if( pm ) {
         pm->x11SetWindowType( TQWidget::X11WindowTypeCombo );
         pm->x11SetWindowTransient( combo->topLevelWidget());
@@ -521,10 +521,10 @@ TQComboBox::TQComboBox( TQWidget *parent, const char *name )
 	 style().styleHint(TQStyle::SH_GUIStyle) == TQt::MotifStyle ) {
 	d->setPopupMenu( new TQComboBoxPopup( this, "in-combo" ) );
 	d->popup()->setFont( font() );
-	connect( d->popup(), SIGNAL(activated(int)),
-			     SLOT(internalActivate(int)) );
-	connect( d->popup(), SIGNAL(highlighted(int)),
-			     SLOT(internalHighlight(int)) );
+	connect( d->popup(), TQ_SIGNAL(activated(int)),
+			     TQ_SLOT(internalActivate(int)) );
+	connect( d->popup(), TQ_SIGNAL(highlighted(int)),
+			     TQ_SLOT(internalHighlight(int)) );
     } else {
 	setUpListBox();
     }
@@ -1393,7 +1393,7 @@ void TQComboBox::mousePressEvent( TQMouseEvent *e )
 	} else {
 	    popup();
 	}
-	TQTimer::singleShot( 200, this, SLOT(internalClickTimeout()));
+	TQTimer::singleShot( 200, this, TQ_SLOT(internalClickTimeout()));
 	d->shortClick = TRUE;
     }
 }
@@ -1503,7 +1503,7 @@ void TQComboBox::focusOutEvent( TQFocusEvent * e )
 
 /*!\reimp
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQComboBox::wheelEvent( TQWheelEvent *e )
 {
     if ( d->poppedUp ) {
@@ -1562,8 +1562,8 @@ void TQComboBox::popup()
 		TQComboBoxPopup *p = new TQComboBoxPopup( this, "in-combo" );
 		d->setPopupMenu( p, FALSE );
 		p->setFont( font() );
-		connect( p, SIGNAL(activated(int)), SLOT(internalActivate(int)) );
-		connect( p, SIGNAL(highlighted(int)), SLOT(internalHighlight(int)) );
+		connect( p, TQ_SIGNAL(activated(int)), TQ_SLOT(internalActivate(int)) );
+		connect( p, TQ_SIGNAL(highlighted(int)), TQ_SLOT(internalHighlight(int)) );
 	    }
 	    d->popup()->clear();
 	    for(unsigned int i = 0; i < d->listBox()->count(); i++) {
@@ -1641,7 +1641,7 @@ void TQComboBox::popup()
 	lb->blockSignals( block );
 	lb->setVScrollBarMode(TQScrollView::Auto);
 
-#ifndef QT_NO_EFFECTS
+#ifndef TQT_NO_EFFECTS
 	if ( TQApplication::isEffectEnabled( UI_AnimateCombo ) ) {
 	    if ( lb->y() < mapToGlobal(TQPoint(0,0)).y() )
 		qScrollEffect( lb, TQEffects::UpScroll );
@@ -2138,10 +2138,10 @@ void TQComboBox::setListBox( TQListBox * newListBox )
     d->listBox()->setLineWidth( 1 );
     d->listBox()->resize( 100, 10 );
 
-    connect( d->listBox(), SIGNAL(selected(int)),
-	     SLOT(internalActivate(int)) );
-    connect( d->listBox(), SIGNAL(highlighted(int)),
-	     SLOT(internalHighlight(int)));
+    connect( d->listBox(), TQ_SIGNAL(selected(int)),
+	     TQ_SLOT(internalActivate(int)) );
+    connect( d->listBox(), TQ_SIGNAL(highlighted(int)),
+	     TQ_SLOT(internalHighlight(int)));
 }
 
 
@@ -2268,10 +2268,10 @@ void TQComboBox::setUpListBox()
     d->listBox()->setLineWidth( 1 );
     d->listBox()->resize( 100, 10 );
 
-    connect( d->listBox(), SIGNAL(selected(int)),
-	     SLOT(internalActivate(int)) );
-    connect( d->listBox(), SIGNAL(highlighted(int)),
-	     SLOT(internalHighlight(int)));
+    connect( d->listBox(), TQ_SIGNAL(selected(int)),
+	     TQ_SLOT(internalActivate(int)) );
+    connect( d->listBox(), TQ_SIGNAL(highlighted(int)),
+	     TQ_SLOT(internalHighlight(int)));
 }
 
 
@@ -2301,9 +2301,9 @@ void TQComboBox::setLineEdit( TQLineEdit *edit )
     if ( edit->parent() != this )
 	edit->reparent( this, TQPoint(0,0), FALSE );
 
-    connect (edit, SIGNAL( textChanged(const TQString&) ),
-	     this, SIGNAL( textChanged(const TQString&) ) );
-    connect( edit, SIGNAL(returnPressed()), SLOT(returnPressed()) );
+    connect (edit, TQ_SIGNAL( textChanged(const TQString&) ),
+	     this, TQ_SIGNAL( textChanged(const TQString&) ) );
+    connect( edit, TQ_SIGNAL(returnPressed()), TQ_SLOT(returnPressed()) );
 
     edit->setFrame( FALSE );
     d->updateLinedGeometry();
@@ -2335,4 +2335,4 @@ void TQComboBox::hide()
 	d->popup()->hide();
 }
 
-#endif // QT_NO_COMBOBOX
+#endif // TQT_NO_COMBOBOX

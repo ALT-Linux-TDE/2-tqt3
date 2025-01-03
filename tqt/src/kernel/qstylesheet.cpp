@@ -40,7 +40,7 @@
 
 #include "ntqstylesheet.h"
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 
 #include "private/qrichtext_p.h"
 #include "ntqlayout.h"
@@ -1380,7 +1380,7 @@ const TQStyleSheetItem* TQStyleSheet::item( const TQString& name) const
 
     This function should not be used in application code.
 */
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 TQTextCustomItem* TQStyleSheet::tag(  const TQString& name,
 				   const TQMap<TQString, TQString> &attr,
 				   const TQString& context,
@@ -1620,4 +1620,4 @@ void TQStyleSheet::scaleFont( TQFont& font, int logicalSize ) const
 	font.setPointSize( s );
 }
 
-#endif // QT_NO_RICHTEXT
+#endif // TQT_NO_RICHTEXT

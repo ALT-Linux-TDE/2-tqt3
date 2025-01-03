@@ -59,15 +59,15 @@
 //
 //
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQDict<TQLibrary>;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQDict<TQLibrary>;
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQGPluginManager
+class TQ_EXPORT TQGPluginManager
 {
 public:
     TQGPluginManager( const TQUuid& id, const TQStringList& paths = TQString::null, const TQString &suffix = TQString::null, bool cs = TRUE );

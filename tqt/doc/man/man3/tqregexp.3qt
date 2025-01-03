@@ -9,7 +9,7 @@
 .SH NAME
 QRegExp \- Pattern matching using regular expressions
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqregexp.h>\fR
 .PP
@@ -22,7 +22,7 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "\fBQRegExp\fR ()"
 .br
 .ti -1c
-.BI "\fBQRegExp\fR ( const QString & pattern, bool caseSensitive = TRUE, bool wildcard = FALSE )"
+.BI "\fBQRegExp\fR ( const TQString & pattern, bool caseSensitive = TRUE, bool wildcard = FALSE )"
 .br
 .ti -1c
 .BI "\fBQRegExp\fR ( const QRegExp & rx )"
@@ -46,10 +46,10 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "bool \fBisValid\fR () const"
 .br
 .ti -1c
-.BI "QString \fBpattern\fR () const"
+.BI "TQString \fBpattern\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetPattern\fR ( const QString & pattern )"
+.BI "void \fBsetPattern\fR ( const TQString & pattern )"
 .br
 .ti -1c
 .BI "bool \fBcaseSensitive\fR () const"
@@ -70,16 +70,16 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "void \fBsetMinimal\fR ( bool minimal )"
 .br
 .ti -1c
-.BI "bool \fBexactMatch\fR ( const QString & str ) const"
+.BI "bool \fBexactMatch\fR ( const TQString & str ) const"
 .br
 .ti -1c
-.BI "int match ( const QString & str, int index = 0, int * len = 0, bool indexIsStart = TRUE ) const  \fI(obsolete)\fR"
+.BI "int match ( const TQString & str, int index = 0, int * len = 0, bool indexIsStart = TRUE ) const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "int \fBsearch\fR ( const QString & str, int offset = 0, CaretMode caretMode = CaretAtZero ) const"
+.BI "int \fBsearch\fR ( const TQString & str, int offset = 0, CaretMode caretMode = CaretAtZero ) const"
 .br
 .ti -1c
-.BI "int \fBsearchRev\fR ( const QString & str, int offset = -1, CaretMode caretMode = CaretAtZero ) const"
+.BI "int \fBsearchRev\fR ( const TQString & str, int offset = -1, CaretMode caretMode = CaretAtZero ) const"
 .br
 .ti -1c
 .BI "int \fBmatchedLength\fR () const"
@@ -91,19 +91,19 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "QStringList \fBcapturedTexts\fR ()"
 .br
 .ti -1c
-.BI "QString \fBcap\fR ( int nth = 0 )"
+.BI "TQString \fBcap\fR ( int nth = 0 )"
 .br
 .ti -1c
 .BI "int \fBpos\fR ( int nth = 0 )"
 .br
 .ti -1c
-.BI "QString \fBerrorString\fR ()"
+.BI "TQString \fBerrorString\fR ()"
 .br
 .in -1c
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QString \fBescape\fR ( const QString & str )"
+.BI "TQString \fBescape\fR ( const TQString & str )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -186,11 +186,11 @@ hexadecimal number hhhh (between 0x0000 and 0xFFFF). &#92;0ooo
 (i.e., \\zero ooo) matches the ASCII/Latin-1 character
 corresponding to the octal number ooo (between 0 and 0377).
 	This matches any character (including newline).
-	This matches a digit (QChar::isDigit()).
+	This matches a digit (TQChar::isDigit()).
 	This matches a non-digit.
-	This matches a whitespace (QChar::isSpace()).
+	This matches a whitespace (TQChar::isSpace()).
 	This matches a non-whitespace.
-	This matches a word character (QChar::isLetterOrNumber() or '_').
+	This matches a word character (TQChar::isLetterOrNumber() or '_').
 	This matches a non-word character.
 
 .TE
@@ -307,7 +307,7 @@ Perl's $& is cap(0) or capturedTexts()[0]. There are no QRegExp equivalents for 
 ... correspond to cap(1) or capturedTexts()[1], cap(2) or
 capturedTexts()[2], etc.
 .PP
-To substitute a pattern use QString::replace().
+To substitute a pattern use TQString::replace().
 .PP
 Perl's extended \fC/x\fR syntax is not supported, nor are directives, e.g. (?i), or regexp comments, e.g. (?#comment). On the other hand, C++'s rules for literal strings can be used to achieve the same:
 .PP
@@ -371,7 +371,7 @@ The second string matches "Please write the <u>letter</u>". The word 'letter' is
 .PP
 .nf
 .br
-    QString captured = rx.cap( 1 ); // captured == "letter"
+    TQString captured = rx.cap( 1 ); // captured == "letter"
 .br
 .fi
 .PP
@@ -381,13 +381,13 @@ This will capture the text from the first set of capturing parentheses (counting
 .br
     QRegExp rx( "&(?!amp;)" );      // match ampersands but not &amp;
 .br
-    QString line1 = "This & that";
+    TQString line1 = "This & that";
 .br
     line1.replace( rx, "&amp;" );
 .br
     // line1 == "This &amp; that"
 .br
-    QString line2 = "His &amp; hers & theirs";
+    TQString line2 = "His &amp; hers & theirs";
 .br
     line2.replace( rx, "&amp;" );
 .br
@@ -395,11 +395,11 @@ This will capture the text from the first set of capturing parentheses (counting
 .br
 .fi
 .PP
-Here we've passed the QRegExp to QString's replace() function to replace the matched text with new text.
+Here we've passed the QRegExp to TQString's replace() function to replace the matched text with new text.
 .PP
 .nf
 .br
-    QString str = "One Eric another Eirik, and an Ericsson."
+    TQString str = "One Eric another Eirik, and an Ericsson."
 .br
                     " How many Eiriks, Eric?";
 .br
@@ -433,7 +433,7 @@ One common use of regexps is to split lines of delimited data into their compone
 .br
     str = "Trolltech AS\\twww.trolltech.com\\tNorway";
 .br
-    QString company, web, country;
+    TQString company, web, country;
 .br
     rx.setPattern( "^([^\\t]+)\\t([^\\t]+)\\t([^\\t]+)$" );
 .br
@@ -479,7 +479,7 @@ Wildcard matching can be convenient because of its simplicity, but any wildcard 
 .PP
 QRegExp can match case insensitively using setCaseSensitive(), and can use non-greedy matching, see setMinimal(). By default QRegExp uses full regexps but this can be changed with setWildcard(). Searching can be forward with search() or backward with searchRev(). Captured text can be accessed using capturedTexts() which returns a string list of all captured strings, or using cap() which returns the captured string for the given index. The pos() function takes a match index and returns the position in the string where the match was made (or -1 if there was no match).
 .PP
-See also QRegExpValidator, QString, QStringList, Miscellaneous Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
+See also QRegExpValidator, TQString, QStringList, Miscellaneous Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .PP
 .SS "Member Type Documentation"
 .SH "QRegExp::CaretMode"
@@ -495,7 +495,7 @@ The CaretMode enum defines the different meanings of the caret (\fB^\fR) in a re
 Constructs an empty regexp.
 .PP
 See also isValid() and errorString().
-.SH "QRegExp::QRegExp ( const QString & pattern, bool caseSensitive = TRUE, bool wildcard = FALSE )"
+.SH "QRegExp::QRegExp ( const TQString & pattern, bool caseSensitive = TRUE, bool wildcard = FALSE )"
 Constructs a regular expression object for the given \fIpattern\fR string. The pattern must be given using wildcard notation if \fIwildcard\fR is TRUE (default is FALSE). The pattern is case sensitive, unless \fIcaseSensitive\fR is FALSE. Matching is greedy (maximal), but can be changed by calling setMinimal().
 .PP
 See also setPattern(), setCaseSensitive(), setWildcard(), and setMinimal().
@@ -505,7 +505,7 @@ Constructs a regular expression as a copy of \fIrx\fR.
 See also operator=().
 .SH "QRegExp::~QRegExp ()"
 Destroys the regular expression and cleans up its internal data.
-.SH "QString QRegExp::cap ( int nth = 0 )"
+.SH "TQString QRegExp::cap ( int nth = 0 )"
 Returns the text captured by the \fInth\fR subexpression. The entire match has index 0 and the parenthesized subexpressions have indices starting from 1 (excluding non-capturing parentheses).
 .PP
 .nf
@@ -516,9 +516,9 @@ Returns the text captured by the \fInth\fR subexpression. The entire match has i
 .br
     if ( pos > -1 ) {
 .br
-        QString value = rxlen.cap( 1 ); // "189"
+        TQString value = rxlen.cap( 1 ); // "189"
 .br
-        QString unit = rxlen.cap( 2 );  // "cm"
+        TQString unit = rxlen.cap( 2 );  // "cm"
 .br
         // ...
 .br
@@ -622,13 +622,13 @@ See also cap(), pos(), exactMatch(), search(), and searchRev().
 Returns TRUE if case sensitivity is enabled; otherwise returns FALSE. The default is TRUE.
 .PP
 See also setCaseSensitive().
-.SH "QString QRegExp::errorString ()"
+.SH "TQString QRegExp::errorString ()"
 Returns a text string that explains why a regexp pattern is invalid the case being; otherwise returns "no error occurred".
 .PP
 See also isValid().
 .PP
 Example: regexptester/regexptester.cpp.
-.SH "QString QRegExp::escape ( const QString & str )\fC [static]\fR"
+.SH "TQString QRegExp::escape ( const TQString & str )\fC [static]\fR"
 Returns the string \fIstr\fR with every regexp special character escaped with a backslash. The special characters are $, (, ), *, +,
 ., ?, [, &#92;, ], ^, {, | and }.
 .PP
@@ -651,7 +651,7 @@ This function is useful to construct regexp patterns dynamically:
                 "|" + QRegExp::escape(alias) + ")" );
 .br
 .fi
-.SH "bool QRegExp::exactMatch ( const QString & str ) const"
+.SH "bool QRegExp::exactMatch ( const TQString & str ) const"
 Returns TRUE if \fIstr\fR is matched exactly by this regular expression; otherwise returns FALSE. You can determine how much of the string was matched by calling matchedLength().
 .PP
 For a given regexp string, R, exactMatch("R") is the equivalent of search("^R$") since exactMatch() effectively encloses the regexp in the start of string and end of string anchors, except that it sets matchedLength() differently.
@@ -666,7 +666,7 @@ Returns TRUE if the pattern string is empty; otherwise returns FALSE.
 .PP
 If you call exactMatch() with an empty pattern on an empty string it will return TRUE; otherwise it returns FALSE since it operates over the whole string. If you call search() with an empty pattern on \fIany\fR string it will return the start offset (0 by default) because the empty pattern matches the 'emptiness' at the start of the string. In this case the length of the match returned by matchedLength() will be 0.
 .PP
-See QString::isEmpty().
+See TQString::isEmpty().
 .SH "bool QRegExp::isValid () const"
 Returns TRUE if the regular expression is valid; otherwise returns FALSE. An invalid regular expression never matches.
 .PP
@@ -677,7 +677,7 @@ Note that the validity of a regexp may also depend on the setting of the wildcar
 See also errorString().
 .PP
 Example: regexptester/regexptester.cpp.
-.SH "int QRegExp::match ( const QString & str, int index = 0, int * len = 0, bool indexIsStart = TRUE ) const"
+.SH "int QRegExp::match ( const TQString & str, int index = 0, int * len = 0, bool indexIsStart = TRUE ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Attempts to match in \fIstr\fR, starting from position \fIindex\fR. Returns the position of the match, or -1 if there was no match.
@@ -688,7 +688,7 @@ If \fIindexIsStart\fR is TRUE (the default), the position \fIindex\fR in the str
 .PP
 Use search() and matchedLength() instead of this function.
 .PP
-See also QString::mid() and QConstString.
+See also TQString::mid() and QConstString.
 .PP
 Example: qmag/qmag.cpp.
 .SH "int QRegExp::matchedLength () const"
@@ -716,7 +716,7 @@ Copies the regular expression \fIrx\fR and returns a reference to the copy. The 
 Returns TRUE if this regular expression is equal to \fIrx\fR; otherwise returns FALSE.
 .PP
 Two QRegExp objects are equal if they have the same pattern strings and the same settings for case sensitivity, wildcard and minimal matching.
-.SH "QString QRegExp::pattern () const"
+.SH "TQString QRegExp::pattern () const"
 Returns the pattern string of the regular expression. The pattern has either regular expression syntax or wildcard syntax, depending on wildcard().
 .PP
 See also setPattern().
@@ -742,20 +742,20 @@ Example:
 For zero-length matches, pos() always returns -1. (For example, if cap(4) would return an empty string, pos(4) returns -1.) This is due to an implementation tradeoff.
 .PP
 See also capturedTexts(), exactMatch(), search(), and searchRev().
-.SH "int QRegExp::search ( const QString & str, int offset = 0, CaretMode caretMode = CaretAtZero ) const"
+.SH "int QRegExp::search ( const TQString & str, int offset = 0, CaretMode caretMode = CaretAtZero ) const"
 Attempts to find a match in \fIstr\fR from position \fIoffset\fR (0 by default). If \fIoffset\fR is -1, the search starts at the last character; if -2, at the next to last character; etc.
 .PP
 Returns the position of the first match, or -1 if there was no match.
 .PP
 The \fIcaretMode\fR parameter can be used to instruct whether \fB^\fR should match at index 0 or at \fIoffset\fR.
 .PP
-You might prefer to use QString::find(), QString::contains() or even QStringList::grep(). To replace matches use QString::replace().
+You might prefer to use TQString::find(), TQString::contains() or even QStringList::grep(). To replace matches use TQString::replace().
 .PP
 Example:
 .PP
 .nf
 .br
-        QString str = "offsets: 1.23 .50 71.00 6.00";
+        TQString str = "offsets: 1.23 .50 71.00 6.00";
 .br
         QRegExp rx( "\\\\d*\\\\.\\\\d+" );    // primitive floating point matching
 .br
@@ -781,7 +781,7 @@ See also searchRev() and exactMatch().
 .PP
 Examples:
 .)l network/archivesearch/archivedialog.ui.h and regexptester/regexptester.cpp.
-.SH "int QRegExp::searchRev ( const QString & str, int offset = -1, CaretMode caretMode = CaretAtZero ) const"
+.SH "int QRegExp::searchRev ( const TQString & str, int offset = -1, CaretMode caretMode = CaretAtZero ) const"
 Attempts to find a match backwards in \fIstr\fR from position \fIoffset\fR. If \fIoffset\fR is -1 (the default), the search starts at the last character; if -2, at the next to last character; etc.
 .PP
 Returns the position of the first match, or -1 if there was no match.
@@ -810,7 +810,7 @@ See also minimal().
 .PP
 Examples:
 .)l network/archivesearch/archivedialog.ui.h and regexptester/regexptester.cpp.
-.SH "void QRegExp::setPattern ( const QString & pattern )"
+.SH "void QRegExp::setPattern ( const TQString & pattern )"
 Sets the pattern string to \fIpattern\fR. The case sensitivity, wildcard and minimal matching options are not changed.
 .PP
 See also pattern().
@@ -843,8 +843,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

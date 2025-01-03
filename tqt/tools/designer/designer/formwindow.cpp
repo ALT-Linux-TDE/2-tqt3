@@ -111,7 +111,7 @@ static void restoreCursors( TQWidget *start, FormWindow *fw )
     }
 }
 
-#if defined(Q_WS_WIN32) // #### needed for the workaround for repaint problem on windows
+#if defined(TQ_WS_WIN32) // #### needed for the workaround for repaint problem on windows
 #include <qt_windows.h>
 static void flickerfree_update( TQWidget *w )
 {
@@ -173,29 +173,29 @@ void FormWindow::init()
     setFocusPolicy( ClickFocus );
     sizePreviewLabel = 0;
     checkSelectionsTimer = new TQTimer( this, "checkSelectionsTimer" );
-    connect( checkSelectionsTimer, SIGNAL( timeout() ),
-	     this, SLOT( invalidCheckedSelections() ) );
+    connect( checkSelectionsTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( invalidCheckedSelections() ) );
     updatePropertiesTimer = new TQTimer( this );
-    connect( updatePropertiesTimer, SIGNAL( timeout() ),
-	     this, SLOT( updatePropertiesTimerDone() ) );
+    connect( updatePropertiesTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( updatePropertiesTimerDone() ) );
     showPropertiesTimer = new TQTimer( this );
-    connect( showPropertiesTimer, SIGNAL( timeout() ),
-	     this, SLOT( showPropertiesTimerDone() ) );
+    connect( showPropertiesTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( showPropertiesTimerDone() ) );
     selectionChangedTimer = new TQTimer( this );
-    connect( selectionChangedTimer, SIGNAL( timeout() ),
-	     this, SLOT( selectionChangedTimerDone() ) );
+    connect( selectionChangedTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( selectionChangedTimerDone() ) );
     windowsRepaintWorkaroundTimer = new TQTimer( this );
-    connect( windowsRepaintWorkaroundTimer, SIGNAL( timeout() ),
-	     this, SLOT( windowsRepaintWorkaroundTimerTimeout() ) );
+    connect( windowsRepaintWorkaroundTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( windowsRepaintWorkaroundTimerTimeout() ) );
     insertParent = 0;
-    connect( &commands, SIGNAL( undoRedoChanged( bool, bool, const TQString &, const TQString & ) ),
-	     this, SIGNAL( undoRedoChanged( bool, bool, const TQString &, const TQString & ) ) );
+    connect( &commands, TQ_SIGNAL( undoRedoChanged( bool, bool, const TQString &, const TQString & ) ),
+	     this, TQ_SIGNAL( undoRedoChanged( bool, bool, const TQString &, const TQString & ) ) );
     propShowBlocked = FALSE;
 
     setIcon( TQPixmap::fromMimeSource( "designer_form.png" ) );
 
-    connect( &commands, SIGNAL( modificationChanged( bool ) ),
-	     this, SLOT( modificationChanged( bool ) ) );
+    connect( &commands, TQ_SIGNAL( modificationChanged( bool ) ),
+	     this, TQ_SLOT( modificationChanged( bool ) ) );
     buffer = 0;
 
     TQWidget *w = WidgetFactory::create( WidgetDatabase::idFromClassName( "TQFrame" ), this );
@@ -844,7 +844,7 @@ void FormWindow::handleMouseMove( TQMouseEvent *e, TQWidget *w )
 		sizePreviewLabel->setGeometry( lg );
 		sizePreviewLabel->raise();
 		sizePreviewLabel->show();
-#if defined(Q_WS_WIN32)
+#if defined(TQ_WS_WIN32)
 		windowsRepaintWorkaroundTimer->start( 100, TRUE );
 #endif
 	    } else { // if we don't need to move, do some indication
@@ -1605,14 +1605,14 @@ void FormWindow::resizeEvent( TQResizeEvent *e )
     if ( isVisible() )
 	formFile()->setModified( TRUE, FormFile::WFormWindow );
 
-#if defined(Q_WS_WIN32)
+#if defined(TQ_WS_WIN32)
     windowsRepaintWorkaroundTimer->start( 100, TRUE );
 #endif
 }
 
 void FormWindow::windowsRepaintWorkaroundTimerTimeout()
 {
-#if defined(Q_WS_WIN32)
+#if defined(TQ_WS_WIN32)
     TQObjectList *l = queryList( "TQWidget" );
     for ( TQObject *o = l->first(); o; o = l->next() ) {
 	flickerfree_update( (TQWidget*)o );
@@ -2221,7 +2221,7 @@ void FormWindow::editConnections()
     ConnectionDialog dlg( mainwindow );
     mainWindow()->statusBar()->message( tr( "Edit connections...") );
     dlg.addConnection( startWidget, endWidget, TQString::null, TQString::null );
-    TQTimer::singleShot( 0, &dlg, SLOT(ensureConnectionVisible()) );
+    TQTimer::singleShot( 0, &dlg, TQ_SLOT(ensureConnectionVisible()) );
     dlg.exec();
 }
 
@@ -2444,7 +2444,7 @@ bool FormWindow::isCustomWidgetUsed( MetaDataBase::CustomWidget *w )
 
 bool FormWindow::isDatabaseWidgetUsed() const
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQStringList dbClasses;
     dbClasses << "TQDataTable"; // add more here
     TQPtrDictIterator<TQWidget> it( insertedWidgets );
@@ -2460,7 +2460,7 @@ bool FormWindow::isDatabaseWidgetUsed() const
 
 bool FormWindow::isDatabaseAware() const
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( TQString(mContainer->className()) == "TQDesignerDataBrowser" || TQString(mContainer->className()) == "TQDesignerDataView" )
 	return TRUE;
     return isDatabaseWidgetUsed();
@@ -2752,7 +2752,7 @@ void FormWindow::setFormFile( FormFile *f )
 {
     ff = f;
     if ( ff )
-	connect( this, SIGNAL( modificationChanged(bool, const TQString&) ), ff, SLOT( formWindowChangedSomehow() ) );
+	connect( this, TQ_SIGNAL( modificationChanged(bool, const TQString&) ), ff, TQ_SLOT( formWindowChangedSomehow() ) );
 }
 
 bool FormWindow::canBeBuddy( const TQWidget *w ) const

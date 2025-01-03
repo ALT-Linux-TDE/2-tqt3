@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -39,29 +39,11 @@
 /*! 
 
 \page index.html
-\if defined(commercial)
-\title Qt Reference Documentation (Commercial Edition)
-\endif
-\if defined(noncommercial)
-\title Qt Reference Documentation (Non-Commercial Edition)
-\endif
-\if !defined(commercial) && !defined(noncommercial)
-\title Qt Reference Documentation (Open Source Edition)
-\endif
+\title TQt Reference Documentation (Open Source Edition)
 <table cellpadding=2 cellspacing=1 border=0 width="100%" bgcolor="#e5e5e5">
-\if !defined(commercial) && !defined(noncommercial)
 <tr bgcolor="white"><td colspan=3 align="center"><b>Notice</b>: This edition is
 for the development of \link opensourceedition.html Free and Open
-Source\endlink software only; see \link commercialeditions.html
-Commercial Editions\endlink.</td></tr>
-\endif
-\if defined(noncommercial)
-<tr bgcolor="white"><td colspan=3 align="center"><b>Notice</b>: This
-edition is for the development of non-commercial software in
-accordance with the license you agreed to when you installed the
-software from the CD; see also \link
-commercialeditions.html Commercial Editions\endlink.</td></tr>
-\endif
+Source\endlink software only.</td></tr>
 <tr>
 <th bgcolor="#a2c511" width="33%">
 Qt Community
@@ -77,17 +59,17 @@ General
 <td valign="top">
 \list
 \i \link http://lists.trolltech.com Mailing lists\endlink
-\i \link http://doc.trolltech.com/qq/index.html <i>Qt Quarterly</i> newsletter\endlink
+\i \link http://doc.trolltech.com/qq/index.html <i>TQt Quarterly</i> newsletter\endlink
 \i \link http://www.trolltech.com/products/solutions/index.html Qt
 Solutions\endlink
-\i \link http://www.trolltech.com/freesoftware/index.html User contributed Qt additions\endlink
+\i \link http://www.trolltech.com/freesoftware/index.html User contributed TQt additions\endlink
 \i \link bughowto.html How to report a bug\endlink
 \endlist
 </td>
 <td valign="top">
 \list
 \i \link how-to-learn-ntqt.html How to Learn Qt\endlink
-\i \link http://www.trolltech.com/products/qt/readyforqt4.html Getting Ready for Qt 4\endlink
+\i \link http://www.trolltech.com/products/qt/readyforqt4.html Getting Ready for TQt 4\endlink
 \i \link tutorial.html Tutorial #1\endlink, 
 \link tutorial2.html Tutorial #2\endlink
 \i \link examples.html Examples\endlink
@@ -97,7 +79,6 @@ Solutions\endlink
 <td valign="top">
 \list
 \i \link aboutntqt.html About Qt\endlink
-\i \link commercialeditions.html Commercial Editions\endlink
 \i \link opensourceedition.html Open Source Edition\endlink
 \i \link troll.html About Trolltech\endlink
 \endlist
@@ -143,14 +124,14 @@ Overviews
 <td valign="top">
 \list
 \i \link overviews-list.html All Overviews and HOWTOs\endlink
-\i \link object.html Qt Object Model\endlink
+\i \link object.html TQt Object Model\endlink
 \i \link signalsandslots.html Signals and Slots\endlink
 \i \link geometry.html Window Geometry\endlink
 \i \link eventsandfilters.html Events and Event Filters\endlink
 \i \link i18n.html Internationalization (i18n)\endlink
 \i \link debug.html Debugging Techniques\endlink
 \i \link threads.html Thread Support in Qt\endlink
-\i \link plugins-howto.html Qt Plugins\endlink
+\i \link plugins-howto.html TQt Plugins\endlink
 \i \link accelerators.html Standard Accelerators\endlink
 \endlist
 </tr>
@@ -172,15 +153,15 @@ Licenses &amp; Credits
 \i \link activentqt.html ActiveQt Framework\endlink
 \i \link motif-extension.html Motif Extension\endlink
 \i \link mac-differences.html Mac OS X development\endlink
-\i \link porting.html Porting from Qt 2.x to Qt 3.x\endlink
+\i \link porting.html Porting from TQt 2.x to TQt 3.x\endlink
 \endlist
 </td>
 <td valign="top">
 \list
 \i \link tools-list.html All Tools\endlink
-\i \link designer-manual.book Qt Designer\endlink
-\i \link linguist-manual.book Qt Linguist\endlink
-\i \link assistant.book Qt Assistant\endlink
+\i \link designer-manual.book TQt Designer\endlink
+\i \link linguist-manual.book TQt Linguist\endlink
+\i \link assistant.book TQt Assistant\endlink
 \i \link qmake-manual.book qmake\endlink
 \endlist
 </td>
@@ -224,7 +205,7 @@ related classes together. Some classes may appear in more than one group.
 \omit
 \row 
 \i \link componentmodel.html   Component Model \endlink
-\i Interfaces and helper classes for the Qt Component Model.
+\i Interfaces and helper classes for the TQt Component Model.
 \endomit
 
 \row
@@ -302,7 +283,7 @@ images.html Image Processing\endlink)
 
 \row 
 \i \link objectmodel.html   Object Model \endlink
-\i The Qt GUI toolkit's underlying object model.
+\i The TQt GUI toolkit's underlying object model.
 
 \row 
 \i \link organizers.html   Organizers \endlink
@@ -348,16 +329,16 @@ processing. (See also \link xml-tools.html XML Classes\endlink.)
 Qt ships with lots of small and some medium-sized example programs
 that teach you how to implement various tasks with Qt. Most of them will show how to
 use a certain class or module, others aim at programming techniques
-and Qt basics, and some of them simply want to show you what's possible.
+and TQt basics, and some of them simply want to show you what's possible.
 
 Note that most of the examples assume that you have some experience with C++ 
-and Qt and therefore are not commented extensively. If you are interested
+and TQt and therefore are not commented extensively. If you are interested
 in a line-by-line coverage please refer to the tutorials 
 \link tutorial.html Tutorial #1\endlink, and 
 \link tutorial2.html Tutorial #2\endlink, and also the
 \link step-by-step-examples.html step-by-step examples \endlink.
 
-\section1 Qt Base Classes: Assorted Examples
+\section1 TQt Base Classes: Assorted Examples
 
 \list
 \i \link qaction-examples.html QAction and QActionGroup \endlink
@@ -365,7 +346,7 @@ in a line-by-line coverage please refer to the tutorials
 \i \link qprocess-examples.html QProcess \endlink
 \endlist
 
-\section1 Qt Modules: Assorted Examples
+\section1 TQt Modules: Assorted Examples
 
 \list
 \i \link xml-examples.html XML examples \endlink
@@ -375,7 +356,7 @@ in a line-by-line coverage please refer to the tutorials
 \i \link sql-examples.html SQL examples \endlink
 \endlist
 
-\section1 Qt Extensions: Assorted Examples
+\section1 TQt Extensions: Assorted Examples
 
 \list
 \i \link activeqt-examples.html ActiveX support extension \endlink
@@ -420,7 +401,7 @@ QProcess class.
 \title Network Examples 
 
 The following example programs demonstrate the use
-of the Qt network module.
+of the TQt network module.
 
 */
 
@@ -429,7 +410,7 @@ of the Qt network module.
 \title OpenGL Examples 
 
 The following example programs demonstrate the use
-of the Qt OpenGL module.
+of the TQt OpenGL module.
 
 */
 
@@ -438,13 +419,13 @@ of the Qt OpenGL module.
 \title Table Examples 
 
 The following example programs demonstrate the use
-of the Qt table module.
+of the TQt table module.
 
 */
 
 /*! \defgroup sql-examples 
 
-\title Qt SQL Examples 
+\title TQt SQL Examples 
 
 The following example programs show how to use the 
 Qt SQL classes.
@@ -453,7 +434,7 @@ Qt SQL classes.
 
 /*! \defgroup xml-examples 
 
-\title Qt XML Examples 
+\title TQt XML Examples 
 
 The following example programs show how to use the 
 Qt XML classes.
@@ -477,7 +458,7 @@ For more information see the \link netscape-plugin.html Plugin Howto \endlink.
 
 The following example programs illustrate the use of the QMotif Extension
 assisting in the migration process of old Xt and Motif based code
-to the more comfortable Qt toolkit.
+to the more comfortable TQt toolkit.
 
 For more information see the \link motif-extension.html QMotif
 Support Extension documentation. \endlink
@@ -486,13 +467,13 @@ Support Extension documentation. \endlink
 /*
 \defgroup xt-motif-examples 
 
-\title Qt Xt/Motif Support Extension
+\title TQt Xt/Motif Support Extension
 
-The following example programs illustrate the use of the Qt Xt/Motif Extension
+The following example programs illustrate the use of the TQt Xt/Motif Extension
 assisting in the migration process of old Xt and Motif based code
-to the more comfortable Qt toolkit.
+to the more comfortable TQt toolkit.
 
-For more information see the \link xt.html Qt Xt/Motif Support
+For more information see the \link xt.html TQt Xt/Motif Support
 Extension documentation. \endlink
 */
 
@@ -504,10 +485,10 @@ Step-by-step examples provide a careful explanation of
 example code.
 
 The covered example programs usually show how to use certain classes
-or deal with programming techniques and Qt basics.
+or deal with programming techniques and TQt basics.
 
-These examples are especially aimed at Qt novices and less experienced
-programmers and try to make learning Qt as painless as possible.
+These examples are especially aimed at TQt novices and less experienced
+programmers and try to make learning TQt as painless as possible.
 
 */
 
@@ -521,7 +502,7 @@ that may be used independently of the GUI classes.
 In particular, these classes do not depend on QApplication at all,
 and so can be used in non-GUI programs.
 
-See also the \link collection.html introduction to the Qt collection
+See also the \link collection.html introduction to the TQt collection
 classes. \endlink 
 
 */
@@ -568,7 +549,7 @@ these classes.
 
 \title Object Model
 
-These classes form the basis of the \link object.html Qt Object Model \endlink.
+These classes form the basis of the \link object.html TQt Object Model \endlink.
 
 */
 
@@ -576,7 +557,7 @@ These classes form the basis of the \link object.html Qt Object Model \endlink.
 
 \title Component Model
 
-These classes and interfaces form the basis of the \link component.html Qt Component Model \endlink.
+These classes and interfaces form the basis of the \link component.html TQt Component Model \endlink.
 
 */
 
@@ -585,7 +566,7 @@ These classes and interfaces form the basis of the \link component.html Qt Compo
 \title Plugins
 
 These classes deal with shared libraries, (e.g. .so and DLL files),
-and with Qt plugins. 
+and with TQt plugins. 
 
 See the \link plugins-howto.html plugins documentation\endlink.
 
@@ -657,7 +638,7 @@ style.
 
 \title Implicitly and Explicitly Shared Classes
 
-These classes are normally-heavy classes which in Qt have been
+These classes are normally-heavy classes which in TQt have been
 optimized by the use of reference counter and common data so they can
 be passed around.
 
@@ -673,7 +654,7 @@ seem heavyweight.
 
 These classes provide system-independent date and time abstractions.
 
-<p>Also available: \link y2k.html Qt Year 2000 Compliance Statement \endlink.
+<p>Also available: \link y2k.html TQt Year 2000 Compliance Statement \endlink.
 */
 
 
@@ -759,10 +740,10 @@ These classes provide support for graphics, sound, animation etc.
 
 /*! \defgroup qtl
 
-\title Qt Template Library Classes
+\title TQt Template Library Classes
 
-The Qt Template Library (QTL) is a set of templates that provide
-object containers. See the \link qt-template-lib.html Qt Template
+The TQt Template Library (QTL) is a set of templates that provide
+object containers. See the \link qt-template-lib.html TQt Template
 Library\endlink.
 
 */

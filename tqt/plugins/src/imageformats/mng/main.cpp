@@ -1,13 +1,9 @@
-#ifndef QT_CLEAN_NAMESPACE
-#define QT_CLEAN_NAMESPACE
-#endif
-
 #include <ntqimageformatplugin.h>
 
-#ifndef QT_NO_IMAGEFORMATPLUGIN
+#ifndef TQT_NO_IMAGEFORMATPLUGIN
 
-#ifdef QT_NO_IMAGEIO_MNG
-#undef QT_NO_IMAGEIO_MNG
+#ifdef TQT_NO_IMAGEIO_MNG
+#undef TQT_NO_IMAGEIO_MNG
 #endif
 #include "../../../../src/kernel/qmngio.cpp"
 
@@ -54,6 +50,6 @@ bool MNGFormat::installIOHandler( const TQString &name )
     return TRUE;
 }
 
-Q_EXPORT_PLUGIN( MNGFormat )
+TQ_EXPORT_PLUGIN( MNGFormat )
 
-#endif // QT_NO_IMAGEFORMATPLUGIN
+#endif // TQT_NO_IMAGEFORMATPLUGIN

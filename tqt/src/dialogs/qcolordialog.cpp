@@ -40,7 +40,7 @@
 
 #include "ntqcolordialog.h"
 
-#ifndef QT_NO_COLORDIALOG
+#ifndef TQT_NO_COLORDIALOG
 
 #include "ntqpainter.h"
 #include "ntqlayout.h"
@@ -58,13 +58,13 @@
 #include "ntqsettings.h"
 #include "ntqpopupmenu.h"
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 TQRgb macGetRgba( TQRgb initial, bool *ok, TQWidget *parent, const char* name );
 TQColor macGetColor( const TQColor& initial, TQWidget *parent, const char *name );
 #endif
 
-#ifdef Q_WS_X11
-#include "private/qtkdeintegration_x11_p.h"
+#ifdef TQ_WS_X11
+#include "private/tqttdeintegration_x11_p.h"
 #endif
 
 //////////// TQWellArray BEGIN
@@ -529,7 +529,7 @@ protected:
     void mousePressEvent( TQMouseEvent *e );
     void mouseMoveEvent( TQMouseEvent *e );
     void mouseReleaseEvent( TQMouseEvent *e );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void dragEnterEvent( TQDragEnterEvent *e );
     void dragLeaveEvent( TQDragLeaveEvent *e );
     void dragMoveEvent( TQDragMoveEvent *e );
@@ -561,7 +561,7 @@ void TQColorWell::mousePressEvent( TQMouseEvent *e )
 void TQColorWell::mouseMoveEvent( TQMouseEvent *e )
 {
     TQWellArray::mouseMoveEvent( e );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( !mousePressed )
 	return;
     if ( ( pressPos - e->pos() ).manhattanLength() > TQApplication::startDragDistance() ) {
@@ -581,7 +581,7 @@ void TQColorWell::mouseMoveEvent( TQMouseEvent *e )
 #endif
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 void TQColorWell::dragEnterEvent( TQDragEnterEvent *e )
 {
     setFocus();
@@ -620,7 +620,7 @@ void TQColorWell::dropEvent( TQDropEvent *e )
     }
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 void TQColorWell::mouseReleaseEvent( TQMouseEvent *e )
 {
@@ -987,7 +987,7 @@ protected:
     void mousePressEvent( TQMouseEvent *e );
     void mouseMoveEvent( TQMouseEvent *e );
     void mouseReleaseEvent( TQMouseEvent *e );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void dragEnterEvent( TQDragEnterEvent *e );
     void dragLeaveEvent( TQDragLeaveEvent *e );
     void dropEvent( TQDropEvent *e );
@@ -1024,7 +1024,7 @@ void TQColorShowLabel::mousePressEvent( TQMouseEvent *e )
 
 void TQColorShowLabel::mouseMoveEvent( TQMouseEvent *e )
 {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( !mousePressed )
 	return;
     if ( ( pressPos - e->pos() ).manhattanLength() > TQApplication::startDragDistance() ) {
@@ -1041,7 +1041,7 @@ void TQColorShowLabel::mouseMoveEvent( TQMouseEvent *e )
 #endif
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 void TQColorShowLabel::dragEnterEvent( TQDragEnterEvent *e )
 {
     if ( TQColorDrag::canDecode( e ) )
@@ -1065,7 +1065,7 @@ void TQColorShowLabel::dropEvent( TQDropEvent *e )
 	e->ignore();
     }
 }
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 void TQColorShowLabel::mouseReleaseEvent( TQMouseEvent * )
 {
@@ -1085,10 +1085,10 @@ TQColorShower::TQColorShower( TQWidget *parent, const char *name )
     lab = new TQColorShowLabel( this );
     lab->setMinimumWidth( 60 ); //###
     gl->addMultiCellWidget(lab, 0,-1,0,0);
-    connect( lab, SIGNAL( colorDropped(TQRgb) ),
-	     this, SIGNAL( newCol(TQRgb) ) );
-    connect( lab, SIGNAL( colorDropped(TQRgb) ),
-	     this, SLOT( setRgb(TQRgb) ) );
+    connect( lab, TQ_SIGNAL( colorDropped(TQRgb) ),
+	     this, TQ_SIGNAL( newCol(TQRgb) ) );
+    connect( lab, TQ_SIGNAL( colorDropped(TQRgb) ),
+	     this, TQ_SLOT( setRgb(TQRgb) ) );
 
     hEd = new TQColNumLineEdit( this, "qt_hue_edit" );
     hEd->setValidator( val360 );
@@ -1141,14 +1141,14 @@ TQColorShower::TQColorShower( TQWidget *parent, const char *name )
     alphaEd->hide();
     alphaLab->hide();
 
-    connect( hEd, SIGNAL(textChanged(const TQString&)), this, SLOT(hsvEd()) );
-    connect( sEd, SIGNAL(textChanged(const TQString&)), this, SLOT(hsvEd()) );
-    connect( vEd, SIGNAL(textChanged(const TQString&)), this, SLOT(hsvEd()) );
+    connect( hEd, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(hsvEd()) );
+    connect( sEd, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(hsvEd()) );
+    connect( vEd, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(hsvEd()) );
 
-    connect( rEd, SIGNAL(textChanged(const TQString&)), this, SLOT(rgbEd()) );
-    connect( gEd, SIGNAL(textChanged(const TQString&)), this, SLOT(rgbEd()) );
-    connect( bEd, SIGNAL(textChanged(const TQString&)), this, SLOT(rgbEd()) );
-    connect( alphaEd, SIGNAL(textChanged(const TQString&)), this, SLOT(rgbEd()) );
+    connect( rEd, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(rgbEd()) );
+    connect( gEd, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(rgbEd()) );
+    connect( bEd, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(rgbEd()) );
+    connect( alphaEd, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(rgbEd()) );
 }
 
 void TQColorShower::showCurrentColor()
@@ -1325,7 +1325,7 @@ TQColorDialogPrivate::TQColorDialogPrivate( TQColorDialog *dialog ) :
 	standard->setCellHeight( 24 );
 	TQLabel * lab = new TQLabel( standard,
 				TQColorDialog::tr( "&Basic colors"), dialog, "qt_basiccolors_lbl" );
-	connect( standard, SIGNAL(selected(int,int)), SLOT(newStandard(int,int)));
+	connect( standard, TQ_SIGNAL(selected(int,int)), TQ_SLOT(newStandard(int,int)));
 	leftLay->addWidget( lab );
 	leftLay->addWidget( standard );
 
@@ -1337,7 +1337,7 @@ TQColorDialogPrivate::TQColorDialogPrivate( TQColorDialog *dialog ) :
 	custom->setCellHeight( 24 );
 	custom->setAcceptDrops( TRUE );
 
-	connect( custom, SIGNAL(selected(int,int)), SLOT(newCustom(int,int)));
+	connect( custom, TQ_SIGNAL(selected(int,int)), TQ_SLOT(newCustom(int,int)));
 	lab = new TQLabel( custom, TQColorDialog::tr( "&Custom colors") , dialog, "qt_custcolors_lbl" );
 	leftLay->addWidget( lab );
 	leftLay->addWidget( custom );
@@ -1372,13 +1372,13 @@ TQColorDialogPrivate::TQColorDialogPrivate( TQColorDialog *dialog ) :
     lp->setFixedWidth( 20 ); //###
     pickLay->addWidget( lp );
 
-    connect( cp, SIGNAL(newCol(int,int)), lp, SLOT(setCol(int,int)) );
-    connect( lp, SIGNAL(newHsv(int,int,int)), this, SLOT(newHsv(int,int,int)) );
+    connect( cp, TQ_SIGNAL(newCol(int,int)), lp, TQ_SLOT(setCol(int,int)) );
+    connect( lp, TQ_SIGNAL(newHsv(int,int,int)), this, TQ_SLOT(newHsv(int,int,int)) );
 
     rightLay->addStretch();
 
     cs = new TQColorShower( dialog, "qt_colorshower" );
-    connect( cs, SIGNAL(newCol(TQRgb)), this, SLOT(newColorTypedIn(TQRgb)));
+    connect( cs, TQ_SIGNAL(newCol(TQRgb)), this, TQ_SLOT(newColorTypedIn(TQRgb)));
     rightLay->addWidget( cs );
 
     TQHBoxLayout *buttons;
@@ -1389,10 +1389,10 @@ TQColorDialogPrivate::TQColorDialogPrivate( TQColorDialog *dialog ) :
 
     TQPushButton *ok, *cancel;
     ok = new TQPushButton( TQColorDialog::tr("OK"), dialog, "qt_ok_btn" );
-    connect( ok, SIGNAL(clicked()), dialog, SLOT(accept()) );
+    connect( ok, TQ_SIGNAL(clicked()), dialog, TQ_SLOT(accept()) );
     ok->setDefault(TRUE);
     cancel = new TQPushButton( TQColorDialog::tr("Cancel"), dialog, "qt_cancel_btn" );
-    connect( cancel, SIGNAL(clicked()), dialog, SLOT(reject()) );
+    connect( cancel, TQ_SIGNAL(clicked()), dialog, TQ_SLOT(reject()) );
     buttons->addWidget( ok );
     buttons->addWidget( cancel );
     buttons->addStretch();
@@ -1402,7 +1402,7 @@ TQColorDialogPrivate::TQColorDialogPrivate( TQColorDialog *dialog ) :
 					TQColorDialog::tr("&Add to Custom Colors"),
 						 dialog, "qt_add_btn" );
 	rightLay->addWidget( addCusBt );
-	connect( addCusBt, SIGNAL(clicked()), this, SLOT(addCustom()) );
+	connect( addCusBt, TQ_SIGNAL(clicked()), this, TQ_SLOT(addCustom()) );
     }
 }
 
@@ -1459,7 +1459,7 @@ TQColorDialog::TQColorDialog(TQWidget* parent, const char* name, bool modal) :
     setSizeGripEnabled( FALSE );
     d = new TQColorDialogPrivate( this );
 
-#ifndef QT_NO_SETTINGS
+#ifndef TQT_NO_SETTINGS
     if ( !customSet ) {
 	TQSettings settings;
 	settings.insertSearchPath( TQSettings::Windows, "/Trolltech" );
@@ -1485,16 +1485,16 @@ TQColorDialog::TQColorDialog(TQWidget* parent, const char* name, bool modal) :
 TQColor TQColorDialog::getColor( const TQColor& initial, TQWidget *parent,
 			       const char *name )
 {
-#if defined(Q_WS_X11)
-    if( TQKDEIntegration::enabled())
-        return TQKDEIntegration::getColor( initial, parent, name );
-#elif defined(Q_WS_MAC)
+#if defined(TQ_WS_X11)
+    if( TQTDEIntegration::enabled())
+        return TQTDEIntegration::getColor( initial, parent, name );
+#elif defined(TQ_WS_MAC)
     return macGetColor(initial, parent, name);
 #endif
 
     int allocContext = TQColor::enterAllocContext();
     TQColorDialog *dlg = new TQColorDialog( parent, name, TRUE );  //modal
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     dlg->setCaption( TQColorDialog::tr( "Select color" ) );
 #endif
     dlg->setColor( initial );
@@ -1525,14 +1525,14 @@ TQColor TQColorDialog::getColor( const TQColor& initial, TQWidget *parent,
 TQRgb TQColorDialog::getRgba( TQRgb initial, bool *ok,
 			    TQWidget *parent, const char* name )
 {
-#if defined(Q_WS_MAC)
-    if( TQKDEIntegration::enabled()) {
-        TQColor color = TQKDEIntegration::getColor( TQColor( initial ), parent, name );
+#if defined(TQ_WS_MAC)
+    if( TQTDEIntegration::enabled()) {
+        TQColor color = TQTDEIntegration::getColor( TQColor( initial ), parent, name );
         if( ok )
             *ok = color.isValid();
         return color.rgba();
     }
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     return macGetRgba(initial, ok, parent, name);
 #endif
 
@@ -1540,7 +1540,7 @@ TQRgb TQColorDialog::getRgba( TQRgb initial, bool *ok,
     TQColorDialog *dlg = new TQColorDialog( parent, name, TRUE );  //modal
 
     TQ_CHECK_PTR( dlg );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     dlg->setCaption( TQColorDialog::tr( "Select color" ) );
 #endif
     dlg->setColor( initial );
@@ -1584,7 +1584,7 @@ TQColor TQColorDialog::color() const
 
 TQColorDialog::~TQColorDialog()
 {
-#ifndef QT_NO_SETTINGS
+#ifndef TQT_NO_SETTINGS
     if ( !customSet ) {
 	TQSettings settings;
 	settings.insertSearchPath( TQSettings::Windows, "/Trolltech" );

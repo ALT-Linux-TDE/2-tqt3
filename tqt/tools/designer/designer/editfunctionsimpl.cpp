@@ -54,7 +54,7 @@
 EditFunctions::EditFunctions( TQWidget *parent, FormWindow *fw, bool justSlots )
     : EditFunctionsBase( parent, 0, TRUE ), formWindow( fw )
 {
-    connect( helpButton, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( helpButton, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
 
     id = 0;
     functList.clear();
@@ -113,9 +113,9 @@ EditFunctions::EditFunctions( TQWidget *parent, FormWindow *fw, bool justSlots )
     
     // Connect listview signal to signal-relay
     TQObject::connect( functionListView,
-		      SIGNAL( itemRenamed( TQListViewItem*, int, const TQString & ) ),
+		      TQ_SIGNAL( itemRenamed( TQListViewItem*, int, const TQString & ) ),
 		      this,
-		      SLOT( emitItemRenamed(TQListViewItem*, int, const TQString&) ) );
+		      TQ_SLOT( emitItemRenamed(TQListViewItem*, int, const TQString&) ) );
 
     // Connect signal-relay to TQLineEdit "functionName"
     TQObjectList *l = parent->queryList( "TQLineEdit", "functionName" );
@@ -124,9 +124,9 @@ EditFunctions::EditFunctions( TQWidget *parent, FormWindow *fw, bool justSlots )
     while ( (obj = itemsLineEditIt.current()) != 0 ) {
         ++itemsLineEditIt;
 	TQObject::connect( this,
-			  SIGNAL( itemRenamed( const TQString & ) ),
+			  TQ_SIGNAL( itemRenamed( const TQString & ) ),
 			  obj,
-			  SLOT( setText( const TQString & ) ) );
+			  TQ_SLOT( setText( const TQString & ) ) );
     }
     delete l;
 }

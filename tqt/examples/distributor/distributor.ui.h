@@ -22,7 +22,7 @@
 void Distributor::init()
 {
     timer = new TQTimer( this );
-    connect( timer, SIGNAL(timeout()), SLOT(checkLibData()) );
+    connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(checkLibData()) );
 
     cancelButton()->setAutoDefault( FALSE );
     backButton()->setAutoDefault( FALSE );

@@ -69,7 +69,7 @@ struct TQFontDef
 	  styleHint( TQFont::AnyStyle ), styleStrategy( TQFont::PreferDefault ),
 	  weight( 50 ), italic( FALSE ), fixedPitch( FALSE ), stretch( 100 ),
 	  ignorePitch(TRUE)
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 	  ,fixedPitchComputed(FALSE)
 #endif
     {
@@ -77,9 +77,9 @@ struct TQFontDef
 
     TQString family;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     TQString addStyle;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     int pointSize;
     int pixelSize;
@@ -107,9 +107,9 @@ struct TQFontDef
 	if ( styleStrategy != other.styleStrategy ) return styleStrategy < other.styleStrategy;
 	if ( family != other.family ) return family < other.family;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	if ( addStyle != other.addStyle ) return addStyle < other.addStyle;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 	return FALSE;
     }
@@ -123,12 +123,12 @@ public:
 
     uint lineWidth;
 
-#if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
     TQFontEngine *engines[TQFont::LastPrivateScript];
 #else
     TQFontEngine *engine;
-#endif // Q_WS_X11 || Q_WS_WIN
-#ifndef Q_WS_MAC
+#endif // TQ_WS_X11 || TQ_WS_WIN
+#ifndef TQ_WS_MAC
     enum { widthCacheSize = 0x500 };
     uchar widthCache[widthCacheSize];
 #endif
@@ -139,9 +139,9 @@ class TQFontPrivate : public TQShared
 {
 public:
     static TQFont::Script defaultScript;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     static int defaultEncodingID;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     TQFontPrivate();
     TQFontPrivate( const TQFontPrivate &other );
@@ -151,7 +151,7 @@ public:
     TQFontEngine *engineForScript( TQFont::Script script ) const {
 	if ( script == TQFont::NoScript )
 	    script = TQFontPrivate::defaultScript;
-#if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
 	if ( ! engineData || ! engineData->engines[script] )
 	    ((TQFontPrivate *) this)->load( script );
 	return engineData->engines[script];
@@ -159,7 +159,7 @@ public:
         if ( ! engineData || ! engineData->engine )
 	    ((TQFontPrivate *) this)->load( script );
         return engineData->engine;
-#endif // Q_WS_X11 || Q_WS_WIN
+#endif // TQ_WS_X11 || TQ_WS_WIN
     }
 
     TQFontDef request;
@@ -201,7 +201,7 @@ public:
     TQFontCache();
     ~TQFontCache();
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     void clear();
 #endif
     // universal key structure.  TQFontEngineDatas and TQFontEngines are cached using
@@ -211,7 +211,7 @@ public:
 	Key( const TQFontDef &d, TQFont::Script c, int s, TQPaintDevice *pdev )
             : script(c), screen(s) {
             def = d;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
             dpi = pdev ? TQPaintDeviceMetrics(pdev).logicalDpiY() : 0;
 #else
             Q_UNUSED(pdev);
@@ -259,7 +259,7 @@ public:
     TQFontEngine *findEngine( const Key &key );
     void insertEngine( const Key &key, TQFontEngine *engine );
 
-#if defined(Q_WS_WIN) || defined(Q_WS_QWS)
+#if defined(TQ_WS_WIN) || defined(TQ_WS_QWS)
     void cleanupPrinterFonts();
 #endif
 

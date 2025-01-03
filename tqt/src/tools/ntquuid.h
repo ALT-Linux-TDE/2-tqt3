@@ -61,7 +61,7 @@ typedef struct _GUID
 #endif
 
 
-struct Q_EXPORT TQUuid
+struct TQ_EXPORT TQUuid
 {
     enum Variant {
 	VarUnknown	=-1,
@@ -101,7 +101,7 @@ struct Q_EXPORT TQUuid
     {
 	memcpy( this, &uuid, sizeof(TQUuid) );
     }
-#ifndef QT_NO_QUUID_STRING
+#ifndef TQT_NO_QUUID_STRING
     TQUuid( const TQString & );
     TQUuid( const char * );
     TQString toString() const;
@@ -186,9 +186,9 @@ struct Q_EXPORT TQUuid
     uchar   data4[ 8 ];
 };
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQUuid & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQUuid & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQUuid & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQUuid & );
 #endif
 
 #endif //TQUUID_H

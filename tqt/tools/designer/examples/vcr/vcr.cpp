@@ -99,19 +99,19 @@ Vcr::Vcr( TQWidget *parent, const char *name )
 
     TQPushButton *rewind = new TQPushButton( TQPixmap( rewind_xpm ), 0, this, "vcr_rewind" );
     layout->addWidget( rewind );
-    connect( rewind, SIGNAL(clicked()), SIGNAL(rewind()) ); 
+    connect( rewind, TQ_SIGNAL(clicked()), TQ_SIGNAL(rewind()) ); 
 
     TQPushButton *play = new TQPushButton( TQPixmap( play_xpm ), 0, this, "vcr_play" );
     layout->addWidget( play );
-    connect( play, SIGNAL(clicked()), SIGNAL(play()) ); 
+    connect( play, TQ_SIGNAL(clicked()), TQ_SIGNAL(play()) ); 
 
     TQPushButton *next = new TQPushButton( TQPixmap( next_xpm ), 0, this, "vcr_next" );
     layout->addWidget( next );
-    connect( next, SIGNAL(clicked()), SIGNAL(next()) ); 
+    connect( next, TQ_SIGNAL(clicked()), TQ_SIGNAL(next()) ); 
 
     TQPushButton *stop = new TQPushButton( TQPixmap( stop_xpm ), 0, this, "vcr_stop" );
     layout->addWidget( stop );
-    connect( stop, SIGNAL(clicked()), SIGNAL(stop()) ); 
+    connect( stop, TQ_SIGNAL(clicked()), TQ_SIGNAL(stop()) ); 
 }
 
 

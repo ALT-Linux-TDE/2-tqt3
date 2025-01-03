@@ -87,11 +87,11 @@ body { background: #ffffff; color: black; }
 #define TQM_EXPORT_HTTP
 #define TQM_TEMPLATE_EXTERN_HTTP
 #else
-#define TQM_EXPORT_HTTP Q_EXPORT
+#define TQM_EXPORT_HTTP TQ_EXPORT
 #define TQM_TEMPLATE_EXTERN_HTTP Q_TEMPLATE_EXTERN
 #endif
 
-#ifndef QT_NO_NETWORKPROTOCOL_HTTP
+#ifndef TQT_NO_NETWORKPROTOCOL_HTTP
 
 class TQSocket;
 class TQTimerEvent;

@@ -46,14 +46,14 @@
 #include "ntqrect.h"
 #endif // QT_H
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 class TQFontEngine;
 #endif
 
 class TQTextCodec;
 class TQTextParag;
 
-class Q_EXPORT TQFontMetrics
+class TQ_EXPORT TQFontMetrics
 {
 public:
     TQFontMetrics( const TQFont & );
@@ -79,7 +79,7 @@ public:
     int		width( const TQString &, int len = -1 ) const;
 
     int		width( TQChar ) const;
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     int		width( char c ) const { return width( (TQChar) c ); }
 #endif
 
@@ -104,7 +104,7 @@ private:
     friend class TQWidget;
     friend class TQPainter;
     friend class TQTextFormat;
-#if defined( Q_WS_MAC )
+#if defined( TQ_WS_MAC )
     friend class TQFontPrivate;
 #endif
 

@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS>
+<TS language="cs">
   <context>
     <name>QAccel</name>
     <message>
       <source>Space</source>
-      <translation>Prostor</translation>
+      <translation>Mezerník</translation>
     </message>
     <message>
       <source>Esc</source>
@@ -72,7 +73,7 @@
     </message>
     <message>
       <source>Down</source>
-      <translation>Down</translation>
+      <translation>Dolů</translation>
     </message>
     <message>
       <source>PgUp</source>
@@ -287,15 +288,15 @@
     <name>QApplication</name>
     <message>
       <source>QT_LAYOUT_DIRECTION</source>
-      <comment>Translate this string to the string 'LTR' in left-to-right languages or to 'RTL' in right-to-left languages (such as Hebrew and Arabic) to get proper widget layout.</comment>
+      <comment>Translate this string to the string &apos;LTR&apos; in left-to-right languages or to &apos;RTL&apos; in right-to-left languages (such as Hebrew and Arabic) to get proper widget layout.</comment>
       <translation>QT_LAYOUT_DIRECTION</translation>
     </message>
     <message>
-      <source>Executable '%1' requires Qt %2, found Qt %3.</source>
-      <translation>proměnná '%1' vyžaduje Qt %2, nalezena Qt %3.</translation>
+      <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+      <translation>proměnná &apos;%1&apos; vyžaduje TQt %2, nalezena TQt %3.</translation>
     </message>
     <message>
-      <source>Incompatible Qt Library Error</source>
+      <source>Incompatible TQt Library Error</source>
       <translation>Chyba nekompatibility knihovny Qt</translation>
     </message>
   </context>
@@ -349,8 +350,8 @@
       <translation>&amp;Vlastní barvy</translation>
     </message>
     <message>
-      <source>&amp;Define Custom Colors >></source>
-      <translation>&amp;Zvolit vlastní barvy >></translation>
+      <source>&amp;Define Custom Colors &gt;&gt;</source>
+      <translation>&amp;Zvolit vlastní barvy &gt;&gt;</translation>
     </message>
     <message>
       <source>OK</source>
@@ -395,7 +396,7 @@
   <context>
     <name>QDialog</name>
     <message>
-      <source>What's This?</source>
+      <source>What&apos;s This?</source>
       <translation>Co je toto?</translation>
     </message>
   </context>
@@ -617,8 +618,8 @@
       <translation>Smazat %1</translation>
     </message>
     <message>
-      <source>&lt;qt>Are you sure you wish to delete %1 &quot;%2&quot;?&lt;/qt></source>
-      <translation>&lt;qt>Skutečně chcete smazat %1 &quot;%2&quot;?&lt;/qt></translation>
+      <source>&lt;qt&gt;Are you sure you wish to delete %1 &quot;%2&quot;?&lt;/qt&gt;</source>
+      <translation>&lt;qt&gt;Skutečně chcete smazat %1 &quot;%2&quot;?&lt;/qt&gt;</translation>
     </message>
     <message>
       <source>&amp;Yes</source>
@@ -1210,7 +1211,7 @@ na(new line)
     </message>
     <message>
       <source>Preference</source>
-      <translation>Preference</translation>
+      <translation>Předvolba</translation>
     </message>
     <message>
       <source>Options</source>
@@ -1264,15 +1265,15 @@ na(new line)
       <translation>&amp;Ignorovat</translation>
     </message>
     <message>
-      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses Qt version %1.&lt;/p>&lt;p>Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br>Qt is also available for embedded devices.&lt;/p>&lt;p>Qt is a Trolltech product. See &lt;tt>http://www.trolltech.com/qt/&lt;/tt> for more information.&lt;/p></source>
-      <translation>&lt;h3>Informace o knihovně Qt&lt;/h3>
-&lt;p>Tento program používá knihovnu Qt verze %1.&lt;/p>
-&lt;p>Qt je multiplatformní C++  knihovna pro návrh grafických aplikací od 
-firmy Trolltech. Qt umožňuje jednoduchou přenositelnost aplikací mezi 
+      <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;TQt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;TQt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;TQt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;TQt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+      <translation>&lt;h3&gt;Informace o knihovně Qt&lt;/h3&gt;
+&lt;p&gt;Tento program používá knihovnu TQt verze %1.&lt;/p&gt;
+&lt;p&gt;TQt je multiplatformní C++  knihovna pro návrh grafických aplikací od 
+firmy Trolltech. TQt umožňuje jednoduchou přenositelnost aplikací mezi 
 Windows 95/98/NT/2000, Linuxem, Solarisem, Mac OS X, HP-UX a mnoha 
 dalšími verzemi Unixu s grafickým prostředím X11. 
-&lt;br>Dostupná je také podpora pro mobilní zařízení.&lt;/p>
-&lt;p>Více informací naleznete na &lt;tt>http://www.trolltech.com/qt/&lt;/tt>.&lt;/p></translation>
+&lt;br&gt;Dostupná je také podpora pro mobilní zařízení.&lt;/p&gt;
+&lt;p&gt;Více informací naleznete na &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
     </message>
   </context>
   <context>
@@ -1705,36 +1706,36 @@ dalšími verzemi Unixu s grafickým prostředím X11.
   <context>
     <name>QUrlOperator</name>
     <message>
-      <source>The protocol `%1' is not supported</source>
-      <translation>Protocol `%1' není podporován</translation>
+      <source>The protocol `%1&apos; is not supported</source>
+      <translation>Protocol `%1&apos; není podporován</translation>
     </message>
     <message>
-      <source>The protocol `%1' does not support listing directories</source>
-      <translation>Protocol `%1' nepodporuje vypsání adresářů</translation>
+      <source>The protocol `%1&apos; does not support listing directories</source>
+      <translation>Protocol `%1&apos; nepodporuje vypsání adresářů</translation>
     </message>
     <message>
-      <source>The protocol `%1' does not support creating new directories</source>
-      <translation>Protocol `%1' nepodporuje vytváření nových adresářů</translation>
+      <source>The protocol `%1&apos; does not support creating new directories</source>
+      <translation>Protocol `%1&apos; nepodporuje vytváření nových adresářů</translation>
     </message>
     <message>
-      <source>The protocol `%1' does not support removing files or directories</source>
-      <translation>Protocol `%1' nepodporuje odstranění souborů nebo adresářů</translation>
+      <source>The protocol `%1&apos; does not support removing files or directories</source>
+      <translation>Protocol `%1&apos; nepodporuje odstranění souborů nebo adresářů</translation>
     </message>
     <message>
-      <source>The protocol `%1' does not support renaming files or directories</source>
-      <translation>Protocol `%1' nepodporuje přejmenování souborů nebo adresářů</translation>
+      <source>The protocol `%1&apos; does not support renaming files or directories</source>
+      <translation>Protocol `%1&apos; nepodporuje přejmenování souborů nebo adresářů</translation>
     </message>
     <message>
-      <source>The protocol `%1' does not support getting files</source>
-      <translation>Protocol `%1' nepodporuje získávání souborů</translation>
+      <source>The protocol `%1&apos; does not support getting files</source>
+      <translation>Protocol `%1&apos; nepodporuje získávání souborů</translation>
     </message>
     <message>
-      <source>The protocol `%1' does not support putting files</source>
-      <translation>Protocol `%1' nepodporuje zasílání souborů</translation>
+      <source>The protocol `%1&apos; does not support putting files</source>
+      <translation>Protocol `%1&apos; nepodporuje zasílání souborů</translation>
     </message>
     <message>
-      <source>The protocol `%1' does not support copying or moving files or directories</source>
-      <translation>Protocol `%1' nepodporuje kopírování nebo přesouvání souborů nebo adresářů</translation>
+      <source>The protocol `%1&apos; does not support copying or moving files or directories</source>
+      <translation>Protocol `%1&apos; nepodporuje kopírování nebo přesouvání souborů nebo adresářů</translation>
     </message>
     <message>
       <source>(unknown)</source>
@@ -1795,7 +1796,7 @@ dalšími verzemi Unixu s grafickým prostředím X11.
   <context>
     <name>QWhatsThisButton</name>
     <message>
-      <source>What's this?</source>
+      <source>What&apos;s this?</source>
       <translation>Co je toto?</translation>
     </message>
   </context>
@@ -1810,8 +1811,8 @@ dalšími verzemi Unixu s grafickým prostředím X11.
       <translation>&lt; &amp;Zpět</translation>
     </message>
     <message>
-      <source>&amp;Next ></source>
-      <translation>&amp;Další ></translation>
+      <source>&amp;Next &gt;</source>
+      <translation>&amp;Další &gt;</translation>
     </message>
     <message>
       <source>&amp;Finish</source>

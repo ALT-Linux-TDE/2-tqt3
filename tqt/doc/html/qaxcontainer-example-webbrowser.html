@@ -50,8 +50,8 @@ already been set up within TQt Designer.
     <a name="x2516"></a>    pb-&gt;<a href="ntqwidget.html#hide">hide</a>();
         statusBar()-&gt;addWidget( pb, 0, TRUE );
 
-        connect( WebBrowser, SIGNAL(ProgressChange(int,int)), this, SLOT(setProgress(int,int)) );
-        connect( WebBrowser, SIGNAL(StatusTextChange(const <a href="ntqstring.html">TQString</a>&amp;)), statusBar(), SLOT(message(const <a href="ntqstring.html">TQString</a>&amp;)) );
+        connect( WebBrowser, TQ_SIGNAL(ProgressChange(int,int)), this, TQ_SLOT(setProgress(int,int)) );
+        connect( WebBrowser, TQ_SIGNAL(StatusTextChange(const <a href="ntqstring.html">TQString</a>&amp;)), statusBar(), TQ_SLOT(message(const <a href="ntqstring.html">TQString</a>&amp;)) );
 
         WebBrowser-&gt;dynamicCall( "GoHome()" );
     }

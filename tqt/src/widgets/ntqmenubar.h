@@ -47,11 +47,11 @@
 #include "ntqmenudata.h"
 #endif // QT_H
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
 
 class TQPopupMenu;
 
-class Q_EXPORT TQMenuBar : public TQFrame, public TQMenuData
+class TQ_EXPORT TQMenuBar : public TQFrame, public TQMenuData
 {
     TQ_OBJECT
     TQ_ENUMS( Separator )
@@ -86,7 +86,7 @@ public:
 
     void activateItemAt( int index );
 
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     static void initialize();
     static void cleanup();
 #endif
@@ -116,7 +116,7 @@ protected:
 private slots:
     void	subActivated( int itemId );
     void	subHighlighted( int itemId );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     void	accelActivated( int itemId );
     void	accelDestroyed();
 #endif
@@ -142,7 +142,7 @@ private:
 
     int		calculateRects( int max_width = -1 );
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     void	setupAccelerators();
     TQAccel     *autoaccel;
 #endif
@@ -160,7 +160,7 @@ private:
 
     friend class TQPopupMenu;
 
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     friend class TQWidget;
     friend class TQApplication;
     friend void qt_mac_set_modal_state(bool, TQMenuBar *);
@@ -200,6 +200,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_MENUBAR
+#endif // TQT_NO_MENUBAR
 
 #endif // TQMENUBAR_H

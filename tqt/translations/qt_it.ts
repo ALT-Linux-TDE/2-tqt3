@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="it">
 <context>
     <name>QAccel</name>
     <message>
@@ -47,7 +49,7 @@
     </message>
     <message>
         <source>SysReq</source>
-        <translation>SysReq</translation>
+        <translation>RSist</translation>
     </message>
     <message>
         <source>Home</source>
@@ -119,7 +121,7 @@
     </message>
     <message>
         <source>Help</source>
-        <translation>?</translation>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <source>Back</source>
@@ -199,7 +201,7 @@
     </message>
     <message>
         <source>Standby</source>
-        <translation>Standby</translation>
+        <translation>Sospendi</translation>
     </message>
     <message>
         <source>Open URL</source>
@@ -290,12 +292,12 @@
         <translation>DIREZIONE_LAYOUT_QT</translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>Il file eseguibile &apos;%1&apos; richiede Qt %2, trovato Qt %3.</translation>
+        <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+        <translation>Il file eseguibile &apos;%1&apos; richiede TQt %2, trovato TQt %3.</translation>
     </message>
     <message>
-        <source>Incompatible Qt Library Error</source>
-        <translation>Errore Libreria Qt incompatibile</translation>
+        <source>Incompatible TQt Library Error</source>
+        <translation>Errore Libreria TQt incompatibile</translation>
     </message>
 </context>
 <context>
@@ -395,7 +397,7 @@
     <name>QDialog</name>
     <message>
         <source>What&apos;s This?</source>
-        <translation>Che cos'è?</translation>
+        <translation>Che cos&apos;è?</translation>
     </message>
 </context>
 <context>
@@ -541,7 +543,7 @@
     </message>
     <message>
         <source>Dir</source>
-        <translation>Dir</translation>
+        <translation>Cartella</translation>
     </message>
     <message>
         <source>Special</source>
@@ -677,7 +679,7 @@ Controllare il percorso e il nome del file.</translation>
     </message>
     <message>
         <source>Directory:</source>
-        <translation>Directory:</translation>
+        <translation>Cartella:</translation>
     </message>
 </context>
 <context>
@@ -903,7 +905,7 @@ Controllare il percorso e il nome del file.</translation>
     </message>
     <message>
         <source>Scr&amp;ipt</source>
-        <translation>Scr&amp;ipt</translation>
+        <translation>&amp;Testo</translation>
     </message>
     <message>
         <source>OK</source>
@@ -938,11 +940,11 @@ Controllare il percorso e il nome del file.</translation>
     </message>
     <message>
         <source>Connected to host %1</source>
-        <translation>Connesso all'host %1</translation>
+        <translation>Connesso all&apos;host %1</translation>
     </message>
     <message>
         <source>Connected to host</source>
-        <translation>Connesso all'host</translation>
+        <translation>Connesso all&apos;host</translation>
     </message>
     <message>
         <source>Connection to %1 closed</source>
@@ -958,7 +960,7 @@ Controllare il percorso e il nome del file.</translation>
     </message>
     <message>
         <source>Connection refused to host %1</source>
-        <translation>Connessione rifiutata all'host %1</translation>
+        <translation>Connessione rifiutata all&apos;host %1</translation>
     </message>
     <message>
         <source>Unknown error</source>
@@ -967,7 +969,7 @@ Controllare il percorso e il nome del file.</translation>
     <message>
         <source>Connecting to host failed:
 %1</source>
-        <translation>Connessione all'host non riuscita:
+        <translation>Connessione all&apos;host non riuscita:
 %1</translation>
     </message>
     <message>
@@ -979,7 +981,7 @@ Controllare il percorso e il nome del file.</translation>
     <message>
         <source>Listing directory failed:
 %1</source>
-        <translation>Visualizzazione dell'elenco delle directory non riuscita:
+        <translation>Visualizzazione dell&apos;elenco delle directory non riuscita:
 %1</translation>
     </message>
     <message>
@@ -1062,15 +1064,15 @@ Controllare il percorso e il nome del file.</translation>
     </message>
     <message>
         <source>Connected to host %1</source>
-        <translation>Connesso all'host %1</translation>
+        <translation>Connesso all&apos;host %1</translation>
     </message>
     <message>
         <source>Connected to host</source>
-        <translation>Connesso all'host</translation>
+        <translation>Connesso all&apos;host</translation>
     </message>
     <message>
         <source>Connection to %1 closed</source>
-        <translation>Connessione all'host %1 chiusa</translation>
+        <translation>Connessione all&apos;host %1 chiusa</translation>
     </message>
     <message>
         <source>Connection closed</source>
@@ -1205,7 +1207,7 @@ in
     </message>
     <message>
         <source>Config</source>
-        <translation>Config</translation>
+        <translation>Configurazione</translation>
     </message>
     <message>
         <source>Preference</source>
@@ -1263,15 +1265,15 @@ in
         <translation>&amp;Ignora</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Informazioni su Qt&lt;/h3&gt;&lt;p&gt;Questo programma usa la versione di Qt %1.&lt;/p&gt;&lt;p&gt;Qt è un kit di strumenti C++ per lo sviluppo di applicazioni GUI &amp;amp; multi-piattaforma.&lt;/p&gt;&lt;p&gt;Qt consente di creare un'unica interfaccia portatile compatibile con MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux e le principali varianti commerciali di Unix.&lt;br&gt;Qt è disponibile anche per le periferiche incorporate.&lt;/p&gt;&lt;p&gt;Qt è un prodotto di Trolltech. Per ulteriori informazioni, visitare la pagina Web &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt;.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Informazioni su Qt&lt;/h3&gt;&lt;p&gt;Questo programma usa la versione di TQt %1.&lt;/p&gt;&lt;p&gt;Qt è un kit di strumenti C++ per lo sviluppo di applicazioni GUI &amp;amp; multi-piattaforma.&lt;/p&gt;&lt;p&gt;Qt consente di creare un&apos;unica interfaccia portatile compatibile con MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux e le principali varianti commerciali di Unix.&lt;br&gt;Qt è disponibile anche per le periferiche incorporate.&lt;/p&gt;&lt;p&gt;Qt è un prodotto di Trolltech. Per ulteriori informazioni, visitare la pagina Web &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>QNetworkProtocol</name>
     <message>
         <source>Operation stopped by the user</source>
-        <translation>Operazione interrotta dall'utente</translation>
+        <translation>Operazione interrotta dall&apos;utente</translation>
     </message>
 </context>
 <context>
@@ -1366,7 +1368,7 @@ in
     </message>
     <message>
         <source>Print last page first</source>
-        <translation>Stampa prima l'ultima pagina</translation>
+        <translation>Stampa prima l&apos;ultima pagina</translation>
     </message>
     <message>
         <source>Number of copies:</source>
@@ -1402,7 +1404,7 @@ in
     </message>
     <message>
         <source>A4 (210x297 mm, 8.26x11.7 inches)</source>
-        <translation>A4 (210x297 mm, 8,26x11,7")</translation>
+        <translation>A4 (210x297 mm, 8,26x11,7&quot;)</translation>
     </message>
     <message>
         <source>A5 (148 x 210 mm)</source>
@@ -1614,7 +1616,7 @@ in
     </message>
     <message>
         <source>Help</source>
-        <translation>?</translation>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <source>Defaults</source>
@@ -1718,11 +1720,11 @@ in
     </message>
     <message>
         <source>The protocol `%1&apos; does not support getting files</source>
-        <translation>Il protocollo`%1&apos; non supporta l'actquisizione di file</translation>
+        <translation>Il protocollo`%1&apos; non supporta l&apos;actquisizione di file</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support putting files</source>
-        <translation>Il protocollo `%1&apos; non supporta l'inserimento di file</translation>
+        <translation>Il protocollo `%1&apos; non supporta l&apos;inserimento di file</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support copying or moving files or directories</source>
@@ -1788,7 +1790,7 @@ in
     <name>QWhatsThisButton</name>
     <message>
         <source>What&apos;s this?</source>
-        <translation>Che cos'è?</translation>
+        <translation>Che cos&apos;è?</translation>
     </message>
 </context>
 <context>
@@ -1811,7 +1813,7 @@ in
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;?</translation>
+        <translation>&amp;Aiuto</translation>
     </message>
 </context>
 <context>
@@ -1889,7 +1891,7 @@ in
     </message>
     <message>
         <source>error occurred while parsing element</source>
-        <translation>errore durante l'analisi dell'elemento</translation>
+        <translation>errore durante l&apos;analisi dell&apos;elemento</translation>
     </message>
     <message>
         <source>tag mismatch</source>
@@ -1897,7 +1899,7 @@ in
     </message>
     <message>
         <source>error occurred while parsing content</source>
-        <translation>errore durante l'analisi del contenuto</translation>
+        <translation>errore durante l&apos;analisi del contenuto</translation>
     </message>
     <message>
         <source>unexpected character</source>
@@ -1905,7 +1907,7 @@ in
     </message>
     <message>
         <source>invalid name for processing instruction</source>
-        <translation>nome non valido per l'elaborazione dell'istruzione</translation>
+        <translation>nome non valido per l&apos;elaborazione dell&apos;istruzione</translation>
     </message>
     <message>
         <source>version expected while reading the XML declaration</source>
@@ -1925,7 +1927,7 @@ in
     </message>
     <message>
         <source>error occurred while parsing document type definition</source>
-        <translation>errore durante l'analisi della definizione del tipo di documento</translation>
+        <translation>errore durante l&apos;analisi della definizione del tipo di documento</translation>
     </message>
     <message>
         <source>letter is expected</source>
@@ -1933,11 +1935,11 @@ in
     </message>
     <message>
         <source>error occurred while parsing comment</source>
-        <translation>errore durante l'analisi del commento</translation>
+        <translation>errore durante l&apos;analisi del commento</translation>
     </message>
     <message>
         <source>error occurred while parsing reference</source>
-        <translation>errore durante l'analisi del riferimento</translation>
+        <translation>errore durante l&apos;analisi del riferimento</translation>
     </message>
     <message>
         <source>internal general entity reference not allowed in DTD</source>
@@ -1945,7 +1947,7 @@ in
     </message>
     <message>
         <source>external parsed general entity reference not allowed in attribute value</source>
-        <translation>riferimento esterno a entità generale analizzata non consentito nel valore dell'attributo</translation>
+        <translation>riferimento esterno a entità generale analizzata non consentito nel valore dell&apos;attributo</translation>
     </message>
     <message>
         <source>external parsed general entity reference not allowed in DTD</source>
@@ -1961,7 +1963,7 @@ in
     </message>
     <message>
         <source>error in the text declaration of an external entity</source>
-        <translation>errore nella dichiarazione testuale di un'entità esterna</translation>
+        <translation>errore nella dichiarazione testuale di un&apos;entità esterna</translation>
     </message>
 </context>
 <context>
@@ -2000,5 +2002,3 @@ in
     </message>
 </context>
 </TS>
-
-

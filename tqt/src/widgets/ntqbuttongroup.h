@@ -45,14 +45,14 @@
 #include "ntqgroupbox.h"
 #endif // QT_H
 
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
 
 
 class TQButton;
 class TQButtonList;
 
 
-class Q_EXPORT TQButtonGroup : public TQGroupBox
+class TQ_EXPORT TQButtonGroup : public TQGroupBox
 {
     TQ_OBJECT
     TQ_PROPERTY( bool exclusive READ isExclusive WRITE setExclusive )
@@ -116,6 +116,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_BUTTONGROUP
+#endif // TQT_NO_BUTTONGROUP
 
 #endif // TQBUTTONGROUP_H

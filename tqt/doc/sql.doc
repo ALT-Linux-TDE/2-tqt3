@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -74,7 +74,7 @@
 \title SQL Module
 
 \if defined(commercial)
-This module is part of the \link commercialeditions.html Qt Enterprise Edition
+This module is part of the \link commercialeditions.html TQt Enterprise Edition
 \endlink.
 \endif
 
@@ -109,7 +109,7 @@ This module is part of the \link commercialeditions.html Qt Enterprise Edition
 \section1 Introduction
 
 Qt's SQL classes help you provide seamless database integration to
-your Qt applications.
+your TQt applications.
 
 <blockquote>
 This overview assumes that you have at least a basic knowledge of SQL.
@@ -154,7 +154,7 @@ this section we introduce the \l QDataTable, \l QSqlForm, \l
 QSqlPropertyMap and QSqlEditorFactory classes and demonstrate how to
 use custom data-aware widgets. \link designer-manual.book Qt
 Designer\endlink provides an easy visual way of achieving the same
-thing. See the \link designer-manual.book Qt Designer\endlink manual,
+thing. See the \link designer-manual.book TQt Designer\endlink manual,
 \l QDataBrowser and \l QDataView for more information.
 
 \link #Subclassing_QSqlCursor Subclassing QSqlCursor \endlink. This
@@ -196,18 +196,18 @@ low level bridge between the database and the SQL classes. This layer
 is \link sql-driver.html documented separately \endlink since it is
 only relevant to driver writers, and is rarely used in standard
 database application programming. See \link sql-driver.html here
-\endlink for more information on implementing a Qt SQL driver plugin.
+\endlink for more information on implementing a TQt SQL driver plugin.
 
 \target Plugins
 \section1 SQL Driver Plugins
 
-The Qt SQL module can dynamically load new drivers at runtime using
+The TQt SQL module can dynamically load new drivers at runtime using
 the \link plugins-howto.html Plugins \endlink.
 
 The \link sql-driver.html SQL driver documentation\endlink describes
 how to build plugins for specific database management systems.
 
-Once a plugin is built, Qt will automatically load it, and the driver
+Once a plugin is built, TQt will automatically load it, and the driver
 will be available for use by QSqlDatabase (see QSqlDatabase::drivers()
 for more information).
 
@@ -244,11 +244,11 @@ the time of writing the available drivers are: QODBC3 (Open Database
 Connectivity, includes Microsoft SQL Server support), QOCI8 (Oracle 8 and 9),
 QTDS7 (Sybase Adaptive Server), QPSQL7 (PostgreSQL 6 and 7),
 QMYSQL3 (MySQL), QDB2 (IBM DB2), QSQLITE (SQLite) and QIBASE (Interbase).
-Note that some of these drivers aren't included in the Qt Open Source Edition; see
+Note that some of these drivers aren't included in the TQt Open Source Edition; see
 the \c README files for details.
 
 The connection which is created becomes the application's default 
-database connection and will be used by the Qt SQL classes if no 
+database connection and will be used by the TQt SQL classes if no 
 other database is specified. 
 
 Second we call setDatabaseName(), setUserName(), setPassword() and
@@ -316,7 +316,7 @@ above example, it will return a pointer to the specified connection.
 If you create a \c main.cpp using \link designer-manual.book Qt
 Designer\endlink, it will \e not include our example
 createConnections() function. This means that applications that
-preview correctly in \link designer-manual.book Qt Designer\endlink
+preview correctly in \link designer-manual.book TQt Designer\endlink
 will not run unless you implement your own database connections
 function.
 
@@ -797,12 +797,12 @@ e.g.
 \section1 Data-Aware Widgets
 
 Data-Aware Widgets provide a simple yet powerful means of connecting
-databases to Qt user interfaces. The easiest way of creating and
+databases to TQt user interfaces. The easiest way of creating and
 manipulating data-aware widgets is with \link designer-manual.book Qt
 Designer\endlink. For those who prefer a purely programmatic approach
 the following examples and explanations provide an introduction. Note
 that the "Creating Database Applications" chapter of the \link
-designer-manual.book Qt Designer\endlink manual and its accompanying
+designer-manual.book TQt Designer\endlink manual and its accompanying
 examples provides additional information.
 
 \target Data-Aware_Tables
@@ -854,8 +854,8 @@ memory cost.
 Creating data-aware forms is more involved than using data-aware
 tables because we must take care of each field individually. Most of
 the code below can be automatically generated by \link
-designer-manual.book Qt Designer\endlink. See the \link
-designer-manual.book Qt Designer\endlink manual for more details.
+designer-manual.book TQt Designer\endlink. See the \link
+designer-manual.book TQt Designer\endlink manual for more details.
 
 \target Displaying_a_Record
 \section3 Displaying a Record
@@ -893,8 +893,8 @@ can easily be linked together with a \l QDataTable to display a detailed
 view of a record:
 
 \code
-    connect( myDataTable, SIGNAL( currentChanged( QSqlRecord* ) ), 
-	     myDataView, SLOT( refresh( QSqlRecord* ) ) );
+    connect( myDataTable, TQ_SIGNAL( currentChanged( QSqlRecord* ) ), 
+	     myDataView, TQ_SLOT( refresh( QSqlRecord* ) ) );
 \endcode
 
 \target Editing_a_Record
@@ -969,7 +969,7 @@ populated by the readFields() call as before.
 \printuntil }
 
 In the destructor we don't have to worry about the widgets or QSqlForm
-since they are children of the form and will be deleted by Qt at the
+since they are children of the form and will be deleted by TQt at the
 right time.
 
 \skipto save
@@ -1074,7 +1074,7 @@ class and its upperLine property with the property map.
 The final change is to install the property map into the QSqlForm once
 the QSqlForm has been created. This passes responsibility for the
 property map's memory to QSqlForm which itself is owned by the
-FormDialog, so Qt will delete them at the right time.
+FormDialog, so TQt will delete them at the right time.
 
 The behaviour of this example is identical to the previous one except
 that the forename and surname fields will be uppercase since they use
@@ -1274,7 +1274,7 @@ calls to setCalculated().
 
 \skipto InvoiceItem
 \printline InvoiceItem
-\printuntil QString::null
+\printuntil TQString::null
 \printline
 \caption From \l sql/overview/subclass4/main.cpp
 

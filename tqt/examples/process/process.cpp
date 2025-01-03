@@ -40,8 +40,8 @@ UicManager::UicManager()
     // Layout
     output = new TQTextView( this );
     quitButton = new TQPushButton( tr("Quit"), this );
-    connect( quitButton, SIGNAL(clicked()),
-	    tqApp, SLOT(quit()) );
+    connect( quitButton, TQ_SIGNAL(clicked()),
+	    tqApp, TQ_SLOT(quit()) );
     resize( 500, 500 );
 
     // TQProcess related code
@@ -55,10 +55,10 @@ UicManager::UicManager()
     proc->addArgument( "i18n" );
     proc->addArgument( "small_dialog.ui" );
 
-    connect( proc, SIGNAL(readyReadStdout()),
-	    this, SLOT(readFromStdout()) );
-    connect( proc, SIGNAL(processExited()),
-	    this, SLOT(scrollToTop()) );
+    connect( proc, TQ_SIGNAL(readyReadStdout()),
+	    this, TQ_SLOT(readFromStdout()) );
+    connect( proc, TQ_SIGNAL(processExited()),
+	    this, TQ_SLOT(scrollToTop()) );
 
     if ( !proc->start() ) {
 	// error handling

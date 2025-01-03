@@ -135,7 +135,7 @@ install a package which is usually called "mysql-devel".
 header files and shared libraries (here it is assumed that MySQL is
 installed in <tt>/usr/local</tt>) and run <tt>make</tt>:
 <p> <pre>
-cd $QTDIR/plugins/src/sqldrivers/mysql
+cd $TQTDIR/plugins/src/sqldrivers/mysql
 qmake -o Makefile "INCLUDEPATH+=/usr/local/include" "LIBS+=-L/usr/local/lib -lmysqlclient" mysql.pro
 make
 </pre>
@@ -147,7 +147,7 @@ choose "Custom Install". Install the "Libs & Include Files" Module.
 Build the plugin as follows (here it is assumed that MySQL is
 installed in <tt>C:&#92;MYSQL</tt>):
 <p> <pre>
-cd %QTDIR%\plugins\src\sqldrivers\mysql
+cd %TQTDIR%\plugins\src\sqldrivers\mysql
 qmake -o Makefile "INCLUDEPATH+=C:\MYSQL\INCLUDE" "LIBS+=C:\MYSQL\LIB\OPT\LIBMYSQL.LIB" mysql.pro
 nmake
 </pre>
@@ -175,7 +175,7 @@ columns, you have to use a forward only query to select LOB fields
 (see <a href="ntqsqlquery.html#setForwardOnly">TQSqlQuery::setForwardOnly</a>()).
 <p> Inserting BLOBs should be done using either a prepared query where the
 BLOBs are bound to placeholders, or <a href="ntqsqlcursor.html">TQSqlCursor</a> which uses a prepared
-query to do this internally (see $QTDIR/examples/sql/blob).
+query to do this internally (see $TQTDIR/examples/sql/blob).
 <p> <h4> Know problems 
 </h4>
 <a name="3-2-4"></a><p> When a query is in forward only mode a call to <a href="ntqsqlquery.html#last">TQSqlQuery::last</a>() will
@@ -195,21 +195,21 @@ libraries (it is assumed that the variable <tt>$ORACLE_HOME</tt> points to
 the directory where Oracle is installed) and run make:
 <p> If you are using Oracle 8:
 <pre>
-cd $QTDIR/plugins/src/sqldrivers/oci
+cd $TQTDIR/plugins/src/sqldrivers/oci
 qmake -o Makefile "INCLUDEPATH+=$ORACLE_HOME/rdbms/public $ORACLE_HOME/rdbms/demo" "LIBS+=-L$ORACLE_HOME/lib -lclntsh -lwtc8" oci.pro
 make
 </pre>
  
 <p> For Oracle version 9:
 <pre>
-cd $QTDIR/plugins/src/sqldrivers/oci
+cd $TQTDIR/plugins/src/sqldrivers/oci
 qmake -o Makefile "INCLUDEPATH+=$ORACLE_HOME/rdbms/public $ORACLE_HOME/rdbms/demo" "LIBS+=-L$ORACLE_HOME/lib -lclntsh -lwtc9" oci.pro
 make
 </pre>
  
 <p> For Oracle version 10:
 <pre>
-cd $QTDIR/plugins/src/sqldrivers/oci
+cd $TQTDIR/plugins/src/sqldrivers/oci
 qmake -o Makefile "INCLUDEPATH+=$ORACLE_HOME/rdbms/public $ORACLE_HOME/rdbms/demo" "LIBS+=-L$ORACLE_HOME/lib -lclntsh" oci.pro
 make
 </pre>
@@ -218,7 +218,7 @@ make
 that makes programs linked to these libraries segfault on exit. This
 only happens if the TQOCI8 driver is compiled as a plugin. To work
 around this problem, either compile the driver into the TQt libray
-itself, or configure TQt with the option '-DQT_NO_LIBRARY_UNLOAD'.
+itself, or configure TQt with the option '-DTQT_NO_LIBRARY_UNLOAD'.
 For Oracle 9, it is possible to link to the static OCI library by
 using "LIBS+=$ORACLE_HOME/lib/libclntst9.a".
 <p> <h4> How to build the plugin on Windows
@@ -230,7 +230,7 @@ installed in <tt>C:&#92;oracle</tt>):
 <p> <pre>
 set INCLUDE=%INCLUDE%;c:\oracle\oci\include
 set LIB=%LIB%;c:\oracle\oci\lib\msvc
-cd %QTDIR%\plugins\src\sqldrivers\oci
+cd %TQTDIR%\plugins\src\sqldrivers\oci
 qmake -o Makefile oci.pro
 nmake
 </pre>
@@ -288,7 +288,7 @@ You need the unixODBC header files and shared libraries.
 libraries (here it is assumed that unixODBC is installed in
 <tt>/usr/local/unixODBC</tt>) and run <tt>make</tt>:
 <p> <pre>
-cd $QTDIR/plugins/src/sqldrivers/odbc
+cd $TQTDIR/plugins/src/sqldrivers/odbc
 qmake "INCLUDEPATH+=/usr/local/unixODBC/include" "LIBS+=-L/usr/local/unixODBC/lib -lodbc"
 make
 </pre>
@@ -298,7 +298,7 @@ make
 <a name="3-3-4"></a><p> The ODBC header and include files should already be installed in the
 right directories. You just have to build the plugin as follows:
 <p> <pre>
-cd %QTDIR%\plugins\src\sqldrivers\odbc
+cd %TQTDIR%\plugins\src\sqldrivers\odbc
 qmake -o Makefile odbc.pro
 nmake
 </pre>
@@ -352,7 +352,7 @@ header files that are usually not a part of the binary distribution.
 libraries, run <tt>qmake</tt> the following way (assuming that the
 PostgreSQL sources can be found in <tt>/usr/src/psql</tt>):
 <p> <pre>
-cd $QTDIR/plugins/src/sqldrivers/psql
+cd $TQTDIR/plugins/src/sqldrivers/psql
 qmake -o Makefile "INCLUDEPATH+=/usr/src/psql/src/include /usr/src/psql/src/interfaces/libpq" "LIBS+=-L/usr/lib -lpq" psql.pro
 make
 </pre>
@@ -363,7 +363,7 @@ make
 the PostgreSQL documentation. Assuming the PostgreSQL sources resides
 in <tt>C:&#92;psql</tt>, build the plugin as follows:
 <p> <pre>
-cd %QTDIR%\plugins\src\sqldrivers\psql
+cd %TQTDIR%\plugins\src\sqldrivers\psql
 qmake -o Makefile "INCLUDEPATH+=C:\psql\src\include C:\psql\src\interfaces\libpq" psql.pro
 nmake
 </pre>
@@ -391,7 +391,7 @@ Note for Linux users: Get the Open Client RPM from
 point to the directory where you installed the client library and
 execute <tt>qmake</tt>:
 <p> <pre>
-cd $QTDIR/plugins/src/sqldrivers/tds
+cd $TQTDIR/plugins/src/sqldrivers/tds
 qmake -o Makefile "INCLUDEPATH=$SYBASE/include" "LIBS=-L$SYBASE/lib -lsybdb"
 make
 </pre>
@@ -401,14 +401,14 @@ make
 <a name="3-5-2"></a><p> You can either use the DB-Library supplied by Microsoft or the Sybase
 Open Client (<a href="http://www.sybase.com">http://www.sybase.com</a>). You must include <tt>NTWDBLIB.LIB</tt> to build the plugin:
 <p> <pre>
-cd %QTDIR%\plugins\src\sqldrivers\tds
+cd %TQTDIR%\plugins\src\sqldrivers\tds
 qmake -o Makefile "LIBS+=NTWDBLIB.LIB" tds.pro
 nmake
 </pre>
  
 <p> By default the Microsoft library is used on Windows, if you want to force
 the use of the Sybase Open Client, you must define
-<tt>Q_USE_SYBASE</tt> in <tt>%QTDIR%&#92;src&#92;sql&#92;drivers&#92;tds&#92;qsql_tds.cpp</tt>.
+<tt>Q_USE_SYBASE</tt> in <tt>%TQTDIR%&#92;src&#92;sql&#92;drivers&#92;tds&#92;qsql_tds.cpp</tt>.
 <p> <a name="TQDB2"></a>
 <h3> TQDB2 - IBM DB2 Driver (v7.1 or higher)
 </h3>
@@ -426,7 +426,7 @@ in DB2 (see <a href="ntqsqlquery.html#setForwardOnly">TQSqlQuery::setForwardOnly
 <p> <h4> How to build the plugin on Unix/Linux
 </h4>
 <a name="3-6-2"></a><p> <pre>
-cd $QTDIR/plugins/src/sqldrivers/db2
+cd $TQTDIR/plugins/src/sqldrivers/db2
 qmake -o Makefile "INCLUDEPATH+=$DB2DIR/include" "LIBS+=-L$DB2DIR/lib -ldb2"
 make
 </pre>
@@ -436,7 +436,7 @@ make
 <a name="3-6-3"></a><p> The DB2 header and include files should already be installed in the
 right directories. You just have to build the plugin as follows:
 <p> <pre>
-cd %QTDIR%\plugins\src\sqldrivers\db2
+cd %TQTDIR%\plugins\src\sqldrivers\db2
 qmake -o Makefile "INCLUDEPATH+=&lt;DB2 home&gt;/sqllib/include" "LIBS+=&lt;DB2 home&gt;/sqllib/lib/db2cli.lib"
 nmake
 </pre>
@@ -468,7 +468,7 @@ directly into the TQt library).
 build it manually (replace <tt>$SQLITE</tt> by the directory where SQLite
 resides):
 <p> <pre>
-cd $QTDIR/plugins/src/sqldrivers/sqlite
+cd $TQTDIR/plugins/src/sqldrivers/sqlite
 qmake -o Makefile "INCLUDEPATH+=$SQLITE/include" "LIBS+=-L$SQLITE/lib -lsqlite"
 make
 </pre>
@@ -501,7 +501,7 @@ or the free edition of Interbase.
 <a name="3-8-2"></a><p> The following assumes Interbase or Firebird is installed in
 <tt>/opt/interbase</tt>:
 <p> <pre>
-cd $QTDIR/plugins/src/sqldrivers/ibase
+cd $TQTDIR/plugins/src/sqldrivers/ibase
 qmake -o Makefile "INCLUDEPATH+=/opt/interbase/include" "LIBS+=-L/opt/interbase/lib" ibase.pro
 make
 </pre>
@@ -511,7 +511,7 @@ make
 <a name="3-8-3"></a><p> The following assumes Interbase or Firebird is installed in
 <tt>C:&#92;interbase</tt>:
 <p> <pre>
-cd %QTDIR%\plugins\src\sqldrivers\ibase
+cd %TQTDIR%\plugins\src\sqldrivers\ibase
 qmake -o Makefile "INCLUDEPATH+=C:\interbase\include" ibase.pro
 nmake
 </pre>
@@ -535,8 +535,8 @@ make sure that the following requirements are met:
 <p> <ul>
 <li> Ensure that you are using a shared TQt library; you cannot use the
 plugins with a static build.
-<li> Ensure that the environment variable <tt>QTDIR</tt> points to the right
-directory. Go to the <tt>$QTDIR/plugins/sqldrivers</tt> directory and
+<li> Ensure that the environment variable <tt>TQTDIR</tt> points to the right
+directory. Go to the <tt>$TQTDIR/plugins/sqldrivers</tt> directory and
 make sure that the plugin exists in that directory.
 <li> Ensure that the client libraries of the DBMS are available on the 
 system. On Unix, run the command <tt>ldd</tt> and pass the name of the
@@ -584,11 +584,11 @@ TQt SQL driver, both of these classes must to be subclassed and the
 abstract virtual methods in each class must be implemented. 
 <p> To implement a TQt SQL driver as a plugin (so that it is recognized and
 loaded by the TQt library at runtime), the driver must use the
-<tt>Q_EXPORT_PLUGIN</tt> macro. Read the <a href="plugins-howto.html">TQt
+<tt>TQ_EXPORT_PLUGIN</tt> macro. Read the <a href="plugins-howto.html">TQt
 Plugin</a> documentation for more information on this. You can
 also check out how this is done in the SQL plugins that is provided
-with TQt in <tt>QTDIR/plugins/src/sqldrivers</tt> and
-<tt>QTDIR/src/sql/drivers</tt>.
+with TQt in <tt>TQTDIR/plugins/src/sqldrivers</tt> and
+<tt>TQTDIR/src/sql/drivers</tt>.
 <p> The following code can be used as a skeleton for a SQL driver:
 <p> <pre>
 class TQNullResult : public <a href="ntqsqlresult.html">TQSqlResult</a>

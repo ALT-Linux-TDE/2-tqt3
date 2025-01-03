@@ -189,10 +189,10 @@ is 0, 0).
         force-&gt;setRange( 10, 50 );
 </pre>
 <p> We add a second LCDRange, which will be used to set the force.
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( force, SIGNAL(valueChanged(int)),
-                 cannonField, SLOT(setForce(int)) );
-        <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(forceChanged(int)),
-                 force, SLOT(setValue(int)) );
+<p> <pre>        <a href="ntqobject.html#connect">connect</a>( force, TQ_SIGNAL(valueChanged(int)),
+                 cannonField, TQ_SLOT(setForce(int)) );
+        <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(forceChanged(int)),
+                 force, TQ_SLOT(setValue(int)) );
 </pre>
 <p> We connect the <tt>force</tt> widget and the <tt>cannonField</tt> widget, just like
 we did for the <tt>angle</tt> widget.

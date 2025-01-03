@@ -400,7 +400,7 @@ can also be accessed later with <tt>tqApp-&gt;argc()</tt> and <tt>tqApp-&gt;argv
 The documentation for <a href="#argv">argv</a>() contains a detailed description of how
 to process command line arguments.
 <p> TQt debugging options (not available if TQt was compiled with the
-QT_NO_DEBUG flag defined):
+TQT_NO_DEBUG flag defined):
 <ul>
 <li> -nograb, tells TQt that it must never grab the mouse or the keyboard.
 <li> -dograb (only under X11), running under a debugger can cause
@@ -470,7 +470,7 @@ uses a graphical interface when available.
 <pre>
   int main( int argc, char **argv )
   {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     bool useGUI = getenv( "DISPLAY" ) != 0;
 #else
     bool useGUI = TRUE;
@@ -696,10 +696,10 @@ entry in the file menu as shown in the following code example:
 <p> <pre>
     // the "Quit" menu entry should try to close all windows
     <a href="ntqpopupmenu.html">TQPopupMenu</a>* file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, SLOT(<a href="#closeAllWindows">closeAllWindows</a>()), CTRL+Key_Q );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, TQ_SLOT(<a href="#closeAllWindows">closeAllWindows</a>()), CTRL+Key_Q );
 
     // when the last window is closed, the application should quit
-    <a href="ntqobject.html#connect">connect</a>( tqApp, SIGNAL( <a href="#lastWindowClosed">lastWindowClosed</a>() ), tqApp, SLOT( <a href="#quit">quit</a>() ) );
+    <a href="ntqobject.html#connect">connect</a>( tqApp, TQ_SIGNAL( <a href="#lastWindowClosed">lastWindowClosed</a>() ), tqApp, TQ_SLOT( <a href="#quit">quit</a>() ) );
   </pre>
  
 <p> The windows are closed in random order, until one window does not
@@ -1126,7 +1126,7 @@ you also often connect e.g. <a href="ntqbutton.html#clicked">TQButton::clicked</
 <p> Example:
 <pre>
     <a href="ntqpushbutton.html">TQPushButton</a> *quitButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit" );
-    <a href="ntqobject.html#connect">connect</a>( quitButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quitButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="#quit">quit</a>()) );
   </pre>
  
 <p> <p>See also <a href="#exit">exit</a>(), <a href="#aboutToQuit">aboutToQuit</a>(), <a href="#lastWindowClosed">lastWindowClosed</a>(), and <a href="ntqaction.html">TQAction</a>.
@@ -1996,7 +1996,7 @@ computer is truly weird (i.e. different endianness for 16 bit and
 error message. When <em>code</em> is -1 (the default), the system's last
 error code will be used if possible. Use this method to handle
 failures in platform specific API calls.
-<p> This function does nothing when TQt is built with <tt>QT_NO_DEBUG</tt>
+<p> This function does nothing when TQt is built with <tt>TQT_NO_DEBUG</tt>
 defined.
 
 <h3 class=fn>const char * <a name="qVersion"></a>tqVersion ()

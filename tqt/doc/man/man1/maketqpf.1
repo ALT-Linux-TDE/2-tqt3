@@ -10,17 +10,24 @@ that assists producing QPF files from TTF and BDF files.
 
 
 .SH "SYNTAX"
-qembed [ \fIgeneral\-files\fP ] <[ \fI\-\-images image\-files \fP]>
-.br 
+.LP
+maketqpf [ \fI\-A\fP ] [ \fI\-f spec\-file \fP ] [ \fIfont ... \fP ]
 
-general\-files 
-  These files can be any type of file. 
-\-\-images image\-files 
-  These files must be in image formats supported by Qt. 
+\-A
+  Render and save all fonts in fontdir
+.br
+\-f spec\-file
+  File of lines:
+    fontname character-ranges
+  eg.
+    smoothtimes 0\-ff,20a0\-20af
+.br
+font
+  Font to render and save
 
 .SH "FILES"
 .LP 
-\fI$(QTDIR)/etc/fonts/fontdir\fP 
+\fI$(TQTDIR)/lib/fonts/fontdir\fP 
 .SH "AUTHORS"
 .LP 
 TrollTech <http://www.trolltech.com/>

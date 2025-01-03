@@ -40,7 +40,7 @@
 
 #include "ntqnetworkprotocol.h"
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
 
 #include "ntqlocalfs.h"
 #include "ntqurloperator.h"
@@ -51,7 +51,7 @@
 //#define TQNETWORKPROTOCOL_DEBUG
 #define NETWORK_OP_DELAY 1000
 
-extern Q_EXPORT TQNetworkProtocolDict *tqNetworkProtocolRegister;
+extern TQ_EXPORT TQNetworkProtocolDict *tqNetworkProtocolRegister;
 
 TQNetworkProtocolDict *tqNetworkProtocolRegister = 0;
 
@@ -399,38 +399,38 @@ TQNetworkProtocol::TQNetworkProtocol()
 {
     d = new TQNetworkProtocolPrivate( this );
 
-    connect( d->opStartTimer, SIGNAL( timeout() ),
-	     this, SLOT( startOps() ) );
-    connect( d->removeTimer, SIGNAL( timeout() ),
-	     this, SLOT( removeMe() ) );
+    connect( d->opStartTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( startOps() ) );
+    connect( d->removeTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( removeMe() ) );
 
     if ( url() ) {
-	connect( this, SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
-		 url(), SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ) );
-	connect( this, SIGNAL( finished(TQNetworkOperation*) ),
-		 url(), SIGNAL( finished(TQNetworkOperation*) ) );
-	connect( this, SIGNAL( start(TQNetworkOperation*) ),
-		 url(), SIGNAL( start(TQNetworkOperation*) ) );
-	connect( this, SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
-		 url(), SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ) );
-	connect( this, SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
-		 url(), SLOT( addEntry(const TQValueList<TQUrlInfo>&) ) );
-	connect( this, SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ),
-		 url(), SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ) );
-	connect( this, SIGNAL( removed(TQNetworkOperation*) ),
-		 url(), SIGNAL( removed(TQNetworkOperation*) ) );
-	connect( this, SIGNAL( itemChanged(TQNetworkOperation*) ),
-		 url(), SIGNAL( itemChanged(TQNetworkOperation*) ) );
-	connect( this, SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
-		 url(), SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
-	connect( this, SIGNAL( connectionStateChanged(int,const TQString&) ),
-		 url(), SIGNAL( connectionStateChanged(int,const TQString&) ) );
+	connect( this, TQ_SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( finished(TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( start(TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( start(TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
+		 url(), TQ_SLOT( addEntry(const TQValueList<TQUrlInfo>&) ) );
+	connect( this, TQ_SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( removed(TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( removed(TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( itemChanged(TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( itemChanged(TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( connectionStateChanged(int,const TQString&) ),
+		 url(), TQ_SIGNAL( connectionStateChanged(int,const TQString&) ) );
     }
 
-    connect( this, SIGNAL( finished(TQNetworkOperation*) ),
-	     this, SLOT( processNextOperation(TQNetworkOperation*) ) );
-    connect( this, SIGNAL( newChild(const TQUrlInfo&,TQNetworkOperation*) ),
-	     this, SLOT( emitNewChildren(const TQUrlInfo&,TQNetworkOperation*) ) );
+    connect( this, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+	     this, TQ_SLOT( processNextOperation(TQNetworkOperation*) ) );
+    connect( this, TQ_SIGNAL( newChild(const TQUrlInfo&,TQNetworkOperation*) ),
+	     this, TQ_SLOT( emitNewChildren(const TQUrlInfo&,TQNetworkOperation*) ) );
 
 }
 
@@ -452,26 +452,26 @@ TQNetworkProtocol::~TQNetworkProtocol()
 void TQNetworkProtocol::setUrl( TQUrlOperator *u )
 {
     if ( url() ) {
-	disconnect( this, SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
-		    url(), SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ) );
-	disconnect( this, SIGNAL( finished(TQNetworkOperation*) ),
-		    url(), SIGNAL( finished(TQNetworkOperation*) ) );
-	disconnect( this, SIGNAL( start(TQNetworkOperation*) ),
-		    url(), SIGNAL( start(TQNetworkOperation*) ) );
-	disconnect( this, SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
-		    url(), SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ) );
-	disconnect( this, SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
-		    url(), SLOT( addEntry(const TQValueList<TQUrlInfo>&) ) );
-	disconnect( this, SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ),
-		    url(), SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ) );
-	disconnect( this, SIGNAL( removed(TQNetworkOperation*) ),
-		    url(), SIGNAL( removed(TQNetworkOperation*) ) );
-	disconnect( this, SIGNAL( itemChanged(TQNetworkOperation*) ),
-		    url(), SIGNAL( itemChanged(TQNetworkOperation*) ) );
-	disconnect( this, SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
-		    url(), SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
-	disconnect( this, SIGNAL( connectionStateChanged(int,const TQString&) ),
-		    url(), SIGNAL( connectionStateChanged(int,const TQString&) ) );
+	disconnect( this, TQ_SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
+		    url(), TQ_SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ) );
+	disconnect( this, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+		    url(), TQ_SIGNAL( finished(TQNetworkOperation*) ) );
+	disconnect( this, TQ_SIGNAL( start(TQNetworkOperation*) ),
+		    url(), TQ_SIGNAL( start(TQNetworkOperation*) ) );
+	disconnect( this, TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
+		    url(), TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ) );
+	disconnect( this, TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
+		    url(), TQ_SLOT( addEntry(const TQValueList<TQUrlInfo>&) ) );
+	disconnect( this, TQ_SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ),
+		    url(), TQ_SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ) );
+	disconnect( this, TQ_SIGNAL( removed(TQNetworkOperation*) ),
+		    url(), TQ_SIGNAL( removed(TQNetworkOperation*) ) );
+	disconnect( this, TQ_SIGNAL( itemChanged(TQNetworkOperation*) ),
+		    url(), TQ_SIGNAL( itemChanged(TQNetworkOperation*) ) );
+	disconnect( this, TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
+		    url(), TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
+	disconnect( this, TQ_SIGNAL( connectionStateChanged(int,const TQString&) ),
+		    url(), TQ_SIGNAL( connectionStateChanged(int,const TQString&) ) );
     }
 
 
@@ -483,26 +483,26 @@ void TQNetworkProtocol::setUrl( TQUrlOperator *u )
     d->url = u;
 
     if ( url() ) {
-	connect( this, SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
-		 url(), SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ) );
-	connect( this, SIGNAL( finished(TQNetworkOperation*) ),
-		 url(), SIGNAL( finished(TQNetworkOperation*) ) );
-	connect( this, SIGNAL( start(TQNetworkOperation*) ),
-		 url(), SIGNAL( start(TQNetworkOperation*) ) );
-	connect( this, SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
-		 url(), SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ) );
-	connect( this, SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
-		 url(), SLOT( addEntry(const TQValueList<TQUrlInfo>&) ) );
-	connect( this, SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ),
-		 url(), SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ) );
-	connect( this, SIGNAL( removed(TQNetworkOperation*) ),
-		 url(), SIGNAL( removed(TQNetworkOperation*) ) );
-	connect( this, SIGNAL( itemChanged(TQNetworkOperation*) ),
-		 url(), SIGNAL( itemChanged(TQNetworkOperation*) ) );
-	connect( this, SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
-		 url(), SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
-	connect( this, SIGNAL( connectionStateChanged(int,const TQString&) ),
-		 url(), SIGNAL( connectionStateChanged(int,const TQString&) ) );
+	connect( this, TQ_SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( finished(TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( start(TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( start(TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
+		 url(), TQ_SLOT( addEntry(const TQValueList<TQUrlInfo>&) ) );
+	connect( this, TQ_SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( removed(TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( removed(TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( itemChanged(TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( itemChanged(TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
+		 url(), TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
+	connect( this, TQ_SIGNAL( connectionStateChanged(int,const TQString&) ),
+		 url(), TQ_SIGNAL( connectionStateChanged(int,const TQString&) ) );
     }
 
     if ( !d->opInProgress && !d->operationQueue.isEmpty() )
@@ -1018,8 +1018,8 @@ TQNetworkOperation::TQNetworkOperation( TQNetworkProtocol::Operation operation,
 {
     d = new TQNetworkOperationPrivate;
     d->deleteTimer = new TQTimer( this );
-    connect( d->deleteTimer, SIGNAL( timeout() ),
-	     this, SLOT( deleteMe() ) );
+    connect( d->deleteTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( deleteMe() ) );
     d->operation = operation;
     d->state = TQNetworkProtocol::StWaiting;
     d->args[ 0 ] = arg0;
@@ -1047,8 +1047,8 @@ TQNetworkOperation::TQNetworkOperation( TQNetworkProtocol::Operation operation,
 {
     d = new TQNetworkOperationPrivate;
     d->deleteTimer = new TQTimer( this );
-    connect( d->deleteTimer, SIGNAL( timeout() ),
-	     this, SLOT( deleteMe() ) );
+    connect( d->deleteTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( deleteMe() ) );
     d->operation = operation;
     d->state = TQNetworkProtocol::StWaiting;
     d->args[ 0 ] = TQString::null;

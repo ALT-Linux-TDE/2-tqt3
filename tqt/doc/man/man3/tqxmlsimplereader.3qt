@@ -9,7 +9,7 @@
 .SH NAME
 QXmlSimpleReader \- Implementation of a simple XML reader (parser)
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqxml.h>\fR
 .PP
@@ -24,7 +24,7 @@ Inherits QXmlReader.
 .BI "virtual \fB~QXmlSimpleReader\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetFeature\fR ( const QString & name, bool value )"
+.BI "virtual void \fBsetFeature\fR ( const TQString & name, bool value )"
 .br
 .ti -1c
 .BI "virtual bool \fBparse\fR ( const QXmlInputSource * input, bool incremental )"
@@ -56,7 +56,7 @@ l - l. Feature Setting \fIhttp://xml.org/sax/features/namespaces\fR TRUE \fIhttp
 .fi
 </center>
 .PP
-More information about features can be found in the Qt SAX2 overview.
+More information about features can be found in the TQt SAX2 overview.
 .PP
 See also setFeature().
 .SH "QXmlSimpleReader::~QXmlSimpleReader ()\fC [virtual]\fR"
@@ -84,7 +84,7 @@ The case of the end of the XML file being reached without having finished parsin
 This function assumes that the end of the XML document is reached if the QXmlInputSource::next() function returns QXmlInputSource::EndOfDocument. If the parser has not finished parsing when it encounters this symbol, it is an error and FALSE is returned.
 .PP
 See also parse() and QXmlInputSource::next().
-.SH "void QXmlSimpleReader::setFeature ( const QString & name, bool value )\fC [virtual]\fR"
+.SH "void QXmlSimpleReader::setFeature ( const TQString & name, bool value )\fC [virtual]\fR"
 Sets the state of the feature \fIname\fR to \fIvalue\fR:
 .PP
 If the feature is not recognized, it is ignored.
@@ -130,8 +130,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

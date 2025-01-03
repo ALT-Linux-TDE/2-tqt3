@@ -44,8 +44,8 @@ static void addStuff( TQWidget * parent, bool image, bool secret = FALSE )
     tll->activate();
     parent->resize( parent->sizeHint() );
 
-    TQObject::connect( d, SIGNAL(message(const TQString&)),
-		      format, SLOT(setText(const TQString&)) );
+    TQObject::connect( d, TQ_SIGNAL(message(const TQString&)),
+		      format, TQ_SLOT(setText(const TQString&)) );
 }
 
 
@@ -68,6 +68,6 @@ int main( int argc, char ** argv )
     mw3.setCaption( "TQt Example - Drag and Drop" );
     mw3.show();
 
-    TQObject::connect(tqApp,SIGNAL(lastWindowClosed()),tqApp,SLOT(quit()));
+    TQObject::connect(tqApp,TQ_SIGNAL(lastWindowClosed()),tqApp,TQ_SLOT(quit()));
     return a.exec();
 }

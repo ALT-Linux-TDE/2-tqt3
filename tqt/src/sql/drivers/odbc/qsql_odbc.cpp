@@ -1535,7 +1535,7 @@ void TQODBCDriver::cleanup()
 // as two byte unicode characters
 void TQODBCPrivate::checkUnicode()
 {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( !qt_winunicode ) {
 	unicode = FALSE;
 	return;

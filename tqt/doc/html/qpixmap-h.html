@@ -87,13 +87,13 @@ body { background: #ffffff; color: black; }
 class TQGfx;
 class TQPixmapPrivate;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 // Internal pixmap memory optimization class for Windows 9x
 class TQMultiCellPixmap;
 #endif
 
 
-class Q_EXPORT TQPixmap : public TQPaintDevice, public TQt
+class TQ_EXPORT TQPixmap : public TQPaintDevice, public TQt
 {
 public:
     enum ColorMode { Auto, Color, Mono };
@@ -104,7 +104,7 @@ public:
     TQPixmap( const TQImage&amp; image );
     TQPixmap( int w, int h,  int depth = -1, Optimization = DefaultOptim );
     TQPixmap( const TQSize &amp;, int depth = -1, Optimization = DefaultOptim );
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     TQPixmap( const TQString&amp; fileName, const char *format=0,
 	     ColorMode mode=Auto );
     TQPixmap( const TQString&amp; fileName, const char *format,
@@ -138,17 +138,17 @@ public:
     bool	selfMask() const;
     bool	hasAlpha() const;
     bool	hasAlphaChannel() const;
-#ifndef QT_NO_IMAGE_HEURISTIC_MASK
+#ifndef TQT_NO_IMAGE_HEURISTIC_MASK
     TQBitmap	createHeuristicMask( bool clipTight = TRUE ) const;
 #endif
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     static TQPixmap fromMimeSource( const TQString&amp; abs_name );
 #endif
     static  TQPixmap grabWindow( WId, int x=0, int y=0, int w=-1, int h=-1 );
     static  TQPixmap grabWidget( TQWidget * widget,
 				int x=0, int y=0, int w=-1, int h=-1 );
 
-#ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_PIXMAP_TRANSFORMATION
     TQPixmap	    xForm( const TQWMatrix &amp; ) const;
     static TQWMatrix trueMatrix( const TQWMatrix &amp;, int w, int h );
 #endif
@@ -156,7 +156,7 @@ public:
     TQImage	convertToImage() const;
     bool	convertFromImage( const TQImage &amp;, ColorMode mode=Auto );
     bool	convertFromImage( const TQImage &amp;, int conversion_flags );
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     static const char* imageFormat( const TQString &amp;fileName );
     bool	load( const TQString&amp; fileName, const char *format=0,
 		      ColorMode mode=Auto );
@@ -175,7 +175,7 @@ public:
     bool	save( TQIODevice* device, const char* format, int quality = -1 ) const;
 #endif
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     HBITMAP	hbm()		const;
 #endif
 
@@ -190,7 +190,7 @@ public:
 
     bool	isTQBitmap() const;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     // These functions are internal and used by Windows 9x only
     bool	isMultiCellPixmap() const;
     HDC		multiCellHandle() const;
@@ -200,26 +200,26 @@ public:
     void	freeCell( bool = FALSE );
 #endif
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     virtual TQGfx * graphicsContext(bool clip_children=TRUE) const;
     virtual unsigned char * scanLine(int) const;
     virtual int bytesPerLine() const;
     TQRgb * clut() const;
     int numCols() const;
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     static int x11SetDefaultScreen( int screen );
     void x11SetScreen( int screen );
 #endif
 
 #ifndef Q_QDOC
-    Q_DUMMY_COMPARISON_OPERATOR(TQPixmap)
+    TQ_DUMMY_COMPARISON_OPERATOR(TQPixmap)
 #endif
 
 protected:
     TQPixmap( int w, int h, const uchar *data, bool isXbitmap );
     int metric( int ) const;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     struct TQMCPI {				// mem optim for win9x
 	TQMultiCellPixmap *mcp;
 	int	offset;
@@ -232,12 +232,12 @@ protected:
 	uint	uninit	 : 1;
 	uint	bitmap	 : 1;
 	uint	selfmask : 1;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	uint	mcp	 : 1;
 #endif
 	int	ser_no;
 	TQBitmap *mask;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	TQPixmap *maskpm;
 	union {
 	    HBITMAP hbm;    // if mcp == FALSE
@@ -247,14 +247,14 @@ protected:
 #ifdef Q_OS_TEMP
 	uchar* ppvBits; // Pointer to DIBSection bits
 #endif
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
 	void   *ximage;
 	void   *maskgc;
 	TQPixmap *alphapm;
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 	ColorTable *clut;
 	TQPixmap *alphapm;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
 	int id; // ### should use TQPaintDevice::hd, since it is there
 	TQRgb * clut;
 	int numcols;
@@ -263,19 +263,19 @@ protected:
 	bool hasAlpha;
 #endif
 	Optimization optim;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	HBITMAP old_hbm;
 #endif
     } *data;
 private:
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     bool doImageIO( TQImageIO* io, int quality ) const;
 #endif
     TQPixmap( int w, int h, int depth, bool, Optimization );
     void	init( int, int, int, bool, Optimization );
     void	deref();
     TQPixmap	copy( bool ignoreMask = FALSE ) const;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     void initAlphaPixmap( uchar *bytes, int length, struct tagBITMAPINFO *bmi );
     void convertToAlphaPixmap( bool initAlpha=TRUE );
     static void bitBltAlphaPixmap( TQPixmap *dst, int dx, int dy,
@@ -283,17 +283,17 @@ private:
 				   int sw, int sh, bool useDstAlpha );
 #endif
     static Optimization defOptim;
-    friend Q_EXPORT void bitBlt( TQPaintDevice *, int, int,
+    friend TQ_EXPORT void bitBlt( TQPaintDevice *, int, int,
 				 const TQPaintDevice *,
 				 int, int, int, int, RasterOp, bool );
-    friend Q_EXPORT void bitBlt( TQPaintDevice *, int, int,
+    friend TQ_EXPORT void bitBlt( TQPaintDevice *, int, int,
 				 const TQImage* src,
 				 int, int, int, int, int conversion_flags );
-    friend Q_EXPORT void copyBlt( TQPixmap *dst, int dx, int dy,
+    friend TQ_EXPORT void copyBlt( TQPixmap *dst, int dx, int dy,
 				  const TQPixmap *src, int sx, int sy,
 				  int sw, int sh );
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     friend void unclippedScaledBitBlt(TQPaintDevice *, int, int, int, int,
 				      const TQPaintDevice *, int, int, int, int,
 				      TQt::RasterOp, bool, bool);
@@ -331,7 +331,7 @@ inline bool TQPixmap::selfMask() const
     return data-&gt;selfmask;
 }
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 inline HBITMAP TQPixmap::hbm() const
 {
     return data-&gt;mcp ? 0 : data-&gt;hbm_or_mcpi.hbm;
@@ -353,7 +353,7 @@ inline bool TQPixmap::isTQBitmap() const
     return data-&gt;bitmap;
 }
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 inline bool TQPixmap::isMultiCellPixmap() const
 {
     return data-&gt;mcp;
@@ -365,25 +365,25 @@ inline bool TQPixmap::isMultiCellPixmap() const
   TQPixmap stream functions
  *****************************************************************************/
 
-#if !defined(QT_NO_DATASTREAM) &amp;&amp; !defined(QT_NO_IMAGEIO)
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPixmap &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPixmap &amp; );
+#if !defined(TQT_NO_DATASTREAM) &amp;&amp; !defined(TQT_NO_IMAGEIO)
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPixmap &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPixmap &amp; );
 #endif
 
 /*****************************************************************************
   TQPixmap (and TQImage) helper functions
  *****************************************************************************/
 
-#ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_PIXMAP_TRANSFORMATION
 #  define QT_XFORM_TYPE_MSBFIRST 0
 #  define QT_XFORM_TYPE_LSBFIRST 1
-#  if defined(Q_WS_WIN)
+#  if defined(TQ_WS_WIN)
 #    define QT_XFORM_TYPE_WINDOWSPIXMAP 2
 #  endif
 bool qt_xForm_helper( const TQWMatrix&amp;, int, int, int, uchar*, int, int, int, uchar*, int, int, int );
 #endif
 
-Q_EXPORT void copyBlt( TQPixmap *dst, int dx, int dy,
+TQ_EXPORT void copyBlt( TQPixmap *dst, int dx, int dy,
 		       const TQPixmap *src, int sx = 0, int sy = 0,
 		       int sw = -1, int sh = -1 );
 

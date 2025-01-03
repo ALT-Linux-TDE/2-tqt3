@@ -1,57 +1,59 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="cs">
 <context encoding="UTF-8">
     <name>MyWidget</name>
     <message encoding="UTF-8">
         <source>View</source>
-        <translation type="unfinished">Pohled</translation>
+        <translation>Pohled</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;File</source>
-        <translation type="unfinished">&amp;Soubor</translation>
+        <translation>&amp;Soubor</translation>
     </message>
     <message encoding="UTF-8">
         <source>E&amp;xit</source>
-        <translation type="unfinished">&amp;Konec</translation>
+        <translation>&amp;Konec</translation>
     </message>
     <message encoding="UTF-8">
         <source>First</source>
-        <translation type="unfinished">První</translation>
+        <translation>První</translation>
     </message>
     <message encoding="UTF-8">
         <source>Third</source>
-        <translation type="unfinished">Třetí</translation>
+        <translation>Třetí</translation>
     </message>
     <message encoding="UTF-8">
         <source>Language: English</source>
-        <translation type="unfinished">Jayzk: Český</translation>
+        <translation>Jazyk: Český</translation>
     </message>
     <message encoding="UTF-8">
         <source>The Main Window</source>
-        <translation type="unfinished">Hlavní okno</translation>
+        <translation>Hlavní okno</translation>
     </message>
     <message encoding="UTF-8">
         <source>Ctrl+Q</source>
-        <translation type="unfinished">Ctrl+Q</translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message encoding="UTF-8">
         <source>Oblique</source>
-        <translation type="unfinished">Nakloněný</translation>
+        <translation>Nakloněný</translation>
     </message>
     <message encoding="UTF-8">
         <source>Second</source>
-        <translation type="unfinished">Druhý</translation>
+        <translation>Druhý</translation>
     </message>
     <message encoding="UTF-8">
         <source>Isometric</source>
-        <translation type="unfinished">Isometrický</translation>
+        <translation>Isometrický</translation>
     </message>
     <message encoding="UTF-8">
         <source>Perspective</source>
-        <translation type="unfinished">Perspektivní</translation>
+        <translation>Perspektivní</translation>
     </message>
     <message encoding="UTF-8">
         <source>Internationalization Example</source>
-        <translation type="unfinished">Ukázka lokalizace</translation>
+        <translation>Ukázka lokalizace</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -65,11 +67,11 @@
     <name>QVDialog</name>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Storno</translation>
     </message>
 </context>
 </TS>

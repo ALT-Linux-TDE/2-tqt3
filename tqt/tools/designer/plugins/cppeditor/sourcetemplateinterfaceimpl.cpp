@@ -76,7 +76,7 @@ static TQString generateMainCppCode( const TQString &formname, const TQString &i
     code += "    TQApplication a( argc, argv );\n";
     code += "    " + formname + " w;\n";
     code += "    w.show();\n";
-    code += "    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );\n";
+    code += "    a.connect( &a, TQ_SIGNAL( lastWindowClosed() ), &a, TQ_SLOT( quit() ) );\n";
     code += "    return a.exec();\n";
     code += "}\n";
     return code;

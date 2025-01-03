@@ -69,10 +69,10 @@ static TQPixmap *validConnection = 0;
 
 void ConnectionDialog::init()
 {
-    connect( connectionsTable, SIGNAL( currentChanged( int, int ) ),
-	     this, SLOT( updateEditSlotsButton() ) );
-    connect( connectionsTable, SIGNAL( resorted() ),
-	     this, SLOT( updateConnectionContainers() ) );
+    connect( connectionsTable, TQ_SIGNAL( currentChanged( int, int ) ),
+	     this, TQ_SLOT( updateEditSlotsButton() ) );
+    connect( connectionsTable, TQ_SIGNAL( resorted() ),
+	     this, TQ_SLOT( updateConnectionContainers() ) );
     buttonEditSlots->setEnabled( FALSE );
 
     if ( !invalidConnection ) {
@@ -144,13 +144,13 @@ ConnectionContainer *ConnectionDialog::addConnection( TQObject *sender, TQObject
     re->setSlot( sl );
     sl->setSlot( sl );
 
-    connect( re, SIGNAL( currentReceiverChanged( TQObject * ) ),
-	     this, SLOT( updateEditSlotsButton() ) );
+    connect( re, TQ_SIGNAL( currentReceiverChanged( TQObject * ) ),
+	     this, TQ_SLOT( updateEditSlotsButton() ) );
 
     ConnectionContainer *c = new ConnectionContainer( this, se, si, re, sl, row );
     connections.append( c );
-    connect( c, SIGNAL( changed( ConnectionContainer * ) ),
-	     this, SLOT( updateConnectionState( ConnectionContainer * ) ) );
+    connect( c, TQ_SIGNAL( changed( ConnectionContainer * ) ),
+	     this, TQ_SLOT( updateConnectionState( ConnectionContainer * ) ) );
 
     connectionsTable->setCurrentCell( row, 0 );
 

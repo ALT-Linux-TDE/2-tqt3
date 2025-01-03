@@ -40,7 +40,7 @@
 
 #include "ntqprintdialog.h"
 
-#ifndef QT_NO_PRINTDIALOG
+#ifndef TQT_NO_PRINTDIALOG
 
 #include "ntqfiledialog.h"
 #include "ntqfile.h"
@@ -61,11 +61,11 @@
 #include "ntqstyle.h"
 #include "ntqstring.h"
 #include "ntqregexp.h"
-#if !defined(QT_NO_CUPS) || !defined(QT_NO_NIS)
+#if !defined(TQT_NO_CUPS) || !defined(TQT_NO_NIS)
 #include "ntqlibrary.h"
 #endif
 
-#ifndef QT_NO_NIS
+#ifndef TQT_NO_NIS
 
 #ifndef BOOL_DEFINED
 #define BOOL_DEFINED
@@ -79,7 +79,7 @@
 # undef connect
 #endif
 
-#endif // QT_NO_NIS
+#endif // TQT_NO_NIS
 
 // UNIX Large File Support redefines open -> open64
 #if defined(open)
@@ -465,7 +465,7 @@ static char * parsePrintersConf( TQListView * printers, bool *found = 0 )
     return defaultPrinter;
 }
 
-#ifndef QT_NO_NIS
+#ifndef TQT_NO_NIS
 
 #if defined(Q_C_CALLBACKS)
 extern "C" {
@@ -510,7 +510,7 @@ static int retrieveNisPrinters( TQListView * printers )
     return Unavail;
 }
 
-#endif // QT_NO_NIS
+#endif // TQT_NO_NIS
 
 static char *parseNsswitchPrintersEntry( TQListView * printers, char *line )
 {
@@ -578,7 +578,7 @@ static char *parseNsswitchPrintersEntry( TQListView * printers, char *line )
 		defaultPrinter = parsePrintersConf( printers, &found );
 		if ( found )
 		    lastStatus = Success;
-#ifndef QT_NO_NIS
+#ifndef TQT_NO_NIS
 	    } else if ( source == "nis" ) {
 		lastStatus = retrieveNisPrinters( printers );
 #endif
@@ -786,7 +786,7 @@ static void parseQconfig( TQListView * printers )
 }
 
 
-#ifndef QT_NO_CUPS
+#ifndef TQT_NO_CUPS
 #include <cups/cups.h>
 
 static char * parseCupsOutput( TQListView * printers )
@@ -796,7 +796,9 @@ static char * parseCupsOutput( TQListView * printers )
     cups_dest_t * d;
     TQLibrary lib( "cups" );
     typedef int (*CupsGetDests)(cups_dest_t **dests);
+    typedef void (*CupsFreeDests)(int num_dents, cups_dest_t *dests);
     CupsGetDests _cupsGetDests = (CupsGetDests)lib.resolve( "cupsGetDests" );
+    CupsFreeDests _cupsFreeDests = (CupsFreeDests)lib.resolve( "cupsFreeDests" );
     if ( _cupsGetDests ) {
 	nd = _cupsGetDests( &d );
 	if ( nd < 1 )
@@ -809,6 +811,9 @@ static char * parseCupsOutput( TQListView * printers )
 	    if ( d[n].is_default && !defaultPrinter )
 		defaultPrinter = tqstrdup( d[n].instance );
 	    n++;
+	}
+	if ( _cupsFreeDests ) {
+	    _cupsFreeDests(nd, d);
 	}
     }
     return defaultPrinter;
@@ -932,8 +937,8 @@ TQPrintDialog::TQPrintDialog( TQPrinter *prn, TQWidget *parent, const char *name
 
     tll->activate();
 
-    connect( d->ok, SIGNAL(clicked()), SLOT(okClicked()) );
-    connect( cancel, SIGNAL(clicked()), SLOT(reject()) );
+    connect( d->ok, TQ_SIGNAL(clicked()), TQ_SLOT(okClicked()) );
+    connect( cancel, TQ_SIGNAL(clicked()), TQ_SLOT(reject()) );
 
     TQSize ms( minimumSize() );
     TQSize ss( TQApplication::desktop()->screenGeometry( pos() ).size() );
@@ -988,8 +993,8 @@ TQGroupBox * TQPrintDialog::setupPrinterSettings()
 
     d->colorMode = new TQButtonGroup( this );
     d->colorMode->hide();
-    connect( d->colorMode, SIGNAL(clicked(int)),
-	     this, SLOT(colorModeSelected(int)) );
+    connect( d->colorMode, TQ_SIGNAL(clicked(int)),
+	     this, TQ_SLOT(colorModeSelected(int)) );
 
     TQRadioButton *rb;
     rb = new TQRadioButton( tr( "Print in color if available" ),
@@ -1013,8 +1018,8 @@ TQGroupBox * TQPrintDialog::setupDestination()
 
     d->printerOrFile = new TQButtonGroup( this );
     d->printerOrFile->hide();
-    connect( d->printerOrFile, SIGNAL(clicked(int)),
-	     this, SLOT(printerOrFileSelected(int)) );
+    connect( d->printerOrFile, TQ_SIGNAL(clicked(int)),
+	     this, TQ_SLOT(printerOrFileSelected(int)) );
 
     // printer radio button, list
     TQRadioButton * rb = new TQRadioButton( tr( "Print to printer:" ), g,
@@ -1037,7 +1042,7 @@ TQGroupBox * TQPrintDialog::setupDestination()
 #if defined(Q_OS_UNIX)
     char * etcLpDefault = 0;
 
-#ifndef QT_NO_CUPS
+#ifndef TQT_NO_CUPS
     etcLpDefault = parseCupsOutput( d->printers );
 #endif
     if ( d->printers->childCount() == 0 ) {
@@ -1156,17 +1161,17 @@ TQGroupBox * TQPrintDialog::setupDestination()
     horiz->addSpacing( 19 );
 
     d->fileName = new TQLineEdit( g, "file name" );
-    connect( d->fileName, SIGNAL( textChanged(const TQString&) ),
-	     this, SLOT( fileNameEditChanged(const TQString&) ) );
+    connect( d->fileName, TQ_SIGNAL( textChanged(const TQString&) ),
+	     this, TQ_SLOT( fileNameEditChanged(const TQString&) ) );
     horiz->addWidget( d->fileName, 1 );
     horiz->addSpacing( 6 );
     d->browse = new TQPushButton( tr("Browse..."), g, "browse files" );
     d->browse->setAutoDefault( FALSE );
-#ifdef QT_NO_FILEDIALOG
+#ifdef TQT_NO_FILEDIALOG
     d->browse->setEnabled( FALSE );
 #endif
-    connect( d->browse, SIGNAL(clicked()),
-	     this, SLOT(browseClicked()) );
+    connect( d->browse, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(browseClicked()) );
     horiz->addWidget( d->browse );
 
     d->fileName->setEnabled( FALSE );
@@ -1192,13 +1197,13 @@ TQGroupBox * TQPrintDialog::setupOptions()
 
     d->printRange = new TQButtonGroup( this );
     d->printRange->hide();
-    connect( d->printRange, SIGNAL(clicked(int)),
-	     this, SLOT(printRangeSelected(int)) );
+    connect( d->printRange, TQ_SIGNAL(clicked(int)),
+	     this, TQ_SLOT(printRangeSelected(int)) );
 
     d->pageOrder = new TQButtonGroup( this );
     d->pageOrder->hide();
-    connect( d->pageOrder, SIGNAL(clicked(int)),
-	     this, SLOT(pageOrderSelected(int)) );
+    connect( d->pageOrder, TQ_SIGNAL(clicked(int)),
+	     this, TQ_SLOT(pageOrderSelected(int)) );
 
     d->printAllButton = new TQRadioButton( tr("Print all"), g, "print all" );
     d->printRange->insert( d->printAllButton, 0 );
@@ -1224,8 +1229,8 @@ TQGroupBox * TQPrintDialog::setupOptions()
     d->firstPage = new TQPrintDialogSpinBox( 1, 9999, 1, g, "first page" );
     d->firstPage->setValue( 1 );
     horiz->addWidget( d->firstPage, 1 );
-    connect( d->firstPage, SIGNAL(valueChanged(int)),
-	     this, SLOT(setFirstPage(int)) );
+    connect( d->firstPage, TQ_SIGNAL(valueChanged(int)),
+	     this, TQ_SLOT(setFirstPage(int)) );
 
     horiz = new TQBoxLayout( TQBoxLayout::LeftToRight );
     tll->addLayout( horiz );
@@ -1237,8 +1242,8 @@ TQGroupBox * TQPrintDialog::setupOptions()
     d->lastPage = new TQPrintDialogSpinBox( 1, 9999, 1, g, "last page" );
     d->lastPage->setValue( 9999 );
     horiz->addWidget( d->lastPage, 1 );
-    connect( d->lastPage, SIGNAL(valueChanged(int)),
-	     this, SLOT(setLastPage(int)) );
+    connect( d->lastPage, TQ_SIGNAL(valueChanged(int)),
+	     this, TQ_SLOT(setLastPage(int)) );
 
     lay->addSpacing( 25 );
     tll = new TQBoxLayout( lay, TQBoxLayout::Down );
@@ -1268,8 +1273,8 @@ TQGroupBox * TQPrintDialog::setupOptions()
     d->copies = new TQPrintDialogSpinBox( 1, 99, 1, g, "copies" );
     d->copies->setValue( 1 );
     horiz->addWidget( d->copies, 1 );
-    connect( d->copies, SIGNAL(valueChanged(int)),
-	     this, SLOT(setNumCopies(int)) );
+    connect( d->copies, TQ_SIGNAL(valueChanged(int)),
+	     this, TQ_SLOT(setNumCopies(int)) );
 
     TQSize s = d->firstPageLabel->sizeHint()
 	      .expandedTo( d->lastPageLabel->sizeHint() )
@@ -1311,8 +1316,8 @@ TQGroupBox * TQPrintDialog::setupPaper()
 
     g->addSpace( 8 );
 
-    connect( d->orientationCombo, SIGNAL( activated(int) ),
-	     this, SLOT( orientSelected(int) ) );
+    connect( d->orientationCombo, TQ_SIGNAL( activated(int) ),
+	     this, TQ_SLOT( orientSelected(int) ) );
 
     // paper size
     d->sizeCombo = new TQComboBox( FALSE, g );
@@ -1352,8 +1357,8 @@ TQGroupBox * TQPrintDialog::setupPaper()
     isc( d, tr( "Tabloid (279 x 432 mm)" ), TQPrinter::Tabloid );
     isc( d, tr( "US Common #10 Envelope (105 x 241 mm)" ), TQPrinter::Comm10E );
 
-    connect( d->sizeCombo, SIGNAL( activated(int) ),
-	     this, SLOT( paperSizeSelected(int) ) );
+    connect( d->sizeCombo, TQ_SIGNAL( activated(int) ),
+	     this, TQ_SLOT( paperSizeSelected(int) ) );
 
     return g;
 }
@@ -1372,7 +1377,7 @@ bool TQPrintDialog::getPrinterSetup( TQPrinter * p, TQWidget* w  )
 {
     if ( !globalPrintDialog ) {
 	globalPrintDialog = new TQPrintDialog( 0, 0, "global print dialog" );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	globalPrintDialog->setCaption( TQPrintDialog::tr( "Setup Printer" ) );
 #endif
 	tqAddPostRoutine( qpd_cleanup_globaldialog );
@@ -1382,7 +1387,7 @@ bool TQPrintDialog::getPrinterSetup( TQPrinter * p, TQWidget* w  )
 	globalPrintDialog->setPrinter( p, TRUE );
     }
     globalPrintDialog->adjustPosition( w );
- #ifndef QT_NO_WIDGET_TOPEXTRA
+ #ifndef TQT_NO_WIDGET_TOPEXTRA
     if ( w ) {
 	const TQPixmap *pm = w->icon();
 	if ( pm && !pm->isNull() )
@@ -1416,7 +1421,7 @@ void TQPrintDialog::printerOrFileSelected( int id )
 		cur += '/';
 	    if ( cur.left( home.length() ) != home )
 		cur = home;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	    cur += "print.ps";
 #endif
 	    d->fileName->setText( cur );
@@ -1471,7 +1476,7 @@ void TQPrintDialog::setNumCopies( int copies )
 
 void TQPrintDialog::browseClicked()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     TQString fn = TQFileDialog::getSaveFileName( d->fileName->text(), tr( "PostScript Files (*.ps);;All Files (*)" ), this );
     if ( !fn.isNull() )
 	d->fileName->setText( fn );

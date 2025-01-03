@@ -84,10 +84,10 @@ body { background: #ffffff; color: black; }
 
 
 #if defined(Q_TEMPLATEDLL)
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQMemArray&lt;TQPoint&gt;;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMemArray&lt;TQPoint&gt;;
 #endif
 
-class Q_EXPORT TQPointArray : public TQMemArray&lt;TQPoint&gt;
+class TQ_EXPORT TQPointArray : public TQMemArray&lt;TQPoint&gt;
 {
 public:
     TQPointArray() {}
@@ -121,7 +121,7 @@ public:
     void    makeEllipse( int x, int y, int w, int h );
     void    makeArc( int x, int y, int w, int h, int a1, int a2,
 		     const TQWMatrix&amp; );
-#ifndef QT_NO_BEZIER
+#ifndef TQT_NO_BEZIER
     TQPointArray cubicBezier() const;
 #endif
     void*  shortPoints( int index = 0, int nPoints = -1 ) const;
@@ -136,9 +136,9 @@ protected:
 /*****************************************************************************
   TQPointArray stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPointArray &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPointArray &amp; );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPointArray &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPointArray &amp; );
 #endif
 
 /*****************************************************************************

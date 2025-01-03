@@ -17,6 +17,6 @@ int main( int argc, char ** argv )
     mw->setCaption( "Richtext Editor" );
     mw->resize( 640, 800 );
     mw->show();
-    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
+    a.connect( &a, TQ_SIGNAL( lastWindowClosed() ), &a, TQ_SLOT( quit() ) );
     return a.exec();
 }

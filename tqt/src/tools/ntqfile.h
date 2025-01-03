@@ -50,7 +50,7 @@
 class TQDir;
 class TQFilePrivate;
 
-class Q_EXPORT TQFile : public TQIODevice			// file I/O device class
+class TQ_EXPORT TQFile : public TQIODevice			// file I/O device class
 {
 public:
     TQFile();

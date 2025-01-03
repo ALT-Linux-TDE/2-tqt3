@@ -29,7 +29,7 @@ QFontInfo \- General information about fonts
 .BI "QFontInfo & \fBoperator=\fR ( const QFontInfo & fi )"
 .br
 .ti -1c
-.BI "QString \fBfamily\fR () const"
+.BI "TQString \fBfamily\fR () const"
 .br
 .ti -1c
 .BI "int \fBpixelSize\fR () const"
@@ -70,7 +70,7 @@ There are three ways to create a QFontInfo object. <ol type=1>
 .IP 1
 Calling the QFontInfo constructor with a QFont creates a font info object for a screen-compatible font, i.e. the font cannot be a printer font<sup>*</sup>. If the font is changed later, the font info object is \fInot\fR updated.
 .IP 2
-QWidget::fontInfo() returns the font info for a widget's font. This is equivalent to calling QFontInfo(widget->font()). If the widget's font is changed later, the font info object is \fInot\fR updated.
+TQWidget::fontInfo() returns the font info for a widget's font. This is equivalent to calling QFontInfo(widget->font()). If the widget's font is changed later, the font info object is \fInot\fR updated.
 .IP 3
 QPainter::fontInfo() returns the font info for a painter's current font. If the painter's font is changed later, the font info object is \fInot\fR updated.
 .PP
@@ -102,7 +102,7 @@ Example: qfd/fontdisplayer.cpp.
 Returns TRUE if the matched window system font is exactly the same as the one specified by the font; otherwise returns FALSE.
 .PP
 See also QFont::exactMatch().
-.SH "QString QFontInfo::family () const"
+.SH "TQString QFontInfo::family () const"
 Returns the family name of the matched window system font.
 .PP
 See also QFont::family().
@@ -163,8 +163,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

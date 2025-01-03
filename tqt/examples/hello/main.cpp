@@ -28,10 +28,10 @@ int main( int argc, char **argv )
     if ( s.isEmpty() )
 	s = "Hello, World";
     Hello h( s );
-#ifndef QT_NO_WIDGET_TOPEXTRA	// for TQt/Embedded minimal build
+#ifndef TQT_NO_WIDGET_TOPEXTRA	// for TQt/Embedded minimal build
     h.setCaption( "TQt says hello" );
 #endif
-    TQObject::connect( &h, SIGNAL(clicked()), &a, SLOT(quit()) );
+    TQObject::connect( &h, TQ_SIGNAL(clicked()), &a, TQ_SLOT(quit()) );
     h.setFont( TQFont("times",32,TQFont::Bold) );		// default font
     h.setBackgroundColor( TQt::white );			// default bg color
     a.setMainWidget( &h );

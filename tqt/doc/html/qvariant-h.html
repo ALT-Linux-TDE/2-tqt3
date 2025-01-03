@@ -81,7 +81,7 @@ body { background: #ffffff; color: black; }
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
 class TQString;
 class TQCString;
 class TQFont;
@@ -110,7 +110,7 @@ class TQKeySequence;
 class TQPen;
 // Some headers rejected after TQVariant declaration for GCC 2.7.* compatibility
 class TQVariant;
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 template &lt;class T&gt; class TQValueList;
 template &lt;class T&gt; class TQValueListConstIterator;
 template &lt;class T&gt; class TQValueListNode;
@@ -118,7 +118,7 @@ template &lt;class Key, class T&gt; class TQMap;
 template &lt;class Key, class T&gt; class TQMapConstIterator;
 #endif
 
-class Q_EXPORT TQVariant
+class TQ_EXPORT TQVariant
 {
 public:
     enum Type {
@@ -162,13 +162,13 @@ public:
     TQVariant();
     ~TQVariant();
     TQVariant( const TQVariant&amp; );
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQVariant( TQDataStream&amp; s );
 #endif
     TQVariant( const TQString&amp; );
     TQVariant( const TQCString&amp; );
     TQVariant( const char* );
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     TQVariant( const TQStringList&amp; );
 #endif
     TQVariant( const TQFont&amp; );
@@ -191,11 +191,11 @@ public:
     TQVariant( const TQDateTime&amp; );
     TQVariant( const TQByteArray&amp; );
     TQVariant( const TQBitArray&amp; );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQVariant( const TQKeySequence&amp; );
 #endif
     TQVariant( const TQPen&amp; );
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     TQVariant( const TQValueList&lt;TQVariant&gt;&amp; );
     TQVariant( const TQMap&lt;TQString,TQVariant&gt;&amp; );
 #endif
@@ -225,7 +225,7 @@ public:
 
     const TQString toString() const;
     const TQCString toCString() const;
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     const TQStringList toStringList() const;
 #endif
     const TQFont toFont() const;
@@ -248,7 +248,7 @@ public:
     const TQDateTime toDateTime() const;
     const TQByteArray toByteArray() const;
     const TQBitArray toBitArray() const;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     const TQKeySequence toKeySequence() const;
 #endif
     const TQPen toPen() const;
@@ -258,13 +258,13 @@ public:
     TQ_ULLONG toULongLong( bool * ok=0 ) const;
     bool toBool() const;
     double toDouble( bool * ok=0 ) const;
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     const TQValueList&lt;TQVariant&gt; toList() const;
     const TQMap&lt;TQString,TQVariant&gt; toMap() const;
 #endif
     TQSizePolicy toSizePolicy() const;
 
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     TQValueListConstIterator&lt;TQString&gt; stringListBegin() const;
     TQValueListConstIterator&lt;TQString&gt; stringListEnd() const;
     TQValueListConstIterator&lt;TQVariant&gt; listBegin() const;
@@ -275,7 +275,7 @@ public:
 #endif
     TQString&amp; asString();
     TQCString&amp; asCString();
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     TQStringList&amp; asStringList();
 #endif
     TQFont&amp; asFont();
@@ -298,7 +298,7 @@ public:
     TQDateTime&amp; asDateTime();
     TQByteArray&amp; asByteArray();
     TQBitArray&amp; asBitArray();
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQKeySequence&amp; asKeySequence();
 #endif
     TQPen&amp; asPen();
@@ -308,13 +308,13 @@ public:
     TQ_ULLONG&amp; asULongLong();
     bool&amp; asBool();
     double&amp; asDouble();
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     TQValueList&lt;TQVariant&gt;&amp; asList();
     TQMap&lt;TQString,TQVariant&gt;&amp; asMap();
 #endif
     TQSizePolicy&amp; asSizePolicy();
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     void load( TQDataStream&amp; );
     void save( TQDataStream&amp; ) const;
 #endif
@@ -370,7 +370,7 @@ inline bool TQVariant::isValid() const
     return (d-&gt;typ != Invalid);
 }
 
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 inline TQValueListConstIterator&lt;TQString&gt; TQVariant::stringListBegin() const
 {
     if ( d-&gt;typ != StringList )
@@ -421,14 +421,14 @@ inline TQMapConstIterator&lt;TQString,TQVariant&gt; TQVariant::mapFind( const TQ
 }
 #endif
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream&amp; operator&gt;&gt; ( TQDataStream&amp; s, TQVariant&amp; p );
-Q_EXPORT TQDataStream&amp; operator&lt;&lt; ( TQDataStream&amp; s, const TQVariant&amp; p );
-Q_EXPORT TQDataStream&amp; operator&gt;&gt; ( TQDataStream&amp; s, TQVariant::Type&amp; p );
-Q_EXPORT TQDataStream&amp; operator&lt;&lt; ( TQDataStream&amp; s, const TQVariant::Type p );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream&amp; operator&gt;&gt; ( TQDataStream&amp; s, TQVariant&amp; p );
+TQ_EXPORT TQDataStream&amp; operator&lt;&lt; ( TQDataStream&amp; s, const TQVariant&amp; p );
+TQ_EXPORT TQDataStream&amp; operator&gt;&gt; ( TQDataStream&amp; s, TQVariant::Type&amp; p );
+TQ_EXPORT TQDataStream&amp; operator&lt;&lt; ( TQDataStream&amp; s, const TQVariant::Type p );
 #endif
 
-#endif //QT_NO_VARIANT
+#endif //TQT_NO_VARIANT
 #endif // TQVARIANT_H
 </pre>
 <!-- eof -->

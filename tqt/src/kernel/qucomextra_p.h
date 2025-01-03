@@ -63,11 +63,11 @@
 
 class TQVariant;
 
-#ifndef  QT_NO_VARIANT
+#ifndef  TQT_NO_VARIANT
 // 6dc75d58-a1d9-4417-b591-d45c63a3a4ea
 extern const TQUuid TID_QUType_TQVariant;
 
-struct Q_EXPORT TQUType_TQVariant : public TQUType
+struct TQ_EXPORT TQUType_TQVariant : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -83,13 +83,13 @@ struct Q_EXPORT TQUType_TQVariant : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_TQVariant static_QUType_TQVariant;
-#endif //QT_NO_VARIANT
+extern TQ_EXPORT TQUType_TQVariant static_QUType_TQVariant;
+#endif //TQT_NO_VARIANT
 
 
 // {0x8d48b3a8, 0xbd7f, 0x11d5, 0x8d, 0x74, 0x00, 0xc0, 0xf0, 0x3b, 0xc0, 0xf3 }
-extern Q_EXPORT const TQUuid TID_QUType_varptr;
-struct Q_EXPORT TQUType_varptr : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_varptr;
+struct TQ_EXPORT TQUType_varptr : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -104,7 +104,7 @@ struct Q_EXPORT TQUType_varptr : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_varptr static_QUType_varptr;
+extern TQ_EXPORT TQUType_varptr static_QUType_varptr;
 
 
 #endif // TQUCOMEXTRA_P_H

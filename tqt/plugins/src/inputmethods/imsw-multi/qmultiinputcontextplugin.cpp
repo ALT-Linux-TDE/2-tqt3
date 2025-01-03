@@ -40,7 +40,7 @@
 **
 **********************************************************************/
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "qmultiinputcontext.h"
 #include "qmultiinputcontextplugin.h"
 #include <ntqinputcontextplugin.h>
@@ -83,6 +83,6 @@ TQString TQMultiInputContextPlugin::description( const TQString &key )
 }
 
 
-Q_EXPORT_PLUGIN( TQMultiInputContextPlugin )
+TQ_EXPORT_PLUGIN( TQMultiInputContextPlugin )
 
 #endif

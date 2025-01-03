@@ -45,13 +45,13 @@
 #include "ntqtextedit.h"
 #endif // QT_H
 
-#ifndef QT_NO_MULTILINEEDIT
+#ifndef TQT_NO_MULTILINEEDIT
 
 class TQMultiLineEditCommand;
 class TQValidator;
 class TQMultiLineEditData;
 
-class Q_EXPORT TQMultiLineEdit : public TQTextEdit
+class TQ_EXPORT TQMultiLineEdit : public TQTextEdit
 {
     TQ_OBJECT
     TQ_PROPERTY( int numLines READ numLines )
@@ -136,6 +136,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_MULTILINEEDIT
+#endif // TQT_NO_MULTILINEEDIT
 
 #endif // TQMULTILINED_H

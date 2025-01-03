@@ -1,4 +1,4 @@
-# Qt table module
+# TQt table module
 
 table {
 	HEADERS += $$TABLE_H/ntqtable.h

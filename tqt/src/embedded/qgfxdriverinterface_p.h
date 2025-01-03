@@ -55,7 +55,7 @@
 #include <private/qcom_p.h>
 #endif // QT_H
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 // {449EC6C6-DF3E-43E3-9E57-354A3D05AB34}
 #ifndef IID_QGfxDriver
@@ -64,11 +64,11 @@
 
 class TQScreen;
 
-struct Q_EXPORT TQGfxDriverInterface : public TQFeatureListInterface
+struct TQ_EXPORT TQGfxDriverInterface : public TQFeatureListInterface
 {
     virtual TQScreen* create( const TQString& driver, int displayId ) = 0;
 };
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 #endif // TQGFXDRIVERINTERFACE_P_H

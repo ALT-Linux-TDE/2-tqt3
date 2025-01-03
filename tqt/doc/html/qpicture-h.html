@@ -82,9 +82,9 @@ body { background: #ffffff; color: black; }
 #include "ntqbuffer.h"
 #endif // QT_H
 
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
 
-class Q_EXPORT TQPicture : public TQPaintDevice		// picture class
+class TQ_EXPORT TQPicture : public TQPaintDevice		// picture class
 {
 public:
     TQPicture( int formatVersion = -1 );
@@ -109,8 +109,8 @@ public:
 
     TQPicture&amp; operator= (const TQPicture&amp;);
 
-    friend Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPicture &amp; );
-    friend Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPicture &amp; );
+    friend TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPicture &amp; );
+    friend TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPicture &amp; );
 
 protected:
     bool	cmd( int, TQPainter *, TQPDevCmdParam * );
@@ -155,10 +155,10 @@ inline const char* TQPicture::data() const
   TQPicture stream functions
  *****************************************************************************/
 
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPicture &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPicture &amp; );
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPicture &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPicture &amp; );
 
-#endif // QT_NO_PICTURE
+#endif // TQT_NO_PICTURE
 
 #endif // TQPICTURE_H
 </pre>

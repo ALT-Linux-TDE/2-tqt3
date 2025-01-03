@@ -85,7 +85,7 @@ private:
     void rebuildCodecList();
     <a href="ntqmenubar.html">TQMenuBar</a>       *m;
     <a href="ntqmultilineedit.html">TQMultiLineEdit</a> *e;
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     <a href="ntqprinter.html">TQPrinter</a>        printer;
 #endif
     <a href="ntqpopupmenu.html">TQPopupMenu</a>     *save_as;
@@ -138,40 +138,40 @@ enum { Uni = 0, MBug = 1, Lat1 = 2, Local = 3, Guess = 4, Codec = 5 };
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( file );
 <a name="x371"></a>    m-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;File", file );
 
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New",   this, SLOT(newDoc()),   ALT+Key_N );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Open...",  this, SLOT(load()),     ALT+Key_O );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Save...",  this, SLOT(save()),     ALT+Key_S );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New",   this, TQ_SLOT(newDoc()),   ALT+Key_N );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Open...",  this, TQ_SLOT(load()),     ALT+Key_O );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Save...",  this, TQ_SLOT(save()),     ALT+Key_S );
 <a name="x372"></a>    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
     open_as = new <a href="ntqpopupmenu.html">TQPopupMenu</a>();
     file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Open &amp;As",  open_as );
     save_as = new <a href="ntqpopupmenu.html">TQPopupMenu</a>();
     file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Sa&amp;ve As",  save_as );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Add &amp;Encoding", this, SLOT(addEncoding()) );
-#ifndef QT_NO_PRINTER
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Add &amp;Encoding", this, TQ_SLOT(addEncoding()) );
+#ifndef TQT_NO_PRINTER
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print...", this, SLOT(print()),    ALT+Key_P );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print...", this, TQ_SLOT(print()),    ALT+Key_P );
 #endif
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, SLOT(<a href="ntqwidget.html#close">close</a>()),ALT+Key_W );
-<a name="x358"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit",  tqApp, SLOT(<a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>()),     ALT+Key_Q );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, TQ_SLOT(<a href="ntqwidget.html#close">close</a>()),ALT+Key_W );
+<a name="x358"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit",  tqApp, TQ_SLOT(<a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>()),     ALT+Key_Q );
 
-<a name="x386"></a>    <a href="ntqobject.html#connect">connect</a>( save_as, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, SLOT(saveAsEncoding(int)) );
-    <a href="ntqobject.html#connect">connect</a>( open_as, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, SLOT(openAsEncoding(int)) );
+<a name="x386"></a>    <a href="ntqobject.html#connect">connect</a>( save_as, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(saveAsEncoding(int)) );
+    <a href="ntqobject.html#connect">connect</a>( open_as, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(openAsEncoding(int)) );
     rebuildCodecList();
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a> * edit = new <a href="ntqpopupmenu.html">TQPopupMenu</a>();
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( edit );
     m-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Edit", edit );
 
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "To &amp;Uppercase",   this, SLOT(toUpper()),   ALT+Key_U );
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "To &amp;Lowercase",   this, SLOT(toLower()),   ALT+Key_L );
-#ifndef QT_NO_FONTDIALOG
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "To &amp;Uppercase",   this, TQ_SLOT(toUpper()),   ALT+Key_U );
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "To &amp;Lowercase",   this, TQ_SLOT(toLower()),   ALT+Key_L );
+#ifndef TQT_NO_FONTDIALOG
     edit-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Select Font" ,   this, SLOT(<a href="ntqwidget.html#font">font</a>()),     ALT+Key_T );
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Select Font" ,   this, TQ_SLOT(<a href="ntqwidget.html#font">font</a>()),     ALT+Key_T );
 #endif
     changed = FALSE;
     e = new <a href="ntqmultilineedit.html">TQMultiLineEdit</a>( this, "editor" );
-<a name="x400"></a>    <a href="ntqobject.html#connect">connect</a>( e, SIGNAL( <a href="ntqtextedit.html#textChanged">textChanged</a>() ), this, SLOT( textChanged() ) );
+<a name="x400"></a>    <a href="ntqobject.html#connect">connect</a>( e, TQ_SIGNAL( <a href="ntqtextedit.html#textChanged">textChanged</a>() ), this, TQ_SLOT( textChanged() ) );
 
     // We use Unifont - if you have it installed you'll see all
     // Unicode character glyphs.
@@ -191,7 +191,7 @@ Editor::~Editor()
 
 <a name="x405"></a>void Editor::<a href="ntqwidget.html#font">font</a>()
 {
-#ifndef QT_NO_FONTDIALOG
+#ifndef TQT_NO_FONTDIALOG
     bool ok;
 <a name="x396"></a><a name="x368"></a>    <a href="ntqfont.html">TQFont</a> f = TQFontDialog::<a href="ntqfontdialog.html#getFont">getFont</a>( &amp;ok, e-&gt;<a href="ntqtextedit.html#font">font</a>() );
     if ( ok ) {
@@ -243,7 +243,7 @@ void <a name="f237"></a>Editor::newDoc()
 
 void <a name="f238"></a>Editor::load()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
 <a name="x365"></a>    <a href="ntqstring.html">TQString</a> fn = TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>( <a href="ntqstring.html#TQString-null">TQString::null</a>, TQString::null, this );
 <a name="x390"></a>    if ( !fn.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
         load( fn, -1 );
@@ -291,7 +291,7 @@ void Editor::load( const <a href="ntqstring.html">TQString</a>&amp; fileName, in
 
 void <a name="f239"></a>Editor::openAsEncoding( int code )
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     //storing filename (proper save) is left as an exercise...
     <a href="ntqstring.html">TQString</a> fn = TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>( TQString::null, TQString::null, this );
     if ( !fn.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
@@ -301,7 +301,7 @@ void <a name="f239"></a>Editor::openAsEncoding( int code )
 
 bool <a name="f240"></a>Editor::save()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     //storing filename (proper save) is left as an exercise...
 <a name="x366"></a>    <a href="ntqstring.html">TQString</a> fn = TQFileDialog::<a href="ntqfiledialog.html#getSaveFileName">getSaveFileName</a>( TQString::null, TQString::null, this );
     if ( !fn.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
@@ -312,7 +312,7 @@ bool <a name="f240"></a>Editor::save()
 
 void <a name="f241"></a>Editor::saveAsEncoding( int code )
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     //storing filename (proper save) is left as an exercise...
     <a href="ntqstring.html">TQString</a> fn = TQFileDialog::<a href="ntqfiledialog.html#getSaveFileName">getSaveFileName</a>( TQString::null, TQString::null, this );
     if ( !fn.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
@@ -322,7 +322,7 @@ void <a name="f241"></a>Editor::saveAsEncoding( int code )
 
 void <a name="f242"></a>Editor::addEncoding()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     <a href="ntqstring.html">TQString</a> fn = TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>( TQString::null, "*.map", this );
     if ( !fn.<a href="ntqstring.html#isEmpty">isEmpty</a>() ) {
         <a href="ntqfile.html">TQFile</a> f(fn);
@@ -376,7 +376,7 @@ bool <a name="f243"></a>Editor::saveAs( const <a href="ntqstring.html">TQString<
 
 void <a name="f244"></a>Editor::print()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     if ( printer.setup(this) ) {                // opens printer dialog
         printer.setFullPage(TRUE);              // we'll set our own margins
         <a href="ntqpainter.html">TQPainter</a> p;
@@ -492,7 +492,7 @@ int main( int argc, char **argv )
             e-&gt;<a href="ntqwidget.html#show">show</a>();
         }
     }
-<a name="x416"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<a name="x416"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     return a.<a href="ntqapplication.html#exec">exec</a>();
 }
 </pre>

@@ -152,8 +152,8 @@ TQDesignerToolBarSeparator::TQDesignerToolBarSeparator(Orientation o , TQToolBar
                                      const char* name )
     : TQWidget( parent, name )
 {
-    connect( parent, SIGNAL(orientationChanged(Orientation)),
-             this, SLOT(setOrientation(Orientation)) );
+    connect( parent, TQ_SIGNAL(orientationChanged(Orientation)),
+             this, TQ_SLOT(setOrientation(Orientation)) );
     setOrientation( o );
     setBackgroundMode( parent->backgroundMode() );
     setBackgroundOrigin( ParentOrigin );
@@ -277,7 +277,7 @@ void TQDesignerToolBar::findFormWindow()
 void TQDesignerToolBar::addAction( TQAction *a )
 {
     actionList.append( a );
-    connect( a, SIGNAL( destroyed() ), this, SLOT( actionRemoved() ) );
+    connect( a, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( actionRemoved() ) );
     if ( ::tqt_cast<TQActionGroup*>(a) ) {
 	( (TQDesignerActionGroup*)a )->widget()->installEventFilter( this );
 	actionMap.insert( ( (TQDesignerActionGroup*)a )->widget(), a );
@@ -530,7 +530,7 @@ void TQDesignerToolBar::buttonMouseMoveEvent( TQMouseEvent *e, TQObject *o )
     indicator->hide();
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 void TQDesignerToolBar::dragEnterEvent( TQDragEnterEvent *e )
 {

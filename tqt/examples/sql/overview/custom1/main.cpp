@@ -13,8 +13,8 @@
 CustomEdit::CustomEdit( TQWidget *parent, const char *name ) : 
     TQLineEdit( parent, name )
 {
-    connect( this, SIGNAL(textChanged(const TQString &)), 
-	     this, SLOT(changed(const TQString &)) );
+    connect( this, TQ_SIGNAL(textChanged(const TQString &)), 
+	     this, TQ_SLOT(changed(const TQString &)) );
 }
 
 
@@ -47,7 +47,7 @@ FormDialog::FormDialog()
     TQLineEdit	*salaryEdit	= new TQLineEdit( this );
     salaryEdit->setAlignment( TQt::AlignRight );
     TQPushButton *saveButton	= new TQPushButton( "&Save", this );
-    connect( saveButton, SIGNAL(clicked()), this, SLOT(save()) );
+    connect( saveButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(save()) );
 
     TQGridLayout *grid = new TQGridLayout( this );
     grid->addWidget( forenameLabel, 0, 0 );

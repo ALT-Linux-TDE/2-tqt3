@@ -59,7 +59,7 @@
 #include "ntqvaluestack.h"
 #endif // QT_H
 
-#ifndef QT_NO_SETTINGS
+#ifndef TQT_NO_SETTINGS
 class TQSettingsSysPrivate;
 
 // TQSettingsGroup is a map of key/value pairs
@@ -108,7 +108,7 @@ public:
     bool modified :1;
     bool globalScope :1;
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     // system dependent implementations to use the 
     // system specific setting database (ie. registry on Windows)
 
@@ -144,5 +144,5 @@ public:
 #endif
 
 };
-#endif //QT_NO_SETTINGS
+#endif //TQT_NO_SETTINGS
 #endif // TQSETTINGS_P_H

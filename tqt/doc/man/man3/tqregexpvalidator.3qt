@@ -16,16 +16,16 @@ Inherits QValidator.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQRegExpValidator\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQRegExpValidator\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQRegExpValidator\fR ( const QRegExp & rx, QObject * parent, const char * name = 0 )"
+.BI "\fBQRegExpValidator\fR ( const QRegExp & rx, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QRegExpValidator\fR ()"
 .br
 .ti -1c
-.BI "virtual QValidator::State \fBvalidate\fR ( QString & input, int & pos ) const"
+.BI "virtual QValidator::State \fBvalidate\fR ( TQString & input, int & pos ) const"
 .br
 .ti -1c
 .BI "void \fBsetRegExp\fR ( const QRegExp & rx )"
@@ -72,7 +72,7 @@ Below we present some examples of validators. In practice they would normally be
 .br
     QRegExpValidator v( rx, 0 );
 .br
-    QString s;
+    TQString s;
 .br
     int pos = 0;
 .br
@@ -126,9 +126,9 @@ Below we present some examples of validators. In practice they would normally be
 .PP
 See also QRegExp, QIntValidator, QDoubleValidator, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QRegExpValidator::QRegExpValidator ( QObject * parent, const char * name = 0 )"
+.SH "QRegExpValidator::QRegExpValidator ( TQObject * parent, const char * name = 0 )"
 Constructs a validator that accepts any string (including an empty one) as valid. The object's parent is \fIparent\fR and its name is \fIname\fR.
-.SH "QRegExpValidator::QRegExpValidator ( const QRegExp & rx, QObject * parent, const char * name = 0 )"
+.SH "QRegExpValidator::QRegExpValidator ( const QRegExp & rx, TQObject * parent, const char * name = 0 )"
 Constructs a validator which accepts all strings that match the regular expression \fIrx\fR. The object's parent is \fIparent\fR and its name is \fIname\fR.
 .PP
 The match is made against the entire string, e.g. if the regexp is \fB[A-Fa-f0-9]+\fR it will be treated as \fB^[A-Fa-f0-9]+$\fR.
@@ -142,7 +142,7 @@ See also setRegExp().
 Sets the regular expression used for validation to \fIrx\fR.
 .PP
 See also regExp().
-.SH "QValidator::State QRegExpValidator::validate ( QString & input, int & pos ) const\fC [virtual]\fR"
+.SH "QValidator::State QRegExpValidator::validate ( TQString & input, int & pos ) const\fC [virtual]\fR"
 Returns Acceptable if \fIinput\fR is matched by the regular expression for this validator, Intermediate if it has matched partially (i.e. could be a valid match if additional valid characters are added), and Invalid if \fIinput\fR is not matched.
 .PP
 The \fIpos\fR parameter is set to the length of the \fIinput\fR parameter.
@@ -167,8 +167,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -11,7 +11,7 @@ QLayout \- The base class of geometry managers
 .SH SYNOPSIS
 \fC#include <ntqlayout.h>\fR
 .PP
-Inherits QObject and QLayoutItem.
+Inherits TQObject and QLayoutItem.
 .PP
 Inherited by QGridLayout and QBoxLayout.
 .PP
@@ -21,7 +21,7 @@ Inherited by QGridLayout and QBoxLayout.
 .BI "enum \fBResizeMode\fR { FreeResize, Minimum, Fixed, Auto }"
 .br
 .ti -1c
-.BI "\fBQLayout\fR ( QWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
+.BI "\fBQLayout\fR ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fBQLayout\fR ( QLayout * parentLayout, int spacing = -1, const char * name = 0 )"
@@ -54,7 +54,7 @@ Inherited by QGridLayout and QBoxLayout.
 .BI "QMenuBar * \fBmenuBar\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBmainWidget\fR ()"
+.BI "TQWidget * \fBmainWidget\fR ()"
 .br
 .ti -1c
 .BI "bool \fBisTopLevel\fR () const"
@@ -72,13 +72,13 @@ Inherited by QGridLayout and QBoxLayout.
 .BI "bool \fBactivate\fR ()"
 .br
 .ti -1c
-.BI "void \fBadd\fR ( QWidget * w )"
+.BI "void \fBadd\fR ( TQWidget * w )"
 .br
 .ti -1c
 .BI "virtual void \fBaddItem\fR ( QLayoutItem * item ) = 0"
 .br
 .ti -1c
-.BI "void \fBremove\fR ( QWidget * widget )"
+.BI "void \fBremove\fR ( TQWidget * widget )"
 .br
 .ti -1c
 .BI "void \fBremoveItem\fR ( QLayoutItem * item )"
@@ -162,12 +162,12 @@ The possible values are:
 .TP
 \fCQLayout::FreeResize\fR - The widget is not constrained.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QLayout::QLayout ( QWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
+.SH "QLayout::QLayout ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
 Constructs a new top-level QLayout called \fIname\fR, with main widget \fIparent\fR. \fIparent\fR may not be 0.
 .PP
 The \fImargin\fR is the number of pixels between the edge of the widget and the managed children. The \fIspacing\fR sets the value of spacing(), which gives the spacing between the managed widgets. If \fIspacing\fR is -1 (the default), spacing is set to the value of \fImargin\fR.
 .PP
-There can be only one top-level layout for a widget. It is returned by QWidget::layout()
+There can be only one top-level layout for a widget. It is returned by TQWidget::layout()
 .SH "QLayout::QLayout ( QLayout * parentLayout, int spacing = -1, const char * name = 0 )"
 Constructs a new child QLayout called \fIname\fR, and places it inside \fIparentLayout\fR by using the default placement defined by addItem().
 .PP
@@ -181,11 +181,11 @@ Redoes the layout for mainWidget(). You should generally not need to call this b
 .PP
 However, if you set up a QLayout for a visible widget without resizing that widget, you will need to call this function in order to lay it out.
 .PP
-See also QWidget::updateGeometry().
+See also TQWidget::updateGeometry().
 .PP
 Examples:
 .)l layout/layout.cpp, popup/popup.cpp, scrollview/scrollview.cpp, and sql/overview/form1/main.cpp.
-.SH "void QLayout::add ( QWidget * w )"
+.SH "void QLayout::add ( TQWidget * w )"
 Adds widget \fIw\fR to this layout in a manner specific to the layout. This function uses addItem().
 .PP
 Examples:
@@ -266,7 +266,7 @@ Examples:
 .)l customlayout/border.cpp, customlayout/card.cpp, and customlayout/flow.cpp.
 .PP
 Reimplemented from QLayoutItem.
-.SH "QWidget * QLayout::mainWidget ()"
+.SH "TQWidget * QLayout::mainWidget ()"
 Returns the main widget (parent widget) of this layout, or 0 if this layout is a sub-layout that is not yet inserted.
 .SH "int QLayout::margin () const"
 Returns the width of the outside border of the layout. See the "margin" property for details.
@@ -291,10 +291,10 @@ Examples:
 Reimplemented from QLayoutItem.
 .PP
 Reimplemented in QGridLayout and QBoxLayout.
-.SH "void QLayout::remove ( QWidget * widget )"
+.SH "void QLayout::remove ( TQWidget * widget )"
 Removes the widget \fIwidget\fR from the layout. After this call, it is the caller's responsibility to give the widget a reasonable geometry or to put the widget back into a layout.
 .PP
-See also removeItem(), QWidget::geometry, and add().
+See also removeItem(), TQWidget::geometry, and add().
 .SH "void QLayout::removeItem ( QLayoutItem * item )"
 Removes the layout item \fIitem\fR from the layout. It is the caller's responsibility to delete the item.
 .PP
@@ -396,8 +396,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

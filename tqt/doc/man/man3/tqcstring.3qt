@@ -9,7 +9,7 @@
 .SH NAME
 QCString \- Abstraction of the classic C zero-terminated char array (char *)
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqcstring.h>\fR
 .PP
@@ -308,7 +308,7 @@ The QCString class provides an abstraction of the classic C zero-terminated char
 .PP
 QCString inherits QByteArray, which is defined as QMemArray<char>. Since QCString is a QMemArray, it uses explicit sharing with a reference count.
 .PP
-QCString tries to behave like a more convenient \fCconst char *\fR. The price of doing this is that some algorithms will perform badly. For example, append() is O(length()) since it scans for a null terminator. Although you might use QCString for text that is never exposed to the user, for most purposes, and especially for user-visible text, you should use QString. QString provides implicit sharing, Unicode and other internationalization support, and is well optimized.
+QCString tries to behave like a more convenient \fCconst char *\fR. The price of doing this is that some algorithms will perform badly. For example, append() is O(length()) since it scans for a null terminator. Although you might use QCString for text that is never exposed to the user, for most purposes, and especially for user-visible text, you should use TQString. TQString provides implicit sharing, Unicode and other internationalization support, and is well optimized.
 .PP
 Note that for the QCString methods that take a \fCconst char *\fR parameter the \fCconst char *\fR must either be 0 (null) or not-null and '&#92;0' (NUL byte) terminated; otherwise the results are undefined.
 .PP
@@ -330,7 +330,7 @@ In QCString the notion of uppercase and lowercase and of which character is grea
 .PP
 This issue does not apply to QStrings since they represent characters using Unicode. </blockquote>
 .PP
-Performance note: The QCString methods for QRegExp searching are implemented by converting the QCString to a QString and performing the search on that. This implies a deep copy of the QCString data. If you are going to perform many QRegExp searches on a large QCString, you will get better performance by converting the QCString to a QString yourself, and then searching in the QString.
+Performance note: The QCString methods for QRegExp searching are implemented by converting the QCString to a TQString and performing the search on that. This implies a deep copy of the QCString data. If you are going to perform many QRegExp searches on a large QCString, you will get better performance by converting the QCString to a TQString yourself, and then searching in the TQString.
 .PP
 See also Collection Classes, Implicitly and Explicitly Shared Classes, Text Related Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
@@ -395,7 +395,7 @@ Example:
 .PP
 .nf
 .br
-    QString s = "banana and panama";
+    TQString s = "banana and panama";
 .br
     QRegExp r = QRegExp( "a[nm]a", TRUE, FALSE );
 .br
@@ -405,7 +405,7 @@ Example:
 .PP
 See also find() and findRev().
 .PP
-\fBWarning:\fR If you want to apply this function repeatedly to the same string it is more efficient to convert the string to a QString and apply the function to that.
+\fBWarning:\fR If you want to apply this function repeatedly to the same string it is more efficient to convert the string to a TQString and apply the function to that.
 .SH "QCString QCString::copy () const"
 Returns a deep copy of this string.
 .PP
@@ -443,7 +443,7 @@ Finds the first occurrence of the regular expression \fIrx\fR, starting at posit
 .PP
 Returns the position of the next match, or -1 if \fIrx\fR was not found.
 .PP
-\fBWarning:\fR If you want to apply this function repeatedly to the same string it is more efficient to convert the string to a QString and apply the function to that.
+\fBWarning:\fR If you want to apply this function repeatedly to the same string it is more efficient to convert the string to a TQString and apply the function to that.
 .SH "int QCString::findRev ( char c, int index = -1, bool cs = TRUE ) const"
 Finds the first occurrence of the character \fIc\fR, starting at position \fIindex\fR and searching backwards.
 .PP
@@ -469,7 +469,7 @@ Finds the first occurrence of the regular expression \fIrx\fR, starting at posit
 .PP
 Returns the position of the next match (backwards), or -1 if \fIrx\fR was not found.
 .PP
-\fBWarning:\fR If you want to apply this function repeatedly to the same string it is more efficient to convert the string to a QString and apply the function to that.
+\fBWarning:\fR If you want to apply this function repeatedly to the same string it is more efficient to convert the string to a TQString and apply the function to that.
 .SH "QCString & QCString::insert ( uint index, char c )"
 Inserts character \fIc\fR into the string at position \fIindex\fR and returns a reference to the string.
 .PP
@@ -668,7 +668,7 @@ Example:
 .PP
 .nf
 .br
-    QString s = "banana";
+    TQString s = "banana";
 .br
     s.replace( QRegExp("a.*a"), "" );     // becomes "b"
 .br
@@ -684,7 +684,7 @@ Example:
 .br
 .fi
 .PP
-\fBWarning:\fR If you want to apply this function repeatedly to the same string it is more efficient to convert the string to a QString and apply the function to that.
+\fBWarning:\fR If you want to apply this function repeatedly to the same string it is more efficient to convert the string to a TQString and apply the function to that.
 .SH "QCString & QCString::replace ( char c, const char * after )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -782,7 +782,7 @@ Sets the string to the string representation of the number \fIn\fR and returns a
 .PP
 The format of the string representation is specified by the format character \fIf\fR, and the precision (number of digits after the decimal point) is specified with \fIprec\fR.
 .PP
-The valid formats for \fIf\fR are 'e', 'E', 'f', 'g' and 'G'. The formats are the same as for sprintf(); they are explained in QString::arg().
+The valid formats for \fIf\fR are 'e', 'E', 'f', 'g' and 'G'. The formats are the same as for sprintf(); they are explained in TQString::arg().
 .SH "QCString & QCString::setNum ( short n )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -1042,7 +1042,7 @@ Reads a string into \fIstr\fR from the stream \fIs\fR.
 .PP
 See also Format of the QDataStream operators.
 .SH "void * tqmemmove ( void * dst, const void * src, uint len )"
-This function is normally part of the C library. Qt implements memmove() for platforms that do not provide it.
+This function is normally part of the C library. TQt implements memmove() for platforms that do not provide it.
 .PP
 memmove() copies \fIlen\fR bytes from \fIsrc\fR into \fIdst\fR. The data is copied correctly even if \fIsrc\fR and \fIdst\fR overlap.
 .SH "int qstrcmp ( const char * str1, const char * str2 )"
@@ -1126,8 +1126,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -16,7 +16,7 @@ Inherits Qt.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQStyleSheetItem\fR ( QStyleSheet * parent, const QString & name )"
+.BI "\fBQStyleSheetItem\fR ( QStyleSheet * parent, const TQString & name )"
 .br
 .ti -1c
 .BI "\fBQStyleSheetItem\fR ( const QStyleSheetItem & other )"
@@ -28,7 +28,7 @@ Inherits Qt.
 .BI "QStyleSheetItem & \fBoperator=\fR ( const QStyleSheetItem & other )"
 .br
 .ti -1c
-.BI "QString \fBname\fR () const"
+.BI "TQString \fBname\fR () const"
 .br
 .ti -1c
 .BI "QStyleSheet * \fBstyleSheet\fR ()"
@@ -85,10 +85,10 @@ Inherits Qt.
 .BI "void \fBsetFontSize\fR ( int s )"
 .br
 .ti -1c
-.BI "QString \fBfontFamily\fR () const"
+.BI "TQString \fBfontFamily\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetFontFamily\fR ( const QString & fam )"
+.BI "void \fBsetFontFamily\fR ( const TQString & fam )"
 .br
 .ti -1c
 .BI "int numberOfColumns () const  \fI(obsolete)\fR"
@@ -97,10 +97,10 @@ Inherits Qt.
 .BI "void setNumberOfColumns ( int ncols )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QColor \fBcolor\fR () const"
+.BI "TQColor \fBcolor\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetColor\fR ( const QColor & c )"
+.BI "void \fBsetColor\fR ( const TQColor & c )"
 .br
 .ti -1c
 .BI "bool \fBfontItalic\fR () const"
@@ -163,10 +163,10 @@ Inherits Qt.
 .BI "void \fBsetListStyle\fR ( ListStyle s )"
 .br
 .ti -1c
-.BI "QString \fBcontexts\fR () const"
+.BI "TQString \fBcontexts\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetContexts\fR ( const QString & c )"
+.BI "void \fBsetContexts\fR ( const TQString & c )"
 .br
 .ti -1c
 .BI "bool \fBallowedInContext\fR ( const QStyleSheetItem * s ) const"
@@ -249,7 +249,7 @@ This enum defines the ways in which QStyleSheet can treat whitespace.
 \fCQStyleSheetItem::WhiteSpaceNoWrap\fR - multiple spaces are collapsed as with WhiteSpaceNormal, but no automatic line-breaks occur. To break lines manually, use the \fC<br>\fR tag.
 .PP
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStyleSheetItem::QStyleSheetItem ( QStyleSheet * parent, const QString & name )"
+.SH "QStyleSheetItem::QStyleSheetItem ( QStyleSheet * parent, const TQString & name )"
 Constructs a new style called \fIname\fR for the stylesheet \fIparent\fR.
 .PP
 All properties in QStyleSheetItem are initially in the "do not change" state, except display mode, which defaults to DisplayInline.
@@ -260,16 +260,16 @@ Destroys the style. Note that QStyleSheetItem objects become owned by QStyleShee
 .SH "int QStyleSheetItem::alignment () const"
 Returns the alignment of this style. Possible values are AlignAuto, AlignLeft, AlignRight, AlignCenter or AlignJustify.
 .PP
-See also setAlignment() and Qt::AlignmentFlags.
+See also setAlignment() and TQt::AlignmentFlags.
 .SH "bool QStyleSheetItem::allowedInContext ( const QStyleSheetItem * s ) const"
 Returns TRUE if this style can be nested into an element of style \fIs\fR; otherwise returns FALSE.
 .PP
 See also contexts() and setContexts().
-.SH "QColor QStyleSheetItem::color () const"
+.SH "TQColor QStyleSheetItem::color () const"
 Returns the text color of this style or an invalid color if no color has been set.
 .PP
-See also setColor() and QColor::isValid().
-.SH "QString QStyleSheetItem::contexts () const"
+See also setColor() and TQColor::isValid().
+.SH "TQString QStyleSheetItem::contexts () const"
 Returns a space-separated list of names of styles that may contain elements of this style. If nothing has been set, contexts() returns an empty string, which indicates that this style can be nested everywhere.
 .PP
 See also setContexts().
@@ -289,8 +289,8 @@ See also setFontUnderline() and fontUnderline().
 Returns the display mode of the style.
 .PP
 See also setDisplayMode().
-.SH "QString QStyleSheetItem::fontFamily () const"
-Returns the font family setting of the style. This is either a valid font family or QString::null if no family has been set.
+.SH "TQString QStyleSheetItem::fontFamily () const"
+Returns the font family setting of the style. This is either a valid font family or TQString::null if no family has been set.
 .PP
 See also setFontFamily(), QFont::family(), and QFont::setFamily().
 .SH "bool QStyleSheetItem::fontItalic () const"
@@ -341,7 +341,7 @@ Returns the width of margin \fIm\fR in pixels.
 The margin, \fIm\fR, can be MarginLeft, MarginRight, MarginTop, MarginBottom, or MarginFirstLine.
 .PP
 See also setMargin() and Margin.
-.SH "QString QStyleSheetItem::name () const"
+.SH "TQString QStyleSheetItem::name () const"
 Returns the name of the style item.
 .SH "int QStyleSheetItem::numberOfColumns () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
@@ -358,16 +358,16 @@ See also setSelfNesting().
 .SH "void QStyleSheetItem::setAlignment ( int f )"
 Sets the alignment to \fIf\fR. This only makes sense for styles with a display mode of DisplayBlock. Possible values are AlignAuto, AlignLeft, AlignRight, AlignCenter or AlignJustify.
 .PP
-See also alignment(), displayMode(), and Qt::AlignmentFlags.
+See also alignment(), displayMode(), and TQt::AlignmentFlags.
 .SH "void QStyleSheetItem::setAnchor ( bool anc )"
 If \fIanc\fR is TRUE, sets this style to be an anchor (hypertext link); otherwise sets it to not be an anchor. Elements in this style link to other documents or anchors.
 .PP
 See also isAnchor().
-.SH "void QStyleSheetItem::setColor ( const QColor & c )"
+.SH "void QStyleSheetItem::setColor ( const TQColor & c )"
 Sets the text color of this style to \fIc\fR.
 .PP
 See also color().
-.SH "void QStyleSheetItem::setContexts ( const QString & c )"
+.SH "void QStyleSheetItem::setContexts ( const TQString & c )"
 Sets a space-separated list of names of styles that may contain elements of this style. If \fIc\fR is empty, the style can be nested everywhere.
 .PP
 See also contexts().
@@ -375,7 +375,7 @@ See also contexts().
 Sets the display mode of the style to \fIm\fR.
 .PP
 See also displayMode().
-.SH "void QStyleSheetItem::setFontFamily ( const QString & fam )"
+.SH "void QStyleSheetItem::setFontFamily ( const TQString & fam )"
 Sets the font family setting of the style to \fIfam\fR.
 .PP
 See also fontFamily(), QFont::family(), and QFont::setFamily().
@@ -472,8 +472,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

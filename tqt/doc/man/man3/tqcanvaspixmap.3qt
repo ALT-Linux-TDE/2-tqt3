@@ -16,10 +16,10 @@ Inherits QPixmap.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCanvasPixmap\fR ( const QString & datafilename )"
+.BI "\fBQCanvasPixmap\fR ( const TQString & datafilename )"
 .br
 .ti -1c
-.BI "\fBQCanvasPixmap\fR ( const QImage & image )"
+.BI "\fBQCanvasPixmap\fR ( const TQImage & image )"
 .br
 .ti -1c
 .BI "\fBQCanvasPixmap\fR ( const QPixmap & pm, const QPoint & offset )"
@@ -44,17 +44,17 @@ If you want to show a single pixmap on a QCanvas use a QCanvasSprite with just o
 .PP
 When pixmaps are inserted into a QCanvasPixmapArray they are held as QCanvasPixmaps. QCanvasSprites are used to show pixmaps on QCanvases and hold their pixmaps in a QCanvasPixmapArray. If you retrieve a frame (pixmap) from a QCanvasSprite it will be returned as a QCanvasPixmap.
 .PP
-The pixmap is a QPixmap and can only be set in the constructor. There are three different constructors, one taking a QPixmap, one a QImage and one a file name that refers to a file in any supported file format (see QImageIO).
+The pixmap is a QPixmap and can only be set in the constructor. There are three different constructors, one taking a QPixmap, one a TQImage and one a file name that refers to a file in any supported file format (see QImageIO).
 .PP
-QCanvasPixmap can have a hotspot which is defined in terms of an (x, y) offset. When you create a QCanvasPixmap from a PNG file or from a QImage that has a QImage::offset(), the offset() is initialized appropriately, otherwise the constructor leaves it at (0, 0). You can set it later using setOffset(). When the QCanvasPixmap is used in a QCanvasSprite, the offset position is the point at QCanvasItem::x() and QCanvasItem::y(), not the top-left corner of the pixmap.
+QCanvasPixmap can have a hotspot which is defined in terms of an (x, y) offset. When you create a QCanvasPixmap from a PNG file or from a TQImage that has a TQImage::offset(), the offset() is initialized appropriately, otherwise the constructor leaves it at (0, 0). You can set it later using setOffset(). When the QCanvasPixmap is used in a QCanvasSprite, the offset position is the point at QCanvasItem::x() and QCanvasItem::y(), not the top-left corner of the pixmap.
 .PP
 Note that for QCanvasPixmap objects created by a QCanvasSprite, the position of each QCanvasPixmap object is set so that the hotspot stays in the same position.
 .PP
 See also QCanvasPixmapArray, QCanvasItem, QCanvasSprite, Graphics Classes, and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCanvasPixmap::QCanvasPixmap ( const QString & datafilename )"
+.SH "QCanvasPixmap::QCanvasPixmap ( const TQString & datafilename )"
 Constructs a QCanvasPixmap that uses the image stored in \fIdatafilename\fR.
-.SH "QCanvasPixmap::QCanvasPixmap ( const QImage & image )"
+.SH "QCanvasPixmap::QCanvasPixmap ( const TQImage & image )"
 Constructs a QCanvasPixmap from the image \fIimage\fR.
 .SH "QCanvasPixmap::QCanvasPixmap ( const QPixmap & pm, const QPoint & offset )"
 Constructs a QCanvasPixmap from the pixmap \fIpm\fR using the offset \fIoffset\fR.
@@ -88,8 +88,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

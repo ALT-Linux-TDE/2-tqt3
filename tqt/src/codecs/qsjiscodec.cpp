@@ -92,7 +92,7 @@
 
 #include "ntqsjiscodec.h"
 
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 static const uchar Esc = 0x1b;
 

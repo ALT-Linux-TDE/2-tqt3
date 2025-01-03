@@ -107,25 +107,25 @@ struct TQPair
 };
 
 template &lt;class T1, class T2&gt;
-Q_INLINE_TEMPLATES bool operator==( const TQPair&lt;T1, T2&gt;&amp; x, const TQPair&lt;T1, T2&gt;&amp; y )
+TQ_INLINE_TEMPLATES bool operator==( const TQPair&lt;T1, T2&gt;&amp; x, const TQPair&lt;T1, T2&gt;&amp; y )
 {
     return x.first == y.first &amp;&amp; x.second == y.second;
 }
 
 template &lt;class T1, class T2&gt;
-Q_INLINE_TEMPLATES bool operator&lt;( const TQPair&lt;T1, T2&gt;&amp; x, const TQPair&lt;T1, T2&gt;&amp; y )
+TQ_INLINE_TEMPLATES bool operator&lt;( const TQPair&lt;T1, T2&gt;&amp; x, const TQPair&lt;T1, T2&gt;&amp; y )
 {
     return x.first &lt; y.first ||
 	   ( !( y.first &lt; x.first ) &amp;&amp; x.second &lt; y.second );
 }
 
 template &lt;class T1, class T2&gt;
-Q_INLINE_TEMPLATES TQPair&lt;T1, T2&gt; qMakePair( const T1&amp; x, const T2&amp; y )
+TQ_INLINE_TEMPLATES TQPair&lt;T1, T2&gt; qMakePair( const T1&amp; x, const T2&amp; y )
 {
     return TQPair&lt;T1, T2&gt;( x, y );
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 template &lt;class T1, class T2&gt;
 inline TQDataStream&amp; operator&gt;&gt;( TQDataStream&amp; s, TQPair&lt;T1, T2&gt;&amp; p )
 {

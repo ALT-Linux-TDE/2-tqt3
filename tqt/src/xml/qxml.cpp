@@ -46,37 +46,37 @@
 #include "ntqmap.h"
 #include "ntqvaluestack.h"
 
-// needed for QT_TRANSLATE_NOOP:
+// needed for TQT_TRANSLATE_NOOP:
 #include "ntqobject.h"
 
-#ifndef QT_NO_XML
+#ifndef TQT_NO_XML
 
 //#define QT_QXML_DEBUG
 
 // Error strings for the XML reader
-#define XMLERR_OK                         QT_TRANSLATE_NOOP( "TQXml", "no error occurred" )
-#define XMLERR_ERRORBYCONSUMER            QT_TRANSLATE_NOOP( "TQXml", "error triggered by consumer" )
-#define XMLERR_UNEXPECTEDEOF              QT_TRANSLATE_NOOP( "TQXml", "unexpected end of file" )
-#define XMLERR_MORETHANONEDOCTYPE         QT_TRANSLATE_NOOP( "TQXml", "more than one document type definition" )
-#define XMLERR_ERRORPARSINGELEMENT        QT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing element" )
-#define XMLERR_TAGMISMATCH                QT_TRANSLATE_NOOP( "TQXml", "tag mismatch" )
-#define XMLERR_ERRORPARSINGCONTENT        QT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing content" )
-#define XMLERR_UNEXPECTEDCHARACTER        QT_TRANSLATE_NOOP( "TQXml", "unexpected character" )
-#define XMLERR_INVALIDNAMEFORPI           QT_TRANSLATE_NOOP( "TQXml", "invalid name for processing instruction" )
-#define XMLERR_VERSIONEXPECTED            QT_TRANSLATE_NOOP( "TQXml", "version expected while reading the XML declaration" )
-#define XMLERR_WRONGVALUEFORSDECL         QT_TRANSLATE_NOOP( "TQXml", "wrong value for standalone declaration" )
-#define XMLERR_EDECLORSDDECLEXPECTED      QT_TRANSLATE_NOOP( "TQXml", "encoding declaration or standalone declaration expected while reading the XML declaration" )
-#define XMLERR_SDDECLEXPECTED             QT_TRANSLATE_NOOP( "TQXml", "standalone declaration expected while reading the XML declaration" )
-#define XMLERR_ERRORPARSINGDOCTYPE        QT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing document type definition" )
-#define XMLERR_LETTEREXPECTED             QT_TRANSLATE_NOOP( "TQXml", "letter is expected" )
-#define XMLERR_ERRORPARSINGCOMMENT        QT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing comment" )
-#define XMLERR_ERRORPARSINGREFERENCE      QT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing reference" )
-#define XMLERR_INTERNALGENERALENTITYINDTD QT_TRANSLATE_NOOP( "TQXml", "internal general entity reference not allowed in DTD" )
-#define XMLERR_EXTERNALGENERALENTITYINAV  QT_TRANSLATE_NOOP( "TQXml", "external parsed general entity reference not allowed in attribute value" )
-#define XMLERR_EXTERNALGENERALENTITYINDTD QT_TRANSLATE_NOOP( "TQXml", "external parsed general entity reference not allowed in DTD" )
-#define XMLERR_UNPARSEDENTITYREFERENCE    QT_TRANSLATE_NOOP( "TQXml", "unparsed entity reference in wrong context" )
-#define XMLERR_RECURSIVEENTITIES          QT_TRANSLATE_NOOP( "TQXml", "recursive entities" )
-#define XMLERR_ERRORINTEXTDECL            QT_TRANSLATE_NOOP( "TQXml", "error in the text declaration of an external entity" )
+#define XMLERR_OK                         TQT_TRANSLATE_NOOP( "TQXml", "no error occurred" )
+#define XMLERR_ERRORBYCONSUMER            TQT_TRANSLATE_NOOP( "TQXml", "error triggered by consumer" )
+#define XMLERR_UNEXPECTEDEOF              TQT_TRANSLATE_NOOP( "TQXml", "unexpected end of file" )
+#define XMLERR_MORETHANONEDOCTYPE         TQT_TRANSLATE_NOOP( "TQXml", "more than one document type definition" )
+#define XMLERR_ERRORPARSINGELEMENT        TQT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing element" )
+#define XMLERR_TAGMISMATCH                TQT_TRANSLATE_NOOP( "TQXml", "tag mismatch" )
+#define XMLERR_ERRORPARSINGCONTENT        TQT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing content" )
+#define XMLERR_UNEXPECTEDCHARACTER        TQT_TRANSLATE_NOOP( "TQXml", "unexpected character" )
+#define XMLERR_INVALIDNAMEFORPI           TQT_TRANSLATE_NOOP( "TQXml", "invalid name for processing instruction" )
+#define XMLERR_VERSIONEXPECTED            TQT_TRANSLATE_NOOP( "TQXml", "version expected while reading the XML declaration" )
+#define XMLERR_WRONGVALUEFORSDECL         TQT_TRANSLATE_NOOP( "TQXml", "wrong value for standalone declaration" )
+#define XMLERR_EDECLORSDDECLEXPECTED      TQT_TRANSLATE_NOOP( "TQXml", "encoding declaration or standalone declaration expected while reading the XML declaration" )
+#define XMLERR_SDDECLEXPECTED             TQT_TRANSLATE_NOOP( "TQXml", "standalone declaration expected while reading the XML declaration" )
+#define XMLERR_ERRORPARSINGDOCTYPE        TQT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing document type definition" )
+#define XMLERR_LETTEREXPECTED             TQT_TRANSLATE_NOOP( "TQXml", "letter is expected" )
+#define XMLERR_ERRORPARSINGCOMMENT        TQT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing comment" )
+#define XMLERR_ERRORPARSINGREFERENCE      TQT_TRANSLATE_NOOP( "TQXml", "error occurred while parsing reference" )
+#define XMLERR_INTERNALGENERALENTITYINDTD TQT_TRANSLATE_NOOP( "TQXml", "internal general entity reference not allowed in DTD" )
+#define XMLERR_EXTERNALGENERALENTITYINAV  TQT_TRANSLATE_NOOP( "TQXml", "external parsed general entity reference not allowed in attribute value" )
+#define XMLERR_EXTERNALGENERALENTITYINDTD TQT_TRANSLATE_NOOP( "TQXml", "external parsed general entity reference not allowed in DTD" )
+#define XMLERR_UNPARSEDENTITYREFERENCE    TQT_TRANSLATE_NOOP( "TQXml", "unparsed entity reference in wrong context" )
+#define XMLERR_RECURSIVEENTITIES          TQT_TRANSLATE_NOOP( "TQXml", "recursive entities" )
+#define XMLERR_ERRORINTEXTDECL            TQT_TRANSLATE_NOOP( "TQXml", "error in the text declaration of an external entity" )
 
 // the constants for the lookup table
 static const signed char cltWS      =  0; // white space
@@ -2249,7 +2249,7 @@ private:
 	TQString publicId;
 	TQString systemId;
 
-	Q_DUMMY_COMPARISON_OPERATOR(ExternParameterEntity)
+	TQ_DUMMY_COMPARISON_OPERATOR(ExternParameterEntity)
     };
     struct ExternEntity
     {
@@ -2259,7 +2259,7 @@ private:
 	TQString publicId;
 	TQString systemId;
 	TQString notation;
-	Q_DUMMY_COMPARISON_OPERATOR(ExternEntity)
+	TQ_DUMMY_COMPARISON_OPERATOR(ExternEntity)
     };
     TQMap<TQString,ExternParameterEntity> externParameterEntities;
     TQMap<TQString,TQString> parameterEntities;
@@ -7695,4 +7695,4 @@ void TQXmlSimpleReader::stringClear()
 }
 
 
-#endif //QT_NO_XML
+#endif //TQT_NO_XML

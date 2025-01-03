@@ -38,41 +38,23 @@
 **
 **********************************************************************/
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
 #include "qplatformdefs.h"
 
 typedef pthread_mutex_t     Q_MUTEX_T;
 
-// POSIX threads mutex types
-#if ((defined(PTHREAD_MUTEX_RECURSIVE) && defined(PTHREAD_MUTEX_DEFAULT)) || \
-     defined(Q_OS_FREEBSD)) && !defined(Q_OS_UNIXWARE) && !defined(Q_OS_SOLARIS) && \
-    !defined(Q_OS_MAC)
-// POSIX 1003.1c-1995 - We love this OS
-#  define Q_MUTEX_SET_TYPE(a, b) pthread_mutexattr_settype((a), (b))
-#  if defined(QT_CHECK_RANGE)
-#    define Q_NORMAL_MUTEX_TYPE PTHREAD_MUTEX_ERRORCHECK
-#  else
-#    define Q_NORMAL_MUTEX_TYPE PTHREAD_MUTEX_DEFAULT
-#  endif
-#  define Q_RECURSIVE_MUTEX_TYPE PTHREAD_MUTEX_RECURSIVE
-#elif defined(MUTEX_NONRECURSIVE_NP) && defined(MUTEX_RECURSIVE_NP)
-// POSIX 1003.4a pthreads draft extensions
-#  define Q_MUTEX_SET_TYPE(a, b) pthread_mutexattr_setkind_np((a), (b));
-#  define Q_NORMAL_MUTEX_TYPE MUTEX_NONRECURSIVE_NP
-#  define Q_RECURSIVE_MUTEX_TYPE MUTEX_RECURSIVE_NP
+#if defined(QT_CHECK_RANGE)
+#  define Q_NORMAL_MUTEX_TYPE PTHREAD_MUTEX_ERRORCHECK
 #else
-// Unknown mutex types - skip them
-#  define Q_MUTEX_SET_TYPE(a, b)
-#  undef  Q_NORMAL_MUTEX_TYPE
-#  undef  Q_RECURSIVE_MUTEX_TYPE
+#  define Q_NORMAL_MUTEX_TYPE PTHREAD_MUTEX_DEFAULT
 #endif
+#define Q_RECURSIVE_MUTEX_TYPE PTHREAD_MUTEX_RECURSIVE
 
 #include "ntqmutex.h"
 #include "qmutex_p.h"
 
 #include <errno.h>
-#include <stdint.h>
 #include <string.h>
 
 // Private class declarations
@@ -89,27 +71,8 @@ public:
     int level();
 
     bool recursive;
-};
-
-#ifndef    Q_RECURSIVE_MUTEX_TYPE
-class TQRecursiveMutexPrivate : public TQMutexPrivate
-{
-public:
-    TQRecursiveMutexPrivate();
-    ~TQRecursiveMutexPrivate();
-
-    void lock();
-    void unlock();
-    bool locked();
-    bool trylock();
-    int type() const;
-    int level();
-
     int count;
-    unsigned long owner;
-    pthread_mutex_t handle2;
 };
-#endif // !Q_RECURSIVE_MUTEX_TYPE
 
 
 // Private class implementation
@@ -127,12 +90,11 @@ TQMutexPrivate::~TQMutexPrivate()
 
 // real mutex class
 TQRealMutexPrivate::TQRealMutexPrivate(bool recurs)
-    : recursive(recurs)
+    : recursive(recurs), count(0)
 {
     pthread_mutexattr_t attr;
     pthread_mutexattr_init(&attr);
-    Q_MUTEX_SET_TYPE(&attr, recursive ? Q_RECURSIVE_MUTEX_TYPE : Q_NORMAL_MUTEX_TYPE);
-    Q_UNUSED(recursive);
+    pthread_mutexattr_settype(&attr, recursive ? Q_RECURSIVE_MUTEX_TYPE : Q_NORMAL_MUTEX_TYPE);
     int ret = pthread_mutex_init(&handle, &attr);
     pthread_mutexattr_destroy(&attr);
 
@@ -146,36 +108,31 @@ void TQRealMutexPrivate::lock()
 {
     int ret = pthread_mutex_lock(&handle);
 
+    if (!ret) {
+	count++;
+    } else {
 #ifdef QT_CHECK_RANGE
-    if (ret)
 	tqWarning("Mutex lock failure: %s", strerror(ret));
 #endif
+    }
 }
 
 void TQRealMutexPrivate::unlock()
 {
+    count--;
     int ret = pthread_mutex_unlock(&handle);
 
+    if (ret) {
+	count++;
 #ifdef QT_CHECK_RANGE
-    if (ret)
 	tqWarning("Mutex unlock failure: %s", strerror(ret));
 #endif
+    }
 }
 
 bool TQRealMutexPrivate::locked()
 {
-    int ret = pthread_mutex_trylock(&handle);
-
-    if (ret == EBUSY) {
-	return TRUE;
-    } else if (ret) {
-#ifdef QT_CHECK_RANGE
-	tqWarning("Mutex locktest failure: %s", strerror(ret));
-#endif
-    } else
-	pthread_mutex_unlock(&handle);
-
-    return FALSE;
+    return count > 0;
 }
 
 bool TQRealMutexPrivate::trylock()
@@ -201,148 +158,8 @@ int TQRealMutexPrivate::type() const
 
 int TQRealMutexPrivate::level()
 {
-    return locked();
-}
-
-
-#ifndef    Q_RECURSIVE_MUTEX_TYPE
-TQRecursiveMutexPrivate::TQRecursiveMutexPrivate()
-    : count(0), owner(0)
-{
-    pthread_mutexattr_t attr;
-    pthread_mutexattr_init(&attr);
-    Q_MUTEX_SET_TYPE(&attr, Q_NORMAL_MUTEX_TYPE);
-    int ret = pthread_mutex_init(&handle, &attr);
-    pthread_mutexattr_destroy(&attr);
-
-#  ifdef QT_CHECK_RANGE
-    if (ret)
-	tqWarning( "Mutex init failure: %s", strerror(ret) );
-#  endif
-
-    pthread_mutexattr_init(&attr);
-    ret = pthread_mutex_init( &handle2, &attr );
-    pthread_mutexattr_destroy(&attr);
-
-#  ifdef QT_CHECK_RANGE
-    if (ret)
-	tqWarning( "Mutex init failure: %s", strerror(ret) );
-#  endif
-}
-
-TQRecursiveMutexPrivate::~TQRecursiveMutexPrivate()
-{
-    int ret = pthread_mutex_destroy(&handle2);
-
-#  ifdef QT_CHECK_RANGE
-    if (ret)
-	tqWarning( "Mutex destroy failure: %s", strerror(ret) );
-#  endif
-}
-
-void TQRecursiveMutexPrivate::lock()
-{
-    pthread_mutex_lock(&handle2);
-
-    if (count > 0 && owner == (unsigned long) pthread_self()) {
-	count++;
-    } else {
-	pthread_mutex_unlock(&handle2);
-	pthread_mutex_lock(&handle);
-	pthread_mutex_lock(&handle2);
-	count = 1;
-	owner = (unsigned long) pthread_self();
-    }
-
-    pthread_mutex_unlock(&handle2);
-}
-
-void TQRecursiveMutexPrivate::unlock()
-{
-    pthread_mutex_lock(&handle2);
-
-    if (owner == (unsigned long) pthread_self()) {
-	// do nothing if the count is already 0... to reflect the behaviour described
-	// in the docs
-	if (count && (--count) < 1) {
-	    count = 0;
-	    pthread_mutex_unlock(&handle);
-	}
-    } else {
-#ifdef QT_CHECK_RANGE
-	tqWarning("TQMutex::unlock: unlock from different thread than locker");
-	tqWarning("                was locked by %d, unlock attempt from %lu",
-		 (int)owner, (uintptr_t)pthread_self());
-#endif
-    }
-
-    pthread_mutex_unlock(&handle2);
-}
-
-bool TQRecursiveMutexPrivate::locked()
-{
-    pthread_mutex_lock(&handle2);
-
-    bool ret;
-    int code = pthread_mutex_trylock(&handle);
-
-    if (code == EBUSY) {
-	ret = TRUE;
-    } else {
-#ifdef QT_CHECK_RANGE
-	if (code)
-	    tqWarning("Mutex trylock failure: %s", strerror(code));
-#endif
-
-	pthread_mutex_unlock(&handle);
-	ret = FALSE;
-    }
-
-    pthread_mutex_unlock(&handle2);
-
-    return ret;
-}
-
-bool TQRecursiveMutexPrivate::trylock()
-{
-    bool ret = TRUE;
-
-    pthread_mutex_lock(&handle2);
-
-    if ( count > 0 && owner == (unsigned long) pthread_self() ) {
-	count++;
-    } else {
-        int code = pthread_mutex_trylock(&handle);
-
-	if (code == EBUSY) {
-	    ret = FALSE;
-	} else if (code) {
-#ifdef QT_CHECK_RANGE
-	    tqWarning("Mutex trylock failure: %s", strerror(code));
-#endif
-	    ret = FALSE;
-	} else {
-	    count = 1;
-	    owner = (unsigned long) pthread_self();
-	}
-    }
-
-    pthread_mutex_unlock(&handle2);
-
-    return ret;
-}
-
-int TQRecursiveMutexPrivate::type() const
-{
-    return Q_MUTEX_RECURSIVE;
-}
-
-int TQRecursiveMutexPrivate::level()
-{
     return count;
 }
-
-#endif // !Q_RECURSIVE_MUTEX_TYPE
 
 
 /*!
@@ -449,11 +266,6 @@ int TQRecursiveMutexPrivate::level()
 */
 TQMutex::TQMutex(bool recursive)
 {
-#ifndef    Q_RECURSIVE_MUTEX_TYPE
-    if ( recursive )
-	d = new TQRecursiveMutexPrivate();
-    else
-#endif // !Q_RECURSIVE_MUTEX_TYPE
 	d = new TQRealMutexPrivate(recursive);
 }
 
@@ -720,4 +532,4 @@ int TQMutex::level()
     \sa TQMutexLocker::TQMutexLocker()
 */
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT

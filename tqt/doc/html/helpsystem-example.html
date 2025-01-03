@@ -368,9 +368,9 @@ so that the system path is used.
         <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;File", fileMenu );
         <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", helpMenu );
 
-        int fileId = fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "E&amp;xit", this, SLOT(<a href="ntqwidget.html#close">close</a>()) );
+        int fileId = fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "E&amp;xit", this, TQ_SLOT(<a href="ntqwidget.html#close">close</a>()) );
 
-        int helpId = helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Open Assistant", this, SLOT(assistantSlot()) );
+        int helpId = helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Open Assistant", this, TQ_SLOT(assistantSlot()) );
 
         // populate toolbar
         <a href="ntqtoolbar.html">TQToolBar</a>* toolbar = new <a href="ntqtoolbar.html">TQToolBar</a>( this );
@@ -385,9 +385,9 @@ and the toolbar are populated.
 which will enter "What's this?" mode when clicked.
 <pre>        //create tooltipgroup
         <a href="qtooltipgroup.html">TQToolTipGroup</a> * tipGroup = new <a href="qtooltipgroup.html">TQToolTipGroup</a>( this );
-    <a name="x2697"></a>    <a href="ntqobject.html#connect">connect</a>( tipGroup, SIGNAL(<a href="qtooltipgroup.html#showTip">showTip</a>(const <a href="ntqstring.html">TQString</a>&amp;)), statusBar(),
-            SLOT(message(const <a href="ntqstring.html">TQString</a>&amp;)) );
-    <a name="x2696"></a>    <a href="ntqobject.html#connect">connect</a>( tipGroup, SIGNAL(<a href="qtooltipgroup.html#removeTip">removeTip</a>()), statusBar(), SLOT(clear()) );
+    <a name="x2697"></a>    <a href="ntqobject.html#connect">connect</a>( tipGroup, TQ_SIGNAL(<a href="qtooltipgroup.html#showTip">showTip</a>(const <a href="ntqstring.html">TQString</a>&amp;)), statusBar(),
+            TQ_SLOT(message(const <a href="ntqstring.html">TQString</a>&amp;)) );
+    <a name="x2696"></a>    <a href="ntqobject.html#connect">connect</a>( tipGroup, TQ_SIGNAL(<a href="qtooltipgroup.html#removeTip">removeTip</a>()), statusBar(), TQ_SLOT(clear()) );
 </pre>
 <p> A <a href="qtooltipgroup.html">TQToolTipGroup</a> is created and will show and remove tooltips
 in the statusbar as the tooltips are displayed on the widgets.
@@ -422,13 +422,13 @@ Instances of the two WhatsThis subclasses are created for the
 headers and the table. What's This? help is also added for the 
 menu items.
 <pre>        // connections
-        <a href="ntqobject.html#connect">connect</a>( assistantButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(assistantSlot()) );
-        <a href="ntqobject.html#connect">connect</a>( horizontalWhatsThis, SIGNAL(linkClicked(const <a href="ntqstring.html">TQString</a>&amp;)), assistant,
-            SLOT(<a href="ntqassistantclient.html#showPage">showPage</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
-        <a href="ntqobject.html#connect">connect</a>( verticalWhatsThis, SIGNAL(linkClicked(const <a href="ntqstring.html">TQString</a>&amp;)), assistant,
-            SLOT(<a href="ntqassistantclient.html#showPage">showPage</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
-        <a href="ntqobject.html#connect">connect</a>( cellWhatsThis, SIGNAL(linkClicked(const <a href="ntqstring.html">TQString</a>&amp;)), assistant,
-            SLOT(<a href="ntqassistantclient.html#showPage">showPage</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
+        <a href="ntqobject.html#connect">connect</a>( assistantButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(assistantSlot()) );
+        <a href="ntqobject.html#connect">connect</a>( horizontalWhatsThis, TQ_SIGNAL(linkClicked(const <a href="ntqstring.html">TQString</a>&amp;)), assistant,
+            TQ_SLOT(<a href="ntqassistantclient.html#showPage">showPage</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
+        <a href="ntqobject.html#connect">connect</a>( verticalWhatsThis, TQ_SIGNAL(linkClicked(const <a href="ntqstring.html">TQString</a>&amp;)), assistant,
+            TQ_SLOT(<a href="ntqassistantclient.html#showPage">showPage</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
+        <a href="ntqobject.html#connect">connect</a>( cellWhatsThis, TQ_SIGNAL(linkClicked(const <a href="ntqstring.html">TQString</a>&amp;)), assistant,
+            TQ_SLOT(<a href="ntqassistantclient.html#showPage">showPage</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
     }
 </pre>
 <p> Signals and slots are connected, so that the relevant pages will
@@ -471,7 +471,7 @@ in TQt Assistant.
 <p> The main function is a standard implementation opening
 the application main window.
 <p> To build the example go to the helpsystem directory
-(QTDIR/examples/helpsystem) run qmake to generate the makefile, 
+(TQTDIR/examples/helpsystem) run qmake to generate the makefile, 
 and use the make tool to build the library. 
 
 <hr>

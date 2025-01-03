@@ -11,12 +11,12 @@ QTabBar \- Tab bar, e.g. for use in tabbed dialogs
 .SH SYNOPSIS
 \fC#include <ntqtabbar.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTabBar\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQTabBar\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QTabBar\fR ()"
@@ -73,10 +73,10 @@ Inherits QWidget.
 .BI "void \fBremoveToolTip\fR ( int index )"
 .br
 .ti -1c
-.BI "void \fBsetToolTip\fR ( int index, const QString & tip )"
+.BI "void \fBsetToolTip\fR ( int index, const TQString & tip )"
 .br
 .ti -1c
-.BI "QString \fBtoolTip\fR ( int index ) const"
+.BI "TQString \fBtoolTip\fR ( int index ) const"
 .br
 .in -1c
 .SS "Public Slots"
@@ -130,7 +130,7 @@ Inherits QWidget.
 .SH DESCRIPTION
 The QTabBar class provides a tab bar, e.g. for use in tabbed dialogs.
 .PP
-QTabBar is straightforward to use; it draws the tabs using one of the predefined shapes, and emits a signal when a tab is selected. It can be subclassed to tailor the look and feel. Qt also provides a ready-made QTabWidget and a QTabDialog.
+QTabBar is straightforward to use; it draws the tabs using one of the predefined shapes, and emits a signal when a tab is selected. It can be subclassed to tailor the look and feel. TQt also provides a ready-made QTabWidget and a QTabDialog.
 .PP
 The choice of tab shape is a matter of taste, although tab dialogs (for preferences and similar) invariably use RoundedAbove; nobody uses TriangularAbove. Tab controls in windows other than dialogs almost always use either RoundedBelow or TriangularBelow. Many spreadsheets and other tab controls in which all the pages are essentially similar use TriangularBelow, whereas RoundedBelow is used mostly when the pages are different (e.g. a multi-page tool palette).
 .PP
@@ -168,8 +168,8 @@ This enum type lists the built-in shapes supported by QTabBar:
 .TP
 \fCQTabBar::TriangularBelow\fR - triangular tabs similar to those used in the Excel spreadsheet, for example
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTabBar::QTabBar ( QWidget * parent = 0, const char * name = 0 )"
-Constructs a new, empty tab bar; the \fIparent\fR and \fIname\fR arguments are passed on to the QWidget constructor.
+.SH "QTabBar::QTabBar ( TQWidget * parent = 0, const char * name = 0 )"
+Constructs a new, empty tab bar; the \fIparent\fR and \fIname\fR arguments are passed on to the TQWidget constructor.
 .SH "QTabBar::~QTabBar ()"
 Destroys the tab control, freeing memory used.
 .SH "int QTabBar::addTab ( QTab * newTab )\fC [virtual]\fR"
@@ -213,7 +213,7 @@ Repaints the tab row. All the painting is done by paint(); paintEvent() only dec
 .PP
 See also paint().
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "void QTabBar::paintLabel ( QPainter * p, const QRect & br, QTab * t, bool has_focus ) const\fC [virtual protected]\fR"
 Paints the label of tab \fIt\fR centered in rectangle \fIbr\fR using painter \fIp\fR. A focus indication is drawn if \fIhas_focus\fR is TRUE.
 .SH "void QTabBar::removeTab ( QTab * t )\fC [virtual]\fR"
@@ -244,7 +244,7 @@ Enables tab \fIid\fR if \fIenabled\fR is TRUE or disables it if \fIenabled\fR is
 setTabEnabled() updates the display if this causes a change in \fIid\fR's status.
 .PP
 See also update() and isTabEnabled().
-.SH "void QTabBar::setToolTip ( int index, const QString & tip )"
+.SH "void QTabBar::setToolTip ( int index, const TQString & tip )"
 Sets the tool tip for the tab at index position \fIindex\fR to \fItip\fR.
 .SH "Shape QTabBar::shape () const"
 Returns the shape of the tabs in the tab bar. See the "shape" property for details.
@@ -272,7 +272,7 @@ This list is unlikely to be in the order that the QTab elements appear visually.
     }
 .br
 .fi
-.SH "QString QTabBar::toolTip ( int index ) const"
+.SH "TQString QTabBar::toolTip ( int index ) const"
 Returns the tool tip for the tab at index position \fIindex\fR.
 .SS "Property Documentation"
 .SH "int count"
@@ -320,8 +320,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

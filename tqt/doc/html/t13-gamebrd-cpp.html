@@ -56,7 +56,7 @@ body { background: #ffffff; color: black; }
     <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Quit", this, "quit" );
     quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a href="ntqobject.html#connect">connect</a>( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
     LCDRange *angle  = new LCDRange( "ANGLE", this, "angle" );
     angle-&gt;setRange( 5, 70 );
@@ -66,33 +66,33 @@ body { background: #ffffff; color: black; }
 
     cannonField = new CannonField( this, "cannonField" );
 
-    <a href="ntqobject.html#connect">connect</a>( angle, SIGNAL(valueChanged(int)),
-             cannonField, SLOT(setAngle(int)) );
-    <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(angleChanged(int)),
-             angle, SLOT(setValue(int)) );
+    <a href="ntqobject.html#connect">connect</a>( angle, TQ_SIGNAL(valueChanged(int)),
+             cannonField, TQ_SLOT(setAngle(int)) );
+    <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(angleChanged(int)),
+             angle, TQ_SLOT(setValue(int)) );
 
-    <a href="ntqobject.html#connect">connect</a>( force, SIGNAL(valueChanged(int)),
-             cannonField, SLOT(setForce(int)) );
-    <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(forceChanged(int)),
-             force, SLOT(setValue(int)) );
+    <a href="ntqobject.html#connect">connect</a>( force, TQ_SIGNAL(valueChanged(int)),
+             cannonField, TQ_SLOT(setForce(int)) );
+    <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(forceChanged(int)),
+             force, TQ_SLOT(setValue(int)) );
 
-    <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(hit()),
-             this, SLOT(hit()) );
-    <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(missed()),
-             this, SLOT(missed()) );
+    <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(hit()),
+             this, TQ_SLOT(hit()) );
+    <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(missed()),
+             this, TQ_SLOT(missed()) );
 
     <a href="ntqpushbutton.html">TQPushButton</a> *shoot = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Shoot", this, "shoot" );
     shoot-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a href="ntqobject.html#connect">connect</a>( shoot, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(fire()) );
-    <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(canShoot(bool)),
-             shoot, SLOT(<a href="ntqwidget.html#setEnabled">setEnabled</a>(bool)) );
+    <a href="ntqobject.html#connect">connect</a>( shoot, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(fire()) );
+    <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(canShoot(bool)),
+             shoot, TQ_SLOT(<a href="ntqwidget.html#setEnabled">setEnabled</a>(bool)) );
 
     TQPushButton *restart
         = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;New Game", this, "newgame" );
     restart-&gt;setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a href="ntqobject.html#connect">connect</a>( restart, SIGNAL(clicked()), this, SLOT(newGame()) );
+    <a href="ntqobject.html#connect">connect</a>( restart, TQ_SIGNAL(clicked()), this, TQ_SLOT(newGame()) );
 
     hits = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, this, "hits" );
     shotsLeft = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, this, "shotsleft" );

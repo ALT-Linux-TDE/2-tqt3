@@ -12,7 +12,7 @@ QPixmapCache \- Application-global cache for pixmaps
 \fC#include <ntqpixmapcache.h>\fR
 .PP
 .SS "Static Public Members"
-<li class=fn>int \fBcacheLimit\fR () <li class=fn>void \fBsetCacheLimit\fR ( int n ) <li class=fn>QPixmap * \fBfind\fR ( const QString & key ) <li class=fn>bool \fBfind\fR ( const QString & key, QPixmap & pm ) <li class=fn>bool insert ( const QString & key, QPixmap * pm ) \fI(obsolete)\fR <li class=fn>bool \fBinsert\fR ( const QString & key, const QPixmap & pm ) <li class=fn>void \fBremove\fR ( const QString & key ) <li class=fn>void \fBclear\fR ()
+<li class=fn>int \fBcacheLimit\fR () <li class=fn>void \fBsetCacheLimit\fR ( int n ) <li class=fn>QPixmap * \fBfind\fR ( const TQString & key ) <li class=fn>bool \fBfind\fR ( const TQString & key, QPixmap & pm ) <li class=fn>bool insert ( const TQString & key, QPixmap * pm ) \fI(obsolete)\fR <li class=fn>bool \fBinsert\fR ( const TQString & key, const QPixmap & pm ) <li class=fn>void \fBremove\fR ( const TQString & key ) <li class=fn>void \fBclear\fR ()
 .SH DESCRIPTION
 The QPixmapCache class provides an application-global cache for pixmaps.
 .PP
@@ -38,10 +38,10 @@ The default setting is 1024 kilobytes.
 See also setCacheLimit().
 .SH "void QPixmapCache::clear ()\fC [static]\fR"
 Removes all pixmaps from the cache.
-.SH "QPixmap * QPixmapCache::find ( const QString & key )\fC [static]\fR"
+.SH "QPixmap * QPixmapCache::find ( const TQString & key )\fC [static]\fR"
 Returns the pixmap associated with the \fIkey\fR in the cache, or null if there is no such pixmap.
 .PP
-\fBWarning:\fR If valid, you should copy the pixmap immediately (this is fast). Subsequent insertions into the cache could cause the pointer to become invalid. For this reason, we recommend you use find(const QString&, QPixmap&) instead.
+\fBWarning:\fR If valid, you should copy the pixmap immediately (this is fast). Subsequent insertions into the cache could cause the pointer to become invalid. For this reason, we recommend you use find(const TQString&, QPixmap&) instead.
 .PP
 Example:
 .PP
@@ -66,7 +66,7 @@ Example:
         painter->drawPixmap(0, 0, p);
 .br
 .fi
-.SH "bool QPixmapCache::find ( const QString & key, QPixmap & pm )\fC [static]\fR"
+.SH "bool QPixmapCache::find ( const TQString & key, QPixmap & pm )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Looks for a cached pixmap associated with the \fIkey\fR in the cache. If a pixmap is found, the function sets \fIpm\fR to that pixmap and returns TRUE; otherwise leaves \fIpm\fR alone and returns FALSE.
@@ -88,17 +88,17 @@ Example:
         painter->drawPixmap(0, 0, p);
 .br
 .fi
-.SH "bool QPixmapCache::insert ( const QString & key, const QPixmap & pm )\fC [static]\fR"
+.SH "bool QPixmapCache::insert ( const TQString & key, const QPixmap & pm )\fC [static]\fR"
 Inserts a copy of the pixmap \fIpm\fR associated with the \fIkey\fR into the cache.
 .PP
-All pixmaps inserted by the Qt library have a key starting with" $qt", so your own pixmap keys should never begin "$qt".
+All pixmaps inserted by the TQt library have a key starting with" $qt", so your own pixmap keys should never begin "$qt".
 .PP
 When a pixmap is inserted and the cache is about to exceed its limit, it removes pixmaps until there is enough room for the pixmap to be inserted.
 .PP
 The oldest pixmaps (least recently accessed in the cache) are deleted when more space is needed.
 .PP
 See also setCacheLimit().
-.SH "bool QPixmapCache::insert ( const QString & key, QPixmap * pm )\fC [static]\fR"
+.SH "bool QPixmapCache::insert ( const TQString & key, QPixmap * pm )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Inserts the pixmap \fIpm\fR associated with \fIkey\fR into the cache. Returns TRUE if successful, or FALSE if the pixmap is too big for the cache.
@@ -107,10 +107,10 @@ Inserts the pixmap \fIpm\fR associated with \fIkey\fR into the cache. Returns TR
 .PP
 If this function returns FALSE, you must delete \fIpm\fR yourself.
 .PP
-If this function returns TRUE, do not use \fIpm\fR afterwards or keep references to it because any other insertions into the cache, whether from anywhere in the application or within Qt itself, could cause the pixmap to be discarded from the cache and the pointer to become invalid.
+If this function returns TRUE, do not use \fIpm\fR afterwards or keep references to it because any other insertions into the cache, whether from anywhere in the application or within TQt itself, could cause the pixmap to be discarded from the cache and the pointer to become invalid.
 .PP
-Due to these dangers, we strongly recommend that you use insert(const QString&, const QPixmap&) instead. \fR
-.SH "void QPixmapCache::remove ( const QString & key )\fC [static]\fR"
+Due to these dangers, we strongly recommend that you use insert(const TQString&, const QPixmap&) instead. \fR
+.SH "void QPixmapCache::remove ( const TQString & key )\fC [static]\fR"
 Removes the pixmap associated with \fIkey\fR from the cache.
 .SH "void QPixmapCache::setCacheLimit ( int n )\fC [static]\fR"
 Sets the cache limit to \fIn\fR kilobytes.
@@ -133,8 +133,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

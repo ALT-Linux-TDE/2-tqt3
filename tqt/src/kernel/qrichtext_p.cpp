@@ -40,13 +40,13 @@
 
 #include "qrichtext_p.h"
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 
 TQTextCommand::~TQTextCommand() {}
 TQTextCommand::Commands TQTextCommand::type() const { return Invalid; }
 
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 TQTextCustomItem::~TQTextCustomItem() {}
 void TQTextCustomItem::adjustToPainter( TQPainter* p){ if ( p ) width = 0; }
 TQTextCustomItem::Placement TQTextCustomItem::placement() const { return PlaceInline; }
@@ -84,16 +84,16 @@ bool TQTextCustomItem::up( TQTextCursor *, TQTextDocument *&, TQTextParagraph *&
 {
     return TRUE;
 }
-#endif // QT_NO_TEXTCUSTOMITEM
+#endif // TQT_NO_TEXTCUSTOMITEM
 
 void TQTextFlow::setPageSize( int ps ) { pagesize = ps; }
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 bool TQTextFlow::isEmpty() { return leftItems.isEmpty() && rightItems.isEmpty(); }
 #else
 bool TQTextFlow::isEmpty() { return TRUE; }
 #endif
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 void TQTextTableCell::invalidate() { cached_width = -1; cached_sizehint = -1; }
 
 void TQTextTable::invalidate() { cachewidth = -1; }
@@ -337,6 +337,19 @@ int TQTextFormat::pntr_asc=-1;
 int TQTextFormat::pntr_hei=-1;
 int TQTextFormat::pntr_dsc=-1;
 
+void TQTextFormat::cleanupPrivateData() {
+    delete TQTextFormat::pntr_fm;
+    TQTextFormat::pntr_fm = 0;
+    TQTextFormat::pntr = 0;
+
+    // Not really necessary, but better to tidy-up everything
+    TQTextFormat::pntr_fm = 0;
+    TQTextFormat::pntr_ldg=-1;
+    TQTextFormat::pntr_asc=-1;
+    TQTextFormat::pntr_hei=-1;
+    TQTextFormat::pntr_dsc=-1;
+}
+
 void TQTextFormat::setPainter( TQPainter *p )
 {
     pntr = p;
@@ -350,10 +363,16 @@ TQPainter*  TQTextFormat::painter()
 void TQTextFormat::applyFont( const TQFont &f )
 {
     TQFontMetrics fm( pntr->fontMetrics() );
+
+    if ( !pntr_fm ) {
+	tqAddPostRoutine( &TQTextFormat::cleanupPrivateData );
+    }
+
     if ( !pntr_fm
 	|| pntr_fm->painter != pntr
 	|| pntr_fm->d != fm.d
-	|| !pntr->font().isCopyOf( f ) ) {
+	|| !pntr->font().isCopyOf( f )
+       ) {
 	pntr->setFont( f );
 	delete pntr_fm;
 	pntr_fm = new TQFontMetrics( pntr->fontMetrics() );
@@ -612,7 +631,7 @@ TQMap<int, TQTextParagraphSelection> &TQTextParagraph::selections() const
     return *mSelections;
 }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 TQPtrList<TQTextCustomItem> &TQTextParagraph::floatingItems() const
 {
     if ( !mFloatingItems )
@@ -633,4 +652,4 @@ TQTextParagraphPseudoDocument::TQTextParagraphPseudoDocument():pFormatter(0),com
 TQTextParagraphPseudoDocument::~TQTextParagraphPseudoDocument(){ delete pFormatter; delete commandHistory; }
 
 
-#endif //QT_NO_RICHTEXT
+#endif //TQT_NO_RICHTEXT

@@ -52,7 +52,7 @@
 #include <ntqmime.h>
 #include <ntqdragobject.h>
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include <ntqsqlrecord.h>
 #include <ntqsqldatabase.h>
 #include <ntqdatatable.h>
@@ -67,7 +67,7 @@
 #include <ntqbuttongroup.h>
 #include <ntqiconview.h>
 #include <ntqheader.h>
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 #include <ntqtable.h>
 #endif
 #include <ntqlistbox.h>
@@ -120,13 +120,13 @@ static TQPluginManager<WidgetInterface> *widgetInterfaceManager = 0;
 static TQMap<TQString, bool> *availableWidgetMap = 0;
 static TQStringList *availableWidgetList = 0;
 
-Q_EXPORT TQMap<TQWidget*, TQString> *qwf_forms = 0;
+TQ_EXPORT TQMap<TQWidget*, TQString> *qwf_forms = 0;
 TQString *qwf_language = 0;
-Q_EXPORT bool qwf_execute_code = TRUE;
+TQ_EXPORT bool qwf_execute_code = TRUE;
 bool qwf_stays_on_top = FALSE;
 TQString qwf_currFileName = "";
 TQObject *qwf_form_object = 0;
-Q_EXPORT TQString *qwf_plugin_dir = 0;
+TQ_EXPORT TQString *qwf_plugin_dir = 0;
 
 static void setupPluginDir()
 {
@@ -359,7 +359,7 @@ TQWidget *TQWidgetFactory::create( TQIODevice *dev, TQObject *connector, TQWidge
     widgetFactory->loadExtraSource();
 
     if ( widgetFactory->toplevel ) {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 	TQMap<TQWidget*, SqlWidgetConnection>::Iterator cit = widgetFactory->sqlWidgetConnections.begin();
 	for( ; cit != widgetFactory->sqlWidgetConnections.end(); ++cit ) {
 	    if ( widgetFactory->noDatabaseWidgets.find( cit.key()->name() ) !=
@@ -637,7 +637,7 @@ void TQWidgetFactory::unpackVariant( const UibStrTable& strings, TQDataStream& i
 	break;
     case TQVariant::Bool:
 	in >> bit;
-	value = TQVariant( bit != 0, 0 );
+	value = TQVariant( bit != 0 );
 	break;
     case TQVariant::Double:
 	in >> value.asDouble();
@@ -777,7 +777,7 @@ void TQWidgetFactory::inputColumnOrRow( const UibStrTable& strings,
 	if ( parent->inherits("TQListView") ) {
 	    createListViewColumn( (TQListView *) parent, text, pixmap, clickable,
 				  resizable );
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 	} else if ( parent->inherits("TQTable") ) {
 	    createTableColumnOrRow( (TQTable *) parent, text, pixmap, field,
 				    isRow );
@@ -870,7 +870,7 @@ void TQWidgetFactory::inputItem( const UibStrTable& strings, TQDataStream& in,
 		} else {
 		    (void) new TQListBoxPixmap( listBox, pixmap, text );
 		}
-    #ifndef QT_NO_ICONVIEW
+    #ifndef TQT_NO_ICONVIEW
 	    } else if ( parent->inherits("TQIconView") ) {
 		(void) new TQIconViewItem( (TQIconView *) parent, text, pixmap );
     #endif
@@ -1434,11 +1434,11 @@ TQWidget *TQWidgetFactory::createWidget( const TQString &className, TQWidget *pa
     } else if ( className == "TQButtonGroup" ) {
 	return new TQButtonGroup( parent, name );
     } else if ( className == "TQIconView" ) {
-#if !defined(QT_NO_ICONVIEW)
+#if !defined(TQT_NO_ICONVIEW)
 	return new TQIconView( parent, name );
 #endif
     } else if ( className == "TQTable" ) {
-#if !defined(QT_NO_TABLE)
+#if !defined(TQT_NO_TABLE)
 	return new TQTable( parent, name );
 #endif
     } else if ( className == "TQListBox" ) {
@@ -1523,7 +1523,7 @@ TQWidget *TQWidgetFactory::createWidget( const TQString &className, TQWidget *pa
 	return mw;
 
     }
-#if !defined(QT_NO_SQL)
+#if !defined(TQT_NO_SQL)
     else if ( className == "TQDataTable" ) {
 	return new TQDataTable( parent, name );
     } else if ( className == "TQDataBrowser" ) {
@@ -1863,7 +1863,7 @@ void TQWidgetFactory::setProperty( TQObject* obj, const TQString &prop,
 	    } else if ( prop == "buttonGroupId" ) {
 		if ( obj->inherits( "TQButton" ) && obj->parent()->inherits( "TQButtonGroup" ) )
 		    ( (TQButtonGroup*)obj->parent() )->insert( (TQButton*)obj, value.toInt() );
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 	    } else if ( prop == "database" && !obj->inherits( "TQDataView" )
 		 && !obj->inherits( "TQDataBrowser" ) ) {
 		const TQStringList& lst = value.asStringList();
@@ -2217,18 +2217,18 @@ void TQWidgetFactory::createListViewColumn( TQListView *lv, const TQString& txt,
 	lv->header()->setResizeEnabled( resizable, i );
 }
 
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 void TQWidgetFactory::createTableColumnOrRow( TQTable *table, const TQString& txt,
 					     const TQPixmap& pix,
 					     const TQString& field, bool isRow )
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     bool isSql = table->inherits( "TQDataTable" );
 #endif
     if ( isRow )
 	table->setNumRows( table->numRows() + 1 );
     else {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 	if ( !isSql )
 #endif
 	    table->setNumCols( table->numCols() + 1 );
@@ -2243,14 +2243,14 @@ void TQWidgetFactory::createTableColumnOrRow( TQTable *table, const TQString& tx
     int i = isRow ? table->numRows() - 1 : table->numCols() - 1;
     TQHeader *h = !isRow ? table->horizontalHeader() : table->verticalHeader();
     if ( !pix.isNull() ) {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 	if ( isSql )
 	    ((TQDataTable*)table)->addColumn( field, txt, -1, pix );
 	else
 #endif
 	    h->setLabel( i, pix, txt );
     } else {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 	if ( isSql )
 	    ((TQDataTable*)table)->addColumn( field, txt );
 	else
@@ -2290,7 +2290,7 @@ void TQWidgetFactory::createColumn( const TQDomElement &e, TQWidget *widget )
 	}
 	createListViewColumn( lv, txt, pix, clickable, resizable );
     }
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     else if ( widget->inherits( "TQTable" ) ) {
 	TQTable *table = (TQTable*)widget;
 
@@ -2361,7 +2361,7 @@ void TQWidgetFactory::createItem( const TQDomElement &e, TQWidget *widget, TQLis
 	} else {
 	    new TQListBoxText( lb, txt );
 	}
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
     } else if ( widget->inherits( "TQIconView" ) ) {
 	TQDomElement n = e.firstChild().toElement();
 	TQPixmap pix;

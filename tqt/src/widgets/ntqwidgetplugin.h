@@ -46,9 +46,9 @@
 #include "ntqstringlist.h"
 #include "ntqiconset.h"
 #endif // QT_H
-#ifndef QT_NO_WIDGETPLUGIN
+#ifndef TQT_NO_WIDGETPLUGIN
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #ifdef QT_PLUGIN
 #define QT_WIDGET_PLUGIN_EXPORT __declspec(dllexport)
 #else
@@ -61,7 +61,7 @@
 class TQWidgetPluginPrivate;
 class TQWidget;
 
-class Q_EXPORT TQWidgetPlugin : public TQGPlugin
+class TQ_EXPORT TQWidgetPlugin : public TQGPlugin
 {
     TQ_OBJECT
 public:
@@ -86,7 +86,7 @@ private:
 
 class TQWidgetContainerPluginPrivate;
 
-class Q_EXPORT TQWidgetContainerPlugin : public TQWidgetPlugin
+class TQ_EXPORT TQWidgetContainerPlugin : public TQWidgetPlugin
 {
 
 public:
@@ -116,5 +116,5 @@ public:
 };
 
 #endif // QT_CONTAINER_CUSTOM_WIDGETS
-#endif // QT_NO_WIDGETPLUGIN
+#endif // TQT_NO_WIDGETPLUGIN
 #endif // TQWIDGETPLUGIN_H

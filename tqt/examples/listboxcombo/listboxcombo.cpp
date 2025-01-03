@@ -85,8 +85,8 @@ ListBoxCombo::ListBoxCombo( TQWidget *parent, const char *name )
 
     // Create a pushbutton...
     TQPushButton *arrow1 = new TQPushButton( " -> ", row1 );
-    // ...and connect the clicked SIGNAL with the SLOT slotLeft2Right
-    connect( arrow1, SIGNAL( clicked() ), this, SLOT( slotLeft2Right() ) );
+    // ...and connect the clicked TQ_SIGNAL with the TQ_SLOT slotLeft2Right
+    connect( arrow1, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotLeft2Right() ) );
 
     // create an empty single-selection ListBox
     lb2 = new TQListBox( row1 );
@@ -131,12 +131,12 @@ ListBoxCombo::ListBoxCombo( TQWidget *parent, const char *name )
     }
 
     // Connect the activated SIGNALs of the Comboboxes with SLOTs
-    connect( cb1, SIGNAL( activated( const TQString & ) ), this, SLOT( slotCombo1Activated( const TQString & ) ) );
-    connect( cb2, SIGNAL( activated( const TQString & ) ), this, SLOT( slotCombo2Activated( const TQString & ) ) );
+    connect( cb1, TQ_SIGNAL( activated( const TQString & ) ), this, TQ_SLOT( slotCombo1Activated( const TQString & ) ) );
+    connect( cb2, TQ_SIGNAL( activated( const TQString & ) ), this, TQ_SLOT( slotCombo2Activated( const TQString & ) ) );
 }
 
 /*
- * SLOT slotLeft2Right
+ * TQ_SLOT slotLeft2Right
  *
  * Copies all selected items of the first ListBox into the
  * second ListBox
@@ -161,7 +161,7 @@ void ListBoxCombo::slotLeft2Right()
 }
 
 /*
- * SLOT slotCombo1Activated( const TQString &s )
+ * TQ_SLOT slotCombo1Activated( const TQString &s )
  *
  * Sets the text of the item which the user just selected
  * in the first Combobox (and is now the value of s) to
@@ -174,7 +174,7 @@ void ListBoxCombo::slotCombo1Activated( const TQString &s )
 }
 
 /*
- * SLOT slotCombo2Activated( const TQString &s )
+ * TQ_SLOT slotCombo2Activated( const TQString &s )
  *
  * Sets the text of the item which the user just selected
  * in the second Combobox (and is now the value of s) to

@@ -11,7 +11,7 @@ int main(int argc, char **argv)
     MyObject obj;
     MyDialog dia;
     app.setMainWidget( &dia );
-    dia.connect( dia.aButton, SIGNAL(clicked()), SLOT(close()) );
+    dia.connect( dia.aButton, TQ_SIGNAL(clicked()), TQ_SLOT(close()) );
     dia.show();
 
     return app.exec();

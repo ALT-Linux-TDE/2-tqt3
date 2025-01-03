@@ -17,7 +17,7 @@ int main( int argc, char **argv )
     quit.resize( 75, 30 );
     quit.setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    TQObject::connect( &quit, SIGNAL(clicked()), &a, SLOT(quit()) );
+    TQObject::connect( &quit, TQ_SIGNAL(clicked()), &a, TQ_SLOT(quit()) );
 
     a.setMainWidget( &quit );
     quit.show();

@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 #
-# Configures to build the Qt library
+# Configures to build the TQt library
 #
 # Copyright (C) 1999-2008 Trolltech ASA.  All rights reserved.
 #
@@ -79,7 +79,7 @@ Licensee="Free"
 Products="qt-free"
 
 # modules depending on free license
-MODULES="styles tools kernel widgets dialogs iconview workspace inputmethod \
+MODULES="styles tools kernel widgets dialogs workspace inputmethod \
          network canvas table xml opengl sql"
 CFG_MODULES_AVAILABLE=$MODULES
 QMAKE_VARS="$QMAKE_VARS \"QT_PRODUCT=$Products\""
@@ -91,8 +91,8 @@ QMAKE_VARS="$QMAKE_VARS \"kbd-drivers += tty\" \"mouse-drivers += pc\""
 # initalize variables
 #-------------------------------------------------------------------------------
 
-# QTDIR may be set and point to an old or system-wide Qt installation
-unset QTDIR
+# TQTDIR may be set and point to an old or system-wide TQt installation
+unset TQTDIR
 
 # initalize internal variables
 CFG_CONFIGURE_EXIT_ON_ERROR=yes
@@ -171,7 +171,7 @@ QT_INSTALL_PLUGINS=
 QT_INSTALL_DATA=
 QT_INSTALL_TRANSLATIONS=
 QT_INSTALL_SYSCONF=
-
+QT_INSTALL_SHARE=
 
 #-------------------------------------------------------------------------------
 # check SQL drivers and styles available in this package
@@ -241,7 +241,7 @@ while [ "$#" -gt 0 ]; do
 	    UNKNOWN_ARG=yes
 	fi
 	;;
-    -prefix|-docdir|-headerdir|-plugindir|-datadir|-libdir|-bindir|-translationdir|-sysconfdir|-depths|-make|-nomake|-platform|-xplatform|-buildkey)
+    -prefix|-sysshare|-docdir|-headerdir|-plugindir|-datadir|-libdir|-bindir|-translationdir|-sysconfdir|-depths|-make|-nomake|-platform|-xplatform|-buildkey)
 	VAR=`echo $1 | sed "s,^-\(.*\),\1,"`
 	shift
 	VAL=$1
@@ -371,6 +371,9 @@ while [ "$#" -gt 0 ]; do
     sysconfdir)
 	QT_INSTALL_SYSCONF="$VAL"
 	;;
+    sysshare)
+	QT_INSTALL_SHARE="$VAL"
+	;;
     qconfig)
 	CFG_QCONFIG="$VAL"
 	;;
@@ -395,9 +398,9 @@ while [ "$#" -gt 0 ]; do
 	;;
     endian)
         if [ "$VAL" = "little" ]; then
-            CFG_ENDIAN="Q_LITTLE_ENDIAN"
+            CFG_ENDIAN="TQ_LITTLE_ENDIAN"
         elif [ "$VAL" = "big" ]; then
-	    CFG_ENDIAN="Q_BIG_ENDIAN"
+	    CFG_ENDIAN="TQ_BIG_ENDIAN"
         else
 	    UNKNOWN_OPT=yes
 	fi
@@ -783,7 +786,7 @@ while [ "$#" -gt 0 ]; do
 	fi
 	;;
     imgfmt-*|style-*|sql-*|gfx-*|kbd-*|mouse-*)
-	# if Qt style options were used, $VAL can be "no", "qt", or "plugin"
+	# if TQt style options were used, $VAL can be "no", "qt", or "plugin"
 	# if autoconf style options were used, $VAL can be "yes" or "no"
 	[ "$VAL" = "yes" ] && VAL=qt
 	# now $VAL should be "no", "qt", or "plugin"... double-check
@@ -940,6 +943,8 @@ done
 [ -z "$QT_INSTALL_TRANSLATIONS" ] && QT_INSTALL_TRANSLATIONS=$QT_INSTALL_PREFIX/translations
 # default PREFIX/etc/settings
 [ -z "$QT_INSTALL_SYSCONF" ]      && QT_INSTALL_SYSCONF=$QT_INSTALL_PREFIX/etc/settings
+# default PREFIX/share
+[ -z "$QT_INSTALL_SHARE" ]        && QT_INSTALL_SHARE=$QT_INSTALL_PREFIX/share
 
 # generate qconfig.cpp
 [ -d $outpath/src/tools ] || mkdir -p $outpath/src/tools
@@ -956,6 +961,7 @@ static const char QT_INSTALL_PLUGINS     [267] = "qt_plgpath=$QT_INSTALL_PLUGINS
 static const char QT_INSTALL_DATA        [267] = "qt_datpath=$QT_INSTALL_DATA";
 static const char QT_INSTALL_TRANSLATIONS[267] = "qt_trnpath=$QT_INSTALL_TRANSLATIONS";
 static const char QT_INSTALL_SYSCONF     [267] = "qt_cnfpath=$QT_INSTALL_SYSCONF";
+static const char QT_INSTALL_SHARE       [267] = "qt_shapath=$QT_INSTALL_SHARE";
 
 /* strlen( "qt_xxxpath=" ) == 11 */
 const char *tqInstallPath()             { return QT_INSTALL_PREFIX       + 11; }
@@ -967,6 +973,7 @@ const char *tqInstallPathPlugins()      { return QT_INSTALL_PLUGINS      + 11; }
 const char *tqInstallPathData()         { return QT_INSTALL_DATA         + 11; }
 const char *tqInstallPathTranslations() { return QT_INSTALL_TRANSLATIONS + 11; }
 const char *tqInstallPathSysconf()      { return QT_INSTALL_SYSCONF      + 11; }
+const char *tqInstallPathShare()        { return QT_INSTALL_SHARE        + 11; }
 EOF
 
 # avoid unecessary rebuilds by copying only if qconfig.cpp has changed
@@ -1460,7 +1467,6 @@ fi
 # find default thread option for target
 if grep >/dev/null '^QMAKE_LIBS_THREAD' $XQMAKESPEC/qmake.conf; then
     AUTOTHREAD=yes
-    AUTOTHREAD=no  ### leave off for now
 else
     AUTOTHREAD=never
 fi
@@ -1480,7 +1486,7 @@ fi
 if [ $AUTOTHREAD = never ]; then
     if [ "$CFG_THREAD" = "yes" ]; then
 	echo
-	echo "ERROR: Qt is not configured to support threading on this platform"
+	echo "ERROR: TQt is not configured to support threading on this platform"
 	echo "       See the THREAD settings in $XQMAKESPEC/qmake.conf"
 	echo
 	exit 2
@@ -1851,7 +1857,7 @@ if [ "$OPT_HELP" = "yes" ]; then
 
     cat <<EOF
 Usage:  $relconf [-prefix dir] [-buildkey key] [-docdir dir] [-headerdir dir]
-	[-libdir dir] [-bindir dir] [-plugindir dir ] [-datadir dir]
+	[-libdir dir] [-bindir dir] [-plugindir dir ] [-datadir dir] [-sysshare dir]
 	[-translationdir dir] [-sysconfdir dir] [-debug] [-release]
 	[-no-gif] [-qt-gif] [-no-sm] [-sm] [-qt-zlib] [-system-zlib]
 	[-qt-libpng] [-system-libpng]
@@ -1880,16 +1886,18 @@ Installation options:
 			  (default PREFIX/include)
     -plugindir dir ..... Plugins will be installed to dir
                           (default PREFIX/plugins)
-    -datadir dir ....... Data used by Qt programs will be installed to dir
+    -datadir dir ....... Data used by TQt programs will be installed to dir
                           (default PREFIX)
-    -translationdir dir  Translations of Qt programs will be installed to dir
+    -translationdir dir  Translations of TQt programs will be installed to dir
                           (default PREFIX/translations)
-    -sysconfdir dir ...  Settings used by Qt programs will be looked for in dir
+    -sysconfdir dir ...  Settings used by TQt programs will be looked for in dir
                           (default PREFIX/etc/settings)
+    -sysshare dir .....  System shared data will be installed in dir
+                          (default PREFIX/share)
 
  You may use these options to turn on strict plugin loading.
 
-    -buildkey key ...... Build the Qt library and plugins using the specified
+    -buildkey key ...... Build the TQt library and plugins using the specified
 			 key.  When the library loads plugins, it will only
 			 load those that have a matching key.
 
@@ -1900,11 +1908,11 @@ Configure options:
  plus simply denotes the default value. Here is a short explanation of each
  option:
 
- *  -release ........... Compile and link Qt with debugging turned off.
-    -debug ............. Compile and link Qt with debugging turned on.
+ *  -release ........... Compile and link TQt with debugging turned off.
+    -debug ............. Compile and link TQt with debugging turned on.
 
- *  -shared ............ Create and use a shared Qt library (libqt.so).
-    -static ............ Create and use a static Qt library (libqt.a).
+ *  -shared ............ Create and use a shared TQt library (libtqt.so).
+    -static ............ Create and use a static TQt library (libtqt.a).
 
  *  -no-gif ............ Do not compile in GIF reading support.
     -qt-gif ............ Compile in GIF reading support.
@@ -1914,15 +1922,15 @@ Configure options:
     -system-zlib ....... Use zlib from the operating system.
 			 See http://www.gzip.org/zlib
 
-    -fast .............. Configure Qt quickly by generating Makefiles only for
+    -fast .............. Configure TQt quickly by generating Makefiles only for
 			 library and subdirectory targets.  All other Makefiles
 			 are created as wrappers, which will in turn run qmake.
- *  -no-fast ........... Configure Qt normally by generating Makefiles for all
+ *  -no-fast ........... Configure TQt normally by generating Makefiles for all
 			 project files.
 
     -no-exceptions ..... Disable exceptions on platforms that support it.
 
-    -version-script .... Use a version script when linking the Qt library.
+    -version-script .... Use a version script when linking the TQt library.
 			 Internal symbols will be marked as local. Requires
 			 a recent GNU binutils package.
 
@@ -1945,7 +1953,7 @@ Configure options:
     -disable-<module> ..... Disable <module> where module is one of:
                             [ $CFG_MODULES_AVAILABLE ]
 
-    -qt-sql-<driver> ...... Enable a SQL <driver> in the Qt Library, by default
+    -qt-sql-<driver> ...... Enable a SQL <driver> in the TQt Library, by default
                             none are turned on.
     -plugin-sql-<driver> .. Enable SQL <driver> as a plugin to be linked to
                             at run time.
@@ -1960,7 +1968,7 @@ Configure options:
                             By default none of the SQL drivers are built,
 			    even if they are auto-detected.
 
-    -qt-style-<style> ..... Enable a GUI <style> in the Qt Library, by default
+    -qt-style-<style> ..... Enable a GUI <style> in the TQt Library, by default
                             all available styles are on.
     -plugin-style-<style> . Enable GUI <style> as a plugin to be linked to
                             at run time.
@@ -2152,8 +2160,8 @@ Qt/X11 only:
  $XKN  -no-xkb ............ Do not compile XKB (X KeyBoard extension) support.
  $XKY  -xkb ............... Compile XKB support.
 
- *  -no-dlopen-opengl .. Qt links against OpenGL libraries directly.
-    -dlopen-opengl ..... Qt uses dlopen(3) to resolve OpenGL functions
+ *  -no-dlopen-opengl .. TQt links against OpenGL libraries directly.
+    -dlopen-opengl ..... TQt uses dlopen(3) to resolve OpenGL functions
 			 (instead of linking with OpenGL libraries directly).
 
  $IMN  -no-inputmethod .... Do not compile immodule (extensible input method)
@@ -2194,19 +2202,19 @@ Qt/Embedded only:
 			 depths, from:  4, 8, 16, 24, and 32.
 			 (8bpp is required by the VGA16 driver)
 
-    -qt-gfx-<driver> ... Enable a graphics <driver> in the Qt Library.
+    -qt-gfx-<driver> ... Enable a graphics <driver> in the TQt Library.
     -plugin-gfx-<driver> Enable graphics <driver> as a plugin to be
                          linked to at run time.
     -no-gfx-<driver> ... Disable graphics <driver> entirely.
 
                          Possible values for <driver>: [ $CFG_GFX_AVAILABLE ]
 
-    -qt-kbd-<driver> ... Enable a keyboard <driver> in the Qt Library.
+    -qt-kbd-<driver> ... Enable a keyboard <driver> in the TQt Library.
     -no-kbd-<driver> ... Disable keyboard <driver> entirely.
 
                          Possible values for <driver>: [ sl5000 tty usb yopy vr41xx ]
 
-    -qt-mouse-<driver> . Enable a mouse <driver> in the Qt Library.
+    -qt-mouse-<driver> . Enable a mouse <driver> in the TQt Library.
     -no-mouse-<driver> . Disable mouse <driver> entirely.
 
                          Possible values for <driver>: [ pc bus linuxtp yopy vr41xx ]
@@ -2262,8 +2270,8 @@ esac
 
 # symlink includes
 if [ -x "$relpath/bin/syncqt" ]; then
-    QTDIR=$relpath perl $relpath/bin/syncqt -inc $relpath/include
-    [ "$OPT_SHADOW" = "yes" ] && QTDIR=$relpath perl $relpath/bin/syncqt -inc $outpath/include
+    TQTDIR=$relpath perl $relpath/bin/syncqt -inc $relpath/include
+    [ "$OPT_SHADOW" = "yes" ] && TQTDIR=$relpath perl $relpath/bin/syncqt -inc $outpath/include
 fi
 
 if [ "$OPT_SHADOW" = "yes" ]; then
@@ -2384,11 +2392,11 @@ fi
 # find if the compiler supports enough of STL for our purposes
 if [ $PLATFORM = "hpux-acc" -a "$CFG_STL" != "no" ]; then
    echo
-   echo "As of aCC A.3.0.30 you may enable STL support in Qt by adding -AA"
+   echo "As of aCC A.3.0.30 you may enable STL support in TQt by adding -AA"
    echo "to the QMAKE_CXXFLAGS and QMAKE_LFLAGS variables in"
    echo "$XQMAKESPEC/qmake.conf"
    echo "and re-running configure. Make sure to use the -AA compiler switch"
-   echo "in all your software projects using Qt as it turns on the new C++"
+   echo "in all your software projects using TQt as it turns on the new C++"
    echo "Standard Library which is not binary compatible with the old one."
    echo
 fi
@@ -2397,9 +2405,9 @@ if [ "$CFG_ENDIAN" = "auto" ]; then
     if [ "$PLATFORM_MAC" = "yes" ]; then
         true
     elif $unixtests/endian.test $XQMAKESPEC $OPT_VERBOSE $relpath $outpath; then
-        CFG_ENDIAN="Q_LITTLE_ENDIAN"
+        CFG_ENDIAN="TQ_LITTLE_ENDIAN"
     else
-        CFG_ENDIAN="Q_BIG_ENDIAN"
+        CFG_ENDIAN="TQ_BIG_ENDIAN"
     fi
 fi
 
@@ -2489,19 +2497,19 @@ if [ -n "$CFG_QWS_DEPTHS" -a "$PLATFORM_QWS" = "yes" ]; then
 	esac
     done
     if [ -z "$D4" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_QWS_DEPTH_4"
+	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_4"
     fi
     if [ -z "$D8" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_QWS_DEPTH_8"
+	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_8"
     fi
     if [ -z "$D16" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_QWS_DEPTH_16"
+	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_16"
     fi
     if [ -z "$D24" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_QWS_DEPTH_24"
+	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_24"
     fi
     if [ -z "$D32" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_QWS_DEPTH_32"
+	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_32"
     fi
 fi
 
@@ -2578,21 +2586,21 @@ if [ "$PLATFORM_QWS" = "yes" -o "$PLATFORM_QNX" = "yes" ]; then
     QMAKE_CONFIG="$QMAKE_CONFIG embedded"
     rm -f src/.moc/$QMAKE_OUTDIR/allmoc.cpp # needs remaking if config changes
 fi
-QMAKE_VARS="$QMAKE_VARS \"QMAKE_INCDIR_QT=$relpath/include\""
-QMAKE_VARS="$QMAKE_VARS \"QMAKE_LIBDIR_QT=$outpath/lib\""
+QMAKE_VARS="$QMAKE_VARS \"QMAKE_INCDIR_TQT=$relpath/include\""
+QMAKE_VARS="$QMAKE_VARS \"QMAKE_LIBDIR_TQT=$outpath/lib\""
 QMAKE_VARS="$QMAKE_VARS \"QMAKE_RTLDIR_QT=$QT_INSTALL_LIBS\""
 QMAKE_VARS="$QMAKE_VARS \"OBJECTS_DIR=.obj/$QMAKE_OUTDIR\" \"MOC_DIR=.moc/$QMAKE_OUTDIR\""
 if [ "$CFG_LARGEFILE" = "yes" ]; then
     QMAKE_CONFIG="$QMAKE_CONFIG largefile"
 fi
 if [ "$CFG_STL" = "no" ]; then
-    QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_STL"
+    QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_STL"
 else
     QMAKE_CONFIG="$QMAKE_CONFIG stl"
 fi
 [ "$CFG_PRECOMPILE" = "yes" ] && QMAKE_CONFIG="$QMAKE_CONFIG precompile_header"
 if [ "$CFG_IPV6" = "no" ]; then
-    QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_IPV6"
+    QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_IPV6"
 else
     QMAKE_CONFIG="$QMAKE_CONFIG ipv6"
 fi
@@ -2657,7 +2665,7 @@ if [ "x$PLATFORM_MAC" = "xyes" ]; then
 fi
 if [ "$CFG_ZLIB" = "no" ]; then
     QMAKE_CONFIG="$QMAKE_CONFIG no-zlib"
-    QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_COMPRESS"
+    QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_COMPRESS"
 elif [ "$CFG_ZLIB" = "yes" ]; then
     QMAKE_CONFIG="$QMAKE_CONFIG zlib"
 elif [ "$CFG_ZLIB" = "system" ]; then
@@ -2708,12 +2716,12 @@ if [ "$PLATFORM_X11" = "yes" ]; then
     if [ "$CFG_IM" = "yes" ]; then
         QMAKE_CONFIG="$QMAKE_CONFIG inputmethod"
     elif [ "$CFG_IM" = "no" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_IM"
+	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_IM"
     fi
     if [ "$CFG_IM_EXT" = "yes" ]; then
         QMAKE_CONFIG="$QMAKE_CONFIG inputmethod-ext"
     elif [ "$CFG_IM_EXT" = "no" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_IM_EXTENSIONS"
+	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_IM_EXTENSIONS"
     fi
 elif [ "$PLATFORM_MAC" = "yes" ]; then
     if [ "$CFG_TABLET" = "yes" ]; then
@@ -2752,6 +2760,7 @@ QMAKE_VARS="$QMAKE_VARS \"libs.path=${QT_INSTALL_LIBS}\""
 QMAKE_VARS="$QMAKE_VARS \"bins.path=${QT_INSTALL_BINS}\""
 QMAKE_VARS="$QMAKE_VARS \"data.path=${QT_INSTALL_DATA}\""
 QMAKE_VARS="$QMAKE_VARS \"translations.path=${QT_INSTALL_TRANSLATIONS}\""
+QMAKE_VARS="$QMAKE_VARS \"share.path=${QT_INSTALL_SHARE}\""
 
 # turn off exceptions for the compilers that support it
 COMPILER=`echo $PLATFORM | cut -f 2- -d-`
@@ -2782,7 +2791,7 @@ fi
 
 rm -f $outpath/include/ntqmodules.h.new
 cat >$outpath/include/ntqmodules.h.new << EOF
-/* These modules are present in this configuration of Qt */
+/* These modules are present in this configuration of TQt */
 EOF
 for MODULE in $MODULES; do
     if [ -d "$relpath/src/$MODULE" ]; then
@@ -2818,13 +2827,24 @@ g++*)
     3.*)
 	COMPILER_VERSION="3.*"
 	;;
-    6.*|5.*|4.*)
+    [1-9][0-9]|[1-9][0-9].*|[7-9]|[4-9].*)
 	COMPILER_VERSION="4.*"
 	;;
     *)
 	;;
     esac
     [ ! -z "$COMPILER_VERSION" ] && COMPILER="g++-${COMPILER_VERSION}"
+    ;;
+clang)
+    # Clang
+    QMAKE_CONF_COMPILER=`grep "QMAKE_CXX[^_A-Z0-9a-z]" $QMAKESPEC/qmake.conf | sed "s,.* *= *\(.*\)$,\1,"`
+    COMPILER_VERSION=`${QMAKE_CONF_COMPILER} -dumpversion 2>/dev/null | sed 's,^[^0-9]*,,g'`
+    case "$COMPILER_VERSION" in
+    *)
+	# Consider clang as compatible with g++-4.x and therefore the same build-key is used
+	COMPILER="g++-4.*"
+	;;
+    esac
     ;;
 *)
     #
@@ -2833,13 +2853,13 @@ esac
 
 # QMAKE_CONFIG can contain the following:
 #
-# Things that affect the Qt API/ABI:
+# Things that affect the TQt API/ABI:
 #
 #   Options:
 #     minimal-config small-config medium-config large-config full-config
 #
 #   Modules:
-#     styles tools kernel widgets dialogs iconview workspace inputmethod
+#     styles tools kernel widgets dialogs workspace inputmethod
 #
 #   Enterprise/Open Source edition modules:
 #     network canvas table xml opengl sql
@@ -2849,7 +2869,7 @@ esac
 #
 #     X11     : inputmethod-ext
 #
-# Things that do not affect the Qt API/ABI:
+# Things that do not affect the TQt API/ABI:
 #     system-jpeg no-jpeg jpeg
 #     system-mng no-mng mng
 #     system-png no-png png
@@ -2873,7 +2893,7 @@ esac
 #     X11     : xftnameunparse x11sm xinerama xcursor xrandr xrender xftfreetype xkb inputmethod
 #     Embedded: embedded ft
 #
-ALL_OPTIONS="styles tools kernel widgets dialogs iconview workspace inputmethod network canvas table xml opengl sql stl"
+ALL_OPTIONS="styles tools kernel widgets dialogs workspace inputmethod network canvas table xml opengl sql stl"
 BUILD_CONFIG=
 BUILD_OPTIONS=
 
@@ -2887,13 +2907,13 @@ for config_option in $QMAKE_CONFIG; do
 	BUILD_CONFIG="$config_option"
 	;;
 
-    styles|tools|kernel|widgets|dialogs|iconview|workspace|inputmethod|network|canvas|table|xml|opengl|sql|stl)
-	# these config options affect the Qt API/ABI. they should influence
+    styles|tools|kernel|widgets|dialogs|workspace|inputmethod|network|canvas|table|xml|opengl|sql|stl)
+	# these config options affect the TQt API/ABI. they should influence
 	# the generation of the buildkey, so we don't skip them
    	SKIP="no"
 	;;
 
-    *) # skip all other options since they don't affect the Qt API/ABI.
+    *) # skip all other options since they don't affect the TQt API/ABI.
 	;;
     esac
 
@@ -2924,7 +2944,7 @@ if [ -f .options ]; then
 fi
 rm -f .options
 
-# QT_NO* defines affect the Qt API (and binary compatibility).  they need
+# QT_NO* defines affect the TQt API (and binary compatibility).  they need
 # to be included in the build key
 for build_option in $D_FLAGS; do
     case "$build_option" in
@@ -2968,28 +2988,28 @@ esac
 cat >> $outpath/include/ntqconfig.h.new <<EOF
 
 /* License information */
-#define QT_PRODUCT_LICENSEE "$Licensee"
+#define TQT_PRODUCT_LICENSEE "$Licensee"
 #define QT_PRODUCT_LICENSE  "$Products"
 
 /* Build key */
 #define TQT_BUILD_KEY "$TQT_BUILD_KEY"
 
 /* Machine byte-order */
-#define Q_BIG_ENDIAN 4321
-#define Q_LITTLE_ENDIAN 1234
+#define TQ_BIG_ENDIAN 4321
+#define TQ_LITTLE_ENDIAN 1234
 EOF
 if [ "$CFG_ENDIAN" = "auto" ]; then
 cat >> $outpath/include/ntqconfig.h.new << EOF
 #if defined(__BIG_ENDIAN__)
-# define Q_BYTE_ORDER Q_BIG_ENDIAN
+# define TQ_BYTE_ORDER TQ_BIG_ENDIAN
 #elif defined(__LITTLE_ENDIAN__)
-# define Q_BYTE_ORDER Q_LITTLE_ENDIAN
+# define TQ_BYTE_ORDER TQ_LITTLE_ENDIAN
 #else
 # message "Unable to determine byte order!"
 #endif
 EOF
 else
-echo "#define Q_BYTE_ORDER $CFG_ENDIAN" >> $outpath/include/ntqconfig.h.new
+echo "#define TQ_BYTE_ORDER $CFG_ENDIAN" >> $outpath/include/ntqconfig.h.new
 fi
 
 cat >> $outpath/include/ntqconfig.h.new << EOF
@@ -3022,7 +3042,7 @@ STRIPPED=`echo $QMVAR | sed 's,^",,' | sed 's,"$,,'`
 if [ "$VSTYLE" = "yes" ]; then
 	if [ "$VNO" = "yes" ]; then
 		NOSTYLE=`echo $STRIPPED | tr '[:lower:]' '[:upper:]'`
-		QCONFIG_FLAGS="$QCONFIG_FLAGS QT_NO_STYLE_$NOSTYLE"
+		QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_STYLE_$NOSTYLE"
 		VSTYLE=no
 		VNO=no
     	else
@@ -3130,11 +3150,11 @@ g++*)
 	This target is using the GNU C++ compiler ($PLATFORM).
 
 	Recent versions of this compiler automatically include code for
-	exceptions, which increase both the size of the Qt library and the
+	exceptions, which increase both the size of the TQt library and the
 	amount of memory taken by your applications.
 
 	You may choose to re-run `basename $0` with the -no-exceptions
-	option to compile Qt without exceptions. This is completely binary
+	option to compile TQt without exceptions. This is completely binary
 	compatible, and existing applications should continue to work.
 
 EOF
@@ -3149,8 +3169,8 @@ cc*)
 	This target is using the MIPSpro C++ compiler ($PLATFORM).
 
 	You may choose to re-run `basename $0` with the -no-exceptions
-	option to compile Qt without exceptions. This will make the
-	size of the Qt library smaller and reduce the amount of memory
+	option to compile TQt without exceptions. This will make the
+	size of the TQt library smaller and reduce the amount of memory
 	taken by your applications.
 
 EOF
@@ -3380,7 +3400,7 @@ EOF
        rm -f .projects.3
     fi
 fi
-# don't sort Qt and MOC in with the other project files
+# don't sort TQt and MOC in with the other project files
 # also work around a segfaulting uniq(1)
 if [ -f .sorted.projects.2 ]; then
     sort .sorted.projects.2 > .sorted.projects.2.new
@@ -3441,14 +3461,14 @@ for file in .projects .projects.3; do
 	    continue;
 	fi
 	QMAKE_SPEC_ARGS="-spec $SPEC"
-	if echo '\c' | grep '\c' >/dev/null; then
+	if echo '\c' | grep '\\c' >/dev/null; then
 	    echo -n "  for $a"
 	else
 	    echo "  for $a\c"
 	fi
 
 	if [ "$file" = ".projects.3" ]; then
-	    if echo '\c' | grep '\c' >/dev/null; then
+	    if echo '\c' | grep '\\c' >/dev/null; then
 		echo -n " (fast)"
 	    else
 		echo " (fast)\c"
@@ -3472,7 +3492,7 @@ EOF
 	    EXEC="$outpath/bin/tqmake $QMAKE_SWITCHES $QMAKE_SPEC_ARGS -o $OUTDIR $a"
 	    if [ "$OPT_VERBOSE" = "yes" ]; then
 		echo " (`basename $SPEC`)"
-		if echo '\c' | grep '\c' >/dev/null; then
+		if echo '\c' | grep '\\c' >/dev/null; then
 		    echo -n "$EXEC"
 		else
 		    echo "$EXEC\c"
@@ -3498,7 +3518,7 @@ EOF
 done
 rm -f .projects .projects.3
 
-#Special Qt/Mac thing. We bootched permissions in Qt 3.3.0 beta 1.
+#Special Qt/Mac thing. We bootched permissions in TQt 3.3.0 beta 1.
 #This is probably the only easy place to detect and remove it ourselves
 if [ "$PLATFORM_MAC" = "yes" ]; then
     if [ -d /Library/Qt ]; then
@@ -3534,6 +3554,6 @@ if [ `basename $0` != "config.status" ]; then
 fi
 
 echo
-echo Qt is now configured for building. Just run $MAKE.
+echo TQt is now configured for building. Just run $MAKE.
 echo To reconfigure, run $MAKE confclean and configure.
 echo

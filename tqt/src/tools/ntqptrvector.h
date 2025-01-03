@@ -109,10 +109,6 @@ template<class type> inline void TQPtrVector<type>::deleteItem( TQPtrCollection:
     if ( del_item ) delete (type *)d;
 }
 
-#ifndef QT_NO_COMPAT
-#define TQVector TQPtrVector
-#endif
-
 #define Q_DEFINED_QPTRVECTOR
 #include "ntqwinexport.h"
-#endif // TQVECTOR_H
+#endif // TQPTRVECTOR_H

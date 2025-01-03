@@ -360,8 +360,8 @@ static int vxprintf(
         }
         bufpt = &buf[etBUFSIZE-1];
         {
-          register char *cset;      /* Use registers for speed */
-          register int base;
+          char *cset;      /* Use registers for speed */
+          int base;
           cset = infop->charset;
           base = infop->base;
           do{                                           /* Convert to ascii */
@@ -602,7 +602,7 @@ static int vxprintf(
     ** the output.
     */
     if( !flag_leftjustify ){
-      register int nspace;
+      int nspace;
       nspace = width-length;
       if( nspace>0 ){
         count += nspace;
@@ -618,7 +618,7 @@ static int vxprintf(
       count += length;
     }
     if( flag_leftjustify ){
-      register int nspace;
+      int nspace;
       nspace = width-length;
       if( nspace>0 ){
         count += nspace;

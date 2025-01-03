@@ -50,7 +50,7 @@
 #endif // QT_H
 
 
-#ifndef QT_NO_FONTDATABASE
+#ifndef TQT_NO_FONTDATABASE
 
 class TQFontStylePrivate; /* Don't touch! */
 struct TQtFontStyle;
@@ -58,13 +58,13 @@ struct TQtFontFamily;
 struct TQtFontFoundry;
 struct TQFontDef;
 class TQFontEngine;
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 class TQDiskFont;
 #endif
 
 class TQFontDatabasePrivate;
 
-class Q_EXPORT TQFontDatabase
+class TQ_EXPORT TQFontDatabase
 {
 public:
     static TQValueList<int> standardSizes();
@@ -92,12 +92,12 @@ public:
     static TQString scriptName(TQFont::Script);
     static TQString scriptSample(TQFont::Script);
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     static void qwsAddDiskFont( TQDiskFont *qdf );
 #endif
 
     // For source compatibility with < 3.0
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
     TQStringList families(bool) const;
     TQStringList styles( const TQString &, const TQString & ) const;
@@ -115,13 +115,13 @@ public:
     bool bold( const TQString &, const TQString &, const TQString & ) const;
     int weight( const TQString &, const TQString &, const TQString & ) const;
 
-#endif // QT_NO_COMPAT
+#endif // TQT_NO_COMPAT
 
 private:
-#if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
     static TQFontEngine *findFont( TQFont::Script script, const TQFontPrivate *fp,
 				  const TQFontDef &request, int force_encoding_id = -1 );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     static void createDatabase();
 
@@ -136,7 +136,7 @@ private:
 };
 
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
 inline TQStringList TQFontDatabase::families( bool ) const
 {
@@ -220,8 +220,8 @@ inline int TQFontDatabase::weight( const TQString &family,
     return weight(family, style);
 }
 
-#endif // QT_NO_COMPAT
+#endif // TQT_NO_COMPAT
 
-#endif // QT_NO_FONTDATABASE
+#endif // TQT_NO_FONTDATABASE
 
 #endif // TQFONTDATABASE_H

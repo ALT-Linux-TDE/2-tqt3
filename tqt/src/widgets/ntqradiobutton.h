@@ -45,9 +45,9 @@
 #include "ntqbutton.h"
 #endif // QT_H
 
-#ifndef QT_NO_RADIOBUTTON
+#ifndef TQT_NO_RADIOBUTTON
 
-class Q_EXPORT TQRadioButton : public TQButton
+class TQ_EXPORT TQRadioButton : public TQButton
 {
     TQ_OBJECT
     TQ_PROPERTY( bool checked READ isChecked WRITE setChecked )
@@ -86,6 +86,6 @@ private:	// Disabled copy constructor and operator=
 inline bool TQRadioButton::isChecked() const
 { return isOn(); }
 
-#endif // QT_NO_RADIOBUTTON
+#endif // TQT_NO_RADIOBUTTON
 
 #endif // TQRADIOBUTTON_H

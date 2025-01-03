@@ -11,15 +11,15 @@ QComboBox \- Combined button and popup list
 .SH SYNOPSIS
 \fC#include <ntqcombobox.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQComboBox\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQComboBox\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQComboBox\fR ( bool rw, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQComboBox\fR ( bool rw, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QComboBox\fR ()"
@@ -40,13 +40,13 @@ Inherits QWidget.
 .BI "void \fBinsertStrList\fR ( const char ** strings, int numStrings = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertItem\fR ( const QString & t, int index = -1 )"
+.BI "void \fBinsertItem\fR ( const TQString & t, int index = -1 )"
 .br
 .ti -1c
 .BI "void \fBinsertItem\fR ( const QPixmap & pixmap, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertItem\fR ( const QPixmap & pixmap, const QString & text, int index = -1 )"
+.BI "void \fBinsertItem\fR ( const QPixmap & pixmap, const TQString & text, int index = -1 )"
 .br
 .ti -1c
 .BI "void \fBremoveItem\fR ( int index )"
@@ -58,25 +58,25 @@ Inherits QWidget.
 .BI "virtual void \fBsetCurrentItem\fR ( int index )"
 .br
 .ti -1c
-.BI "QString \fBcurrentText\fR () const"
+.BI "TQString \fBcurrentText\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetCurrentText\fR ( const QString & )"
+.BI "virtual void \fBsetCurrentText\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "QString \fBtext\fR ( int index ) const"
+.BI "TQString \fBtext\fR ( int index ) const"
 .br
 .ti -1c
 .BI "const QPixmap * \fBpixmap\fR ( int index ) const"
 .br
 .ti -1c
-.BI "void \fBchangeItem\fR ( const QString & t, int index )"
+.BI "void \fBchangeItem\fR ( const TQString & t, int index )"
 .br
 .ti -1c
 .BI "void \fBchangeItem\fR ( const QPixmap & im, int index )"
 .br
 .ti -1c
-.BI "void \fBchangeItem\fR ( const QPixmap & im, const QString & t, int index )"
+.BI "void \fBchangeItem\fR ( const QPixmap & im, const TQString & t, int index )"
 .br
 .ti -1c
 .BI "bool autoResize () const  \fI(obsolete)\fR"
@@ -163,7 +163,7 @@ Inherits QWidget.
 .BI "void \fBclearEdit\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetEditText\fR ( const QString & newText )"
+.BI "virtual void \fBsetEditText\fR ( const TQString & newText )"
 .br
 .in -1c
 .SS "Signals"
@@ -175,13 +175,13 @@ Inherits QWidget.
 .BI "void \fBhighlighted\fR ( int index )"
 .br
 .ti -1c
-.BI "void \fBactivated\fR ( const QString & string )"
+.BI "void \fBactivated\fR ( const TQString & string )"
 .br
 .ti -1c
-.BI "void \fBhighlighted\fR ( const QString & string )"
+.BI "void \fBhighlighted\fR ( const TQString & string )"
 .br
 .ti -1c
-.BI "void \fBtextChanged\fR ( const QString & string )"
+.BI "void \fBtextChanged\fR ( const TQString & string )"
 .br
 .in -1c
 .SS "Properties"
@@ -202,7 +202,7 @@ Inherits QWidget.
 .BI "int \fBcurrentItem\fR - the index of the current item in the combobox"
 .br
 .ti -1c
-.BI "QString \fBcurrentText\fR - the text of the combobox's current item"
+.BI "TQString \fBcurrentText\fR - the text of the combobox's current item"
 .br
 .ti -1c
 .BI "bool \fBduplicatesEnabled\fR - whether duplicates are allowed"
@@ -253,7 +253,7 @@ The two constructors create identical-looking comboboxes in Windows style.
 .PP
 Comboboxes can contain pixmaps as well as strings; the insertItem() and changeItem() functions are suitably overloaded. For editable comboboxes, the function clearEdit() is provided, to clear the displayed string without changing the combobox's contents.
 .PP
-A combobox emits two signals, activated() and highlighted(), when a new item has been activated (selected) or highlighted (made current). Both signals exist in two versions, one with a QString argument and one with an \fCint\fR argument. If the user highlights or activates a pixmap, only the \fCint\fR signals are emitted. Whenever the text of an editable combobox is changed the textChanged() signal is emitted.
+A combobox emits two signals, activated() and highlighted(), when a new item has been activated (selected) or highlighted (made current). Both signals exist in two versions, one with a TQString argument and one with an \fCint\fR argument. If the user highlights or activates a pixmap, only the \fCint\fR signals are emitted. Whenever the text of an editable combobox is changed the textChanged() signal is emitted.
 .PP
 When the user enters a new string in an editable combobox, the widget may or may not insert it, and it can insert it in several locations. The default policy is is AtBottom but you can change this using setInsertionPolicy().
 .PP
@@ -306,18 +306,18 @@ activated() is always emitted when the string is entered.
 .PP
 If inserting the new string would cause the combobox to breach its content size limit, the item at the other end of the list is deleted. The definition of "other end" is implementation-dependent.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QComboBox::QComboBox ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QComboBox::QComboBox ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a combobox widget with parent \fIparent\fR called \fIname\fR.
 .PP
 This constructor creates a popup list if the program uses Motif (or Aqua) look and feel; this is compatible with Motif 1.x and Aqua.
 .PP
 Note: If you use this constructor to create your QComboBox, then the pixmap() function will always return 0. To workaround this, use the other constructor.
-.SH "QComboBox::QComboBox ( bool rw, QWidget * parent = 0, const char * name = 0 )"
+.SH "QComboBox::QComboBox ( bool rw, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a combobox with a maximum size and either Motif 2.0 or Windows look and feel.
 .PP
 The input field can be edited if \fIrw\fR is TRUE, otherwise the user may only choose one of the items in the combobox.
 .PP
-The \fIparent\fR and \fIname\fR arguments are passed on to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are passed on to the TQWidget constructor.
 .SH "QComboBox::~QComboBox ()"
 Destroys the combobox.
 .SH "void QComboBox::activated ( int index )\fC [signal]\fR"
@@ -327,7 +327,7 @@ This signal is not emitted if the item is changed programmatically, e.g. using s
 .PP
 Examples:
 .)l fileiconview/mainwindow.cpp, helpviewer/helpwindow.cpp, lineedits/lineedits.cpp, listboxcombo/listboxcombo.cpp, and qmag/qmag.cpp.
-.SH "void QComboBox::activated ( const QString & string )\fC [signal]\fR"
+.SH "void QComboBox::activated ( const TQString & string )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when a new item has been activated (selected). \fIstring\fR is the selected string.
@@ -337,7 +337,7 @@ You can also use the activated(int) signal, but be aware that its argument is me
 Returns TRUE if auto-completion is enabled; otherwise returns FALSE. See the "autoCompletion" property for details.
 .SH "bool QComboBox::autoResize () const"
 Returns TRUE if auto resize is enabled; otherwise returns FALSE. See the "autoResize" property for details.
-.SH "void QComboBox::changeItem ( const QString & t, int index )"
+.SH "void QComboBox::changeItem ( const TQString & t, int index )"
 Replaces the item at position \fIindex\fR with the text \fIt\fR.
 .SH "void QComboBox::changeItem ( const QPixmap & im, int index )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -345,7 +345,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Replaces the item at position \fIindex\fR with the pixmap \fIim\fR, unless the combobox is editable.
 .PP
 See also insertItem().
-.SH "void QComboBox::changeItem ( const QPixmap & im, const QString & t, int index )"
+.SH "void QComboBox::changeItem ( const QPixmap & im, const TQString & t, int index )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Replaces the item at position \fIindex\fR with the pixmap \fIim\fR and the text \fIt\fR.
@@ -365,7 +365,7 @@ This slot is equivalent to setValidator( 0 ).
 Returns the number of items in the combobox. See the "count" property for details.
 .SH "int QComboBox::currentItem () const"
 Returns the index of the current item in the combobox. See the "currentItem" property for details.
-.SH "QString QComboBox::currentText () const"
+.SH "TQString QComboBox::currentText () const"
 Returns the text of the combobox's current item. See the "currentText" property for details.
 .SH "bool QComboBox::duplicatesEnabled () const"
 Returns TRUE if duplicates are allowed; otherwise returns FALSE. See the "duplicatesEnabled" property for details.
@@ -375,13 +375,13 @@ Returns TRUE if the combobox is editable; otherwise returns FALSE. See the "edit
 This signal is emitted when a new item has been set to be the current item. The \fIindex\fR is the position of the item in the combobox.
 .PP
 This signal is not emitted if the item is changed programmatically, e.g. using setCurrentItem().
-.SH "void QComboBox::highlighted ( const QString & string )\fC [signal]\fR"
+.SH "void QComboBox::highlighted ( const TQString & string )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when a new item has been set to be the current item. \fIstring\fR is the item's text.
 .PP
 You can also use the highlighted(int) signal.
-.SH "void QComboBox::insertItem ( const QString & t, int index = -1 )"
+.SH "void QComboBox::insertItem ( const TQString & t, int index = -1 )"
 Inserts a text item with text \fIt\fR, at position \fIindex\fR. The item will be appended if \fIindex\fR is negative.
 .PP
 Examples:
@@ -390,7 +390,7 @@ Examples:
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a \fIpixmap\fR item at position \fIindex\fR. The item will be appended if \fIindex\fR is negative.
-.SH "void QComboBox::insertItem ( const QPixmap & pixmap, const QString & text, int index = -1 )"
+.SH "void QComboBox::insertItem ( const QPixmap & pixmap, const TQString & text, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a \fIpixmap\fR item with additional text \fItext\fR at position \fIindex\fR. The item will be appended if \fIindex\fR is negative.
@@ -454,11 +454,11 @@ Sets whether auto-completion is enabled. See the "autoCompletion" property for d
 Sets whether auto resize is enabled. See the "autoResize" property for details.
 .SH "void QComboBox::setCurrentItem ( int index )\fC [virtual]\fR"
 Sets the index of the current item in the combobox to \fIindex\fR. See the "currentItem" property for details.
-.SH "void QComboBox::setCurrentText ( const QString & )\fC [virtual]\fR"
+.SH "void QComboBox::setCurrentText ( const TQString & )\fC [virtual]\fR"
 Sets the text of the combobox's current item. See the "currentText" property for details.
 .SH "void QComboBox::setDuplicatesEnabled ( bool enable )"
 Sets whether duplicates are allowed to \fIenable\fR. See the "duplicatesEnabled" property for details.
-.SH "void QComboBox::setEditText ( const QString & newText )\fC [virtual slot]\fR"
+.SH "void QComboBox::setEditText ( const TQString & newText )\fC [virtual slot]\fR"
 Sets the text in the line edit to \fInewText\fR without changing the combobox's contents. Does nothing if the combobox isn't editable.
 .PP
 This is useful e.g. for providing a good starting point for the user's editing and entering the change in the combobox only when the user presses Enter.
@@ -469,7 +469,7 @@ Sets whether the combobox is editable. See the "editable" property for details.
 .SH "void QComboBox::setFont ( const QFont & font )\fC [virtual]\fR"
 Sets the font for both the combobox button and the combobox popup list to \fIfont\fR.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "void QComboBox::setInsertionPolicy ( Policy policy )\fC [virtual]\fR"
 Sets the position of the items inserted by the user to \fIpolicy\fR. See the "insertionPolicy" property for details.
 .SH "void QComboBox::setLineEdit ( QLineEdit * edit )\fC [virtual]\fR"
@@ -483,7 +483,7 @@ Sets the maximum number of items allowed in the combobox. See the "maxCount" pro
 .SH "void QComboBox::setPalette ( const QPalette & palette )\fC [virtual]\fR"
 Sets the palette for both the combobox button and the combobox popup list to \fIpalette\fR.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "void QComboBox::setSizeLimit ( int )\fC [virtual]\fR"
 Sets the maximum on-screen size of the combobox. See the "sizeLimit" property for details.
 .SH "void QComboBox::setValidator ( const QValidator * v )\fC [virtual]\fR"
@@ -494,14 +494,14 @@ This function does nothing if the combobox is not editable.
 See also validator(), clearValidator(), and QValidator.
 .SH "int QComboBox::sizeLimit () const"
 Returns the maximum on-screen size of the combobox. See the "sizeLimit" property for details.
-.SH "QString QComboBox::text ( int index ) const"
-Returns the text item at position \fIindex\fR, or QString::null if the item is not a string.
+.SH "TQString QComboBox::text ( int index ) const"
+Returns the text item at position \fIindex\fR, or TQString::null if the item is not a string.
 .PP
 See also currentText.
 .PP
 Examples:
 .)l fileiconview/mainwindow.cpp and helpviewer/helpwindow.cpp.
-.SH "void QComboBox::textChanged ( const QString & string )\fC [signal]\fR"
+.SH "void QComboBox::textChanged ( const TQString & string )\fC [signal]\fR"
 This signal is used for editable comboboxes. It is emitted whenever the contents of the text entry field changes. \fIstring\fR contains the new text.
 .SH "const QValidator * QComboBox::validator () const"
 Returns the validator which constrains editing for this combobox if there is one; otherwise returns 0.
@@ -517,7 +517,7 @@ Set this property's value with setAutoCompletion() and get this property's value
 .SH "bool autoMask"
 This property holds whether the combobox is automatically masked.
 .PP
-See also QWidget::autoMask.
+See also TQWidget::autoMask.
 .SH "bool autoResize"
 This property holds whether auto resize is enabled.
 .PP
@@ -536,7 +536,7 @@ This property holds the index of the current item in the combobox.
 Note that the activated() and highlighted() signals are only emitted when the user changes the current item, not when it is changed programmatically.
 .PP
 Set this property's value with setCurrentItem() and get this property's value with currentItem().
-.SH "QString currentText"
+.SH "TQString currentText"
 This property holds the text of the combobox's current item.
 .PP
 Set this property's value with setCurrentText() and get this property's value with currentText().
@@ -591,8 +591,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -40,7 +40,7 @@
 
 #include "qrichtext_p.h"
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 
 
 #include "ntqstringlist.h"
@@ -74,7 +74,7 @@ class TQTextFormatCollection;
 
 const int border_tolerance = 2;
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #include "qt_windows.h"
 #endif
 
@@ -91,18 +91,18 @@ static inline int scale( int value, TQPainter *painter )
 {
     if ( is_printer( painter ) ) {
 	TQPaintDeviceMetrics metrics( painter->device() );
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	value = value * metrics.logicalDpiY() /
 		TQPaintDevice::x11AppDpiY( painter->device()->x11Screen() );
-#elif defined (Q_WS_WIN)
+#elif defined (TQ_WS_WIN)
 	HDC hdc = GetDC( 0 );
 	int gdc = GetDeviceCaps( hdc, LOGPIXELSY );
 	if ( gdc )
 	    value = value * metrics.logicalDpiY() / gdc;
 	ReleaseDC( 0, hdc );
-#elif defined (Q_WS_MAC)
+#elif defined (TQ_WS_MAC)
 	value = value * metrics.logicalDpiY() / 75; // ##### FIXME
-#elif defined (Q_WS_QWS)
+#elif defined (TQ_WS_QWS)
 	value = value * metrics.logicalDpiY() / 75;
 #endif
     }
@@ -255,7 +255,7 @@ TQTextCursor *TQTextDeleteCommand::unexecute( TQTextCursor *c )
     cursor.setParagraph( s );
     cursor.setIndex( index );
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     if ( !styleInformation.isEmpty() ) {
 	TQDataStream styleStream( styleInformation, IO_ReadOnly );
 	int num;
@@ -377,7 +377,7 @@ TQTextStyleCommand::TQTextStyleCommand( TQTextDocument *d, int fParag, int lPara
 TQByteArray TQTextStyleCommand::readStyleInformation(  TQTextDocument* doc, int fParag, int lParag )
 {
     TQByteArray style;
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQTextParagraph *p = doc->paragAt( fParag );
     if ( !p )
 	return style;
@@ -394,7 +394,7 @@ TQByteArray TQTextStyleCommand::readStyleInformation(  TQTextDocument* doc, int 
 
 void TQTextStyleCommand::writeStyleInformation(  TQTextDocument* doc, int fParag, const TQByteArray& style )
 {
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQTextParagraph *p = doc->paragAt( fParag );
     if ( !p )
 	return;
@@ -480,7 +480,7 @@ int TQTextCursor::totalOffsetY() const
     return yoff;
 }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 void TQTextCursor::gotoIntoNested( const TQPoint &globalPos )
 {
     if ( !para )
@@ -506,7 +506,7 @@ void TQTextCursor::invalidateNested()
 	    if ( *it == para )
 		continue;
 	    (*it)->invalidate( 0 );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	    if ( (*it)->at( *it2 )->isCustom() )
 		(*it)->at( *it2 )->customItem()->invalidate();
 #endif
@@ -519,7 +519,7 @@ void TQTextCursor::insert( const TQString &str, bool checkNewLine, TQMemArray<TQ
     tmpX = -1;
     bool justInsert = TRUE;
     TQString s( str );
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( checkNewLine ) {
 	int i = 0;
 	while ( ( i = s.find( '\r', i ) ) != -1 )
@@ -611,7 +611,7 @@ void TQTextCursor::gotoPreviousLetter()
 
     if ( idx > 0 ) {
 	idx = para->string()->previousCursorPosition( idx );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	const TQTextStringChar *tsc = para->at( idx );
 	if ( tsc && tsc->isCustom() && tsc->customItem()->isNested() )
 	    processNesting( EnterEnd );
@@ -628,7 +628,7 @@ void TQTextCursor::gotoPreviousLetter()
 	    pop();
 	    if ( idx > 0 ) {
 		idx = para->string()->previousCursorPosition( idx );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
                 const TQTextStringChar *tsc = para->at( idx );
                 if ( tsc && tsc->isCustom() && tsc->customItem()->isNested() )
                     processNesting( EnterEnd );
@@ -672,7 +672,7 @@ bool TQTextCursor::place( const TQPoint &p, TQTextParagraph *s, bool link, bool 
     TQTextParagraph *str = s;
     if ( pos.y() < s->rect().y() ) {
 	pos.setY( s->rect().y() );
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 	pos.setX( s->rect().x() );
 #endif
     }
@@ -684,7 +684,7 @@ bool TQTextCursor::place( const TQPoint &p, TQTextParagraph *s, bool link, bool 
 	if ( pos.y() >= r.y() && pos.y() <= r.y() + r.height() )
 	    break;
 	if ( loosePlacing == TRUE && !s->next() ) {
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 	    pos.setX( s->rect().x() + s->rect().width() );
 #endif
 	    break;
@@ -731,7 +731,7 @@ bool TQTextCursor::place( const TQPoint &p, TQTextParagraph *s, bool link, bool 
 	chr = s->at(i);
 	int cpos = x + chr->x;
 	cw = s->string()->width( i );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	if ( chr->isCustom() && chr->customItem()->isNested() ) {
 	    if ( pos.x() >= cpos && pos.x() <= cpos + cw &&
 		 pos.y() >= y + cy && pos.y() <= y + cy + chr->height() ) {
@@ -763,7 +763,7 @@ bool TQTextCursor::place( const TQPoint &p, TQTextParagraph *s, bool link, bool 
     }
     setIndex( curpos );
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     if ( inCustom && para->document() && para->at( curpos )->isCustom() && para->at( curpos )->customItem()->isNested() ) {
 	TQTextDocument *oldDoc = para->document();
 	gotoIntoNested( pos );
@@ -789,7 +789,7 @@ bool TQTextCursor::processNesting( Operation op )
     oy = y + para->rect().y();
     bool ok = FALSE;
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     switch ( op ) {
     case EnterBegin:
 	ok = para->at( idx )->customItem()->enter( this, doc, para, idx, ox, oy );
@@ -828,7 +828,7 @@ void TQTextCursor::gotoNextLetter()
 {
    tmpX = -1;
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     const TQTextStringChar *tsc = para->at( idx );
     if ( tsc && tsc->isCustom() && tsc->customItem()->isNested() ) {
 	if ( processNesting( EnterBegin ) )
@@ -1198,7 +1198,7 @@ void TQTextCursor::splitAndInsertEmptyParagraph( bool ind, bool updateIds )
 	for ( uint i = 0; i < str.length(); ++i ) {
 	    TQTextStringChar* tsc = para->at( idx + i );
 	    s->setFormat( i, 1, tsc->format(), TRUE );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	    if ( tsc->isCustom() ) {
 		TQTextCustomItem * item = tsc->customItem();
 		s->at( i )->setCustomItem( item );
@@ -1318,7 +1318,7 @@ void TQTextCursor::fixCursorPosition()
 
 TQTextDocument::TQTextDocument( TQTextDocument *p )
     : par( p ), parentPar( 0 )
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     , tc( 0 )
 #endif
     , tArray( 0 ), tStopWidth( 0 )
@@ -1349,7 +1349,7 @@ void TQTextDocument::init()
     nSelections = 1;
 
     setStyleSheet( TQStyleSheet::defaultSheet() );
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     factory_ = TQMimeSourceFactory::defaultFactory();
 #endif
     contxt = TQString::null;
@@ -1518,7 +1518,7 @@ void TQTextDocument::setPlainText( const TQString &text )
 	lParag = fParag = createParagraph( this, 0, 0 );
 }
 
-struct Q_EXPORT TQTextDocumentTag {
+struct TQ_EXPORT TQTextDocumentTag {
     TQTextDocumentTag(){}
     TQTextDocumentTag( const TQString&n, const TQStyleSheetItem* s, const TQTextFormat& f )
 	:name(n),style(s), format(f), alignment(TQt::AlignAuto), direction(TQChar::DirON),liststyle(TQStyleSheetItem::ListDisc) {
@@ -1555,7 +1555,7 @@ struct Q_EXPORT TQTextDocumentTag {
 	return *this;
     }
 
-    Q_DUMMY_COMPARISON_OPERATOR(TQTextDocumentTag)
+    TQ_DUMMY_COMPARISON_OPERATOR(TQTextDocumentTag)
 };
 
 
@@ -1695,7 +1695,7 @@ void TQTextDocument::setRichTextInternal( const TQString &text, TQTextCursor* cu
 		    }
 		}
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		TQTextCustomItem* custom =  0;
 #else
 		bool custom = FALSE;
@@ -1712,12 +1712,12 @@ void TQTextDocument::setRichTextInternal( const TQString &text, TQTextCursor* cu
                         hasNewPar = false;
 		    }  else if ( tagname == "hr" ) {
 			emptyTag = space = TRUE;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 			custom = sheet_->tag( tagname, attr, contxt, *factory_ , emptyTag, this );
 #endif
 		    } else if ( tagname == "table" ) {
 			emptyTag = space = TRUE;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 			TQTextFormat format = curtag.format.makeTextFormat(  nstyle, attr, scaleFontsFactor );
 			curpar->setAlignment( curtag.alignment );
 			custom = parseTable( attr, format, doc, length, pos, curpar );
@@ -1728,7 +1728,7 @@ void TQTextDocument::setRichTextInternal( const TQString &text, TQTextCursor* cu
 			    setPaper( b );
 			}
 			if ( attr.contains( "background" ) ) {
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 			    TQImage img;
 			    TQString bg = attr["background"];
 			    const TQMimeSource* m = factory_->data( bg, contxt );
@@ -1786,7 +1786,7 @@ void TQTextDocument::setRichTextInternal( const TQString &text, TQTextCursor* cu
 		    }
 		} // end of well-known tag handling
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		if ( !custom ) // try generic custom item
 		    custom = sheet_->tag( tagname, attr, contxt, *factory_ , emptyTag, this );
 #endif
@@ -1794,7 +1794,7 @@ void TQTextDocument::setRichTextInternal( const TQString &text, TQTextCursor* cu
 		    continue;
 
 		if ( custom ) {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		    int index = TQMAX( curpar->length(),1) - 1;
 		    TQTextFormat format = curtag.format.makeTextFormat( nstyle, attr, scaleFontsFactor );
 		    curpar->append( TQChar('*') );
@@ -2263,7 +2263,7 @@ TQString TQTextDocument::plainText() const
 	    s = ts->toString(); // with FALSE we don't fix spaces (nbsp)
 	} else {
 	    for ( int i = 0; i < p->length() - 1; ++i ) {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		if ( p->at( i )->isCustom() ) {
 		    if ( p->at( i )->customItem()->isNested() ) {
 			s += "\n";
@@ -2817,7 +2817,7 @@ TQString TQTextDocument::selectedText( int id, bool asRichText ) const
 	    s += p->string()->toString().mid( c1.index(), end - c1.index() );
 	} else {
 	    for ( int i = c1.index(); i < end; ++i ) {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		if ( p->at( i )->isCustom() ) {
 		    if ( p->at( i )->customItem()->isNested() ) {
 			s += "\n";
@@ -2847,7 +2847,7 @@ TQString TQTextDocument::selectedText( int id, bool asRichText ) const
 		    s += "\n";
 	    } else {
 		for ( int i = start; i < end; ++i ) {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		    if ( p->at( i )->isCustom() ) {
 			if ( p->at( i )->customItem()->isNested() ) {
 			    s += "\n";
@@ -3205,7 +3205,7 @@ void TQTextDocument::drawParagraph( TQPainter *p, TQTextParagraph *parag, int cx
     if ( resetChanged )
 	parag->setChanged( FALSE );
     TQRect ir( parag->rect() );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     if (!parag->tableCell())
 #endif
 	ir.setWidth(width());
@@ -3346,7 +3346,7 @@ void TQTextDocument::setDefaultFormat( const TQFont &font, const TQColor &color 
     TQTextParagraph *p = fParag;
     while ( p ) {
 	p->invalidate( 0 );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	for ( int i = 0; i < p->length() - 1; ++i )
 	    if ( p->at( i )->isCustom() )
 		p->at( i )->customItem()->invalidate();
@@ -3355,7 +3355,7 @@ void TQTextDocument::setDefaultFormat( const TQFont &font, const TQColor &color 
     }
 }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 void TQTextDocument::registerCustomItem( TQTextCustomItem *i, TQTextParagraph *p )
 {
     if ( i && i->placement() != TQTextCustomItem::PlaceInline ) {
@@ -3425,7 +3425,7 @@ bool TQTextDocument::focusNextPrevChild( bool next )
 			focusIndicator.len++;
 			i++;
 		    }
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		} else if ( p->at( i )->isCustom() ) {
 		    if ( p->at( i )->customItem()->isNested() ) {
 			TQTextTable *t = (TQTextTable*)p->at( i )->customItem();
@@ -3496,7 +3496,7 @@ bool TQTextDocument::focusNextPrevChild( bool next )
 			focusIndicator.start--;
 			i--;
 		    }
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		} else if ( p->at( i )->isCustom() ) {
 		    if ( p->at( i )->customItem()->isNested() ) {
 			TQTextTable *t = (TQTextTable*)p->at( i )->customItem();
@@ -3768,7 +3768,7 @@ void TQTextString::truncate( int index )
     if ( index < (int)data.size() ) {
 	for ( int i = index + 1; i < (int)data.size(); ++i ) {
 	    TQTextStringChar &ch = data[ i ];
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	    if ( !(ch.type == TQTextStringChar::Regular) ) {
 		delete ch.customItem();
 		if ( ch.d.custom->format )
@@ -3790,7 +3790,7 @@ void TQTextString::remove( int index, int len )
 {
     for ( int i = index; i < (int)data.size() && i - index < len; ++i ) {
 	TQTextStringChar &ch = data[ i ];
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	if ( !(ch.type == TQTextStringChar::Regular) ) {
 	    delete ch.customItem();
 	    if ( ch.d.custom->format )
@@ -3813,7 +3813,7 @@ void TQTextString::clear()
 {
     for ( int i = 0; i < (int)data.count(); ++i ) {
 	TQTextStringChar &ch = data[ i ];
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	if ( !(ch.type == TQTextStringChar::Regular) ) {
 	    if ( ch.customItem() && ch.customItem()->placement() == TQTextCustomItem::PlaceInline )
 		delete ch.customItem();
@@ -3931,7 +3931,7 @@ void TQTextStringChar::setFormat( TQTextFormat *f )
     if ( type == Regular ) {
  	d.format = f;
     } else {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
  	if ( !d.custom ) {
  	    d.custom = new CustomData;
  	    d.custom->custom = 0;
@@ -3941,7 +3941,7 @@ void TQTextStringChar::setFormat( TQTextFormat *f )
     }
 }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 void TQTextStringChar::setCustomItem( TQTextCustomItem *i )
 {
     if ( type == Regular ) {
@@ -3992,7 +3992,7 @@ void TQTextStringChar::setAnchor( const TQString& name, const TQString& href )
     if ( type == Regular ) {
 	TQTextFormat *f = format();
 	d.custom = new CustomData;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	d.custom->custom = 0;
 #endif
 	d.custom->format = f;
@@ -4011,7 +4011,7 @@ int TQTextString::width( int idx ) const
      TQTextStringChar *c = &at( idx );
      if ( !c->charStop || c->c.unicode() == 0xad || c->c.unicode() == 0x2028 )
 	 return 0;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
      if( c->isCustom() ) {
 	 if( c->customItem()->placement() == TQTextCustomItem::PlaceInline )
 	     w = c->customItem()->width;
@@ -4020,7 +4020,7 @@ int TQTextString::width( int idx ) const
      {
 	 int r = c->c.row();
          if(r < 0x06
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
              // Uniscribe's handling of Asian makes the condition below fail.
              || (r > 0x1f && !(r > 0xd7 && r < 0xe0))
 #endif
@@ -4041,7 +4041,7 @@ TQTextParagraph::TQTextParagraph( TQTextDocument *d, TQTextParagraph *pr, TQText
       lastInFrame(FALSE), visible(TRUE), breakable(TRUE), movedDown(FALSE),
       mightHaveCustomItems(FALSE), hasdoc( d != 0 ), litem(FALSE), rtext(FALSE),
       align( 0 ), lstyle( TQStyleSheetItem::ListDisc ), invalid( 0 ), mSelections( 0 ),
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
       mFloatingItems( 0 ),
 #endif
       utm( 0 ), ubm( 0 ), ulm( 0 ), urm( 0 ), uflm( 0 ), ulinespacing( 0 ),
@@ -4093,7 +4093,7 @@ TQTextParagraph::~TQTextParagraph()
 {
     delete str;
     if ( hasdoc ) {
-	register TQTextDocument *doc = document();
+	TQTextDocument *doc = document();
 	if ( this == doc->minwParag ) {
 	    doc->minwParag = 0;
 	    doc->minw = 0;
@@ -4110,7 +4110,7 @@ TQTextParagraph::~TQTextParagraph()
 	delete *it;
     if ( mSelections )
 	delete mSelections;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     if ( mFloatingItems )
 	delete mFloatingItems;
 #endif
@@ -4141,7 +4141,7 @@ void TQTextParagraph::invalidate( int chr )
 	invalid = chr;
     else
 	invalid = TQMIN( invalid, chr );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     if ( mFloatingItems ) {
 	for ( TQTextCustomItem *i = mFloatingItems->first(); i; i = mFloatingItems->next() )
 	    i->ypos = -1;
@@ -4184,7 +4184,7 @@ void TQTextParagraph::remove( int index, int len )
 {
     if ( index + len - str->length() > 0 )
 	return;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     for ( int i = index; i < index + len; ++i ) {
 	TQTextStringChar *c = at( i );
 	if ( hasdoc && c->isCustom() ) {
@@ -4218,7 +4218,7 @@ void TQTextParagraph::join( TQTextParagraph *s )
 	    s->str->at( i ).format()->addRef();
 	    str->setFormat( i + start, s->str->at( i ).format(), TRUE );
 	}
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	if ( s->str->at( i ).isCustom() ) {
 	    TQTextCustomItem * item = s->str->at( i ).customItem();
 	    str->at( i + start ).setCustomItem( item );
@@ -4267,7 +4267,7 @@ void TQTextParagraph::move( int &dy )
 	return;
     changed = TRUE;
     r.moveBy( 0, dy );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     if ( mFloatingItems ) {
 	for ( TQTextCustomItem *i = mFloatingItems->first(); i; i = mFloatingItems->next() )
 	    i->ypos += dy;
@@ -4311,7 +4311,7 @@ void TQTextParagraph::format( int start, bool doMove )
  formatAgain:
 
     r.setWidth( documentWidth() );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     if ( hasdoc && mFloatingItems ) {
 	for ( TQTextCustomItem *i = mFloatingItems->first(); i; i = mFloatingItems->next() ) {
 	    i->ypos = r.y();
@@ -4680,7 +4680,7 @@ void TQTextParagraph::paint( TQPainter &painter, const TQColorGroup &cg, TQTextC
 		    drawString( painter, qstr, paintStart, i - paintStart + (ignoreSoftHyphen ? 0 : 1), xstart, y,
 				baseLine, xend-xstart, h, drawSelections, fullSelectionWidth,
 				chr, cg, chr->rightToLeft );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 		else if ( chr->customItem()->placement() == TQTextCustomItem::PlaceInline ) {
 		    bool inSelection = FALSE;
 		    if (drawSelections) {
@@ -4731,7 +4731,7 @@ void TQTextParagraph::setColorForSelection( TQColor &color, TQPainter &painter,
 	    document()->selectionColor( selection ) :
 	    cg.color( TQColorGroup::Highlight );
     if ( selection == TQTextDocument::IMCompositionText ) {
-#ifndef Q_WS_MACX
+#ifndef TQ_WS_MACX
 	int h1, s1, v1, h2, s2, v2;
 	cg.color( TQColorGroup::Base ).hsv( &h1, &s1, &v1 );
 	cg.color( TQColorGroup::Background ).hsv( &h2, &s2, &v2 );
@@ -5004,7 +5004,7 @@ void TQTextParagraph::drawLabel( TQPainter* p, int x, int y, int w, int h, int b
     p->restore();
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 void TQTextParagraph::readStyleInformation( TQDataStream& stream )
 {
     int int_align, int_lstyle;
@@ -5087,7 +5087,7 @@ int TQTextParagraph::nextTab( int, int x )
 
 void TQTextParagraph::adjustToPainter( TQPainter *p )
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     for ( int i = 0; i < length(); ++i ) {
 	if ( at( i )->isCustom() )
 	    at( i )->customItem()->adjustToPainter( p );
@@ -5148,7 +5148,7 @@ TQString TQTextParagraph::richText() const
 	    s += "&amp;";
 	else if ( c->c =='\"' )
 	    s += "&quot;";
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	else if ( c->isCustom() )
 	    s += c->customItem()->richText();
 #endif
@@ -5315,7 +5315,7 @@ TQTextLineStart *TQTextFormatter::formatLine( TQTextParagraph *parag, TQTextStri
 {
     if ( lastChar < startChar )
 	return new TQTextLineStart;
-#ifndef QT_NO_COMPLEXTEXT
+#ifndef TQT_NO_COMPLEXTEXT
     if( string->isBidi() )
 	return bidiReorderLine( parag, string, line, startChar, lastChar, align, space );
 #endif
@@ -5372,7 +5372,7 @@ TQTextLineStart *TQTextFormatter::formatLine( TQTextParagraph *parag, TQTextStri
     return new TQTextLineStart;
 }
 
-#ifndef QT_NO_COMPLEXTEXT
+#ifndef TQT_NO_COMPLEXTEXT
 
 #ifdef BIDI_DEBUG
 #include <iostream>
@@ -5538,7 +5538,7 @@ int TQTextFormatter::formatVertically( TQTextDocument* doc, TQTextParagraph* par
 	TQTextLineStart * ls = it.data();
 	ls->y = h;
 	TQTextStringChar *c = &parag->string()->at(it.key());
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	if ( c && c->customItem() && c->customItem()->ownLine() ) {
 	    int h = c->customItem()->height;
 	    c->customItem()->pageBreak( parag->rect().y() + ls->y + ls->baseLine - h, doc->flow() );
@@ -5636,7 +5636,7 @@ int TQTextFormatterBreakInWords::format( TQTextDocument *doc,TQTextParagraph *pa
 	    ww = c->format()->width( ' ' );
 	}
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	if ( c->isCustom() && c->customItem()->ownLine() ) {
 	    x = doc ? doc->flow()->adjustLMargin( y + parag->rect().y(), parag->rect().height(), left, 4 ) : left;
 	    w = dw - ( doc ? doc->flow()->adjustRMargin( y + parag->rect().y(), parag->rect().height(), rm, 4 ) : 0 );
@@ -5811,7 +5811,7 @@ int TQTextFormatterBreakWords::format( TQTextDocument *doc, TQTextParagraph *par
         if (col != 0 && ::category(c->c) == TQChar::Mark_NonSpacing)
             --col;
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	lastWasNonInlineCustom =  ( c->isCustom() && c->customItem()->placement() != TQTextCustomItem::PlaceInline );
 #endif
 
@@ -5833,7 +5833,7 @@ int TQTextFormatterBreakWords::format( TQTextDocument *doc, TQTextParagraph *par
 	    ww = c->format()->width( ' ' );
 	}
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	TQTextCustomItem* ci = c->customItem();
 	if ( c->isCustom() && ci->ownLine() ) {
 	    TQTextLineStart *lineStart2 = formatLine( parag, string, lineStart, firstChar, c-1, align, SPACE(w - x - ww) );
@@ -6063,7 +6063,7 @@ void TQTextFormatCollection::setPaintDevice( TQPaintDevice *pd )
 {
     paintdevice = pd;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     int scr = ( paintdevice ) ? paintdevice->x11Screen() : TQPaintDevice::x11AppScreen();
 
     defFormat->fn.x11SetScreen( scr );
@@ -6076,7 +6076,7 @@ void TQTextFormatCollection::setPaintDevice( TQPaintDevice *pd )
 	format->fn.x11SetScreen( scr );
 	format->update();
     }
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 }
 
 TQTextFormat *TQTextFormatCollection::format( TQTextFormat *f )
@@ -6556,14 +6556,14 @@ TQTextFormat TQTextFormat::makeTextFormat( const TQStyleSheetItem *style, const 
     return format;
 }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 
 struct TQPixmapInt
 {
     TQPixmapInt() : ref( 0 ) {}
     TQPixmap pm;
     int	    ref;
-    Q_DUMMY_COMPARISON_OPERATOR(TQPixmapInt)
+    TQ_DUMMY_COMPARISON_OPERATOR(TQPixmapInt)
 };
 
 static TQMap<TQString, TQPixmapInt> *pixmap_map = 0;
@@ -6621,7 +6621,7 @@ TQTextImage::TQTextImage( TQTextDocument *p, const TQMap<TQString, TQString> &at
 		    }
 		}
 		if ( img.width() != width || img.height() != height ){
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
 		    img = img.smoothScale(width, height);
 #endif
 		    width = img.width();
@@ -6695,7 +6695,7 @@ void TQTextImage::adjustToPainter( TQPainter* p )
     height = scale( tmpheight, p );
 }
 
-#if !defined(Q_WS_X11)
+#if !defined(TQ_WS_X11)
 #include <ntqbitmap.h>
 #include <ntqcleanuphandler.h>
 static TQPixmap *qrt_selection = 0;
@@ -6744,7 +6744,7 @@ void TQTextImage::draw( TQPainter* p, int x, int y, int cx, int cy, int cw, int 
 	p->drawPixmap( cx , cy, pm, cx - x, cy - y, cw, ch );
 
     if ( selected && placement() == PlaceInline && is_printer( p ) ) {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	p->fillRect( TQRect( TQPoint( x, y ), pm.size() ), TQBrush( cg.highlight(), TQBrush::Dense4Pattern) );
 #else // in WIN32 Dense4Pattern doesn't work correctly (transparency problem), so work around it
 	if ( !qrt_selection )
@@ -6800,7 +6800,7 @@ void TQTextHorizontalLine::draw( TQPainter* p, int x, int y, int , int , int , i
 	qDrawShadeLine( p, r.left() - 1, y + height / 2, r.right() + 1, y + height / 2, g, TRUE, height / 8 );
     }
 }
-#endif //QT_NO_TEXTCUSTOMITEM
+#endif //TQT_NO_TEXTCUSTOMITEM
 
 /*****************************************************************/
 // Small set of utility functions to make the parser a bit simpler
@@ -6824,7 +6824,7 @@ bool TQTextDocument::hasPrefix( const TQChar* doc, int length, int pos, const TQ
     return TRUE;
 }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 static bool qt_is_cell_in_use( TQPtrList<TQTextTableCell>& cells, int row, int col )
 {
     for ( TQTextTableCell* c = cells.first(); c; c = cells.next() ) {
@@ -6930,7 +6930,7 @@ TQTextCustomItem* TQTextDocument::parseTable( const TQMap<TQString, TQString> &a
     }
     return table;
 }
-#endif // QT_NO_TEXTCUSTOMITEM
+#endif // TQT_NO_TEXTCUSTOMITEM
 
 bool TQTextDocument::eatSpace(const TQChar* doc, int length, int& pos, bool includeNbsp )
 {
@@ -7443,7 +7443,7 @@ TQTextFlow::~TQTextFlow()
 
 void TQTextFlow::clear()
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     leftItems.setAutoDelete( TRUE );
     rightItems.setAutoDelete( TRUE );
     leftItems.clear();
@@ -7460,7 +7460,7 @@ void TQTextFlow::setWidth( int width )
 
 int TQTextFlow::adjustLMargin( int yp, int, int margin, int space )
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     for ( TQTextCustomItem* item = leftItems.first(); item; item = leftItems.next() ) {
 	if ( item->ypos == -1 )
 	    continue;
@@ -7473,7 +7473,7 @@ int TQTextFlow::adjustLMargin( int yp, int, int margin, int space )
 
 int TQTextFlow::adjustRMargin( int yp, int, int margin, int space )
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     for ( TQTextCustomItem* item = rightItems.first(); item; item = rightItems.next() ) {
 	if ( item->ypos == -1 )
 	    continue;
@@ -7498,7 +7498,7 @@ int TQTextFlow::adjustFlow( int y, int /*w*/, int h )
     return 0;
 }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 void TQTextFlow::unregisterFloatingItem( TQTextCustomItem* item )
 {
     leftItems.removeRef( item );
@@ -7515,12 +7515,12 @@ void TQTextFlow::registerFloatingItem( TQTextCustomItem* item )
 	leftItems.append( item );
     }
 }
-#endif // QT_NO_TEXTCUSTOMITEM
+#endif // TQT_NO_TEXTCUSTOMITEM
 
 TQRect TQTextFlow::boundingRect() const
 {
     TQRect br;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQPtrListIterator<TQTextCustomItem> l( leftItems );
     while( l.current() ) {
 	br = br.unite( l.current()->geometry() );
@@ -7538,7 +7538,7 @@ TQRect TQTextFlow::boundingRect() const
 
 void TQTextFlow::drawFloatingItems( TQPainter* p, int cx, int cy, int cw, int ch, const TQColorGroup& cg, bool selected )
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQTextCustomItem *item;
     for ( item = leftItems.first(); item; item = leftItems.next() ) {
 	if ( item->xpos == -1 || item->ypos == -1 )
@@ -7556,13 +7556,13 @@ void TQTextFlow::drawFloatingItems( TQPainter* p, int cx, int cy, int cw, int ch
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 void TQTextCustomItem::pageBreak( int /*y*/ , TQTextFlow* /*flow*/ )
 {
 }
 #endif
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 TQTextTable::TQTextTable( TQTextDocument *p, const TQMap<TQString, TQString> & attr  )
     : TQTextCustomItem( p )
 {
@@ -8257,4 +8257,4 @@ void TQTextTableCell::draw( TQPainter* p, int x, int y, int cx, int cy, int cw, 
 }
 #endif
 
-#endif //QT_NO_RICHTEXT
+#endif //TQT_NO_RICHTEXT

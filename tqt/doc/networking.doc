@@ -11,7 +11,7 @@
 
 
 \if defined(commercial)
-This module is part of the \link commercialeditions.html Qt Enterprise Edition \endlink.
+This module is part of the \link commercialeditions.html TQt Enterprise Edition \endlink.
 \endif
 
 \tableofcontents
@@ -76,7 +76,7 @@ QApplication object:
 Copying files is simple:
 \code
     QUrlOperator url;
-    url.copy( QString("ftp://ftp.trolltech.com/qt/source/qt-3.0.0.tar.gz"), "file:/tmp" );
+    url.copy( TQString("ftp://ftp.trolltech.com/qt/source/qt-3.0.0.tar.gz"), "file:/tmp" );
 \endcode
 The first (source) URL is copied to the second (destination) URL. The
 \link QUrlOperator::copy() copy()\endlink function can be used to move
@@ -125,9 +125,9 @@ URL and download each one that is a regular file, (i.e. ignoring
 directories). The FetchFiles object will emit signals as follows:
 \list
 \i start() -- emitted when it calls listChildren().
-\i startFile( QString ) -- emitted once for each file it starts to
+\i startFile( TQString ) -- emitted once for each file it starts to
 copy, parameterised by the filename.
-\i finishedFile( QString ) -- emitted once for each file it finishes
+\i finishedFile( TQString ) -- emitted once for each file it finishes
 copying, parameterised by the filename.
 \i finished() -- emitted when all files have been read.
 \i error() -- emitted if an error occurs.
@@ -218,7 +218,7 @@ ClientSocket constructor connects QSocket::readyRead() signal which is emitted w
 This slot is called every time we receive some data via socket.
 Our communication protocol is textual and line oriented, and socket communication is asynchronous (don't forget that, we don't know when readyRead() will be emitted, or will that be at the end of the line), so we have to check with QSocket::canReadLine() if the full line has been received. Because each input line presents one command in this protocol (list or get) we will process it and return generated answer through the socket back to the Client. 
 Function processCommand() parses the input line and if it recognizes LIST or GET command, calls corresponding (InfoData*)info methods - list and get, otherwise creates appropriate error message.
-QSocket is a subclass of QIODevice, thus we can use QTextStream to read and write lines to it.
+QSocket is a subclass of TQIODevice, thus we can use QTextStream to read and write lines to it.
 
 
 
@@ -265,7 +265,7 @@ It is not mandatory, of course, but it's good programming practice to cover erro
 
 \section2 Info Url Client
 
-It is time to illustrate how to use QNetworkProtocol, QNetworkOperation and QUrlOperator to register our communication protocol and make it on par to already implemented protocols, like QFtp, QHttp and QLocalFs. This will give us much larger flexibility in use and let us use Qt class that supports Network Protocols, e.g. QFileDialog.
+It is time to illustrate how to use QNetworkProtocol, QNetworkOperation and QUrlOperator to register our communication protocol and make it on par to already implemented protocols, like QFtp, QHttp and QLocalFs. This will give us much larger flexibility in use and let us use TQt class that supports Network Protocols, e.g. QFileDialog.
 
 First, here is the header file in which Qip (our custom Network
 Protocol) is declared (\c network/infoprotocol/infourlclient/qip.h):
@@ -374,11 +374,11 @@ We didn't use static function QFileDialog::getOpenFileName() because under Windo
 
 ### Rainer: have we an example that I can use?
 
-\section1 Inter-Process Communication between Qt Applications
+\section1 Inter-Process Communication between TQt Applications
 
 ### Rainer: have we an example that I can use?
 
-\section1 Inter-Process Communication between Qt and non-Qt Applications
+\section1 Inter-Process Communication between TQt and non-Qt Applications
 
 ### Rainer: have we an example that I can use?
 

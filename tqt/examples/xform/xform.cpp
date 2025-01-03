@@ -144,16 +144,16 @@ XFormControl::XFormControl( const TQFont &initialFont,
 
     rotS->setRange( -180, 180 );
     rotS->setValue( 0 );
-    connect( rotS, SIGNAL(valueChanged(int)), SLOT(newMtx()) );
+    connect( rotS, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(newMtx()) );
 
     shearLCD->display( "0.00" );
 
     shearS->setRange( -25, 25 );
     shearS->setValue( 0 );
-    connect( shearS, SIGNAL(valueChanged(int)), SLOT(newMtx()) );
+    connect( shearS, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(newMtx()) );
 
     mirror->setText( tr("Mirror") );
-    connect( mirror, SIGNAL(clicked()), SLOT(newMtx()) );
+    connect( mirror, TQ_SIGNAL(clicked()), TQ_SLOT(newMtx()) );
 
     TQButtonGroup *bg = new TQButtonGroup(this);
     bg->hide();
@@ -164,23 +164,23 @@ XFormControl::XFormControl( const TQFont &initialFont,
     rb_img->setText( tr("Image") );
     rb_img->setChecked(TRUE);
     rb_pic->setText( tr("Picture") );
-    connect( bg, SIGNAL(clicked(int)), SLOT(changeMode(int)) );
+    connect( bg, TQ_SIGNAL(clicked(int)), TQ_SLOT(changeMode(int)) );
 
     fpb->setText( tr("Select font...") );
-    connect( fpb, SIGNAL(clicked()), SLOT(selectFont()) );
+    connect( fpb, TQ_SIGNAL(clicked()), TQ_SLOT(selectFont()) );
 
     textEd->setText( "Troll" );
-    connect( textEd, SIGNAL(textChanged(const TQString&)),
-		     SLOT(newTxt(const TQString&)) );
+    connect( textEd, TQ_SIGNAL(textChanged(const TQString&)),
+		     TQ_SLOT(newTxt(const TQString&)) );
 
     magLCD = new TQLCDNumber( 4,optionals_other, "magLCD" );
     magLCD->display( "100" );
     magS = new TQSlider( TQSlider::Horizontal, optionals_other,
 			   "magnifySlider" );
     magS->setRange( 0, 800 );
-    connect( magS, SIGNAL(valueChanged(int)), SLOT(newMtx()) );
+    connect( magS, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(newMtx()) );
     magS->setValue( 0 );
-    connect( magS, SIGNAL(valueChanged(int)), magLCD, SLOT(display(int)));
+    connect( magS, TQ_SIGNAL(valueChanged(int)), magLCD, TQ_SLOT(display(int)));
 
     optionals_text->adjustSize();
     optionals_other->adjustSize();
@@ -479,13 +479,13 @@ XFormCenter::XFormCenter( TQWidget *parent, const char *name )
     setStretchFactor(sx,1);
     xc->setFrameStyle( TQFrame::Panel | TQFrame::Raised );
     xc->setLineWidth( 2 );
-    connect( xc, SIGNAL(newText(const TQString&)), sx,
-		 SLOT(setText(const TQString&)) );
-    connect( xc, SIGNAL(newMatrix(TQWMatrix)),
-	     sx, SLOT(setMatrix(TQWMatrix)) );
-    connect( xc, SIGNAL(newFont(const TQFont&)), sx,
-		 SLOT(setFont(const TQFont&)) );
-    connect( xc, SIGNAL(newMode(int)), SLOT(newMode(int)) );
+    connect( xc, TQ_SIGNAL(newText(const TQString&)), sx,
+		 TQ_SLOT(setText(const TQString&)) );
+    connect( xc, TQ_SIGNAL(newMatrix(TQWMatrix)),
+	     sx, TQ_SLOT(setMatrix(TQWMatrix)) );
+    connect( xc, TQ_SIGNAL(newFont(const TQFont&)), sx,
+		 TQ_SLOT(setFont(const TQFont&)) );
+    connect( xc, TQ_SIGNAL(newMode(int)), TQ_SLOT(newMode(int)) );
     sx->setText( "Troll" );
     newMode( Image );
     sx->setMatrix(xc->matrix());

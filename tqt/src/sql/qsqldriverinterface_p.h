@@ -60,12 +60,12 @@
 #if !defined( TQT_MODULE_SQL ) || defined( QT_LICENSE_PROFESSIONAL )
 #define TQM_EXPORT_SQL
 #else
-#define TQM_EXPORT_SQL Q_EXPORT
+#define TQM_EXPORT_SQL TQ_EXPORT
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 // {EDDD5AD5-DF3C-400c-A711-163B72FE5F61}
 #ifndef IID_QSqlDriverFactory
@@ -79,7 +79,7 @@ struct TQM_EXPORT_SQL TQSqlDriverFactoryInterface : public TQFeatureListInterfac
     virtual TQSqlDriver* create( const TQString& name ) = 0;
 };
 
-#endif //QT_NO_COMPONENT
-#endif // QT_NO_SQL
+#endif //TQT_NO_COMPONENT
+#endif // TQT_NO_SQL
 
 #endif // TQSQLDRIVERINTERFACE_P_H

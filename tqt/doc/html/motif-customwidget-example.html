@@ -97,7 +97,7 @@ int main( int argc, char **argv )
     : <a href="ntqmainwindow.html">TQMainWindow</a>( 0, "mainwindow" )
 {
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *filemenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    filemenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Quit"), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    filemenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Quit"), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("&amp;File"), filemenu );
     <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;message( <a href="ntqobject.html#tr">tr</a>("This is a TQMainWindow with an XmText widget.") );

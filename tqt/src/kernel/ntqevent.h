@@ -49,7 +49,7 @@
 #include "ntqpair.h"
 #endif // QT_H
 
-class Q_EXPORT TQEvent: public TQt		// event base class
+class TQ_EXPORT TQEvent: public TQt		// event base class
 {
 public:
     enum Type {
@@ -162,7 +162,7 @@ private:
 };
 
 
-class Q_EXPORT TQTimerEvent : public TQEvent
+class TQ_EXPORT TQTimerEvent : public TQEvent
 {
 public:
     TQTimerEvent( int timerId )
@@ -173,7 +173,7 @@ protected:
 };
 
 
-class Q_EXPORT TQMouseEvent : public TQEvent
+class TQ_EXPORT TQMouseEvent : public TQEvent
 {
 public:
     TQMouseEvent( Type type, const TQPoint &pos, int button, int state );
@@ -203,8 +203,8 @@ protected:
 };
 
 
-#ifndef QT_NO_WHEELEVENT
-class Q_EXPORT TQWheelEvent : public TQEvent
+#ifndef TQT_NO_WHEELEVENT
+class TQ_EXPORT TQWheelEvent : public TQEvent
 {
 public:
     TQWheelEvent( const TQPoint &pos, int delta, int state, Orientation orient = Vertical );
@@ -233,7 +233,7 @@ protected:
 };
 #endif
 
-class Q_EXPORT TQTabletEvent : public TQEvent
+class TQ_EXPORT TQTabletEvent : public TQEvent
 {
 public:
     enum TabletDevice { NoDevice = -1, Puck, Stylus, Eraser };
@@ -272,7 +272,7 @@ protected:
 
 };
 
-class Q_EXPORT TQKeyEvent : public TQEvent
+class TQ_EXPORT TQKeyEvent : public TQEvent
 {
 public:
     TQKeyEvent( Type type, int key, int ascii, int state,
@@ -304,7 +304,7 @@ protected:
 };
 
 
-class Q_EXPORT TQFocusEvent : public TQEvent
+class TQ_EXPORT TQFocusEvent : public TQEvent
 {
 public:
 
@@ -325,7 +325,7 @@ private:
 };
 
 
-class Q_EXPORT TQPaintEvent : public TQEvent
+class TQ_EXPORT TQPaintEvent : public TQEvent
 {
 public:
     TQPaintEvent( const TQRegion& paintRegion, bool erased = TRUE)
@@ -356,7 +356,7 @@ protected:
 };
 
 
-class Q_EXPORT TQMoveEvent : public TQEvent
+class TQ_EXPORT TQMoveEvent : public TQEvent
 {
 public:
     TQMoveEvent( const TQPoint &pos, const TQPoint &oldPos )
@@ -370,7 +370,7 @@ protected:
 };
 
 
-class Q_EXPORT TQResizeEvent : public TQEvent
+class TQ_EXPORT TQResizeEvent : public TQEvent
 {
 public:
     TQResizeEvent( const TQSize &size, const TQSize &oldSize )
@@ -384,7 +384,7 @@ protected:
 };
 
 
-class Q_EXPORT TQCloseEvent : public TQEvent
+class TQ_EXPORT TQCloseEvent : public TQEvent
 {
 public:
     TQCloseEvent()
@@ -397,7 +397,7 @@ protected:
 };
 
 
-class Q_EXPORT TQIconDragEvent : public TQEvent
+class TQ_EXPORT TQIconDragEvent : public TQEvent
 {
 public:
     TQIconDragEvent() 
@@ -410,7 +410,7 @@ protected:
     bool   accpt;
 };
 
-class Q_EXPORT TQShowEvent : public TQEvent
+class TQ_EXPORT TQShowEvent : public TQEvent
 {
 public:
     TQShowEvent()
@@ -418,14 +418,14 @@ public:
 };
 
 
-class Q_EXPORT TQHideEvent : public TQEvent
+class TQ_EXPORT TQHideEvent : public TQEvent
 {
 public:
     TQHideEvent()
 	: TQEvent(Hide) {}
 };
 
-class Q_EXPORT TQContextMenuEvent : public TQEvent
+class TQ_EXPORT TQContextMenuEvent : public TQEvent
 {
 public:
     enum Reason { Mouse, Keyboard, Other };
@@ -461,7 +461,7 @@ protected:
 };
 
 
-class Q_EXPORT TQIMEvent : public TQEvent
+class TQ_EXPORT TQIMEvent : public TQEvent
 {
 public:
     TQIMEvent( Type type, const TQString &text, int cursorPosition )
@@ -479,7 +479,7 @@ private:
     bool a;
 };
 
-class Q_EXPORT TQIMComposeEvent : public TQIMEvent
+class TQ_EXPORT TQIMComposeEvent : public TQIMEvent
 {
 public:
     TQIMComposeEvent( Type type, const TQString &text, int cursorPosition,
@@ -500,13 +500,13 @@ inline int TQIMEvent::selectionLength() const
 }
 
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 // This class is rather closed at the moment.  If you need to create your
 // own DND event objects, write to qt-bugs@trolltech.com and we'll try to
 // find a way to extend it so it covers your needs.
 
-class Q_EXPORT TQDropEvent : public TQEvent, public TQMimeSource
+class TQ_EXPORT TQDropEvent : public TQEvent, public TQMimeSource
 {
 public:
     TQDropEvent( const TQPoint& pos, Type typ=Drop )
@@ -545,7 +545,7 @@ protected:
 
 
 
-class Q_EXPORT TQDragMoveEvent : public TQDropEvent
+class TQ_EXPORT TQDragMoveEvent : public TQDropEvent
 {
 public:
     TQDragMoveEvent( const TQPoint& pos, Type typ=DragMove )
@@ -562,7 +562,7 @@ protected:
 };
 
 
-class Q_EXPORT TQDragEnterEvent : public TQDragMoveEvent
+class TQ_EXPORT TQDragEnterEvent : public TQDragMoveEvent
 {
 public:
     TQDragEnterEvent( const TQPoint& pos ) :
@@ -571,7 +571,7 @@ public:
 
 
 /* An internal class */
-class Q_EXPORT TQDragResponseEvent : public TQEvent
+class TQ_EXPORT TQDragResponseEvent : public TQEvent
 {
 public:
     TQDragResponseEvent( bool accepted )
@@ -582,16 +582,16 @@ protected:
 };
 
 
-class Q_EXPORT TQDragLeaveEvent : public TQEvent
+class TQ_EXPORT TQDragLeaveEvent : public TQEvent
 {
 public:
     TQDragLeaveEvent()
 	: TQEvent(DragLeave) {}
 };
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
-class Q_EXPORT TQChildEvent : public TQEvent
+class TQ_EXPORT TQChildEvent : public TQEvent
 {
 public:
     TQChildEvent( Type type, TQObject *child )
@@ -604,7 +604,7 @@ protected:
 };
 
 
-class Q_EXPORT TQCustomEvent : public TQEvent
+class TQ_EXPORT TQCustomEvent : public TQEvent
 {
 public:
     TQCustomEvent( int type );

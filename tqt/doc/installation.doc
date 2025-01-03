@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2000-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -40,7 +40,7 @@
 
 \title Installation
 
-The installation procedure is different for the different Qt platforms:
+The installation procedure is different for the different TQt platforms:
 
 \list
  \i \link install-x11.html Qt/X11 \endlink
@@ -76,17 +76,17 @@ where you choose to install Qt.
     mv qt-version qt
 \endcode
 
-    The rest of this file assumes that Qt is installed in \c /usr/local/qt.
+    The rest of this file assumes that TQt is installed in \c /usr/local/qt.
 
 \i  Set some environment variables in the file \c .profile (or \c .login,
     depending on your shell) in your home directory. Create the
     file if it is not there already.
 
     \list
-    \i QTDIR -- the directory in which you're building Qt
-    \i PATH -- to locate the moc program and other Qt tools
-    \i MANPATH -- to access the Qt man pages
-    \i LD_LIBRARY_PATH -- for the shared Qt library
+    \i TQTDIR -- the directory in which you're building Qt
+    \i PATH -- to locate the moc program and other TQt tools
+    \i MANPATH -- to access the TQt man pages
+    \i LD_LIBRARY_PATH -- for the shared TQt library
     \endlist
 
     This is done like this:
@@ -95,38 +95,38 @@ where you choose to install Qt.
     following lines:
 
 \code
-    QTDIR=/usr/local/qt
-    PATH=$QTDIR/bin:$PATH
-    MANPATH=$QTDIR/man:$MANPATH
-    LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+    TQTDIR=/usr/local/qt
+    PATH=$TQTDIR/bin:$PATH
+    MANPATH=$TQTDIR/man:$MANPATH
+    LD_LIBRARY_PATH=$TQTDIR/lib:$LD_LIBRARY_PATH
 
-    export QTDIR PATH MANPATH LD_LIBRARY_PATH
+    export TQTDIR PATH MANPATH LD_LIBRARY_PATH
 \endcode
 
     In \c .login (in case your shell is csh or tcsh), add the following lines:
 
 \code
-    setenv QTDIR /usr/local/qt
-    setenv PATH $QTDIR/bin:$PATH
-    setenv MANPATH $QTDIR/man:$MANPATH
-    setenv LD_LIBRARY_PATH $QTDIR/lib:$LD_LIBRARY_PATH
+    setenv TQTDIR /usr/local/qt
+    setenv PATH $TQTDIR/bin:$PATH
+    setenv MANPATH $TQTDIR/man:$MANPATH
+    setenv LD_LIBRARY_PATH $TQTDIR/lib:$LD_LIBRARY_PATH
 \endcode
 
     After you have done this, you will need to login again, or
-    re-source the profile before continuing, so that at least \c $QTDIR
+    re-source the profile before continuing, so that at least \c $TQTDIR
     is set.  The installation will give an error message and not
     proceed otherwise.
 
     On AIX set LIBPATH and on HP-UX set SHLIB_PATH instead of LD_LIBRARY_PATH.
 
     Note that the SGI MIPSpro o32 and Sun WorkShop 5.0 targets are no
-    longer supported as of Qt 3.3.
+    longer supported as of TQt 3.3.
 
 \i  Install your license file as \c $HOME/.qt-license.
     For the free edition and evaluation version, you do not need a license
     file.
 
-\i  Compile the Qt library, and build the example programs,
+\i  Compile the TQt library, and build the example programs,
     the tutorial and the tools (e.g. \link designer-manual.book Qt
     Designer\endlink) as follows.
 
@@ -135,7 +135,7 @@ where you choose to install Qt.
     ./configure
 \endcode
 
-    This will configure the Qt library for your machine. Note that
+    This will configure the TQt library for your machine. Note that
     GIF support is turned off by default. Run \c{./configure -help}
     to get a list of configuration options. Read \c PLATFORMS for a
     list of supported platforms.
@@ -152,7 +152,7 @@ where you choose to install Qt.
 
     If you have problems running the example programs, e.g. messages like
 \code
-    can't load library 'libqt.so.2'
+    can't load library 'libtqt.so.2'
 \endcode
     you probably need to put a reference to the qt library in a
     configuration file and run \c /sbin/ldconfig as root on your system.
@@ -165,7 +165,7 @@ where you choose to install Qt.
     Assistant\endlink.
 \endlist
 
-You're done.  Qt is now installed.
+You're done.  TQt is now installed.
 
 */
 
@@ -203,17 +203,17 @@ the directories where you choose to install Qt.
     mv qt-version qt
 \endcode
 
-    The rest of this file assumes that Qt is unpacked in \c /Developer/qt.
+    The rest of this file assumes that TQt is unpacked in \c /Developer/qt.
 
 \i  Set some environment variables in the file \c .profile (or \c .login,
     depending on your shell) in your home directory. Create the
     file if it is not there already.
 
     \list
-    \i QTDIR -- the directory in which you're building Qt
-    \i PATH -- to locate the moc program and other Qt tools
-    \i MANPATH -- to access the Qt man pages
-    \i LD_LIBRARY_PATH -- for the shared Qt library
+    \i TQTDIR -- the directory in which you're building Qt
+    \i PATH -- to locate the moc program and other TQt tools
+    \i MANPATH -- to access the TQt man pages
+    \i LD_LIBRARY_PATH -- for the shared TQt library
     \endlist
 
     This is done like this:
@@ -222,21 +222,21 @@ the directories where you choose to install Qt.
     following lines:
 
 \code
-    QTDIR=/Developer/qt
-    PATH=$QTDIR/bin:$PATH
-    MANPATH=$QTDIR/man:$MANPATH
-    DYLD_LIBRARY_PATH=$QTDIR/lib:$DYLD_LIBRARY_PATH
+    TQTDIR=/Developer/qt
+    PATH=$TQTDIR/bin:$PATH
+    MANPATH=$TQTDIR/man:$MANPATH
+    DYLD_LIBRARY_PATH=$TQTDIR/lib:$DYLD_LIBRARY_PATH
 
-    export QTDIR PATH MANPATH DYLD_LIBRARY_PATH
+    export TQTDIR PATH MANPATH DYLD_LIBRARY_PATH
 \endcode
 
     In \c .login (in case your shell is csh or tcsh), add the following lines:
 
 \code
-    setenv QTDIR /Developer/qt
-    setenv PATH $QTDIR/bin:$PATH
-    setenv MANPATH $QTDIR/man:$MANPATH
-    setenv DYLD_LIBRARY_PATH $QTDIR/lib:$DYLD_LIBRARY_PATH
+    setenv TQTDIR /Developer/qt
+    setenv PATH $TQTDIR/bin:$PATH
+    setenv MANPATH $TQTDIR/man:$MANPATH
+    setenv DYLD_LIBRARY_PATH $TQTDIR/lib:$DYLD_LIBRARY_PATH
 \endcode
 
     After you have done this, you will need to login again, or
@@ -245,17 +245,17 @@ the directories where you choose to install Qt.
 \i  If you have the commercial edition of Qt, install your license
     file as \c $HOME/.qt-license.
 
-\i  Compile the Qt library, and build the example programs,
+\i  Compile the TQt library, and build the example programs,
     the tutorial and the tools (e.g. \link designer-manual.book Qt
     Designer\endlink) as follows.
 
     Type:
 \code
-    cd $QTDIR
+    cd $TQTDIR
     ./configure
 \endcode
 
-    This will configure the Qt library for your machine. Note that
+    This will configure the TQt library for your machine. Note that
     GIF support is turned off by default. Run \c{./configure -help}
     to get a list of configuration options.
 
@@ -266,16 +266,16 @@ the directories where you choose to install Qt.
     If you have problems, see
     \l{http://www.trolltech.com/platforms/}.
 
-\i  Once you have built Qt, it is ready to use. If Qt has not been
+\i  Once you have built Qt, it is ready to use. If TQt has not been
     configured with the -static option, then in order to be able to
-    launch Qt applications from the Finder you must place the relevant
+    launch TQt applications from the Finder you must place the relevant
     libraries in a directory where they can be found. We recommend
-    making these symbolic links (if you have configured Qt with -thread
-    please change the libqt below with libtqt-mt):
+    making these symbolic links (if you have configured TQt with -thread
+    please change the libtqt below with libtqt-mt):
 
 \code
-    ln -sf $QTDIR/lib/libqt.3.dylib /usr/lib
-    ln -sf $QTDIR/lib/libtqui.1.dylib /usr/lib
+    ln -sf $TQTDIR/lib/libtqt.3.dylib /usr/lib
+    ln -sf $TQTDIR/lib/libtqui.1.dylib /usr/lib
 \endcode
 
     You may need to have 'administrator' access to do this, (in which
@@ -284,17 +284,17 @@ the directories where you choose to install Qt.
 
     If you do not have administrator access, or you would prefer to do
     a user install (rather than system install) of the libraries you
-    can do (if you have configured Qt with -thread please change the libqt
+    can do (if you have configured TQt with -thread please change the libtqt
     below with libtqt-mt):
 
 \code
-    ln -sf $QTDIR/lib/libqt.3.dylib $HOME/lib
-    ln -sf $QTDIR/lib/libtqui.1.dylib $HOME/lib
+    ln -sf $TQTDIR/lib/libtqt.3.dylib $HOME/lib
+    ln -sf $TQTDIR/lib/libtqui.1.dylib $HOME/lib
 \endcode
 \endlist
 
-That's all! Qt is now installed. Qt's documentation can be read with
+That's all! TQt is now installed. Qt's documentation can be read with
 Qt Assistant or by any web browser; the contents page is
-\c $QTDIR/doc/html/index.html.
+\c $TQTDIR/doc/html/index.html.
 
 */

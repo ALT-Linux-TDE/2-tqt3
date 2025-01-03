@@ -356,7 +356,7 @@ ProjectBuilderMakefileGenerator::writeMakeParts(TQTextStream &t)
 	    TQTextStream mkt(&mkf);
 	    writeHeader(mkt);
 	    mkt << "QMAKE    = "	<<
-		(project->isEmpty("QMAKE_QMAKE") ? TQString("$(QTDIR)/bin/tqmake") :
+		(project->isEmpty("QMAKE_QMAKE") ? TQString("$(TQTDIR)/bin/tqmake") :
 		 var("QMAKE_QMAKE")) << endl;
 	    writeMakeQmake(mkt);
 	    mkf.close();

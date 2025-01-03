@@ -17,10 +17,10 @@ QPalette \- Color groups for each widget state
 .BI "\fBQPalette\fR ()"
 .br
 .ti -1c
-.BI "QPalette ( const QColor & button )  \fI(obsolete)\fR"
+.BI "QPalette ( const TQColor & button )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "\fBQPalette\fR ( const QColor & button, const QColor & background )"
+.BI "\fBQPalette\fR ( const TQColor & button, const TQColor & background )"
 .br
 .ti -1c
 .BI "\fBQPalette\fR ( const QColorGroup & active, const QColorGroup & disabled, const QColorGroup & inactive )"
@@ -38,19 +38,19 @@ QPalette \- Color groups for each widget state
 .BI "enum \fBColorGroup\fR { Disabled, Active, Inactive, NColorGroups, Normal = Active }"
 .br
 .ti -1c
-.BI "const QColor & \fBcolor\fR ( ColorGroup gr, QColorGroup::ColorRole r ) const"
+.BI "const TQColor & \fBcolor\fR ( ColorGroup gr, QColorGroup::ColorRole r ) const"
 .br
 .ti -1c
 .BI "const QBrush & \fBbrush\fR ( ColorGroup gr, QColorGroup::ColorRole r ) const"
 .br
 .ti -1c
-.BI "void \fBsetColor\fR ( ColorGroup gr, QColorGroup::ColorRole r, const QColor & c )"
+.BI "void \fBsetColor\fR ( ColorGroup gr, QColorGroup::ColorRole r, const TQColor & c )"
 .br
 .ti -1c
 .BI "void \fBsetBrush\fR ( ColorGroup gr, QColorGroup::ColorRole r, const QBrush & b )"
 .br
 .ti -1c
-.BI "void \fBsetColor\fR ( QColorGroup::ColorRole r, const QColor & c )"
+.BI "void \fBsetColor\fR ( QColorGroup::ColorRole r, const TQColor & c )"
 .br
 .ti -1c
 .BI "void \fBsetBrush\fR ( QColorGroup::ColorRole r, const QBrush & b )"
@@ -107,7 +107,7 @@ QPalette \- Color groups for each widget state
 .SH DESCRIPTION
 The QPalette class contains color groups for each widget state.
 .PP
-A palette consists of three color groups: \fIactive\fR, \fIdisabled\fR, and \fIinactive\fR. All widgets contain a palette, and all widgets in Qt use their palette to draw themselves. This makes the user interface easily configurable and easier to keep consistent.
+A palette consists of three color groups: \fIactive\fR, \fIdisabled\fR, and \fIinactive\fR. All widgets contain a palette, and all widgets in TQt use their palette to draw themselves. This makes the user interface easily configurable and easier to keep consistent.
 .PP
 If you create a new widget we strongly recommend that you use the colors in the palette rather than hard-coding specific colors.
 .PP
@@ -129,7 +129,7 @@ Colors and brushes can be set for particular roles in any of a palette's color g
 .PP
 You can copy a palette using the copy constructor and test to see if two palettes are \fIidentical\fR using isCopyOf().
 .PP
-See also QApplication::setPalette(), QWidget::palette, QColorGroup, QColor, Widget Appearance and Style, Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
+See also QApplication::setPalette(), TQWidget::palette, QColorGroup, TQColor, Widget Appearance and Style, Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
 .SS "Member Type Documentation"
 .SH "QPalette::ColorGroup"
 .TP
@@ -145,11 +145,11 @@ See also QApplication::setPalette(), QWidget::palette, QColorGroup, QColor, Widg
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QPalette::QPalette ()"
 Constructs a palette that consists of color groups with only black colors.
-.SH "QPalette::QPalette ( const QColor & button )"
+.SH "QPalette::QPalette ( const TQColor & button )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Constructs a palette from the \fIbutton\fR color. The other colors are automatically calculated, based on this color. Background will be the button color as well.
-.SH "QPalette::QPalette ( const QColor & button, const QColor & background )"
+.SH "QPalette::QPalette ( const TQColor & button, const TQColor & background )"
 Constructs a palette from a \fIbutton\fR color and a \fIbackground\fR. The other colors are automatically calculated, based on these colors.
 .SH "QPalette::QPalette ( const QColorGroup & active, const QColorGroup & disabled, const QColorGroup & inactive )"
 Constructs a palette that consists of the three color groups \fIactive\fR, \fIdisabled\fR and \fIinactive\fR. See the Detailed Description for definitions of the color groups and QColorGroup::ColorRole for definitions of each color role in the three groups.
@@ -172,7 +172,7 @@ Examples:
 Returns the brush in color group \fIgr\fR, used for color role \fIr\fR.
 .PP
 See also color(), setBrush(), and QColorGroup::ColorRole.
-.SH "const QColor & QPalette::color ( ColorGroup gr, QColorGroup::ColorRole r ) const"
+.SH "const TQColor & QPalette::color ( ColorGroup gr, QColorGroup::ColorRole r ) const"
 Returns the color in color group \fIgr\fR, used for color role \fIr\fR.
 .PP
 See also brush(), setColor(), and QColorGroup::ColorRole.
@@ -231,13 +231,13 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Sets the brush in for color role \fIr\fR in all three color groups to \fIb\fR.
 .PP
 See also brush(), setColor(), QColorGroup::ColorRole, active(), inactive(), and disabled().
-.SH "void QPalette::setColor ( ColorGroup gr, QColorGroup::ColorRole r, const QColor & c )"
+.SH "void QPalette::setColor ( ColorGroup gr, QColorGroup::ColorRole r, const TQColor & c )"
 Sets the brush in color group \fIgr\fR, used for color role \fIr\fR, to the solid color \fIc\fR.
 .PP
 See also setBrush(), color(), and QColorGroup::ColorRole.
 .PP
 Example: themes/themes.cpp.
-.SH "void QPalette::setColor ( QColorGroup::ColorRole r, const QColor & c )"
+.SH "void QPalette::setColor ( QColorGroup::ColorRole r, const TQColor & c )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the brush color used for color role \fIr\fR to color \fIc\fR in all three color groups.
@@ -281,8 +281,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

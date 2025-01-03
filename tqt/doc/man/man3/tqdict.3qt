@@ -7,7 +7,7 @@
 .ad l
 .nh
 .SH NAME
-QDict \- Template class that provides a dictionary based on QString keys
+QDict \- Template class that provides a dictionary based on TQString keys
 .SH SYNOPSIS
 \fC#include <ntqdict.h>\fR
 .PP
@@ -37,22 +37,22 @@ Inherits QPtrCollection.
 .BI "bool \fBisEmpty\fR () const"
 .br
 .ti -1c
-.BI "void \fBinsert\fR ( const QString & key, const type * item )"
+.BI "void \fBinsert\fR ( const TQString & key, const type * item )"
 .br
 .ti -1c
-.BI "void \fBreplace\fR ( const QString & key, const type * item )"
+.BI "void \fBreplace\fR ( const TQString & key, const type * item )"
 .br
 .ti -1c
-.BI "bool \fBremove\fR ( const QString & key )"
+.BI "bool \fBremove\fR ( const TQString & key )"
 .br
 .ti -1c
-.BI "type * \fBtake\fR ( const QString & key )"
+.BI "type * \fBtake\fR ( const TQString & key )"
 .br
 .ti -1c
-.BI "type * \fBfind\fR ( const QString & key ) const"
+.BI "type * \fBfind\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "type * \fBoperator[]\fR ( const QString & key ) const"
+.BI "type * \fBoperator[]\fR ( const TQString & key ) const"
 .br
 .ti -1c
 .BI "virtual void \fBclear\fR ()"
@@ -83,13 +83,13 @@ Inherits QPtrCollection.
 .br
 .in -1c
 .SH DESCRIPTION
-The QDict class is a template class that provides a dictionary based on QString keys.
+The QDict class is a template class that provides a dictionary based on TQString keys.
 .PP
 QMap is an STL-compatible alternative to this class.
 .PP
 QDict is implemented as a template class. Define a template instance QDict<X> to create a dictionary that operates on pointers to X (X *).
 .PP
-A dictionary is a collection of key-value pairs. The key is a QString used for insertion, removal and lookup. The value is a pointer. Dictionaries provide very fast insertion and lookup.
+A dictionary is a collection of key-value pairs. The key is a TQString used for insertion, removal and lookup. The value is a pointer. Dictionaries provide very fast insertion and lookup.
 .PP
 If you want to use non-Unicode, plain 8-bit \fCchar*\fR keys, use the QAsciiDict template. A QDict has the same performance as a QAsciiDict. If you want to have a dictionary that maps QStrings to QStrings use QMap.
 .PP
@@ -113,7 +113,7 @@ Example #1:
 .PP
 .nf
 .br
-    QDict<QLineEdit> fields; // QString keys, QLineEdit* values
+    QDict<QLineEdit> fields; // TQString keys, QLineEdit* values
 .br
     fields.insert( "forename", new QLineEdit( this ) );
 .br
@@ -163,9 +163,9 @@ Example #2:
 .br
     for ( QStringList::Iterator it = styleList.begin(); it != styleList.end(); ++it ) {
 .br
-        QString styleName = *it;
+        TQString styleName = *it;
 .br
-        QString styleAccel = styleName;
+        TQString styleAccel = styleName;
 .br
         if ( letterDict[styleAccel.left(1)] ) {
 .br
@@ -236,7 +236,7 @@ Returns the number of items in the dictionary.
 See also isEmpty().
 .PP
 Reimplemented from QPtrCollection.
-.SH "type * QDict::find ( const QString & key ) const"
+.SH "type * QDict::find ( const TQString & key ) const"
 Returns the item with key \fIkey\fR, or 0 if the key does not exist in the dictionary.
 .PP
 If there are two or more items with equal keys, then the most recently inserted item will be found.
@@ -244,7 +244,7 @@ If there are two or more items with equal keys, then the most recently inserted 
 Equivalent to the [] operator.
 .PP
 See also operator[]().
-.SH "void QDict::insert ( const QString & key, const type * item )"
+.SH "void QDict::insert ( const TQString & key, const type * item )"
 Inserts the key \fIkey\fR with value \fIitem\fR into the dictionary.
 .PP
 Multiple items can have the same key, in which case only the last item will be accessible using operator[]().
@@ -262,7 +262,7 @@ See also count().
 Assigns \fIdict\fR to this dictionary and returns a reference to this dictionary.
 .PP
 This dictionary is first cleared, then each item in \fIdict\fR is inserted into this dictionary. Only the pointers are copied (shallow copy), unless newItem() has been reimplemented.
-.SH "type * QDict::operator[] ( const QString & key ) const"
+.SH "type * QDict::operator[] ( const TQString & key ) const"
 Returns the item with key \fIkey\fR, or 0 if the key does not exist in the dictionary.
 .PP
 If there are two or more items with equal keys, then the most recently inserted item will be found.
@@ -276,7 +276,7 @@ Reads a dictionary item from the stream \fIs\fR and returns a reference to the s
 The default implementation sets \fIitem\fR to 0.
 .PP
 See also write().
-.SH "bool QDict::remove ( const QString & key )"
+.SH "bool QDict::remove ( const TQString & key )"
 Removes the item with \fIkey\fR from the dictionary. Returns TRUE if successful, i.e. if the item is in the dictionary; otherwise returns FALSE.
 .PP
 If there are two or more items with equal keys, then the last item that was inserted will be removed.
@@ -286,7 +286,7 @@ The removed item is deleted if auto-deletion is enabled.
 All dictionary iterators that refer to the removed item will be set to point to the next item in the dictionary's traversal order.
 .PP
 See also take(), clear(), and setAutoDelete().
-.SH "void QDict::replace ( const QString & key, const type * item )"
+.SH "void QDict::replace ( const TQString & key, const type * item )"
 Replaces the value of the key, \fIkey\fR with \fIitem\fR.
 .PP
 If the item does not already exist, it will be inserted.
@@ -333,7 +333,7 @@ Returns the size of the internal hash array (as specified in the constructor).
 See also count().
 .SH "void QDict::statistics () const"
 Debugging-only function that prints out the dictionary distribution using tqDebug().
-.SH "type * QDict::take ( const QString & key )"
+.SH "type * QDict::take ( const TQString & key )"
 Takes the item with \fIkey\fR out of the dictionary without deleting it (even if auto-deletion is enabled).
 .PP
 If there are two or more items with equal keys, then the last item that was inserted will be taken.
@@ -362,8 +362,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -37,24 +37,24 @@ Scribble::Scribble( TQWidget *parent, const char *name )
 
     TQToolBar *tools = new TQToolBar( this );
 
-    bSave = new TQToolButton( TQPixmap(), "Save", "Save as PNG image", this, SLOT( slotSave() ), tools );
+    bSave = new TQToolButton( TQPixmap(), "Save", "Save as PNG image", this, TQ_SLOT( slotSave() ), tools );
     bSave->setText( "Save as..." );
 
     tools->addSeparator();
 
-    bPColor = new TQToolButton( TQPixmap(), "Choose Pen Color", "Choose Pen Color", this, SLOT( slotColor() ), tools );
+    bPColor = new TQToolButton( TQPixmap(), "Choose Pen Color", "Choose Pen Color", this, TQ_SLOT( slotColor() ), tools );
     bPColor->setText( "Choose Pen Color..." );
 
     tools->addSeparator();
 
     bPWidth = new TQSpinBox( 1, 20, 1, tools );
     TQToolTip::add( bPWidth, "Choose Pen Width" );
-    connect( bPWidth, SIGNAL( valueChanged( int ) ), this, SLOT( slotWidth( int ) ) );
+    connect( bPWidth, TQ_SIGNAL( valueChanged( int ) ), this, TQ_SLOT( slotWidth( int ) ) );
     bPWidth->setValue( 3 );
 
     tools->addSeparator();
 
-    bClear = new TQToolButton( TQPixmap(), "Clear Screen", "Clear Screen", this, SLOT( slotClear() ), tools );
+    bClear = new TQToolButton( TQPixmap(), "Clear Screen", "Clear Screen", this, TQ_SLOT( slotClear() ), tools );
     bClear->setText( "Clear Screen" );
 }
 
@@ -79,15 +79,15 @@ Scribble::Scribble( TQWidget *parent, const char *name )
 
     bPWidth = new TQSpinBox( 1, 20, 1, tools );
     TQToolTip::add( bPWidth, "Choose Pen Width" );
-    connect( bPWidth, SIGNAL( valueChanged( int ) ), this, SLOT( slotWidth( int ) ) );
+    connect( bPWidth, TQ_SIGNAL( valueChanged( int ) ), this, TQ_SLOT( slotWidth( int ) ) );
     bPWidth->setValue( 3 );
 
     tools->addSeparator();
 
     bClear = new TQPushButton( "Clear Screen", tools );
-    TQObject::connect( bSave, SIGNAL( clicked() ), this, SLOT( slotSave() ) );
-    TQObject::connect( bPColor, SIGNAL( clicked() ), this, SLOT( slotColor() ) );
-    TQObject::connect( bClear, SIGNAL( clicked() ), this, SLOT( slotClear() ) );
+    TQObject::connect( bSave, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotSave() ) );
+    TQObject::connect( bPColor, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotColor() ) );
+    TQObject::connect( bClear, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotClear() ) );
 		
 }
 

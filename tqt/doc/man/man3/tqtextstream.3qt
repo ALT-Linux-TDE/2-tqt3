@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QTextStream \- Basic functions for reading and writing text using a QIODevice
+QTextStream \- Basic functions for reading and writing text using a TQIODevice
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqtextstream.h>\fR
 .PP
@@ -33,13 +33,13 @@ Inherited by QTextIStream and QTextOStream.
 .BI "\fBQTextStream\fR ()"
 .br
 .ti -1c
-.BI "\fBQTextStream\fR ( QIODevice * iod )"
+.BI "\fBQTextStream\fR ( TQIODevice * iod )"
 .br
 .ti -1c
-.BI "\fBQTextStream\fR ( QString * str, int filemode )"
+.BI "\fBQTextStream\fR ( TQString * str, int filemode )"
 .br
 .ti -1c
-.BI "QTextStream ( QString & str, int filemode )  \fI(obsolete)\fR"
+.BI "QTextStream ( TQString & str, int filemode )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "\fBQTextStream\fR ( QByteArray a, int mode )"
@@ -51,10 +51,10 @@ Inherited by QTextIStream and QTextOStream.
 .BI "virtual \fB~QTextStream\fR ()"
 .br
 .ti -1c
-.BI "QIODevice * \fBdevice\fR () const"
+.BI "TQIODevice * \fBdevice\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetDevice\fR ( QIODevice * iod )"
+.BI "void \fBsetDevice\fR ( TQIODevice * iod )"
 .br
 .ti -1c
 .BI "void \fBunsetDevice\fR ()"
@@ -66,7 +66,7 @@ Inherited by QTextIStream and QTextOStream.
 .BI "bool eof () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QTextStream & \fBoperator>>\fR ( QChar & c )"
+.BI "QTextStream & \fBoperator>>\fR ( TQChar & c )"
 .br
 .ti -1c
 .BI "QTextStream & \fBoperator>>\fR ( char & c )"
@@ -99,13 +99,13 @@ Inherited by QTextIStream and QTextOStream.
 .BI "QTextStream & \fBoperator>>\fR ( char * s )"
 .br
 .ti -1c
-.BI "QTextStream & \fBoperator>>\fR ( QString & str )"
+.BI "QTextStream & \fBoperator>>\fR ( TQString & str )"
 .br
 .ti -1c
 .BI "QTextStream & \fBoperator>>\fR ( QCString & str )"
 .br
 .ti -1c
-.BI "QTextStream & \fBoperator<<\fR ( QChar c )"
+.BI "QTextStream & \fBoperator<<\fR ( TQChar c )"
 .br
 .ti -1c
 .BI "QTextStream & \fBoperator<<\fR ( char c )"
@@ -138,7 +138,7 @@ Inherited by QTextIStream and QTextOStream.
 .BI "QTextStream & \fBoperator<<\fR ( const char * s )"
 .br
 .ti -1c
-.BI "QTextStream & \fBoperator<<\fR ( const QString & s )"
+.BI "QTextStream & \fBoperator<<\fR ( const TQString & s )"
 .br
 .ti -1c
 .BI "QTextStream & \fBoperator<<\fR ( const QCString & s )"
@@ -153,10 +153,10 @@ Inherited by QTextIStream and QTextOStream.
 .BI "QTextStream & \fBwriteRawBytes\fR ( const char * s, uint len )"
 .br
 .ti -1c
-.BI "QString \fBreadLine\fR ()"
+.BI "TQString \fBreadLine\fR ()"
 .br
 .ti -1c
-.BI "QString \fBread\fR ()"
+.BI "TQString \fBread\fR ()"
 .br
 .ti -1c
 .BI "void \fBskipWhiteSpace\fR ()"
@@ -199,13 +199,13 @@ Inherited by QTextIStream and QTextOStream.
 .br
 .in -1c
 .SH DESCRIPTION
-The QTextStream class provides basic functions for reading and writing text using a QIODevice.
+The QTextStream class provides basic functions for reading and writing text using a TQIODevice.
 .PP
 The text stream class has a functional interface that is very similar to that of the standard C++ iostream class.
 .PP
 Qt provides several global functions similar to the ones in iostream: <center>.nf
 .TS
-l - l. Function Meaning bin sets the QTextStream to read/write binary numbers oct sets the QTextStream to read/write octal numbers dec sets the QTextStream to read/write decimal numbers hex sets the QTextStream to read/write hexadecimal numbers endl forces a line break flush forces the QIODevice to flush any buffered data ws eats any available whitespace (on input) reset resets the QTextStream to its default mode (see reset()) qSetW(int) sets the field width to the given argument qSetFill(int) sets the fill character to the given argument qSetPrecision(int)
+l - l. Function Meaning bin sets the QTextStream to read/write binary numbers oct sets the QTextStream to read/write octal numbers dec sets the QTextStream to read/write decimal numbers hex sets the QTextStream to read/write hexadecimal numbers endl forces a line break flush forces the TQIODevice to flush any buffered data ws eats any available whitespace (on input) reset resets the QTextStream to its default mode (see reset()) qSetW(int) sets the field width to the given argument qSetFill(int) sets the fill character to the given argument qSetPrecision(int)
 .TE
 .fi
 </center>
@@ -214,9 +214,9 @@ l - l. Function Meaning bin sets the QTextStream to read/write binary numbers oc
 .PP
 The QTextStream class reads and writes text; it is not appropriate for dealing with binary data (but QDataStream is).
 .PP
-By default, output of Unicode text (i.e. QString) is done using the local 8-bit encoding. This can be changed using the setEncoding() method. For input, the QTextStream will auto-detect standard Unicode "byte order marked" text files; otherwise the local 8-bit encoding is used.
+By default, output of Unicode text (i.e. TQString) is done using the local 8-bit encoding. This can be changed using the setEncoding() method. For input, the QTextStream will auto-detect standard Unicode "byte order marked" text files; otherwise the local 8-bit encoding is used.
 .PP
-The QIODevice is set in the constructor, or later using setDevice(). If the end of the input is reached atEnd() returns TRUE. Data can be read into variables of the appropriate type using the operator>>() overloads, or read in its entirety into a single string using read(), or read a line at a time using readLine(). Whitespace can be skipped over using skipWhiteSpace(). You can set flags for the stream using flags() or setf(). The stream also supports width(), precision() and fill(); use reset() to reset the defaults.
+The TQIODevice is set in the constructor, or later using setDevice(). If the end of the input is reached atEnd() returns TRUE. Data can be read into variables of the appropriate type using the operator>>() overloads, or read in its entirety into a single string using read(), or read a line at a time using readLine(). Whitespace can be skipped over using skipWhiteSpace(). You can set flags for the stream using flags() or setf(). The stream also supports width(), precision() and fill(); use reset() to reset the defaults.
 .PP
 See also QDataStream, Input/Output and Networking, and Text Related Classes.
 .SS "Member Type Documentation"
@@ -240,18 +240,18 @@ See setEncoding() for an explanation of the encodings.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QTextStream::QTextStream ()"
 Constructs a data stream that has no IO device.
-.SH "QTextStream::QTextStream ( QIODevice * iod )"
+.SH "QTextStream::QTextStream ( TQIODevice * iod )"
 Constructs a text stream that uses the IO device \fIiod\fR.
-.SH "QTextStream::QTextStream ( QString * str, int filemode )"
-Constructs a text stream that operates on the Unicode QString, \fIstr\fR, through an internal device. The \fIfilemode\fR argument is passed to the device's open() function; see QIODevice::mode().
+.SH "QTextStream::QTextStream ( TQString * str, int filemode )"
+Constructs a text stream that operates on the Unicode TQString, \fIstr\fR, through an internal device. The \fIfilemode\fR argument is passed to the device's open() function; see TQIODevice::mode().
 .PP
-If you set an encoding or codec with setEncoding() or setCodec(), this setting is ignored for text streams that operate on QString.
+If you set an encoding or codec with setEncoding() or setCodec(), this setting is ignored for text streams that operate on TQString.
 .PP
 Example:
 .PP
 .nf
 .br
-    QString str;
+    TQString str;
 .br
     QTextStream ts( &str, IO_WriteOnly );
 .br
@@ -263,7 +263,7 @@ Writing data to the text stream will modify the contents of the string. The stri
 .PP
 .nf
 .br
-    QString str = "pi = 3.14";
+    TQString str = "pi = 3.14";
 .br
     QTextStream ts( &str, IO_WriteOnly );
 .br
@@ -271,13 +271,13 @@ Writing data to the text stream will modify the contents of the string. The stri
 .br
 .fi
 .PP
-Note that because QString is Unicode, you should not use readRawBytes() or writeRawBytes() on such a stream.
-.SH "QTextStream::QTextStream ( QString & str, int filemode )"
+Note that because TQString is Unicode, you should not use readRawBytes() or writeRawBytes() on such a stream.
+.SH "QTextStream::QTextStream ( TQString & str, int filemode )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-This constructor is equivalent to the constructor taking a QString* parameter.
+This constructor is equivalent to the constructor taking a TQString* parameter.
 .SH "QTextStream::QTextStream ( QByteArray a, int mode )"
-Constructs a text stream that operates on the byte array, \fIa\fR, through an internal QBuffer device. The \fImode\fR argument is passed to the device's open() function; see QIODevice::mode().
+Constructs a text stream that operates on the byte array, \fIa\fR, through an internal QBuffer device. The \fImode\fR argument is passed to the device's open() function; see TQIODevice::mode().
 .PP
 Example:
 .PP
@@ -311,7 +311,7 @@ Same example, using a QBuffer:
 .br
 .fi
 .SH "QTextStream::QTextStream ( FILE * fh, int mode )"
-Constructs a text stream that operates on an existing file handle \fIfh\fR through an internal QFile device. The \fImode\fR argument is passed to the device's open() function; see QIODevice::mode().
+Constructs a text stream that operates on an existing file handle \fIfh\fR through an internal QFile device. The \fImode\fR argument is passed to the device's open() function; see TQIODevice::mode().
 .PP
 Note that if you create a QTextStream \fCcout\fR or another name that is also used for another variable of a different type, some linkers may confuse the two variables, which will often cause crashes.
 .SH "QTextStream::~QTextStream ()\fC [virtual]\fR"
@@ -321,7 +321,7 @@ The destructor does not affect the current IO device.
 .SH "bool QTextStream::atEnd () const"
 Returns TRUE if the IO device has reached the end position (end of the stream or file) or if there is no IO device set; otherwise returns FALSE.
 .PP
-See also QIODevice::atEnd().
+See also TQIODevice::atEnd().
 .PP
 Examples:
 .)l addressbook/centralwidget.cpp and grapher/grapher.cpp.
@@ -331,7 +331,7 @@ Returns the codec actually used for this stream.
 If Unicode is automatically detected in input, a codec with name() "ISO-10646-UCS-2" is returned.
 .PP
 See also setCodec().
-.SH "QIODevice * QTextStream::device () const"
+.SH "TQIODevice * QTextStream::device () const"
 Returns the IO device currently set.
 .PP
 See also setDevice() and unsetDevice().
@@ -340,7 +340,7 @@ See also setDevice() and unsetDevice().
 .PP
 This function has been renamed to atEnd().
 .PP
-See also QIODevice::atEnd().
+See also TQIODevice::atEnd().
 .PP
 Example: chart/chartform_files.cpp.
 .SH "int QTextStream::fill () const"
@@ -385,7 +385,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Sets the stream flags to \fIf\fR. Returns the previous stream flags.
 .PP
 See also setf() and unsetf().
-.SH "QTextStream & QTextStream::operator<< ( QChar c )"
+.SH "QTextStream & QTextStream::operator<< ( TQChar c )"
 Writes character \fCchar\fR to the stream and returns a reference to the stream.
 .PP
 The character \fIc\fR is assumed to be Latin1 encoded independent of the Encoding set for the QTextStream.
@@ -431,7 +431,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Writes a string to the stream and returns a reference to the stream.
 .PP
 The string \fIs\fR is assumed to be Latin1 encoded independent of the Encoding set for the QTextStream.
-.SH "QTextStream & QTextStream::operator<< ( const QString & s )"
+.SH "QTextStream & QTextStream::operator<< ( const TQString & s )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Writes \fIs\fR to the stream and returns a reference to the stream.
@@ -447,7 +447,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Writes a pointer to the stream and returns a reference to the stream.
 .PP
 The \fIptr\fR is output as an unsigned long hexadecimal integer.
-.SH "QTextStream & QTextStream::operator>> ( QChar & c )"
+.SH "QTextStream & QTextStream::operator>> ( TQChar & c )"
 Reads a char \fIc\fR from the stream and returns a reference to the stream. Note that whitespace is \fInot\fR skipped.
 .SH "QTextStream & QTextStream::operator>> ( char & c )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -491,7 +491,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Reads a "word" from the stream into \fIs\fR and returns a reference to the stream.
 .PP
 A word consists of characters for which isspace() returns FALSE.
-.SH "QTextStream & QTextStream::operator>> ( QString & str )"
+.SH "QTextStream & QTextStream::operator>> ( TQString & str )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Reads a "word" from the stream into \fIstr\fR and returns a reference to the stream.
@@ -509,21 +509,21 @@ Returns the precision. The default value is 6.
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the precision to \fIp\fR. Returns the previous precision setting.
-.SH "QString QTextStream::read ()"
+.SH "TQString QTextStream::read ()"
 Reads the entire stream from the current position, and returns a string containing the text.
 .PP
-See also QIODevice::readLine().
+See also TQIODevice::readLine().
 .PP
 Examples:
 .)l action/application.cpp, application/application.cpp, mdi/application.cpp, qdir/qdir.cpp, and qwerty/qwerty.cpp.
-.SH "QString QTextStream::readLine ()"
+.SH "TQString QTextStream::readLine ()"
 Reads a line from the stream and returns a string containing the text.
 .PP
-The returned string does not contain any trailing newline or carriage return. Note that this is different from QIODevice::readLine(), which does not strip the newline at the end of the line.
+The returned string does not contain any trailing newline or carriage return. Note that this is different from TQIODevice::readLine(), which does not strip the newline at the end of the line.
 .PP
-On EOF you will get a QString that is null. On reading an empty line the returned QString is empty but not null.
+On EOF you will get a TQString that is null. On reading an empty line the returned TQString is empty but not null.
 .PP
-See also QIODevice::readLine().
+See also TQIODevice::readLine().
 .PP
 Examples:
 .)l addressbook/centralwidget.cpp, chart/element.cpp, and network/clientserver/server/server.cpp.
@@ -536,7 +536,7 @@ Note that no encoding is done by this function.
 .PP
 \fBWarning:\fR The behavior of this function is undefined unless the stream's encoding is set to Unicode or Latin1.
 .PP
-See also QIODevice::readBlock().
+See also TQIODevice::readBlock().
 .SH "void QTextStream::reset ()"
 Resets the text stream.
 .TP
@@ -557,14 +557,14 @@ Note that this function should be called before any data is read to/written from
 See also setEncoding() and codec().
 .PP
 Example: qwerty/qwerty.cpp.
-.SH "void QTextStream::setDevice ( QIODevice * iod )"
+.SH "void QTextStream::setDevice ( TQIODevice * iod )"
 Sets the IO device to \fIiod\fR.
 .PP
 See also device() and unsetDevice().
 .SH "void QTextStream::setEncoding ( Encoding e )"
 Sets the encoding of this stream to \fIe\fR, where \fIe\fR is one of the following values: <center>.nf
 .TS
-l - l. Encoding Meaning Locale Uses local file format (Latin1 if locale is not set), but autodetecting Unicode(utf16) on input. Unicode Uses Unicode(utf16) for input and output. Output will be written in the order most efficient for the current platform (i.e. the order used internally in QString). UnicodeUTF8 Using Unicode(utf8) for input and output. If you use it for input it will autodetect utf16 and use it instead of utf8. Latin1 ISO-8859-1. Will not autodetect utf16. UnicodeNetworkOrder Uses network order Unicode(utf16) for input and output. Useful when reading Unicode data that does not start with the byte order marker. UnicodeReverse Uses reverse network order Unicode(utf16) for input and output. Useful when reading Unicode data that does not start with the byte order marker or when writing data that should be read by buggy Windows applications. RawUnicode
+l - l. Encoding Meaning Locale Uses local file format (Latin1 if locale is not set), but autodetecting Unicode(utf16) on input. Unicode Uses Unicode(utf16) for input and output. Output will be written in the order most efficient for the current platform (i.e. the order used internally in TQString). UnicodeUTF8 Using Unicode(utf8) for input and output. If you use it for input it will autodetect utf16 and use it instead of utf8. Latin1 ISO-8859-1. Will not autodetect utf16. UnicodeNetworkOrder Uses network order Unicode(utf16) for input and output. Useful when reading Unicode data that does not start with the byte order marker. UnicodeReverse Uses reverse network order Unicode(utf16) for input and output. Useful when reading Unicode data that does not start with the byte order marker or when writing data that should be read by buggy Windows applications. RawUnicode
 .TE
 .fi
 </center>
@@ -614,7 +614,7 @@ Writes the \fIlen\fR bytes from \fIs\fR to the stream and returns a reference to
 .PP
 Note that no encoding is done by this function.
 .PP
-See also QIODevice::writeBlock().
+See also TQIODevice::writeBlock().
 
 .SH "SEE ALSO"
 .BR http://doc.trolltech.com/ntqtextstream.html
@@ -630,8 +630,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -16,10 +16,10 @@ Inherits QFrame.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQProgressBar\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQProgressBar\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fBQProgressBar\fR ( int totalSteps, QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQProgressBar\fR ( int totalSteps, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "int \fBtotalSteps\fR () const"
@@ -28,7 +28,7 @@ Inherits QFrame.
 .BI "int \fBprogress\fR () const"
 .br
 .ti -1c
-.BI "const QString & \fBprogressString\fR () const"
+.BI "const TQString & \fBprogressString\fR () const"
 .br
 .ti -1c
 .BI "void \fBsetCenterIndicator\fR ( bool on )"
@@ -79,7 +79,7 @@ Inherits QFrame.
 .BI "int \fBprogress\fR - the current amount of progress"
 .br
 .ti -1c
-.BI "QString \fBprogressString\fR - the amount of progress as a string  \fI(read " "only" ")\fR"
+.BI "TQString \fBprogressString\fR - the amount of progress as a string  \fI(read " "only" ")\fR"
 .br
 .ti -1c
 .BI "int \fBtotalSteps\fR - the total number of steps"
@@ -88,7 +88,7 @@ Inherits QFrame.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual bool \fBsetIndicator\fR ( QString & indicator, int progress, int totalSteps )"
+.BI "virtual bool \fBsetIndicator\fR ( TQString & indicator, int progress, int totalSteps )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -111,7 +111,7 @@ See also QProgressDialog, GUI Design Handbook: Progress Indicator, and Advanced 
 .PP
 See also QProgressDialog, GUI Design Handbook: Progress Indicator, and Advanced Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QProgressBar::QProgressBar ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QProgressBar::QProgressBar ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a progress bar.
 .PP
 The total number of steps is set to 100 by default.
@@ -119,7 +119,7 @@ The total number of steps is set to 100 by default.
 The \fIparent\fR, \fIname\fR and widget flags, \fIf\fR, are passed on to the QFrame::QFrame() constructor.
 .PP
 See also totalSteps.
-.SH "QProgressBar::QProgressBar ( int totalSteps, QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QProgressBar::QProgressBar ( int totalSteps, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a progress bar.
 .PP
 The \fItotalSteps\fR is the total number of steps that need to be completed for the operation which this progress bar represents. For example, if the operation is to examine 50 files, this value would be 50. Before examining the first file, call setProgress(0); call setProgress(50) after examining the last file.
@@ -135,7 +135,7 @@ Returns TRUE if the display of the indicator string should follow the GUI style;
 Returns TRUE if the current progress value is displayed; otherwise returns FALSE. See the "percentageVisible" property for details.
 .SH "int QProgressBar::progress () const"
 Returns the current amount of progress. See the "progress" property for details.
-.SH "const QString & QProgressBar::progressString () const"
+.SH "const TQString & QProgressBar::progressString () const"
 Returns the amount of progress as a string. See the "progressString" property for details.
 .SH "void QProgressBar::reset ()\fC [slot]\fR"
 Reset the progress bar. The progress bar "rewinds" and shows no progress.
@@ -144,7 +144,7 @@ Examples:
 .)l fileiconview/mainwindow.cpp and progressbar/progressbar.cpp.
 .SH "void QProgressBar::setCenterIndicator ( bool on )"
 Sets whether the indicator string should be centered to \fIon\fR. See the "centerIndicator" property for details.
-.SH "bool QProgressBar::setIndicator ( QString & indicator, int progress, int totalSteps )\fC [virtual protected]\fR"
+.SH "bool QProgressBar::setIndicator ( TQString & indicator, int progress, int totalSteps )\fC [virtual protected]\fR"
 This method is called to generate the text displayed in the center (or in some styles, to the left) of the progress bar.
 .PP
 The \fIprogress\fR may be negative, indicating that the progress bar is in the "reset" state before any progress is set.
@@ -197,10 +197,10 @@ This property holds the current amount of progress.
 This property is -1 if progress counting has not started.
 .PP
 Set this property's value with setProgress() and get this property's value with progress().
-.SH "QString progressString"
+.SH "TQString progressString"
 This property holds the amount of progress as a string.
 .PP
-This property is QString::null if progress counting has not started.
+This property is TQString::null if progress counting has not started.
 .PP
 Get this property's value with progressString().
 .SH "int totalSteps"
@@ -226,8 +226,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

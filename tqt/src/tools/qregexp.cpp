@@ -40,7 +40,7 @@
 
 #include "ntqregexp.h"
 
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 
 #include "ntqmemarray.h"
 #include "ntqbitarray.h"
@@ -52,26 +52,26 @@
 #include "ntqstring.h"
 #include "ntqtl.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #include "ntqthreadstorage.h"
 #include <private/qthreadinstance_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
-#undef QT_TRANSLATE_NOOP
-#define QT_TRANSLATE_NOOP( context, sourceText ) sourceText
+#undef TQT_TRANSLATE_NOOP
+#define TQT_TRANSLATE_NOOP( context, sourceText ) sourceText
 
 #include <limits.h>
 
 // error strings for the regexp parser
-#define RXERR_OK         QT_TRANSLATE_NOOP( "TQRegExp", "no error occurred" )
-#define RXERR_DISABLED   QT_TRANSLATE_NOOP( "TQRegExp", "disabled feature used" )
-#define RXERR_CHARCLASS  QT_TRANSLATE_NOOP( "TQRegExp", "bad char class syntax" )
-#define RXERR_LOOKAHEAD  QT_TRANSLATE_NOOP( "TQRegExp", "bad lookahead syntax" )
-#define RXERR_REPETITION QT_TRANSLATE_NOOP( "TQRegExp", "bad repetition syntax" )
-#define RXERR_OCTAL      QT_TRANSLATE_NOOP( "TQRegExp", "invalid octal value" )
-#define RXERR_LEFTDELIM  QT_TRANSLATE_NOOP( "TQRegExp", "missing left delim" )
-#define RXERR_END        QT_TRANSLATE_NOOP( "TQRegExp", "unexpected end" )
-#define RXERR_LIMIT      QT_TRANSLATE_NOOP( "TQRegExp", "met internal limit" )
+#define RXERR_OK         TQT_TRANSLATE_NOOP( "TQRegExp", "no error occurred" )
+#define RXERR_DISABLED   TQT_TRANSLATE_NOOP( "TQRegExp", "disabled feature used" )
+#define RXERR_CHARCLASS  TQT_TRANSLATE_NOOP( "TQRegExp", "bad char class syntax" )
+#define RXERR_LOOKAHEAD  TQT_TRANSLATE_NOOP( "TQRegExp", "bad lookahead syntax" )
+#define RXERR_REPETITION TQT_TRANSLATE_NOOP( "TQRegExp", "bad repetition syntax" )
+#define RXERR_OCTAL      TQT_TRANSLATE_NOOP( "TQRegExp", "invalid octal value" )
+#define RXERR_LEFTDELIM  TQT_TRANSLATE_NOOP( "TQRegExp", "missing left delim" )
+#define RXERR_END        TQT_TRANSLATE_NOOP( "TQRegExp", "unexpected end" )
+#define RXERR_LIMIT      TQT_TRANSLATE_NOOP( "TQRegExp", "met internal limit" )
 
 /*
   WARNING! Be sure to read qregexp.tex before modifying this file.
@@ -746,7 +746,7 @@ static void mergeInto( TQMemArray<int> *a, const TQMemArray<int>& b )
     int bsize = b.size();
     if ( asize == 0 ) {
 	*a = b.copy();
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     } else if ( bsize == 1 && (*a)[asize - 1] < b[0] ) {
 	a->resize( asize + 1 );
 	(*a)[asize] = b[0];
@@ -802,7 +802,7 @@ static int at( const TQMap<int, int>& m, int k )
 	return *it;
 }
 
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
 /*
   Translates a wildcard pattern to an equivalent regular expression
   pattern (e.g., *.cpp to .*\.cpp).
@@ -864,7 +864,7 @@ static TQString wc2rx( const TQString& wc_str )
 class TQRegExpEngine : public TQShared
 {
 public:
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     /*
       The class CharClass represents a set of characters, such as can
       be found in regular expressions (e.g., [a-z] denotes the set
@@ -886,7 +886,7 @@ public:
 	void addSingleton( ushort ch ) { addRange( ch, ch ); }
 
 	bool in( TQChar ch ) const;
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	const TQMemArray<int>& firstOccurrence() const { return occ1; }
 #endif
 
@@ -908,7 +908,7 @@ public:
 	int c; // character classes
 	TQMemArray<Range> r; // character ranges
 	bool n; // negative?
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	TQMemArray<int> occ1; // first-occurrence array
 #endif
     };
@@ -917,7 +917,7 @@ public:
     {
 	int dummy;
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	CharClass() { occ1.fill( 0, NumBadChars ); }
 
 	const TQMemArray<int>& firstOccurrence() const { return occ1; }
@@ -928,7 +928,7 @@ public:
 
     TQRegExpEngine( bool caseSensitive ) { setup( caseSensitive ); }
     TQRegExpEngine( const TQString& rx, bool caseSensitive );
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     ~TQRegExpEngine();
 #endif
 
@@ -942,18 +942,18 @@ public:
 
     int createState( TQChar ch );
     int createState( const CharClass& cc );
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
     int createState( int bref );
 #endif
 
     void addCatTransitions( const TQMemArray<int>& from,
 			    const TQMemArray<int>& to );
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     void addPlusTransitions( const TQMemArray<int>& from,
 			     const TQMemArray<int>& to, int atom );
 #endif
 
-#ifndef QT_NO_REGEXP_ANCHOR_ALT
+#ifndef TQT_NO_REGEXP_ANCHOR_ALT
     int anchorAlternation( int a, int b );
     int anchorConcatenation( int a, int b );
 #else
@@ -962,7 +962,7 @@ public:
 #endif
     void addAnchors( int from, int to, int a );
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     void heuristicallyChooseHeuristic();
 #endif
 
@@ -981,7 +981,7 @@ private:
     */
     struct State
     {
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 	int atom; // which atom does this state belong to?
 #endif
 	int match; // what does it match? (see CharClassBit and BackRefBit)
@@ -989,7 +989,7 @@ private:
 	TQMap<int, int> *reenter; // atoms reentered when transiting out
 	TQMap<int, int> *anchors; // anchors met when transiting out
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 	State( int a, int m )
 	    : atom( a ), match( m ), reenter( 0 ), anchors( 0 ) { }
 #else
@@ -999,7 +999,7 @@ private:
 	~State() { delete reenter; delete anchors; }
     };
 
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
     /*
       The struct Lookahead represents a lookahead a la Perl (e.g.,
       (?=foo) and (?!bar)).
@@ -1015,7 +1015,7 @@ private:
     };
 #endif
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     /*
       The struct Atom represents one node in the hierarchy of regular
       expression atoms.
@@ -1027,7 +1027,7 @@ private:
     };
 #endif
 
-#ifndef QT_NO_REGEXP_ANCHOR_ALT
+#ifndef TQT_NO_REGEXP_ANCHOR_ALT
     /*
       The struct AnchorAlternation represents a pair of anchors with
       OR semantics.
@@ -1057,22 +1057,22 @@ private:
 
 	   Anchor_LookaheadMask = ( Anchor_FirstLookahead - 1 ) ^
 		   ( (Anchor_FirstLookahead << MaxLookaheads) - 1 ) };
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     int startAtom( bool capture );
     void finishAtom( int atom ) { cf = f[atom].parent; }
 #endif
 
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
     int addLookahead( TQRegExpEngine *eng, bool negative );
 #endif
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     bool isBetterCapture( const int *begin1, const int *end1, const int *begin2,
 			  const int *end2 );
 #endif
     bool testAnchor( int i, int a, const int *capBegin );
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     bool goodStringMatch();
     bool badCharMatch();
 #else
@@ -1082,33 +1082,33 @@ private:
 
     TQPtrVector<State> s; // array of states
     int ns; // number of states
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     TQMemArray<Atom> f; // atom hierarchy
     int nf; // number of atoms
     int cf; // current atom
 #endif
     int officialncap; // number of captures, seen from the outside
     int ncap; // number of captures, seen from the inside
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     TQPtrVector<CharClass> cl; // array of character classes
 #endif
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
     TQPtrVector<Lookahead> ahead; // array of lookaheads
 #endif
-#ifndef QT_NO_REGEXP_ANCHOR_ALT
+#ifndef TQT_NO_REGEXP_ANCHOR_ALT
     TQMemArray<AnchorAlternation> aa; // array of (a, b) pairs of anchors
 #endif
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     bool caretAnchored; // does the regexp start with ^?
     bool trivial; // is the good-string all that needs to match?
 #endif
     bool valid; // is the regular expression valid?
     bool cs; // case sensitive?
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
     int nbrefs; // number of back-references
 #endif
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     bool useGoodStringHeuristic; // use goodStringMatch? otherwise badCharMatch
 
     int goodEarlyStart; // the index where goodStr can first occur in a match
@@ -1137,7 +1137,7 @@ private:
 	void clear() { operator=( Box(eng) ); }
 	void set( TQChar ch );
 	void set( const CharClass& cc );
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 	void set( int bref );
 #endif
 
@@ -1146,7 +1146,7 @@ private:
 	void plus( int atom );
 	void opt();
 	void catAnchor( int a );
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	void setupHeuristics();
 #endif
 
@@ -1164,7 +1164,7 @@ private:
 	TQMap<int, int> ranchors; // the right anchors
 	int skipanchors; // the anchors to match if the box is skipped
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	int earlyStart; // the index where str can first occur
 	int lateStart; // the index where str can last occur
 	TQString str; // a string that has to occur in any match
@@ -1174,7 +1174,7 @@ private:
 #endif
 
 	int minl; // the minimum length of this box
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	TQMemArray<int> occ1; // first-occurrence array
 #endif
     };
@@ -1189,10 +1189,10 @@ private:
 	   Tok_Char = 0x10000, Tok_BackRef = 0x20000 };
     int getChar();
     int getEscape();
-#ifndef QT_NO_REGEXP_INTERVAL
+#ifndef TQT_NO_REGEXP_INTERVAL
     int getRep( int def );
 #endif
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
     void skipChars( int n );
 #endif
     void error( const char *msg );
@@ -1244,7 +1244,7 @@ private:
     int *mmCapEnd; // end of captures for a next state
     int *mmSlideTab; // bump-along slide table for bad-character heuristic
     int mmSlideTabSize; // size of slide table
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
     TQIntDict<int> mmSleeping; // dictionary of back-reference sleepers
 #endif
     int mmMatchLen; // length of match
@@ -1252,21 +1252,21 @@ private:
 };
 
 TQRegExpEngine::TQRegExpEngine( const TQString& rx, bool caseSensitive )
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
     : mmSleeping( 101 )
 #endif
 {
     setup( caseSensitive );
     valid = ( parse(rx.unicode(), rx.length()) == (int) rx.length() );
     if ( !valid ) {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	trivial = FALSE;
 #endif
 	error( RXERR_LEFTDELIM );
     }
 }
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 TQRegExpEngine::~TQRegExpEngine()
 {
 }
@@ -1282,7 +1282,7 @@ void TQRegExpEngine::match( const TQString& str, int pos, bool minimal,
 {
     bool matched = FALSE;
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     if ( trivial && !oneTest ) {
 	mmPos = str.find( goodStr, pos, cs );
 	mmMatchLen = goodStr.length();
@@ -1302,7 +1302,7 @@ void TQRegExpEngine::match( const TQString& str, int pos, bool minimal,
 	mmOneTestMatchedLen = 0;
 
 	if ( valid && mmPos >= 0 && mmPos <= mmLen ) {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	    if ( oneTest ) {
 		matched = matchHere();
 	    } else {
@@ -1351,7 +1351,7 @@ int TQRegExpEngine::createState( TQChar ch )
 
 int TQRegExpEngine::createState( const CharClass& cc )
 {
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     int n = cl.size();
     cl.resize( n + 1 );
     cl.insert( n, new CharClass(cc) );
@@ -1362,7 +1362,7 @@ int TQRegExpEngine::createState( const CharClass& cc )
 #endif
 }
 
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 int TQRegExpEngine::createState( int bref )
 {
     if ( bref > nbrefs ) {
@@ -1393,7 +1393,7 @@ void TQRegExpEngine::addCatTransitions( const TQMemArray<int>& from,
     }
 }
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 void TQRegExpEngine::addPlusTransitions( const TQMemArray<int>& from,
 					const TQMemArray<int>& to, int atom )
 {
@@ -1414,7 +1414,7 @@ void TQRegExpEngine::addPlusTransitions( const TQMemArray<int>& from,
 }
 #endif
 
-#ifndef QT_NO_REGEXP_ANCHOR_ALT
+#ifndef TQT_NO_REGEXP_ANCHOR_ALT
 /*
   Returns an anchor that means a OR b.
 */
@@ -1424,7 +1424,7 @@ int TQRegExpEngine::anchorAlternation( int a, int b )
 	return a & b;
 
     int n = aa.size();
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     if ( n > 0 && aa[n - 1].a == a && aa[n - 1].b == b )
 	return Anchor_Alternation | ( n - 1 );
 #endif
@@ -1465,7 +1465,7 @@ void TQRegExpEngine::addAnchors( int from, int to, int a )
     st->anchors->insert( to, a );
 }
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 /*
   This function chooses between the good-string and the bad-character
   heuristics. It computes two scores and chooses the heuristic with
@@ -1522,13 +1522,13 @@ void TQRegExpEngine::dump() const
 	tqDebug( "  %d%s", i,
 		i == InitialState ? " (initial)" :
 		i == FinalState ? " (final)" : "" );
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 	tqDebug( "    in atom %d", s[i]->atom );
 #endif
 	int m = s[i]->match;
 	if ( (m & CharClassBit) != 0 ) {
 	    tqDebug( "    match character class %d", m ^ CharClassBit );
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
 	    cl[m ^ CharClassBit]->dump();
 #else
 	    tqDebug( "    negative character class" );
@@ -1549,14 +1549,14 @@ void TQRegExpEngine::dump() const
 		tqDebug( "       [anchors 0x%.8x]", (*s[i]->anchors)[next] );
 	}
     }
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     if ( nf > 0 ) {
 	tqDebug( "  Atom    Parent  Capture" );
 	for ( i = 0; i < nf; i++ )
 	    tqDebug( "  %6d  %6d  %6d", i, f[i].parent, f[i].capture );
     }
 #endif
-#ifndef QT_NO_REGEXP_ANCHOR_ALT
+#ifndef TQT_NO_REGEXP_ANCHOR_ALT
     for ( i = 0; i < (int) aa.size(); i++ )
 	tqDebug( "  Anchor alternation 0x%.8x: 0x%.8x 0x%.9x", i, aa[i].a,
 		aa[i].b );
@@ -1569,29 +1569,29 @@ void TQRegExpEngine::setup( bool caseSensitive )
     s.setAutoDelete( TRUE );
     s.resize( 32 );
     ns = 0;
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     f.resize( 32 );
     nf = 0;
     cf = -1;
 #endif
     officialncap = 0;
     ncap = 0;
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     cl.setAutoDelete( TRUE );
 #endif
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
     ahead.setAutoDelete( TRUE );
 #endif
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     caretAnchored = TRUE;
     trivial = TRUE;
 #endif
     valid = FALSE;
     cs = caseSensitive;
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
     nbrefs = 0;
 #endif
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     useGoodStringHeuristic = TRUE;
     minl = 0;
     occ1.fill( 0, NumBadChars );
@@ -1602,7 +1602,7 @@ int TQRegExpEngine::setupState( int match )
 {
     if ( (ns & (ns + 1)) == 0 && ns + 1 >= (int) s.size() )
 	s.resize( (ns + 1) << 1 );
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     s.insert( ns, new State(cf, match) );
 #else
     s.insert( ns, new State(match) );
@@ -1610,7 +1610,7 @@ int TQRegExpEngine::setupState( int match )
     return ns++;
 }
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 /*
   Functions startAtom() and finishAtom() should be called to delimit
   atoms. When a state is created, it is assigned to the current atom.
@@ -1627,7 +1627,7 @@ int TQRegExpEngine::startAtom( bool capture )
 }
 #endif
 
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
 /*
   Creates a lookahead anchor.
 */
@@ -1644,7 +1644,7 @@ int TQRegExpEngine::addLookahead( TQRegExpEngine *eng, bool negative )
 }
 #endif
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 /*
   We want the longest leftmost captures.
 */
@@ -1671,7 +1671,7 @@ bool TQRegExpEngine::testAnchor( int i, int a, const int *capBegin )
 {
     int j;
 
-#ifndef QT_NO_REGEXP_ANCHOR_ALT
+#ifndef TQT_NO_REGEXP_ANCHOR_ALT
     if ( (a & Anchor_Alternation) != 0 ) {
 	return testAnchor( i, aa[a ^ Anchor_Alternation].a, capBegin ) ||
 	       testAnchor( i, aa[a ^ Anchor_Alternation].b, capBegin );
@@ -1686,7 +1686,7 @@ bool TQRegExpEngine::testAnchor( int i, int a, const int *capBegin )
 	if ( mmPos + i != mmLen )
 	    return FALSE;
     }
-#ifndef QT_NO_REGEXP_ESCAPE
+#ifndef TQT_NO_REGEXP_ESCAPE
     if ( (a & (Anchor_Word | Anchor_NonWord)) != 0 ) {
 	bool before = FALSE;
 	bool after = FALSE;
@@ -1700,7 +1700,7 @@ bool TQRegExpEngine::testAnchor( int i, int a, const int *capBegin )
 	    return FALSE;
     }
 #endif
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
     if ( (a & Anchor_LookaheadMask) != 0 ) {
 	TQConstString cstr = TQConstString( (TQChar *) mmIn + mmPos + i,
 					   mmLen - mmPos - i );
@@ -1715,8 +1715,8 @@ bool TQRegExpEngine::testAnchor( int i, int a, const int *capBegin )
 	}
     }
 #endif
-#ifndef QT_NO_REGEXP_CAPTURE
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_BACKREF
     for ( j = 0; j < nbrefs; j++ ) {
 	if ( (a & (Anchor_BackRef1Empty << j)) != 0 ) {
 	    if ( capBegin[j] != EmptyCapture )
@@ -1728,7 +1728,7 @@ bool TQRegExpEngine::testAnchor( int i, int a, const int *capBegin )
     return TRUE;
 }
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 /*
   The three following functions are what Jeffrey Friedl would call
   transmissions (or bump-alongs). Using one or the other should make
@@ -1843,7 +1843,7 @@ bool TQRegExpEngine::matchHere()
     mmOneTestMatchedLen = -1;
     mmCurStack[0] = InitialState;
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     if ( ncap > 0 ) {
 	for ( j = 0; j < ncap; j++ ) {
 	    mmCurCapBegin[j] = EmptyCapture;
@@ -1852,7 +1852,7 @@ bool TQRegExpEngine::matchHere()
     }
 #endif
 
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
     int *zzZ = 0;
 
     while ( (ncur > 0 || !mmSleeping.isEmpty()) && i <= mmLen - mmPos &&
@@ -1870,7 +1870,7 @@ bool TQRegExpEngine::matchHere()
 		int next = outs[k];
 		State *snext = s[next];
 		bool in = TRUE;
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 		int needSomeSleep = 0;
 #endif
 
@@ -1898,7 +1898,7 @@ bool TQRegExpEngine::matchHere()
 			stop = mmMinimal;
 			in = TRUE;
 		    } else if ( (m & CharClassBit) != 0 ) {
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
 			const CharClass *cc = cl[m ^ CharClassBit];
 			if ( cs )
 			    in = cc->in( ch );
@@ -1909,7 +1909,7 @@ bool TQRegExpEngine::matchHere()
 			    in = cc->in( TQChar(ch).lower() ) ||
 				 cc->in( TQChar(ch).upper() );
 #endif
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 		    } else { /* ( (m & BackRefBit) != 0 ) */
 			int bref = m ^ BackRefBit;
 			int ell = j * ncap + ( bref - 1 );
@@ -1965,7 +1965,7 @@ bool TQRegExpEngine::matchHere()
 		  We must now update our data structures.
 		*/
 		if ( in ) {
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 		    int *capBegin, *capEnd;
 #endif
 		    /*
@@ -1976,7 +1976,7 @@ bool TQRegExpEngine::matchHere()
 			m = nnext++;
 			mmNextStack[m] = next;
 			mmInNextStack[next] = m;
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 			capBegin = mmNextCapBegin + m * ncap;
 			capEnd = mmNextCapEnd + m * ncap;
 
@@ -1992,7 +1992,7 @@ bool TQRegExpEngine::matchHere()
 #endif
 		    }
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 		    /*
 		      Updating the capture zones is much of a task.
 		    */
@@ -2097,7 +2097,7 @@ bool TQRegExpEngine::matchHere()
 				    ncap * sizeof(int) );
 			}
 		    }
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 		    /*
 		      We are done with updating the capture zones.
 		      It's now time to put the next state to sleep,
@@ -2120,7 +2120,7 @@ bool TQRegExpEngine::matchHere()
 		}
 	    }
 	}
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 	/*
 	  If we reached the final state, hurray! Copy the captured
 	  zone.
@@ -2129,7 +2129,7 @@ bool TQRegExpEngine::matchHere()
 	    memcpy( mmCapBegin, mmNextCapBegin + m * ncap, ncap * sizeof(int) );
 	    memcpy( mmCapEnd, mmNextCapEnd + m * ncap, ncap * sizeof(int) );
 	}
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 	/*
 	  It's time to wake up the sleepers.
 	*/
@@ -2165,14 +2165,14 @@ bool TQRegExpEngine::matchHere()
 
 	// avoid needless iteration that confuses mmOneTestMatchedLen
 	if ( nnext == 1 && mmNextStack[0] == FinalState
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 	     && mmSleeping.isEmpty()
 #endif
 	     )
 	    stop = TRUE;
 
 	tqSwap( mmCurStack, mmNextStack );
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 	tqSwap( mmCurCapBegin, mmNextCapBegin );
 	tqSwap( mmCurCapEnd, mmNextCapEnd );
 #endif
@@ -2181,7 +2181,7 @@ bool TQRegExpEngine::matchHere()
 	i++;
     }
 
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
     /*
       If minimal matching is enabled, we might have some sleepers
       left.
@@ -2196,12 +2196,12 @@ bool TQRegExpEngine::matchHere()
     return ( mmMatchLen >= 0 );
 }
 
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
 
 TQRegExpEngine::CharClass::CharClass()
     : c( 0 ), n( FALSE )
 {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     occ1.fill( NoOccurrence, NumBadChars );
 #endif
 }
@@ -2212,7 +2212,7 @@ TQRegExpEngine::CharClass& TQRegExpEngine::CharClass::operator=(
     c = cc.c;
     r = cc.r.copy();
     n = cc.n;
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     occ1 = cc.occ1;
 #endif
     return *this;
@@ -2228,7 +2228,7 @@ void TQRegExpEngine::CharClass::clear()
 void TQRegExpEngine::CharClass::setNegative( bool negative )
 {
     n = negative;
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     occ1.fill( 0, NumBadChars );
 #endif
 }
@@ -2236,7 +2236,7 @@ void TQRegExpEngine::CharClass::setNegative( bool negative )
 void TQRegExpEngine::CharClass::addCategories( int cats )
 {
     c |= cats;
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     occ1.fill( 0, NumBadChars );
 #endif
 }
@@ -2250,7 +2250,7 @@ void TQRegExpEngine::CharClass::addRange( ushort from, ushort to )
     r[m].from = from;
     r[m].to = to;
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     int i;
 
     if ( to - from < NumBadChars ) {
@@ -2272,7 +2272,7 @@ void TQRegExpEngine::CharClass::addRange( ushort from, ushort to )
 
 bool TQRegExpEngine::CharClass::in( TQChar ch ) const
 {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     if ( occ1[BadChar(ch)] == NoOccurrence )
 	return n;
 #endif
@@ -2291,7 +2291,7 @@ void TQRegExpEngine::CharClass::dump() const
 {
     int i;
     tqDebug( "    %stive character class", n ? "nega" : "posi" );
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     if ( c != 0 )
 	tqDebug( "      categories 0x%.8x", c );
 #endif
@@ -2303,11 +2303,11 @@ void TQRegExpEngine::CharClass::dump() const
 
 TQRegExpEngine::Box::Box( TQRegExpEngine *engine )
     : eng( engine ), skipanchors( 0 )
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
       , earlyStart( 0 ), lateStart( 0 ), maxl( 0 )
 #endif
 {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     occ1.fill( NoOccurrence, NumBadChars );
 #endif
     minl = 0;
@@ -2321,7 +2321,7 @@ TQRegExpEngine::Box& TQRegExpEngine::Box::operator=( const Box& b )
     lanchors = b.lanchors;
     ranchors = b.ranchors;
     skipanchors = b.skipanchors;
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     earlyStart = b.earlyStart;
     lateStart = b.lateStart;
     str = b.str;
@@ -2340,7 +2340,7 @@ void TQRegExpEngine::Box::set( TQChar ch )
     ls[0] = eng->createState( ch );
     rs = ls;
     rs.detach();
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     str = ch;
     leftStr = ch;
     rightStr = ch;
@@ -2357,14 +2357,14 @@ void TQRegExpEngine::Box::set( const CharClass& cc )
     ls[0] = eng->createState( cc );
     rs = ls;
     rs.detach();
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     maxl = 1;
     occ1 = cc.firstOccurrence();
 #endif
     minl = 1;
 }
 
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 void TQRegExpEngine::Box::set( int bref )
 {
     ls.resize( 1 );
@@ -2373,7 +2373,7 @@ void TQRegExpEngine::Box::set( int bref )
     rs.detach();
     if ( bref >= 1 && bref <= MaxBackRefs )
 	skipanchors = Anchor_BackRef0Empty << bref;
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     maxl = InftyLen;
 #endif
     minl = 0;
@@ -2410,7 +2410,7 @@ void TQRegExpEngine::Box::cat( const Box& b )
 	rs = b.rs;
     }
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     if ( maxl != InftyLen ) {
 	if ( rightStr.length() + b.leftStr.length() >
 	     TQMAX(str.length(), b.str.length()) ) {
@@ -2467,7 +2467,7 @@ void TQRegExpEngine::Box::orx( const Box& b )
 	    skipanchors = b.skipanchors;
     }
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     occ1.detach();
     for ( int i = 0; i < NumBadChars; i++ ) {
 	if ( occ1[i] > b.occ1[i] )
@@ -2487,21 +2487,21 @@ void TQRegExpEngine::Box::orx( const Box& b )
 
 void TQRegExpEngine::Box::plus( int atom )
 {
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     eng->addPlusTransitions( rs, ls, atom );
 #else
     Q_UNUSED( atom );
     eng->addCatTransitions( rs, ls );
 #endif
     addAnchorsToEngine( *this );
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     maxl = InftyLen;
 #endif
 }
 
 void TQRegExpEngine::Box::opt()
 {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     earlyStart = 0;
     lateStart = 0;
     str = TQString();
@@ -2524,7 +2524,7 @@ void TQRegExpEngine::Box::catAnchor( int a )
     }
 }
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 void TQRegExpEngine::Box::setupHeuristics()
 {
     eng->goodEarlyStart = earlyStart;
@@ -2596,7 +2596,7 @@ int TQRegExpEngine::getChar()
 
 int TQRegExpEngine::getEscape()
 {
-#ifndef QT_NO_REGEXP_ESCAPE
+#ifndef TQT_NO_REGEXP_ESCAPE
     const char tab[] = "afnrtv"; // no b, as \b means word boundary
     const char backTab[] = "\a\f\n\r\t\v";
     ushort low;
@@ -2610,7 +2610,7 @@ int TQRegExpEngine::getEscape()
 	return Tok_Char | '\\';
     }
     yyCh = getChar();
-#ifndef QT_NO_REGEXP_ESCAPE
+#ifndef TQT_NO_REGEXP_ESCAPE
     if ( (prevCh & ~0xff) == 0 ) {
 	const char *p = strchr( tab, prevCh );
 	if ( p != 0 )
@@ -2619,7 +2619,7 @@ int TQRegExpEngine::getEscape()
 #endif
 
     switch ( prevCh ) {
-#ifndef QT_NO_REGEXP_ESCAPE
+#ifndef TQT_NO_REGEXP_ESCAPE
     case '0':
 	val = 0;
 	for ( i = 0; i < 3; i++ ) {
@@ -2633,11 +2633,11 @@ int TQRegExpEngine::getEscape()
 	    error( RXERR_OCTAL );
 	return Tok_Char | val;
 #endif
-#ifndef QT_NO_REGEXP_ESCAPE
+#ifndef TQT_NO_REGEXP_ESCAPE
     case 'B':
 	return Tok_NonWord;
 #endif
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     case 'D':
 	// see TQChar::isDigit()
 	yyCharClass->addCategories( 0x7fffffef );
@@ -2661,11 +2661,11 @@ int TQRegExpEngine::getEscape()
 	yyCharClass->addSingleton( 0xff65 );
 	return Tok_CharClass;
 #endif
-#ifndef QT_NO_REGEXP_ESCAPE
+#ifndef TQT_NO_REGEXP_ESCAPE
     case 'b':
 	return Tok_Word;
 #endif
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     case 'd':
 	// see TQChar::isDigit()
 	yyCharClass->addCategories( 0x00000010 );
@@ -2681,7 +2681,7 @@ int TQRegExpEngine::getEscape()
 	yyCharClass->addSingleton( 0x005f ); // '_'
 	return Tok_CharClass;
 #endif
-#ifndef QT_NO_REGEXP_ESCAPE
+#ifndef TQT_NO_REGEXP_ESCAPE
     case 'x':
 	val = 0;
 	for ( i = 0; i < 4; i++ ) {
@@ -2698,7 +2698,7 @@ int TQRegExpEngine::getEscape()
 #endif
     default:
 	if ( prevCh >= '1' && prevCh <= '9' ) {
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 	    val = prevCh - '0';
 	    while ( yyCh >= '0' && yyCh <= '9' ) {
 		val = ( val * 10 ) + ( yyCh - '0' );
@@ -2713,7 +2713,7 @@ int TQRegExpEngine::getEscape()
     }
 }
 
-#ifndef QT_NO_REGEXP_INTERVAL
+#ifndef TQT_NO_REGEXP_INTERVAL
 int TQRegExpEngine::getRep( int def )
 {
     if ( yyCh >= '0' && yyCh <= '9' ) {
@@ -2733,7 +2733,7 @@ int TQRegExpEngine::getRep( int def )
 }
 #endif
 
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
 void TQRegExpEngine::skipChars( int n )
 {
     if ( n > 0 ) {
@@ -2764,7 +2764,7 @@ void TQRegExpEngine::startTokenizer( const TQChar *rx, int len )
 
 int TQRegExpEngine::getToken()
 {
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     ushort pendingCh = 0;
     bool charPending;
     bool rangePending;
@@ -2773,7 +2773,7 @@ int TQRegExpEngine::getToken()
     int prevCh = yyCh;
 
     yyPos0 = yyPos - 1;
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
     yyCharClass->clear();
 #endif
     yyMinRep = 0;
@@ -2791,7 +2791,7 @@ int TQRegExpEngine::getToken()
 	    prevCh = getChar();
 	    yyCh = getChar();
 	    switch ( prevCh ) {
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
 	    case '!':
 		return Tok_NegLookahead;
 	    case '=':
@@ -2817,7 +2817,7 @@ int TQRegExpEngine::getToken()
 	yyMaxRep = InftyRep;
 	return Tok_Quantifier;
     case '.':
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
 	yyCharClass->setNegative( TRUE );
 #endif
 	return Tok_CharClass;
@@ -2826,7 +2826,7 @@ int TQRegExpEngine::getToken()
 	yyMaxRep = 1;
 	return Tok_Quantifier;
     case '[':
-#ifndef QT_NO_REGEXP_CCLASS
+#ifndef TQT_NO_REGEXP_CCLASS
 	if ( yyCh == '^' ) {
 	    yyCharClass->setNegative( TRUE );
 	    yyCh = getChar();
@@ -2893,7 +2893,7 @@ int TQRegExpEngine::getToken()
     case '^':
 	return Tok_Caret;
     case '{':
-#ifndef QT_NO_REGEXP_INTERVAL
+#ifndef TQT_NO_REGEXP_INTERVAL
 	yyMinRep = getRep( 0 );
 	yyMaxRep = yyMinRep;
 	if ( yyCh == ',' ) {
@@ -2925,13 +2925,13 @@ int TQRegExpEngine::parse( const TQChar *pattern, int len )
     valid = TRUE;
     startTokenizer( pattern, len );
     yyTok = getToken();
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     yyMayCapture = TRUE;
 #else
     yyMayCapture = FALSE;
 #endif
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     int atom = startAtom( FALSE );
 #endif
     CharClass anything;
@@ -2942,10 +2942,10 @@ int TQRegExpEngine::parse( const TQChar *pattern, int len )
 
     Box middleBox( this );
     parseExpression( &middleBox );
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     finishAtom( atom );
 #endif
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     middleBox.setupHeuristics();
 #endif
     box.cat( middleBox );
@@ -2954,7 +2954,7 @@ int TQRegExpEngine::parse( const TQChar *pattern, int len )
     yyCharClass = 0;
 
     officialncap = ncap;
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
     if ( nbrefs > ncap )
 	ncap = nbrefs;
 #endif
@@ -2963,7 +2963,7 @@ int TQRegExpEngine::parse( const TQChar *pattern, int len )
       We use one TQMemArray<int> for all the big data used a lot in
       matchHere() and friends.
     */
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     mmSlideTabSize = TQMAX( minl + 1, 16 );
 #else
     mmSlideTabSize = 0;
@@ -2990,7 +2990,7 @@ int TQRegExpEngine::parse( const TQChar *pattern, int len )
     if ( !yyError.isEmpty() )
 	return -1;
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     State *sinit = s[InitialState];
     caretAnchored = ( sinit->anchors != 0 );
     if ( caretAnchored ) {
@@ -2998,7 +2998,7 @@ int TQRegExpEngine::parse( const TQChar *pattern, int len )
 	TQMap<int, int>::ConstIterator a;
 	for ( a = anchors.begin(); a != anchors.end(); ++a ) {
 	    if (
-#ifndef QT_NO_REGEXP_ANCHOR_ALT
+#ifndef TQT_NO_REGEXP_ANCHOR_ALT
 		 (*a & Anchor_Alternation) != 0 ||
 #endif
 		 (*a & Anchor_Caret) == 0 ) {
@@ -3013,7 +3013,7 @@ int TQRegExpEngine::parse( const TQChar *pattern, int len )
 
 void TQRegExpEngine::parseAtom( Box *box )
 {
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
     TQRegExpEngine *eng = 0;
     bool neg;
     int len;
@@ -3022,7 +3022,7 @@ void TQRegExpEngine::parseAtom( Box *box )
     if ( (yyTok & Tok_Char) != 0 ) {
 	box->set( TQChar(yyTok ^ Tok_Char) );
     } else {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	trivial = FALSE;
 #endif
 	switch ( yyTok ) {
@@ -3032,7 +3032,7 @@ void TQRegExpEngine::parseAtom( Box *box )
 	case Tok_Caret:
 	    box->catAnchor( Anchor_Caret );
 	    break;
-#ifndef QT_NO_REGEXP_LOOKAHEAD
+#ifndef TQT_NO_REGEXP_LOOKAHEAD
 	case Tok_PosLookahead:
 	case Tok_NegLookahead:
 	    neg = ( yyTok == Tok_NegLookahead );
@@ -3048,7 +3048,7 @@ void TQRegExpEngine::parseAtom( Box *box )
 		error( RXERR_LOOKAHEAD );
 	    break;
 #endif
-#ifndef QT_NO_REGEXP_ESCAPE
+#ifndef TQT_NO_REGEXP_ESCAPE
 	case Tok_Word:
 	    box->catAnchor( Anchor_Word );
 	    break;
@@ -3070,7 +3070,7 @@ void TQRegExpEngine::parseAtom( Box *box )
 	    error( RXERR_REPETITION );
 	    break;
 	default:
-#ifndef QT_NO_REGEXP_BACKREF
+#ifndef TQT_NO_REGEXP_BACKREF
 	    if ( (yyTok & Tok_BackRef) != 0 )
 		box->set( yyTok ^ Tok_BackRef );
 	    else
@@ -3083,13 +3083,13 @@ void TQRegExpEngine::parseAtom( Box *box )
 
 void TQRegExpEngine::parseFactor( Box *box )
 {
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     int atom = startAtom( yyMayCapture && yyTok == Tok_LeftParen );
 #else
     static const int atom = 0;
 #endif
 
-#ifndef QT_NO_REGEXP_INTERVAL
+#ifndef TQT_NO_REGEXP_INTERVAL
 #define YYREDO() \
 	yyIn = in, yyPos0 = pos0, yyPos = pos, yyLen = len, yyCh = ch, \
 	*yyCharClass = charClass, yyMinRep = 0, yyMaxRep = 0, yyTok = tok
@@ -3107,17 +3107,17 @@ void TQRegExpEngine::parseFactor( Box *box )
 #endif
 
     parseAtom( box );
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     finishAtom( atom );
 #endif
 
     if ( yyTok == Tok_Quantifier ) {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	trivial = FALSE;
 #endif
 	if ( yyMaxRep == InftyRep ) {
 	    box->plus( atom );
-#ifndef QT_NO_REGEXP_INTERVAL
+#ifndef TQT_NO_REGEXP_INTERVAL
 	} else if ( yyMaxRep == 0 ) {
 	    box->clear();
 #endif
@@ -3125,7 +3125,7 @@ void TQRegExpEngine::parseFactor( Box *box )
 	if ( yyMinRep == 0 )
 	    box->opt();
 
-#ifndef QT_NO_REGEXP_INTERVAL
+#ifndef TQT_NO_REGEXP_INTERVAL
 	yyMayCapture = FALSE;
 	int alpha = ( yyMinRep == 0 ) ? 0 : yyMinRep - 1;
 	int beta = ( yyMaxRep == InftyRep ) ? 0 : yyMaxRep - ( alpha + 1 );
@@ -3152,7 +3152,7 @@ void TQRegExpEngine::parseFactor( Box *box )
 	*box = rightBox;
 #endif
 	yyTok = getToken();
-#ifndef QT_NO_REGEXP_INTERVAL
+#ifndef TQT_NO_REGEXP_INTERVAL
 	yyMayCapture = mayCapture;
 #endif
     }
@@ -3161,7 +3161,7 @@ void TQRegExpEngine::parseFactor( Box *box )
 
 void TQRegExpEngine::parseTerm( Box *box )
 {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
     if ( yyTok != Tok_Eos && yyTok != Tok_RightParen && yyTok != Tok_Bar )
 	parseFactor( box );
 #endif
@@ -3176,7 +3176,7 @@ void TQRegExpEngine::parseExpression( Box *box )
 {
     parseTerm( box );
     while ( yyTok == Tok_Bar ) {
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 	trivial = FALSE;
 #endif
 	Box rightBox( this );
@@ -3196,12 +3196,12 @@ struct TQRegExpPrivate
 {
     TQString pattern; // regular-expression or wildcard pattern
     TQString rxpattern; // regular-expression pattern
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
     bool wc : 1; // wildcard mode?
 #endif
     bool min : 1; // minimal matching? (instead of maximal)
     bool cs : 1; // case sensitive?
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     TQString t; // last string passed to TQRegExp::search() or searchRev()
     TQStringList capturedCache; // what TQRegExp::capturedTexts() returned last
 #endif
@@ -3210,27 +3210,27 @@ struct TQRegExpPrivate
     TQRegExpPrivate() { captured.fill( -1, 2 ); }
 };
 
-#ifndef QT_NO_REGEXP_OPTIM
+#ifndef TQT_NO_REGEXP_OPTIM
 static TQSingleCleanupHandler<TQCache<TQRegExpEngine> > cleanup_cache;
-#  ifndef QT_THREAD_SUPPORT
+#  ifndef TQT_THREAD_SUPPORT
 static TQCache<TQRegExpEngine> *engineCache = 0;
-#  endif // QT_THREAD_SUPPORT
-#endif // QT_NO_REGEXP_OPTIM
+#  endif // TQT_THREAD_SUPPORT
+#endif // TQT_NO_REGEXP_OPTIM
 
 static void regexpEngine( TQRegExpEngine *&eng, const TQString &pattern,
 			  bool caseSensitive, bool deref )
 {
-#  ifdef QT_THREAD_SUPPORT
+#  ifdef TQT_THREAD_SUPPORT
     static TQThreadStorage<TQCache<TQRegExpEngine> *> engineCaches;
     TQCache<TQRegExpEngine> *engineCache = 0;
     TQThreadInstance *currentThread = TQThreadInstance::current();
     if (currentThread)
         engineCache = engineCaches.localData();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     if ( !deref ) {
-#ifndef QT_NO_REGEXP_OPTIM
-#  ifdef QT_THREAD_SUPPORT
+#ifndef TQT_NO_REGEXP_OPTIM
+#  ifdef TQT_THREAD_SUPPORT
         if ( currentThread )
 #  endif
             {
@@ -3244,25 +3244,25 @@ static void regexpEngine( TQRegExpEngine *&eng, const TQString &pattern,
                     }
                 }
             }
-#endif // QT_NO_REGEXP_OPTIM
+#endif // TQT_NO_REGEXP_OPTIM
 	eng = new TQRegExpEngine( pattern, caseSensitive );
 	return;
     }
 
     if ( eng->deref() ) {
-#ifndef QT_NO_REGEXP_OPTIM
-#  ifdef QT_THREAD_SUPPORT
+#ifndef TQT_NO_REGEXP_OPTIM
+#  ifdef TQT_THREAD_SUPPORT
         if ( currentThread )
 #  endif
             {
                 if ( engineCache == 0 ) {
                     engineCache = new TQCache<TQRegExpEngine>;
                     engineCache->setAutoDelete( TRUE );
-#  ifdef QT_THREAD_SUPPORT
+#  ifdef TQT_THREAD_SUPPORT
                     engineCaches.setLocalData(engineCache);
 #  else
                     cleanup_cache.set( &engineCache );
-#  endif // !QT_THREAD_SUPPORT
+#  endif // !TQT_THREAD_SUPPORT
                 }
                 if ( !pattern.isNull() &&
                      engineCache->insert(pattern, eng, 4 + pattern.length() / 4) )
@@ -3270,7 +3270,7 @@ static void regexpEngine( TQRegExpEngine *&eng, const TQString &pattern,
             }
 #else
 	Q_UNUSED( pattern );
-#endif // QT_NO_REGEXP_OPTIM
+#endif // TQT_NO_REGEXP_OPTIM
 	delete eng;
 	eng = 0;
     }
@@ -3301,7 +3301,7 @@ TQRegExp::TQRegExp()
     : eng( 0 )
 {
     priv = new TQRegExpPrivate;
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
     priv->wc = FALSE;
 #endif
     priv->min = FALSE;
@@ -3322,7 +3322,7 @@ TQRegExp::TQRegExp( const TQString& pattern, bool caseSensitive, bool wildcard )
 {
     priv = new TQRegExpPrivate;
     priv->pattern = pattern;
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
     priv->wc = wildcard;
 #endif
     priv->min = FALSE;
@@ -3364,12 +3364,12 @@ TQRegExp& TQRegExp::operator=( const TQRegExp& rx )
     eng = otherEng;
     priv->pattern = rx.priv->pattern;
     priv->rxpattern = rx.priv->rxpattern;
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
     priv->wc = rx.priv->wc;
 #endif
     priv->min = rx.priv->min;
     priv->cs = rx.priv->cs;
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     priv->t = rx.priv->t;
     priv->capturedCache = rx.priv->capturedCache;
 #endif
@@ -3388,7 +3388,7 @@ TQRegExp& TQRegExp::operator=( const TQRegExp& rx )
 bool TQRegExp::operator==( const TQRegExp& rx ) const
 {
     return priv->pattern == rx.priv->pattern &&
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
 	   priv->wc == rx.priv->wc &&
 #endif
 	   priv->min == rx.priv->min &&
@@ -3500,7 +3500,7 @@ void TQRegExp::setCaseSensitive( bool sensitive )
     }
 }
 
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
 /*!
     Returns TRUE if wildcard mode is enabled; otherwise returns FALSE.
     The default is FALSE.
@@ -3600,7 +3600,7 @@ bool TQRegExp::exactMatch( const TQString& str ) const
     }
 }
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 /*! \obsolete
 
   Attempts to match in \a str, starting from position \a index.
@@ -3625,7 +3625,7 @@ int TQRegExp::match( const TQString& str, int index, int *len,
 	*len = matchedLength();
     return pos;
 }
-#endif // QT_NO_COMPAT
+#endif // TQT_NO_COMPAT
 
 int TQRegExp::search( const TQString& str, int offset ) const
 {
@@ -3735,7 +3735,7 @@ int TQRegExp::matchedLength() const
     return priv->captured[1];
 }
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 /*!
   Returns the number of captures contained in the regular expression.
  */
@@ -3947,7 +3947,7 @@ TQString TQRegExp::escape( const TQString& str )
 void TQRegExp::prepareEngine() const
 {
     if ( eng == 0 ) {
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
 	if ( priv->wc )
 	    priv->rxpattern = wc2rx( priv->pattern );
 	else
@@ -3965,7 +3965,7 @@ void TQRegExp::prepareEngine() const
 void TQRegExp::prepareEngineForMatch( const TQString& str ) const
 {
     prepareEngine();
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     priv->t = str;
     priv->capturedCache.clear();
 #else
@@ -3993,4 +3993,4 @@ int TQRegExp::caretIndex( int offset, CaretMode caretMode )
     }
 }
 
-#endif // QT_NO_REGEXP
+#endif // TQT_NO_REGEXP

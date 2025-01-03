@@ -59,12 +59,12 @@ were done using <a href="designer-manual.html">TQt Designer</a>.
 
 void ArchiveDialog::init()
 {
-    connect(&amp;articleSearcher, SIGNAL(done(bool)), this, SLOT(searchDone(bool)));
-    connect(&amp;articleFetcher, SIGNAL(done(bool)), this, SLOT(fetchDone(bool)));
-    connect(myListView, SIGNAL(selectionChanged(TQListViewItem*)), this, SLOT(fetch(TQListViewItem*)));
-    connect(myLineEdit, SIGNAL(returnPressed()), this, SLOT(search()));
-    connect(myListView, SIGNAL(returnPressed(TQListViewItem*)), this, SLOT(fetch(TQListViewItem*)));
-    connect(myPushButton, SIGNAL(clicked()), this, SLOT(close()));
+    connect(&amp;articleSearcher, TQ_SIGNAL(done(bool)), this, TQ_SLOT(searchDone(bool)));
+    connect(&amp;articleFetcher, TQ_SIGNAL(done(bool)), this, TQ_SLOT(fetchDone(bool)));
+    connect(myListView, TQ_SIGNAL(selectionChanged(TQListViewItem*)), this, TQ_SLOT(fetch(TQListViewItem*)));
+    connect(myLineEdit, TQ_SIGNAL(returnPressed()), this, TQ_SLOT(search()));
+    connect(myListView, TQ_SIGNAL(returnPressed(TQListViewItem*)), this, TQ_SLOT(fetch(TQListViewItem*)));
+    connect(myPushButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(close()));
 }
 
 void ArchiveDialog::fetch( <a href="qlistviewitem.html">TQListViewItem</a> *it )
@@ -164,8 +164,8 @@ int main(int argc, char **argv)
     ArchiveDialog ad;
     ad.show();
 
-<a name="x489"></a><a name="x487"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()),
-<a name="x488"></a>                      &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<a name="x489"></a><a name="x487"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()),
+<a name="x488"></a>                      &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
 <a name="x486"></a>    return a.<a href="ntqapplication.html#exec">exec</a>();
 }

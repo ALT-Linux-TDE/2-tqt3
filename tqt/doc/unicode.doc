@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -85,7 +85,7 @@ update\endlink and
 \section1 Unicode in Qt
 
 In Qt, and in most applications that use Qt, most or all user-visible
-strings are stored using Unicode. Qt provides:
+strings are stored using Unicode. TQt provides:
 
 \list
 
@@ -93,31 +93,31 @@ strings are stored using Unicode. Qt provides:
 QTextCodec and \l QTextStream.
 \i Translation from Input Methods and 8-bit keyboard input.
 \i Translation to legacy character sets for on-screen display.
-\i A string class, \l QString, that stores Unicode characters, with
+\i A string class, \l TQString, that stores Unicode characters, with
 support for migrating from C strings including fast (cached)
 translation to and from US-ASCII, and all the usual string
 operations.
 \i Unicode-aware widgets where appropriate.
-\i Unicode support detection on Windows, so that Qt provides Unicode
+\i Unicode support detection on Windows, so that TQt provides Unicode
 even on Windows platforms that do not support it natively.
 
 \endlist
 
-To fully benefit from Unicode, we recommend using QString for storing
+To fully benefit from Unicode, we recommend using TQString for storing
 all user-visible strings, and performing all text file I/O using
 QTextStream. Use \l QKeyEvent::text() for keyboard input in any custom
 widgets you write; it does not make much difference for slow typists
 in Western Europe or North America, but for fast typists or people
 using special input methods using text() is beneficial.
 
-All the function arguments in Qt that may be user-visible strings, \l
-QLabel::setText() and a many others, take \c{const QString &}s.
-\l QString provides implicit casting from \c{const char *}
+All the function arguments in TQt that may be user-visible strings, \l
+QLabel::setText() and a many others, take \c{const TQString &}s.
+\l TQString provides implicit casting from \c{const char *}
 so that things like
 \code
     myLabel->setText( "Hello, Dolly!" );
 \endcode
-will work. There is also a function, \l QObject::tr(), that provides
+will work. There is also a function, \l TQObject::tr(), that provides
 translation support, like this:
 \code
     myLabel->setText( tr("Hello, Dolly!") );
@@ -143,10 +143,10 @@ Since US-ASCII and ISO-8859-1 are so common, there are also especially
 fast functions for mapping to and from them. For example, to open an
 application's icon one might do this:
 \code
-	QFile f( QString::fromLatin1("appicon.png") );
+	QFile f( TQString::fromLatin1("appicon.png") );
 \endcode
 
-Regarding output, Qt will do a best-effort conversion from
+Regarding output, TQt will do a best-effort conversion from
 Unicode to whatever encoding the system and fonts provide.
 Depending on operating system, locale, font availability and Qt's
 support for the characters used, this conversion may be good or bad.

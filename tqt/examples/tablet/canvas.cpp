@@ -26,7 +26,7 @@ Canvas::Canvas( TQWidget *parent, const char *name, WFlags fl )
     if ((tqApp->argc() > 0) && !buffer.load(tqApp->argv()[1]))
 	buffer.fill( colorGroup().base() );
     setBackgroundMode( TQWidget::PaletteBase );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     setCursor( TQt::crossCursor );
 #endif
 }

@@ -40,7 +40,7 @@
 
 #include "ntqwindowsstyle.h"
 
-#if !defined(QT_NO_STYLE_WINDOWS) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_WINDOWS) || defined(QT_PLUGIN)
 
 #include "ntqpopupmenu.h"
 #include "ntqapplication.h"
@@ -697,7 +697,7 @@ void TQWindowsStyle::drawControl( ControlElement element,
 				 const TQWidget *widget ) const
 {
     switch (element) {
-#ifndef QT_NO_TABBAR
+#ifndef TQT_NO_TABBAR
     case CE_TabBarTab:
 	{
 	    if ( ( elementFlags & CEF_UseGenericParameters ) || (!( elementFlags & CEF_HasParentWidget )) || !opt.tab() )
@@ -812,7 +812,7 @@ void TQWindowsStyle::drawControl( ControlElement element,
 	    }
 	    break;
 	}
-#endif // QT_NO_TABBAR
+#endif // TQT_NO_TABBAR
     case CE_ToolBoxTab:
 	{
 	    qDrawShadePanel( p, r, cg, flags & (Style_Sunken | Style_Down | Style_On) , 1,
@@ -820,7 +820,7 @@ void TQWindowsStyle::drawControl( ControlElement element,
 	    break;
 	}
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     case CE_PopupMenuItem:
 	{
 	    if (( elementFlags & CEF_UseGenericParameters ) || opt.isDefault())
@@ -1034,7 +1034,7 @@ int TQWindowsStyle::pixelMetric(PixelMetric metric, const TQStyleControlElementD
 	ret = 60;
 	break;
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case PM_SliderLength:
 	ret = 11;
 	break;
@@ -1066,7 +1066,7 @@ int TQWindowsStyle::pixelMetric(PixelMetric metric, const TQStyleControlElementD
 	    ret = thick;
 	    break;
 	}
-#endif // QT_NO_SLIDER
+#endif // TQT_NO_SLIDER
 
     case PM_MenuBarFrameWidth:
 	ret = 0;
@@ -1107,7 +1107,7 @@ TQSize TQWindowsStyle::sizeFromContents( ContentsType contents,
     switch (contents) {
     case CT_PushButton:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    sz = TQCommonStyle::sizeFromContents(contents, ceData, elementFlags, contentsSize, opt, widget);
 	    int w = sz.width(), h = sz.height();
 
@@ -1127,7 +1127,7 @@ TQSize TQWindowsStyle::sizeFromContents( ContentsType contents,
 
     case CT_PopupMenuItem:
 	{
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	    if (( elementFlags & CEF_UseGenericParameters ) || opt.isDefault())
 		break;
 
@@ -1198,14 +1198,14 @@ TQSize TQWindowsStyle::sizeFromContents( ContentsType contents,
 */
 void TQWindowsStyle::polishPopupMenu( const TQStyleControlElementData &ceData, ControlElementFlags elementFlags, void *ptr )
 {
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     if ( !(ceData.windowState & WState_Polished ) ) {
         widgetActionRequest(ceData, elementFlags, ptr, WAR_SetCheckable);
     }
 #endif
 }
 
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
 static const char * const qt_close_xpm[] = {
 "12 12 2 1",
 "# c #000000",
@@ -1482,7 +1482,7 @@ static const char *const question_xpm[] = {
 "..................***...........",
 "...................**...........",
 };
-#endif //QT_NO_IMAGEIO_XPM
+#endif //TQT_NO_IMAGEIO_XPM
 
 /*!
  \reimp
@@ -1493,7 +1493,7 @@ TQPixmap TQWindowsStyle::stylePixmap(StylePixmap stylepixmap,
 				   const TQStyleOption& opt,
 				   const TQWidget *widget) const
 {
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
     switch (stylepixmap) {
     case SP_TitleBarShadeButton:
 	return TQPixmap( (const char **)qt_shade_xpm );
@@ -1520,7 +1520,7 @@ TQPixmap TQWindowsStyle::stylePixmap(StylePixmap stylepixmap,
     default:
 	break;
     }
-#endif //QT_NO_IMAGEIO_XPM
+#endif //TQT_NO_IMAGEIO_XPM
     return TQCommonStyle::stylePixmap(stylepixmap, ceData, elementFlags, opt, widget);
 }
 
@@ -1538,7 +1538,7 @@ void TQWindowsStyle::drawComplexControl( ComplexControl ctrl, TQPainter *p,
 					const TQWidget *widget ) const
 {
     switch (ctrl) {
-#ifndef QT_NO_LISTVIEW
+#ifndef TQT_NO_LISTVIEW
     case CC_ListView:
 	{
 	    if ( sub & SC_ListView ) {
@@ -1698,9 +1698,9 @@ void TQWindowsStyle::drawComplexControl( ComplexControl ctrl, TQPainter *p,
 	    }
 	}
 	break;
-#endif //QT_NO_LISTVIEW
+#endif //TQT_NO_LISTVIEW
 
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
     case CC_ComboBox:
 	if ( sub & SC_ComboBoxArrow ) {
 	    SFlags flags = Style_Default;
@@ -1755,9 +1755,9 @@ void TQWindowsStyle::drawComplexControl( ComplexControl ctrl, TQPainter *p,
 	}
 
 	break;
-#endif	// QT_NO_COMBOBOX
+#endif	// TQT_NO_COMBOBOX
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case CC_Slider:
 	{
 	    int thickness  = pixelMetric( PM_SliderControlThickness, ceData, elementFlags, widget );
@@ -1963,7 +1963,7 @@ void TQWindowsStyle::drawComplexControl( ComplexControl ctrl, TQPainter *p,
 
 	    break;
 	}
-#endif // QT_NO_SLIDER
+#endif // TQT_NO_SLIDER
 
     default:
 	TQCommonStyle::drawComplexControl( ctrl, p, ceData, elementFlags, r, cg, flags, sub,
@@ -2037,13 +2037,13 @@ TQRect TQWindowsStyle::subRect(SubRect r, const TQStyleControlElementData &ceDat
     TQRect rect;
 
     switch (r) {
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case SR_SliderFocusRect:
 	{
 	    rect = ceData.rect;
 	    break;
 	}
-#endif // QT_NO_SLIDER
+#endif // TQT_NO_SLIDER
     case SR_ToolBoxTabContents:
 	rect = ceData.rect;
 	break;

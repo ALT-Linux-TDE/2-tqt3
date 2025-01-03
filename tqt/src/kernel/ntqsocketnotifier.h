@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQSocketNotifier : public TQObject
+class TQ_EXPORT TQSocketNotifier : public TQObject
 {
     TQ_OBJECT
 public:

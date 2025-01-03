@@ -57,7 +57,7 @@ DatabaseConnectionEditor::~DatabaseConnectionEditor()
 
 void DatabaseConnectionEditor::accept()
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     conn->setUsername( connectionWidget->editUsername->text() );
     conn->setPassword( connectionWidget->editPassword->text() );
     conn->setHostname( connectionWidget->editHostname->text() );

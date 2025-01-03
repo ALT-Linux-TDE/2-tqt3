@@ -11,6 +11,7 @@ class BouncyLogo : public TQCanvasSprite {
     void initSpeed();
 public:
     BouncyLogo(TQCanvas*);
+    ~BouncyLogo();
     void advance(int);
     int rtti() const;
 };

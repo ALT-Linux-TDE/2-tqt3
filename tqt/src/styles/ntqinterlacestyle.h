@@ -46,11 +46,11 @@
 #include "ntqmotifstyle.h"
 #endif // QT_H
 
-#if !defined(QT_NO_STYLE_INTERLACE) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_INTERLACE) || defined(QT_PLUGIN)
 
 #include "ntqpalette.h"
 
-class Q_EXPORT TQInterlaceStyle : public TQMotifStyle
+class TQ_EXPORT TQInterlaceStyle : public TQMotifStyle
 {
 public:
     TQInterlaceStyle();
@@ -101,7 +101,7 @@ private:
     TQPalette oldPalette;
 };
 
-#endif // QT_NO_STYLE_INTERLACE
+#endif // TQT_NO_STYLE_INTERLACE
 
 #endif
 #endif

@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqlcdnumber.h"
-#ifndef QT_NO_LCDNUMBER
+#ifndef TQT_NO_LCDNUMBER
 #include "ntqbitarray.h"
 #include "ntqpainter.h"
 
@@ -396,7 +396,7 @@ void TQLCDNumber::setNumDigits( int numDigits )
         bool doDisplay = ndigits == 0;
         if ( numDigits == ndigits )             // no change
             return;
-        register int i;
+        int i;
         int dif;
         if ( numDigits > ndigits ) {            // expand
             dif = numDigits - ndigits;
@@ -1167,4 +1167,4 @@ TQSize TQLCDNumber::sizeHint() const
     return TQSize( 10 + 9 * (numDigits() + (smallDecimalPoint() ? 0 : 1)), 23 );
 }
 
-#endif // QT_NO_LCDNUMBER
+#endif // TQT_NO_LCDNUMBER

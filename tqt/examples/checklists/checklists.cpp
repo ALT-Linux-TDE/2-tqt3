@@ -69,8 +69,8 @@ CheckLists::CheckLists( TQWidget *parent, const char *name )
     TQPushButton *copy1 = new TQPushButton( "  ->  ", this );
     tmp->addWidget( copy1 );
     copy1->setMaximumWidth( copy1->sizeHint().width() );
-    // connect the SIGNAL clicked() of the pushbutton with the SLOT copy1to2()
-    connect( copy1, SIGNAL( clicked() ), this, SLOT( copy1to2() ) );
+    // connect the TQ_SIGNAL clicked() of the pushbutton with the TQ_SLOT copy1to2()
+    connect( copy1, TQ_SIGNAL( clicked() ), this, TQ_SLOT( copy1to2() ) );
 
     // another widget for layouting
     TQVBoxLayout *vbox2 = new TQVBoxLayout( lay );
@@ -93,8 +93,8 @@ CheckLists::CheckLists( TQWidget *parent, const char *name )
     TQPushButton *copy2 = new TQPushButton( "  ->  ", this );
     lay->addWidget( copy2 );
     copy2->setMaximumWidth( copy2->sizeHint().width() );
-    // ...and connect its clicked() SIGNAL to the copy2to3() SLOT
-    connect( copy2, SIGNAL( clicked() ), this, SLOT( copy2to3() ) );
+    // ...and connect its clicked() TQ_SIGNAL to the copy2to3() TQ_SLOT
+    connect( copy2, TQ_SIGNAL( clicked() ), this, TQ_SLOT( copy2to3() ) );
 
     tmp = new TQVBoxLayout( lay );
     tmp->setMargin( 5 );
@@ -105,7 +105,7 @@ CheckLists::CheckLists( TQWidget *parent, const char *name )
 }
 
 /*
- * SLOT copy1to2()
+ * TQ_SLOT copy1to2()
  *
  * Copies all checked ListViewItems from the first ListView to
  * the second one, and inserts them as Radio-ListViewItem.
@@ -137,7 +137,7 @@ void CheckLists::copy1to2()
 }
 
 /*
- * SLOT copy2to3()
+ * TQ_SLOT copy2to3()
  *
  * Copies the checked item of the second ListView into the
  * Label at the right.

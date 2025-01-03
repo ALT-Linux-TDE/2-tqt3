@@ -87,7 +87,7 @@ body { background: #ffffff; color: black; }
   TQDate class
  *****************************************************************************/
 
-class Q_EXPORT TQDate
+class TQ_EXPORT TQDate
 {
 public:
     TQDate() { jd = 0; }
@@ -105,8 +105,8 @@ public:
     int daysInYear() const;
     int weekNumber( int *yearNum = 0 ) const;
 
-#ifndef QT_NO_TEXTDATE
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_TEXTDATE
+#ifndef TQT_NO_COMPAT
     static TQString monthName( int month ) { return shortMonthName( month ); }
     static TQString dayName( int weekday ) { return shortDayName( weekday ); }
 #endif
@@ -114,9 +114,9 @@ public:
     static TQString shortDayName( int weekday );
     static TQString longMonthName( int month );
     static TQString longDayName( int weekday );
-#endif //QT_NO_TEXTDATE
-#ifndef QT_NO_TEXTSTRING
-#if !defined(QT_NO_SPRINTF)
+#endif //TQT_NO_TEXTDATE
+#ifndef TQT_NO_TEXTSTRING
+#if !defined(TQT_NO_SPRINTF)
     TQString toString( TQt::DateFormat f = TQt::TextDate ) const;
 #endif
     TQString toString( const TQString&amp; format ) const;
@@ -137,7 +137,7 @@ public:
 
     static TQDate currentDate();
     static TQDate currentDate( TQt::TimeSpec );
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
     static TQDate fromString( const TQString&amp; s, TQt::DateFormat f = TQt::TextDate );
 #endif
     static bool	 isValid( int y, int m, int d );
@@ -148,9 +148,9 @@ public:
 private:
     uint	 jd;
     friend class TQDateTime;
-#ifndef QT_NO_DATASTREAM
-    friend Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQDate &amp; );
-    friend Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQDate &amp; );
+#ifndef TQT_NO_DATASTREAM
+    friend TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQDate &amp; );
+    friend TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQDate &amp; );
 #endif
 };
 
@@ -159,7 +159,7 @@ private:
   TQTime class
  *****************************************************************************/
 
-class Q_EXPORT TQTime
+class TQ_EXPORT TQTime
 {
 public:
     TQTime() { ds=0; }				// set null time
@@ -172,8 +172,8 @@ public:
     int	   minute()	 const;			// 0..59
     int	   second()	 const;			// 0..59
     int	   msec()	 const;			// 0..999
-#ifndef QT_NO_DATESTRING
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_DATESTRING
+#ifndef TQT_NO_SPRINTF
     TQString toString( TQt::DateFormat f = TQt::TextDate )	 const;
 #endif
     TQString toString( const TQString&amp; format ) const;
@@ -194,7 +194,7 @@ public:
 
     static TQTime currentTime();
     static TQTime currentTime( TQt::TimeSpec );
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
     static TQTime fromString( const TQString&amp; s, TQt::DateFormat f = TQt::TextDate );
 #endif
     static bool	 isValid( int h, int m, int s, int ms=0 );
@@ -209,9 +209,9 @@ private:
 
     uint   ds;
     friend class TQDateTime;
-#ifndef QT_NO_DATASTREAM
-    friend Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQTime &amp; );
-    friend Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQTime &amp; );
+#ifndef TQT_NO_DATASTREAM
+    friend TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQTime &amp; );
+    friend TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQTime &amp; );
 #endif
 };
 
@@ -220,7 +220,7 @@ private:
   TQDateTime class
  *****************************************************************************/
 
-class Q_EXPORT TQDateTime
+class TQ_EXPORT TQDateTime
 {
 public:
     TQDateTime() {}				// set null date and null time
@@ -237,8 +237,8 @@ public:
     void   setTime( const TQTime &amp;time ) { t = time; }
     void   setTime_t( uint secsSince1Jan1970UTC );
     void   setTime_t( uint secsSince1Jan1970UTC, TQt::TimeSpec );
-#ifndef QT_NO_DATESTRING
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_DATESTRING
+#ifndef TQT_NO_SPRINTF
     TQString toString( TQt::DateFormat f = TQt::TextDate )	const;
 #endif
     TQString toString( const TQString&amp; format ) const;
@@ -259,15 +259,15 @@ public:
 
     static TQDateTime currentDateTime();
     static TQDateTime currentDateTime( TQt::TimeSpec );
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
     static TQDateTime fromString( const TQString&amp; s, TQt::DateFormat f = TQt::TextDate );
 #endif
 private:
     TQDate  d;
     TQTime  t;
-#ifndef QT_NO_DATASTREAM
-    friend Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQDateTime &amp;);
-    friend Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQDateTime &amp; );
+#ifndef TQT_NO_DATASTREAM
+    friend TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQDateTime &amp;);
+    friend TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQDateTime &amp; );
 #endif
 };
 
@@ -276,14 +276,14 @@ private:
   Date and time stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQDate &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQDate &amp; );
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQTime &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQTime &amp; );
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQDateTime &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQDateTime &amp; );
-#endif // QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQDate &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQDate &amp; );
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQTime &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQTime &amp; );
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQDateTime &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQDateTime &amp; );
+#endif // TQT_NO_DATASTREAM
 
 #endif // TQDATETIME_H
 

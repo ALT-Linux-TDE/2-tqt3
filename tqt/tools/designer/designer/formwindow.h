@@ -63,7 +63,7 @@ class Project;
 struct DesignerFormWindow;
 class FormFile;
 
-#if defined(Q_CC_MSVC) || defined(Q_FULL_TEMPLATE_INSTANTIATION)
+#if defined(Q_CC_MSVC) || defined(TQ_FULL_TEMPLATE_INSTANTIATION)
 #include "orderindicator.h"
 #else
 class OrderIndicator;

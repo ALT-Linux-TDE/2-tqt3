@@ -117,10 +117,10 @@ initialization code.
         label = new <a href="ntqlabel.html">TQLabel</a>( " ", this, "label"  );
     <a name="x2383"></a>    label-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
 
-    <a name="x2389"></a>    <a href="ntqobject.html#connect">connect</a>( slider, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
-    <a name="x2386"></a>             lcd, SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
-        <a href="ntqobject.html#connect">connect</a>( slider, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
-                 SIGNAL(valueChanged(int)) );
+    <a name="x2389"></a>    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
+    <a name="x2386"></a>             lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
+        <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
+                 TQ_SIGNAL(valueChanged(int)) );
 
         <a href="ntqwidget.html#setFocusProxy">setFocusProxy</a>( slider );
     }

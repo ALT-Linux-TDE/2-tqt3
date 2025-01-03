@@ -40,7 +40,7 @@
 
 #include "ntqmotifstyle.h"
 
-#if !defined(QT_NO_STYLE_MOTIF) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_MOTIF) || defined(QT_PLUGIN)
 
 #include "ntqpopupmenu.h"
 #include "ntqapplication.h"
@@ -215,7 +215,7 @@ void TQMotifStyle::drawPrimitive( PrimitiveElement pe,
     bool act = flags & Style_Active;
 
     switch( pe ) {
-#ifndef QT_NO_LISTVIEW
+#ifndef TQT_NO_LISTVIEW
     case PE_CheckListExclusiveIndicator: {
 	TQCheckListItem *item = opt.checkListItem();
 	TQListView *lv = item->listView();
@@ -261,7 +261,7 @@ void TQMotifStyle::drawPrimitive( PrimitiveElement pe,
 	break;
 
     case PE_Indicator: {
-#ifndef QT_NO_BUTTON
+#ifndef TQT_NO_BUTTON
 	bool on = flags & Style_On;
 	bool down = flags & Style_Down;
 	bool showUp = !( down ^ on );
@@ -417,7 +417,7 @@ void TQMotifStyle::drawPrimitive( PrimitiveElement pe,
 
 	    // We use rot() and translate() as it is more efficient that
 	    // matrix transformations on the painter, and because it still
-	    // works with QT_NO_TRANSFORMATIONS defined.
+	    // works with TQT_NO_TRANSFORMATIONS defined.
 
 	    if ( pe == PE_ArrowUp || pe == PE_ArrowLeft ) {
 		if ( vertical ) {
@@ -832,7 +832,7 @@ void TQMotifStyle::drawControl( ControlElement element,
     switch( element ) {
     case CE_PushButton:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
  	    int diw, x1, y1, x2, y2;
 	    TQColorGroup newCg = cg;
  	    p->setPen( cg.foreground() );
@@ -893,7 +893,7 @@ void TQMotifStyle::drawControl( ControlElement element,
 
     case CE_TabBarTab:
 	{
-#ifndef QT_NO_TABBAR
+#ifndef TQT_NO_TABBAR
 	    if ( (elementFlags & CEF_UseGenericParameters) || !(elementFlags & CEF_HasParentWidget) || !opt.tab() )
 		break;
 
@@ -1015,7 +1015,7 @@ void TQMotifStyle::drawControl( ControlElement element,
 
     case CE_ProgressBarLabel:
 	{
-#ifndef QT_NO_PROGRESSBAR
+#ifndef TQT_NO_PROGRESSBAR
 	    const int unit_width = pixelMetric( PM_ProgressBarChunkWidth, ceData, elementFlags, widget );
 	    int u = r.width() / unit_width;
 	    int p_v = ceData.currentStep;
@@ -1047,7 +1047,7 @@ void TQMotifStyle::drawControl( ControlElement element,
 	    break;
 	}
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     case CE_PopupMenuItem:
 	{
 	    if ((elementFlags & CEF_UseGenericParameters) || opt.isDefault())
@@ -1187,7 +1187,7 @@ void TQMotifStyle::drawControl( ControlElement element,
 
 	    break;
 	}
-#endif // QT_NO_POPUPMENU
+#endif // TQT_NO_POPUPMENU
 
     case CE_MenuBarItem:
 	{
@@ -1287,7 +1287,7 @@ void TQMotifStyle::drawComplexControl( ComplexControl control,
 
     case CC_Slider:
 	{
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 	    TQRect groove = querySubControlMetrics(CC_Slider, ceData, elementFlags, SC_SliderGroove,
 						  opt, widget),
 		  handle = querySubControlMetrics(CC_Slider, ceData, elementFlags, SC_SliderHandle,
@@ -1329,7 +1329,7 @@ void TQMotifStyle::drawComplexControl( ComplexControl control,
 	}
 
     case CC_ComboBox:
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 	if ( sub & SC_ComboBoxArrow ) {
 	    const TQComboBox * cb = (const TQComboBox *) widget;
 	    int awh, ax, ay, sh, sy, dh, ew;
@@ -1386,7 +1386,7 @@ void TQMotifStyle::drawComplexControl( ComplexControl control,
 	    break;
 	}
 
-#ifndef QT_NO_LISTVIEW
+#ifndef TQT_NO_LISTVIEW
     case CC_ListView:
 	{
 	    if ( sub & SC_ListView ) {
@@ -1490,7 +1490,7 @@ void TQMotifStyle::drawComplexControl( ComplexControl control,
 
 	    break;
 	}
-#endif // QT_NO_LISTVIEW
+#endif // TQT_NO_LISTVIEW
 
     default:
 	TQCommonStyle::drawComplexControl( control, p, ceData, elementFlags, r, cg, flags,
@@ -1528,7 +1528,7 @@ int TQMotifStyle::pixelMetric( PixelMetric metric, const TQStyleControlElementDa
 
     case PM_SliderControlThickness:
 	{
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 	    const TQSlider * sl = (const TQSlider *) widget;
 	    int space = (sl->orientation() == Horizontal) ? sl->height()
 			: sl->width();
@@ -1554,7 +1554,7 @@ int TQMotifStyle::pixelMetric( PixelMetric metric, const TQStyleControlElementDa
 
     case PM_SliderSpaceAvailable:
 	{
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 	    const TQSlider * sl = (const TQSlider *) widget;
 	    if ( sl->orientation() == Horizontal )
 		ret = sl->width() - pixelMetric( PM_SliderLength, ceData, elementFlags, sl ) - 6;
@@ -1634,7 +1634,7 @@ TQRect TQMotifStyle::querySubControlMetrics( ComplexControl control,
 	}
 	break; }
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case CC_Slider: {
 	if (sc == SC_SliderHandle) {
 	    int tickOffset  = pixelMetric( PM_SliderTickmarkOffset, ceData, elementFlags, widget );
@@ -1652,7 +1652,7 @@ TQRect TQMotifStyle::querySubControlMetrics( ComplexControl control,
 	break; }
 #endif
 
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
     case CC_ScrollBar: {
 	if (elementFlags & CEF_UseGenericParameters)
 	    return TQRect();
@@ -1733,7 +1733,7 @@ TQRect TQMotifStyle::querySubControlMetrics( ComplexControl control,
 	break; }
 #endif
 
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
     case CC_ComboBox:
 
 	switch ( sc ) {
@@ -1777,7 +1777,7 @@ TQSize TQMotifStyle::sizeFromContents( ContentsType contents,
     switch(contents) {
     case CT_PushButton:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    sz = TQCommonStyle::sizeFromContents(contents, ceData, elementFlags, contentsSize, opt, widget);
 	    if (((elementFlags & CEF_IsDefault) || (elementFlags & CEF_AutoDefault)) &&
 		sz.width() < 80 && ceData.fgPixmap.isNull())
@@ -1788,7 +1788,7 @@ TQSize TQMotifStyle::sizeFromContents( ContentsType contents,
 
     case CT_PopupMenuItem:
 	{
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	    if ((elementFlags & CEF_UseGenericParameters) || opt.isDefault())
 		break;
 
@@ -1871,7 +1871,7 @@ TQRect TQMotifStyle::subRect( SubRect r, const TQStyleControlElementData &ceData
 
     case SR_DockWindowHandleRect:
 	{
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 	    if ( (elementFlags & CEF_UseGenericParameters) || !(elementFlags & CEF_HasParentWidget) )
 		break;
 
@@ -1890,7 +1890,7 @@ TQRect TQMotifStyle::subRect( SubRect r, const TQStyleControlElementData &ceData
     case SR_ProgressBarGroove:
     case SR_ProgressBarContents:
 	{
-#ifndef QT_NO_PROGRESSBAR
+#ifndef TQT_NO_PROGRESSBAR
 	    TQFontMetrics fm( ( (!(elementFlags & CEF_UseGenericParameters)) ? TQFontMetrics(ceData.font) :
 			       TQApplication::fontMetrics() ) );
 	    int textw = 0;
@@ -1909,7 +1909,7 @@ TQRect TQMotifStyle::subRect( SubRect r, const TQStyleControlElementData &ceData
 
     case SR_ProgressBarLabel:
 	{
-#ifndef QT_NO_PROGRESSBAR
+#ifndef TQT_NO_PROGRESSBAR
 	    TQFontMetrics fm( ( (!(elementFlags & CEF_UseGenericParameters)) ? TQFontMetrics(ceData.font) :
 			       TQApplication::fontMetrics() ) );
 	    int textw = 0;
@@ -1928,7 +1928,7 @@ TQRect TQMotifStyle::subRect( SubRect r, const TQStyleControlElementData &ceData
 
     case SR_CheckBoxContents:
 	{
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	    TQRect ir = subRect(SR_CheckBoxIndicator, ceData, elementFlags, widget);
 	    rect.setRect(ir.right() + 10, wrect.y(),
 			 wrect.width() - ir.width() - 10, wrect.height());
@@ -1955,7 +1955,7 @@ TQRect TQMotifStyle::subRect( SubRect r, const TQStyleControlElementData &ceData
 */
 void TQMotifStyle::polishPopupMenu( const TQStyleControlElementData &ceData, ControlElementFlags elementFlags, void *ptr )
 {
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     if ( !(ceData.windowState & WState_Polished ) ) {
         widgetActionRequest(ceData, elementFlags, ptr, WAR_SetCheckable);
     }
@@ -1963,7 +1963,7 @@ void TQMotifStyle::polishPopupMenu( const TQStyleControlElementData &ceData, Con
 }
 
 
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
 static const char * const qt_close_xpm[] = {
 "12 12 2 1",
 "       s None  c None",
@@ -2274,7 +2274,7 @@ TQPixmap TQMotifStyle::stylePixmap(StylePixmap sp,
 				 const TQStyleOption& opt,
 				 const TQWidget *widget) const
 {
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
     switch (sp) {
     case SP_TitleBarShadeButton:
 	return TQPixmap((const char **)qt_shade_xpm);

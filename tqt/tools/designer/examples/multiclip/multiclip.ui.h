@@ -36,9 +36,9 @@ void MulticlipForm::init()
     currentLineEdit->setFocus();
 
     cb = tqApp->clipboard();
-    connect( cb, SIGNAL( dataChanged() ), SLOT( dataChanged() ) );
+    connect( cb, TQ_SIGNAL( dataChanged() ), TQ_SLOT( dataChanged() ) );
     if ( cb->supportsSelection() )
-	connect( cb, SIGNAL( selectionChanged() ), SLOT( selectionChanged() ) );
+	connect( cb, TQ_SIGNAL( selectionChanged() ), TQ_SLOT( selectionChanged() ) );
 
     dataChanged();
 }

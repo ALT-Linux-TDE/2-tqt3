@@ -54,9 +54,9 @@
 //
 //
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 
 /*
   TQCriticalSection

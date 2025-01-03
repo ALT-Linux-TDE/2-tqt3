@@ -57,13 +57,13 @@
 bool tqt_resolve_symlinks = FALSE;
 #endif
 
-#if defined(Q_WS_WIN)
-extern Q_EXPORT int qt_ntfs_permission_lookup;
+#if defined(TQ_WS_WIN)
+extern TQ_EXPORT int qt_ntfs_permission_lookup;
 #endif
 
 int main(int argc, char **argv)
 {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     // Workaround for TQFileInfo::isReadable() failing for certain users. See task: 54320
     qt_ntfs_permission_lookup = 0;
 #endif
@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 
     TQDir sunworkshop42workaround = TQDir::current();
     TQString oldpwd = sunworkshop42workaround.currentDirPath();
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     if(!(oldpwd.length() == 3 && oldpwd[0].isLetter() && oldpwd.endsWith(":/") ) )
 #endif
     {

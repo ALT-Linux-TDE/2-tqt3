@@ -59,8 +59,8 @@ HelpWindow::HelpWindow( MainWindow *w, TQWidget *parent, const char *name )
     : TQTextBrowser( parent, name ), mw( w ), blockScroll( FALSE ),
       shiftPressed( FALSE ), newWindow( FALSE )
 {
-    connect(this, SIGNAL(forwardAvailable(bool)), this, SLOT(updateForward(bool)));
-    connect(this, SIGNAL(backwardAvailable(bool)), this, SLOT(updateBackward(bool)));
+    connect(this, TQ_SIGNAL(forwardAvailable(bool)), this, TQ_SLOT(updateForward(bool)));
+    connect(this, TQ_SIGNAL(backwardAvailable(bool)), this, TQ_SLOT(updateBackward(bool)));
 }
 
 void HelpWindow::setSource( const TQString &name )
@@ -116,7 +116,7 @@ void HelpWindow::setSource( const TQString &name )
 	TQProcess *proc = new TQProcess(this);
 
 	proc->addArgument( webbrowser );
-        TQObject::connect(proc, SIGNAL(processExited()), proc, SLOT(deleteLater()));
+        TQObject::connect(proc, TQ_SIGNAL(processExited()), proc, TQ_SLOT(deleteLater()));
 	proc->addArgument( name );
 	proc->start();
 	return;
@@ -146,7 +146,7 @@ void HelpWindow::setSource( const TQString &name )
 	    return;
 	}
 	TQProcess *proc = new TQProcess(this);
-        TQObject::connect(proc, SIGNAL(processExited()), proc, SLOT(deleteLater()));
+        TQObject::connect(proc, TQ_SIGNAL(processExited()), proc, TQ_SLOT(deleteLater()));
 	proc->addArgument( pdfbrowser );
 	proc->addArgument( name );
 	proc->start();
@@ -206,9 +206,9 @@ TQPopupMenu *HelpWindow::createPopupMenu( const TQPoint& pos )
 	    lastAnchor = ( hsh>=0 ? src.left( hsh ) : src ) + lastAnchor;
 	}
 	m->insertItem( tr("Open Link in New Window\tShift+LMB"),
-		       this, SLOT( openLinkInNewWindow() ) );
+		       this, TQ_SLOT( openLinkInNewWindow() ) );
 	m->insertItem( tr("Open Link in New Tab"),
-		       this, SLOT( openLinkInNewPage() ) );
+		       this, TQ_SLOT( openLinkInNewPage() ) );
     }
     mw->actionNewWindow->addTo( m );
     mw->actionOpenPage->addTo( m );

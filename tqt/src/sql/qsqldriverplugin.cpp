@@ -40,8 +40,8 @@
 
 #include "ntqsqldriverplugin.h"
 
-#ifndef QT_NO_SQL
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_SQL
+#ifndef TQT_NO_COMPONENT
 
 #include "qsqldriverinterface_p.h"
 
@@ -58,7 +58,7 @@
 
     Writing a SQL plugin is achieved by subclassing this base class,
     reimplementing the pure virtual functions keys() and create(), and
-    exporting the class with the \c Q_EXPORT_PLUGIN macro. See the SQL
+    exporting the class with the \c TQ_EXPORT_PLUGIN macro. See the SQL
     plugins that come with TQt for example implementations (in the
     \c{plugins/src/sqldrivers} subdirectory of the source
     distribution). Read the \link plugins-howto.html plugins
@@ -95,7 +95,7 @@ public:
     virtual ~TQSqlDriverPluginPrivate();
 
     TQRESULT queryInterface( const TQUuid &iid, TQUnknownInterface **iface );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
     TQSqlDriver *create( const TQString &key );
@@ -138,7 +138,7 @@ TQSqlDriver *TQSqlDriverPluginPrivate::create( const TQString &key )
 
 /*!
     Constructs a SQL driver plugin. This is invoked automatically by
-    the \c Q_EXPORT_PLUGIN macro.
+    the \c TQ_EXPORT_PLUGIN macro.
 */
 
 TQSqlDriverPlugin::TQSqlDriverPlugin()
@@ -157,5 +157,5 @@ TQSqlDriverPlugin::~TQSqlDriverPlugin()
     // don't delete d, as this is deleted by d
 }
 
-#endif // QT_NO_COMPONENT
-#endif // QT_NO_SQL
+#endif // TQT_NO_COMPONENT
+#endif // TQT_NO_SQL

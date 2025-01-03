@@ -51,7 +51,7 @@
 // The object dictionary is a collection of TQMetaObjects
 //
 
-class Q_EXPORT TQObjectDictionary : public TQAsciiDict<TQMetaObject>
+class TQ_EXPORT TQObjectDictionary : public TQAsciiDict<TQMetaObject>
 {
 public:
     TQObjectDictionary(int size=17,bool cs=TRUE,bool ck=TRUE)

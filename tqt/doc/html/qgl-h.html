@@ -85,10 +85,10 @@ body { background: #ffffff; color: black; }
 #if !defined( TQT_MODULE_OPENGL ) || defined( QT_LICENSE_PROFESSIONAL )
 #define TQM_EXPORT_OPENGL
 #else
-#define TQM_EXPORT_OPENGL Q_EXPORT
+#define TQM_EXPORT_OPENGL TQ_EXPORT
 #endif
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #define TQGL_VERSION	450
 #define TQGL_VERSION_STR	"4.5"
 TQM_EXPORT_OPENGL inline const char *qGLVersion() {
@@ -97,11 +97,11 @@ TQM_EXPORT_OPENGL inline const char *qGLVersion() {
 }
 #endif
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 # include "qt_windows.h"
 #endif
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
 #if !defined( TQMAC_OPENGL_DOUBLEBUFFER )
 /* This macro is different now. If the macro is not defined TQGLWidget will
  * try to determine when you need double buffering.  If set to 0 it will
@@ -119,12 +119,12 @@ TQM_EXPORT_OPENGL inline const char *qGLVersion() {
 # include &lt;GL/glu.h&gt;
 #endif
 
-#if defined(Q_WS_WIN) || defined(Q_WS_MAC)
+#if defined(TQ_WS_WIN) || defined(TQ_WS_MAC)
 class TQGLCmap;
 #endif
 
 class TQPixmap;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 class TQGLOverlayWidget;
 #endif
 
@@ -238,14 +238,14 @@ protected:
     virtual bool chooseContext( const TQGLContext* shareContext = 0 );
     virtual void doneCurrent(); // ### 4.0: make this public - needed for multithreading stuff
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     virtual int choosePixelFormat( void* pfd, HDC pdc );
 #endif
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     virtual void* tryVisual( const TQGLFormat&amp; f, int bufDepth = 1 );
     virtual void* chooseVisual();
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     virtual void* chooseMacVisual(GDHandle);
 #endif
 
@@ -261,16 +261,16 @@ protected:
     void setDevice( TQPaintDevice *pDev );
 
 protected:
-#if  defined(Q_WS_WIN)
+#if  defined(TQ_WS_WIN)
     HGLRC rc;
     HDC dc;
     WId	win;
     int pixelFormatId;
     TQGLCmap* cmap;
-#elif defined(Q_WS_X11) || defined(Q_WS_MAC)
+#elif defined(TQ_WS_X11) || defined(TQ_WS_MAC)
     void* vi;
     void* cx;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     TQ_UINT32 gpm;
 #endif
 #endif
@@ -288,14 +288,14 @@ private:
 	bool crWin;
 	TQPaintDevice* paintDevice;
 	TQColor transpColor;
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 	TQRect oldR;
 #endif
     };
     Private* d;
 
     friend class TQGLWidget;
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     void fixBufferRect();
 #endif
 
@@ -395,9 +395,9 @@ private:
 
     TQGLColormap cmap;
 
-#if defined(Q_WS_WIN) || defined(Q_WS_MAC)
+#if defined(TQ_WS_WIN) || defined(TQ_WS_MAC)
     TQGLContext* olcx;
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     TQGLOverlayWidget*	olw;
     friend class TQGLOverlayWidget;
 #endif
@@ -408,7 +408,7 @@ private:	// Disabled copy constructor and operator=
     TQGLWidget&amp; operator=( const TQGLWidget&amp; );
 #endif
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
 private:
     const TQGLContext *slcx;
     uint pending_fix : 1,

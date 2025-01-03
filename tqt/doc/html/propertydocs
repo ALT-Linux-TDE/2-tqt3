@@ -3,7 +3,7 @@
     <name>QAction::accel</name>
     <doc href="ntqaction.html#accel-prop">
 &lt;p&gt;This property holds the action's accelerator key.
-&lt;p&gt;The keycodes can be found in &lt;a href="ntqt.html#Key-enum"&gt;Qt::Key&lt;/a&gt; and &lt;a href="ntqt.html#Modifier-enum"&gt;Qt::Modifier&lt;/a&gt;. There
+&lt;p&gt;The keycodes can be found in &lt;a href="ntqt.html#Key-enum"&gt;TQt::Key&lt;/a&gt; and &lt;a href="ntqt.html#Modifier-enum"&gt;TQt::Modifier&lt;/a&gt;. There
 is no default accelerator key.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqaction.html#setAccel"&gt;setAccel&lt;/a&gt;() and get this property's value with &lt;a href="ntqaction.html#accel"&gt;accel&lt;/a&gt;().
@@ -184,7 +184,7 @@ calls to their &lt;a href="ntqaction.html#setVisible"&gt;QAction::setVisible&lt;
 <property>
     <name>QAssistantClient::open</name>
     <doc href="ntqassistantclient.html#open-prop">
-&lt;p&gt;This property holds whether Qt Assistant is open.
+&lt;p&gt;This property holds whether TQt Assistant is open.
 &lt;p&gt;
 &lt;p&gt;Get this property's value with &lt;a href="ntqassistantclient.html#isOpen"&gt;isOpen&lt;/a&gt;().
 </doc>
@@ -325,7 +325,7 @@ toggle buttons, for example.
     <name>QButton::text</name>
     <doc href="ntqbutton.html#text-prop">
 &lt;p&gt;This property holds the text shown on the button.
-&lt;p&gt;This property will return a &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt; if the button has no
+&lt;p&gt;This property will return a &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt; if the button has no
 text. If the text has an ampersand (&amp;amp;) in it, then an
 accelerator is automatically created for it using the character
 that follows the '&amp;amp;' as the accelerator key. Any previous
@@ -747,7 +747,7 @@ update operations occur immediately.
     <doc href="ntqdatatable.html#dateFormat-prop">
 &lt;p&gt;This property holds the format used for displaying date/time values.
 &lt;p&gt;The dateFormat property is used for displaying date/time values in
-the table. The default value is &lt;a href="ntqt.html#DateFormat-enum"&gt;Qt::LocalDate&lt;/a&gt;.
+the table. The default value is &lt;a href="ntqt.html#DateFormat-enum"&gt;TQt::LocalDate&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqdatatable.html#setDateFormat"&gt;setDateFormat&lt;/a&gt;() and get this property's value with &lt;a href="ntqdatatable.html#dateFormat"&gt;dateFormat&lt;/a&gt;().
 </doc>
@@ -1274,7 +1274,7 @@ widget(s) with &lt;a href="ntqfiledialog.html#setInfoPreviewEnabled"&gt;setInfoP
 &lt;p&gt;This property holds the name of the selected file.
 &lt;p&gt;If a file was selected selectedFile contains the file's name including
 its absolute path; otherwise selectedFile is empty.
-&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqstring.html#isEmpty"&gt;QString::isEmpty&lt;/a&gt;(), &lt;a href="ntqfiledialog.html#selectedFiles-prop"&gt;selectedFiles&lt;/a&gt;, and &lt;a href="ntqfiledialog.html#selectedFilter-prop"&gt;selectedFilter&lt;/a&gt;.
+&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqstring.html#isEmpty"&gt;TQString::isEmpty&lt;/a&gt;(), &lt;a href="ntqfiledialog.html#selectedFiles-prop"&gt;selectedFiles&lt;/a&gt;, and &lt;a href="ntqfiledialog.html#selectedFilter-prop"&gt;selectedFilter&lt;/a&gt;.
 
 &lt;p&gt;Get this property's value with &lt;a href="ntqfiledialog.html#selectedFile"&gt;selectedFile&lt;/a&gt;().
 </doc>
@@ -1480,7 +1480,7 @@ usually to the left.
 &lt;li&gt; &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;AlignHCenter&lt;/a&gt; aligns the title text centered.
 &lt;/ul&gt;
 &lt;p&gt; The default alignment is &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;AlignAuto&lt;/a&gt;.
-&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignmentFlags&lt;/a&gt;.
+&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignmentFlags&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqgroupbox.html#setAlignment"&gt;setAlignment&lt;/a&gt;() and get this property's value with &lt;a href="ntqgroupbox.html#alignment"&gt;alignment&lt;/a&gt;().
 </doc>
@@ -1904,7 +1904,7 @@ of 0.
     <name>QLabel::alignment</name>
     <doc href="ntqlabel.html#alignment-prop">
 &lt;p&gt;This property holds the alignment of the label's contents.
-&lt;p&gt;The alignment is a bitwise OR of &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignmentFlags&lt;/a&gt; and &lt;a href="ntqt.html#TextFlags-enum"&gt;Qt::TextFlags&lt;/a&gt; values. The &lt;a href="ntqt.html#TextFlags-enum"&gt;ExpandTabs&lt;/a&gt;, &lt;a href="ntqt.html#TextFlags-enum"&gt;SingleLine&lt;/a&gt; and &lt;a href="ntqt.html#TextFlags-enum"&gt;ShowPrefix&lt;/a&gt; flags apply only if the label contains plain text;
+&lt;p&gt;The alignment is a bitwise OR of &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignmentFlags&lt;/a&gt; and &lt;a href="ntqt.html#TextFlags-enum"&gt;TQt::TextFlags&lt;/a&gt; values. The &lt;a href="ntqt.html#TextFlags-enum"&gt;ExpandTabs&lt;/a&gt;, &lt;a href="ntqt.html#TextFlags-enum"&gt;SingleLine&lt;/a&gt; and &lt;a href="ntqt.html#TextFlags-enum"&gt;ShowPrefix&lt;/a&gt; flags apply only if the label contains plain text;
 otherwise they are ignored. The &lt;a href="ntqt.html#TextFlags-enum"&gt;DontClip&lt;/a&gt; flag is always
 ignored. &lt;a href="ntqt.html#TextFlags-enum"&gt;WordBreak&lt;/a&gt; applies to both rich text and plain text
 labels. The &lt;a href="ntqt.html#TextFlags-enum"&gt;BreakAnywhere&lt;/a&gt; flag is not supported in QLabel.
@@ -1913,7 +1913,7 @@ TRUE.
 &lt;p&gt; The default alignment is &lt;tt&gt;AlignAuto | AlignVCenter | ExpandTabs&lt;/tt&gt;
 if the label doesn't have a buddy and &lt;tt&gt;AlignAuto | AlignVCenter | ExpandTabs | ShowPrefix&lt;/tt&gt; if the label has a buddy. If the label
 contains rich text, additionally &lt;a href="ntqt.html#TextFlags-enum"&gt;WordBreak&lt;/a&gt; is turned on.
-&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignmentFlags&lt;/a&gt;, &lt;a href="ntqlabel.html#setBuddy"&gt;setBuddy&lt;/a&gt;(), and &lt;a href="ntqlabel.html#text-prop"&gt;text&lt;/a&gt;.
+&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignmentFlags&lt;/a&gt;, &lt;a href="ntqlabel.html#setBuddy"&gt;setBuddy&lt;/a&gt;(), and &lt;a href="ntqlabel.html#text-prop"&gt;text&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqlabel.html#setAlignment"&gt;setAlignment&lt;/a&gt;() and get this property's value with &lt;a href="ntqlabel.html#alignment"&gt;alignment&lt;/a&gt;().
 </doc>
@@ -1988,7 +1988,7 @@ and can also provide a scrollbar when necessary.
     <name>QLabel::textFormat</name>
     <doc href="ntqlabel.html#textFormat-prop">
 &lt;p&gt;This property holds the label's text format.
-&lt;p&gt;See the &lt;a href="ntqt.html#TextFormat-enum"&gt;Qt::TextFormat&lt;/a&gt; enum for an explanation of the possible
+&lt;p&gt;See the &lt;a href="ntqt.html#TextFormat-enum"&gt;TQt::TextFormat&lt;/a&gt; enum for an explanation of the possible
 options.
 &lt;p&gt; The default format is &lt;a href="ntqt.html#TextFormat-enum"&gt;AutoText&lt;/a&gt;.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqlabel.html#text-prop"&gt;text&lt;/a&gt;.
@@ -2042,10 +2042,10 @@ should not override the widget's spacing.
     <name>QLineEdit::alignment</name>
     <doc href="ntqlineedit.html#alignment-prop">
 &lt;p&gt;This property holds the alignment of the line edit.
-&lt;p&gt;Possible Values are &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignAuto&lt;/a&gt;, &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignLeft&lt;/a&gt;, &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignRight&lt;/a&gt; and &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignHCenter&lt;/a&gt;.
+&lt;p&gt;Possible Values are &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignAuto&lt;/a&gt;, &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignLeft&lt;/a&gt;, &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignRight&lt;/a&gt; and &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignHCenter&lt;/a&gt;.
 &lt;p&gt; Attempting to set the alignment to an illegal flag combination
 does nothing.
-&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignmentFlags&lt;/a&gt;.
+&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignmentFlags&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqlineedit.html#setAlignment"&gt;setAlignment&lt;/a&gt;() and get this property's value with &lt;a href="ntqlineedit.html#alignment"&gt;alignment&lt;/a&gt;().
 </doc>
@@ -2136,7 +2136,7 @@ selected by the user; otherwise returns FALSE.
     <name>QLineEdit::inputMask</name>
     <doc href="ntqlineedit.html#inputMask-prop">
 &lt;p&gt;This property holds the validation input mask.
-&lt;p&gt;If no mask is set, &lt;a href="ntqlineedit.html#inputMask"&gt;inputMask&lt;/a&gt;() returns &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+&lt;p&gt;If no mask is set, &lt;a href="ntqlineedit.html#inputMask"&gt;inputMask&lt;/a&gt;() returns &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 &lt;p&gt; Sets the QLineEdit's validation mask. Validators can be used
 instead of, or in conjunction with masks; see &lt;a href="ntqlineedit.html#setValidator"&gt;setValidator&lt;/a&gt;().
 &lt;p&gt; Unset the mask and return to normal QLineEdit operation by passing
@@ -2252,7 +2252,7 @@ but cannot edit it.
     <doc href="ntqlineedit.html#selectedText-prop">
 &lt;p&gt;This property holds the selected text.
 &lt;p&gt;If there is no selected text this property's value is
-&lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+&lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqlineedit.html#hasSelectedText-prop"&gt;hasSelectedText&lt;/a&gt;.
 
 &lt;p&gt;Get this property's value with &lt;a href="ntqlineedit.html#selectedText"&gt;selectedText&lt;/a&gt;().
@@ -2715,7 +2715,7 @@ Windows GUI styles; you may want to draw two pixmaps.
 &lt;p&gt;The text will be interpreted either as a plain text or as rich
 text, depending on the text format setting (&lt;a href="ntqmessagebox.html#textFormat-prop"&gt;QMessageBox::textFormat&lt;/a&gt;). The default setting is &lt;a href="ntqt.html#TextFormat-enum"&gt;AutoText&lt;/a&gt;, i.e.
 the message box will try to auto-detect the format of the text.
-&lt;p&gt; The default value of this property is &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+&lt;p&gt; The default value of this property is &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqmessagebox.html#textFormat-prop"&gt;textFormat&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqmessagebox.html#setText"&gt;setText&lt;/a&gt;() and get this property's value with &lt;a href="ntqmessagebox.html#text"&gt;text&lt;/a&gt;().
@@ -2725,7 +2725,7 @@ the message box will try to auto-detect the format of the text.
     <name>QMessageBox::textFormat</name>
     <doc href="ntqmessagebox.html#textFormat-prop">
 &lt;p&gt;This property holds the format of the text displayed by the message box.
-&lt;p&gt;The current text format used by the message box. See the &lt;a href="ntqt.html#TextFormat-enum"&gt;Qt::TextFormat&lt;/a&gt; enum for an explanation of the possible options.
+&lt;p&gt;The current text format used by the message box. See the &lt;a href="ntqt.html#TextFormat-enum"&gt;TQt::TextFormat&lt;/a&gt; enum for an explanation of the possible options.
 &lt;p&gt; The default format is &lt;a href="ntqt.html#TextFormat-enum"&gt;AutoText&lt;/a&gt;.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqmessagebox.html#text-prop"&gt;text&lt;/a&gt;.
 
@@ -2737,7 +2737,7 @@ the message box will try to auto-detect the format of the text.
     <doc href="ntqmultilineedit.html#alignment-prop">  &lt;p&gt;This property holds the editor's paragraph alignment.
 &lt;p&gt;Sets the alignment to flag, which must be &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;AlignLeft&lt;/a&gt;, &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;AlignHCenter&lt;/a&gt; or &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;AlignRight&lt;/a&gt;.
 &lt;p&gt; If flag is an illegal flag nothing happens.
-&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;Qt::AlignmentFlags&lt;/a&gt;.
+&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqt.html#AlignmentFlags-enum"&gt;TQt::AlignmentFlags&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqmultilineedit.html#setAlignment"&gt;setAlignment&lt;/a&gt;() and get this property's value with &lt;a href="ntqmultilineedit.html#alignment"&gt;alignment&lt;/a&gt;().
 </doc>
@@ -2777,7 +2777,7 @@ empty editor this method returns 1.
 </doc>
 </property>
 <property>
-    <name>QObject::name</name>
+    <name>TQObject::name</name>
     <doc href="ntqobject.html#name-prop">
 &lt;p&gt;This property holds the name of this object.
 &lt;p&gt;You can find an object by name (and type) using &lt;a href="ntqobject.html#child"&gt;child&lt;/a&gt;(). You can
@@ -2854,7 +2854,7 @@ to FALSE. The default is TRUE.
     <name>QProgressBar::progressString</name>
     <doc href="ntqprogressbar.html#progressString-prop">
 &lt;p&gt;This property holds the amount of progress as a string.
-&lt;p&gt;This property is &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt; if progress counting has not started.
+&lt;p&gt;This property is &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt; if progress counting has not started.
 
 &lt;p&gt;Get this property's value with &lt;a href="ntqprogressbar.html#progressString"&gt;progressString&lt;/a&gt;().
 </doc>
@@ -2893,7 +2893,7 @@ indicator.
     <name>QProgressDialog::labelText</name>
     <doc href="ntqprogressdialog.html#labelText-prop">
 &lt;p&gt;This property holds the label's text.
-&lt;p&gt;The default text is &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+&lt;p&gt;The default text is &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqprogressdialog.html#setLabelText"&gt;setLabelText&lt;/a&gt;() and get this property's value with &lt;a href="ntqprogressdialog.html#labelText"&gt;labelText&lt;/a&gt;().
 </doc>
@@ -2967,7 +2967,7 @@ don't use a QProgressDialog inside a &lt;a href="ntqwidget.html#paintEvent"&gt;p
 &lt;p&gt;If this property is set to TRUE then the push button is the auto
 default button in a dialog.
 &lt;p&gt; In some GUI styles a default button is drawn with an extra frame
-around it, up to 3 pixels or more. Qt automatically keeps this
+around it, up to 3 pixels or more. TQt automatically keeps this
 space free around auto-default buttons, i.e. auto-default buttons
 may have a slightly larger size hint.
 &lt;p&gt; This property's default is TRUE for buttons that have a &lt;a href="ntqdialog.html"&gt;QDialog&lt;/a&gt;
@@ -3088,7 +3088,7 @@ adjusted if necessary to ensure that the range remains valid.
     <name>QScrollBar::orientation</name>
     <doc href="ntqscrollbar.html#orientation-prop">
 &lt;p&gt;This property holds the orientation of the scroll bar.
-&lt;p&gt;The orientation must be &lt;a href="ntqt.html#Orientation-enum"&gt;Qt::Vertical&lt;/a&gt; (the default) or &lt;a href="ntqt.html#Orientation-enum"&gt;Qt::Horizontal&lt;/a&gt;.
+&lt;p&gt;The orientation must be &lt;a href="ntqt.html#Orientation-enum"&gt;TQt::Vertical&lt;/a&gt; (the default) or &lt;a href="ntqt.html#Orientation-enum"&gt;TQt::Horizontal&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqscrollbar.html#setOrientation"&gt;setOrientation&lt;/a&gt;() and get this property's value with &lt;a href="ntqscrollbar.html#orientation"&gt;orientation&lt;/a&gt;().
 </doc>
@@ -3261,7 +3261,7 @@ if necessary, to ensure that the range remains valid.
     <name>QSlider::orientation</name>
     <doc href="ntqslider.html#orientation-prop">
 &lt;p&gt;This property holds the slider's orientation.
-&lt;p&gt;The orientation must be &lt;a href="ntqt.html#Orientation-enum"&gt;Qt::Vertical&lt;/a&gt; (the default) or &lt;a href="ntqt.html#Orientation-enum"&gt;Qt::Horizontal&lt;/a&gt;.
+&lt;p&gt;The orientation must be &lt;a href="ntqt.html#Orientation-enum"&gt;TQt::Vertical&lt;/a&gt; (the default) or &lt;a href="ntqt.html#Orientation-enum"&gt;TQt::Horizontal&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqslider.html#setOrientation"&gt;setOrientation&lt;/a&gt;() and get this property's value with &lt;a href="ntqslider.html#orientation"&gt;orientation&lt;/a&gt;().
 </doc>
@@ -3393,7 +3393,7 @@ symbol. For example:
 &lt;p&gt; To turn off the prefix display, set this property to an empty
 string. The default is no prefix. The prefix is not displayed for
 the &lt;a href="ntqspinbox.html#minValue"&gt;minValue&lt;/a&gt;() if &lt;a href="ntqspinbox.html#specialValueText"&gt;specialValueText&lt;/a&gt;() is not empty.
-&lt;p&gt; If no prefix is set, &lt;a href="ntqspinbox.html#prefix"&gt;prefix&lt;/a&gt;() returns &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+&lt;p&gt; If no prefix is set, &lt;a href="ntqspinbox.html#prefix"&gt;prefix&lt;/a&gt;() returns &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqspinbox.html#suffix-prop"&gt;suffix&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqspinbox.html#setPrefix"&gt;setPrefix&lt;/a&gt;() and get this property's value with &lt;a href="ntqspinbox.html#prefix"&gt;prefix&lt;/a&gt;().
@@ -3427,7 +3427,7 @@ value text.
 with an empty string. The default is no special-value text, i.e.
 the numeric value is shown as usual.
 &lt;p&gt; If no special-value text is set, &lt;a href="ntqspinbox.html#specialValueText"&gt;specialValueText&lt;/a&gt;() returns
-&lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+&lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqspinbox.html#setSpecialValueText"&gt;setSpecialValueText&lt;/a&gt;() and get this property's value with &lt;a href="ntqspinbox.html#specialValueText"&gt;specialValueText&lt;/a&gt;().
 </doc>
@@ -3446,7 +3446,7 @@ example:
 &lt;p&gt; To turn off the suffix display, set this property to an empty
 string. The default is no suffix. The suffix is not displayed for
 the &lt;a href="ntqspinbox.html#minValue"&gt;minValue&lt;/a&gt;() if &lt;a href="ntqspinbox.html#specialValueText"&gt;specialValueText&lt;/a&gt;() is not empty.
-&lt;p&gt; If no suffix is set, &lt;a href="ntqspinbox.html#suffix"&gt;suffix&lt;/a&gt;() returns a &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+&lt;p&gt; If no suffix is set, &lt;a href="ntqspinbox.html#suffix"&gt;suffix&lt;/a&gt;() returns a &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqspinbox.html#prefix-prop"&gt;prefix&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqspinbox.html#setSuffix"&gt;setSuffix&lt;/a&gt;() and get this property's value with &lt;a href="ntqspinbox.html#suffix"&gt;suffix&lt;/a&gt;().
@@ -3839,7 +3839,7 @@ move operations internally.
 &lt;p&gt;Whether a cell in the table is editable or read-only depends on
 the cell's &lt;a href="qtableitem.html#EditType-enum"&gt;EditType&lt;/a&gt;, and this setting:
 see &lt;a href="qtableitem.html#wheneditable"&gt;QTableItem::EditType&lt;/a&gt;.
-&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqwidget.html#enabled-prop"&gt;QWidget::enabled&lt;/a&gt;, &lt;a href="ntqtable.html#setColumnReadOnly"&gt;setColumnReadOnly&lt;/a&gt;(), and &lt;a href="ntqtable.html#setRowReadOnly"&gt;setRowReadOnly&lt;/a&gt;().
+&lt;p&gt; &lt;p&gt;See also &lt;a href="ntqwidget.html#enabled-prop"&gt;TQWidget::enabled&lt;/a&gt;, &lt;a href="ntqtable.html#setColumnReadOnly"&gt;setColumnReadOnly&lt;/a&gt;(), and &lt;a href="ntqtable.html#setRowReadOnly"&gt;setRowReadOnly&lt;/a&gt;().
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqtable.html#setReadOnly"&gt;setReadOnly&lt;/a&gt;() and get this property's value with &lt;a href="ntqtable.html#isReadOnly"&gt;isReadOnly&lt;/a&gt;().
 </doc>
@@ -3893,7 +3893,7 @@ multiple ranges of cells.
     <name>QTextBrowser::source</name>
     <doc href="ntqtextbrowser.html#source-prop">
 &lt;p&gt;This property holds the name of the displayed document.
-&lt;p&gt;This is a &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt; if no document is displayed or if the
+&lt;p&gt;This is a &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt; if no document is displayed or if the
 source is unknown.
 &lt;p&gt; Setting this property uses the &lt;a href="ntqtextedit.html#mimeSourceFactory"&gt;mimeSourceFactory&lt;/a&gt;() to lookup the
 named document. It also checks for optional anchors and scrolls
@@ -3919,7 +3919,7 @@ such as &lt;tt&gt;*.html&lt;/tt&gt; and &lt;tt&gt;*.txt&lt;/tt&gt; with reasonab
 &lt;p&gt;This property holds the enabled set of auto formatting features.
 &lt;p&gt;The value can be any combination of the values in the &lt;a href="ntqtextedit.html#AutoFormatting-enum"&gt;AutoFormatting&lt;/a&gt; enum.  The default is &lt;a href="ntqtextedit.html#AutoFormatting-enum"&gt;AutoAll&lt;/a&gt;. Choose &lt;a href="ntqtextedit.html#AutoFormatting-enum"&gt;AutoNone&lt;/a&gt;
 to disable all automatic formatting.
-&lt;p&gt; Currently, the only automatic formatting feature provided is &lt;a href="ntqtextedit.html#AutoFormatting-enum"&gt;AutoBulletList&lt;/a&gt;; future versions of Qt may offer more.
+&lt;p&gt; Currently, the only automatic formatting feature provided is &lt;a href="ntqtextedit.html#AutoFormatting-enum"&gt;AutoBulletList&lt;/a&gt;; future versions of TQt may offer more.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqtextedit.html#setAutoFormatting"&gt;setAutoFormatting&lt;/a&gt;() and get this property's value with &lt;a href="ntqtextedit.html#autoFormatting"&gt;autoFormatting&lt;/a&gt;().
 </doc>
@@ -4042,7 +4042,7 @@ depending on the &lt;a href="ntqtextedit.html#textFormat"&gt;textFormat&lt;/a&gt
 i.e. the text edit auto-detects the format of the text.
 &lt;p&gt; For richtext, calling &lt;a href="ntqtextedit.html#text"&gt;text&lt;/a&gt;() on an editable QTextEdit will cause
 the text to be regenerated from the textedit. This may mean that
-the &lt;a href="ntqstring.html"&gt;QString&lt;/a&gt; returned may not be exactly the same as the one that
+the &lt;a href="ntqstring.html"&gt;TQString&lt;/a&gt; returned may not be exactly the same as the one that
 was set.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqtextedit.html#textFormat-prop"&gt;textFormat&lt;/a&gt;.
 
@@ -4239,7 +4239,7 @@ pixmap. There is no default iconset.
     <doc href="ntqtoolbutton.html#offIconSet-prop">
 &lt;p&gt;This property holds the icon set that is used when the button is in an "off" state.
 &lt;p&gt;&lt;b&gt;This property is obsolete.&lt;/b&gt; It is provided to keep old source working. We strongly advise against using it in new code.
-&lt;p&gt; Since Qt 3.0, &lt;a href="ntqiconset.html"&gt;QIconSet&lt;/a&gt; contains both the On and Off icons. There is
+&lt;p&gt; Since TQt 3.0, &lt;a href="ntqiconset.html"&gt;QIconSet&lt;/a&gt; contains both the On and Off icons. There is
 now an &lt;a href="ntqtoolbutton.html#iconSet-prop"&gt;QToolButton::iconSet&lt;/a&gt; property that replaces both &lt;a href="ntqtoolbutton.html#onIconSet-prop"&gt;QToolButton::onIconSet&lt;/a&gt; and &lt;a href="ntqtoolbutton.html#offIconSet-prop"&gt;QToolButton::offIconSet&lt;/a&gt;.
 &lt;p&gt; For ease of porting, this property is a synonym for &lt;a href="ntqtoolbutton.html#iconSet-prop"&gt;QToolButton::iconSet&lt;/a&gt;. You probably want to go over your application
 code and use the QIconSet On/Off mechanism.
@@ -4253,7 +4253,7 @@ code and use the QIconSet On/Off mechanism.
     <doc href="ntqtoolbutton.html#onIconSet-prop">
 &lt;p&gt;This property holds the icon set that is used when the button is in an "on" state.
 &lt;p&gt;&lt;b&gt;This property is obsolete.&lt;/b&gt; It is provided to keep old source working. We strongly advise against using it in new code.
-&lt;p&gt; Since Qt 3.0, &lt;a href="ntqiconset.html"&gt;QIconSet&lt;/a&gt; contains both the On and Off icons. There is
+&lt;p&gt; Since TQt 3.0, &lt;a href="ntqiconset.html"&gt;QIconSet&lt;/a&gt; contains both the On and Off icons. There is
 now an &lt;a href="ntqtoolbutton.html#iconSet-prop"&gt;QToolButton::iconSet&lt;/a&gt; property that replaces both &lt;a href="ntqtoolbutton.html#onIconSet-prop"&gt;QToolButton::onIconSet&lt;/a&gt; and &lt;a href="ntqtoolbutton.html#offIconSet-prop"&gt;QToolButton::offIconSet&lt;/a&gt;.
 &lt;p&gt; For ease of porting, this property is a synonym for &lt;a href="ntqtoolbutton.html#iconSet-prop"&gt;QToolButton::iconSet&lt;/a&gt;. You probably want to go over your application
 code and use the QIconSet On/Off mechanism.
@@ -4339,12 +4339,12 @@ immediately when the cursor enters the widget.
 </doc>
 </property>
 <property>
-    <name>QWidget::acceptDrops</name>
+    <name>TQWidget::acceptDrops</name>
     <doc href="ntqwidget.html#acceptDrops-prop">
 &lt;p&gt;This property holds whether drop events are enabled for this widget.
 &lt;p&gt;Setting this property to TRUE announces to the system that this
 widget &lt;em&gt;may&lt;/em&gt; be able to accept drop events.
-&lt;p&gt; If the widget is the desktop (&lt;a href="ntqwidget.html#isDesktop"&gt;QWidget::isDesktop&lt;/a&gt;()), this may
+&lt;p&gt; If the widget is the desktop (&lt;a href="ntqwidget.html#isDesktop"&gt;TQWidget::isDesktop&lt;/a&gt;()), this may
 fail if another application is using the desktop; you can call
 &lt;a href="ntqwidget.html#acceptDrops"&gt;acceptDrops&lt;/a&gt;() to test if this occurs.
 &lt;p&gt; &lt;b&gt;Warning:&lt;/b&gt;
@@ -4354,11 +4354,11 @@ Do not modify this property in a Drag&amp;Drop event handler.
 </doc>
 </property>
 <property>
-    <name>QWidget::autoMask</name>
+    <name>TQWidget::autoMask</name>
     <doc href="ntqwidget.html#autoMask-prop">
 &lt;p&gt;This property holds whether the auto mask feature is enabled for the widget.
 &lt;p&gt;Transparent widgets use a mask to define their visible region.
-QWidget has some built-in support to make the task of
+TQWidget has some built-in support to make the task of
 recalculating the mask easier. When setting auto mask to TRUE,
 &lt;a href="ntqwidget.html#updateMask"&gt;updateMask&lt;/a&gt;() will be called whenever the widget is resized or
 changes its focus state. Note that you must reimplement
@@ -4390,7 +4390,7 @@ together seamlessly, you will probably want to use
 </doc>
 </property>
 <property>
-    <name>QWidget::backgroundBrush</name>
+    <name>TQWidget::backgroundBrush</name>
     <doc href="ntqwidget.html#backgroundBrush-prop">
 &lt;p&gt;This property holds the widget's background brush.
 &lt;p&gt;The background brush depends on a widget's palette and its
@@ -4401,7 +4401,7 @@ background mode.
 </doc>
 </property>
 <property>
-    <name>QWidget::backgroundMode</name>
+    <name>TQWidget::backgroundMode</name>
     <doc href="ntqwidget.html#backgroundMode-prop">
 &lt;p&gt;This property holds the color role used for painting the background of the widget.
 &lt;p&gt;setPaletteBackgroundColor() reads this property to determine which
@@ -4428,7 +4428,7 @@ instead.
 </doc>
 </property>
 <property>
-    <name>QWidget::backgroundOrigin</name>
+    <name>TQWidget::backgroundOrigin</name>
     <doc href="ntqwidget.html#backgroundOrigin-prop">
 &lt;p&gt;This property holds the origin of the widget's background.
 &lt;p&gt;The origin is either WidgetOrigin (the default), ParentOrigin,
@@ -4445,7 +4445,7 @@ seamlessly when an ancestor of the widget has an origin other than
 </doc>
 </property>
 <property>
-    <name>QWidget::baseSize</name>
+    <name>TQWidget::baseSize</name>
     <doc href="ntqwidget.html#baseSize-prop">
 &lt;p&gt;This property holds the base size of the widget.
 &lt;p&gt;The base size is used to calculate a proper widget size if the
@@ -4456,18 +4456,18 @@ widget defines &lt;a href="ntqwidget.html#sizeIncrement"&gt;sizeIncrement&lt;/a&
 </doc>
 </property>
 <property>
-    <name>QWidget::caption</name>
+    <name>TQWidget::caption</name>
     <doc href="ntqwidget.html#caption-prop">
 &lt;p&gt;This property holds the window caption (title).
 &lt;p&gt;This property only makes sense for top-level widgets. If no
-caption has been set, the caption is &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+caption has been set, the caption is &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqwidget.html#icon-prop"&gt;icon&lt;/a&gt; and &lt;a href="ntqwidget.html#iconText-prop"&gt;iconText&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqwidget.html#setCaption"&gt;setCaption&lt;/a&gt;() and get this property's value with &lt;a href="ntqwidget.html#caption"&gt;caption&lt;/a&gt;().
 </doc>
 </property>
 <property>
-    <name>QWidget::childrenRect</name>
+    <name>TQWidget::childrenRect</name>
     <doc href="ntqwidget.html#childrenRect-prop">
 &lt;p&gt;This property holds the bounding rectangle of the widget's children.
 &lt;p&gt;Hidden children are excluded.
@@ -4477,7 +4477,7 @@ caption has been set, the caption is &lt;a href="ntqstring.html#QString-null"&gt
 </doc>
 </property>
 <property>
-    <name>QWidget::childrenRegion</name>
+    <name>TQWidget::childrenRegion</name>
     <doc href="ntqwidget.html#childrenRegion-prop">
 &lt;p&gt;This property holds the combined region occupied by the widget's children.
 &lt;p&gt;Hidden children are excluded.
@@ -4487,7 +4487,7 @@ caption has been set, the caption is &lt;a href="ntqstring.html#QString-null"&gt
 </doc>
 </property>
 <property>
-    <name>QWidget::colorGroup</name>
+    <name>TQWidget::colorGroup</name>
     <doc href="ntqwidget.html#colorGroup-prop">
 &lt;p&gt;This property holds the current color group of the widget palette.
 &lt;p&gt;The color group is determined by the state of the widget. A
@@ -4500,7 +4500,7 @@ inactive widget has the &lt;a href="ntqpalette.html#inactive"&gt;QPalette::inact
 </doc>
 </property>
 <property>
-    <name>QWidget::cursor</name>
+    <name>TQWidget::cursor</name>
     <doc href="ntqwidget.html#cursor-prop">
 &lt;p&gt;This property holds the cursor shape for this widget.
 &lt;p&gt;The mouse cursor will assume this shape when it's over this
@@ -4520,7 +4520,7 @@ on top-level widgets.
 </doc>
 </property>
 <property>
-    <name>QWidget::customWhatsThis</name>
+    <name>TQWidget::customWhatsThis</name>
     <doc href="ntqwidget.html#customWhatsThis-prop">
 &lt;p&gt;This property holds whether the widget wants to handle What's This help manually.
 &lt;p&gt;The default implementation of &lt;a href="ntqwidget.html#customWhatsThis"&gt;customWhatsThis&lt;/a&gt;() returns FALSE,
@@ -4538,7 +4538,7 @@ Simply don't call QWhatsThis::leaveWhatsThisMode() in that case.
 </doc>
 </property>
 <property>
-    <name>QWidget::enabled</name>
+    <name>TQWidget::enabled</name>
     <doc href="ntqwidget.html#enabled-prop">
 &lt;p&gt;This property holds whether the widget is enabled.
 &lt;p&gt;An enabled widget receives keyboard and mouse events; a disabled
@@ -4557,7 +4557,7 @@ explicitly disabled.
 </doc>
 </property>
 <property>
-    <name>QWidget::focus</name>
+    <name>TQWidget::focus</name>
     <doc href="ntqwidget.html#focus-prop">
 &lt;p&gt;This property holds whether this widget (or its focus proxy) has the keyboard input focus.
 &lt;p&gt;Effectively equivalent to &lt;tt&gt;qApp-&amp;gt;focusWidget() == this&lt;/tt&gt;.
@@ -4567,40 +4567,40 @@ explicitly disabled.
 </doc>
 </property>
 <property>
-    <name>QWidget::focusEnabled</name>
+    <name>TQWidget::focusEnabled</name>
     <doc href="ntqwidget.html#focusEnabled-prop">
 &lt;p&gt;This property holds whether the widget accepts &lt;a href="focus.html#keyboard-focus"&gt;keyboard focus&lt;/a&gt;.
 &lt;p&gt;Keyboard focus is initially disabled (i.e. &lt;a href="ntqwidget.html#focusPolicy"&gt;focusPolicy&lt;/a&gt;() ==
-&lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;QWidget::NoFocus&lt;/a&gt;).
+&lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;TQWidget::NoFocus&lt;/a&gt;).
 &lt;p&gt; You must enable keyboard focus for a widget if it processes
 keyboard events. This is normally done from the widget's
 constructor. For instance, the &lt;a href="ntqlineedit.html"&gt;QLineEdit&lt;/a&gt; constructor calls
-&lt;a href="ntqwidget.html#setFocusPolicy"&gt;setFocusPolicy&lt;/a&gt;(QWidget::StrongFocus).
+&lt;a href="ntqwidget.html#setFocusPolicy"&gt;setFocusPolicy&lt;/a&gt;(TQWidget::StrongFocus).
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqwidget.html#focusPolicy-prop"&gt;focusPolicy&lt;/a&gt;, &lt;a href="ntqwidget.html#focusInEvent"&gt;focusInEvent&lt;/a&gt;(), &lt;a href="ntqwidget.html#focusOutEvent"&gt;focusOutEvent&lt;/a&gt;(), &lt;a href="ntqwidget.html#keyPressEvent"&gt;keyPressEvent&lt;/a&gt;(), &lt;a href="ntqwidget.html#keyReleaseEvent"&gt;keyReleaseEvent&lt;/a&gt;(), and &lt;a href="ntqwidget.html#enabled-prop"&gt;enabled&lt;/a&gt;.
 
 &lt;p&gt;Get this property's value with &lt;a href="ntqwidget.html#isFocusEnabled"&gt;isFocusEnabled&lt;/a&gt;().
 </doc>
 </property>
 <property>
-    <name>QWidget::focusPolicy</name>
+    <name>TQWidget::focusPolicy</name>
     <doc href="ntqwidget.html#focusPolicy-prop">
 &lt;p&gt;This property holds the way the widget accepts &lt;a href="focus.html#keyboard-focus"&gt;keyboard focus&lt;/a&gt;.
-&lt;p&gt;The policy is &lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;QWidget::TabFocus&lt;/a&gt; if the widget accepts keyboard
-focus by tabbing, &lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;QWidget::ClickFocus&lt;/a&gt; if the widget accepts
-focus by clicking, &lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;QWidget::StrongFocus&lt;/a&gt; if it accepts both, and
-&lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;QWidget::NoFocus&lt;/a&gt; (the default) if it does not accept focus at
+&lt;p&gt;The policy is &lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;TQWidget::TabFocus&lt;/a&gt; if the widget accepts keyboard
+focus by tabbing, &lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;TQWidget::ClickFocus&lt;/a&gt; if the widget accepts
+focus by clicking, &lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;TQWidget::StrongFocus&lt;/a&gt; if it accepts both, and
+&lt;a href="ntqwidget.html#FocusPolicy-enum"&gt;TQWidget::NoFocus&lt;/a&gt; (the default) if it does not accept focus at
 all.
 &lt;p&gt; You must enable keyboard focus for a widget if it processes
 keyboard events. This is normally done from the widget's
 constructor. For instance, the &lt;a href="ntqlineedit.html"&gt;QLineEdit&lt;/a&gt; constructor calls
-&lt;a href="ntqwidget.html#setFocusPolicy"&gt;setFocusPolicy&lt;/a&gt;(QWidget::StrongFocus).
+&lt;a href="ntqwidget.html#setFocusPolicy"&gt;setFocusPolicy&lt;/a&gt;(TQWidget::StrongFocus).
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqwidget.html#focusEnabled-prop"&gt;focusEnabled&lt;/a&gt;, &lt;a href="ntqwidget.html#focusInEvent"&gt;focusInEvent&lt;/a&gt;(), &lt;a href="ntqwidget.html#focusOutEvent"&gt;focusOutEvent&lt;/a&gt;(), &lt;a href="ntqwidget.html#keyPressEvent"&gt;keyPressEvent&lt;/a&gt;(), &lt;a href="ntqwidget.html#keyReleaseEvent"&gt;keyReleaseEvent&lt;/a&gt;(), and &lt;a href="ntqwidget.html#enabled-prop"&gt;enabled&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqwidget.html#setFocusPolicy"&gt;setFocusPolicy&lt;/a&gt;() and get this property's value with &lt;a href="ntqwidget.html#focusPolicy"&gt;focusPolicy&lt;/a&gt;().
 </doc>
 </property>
 <property>
-    <name>QWidget::font</name>
+    <name>TQWidget::font</name>
     <doc href="ntqwidget.html#font-prop">
 &lt;p&gt;This property holds the font currently set for the widget.
 &lt;p&gt;The &lt;a href="ntqwidget.html#fontInfo"&gt;fontInfo&lt;/a&gt;() function reports the actual font that is being used
@@ -4623,7 +4623,7 @@ about the change.
 </doc>
 </property>
 <property>
-    <name>QWidget::frameGeometry</name>
+    <name>TQWidget::frameGeometry</name>
     <doc href="ntqwidget.html#frameGeometry-prop">
 &lt;p&gt;This property holds geometry of the widget relative to its parent including any window frame.
 &lt;p&gt;See the &lt;a href="geometry.html"&gt;Window Geometry documentation&lt;/a&gt;
@@ -4634,7 +4634,7 @@ for an overview of geometry issues with top-level widgets.
 </doc>
 </property>
 <property>
-    <name>QWidget::frameSize</name>
+    <name>TQWidget::frameSize</name>
     <doc href="ntqwidget.html#frameSize-prop">
 &lt;p&gt;This property holds the size of the widget including any window frame.
 &lt;p&gt;
@@ -4642,7 +4642,7 @@ for an overview of geometry issues with top-level widgets.
 </doc>
 </property>
 <property>
-    <name>QWidget::fullScreen</name>
+    <name>TQWidget::fullScreen</name>
     <doc href="ntqwidget.html#fullScreen-prop">
 &lt;p&gt;This property holds whether the widget is full screen.
 &lt;p&gt;Get this property's value with &lt;a href="ntqwidget.html#isFullScreen"&gt;isFullScreen&lt;/a&gt;().
@@ -4651,7 +4651,7 @@ for an overview of geometry issues with top-level widgets.
 </doc>
 </property>
 <property>
-    <name>QWidget::geometry</name>
+    <name>TQWidget::geometry</name>
     <doc href="ntqwidget.html#geometry-prop">
 &lt;p&gt;This property holds the geometry of the widget relative to its parent and excluding the window frame.
 &lt;p&gt;When changing the geometry, the widget, if visible, receives a
@@ -4661,7 +4661,7 @@ guaranteed to receive appropriate events before it is shown.
 &lt;p&gt; The size component is adjusted if it lies outside the range
 defined by &lt;a href="ntqwidget.html#minimumSize"&gt;minimumSize&lt;/a&gt;() and &lt;a href="ntqwidget.html#maximumSize"&gt;maximumSize&lt;/a&gt;().
 &lt;p&gt; &lt;a href="ntqwidget.html#setGeometry"&gt;setGeometry&lt;/a&gt;() is virtual, and all other overloaded setGeometry()
-implementations in Qt call it.
+implementations in TQt call it.
 &lt;p&gt; &lt;b&gt;Warning:&lt;/b&gt; Calling setGeometry() inside resizeEvent() or moveEvent()
 can lead to infinite recursion.
 &lt;p&gt; See the &lt;a href="geometry.html"&gt;Window Geometry documentation&lt;/a&gt;
@@ -4672,7 +4672,7 @@ for an overview of top-level widget geometry.
 </doc>
 </property>
 <property>
-    <name>QWidget::height</name>
+    <name>TQWidget::height</name>
     <doc href="ntqwidget.html#height-prop">
 &lt;p&gt;This property holds the height of the widget excluding any window frame.
 &lt;p&gt;See the &lt;a href="geometry.html"&gt;Window Geometry documentation&lt;/a&gt;
@@ -4683,7 +4683,7 @@ for an overview of top-level widget geometry.
 </doc>
 </property>
 <property>
-    <name>QWidget::hidden</name>
+    <name>TQWidget::hidden</name>
     <doc href="ntqwidget.html#hidden-prop">
 &lt;p&gt;This property holds whether the widget is explicitly hidden.
 &lt;p&gt;If FALSE, the widget is visible or would become visible if all its
@@ -4694,7 +4694,7 @@ ancestors became visible.
 </doc>
 </property>
 <property>
-    <name>QWidget::icon</name>
+    <name>TQWidget::icon</name>
     <doc href="ntqwidget.html#icon-prop">
 &lt;p&gt;This property holds the widget's icon.
 &lt;p&gt;This property only makes sense for top-level widgets. If no icon
@@ -4705,18 +4705,18 @@ has been set, &lt;a href="ntqwidget.html#icon"&gt;icon&lt;/a&gt;() returns 0.
 </doc>
 </property>
 <property>
-    <name>QWidget::iconText</name>
+    <name>TQWidget::iconText</name>
     <doc href="ntqwidget.html#iconText-prop">
 &lt;p&gt;This property holds the widget's icon text.
 &lt;p&gt;This property only makes sense for top-level widgets. If no icon
-text has been set, this functions returns &lt;a href="ntqstring.html#QString-null"&gt;QString::null&lt;/a&gt;.
+text has been set, this functions returns &lt;a href="ntqstring.html#TQString-null"&gt;TQString::null&lt;/a&gt;.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqwidget.html#icon-prop"&gt;icon&lt;/a&gt; and &lt;a href="ntqwidget.html#caption-prop"&gt;caption&lt;/a&gt;.
 
 &lt;p&gt;Set this property's value with &lt;a href="ntqwidget.html#setIconText"&gt;setIconText&lt;/a&gt;() and get this property's value with &lt;a href="ntqwidget.html#iconText"&gt;iconText&lt;/a&gt;().
 </doc>
 </property>
 <property>
-    <name>QWidget::inputMethodEnabled</name>
+    <name>TQWidget::inputMethodEnabled</name>
     <doc href="ntqwidget.html#inputMethodEnabled-prop">
 &lt;p&gt;This property holds enables or disables the use of input methods for this widget.
 &lt;p&gt;Most Widgets (as eg. buttons) that do not handle text input should have
@@ -4727,7 +4727,7 @@ the input method disabled if they have focus. This is the default.
 </doc>
 </property>
 <property>
-    <name>QWidget::isActiveWindow</name>
+    <name>TQWidget::isActiveWindow</name>
     <doc href="ntqwidget.html#isActiveWindow-prop">
 &lt;p&gt;This property holds whether this widget is the active window.
 &lt;p&gt;The active window is the window that contains the widget
@@ -4740,7 +4740,7 @@ active window &lt;em&gt;and&lt;/em&gt; for the popup.
 </doc>
 </property>
 <property>
-    <name>QWidget::isDesktop</name>
+    <name>TQWidget::isDesktop</name>
     <doc href="ntqwidget.html#isDesktop-prop">
 &lt;p&gt;This property holds whether the widget is a desktop widget, i.e. represents the desktop.
 &lt;p&gt;A desktop widget is also a top-level widget.
@@ -4750,7 +4750,7 @@ active window &lt;em&gt;and&lt;/em&gt; for the popup.
 </doc>
 </property>
 <property>
-    <name>QWidget::isDialog</name>
+    <name>TQWidget::isDialog</name>
     <doc href="ntqwidget.html#isDialog-prop">
 &lt;p&gt;This property holds whether the widget is a dialog widget.
 &lt;p&gt;A dialog widget is a secondary top-level widget, i.e. a top-level
@@ -4761,7 +4761,7 @@ widget with a parent.
 </doc>
 </property>
 <property>
-    <name>QWidget::isModal</name>
+    <name>TQWidget::isModal</name>
     <doc href="ntqwidget.html#isModal-prop">
 &lt;p&gt;This property holds whether the widget is a modal widget.
 &lt;p&gt;This property only makes sense for top-level widgets. A modal
@@ -4773,7 +4773,7 @@ getting any input.
 </doc>
 </property>
 <property>
-    <name>QWidget::isPopup</name>
+    <name>TQWidget::isPopup</name>
     <doc href="ntqwidget.html#isPopup-prop">
 &lt;p&gt;This property holds whether the widget is a popup widget.
 &lt;p&gt;A popup widget is created by specifying the &lt;a href="ntqt.html#WidgetFlags"&gt;widget flag&lt;/a&gt; &lt;a href="ntqt.html#WidgetFlags-enum"&gt;WType_Popup&lt;/a&gt; to the widget constructor. A popup widget is also a
@@ -4784,7 +4784,7 @@ top-level widget.
 </doc>
 </property>
 <property>
-    <name>QWidget::isTopLevel</name>
+    <name>TQWidget::isTopLevel</name>
     <doc href="ntqwidget.html#isTopLevel-prop">
 &lt;p&gt;This property holds whether the widget is a top-level widget.
 &lt;p&gt;A top-level widget is a widget which usually has a frame and a
@@ -4803,13 +4803,13 @@ specified by the &lt;a href="ntqt.html#WidgetFlags-enum"&gt;WType_TopLevel&lt;/a
 </doc>
 </property>
 <property>
-    <name>QWidget::maximized</name>
+    <name>TQWidget::maximized</name>
     <doc href="ntqwidget.html#maximized-prop">
 &lt;p&gt;This property holds whether this widget is maximized.
 &lt;p&gt;This property is only relevant for top-level widgets.
 &lt;p&gt; Note that due to limitations in some window-systems, this does not
 always report the expected results (e.g. if the user on X11
-maximizes the window via the window manager, Qt has no way of
+maximizes the window via the window manager, TQt has no way of
 distinguishing this from any other resize). This is expected to
 improve as window manager protocols evolve.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqwidget.html#windowState"&gt;windowState&lt;/a&gt;(), &lt;a href="ntqwidget.html#showMaximized"&gt;showMaximized&lt;/a&gt;(), &lt;a href="ntqwidget.html#visible-prop"&gt;visible&lt;/a&gt;, &lt;a href="ntqwidget.html#show"&gt;show&lt;/a&gt;(), &lt;a href="ntqwidget.html#hide"&gt;hide&lt;/a&gt;(), &lt;a href="ntqwidget.html#showNormal"&gt;showNormal&lt;/a&gt;(), and &lt;a href="ntqwidget.html#minimized-prop"&gt;minimized&lt;/a&gt;.
@@ -4818,7 +4818,7 @@ improve as window manager protocols evolve.
 </doc>
 </property>
 <property>
-    <name>QWidget::maximumHeight</name>
+    <name>TQWidget::maximumHeight</name>
     <doc href="ntqwidget.html#maximumHeight-prop">
 &lt;p&gt;This property holds the widget's maximum height.
 &lt;p&gt;This property corresponds to &lt;a href="ntqwidget.html#maximumSize"&gt;maximumSize&lt;/a&gt;().&lt;a href="ntqwidget.html#height"&gt;height&lt;/a&gt;().
@@ -4828,7 +4828,7 @@ improve as window manager protocols evolve.
 </doc>
 </property>
 <property>
-    <name>QWidget::maximumSize</name>
+    <name>TQWidget::maximumSize</name>
     <doc href="ntqwidget.html#maximumSize-prop">
 &lt;p&gt;This property holds the widget's maximum size.
 &lt;p&gt;The widget cannot be resized to a larger size than the maximum
@@ -4839,7 +4839,7 @@ widget size.
 </doc>
 </property>
 <property>
-    <name>QWidget::maximumWidth</name>
+    <name>TQWidget::maximumWidth</name>
     <doc href="ntqwidget.html#maximumWidth-prop">
 &lt;p&gt;This property holds the widget's maximum width.
 &lt;p&gt;This property corresponds to &lt;a href="ntqwidget.html#maximumSize"&gt;maximumSize&lt;/a&gt;().&lt;a href="ntqwidget.html#width"&gt;width&lt;/a&gt;().
@@ -4849,7 +4849,7 @@ widget size.
 </doc>
 </property>
 <property>
-    <name>QWidget::microFocusHint</name>
+    <name>TQWidget::microFocusHint</name>
     <doc href="ntqwidget.html#microFocusHint-prop">
 &lt;p&gt;This property holds the currently set micro focus hint for this widget.
 &lt;p&gt;See the documentation of &lt;a href="ntqwidget.html#setMicroFocusHint"&gt;setMicroFocusHint&lt;/a&gt;() for more information.
@@ -4858,7 +4858,7 @@ widget size.
 </doc>
 </property>
 <property>
-    <name>QWidget::minimized</name>
+    <name>TQWidget::minimized</name>
     <doc href="ntqwidget.html#minimized-prop">
 &lt;p&gt;This property holds whether this widget is minimized (iconified).
 &lt;p&gt;This property is only relevant for top-level widgets.
@@ -4868,7 +4868,7 @@ widget size.
 </doc>
 </property>
 <property>
-    <name>QWidget::minimumHeight</name>
+    <name>TQWidget::minimumHeight</name>
     <doc href="ntqwidget.html#minimumHeight-prop">
 &lt;p&gt;This property holds the widget's minimum height.
 &lt;p&gt;This property corresponds to &lt;a href="ntqwidget.html#minimumSize"&gt;minimumSize&lt;/a&gt;().&lt;a href="ntqwidget.html#height"&gt;height&lt;/a&gt;().
@@ -4878,7 +4878,7 @@ widget size.
 </doc>
 </property>
 <property>
-    <name>QWidget::minimumSize</name>
+    <name>TQWidget::minimumSize</name>
     <doc href="ntqwidget.html#minimumSize-prop">
 &lt;p&gt;This property holds the widget's minimum size.
 &lt;p&gt;The widget cannot be resized to a smaller size than the minimum
@@ -4893,7 +4893,7 @@ layout's resize mode to QLayout::FreeResize.
 </doc>
 </property>
 <property>
-    <name>QWidget::minimumSizeHint</name>
+    <name>TQWidget::minimumSizeHint</name>
     <doc href="ntqwidget.html#minimumSizeHint-prop">
 &lt;p&gt;This property holds the recommended minimum size for the widget.
 &lt;p&gt;If the value of this property is an invalid size, no minimum size
@@ -4910,7 +4910,7 @@ minimumSizeHint.
 </doc>
 </property>
 <property>
-    <name>QWidget::minimumWidth</name>
+    <name>TQWidget::minimumWidth</name>
     <doc href="ntqwidget.html#minimumWidth-prop">
 &lt;p&gt;This property holds the widget's minimum width.
 &lt;p&gt;This property corresponds to &lt;a href="ntqwidget.html#minimumSize"&gt;minimumSize&lt;/a&gt;().&lt;a href="ntqwidget.html#width"&gt;width&lt;/a&gt;().
@@ -4920,7 +4920,7 @@ minimumSizeHint.
 </doc>
 </property>
 <property>
-    <name>QWidget::mouseTracking</name>
+    <name>TQWidget::mouseTracking</name>
     <doc href="ntqwidget.html#mouseTracking-prop">
 &lt;p&gt;This property holds whether mouse tracking is enabled for the widget.
 &lt;p&gt;If mouse tracking is disabled (the default), the widget only
@@ -4934,7 +4934,7 @@ events even if no buttons are pressed.
 </doc>
 </property>
 <property>
-    <name>QWidget::ownCursor</name>
+    <name>TQWidget::ownCursor</name>
     <doc href="ntqwidget.html#ownCursor-prop">
 &lt;p&gt;This property holds whether the widget uses its own cursor.
 &lt;p&gt;If FALSE, the widget uses its parent widget's cursor.
@@ -4944,7 +4944,7 @@ events even if no buttons are pressed.
 </doc>
 </property>
 <property>
-    <name>QWidget::ownFont</name>
+    <name>TQWidget::ownFont</name>
     <doc href="ntqwidget.html#ownFont-prop">
 &lt;p&gt;This property holds whether the widget uses its own font.
 &lt;p&gt;If FALSE, the widget uses its parent widget's font.
@@ -4954,7 +4954,7 @@ events even if no buttons are pressed.
 </doc>
 </property>
 <property>
-    <name>QWidget::ownPalette</name>
+    <name>TQWidget::ownPalette</name>
     <doc href="ntqwidget.html#ownPalette-prop">
 &lt;p&gt;This property holds whether the widget uses its own palette.
 &lt;p&gt;If FALSE, the widget uses its parent widget's palette.
@@ -4964,7 +4964,7 @@ events even if no buttons are pressed.
 </doc>
 </property>
 <property>
-    <name>QWidget::palette</name>
+    <name>TQWidget::palette</name>
     <doc href="ntqwidget.html#palette-prop">
 &lt;p&gt;This property holds the widget's palette.
 &lt;p&gt;As long as no special palette has been set, or after &lt;a href="ntqwidget.html#unsetPalette"&gt;unsetPalette&lt;/a&gt;()
@@ -4983,7 +4983,7 @@ background and foreground appearance only.
 </doc>
 </property>
 <property>
-    <name>QWidget::paletteBackgroundColor</name>
+    <name>TQWidget::paletteBackgroundColor</name>
     <doc href="ntqwidget.html#paletteBackgroundColor-prop">
 &lt;p&gt;This property holds the background color of the widget.
 &lt;p&gt;The palette background color is usually set implicitly by
@@ -5002,7 +5002,7 @@ function is indeterminate.
 </doc>
 </property>
 <property>
-    <name>QWidget::paletteBackgroundPixmap</name>
+    <name>TQWidget::paletteBackgroundPixmap</name>
     <doc href="ntqwidget.html#paletteBackgroundPixmap-prop">
 &lt;p&gt;This property holds the background pixmap of the widget.
 &lt;p&gt;The palette background pixmap is usually set implicitly by
@@ -5021,7 +5021,7 @@ widget's background mode. For example, if the background mode is
 </doc>
 </property>
 <property>
-    <name>QWidget::paletteForegroundColor</name>
+    <name>TQWidget::paletteForegroundColor</name>
     <doc href="ntqwidget.html#paletteForegroundColor-prop">
 &lt;p&gt;This property holds the foreground color of the widget.
 &lt;p&gt;setPaletteForegroundColor() is a convenience function that creates
@@ -5035,7 +5035,7 @@ example, if the background mode is &lt;a href="ntqt.html#BackgroundMode-enum"&gt
 </doc>
 </property>
 <property>
-    <name>QWidget::pos</name>
+    <name>TQWidget::pos</name>
     <doc href="ntqwidget.html#pos-prop">
 &lt;p&gt;This property holds the position of the widget within its parent widget.
 &lt;p&gt;If the widget is a top-level widget, the position is that of the
@@ -5045,7 +5045,7 @@ move event (&lt;a href="ntqwidget.html#moveEvent"&gt;moveEvent&lt;/a&gt;()) imme
 currently visible, it is guaranteed to receive an event before it
 is shown.
 &lt;p&gt; &lt;a href="ntqwidget.html#move"&gt;move&lt;/a&gt;() is virtual, and all other overloaded move() implementations
-in Qt call it.
+in TQt call it.
 &lt;p&gt; &lt;b&gt;Warning:&lt;/b&gt; Calling move() or &lt;a href="ntqwidget.html#setGeometry"&gt;setGeometry&lt;/a&gt;() inside moveEvent() can
 lead to infinite recursion.
 &lt;p&gt; See the &lt;a href="geometry.html"&gt;Window Geometry documentation&lt;/a&gt;
@@ -5056,7 +5056,7 @@ for an overview of top-level widget geometry.
 </doc>
 </property>
 <property>
-    <name>QWidget::rect</name>
+    <name>TQWidget::rect</name>
     <doc href="ntqwidget.html#rect-prop">
 &lt;p&gt;This property holds the internal geometry of the widget excluding any window frame.
 &lt;p&gt;The rect property equals &lt;a href="ntqrect.html"&gt;QRect&lt;/a&gt;(0, 0, &lt;a href="ntqwidget.html#width"&gt;width&lt;/a&gt;(), &lt;a href="ntqwidget.html#height"&gt;height&lt;/a&gt;()).
@@ -5068,7 +5068,7 @@ for an overview of top-level widget geometry.
 </doc>
 </property>
 <property>
-    <name>QWidget::shown</name>
+    <name>TQWidget::shown</name>
     <doc href="ntqwidget.html#shown-prop">
 &lt;p&gt;This property holds whether the widget is shown.
 &lt;p&gt;If TRUE, the widget is visible or would become visible if all its
@@ -5079,7 +5079,7 @@ ancestors became visible.
 </doc>
 </property>
 <property>
-    <name>QWidget::size</name>
+    <name>TQWidget::size</name>
     <doc href="ntqwidget.html#size-prop">
 &lt;p&gt;This property holds the size of the widget excluding any window frame.
 &lt;p&gt;When resizing, the widget, if visible, receives a resize event
@@ -5092,7 +5092,7 @@ might be larger, depending on the window manager.
 &lt;p&gt; If you want a top-level window to have a fixed size, call
 setResizeMode( QLayout::FreeResize ) on its layout.
 &lt;p&gt; &lt;a href="ntqwidget.html#resize"&gt;resize&lt;/a&gt;() is virtual, and all other overloaded resize()
-implementations in Qt call it.
+implementations in TQt call it.
 &lt;p&gt; &lt;b&gt;Warning:&lt;/b&gt; Calling resize() or &lt;a href="ntqwidget.html#setGeometry"&gt;setGeometry&lt;/a&gt;() inside resizeEvent() can
 lead to infinite recursion.
 &lt;p&gt; &lt;p&gt;See also &lt;a href="ntqwidget.html#pos-prop"&gt;pos&lt;/a&gt;, &lt;a href="ntqwidget.html#geometry-prop"&gt;geometry&lt;/a&gt;, &lt;a href="ntqwidget.html#minimumSize-prop"&gt;minimumSize&lt;/a&gt;, &lt;a href="ntqwidget.html#maximumSize-prop"&gt;maximumSize&lt;/a&gt;, and &lt;a href="ntqwidget.html#resizeEvent"&gt;resizeEvent&lt;/a&gt;().
@@ -5101,7 +5101,7 @@ lead to infinite recursion.
 </doc>
 </property>
 <property>
-    <name>QWidget::sizeHint</name>
+    <name>TQWidget::sizeHint</name>
     <doc href="ntqwidget.html#sizeHint-prop">
 &lt;p&gt;This property holds the recommended size for the widget.
 &lt;p&gt;If the value of this property is an invalid size, no size is
@@ -5115,7 +5115,7 @@ preferred size otherwise.
 </doc>
 </property>
 <property>
-    <name>QWidget::sizeIncrement</name>
+    <name>TQWidget::sizeIncrement</name>
     <doc href="ntqwidget.html#sizeIncrement-prop">
 &lt;p&gt;This property holds the size increment of the widget.
 &lt;p&gt;When the user resizes the window, the size will move in steps of
@@ -5138,7 +5138,7 @@ be disregarded by the window manager on X.
 </doc>
 </property>
 <property>
-    <name>QWidget::sizePolicy</name>
+    <name>TQWidget::sizePolicy</name>
     <doc href="ntqwidget.html#sizePolicy-prop">
 &lt;p&gt;This property holds the default layout behavior of the widget.
 &lt;p&gt;If there is a &lt;a href="ntqlayout.html"&gt;QLayout&lt;/a&gt; that manages this widget's children, the
@@ -5164,7 +5164,7 @@ sizeHint().
 </doc>
 </property>
 <property>
-    <name>QWidget::underMouse</name>
+    <name>TQWidget::underMouse</name>
     <doc href="ntqwidget.html#underMouse-prop">
 &lt;p&gt;This property holds whether the widget is under the mouse cursor.
 &lt;p&gt;This value is not updated properly during drag and drop
@@ -5175,7 +5175,7 @@ operations.
 </doc>
 </property>
 <property>
-    <name>QWidget::updatesEnabled</name>
+    <name>TQWidget::updatesEnabled</name>
     <doc href="ntqwidget.html#updatesEnabled-prop">
 &lt;p&gt;This property holds whether updates are enabled.
 &lt;p&gt;Calling &lt;a href="ntqwidget.html#update"&gt;update&lt;/a&gt;() and &lt;a href="ntqwidget.html#repaint"&gt;repaint&lt;/a&gt;() has no effect if updates are
@@ -5198,7 +5198,7 @@ large changes.
 </doc>
 </property>
 <property>
-    <name>QWidget::visible</name>
+    <name>TQWidget::visible</name>
     <doc href="ntqwidget.html#visible-prop">
 &lt;p&gt;This property holds whether the widget is visible.
 &lt;p&gt;Calling &lt;a href="ntqwidget.html#show"&gt;show&lt;/a&gt;() sets the widget to visible status if all its parent
@@ -5227,7 +5227,7 @@ when the window is restored again.
 </doc>
 </property>
 <property>
-    <name>QWidget::visibleRect</name>
+    <name>TQWidget::visibleRect</name>
     <doc href="ntqwidget.html#visibleRect-prop">
 &lt;p&gt;This property holds the visible rectangle.
 &lt;p&gt;&lt;b&gt;This property is obsolete.&lt;/b&gt; It is provided to keep old source working. We strongly advise against using it in new code.
@@ -5238,7 +5238,7 @@ need the rectangle for repaint(), use &lt;a href="ntqwidget.html#clipRegion"&gt;
 </doc>
 </property>
 <property>
-    <name>QWidget::width</name>
+    <name>TQWidget::width</name>
     <doc href="ntqwidget.html#width-prop">
 &lt;p&gt;This property holds the width of the widget excluding any window frame.
 &lt;p&gt;See the &lt;a href="geometry.html"&gt;Window Geometry documentation&lt;/a&gt;
@@ -5249,7 +5249,7 @@ for an overview of top-level widget geometry.
 </doc>
 </property>
 <property>
-    <name>QWidget::windowOpacity</name>
+    <name>TQWidget::windowOpacity</name>
     <doc href="ntqwidget.html#windowOpacity-prop">
 &lt;p&gt;This property holds the level of opacity for the window.
 &lt;p&gt;The valid range of opacity is from 1.0 (completely opaque) to
@@ -5266,7 +5266,7 @@ opaque windows.
 </doc>
 </property>
 <property>
-    <name>QWidget::x</name>
+    <name>TQWidget::x</name>
     <doc href="ntqwidget.html#x-prop"> &lt;p&gt;This property holds the x coordinate of the widget relative to its parent including any window frame.
 &lt;p&gt;See the &lt;a href="geometry.html"&gt;Window Geometry documentation&lt;/a&gt;
 for an overview of top-level widget geometry.
@@ -5276,7 +5276,7 @@ for an overview of top-level widget geometry.
 </doc>
 </property>
 <property>
-    <name>QWidget::y</name>
+    <name>TQWidget::y</name>
     <doc href="ntqwidget.html#y-prop">
 &lt;p&gt;This property holds the y coordinate of the widget relative to its parent and including any window frame.
 &lt;p&gt;See the &lt;a href="geometry.html"&gt;Window Geometry documentation&lt;/a&gt;

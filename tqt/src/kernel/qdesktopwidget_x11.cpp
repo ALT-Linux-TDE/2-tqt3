@@ -120,7 +120,7 @@ void TQDesktopWidgetPrivate::init()
     // get the screen count
     int newScreenCount;
 
-#ifndef QT_NO_XINERAMA
+#ifndef TQT_NO_XINERAMA
     XineramaScreenInfo *xinerama_screeninfo = 0;
     int unused;
     use_xinerama = (XineramaQueryExtension(TQPaintDevice::x11AppDisplay(),
@@ -134,7 +134,7 @@ void TQDesktopWidgetPrivate::init()
     if (xinerama_screeninfo)
 	defaultScreen = 0;
     } else
-#endif // QT_NO_XINERAMA
+#endif // TQT_NO_XINERAMA
     {
 	defaultScreen = DefaultScreen(TQPaintDevice::x11AppDisplay());
 	newScreenCount = ScreenCount(TQPaintDevice::x11AppDisplay());
@@ -150,14 +150,14 @@ void TQDesktopWidgetPrivate::init()
     int i, j, x, y, w, h;
     for ( i = 0, j = 0; i < newScreenCount; i++ ) {
 
-#ifndef QT_NO_XINERAMA
+#ifndef TQT_NO_XINERAMA
 	if (use_xinerama) {
 	    x = xinerama_screeninfo[i].x_org;
 	    y = xinerama_screeninfo[i].y_org;
 	    w = xinerama_screeninfo[i].width;
 	    h = xinerama_screeninfo[i].height;
 	} else
-#endif // QT_NO_XINERAMA
+#endif // TQT_NO_XINERAMA
 	    {
 		x = 0;
 		y = 0;
@@ -188,13 +188,13 @@ void TQDesktopWidgetPrivate::init()
 
     screenCount = j;
 
-#ifndef QT_NO_XINERAMA
+#ifndef TQT_NO_XINERAMA
     if (use_xinerama && screenCount == 1)
         use_xinerama = false;
 
     if (xinerama_screeninfo)
 	XFree(xinerama_screeninfo);
-#endif // QT_NO_XINERAMA
+#endif // TQT_NO_XINERAMA
 
 }
 
@@ -314,7 +314,7 @@ int TQDesktopWidget::screenNumber( TQWidget *widget ) const
     if ( !widget )
 	return d->defaultScreen;
 
-#ifndef QT_NO_XINERAMA
+#ifndef TQT_NO_XINERAMA
     if (d->use_xinerama) {
 	// this is how we do it for xinerama
 	TQRect frame = widget->frameGeometry();
@@ -334,7 +334,7 @@ int TQDesktopWidget::screenNumber( TQWidget *widget ) const
 	}
 	return maxScreen;
     }
-#endif // QT_NO_XINERAMA
+#endif // TQT_NO_XINERAMA
 
     return widget->x11Screen();
 }

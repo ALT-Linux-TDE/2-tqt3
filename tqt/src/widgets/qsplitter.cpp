@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqsplitter.h"
-#ifndef QT_NO_SPLITTER
+#ifndef TQT_NO_SPLITTER
 
 #include "ntqlayout.h"
 #include "../kernel/qlayoutengine_p.h"
@@ -105,7 +105,7 @@ TQSize TQSplitterHandle::sizeHint() const
 void TQSplitterHandle::setOrientation( Orientation o )
 {
     orient = o;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     setCursor( o == TQSplitter::Horizontal ? splitHCursor : splitVCursor );
 #endif
 }
@@ -1271,7 +1271,7 @@ void TQSplitter::updateHandles()
     recalc( isVisible() );
 }
 
-#ifndef QT_NO_TEXTSTREAM
+#ifndef TQT_NO_TEXTSTREAM
 /*!
     \relates TQSplitter
 

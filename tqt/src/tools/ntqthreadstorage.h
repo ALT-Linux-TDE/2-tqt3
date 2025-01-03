@@ -39,13 +39,13 @@
 #ifndef TQTHREADSTORAGE_H
 #define TQTHREADSTORAGE_H
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 
 #ifndef QT_H
 #include "ntqglobal.h"
 #endif // QT_H
 
-class Q_EXPORT TQThreadStorageData
+class TQ_EXPORT TQThreadStorageData
 {
 public:
     TQThreadStorageData( void (*func)(void *) );
@@ -90,6 +90,6 @@ public:
     { (void) d.set( t ); }
 };
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #endif // TQTHREADSTORAGE_H

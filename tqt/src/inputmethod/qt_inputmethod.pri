@@ -1,4 +1,4 @@
-# Qt inputmetod module
+# TQt inputmetod module
 
 inputmethod {
 	INPUTMETHOD_P = inputmethod

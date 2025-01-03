@@ -81,14 +81,14 @@ body { background: #ffffff; color: black; }
 #include "ntqcommonstyle.h"
 #endif // QT_H
 
-#if !defined(QT_NO_STYLE_MOTIF) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_MOTIF) || defined(QT_PLUGIN)
 
 class TQPalette;
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_STYLE_MOTIF
 #else
-#define Q_EXPORT_STYLE_MOTIF Q_EXPORT
+#define Q_EXPORT_STYLE_MOTIF TQ_EXPORT
 #endif
 
 
@@ -167,7 +167,7 @@ private:
 #endif
 };
 
-#endif // QT_NO_STYLE_MOTIF
+#endif // TQT_NO_STYLE_MOTIF
 
 #endif // TQMOTIFSTYLE_H
 </pre>

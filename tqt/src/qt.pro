@@ -1,9 +1,9 @@
-# Qt project file
+# TQt project file
 TEMPLATE	= lib
 TARGET		= qt
 embedded:TARGET	= qte
 VERSION		= 3.5
-DESTDIR		= $$QMAKE_LIBDIR_QT
+DESTDIR		= $$QMAKE_LIBDIR_TQT
 DLLDESTDIR	= ../bin
 
 CONFIG		+= qt warn_on depend_includepath
@@ -14,15 +14,15 @@ win32:!shared:CONFIG += staticlib
 win32-borland {
 	mng:QMAKE_CFLAGS_WARN_ON	+= -w-par
 	mng:QMAKE_CXXFLAGS_WARN_ON	+= -w-par
-	# Keep the size of the .tds file for the Qt library smaller than
+	# Keep the size of the .tds file for the TQt library smaller than
 	# 34 Mbytes to avoid linking problems
 	QMAKE_CFLAGS_DEBUG += -vi -y-
 	QMAKE_CXXFLAGS_DEBUG += -vi -y-
 }
 
 linux-*:version_script {
-   QMAKE_LFLAGS += -Wl,--version-script=libqt.map
-   TARGETDEPS += libqt.map
+   QMAKE_LFLAGS += -Wl,--version-script=libtqt.map
+   TARGETDEPS += libtqt.map
 }
 
 KERNEL_CPP	= kernel
@@ -31,7 +31,6 @@ WIDGETS_CPP	= widgets
 SQL_CPP	        = sql
 TABLE_CPP	= table
 DIALOGS_CPP	= dialogs
-ICONVIEW_CPP	= iconview
 NETWORK_CPP	= network
 OPENGL_CPP	= opengl
 TOOLS_CPP	= tools
@@ -49,7 +48,6 @@ win32 {
 		WIDGETS_H	= $$WIDGETS_CPP
 		TABLE_H		= $$TABLE_CPP
 		DIALOGS_H	= $$DIALOGS_CPP
-		ICONVIEW_H	= $$ICONVIEW_CPP
 		NETWORK_H	= $$NETWORK_CPP
 		OPENGL_H	= $$OPENGL_CPP
 		TOOLS_H		= $$TOOLS_CPP
@@ -66,7 +64,6 @@ win32 {
 		WIDGETS_H	= $$WIN_ALL_H
 		TABLE_H		= $$WIN_ALL_H
 		DIALOGS_H	= $$WIN_ALL_H
-		ICONVIEW_H	= $$WIN_ALL_H
 		NETWORK_H	= $$WIN_ALL_H
 		OPENGL_H	= $$WIN_ALL_H
 		TOOLS_H		= $$WIN_ALL_H
@@ -95,7 +92,6 @@ unix {
 	SQL_H		= $$SQL_CPP
 	TABLE_H		= $$TABLE_CPP
 	DIALOGS_H	= $$DIALOGS_CPP
-	ICONVIEW_H	= $$ICONVIEW_CPP
 	NETWORK_H	= $$NETWORK_CPP
 	OPENGL_H	= $$OPENGL_CPP
 	TOOLS_H		= $$TOOLS_CPP
@@ -117,7 +113,7 @@ embedded {
 }
 
 DEPENDPATH += ;$$NETWORK_H;$$KERNEL_H;$$WIDGETS_H;$$INPUTMETHOD_H;$$SQL_H;$$TABLE_H;$$DIALOGS_H;
-DEPENDPATH += $$ICONVIEW_H;$$OPENGL_H;$$TOOLS_H;$$CODECS_H;$$WORKSPACE_H;$$XML_H;
+DEPENDPATH += $$OPENGL_H;$$TOOLS_H;$$CODECS_H;$$WORKSPACE_H;$$XML_H;
 DEPENDPATH += $$CANVAS_H;$$STYLES_H
 embedded:DEPENDPATH += ;$$EMBEDDED_H
 
@@ -125,12 +121,12 @@ thread {
 	!win32-borland:TARGET = tqt-mt
 	win32-borland:TARGET = qtmt
 	embedded:TARGET = qte-mt
-	DEFINES += QT_THREAD_SUPPORT
+	DEFINES += TQT_THREAD_SUPPORT
 }
 
-!cups:DEFINES += QT_NO_CUPS
+!cups:DEFINES += TQT_NO_CUPS
 
-!nis:DEFINES += QT_NO_NIS
+!nis:DEFINES += TQT_NO_NIS
 
 largefile {
 	unix:!darwin:DEFINES += _LARGEFILE_SOURCE _LARGE_FILES _FILE_OFFSET_BITS=64
@@ -149,7 +145,6 @@ embedded:include($$KERNEL_CPP/qt_qws.pri)
 include($$KERNEL_CPP/qt_kernel.pri)
 include($$WIDGETS_CPP/qt_widgets.pri)
 include($$DIALOGS_CPP/qt_dialogs.pri)
-include($$ICONVIEW_CPP/qt_iconview.pri)
 include($$WORKSPACE_CPP/qt_workspace.pri)
 include($$INPUTMETHOD_CPP/qt_inputmethod.pri)
 include($$NETWORK_CPP/qt_network.pri)

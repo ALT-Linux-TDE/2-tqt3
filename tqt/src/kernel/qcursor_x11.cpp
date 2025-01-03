@@ -47,9 +47,9 @@
 #include "qt_x11_p.h"
 #include <X11/cursorfont.h>
 
-#ifndef QT_NO_XCURSOR
+#ifndef TQT_NO_XCURSOR
 #  include <X11/Xcursor/Xcursor.h>
-#endif // QT_NO_XCURSOR
+#endif // TQT_NO_XCURSOR
 
 // Define QT_USE_APPROXIMATE_CURSORS when compiling if you REALLY want to
 // use the ugly X11 cursors.
@@ -105,23 +105,23 @@ static TQCursor cursorTable[TQt::LastCursor+1];
 
 static const int arrowCursorIdx = 0;
 
-QT_STATIC_CONST_IMPL TQCursor & TQt::arrowCursor = cursorTable[0];
-QT_STATIC_CONST_IMPL TQCursor & TQt::upArrowCursor = cursorTable[1];
-QT_STATIC_CONST_IMPL TQCursor & TQt::crossCursor = cursorTable[2];
-QT_STATIC_CONST_IMPL TQCursor & TQt::waitCursor = cursorTable[3];
-QT_STATIC_CONST_IMPL TQCursor & TQt::ibeamCursor = cursorTable[4];
-QT_STATIC_CONST_IMPL TQCursor & TQt::sizeVerCursor = cursorTable[5];
-QT_STATIC_CONST_IMPL TQCursor & TQt::sizeHorCursor = cursorTable[6];
-QT_STATIC_CONST_IMPL TQCursor & TQt::sizeBDiagCursor = cursorTable[7];
-QT_STATIC_CONST_IMPL TQCursor & TQt::sizeFDiagCursor = cursorTable[8];
-QT_STATIC_CONST_IMPL TQCursor & TQt::sizeAllCursor = cursorTable[9];
-QT_STATIC_CONST_IMPL TQCursor & TQt::blankCursor = cursorTable[10];
-QT_STATIC_CONST_IMPL TQCursor & TQt::splitVCursor = cursorTable[11];
-QT_STATIC_CONST_IMPL TQCursor & TQt::splitHCursor = cursorTable[12];
-QT_STATIC_CONST_IMPL TQCursor & TQt::pointingHandCursor = cursorTable[13];
-QT_STATIC_CONST_IMPL TQCursor & TQt::forbiddenCursor = cursorTable[14];
-QT_STATIC_CONST_IMPL TQCursor & TQt::whatsThisCursor = cursorTable[15];
-QT_STATIC_CONST_IMPL TQCursor & TQt::busyCursor = cursorTable[16];
+const TQCursor & TQt::arrowCursor = cursorTable[0];
+const TQCursor & TQt::upArrowCursor = cursorTable[1];
+const TQCursor & TQt::crossCursor = cursorTable[2];
+const TQCursor & TQt::waitCursor = cursorTable[3];
+const TQCursor & TQt::ibeamCursor = cursorTable[4];
+const TQCursor & TQt::sizeVerCursor = cursorTable[5];
+const TQCursor & TQt::sizeHorCursor = cursorTable[6];
+const TQCursor & TQt::sizeBDiagCursor = cursorTable[7];
+const TQCursor & TQt::sizeFDiagCursor = cursorTable[8];
+const TQCursor & TQt::sizeAllCursor = cursorTable[9];
+const TQCursor & TQt::blankCursor = cursorTable[10];
+const TQCursor & TQt::splitVCursor = cursorTable[11];
+const TQCursor & TQt::splitHCursor = cursorTable[12];
+const TQCursor & TQt::pointingHandCursor = cursorTable[13];
+const TQCursor & TQt::forbiddenCursor = cursorTable[14];
+const TQCursor & TQt::whatsThisCursor = cursorTable[15];
+const TQCursor & TQt::busyCursor = cursorTable[16];
 
 
 TQCursor *TQCursor::find_cur( int shape )		// find predefined cursor
@@ -502,7 +502,7 @@ void TQCursor::update() const
 {
     if ( !initialized )
 	initialize();
-    register TQCursorData *d = data;		// cheat const!
+    TQCursorData *d = data;		// cheat const!
     if ( d->hcurs )				// already loaded
 	return;
 
@@ -515,7 +515,7 @@ void TQCursor::update() const
 	return;
     }
 
-#ifndef QT_NO_XCURSOR
+#ifndef TQT_NO_XCURSOR
     static const char *cursorNames[] = {
 	"left_ptr",
 	"up_arrow",
@@ -539,7 +539,7 @@ void TQCursor::update() const
     d->hcurs = XcursorLibraryLoadCursor( dpy, cursorNames[d->cshape] );
     if ( d->hcurs )
 	return;
-#endif // QT_NO_XCURSOR
+#endif // TQT_NO_XCURSOR
 
     static uchar cur_blank_bits[] = {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,

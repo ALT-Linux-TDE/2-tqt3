@@ -9,7 +9,7 @@
 .SH NAME
 QDate \- Date functions
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqdatetime.h>\fR
 .PP
@@ -52,10 +52,10 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "int \fBweekNumber\fR ( int * yearNumber = 0 ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( Qt::DateFormat f = Qt::TextDate ) const"
+.BI "TQString \fBtoString\fR ( TQt::DateFormat f = TQt::TextDate ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( const QString & format ) const"
+.BI "TQString \fBtoString\fR ( const TQString & format ) const"
 .br
 .ti -1c
 .BI "bool \fBsetYMD\fR ( int y, int m, int d )"
@@ -94,31 +94,31 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QString monthName ( int month )  \fI(obsolete)\fR"
+.BI "TQString monthName ( int month )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QString dayName ( int weekday )  \fI(obsolete)\fR"
+.BI "TQString dayName ( int weekday )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QString \fBshortMonthName\fR ( int month )"
+.BI "TQString \fBshortMonthName\fR ( int month )"
 .br
 .ti -1c
-.BI "QString \fBshortDayName\fR ( int weekday )"
+.BI "TQString \fBshortDayName\fR ( int weekday )"
 .br
 .ti -1c
-.BI "QString \fBlongMonthName\fR ( int month )"
+.BI "TQString \fBlongMonthName\fR ( int month )"
 .br
 .ti -1c
-.BI "QString \fBlongDayName\fR ( int weekday )"
+.BI "TQString \fBlongDayName\fR ( int weekday )"
 .br
 .ti -1c
 .BI "QDate \fBcurrentDate\fR ()"
 .br
 .ti -1c
-.BI "QDate \fBcurrentDate\fR ( Qt::TimeSpec ts )"
+.BI "QDate \fBcurrentDate\fR ( TQt::TimeSpec ts )"
 .br
 .ti -1c
-.BI "QDate \fBfromString\fR ( const QString & s, Qt::DateFormat f = Qt::TextDate )"
+.BI "QDate \fBfromString\fR ( const TQString & s, TQt::DateFormat f = TQt::TextDate )"
 .br
 .ti -1c
 .BI "bool \fBisValid\fR ( int y, int m, int d )"
@@ -153,7 +153,7 @@ The daysInMonth() and daysInYear() functions return how many days there are in t
 .PP
 Note that QDate should not be used for date calculations for dates prior to the introduction of the Gregorian calendar. This calendar was adopted by England from the 14<sup><small>th</small></sup> September 1752 (hence this is the earliest valid QDate), and subsequently by most other Western countries, until 1923.
 .PP
-The end of time is reached around the year 8000, by which time we expect Qt to be obsolete.
+The end of time is reached around the year 8000, by which time we expect TQt to be obsolete.
 .PP
 See also QTime, QDateTime, QDateEdit, QDateTimeEdit, and Time and Date.
 .SH MEMBER FUNCTION DOCUMENTATION
@@ -181,10 +181,10 @@ See also addDays() and addYears().
 Returns a QDate object containing a date \fInyears\fR later than the date of this object (or earlier if \fInyears\fR is negative).
 .PP
 See also addDays() and addMonths().
-.SH "QDate QDate::currentDate ( Qt::TimeSpec ts )\fC [static]\fR"
+.SH "QDate QDate::currentDate ( TQt::TimeSpec ts )\fC [static]\fR"
 Returns the current date, as reported by the system clock, for the TimeSpec \fIts\fR. The default TimeSpec is LocalTime.
 .PP
-See also QTime::currentTime(), QDateTime::currentDateTime(), and Qt::TimeSpec.
+See also QTime::currentTime(), QDateTime::currentDateTime(), and TQt::TimeSpec.
 .PP
 Example: dclock/dclock.cpp.
 .SH "QDate QDate::currentDate ()\fC [static]\fR"
@@ -199,7 +199,7 @@ Returns the day of the month (1..31) of this date.
 See also year(), month(), and dayOfWeek().
 .PP
 Example: dclock/dclock.cpp.
-.SH "QString QDate::dayName ( int weekday )\fC [static]\fR"
+.SH "TQString QDate::dayName ( int weekday )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use shortDayName() instead.
@@ -237,12 +237,12 @@ Example:
 .fi
 .PP
 See also addDays().
-.SH "QDate QDate::fromString ( const QString & s, Qt::DateFormat f = Qt::TextDate )\fC [static]\fR"
+.SH "QDate QDate::fromString ( const TQString & s, TQt::DateFormat f = TQt::TextDate )\fC [static]\fR"
 Returns the QDate represented by the string \fIs\fR, using the format \fIf\fR, or an invalid date if the string cannot be parsed.
 .PP
-Note for Qt::TextDate: It is recommended that you use the English short month names (e.g. "Jan"). Although localized month names can also be used, they depend on the user's locale settings.
+Note for TQt::TextDate: It is recommended that you use the English short month names (e.g. "Jan"). Although localized month names can also be used, they depend on the user's locale settings.
 .PP
-\fBWarning:\fR Qt::LocalDate cannot be used here.
+\fBWarning:\fR TQt::LocalDate cannot be used here.
 .SH "bool QDate::isNull () const"
 Returns TRUE if the date is null; otherwise returns FALSE. A null date is invalid.
 .PP
@@ -275,7 +275,7 @@ Example:
 See also isNull() and setYMD().
 .SH "bool QDate::leapYear ( int y )\fC [static]\fR"
 Returns TRUE if the specified year \fIy\fR is a leap year; otherwise returns FALSE.
-.SH "QString QDate::longDayName ( int weekday )\fC [static]\fR"
+.SH "TQString QDate::longDayName ( int weekday )\fC [static]\fR"
 Returns the long name of the \fIweekday\fR.
 .PP
 1 = "Monday", 2 = "Tuesday", ... 7 = "Sunday"
@@ -283,7 +283,7 @@ Returns the long name of the \fIweekday\fR.
 The day names will be localized according to the system's locale settings.
 .PP
 See also toString(), shortDayName(), shortMonthName(), and longMonthName().
-.SH "QString QDate::longMonthName ( int month )\fC [static]\fR"
+.SH "TQString QDate::longMonthName ( int month )\fC [static]\fR"
 Returns the long name of the \fImonth\fR.
 .PP
 1 = "January", 2 = "February", ... 12 = "December"
@@ -297,7 +297,7 @@ Returns the month (January=1..December=12) of this date.
 See also year() and day().
 .PP
 Example: dclock/dclock.cpp.
-.SH "QString QDate::monthName ( int month )\fC [static]\fR"
+.SH "TQString QDate::monthName ( int month )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use shortMonthName() instead.
@@ -321,7 +321,7 @@ Sets the date's year \fIy\fR, month \fIm\fR and day \fId\fR.
 \fBWarning:\fR If \fIy\fR is in the range 0..99, it is interpreted as 1900..1999.
 .PP
 Returns TRUE if the date is valid; otherwise returns FALSE.
-.SH "QString QDate::shortDayName ( int weekday )\fC [static]\fR"
+.SH "TQString QDate::shortDayName ( int weekday )\fC [static]\fR"
 Returns the name of the \fIweekday\fR.
 .PP
 1 = "Mon", 2 = "Tue", ... 7 = "Sun"
@@ -329,7 +329,7 @@ Returns the name of the \fIweekday\fR.
 The day names will be localized according to the system's locale settings.
 .PP
 See also toString(), shortMonthName(), longMonthName(), and longDayName().
-.SH "QString QDate::shortMonthName ( int month )\fC [static]\fR"
+.SH "TQString QDate::shortMonthName ( int month )\fC [static]\fR"
 Returns the name of the \fImonth\fR.
 .PP
 1 = "Jan", 2 = "Feb", ... 12 = "Dec"
@@ -337,7 +337,7 @@ Returns the name of the \fImonth\fR.
 The month names will be localized according to the system's locale settings.
 .PP
 See also toString(), longMonthName(), shortDayName(), and longDayName().
-.SH "QString QDate::toString ( const QString & format ) const"
+.SH "TQString QDate::toString ( const TQString & format ) const"
 Returns the date as a string. The \fIformat\fR parameter determines the format of the result string.
 .PP
 These expressions may be used:
@@ -358,21 +358,21 @@ l - l. Format Result dd.MM.yyyy 20.07.1969 ddd MMMM d yy
 .fi
 </center>
 .PP
-If the date is an invalid date, then QString::null will be returned.
+If the date is an invalid date, then TQString::null will be returned.
 .PP
 See also QDateTime::toString() and QTime::toString().
-.SH "QString QDate::toString ( Qt::DateFormat f = Qt::TextDate ) const"
+.SH "TQString QDate::toString ( TQt::DateFormat f = TQt::TextDate ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the date as a string. The \fIf\fR parameter determines the format of the string.
 .PP
-If \fIf\fR is Qt::TextDate, the string format is "Sat May 20 1995" (using the shortDayName() and shortMonthName() functions to generate the string, so the day and month names are locale specific).
+If \fIf\fR is TQt::TextDate, the string format is "Sat May 20 1995" (using the shortDayName() and shortMonthName() functions to generate the string, so the day and month names are locale specific).
 .PP
-If \fIf\fR is Qt::ISODate, the string format corresponds to the ISO 8601 specification for representations of dates, which is YYYY-MM-DD where YYYY is the year, MM is the month of the year (between 01 and 12), and DD is the day of the month between 01 and 31.
+If \fIf\fR is TQt::ISODate, the string format corresponds to the ISO 8601 specification for representations of dates, which is YYYY-MM-DD where YYYY is the year, MM is the month of the year (between 01 and 12), and DD is the day of the month between 01 and 31.
 .PP
-If \fIf\fR is Qt::LocalDate, the string format depends on the locale settings of the system.
+If \fIf\fR is TQt::LocalDate, the string format depends on the locale settings of the system.
 .PP
-If the date is an invalid date, then QString::null will be returned.
+If the date is an invalid date, then TQString::null will be returned.
 .PP
 See also shortDayName() and shortMonthName().
 .SH "int QDate::weekNumber ( int * yearNumber = 0 ) const"
@@ -417,8 +417,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

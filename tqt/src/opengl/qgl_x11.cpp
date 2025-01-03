@@ -40,7 +40,7 @@
 
 #include "ntqgl.h"
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 
 #include "ntqmap.h"
 #include "ntqpixmap.h"
@@ -835,7 +835,7 @@ uint TQGLContext::colorIndex( const TQColor& c ) const
     return 0;
 }
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 /*! \internal
     This is basically a substitute for glxUseXFont() which can only
     handle XLFD fonts. This version relies on XFT v2 to render the
@@ -953,7 +953,7 @@ void TQGLContext::generateFontDisplayLists( const TQFont & fnt, int listBase )
     TQFont f(fnt);
     TQFontEngine *engine = f.d->engineForScript(TQFont::Latin);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if(engine->type() == TQFontEngine::Xft) {
 	qgl_use_font((TQFontEngineXft *) engine, 0, 256, listBase);
 	return;

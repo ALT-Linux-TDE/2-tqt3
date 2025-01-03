@@ -51,13 +51,13 @@
 #include "ntqsql.h"
 #endif // QT_H
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 class TQSqlDriver;
 class TQSqlResult;
 class TQSqlDatabase;
 
-class Q_EXPORT TQSqlResultShared : public TQObject, public TQShared
+class TQ_EXPORT TQSqlResultShared : public TQObject, public TQShared
 {
     TQ_OBJECT
 public:
@@ -69,7 +69,7 @@ private slots:
     void slotResultDestroyed();
 };
 
-class Q_EXPORT TQSqlQuery
+class TQ_EXPORT TQSqlQuery
 {
 public:
     TQSqlQuery( TQSqlResult * r );
@@ -114,7 +114,7 @@ public:
     void		addBindValue( const TQVariant& val, TQSql::ParameterType type );
     TQVariant		boundValue( const TQString& placeholder ) const;
     TQVariant		boundValue( int pos ) const;
-    TQMap<TQString, TQVariant> boundValues() const;
+    TQStringVariantMap boundValues() const;
     TQString             executedQuery() const;
     
 protected:
@@ -129,5 +129,5 @@ private:
 };
 
 
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL
 #endif

@@ -40,7 +40,7 @@
 
 #include "ntqasyncimageio.h"
 
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 
 #include "ntqptrlist.h"
 #include "ntqgif.h"
@@ -964,9 +964,12 @@ int TQGIFFormat::decode(TQImage& img, TQImageConsumer* consumer,
 		    if (backingstore.width() < w
 			|| backingstore.height() < h) {
 			// We just use the backing store as a byte array
-			backingstore.create( TQMAX(backingstore.width(), w),
-					     TQMAX(backingstore.height(), h),
-					     32);
+			if(!backingstore.create( TQMAX(backingstore.width(), w),
+						 TQMAX(backingstore.height(), h),
+						 32)) {
+				state = Error;
+				return -1;
+			}
 			memset( img.bits(), 0, img.numBytes() );
 		    }
 		    for (int ln=0; ln<h; ln++) {
@@ -1313,4 +1316,4 @@ TQRgb TQGIFFormat::color( uchar index ) const
 
 #endif // QT_BUILTIN_GIF_READER
 
-#endif // QT_NO_ASYNC_IMAGE_IO
+#endif // TQT_NO_ASYNC_IMAGE_IO

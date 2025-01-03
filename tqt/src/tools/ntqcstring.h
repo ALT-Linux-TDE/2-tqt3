@@ -53,52 +53,38 @@
   Safe and portable C string functions; extensions to standard string.h
  *****************************************************************************/
 
-Q_EXPORT void *tqmemmove( void *dst, const void *src, uint len );
+TQ_EXPORT void *tqmemmove( void *dst, const void *src, uint len );
 
-Q_EXPORT char *tqstrdup( const char * );
+TQ_EXPORT char *tqstrdup( const char * );
 
-Q_EXPORT inline uint tqstrlen( const char *str )
+TQ_EXPORT inline uint tqstrlen( const char *str )
 { return str ? (uint)strlen(str) : 0u; }
 
-Q_EXPORT inline char *qstrcpy( char *dst, const char *src )
+TQ_EXPORT inline char *qstrcpy( char *dst, const char *src )
 { return src ? strcpy(dst, src) : 0; }
 
-Q_EXPORT char *tqstrncpy( char *dst, const char *src, uint len );
+TQ_EXPORT char *tqstrncpy( char *dst, const char *src, uint len );
 
-Q_EXPORT inline int qstrcmp( const char *str1, const char *str2 )
+TQ_EXPORT inline int qstrcmp( const char *str1, const char *str2 )
 {
     return ( str1 && str2 ) ? strcmp( str1, str2 )
 			    : ( str1 ? 1 : ( str2 ? -1 : 0 ) );
 }
 
-Q_EXPORT inline int tqstrncmp( const char *str1, const char *str2, uint len )
+TQ_EXPORT inline int tqstrncmp( const char *str1, const char *str2, uint len )
 {
     return ( str1 && str2 ) ? strncmp( str1, str2, len )
 			    : ( str1 ? 1 : ( str2 ? -1 : 0 ) );
 }
 
-Q_EXPORT int tqstricmp( const char *, const char * );
+TQ_EXPORT int tqstricmp( const char *, const char * );
 
-Q_EXPORT int tqstrnicmp( const char *, const char *, uint len );
-
-#ifndef QT_CLEAN_NAMESPACE
-Q_EXPORT inline uint cstrlen( const char *str )
-{ return (uint)strlen(str); }
-
-Q_EXPORT inline char *cstrcpy( char *dst, const char *src )
-{ return strcpy(dst,src); }
-
-Q_EXPORT inline int cstrcmp( const char *str1, const char *str2 )
-{ return strcmp(str1,str2); }
-
-Q_EXPORT inline int cstrncmp( const char *str1, const char *str2, uint len )
-{ return strncmp(str1,str2,len); }
-#endif
+TQ_EXPORT int tqstrnicmp( const char *, const char *, uint len );
 
 
 // tqChecksum: Internet checksum
 
-Q_EXPORT TQ_UINT16 tqChecksum( const char *s, uint len );
+TQ_EXPORT TQ_UINT16 tqChecksum( const char *s, uint len );
 
 /*****************************************************************************
   TQByteArray class
@@ -119,21 +105,21 @@ public:
 typedef TQMemArray<char> TQByteArray;
 #endif
 
-#ifndef QT_NO_COMPRESS
-Q_EXPORT TQByteArray tqCompress( const uchar* data, int nbytes );
-Q_EXPORT TQByteArray tqUncompress( const uchar* data, int nbytes );
-Q_EXPORT inline TQByteArray tqCompress( const TQByteArray& data)
+#ifndef TQT_NO_COMPRESS
+TQ_EXPORT TQByteArray tqCompress( const uchar* data, int nbytes );
+TQ_EXPORT TQByteArray tqUncompress( const uchar* data, int nbytes );
+TQ_EXPORT inline TQByteArray tqCompress( const TQByteArray& data)
 { return tqCompress( (const uchar*)data.data(), data.size() ); }
-Q_EXPORT inline TQByteArray tqUncompress( const TQByteArray& data )
+TQ_EXPORT inline TQByteArray tqUncompress( const TQByteArray& data )
 { return tqUncompress( (const uchar*)data.data(), data.size() ); }
 #endif
 
 /*****************************************************************************
   TQByteArray stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQByteArray & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQByteArray & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQByteArray & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQByteArray & );
 #endif
 
 /*****************************************************************************
@@ -142,7 +128,7 @@ Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQByteArray & );
 
 class TQRegExp;
 
-class Q_EXPORT TQCString : public TQByteArray	// C string class
+class TQ_EXPORT TQCString : public TQByteArray	// C string class
 {
 public:
     TQCString() {}				// make null string
@@ -172,17 +158,17 @@ public:
 
     int		find( char c, int index=0, bool cs=TRUE ) const;
     int		find( const char *str, int index=0, bool cs=TRUE ) const;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     int		find( const TQRegExp &, int index=0 ) const;
 #endif
     int		findRev( char c, int index=-1, bool cs=TRUE) const;
     int		findRev( const char *str, int index=-1, bool cs=TRUE) const;
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     int		findRev( const TQRegExp &, int index=-1 ) const;
 #endif
     int		contains( char c, bool cs=TRUE ) const;
     int		contains( const char *str, bool cs=TRUE ) const;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     int		contains( const TQRegExp & ) const;
 #endif
     TQCString	left( uint len )  const;
@@ -204,7 +190,7 @@ public:
     TQCString    &prepend( const char * );
     TQCString    &remove( uint index, uint len );
     TQCString    &replace( uint index, uint len, const char * );
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     TQCString    &replace( const TQRegExp &, const char * );
 #endif
     TQCString    &replace( char c, const char *after );
@@ -243,9 +229,9 @@ private:
 /*****************************************************************************
   TQCString stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQCString & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQCString & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQCString & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQCString & );
 #endif
 
 /*****************************************************************************
@@ -302,61 +288,61 @@ inline TQCString::operator const char *() const
   TQCString non-member operators
  *****************************************************************************/
 
-Q_EXPORT inline bool operator==( const TQCString &s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator==( const TQCString &s1, const TQCString &s2 )
 { return qstrcmp( s1.data(), s2.data() ) == 0; }
 
-Q_EXPORT inline bool operator==( const TQCString &s1, const char *s2 )
+TQ_EXPORT inline bool operator==( const TQCString &s1, const char *s2 )
 { return qstrcmp( s1.data(), s2 ) == 0; }
 
-Q_EXPORT inline bool operator==( const char *s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator==( const char *s1, const TQCString &s2 )
 { return qstrcmp( s1, s2.data() ) == 0; }
 
-Q_EXPORT inline bool operator!=( const TQCString &s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator!=( const TQCString &s1, const TQCString &s2 )
 { return qstrcmp( s1.data(), s2.data() ) != 0; }
 
-Q_EXPORT inline bool operator!=( const TQCString &s1, const char *s2 )
+TQ_EXPORT inline bool operator!=( const TQCString &s1, const char *s2 )
 { return qstrcmp( s1.data(), s2 ) != 0; }
 
-Q_EXPORT inline bool operator!=( const char *s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator!=( const char *s1, const TQCString &s2 )
 { return qstrcmp( s1, s2.data() ) != 0; }
 
-Q_EXPORT inline bool operator<( const TQCString &s1, const TQCString& s2 )
+TQ_EXPORT inline bool operator<( const TQCString &s1, const TQCString& s2 )
 { return qstrcmp( s1.data(), s2.data() ) < 0; }
 
-Q_EXPORT inline bool operator<( const TQCString &s1, const char *s2 )
+TQ_EXPORT inline bool operator<( const TQCString &s1, const char *s2 )
 { return qstrcmp( s1.data(), s2 ) < 0; }
 
-Q_EXPORT inline bool operator<( const char *s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator<( const char *s1, const TQCString &s2 )
 { return qstrcmp( s1, s2.data() ) < 0; }
 
-Q_EXPORT inline bool operator<=( const TQCString &s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator<=( const TQCString &s1, const TQCString &s2 )
 { return qstrcmp( s1.data(), s2.data() ) <= 0; }
 
-Q_EXPORT inline bool operator<=( const TQCString &s1, const char *s2 )
+TQ_EXPORT inline bool operator<=( const TQCString &s1, const char *s2 )
 { return qstrcmp( s1.data(), s2 ) <= 0; }
 
-Q_EXPORT inline bool operator<=( const char *s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator<=( const char *s1, const TQCString &s2 )
 { return qstrcmp( s1, s2.data() ) <= 0; }
 
-Q_EXPORT inline bool operator>( const TQCString &s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator>( const TQCString &s1, const TQCString &s2 )
 { return qstrcmp( s1.data(), s2.data() ) > 0; }
 
-Q_EXPORT inline bool operator>( const TQCString &s1, const char *s2 )
+TQ_EXPORT inline bool operator>( const TQCString &s1, const char *s2 )
 { return qstrcmp( s1.data(), s2 ) > 0; }
 
-Q_EXPORT inline bool operator>( const char *s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator>( const char *s1, const TQCString &s2 )
 { return qstrcmp( s1, s2.data() ) > 0; }
 
-Q_EXPORT inline bool operator>=( const TQCString &s1, const TQCString& s2 )
+TQ_EXPORT inline bool operator>=( const TQCString &s1, const TQCString& s2 )
 { return qstrcmp( s1.data(), s2.data() ) >= 0; }
 
-Q_EXPORT inline bool operator>=( const TQCString &s1, const char *s2 )
+TQ_EXPORT inline bool operator>=( const TQCString &s1, const char *s2 )
 { return qstrcmp( s1.data(), s2 ) >= 0; }
 
-Q_EXPORT inline bool operator>=( const char *s1, const TQCString &s2 )
+TQ_EXPORT inline bool operator>=( const char *s1, const TQCString &s2 )
 { return qstrcmp( s1, s2.data() ) >= 0; }
 
-Q_EXPORT inline const TQCString operator+( const TQCString &s1,
+TQ_EXPORT inline const TQCString operator+( const TQCString &s1,
 					  const TQCString &s2 )
 {
     TQCString tmp( s1.data() );
@@ -364,28 +350,28 @@ Q_EXPORT inline const TQCString operator+( const TQCString &s1,
     return tmp;
 }
 
-Q_EXPORT inline const TQCString operator+( const TQCString &s1, const char *s2 )
+TQ_EXPORT inline const TQCString operator+( const TQCString &s1, const char *s2 )
 {
     TQCString tmp( s1.data() );
     tmp += s2;
     return tmp;
 }
 
-Q_EXPORT inline const TQCString operator+( const char *s1, const TQCString &s2 )
+TQ_EXPORT inline const TQCString operator+( const char *s1, const TQCString &s2 )
 {
     TQCString tmp( s1 );
     tmp += s2;
     return tmp;
 }
 
-Q_EXPORT inline const TQCString operator+( const TQCString &s1, char c2 )
+TQ_EXPORT inline const TQCString operator+( const TQCString &s1, char c2 )
 {
     TQCString tmp( s1.data() );
     tmp += c2;
     return tmp;
 }
 
-Q_EXPORT inline const TQCString operator+( char c1, const TQCString &s2 )
+TQ_EXPORT inline const TQCString operator+( char c1, const TQCString &s2 )
 {
     TQCString tmp;
     tmp += c1;

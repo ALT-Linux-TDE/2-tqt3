@@ -41,7 +41,7 @@ TimeStamp::TimeStamp( TQObject *parent, const TQString &f )
     : TQObject( parent ), filename( f ), autoCheck( FALSE )
 {
     timer = new TQTimer( this );
-    connect( timer, SIGNAL( timeout() ), this, SLOT( autoCheckTimeStamp() ) );
+    connect( timer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( autoCheckTimeStamp() ) );
     update();
 }
 

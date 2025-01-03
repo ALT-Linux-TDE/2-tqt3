@@ -40,7 +40,7 @@
 
 
 #include "ntqvbox.h"
-#ifndef QT_NO_VBOX
+#ifndef TQT_NO_VBOX
 
 /*!
     \class TQVBox ntqvbox.h

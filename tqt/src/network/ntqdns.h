@@ -51,10 +51,10 @@
 #if !defined( TQT_MODULE_NETWORK ) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_NETWORK )
 #define TQM_EXPORT_DNS
 #else
-#define TQM_EXPORT_DNS Q_EXPORT
+#define TQM_EXPORT_DNS TQ_EXPORT
 #endif
 
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
 
 //#define Q_DNS_SYNCHRONOUS
 
@@ -97,7 +97,7 @@ public:
 	    :name(n), priority(p) {}
 	TQString name;
 	TQ_UINT16 priority;
-	Q_DUMMY_COMPARISON_OPERATOR(MailServer)
+	TQ_DUMMY_COMPARISON_OPERATOR(MailServer)
     };
     TQValueList<MailServer> mailServers() const;
 
@@ -109,7 +109,7 @@ public:
 	TQ_UINT16 priority;
 	TQ_UINT16 weight;
 	TQ_UINT16 port;
-	Q_DUMMY_COMPARISON_OPERATOR(Server)
+	TQ_DUMMY_COMPARISON_OPERATOR(Server)
     };
     TQValueList<Server> servers() const;
 
@@ -165,6 +165,6 @@ private slots:
     virtual void answer();
 };
 
-#endif // QT_NO_DNS
+#endif // TQT_NO_DNS
 
 #endif // TQDNS_H

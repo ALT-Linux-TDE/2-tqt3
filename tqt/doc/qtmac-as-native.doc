@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2002-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -91,8 +91,8 @@ it can interact with specific components of the Mac OS X experience:
       This is a bit more subjective, but certainly Qt/Mac strives to
       provide the same feel as any Mac OS X application (and we
       consider situations where it doesn't achieve this to be bugs).
-      Of course Qt has other concerns to bear in mind, especially
-      remaining multiplatform. Some "baggage" that Qt carries is in
+      Of course TQt has other concerns to bear in mind, especially
+      remaining multiplatform. Some "baggage" that TQt carries is in
       an effort to provide a widget on a platform for which an
       equivelant doesn't exist, or so that a single API can be used to
       do something, even if the API doesn't make entire sense for a
@@ -121,18 +121,18 @@ it can interact with specific components of the Mac OS X experience:
 
    Interaction with the dock is limited, but at the very least the icon
    should be able to be interacted with. This can be achieved with
-   QWidget::setIcon(). The setIcon() call can be made as often as
+   TQWidget::setIcon(). The setIcon() call can be made as often as
    necessary, so can be used to provide a constantly updating pixmap
    that works as expected.
 
 \i <b>Accessiblity</b><br>
 
    Although many users never use this, some users will only interact
-   with your applications via assistive devices. With Qt the aim is to
+   with your applications via assistive devices. With TQt the aim is to
    make this automatic in your application so that it conforms to
    accepted practice on its platform (X11 accessiblity support is
    still in the works due to the developing nature of its
-   accessibility design). With Qt 3.3 Qt/Mac will support
+   accessibility design). With TQt 3.3 Qt/Mac will support
    accessiblity, and hopefully a host of assistive devices.
 
 \i <b>Build tools</b><br>
@@ -152,7 +152,7 @@ it can interact with specific components of the Mac OS X experience:
    and uic) since qmake automatically handles them and ensures that
    everything necessary is linked into your application.
 
-   Qt does not entirely interact with the development environment (for
+   TQt does not entirely interact with the development environment (for
    example plugins to set a file to 'mocable' from within the Xcode
    user interface). Trolltech is actively working on improving Qt's
    interoperability with various IDEs, so hopefully this will be

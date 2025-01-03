@@ -45,9 +45,9 @@
 #include "ntqwidget.h"
 #endif // QT_H
 
-#ifndef QT_NO_FRAME
+#ifndef TQT_NO_FRAME
 
-class Q_EXPORT TQFrame : public TQWidget
+class TQ_EXPORT TQFrame : public TQWidget
 {
     TQ_OBJECT
     TQ_ENUMS( Shape Shadow )
@@ -166,6 +166,6 @@ inline int TQFrame::frameWidth() const
 { return fwidth; }
 
 
-#endif // QT_NO_FRAME
+#endif // TQT_NO_FRAME
 
 #endif // TQFRAME_H

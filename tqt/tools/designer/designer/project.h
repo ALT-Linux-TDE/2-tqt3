@@ -54,14 +54,14 @@ struct DesignerDatabase;
 class PixmapCollection;
 class Project;
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 class TQSqlDatabase;
 
 class DatabaseConnection
 {
 public:
     DatabaseConnection( Project *p ) :
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 	conn( 0 ),
 #endif
 	project( p ), loaded( FALSE ), iface( 0 ) {}
@@ -93,7 +93,7 @@ public:
     TQStringList tables() const { return tbls; }
     TQStringList fields( const TQString& t ) { return flds[t]; }
     TQMap<TQString, TQStringList> fields() { return flds; }
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQSqlDatabase* connection() const { return conn; }
     void remove();
 #endif
@@ -105,7 +105,7 @@ private:
     int prt;
     TQStringList tbls;
     TQMap<TQString, TQStringList> flds;
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQSqlDatabase *conn;
 #endif
     Project *project;
@@ -150,7 +150,7 @@ public:
 
     void save( bool onlyProjectFile = FALSE );
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQPtrList<DatabaseConnection> databaseConnections() const;
     void setDatabaseConnections( const TQPtrList<DatabaseConnection> &lst );
     void addDatabaseConnection( DatabaseConnection *conn );
@@ -255,7 +255,7 @@ private:
     TQString proName;
     TQString desc;
     TQString dbFile;
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQPtrList<DatabaseConnection> dbConnections;
 #endif
     TQString lang;

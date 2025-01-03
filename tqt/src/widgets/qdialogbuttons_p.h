@@ -45,7 +45,7 @@
 #endif // QT_H
 #endif
 
-#ifndef QT_NO_DIALOGBUTTONS
+#ifndef TQT_NO_DIALOGBUTTONS
 struct TQDialogButtonsPrivate;
 
 class
@@ -54,10 +54,10 @@ TQDialogButtons : public TQWidget
     TQ_OBJECT
 public:
     enum Button { None=0, Accept=0x01, Reject=0x02, Help=0x04, Apply=0x08, All=0x10, Abort=0x20, Retry=0x40, Ignore=0x80 };
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
     TQDialogButtons(TQDialog *parent, bool autoConnect = TRUE, TQ_UINT32 buttons = Accept | Reject,
 		   Orientation orient = Horizontal, const char *name = NULL);
-#endif // QT_NO_DIALOG
+#endif // TQT_NO_DIALOG
     TQDialogButtons(TQWidget *parent, TQ_UINT32 buttons = Accept | Reject, 
 		   Orientation orient = Horizontal, const char *name = NULL);
     ~TQDialogButtons();
@@ -115,5 +115,5 @@ private:
     TQDialogButtonsPrivate *d;
     void init(TQ_UINT32, Orientation);
 };
-#endif //QT_NO_DIALOGBUTTONS
+#endif //TQT_NO_DIALOGBUTTONS
 #endif //TQDIALOGBUTTONS_P_H

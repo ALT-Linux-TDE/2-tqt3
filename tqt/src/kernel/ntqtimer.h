@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQTimer : public TQObject
+class TQ_EXPORT TQTimer : public TQObject
 {
     TQ_OBJECT
 public:

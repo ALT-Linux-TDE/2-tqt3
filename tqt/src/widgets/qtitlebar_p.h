@@ -60,13 +60,13 @@
 #include "ntqlabel.h"
 #endif // QT_H
 
-#if !defined(QT_NO_TITLEBAR)
+#if !defined(TQT_NO_TITLEBAR)
 
 class TQToolTip;
 class TQTitleBarPrivate;
 class TQPixmap;
 
-class Q_EXPORT TQTitleBar : public TQWidget
+class TQ_EXPORT TQTitleBar : public TQWidget
 {
     TQ_OBJECT
     TQ_PROPERTY( bool autoRaise READ autoRaise WRITE setAutoRaise )
@@ -90,7 +90,7 @@ public:
 
     TQSize sizeHint() const;
 
-#ifdef QT_NO_WIDGET_TOPEXTRA
+#ifdef TQT_NO_WIDGET_TOPEXTRA
     // We provide one, since titlebar is useless otherwise.
     TQString caption() const;
 #endif

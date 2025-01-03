@@ -14,7 +14,7 @@ QFontDialog \- Dialog widget for selecting a font
 Inherits QDialog.
 .PP
 .SS "Static Public Members"
-<li class=fn>QFont \fBgetFont\fR ( bool * ok, const QFont & initial, QWidget * parent = 0, const char * name = 0 ) <li class=fn>QFont \fBgetFont\fR ( bool * ok, QWidget * parent = 0, const char * name = 0 )
+<li class=fn>QFont \fBgetFont\fR ( bool * ok, const QFont & initial, TQWidget * parent = 0, const char * name = 0 ) <li class=fn>QFont \fBgetFont\fR ( bool * ok, TQWidget * parent = 0, const char * name = 0 )
 .SH DESCRIPTION
 The QFontDialog class provides a dialog widget for selecting a font.
 .PP
@@ -60,7 +60,7 @@ See also QFont, QFontInfo, QFontMetrics, and Dialog Classes.
 .B "[Image Omitted]"
 .PP
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QFont QFontDialog::getFont ( bool * ok, const QFont & initial, QWidget * parent = 0, const char * name = 0 )\fC [static]\fR"
+.SH "QFont QFontDialog::getFont ( bool * ok, const QFont & initial, TQWidget * parent = 0, const char * name = 0 )\fC [static]\fR"
 Executes a modal font dialog and returns a font.
 .PP
 If the user clicks OK, the selected font is returned. If the user clicks Cancel, the \fIinitial\fR font is returned.
@@ -103,12 +103,12 @@ In this example, if the user clicks OK the font they chose will be used, and if 
 .PP
 Examples:
 .)l chart/chartform.cpp, chart/optionsform.cpp, qfd/fontdisplayer.cpp, qwerty/qwerty.cpp, and xform/xform.cpp.
-.SH "QFont QFontDialog::getFont ( bool * ok, QWidget * parent = 0, const char * name = 0 )\fC [static]\fR"
+.SH "QFont QFontDialog::getFont ( bool * ok, TQWidget * parent = 0, const char * name = 0 )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Executes a modal font dialog and returns a font.
 .PP
-If the user clicks OK, the selected font is returned. If the user clicks Cancel, the Qt default font is returned.
+If the user clicks OK, the selected font is returned. If the user clicks Cancel, the TQt default font is returned.
 .PP
 The dialog is called \fIname\fR, with parent \fIparent\fR. If the \fIok\fR parameter is not-null, \fI*\fR\fIok\fR is set to TRUE if the user clicked OK, and FALSE if the user clicked Cancel.
 .PP
@@ -151,8 +151,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

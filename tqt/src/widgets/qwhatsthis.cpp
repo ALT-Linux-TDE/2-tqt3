@@ -37,7 +37,7 @@
 **********************************************************************/
 
 #include "ntqwhatsthis.h"
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 #include "ntqapplication.h"
 #include "ntqpaintdevicemetrics.h"
 #include "ntqpixmap.h"
@@ -54,7 +54,7 @@
 #if defined(QT_ACCESSIBILITY_SUPPORT)
 #include "ntqaccessible.h"
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #include "qt_windows.h"
 #ifndef SPI_GETDROPSHADOW
 #define SPI_GETDROPSHADOW                   0x1024
@@ -163,7 +163,7 @@ protected:
 
 private:
     TQString text;
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     TQSimpleRichText* doc;
 #endif
     TQString anchor;
@@ -247,16 +247,16 @@ TQWhatsThat::TQWhatsThat( TQWidget* w, const TQString& txt, TQWidget* parent, co
     setBackgroundMode( NoBackground );
     setPalette( TQToolTip::palette() );
     setMouseTracking( TRUE );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     setCursor( arrowCursor );
 #endif
 
     if ( widget )
-	connect( widget, SIGNAL( destroyed() ), this, SLOT( widgetDestroyed() ) );
+	connect( widget, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( widgetDestroyed() ) );
 
 
     TQRect r;
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     doc = 0;
     if ( TQStyleSheet::mightBeRichText( text ) ) {
 	TQFont f = TQApplication::font( this );
@@ -277,7 +277,7 @@ TQWhatsThat::TQWhatsThat( TQWidget* w, const TQString& txt, TQWidget* parent, co
 					AlignAuto + AlignTop + WordBreak + ExpandTabs,
 					text );
     }
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( (qWinVersion()&WV_NT_based) > WV_2000 ) {
 	BOOL shadow;
 	SystemParametersInfo( SPI_GETDROPSHADOW, 0, &shadow, 0 );
@@ -291,7 +291,7 @@ TQWhatsThat::~TQWhatsThat()
 {
     if ( wt && wt->whatsThat == this )
 	wt->whatsThat = 0;
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     if ( doc )
 	delete doc;
 #endif
@@ -309,7 +309,7 @@ void TQWhatsThat::mousePressEvent( TQMouseEvent* e )
 {
     pressed = TRUE;
     if ( e->button() == LeftButton && rect().contains( e->pos() ) ) {
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 	if ( doc )
 	    anchor = doc->anchorAt( e->pos() -  TQPoint( hMargin, vMargin) );
 #endif
@@ -322,7 +322,7 @@ void TQWhatsThat::mouseReleaseEvent( TQMouseEvent* e )
 {
     if ( !pressed )
 	return;
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     if ( e->button() == LeftButton && doc && rect().contains( e->pos() ) ) {
 	TQString a = doc->anchorAt( e->pos() -  TQPoint( hMargin, vMargin ) );
 	TQString href;
@@ -341,8 +341,8 @@ void TQWhatsThat::mouseReleaseEvent( TQMouseEvent* e )
 
 void TQWhatsThat::mouseMoveEvent( TQMouseEvent* e)
 {
-#ifndef QT_NO_RICHTEXT
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_RICHTEXT
+#ifndef TQT_NO_CURSOR
     if ( !doc )
 	return;
     TQString a = doc->anchorAt( e->pos() -  TQPoint( hMargin, vMargin ) );
@@ -365,13 +365,13 @@ void TQWhatsThat::keyPressEvent( TQKeyEvent* )
 void TQWhatsThat::paintEvent( TQPaintEvent* )
 {
     bool drawShadow = TRUE;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( (qWinVersion()&WV_NT_based) > WV_2000 ) {
 	BOOL shadow;
 	SystemParametersInfo( SPI_GETDROPSHADOW, 0, &shadow, 0 );
 	drawShadow = !shadow;
     }
-#elif defined(Q_WS_MACX)
+#elif defined(TQ_WS_MACX)
     drawShadow = FALSE; //never draw it on OS X we get it for free
 #endif
 
@@ -402,7 +402,7 @@ void TQWhatsThat::paintEvent( TQPaintEvent* )
     p.setPen( colorGroup().foreground() );
     r.addCoords( hMargin, vMargin, -hMargin, -vMargin );
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     if ( doc ) {
 	doc->draw( &p, r.x(), r.y(), r, colorGroup(), 0 );
     }
@@ -455,8 +455,8 @@ TQWhatsThisButton::TQWhatsThisButton( TQWidget * parent, const char * name )
     setFocusPolicy( NoFocus );
     setTextLabel( tr( "What's this?" ) );
     wt->buttons->insert( (void *)this, this );
-    connect( this, SIGNAL( released() ),
-	     this, SLOT( mouseReleased() ) );
+    connect( this, TQ_SIGNAL( released() ),
+	     this, TQ_SLOT( mouseReleased() ) );
 }
 
 
@@ -471,7 +471,7 @@ void TQWhatsThisButton::mouseReleased()
 {
     if ( wt->state == TQWhatsThisPrivate::Inactive && isOn() ) {
 	TQWhatsThisPrivate::setUpWhatsThis();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::setOverrideCursor( whatsThisCursor, FALSE );
 #endif
 	wt->state = TQWhatsThisPrivate::Waiting;
@@ -501,7 +501,7 @@ TQWhatsThisPrivate::TQWhatsThisPrivate()
 
 TQWhatsThisPrivate::~TQWhatsThisPrivate()
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( state == Waiting && tqApp )
 	TQApplication::restoreOverrideCursor();
 #endif
@@ -639,7 +639,7 @@ void TQWhatsThisPrivate::leaveWhatsThisMode()
 	    ++it;
 	    b->setOn( FALSE );
 	}
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::restoreOverrideCursor();
 #endif
 	state = Inactive;
@@ -657,7 +657,7 @@ void TQWhatsThisPrivate::say( TQWidget * widget, const TQString &text, const TQP
     delete whatsThat;
     whatsThat = new TQWhatsThat(
 			       widget, text,
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 			       TQApplication::desktop()->screen( widget ?
 								widget->x11Screen() :
 								TQCursor::x11Screen() ),
@@ -671,11 +671,11 @@ void TQWhatsThisPrivate::say( TQWidget * widget, const TQString &text, const TQP
 
     int scr = ( widget ?
 		TQApplication::desktop()->screenNumber( widget ) :
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 		TQCursor::x11Screen()
 #else
 		TQApplication::desktop()->screenNumber( ppos )
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 		);
     TQRect screen = TQApplication::desktop()->screenGeometry( scr );
 
@@ -742,7 +742,7 @@ TQWhatsThisPrivate::WhatsThisItem* TQWhatsThisPrivate::newItem( TQWidget * widge
 	tlw->insert( (void *)t, t );
 	t->installEventFilter( this );
     }
-    connect( widget, SIGNAL(destroyed()), this, SLOT(cleanupWidget()) );
+    connect( widget, TQ_SIGNAL(destroyed()), this, TQ_SLOT(cleanupWidget()) );
     return i;
 }
 
@@ -919,7 +919,7 @@ void TQWhatsThis::enterWhatsThisMode()
     TQWhatsThisPrivate::setUpWhatsThis();
     if ( wt->state == TQWhatsThisPrivate::Inactive ) {
 	wt->enterWhatsThisMode();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::setOverrideCursor( whatsThisCursor, FALSE );
 #endif
 	wt->state = TQWhatsThisPrivate::Waiting;

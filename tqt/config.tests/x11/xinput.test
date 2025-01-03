@@ -39,7 +39,7 @@ for LIBDIR in $LIBDIRS; do
 done
 if [ -z "$F" ]; then
     XINPUT=no
-    [ "VERBOSE" = "yes" ] && echo "  Could not find XInput lib anywhere in $LIBDIRS"
+    [ "$VERBOSE" = "yes" ] && echo "  Could not find XInput lib anywhere in $LIBDIRS"
 fi
 
 # check for XInput.h and the IRIX wacom.h

@@ -55,11 +55,11 @@
 #define TQM_EXPORT_CANVAS
 #define TQM_TEMPLATE_EXTERN_CANVAS
 #else
-#define TQM_EXPORT_CANVAS Q_EXPORT
+#define TQM_EXPORT_CANVAS TQ_EXPORT
 #define TQM_TEMPLATE_EXTERN_CANVAS Q_TEMPLATE_EXTERN
 #endif
 
-#ifndef QT_NO_CANVAS
+#ifndef TQT_NO_CANVAS
 
 
 class TQCanvasSprite;
@@ -143,7 +143,7 @@ public:
     virtual void setActive(bool yes);
     bool isActive() const
 	{ return (bool)act; }
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     bool visible() const
 	{ return (bool)vis; }
     bool selected() const
@@ -403,7 +403,7 @@ private:
 class TQM_EXPORT_CANVAS TQCanvasPixmap : public TQPixmap
 {
 public:
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     TQCanvasPixmap(const TQString& datafilename);
 #endif
     TQCanvasPixmap(const TQImage& image);
@@ -438,7 +438,7 @@ class TQM_EXPORT_CANVAS TQCanvasPixmapArray
 {
 public:
     TQCanvasPixmapArray();
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     TQCanvasPixmapArray(const TQString& datafilenamepattern, int framecount=0);
 #endif
     // this form is deprecated
@@ -447,7 +447,7 @@ public:
     TQCanvasPixmapArray(TQValueList<TQPixmap>, TQPointArray hotspots = TQPointArray() );
     ~TQCanvasPixmapArray();
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     bool readPixmaps(const TQString& datafilenamepattern, int framecount=0);
     bool readCollisionMasks(const TQString& filenamepattern);
 #endif
@@ -467,7 +467,7 @@ private:
     TQCanvasPixmapArray( const TQCanvasPixmapArray & );
     TQCanvasPixmapArray &operator=( const TQCanvasPixmapArray & );
 #endif
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     bool readPixmaps(const TQString& datafilenamepattern, int framecount, bool maskonly);
 #endif
 
@@ -811,6 +811,6 @@ private:
 
 #define Q_DEFINED_QCANVAS
 #include "ntqwinexport.h"
-#endif // QT_NO_CANVAS
+#endif // TQT_NO_CANVAS
 
 #endif // TQCANVAS_H

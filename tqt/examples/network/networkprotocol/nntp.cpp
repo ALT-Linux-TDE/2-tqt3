@@ -20,16 +20,16 @@ Nntp::Nntp()
 {
     // create the command socket and connect to its signals
     commandSocket = new TQSocket( this );
-    connect( commandSocket, SIGNAL( hostFound() ),
-	     this, SLOT( hostFound() ) );
-    connect( commandSocket, SIGNAL( connected() ),
-	     this, SLOT( connected() ) );
-    connect( commandSocket, SIGNAL( connectionClosed() ),
-	     this, SLOT( closed() ) );
-    connect( commandSocket, SIGNAL( readyRead() ),
-	     this, SLOT( readyRead() ) );
-    connect( commandSocket, SIGNAL( error( int ) ),
-	     this, SLOT( error( int ) ) );
+    connect( commandSocket, TQ_SIGNAL( hostFound() ),
+	     this, TQ_SLOT( hostFound() ) );
+    connect( commandSocket, TQ_SIGNAL( connected() ),
+	     this, TQ_SLOT( connected() ) );
+    connect( commandSocket, TQ_SIGNAL( connectionClosed() ),
+	     this, TQ_SLOT( closed() ) );
+    connect( commandSocket, TQ_SIGNAL( readyRead() ),
+	     this, TQ_SLOT( readyRead() ) );
+    connect( commandSocket, TQ_SIGNAL( error( int ) ),
+	     this, TQ_SLOT( error( int ) ) );
 }
 
 Nntp::~Nntp()

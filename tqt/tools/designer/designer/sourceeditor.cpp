@@ -52,7 +52,7 @@ SourceEditor::SourceEditor( TQWidget *parent, EditorInterface *iface, LanguageIn
     lIface->addRef();
     editor = iFace->editor( MainWindow::self->areEditorsReadOnly(),
 			    this, MainWindow::self->designerInterface() );
-    iFace->onBreakPointChange( MainWindow::self, SLOT( breakPointsChanged() ) );
+    iFace->onBreakPointChange( MainWindow::self, TQ_SLOT( breakPointsChanged() ) );
     resize( 600, 400 );
     setIcon( TQPixmap::fromMimeSource( "designer_filenew.png" ) );
 }

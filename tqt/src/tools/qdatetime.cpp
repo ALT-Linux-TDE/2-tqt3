@@ -69,7 +69,7 @@ static const char * const qt_shortMonthNames[] = {
 	"Jan", "Feb", "Mar", "Apr", "May", "Jun",
 	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
 /*****************************************************************************
   Some static function used by TQDate, TQTime and TQDateTime
  *****************************************************************************/
@@ -125,7 +125,7 @@ static TQString getFmtString( const TQString& f, const TQTime* dt = 0, const TQD
 	    buf = TQString::number( dd->month() );
 	} else if ( f == "MM" ) {
 	    buf = TQString::number( dd->month() ).rightJustify( 2, '0', TRUE );
-#ifndef QT_NO_TEXTDATE
+#ifndef TQT_NO_TEXTDATE
 	} else if ( f == "ddd" ) {
 	    buf = dd->shortDayName( dd->dayOfWeek() );
 	} else if ( f == "dddd" ) {
@@ -195,7 +195,7 @@ static TQString fmtDateTime( const TQString& f, const TQTime* dt = 0, const TQDa
 
     return buf;
 }
-#endif // QT_NO_DATESTRING
+#endif // TQT_NO_DATESTRING
 
 /*****************************************************************************
   TQDate member functions
@@ -497,7 +497,7 @@ int TQDate::weekNumber( int *yearNumber ) const
 
   Use shortMonthName() instead.
 */
-#ifndef QT_NO_TEXTDATE
+#ifndef TQT_NO_TEXTDATE
 /*!
     Returns the name of the \a month.
 
@@ -517,7 +517,7 @@ TQString TQDate::shortMonthName( int month )
 	month = 1;
     }
 #endif
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     char buffer[255];
     tm tt;
     memset( &tt, 0, sizeof( tm ) );
@@ -563,7 +563,7 @@ TQString TQDate::longMonthName( int month )
 	month = 1;
     }
 #endif
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     char buffer[255];
     tm tt;
     memset( &tt, 0, sizeof( tm ) );
@@ -617,7 +617,7 @@ TQString TQDate::shortDayName( int weekday )
 	weekday = 1;
     }
 #endif
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     char buffer[255];
     tm tt;
     memset( &tt, 0, sizeof( tm ) );
@@ -665,7 +665,7 @@ TQString TQDate::longDayName( int weekday )
 	weekday = 1;
     }
 #endif
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     char buffer[255];
     tm tt;
     memset( &tt, 0, sizeof( tm ) );
@@ -693,11 +693,11 @@ TQString TQDate::longDayName( int weekday )
 
     return TQString::null;
 }
-#endif //QT_NO_TEXTDATE
+#endif //TQT_NO_TEXTDATE
 
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
 
-#if !defined(QT_NO_SPRINTF)
+#if !defined(TQT_NO_SPRINTF)
 /*!
     \overload
 
@@ -731,7 +731,7 @@ TQString TQDate::toString( TQt::DateFormat f ) const
     switch ( f ) {
     case TQt::LocalDate:
 	{
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 	    tm tt;
 	    memset( &tt, 0, sizeof( tm ) );
 	    char buf[255];
@@ -761,7 +761,7 @@ TQString TQDate::toString( TQt::DateFormat f ) const
 	    return TQString::null;
 	}
     default:
-#ifndef QT_NO_TEXTDATE
+#ifndef TQT_NO_TEXTDATE
     case TQt::TextDate:
 	{
 	    TQString buf = shortDayName( dayOfWeek() );
@@ -781,7 +781,7 @@ TQString TQDate::toString( TQt::DateFormat f ) const
 	}
     }
 }
-#endif //QT_NO_SPRINTF
+#endif //TQT_NO_SPRINTF
 
 /*!
     Returns the date as a string. The \a format parameter determines
@@ -830,7 +830,7 @@ TQString TQDate::toString( const TQString& format ) const
 {
     return fmtDateTime( format, 0, this );
 }
-#endif //QT_NO_DATESTRING
+#endif //TQT_NO_DATESTRING
 
 /*!
     Sets the date's year \a y, month \a m and day \a d.
@@ -1039,7 +1039,7 @@ TQDate TQDate::currentDate( TQt::TimeSpec ts )
     time( &ltime );
     tm *t;
 
-#  if defined(QT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+#  if defined(TQT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
     // use the reentrant versions of localtime() and gmtime() where available
     tm res;
     if ( ts == TQt::LocalTime )
@@ -1051,14 +1051,14 @@ TQDate TQDate::currentDate( TQt::TimeSpec ts )
 	t = localtime( &ltime );
     else
 	t = gmtime( &ltime );
-#  endif // QT_THREAD_SUPPORT && _POSIX_THREAD_SAFE_FUNCTIONS
+#  endif // TQT_THREAD_SUPPORT && _POSIX_THREAD_SAFE_FUNCTIONS
 
     d.jd = gregorianToJulian( t->tm_year + 1900, t->tm_mon + 1, t->tm_mday );
 #endif
     return d;
 }
 
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
 /*!
     Returns the TQDate represented by the string \a s, using the format
     \a f, or an invalid date if the string cannot be parsed.
@@ -1090,7 +1090,7 @@ TQDate TQDate::fromString( const TQString& s, TQt::DateFormat f )
 	}
 	break;
     default:
-#ifndef QT_NO_TEXTDATE
+#ifndef TQT_NO_TEXTDATE
     case TQt::TextDate:
 	{
 	    /*
@@ -1138,7 +1138,7 @@ TQDate TQDate::fromString( const TQString& s, TQt::DateFormat f )
     }
     return TQDate();
 }
-#endif //QT_NO_DATESTRING
+#endif //TQT_NO_DATESTRING
 
 /*!
     \overload
@@ -1368,8 +1368,8 @@ int TQTime::msec() const
     return ds % 1000;
 }
 
-#ifndef QT_NO_DATESTRING
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_DATESTRING
+#ifndef TQT_NO_SPRINTF
 /*!
     \overload
 
@@ -1397,7 +1397,7 @@ TQString TQTime::toString( TQt::DateFormat f ) const
     switch ( f ) {
     case TQt::LocalDate:
 	{
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 	    tm tt;
 	    memset( &tt, 0, sizeof( tm ) );
 	    char buf[255];
@@ -1477,7 +1477,7 @@ TQString TQTime::toString( const TQString& format ) const
 {
     return fmtDateTime( format, this, 0 );
 }
-#endif //QT_NO_DATESTRING
+#endif //TQT_NO_DATESTRING
 /*!
     Sets the time to hour \a h, minute \a m, seconds \a s and
     milliseconds \a ms.
@@ -1653,7 +1653,7 @@ TQTime TQTime::currentTime( TQt::TimeSpec ts )
     return t;
 }
 
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
 /*!
     Returns the representation \a s as a TQTime using the format \a f,
     or an invalid time if this is not possible.
@@ -1729,7 +1729,7 @@ bool TQTime::currentTime( TQTime *ct, TQt::TimeSpec ts )
     time_t ltime = tv.tv_sec;
     tm *t;
 
-#  if defined(QT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+#  if defined(TQT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
     // use the reentrant versions of localtime() and gmtime() where available
     tm res;
     if ( ts == TQt::LocalTime )
@@ -1741,7 +1741,7 @@ bool TQTime::currentTime( TQTime *ct, TQt::TimeSpec ts )
 	t = localtime( &ltime );
     else
 	t = gmtime( &ltime );
-#  endif // QT_THREAD_SUPPORT && _POSIX_THREAD_SAFE_FUNCTIONS
+#  endif // TQT_THREAD_SUPPORT && _POSIX_THREAD_SAFE_FUNCTIONS
 
     ct->ds = (uint)( MSECS_PER_HOUR * t->tm_hour + MSECS_PER_MIN * t->tm_min +
 		     1000 * t->tm_sec + tv.tv_usec / 1000 );
@@ -1997,7 +1997,7 @@ TQDateTime::TQDateTime( const TQDate &date, const TQTime &time )
     \sa setTime_t()
 */
 
-uint TQDateTime::toTime_t() const
+time_t TQDateTime::toTime_t() const
 {
     tm brokenDown;
     brokenDown.tm_sec = t.second();
@@ -2007,10 +2007,10 @@ uint TQDateTime::toTime_t() const
     brokenDown.tm_mon = d.month() - 1;
     brokenDown.tm_year = d.year() - 1900;
     brokenDown.tm_isdst = -1;
-    int secsSince1Jan1970UTC = (int) mktime( &brokenDown );
+    time_t secsSince1Jan1970UTC = mktime( &brokenDown );
     if ( secsSince1Jan1970UTC < -1 )
 	secsSince1Jan1970UTC = -1;
-    return (uint) secsSince1Jan1970UTC;
+    return secsSince1Jan1970UTC;
 }
 
 /*!
@@ -2020,7 +2020,7 @@ uint TQDateTime::toTime_t() const
     based on the given UTC time.
 */
 
-void TQDateTime::setTime_t( uint secsSince1Jan1970UTC )
+void TQDateTime::setTime_t( time_t secsSince1Jan1970UTC )
 {
     setTime_t( secsSince1Jan1970UTC, TQt::LocalTime );
 }
@@ -2037,12 +2037,12 @@ void TQDateTime::setTime_t( uint secsSince1Jan1970UTC )
 
     \sa toTime_t()
 */
-void TQDateTime::setTime_t( uint secsSince1Jan1970UTC, TQt::TimeSpec ts )
+void TQDateTime::setTime_t( time_t secsSince1Jan1970UTC, TQt::TimeSpec ts )
 {
-    time_t tmp = (time_t) secsSince1Jan1970UTC;
+    time_t tmp = secsSince1Jan1970UTC;
     tm *brokenDown = 0;
 
-#if defined(Q_OS_UNIX) && defined(QT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+#if defined(Q_OS_UNIX) && defined(TQT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
     // posix compliant system
     // use the reentrant versions of localtime() and gmtime() where available
     tm res;
@@ -2076,8 +2076,8 @@ void TQDateTime::setTime_t( uint secsSince1Jan1970UTC, TQt::TimeSpec ts )
 	   MSECS_PER_MIN * brokenDown->tm_min +
 	   1000 * brokenDown->tm_sec;
 }
-#ifndef QT_NO_DATESTRING
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_DATESTRING
+#ifndef TQT_NO_SPRINTF
 /*!
     \overload
 
@@ -2110,9 +2110,9 @@ TQString TQDateTime::toString( TQt::DateFormat f ) const
     if ( f == TQt::ISODate ) {
 	return d.toString( TQt::ISODate ) + "T" + t.toString( TQt::ISODate );
     }
-#ifndef QT_NO_TEXTDATE
+#ifndef TQT_NO_TEXTDATE
     else if ( f == TQt::TextDate ) {
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 	TQString buf = d.shortDayName( d.dayOfWeek() );
 	buf += ' ';
 	buf += d.shortMonthName( d.month() );
@@ -2222,7 +2222,7 @@ TQString TQDateTime::toString( const TQString& format ) const
 {
     return fmtDateTime( format, &t, &d );
 }
-#endif //QT_NO_DATESTRING
+#endif //TQT_NO_DATESTRING
 
 /*!
     Returns a TQDateTime object containing a datetime \a ndays days
@@ -2434,7 +2434,7 @@ TQDateTime TQDateTime::currentDateTime( TQt::TimeSpec ts )
     return dt;
 }
 
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
 /*!
     Returns the TQDateTime represented by the string \a s, using the
     format \a f, or an invalid datetime if this is not possible.
@@ -2459,7 +2459,7 @@ TQDateTime TQDateTime::fromString( const TQString& s, TQt::DateFormat f )
 	return TQDateTime( TQDate::fromString( s.mid(0,10), TQt::ISODate ),
 			  TQTime::fromString( s.mid(11), TQt::ISODate ) );
     }
-#if !defined(QT_NO_REGEXP) && !defined(QT_NO_TEXTDATE)
+#if !defined(TQT_NO_REGEXP) && !defined(TQT_NO_TEXTDATE)
     else if ( f == TQt::TextDate ) {
         const int firstSpace = s.find(' ');
 	TQString monthName( s.mid( firstSpace + 1, 3 ) );
@@ -2502,17 +2502,17 @@ TQDateTime TQDateTime::fromString( const TQString& s, TQt::DateFormat f )
 	}
 	return TQDateTime( date, time );
     }
-#endif //QT_NO_REGEXP
+#endif //TQT_NO_REGEXP
     return TQDateTime();
 }
-#endif //QT_NO_DATESTRING
+#endif //TQT_NO_DATESTRING
 
 
 /*****************************************************************************
   Date/time stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQDate
 
@@ -2597,4 +2597,4 @@ TQDataStream &operator>>( TQDataStream &s, TQDateTime &dt )
     s >> dt.d >> dt.t;
     return s;
 }
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM

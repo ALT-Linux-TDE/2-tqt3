@@ -25,25 +25,25 @@ This class is part of the \fBQt ActiveQt Extension\fR.
 .BI "virtual QStringList \fBfeatureList\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QWidget * \fBcreate\fR ( const QString & key, QWidget * parent = 0, const char * name = 0 )"
+.BI "virtual TQWidget * \fBcreate\fR ( const TQString & key, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "virtual QObject * \fBcreateObject\fR ( const QString & key, QObject * parent = 0, const char * name = 0 )"
+.BI "virtual TQObject * \fBcreateObject\fR ( const TQString & key, TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "virtual QMetaObject * \fBmetaObject\fR ( const QString & key ) const"
+.BI "virtual QMetaObject * \fBmetaObject\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "virtual bool \fBcreateObjectWrapper\fR ( QObject * object, IDispatch ** wrapper )"
+.BI "virtual bool \fBcreateObjectWrapper\fR ( TQObject * object, IDispatch ** wrapper )"
 .br
 .ti -1c
-.BI "virtual QUuid \fBclassID\fR ( const QString & key ) const"
+.BI "virtual QUuid \fBclassID\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "virtual QUuid \fBinterfaceID\fR ( const QString & key ) const"
+.BI "virtual QUuid \fBinterfaceID\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "virtual QUuid \fBeventsID\fR ( const QString & key ) const"
+.BI "virtual QUuid \fBeventsID\fR ( const TQString & key ) const"
 .br
 .ti -1c
 .BI "virtual QUuid \fBtypeLibID\fR () const"
@@ -52,22 +52,22 @@ This class is part of the \fBQt ActiveQt Extension\fR.
 .BI "virtual QUuid \fBappID\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBregisterClass\fR ( const QString & key, QSettings * settings ) const"
+.BI "virtual void \fBregisterClass\fR ( const TQString & key, QSettings * settings ) const"
 .br
 .ti -1c
-.BI "virtual void \fBunregisterClass\fR ( const QString & key, QSettings * settings ) const"
+.BI "virtual void \fBunregisterClass\fR ( const TQString & key, QSettings * settings ) const"
 .br
 .ti -1c
-.BI "virtual bool \fBvalidateLicenseKey\fR ( const QString & key, const QString & licenseKey ) const"
+.BI "virtual bool \fBvalidateLicenseKey\fR ( const TQString & key, const TQString & licenseKey ) const"
 .br
 .ti -1c
-.BI "virtual QString \fBexposeToSuperClass\fR ( const QString & key ) const"
+.BI "virtual TQString \fBexposeToSuperClass\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "virtual bool \fBstayTopLevel\fR ( const QString & key ) const"
+.BI "virtual bool \fBstayTopLevel\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "virtual bool \fBhasStockEvents\fR ( const QString & key ) const"
+.BI "virtual bool \fBhasStockEvents\fR ( const TQString & key ) const"
 .br
 .ti -1c
 .BI "virtual bool \fBisService\fR () const"
@@ -82,10 +82,10 @@ This class is part of the \fBQt ActiveQt Extension\fR.
 .BI "bool \fBisServer\fR ()"
 .br
 .ti -1c
-.BI "QString \fBserverDirPath\fR ()"
+.BI "TQString \fBserverDirPath\fR ()"
 .br
 .ti -1c
-.BI "QString \fBserverFilePath\fR ()"
+.BI "TQString \fBserverFilePath\fR ()"
 .br
 .ti -1c
 .BI "bool \fBstartServer\fR ( ServerType type = MultipleInstances )"
@@ -95,7 +95,7 @@ This class is part of the \fBQt ActiveQt Extension\fR.
 .br
 .in -1c
 .SH DESCRIPTION
-This class is defined in the \fBQt ActiveQt Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main Qt API.
+This class is defined in the \fBQt ActiveQt Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main TQt API.
 .PP
 The QAxFactory class defines a factory for the creation of COM components.
 .PP
@@ -152,7 +152,7 @@ If you implement your own factory reimplement the pure virtual functions, provid
     }
 .br
 .br
-    QWidget *ActiveQtFactory::create( const QString &key, QWidget *parent, const char *name )
+    TQWidget *ActiveQtFactory::create( const TQString &key, TQWidget *parent, const char *name )
 .br
     {
 .br
@@ -171,7 +171,7 @@ If you implement your own factory reimplement the pure virtual functions, provid
     }
 .br
 .br
-    QUuid ActiveQtFactory::classID( const QString &key ) const
+    QUuid ActiveQtFactory::classID( const TQString &key ) const
 .br
     {
 .br
@@ -186,7 +186,7 @@ If you implement your own factory reimplement the pure virtual functions, provid
     }
 .br
 .br
-    QUuid ActiveQtFactory::interfaceID( const QString &key ) const
+    QUuid ActiveQtFactory::interfaceID( const TQString &key ) const
 .br
     {
 .br
@@ -201,7 +201,7 @@ If you implement your own factory reimplement the pure virtual functions, provid
     }
 .br
 .br
-    QUuid ActiveQtFactory::eventsID( const QString &key ) const
+    QUuid ActiveQtFactory::eventsID( const TQString &key ) const
 .br
     {
 .br
@@ -265,39 +265,39 @@ Constructs a QAxFactory object that returns \fIlibid\fR and \fIappid\fR in the i
 Destroys the QAxFactory object.
 .SH "QUuid QAxFactory::appID () const\fC [virtual]\fR"
 Reimplement this function to return the ActiveX server's application identifier.
-.SH "QUuid QAxFactory::classID ( const QString & key ) const\fC [virtual]\fR"
+.SH "QUuid QAxFactory::classID ( const TQString & key ) const\fC [virtual]\fR"
 Reimplement this function to return the class identifier for each \fIkey\fR returned by the featureList() implementation, or an empty QUuid if this factory doesn't support the value of \fIkey\fR.
 .PP
 The default implementation interprets \fIkey\fR as the class name, and returns the value of the TQ_CLASSINFO entry "ClassID".
-.SH "QWidget * QAxFactory::create ( const QString & key, QWidget * parent = 0, const char * name = 0 )\fC [virtual]\fR"
-Reimplement this function to return a new widget for \fIkey\fR. Propagate \fIparent\fR and \fIname\fR to the QWidget constructor. Return 0 if this factory doesn't support the value of \fIkey\fR.
+.SH "TQWidget * QAxFactory::create ( const TQString & key, TQWidget * parent = 0, const char * name = 0 )\fC [virtual]\fR"
+Reimplement this function to return a new widget for \fIkey\fR. Propagate \fIparent\fR and \fIname\fR to the TQWidget constructor. Return 0 if this factory doesn't support the value of \fIkey\fR.
 .PP
 The returned widget will be exposed as an ActiveX control, e.g. a COM object that can be embedded as a control into applications.
 .PP
 The default implementation returns 0.
-.SH "QObject * QAxFactory::createObject ( const QString & key, QObject * parent = 0, const char * name = 0 )\fC [virtual]\fR"
-Reimplement this function to return a new object for \fIkey\fR. Propagate \fIparent\fR and \fIname\fR to the QWidget constructor. Return 0 if this factory doesn't support the value of \fIkey\fR.
+.SH "TQObject * QAxFactory::createObject ( const TQString & key, TQObject * parent = 0, const char * name = 0 )\fC [virtual]\fR"
+Reimplement this function to return a new object for \fIkey\fR. Propagate \fIparent\fR and \fIname\fR to the TQWidget constructor. Return 0 if this factory doesn't support the value of \fIkey\fR.
 .PP
-If the object returned is a QWidget it will be exposed as an ActiveX control, otherwise the returned object will be exposed as a COM object.
+If the object returned is a TQWidget it will be exposed as an ActiveX control, otherwise the returned object will be exposed as a COM object.
 .PP
 The default implementation returns the result QAxFactory::create() if \fIparent\fR is 0 or a widget, otherwise returns 0.
-.SH "bool QAxFactory::createObjectWrapper ( QObject * object, IDispatch ** wrapper )\fC [virtual]\fR"
+.SH "bool QAxFactory::createObjectWrapper ( TQObject * object, IDispatch ** wrapper )\fC [virtual]\fR"
 Reimplement this function to provide the COM object for \fIobject\fR in \fIwrapper\fR. Return TRUE if the function was successfull, otherwise return FALSE.
 .PP
 The default implementation creates a generic automation wrapper based on the meta object information of \fIobject\fR.
-.SH "QUuid QAxFactory::eventsID ( const QString & key ) const\fC [virtual]\fR"
+.SH "QUuid QAxFactory::eventsID ( const TQString & key ) const\fC [virtual]\fR"
 Reimplement this function to return the identifier of the event interface for each \fIkey\fR returned by the featureList() implementation, or an empty QUuid if this factory doesn't support the value of \fIkey\fR.
 .PP
 The default implementation interprets \fIkey\fR as the class name, and returns the value of the TQ_CLASSINFO entry "EventsID".
-.SH "QString QAxFactory::exposeToSuperClass ( const QString & key ) const\fC [virtual]\fR"
+.SH "TQString QAxFactory::exposeToSuperClass ( const TQString & key ) const\fC [virtual]\fR"
 Reimplement this function to return the name of the super class of \fIkey\fR up to which methods and properties should be exposed by the ActiveX control.
 .PP
-The default implementation interprets \fIkey\fR as the class name, and returns the value of the TQ_CLASSINFO entry "ToSuperClass". If no such value is set the null-string is returned, and the functions and properties of all the super classes including QWidget will be exposed.
+The default implementation interprets \fIkey\fR as the class name, and returns the value of the TQ_CLASSINFO entry "ToSuperClass". If no such value is set the null-string is returned, and the functions and properties of all the super classes including TQWidget will be exposed.
 .PP
 To only expose the functions and properties of the class itself, reimplement this function to return \fIkey\fR.
 .SH "QStringList QAxFactory::featureList () const\fC [pure virtual]\fR"
 Reimplement this function to return a list of the widgets (class names) supported by this factory.
-.SH "bool QAxFactory::hasStockEvents ( const QString & key ) const\fC [virtual]\fR"
+.SH "bool QAxFactory::hasStockEvents ( const TQString & key ) const\fC [virtual]\fR"
 Reimplement this function to return TRUE if the ActiveX control \fIkey\fR should support the standard ActiveX events
 .TP
 Click
@@ -317,7 +317,7 @@ MouseUp
 MouseMove
 .PP
 The default implementation interprets \fIkey\fR as the class name, and returns TRUE if the value of the TQ_CLASSINFO entry "StockEvents" is "yes". Otherwise this function returns FALSE.
-.SH "QUuid QAxFactory::interfaceID ( const QString & key ) const\fC [virtual]\fR"
+.SH "QUuid QAxFactory::interfaceID ( const TQString & key ) const\fC [virtual]\fR"
 Reimplement this function to return the interface identifier for each \fIkey\fR returned by the featureList() implementation, or an empty QUuid if this factory doesn't support the value of \fIkey\fR.
 .PP
 The default implementation interprets \fIkey\fR as the class name, and returns the value of the TQ_CLASSINFO entry "InterfaceID".
@@ -349,27 +349,27 @@ Returns TRUE if the application has been started (by COM) as an ActiveX server, 
 Reimplement this function to return TRUE if the server is running as a persistent service (e.g. an NT service) and should not terminate even when all objects provided have been released.
 .PP
 The default implementation returns FALSE.
-.SH "QMetaObject * QAxFactory::metaObject ( const QString & key ) const\fC [virtual]\fR"
+.SH "QMetaObject * QAxFactory::metaObject ( const TQString & key ) const\fC [virtual]\fR"
 Reimplement this function to return the QMetaObject corresponding to \fIkey\fR, or 0 if this factory doesn't support the value of \fIkey\fR.
 .PP
 The default implementation returns the QMetaObject for the class \fIkey\fR.
-.SH "void QAxFactory::registerClass ( const QString & key, QSettings * settings ) const\fC [virtual]\fR"
+.SH "void QAxFactory::registerClass ( const TQString & key, QSettings * settings ) const\fC [virtual]\fR"
 Registers additional values for the class \fIkey\fR in the system registry using the \fIsettings\fR object. The standard values have already been registed by the framework, but additional values, e.g. implemented categories, can be added in an implementation of this function.
 .PP
 .nf
 .br
-    settings->writeEntry( "/CLSID/" + classID(key) + "/Implemented Categories/{00000000-0000-0000-000000000000}/.", QString::null );
+    settings->writeEntry( "/CLSID/" + classID(key) + "/Implemented Categories/{00000000-0000-0000-000000000000}/.", TQString::null );
 .br
 .fi
 .PP
 If you reimplement this function you must also reimplement unregisterClass() to remove the additional registry values.
 .PP
 See also QSettings.
-.SH "QString QAxFactory::serverDirPath ()\fC [static]\fR"
+.SH "TQString QAxFactory::serverDirPath ()\fC [static]\fR"
 Returns the directory that contains the server binary.
 .PP
 For out-of-process servers this is the same as QApplication::applicationDirPath(). For in-process servers that function returns the directory that contains the hosting application.
-.SH "QString QAxFactory::serverFilePath ()\fC [static]\fR"
+.SH "TQString QAxFactory::serverFilePath ()\fC [static]\fR"
 Returns the file path of the server binary.
 .PP
 For out-of-process servers this is the same as QApplication::applicationFilePath(). For in-process servers that function returns the file path of the hosting application.
@@ -379,7 +379,7 @@ Starts the COM server with \fItype\fR and returns TRUE if successful, otherwise 
 Calling this function if the server is already running (or for an in-process server) does nothing and returns TRUE.
 .PP
 The server is started automatically with \fItype\fR set to MultipleUse if the server executable has been started with the \fC-activex\fR command line parameter.
-.SH "bool QAxFactory::stayTopLevel ( const QString & key ) const\fC [virtual]\fR"
+.SH "bool QAxFactory::stayTopLevel ( const TQString & key ) const\fC [virtual]\fR"
 Reimplement this function to return TRUE if the ActiveX control \fIkey\fR should be a top level window, e.g. a dialog. The default implementation returns FALSE.
 .SH "bool QAxFactory::stopServer ()\fC [static]\fR"
 Stops the COM server and returns TRUE if successful, otherwise returns FALSE.
@@ -391,7 +391,7 @@ Stopping the server will not invalidate existing objects, but no new objects can
 The server is stopped automatically when the main() function returns.
 .SH "QUuid QAxFactory::typeLibID () const\fC [virtual]\fR"
 Reimplement this function to return the ActiveX server's type library identifier.
-.SH "void QAxFactory::unregisterClass ( const QString & key, QSettings * settings ) const\fC [virtual]\fR"
+.SH "void QAxFactory::unregisterClass ( const TQString & key, QSettings * settings ) const\fC [virtual]\fR"
 Unregisters any additional values for the class \fIkey\fR from the system registry using the \fIsettings\fR object.
 .PP
 .nf
@@ -401,7 +401,7 @@ Unregisters any additional values for the class \fIkey\fR from the system regist
 .fi
 .PP
 See also registerClass() and QSettings.
-.SH "bool QAxFactory::validateLicenseKey ( const QString & key, const QString & licenseKey ) const\fC [virtual]\fR"
+.SH "bool QAxFactory::validateLicenseKey ( const TQString & key, const TQString & licenseKey ) const\fC [virtual]\fR"
 Reimplement this function to return TRUE if \fIlicenseKey\fR is a valid license for the class \fIkey\fR, or if the current machine is licensed.
 .PP
 The default implementation returns TRUE if the class \fIkey\fR is not
@@ -424,8 +424,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

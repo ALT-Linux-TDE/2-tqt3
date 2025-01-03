@@ -31,4 +31,4 @@ TQStyle* PlatinumStyle::create( const TQString& s )
 }
 
 
-Q_EXPORT_PLUGIN( PlatinumStyle )
+TQ_EXPORT_PLUGIN( PlatinumStyle )

@@ -91,8 +91,8 @@ PreferenceInterface::Preference *PreferenceInterfaceImpl::preference()
     pf->tab = cppEditorSyntax;
     pf->title = "C++ Editor";
     pf->receiver = pf->tab;
-    pf->init_slot = SLOT( reInit() );
-    pf->accept_slot = SLOT( save() );
+    pf->init_slot = TQ_SLOT( reInit() );
+    pf->accept_slot = TQ_SLOT( save() );
     return pf;
 }
 

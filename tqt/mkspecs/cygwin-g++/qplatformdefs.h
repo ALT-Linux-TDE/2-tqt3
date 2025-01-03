@@ -5,22 +5,8 @@
 
 #include "ntqglobal.h"
 
-// Set any POSIX/XOPEN defines at the top of this file to turn on specific APIs
-
-// DNS system header files are a mess!
-// <resolv.h> includes <arpa/nameser.h>. <arpa/nameser.h> is using
-// 'u_char' and includes <sys/types.h>.  Now the problem is that
-// <sys/types.h> defines 'u_char' only if __USE_BSD is defined.
-// __USE_BSD is defined in <features.h> if _BSD_SOURCE is defined.
-#ifndef _BSD_SOURCE
-#  define _BSD_SOURCE
-#endif
-
-// 1) need to reset default environment if _BSD_SOURCE is defined
-// 2) need to specify POSIX thread interfaces explicitly in glibc 2.0
-// 3) it seems older glibc need this to include the X/Open stuff
-#ifndef _GNU_SOURCE
-#  define _GNU_SOURCE
+#ifndef _DEFAULT_SOURCE
+#  define _DEFAULT_SOURCE
 #endif
 
 #include <unistd.h>
@@ -29,7 +15,7 @@
 // We are hot - unistd.h should have turned on the specific APIs we requested
 
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #include <pthread.h>
 #endif
 
@@ -62,7 +48,7 @@
 #include <netinet/in.h>
 
 
-#if !defined(QT_NO_COMPAT)
+#if !defined(TQT_NO_COMPAT)
 #define QT_STATBUF		struct stat
 #define QT_STATBUF4TSTAT	struct stat
 #define QT_STAT			::stat

@@ -82,12 +82,12 @@ signals:
 protected:
     void mousePressEvent(TQMouseEvent*);
     void mouseMoveEvent(TQMouseEvent*);
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void dragEnterEvent ( TQDragEnterEvent * );
     void dragMoveEvent ( TQDragMoveEvent * );
     void dragLeaveEvent ( TQDragLeaveEvent * );
     void dropEvent ( TQDropEvent * );
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
     void drawButton( TQPainter* );
     void drawButtonLabel( TQPainter* );
     void resizeEvent( TQResizeEvent* );

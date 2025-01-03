@@ -40,17 +40,17 @@
 
 #include "ntqtextcodecfactory.h"
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 #include "ntqapplication.h"
 #include "ntqcleanuphandler.h"
 #include <private/qpluginmanager_p.h>
 #include "qtextcodecinterface_p.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #  include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #include <stdlib.h>
 
@@ -63,7 +63,7 @@ static void create_manager()
     if ( manager ) // already created
 	return;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     // protect manager creation
     TQMutexLocker locker( tqt_global_mutexpool ?
 			 tqt_global_mutexpool->get( &manager ) : 0);
@@ -83,14 +83,14 @@ static void create_manager()
     cleanup_manager.set( &manager );
 }
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 
 TQTextCodec *TQTextCodecFactory::createForName(const TQString &name)
 {
     TQTextCodec *codec = 0;
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
     // make sure the manager is created
     create_manager();
@@ -101,7 +101,7 @@ TQTextCodec *TQTextCodecFactory::createForName(const TQString &name)
     if (iface)
 	codec = iface->createForName(name);
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
     return codec;
 }
@@ -111,7 +111,7 @@ TQTextCodec *TQTextCodecFactory::createForMib(int mib)
 {
     TQTextCodec *codec = 0;
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
     // make sure the manager is created
     create_manager();
@@ -122,10 +122,10 @@ TQTextCodec *TQTextCodecFactory::createForMib(int mib)
     if (iface)
 	codec = iface->createForMib(mib);
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
     return codec;
 }
 
 
-#endif // QT_NO_TEXTCODEC
+#endif // TQT_NO_TEXTCODEC

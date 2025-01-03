@@ -11,12 +11,12 @@ QFileIconProvider \- Icons for QFileDialog to use
 .SH SYNOPSIS
 \fC#include <ntqfiledialog.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQFileIconProvider\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQFileIconProvider\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "virtual const QPixmap * \fBpixmap\fR ( const QFileInfo & info )"
@@ -31,7 +31,7 @@ It is advisable to make all the icons that QFileIconProvider returns be the same
 .PP
 See also QFileDialog and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QFileIconProvider::QFileIconProvider ( QObject * parent = 0, const char * name = 0 )"
+.SH "QFileIconProvider::QFileIconProvider ( TQObject * parent = 0, const char * name = 0 )"
 Constructs an empty file icon provider called \fIname\fR, with the parent \fIparent\fR.
 .SH "const QPixmap * QFileIconProvider::pixmap ( const QFileInfo & info )\fC [virtual]\fR"
 Returns a pointer to a pixmap that should be used to signify the file with the information \fIinfo\fR.
@@ -56,8 +56,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

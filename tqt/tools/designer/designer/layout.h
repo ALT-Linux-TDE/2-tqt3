@@ -185,7 +185,7 @@ public:
 	int column;
 	int rowspan;
 	int colspan;
-	Q_DUMMY_COMPARISON_OPERATOR( Item )
+	TQ_DUMMY_COMPARISON_OPERATOR( Item )
     };
 
     TQMap<TQWidget*, Item> items;

@@ -106,9 +106,6 @@ body { background: #ffffff; color: black; }
                 &lt;property name="text"&gt;
                     &lt;string&gt;&amp;amp;Quit&lt;/string&gt;
                 &lt;/property&gt;
-                &lt;property name="accel"&gt;
-                    &lt;string&gt;Alt+Q&lt;/string&gt;
-                &lt;/property&gt;
             &lt;/widget&gt;
         &lt;/vbox&gt;
     &lt;/widget&gt;
@@ -169,7 +166,7 @@ body { background: #ffffff; color: black; }
         MyObject obj;
         MyDialog dia;
         app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;dia );
-        dia.connect( dia.aButton, SIGNAL(clicked()), SLOT(<a href="ntqwidget.html#close">close</a>()) );
+        dia.connect( dia.aButton, TQ_SIGNAL(clicked()), TQ_SLOT(<a href="ntqwidget.html#close">close</a>()) );
         dia.show();
 
         return app.<a href="ntqapplication.html#exec">exec</a>();

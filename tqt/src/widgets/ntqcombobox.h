@@ -45,7 +45,7 @@
 #include "ntqwidget.h"
 #endif // QT_H
 
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 
 
 class TQStrList;
@@ -56,7 +56,7 @@ class TQListBox;
 class TQComboBoxData;
 class TQWheelEvent;
 
-class Q_EXPORT TQComboBox : public TQWidget
+class TQ_EXPORT TQComboBox : public TQWidget
 {
     TQ_OBJECT
     TQ_ENUMS( Policy )
@@ -176,7 +176,7 @@ protected:
     void	keyPressEvent( TQKeyEvent *e );
     void	focusInEvent( TQFocusEvent *e );
     void	focusOutEvent( TQFocusEvent *e );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void	wheelEvent( TQWheelEvent *e );
 #endif
     void	styleChange( TQStyle& );
@@ -201,6 +201,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_COMBOBOX
+#endif // TQT_NO_COMBOBOX
 
 #endif // TQCOMBOBOX_H

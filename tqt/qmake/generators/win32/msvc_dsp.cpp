@@ -151,7 +151,7 @@ DspMakefileGenerator::writeDspParts(TQTextStream &t)
 					"\t" + mocpath + findMocSource((*it)) + " -o " +
 					(*it) + "\n\n" "# End Custom Build\n\n";
 
-			t << "USERDEP_" << base << "=\".\\" << findMocSource((*it)) << "\" \"$(QTDIR)\\bin\\moc.exe\"" << endl << endl;
+			t << "USERDEP_" << base << "=\".\\" << findMocSource((*it)) << "\" \"$(TQTDIR)\\bin\\moc.exe\"" << endl << endl;
 
 			t << "!IF  \"$(CFG)\" == \"" << var("MSVCDSP_PROJECT") << " - " << platform << " Release\"" << build
 			  << "!ELSEIF  \"$(CFG)\" == \"" << var("MSVCDSP_PROJECT") << " - " << platform << " Debug\""
@@ -227,7 +227,7 @@ DspMakefileGenerator::writeDspParts(TQTextStream &t)
 			mocpath = mocpath.replace( TQRegExp( "\\..*$" ), "" ) + " ";
 			buildCmds += "\t" + mocpath + (*it)  + " -o " + findMocDestination((*it)) + " \\\n";
 			createMOC  = "\"" + findMocDestination((*it)) +	"\" : $(SOURCE) \"$(INTDIR)\" \"$(OUTDIR)\"\n   $(BuildCmds)\n\n";
-			customDependencies += "\"$(QTDIR)\\bin\\moc.exe\"";
+			customDependencies += "\"$(TQTDIR)\\bin\\moc.exe\"";
 		    }
 		    if (!createMOC.isEmpty() || !compilePCH.isEmpty()) {
 			bool doMOC = !createMOC.isEmpty();
@@ -344,7 +344,7 @@ DspMakefileGenerator::writeDspParts(TQTextStream &t)
 					"\t" + mocpath + findMocSource((*it)) + " -o " +
 					(*it) + "\n\n" "# End Custom Build\n\n";
 
-			t << "USERDEP_" << base << "=\".\\" << findMocSource((*it)) << "\" \"$(QTDIR)\\bin\\moc.exe\"" << endl << endl;
+			t << "USERDEP_" << base << "=\".\\" << findMocSource((*it)) << "\" \"$(TQTDIR)\\bin\\moc.exe\"" << endl << endl;
 
 			t << "!IF  \"$(CFG)\" == \"" << var("MSVCDSP_PROJECT") << " - " << platform << " Release\"" << build
 			  << "!ELSEIF  \"$(CFG)\" == \"" << var("MSVCDSP_PROJECT") << " - " << platform << " Debug\""
@@ -462,7 +462,7 @@ DspMakefileGenerator::writeDspParts(TQTextStream &t)
 			    uiHeadersDir = fpath;
 		    }
 
-		    t << "USERDEP_" << base << "=\"$(QTDIR)\\bin\\moc.exe\" \"$(QTDIR)\\bin\\uic.exe\"" << endl << endl;
+		    t << "USERDEP_" << base << "=\"$(TQTDIR)\\bin\\moc.exe\" \"$(TQTDIR)\\bin\\uic.exe\"" << endl << endl;
 
 		    TQString build = "\n\n# Begin Custom Build - Uic'ing " + base + "...\n"
 			"InputPath=.\\" + base + "\n\n" "BuildCmds= \\\n\t" + uicpath + base +
@@ -623,7 +623,7 @@ DspMakefileGenerator::init()
     if ( project->variables()["QMAKESPEC"].isEmpty() )
 	project->variables()["QMAKESPEC"].append( getenv("QMAKESPEC") );
 
-    bool is_qt = (project->first("TARGET") == "qt"TQTDLL_POSTFIX || project->first("TARGET") == "tqt-mt"TQTDLL_POSTFIX);
+    bool is_qt = (project->first("TARGET") == "qt" TQTDLL_POSTFIX || project->first("TARGET") == "tqt-mt" TQTDLL_POSTFIX);
     project->variables()["QMAKE_ORIG_TARGET"] = project->variables()["TARGET"];
 
     TQStringList &configs = project->variables()["CONFIG"];
@@ -671,17 +671,17 @@ DspMakefileGenerator::init()
     }
 
     if ( project->isActiveConfig("qtopiainc") )
-	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_QTOPIA"];
+	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_TQTOPIA"];
     if ( project->isActiveConfig("qtopialib") ) {
-	if(!project->isEmpty("QMAKE_LIBDIR_QTOPIA"))
-	    project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_QTOPIA"];
+	if(!project->isEmpty("QMAKE_LIBDIR_TQTOPIA"))
+	    project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_TQTOPIA"];
 	project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QTOPIA"];
     }
 
     if ( project->isActiveConfig("qt") ) {
 	project->variables()["CONFIG"].append("moc");
-	project->variables()["INCLUDEPATH"] +=	project->variables()["QMAKE_INCDIR_QT"];
-	project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_QT"];
+	project->variables()["INCLUDEPATH"] +=	project->variables()["QMAKE_INCDIR_TQT"];
+	project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_TQT"];
 
 	if ( is_qt && !project->variables()["QMAKE_LIB_FLAG"].isEmpty() ) {
 	    if ( !project->variables()["QMAKE_QT_DLL"].isEmpty() ) {
@@ -694,9 +694,9 @@ DspMakefileGenerator::init()
 	    else
 		project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QT"];
 	    if ( !project->variables()["QMAKE_QT_DLL"].isEmpty() ) {
-		int hver = findHighestVersion(project->first("QMAKE_LIBDIR_QT"), "qt");
+		int hver = findHighestVersion(project->first("QMAKE_LIBDIR_TQT"), "qt");
 		if ( hver == -1 )
-		    hver = findHighestVersion(project->first("QMAKE_LIBDIR_QT"), "tqt-mt");
+		    hver = findHighestVersion(project->first("QMAKE_LIBDIR_TQT"), "tqt-mt");
 		if(hver != -1) {
 		    TQString ver;
 		    ver.sprintf("qt%s" TQTDLL_POSTFIX "%d.lib", (thread ? "-mt" : ""), hver);
@@ -747,7 +747,7 @@ DspMakefileGenerator::init()
     }
     if ( thread ) {
 	if(project->isActiveConfig("qt"))
-	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("QT_THREAD_SUPPORT" );
+	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("TQT_THREAD_SUPPORT" );
         if ( project->isActiveConfig("dll") || project->first("TARGET") == "qtmain"
 	     || !project->variables()["QMAKE_QT_DLL"].isEmpty() ) {
 	    project->variables()["MSVCDSP_MTDEFD"] += project->variables()["QMAKE_CXXFLAGS_MT_DLLDBG"];
@@ -918,7 +918,7 @@ DspMakefileGenerator::init()
 
     project->variables()["MSVCDSP_INCPATH"].append("/I \"" + specdir() + "\"");
     if ( project->isActiveConfig("qt") ) {
-	project->variables()["MSVCDSP_RELDEFS"].append("/D \"QT_NO_DEBUG\"");
+	project->variables()["MSVCDSP_RELDEFS"].append("/D \"TQT_NO_DEBUG\"");
     } else {
 	project->variables()["MSVCDSP_RELDEFS"].clear();
     }
@@ -940,8 +940,8 @@ DspMakefileGenerator::init()
 	project->variables()["TARGET"].first().prepend(project->first("DESTDIR"));
 	Option::fixPathToTargetOS(project->first("TARGET"));
 	dest = project->first("TARGET");
-        if ( project->first("TARGET").startsWith("$(QTDIR)") )
-	    dest.replace( "$(QTDIR)", getenv("QTDIR") );
+        if ( project->first("TARGET").startsWith("$(TQTDIR)") )
+	    dest.replace( "$(TQTDIR)", getenv("TQTDIR") );
 	project->variables()["MSVCDSP_TARGET"].append(
 	    TQString("/out:\"") + dest + "\"");
 	if ( project->isActiveConfig("dll") ) {
@@ -1033,7 +1033,7 @@ DspMakefileGenerator::findTemplate(const TQString &file)
     TQString ret;
     if(!TQFile::exists((ret = file)) &&
        !TQFile::exists((ret = TQString(Option::mkfile::qmakespec + "/" + file))) &&
-       !TQFile::exists((ret = TQString(getenv("QTDIR")) + "/mkspecs/win32-msvc/" + file)) &&
+       !TQFile::exists((ret = TQString(getenv("TQTDIR")) + "/mkspecs/win32-msvc/" + file)) &&
        !TQFile::exists((ret = (TQString(getenv("HOME")) + "/.tmake/" + file))))
 	return "";
     return ret;

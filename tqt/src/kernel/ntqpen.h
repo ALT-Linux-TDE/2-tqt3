@@ -47,7 +47,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQPen: public TQt
+class TQ_EXPORT TQPen: public TQt
 {
 public:
     TQPen();
@@ -75,7 +75,7 @@ public:
 
 private:
     friend class TQPainter;
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     friend class TQFontEngineWin;
 #endif
 
@@ -94,9 +94,9 @@ private:
 /*****************************************************************************
   TQPen stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPen & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQPen & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPen & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQPen & );
 #endif
 
 #endif // TQPEN_H

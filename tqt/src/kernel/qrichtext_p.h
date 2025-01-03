@@ -77,7 +77,7 @@
 #include "ntqapplication.h"
 #endif // QT_H
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 
 class TQTextDocument;
 class TQTextString;
@@ -89,7 +89,7 @@ class TQTextFormatter;
 class TQTextIndent;
 class TQTextFormatCollection;
 class TQStyleSheetItem;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 class TQTextCustomItem;
 #endif
 class TQTextFlow;
@@ -97,7 +97,7 @@ struct TQBidiContext;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Q_EXPORT TQTextStringChar
+class TQ_EXPORT TQTextStringChar
 {
     friend class TQTextString;
 
@@ -109,7 +109,7 @@ public:
     struct CustomData
     {
 	TQTextFormat *format;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 	TQTextCustomItem *custom;
 #endif
 	TQString anchorName;
@@ -142,15 +142,15 @@ public:
     int descent() const;
     bool isCustom() const { return (type & Custom) != 0; }
     TQTextFormat *format() const;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQTextCustomItem *customItem() const;
 #endif
     void setFormat( TQTextFormat *f );
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     void setCustomItem( TQTextCustomItem *i );
 #endif
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     void loseCustomItem();
 #endif
 
@@ -173,11 +173,11 @@ private:
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMemArray<TQTextStringChar>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMemArray<TQTextStringChar>;
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQTextString
+class TQ_EXPORT TQTextString
 {
 public:
 
@@ -300,13 +300,13 @@ inline bool TQTextString::validCursorPosition( int idx )
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueStack<int>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueStack<TQTextParagraph*>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueStack<bool>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueStack<int>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueStack<TQTextParagraph*>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueStack<bool>;
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQTextCursor
+class TQ_EXPORT TQTextCursor
 {
 public:
     TQTextCursor( TQTextDocument *d = 0 );
@@ -398,7 +398,7 @@ private:
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Q_EXPORT TQTextCommand
+class TQ_EXPORT TQTextCommand
 {
 public:
     enum Commands { Invalid, Insert, Delete, Format, Style };
@@ -419,11 +419,11 @@ protected:
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<TQTextCommand>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<TQTextCommand>;
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQTextCommandHistory
+class TQ_EXPORT TQTextCommandHistory
 {
 public:
     TQTextCommandHistory( int s ) : current( -1 ), steps( s ) { history.setAutoDelete( TRUE ); }
@@ -457,8 +457,8 @@ inline TQTextCommandHistory::~TQTextCommandHistory()
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-#ifndef QT_NO_TEXTCUSTOMITEM
-class Q_EXPORT TQTextCustomItem
+#ifndef TQT_NO_TEXTCUSTOMITEM
+class TQ_EXPORT TQTextCustomItem
 {
 public:
     TQTextCustomItem( TQTextDocument *p )
@@ -509,12 +509,12 @@ public:
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<TQString, TQString>;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<TQString, TQString>;
 // MOC_SKIP_END
 #endif
 
-#ifndef QT_NO_TEXTCUSTOMITEM
-class Q_EXPORT TQTextImage : public TQTextCustomItem
+#ifndef TQT_NO_TEXTCUSTOMITEM
+class TQ_EXPORT TQTextImage : public TQTextCustomItem
 {
 public:
     TQTextImage( TQTextDocument *p, const TQMap<TQString, TQString> &attr, const TQString& context,
@@ -540,8 +540,8 @@ private:
 };
 #endif
 
-#ifndef QT_NO_TEXTCUSTOMITEM
-class Q_EXPORT TQTextHorizontalLine : public TQTextCustomItem
+#ifndef TQT_NO_TEXTCUSTOMITEM
+class TQ_EXPORT TQTextHorizontalLine : public TQTextCustomItem
 {
 public:
     TQTextHorizontalLine( TQTextDocument *p, const TQMap<TQString, TQString> &attr, const TQString& context,
@@ -562,18 +562,18 @@ private:
 };
 #endif
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<TQTextCustomItem>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<TQTextCustomItem>;
 // MOC_SKIP_END
 #endif
 #endif
 
-class Q_EXPORT TQTextFlow
+class TQ_EXPORT TQTextFlow
 {
     friend class TQTextDocument;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     friend class TQTextTableCell;
 #endif
 
@@ -590,7 +590,7 @@ public:
     virtual int adjustLMargin( int yp, int h, int margin, int space );
     virtual int adjustRMargin( int yp, int h, int margin, int space );
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     virtual void registerFloatingItem( TQTextCustomItem* item );
     virtual void unregisterFloatingItem( TQTextCustomItem* item );
 #endif
@@ -607,7 +607,7 @@ private:
     int w;
     int pagesize;
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQPtrList<TQTextCustomItem> leftItems;
     TQPtrList<TQTextCustomItem> rightItems;
 #endif
@@ -615,10 +615,10 @@ private:
 
 inline int TQTextFlow::width() const { return w; }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 class TQTextTable;
 
-class Q_EXPORT TQTextTableCell : public TQLayoutItem
+class TQ_EXPORT TQTextTableCell : public TQLayoutItem
 {
     friend class TQTextTable;
 
@@ -683,13 +683,13 @@ private:
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<TQTextTableCell>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<TQTextCursor*, int>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<TQTextTableCell>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<TQTextCursor*, int>;
 // MOC_SKIP_END
 #endif
 
-#ifndef QT_NO_TEXTCUSTOMITEM
-class Q_EXPORT TQTextTable: public TQTextCustomItem
+#ifndef TQT_NO_TEXTCUSTOMITEM
+class TQ_EXPORT TQTextTable: public TQTextCustomItem
 {
     friend class TQTextTableCell;
 
@@ -751,32 +751,32 @@ private:
 #endif
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 class TQTextTableCell;
 class TQTextParagraph;
 #endif
 
-struct Q_EXPORT TQTextDocumentSelection
+struct TQ_EXPORT TQTextDocumentSelection
 {
     TQTextCursor startCursor, endCursor;
     bool swapped;
-    Q_DUMMY_COMPARISON_OPERATOR(TQTextDocumentSelection)
+    TQ_DUMMY_COMPARISON_OPERATOR(TQTextDocumentSelection)
 };
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<int, TQColor>;
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<int, bool>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<int, TQTextDocumentSelection>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<TQTextDocument>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<int, TQColor>;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<int, bool>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<int, TQTextDocumentSelection>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<TQTextDocument>;
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQTextDocument : public TQObject
+class TQ_EXPORT TQTextDocument : public TQObject
 {
     TQ_OBJECT
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     friend class TQTextTableCell;
 #endif
     friend class TQTextCursor;
@@ -877,14 +877,14 @@ public:
     bool inSelection( int selId, const TQPoint &pos ) const;
 
     TQStyleSheet *styleSheet() const { return sheet_; }
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     TQMimeSourceFactory *mimeSourceFactory() const { return factory_; }
 #endif
     TQString context() const { return contxt; }
 
     void setStyleSheet( TQStyleSheet *s );
     void setDefaultFormat( const TQFont &font, const TQColor &color );
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     void setMimeSourceFactory( TQMimeSourceFactory *f ) { if ( f ) factory_ = f; }
 #endif
     void setContext( const TQString &c ) { if ( !c.isEmpty() ) contxt = c; }
@@ -906,7 +906,7 @@ public:
 		      bool onlyChanged = FALSE, bool drawCursor = FALSE, TQTextCursor *cursor = 0,
 		      bool resetChanged = TRUE );
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     void registerCustomItem( TQTextCustomItem *i, TQTextParagraph *p );
     void unregisterCustomItem( TQTextCustomItem *i, TQTextParagraph *p );
 #endif
@@ -920,7 +920,7 @@ public:
     void setUseFormatCollection( bool b ) { useFC = b; }
     bool useFormatCollection() const { return useFC; }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQTextTableCell *tableCell() const { return tc; }
     void setTableCell( TQTextTableCell *c ) { tc = c; }
 #endif
@@ -968,7 +968,7 @@ private:
     // HTML parser
     bool hasPrefix(const TQChar* doc, int length, int pos, TQChar c);
     bool hasPrefix(const TQChar* doc, int length, int pos, const TQString& s);
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQTextCustomItem* parseTable( const TQMap<TQString, TQString> &attr, const TQTextFormat &fmt,
 				 const TQChar* doc, int length, int& pos, TQTextParagraph *curpar );
 #endif
@@ -983,7 +983,7 @@ private:
     void setRichTextMarginsInternal( TQPtrList< TQPtrVector<TQStyleSheetItem> >& styles, TQTextParagraph* stylesPar );
 
 private:
-    struct Q_EXPORT Focus {
+    struct TQ_EXPORT Focus {
 	TQTextParagraph *parag;
 	int start, len;
 	TQString href;
@@ -1014,7 +1014,7 @@ private:
     TQTextFlow *flow_;
     TQTextDocument *par;
     TQTextParagraph *parentPar;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQTextTableCell *tc;
 #endif
     TQBrush *backBrush;
@@ -1026,7 +1026,7 @@ private:
     int rightmargin;
     TQTextParagraph *minwParag, *curParag;
     TQStyleSheet* sheet_;
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     TQMimeSourceFactory* factory_;
 #endif
     TQString contxt;
@@ -1049,7 +1049,7 @@ private:
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-class Q_EXPORT TQTextDeleteCommand : public TQTextCommand
+class TQ_EXPORT TQTextDeleteCommand : public TQTextCommand
 {
 public:
     TQTextDeleteCommand( TQTextDocument *d, int i, int idx, const TQMemArray<TQTextStringChar> &str,
@@ -1069,7 +1069,7 @@ protected:
 
 };
 
-class Q_EXPORT TQTextInsertCommand : public TQTextDeleteCommand
+class TQ_EXPORT TQTextInsertCommand : public TQTextDeleteCommand
 {
 public:
     TQTextInsertCommand( TQTextDocument *d, int i, int idx, const TQMemArray<TQTextStringChar> &str,
@@ -1085,7 +1085,7 @@ public:
 
 };
 
-class Q_EXPORT TQTextFormatCommand : public TQTextCommand
+class TQ_EXPORT TQTextFormatCommand : public TQTextCommand
 {
 public:
     TQTextFormatCommand( TQTextDocument *d, int sid, int sidx, int eid, int eidx, const TQMemArray<TQTextStringChar> &old, TQTextFormat *f, int fl );
@@ -1103,7 +1103,7 @@ protected:
 
 };
 
-class Q_EXPORT TQTextStyleCommand : public TQTextCommand
+class TQ_EXPORT TQTextStyleCommand : public TQTextCommand
 {
 public:
     TQTextStyleCommand( TQTextDocument *d, int fParag, int lParag, const TQByteArray& beforeChange  );
@@ -1124,14 +1124,14 @@ private:
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-struct Q_EXPORT TQTextParagraphSelection
+struct TQ_EXPORT TQTextParagraphSelection
 {
     TQTextParagraphSelection() : start(0), end(0) { }
     int start, end;
-    Q_DUMMY_COMPARISON_OPERATOR(TQTextParagraphSelection)
+    TQ_DUMMY_COMPARISON_OPERATOR(TQTextParagraphSelection)
 };
 
-struct Q_EXPORT TQTextLineStart
+struct TQ_EXPORT TQTextLineStart
 {
     TQTextLineStart() : y( 0 ), baseLine( 0 ), h( 0 )
     {  }
@@ -1146,12 +1146,12 @@ public:
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<int, TQTextParagraphSelection>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<int, TQTextLineStart*>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<int, TQTextParagraphSelection>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<int, TQTextLineStart*>;
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQTextParagraphData
+class TQ_EXPORT TQTextParagraphData
 {
 public:
     TQTextParagraphData() {}
@@ -1163,7 +1163,7 @@ class TQTextParagraphPseudoDocument;
 
 class TQSyntaxHighlighter;
 
-class Q_EXPORT TQTextParagraph
+class TQ_EXPORT TQTextParagraph
 {
     friend class TQTextDocument;
     friend class TQTextCursor;
@@ -1272,7 +1272,7 @@ public:
     int rightMargin() const;
     int lineSpacing() const;
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     void registerFloatingItem( TQTextCustomItem *i );
     void unregisterFloatingItem( TQTextCustomItem *i );
 #endif
@@ -1280,7 +1280,7 @@ public:
     void setFullWidth( bool b ) { fullWidth = b; }
     bool isFullWidth() const { return fullWidth; }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQTextTableCell *tableCell() const;
 #endif
 
@@ -1338,7 +1338,7 @@ protected:
 
 private:
     TQMap<int, TQTextParagraphSelection> &selections() const;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQPtrList<TQTextCustomItem> &floatingItems() const;
 #endif
     TQBrush backgroundBrush( const TQColorGroup&cg ) { if ( bgcol ) return *bgcol; return cg.brush( TQColorGroup::Base ); }
@@ -1367,7 +1367,7 @@ private:
     int state, id;
     TQTextString *str;
     TQMap<int, TQTextParagraphSelection> *mSelections;
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     TQPtrList<TQTextCustomItem> *mFloatingItems;
 #endif
     short utm, ubm, ulm, urm, uflm, ulinespacing;
@@ -1383,7 +1383,7 @@ private:
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Q_EXPORT TQTextFormatter
+class TQ_EXPORT TQTextFormatter
 {
 public:
     TQTextFormatter();
@@ -1405,7 +1405,7 @@ public:
 protected:
     virtual TQTextLineStart *formatLine( TQTextParagraph *parag, TQTextString *string, TQTextLineStart *line, TQTextStringChar *start,
 					       TQTextStringChar *last, int align = TQt::AlignAuto, int space = 0 );
-#ifndef QT_NO_COMPLEXTEXT
+#ifndef TQT_NO_COMPLEXTEXT
     virtual TQTextLineStart *bidiReorderLine( TQTextParagraph *parag, TQTextString *string, TQTextLineStart *line, TQTextStringChar *start,
 						    TQTextStringChar *last, int align, int space );
 #endif
@@ -1428,7 +1428,7 @@ private:
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Q_EXPORT TQTextFormatterBreakInWords : public TQTextFormatter
+class TQ_EXPORT TQTextFormatterBreakInWords : public TQTextFormatter
 {
 public:
     TQTextFormatterBreakInWords();
@@ -1440,7 +1440,7 @@ public:
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Q_EXPORT TQTextFormatterBreakWords : public TQTextFormatter
+class TQ_EXPORT TQTextFormatterBreakWords : public TQTextFormatter
 {
 public:
     TQTextFormatterBreakWords();
@@ -1452,7 +1452,7 @@ public:
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Q_EXPORT TQTextIndent
+class TQ_EXPORT TQTextIndent
 {
 public:
     TQTextIndent();
@@ -1464,7 +1464,7 @@ public:
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Q_EXPORT TQTextPreProcessor
+class TQ_EXPORT TQTextPreProcessor
 {
 public:
     enum Ids {
@@ -1481,7 +1481,7 @@ public:
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Q_EXPORT TQTextFormat
+class TQ_EXPORT TQTextFormat
 {
     friend class TQTextFormatCollection;
     friend class TQTextDocument;
@@ -1561,6 +1561,7 @@ protected:
 private:
     void update();
     static void applyFont( const TQFont &f );
+    static void cleanupPrivateData();
 
 private:
     TQFont fn;
@@ -1591,11 +1592,11 @@ private:
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQDict<TQTextFormat>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQDict<TQTextFormat>;
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQTextFormatCollection
+class TQ_EXPORT TQTextFormatCollection
 {
     friend class TQTextDocument;
     friend class TQTextFormat;
@@ -1633,7 +1634,7 @@ private:
     TQPaintDevice *paintdevice;
 };
 
-class Q_EXPORT TQTextParagraphPseudoDocument
+class TQ_EXPORT TQTextParagraphPseudoDocument
 {
 public:
     TQTextParagraphPseudoDocument();
@@ -2013,7 +2014,7 @@ inline TQTextParagraphPseudoDocument *TQTextParagraph::pseudoDocument() const
 }
 
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 inline TQTextTableCell *TQTextParagraph::tableCell() const
 {
     return hasdoc ? document()->tableCell () : 0;
@@ -2031,7 +2032,7 @@ inline int TQTextParagraph::alignment() const
     return align;
 }
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 inline void TQTextParagraph::registerFloatingItem( TQTextCustomItem *i )
 {
     floatingItems().append( i );
@@ -2045,7 +2046,7 @@ inline void TQTextParagraph::unregisterFloatingItem( TQTextCustomItem *i )
 
 inline TQBrush *TQTextParagraph::background() const
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     return tableCell() ? tableCell()->backGround() : 0;
 #else
     return 0;
@@ -2102,7 +2103,7 @@ inline TQTextFormat *TQTextStringChar::format() const
 }
 
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 inline TQTextCustomItem *TQTextStringChar::customItem() const
 {
     return isCustom() ? d.custom->custom : 0;
@@ -2111,7 +2112,7 @@ inline TQTextCustomItem *TQTextStringChar::customItem() const
 
 inline int TQTextStringChar::height() const
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     return !isCustom() ? format()->height() : ( customItem()->placement() == TQTextCustomItem::PlaceInline ? customItem()->height : 0 );
 #else
     return format()->height();
@@ -2120,7 +2121,7 @@ inline int TQTextStringChar::height() const
 
 inline int TQTextStringChar::ascent() const
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     return !isCustom() ? format()->ascent() : ( customItem()->placement() == TQTextCustomItem::PlaceInline ? customItem()->ascent() : 0 );
 #else
     return format()->ascent();
@@ -2129,13 +2130,13 @@ inline int TQTextStringChar::ascent() const
 
 inline int TQTextStringChar::descent() const
 {
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     return !isCustom() ? format()->descent() : 0;
 #else
     return format()->descent();
 #endif
 }
 
-#endif //QT_NO_RICHTEXT
+#endif //TQT_NO_RICHTEXT
 
 #endif

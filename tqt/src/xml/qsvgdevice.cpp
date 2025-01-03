@@ -38,7 +38,7 @@
 
 #include <private/qsvgdevice_p.h>
 
-#ifndef QT_NO_SVG
+#ifndef TQT_NO_SVG
 
 #include "ntqpainter.h"
 #include "ntqpaintdevicemetrics.h"
@@ -60,19 +60,19 @@ const char systemId[] = "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001
 struct TQM_EXPORT_SVG ImgElement {
     TQDomElement element;
     TQImage image;
-    Q_DUMMY_COMPARISON_OPERATOR( ImgElement )
+    TQ_DUMMY_COMPARISON_OPERATOR( ImgElement )
 };
 
 struct TQM_EXPORT_SVG PixElement {
     TQDomElement element;
     TQPixmap pixmap;
-    Q_DUMMY_COMPARISON_OPERATOR( PixElement )
+    TQ_DUMMY_COMPARISON_OPERATOR( PixElement )
 };
 
 struct TQSvgDeviceState {
     int textx, texty;			// current text position
     int textalign;			// text alignment
-    Q_DUMMY_COMPARISON_OPERATOR( TQSvgDeviceState )
+    TQ_DUMMY_COMPARISON_OPERATOR( TQSvgDeviceState )
 };
 
 typedef TQValueList<ImgElement> ImageList;
@@ -582,7 +582,7 @@ bool TQSvgDevice::cmd ( int c, TQPainter *painter, TQPDevCmdParam *p )
 	    e.setAttribute( "points", str.stripWhiteSpace() );
 	}
 	break;
-#ifndef QT_NO_BEZIER
+#ifndef TQT_NO_BEZIER
     case PdcDrawCubicBezier:
 	a = *p[0].ptarr;
 	e = doc.createElement( "path" );
@@ -1424,7 +1424,7 @@ void TQSvgDevice::drawPath( const TQString &data )
 	    y = arg[ 0 ] + offsetY;
 	    path.setPoint( pcount++, int(x), int(y) );
 	    break;
-#ifndef QT_NO_BEZIER
+#ifndef TQT_NO_BEZIER
 	case 5:					// 'C' cubic bezier curveto
 	case 6:					// 'S' smooth shorthand
 	case 7:					// 'Q' quadratic bezier curves
@@ -1467,7 +1467,7 @@ void TQSvgDevice::drawPath( const TQString &data )
 		path.setPoint( pcount++, bezier[ k ] );
 	    break;
 	}
-#endif // QT_NO_BEZIER
+#endif // TQT_NO_BEZIER
 	case 9:					// 'A' elliptical arc curve
 	    // ### just a straight line
 	    x = arg[ 5 ] + offsetX;
@@ -1588,4 +1588,4 @@ void TQSvgDevice::applyTransform( TQDomElement *e ) const
     e->setAttribute( "transform", s );
 }
 
-#endif // QT_NO_SVG
+#endif // TQT_NO_SVG

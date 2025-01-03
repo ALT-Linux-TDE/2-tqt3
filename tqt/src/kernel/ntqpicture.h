@@ -46,9 +46,9 @@
 #include "ntqbuffer.h"
 #endif // QT_H
 
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
 
-class Q_EXPORT TQPicture : public TQPaintDevice		// picture class
+class TQ_EXPORT TQPicture : public TQPaintDevice		// picture class
 {
 public:
     TQPicture( int formatVersion = -1 );
@@ -73,8 +73,8 @@ public:
 
     TQPicture& operator= (const TQPicture&);
 
-    friend Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPicture & );
-    friend Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQPicture & );
+    friend TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPicture & );
+    friend TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQPicture & );
 
 protected:
     bool	cmd( int, TQPainter *, TQPDevCmdParam * );
@@ -119,9 +119,9 @@ inline const char* TQPicture::data() const
   TQPicture stream functions
  *****************************************************************************/
 
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPicture & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQPicture & );
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPicture & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQPicture & );
 
-#endif // QT_NO_PICTURE
+#endif // TQT_NO_PICTURE
 
 #endif // TQPICTURE_H

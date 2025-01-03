@@ -40,7 +40,7 @@
 
 #include "ntqdom.h"
 
-#ifndef QT_NO_DOM
+#ifndef TQT_NO_DOM
 
 #include "ntqxml.h"
 #include "ntqptrlist.h"
@@ -7089,4 +7089,4 @@ bool TQDomHandler::notationDecl( const TQString & name, const TQString & publicI
     return TRUE;
 }
 
-#endif //QT_NO_DOM
+#endif //TQT_NO_DOM

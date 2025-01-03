@@ -47,13 +47,13 @@
 #include "ntqiconset.h" // conversion TQPixmap->TQIconset
 #endif // QT_H
 
-#ifndef QT_NO_HEADER
+#ifndef TQT_NO_HEADER
 
 class TQShowEvent;
 class TQHeaderData;
 class TQTable;
 
-class Q_EXPORT TQHeader : public TQWidget
+class TQ_EXPORT TQHeader : public TQWidget
 {
     friend class TQTable;
     friend class TQTableHeader;
@@ -212,8 +212,8 @@ inline TQHeader::Orientation TQHeader::orientation() const
 inline void TQHeader::setTracking( bool enable ) { trackingIsOn = enable; }
 inline bool TQHeader::tracking() const { return trackingIsOn; }
 
-extern Q_EXPORT bool tqt_qheader_label_return_null_strings; // needed for professional edition
+extern TQ_EXPORT bool tqt_qheader_label_return_null_strings; // needed for professional edition
 
-#endif // QT_NO_HEADER
+#endif // TQT_NO_HEADER
 
 #endif // TQHEADER_H

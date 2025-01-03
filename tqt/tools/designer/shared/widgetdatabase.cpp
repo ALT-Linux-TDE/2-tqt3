@@ -240,7 +240,7 @@ void WidgetDatabase::setupDataBase( int id )
 
     append( r );
 
-#if !defined(QT_NO_ICONVIEW) || defined(UIC)
+#if !defined(TQT_NO_ICONVIEW) || defined(UIC)
     r = new WidgetDatabaseRecord;
     r->iconSet = "designer_iconview.png";
     r->name = "TQIconView";
@@ -250,7 +250,7 @@ void WidgetDatabase::setupDataBase( int id )
     append( r );
 #endif
 
-#if !defined(QT_NO_TABLE)
+#if !defined(TQT_NO_TABLE)
     r = new WidgetDatabaseRecord;
     r->iconSet = "designer_table.png";
     r->name = "TQTable";
@@ -260,7 +260,7 @@ void WidgetDatabase::setupDataBase( int id )
     append( r );
 #endif
 
-#if !defined(QT_NO_SQL)
+#if !defined(TQT_NO_SQL)
     r = new WidgetDatabaseRecord;
     r->iconSet = "designer_datatable.png";
     r->includeFile = "ntqdatatable.h";
@@ -548,7 +548,7 @@ void WidgetDatabase::setupDataBase( int id )
 
     append( r );
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     r = new WidgetDatabaseRecord;
     r->iconSet = "";
     r->name = "TQDataBrowser";

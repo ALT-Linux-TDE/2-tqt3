@@ -46,13 +46,13 @@
 #include "ntqiconset.h"
 #endif // QT_H
 
-#ifndef QT_NO_TABDIALOG
+#ifndef TQT_NO_TABDIALOG
 
 class  TQTabBar;
 class  TQTab;
 class  TQTabDialogPrivate;
 
-class Q_EXPORT TQTabDialog : public TQDialog
+class TQ_EXPORT TQTabDialog : public TQDialog
 {
     TQ_OBJECT
 public:
@@ -141,6 +141,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_TABDIALOG
+#endif // TQT_NO_TABDIALOG
 
 #endif // TQTABDIALOG_H

@@ -55,7 +55,7 @@
 #include <private/qcom_p.h>
 #endif // QT_H
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 // {C7C838EA-FC3E-4905-92AD-F479E81F1D02}
 #ifndef IID_QKbdDriver
@@ -64,11 +64,11 @@
 
 class TQWSKeyboardHandler;
 
-struct Q_EXPORT TQKbdDriverInterface : public TQFeatureListInterface
+struct TQ_EXPORT TQKbdDriverInterface : public TQFeatureListInterface
 {
     virtual TQWSKeyboardHandler* create( const TQString& driver, const TQString& device ) = 0;
 };
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 #endif // TQKBDDRIVERINTERFACE_P_H

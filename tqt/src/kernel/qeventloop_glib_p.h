@@ -95,10 +95,10 @@ public:
 	unsigned int exitloop : 1;
 	unsigned int shortcut : 1;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	int xfd;
 	GPollFD x_gPollFD;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 	int thread_pipe[2];
 	GPollFD threadPipe_gPollFD;
@@ -116,6 +116,7 @@ public:
 
 	// main context
 	GMainContext *ctx;
+	GMainLoop *mainloop;
 	bool ctx_is_default;
 };
 

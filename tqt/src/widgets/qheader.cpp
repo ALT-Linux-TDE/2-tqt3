@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqheader.h"
-#ifndef QT_NO_HEADER
+#ifndef TQT_NO_HEADER
 #include "ntqpainter.h"
 #include "ntqdrawutil.h"
 #include "ntqpixmap.h"
@@ -735,7 +735,7 @@ void TQHeader::mouseReleaseEvent( TQMouseEvent *e )
 	handleColumnResize( handleIdx, c - d->pressDelta, TRUE );
     } break;
     case Moving: {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	unsetCursor();
 #endif
 	int section = d->i2s[handleIdx];
@@ -784,7 +784,7 @@ void TQHeader::mouseMoveEvent( TQMouseEvent *e )
 
     switch( state ) {
     case Idle:
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	if ( handleAt(c) < 0 )
 	    unsetCursor();
 	else if ( orient == Horizontal )
@@ -799,7 +799,7 @@ void TQHeader::mouseMoveEvent( TQMouseEvent *e )
 	if ( TQABS( c - clickPos ) > 4 && d->move ) {
 	    state = Moving;
 	    moveToIdx = -1;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    if ( orient == Horizontal )
 		setCursor( sizeHorCursor );
 	    else
@@ -2046,4 +2046,4 @@ void TQHeader::fontChange( const TQFont &oldFont )
     TQWidget::fontChange( oldFont );
 }
 
-#endif // QT_NO_HEADER
+#endif // TQT_NO_HEADER

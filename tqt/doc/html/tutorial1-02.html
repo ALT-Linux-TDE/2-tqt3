@@ -55,7 +55,7 @@ int main( int argc, char **argv )
     quit.<a href="ntqwidget.html#resize">resize</a>( 75, 30 );
     quit.<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
     a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;quit );
     quit.<a href="ntqwidget.html#show">show</a>();
@@ -87,7 +87,7 @@ to set right size.
 <p> Here we choose a new font for the button, an 18-point bold font from
 the Times family. Note that we create the font on the spot.
 <p> It is also possible to change the default font (using <a href="ntqapplication.html#setFont">TQApplication::setFont</a>()) for the whole application.
-<p> <pre>    <a name="x2291"></a><a name="x2290"></a><a name="x2288"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<p> <pre>    <a name="x2291"></a><a name="x2290"></a><a name="x2288"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 </pre>
 <p> connect() is perhaps <em>the</em> most central feature of TQt.
 Note that connect() is a static function in <a href="ntqobject.html">TQObject</a>. Do not confuse it

@@ -16,16 +16,16 @@ Inherits QDragObject.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQImageDrag\fR ( QImage image, QWidget * dragSource = 0, const char * name = 0 )"
+.BI "\fBQImageDrag\fR ( TQImage image, TQWidget * dragSource = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQImageDrag\fR ( QWidget * dragSource = 0, const char * name = 0 )"
+.BI "\fBQImageDrag\fR ( TQWidget * dragSource = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QImageDrag\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetImage\fR ( QImage image )"
+.BI "virtual void \fBsetImage\fR ( TQImage image )"
 .br
 .in -1c
 .SS "Static Public Members"
@@ -34,7 +34,7 @@ Inherits QDragObject.
 .BI "bool \fBcanDecode\fR ( const QMimeSource * e )"
 .br
 .ti -1c
-.BI "bool \fBdecode\fR ( const QMimeSource * e, QImage & img )"
+.BI "bool \fBdecode\fR ( const QMimeSource * e, TQImage & img )"
 .br
 .ti -1c
 .BI "bool \fBdecode\fR ( const QMimeSource * e, QPixmap & pm )"
@@ -49,9 +49,9 @@ For more information about drag and drop, see the QDragObject class and the drag
 .PP
 See also Drag And Drop Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QImageDrag::QImageDrag ( QImage image, QWidget * dragSource = 0, const char * name = 0 )"
+.SH "QImageDrag::QImageDrag ( TQImage image, TQWidget * dragSource = 0, const char * name = 0 )"
 Constructs an image drag object and sets its data to \fIimage\fR. \fIdragSource\fR must be the drag source; \fIname\fR is the object name.
-.SH "QImageDrag::QImageDrag ( QWidget * dragSource = 0, const char * name = 0 )"
+.SH "QImageDrag::QImageDrag ( TQWidget * dragSource = 0, const char * name = 0 )"
 Constructs a default image drag object. \fIdragSource\fR must be the drag source; \fIname\fR is the object name.
 .SH "QImageDrag::~QImageDrag ()"
 Destroys the image drag object and frees up all allocated resources.
@@ -61,7 +61,7 @@ Returns TRUE if the information in mime source \fIe\fR can be decoded into an im
 See also decode().
 .PP
 Example: desktop/desktop.cpp.
-.SH "bool QImageDrag::decode ( const QMimeSource * e, QImage & img )\fC [static]\fR"
+.SH "bool QImageDrag::decode ( const QMimeSource * e, TQImage & img )\fC [static]\fR"
 Attempts to decode the dropped information in mime source \fIe\fR into \fIimg\fR. Returns TRUE if successful; otherwise returns FALSE.
 .PP
 See also canDecode().
@@ -72,10 +72,10 @@ This is an overloaded member function, provided for convenience. It behaves esse
 .PP
 Attempts to decode the dropped information in mime source \fIe\fR into pixmap \fIpm\fR. Returns TRUE if successful; otherwise returns FALSE.
 .PP
-This is a convenience function that converts to a QPixmap via a QImage.
+This is a convenience function that converts to a QPixmap via a TQImage.
 .PP
 See also canDecode().
-.SH "void QImageDrag::setImage ( QImage image )\fC [virtual]\fR"
+.SH "void QImageDrag::setImage ( TQImage image )\fC [virtual]\fR"
 Sets the image to be dragged to \fIimage\fR. You will need to call
 this if you did not pass the image during construction.
 
@@ -93,8 +93,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

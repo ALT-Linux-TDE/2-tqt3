@@ -146,23 +146,23 @@ TQAssistantClient::TQAssistantClient( const TQString &path, TQObject *parent, co
 
 #if defined(Q_OS_MACX)
     assistantCommand += ".app/Contents/MacOS/assistant";
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
     if (!assistantCommand.endsWith(".exe"))
         assistantCommand += ".exe";
 #endif
     socket = new TQSocket( this );
-    connect( socket, SIGNAL( connected() ),
-	    SLOT( socketConnected() ) );
-    connect( socket, SIGNAL( connectionClosed() ),
-	    SLOT( socketConnectionClosed() ) );
-    connect( socket, SIGNAL( error( int ) ),
-	    SLOT( socketError( int ) ) );
+    connect( socket, TQ_SIGNAL( connected() ),
+	    TQ_SLOT( socketConnected() ) );
+    connect( socket, TQ_SIGNAL( connectionClosed() ),
+	    TQ_SLOT( socketConnectionClosed() ) );
+    connect( socket, TQ_SIGNAL( error( int ) ),
+	    TQ_SLOT( socketError( int ) ) );
     opened = FALSE;
     proc = new TQProcess( this );
     port = 0;
     pageBuffer = "";
-    connect( proc, SIGNAL( readyReadStderr() ),
-	     this, SLOT( readStdError() ) );
+    connect( proc, TQ_SIGNAL( readyReadStderr() ),
+	     this, TQ_SLOT( readStdError() ) );
 }
 
 /*!
@@ -223,8 +223,8 @@ void TQAssistantClient::openAssistant()
 		    .arg( proc->arguments().join( " " ) ) );
 	return;
     }
-    connect( proc, SIGNAL( readyReadStdout() ),
-	     this, SLOT( readPort() ) );
+    connect( proc, TQ_SIGNAL( readyReadStdout() ),
+	     this, TQ_SLOT( readPort() ) );
 }
 
 void TQAssistantClient::readPort()
@@ -236,8 +236,8 @@ void TQAssistantClient::readPort()
 	return;
     }
     socket->connectToHost( host, port );
-    disconnect( proc, SIGNAL( readyReadStdout() ),
-		this, SLOT( readPort() ) );
+    disconnect( proc, TQ_SIGNAL( readyReadStdout() ),
+		this, TQ_SLOT( readPort() ) );
 }
 
 /*!

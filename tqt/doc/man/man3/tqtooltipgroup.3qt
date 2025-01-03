@@ -11,12 +11,12 @@ QToolTipGroup \- Collects tool tips into related groups
 .SH SYNOPSIS
 \fC#include <ntqtooltip.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQToolTipGroup\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQToolTipGroup\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QToolTipGroup\fR ()"
@@ -40,7 +40,7 @@ Inherits QObject.
 .SS "Signals"
 .in +1c
 .ti -1c
-.BI "void \fBshowTip\fR ( const QString & longText )"
+.BI "void \fBshowTip\fR ( const TQString & longText )"
 .br
 .ti -1c
 .BI "void \fBremoveTip\fR ()"
@@ -66,13 +66,13 @@ QToolTipGroup has practically no API; it is only used as an argument to QToolTip
 .br
         QToolTipGroup * grp = new QToolTipGroup( this, "tool tip relay" );
 .br
-        connect( grp, SIGNAL(showTip(const QString&)),
+        connect( grp, TQ_SIGNAL(showTip(const TQString&)),
 .br
-                 myLabel, SLOT(setText(const QString&)) );
+                 myLabel, TQ_SLOT(setText(const TQString&)) );
 .br
-        connect( grp, SIGNAL(removeTip()),
+        connect( grp, TQ_SIGNAL(removeTip()),
 .br
-                 myLabel, SLOT(clear()) );
+                 myLabel, TQ_SLOT(clear()) );
 .br
         QToolTip::add( giraffeButton, "feed giraffe",
 .br
@@ -90,7 +90,7 @@ Deleting a tool tip group removes the tool tips in it.
 .PP
 See also Help System.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QToolTipGroup::QToolTipGroup ( QObject * parent, const char * name = 0 )"
+.SH "QToolTipGroup::QToolTipGroup ( TQObject * parent, const char * name = 0 )"
 Constructs a tool tip group called \fIname\fR, with parent \fIparent\fR.
 .SH "QToolTipGroup::~QToolTipGroup ()"
 Destroys this tool tip group and all tool tips in it.
@@ -108,7 +108,7 @@ Example: helpsystem/mainwindow.cpp.
 Sets whether the display of the group text is delayed. See the "delay" property for details.
 .SH "void QToolTipGroup::setEnabled ( bool )\fC [slot]\fR"
 Sets whether tool tips in the group are enabled. See the "enabled" property for details.
-.SH "void QToolTipGroup::showTip ( const QString & longText )\fC [signal]\fR"
+.SH "void QToolTipGroup::showTip ( const TQString & longText )\fC [signal]\fR"
 This signal is emitted when one of the tool tips in the group is displayed. \fIlongText\fR is the extra text for the displayed tool tip.
 .PP
 See also removeTip().
@@ -142,8 +142,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

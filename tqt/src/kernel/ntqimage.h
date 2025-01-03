@@ -48,8 +48,8 @@
 #endif // QT_H
 
 class TQImageDataMisc; // internal
-#ifndef QT_NO_IMAGE_TEXT
-class Q_EXPORT TQImageTextKeyLang {
+#ifndef TQT_NO_IMAGE_TEXT
+class TQ_EXPORT TQImageTextKeyLang {
 public:
     TQImageTextKeyLang(const char* k, const char* l) : key(k), lang(l) { }
     TQImageTextKeyLang() { }
@@ -62,10 +62,10 @@ public:
     bool operator== (const TQImageTextKeyLang& other) const
 	{ return (key==other.key) && (lang==other.lang); }
 };
-#endif //QT_NO_IMAGE_TEXT
+#endif //TQT_NO_IMAGE_TEXT
 
 
-class Q_EXPORT TQImage
+class TQ_EXPORT TQImage
 {
 public:
     enum Endian { IgnoreEndian, BigEndian, LittleEndian };
@@ -75,7 +75,7 @@ public:
 	    Endian bitOrder=IgnoreEndian );
     TQImage( const TQSize&, int depth, int numColors=0,
 	    Endian bitOrder=IgnoreEndian );
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     TQImage( const TQString &fileName, const char* format=0 );
     TQImage( const char * const xpm[] );
     TQImage( const TQByteArray &data );
@@ -83,7 +83,7 @@ public:
     TQImage( uchar* data, int w, int h, int depth,
 		TQRgb* colortable, int numColors,
 		Endian bitOrder );
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     TQImage( uchar* data, int w, int h, int depth, int pbl,
 		TQRgb* colortable, int numColors,
 		Endian bitOrder );
@@ -99,7 +99,7 @@ public:
     TQImage	copy()		const;
     TQImage	copy(int x, int y, int w, int h, int conversion_flags=0) const;
     TQImage	copy(const TQRect&)	const;
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     static TQImage fromMimeSource( const TQString& abs_name );
 #endif
     bool	isNull()	const	{ return data->bits == 0; }
@@ -129,7 +129,7 @@ public:
     int		numBytes()	const;
     int		bytesPerLine()	const;
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     TQGfx * graphicsContext();
 #endif
 
@@ -143,7 +143,7 @@ public:
     void	invertPixels( bool invertAlpha = TRUE );
 
     TQImage	convertDepth( int ) const;
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     TQImage	convertDepthWithPalette( int, TQRgb* p, int pc, int cf=0 ) const;
 #endif
     TQImage	convertDepth( int, int conversion_flags ) const;
@@ -154,11 +154,11 @@ public:
 	ScaleMin,
 	ScaleMax
     };
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
     TQImage smoothScale( int w, int h, ScaleMode mode=ScaleFree ) const;
     TQImage smoothScale( const TQSize& s, ScaleMode mode=ScaleFree ) const;
 #endif
-#ifndef QT_NO_IMAGE_TRANSFORMATION
+#ifndef TQT_NO_IMAGE_TRANSFORMATION
     TQImage scale( int w, int h, ScaleMode mode=ScaleFree ) const;
     TQImage scale( const TQSize& s, ScaleMode mode=ScaleFree ) const;
     TQImage scaleWidth( int w ) const;
@@ -166,13 +166,13 @@ public:
     TQImage xForm( const TQWMatrix &matrix ) const;
 #endif
 
-#ifndef QT_NO_IMAGE_DITHER_TO_1
+#ifndef TQT_NO_IMAGE_DITHER_TO_1
     TQImage	createAlphaMask( int conversion_flags=0 ) const;
 #endif
-#ifndef QT_NO_IMAGE_HEURISTIC_MASK
+#ifndef TQT_NO_IMAGE_HEURISTIC_MASK
     TQImage	createHeuristicMask( bool clipTight=TRUE ) const;
 #endif
-#ifndef QT_NO_IMAGE_MIRROR
+#ifndef TQT_NO_IMAGE_MIRROR
     TQImage	mirror() const;
     TQImage	mirror(bool horizontally, bool vertically) const;
 #endif
@@ -181,11 +181,11 @@ public:
     static Endian systemBitOrder();
     static Endian systemByteOrder();
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     static const char* imageFormat( const TQString &fileName );
     static TQStrList inputFormats();
     static TQStrList outputFormats();
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     static TQStringList inputFormatList();
     static TQStringList outputFormatList();
 #endif
@@ -197,7 +197,7 @@ public:
 		      int quality=-1 ) const;
     bool	save( TQIODevice * device, const char* format,
 		      int quality=-1 ) const;
-#endif //QT_NO_IMAGEIO
+#endif //TQT_NO_IMAGEIO
 
     bool	valid( int x, int y ) const;
     int		pixelIndex( int x, int y ) const;
@@ -211,7 +211,7 @@ public:
     void setDotsPerMeterY(int);
     TQPoint offset() const;
     void setOffset(const TQPoint&);
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     TQValueList<TQImageTextKeyLang> textList() const;
     TQStringList textLanguages() const;
     TQStringList textKeys() const;
@@ -238,18 +238,18 @@ private:
 	int	dpmx;				// dots per meter X (or 0)
 	int	dpmy;				// dots per meter Y (or 0)
 	TQPoint	offset;				// offset in pixels
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
 	TQImageDataMisc* misc;			// less common stuff
 #endif
 	bool    ctbl_mine;			// this allocated ctbl
     } *data;
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     TQImageDataMisc& misc() const;
 #endif
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     bool doImageIO( TQImageIO* io, int quality ) const;
 #endif
-    friend Q_EXPORT void bitBlt( TQImage* dst, int dx, int dy,
+    friend TQ_EXPORT void bitBlt( TQImage* dst, int dx, int dy,
 				 const TQImage* src, int sx, int sy,
 				 int sw, int sh, int conversion_flags );
 };
@@ -257,12 +257,12 @@ private:
 
 // TQImage stream functions
 
-#if !defined(QT_NO_DATASTREAM) && !defined(QT_NO_IMAGEIO)
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQImage & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQImage & );
+#if !defined(TQT_NO_DATASTREAM) && !defined(TQT_NO_IMAGEIO)
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQImage & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQImage & );
 #endif
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 class TQIODevice;
 typedef void (*image_io_handler)( TQImageIO * ); // image IO handler
 
@@ -270,7 +270,7 @@ typedef void (*image_io_handler)( TQImageIO * ); // image IO handler
 struct TQImageIOData;
 
 
-class Q_EXPORT TQImageIO
+class TQ_EXPORT TQImageIO
 {
 public:
     TQImageIO();
@@ -332,9 +332,9 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif //QT_NO_IMAGEIO
+#endif //TQT_NO_IMAGEIO
 
-Q_EXPORT void bitBlt( TQImage* dst, int dx, int dy, const TQImage* src,
+TQ_EXPORT void bitBlt( TQImage* dst, int dx, int dy, const TQImage* src,
 		      int sx=0, int sy=0, int sw=-1, int sh=-1,
 		      int conversion_flags=0 );
 

@@ -80,10 +80,10 @@ public:
         <a href="ntqsocket.html">TQSocket</a>( parent, name )
     {
         line = 0;
-        connect( this, SIGNAL(readyRead()),
-                SLOT(readClient()) );
-        connect( this, SIGNAL(connectionClosed()),
-                SLOT(deleteLater()) );
+        connect( this, TQ_SIGNAL(readyRead()),
+                TQ_SLOT(readClient()) );
+        connect( this, TQ_SIGNAL(connectionClosed()),
+                TQ_SLOT(deleteLater()) );
         setSocket( sock );
     }
 
@@ -168,10 +168,10 @@ public:
         infoText = new <a href="ntqtextview.html">TQTextView</a>( this );
         <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( tr("Quit") , this );
 
-        connect( server, SIGNAL(newConnect(ClientSocket*)),
-                SLOT(newConnect(ClientSocket*)) );
-        connect( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp,
-                SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+        connect( server, TQ_SIGNAL(newConnect(ClientSocket*)),
+                TQ_SLOT(newConnect(ClientSocket*)) );
+        connect( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp,
+                TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     }
 
     ~ServerInfo()
@@ -182,10 +182,10 @@ private slots:
     void newConnect( ClientSocket *s )
     {
 <a name="x786"></a>        infoText-&gt;<a href="ntqtextedit.html#append">append</a>( tr("New connection\n") );
-        connect( s, SIGNAL(logText(const <a href="ntqstring.html">TQString</a>&amp;)),
-                infoText, SLOT(<a href="ntqtextedit.html#append">append</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
-<a name="x785"></a>        connect( s, SIGNAL(<a href="ntqsocket.html#connectionClosed">connectionClosed</a>()),
-                SLOT(connectionClosed()) );
+        connect( s, TQ_SIGNAL(logText(const <a href="ntqstring.html">TQString</a>&amp;)),
+                infoText, TQ_SLOT(<a href="ntqtextedit.html#append">append</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
+<a name="x785"></a>        connect( s, TQ_SIGNAL(<a href="ntqsocket.html#connectionClosed">connectionClosed</a>()),
+                TQ_SLOT(connectionClosed()) );
     }
 
     void connectionClosed()
@@ -247,20 +247,20 @@ public:
         <a href="ntqpushbutton.html">TQPushButton</a> *close = new <a href="ntqpushbutton.html">TQPushButton</a>( tr("Close connection") , this );
         <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( tr("Quit") , this );
 
-<a name="x792"></a>        connect( send, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(sendToServer()) );
-        connect( close, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(closeConnection()) );
-        connect( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<a name="x792"></a>        connect( send, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(sendToServer()) );
+        connect( close, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(closeConnection()) );
+        connect( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
         // create the socket and connect various of its signals
         socket = new <a href="ntqsocket.html">TQSocket</a>( this );
-<a name="x798"></a>        connect( socket, SIGNAL(<a href="ntqsocket.html#connected">connected</a>()),
-                SLOT(socketConnected()) );
-<a name="x799"></a>        connect( socket, SIGNAL(<a href="ntqsocket.html#connectionClosed">connectionClosed</a>()),
-                SLOT(socketConnectionClosed()) );
-<a name="x803"></a>        connect( socket, SIGNAL(<a href="ntqsocket.html#readyRead">readyRead</a>()),
-                SLOT(socketReadyRead()) );
-<a name="x801"></a>        connect( socket, SIGNAL(<a href="ntqsocket.html#error">error</a>(int)),
-                SLOT(socketError(int)) );
+<a name="x798"></a>        connect( socket, TQ_SIGNAL(<a href="ntqsocket.html#connected">connected</a>()),
+                TQ_SLOT(socketConnected()) );
+<a name="x799"></a>        connect( socket, TQ_SIGNAL(<a href="ntqsocket.html#connectionClosed">connectionClosed</a>()),
+                TQ_SLOT(socketConnectionClosed()) );
+<a name="x803"></a>        connect( socket, TQ_SIGNAL(<a href="ntqsocket.html#readyRead">readyRead</a>()),
+                TQ_SLOT(socketReadyRead()) );
+<a name="x801"></a>        connect( socket, TQ_SIGNAL(<a href="ntqsocket.html#error">error</a>(int)),
+                TQ_SLOT(socketError(int)) );
 
         // connect to the server
 <a name="x805"></a>        infoText-&gt;<a href="ntqtextedit.html#append">append</a>( tr("Trying to connect to the server\n") );
@@ -277,8 +277,8 @@ private slots:
 <a name="x796"></a>        socket-&gt;<a href="ntqsocket.html#close">close</a>();
 <a name="x804"></a>        if ( socket-&gt;<a href="ntqsocket.html#state">state</a>() == TQSocket::Closing ) {
             // We have a delayed close.
-<a name="x800"></a>            connect( socket, SIGNAL(<a href="ntqsocket.html#delayedCloseFinished">delayedCloseFinished</a>()),
-                    SLOT(socketClosed()) );
+<a name="x800"></a>            connect( socket, TQ_SIGNAL(<a href="ntqsocket.html#delayedCloseFinished">delayedCloseFinished</a>()),
+                    TQ_SLOT(socketClosed()) );
         } else {
             // The socket is closed.
             socketClosed();

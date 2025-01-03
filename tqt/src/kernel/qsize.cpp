@@ -389,7 +389,7 @@ void TQSize::warningDivByZero()
 /*****************************************************************************
   TQSize stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
   \relates TQSize
   Writes the size \a sz to the stream \a s and returns a reference to
@@ -429,4 +429,4 @@ TQDataStream &operator>>( TQDataStream &s, TQSize &sz )
     }
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM

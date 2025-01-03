@@ -89,13 +89,7 @@ body { background: #ffffff; color: black; }
 #include "ntqpicture.h"
 #endif // QT_H
 
-#ifndef QT_NO_ICONVIEW
-
-#if !defined( TQT_MODULE_ICONVIEW ) || defined( QT_INTERNAL_ICONVIEW )
-#define TQM_EXPORT_ICONVIEW
-#else
-#define TQM_EXPORT_ICONVIEW Q_EXPORT
-#endif
+#ifndef TQT_NO_ICONVIEW
 
 class TQIconView;
 class TQPainter;
@@ -112,9 +106,9 @@ class TQIconViewItemLineEdit;
 class TQStringList;
 class TQIconDragPrivate;
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
-class TQM_EXPORT_ICONVIEW TQIconDragItem
+class TQ_EXPORT TQIconDragItem
 {
 public:
     TQIconDragItem();
@@ -128,7 +122,7 @@ private:
 
 };
 
-class TQM_EXPORT_ICONVIEW TQIconDrag : public TQDragObject
+class TQ_EXPORT TQIconDrag : public TQDragObject
 {
     TQ_OBJECT
 public:
@@ -158,7 +152,7 @@ private:
 class TQIconViewToolTip;
 class TQIconViewItemPrivate;
 
-class TQM_EXPORT_ICONVIEW TQIconViewItem : public TQt
+class TQ_EXPORT TQIconViewItem : public TQt
 {
     friend class TQIconView;
     friend class TQIconViewToolTip;
@@ -171,7 +165,7 @@ public:
     TQIconViewItem( TQIconView *parent, TQIconViewItem *after, const TQString &amp;text );
     TQIconViewItem( TQIconView *parent, const TQString &amp;text, const TQPixmap &amp;icon );
     TQIconViewItem( TQIconView *parent, TQIconViewItem *after, const TQString &amp;text, const TQPixmap &amp;icon );
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     TQIconViewItem( TQIconView *parent, const TQString &amp;text, const TQPicture &amp;picture );
     TQIconViewItem( TQIconView *parent, TQIconViewItem *after, const TQString &amp;text, const TQPicture &amp;picture );
 #endif
@@ -183,7 +177,7 @@ public:
 
     virtual TQString text() const;
     virtual TQPixmap *pixmap() const;
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     virtual TQPicture *picture() const;
 #endif
     virtual TQString key() const;
@@ -226,7 +220,7 @@ public:
 
     virtual bool acceptDrop( const TQMimeSource *mime ) const;
 
-#ifndef QT_NO_TEXTEDIT
+#ifndef TQT_NO_TEXTEDIT
     void rename();
 #endif
 
@@ -234,7 +228,7 @@ public:
 
     virtual void setText( const TQString &amp;text );
     virtual void setPixmap( const TQPixmap &amp;icon );
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     virtual void setPicture( const TQPicture &amp;icon );
 #endif
     virtual void setText( const TQString &amp;text, bool recalc, bool redraw = TRUE );
@@ -245,13 +239,13 @@ public:
     static int RTTI;
 
 protected:
-#ifndef QT_NO_TEXTEDIT
+#ifndef TQT_NO_TEXTEDIT
     virtual void removeRenameBox();
 #endif
     virtual void calcRect( const TQString &amp;text_ = TQString::null );
     virtual void paintItem( TQPainter *p, const TQColorGroup &amp;cg );
     virtual void paintFocus( TQPainter *p, const TQColorGroup &amp;cg );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual void dropped( TQDropEvent *e, const TQValueList&lt;TQIconDragItem&gt; &amp;lst );
 #endif
     virtual void dragEntered();
@@ -264,11 +258,11 @@ protected:
 
 private:
     void init( TQIconViewItem *after = 0
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
 	       , TQPicture *pic = 0
 #endif
 	       );
-#ifndef QT_NO_TEXTEDIT
+#ifndef TQT_NO_TEXTEDIT
     void renameItem();
     void cancelRenameItem();
 #endif
@@ -278,7 +272,7 @@ private:
     TQString itemText, itemKey;
     TQString tmpText;
     TQPixmap *itemIcon;
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     TQPicture *itemPic;
 #endif
     TQIconViewItem *prev, *next;
@@ -290,7 +284,7 @@ private:
     uint dirty : 1;
     uint wordWrapDirty : 1;
     TQRect itemRect, itemTextRect, itemIconRect;
-#ifndef QT_NO_TEXTEDIT
+#ifndef TQT_NO_TEXTEDIT
     TQIconViewItemLineEdit *renameBox;
 #endif
     TQRect oldRect;
@@ -301,7 +295,7 @@ private:
 
 class TQIconViewPrivate;          /* don't touch */
 
-class TQM_EXPORT_ICONVIEW TQIconView : public TQScrollView
+class TQ_EXPORT TQIconView : public TQScrollView
 {
     friend class TQIconViewItem;
     friend class TQIconViewPrivate;
@@ -452,7 +446,7 @@ signals:
     void mouseButtonClicked( int button, TQIconViewItem* item, const TQPoint&amp; pos );
     void contextMenuRequested( TQIconViewItem* item, const TQPoint &amp;pos );
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void dropped( TQDropEvent *e, const TQValueList&lt;TQIconDragItem&gt; &amp;lst );
 #endif
     void moved();
@@ -477,7 +471,7 @@ protected:
     void contentsMouseDoubleClickEvent( TQMouseEvent *e );
     void contentsContextMenuEvent( TQContextMenuEvent *e );
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void contentsDragEnterEvent( TQDragEnterEvent *e );
     void contentsDragMoveEvent( TQDragMoveEvent *e );
     void contentsDragLeaveEvent( TQDragLeaveEvent *e );
@@ -491,7 +485,7 @@ protected:
     void enterEvent( TQEvent *e );
 
     virtual void drawRubber( TQPainter *p );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual TQDragObject *dragObject();
     virtual void startDrag();
 #endif
@@ -509,7 +503,7 @@ protected:
 private:
     void contentsMousePressEventEx( TQMouseEvent *e );
     virtual void drawDragShapes( const TQPoint &amp;pnt );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual void initDragEnter( TQDropEvent *e );
 #endif
     void drawContents( TQPainter* );
@@ -540,7 +534,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_ICONVIEW
+#endif // TQT_NO_ICONVIEW
 
 #endif // TQICONVIEW_H
 </pre>

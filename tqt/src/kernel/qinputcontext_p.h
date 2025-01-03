@@ -60,24 +60,24 @@ class TQFont;
 class TQString;
 
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include "ntqarray.h"
 #include "ntqwindowdefs.h"
 #include "qt_x11_p.h"
 #endif
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #include "qt_windows.h"
 #endif
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 class TQWSIMEvent;
 #endif
 
 class TQInputContext
 {
 public:
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     TQInputContext(TQWidget *); // should be a toplevel widget
     ~TQInputContext();
 
@@ -96,17 +96,17 @@ public:
     TQFont font;
     XFontSet fontset;
     TQMemArray<bool> selectedChars;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     static void translateIMEvent( TQWSIMEvent *, TQWidget * );
     static void reset();
 private:
     static TQWidget* focusWidget;
     static TQString* composition;
-#endif //Q_WS_QWS
+#endif //TQ_WS_QWS
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     static void init();
     static void shutdown();
 

@@ -36,8 +36,8 @@ TextEdit::TextEdit( TQWidget *parent, const char *name )
     setupTextActions();
 
     tabWidget = new TQTabWidget( this );
-    connect( tabWidget, SIGNAL( currentChanged( TQWidget * ) ),
-	     this, SLOT( editorChanged( TQWidget * ) ) );
+    connect( tabWidget, TQ_SIGNAL( currentChanged( TQWidget * ) ),
+	     this, TQ_SLOT( editorChanged( TQWidget * ) ) );
     setCentralWidget( tabWidget );
 
     if ( tqApp->argc() == 1 ) {
@@ -57,31 +57,31 @@ void TextEdit::setupFileActions()
 
     TQAction *a;
     a = new TQAction( TQPixmap::fromMimeSource( "filenew.xpm" ), tr( "&New..." ), CTRL + Key_N, this, "fileNew" );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileNew() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileNew() ) );
     a->addTo( tb );
     a->addTo( menu );
     a = new TQAction( TQPixmap::fromMimeSource( "fileopen.xpm" ), tr( "&Open..." ), CTRL + Key_O, this, "fileOpen" );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileOpen() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileOpen() ) );
     a->addTo( tb );
     a->addTo( menu );
     menu->insertSeparator();
     a = new TQAction( TQPixmap::fromMimeSource( "filesave.xpm" ), tr( "&Save..." ), CTRL + Key_S, this, "fileSave" );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileSave() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileSave() ) );
     a->addTo( tb );
     a->addTo( menu );
     a = new TQAction( tr( "Save &As..." ), 0, this, "fileSaveAs" );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileSaveAs() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileSaveAs() ) );
     a->addTo( menu );
     menu->insertSeparator();
     a = new TQAction( TQPixmap::fromMimeSource( "fileprint.xpm" ), tr( "&Print..." ), CTRL + Key_P, this, "filePrint" );
-    connect( a, SIGNAL( activated() ), this, SLOT( filePrint() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( filePrint() ) );
     a->addTo( tb );
     a->addTo( menu );
     a = new TQAction( tr( "&Close" ), 0, this, "fileClose" );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileClose() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileClose() ) );
     a->addTo( menu );
     a = new TQAction( tr( "E&xit" ), 0, this, "fileExit" );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileExit() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileExit() ) );
     a->addTo( menu );
 }
 
@@ -94,24 +94,24 @@ void TextEdit::setupEditActions()
 
     TQAction *a;
     a = new TQAction( TQPixmap::fromMimeSource( "editundo.xpm" ), tr( "&Undo" ), CTRL + Key_Z, this, "editUndo" );
-    connect( a, SIGNAL( activated() ), this, SLOT( editUndo() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( editUndo() ) );
     a->addTo( tb );
     a->addTo( menu );
     a = new TQAction( TQPixmap::fromMimeSource( "editredo.xpm" ), tr( "&Redo" ), CTRL + Key_Y, this, "editRedo" );
-    connect( a, SIGNAL( activated() ), this, SLOT( editRedo() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( editRedo() ) );
     a->addTo( tb );
     a->addTo( menu );
     menu->insertSeparator();
     a = new TQAction( TQPixmap::fromMimeSource( "editcopy.xpm" ), tr( "&Copy" ), CTRL + Key_C, this, "editCopy" );
-    connect( a, SIGNAL( activated() ), this, SLOT( editCopy() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( editCopy() ) );
     a->addTo( tb );
     a->addTo( menu );
     a = new TQAction( TQPixmap::fromMimeSource( "editcut.xpm" ), tr( "Cu&t" ), CTRL + Key_X, this, "editCut" );
-    connect( a, SIGNAL( activated() ), this, SLOT( editCut() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( editCut() ) );
     a->addTo( tb );
     a->addTo( menu );
     a = new TQAction( TQPixmap::fromMimeSource( "editpaste.xpm" ), tr( "&Paste" ), CTRL + Key_V, this, "editPaste" );
-    connect( a, SIGNAL( activated() ), this, SLOT( editPaste() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( editPaste() ) );
     a->addTo( tb );
     a->addTo( menu );
 }
@@ -126,8 +126,8 @@ void TextEdit::setupTextActions()
     comboFont = new TQComboBox( TRUE, tb );
     TQFontDatabase db;
     comboFont->insertStringList( db.families() );
-    connect( comboFont, SIGNAL( activated( const TQString & ) ),
-	     this, SLOT( textFamily( const TQString & ) ) );
+    connect( comboFont, TQ_SIGNAL( activated( const TQString & ) ),
+	     this, TQ_SLOT( textFamily( const TQString & ) ) );
     comboFont->lineEdit()->setText( TQApplication::font().family() );
 
     comboSize = new TQComboBox( TRUE, tb );
@@ -135,29 +135,29 @@ void TextEdit::setupTextActions()
     TQValueList<int>::Iterator it = sizes.begin();
     for ( ; it != sizes.end(); ++it )
 	comboSize->insertItem( TQString::number( *it ) );
-    connect( comboSize, SIGNAL( activated( const TQString & ) ),
-	     this, SLOT( textSize( const TQString & ) ) );
+    connect( comboSize, TQ_SIGNAL( activated( const TQString & ) ),
+	     this, TQ_SLOT( textSize( const TQString & ) ) );
     comboSize->lineEdit()->setText( TQString::number( TQApplication::font().pointSize() ) );
 
     actionTextBold = new TQAction( TQPixmap::fromMimeSource( "textbold.xpm" ), tr( "&Bold" ), CTRL + Key_B, this, "textBold" );
-    connect( actionTextBold, SIGNAL( activated() ), this, SLOT( textBold() ) );
+    connect( actionTextBold, TQ_SIGNAL( activated() ), this, TQ_SLOT( textBold() ) );
     actionTextBold->addTo( tb );
     actionTextBold->addTo( menu );
     actionTextBold->setToggleAction( TRUE );
     actionTextItalic = new TQAction( TQPixmap::fromMimeSource( "textitalic.xpm" ), tr( "&Italic" ), CTRL + Key_I, this, "textItalic" );
-    connect( actionTextItalic, SIGNAL( activated() ), this, SLOT( textItalic() ) );
+    connect( actionTextItalic, TQ_SIGNAL( activated() ), this, TQ_SLOT( textItalic() ) );
     actionTextItalic->addTo( tb );
     actionTextItalic->addTo( menu );
     actionTextItalic->setToggleAction( TRUE );
     actionTextUnderline = new TQAction( TQPixmap::fromMimeSource( "textunder.xpm" ), tr( "&Underline" ), CTRL + Key_U, this, "textUnderline" );
-    connect( actionTextUnderline, SIGNAL( activated() ), this, SLOT( textUnderline() ) );
+    connect( actionTextUnderline, TQ_SIGNAL( activated() ), this, TQ_SLOT( textUnderline() ) );
     actionTextUnderline->addTo( tb );
     actionTextUnderline->addTo( menu );
     actionTextUnderline->setToggleAction( TRUE );
     menu->insertSeparator();
 
     TQActionGroup *grp = new TQActionGroup( this );
-    connect( grp, SIGNAL( selected( TQAction* ) ), this, SLOT( textAlign( TQAction* ) ) );
+    connect( grp, TQ_SIGNAL( selected( TQAction* ) ), this, TQ_SLOT( textAlign( TQAction* ) ) );
 
     actionAlignLeft = new TQAction( TQPixmap::fromMimeSource( "textleft.xpm" ), tr( "&Left" ), CTRL + Key_L, grp, "textLeft" );
     actionAlignLeft->setToggleAction( TRUE );
@@ -176,7 +176,7 @@ void TextEdit::setupTextActions()
     TQPixmap pix( 16, 16 );
     pix.fill( black );
     actionTextColor = new TQAction( pix, tr( "&Color..." ), 0, this, "textColor" );
-    connect( actionTextColor, SIGNAL( activated() ), this, SLOT( textColor() ) );
+    connect( actionTextColor, TQ_SIGNAL( activated() ), this, TQ_SLOT( textColor() ) );
     actionTextColor->addTo( tb );
     actionTextColor->addTo( menu );
 }
@@ -212,12 +212,12 @@ TQTextEdit *TextEdit::currentEditor() const
 
 void TextEdit::doConnections( TQTextEdit *e )
 {
-    connect( e, SIGNAL( currentFontChanged( const TQFont & ) ),
-	     this, SLOT( fontChanged( const TQFont & ) ) );
-    connect( e, SIGNAL( currentColorChanged( const TQColor & ) ),
-	     this, SLOT( colorChanged( const TQColor & ) ) );
-    connect( e, SIGNAL( currentAlignmentChanged( int ) ),
-	     this, SLOT( alignmentChanged( int ) ) );
+    connect( e, TQ_SIGNAL( currentFontChanged( const TQFont & ) ),
+	     this, TQ_SLOT( fontChanged( const TQFont & ) ) );
+    connect( e, TQ_SIGNAL( currentColorChanged( const TQColor & ) ),
+	     this, TQ_SLOT( colorChanged( const TQColor & ) ) );
+    connect( e, TQ_SIGNAL( currentAlignmentChanged( int ) ),
+	     this, TQ_SLOT( alignmentChanged( int ) ) );
 }
 
 void TextEdit::fileNew()
@@ -269,7 +269,7 @@ void TextEdit::filePrint()
 {
     if ( !currentEditor() )
 	return;
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     TQPrinter printer( TQPrinter::HighResolution );
     printer.setFullPage(TRUE);
     if ( printer.setup( this ) ) {

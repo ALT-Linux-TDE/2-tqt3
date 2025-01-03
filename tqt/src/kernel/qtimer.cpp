@@ -62,7 +62,7 @@
     Example:
     \code
 	TQTimer *timer = new TQTimer( myObject );
-	connect( timer, SIGNAL(timeout()), myObject, SLOT(timerDone()) );
+	connect( timer, TQ_SIGNAL(timeout()), myObject, TQ_SLOT(timerDone()) );
 	timer->start( 2000, TRUE ); // 2 seconds single-shot timer
     \endcode
 
@@ -77,7 +77,7 @@
     user interface:
     \code
 	TQTimer *t = new TQTimer( myObject );
-	connect( t, SIGNAL(timeout()), SLOT(processOneThing()) );
+	connect( t, TQ_SIGNAL(timeout()), TQ_SLOT(processOneThing()) );
 	t->start( 0, FALSE );
     \endcode
 
@@ -308,7 +308,7 @@ bool TQSingleShotTimer::event( TQEvent * )
 	int main( int argc, char **argv )
 	{
 	    TQApplication a( argc, argv );
-	    TQTimer::singleShot( 10*60*1000, &a, SLOT(quit()) );
+	    TQTimer::singleShot( 10*60*1000, &a, TQ_SLOT(quit()) );
 		... // create and show your widgets
 	    return a.exec();
 	}

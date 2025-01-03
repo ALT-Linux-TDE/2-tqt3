@@ -116,7 +116,7 @@
 
 #include "ntqeucjpcodec.h"
 
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 static const uchar Esc = 0x1b;
 static const uchar Ss2 = 0x8e;	// Single Shift 2

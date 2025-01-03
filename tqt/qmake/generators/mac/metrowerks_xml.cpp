@@ -440,8 +440,8 @@ MetrowerksMakefileGenerator::writeMakeParts(TQTextStream &t)
 			t << "MYDL";
 		else
 			t << "MEXE";
-	    } else if(variable == "CODEWARRIOR_QTDIR") {
-		t << getenv("QTDIR");
+	    } else if(variable == "CODEWARRIOR_TQTDIR") {
+		t << getenv("TQTDIR");
 	    } else if(variable == "CODEWARRIOR_CACHEMODDATES") {
 		t << "true";
 	    } else {
@@ -534,7 +534,7 @@ MetrowerksMakefileGenerator::init()
 	if(configs.findIndex("moc")) 
 	    configs.append("moc");
 	if ( !project->isActiveConfig("debug") ) 
-	    project->variables()["DEFINES"].append("QT_NO_DEBUG");
+	    project->variables()["DEFINES"].append("TQT_NO_DEBUG");
     }
 
     //version handling
@@ -580,7 +580,7 @@ MetrowerksMakefileGenerator::init()
     }
 
     if(project->isActiveConfig("qt"))
-	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_QT"];
+	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_TQT"];
     if(project->isEmpty("FRAMEWORKPATH"))
 	project->variables()["FRAMEWORKPATH"].append("/System/Library/Frameworks/");
 
@@ -612,7 +612,7 @@ MetrowerksMakefileGenerator::findTemplate(const TQString &file)
     TQString ret;
     if(!TQFile::exists(ret = file) && 
        !TQFile::exists((ret = Option::mkfile::qmakespec + TQDir::separator() + file)) && 
-       !TQFile::exists((ret = TQString(getenv("QTDIR")) + "/mkspecs/mac-mwerks/" + file)) &&
+       !TQFile::exists((ret = TQString(getenv("TQTDIR")) + "/mkspecs/mac-mwerks/" + file)) &&
        !TQFile::exists((ret = (TQString(getenv("HOME")) + "/.tmake/" + file))))
 	return "";
     return ret;

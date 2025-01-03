@@ -52,7 +52,7 @@ to create custom styles that can be loaded dynamically into
 applications with a <a href="ntqstylefactory.html">TQStyleFactory</a>.
 <p> Writing a style plugin is achieved by subclassing this base class,
 reimplementing the pure virtual functions <a href="#keys">keys</a>() and <a href="#create">create</a>(), and
-exporting the class with the <tt>Q_EXPORT_PLUGIN</tt> macro. See the
+exporting the class with the <tt>TQ_EXPORT_PLUGIN</tt> macro. See the
 <a href="plugins-howto.html">plugins documentation</a> for an
 example.
 <p>See also <a href="plugins.html">Plugins</a>.
@@ -61,7 +61,7 @@ example.
 <h3 class=fn><a name="TQStylePlugin"></a>TQStylePlugin::TQStylePlugin ()
 </h3>
 Constructs a style plugin. This is invoked automatically by the
-<tt>Q_EXPORT_PLUGIN</tt> macro.
+<tt>TQ_EXPORT_PLUGIN</tt> macro.
 
 <h3 class=fn><a name="~TQStylePlugin"></a>TQStylePlugin::~TQStylePlugin ()
 </h3>

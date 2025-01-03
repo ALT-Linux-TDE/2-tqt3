@@ -40,9 +40,9 @@ public:
         setBackgroundMode(NoBackground);
 
         // Get the movie to tell use when interesting things happen.
-        movie.connectUpdate(this, SLOT(movieUpdated(const TQRect&)));
-        movie.connectResize(this, SLOT(movieResized(const TQSize&)));
-        movie.connectStatus(this, SLOT(movieStatus(int)));
+        movie.connectUpdate(this, TQ_SLOT(movieUpdated(const TQRect&)));
+        movie.connectResize(this, TQ_SLOT(movieResized(const TQSize&)));
+        movie.connectStatus(this, TQ_SLOT(movieStatus(int)));
 
 	setSizePolicy(TQSizePolicy(TQSizePolicy::Expanding,TQSizePolicy::Expanding));
     }
@@ -204,13 +204,13 @@ public:
 	TQHBox* hb = new TQHBox(this);
 	TQPushButton* btn;
 	btn = new TQPushButton("<<", hb);
-	connect(btn, SIGNAL(clicked()), movie, SLOT(restart()));
+	connect(btn, TQ_SIGNAL(clicked()), movie, TQ_SLOT(restart()));
 	btn = new TQPushButton("||", hb);
-	connect(btn, SIGNAL(clicked()), movie, SLOT(togglePause()));
+	connect(btn, TQ_SIGNAL(clicked()), movie, TQ_SLOT(togglePause()));
 	btn = new TQPushButton(">|", hb);
-	connect(btn, SIGNAL(clicked()), movie, SLOT(step()));
+	connect(btn, TQ_SIGNAL(clicked()), movie, TQ_SLOT(step()));
 	btn = new TQPushButton(">>|", hb);
-	connect(btn, SIGNAL(clicked()), movie, SLOT(step10()));
+	connect(btn, TQ_SIGNAL(clicked()), movie, TQ_SLOT(step10()));
     }
 };
 
@@ -236,8 +236,8 @@ MovieStarter::MovieStarter(const char *dir)
     //behave as in getOpenFilename
     setMode( ExistingFile );
     // When a file is selected, show it as a movie.
-    connect(this, SIGNAL(fileSelected(const TQString&)),
-	    this, SLOT(startMovie(const TQString&)));
+    connect(this, TQ_SIGNAL(fileSelected(const TQString&)),
+	    this, TQ_SLOT(startMovie(const TQString&)));
 }
 
 
@@ -276,7 +276,7 @@ int main(int argc, char **argv)
 		(void)new MovieScreen(argv[arg], TQMovie(argv[arg]), 0, 0,
 				      TQt::WDestructiveClose);
 	}
-        TQObject::connect(tqApp, SIGNAL(lastWindowClosed()), tqApp, SLOT(quit()));
+        TQObject::connect(tqApp, TQ_SIGNAL(lastWindowClosed()), tqApp, TQ_SLOT(quit()));
     } else {
         // "GUI" mode - open a chooser for movies
         //

@@ -179,15 +179,15 @@ DBFILE   = vcr.db
         layout-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( lineEdit );
 </pre>
  <p>We begin by creating a horizontal box layout (<a href="qhboxlayout.html">TQHBoxLayout</a>) and add a <a href="ntqlineedit.html">TQLineEdit</a> and a <a href="ntqpushbutton.html">TQPushButton</a> to it.</p>
-<pre>        <a href="ntqobject.html#connect">connect</a>( lineEdit, SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-                 this, SIGNAL( fileNameChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+<pre>        <a href="ntqobject.html#connect">connect</a>( lineEdit, TQ_SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+                 this, TQ_SIGNAL( fileNameChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
 
         button = new <a href="ntqpushbutton.html">TQPushButton</a>( "...", this, "filechooser_button" );
         button-&gt;<a href="ntqwidget.html#setFixedWidth">setFixedWidth</a>( button-&gt;<a href="ntqwidget.html#fontMetrics">fontMetrics</a>().width( " ... " ) );
         layout-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( button );
 
-        <a href="ntqobject.html#connect">connect</a>( button, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
-                 this, SLOT( chooseFile() ) );
+        <a href="ntqobject.html#connect">connect</a>( button, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
+                 this, TQ_SLOT( chooseFile() ) );
 </pre>
  <p>We connect the lineEdit's<!-- index textChanged() --> <tt>textChanged()</tt> signal to the custom widget's <tt>fileNameChanged()</tt> signal. This ensures that if the user changes the text in the <a href="ntqlineedit.html">TQLineEdit</a> this fact will be propagated via the custom widget's own signal. The button's<!-- index clicked() --> <tt>clicked()</tt> signal is connected to the custom widget's <tt>chooseFile()</tt> slot which invokes the appropriate dialog for the user to choose their file or directory.</p>
 <pre>        <a href="ntqwidget.html#setFocusProxy">setFocusProxy</a>( lineEdit );
@@ -349,8 +349,8 @@ DEFINES += FILECHOOSER_IS_WIDGET
     }
 </pre>
  <p>Copy this function changing the class name to suit your widget plugin implementation. It should return <tt>TRUE</tt> if your custom widget can contain other widgets, e.g. like <a href="ntqframe.html">TQFrame</a>, or <tt>FALSE</tt> if it must not contain other widgets, e.g. like <a href="ntqpushbutton.html">TQPushButton</a>.</p>
-<!-- index Macros!Q_EXPORT_PLUGIN --><!-- index Q_EXPORT_PLUGIN --><p>The <tt>Q_EXPORT_PLUGIN</tt> macro.</p>
-<pre>    Q_EXPORT_PLUGIN( CustomWidgetPlugin )
+<!-- index Macros!TQ_EXPORT_PLUGIN --><!-- index TQ_EXPORT_PLUGIN --><p>The <tt>TQ_EXPORT_PLUGIN</tt> macro.</p>
+<pre>    TQ_EXPORT_PLUGIN( CustomWidgetPlugin )
 </pre>
  <p>This macro identifies the module as a plugin -- all the other code simply implements the relevant interface, i.e. wraps the classes you wish to make available.</p>
 <p>This macro must appear once in your plugin. It should be copied with the class name changed to the name of your plugin's class. (See the <a href="http://doc.trolltech.com/plugins.html">TQt Plugin documentation</a> for more information on the plugin entry point.)</p>

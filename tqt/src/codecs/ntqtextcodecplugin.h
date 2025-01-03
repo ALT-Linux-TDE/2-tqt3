@@ -46,11 +46,11 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_TEXTCODECPLUGIN
+#ifndef TQT_NO_TEXTCODECPLUGIN
 class TQTextCodec;
 class TQTextCodecPluginPrivate;
 
-class Q_EXPORT TQTextCodecPlugin : public TQGPlugin
+class TQ_EXPORT TQTextCodecPlugin : public TQGPlugin
 {
     TQ_OBJECT
 public:
@@ -66,5 +66,5 @@ public:
 private:
     TQTextCodecPluginPrivate *d;
 };
-#endif // QT_NO_TEXTCODECPLUGIN
+#endif // TQT_NO_TEXTCODECPLUGIN
 #endif // TQTEXTCODECPLUGIN_H

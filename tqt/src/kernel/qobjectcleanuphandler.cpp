@@ -122,7 +122,7 @@ TQObject* TQObjectCleanupHandler::add( TQObject* object )
 	cleanupObjects = new TQObjectList;
  	cleanupObjects->setAutoDelete( TRUE );
     }
-    connect( object, SIGNAL(destroyed(TQObject*)), this, SLOT(objectDestroyed(TQObject*)) );
+    connect( object, TQ_SIGNAL(destroyed(TQObject*)), this, TQ_SLOT(objectDestroyed(TQObject*)) );
     cleanupObjects->insert( 0, object );
     return object;
 }
@@ -137,7 +137,7 @@ void TQObjectCleanupHandler::remove( TQObject *object )
 	return;
     if ( cleanupObjects->findRef( object ) >= 0 ) {
 	(void) cleanupObjects->take();
-	disconnect( object, SIGNAL(destroyed(TQObject*)), this, SLOT(objectDestroyed(TQObject*)) );
+	disconnect( object, TQ_SIGNAL(destroyed(TQObject*)), this, TQ_SLOT(objectDestroyed(TQObject*)) );
     }
 }
 

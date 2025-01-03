@@ -52,7 +52,7 @@
 #include "ntqsizepolicy.h"
 #endif // QT_H
 
-#if defined(Q_WS_X11) && !defined(QT_NO_IM)
+#if defined(TQ_WS_X11)
 class TQInputContext;
 #endif
 
@@ -65,7 +65,7 @@ class TQWSRegionManager;
 class TQStyle;
 class TQStyleControlElementData;
 
-class Q_EXPORT TQWidget : public TQObject, public TQPaintDevice
+class TQ_EXPORT TQWidget : public TQObject, public TQPaintDevice
 {
     TQ_OBJECT
     TQ_ENUMS( BackgroundMode FocusPolicy BackgroundOrigin )
@@ -107,11 +107,11 @@ class Q_EXPORT TQWidget : public TQObject, public TQPaintDevice
     TQ_PROPERTY( bool ownPalette READ ownPalette )
     TQ_PROPERTY( TQFont font READ font WRITE setFont RESET unsetFont STORED ownFont )
     TQ_PROPERTY( bool ownFont READ ownFont )
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     TQ_PROPERTY( TQCursor cursor READ cursor WRITE setCursor RESET unsetCursor STORED ownCursor )
     TQ_PROPERTY( bool ownCursor READ ownCursor )
 #endif
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     TQ_PROPERTY( TQString caption READ caption WRITE setCaption )
     TQ_PROPERTY( TQPixmap icon READ icon WRITE setIcon )
     TQ_PROPERTY( TQString iconText READ iconText WRITE setIconText )
@@ -145,7 +145,7 @@ public:
 
     WId		 winId() const;
     void	 setName( const char *name );
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     // GUI style setting
 
     TQStyle     &style() const;
@@ -236,7 +236,7 @@ public:
     const TQPixmap *	erasePixmap() const;
     virtual void	setErasePixmap( const TQPixmap & );
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     const TQColorGroup & colorGroup() const;
     const TQPalette &	palette()    const;
     bool		ownPalette() const;
@@ -262,13 +262,13 @@ public:
     TQFontMetrics	fontMetrics() const;
     TQFontInfo	 	fontInfo() const;
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     const TQCursor      &cursor() const;
     bool		ownCursor() const;
     virtual void	setCursor( const TQCursor & );
     virtual void	unsetCursor();
 #endif
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     TQString		caption() const;
     const TQPixmap      *icon() const;
     TQString		iconText() const;
@@ -286,7 +286,7 @@ public:
     virtual void	setBackgroundPixmap( const TQPixmap & ); // obsolete, use setErasePixmap()
 
 public slots:
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     virtual void	setCaption( const TQString &);
     virtual void	setIcon( const TQPixmap & );
     virtual void	setIconText( const TQString &);
@@ -323,7 +323,7 @@ public:
     // Grab functions
 
     void		grabMouse();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     void		grabMouse( const TQCursor & );
 #endif
     void		releaseMouse();
@@ -336,7 +336,7 @@ public:
 
     bool	 	isUpdatesEnabled() const;
 
-#if 0 //def Q_WS_QWS
+#if 0 //def TQ_WS_QWS
     void		repaintUnclipped( const TQRegion &, bool erase = TRUE );
 #endif
 public slots:
@@ -356,7 +356,7 @@ public slots:
     virtual void	hide();
     void		setShown( bool show );
     void		setHidden( bool hide );
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     void		iconify() { showMinimized(); }
 #endif
     virtual void	showMinimized();
@@ -406,7 +406,7 @@ public slots:
     virtual void  	adjustSize();
 
 public:
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
     TQLayout *		layout() const { return lay_out; }
 #endif
     void		updateGeometry();
@@ -414,7 +414,7 @@ public:
 				  bool showIt=FALSE );
     void		reparent( TQWidget *parent, const TQPoint &,
 				  bool showIt=FALSE );
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     void		recreate( TQWidget *parent, WFlags f, const TQPoint & p,
 				  bool showIt=FALSE ) { reparent(parent,f,p,showIt); }
 #endif
@@ -466,17 +466,17 @@ public:
     TQWidget  *childAt( int x, int y, bool includeThis = FALSE ) const;
     TQWidget  *childAt( const TQPoint &, bool includeThis = FALSE ) const;
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     virtual TQGfx * graphicsContext(bool clip_children=TRUE) const;
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     TQRegion clippedRegion(bool do_children=TRUE);
     uint clippedSerial(bool do_children=TRUE);
 #ifndef TQMAC_NO_QUARTZ
     CGContextRef macCGContext(bool clipped=TRUE) const;
 #endif
 #endif
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     enum X11WindowType {
         X11WindowTypeSelect,
         X11WindowTypeCombo,
@@ -499,7 +499,7 @@ protected:
     virtual void mouseReleaseEvent( TQMouseEvent * );
     virtual void mouseDoubleClickEvent( TQMouseEvent * );
     virtual void mouseMoveEvent( TQMouseEvent * );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     virtual void wheelEvent( TQWheelEvent * );
 #endif
     virtual void keyPressEvent( TQKeyEvent * );
@@ -518,7 +518,7 @@ protected:
     virtual void imEndEvent( TQIMEvent * );
     virtual void tabletEvent( TQTabletEvent * );
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual void dragEnterEvent( TQDragEnterEvent * );
     virtual void dragMoveEvent( TQDragMoveEvent * );
     virtual void dragLeaveEvent( TQDragLeaveEvent * );
@@ -528,16 +528,16 @@ protected:
     virtual void showEvent( TQShowEvent * );
     virtual void hideEvent( TQHideEvent * );
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     virtual bool macEvent( MSG * );
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     virtual bool winEvent( MSG * );
 #endif
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     virtual bool x11Event( XEvent * );
 #endif
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     virtual bool qwsEvent( TQWSEvent * );
     virtual unsigned char *scanLine( int ) const;
     virtual int bytesPerLine() const;
@@ -547,11 +547,11 @@ protected:
 
     // Misc. protected functions
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     virtual void styleChange( TQStyle& );
 #endif
     virtual void enabledChange( bool oldEnabled );
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     virtual void paletteChange( const TQPalette & );
 #endif
     virtual void fontChange( const TQFont & );
@@ -559,8 +559,8 @@ protected:
 
     int		 metric( int )	const;
 
-#if defined(Q_WS_X11)
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if defined(TQ_WS_X11)
+#if !defined(TQT_NO_IM_EXTENSIONS)
     virtual TQWidget *icHolderWidget();
 #else
     TQWidget *icHolderWidget();
@@ -593,7 +593,7 @@ protected:
     virtual void setKeyCompression(bool);
     virtual void setMicroFocusHint(int x, int y, int w, int h, bool text=TRUE, TQFont *f = 0);
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     void dirtyClippedRegion(bool);
     bool isClippedRegionDirty();
     virtual void setRegionDirty(bool);
@@ -602,26 +602,26 @@ protected:
 
 private slots:
     void	 focusProxyDestroyed();
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     void	 destroyInputContext();
 #endif
 
 private:
     void	 setFontSys( TQFont *f = 0 );
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     void	 createInputContext();
     void	 focusInputContext();
     void	 unfocusInputContext();
     void	 checkChildrenDnd();
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
     void        createSyncCounter();
     void        destroySyncCounter();
     void        incrementSyncCounter();
     void        handleSyncRequest( void* ev );
 #endif
 
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     uint    own_id : 1, macDropEnabled : 1;
     EventHandlerRef window_event;
     //mac event functions
@@ -640,7 +640,7 @@ private:
     friend class TQDragManager;
 #endif
 
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
     void 	 setLayout( TQLayout *l );
 #endif
     void	 setWinId( WId );
@@ -666,7 +666,7 @@ private:
     void         setBackgroundModeDirect( BackgroundMode );
     void         setBackgroundEmpty();
     void	 updateFrameStrut() const;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     void         setBackgroundX11Relative();
 #endif
 
@@ -689,18 +689,18 @@ private:
     uint		im_enabled : 1;
     TQRect		crect;
     TQColor		bg_col;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     TQPalette	 pal;
 #endif
     TQFont	 fnt;
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
     TQLayout 	*lay_out;
 #endif
-#if defined(Q_WS_X11) && !defined(QT_NO_IM) && !defined(QT_NO_IM_EXTENSIONS)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_IM) && !defined(TQT_NO_IM_EXTENSIONS)
     TQInputContext *ic;				// Input Context
 #endif
     TQWExtra	*extra;
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     TQRegion	 req_region;			// Requested region
     mutable TQRegion	 paintable_region;	// Paintable region
     mutable bool         paintable_region_dirty;// needs to be recalculated
@@ -721,7 +721,7 @@ private:
     TQRegion paintableRegion() const;
 
     void updateGraphicsContext( TQGfx *qgfx_qws, bool clip_children ) const;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     void updateCursor( const TQRegion &r ) const;
 #endif
 
@@ -753,7 +753,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 
 public: // obsolete functions to dissappear or to become inline in 3.0
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     void setPalette( const TQPalette &p, bool ) { setPalette( p ); }
 #endif
     void setFont( const TQFont &f, bool ) { setFont( f ); }
@@ -835,7 +835,7 @@ inline void TQWidget::setBaseSize( const TQSize &s )
 inline const TQColor &TQWidget::eraseColor() const
 { return bg_col; }
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 inline const TQPalette &TQWidget::palette() const
 { return pal; }
 #endif
@@ -951,7 +951,7 @@ inline void TQWidget::constPolish() const
         that->setWState(WState_Polished); // be on the safe side...
     }
 }
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 inline bool TQWidget::ownCursor() const
 {
     return testWState( WState_OwnCursor );
@@ -961,7 +961,7 @@ inline bool TQWidget::ownFont() const
 {
     return own_font;
 }
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 inline bool TQWidget::ownPalette() const
 {
     return own_palette;
@@ -984,15 +984,15 @@ inline bool TQWidget::isInputMethodEnabled() const
 
 class TQFocusData;
 class TQWSManager;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 class TQOleDropTarget;
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
 class TQMacDndExtra;
 #endif
 
-struct Q_EXPORT TQTLWExtra {
-#ifndef QT_NO_WIDGET_TOPEXTRA
+struct TQ_EXPORT TQTLWExtra {
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     TQString  caption;				// widget caption
     TQString  iconText;				// widget icon text
     TQPixmap *icon;				// widget icon
@@ -1002,12 +1002,12 @@ struct Q_EXPORT TQTLWExtra {
     // frame strut
     ulong    fleft, fright, ftop, fbottom;
     uint     unused : 8;                       // not used at this point...
-#if defined( Q_WS_WIN ) || defined( Q_WS_MAC )
+#if defined( TQ_WS_WIN ) || defined( TQ_WS_MAC )
     uint     opacity : 8;		       // Stores opacity level on Windows/Mac OS X.
 #endif
     uint     savedFlags;			// Save widgetflags while showing fullscreen
     short    basew, baseh;			// base sizes
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     WId  parentWinId;				// parent window Id (valid after reparenting)
     uint     embedded : 1;			// window is embedded in another TQt application
     uint     spont_unmapped: 1;			// window was spontaneously unmapped
@@ -1015,28 +1015,28 @@ struct Q_EXPORT TQTLWExtra {
     uint     dnd : 1;				// DND properties installed
     uint     uspos : 1;				// User defined position
     uint     ussize : 1;			// User defined size
-#if defined(QT_NO_IM_EXTENSIONS)
+#if defined(TQT_NO_IM_EXTENSIONS)
     void    *xic;				// Input Context
 #endif
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
     ulong    syncCounter;
     uint     syncRequestValue[2];
 #endif
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     WindowGroupRef group;
     uint     is_moved: 1;
     uint     resizer : 4;
 #endif
-#if defined(Q_WS_QWS) && !defined ( QT_NO_QWS_MANAGER )
+#if defined(TQ_WS_QWS) && !defined ( TQT_NO_QWS_MANAGER )
     TQRegion decor_allocated_region;		// decoration allocated region
     TQWSManager *qwsManager;
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     HICON    winIcon;				// internal Windows icon
 #endif
     TQRect    normalGeometry;			// used by showMin/maximized/FullScreen
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     uint style, exstyle;
 #endif
 };
@@ -1046,22 +1046,22 @@ struct Q_EXPORT TQTLWExtra {
 
 // dear user: you can see this struct, but it is internal. do not touch.
 
-struct Q_EXPORT TQWExtra {
+struct TQ_EXPORT TQWExtra {
     TQ_INT16  minw, minh;			// minimum size
     TQ_INT16  maxw, maxh;			// maximum size
     TQPixmap *bg_pix;				// background pixmap
     TQWidget *focus_proxy;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     TQCursor *curs;
 #endif
     TQTLWExtra *topextra;			// only useful for TLWs
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     TQOleDropTarget *dropTarget;			// drop target
 #endif
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     WId xDndProxy;				// XDND forwarding to embedded windows
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     TQRegion clip_saved, clip_sibs, clip_children;
     TQMacDndExtra *macDndExtra;
     TQRegion dirty_area;
@@ -1071,18 +1071,18 @@ struct Q_EXPORT TQWExtra {
     uint ctx_children_clipped:1;
 #endif // TQMAC_NO_QUARTZ
     uint has_dirty_area:1;
-#endif // Q_WS_MAC
+#endif // TQ_WS_MAC
     uint bg_origin : 2;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     uint children_use_dnd : 1;
     uint compress_events : 1;
 #endif
-#if defined(Q_WS_QWS) || defined(Q_WS_MAC)
+#if defined(TQ_WS_QWS) || defined(TQ_WS_MAC)
     TQRegion mask;				// widget mask
 #endif
     char     bg_mode;				// background mode
     char     bg_mode_visual;			// visual background mode
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     TQStyle* style;
 #endif
     TQRect micro_focus_hint;			// micro focus hint

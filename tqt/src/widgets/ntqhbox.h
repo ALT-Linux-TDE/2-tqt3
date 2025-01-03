@@ -42,13 +42,13 @@
 #include "ntqwidget.h"
 #endif // QT_H
 
-#ifndef QT_NO_HBOX
+#ifndef TQT_NO_HBOX
 
 #include "ntqframe.h"
 
 class TQBoxLayout;
 
-class Q_EXPORT TQHBox : public TQFrame
+class TQ_EXPORT TQHBox : public TQFrame
 {
     TQ_OBJECT
 public:
@@ -71,6 +71,6 @@ private:
 #endif
 };
 
-#endif // QT_NO_HBOX
+#endif // TQT_NO_HBOX
 
 #endif // TQHBOX_H

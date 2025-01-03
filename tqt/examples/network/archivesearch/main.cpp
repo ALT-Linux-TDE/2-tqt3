@@ -16,8 +16,8 @@ int main(int argc, char **argv)
     ArchiveDialog ad;
     ad.show();
 
-    TQObject::connect( &a, SIGNAL(lastWindowClosed()),
-		      &a, SLOT(quit()) );
+    TQObject::connect( &a, TQ_SIGNAL(lastWindowClosed()),
+		      &a, TQ_SLOT(quit()) );
     
     return a.exec();
 }

@@ -163,9 +163,9 @@ private:
 
     languageChange();
 
-    <a href="ntqobject.html#connect">connect</a>(copyPushButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(copy()));
-    <a href="ntqobject.html#connect">connect</a>(executePushButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(execute()));
-    <a href="ntqobject.html#connect">connect</a>(quitPushButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(<a href="ntqdialog.html#accept">accept</a>()));
+    <a href="ntqobject.html#connect">connect</a>(copyPushButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(copy()));
+    <a href="ntqobject.html#connect">connect</a>(executePushButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(execute()));
+    <a href="ntqobject.html#connect">connect</a>(quitPushButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(<a href="ntqdialog.html#accept">accept</a>()));
 
     execute();
 }
@@ -282,7 +282,7 @@ int main(int argc, char **argv)
     <a href="ntqapplication.html">TQApplication</a> app(argc, argv);
     RegexpTester form;
 <a name="x2511"></a>    form.<a href="ntqdialog.html#show">show</a>();
-<a name="x2512"></a><a name="x2510"></a><a name="x2509"></a>    app.<a href="ntqobject.html#connect">connect</a>(&amp;app, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;app, SLOT(<a href="ntqapplication.html#quit">quit</a>()));
+<a name="x2512"></a><a name="x2510"></a><a name="x2509"></a>    app.<a href="ntqobject.html#connect">connect</a>(&amp;app, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;app, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
     return app.<a href="ntqapplication.html#exec">exec</a>();
 }
 </pre>

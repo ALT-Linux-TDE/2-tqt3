@@ -45,13 +45,13 @@
 #include "ntqdialog.h"
 #endif // QT_H
 
-#ifndef QT_NO_PRINTDIALOG
+#ifndef TQT_NO_PRINTDIALOG
 
 class TQGroupBox;
 class TQPrintDialogPrivate;
 class TQListView;
 
-class Q_EXPORT TQPrintDialog : public TQDialog
+class TQ_EXPORT TQPrintDialog : public TQDialog
 {
     TQ_OBJECT
 public:

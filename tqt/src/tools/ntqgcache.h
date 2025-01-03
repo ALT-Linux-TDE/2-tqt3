@@ -53,7 +53,7 @@ class TQCListIt;
 class TQCDict;
 
 
-class Q_EXPORT TQGCache : public TQPtrCollection	// generic LRU cache
+class TQ_EXPORT TQGCache : public TQPtrCollection	// generic LRU cache
 {
 friend class TQGCacheIterator;
 protected:
@@ -98,7 +98,7 @@ private:
 };
 
 
-class Q_EXPORT TQGCacheIterator			// generic cache iterator
+class TQ_EXPORT TQGCacheIterator			// generic cache iterator
 {
 protected:
     TQGCacheIterator( const TQGCache & );

@@ -289,11 +289,11 @@ TQt::HANDLE TQPaintDevice::handle() const
 */
 TQt::HANDLE TQPaintDevice::x11RenderHandle() const
 {
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     return rendhd ? XftDrawPicture( (XftDraw *) rendhd ) : 0;
 #else
     return 0;
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 }
 
 
@@ -985,7 +985,7 @@ void bitBlt( TQPaintDevice *dst, int dx, int dy,
 	return;
     }
 
-#ifndef QT_NO_XRENDER
+#ifndef TQT_NO_XRENDER
     if (src_pm && !mono_src && src_pm->data->alphapm && !ignoreMask ) {
 	// use RENDER to do the blit
 	TQPixmap *alpha = src_pm->data->alphapm;

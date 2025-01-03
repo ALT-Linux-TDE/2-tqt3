@@ -36,18 +36,18 @@ void FtpMainWindow::init()
     statusBar()->addWidget( stateFtp, 0, TRUE );
 
     ftp = new TQFtp( this );
-    connect( ftp, SIGNAL(commandStarted(int)),
-	    SLOT(ftp_commandStarted()) );
-    connect( ftp, SIGNAL(commandFinished(int,bool)),
-	    SLOT(ftp_commandFinished()) );
-    connect( ftp, SIGNAL(done(bool)),
-	    SLOT(ftp_done(bool)) );
-    connect( ftp, SIGNAL(stateChanged(int)),
-	    SLOT(ftp_stateChanged(int)) );
-    connect( ftp, SIGNAL(listInfo(const TQUrlInfo &)),
-	    SLOT(ftp_listInfo(const TQUrlInfo &)) );
-    connect( ftp, SIGNAL(rawCommandReply(int, const TQString &)),
-	    SLOT(ftp_rawCommandReply(int, const TQString &)) );
+    connect( ftp, TQ_SIGNAL(commandStarted(int)),
+	    TQ_SLOT(ftp_commandStarted()) );
+    connect( ftp, TQ_SIGNAL(commandFinished(int,bool)),
+	    TQ_SLOT(ftp_commandFinished()) );
+    connect( ftp, TQ_SIGNAL(done(bool)),
+	    TQ_SLOT(ftp_done(bool)) );
+    connect( ftp, TQ_SIGNAL(stateChanged(int)),
+	    TQ_SLOT(ftp_stateChanged(int)) );
+    connect( ftp, TQ_SIGNAL(listInfo(const TQUrlInfo &)),
+	    TQ_SLOT(ftp_listInfo(const TQUrlInfo &)) );
+    connect( ftp, TQ_SIGNAL(rawCommandReply(int, const TQString &)),
+	    TQ_SLOT(ftp_rawCommandReply(int, const TQString &)) );
 }
 
 void FtpMainWindow::destroy()
@@ -82,12 +82,12 @@ void FtpMainWindow::uploadFile()
 	    this,
 	    "upload progress dialog",
 	    TRUE );
-    connect( ftp, SIGNAL(dataTransferProgress(int,int)),
-	    &progress, SLOT(setProgress(int,int)) );
-    connect( ftp, SIGNAL(commandFinished(int,bool)),
-	    &progress, SLOT(reset()) );
-    connect( &progress, SIGNAL(cancelled()),
-	    ftp, SLOT(abort()) );
+    connect( ftp, TQ_SIGNAL(dataTransferProgress(int,int)),
+	    &progress, TQ_SLOT(setProgress(int,int)) );
+    connect( ftp, TQ_SIGNAL(commandFinished(int,bool)),
+	    &progress, TQ_SLOT(reset()) );
+    connect( &progress, TQ_SIGNAL(cancelled()),
+	    ftp, TQ_SLOT(abort()) );
 
     TQFileInfo fi( fileName );
     ftp->put( file, fi.fileName() );
@@ -128,12 +128,12 @@ void FtpMainWindow::downloadFile()
 	    this,
 	    "download progress dialog",
 	    TRUE );
-    connect( ftp, SIGNAL(dataTransferProgress(int,int)),
-	    &progress, SLOT(setProgress(int,int)) );
-    connect( ftp, SIGNAL(commandFinished(int,bool)),
-	    &progress, SLOT(reset()) );
-    connect( &progress, SIGNAL(cancelled()),
-	    ftp, SLOT(abort()) );
+    connect( ftp, TQ_SIGNAL(dataTransferProgress(int,int)),
+	    &progress, TQ_SLOT(setProgress(int,int)) );
+    connect( ftp, TQ_SIGNAL(commandFinished(int,bool)),
+	    &progress, TQ_SLOT(reset()) );
+    connect( &progress, TQ_SIGNAL(cancelled()),
+	    ftp, TQ_SLOT(abort()) );
 
     ftp->get( item->text(0), file );
     progress.exec(); // ### takes a lot of time!!!

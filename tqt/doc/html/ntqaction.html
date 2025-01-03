@@ -140,7 +140,7 @@ the action. For example:
 
 <pre>        fileOpenAction = new TQAction( TQPixmap( fileopen ), "&amp;Open...",
                                       CTRL+Key_O, this, "open" );
-        <a href="ntqobject.html#connect">connect</a>( fileOpenAction, SIGNAL( <a href="#activated">activated</a>() ) , this, SLOT( choose() ) );
+        <a href="ntqobject.html#connect">connect</a>( fileOpenAction, TQ_SIGNAL( <a href="#activated">activated</a>() ) , this, TQ_SLOT( choose() ) );
 </pre>
 <p> We create a "File Save" action with a menu text of "&Save" and
 <em>Ctrl+S</em> as the keyboard accelerator. We connect the
@@ -389,8 +389,8 @@ indicate the state, e.g.
 
 <pre>        <a href="ntqmainwindow.html">TQMainWindow</a> * window = new <a href="ntqmainwindow.html">TQMainWindow</a>;
 </pre><pre>        TQAction * labelonoffaction = new TQAction( window, "labelonoff" );
-</pre><pre>    <a name="x2108"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( labelonoffaction, SIGNAL( <a href="#toggled">toggled</a>( bool ) ),
-    <a name="x2109"></a>                      window, SLOT( <a href="ntqmainwindow.html#setUsesTextLabel">setUsesTextLabel</a>( bool ) ) );
+</pre><pre>    <a name="x2108"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( labelonoffaction, TQ_SIGNAL( <a href="#toggled">toggled</a>( bool ) ),
+    <a name="x2109"></a>                      window, TQ_SLOT( <a href="ntqmainwindow.html#setUsesTextLabel">setUsesTextLabel</a>( bool ) ) );
 </pre>
 <p> <p>See also <a href="#activated">activated</a>(), <a href="#toggleAction-prop">toggleAction</a>, and <a href="#on-prop">on</a>.
 

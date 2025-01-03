@@ -106,10 +106,10 @@ CreditFormBase::CreditFormBase( TQWidget* parent,  const char* name, bool modal,
 
 
     // signals and slots connections
-    connect( okPushButton, SIGNAL( clicked() ), this, SLOT( accept() ) );
-    connect( cancelPushButton, SIGNAL( clicked() ), this, SLOT( reject() ) );
-    connect( creditButtonGroup, SIGNAL( clicked(int) ), this, SLOT( setAmount() ) );
-    connect( specialRadioButton, SIGNAL( toggled(bool) ), amountSpinBox, SLOT( setEnabled(bool) ) );
+    connect( okPushButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( accept() ) );
+    connect( cancelPushButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( reject() ) );
+    connect( creditButtonGroup, TQ_SIGNAL( clicked(int) ), this, TQ_SLOT( setAmount() ) );
+    connect( specialRadioButton, TQ_SIGNAL( toggled(bool) ), amountSpinBox, TQ_SLOT( setEnabled(bool) ) );
 }
 
 /*  

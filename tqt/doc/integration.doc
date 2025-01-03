@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2005-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -43,7 +43,7 @@
 
   The Visual Studio Integration Plugin is currently available only to users of
   Visual Studio 6, it offers simple ways of doing common tasks when writing a
-  Qt application. 
+  TQt application. 
 
   \tableofcontents
 
@@ -80,31 +80,31 @@
   The integration plugin adds the following options to Visual Studio:
 
   \list
-  \i New Qt Project
-  \i New Qt Dialog
-  \i Qt Designer
-  \i Open Qt Project
-  \i Write Qt Project
-  \i Use Qt In Current Project
+  \i New TQt Project
+  \i New TQt Dialog
+  \i TQt Designer
+  \i Open TQt Project
+  \i Write TQt Project
+  \i Use TQt In Current Project
   \i Add MOC
   \endlist
 
-  \section2 Using the 'New Qt Project' button
+  \section2 Using the 'New TQt Project' button
   
-  The 'New Qt Project' button allows you to create a simple Qt project
+  The 'New TQt Project' button allows you to create a simple TQt project
   ready for development. Simply fill in the form and if you select
   'Dialog' or 'Main Window' without MDI support then it will
   automatically start up \e{Qt Designer}. When you have finished with
   the form in \e{Qt Designer} just save it and it will appear in a
-  ready made Qt project.
+  ready made TQt project.
 
   If you select 'Main Window' with 'MDI Support' then it will simply
   give you a code skeleton in a project ready for you to populate with
   your own code.
 
-  \section2 Using the 'New Qt Dialog' button
+  \section2 Using the 'New TQt Dialog' button
 
-  The 'New Qt Dialog' button works in two ways: You can use it to create a new
+  The 'New TQt Dialog' button works in two ways: You can use it to create a new
   dialog for your project; or you can  use it to insert an existing
   dialog into your project.
 
@@ -124,30 +124,30 @@
   existing projects. It can also be started up by using the Ctrl+Shift+D key
   combination in Visual Studio.
 
-  \section2 Using the 'Open Qt Project' button
+  \section2 Using the 'Open TQt Project' button
 
-  The 'Open Qt Project' button allows you to convert an existing \c
+  The 'Open TQt Project' button allows you to convert an existing \c
   qmake project file into a \c .dsp file which you can insert into
-  your existing workspace. When you click the 'Open Qt Project'
+  your existing workspace. When you click the 'Open TQt Project'
   button, just select an existing \c qmake project file (a \c .pro
   file) and then click OK. You will get a message box at the end
   which asks you to insert the newly created \c .dsp file into your
   existing workspace.
 
-  \section2 Using the 'Write Qt Project' button
+  \section2 Using the 'Write TQt Project' button
 
-  The 'Write Qt Project' button creates a \c qmake project (\c .pro)
+  The 'Write TQt Project' button creates a \c qmake project (\c .pro)
   file for your current project so that you can easily copy the files
   onto another platform and be able to use \c qmake to create a Makefile
   on that other platform. All you need to do is make the project you
   want to create a \c .pro file for, and click on the button. Just
   name your \c qmake project file and click Save.
 
-  \section2 Using the 'Use Qt In Current Project' button
+  \section2 Using the 'Use TQt In Current Project' button
 
-  The 'Use Qt In Current Project' button simply adds in the necessary
-  information for the current project so that it links against Qt and
-  sets any other settings needed to use Qt in that project.
+  The 'Use TQt In Current Project' button simply adds in the necessary
+  information for the current project so that it links against TQt and
+  sets any other settings needed to use TQt in that project.
 
   \section2 Using the 'Add MOC' button
 

@@ -85,10 +85,10 @@ enum {
     LittleEndian,
     BigEndian
 
-#ifdef Q_BYTE_ORDER
-#  if Q_BYTE_ORDER == Q_BIG_ENDIAN
+#ifdef TQ_BYTE_ORDER
+#  if TQ_BYTE_ORDER == TQ_BIG_ENDIAN
     , ByteOrder = BigEndian
-#  elif Q_BYTE_ORDER == Q_LITTLE_ENDIAN
+#  elif TQ_BYTE_ORDER == TQ_LITTLE_ENDIAN
     , ByteOrder = LittleEndian
 #  else
 #    error "undefined byte order"
@@ -163,8 +163,8 @@ static char *_qdtoa(double d, int mode, int ndigits, int *decpt,
                         int *sign, char **rve, char **digits_str);
 static double qstrtod(const char *s00, char const **se, bool *ok);
 #endif
-static TQ_LLONG qstrtoll(const char *nptr, const char **endptr, register int base, bool *ok);
-static TQ_ULLONG qstrtoull(const char *nptr, const char **endptr, register int base, bool *ok);
+static TQ_LLONG qstrtoll(const char *nptr, const char **endptr, int base, bool *ok);
+static TQ_ULLONG qstrtoull(const char *nptr, const char **endptr, int base, bool *ok);
 
 static inline bool compareBits(double d1, double d2)
 {
@@ -1858,7 +1858,7 @@ const char* TQLocalePrivate::systemLocaleName()
         lang = mac_ret;
 #endif
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( !lang.isEmpty() ) {
         long id = 0;
         bool ok = false;
@@ -3244,7 +3244,7 @@ TQString TQLocalePrivate::doubleToString(double d,
         TQString digits;
 
 #ifdef QT_QLOCALE_USES_FCVT
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
         static bool dummy_for_mutex;
         TQMutex *fcvt_mutex =  tqt_global_mutexpool ? tqt_global_mutexpool->get( &dummy_for_mutex ) : 0;
 # define FCVT_LOCK if (fcvt_mutex) fcvt_mutex->lock()
@@ -3797,13 +3797,13 @@ TQ_ULLONG TQLocalePrivate::stringToUnsLongLong(TQString num, int base,
  * Ignores `locale' stuff.  Assumes that the upper and lower case
  * alphabets and digits are each contiguous.
  */
-static TQ_ULLONG qstrtoull(const char *nptr, const char **endptr, register int base, bool *ok)
+static TQ_ULLONG qstrtoull(const char *nptr, const char **endptr, int base, bool *ok)
 {
-    register const char *s = nptr;
-    register TQ_ULLONG acc;
-    register unsigned char c;
-    register TQ_ULLONG qbase, cutoff;
-    register int neg, any, cutlim;
+    const char *s = nptr;
+    TQ_ULLONG acc;
+    unsigned char c;
+    TQ_ULLONG qbase, cutoff;
+    int neg, any, cutlim;
 
     if (ok != 0)
         *ok = TRUE;
@@ -3878,13 +3878,13 @@ static TQ_ULLONG qstrtoull(const char *nptr, const char **endptr, register int b
  * Ignores `locale' stuff.  Assumes that the upper and lower case
  * alphabets and digits are each contiguous.
  */
-static TQ_LLONG qstrtoll(const char *nptr, const char **endptr, register int base, bool *ok)
+static TQ_LLONG qstrtoll(const char *nptr, const char **endptr, int base, bool *ok)
 {
-    register const char *s;
-    register TQ_ULLONG acc;
-    register unsigned char c;
-    register TQ_ULLONG qbase, cutoff;
-    register int neg, any, cutlim;
+    const char *s;
+    TQ_ULLONG acc;
+    unsigned char c;
+    TQ_ULLONG qbase, cutoff;
+    int neg, any, cutlim;
 
     if (ok != 0)
         *ok = TRUE;

@@ -44,16 +44,16 @@ QMetaProperty \- Stores meta data about a property
 .BI "QStrList \fBvalueToKeys\fR ( int value ) const"
 .br
 .ti -1c
-.BI "bool \fBdesignable\fR ( QObject * o = 0 ) const"
+.BI "bool \fBdesignable\fR ( TQObject * o = 0 ) const"
 .br
 .ti -1c
-.BI "bool \fBscriptable\fR ( QObject * o = 0 ) const"
+.BI "bool \fBscriptable\fR ( TQObject * o = 0 ) const"
 .br
 .ti -1c
-.BI "bool \fBstored\fR ( QObject * o = 0 ) const"
+.BI "bool \fBstored\fR ( TQObject * o = 0 ) const"
 .br
 .ti -1c
-.BI "bool \fBreset\fR ( QObject * o ) const"
+.BI "bool \fBreset\fR ( TQObject * o ) const"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -63,13 +63,13 @@ Property meta data includes type(), name(), and whether a property is writable()
 .PP
 The functions isSetType(), isEnumType() and enumKeys() provide further information about a property's type. The conversion functions keyToValue(), valueToKey(), keysToValue() and valueToKeys() allow conversion between the integer representation of an enumeration or set value and its literal representation.
 .PP
-Actual property values are set and received through QObject's set and get functions. See QObject::setProperty() and QObject::property() for details.
+Actual property values are set and received through TQObject's set and get functions. See TQObject::setProperty() and TQObject::property() for details.
 .PP
 You receive meta property data through an object's meta object. See QMetaObject::property() and QMetaObject::propertyNames() for details.
 .PP
 See also Object Model.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "bool QMetaProperty::designable ( QObject * o = 0 ) const"
+.SH "bool QMetaProperty::designable ( TQObject * o = 0 ) const"
 Returns TRUE if the property is designable for object \fIo\fR; otherwise returns FALSE.
 .PP
 If no object \fIo\fR is given, the function returns a static approximation.
@@ -97,15 +97,15 @@ Converts the list of keys \fIkeys\fR to their combined (OR-ed) integer value.
 See also isSetType() and valueToKey().
 .SH "const char * QMetaProperty::name () const"
 Returns the name of the property.
-.SH "bool QMetaProperty::reset ( QObject * o ) const"
+.SH "bool QMetaProperty::reset ( TQObject * o ) const"
 Tries to reset the property for object \fIo\fR with a reset method. On success, returns TRUE; otherwise returns FALSE.
 .PP
 Reset methods are optional, usually only a few properties support them.
-.SH "bool QMetaProperty::scriptable ( QObject * o = 0 ) const"
+.SH "bool QMetaProperty::scriptable ( TQObject * o = 0 ) const"
 Returns TRUE if the property is scriptable for object \fIo\fR; otherwise returns FALSE.
 .PP
 If no object \fIo\fR is given, the function returns a static approximation.
-.SH "bool QMetaProperty::stored ( QObject * o = 0 ) const"
+.SH "bool QMetaProperty::stored ( TQObject * o = 0 ) const"
 Returns TRUE if the property shall be stored for object \fIo\fR; otherwise returns FALSE.
 .PP
 If no object \fIo\fR is given, the function returns a static approximation.
@@ -139,8 +139,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

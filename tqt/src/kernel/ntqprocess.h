@@ -47,13 +47,13 @@
 #include "ntqdir.h"
 #endif // QT_H
 
-#ifndef QT_NO_PROCESS
+#ifndef TQT_NO_PROCESS
 
 class TQProcessPrivate;
 class TQMembuf;
 
 
-class Q_EXPORT TQProcess : public TQObject
+class TQ_EXPORT TQProcess : public TQObject
 {
     TQ_OBJECT
 public:
@@ -67,7 +67,7 @@ public:
     void clearArguments();
     virtual void setArguments( const TQStringList& args );
     virtual void addArgument( const TQString& arg );
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
     TQDir workingDirectory() const;
     virtual void setWorkingDirectory( const TQDir& dir );
 #endif
@@ -146,7 +146,7 @@ private slots:
 
 private:
     TQProcessPrivate *d;
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
     TQDir        workingDir;
 #endif
     TQStringList _arguments;
@@ -173,6 +173,6 @@ private:
 #endif
 };
 
-#endif // QT_NO_PROCESS
+#endif // TQT_NO_PROCESS
 
 #endif // TQPROCESS_H

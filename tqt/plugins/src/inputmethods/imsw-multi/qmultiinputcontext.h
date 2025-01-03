@@ -43,7 +43,7 @@
 #ifndef TQMULTIINPUTCONTEXT_H
 #define TQMULTIINPUTCONTEXT_H
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 
 #include <ntqnamespace.h>
 #include <ntqwidget.h>
@@ -63,9 +63,9 @@ public:
     TQString identifierName();
     TQString language();
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     bool x11FilterEvent( TQWidget *keywidget, XEvent *event );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
     bool filterEvent( const TQEvent *event );
     void reset();
 
@@ -84,7 +84,7 @@ public:
     TQPtrList<TQInputContextMenu> *menus();
     TQPopupMenu *createImSelPopup();    
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     TQWidget *focusWidget() const;
     TQWidget *holderWidget() const;
 

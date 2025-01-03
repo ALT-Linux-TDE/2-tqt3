@@ -11,12 +11,12 @@ QTimer \- Timer signals and single-shot timers
 .SH SYNOPSIS
 \fC#include <ntqtimer.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTimer\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQTimer\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QTimer\fR ()"
@@ -46,7 +46,7 @@ Inherits QObject.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "void \fBsingleShot\fR ( int msec, QObject * receiver, const char * member )"
+.BI "void \fBsingleShot\fR ( int msec, TQObject * receiver, const char * member )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -62,7 +62,7 @@ Example:
 .br
         QTimer *timer = new QTimer( myObject );
 .br
-        connect( timer, SIGNAL(timeout()), myObject, SLOT(timerDone()) );
+        connect( timer, TQ_SIGNAL(timeout()), myObject, TQ_SLOT(timerDone()) );
 .br
         timer->start( 2000, TRUE ); // 2 seconds single-shot timer
 .br
@@ -78,23 +78,23 @@ This can be used to do heavy work while providing a snappy user interface:
 .br
         QTimer *t = new QTimer( myObject );
 .br
-        connect( t, SIGNAL(timeout()), SLOT(processOneThing()) );
+        connect( t, TQ_SIGNAL(timeout()), TQ_SLOT(processOneThing()) );
 .br
         t->start( 0, FALSE );
 .br
 .fi
 .PP
-myObject->processOneThing() will be called repeatedly and should return quickly (typically after processing one data item) so that Qt can deliver events to widgets and stop the timer as soon as it has done all its work. This is the traditional way of implementing heavy work in GUI applications; multi-threading is now becoming available on more and more platforms, and we expect that null events will eventually be replaced by threading.
+myObject->processOneThing() will be called repeatedly and should return quickly (typically after processing one data item) so that TQt can deliver events to widgets and stop the timer as soon as it has done all its work. This is the traditional way of implementing heavy work in GUI applications; multi-threading is now becoming available on more and more platforms, and we expect that null events will eventually be replaced by threading.
 .PP
-Note that QTimer's accuracy depends on the underlying operating system and hardware. Most platforms support an accuracy of 20ms; some provide more. If Qt is unable to deliver the requested number of timer clicks, it will silently discard some.
+Note that QTimer's accuracy depends on the underlying operating system and hardware. Most platforms support an accuracy of 20ms; some provide more. If TQt is unable to deliver the requested number of timer clicks, it will silently discard some.
 .PP
-An alternative to using QTimer is to call QObject::startTimer() for your object and reimplement the QObject::timerEvent() event handler in your class (which must, of course, inherit QObject). The disadvantage is that timerEvent() does not support such high-level features as single-shot timers or signals.
+An alternative to using QTimer is to call TQObject::startTimer() for your object and reimplement the TQObject::timerEvent() event handler in your class (which must, of course, inherit TQObject). The disadvantage is that timerEvent() does not support such high-level features as single-shot timers or signals.
 .PP
-Some operating systems limit the number of timers that may be used; Qt tries to work around these limitations.
+Some operating systems limit the number of timers that may be used; TQt tries to work around these limitations.
 .PP
 See also Event Classes and Time and Date.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTimer::QTimer ( QObject * parent = 0, const char * name = 0 )"
+.SH "QTimer::QTimer ( TQObject * parent = 0, const char * name = 0 )"
 Constructs a timer called \fIname\fR, with the parent \fIparent\fR.
 .PP
 Note that the parent object's destructor will destroy this timer object.
@@ -110,7 +110,7 @@ See also start() and isActive().
 Returns TRUE if the timer is running (pending); otherwise returns FALSE.
 .PP
 Example: t11/cannon.cpp.
-.SH "void QTimer::singleShot ( int msec, QObject * receiver, const char * member )\fC [static]\fR"
+.SH "void QTimer::singleShot ( int msec, TQObject * receiver, const char * member )\fC [static]\fR"
 This static function calls a slot after a given time interval.
 .PP
 It is very convenient to use this function because you do not need to bother with a timerEvent or to create a local QTimer object.
@@ -130,7 +130,7 @@ Example:
 .br
             QApplication a( argc, argv );
 .br
-            QTimer::singleShot( 10*60*1000, &a, SLOT(quit()) );
+            QTimer::singleShot( 10*60*1000, &a, TQ_SLOT(quit()) );
 .br
                 ... // create and show your widgets
 .br
@@ -184,8 +184,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

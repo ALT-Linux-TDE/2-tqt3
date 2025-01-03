@@ -11,18 +11,18 @@ QScrollBar \- Vertical or horizontal scroll bar
 .SH SYNOPSIS
 \fC#include <ntqscrollbar.h>\fR
 .PP
-Inherits QWidget and QRangeControl.
+Inherits TQWidget and QRangeControl.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQScrollBar\fR ( QWidget * parent, const char * name = 0 )"
+.BI "\fBQScrollBar\fR ( TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQScrollBar\fR ( Orientation orientation, QWidget * parent, const char * name = 0 )"
+.BI "\fBQScrollBar\fR ( Orientation orientation, TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQScrollBar\fR ( int minValue, int maxValue, int lineStep, int pageStep, int value, Orientation orientation, QWidget * parent, const char * name = 0 )"
+.BI "\fBQScrollBar\fR ( int minValue, int maxValue, int lineStep, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QScrollBar\fR ()"
@@ -188,26 +188,26 @@ If you need to add scroll bars to an interface, consider using the QScrollView c
 .PP
 See also QSlider, QSpinBox, QScrollView, GUI Design Handbook: Scroll Bar, and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QScrollBar::QScrollBar ( QWidget * parent, const char * name = 0 )"
+.SH "QScrollBar::QScrollBar ( TQWidget * parent, const char * name = 0 )"
 Constructs a vertical scroll bar.
 .PP
-The \fIparent\fR and \fIname\fR arguments are sent on to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
 .PP
 The minValue defaults to 0, the maxValue to 99, with a lineStep size of 1 and a pageStep size of 10, and an initial value of 0.
-.SH "QScrollBar::QScrollBar ( Orientation orientation, QWidget * parent, const char * name = 0 )"
+.SH "QScrollBar::QScrollBar ( Orientation orientation, TQWidget * parent, const char * name = 0 )"
 Constructs a scroll bar.
 .PP
-The \fIorientation\fR must be Qt::Vertical or Qt::Horizontal.
+The \fIorientation\fR must be TQt::Vertical or TQt::Horizontal.
 .PP
-The \fIparent\fR and \fIname\fR arguments are sent on to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
 .PP
 The minValue defaults to 0, the maxValue to 99, with a lineStep size of 1 and a pageStep size of 10, and an initial value of 0.
-.SH "QScrollBar::QScrollBar ( int minValue, int maxValue, int lineStep, int pageStep, int value, Orientation orientation, QWidget * parent, const char * name = 0 )"
+.SH "QScrollBar::QScrollBar ( int minValue, int maxValue, int lineStep, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
 Constructs a scroll bar whose value can never be smaller than \fIminValue\fR or greater than \fImaxValue\fR, whose line step size is \fIlineStep\fR and page step size is \fIpageStep\fR and whose value is initially \fIvalue\fR (which is guaranteed to be in range using bound()).
 .PP
 If \fIorientation\fR is Vertical the scroll bar is vertical and if it is Horizontal the scroll bar is horizontal.
 .PP
-The \fIparent\fR and \fIname\fR arguments are sent on to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
 .SH "QScrollBar::~QScrollBar ()"
 Destructor.
 .SH "bool QScrollBar::draggingSlider () const"
@@ -215,7 +215,7 @@ Returns TRUE if the user has clicked the mouse on the slider and is currently dr
 .SH "void QScrollBar::hideEvent ( QHideEvent * )\fC [virtual protected]\fR"
 This function is called when the scrollbar is hidden.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "int QScrollBar::lineStep () const"
 Returns the line step. See the "lineStep" property for details.
 .SH "int QScrollBar::maxValue () const"
@@ -245,11 +245,11 @@ Sets the orientation of the scroll bar. See the "orientation" property for detai
 .SH "void QScrollBar::setPageStep ( int )"
 Sets the page step. See the "pageStep" property for details.
 .SH "void QScrollBar::setPalette ( const QPalette & p )\fC [virtual]\fR"
-Reimplements the virtual function QWidget::setPalette().
+Reimplements the virtual function TQWidget::setPalette().
 .PP
 Sets the background color to the mid color for Motif style scroll bars using palette \fIp\fR.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "void QScrollBar::setTracking ( bool enable )\fC [virtual]\fR"
 Sets whether scroll bar tracking is enabled to \fIenable\fR. See the "tracking" property for details.
 .SH "void QScrollBar::setValue ( int )\fC [slot]\fR"
@@ -310,7 +310,7 @@ Set this property's value with setMinValue() and get this property's value with 
 .SH "Orientation orientation"
 This property holds the orientation of the scroll bar.
 .PP
-The orientation must be Qt::Vertical (the default) or Qt::Horizontal.
+The orientation must be TQt::Vertical (the default) or TQt::Horizontal.
 .PP
 Set this property's value with setOrientation() and get this property's value with orientation().
 .SH "int pageStep"
@@ -348,8 +348,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

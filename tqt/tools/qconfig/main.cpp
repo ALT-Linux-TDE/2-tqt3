@@ -185,7 +185,7 @@ public:
     TQString id;
     ChoiceItem(const TQString& i, TQListViewItem* parent) :
 	TQCheckListItem(parent,
-	    i.mid(6), // strip "QT_NO_" as we reverse the logic
+	    i.mid(6), // strip "TQT_NO_" as we reverse the logic
 	    CheckBox),
 	id(i)
     {
@@ -279,42 +279,42 @@ Main::Main()
     info->setFrameStyle(TQFrame::WinPanel|TQFrame::Sunken);
     info->setAlignment(AlignTop);
 
-    connect(info, SIGNAL(idClicked(const TQString&)),
-	    this, SLOT(selectId(const TQString&)));
+    connect(info, TQ_SIGNAL(idClicked(const TQString&)),
+	    this, TQ_SLOT(selectId(const TQString&)));
 
 #ifdef FIXED_LAYOUT
     horizontal->setStretchFactor(info,2);
 #endif
 
-    connect(lv, SIGNAL(pressed(TQListViewItem*)),
-	    this, SLOT(updateAvailability(TQListViewItem*)));
-    connect(lv, SIGNAL(selectionChanged(TQListViewItem*)),
-	    this, SLOT(showInfo(TQListViewItem*)));
+    connect(lv, TQ_SIGNAL(pressed(TQListViewItem*)),
+	    this, TQ_SLOT(updateAvailability(TQListViewItem*)));
+    connect(lv, TQ_SIGNAL(selectionChanged(TQListViewItem*)),
+	    this, TQ_SLOT(showInfo(TQListViewItem*)));
 
     setCentralWidget(horizontal);
 
     TQToolBar* tb = new TQToolBar( this, "browser controls" );
     tb->setLabel( "Browser Controls" );
     (void)new TQToolButton( TQPixmap(back_xpm), "Back", TQString::null,
-                           info, SLOT(back()), tb, "back" );
+                           info, TQ_SLOT(back()), tb, "back" );
     (void)new TQToolButton( TQPixmap(forward_xpm), "Forward", TQString::null,
-                           info, SLOT(forward()), tb, "forward" );
+                           info, TQ_SLOT(forward()), tb, "forward" );
 
     TQPopupMenu* file = new TQPopupMenu( menuBar() );
-    file->insertItem( "&Open",  this, SLOT(open()), CTRL+Key_O );
-    file->insertItem( "&Save", this, SLOT(save()), CTRL+Key_S );
+    file->insertItem( "&Open",  this, TQ_SLOT(open()), CTRL+Key_O );
+    file->insertItem( "&Save", this, TQ_SLOT(save()), CTRL+Key_S );
     file->insertSeparator();
-    file->insertItem( "&Test all", this, SLOT(testAll()), CTRL+Key_T );
+    file->insertItem( "&Test all", this, TQ_SLOT(testAll()), CTRL+Key_T );
     file->insertSeparator();
-    file->insertItem( "E&xit",  tqApp, SLOT(quit()), CTRL+Key_Q );
+    file->insertItem( "E&xit",  tqApp, TQ_SLOT(quit()), CTRL+Key_Q );
 
     menuBar()->insertItem( "&File",file );
 
     menuBar()->insertSeparator();
 
     TQPopupMenu *help = new TQPopupMenu( menuBar() );
-    help->insertItem( "&About", this, SLOT(about()) );
-    help->insertItem( "About &TQt", this, SLOT(aboutTQt()) );
+    help->insertItem( "&About", this, TQ_SLOT(about()) );
+    help->insertItem( "About &TQt", this, TQ_SLOT(aboutTQt()) );
 
     menuBar()->insertItem( "&Help", help );
 
@@ -331,7 +331,7 @@ void Main::save()
 
 void Main::testAll()
 {
-    TQString qtdir = getenv("QTDIR");
+    TQString qtdir = getenv("TQTDIR");
     chdir((qtdir+"/src").ascii());
     TQString c;
     for (TQStringList::ConstIterator it = choices.begin(); it != choices.end(); ++it)
@@ -388,7 +388,7 @@ template <class K, class D>
 TQValueList<K> keys(TQMap<K,D> map)
 {
     TQValueList<K> result;
-    for (Q_TYPENAME TQMap<K,D>::ConstIterator it = map.begin(); it!=map.end(); ++it)
+    for (TQ_TYPENAME TQMap<K,D>::ConstIterator it = map.begin(); it!=map.end(); ++it)
 	result.append(it.key());
     return result;
 }
@@ -402,7 +402,7 @@ void Main::loadFeatures(const TQString& filename)
 	return;
     }
     TQTextStream s(&file);
-    TQRegExp qt_no_xxx("QT_NO_[A-Z_0-9]*");
+    TQRegExp qt_no_xxx("TQT_NO_[A-Z_0-9]*");
     TQStringList sections;
 
 #if 1
@@ -569,7 +569,7 @@ void Main::loadConfig(const TQString& filename)
 	return;
     }
     TQTextStream s(&file);
-    TQRegExp qt_no_xxx("QT_NO_[A-Z_0-9]*");
+    TQRegExp qt_no_xxx("TQT_NO_[A-Z_0-9]*");
 
     for (TQStringList::Iterator ch = choices.begin(); ch != choices.end(); ++ch) {
 	item[*ch]->setDefined(FALSE);
@@ -712,7 +712,7 @@ int main(int argc, char** argv)
 {
     TQApplication app(argc,argv);
     Main m;
-    TQString qtdir = getenv("QTDIR");
+    TQString qtdir = getenv("TQTDIR");
     TQString qfeatures = qtdir + "/src/tools/qfeatures.txt";
     //TQString qfeatures = qtdir + "/include/ntqfeatures.h";
     TQString qconfig = qtdir + "/include/ntqconfig.h";

@@ -45,12 +45,12 @@
 #include "ntqframe.h"
 #endif // QT_H
 
-#ifndef QT_NO_LABEL
+#ifndef TQT_NO_LABEL
 
 class TQSimpleRichText;
 class TQLabelPrivate;
 
-class Q_EXPORT TQLabel : public TQFrame
+class TQ_EXPORT TQLabel : public TQFrame
 {
     TQ_OBJECT
     TQ_PROPERTY( TQString text READ text WRITE setText )
@@ -71,10 +71,10 @@ public:
 
     TQString	 text()		const	{ return ltext; }
     TQPixmap     *pixmap()	const	{ return lpixmap; }
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     TQPicture    *picture()	const	{ return lpicture; }
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     TQMovie      *movie()		const;
 #endif
 
@@ -88,13 +88,13 @@ public:
 
     bool 	 autoResize() const	{ return autoresize; }
     virtual void setAutoResize( bool );
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
     bool 	hasScaledContents() const;
     void 	setScaledContents( bool );
 #endif
     TQSize	 sizeHint() const;
     TQSize	 minimumSizeHint() const;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     virtual void setBuddy( TQWidget * );
     TQWidget     *buddy() const;
 #endif
@@ -105,10 +105,10 @@ public:
 public slots:
     virtual void setText( const TQString &);
     virtual void setPixmap( const TQPixmap & );
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     virtual void setPicture( const TQPicture & );
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     virtual void setMovie( const TQMovie & );
 #endif
     virtual void setNum( int );
@@ -121,11 +121,11 @@ protected:
     void	 resizeEvent( TQResizeEvent* );
 
 private slots:
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     void	 acceleratorSlot();
     void	 buddyDied();
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     void	 movieUpdated(const TQRect&);
     void	 movieResized(const TQSize&);
 #endif
@@ -137,13 +137,13 @@ private:
     TQSize	sizeForWidth( int w ) const;
     TQString	ltext;
     TQPixmap    *lpixmap;
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     TQPicture   *lpicture;
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     TQMovie *	lmovie;
 #endif
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQWidget *	lbuddy;
 #endif
     ushort	align;
@@ -151,10 +151,10 @@ private:
     uint	autoresize:1;
     uint	scaledcontents :1;
     TextFormat textformat;
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     TQSimpleRichText* doc;
 #endif
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQAccel *	accel;
 #endif
     TQLabelPrivate* d;
@@ -169,6 +169,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_LABEL
+#endif // TQT_NO_LABEL
 
 #endif // TQLABEL_H

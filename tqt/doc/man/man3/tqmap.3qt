@@ -20,7 +20,7 @@ QMap \- Value-based template class that provides a dictionary
 .BI "typedef T \fBmapped_type\fR"
 .br
 .ti -1c
-.BI "typedef QPair<const key_type, mapped_type> \fBvalue_type\fR"
+.BI "typedef TQPair<const key_type, mapped_type> \fBvalue_type\fR"
 .br
 .ti -1c
 .BI "typedef value_type * \fBpointer\fR"
@@ -44,7 +44,7 @@ QMap \- Value-based template class that provides a dictionary
 .BI "typedef QMapConstIterator<Key, T> \fBconst_iterator\fR"
 .br
 .ti -1c
-.BI "typedef QPair<iterator, bool> \fBinsert_pair\fR"
+.BI "typedef TQPair<iterator, bool> \fBinsert_pair\fR"
 .br
 .ti -1c
 .BI "typedef QMapIterator<Key, T> \fBIterator\fR"
@@ -101,7 +101,7 @@ QMap \- Value-based template class that provides a dictionary
 .BI "bool \fBempty\fR () const"
 .br
 .ti -1c
-.BI "QPair<iterator, bool> \fBinsert\fR ( const value_type & x )"
+.BI "TQPair<iterator, bool> \fBinsert\fR ( const value_type & x )"
 .br
 .ti -1c
 .BI "void \fBerase\fR ( iterator it )"
@@ -170,13 +170,13 @@ QMap \- Value-based template class that provides a dictionary
 .SH DESCRIPTION
 The QMap class is a value-based template class that provides a dictionary.
 .PP
-QMap is a Qt implementation of an STL-like map container. It can be used in your application if the standard \fCmap\fR is not available on all your target platforms. QMap is part of the Qt Template Library.
+QMap is a TQt implementation of an STL-like map container. It can be used in your application if the standard \fCmap\fR is not available on all your target platforms. QMap is part of the TQt Template Library.
 .PP
 QMap<Key, Data> defines a template instance to create a dictionary with keys of type Key and values of type Data. QMap does not store pointers to the members of the map; instead, it holds a copy of every member. For this reason, QMap is value-based, whereas QPtrList and QDict are pointer-based.
 .PP
 QMap contains and manages a collection of objects of type Data with associated key values of type Key and provides iterators that allow the contained objects to be addressed. QMap owns the contained items.
 .PP
-Some classes cannot be used within a QMap. For example everything derived from QObject and thus all classes that implement widgets. Only values can be used in a QMap. To qualify as a value, the class must provide
+Some classes cannot be used within a QMap. For example everything derived from TQObject and thus all classes that implement widgets. Only values can be used in a QMap. To qualify as a value, the class must provide
 .TP
 A copy constructor
 .TP
@@ -188,7 +188,7 @@ Note that C++ defaults to field-by-field assignment operators and copy construct
 .PP
 The class used for the key requires that the \fCoperator<\fR is implemented to define ordering of the keys.
 .PP
-QMap's function naming is consistent with the other Qt classes (e.g., count(), isEmpty()). QMap also provides extra functions for compatibility with STL algorithms, such as size() and empty(). Programmers already familiar with the STL \fCmap\fR can use these the STL-like functions if preferred.
+QMap's function naming is consistent with the other TQt classes (e.g., count(), isEmpty()). QMap also provides extra functions for compatibility with STL algorithms, such as size() and empty(). Programmers already familiar with the STL \fCmap\fR can use these the STL-like functions if preferred.
 .PP
 Example:
 .PP
@@ -209,16 +209,16 @@ Example:
 .br
         Employee(): sn(0) {}
 .br
-        Employee( const QString& forename, const QString& surname, int salary )
+        Employee( const TQString& forename, const TQString& surname, int salary )
 .br
             : fn(forename), sn(surname), sal(salary)
 .br
         { }
 .br
 .br
-        QString forename() const { return fn; }
+        TQString forename() const { return fn; }
 .br
-        QString surname() const { return sn; }
+        TQString surname() const { return sn; }
 .br
         int salary() const { return sal; }
 .br
@@ -227,9 +227,9 @@ Example:
 .br
     private:
 .br
-        QString fn;
+        TQString fn;
 .br
-        QString sn;
+        TQString sn;
 .br
         int sal;
 .br
@@ -243,7 +243,7 @@ Example:
         QApplication app( argc, argv );
 .br
 .br
-        typedef QMap<QString, Employee> EmployeeMap;
+        typedef QMap<TQString, Employee> EmployeeMap;
 .br
         EmployeeMap map;
 .br
@@ -308,7 +308,7 @@ Another approach uses the operator[]. But be warned: if the map does not contain
 .PP
 .nf
 .br
-        QMap<QString,QString> map;
+        QMap<TQString,TQString> map;
 .br
         map["Clinton"] = "Bill";
 .br
@@ -330,7 +330,7 @@ There are a couple of ways of inserting new items into the map. One uses the ins
 .PP
 .nf
 .br
-    QMap<QString, QString> map;
+    QMap<TQString, TQString> map;
 .br
     map["Clinton"] = "Bill";
 .br
@@ -340,14 +340,14 @@ There are a couple of ways of inserting new items into the map. One uses the ins
 .PP
 Items can also be removed from the map in several ways. One way is to pass an iterator to remove(). Another way is to pass a key value to remove(), which will delete the entry with the requested key. In addition you can clear the entire map using the clear() method.
 .PP
-See also QMapIterator, Qt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
+See also QMapIterator, TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
 .SH "QMap::ConstIterator"
-The map's const iterator type, Qt style.
+The map's const iterator type, TQt style.
 .SH "QMap::Iterator"
-The map's iterator type, Qt style.
+The map's iterator type, TQt style.
 .SH "QMap::ValueType"
-Corresponds to QPair<key_type, mapped_type>, Qt style.
+Corresponds to TQPair<key_type, mapped_type>, TQt style.
 .SH "QMap::const_iterator"
 The map's const iterator type.
 .SH "QMap::const_pointer"
@@ -367,7 +367,7 @@ Reference to value_type.
 .SH "QMap::size_type"
 An unsigned integral type, used to represent various sizes.
 .SH "QMap::value_type"
-Corresponds to QPair<key_type, mapped_type>.
+Corresponds to TQPair<key_type, mapped_type>.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QMap::QMap ()"
 Constructs an empty map.
@@ -459,10 +459,10 @@ Returns end() if no key matched.
 See also QMapConstIterator.
 .SH "iterator QMap::insert ( const Key & key, const T & value, bool overwrite = TRUE )"
 Inserts a new item with the key, \fIkey\fR, and a value of \fIvalue\fR. If there is already an item whose key is \fIkey\fR, that item's value is replaced with \fIvalue\fR, unless \fIoverwrite\fR is FALSE (it is TRUE by default). In this case an iterator to this item is returned, else an iterator to the new item is returned.
-.SH "QPair<iterator, bool> QMap::insert ( const value_type & x )"
+.SH "TQPair<iterator, bool> QMap::insert ( const value_type & x )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Inserts the (key, value) pair \fIx\fR into the map. \fIx\fR is a QPair whose \fCfirst\fR element is a key to be inserted and whose \fCsecond\fR element is the associated value to be inserted. Returns a pair whose \fCfirst\fR element is an iterator pointing to the inserted item and whose \fCsecond\fR element is a bool indicating TRUE if \fIx\fR was inserted and FALSE if it was not inserted, e.g. because it was already present.
+Inserts the (key, value) pair \fIx\fR into the map. \fIx\fR is a TQPair whose \fCfirst\fR element is a key to be inserted and whose \fCsecond\fR element is the associated value to be inserted. Returns a pair whose \fCfirst\fR element is an iterator pointing to the inserted item and whose \fCsecond\fR element is a bool indicating TRUE if \fIx\fR was inserted and FALSE if it was not inserted, e.g. because it was already present.
 .PP
 See also replace().
 .SH "bool QMap::isEmpty () const"
@@ -488,7 +488,7 @@ You can use this operator both for reading and writing:
 .PP
 .nf
 .br
-    QMap<QString, QString> map;
+    QMap<TQString, TQString> map;
 .br
     map["Clinton"] = "Bill";
 .br
@@ -542,8 +542,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

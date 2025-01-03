@@ -48,32 +48,32 @@
 
 const TQRgb  TQT_RGB_MASK    = 0x00ffffff;		// masks RGB values
 
-Q_EXPORT inline int tqRed( TQRgb rgb )		// get red part of RGB
+TQ_EXPORT inline int tqRed( TQRgb rgb )		// get red part of RGB
 { return (int)((rgb >> 16) & 0xff); }
 
-Q_EXPORT inline int tqGreen( TQRgb rgb )		// get green part of RGB
+TQ_EXPORT inline int tqGreen( TQRgb rgb )		// get green part of RGB
 { return (int)((rgb >> 8) & 0xff); }
 
-Q_EXPORT inline int tqBlue( TQRgb rgb )		// get blue part of RGB
+TQ_EXPORT inline int tqBlue( TQRgb rgb )		// get blue part of RGB
 { return (int)(rgb & 0xff); }
 
-Q_EXPORT inline int tqAlpha( TQRgb rgb )		// get alpha part of RGBA
+TQ_EXPORT inline int tqAlpha( TQRgb rgb )		// get alpha part of RGBA
 { return (int)((rgb >> 24) & 0xff); }
 
-Q_EXPORT inline TQRgb tqRgb( int r, int g, int b )// set RGB value
+TQ_EXPORT inline TQRgb tqRgb( int r, int g, int b )// set RGB value
 { return (0xff << 24) | ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff); }
 
-Q_EXPORT inline TQRgb tqRgba( int r, int g, int b, int a )// set RGBA value
+TQ_EXPORT inline TQRgb tqRgba( int r, int g, int b, int a )// set RGBA value
 { return ((a & 0xff) << 24) | ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff); }
 
-Q_EXPORT inline int tqGray( int r, int g, int b )// convert R,G,B to gray 0..255
+TQ_EXPORT inline int tqGray( int r, int g, int b )// convert R,G,B to gray 0..255
 { return (r*11+g*16+b*5)/32; }
 
-Q_EXPORT inline int tqGray( TQRgb rgb )		// convert RGB to gray 0..255
+TQ_EXPORT inline int tqGray( TQRgb rgb )		// convert RGB to gray 0..255
 { return tqGray( tqRed(rgb), tqGreen(rgb), tqBlue(rgb) ); }
 
 
-class Q_EXPORT TQColor
+class TQ_EXPORT TQColor
 {
 public:
     enum Spec { Rgb, Hsv };
@@ -116,7 +116,7 @@ public:
     uint   alloc();
     uint   pixel()  const;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     // ### in 4.0, make this take a default argument of -1 for default screen?
     uint alloc( int screen );
     uint pixel( int screen ) const;
@@ -130,7 +130,7 @@ public:
     static int  currentAllocContext();
     static void destroyAllocContext( int );
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     static const TQRgb* palette( int* numEntries = 0 );
     static int setPaletteEntries( const TQRgb* entries, int numEntries,
 				  int base = -1 );
@@ -140,7 +140,7 @@ public:
 
     static void initialize();
     static void cleanup();
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     static TQStringList colorNames();
 #endif
     enum { Dirt = 0x44495254, Invalid = 0x49000000 };
@@ -153,7 +153,7 @@ private:
     static TQColor* globalColors();
     static bool color_init;
     static bool globals_init;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     static HPALETTE hpal;
 #endif
     static enum ColorModel { d8, d32 } colormodel;
@@ -221,9 +221,9 @@ inline bool TQColor::operator!=( const TQColor &c ) const
   TQColor stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQColor & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQColor & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQColor & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQColor & );
 #endif
 
 #endif // TQCOLOR_H

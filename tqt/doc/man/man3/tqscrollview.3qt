@@ -18,7 +18,7 @@ Inherited by QCanvasView, QTable, QGridView, QIconView, QListBox, QListView, and
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQScrollView\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQScrollView\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "\fB~QScrollView\fR ()"
@@ -33,25 +33,25 @@ Inherited by QCanvasView, QTable, QGridView, QIconView, QListBox, QListView, and
 .BI "ResizePolicy \fBresizePolicy\fR () const"
 .br
 .ti -1c
-.BI "void \fBremoveChild\fR ( QWidget * child )"
+.BI "void \fBremoveChild\fR ( TQWidget * child )"
 .br
 .ti -1c
-.BI "virtual void \fBaddChild\fR ( QWidget * child, int x = 0, int y = 0 )"
+.BI "virtual void \fBaddChild\fR ( TQWidget * child, int x = 0, int y = 0 )"
 .br
 .ti -1c
-.BI "virtual void \fBmoveChild\fR ( QWidget * child, int x, int y )"
+.BI "virtual void \fBmoveChild\fR ( TQWidget * child, int x, int y )"
 .br
 .ti -1c
-.BI "int \fBchildX\fR ( QWidget * child )"
+.BI "int \fBchildX\fR ( TQWidget * child )"
 .br
 .ti -1c
-.BI "int \fBchildY\fR ( QWidget * child )"
+.BI "int \fBchildY\fR ( TQWidget * child )"
 .br
 .ti -1c
-.BI "bool childIsVisible ( QWidget * child )  \fI(obsolete)\fR"
+.BI "bool childIsVisible ( TQWidget * child )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "void showChild ( QWidget * child, bool y = TRUE )  \fI(obsolete)\fR"
+.BI "void showChild ( TQWidget * child, bool y = TRUE )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "enum \fBScrollBarMode\fR { Auto, AlwaysOff, AlwaysOn }"
@@ -69,10 +69,10 @@ Inherited by QCanvasView, QTable, QGridView, QIconView, QListBox, QListView, and
 .BI "virtual void \fBsetHScrollBarMode\fR ( ScrollBarMode )"
 .br
 .ti -1c
-.BI "QWidget * \fBcornerWidget\fR () const"
+.BI "TQWidget * \fBcornerWidget\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetCornerWidget\fR ( QWidget * corner )"
+.BI "virtual void \fBsetCornerWidget\fR ( TQWidget * corner )"
 .br
 .ti -1c
 .BI "QScrollBar * \fBhorizontalScrollBar\fR () const"
@@ -81,10 +81,10 @@ Inherited by QCanvasView, QTable, QGridView, QIconView, QListBox, QListView, and
 .BI "QScrollBar * \fBverticalScrollBar\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBviewport\fR () const"
+.BI "TQWidget * \fBviewport\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBclipper\fR () const"
+.BI "TQWidget * \fBclipper\fR () const"
 .br
 .ti -1c
 .BI "int \fBvisibleWidth\fR () const"
@@ -303,7 +303,7 @@ Inherited by QCanvasView, QTable, QGridView, QIconView, QListBox, QListView, and
 .BI "virtual void \fBsetVBarGeometry\fR ( QScrollBar & vbar, int x, int y, int w, int h )"
 .br
 .ti -1c
-.BI "virtual bool \fBeventFilter\fR ( QObject * obj, QEvent * e )"
+.BI "virtual bool \fBeventFilter\fR ( TQObject * obj, QEvent * e )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -413,7 +413,7 @@ To enable drag-and-drop, you would setAcceptDrops(TRUE) on the QScrollView (beca
 .PP
 To handle mouse events on the scrolling area, subclass scrollview as you would subclass other widgets, but rather than reimplementing mousePressEvent(), reimplement contentsMousePressEvent() instead. The contents specific event handlers provide translated events in the coordinate system of the scrollview. If you reimplement mousePressEvent(), you'll get called only when part of the QScrollView is clicked: and the only such part is the "corner" (if you don't set a cornerWidget()) and the frame; everything else is covered up by the viewport, clipper or scroll bars.
 .PP
-When you construct a QScrollView, some of the widget flags apply to the viewport() instead of being sent to the QWidget constructor for the QScrollView. This applies to WNoAutoErase, WStaticContents, and WPaintClever. See Qt::WidgetFlags for documentation about these flags. Here are some examples:
+When you construct a QScrollView, some of the widget flags apply to the viewport() instead of being sent to the TQWidget constructor for the QScrollView. This applies to WNoAutoErase, WStaticContents, and WPaintClever. See TQt::WidgetFlags for documentation about these flags. Here are some examples:
 .IP
 .TP
 An image-manipulation widget would use \fCWNoAutoErase|WStaticContents\fR because the widget draws all pixels itself, and when its size increases, it only needs a paint event for the new part because the old part remains unchanged.
@@ -435,7 +435,7 @@ Coordinate conversion is provided by contentsToViewport() and viewportToContents
 .PP
 The contentsMoving() signal is emitted just before the contents are moved to a new position.
 .PP
-\fBWarning:\fR QScrollView currently does not erase the background when resized, i.e. you must always clear the background manually in scrollview subclasses. This will change in a future version of Qt and we recommend specifying the WNoAutoErase flag explicitly.
+\fBWarning:\fR QScrollView currently does not erase the background when resized, i.e. you must always clear the background manually in scrollview subclasses. This will change in a future version of TQt and we recommend specifying the WNoAutoErase flag explicitly.
 .PP
 .ce 1
 .B "[Image Omitted]"
@@ -467,13 +467,13 @@ This enum type describes the various modes of QScrollView's scroll bars.
 .PP
 (The modes for the horizontal and vertical scroll bars are independent.)
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QScrollView::QScrollView ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QScrollView::QScrollView ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a QScrollView called \fIname\fR with parent \fIparent\fR and widget flags \fIf\fR.
 .PP
 The widget flags WStaticContents, WNoAutoErase and WPaintClever are propagated to the viewport() widget. The other widget flags are propagated to the parent constructor as usual.
 .SH "QScrollView::~QScrollView ()"
 Destroys the QScrollView. Any children added with addChild() will be deleted.
-.SH "void QScrollView::addChild ( QWidget * child, int x = 0, int y = 0 )\fC [virtual]\fR"
+.SH "void QScrollView::addChild ( TQWidget * child, int x = 0, int y = 0 )\fC [virtual]\fR"
 Inserts the widget, \fIchild\fR, into the scrolled area positioned at (\fIx\fR, \fIy\fR). The position defaults to (0, 0). If the child is already in the view, it is just moved.
 .PP
 You may want to call enableClipper(TRUE) if you add a large number of widgets.
@@ -499,19 +499,19 @@ Margin 0.0 allows (x, y) to be on the edge of the visible area.
 Margin 0.5 ensures that (x, y) is in middle 50% of the visible area.
 .TP
 Margin 1.0 ensures that (x, y) is in the center of the the visible area.
-.SH "bool QScrollView::childIsVisible ( QWidget * child )"
+.SH "bool QScrollView::childIsVisible ( TQWidget * child )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns TRUE if \fIchild\fR is visible. This is equivalent to child->isVisible().
-.SH "int QScrollView::childX ( QWidget * child )"
-Returns the X position of the given \fIchild\fR widget. Use this rather than QWidget::x() for widgets added to the view.
+.SH "int QScrollView::childX ( TQWidget * child )"
+Returns the X position of the given \fIchild\fR widget. Use this rather than TQWidget::x() for widgets added to the view.
 .PP
 This function returns 0 if \fIchild\fR has not been added to the view.
-.SH "int QScrollView::childY ( QWidget * child )"
-Returns the Y position of the given \fIchild\fR widget. Use this rather than QWidget::y() for widgets added to the view.
+.SH "int QScrollView::childY ( TQWidget * child )"
+Returns the Y position of the given \fIchild\fR widget. Use this rather than TQWidget::y() for widgets added to the view.
 .PP
 This function returns 0 if \fIchild\fR has not been added to the view.
-.SH "QWidget * QScrollView::clipper () const"
+.SH "TQWidget * QScrollView::clipper () const"
 Returns the clipper widget. Contents in the scrollview are ultimately clipped to be inside the clipper widget.
 .PP
 You should not need to use this function.
@@ -581,7 +581,7 @@ Returns the width of the contents area. See the "contentsWidth" property for det
 Returns the X coordinate of the contents that are at the left edge of the viewport. See the "contentsX" property for details.
 .SH "int QScrollView::contentsY () const"
 Returns the Y coordinate of the contents that are at the top edge of the viewport. See the "contentsY" property for details.
-.SH "QWidget * QScrollView::cornerWidget () const"
+.SH "TQWidget * QScrollView::cornerWidget () const"
 Returns the widget in the corner between the two scroll bars.
 .PP
 By default, no corner widget is present.
@@ -656,10 +656,10 @@ Scrolls the content so that the point \fI(x, y)\fR is visible with at least 50-p
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Scrolls the content so that the point \fI(x, y)\fR is visible with at least the \fIxmargin\fR and \fIymargin\fR margins (if possible, otherwise centered).
-.SH "bool QScrollView::eventFilter ( QObject * obj, QEvent * e )\fC [virtual protected]\fR"
+.SH "bool QScrollView::eventFilter ( TQObject * obj, QEvent * e )\fC [virtual protected]\fR"
 This event filter ensures the scroll bars are updated when a single contents widget is resized, shown, hidden or destroyed; it passes mouse events to the QScrollView. The event is in \fIe\fR and the object is in \fIobj\fR.
 .PP
-Reimplemented from QObject.
+Reimplemented from TQObject.
 .PP
 Reimplemented in QListView.
 .SH "ScrollBarMode QScrollView::hScrollBarMode () const"
@@ -686,9 +686,9 @@ Returns TRUE if vertical slider is pressed by user; otherwise returns FALSE.
 Returns the left margin.
 .PP
 See also setMargins().
-.SH "void QScrollView::moveChild ( QWidget * child, int x, int y )\fC [virtual]\fR"
+.SH "void QScrollView::moveChild ( TQWidget * child, int x, int y )\fC [virtual]\fR"
 Repositions the \fIchild\fR widget to (\fIx\fR, \fIy\fR). This function is the same as addChild().
-.SH "void QScrollView::removeChild ( QWidget * child )"
+.SH "void QScrollView::removeChild ( TQWidget * child )"
 Removes the \fIchild\fR widget from the scrolled area. Note that this happens automatically if the \fIchild\fR is deleted.
 .SH "void QScrollView::repaintContents ( int x, int y, int w, int h, bool erase = TRUE )"
 Calls repaint() on a rectangle defined by \fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR, translated appropriately. If the rectangle is not visible, nothing is repainted. If \fIerase\fR is TRUE the background is cleared using the background color.
@@ -716,7 +716,7 @@ Scrolls the content by \fIdx\fR to the left and \fIdy\fR upwards.
 Scrolls the content so that the point \fI(x, y)\fR is in the top-left corner.
 .PP
 Example: process/process.cpp.
-.SH "void QScrollView::setCornerWidget ( QWidget * corner )\fC [virtual]\fR"
+.SH "void QScrollView::setCornerWidget ( TQWidget * corner )\fC [virtual]\fR"
 Sets the widget in the \fIcorner\fR between the two scroll bars.
 .PP
 You will probably also want to set at least one of the scroll bar modes to AlwaysOn.
@@ -768,10 +768,10 @@ The default implementation simply gives all the space to \fIvbar\fR. The new geo
 See also setHBarGeometry().
 .SH "void QScrollView::setVScrollBarMode ( ScrollBarMode )\fC [virtual]\fR"
 Sets the mode for the vertical scroll bar. See the "vScrollBarMode" property for details.
-.SH "void QScrollView::showChild ( QWidget * child, bool y = TRUE )"
+.SH "void QScrollView::showChild ( TQWidget * child, bool y = TRUE )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Sets the visibility of \fIchild\fR. Equivalent to QWidget::show() or QWidget::hide().
+Sets the visibility of \fIchild\fR. Equivalent to TQWidget::show() or TQWidget::hide().
 .SH "int QScrollView::topMargin () const\fC [protected]\fR"
 Returns the top margin.
 .PP
@@ -800,7 +800,7 @@ This function never returns 0.
 This signal is emitted whenever the user presses the vertical slider.
 .SH "void QScrollView::verticalSliderReleased ()\fC [signal]\fR"
 This signal is emitted whenever the user releases the vertical slider.
-.SH "QWidget * QScrollView::viewport () const"
+.SH "TQWidget * QScrollView::viewport () const"
 Returns the viewport widget of the scrollview. This is the widget containing the contents widget or which is the drawing area.
 .PP
 Examples:
@@ -810,7 +810,7 @@ This is a low-level painting routine that draws the viewport contents. Reimpleme
 .SH "void QScrollView::viewportResizeEvent ( QResizeEvent * )\fC [virtual protected]\fR"
 To provide simple processing of events on the contents, this function receives all resize events sent to the viewport.
 .PP
-See also QWidget::resizeEvent().
+See also TQWidget::resizeEvent().
 .PP
 Example: chart/canvasview.cpp.
 .SH "QSize QScrollView::viewportSize ( int x, int y ) const"
@@ -901,8 +901,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

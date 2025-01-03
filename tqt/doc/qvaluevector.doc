@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -51,10 +51,10 @@
     \mainclass
     \reentrant
 
-    QValueVector is a Qt implementation of an STL-like vector
+    QValueVector is a TQt implementation of an STL-like vector
     container. It can be used in your application if the standard \c
     vector is not available for your target platforms. QValueVector is
-    part of the \link ntqtl.html Qt Template Library\endlink.
+    part of the \link ntqtl.html TQt Template Library\endlink.
 
     QValueVector\<T\> defines a template instance to create a vector
     of values that all have the class T. QValueVector does not store
@@ -75,7 +75,7 @@
     positions.
 
     Some classes cannot be used within a QValueVector: for example,
-    all classes derived from QObject and thus all classes that
+    all classes derived from TQObject and thus all classes that
     implement widgets. Only values can be used in a QValueVector. To
     qualify as a value the class must provide:
     \list
@@ -102,15 +102,15 @@
     {
     public:
 	Employee(): s(0) {}
-	Employee( const QString& name, int salary )
+	Employee( const TQString& name, int salary )
 	    : n( name ), s( salary )
 	{ }
 
-	QString name()   const	 	{ return n; }
+	TQString name()   const	 	{ return n; }
 	int	salary() const	 	{ return s; }
 	void	setSalary( int salary )	{ s = salary; }
     private:
-	QString n;
+	TQString n;
 	int     s;
     };
 
@@ -147,7 +147,7 @@
     affect the value in the vector because the vector created a copy
     of Joe's entry.
 
-    Many Qt functions return const value vectors; to iterate over
+    Many TQt functions return const value vectors; to iterate over
     these you should make a copy and iterate over the copy.
 
     There are several ways to find items in the vector. The begin()
@@ -174,7 +174,7 @@
     QValueVector<int> vec1;  // an empty vector
     vec1[10] = 4;  // WARNING: undefined, probably a crash
 
-    QValueVector<QString> vec2(25); // initialize with 25 elements
+    QValueVector<TQString> vec2(25); // initialize with 25 elements
     vec2[10] = "Dave";  // OK
     \endcode
 
@@ -276,7 +276,7 @@
     specific element, or range of elements, from the vector.
 
     Vectors can be also sorted with various STL algorithms , or it can
-    be sorted using the \link ntqtl.html Qt Template Library\endlink.
+    be sorted using the \link ntqtl.html TQt Template Library\endlink.
     For example with qHeapSort():
 
     Example:

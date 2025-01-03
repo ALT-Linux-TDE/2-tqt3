@@ -30,4 +30,4 @@ TQStyle* CDEStyle::create( const TQString& s )
     return 0;
 }
 
-Q_EXPORT_PLUGIN( CDEStyle )
+TQ_EXPORT_PLUGIN( CDEStyle )

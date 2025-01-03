@@ -46,12 +46,12 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_SETTINGS
+#ifndef TQT_NO_SETTINGS
 
 class TQSettingsPrivate;
 
 
-class Q_EXPORT TQSettings
+class TQ_EXPORT TQSettings
 {
 public:
     enum Format {
@@ -155,5 +155,5 @@ private:
     friend class TQApplication;
 };
 
-#endif // QT_NO_SETTINGS
+#endif // TQT_NO_SETTINGS
 #endif // TQSETTINGS_H

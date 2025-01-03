@@ -48,10 +48,10 @@
 #if !defined( TQT_MODULE_NETWORK ) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_NETWORK )
 #define TQM_EXPORT_NETWORK
 #else
-#define TQM_EXPORT_NETWORK Q_EXPORT
+#define TQM_EXPORT_NETWORK TQ_EXPORT
 #endif
 
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 
 TQM_EXPORT_NETWORK void tqInitNetworkProtocols();
 

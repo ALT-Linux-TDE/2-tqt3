@@ -14,22 +14,22 @@ QFocusData \- Maintains the list of widgets in the focus chain
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "QWidget * \fBfocusWidget\fR () const"
+.BI "TQWidget * \fBfocusWidget\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBhome\fR ()"
+.BI "TQWidget * \fBhome\fR ()"
 .br
 .ti -1c
-.BI "QWidget * \fBnext\fR ()"
+.BI "TQWidget * \fBnext\fR ()"
 .br
 .ti -1c
-.BI "QWidget * \fBprev\fR ()"
+.BI "TQWidget * \fBprev\fR ()"
 .br
 .ti -1c
-.BI "QWidget * \fBfirst\fR () const"
+.BI "TQWidget * \fBfirst\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBlast\fR () const"
+.BI "TQWidget * \fBlast\fR () const"
 .br
 .ti -1c
 .BI "int \fBcount\fR () const"
@@ -42,27 +42,27 @@ This read-only list always contains at least one widget (i.e. the top-level widg
 .PP
 Some widgets in the list may not accept focus. Widgets are added to the list as necessary, but not removed from it. This lets widgets change focus policy dynamically without disrupting the focus chain the user experiences. When a widget disables and re-enables tab focus, its position in the focus chain does not change.
 .PP
-When reimplementing QWidget::focusNextPrevChild() to provide special focus flow, you will usually call QWidget::focusData() to retrieve the focus data stored at the top-level widget. A top-level widget's focus data contains the focus list for its hierarchy of widgets.
+When reimplementing TQWidget::focusNextPrevChild() to provide special focus flow, you will usually call TQWidget::focusData() to retrieve the focus data stored at the top-level widget. A top-level widget's focus data contains the focus list for its hierarchy of widgets.
 .PP
 The cursor may change at any time.
 .PP
 This class is \fInot\fR thread-safe.
 .PP
-See also QWidget::focusNextPrevChild(), QWidget::setTabOrder(), QWidget::focusPolicy, and Miscellaneous Classes.
+See also TQWidget::focusNextPrevChild(), TQWidget::setTabOrder(), TQWidget::focusPolicy, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "int QFocusData::count () const"
 Returns the number of widgets in the focus chain.
-.SH "QWidget * QFocusData::first () const"
+.SH "TQWidget * QFocusData::first () const"
 Returns the first widget in the focus chain. The cursor is not modified.
-.SH "QWidget * QFocusData::focusWidget () const"
+.SH "TQWidget * QFocusData::focusWidget () const"
 Returns the widgets in the hierarchy that are in the focus chain.
-.SH "QWidget * QFocusData::home ()"
+.SH "TQWidget * QFocusData::home ()"
 Moves the cursor to the focusWidget() and returns that widget. You must call this before next() or prev() to iterate meaningfully.
-.SH "QWidget * QFocusData::last () const"
+.SH "TQWidget * QFocusData::last () const"
 Returns the last widget in the focus chain. The cursor is not modified.
-.SH "QWidget * QFocusData::next ()"
+.SH "TQWidget * QFocusData::next ()"
 Moves the cursor to the next widget in the focus chain. There is \fIalways\fR a next widget because the list is a loop.
-.SH "QWidget * QFocusData::prev ()"
+.SH "TQWidget * QFocusData::prev ()"
 Moves the cursor to the previous widget in the focus chain. There
 is \fIalways\fR a previous widget because the list is a loop.
 
@@ -80,8 +80,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

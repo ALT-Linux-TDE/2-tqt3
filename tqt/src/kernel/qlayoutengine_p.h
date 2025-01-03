@@ -63,7 +63,7 @@
 #include "ntqabstractlayout.h"
 #endif // QT_H
 
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 
 struct TQLayoutStruct
 {
@@ -96,12 +96,12 @@ struct TQLayoutStruct
 };
 
 
-Q_EXPORT void qGeomCalc( TQMemArray<TQLayoutStruct> &chain, int start, int count,
+TQ_EXPORT void qGeomCalc( TQMemArray<TQLayoutStruct> &chain, int start, int count,
 			 int pos, int space, int spacer );
-Q_EXPORT TQSize qSmartMinSize( const TQWidgetItem *i );
-Q_EXPORT TQSize qSmartMinSize( TQWidget *w );
-Q_EXPORT TQSize qSmartMaxSize( const TQWidgetItem *i, int align = 0 );
-Q_EXPORT TQSize qSmartMaxSize( TQWidget *w, int align = 0 );
+TQ_EXPORT TQSize qSmartMinSize( const TQWidgetItem *i );
+TQ_EXPORT TQSize qSmartMinSize( TQWidget *w );
+TQ_EXPORT TQSize qSmartMaxSize( const TQWidgetItem *i, int align = 0 );
+TQ_EXPORT TQSize qSmartMaxSize( TQWidget *w, int align = 0 );
 
 
 /*
@@ -125,5 +125,5 @@ static inline void qMaxExpCalc( TQCOORD & max, bool &exp,
     exp = exp || boxexp;
 }
 
-#endif //QT_NO_LAYOUT
+#endif //TQT_NO_LAYOUT
 #endif

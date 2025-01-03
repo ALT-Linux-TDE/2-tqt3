@@ -45,7 +45,7 @@
 #include <ntqpainter.h>
 
 static TQTextEdit *debugoutput = 0;
-Q_EXPORT bool debugToStderr = FALSE;
+TQ_EXPORT bool debugToStderr = FALSE;
 
 TQtMsgHandler OutputWindow::oldMsgHandler = 0;
 
@@ -76,10 +76,10 @@ void OutputWindow::setupError()
 {
     errorView = new TQListView( this, "OutputWindow::errorView" );
     errorView->setSorting( -1 );
-    connect( errorView, SIGNAL( currentChanged( TQListViewItem* ) ),
-	     this, SLOT( currentErrorChanged( TQListViewItem* ) ) );
-    connect( errorView, SIGNAL( clicked( TQListViewItem* ) ),
-	     this, SLOT( currentErrorChanged( TQListViewItem* ) ) );
+    connect( errorView, TQ_SIGNAL( currentChanged( TQListViewItem* ) ),
+	     this, TQ_SLOT( currentErrorChanged( TQListViewItem* ) ) );
+    connect( errorView, TQ_SIGNAL( clicked( TQListViewItem* ) ),
+	     this, TQ_SLOT( currentErrorChanged( TQListViewItem* ) ) );
 
     if ( MetaDataBase::languages().count() > 1 )
 	addTab( errorView, tr( "Warnings/Errors" ) );

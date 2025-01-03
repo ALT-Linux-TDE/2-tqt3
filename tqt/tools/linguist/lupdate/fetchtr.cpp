@@ -496,8 +496,8 @@ static void parse( MetaTranslator *tor, const char *initialContext,
 		    /*
 		      This code should execute only once, but we play
 		      safe with impure definitions such as
-		      'class Q_EXPORT TQMessageBox', in which case
-		      'TQMessageBox' is the class name, not 'Q_EXPORT'.
+		      'class TQ_EXPORT TQMessageBox', in which case
+		      'TQMessageBox' is the class name, not 'TQ_EXPORT'.
 		    */
 		    functionContext = yyIdent;
 		    yyTok = getToken();

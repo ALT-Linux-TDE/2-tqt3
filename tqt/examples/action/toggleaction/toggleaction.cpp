@@ -19,8 +19,8 @@ int main( int argc, char **argv )
     labelonoffaction->setAccel( TQt::ALT+TQt::Key_L );
     labelonoffaction->setIconSet( (TQPixmap) labelonoff_xpm );
 
-    TQObject::connect( labelonoffaction, SIGNAL( toggled( bool ) ),
-                      window, SLOT( setUsesTextLabel( bool ) ) );
+    TQObject::connect( labelonoffaction, TQ_SIGNAL( toggled( bool ) ),
+                      window, TQ_SLOT( setUsesTextLabel( bool ) ) );
 
     labelonoffaction->addTo( toolbar );
 

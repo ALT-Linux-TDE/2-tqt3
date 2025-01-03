@@ -104,9 +104,9 @@ OptionsForm::OptionsForm( TQWidget* parent, const char* name,
     buttonsLayout->addWidget( cancelPushButton );
     optionsFormLayout->addLayout( buttonsLayout );
 
-    connect( fontPushButton, SIGNAL( clicked() ), this, SLOT( chooseFont() ) );
-    connect( okPushButton, SIGNAL( clicked() ), this, SLOT( accept() ) );
-    connect( cancelPushButton, SIGNAL( clicked() ), this, SLOT( reject() ) );
+    connect( fontPushButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( chooseFont() ) );
+    connect( okPushButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( accept() ) );
+    connect( cancelPushButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( reject() ) );
 
     chartTypeTextLabel->setBuddy( chartTypeComboBox );
     decimalPlacesTextLabel->setBuddy( decimalPlacesSpinBox );

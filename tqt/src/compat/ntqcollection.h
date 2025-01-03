@@ -21,7 +21,7 @@
 *****************************************************************************/
 #ifndef TQCOLLECTION_H
 #define TQCOLLECTION_H
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #include "ntqptrcollection.h"
 #endif
 #endif

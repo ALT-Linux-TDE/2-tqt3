@@ -76,13 +76,13 @@
 #include <X11/Xatom.h>
 
 
-//#define QT_NO_SHAPE
-#ifdef QT_NO_SHAPE
+//#define TQT_NO_SHAPE
+#ifdef TQT_NO_SHAPE
 #define XShapeCombineRegion(a,b,c,d,e,f,g)
 #define XShapeCombineMask(a,b,c,d,e,f,g)
 #else
 #include <X11/extensions/shape.h>
-#endif // QT_NO_SHAPE
+#endif // TQT_NO_SHAPE
 
 
 // the wacom tablet (currently just the IRIX version)
@@ -94,8 +94,8 @@
 #endif // QT_TABLET_SUPPORT
 
 
-// #define QT_NO_XINERAMA
-#ifndef QT_NO_XINERAMA
+// #define TQT_NO_XINERAMA
+#ifndef TQT_NO_XINERAMA
 #  if 0 // ### Xsun, but how to detect it?
 // Xinerama is only supported in Solaris 7 with patches 107648/108376 and
 // Solaris 8 or above which introduce the X11R6.4 Xserver.
@@ -137,18 +137,18 @@ extern "C" {
 #    include <X11/extensions/Xinerama.h>
 }
 #  endif
-#endif // QT_NO_XINERAMA
+#endif // TQT_NO_XINERAMA
 
-// #define QT_NO_XRANDR
-#ifndef QT_NO_XRANDR
+// #define TQT_NO_XRANDR
+#ifndef TQT_NO_XRANDR
 #  include <X11/extensions/Xrandr.h>
-#endif // QT_NO_XRANDR
+#endif // TQT_NO_XRANDR
 
-// #define QT_NO_XRENDER
-#ifndef QT_NO_XRENDER
+// #define TQT_NO_XRENDER
+#ifndef TQT_NO_XRENDER
 #  include <X11/extensions/Xrender.h>
-// #define QT_NO_XFTFREETYPE
-#  ifndef QT_NO_XFTFREETYPE
+// #define TQT_NO_XFTFREETYPE
+#  ifndef TQT_NO_XFTFREETYPE
 //   This hacks around the freetype poeple putting an #error into freetype.h in 2.1.7, making
 //   it impossible to use an updated freetype with older Xft header files.
 #    include <ft2build.h>
@@ -168,23 +168,23 @@ extern "C" {
     void XftDrawSetSubwindowMode(XftDraw *, int);
 }
 #    endif // XFT_VERSION
-#  endif // QT_NO_XFTFREETYPE
+#  endif // TQT_NO_XFTFREETYPE
 #else
-// make sure QT_NO_XFTFREETYPE is defined if QT_NO_XRENDER is defined
-#  ifndef QT_NO_XFTFREETYPE
-#    define QT_NO_XFTFREETYPE
+// make sure TQT_NO_XFTFREETYPE is defined if TQT_NO_XRENDER is defined
+#  ifndef TQT_NO_XFTFREETYPE
+#    define TQT_NO_XFTFREETYPE
 #  endif
-#endif // QT_NO_XRENDER
+#endif // TQT_NO_XRENDER
 
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 #  include <X11/extensions/sync.h>
-#endif // QT_NO_XSYNC
+#endif // TQT_NO_XSYNC
 
 
-#ifndef QT_NO_XKB
+#ifndef TQT_NO_XKB
 #  include <X11/XKBlib.h>
-#endif // QT_NO_XKB
+#endif // TQT_NO_XKB
 
 
 #if !defined(XlibSpecificationRelease)
@@ -194,27 +194,27 @@ typedef char *XPointer;
 #  undef X11R4
 #endif
 
-// #define QT_NO_XIM
+// #define TQT_NO_XIM
 #if defined(X11R4)
 // X11R4 does not have XIM
-#define QT_NO_XIM
+#define TQT_NO_XIM
 #elif defined(Q_OS_OSF) && (XlibSpecificationRelease < 6)
 // broken in Xlib up to OSF/1 3.2
-#define QT_NO_XIM
+#define TQT_NO_XIM
 #elif defined(Q_OS_AIX)
 // broken in Xlib up to what version of AIX?
-#define QT_NO_XIM
-#elif defined(QT_NO_DEBUG) && defined(Q_OS_IRIX)
+#define TQT_NO_XIM
+#elif defined(TQT_NO_DEBUG) && defined(Q_OS_IRIX)
 // XmbLookupString broken on IRIX
 // XCreateIC broken when compiling -64 on IRIX 6.5.2
-#define QT_NO_XIM
+#define TQT_NO_XIM
 #elif defined(Q_OS_HPUX) && defined(__LP64__)
 // XCreateIC broken when compiling 64-bit ELF on HP-UX 11.0
-#define QT_NO_XIM
+#define TQT_NO_XIM
 #elif defined(Q_OS_SCO)
 // ### suggested by user...
-// ### #define QT_NO_XIM
-#endif // QT_NO_XIM
+// ### #define TQT_NO_XIM
+#endif // TQT_NO_XIM
 
 
 /*
@@ -225,7 +225,7 @@ typedef char *XPointer;
  * Instead, we disabled R6 input, and open the input method
  * immediately at application start.
  */
-#if !defined(QT_NO_XIM) && (XlibSpecificationRelease >= 6) && \
+#if !defined(TQT_NO_XIM) && (XlibSpecificationRelease >= 6) && \
     !defined(Q_OS_SOLARIS)
 #define USE_X11R6_XIM
 
@@ -256,7 +256,7 @@ extern "C" char *XSetIMValues( XIM /* im */, ... );
 
 #endif
 
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
 // some platforms (eg. Solaris 2.51) don't have these defines in Xlib.h
 #ifndef XNResetState
 #define XNResetState "resetState"

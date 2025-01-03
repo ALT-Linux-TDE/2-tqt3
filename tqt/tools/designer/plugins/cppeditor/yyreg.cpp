@@ -48,8 +48,8 @@
   you might want to read other simpler parsers written in the same
   style:
 
-	$(QTDIR)/src/tools/qregexp.cpp
-	$(QTDIR)/tools/inspector/cppparser.cpp
+	$(TQTDIR)/src/tools/qregexp.cpp
+	$(TQTDIR)/tools/inspector/cppparser.cpp
   
   You might also want to read Section 2 in the Dragon Book.
 */

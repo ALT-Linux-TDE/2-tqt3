@@ -40,7 +40,7 @@
 
 #include "ntqmotifplusstyle.h"
 
-#if !defined(QT_NO_STYLE_MOTIFPLUS) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_MOTIFPLUS) || defined(QT_PLUGIN)
 
 #include "ntqmenubar.h"
 #include "ntqapplication.h"
@@ -178,19 +178,19 @@ void TQMotifPlusStyle::polish(TQPalette &)
 void TQMotifPlusStyle::polish(const TQStyleControlElementData &ceData, ControlElementFlags elementFlags, void *ptr)
 {
     if (ceData.widgetObjectTypes.contains("TQWidget")) {
-#ifndef QT_NO_FRAME
+#ifndef TQT_NO_FRAME
         if ((ceData.widgetObjectTypes.contains("TQFrame")) && (ceData.frameStyle == TQFrame::Panel)) {
             widgetActionRequest(ceData, elementFlags, ptr, WAR_FrameSetStyle, TQStyleWidgetActionRequestData(TQFrame::WinPanel));
         }
 #endif
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
         if ((ceData.widgetObjectTypes.contains("TQMenuBar")) && (ceData.frameStyle != TQFrame::NoFrame)) {
             widgetActionRequest(ceData, elementFlags, ptr, WAR_FrameSetStyle, TQStyleWidgetActionRequestData(TQFrame::StyledPanel | TQFrame::Raised));
         }
 #endif
 
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
         if (ceData.widgetObjectTypes.contains("TQToolBar")) {
             widgetActionRequest(ceData, elementFlags, ptr, WAR_SetLayoutMargin, TQStyleWidgetActionRequestData(2));
         }
@@ -711,7 +711,7 @@ void TQMotifPlusStyle::drawControl( ControlElement element,
     switch (element) {
     case CE_PushButton:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    TQRect br = r;
 	    int dbi = pixelMetric(PM_ButtonDefaultIndicator, ceData, elementFlags, widget);
 
@@ -739,7 +739,7 @@ void TQMotifPlusStyle::drawControl( ControlElement element,
 
     case CE_CheckBoxLabel:
 	{
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	    if (flags & Style_MouseOver) {
 		TQRegion r(ceData.rect);
 		r -= visualRect(subRect(SR_CheckBoxIndicator, ceData, elementFlags, widget), ceData, elementFlags);
@@ -762,7 +762,7 @@ void TQMotifPlusStyle::drawControl( ControlElement element,
 
     case CE_RadioButtonLabel:
 	{
-#ifndef QT_NO_RADIOBUTTON
+#ifndef TQT_NO_RADIOBUTTON
 	    if (flags & Style_MouseOver) {
 		TQRegion r(ceData.rect);
 		r -= visualRect(subRect(SR_RadioButtonIndicator, ceData, elementFlags, widget), ceData, elementFlags);
@@ -785,7 +785,7 @@ void TQMotifPlusStyle::drawControl( ControlElement element,
 
     case CE_MenuBarItem:
 	{
-#ifndef QT_NO_MENUDATA
+#ifndef TQT_NO_MENUDATA
 	    if (opt.isDefault())
 		break;
 
@@ -803,7 +803,7 @@ void TQMotifPlusStyle::drawControl( ControlElement element,
 	}
 
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     case CE_PopupMenuItem:
 	{
 	    if (! widget || opt.isDefault())
@@ -935,11 +935,11 @@ void TQMotifPlusStyle::drawControl( ControlElement element,
 	    }
 	    break;
 	}
-#endif // QT_NO_POPUPMENU
+#endif // TQT_NO_POPUPMENU
 
     case CE_TabBarTab:
 	{
-#ifndef QT_NO_TABBAR
+#ifndef TQT_NO_TABBAR
 	    bool selected = flags & Style_Selected;
 
 	    TQColorGroup g = ceData.colorGroup;
@@ -1054,7 +1054,7 @@ TQRect TQMotifPlusStyle::subRect(SubRect r, const TQStyleControlElementData &ceD
     switch (r) {
     case SR_PushButtonFocusRect:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    int dfi = pixelMetric(PM_ButtonDefaultIndicator, ceData, elementFlags, widget);
 
 	    rect = ceData.rect;
@@ -1089,7 +1089,7 @@ TQRect TQMotifPlusStyle::subRect(SubRect r, const TQStyleControlElementData &ceD
 
     case SR_ComboBoxFocusRect:
 	{
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 	    if (elementFlags & CEF_IsEditable) {
 		rect = querySubControlMetrics(CC_ComboBox, ceData, elementFlags,
 					      SC_ComboBoxEditField, TQStyleOption::Default, widget);
@@ -1102,7 +1102,7 @@ TQRect TQMotifPlusStyle::subRect(SubRect r, const TQStyleControlElementData &ceD
 
     case SR_SliderFocusRect:
 	{
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 	    int tickOffset = pixelMetric( PM_SliderTickmarkOffset, ceData, elementFlags, widget );
 	    int thickness = pixelMetric( PM_SliderControlThickness, ceData, elementFlags, widget );
 	    int x, y, wi, he;
@@ -1149,7 +1149,7 @@ void TQMotifPlusStyle::drawComplexControl(ComplexControl control,
     switch (control) {
     case CC_ScrollBar:
 	{
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
 	    TQRect addline, subline, addpage, subpage, slider, first, last;
 	    bool maxedOut = (ceData.minSteps == ceData.maxSteps);
 
@@ -1268,7 +1268,7 @@ void TQMotifPlusStyle::drawComplexControl(ComplexControl control,
 
     case CC_ComboBox:
 	{
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 	    TQRect editfield, arrow;
 	    editfield =
 		visualRect(querySubControlMetrics(CC_ComboBox,
@@ -1327,7 +1327,7 @@ void TQMotifPlusStyle::drawComplexControl(ComplexControl control,
 
     case CC_SpinWidget:
 	{
-#ifndef QT_NO_SPINWIDGET
+#ifndef TQT_NO_SPINWIDGET
 	    SFlags flags = Style_Default;
 
 	    if (controls & SC_SpinWidgetFrame)
@@ -1370,7 +1370,7 @@ void TQMotifPlusStyle::drawComplexControl(ComplexControl control,
 
     case CC_Slider:
 	{
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 	    bool mouseover = (flags & Style_MouseOver);
 
 	    TQRect groove = querySubControlMetrics(CC_Slider, ceData, elementFlags, SC_SliderGroove,
@@ -1464,7 +1464,7 @@ TQRect TQMotifPlusStyle::querySubControlMetrics(ComplexControl control,
 	    }
 	    break; }
 
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
     case CC_ComboBox: {
 	if (elementFlags & CEF_IsEditable) {
 	    int space = (ceData.rect.height() - 13) / 2;
@@ -1499,7 +1499,7 @@ TQRect TQMotifPlusStyle::querySubControlMetrics(ComplexControl control,
 	break; }
 #endif
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case CC_Slider: {
 
 	if (subcontrol == SC_SliderHandle) {
@@ -1626,4 +1626,4 @@ int TQMotifPlusStyle::styleHint(StyleHint hint,
 }
 
 
-#endif // QT_NO_STYLE_MOTIFPLUS
+#endif // TQT_NO_STYLE_MOTIFPLUS

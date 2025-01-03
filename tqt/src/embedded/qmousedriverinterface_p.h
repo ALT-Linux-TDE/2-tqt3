@@ -55,7 +55,7 @@
 #include <private/qcom_p.h>
 #endif // QT_H
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 // {4367CF5A-F7CE-407B-8BB6-DF19AEDA2EBB}
 #ifndef IID_QMouseDriver
@@ -64,11 +64,11 @@
 
 class TQWSMouseHandler;
 
-struct Q_EXPORT TQMouseDriverInterface : public TQFeatureListInterface
+struct TQ_EXPORT TQMouseDriverInterface : public TQFeatureListInterface
 {
     virtual TQWSMouseHandler* create( const TQString& driver, const TQString &device ) = 0;
 };
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 #endif // TQMOUSEDRIVERINTERFACE_P_H

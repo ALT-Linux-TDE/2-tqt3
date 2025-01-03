@@ -54,17 +54,17 @@
 class TQEventLoopPrivate;
 class TQSocketNotifier;
 class TQTimer;
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 struct timeval; //stdc struct
 struct TimerInfo; //internal structure (qeventloop_mac.cpp)
 #endif
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 class TQMutex;
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 
-class Q_EXPORT TQEventLoop : public TQObject
+class TQ_EXPORT TQEventLoop : public TQObject
 {
     TQ_OBJECT
 
@@ -109,11 +109,11 @@ signals:
     void aboutToBlock();
 
 private:
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     friend TQMAC_PASCAL void qt_mac_select_timer_callbk(EventLoopTimerRef, void *);
     int macHandleSelect(timeval *);
     void macHandleTimer(TimerInfo *);
-#endif // Q_WS_MAC
+#endif // TQ_WS_MAC
 
     // internal initialization/cleanup - implemented in various platform specific files
     void init();

@@ -1,4 +1,4 @@
-# Qt sql module
+# TQt sql module
 
 sql {
 
@@ -255,6 +255,11 @@ sql {
             HEADERS += $$SQL_CPP/drivers/sqlite3/qsql_sqlite3.h
             SOURCES += $$SQL_CPP/drivers/sqlite3/qsql_sqlite3.cpp
             DEFINES += QT_SQL_SQLITE3
+            unix {
+                !contains( LIBS, .*sqlite3.* ) {
+                    LIBS *= -lsqlite3
+                }
+            }
         }
 }
 

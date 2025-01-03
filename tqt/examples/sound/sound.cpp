@@ -42,15 +42,15 @@ SoundPlayer::SoundPlayer() :
     }
 
     TQPopupMenu *file = new TQPopupMenu;
-    file->insertItem("Play &1",  this, SLOT(doPlay1()), CTRL+Key_1);
-    file->insertItem("Play &2",  this, SLOT(doPlay2()), CTRL+Key_2);
-    file->insertItem("Play from bucket &3",  this, SLOT(doPlay3()), CTRL+Key_3);
-    file->insertItem("Play from bucket &4",  this, SLOT(doPlay4()), CTRL+Key_4);
+    file->insertItem("Play &1",  this, TQ_SLOT(doPlay1()), CTRL+Key_1);
+    file->insertItem("Play &2",  this, TQ_SLOT(doPlay2()), CTRL+Key_2);
+    file->insertItem("Play from bucket &3",  this, TQ_SLOT(doPlay3()), CTRL+Key_3);
+    file->insertItem("Play from bucket &4",  this, TQ_SLOT(doPlay4()), CTRL+Key_4);
     file->insertSeparator();
-    file->insertItem("Play 3 and 4 together",  this, SLOT(doPlay34()));
-    file->insertItem("Play all together",  this, SLOT(doPlay1234()));
+    file->insertItem("Play 3 and 4 together",  this, TQ_SLOT(doPlay34()));
+    file->insertItem("Play all together",  this, TQ_SLOT(doPlay1234()));
     file->insertSeparator();
-    file->insertItem("E&xit",  tqApp, SLOT(quit()));
+    file->insertItem("E&xit",  tqApp, TQ_SLOT(quit()));
     menuBar()->insertItem("&File", file);
 }
 

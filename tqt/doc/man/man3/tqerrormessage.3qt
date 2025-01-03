@@ -16,7 +16,7 @@ Inherits QDialog.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQErrorMessage\fR ( QWidget * parent, const char * name = 0 )"
+.BI "\fBQErrorMessage\fR ( TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QErrorMessage\fR ()"
@@ -25,7 +25,7 @@ Inherits QDialog.
 .SS "Public Slots"
 .in +1c
 .ti -1c
-.BI "void \fBmessage\fR ( const QString & m )"
+.BI "void \fBmessage\fR ( const TQString & m )"
 .br
 .in -1c
 .SS "Static Public Members"
@@ -55,17 +55,17 @@ In both cases QErrorMessage will queue pending messages, and display them (or no
 .PP
 See also QMessageBox, QStatusBar::message(), Dialog Classes, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QErrorMessage::QErrorMessage ( QWidget * parent, const char * name = 0 )"
+.SH "QErrorMessage::QErrorMessage ( TQWidget * parent, const char * name = 0 )"
 Constructs and installs an error handler window. The parent \fIparent\fR and name \fIname\fR are passed on to the QDialog constructor.
 .SH "QErrorMessage::~QErrorMessage ()"
 Destroys the object and frees any allocated resources. Notably, the list of "do not show again" messages is deleted.
-.SH "void QErrorMessage::message ( const QString & m )\fC [slot]\fR"
+.SH "void QErrorMessage::message ( const TQString & m )\fC [slot]\fR"
 Shows message \fIm\fR and returns immediately. If the user has requested that \fIm\fR not be shown, this function does nothing.
 .PP
 Normally, \fIm\fR is shown at once, but if there are pending messages, \fIm\fR is queued for later display.
 .SH "QErrorMessage * QErrorMessage::qtHandler ()\fC [static]\fR"
 Returns a pointer to a QErrorMessage object that outputs the
-default Qt messages.  This function creates such an object, if there
+default TQt messages.  This function creates such an object, if there
 isn't one already.
 
 .SH "SEE ALSO"
@@ -82,8 +82,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

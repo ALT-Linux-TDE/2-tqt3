@@ -108,9 +108,9 @@ TQPopupMenu *CppEditor::createPopupMenu( const TQPoint &p )
 {
     TQPopupMenu *m = Editor::createPopupMenu( p );
     m->insertSeparator();
-    int adddeclid = m->insertItem( tr( "Add Include File (in Declaration)..." ), this, SLOT( addInclDecl() ) );
-    int addimplid = m->insertItem( tr( "Add Include File (in Implementation)..." ), this, SLOT( addInclImpl() ) );
-    int addforid = m->insertItem( tr( "Add Forward Declaration..." ), this, SLOT( addForward() ) );
+    int adddeclid = m->insertItem( tr( "Add Include File (in Declaration)..." ), this, TQ_SLOT( addInclDecl() ) );
+    int addimplid = m->insertItem( tr( "Add Include File (in Implementation)..." ), this, TQ_SLOT( addInclImpl() ) );
+    int addforid = m->insertItem( tr( "Add Forward Declaration..." ), this, TQ_SLOT( addForward() ) );
     if ( !dIface->currentForm() ) {
 	m->setItemEnabled( adddeclid, FALSE );
 	m->setItemEnabled( addimplid, FALSE );

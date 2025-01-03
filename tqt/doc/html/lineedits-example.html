@@ -125,9 +125,9 @@ protected slots:
 <a name="x171"></a>    combo1-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "Normal" );
     combo1-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "Password" );
     combo1-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "No Echo" );
-    // ...and connect the activated() SIGNAL with the slotEchoChanged() SLOT to be able
+    // ...and connect the activated() TQ_SIGNAL with the slotEchoChanged() TQ_SLOT to be able
     // to react when an item is selected
-<a name="x170"></a>    <a href="ntqobject.html#connect">connect</a>( combo1, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ), this, SLOT( slotEchoChanged( int ) ) );
+<a name="x170"></a>    <a href="ntqobject.html#connect">connect</a>( combo1, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ), this, TQ_SLOT( slotEchoChanged( int ) ) );
 
     // insert the first LineEdit
     lined1 = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
@@ -147,8 +147,8 @@ protected slots:
     combo2-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "No Validator" );
     combo2-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "Integer Validator" );
     combo2-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "Double Validator" );
-    // ...and again the activated() SIGNAL gets connected with a SLOT
-    <a href="ntqobject.html#connect">connect</a>( combo2, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ), this, SLOT( slotValidatorChanged( int ) ) );
+    // ...and again the activated() TQ_SIGNAL gets connected with a TQ_SLOT
+    <a href="ntqobject.html#connect">connect</a>( combo2, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ), this, TQ_SLOT( slotValidatorChanged( int ) ) );
 
     // and the second LineEdit
     lined2 = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
@@ -168,8 +168,8 @@ protected slots:
     combo3-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "Left" );
     combo3-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "Centered" );
     combo3-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "Right" );
-    // ...and again the activated() SIGNAL gets connected with a SLOT
-    <a href="ntqobject.html#connect">connect</a>( combo3, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ), this, SLOT( slotAlignmentChanged( int ) ) );
+    // ...and again the activated() TQ_SIGNAL gets connected with a TQ_SLOT
+    <a href="ntqobject.html#connect">connect</a>( combo3, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ), this, TQ_SLOT( slotAlignmentChanged( int ) ) );
 
     // and the third lineedit
     lined3 = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
@@ -192,8 +192,8 @@ protected slots:
     combo4-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "License key" );
 
     // ...this time we use the activated( const <a href="ntqstring.html">TQString</a> &amp; ) signal
-    <a href="ntqobject.html#connect">connect</a>( combo4, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ),
-             this, SLOT( slotInputMaskChanged( int ) ) );
+    <a href="ntqobject.html#connect">connect</a>( combo4, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ),
+             this, TQ_SLOT( slotInputMaskChanged( int ) ) );
 
     // and the fourth lineedit
     lined4 = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
@@ -211,8 +211,8 @@ protected slots:
     combo5 = new <a href="ntqcombobox.html">TQComboBox</a>( FALSE, row5 );
     combo5-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "False" );
     combo5-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( "True" );
-    // ...and again the activated() SIGNAL gets connected with a SLOT
-    <a href="ntqobject.html#connect">connect</a>( combo5, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ), this, SLOT( slotReadOnlyChanged( int ) ) );
+    // ...and again the activated() TQ_SIGNAL gets connected with a TQ_SLOT
+    <a href="ntqobject.html#connect">connect</a>( combo5, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( int ) ), this, TQ_SLOT( slotReadOnlyChanged( int ) ) );
 
     // and the last lineedit
     lined5 = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
@@ -223,7 +223,7 @@ protected slots:
 }
 
 /*
- * SLOT slotEchoChanged( int i )
+ * TQ_SLOT slotEchoChanged( int i )
  *
  * i contains the number of the item which the user has been chosen in the
  * first Combobox. According to this value, we set the Echo-Mode for the
@@ -248,7 +248,7 @@ void <a name="f220"></a>LineEdits::slotEchoChanged( int i )
 }
 
 /*
- * SLOT slotValidatorChanged( int i )
+ * TQ_SLOT slotValidatorChanged( int i )
  *
  * i contains the number of the item which the user has been chosen in the
  * second Combobox. According to this value, we set a validator for the
@@ -278,7 +278,7 @@ void <a name="f221"></a>LineEdits::slotValidatorChanged( int i )
 
 
 /*
- * SLOT slotAlignmentChanged( int i )
+ * TQ_SLOT slotAlignmentChanged( int i )
  *
  * i contains the number of the item which the user has been chosen in
  * the third Combobox.  According to this value, we set an alignment
@@ -303,7 +303,7 @@ void <a name="f222"></a>LineEdits::slotAlignmentChanged( int i )
 }
 
 /*
- * SLOT slotInputMaskChanged( const <a href="ntqstring.html">TQString</a> &amp;mask )
+ * TQ_SLOT slotInputMaskChanged( const <a href="ntqstring.html">TQString</a> &amp;mask )
  *
  * i contains the number of the item which the user has been chosen in
  * the third Combobox.  According to this value, we set an input mask on
@@ -332,7 +332,7 @@ void <a name="f223"></a>LineEdits::slotInputMaskChanged( int i )
 }
 
 /*
- * SLOT slotReadOnlyChanged( int i )
+ * TQ_SLOT slotReadOnlyChanged( int i )
  *
  * i contains the number of the item which the user has been chosen in
  * the fourth Combobox.  According to this value, we toggle read-only.

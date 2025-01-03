@@ -11,23 +11,23 @@ QButton \- The abstract base class of button widgets, providing functionality co
 .SH SYNOPSIS
 \fC#include <ntqbutton.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 Inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQButton\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQButton\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "\fB~QButton\fR ()"
 .br
 .ti -1c
-.BI "QString \fBtext\fR () const"
+.BI "TQString \fBtext\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( const QString & )"
+.BI "virtual void \fBsetText\fR ( const TQString & )"
 .br
 .ti -1c
 .BI "const QPixmap * \fBpixmap\fR () const"
@@ -135,7 +135,7 @@ Inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 .BI "QPixmap \fBpixmap\fR - the pixmap shown on the button"
 .br
 .ti -1c
-.BI "QString \fBtext\fR - the text shown on the button"
+.BI "TQString \fBtext\fR - the text shown on the button"
 .br
 .ti -1c
 .BI "bool \fBtoggleButton\fR - whether the button is a toggle button  \fI(read " "only" ")\fR"
@@ -233,7 +233,7 @@ You can also set a custom accelerator using the setAccel() function. This is use
 .br
 .fi
 .PP
-All of the buttons provided by Qt (QPushButton, QToolButton, QCheckBox and QRadioButton) can display both text and pixmaps.
+All of the buttons provided by TQt (QPushButton, QToolButton, QCheckBox and QRadioButton) can display both text and pixmaps.
 .PP
 To subclass QButton, you must reimplement at least drawButton() (to draw the button's outline) and drawButtonLabel() (to draw its text or pixmap). It is generally advisable to reimplement sizeHint() as well, and sometimes hitButton() (to determine whether a button press is within the button).
 .PP
@@ -258,7 +258,7 @@ This enum type defines what a button can do in response to a mouse/keyboard pres
 .TP
 \fCQButton::Tristate\fR - pressing the button cycles between the three states On, Off and NoChange
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QButton::QButton ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QButton::QButton ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a standard button called \fIname\fR with parent \fIparent\fR, using the widget flags \fIf\fR.
 .PP
 If \fIparent\fR is a QButtonGroup, this constructor calls QButtonGroup::insert().
@@ -324,7 +324,7 @@ Handles paint events for buttons. Small and typically complex buttons are painte
 .PP
 See also drawButton() and drawButtonLabel().
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "const QPixmap * QButton::pixmap () const"
 Returns the pixmap shown on the button. See the "pixmap" property for details.
 .SH "void QButton::pressed ()\fC [signal]\fR"
@@ -354,7 +354,7 @@ See also toggleState.
 Sets the pixmap shown on the button. See the "pixmap" property for details.
 .SH "void QButton::setState ( ToggleState s )\fC [virtual protected]\fR"
 Sets the toggle state of the button to \fIs\fR. \fIs\fR can be Off, NoChange or On.
-.SH "void QButton::setText ( const QString & )\fC [virtual]\fR"
+.SH "void QButton::setText ( const TQString & )\fC [virtual]\fR"
 Sets the text shown on the button. See the "text" property for details.
 .SH "void QButton::setToggleButton ( bool b )\fC [protected]\fR"
 If \fIb\fR is TRUE, this button becomes a toggle button; if \fIb\fR is FALSE, this button becomes a command button.
@@ -372,7 +372,7 @@ This signal is emitted whenever a toggle button changes state. \fIstate\fR is On
 This may be the result of a user action, toggle() slot activation, setState(), or because setOn() was called.
 .PP
 See also clicked() and QButton::ToggleState.
-.SH "QString QButton::text () const"
+.SH "TQString QButton::text () const"
 Returns the text shown on the button. See the "text" property for details.
 .SH "void QButton::toggle ()\fC [slot]\fR"
 Toggles the state of a toggle button.
@@ -435,10 +435,10 @@ If the pixmap is monochrome (i.e. it is a QBitmap or its depth is 1) and it does
 pixmap() returns 0 if no pixmap was set.
 .PP
 Set this property's value with setPixmap() and get this property's value with pixmap().
-.SH "QString text"
+.SH "TQString text"
 This property holds the text shown on the button.
 .PP
-This property will return a QString::null if the button has no text. If the text has an ampersand (&) in it, then an accelerator is automatically created for it using the character that follows the '&' as the accelerator key. Any previous accelerator will be overwritten, or cleared if no accelerator is defined by the text.
+This property will return a TQString::null if the button has no text. If the text has an ampersand (&) in it, then an accelerator is automatically created for it using the character that follows the '&' as the accelerator key. Any previous accelerator will be overwritten, or cleared if no accelerator is defined by the text.
 .PP
 There is no default text.
 .PP
@@ -478,8 +478,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

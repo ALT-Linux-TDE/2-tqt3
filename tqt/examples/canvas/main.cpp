@@ -36,7 +36,7 @@ int main(int argc, char** argv)
     else
 	m.showMaximized();
     
-    TQObject::connect( tqApp, SIGNAL(lastWindowClosed()), tqApp, SLOT(quit()) );
+    TQObject::connect( tqApp, TQ_SIGNAL(lastWindowClosed()), tqApp, TQ_SLOT(quit()) );
     
     return app.exec();
 }

@@ -2037,7 +2037,7 @@ bool VCFilter::addIMGstage( TQTextStream &/*strm*/, TQString str )
     // The loop below is to avoid the resulting CommandLine buffer
     // from being a size of between 2071-#char_replaced and 2102,
     // as this triggers a buffer overflow bug in VS2003. As we only
-    // the only replacement we use in this buffer is one $(QTDIR),
+    // the only replacement we use in this buffer is one $(TQTDIR),
     // we assume this can be upto 256 characters long, making the
     // lower-bound to be 1814 characters. So, if the buffer is
     // between 1814 and 2103 bytes, the buffer is "padded" til it's

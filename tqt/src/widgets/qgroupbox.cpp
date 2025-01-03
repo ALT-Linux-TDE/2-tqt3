@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqgroupbox.h"
-#ifndef QT_NO_GROUPBOX
+#ifndef TQT_NO_GROUPBOX
 #include "ntqlayout.h"
 #include "ntqpainter.h"
 #include "ntqbitmap.h"
@@ -188,7 +188,7 @@ void TQGroupBox::init()
 {
     align = AlignAuto;
     setFrameStyle( TQFrame::GroupBoxPanel | TQFrame::Sunken );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     accel = 0;
 #endif
     vbox = 0;
@@ -212,7 +212,7 @@ void TQGroupBox::setTextSpacer()
 	TQFontMetrics fm = fontMetrics();
 	int fh = fm.height();
 	if ( isCheckable() ) {
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	    fh = d->checkbox->sizeHint().height() + 2;
 	    w = d->checkbox->sizeHint().width() + 2*fm.width( "xx" );
 #endif
@@ -245,7 +245,7 @@ void TQGroupBox::setTitle( const TQString &title )
     if ( str == title )				// no change
 	return;
     str = title;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( accel )
 	delete accel;
     accel = 0;
@@ -253,10 +253,10 @@ void TQGroupBox::setTitle( const TQString &title )
     if ( s ) {
 	accel = new TQAccel( this, "automatic focus-change accelerator" );
 	accel->connectItem( accel->insertItem( s, 0 ),
-			    this, SLOT(fixFocus()) );
+			    this, TQ_SLOT(fixFocus()) );
     }
 #endif
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     if ( d->checkbox ) {
 	d->checkbox->setText( str );
 	updateCheckBoxGeometry();
@@ -312,7 +312,7 @@ void TQGroupBox::setTitle( const TQString &title )
 void TQGroupBox::setAlignment( int alignment )
 {
     align = alignment;
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     updateCheckBoxGeometry();
 #endif
     update();
@@ -323,7 +323,7 @@ void TQGroupBox::setAlignment( int alignment )
 void TQGroupBox::resizeEvent( TQResizeEvent *e )
 {
     TQFrame::resizeEvent(e);
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     if ( align & AlignRight || align & AlignCenter ||
 	 ( TQApplication::reverseLayout() && !(align & AlignLeft) ) )
 	updateCheckBoxGeometry();
@@ -370,7 +370,7 @@ void TQGroupBox::paintEvent( TQPaintEvent *event )
 	style().drawItem( &paint, r, ShowPrefix | AlignHCenter | va, colorGroup(),
 			  isEnabled(), 0, str, -1, ownPalette() ? 0 : &pen );
 	paint.setClipRegion( event->region().subtract( r ) ); // clip everything but title
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     } else if ( d->checkbox ) {
 	TQRect cbClip = d->checkbox->geometry();
 	TQFontMetrics fm = paint.fontMetrics();
@@ -581,7 +581,7 @@ void TQGroupBox::setColumnLayout(int strips, Orientation direction)
 	while( (w=(TQWidget *)it.current()) != 0 ) {
 	    ++it;
 	    if ( w->isWidgetType()
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 		 && w != d->checkbox
 #endif
 		 )
@@ -605,7 +605,7 @@ void TQGroupBox::childEvent( TQChildEvent *c )
     if ( !c->inserted() || !c->child()->isWidgetType() )
 	return;
     TQWidget *w = (TQWidget*)c->child();
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     if ( d->checkbox ) {
 	if ( w == d->checkbox )
 	    return;
@@ -677,7 +677,7 @@ void TQGroupBox::fixFocus()
 	if ( p == this && ( w->focusPolicy() & TabFocus ) == TabFocus
 	     && w->isVisibleTo(this) ) {
 	    if ( w->hasFocus()
-#ifndef QT_NO_RADIOBUTTON
+#ifndef TQT_NO_RADIOBUTTON
 		 || ( !best && ::tqt_cast<TQRadioButton*>(w)
 		 && ((TQRadioButton*)w)->isChecked() )
 #endif
@@ -725,7 +725,7 @@ void TQGroupBox::calculateFrame()
 	    return;
 	}
     } else if ( isCheckable() ) {
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	TQRect r = rect();
 	int va = style().styleHint(TQStyle::SH_GroupBox_TextLabelVerticalAlignment, this);
 	if( va & AlignVCenter )
@@ -756,7 +756,7 @@ void TQGroupBox::focusInEvent( TQFocusEvent * )
 void TQGroupBox::fontChange( const TQFont & oldFont )
 {
     TQWidget::fontChange( oldFont );
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     updateCheckBoxGeometry();
 #endif
     calculateFrame();
@@ -772,7 +772,7 @@ TQSize TQGroupBox::sizeHint() const
     TQFontMetrics fm( font() );
     int tw, th;
     if ( isCheckable() ) {
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	tw = d->checkbox->sizeHint().width() + 2*fm.width( "xx" );
 	th = d->checkbox->sizeHint().height() + fm.width( TQChar(' ') );
 #endif
@@ -833,7 +833,7 @@ void TQGroupBox::setFlat( bool b )
     checkbox, and isCheckable() controls whether the checkbox is
     checked or not.
 */
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 void TQGroupBox::setCheckable( bool b )
 {
     if ( (d->checkbox != 0) == b )
@@ -846,10 +846,10 @@ void TQGroupBox::setCheckable( bool b )
                 meAsButtonGroup->remove(d->checkbox);
 	    setChecked( TRUE );
 	    setChildrenEnabled( TRUE );
-	    connect( d->checkbox, SIGNAL( toggled(bool) ),
-		     this, SLOT( setChildrenEnabled(bool) ) );
-	    connect( d->checkbox, SIGNAL( toggled(bool) ),
-		     this, SIGNAL( toggled(bool) ) );
+	    connect( d->checkbox, TQ_SIGNAL( toggled(bool) ),
+		     this, TQ_SLOT( setChildrenEnabled(bool) ) );
+	    connect( d->checkbox, TQ_SIGNAL( toggled(bool) ),
+		     this, TQ_SIGNAL( toggled(bool) ) );
 	    updateCheckBoxGeometry();
 	}
 	d->checkbox->show();
@@ -862,11 +862,11 @@ void TQGroupBox::setCheckable( bool b )
     setTextSpacer();
     update();
 }
-#endif //QT_NO_CHECKBOX
+#endif //TQT_NO_CHECKBOX
 
 bool TQGroupBox::isCheckable() const
 {
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     return ( d->checkbox != 0 );
 #else
     return FALSE;
@@ -876,7 +876,7 @@ bool TQGroupBox::isCheckable() const
 
 bool TQGroupBox::isChecked() const
 {
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     return d->checkbox && d->checkbox->isChecked();
 #else
     return FALSE;
@@ -901,7 +901,7 @@ bool TQGroupBox::isChecked() const
     are enabled. If the checkbox is unchecked the children are
     disabled.
 */
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 void TQGroupBox::setChecked( bool b )
 {
     if ( d->checkbox )
@@ -922,7 +922,7 @@ void TQGroupBox::setChildrenEnabled( bool b )
     while( (o = it.current()) ) {
 	++it;
 	if ( o->isWidgetType()
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	     && o != d->checkbox
 #endif
 	     ) {
@@ -947,7 +947,7 @@ void TQGroupBox::setEnabled(bool on)
     if ( !d->checkbox || !on )
 	return;
 
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     // we are being enabled - disable children
     if ( !d->checkbox->isChecked() )
 	setChildrenEnabled( FALSE );
@@ -957,7 +957,7 @@ void TQGroupBox::setEnabled(bool on)
 /*
   recalculates and sets the checkbox setGeometry
 */
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 void TQGroupBox::updateCheckBoxGeometry()
 {
     if ( d->checkbox ) {
@@ -984,7 +984,7 @@ void TQGroupBox::updateCheckBoxGeometry()
 	d->checkbox->setGeometry( cbRect );
     }
 }
-#endif //QT_NO_CHECKBOX
+#endif //TQT_NO_CHECKBOX
 
 
-#endif //QT_NO_GROUPBOX
+#endif //TQT_NO_GROUPBOX

@@ -2,11 +2,11 @@
 <context>
     <name>Assistant</name>
     <message>
-        <source>Welcome to the &lt;b&gt;Qt Assistant&lt;/b&gt;. Qt Assistant will give you quicker access to help and tips while using applications like Qt Designer.</source>
+        <source>Welcome to the &lt;b&gt;Qt Assistant&lt;/b&gt;. TQt Assistant will give you quicker access to help and tips while using applications like TQt Designer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Assistant</source>
+        <source>TQt Assistant</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -68,23 +68,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Reference Documentation</source>
+        <source>TQt Reference Documentation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Designer Manual</source>
+        <source>TQt Designer Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Linguist Manual</source>
+        <source>TQt Linguist Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Assistant Manual</source>
+        <source>TQt Assistant Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Assistant</source>
+        <source>TQt Assistant</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -174,7 +174,7 @@
 <context>
     <name>HelpWindow</name>
     <message>
-        <source>Qt Assistant by Trolltech - %1</source>
+        <source>TQt Assistant by Trolltech - %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -194,7 +194,7 @@
 <context>
     <name>MainWindow</name>
     <message encoding="UTF-8">
-        <source>Qt Assistant by Trolltech</source>
+        <source>TQt Assistant by Trolltech</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -274,11 +274,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <source>Qt Class Reference</source>
+        <source>TQt Class Reference</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Designer Manual</source>
+        <source>TQt Designer Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -298,7 +298,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Linguist Manual</source>
+        <source>TQt Linguist Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -338,7 +338,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Assistant</source>
+        <source>TQt Assistant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -346,7 +346,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Reference Documentation</source>
+        <source>TQt Reference Documentation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

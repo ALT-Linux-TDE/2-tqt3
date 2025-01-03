@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqpopupmenu.h"
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 #include "ntqmenubar.h"
 #include "ntqaccel.h"
 #include "ntqpainter.h"
@@ -115,15 +115,15 @@ static void popupSubMenuLater( int msec, TQPopupMenu * receiver ) {
 	tqAddPostRoutine( cleanup );
     }
 
-    singleSingleShot->disconnect( SIGNAL(timeout()) );
-    TQObject::connect( singleSingleShot, SIGNAL(timeout()),
-		      receiver, SLOT(subMenuTimer()) );
+    singleSingleShot->disconnect( TQ_SIGNAL(timeout()) );
+    TQObject::connect( singleSingleShot, TQ_SIGNAL(timeout()),
+		      receiver, TQ_SLOT(subMenuTimer()) );
     singleSingleShot->start( msec, TRUE );
 }
 
 static bool preventAnimation = FALSE;
 
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 extern void qWhatsThisBDH();
 static TQMenuItem* whatsThisItem = 0;
 #endif
@@ -281,7 +281,7 @@ TQPopupMenu::TQPopupMenu( TQWidget *parent, const char *name )
     d->scroll.scrolltimer = 0;
     d->hasmouse = 0;
     isPopupMenu	  = TRUE;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     autoaccel	  = 0;
     accelDisabled = FALSE;
 #endif
@@ -303,7 +303,7 @@ TQPopupMenu::TQPopupMenu( TQWidget *parent, const char *name )
     connectModalRecursionSafety = 0;
 
     setFocusPolicy( StrongFocus );
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     x11SetWindowType( X11WindowTypePopup );
 #endif
 }
@@ -373,21 +373,21 @@ void TQPopupMenu::menuContentsChanged()
     // here the part that can't be delayed
     TQMenuData::menuContentsChanged();
     badSize = TRUE;				// might change the size
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     mac_dirty_popup = 1;
 #endif
     if( pendingDelayedContentsChanges )
         return;
     pendingDelayedContentsChanges = 1;
     if( !pendingDelayedStateChanges ) // if the timer hasn't been started yet
-	TQTimer::singleShot( 0, this, SLOT(performDelayedChanges()));
+	TQTimer::singleShot( 0, this, TQ_SLOT(performDelayedChanges()));
 }
 
 void TQPopupMenu::performDelayedContentsChanged()
 {
     pendingDelayedContentsChanges = 0;
     // here the part the can be delayed
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     // if performDelayedStateChanged() will be called too,
     // it will call updateAccel() too, no need to do it twice
     if( !pendingDelayedStateChanges )
@@ -404,7 +404,7 @@ void TQPopupMenu::performDelayedContentsChanged()
 	p->updateSize(TRUE);
 	p->update();
     }
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     mac_dirty_popup = 1;
 #endif
 }
@@ -417,14 +417,14 @@ void TQPopupMenu::menuStateChanged()
 	return;
     pendingDelayedStateChanges = 1;
     if( !pendingDelayedContentsChanges ) // if the timer hasn't been started yet
-	TQTimer::singleShot( 0, this, SLOT(performDelayedChanges()));
+	TQTimer::singleShot( 0, this, TQ_SLOT(performDelayedChanges()));
 }
 
 void TQPopupMenu::performDelayedStateChanged()
 {
     pendingDelayedStateChanges = 0;
     // here the part that can be delayed
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     updateAccel( 0 ); // ### when we have a good solution for the accel vs. focus widget problem, remove that. That is only a workaround
     // if you remove this, see performDelayedContentsChanged()
 #endif
@@ -443,20 +443,20 @@ void TQPopupMenu::performDelayedChanges()
 
 void TQPopupMenu::menuInsPopup( TQPopupMenu *popup )
 {
-    connect( popup, SIGNAL(activatedRedirect(int)),
-	     SLOT(subActivated(int)) );
-    connect( popup, SIGNAL(highlightedRedirect(int)),
-	     SLOT(subHighlighted(int)) );
-    connect( popup, SIGNAL(destroyed(TQObject*)),
-	     this, SLOT(popupDestroyed(TQObject*)) );
+    connect( popup, TQ_SIGNAL(activatedRedirect(int)),
+	     TQ_SLOT(subActivated(int)) );
+    connect( popup, TQ_SIGNAL(highlightedRedirect(int)),
+	     TQ_SLOT(subHighlighted(int)) );
+    connect( popup, TQ_SIGNAL(destroyed(TQObject*)),
+	     this, TQ_SLOT(popupDestroyed(TQObject*)) );
 }
 
 void TQPopupMenu::menuDelPopup( TQPopupMenu *popup )
 {
-    popup->disconnect( SIGNAL(activatedRedirect(int)) );
-    popup->disconnect( SIGNAL(highlightedRedirect(int)) );
-    disconnect( popup, SIGNAL(destroyed(TQObject*)),
-		this, SLOT(popupDestroyed(TQObject*)) );
+    popup->disconnect( TQ_SIGNAL(activatedRedirect(int)) );
+    popup->disconnect( TQ_SIGNAL(highlightedRedirect(int)) );
+    disconnect( popup, TQ_SIGNAL(destroyed(TQObject*)),
+		this, TQ_SLOT(popupDestroyed(TQObject*)) );
 }
 
 
@@ -468,7 +468,7 @@ void TQPopupMenu::frameChanged()
 TQRect TQPopupMenu::screenRect( const TQPoint& pos )
 {
     int screen_num = TQApplication::desktop()->screenNumber( pos );
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     return TQApplication::desktop()->availableGeometry( screen_num );
 #else
     return TQApplication::desktop()->screenGeometry( screen_num );
@@ -497,7 +497,7 @@ void TQPopupMenu::popup( const TQPoint &pos, int indexAtPoint )
     if ( isVisible() || !isEnabled() )
 	return;
 
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     if( macPopupMenu(pos, indexAtPoint ))
 	return;
 #endif
@@ -569,8 +569,8 @@ void TQPopupMenu::popup( const TQPoint &pos, int indexAtPoint )
 	if ( y < sy )
 	    y = sy;
     }
-#ifdef Q_WS_X11
-#ifndef QT_NO_MENUBAR
+#ifdef TQ_WS_X11
+#ifndef TQT_NO_MENUBAR
     TQMenuData *top = this;		// find top level
     while ( top->parentMenu )
 	top = top->parentMenu;
@@ -631,7 +631,7 @@ void TQPopupMenu::popup( const TQPoint &pos, int indexAtPoint )
             h = height();
 	    if(indexAtPoint >= 0) { 
 		if(off_top) { //scroll to it
-		    register TQMenuItem *mi = NULL;
+		    TQMenuItem *mi = NULL;
 		    TQMenuItemListIt it(*mitems);
 		    for(int tmp_y = 0; tmp_y < off_top && (mi=it.current()); ) {
 			TQSize sz = style().sizeFromContents(TQStyle::CT_PopupMenuItem, this,
@@ -648,7 +648,7 @@ void TQPopupMenu::popup( const TQPoint &pos, int indexAtPoint )
     motion=0;
     actItem = -1;
 
-#ifndef QT_NO_EFFECTS
+#ifndef TQT_NO_EFFECTS
     int hGuess = tqApp->reverseLayout() ? TQEffects::LeftScroll : TQEffects::RightScroll;
     int vGuess = TQEffects::DownScroll;
     if ( tqApp->reverseLayout() ) {
@@ -663,7 +663,7 @@ void TQPopupMenu::popup( const TQPoint &pos, int indexAtPoint )
 	    hGuess = TQEffects::LeftScroll;
     }
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( ( snapToMouse && ( y + h/2 < mouse.y() ) ) ||
 	( parentMenu && parentMenu->isMenuBar &&
 	( y + h/2 < ((TQMenuBar*)parentMenu)->mapToGlobal( ((TQMenuBar*)parentMenu)->pos() ).y() ) ) )
@@ -733,7 +733,7 @@ void TQPopupMenu::subHighlighted( int id )
 
 static bool fromAccel = FALSE;
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 void TQPopupMenu::accelActivated( int id )
 {
     TQMenuItem *mi = findItem( id );
@@ -751,7 +751,7 @@ void TQPopupMenu::accelDestroyed()		// accel about to be deleted
 {
     autoaccel = 0;				// don't delete it twice!
 }
-#endif //QT_NO_ACCEL
+#endif //TQT_NO_ACCEL
 
 void TQPopupMenu::popupDestroyed( TQObject *o )
 {
@@ -767,7 +767,7 @@ void TQPopupMenu::actSig( int id, bool inwhatsthis )
 	    TQAccessible::updateAccessibility( this, indexOf(id)+1, TQAccessible::MenuCommand );
 #endif
     } else {
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	TQRect r( itemGeometry( indexOf( id ) ) );
 	TQPoint p( r.center().x(), r.bottom() );
 	TQString whatsThis = findItem( id )->whatsThis();
@@ -794,7 +794,7 @@ void TQPopupMenu::hilitSig( int id )
 void TQPopupMenu::setFirstItemActive()
 {
     TQMenuItemListIt it(*mitems);
-    register TQMenuItem *mi;
+    TQMenuItem *mi;
     int ai = 0;
     if(d->scroll.scrollable)
 	ai = d->scroll.topScrollableIndex;
@@ -817,9 +817,9 @@ void TQPopupMenu::setFirstItemActive()
 
 void TQPopupMenu::hideAllPopups()
 {
-    register TQMenuData *top = this;		// find top level popup
+    TQMenuData *top = this;		// find top level popup
     if ( !preventAnimation )
-	TQTimer::singleShot( 10, this, SLOT(allowAnimation()) );
+	TQTimer::singleShot( 10, this, TQ_SLOT(allowAnimation()) );
     preventAnimation = TRUE;
 
     if ( !isPopup() )
@@ -830,7 +830,7 @@ void TQPopupMenu::hideAllPopups()
 	top = top->parentMenu;
     ((TQPopupMenu*)top)->hide();			// cascade from top level
 
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
     if (whatsThisItem) {
 	qWhatsThisBDH();
 	whatsThisItem = 0;
@@ -847,11 +847,11 @@ void TQPopupMenu::hideAllPopups()
 void TQPopupMenu::hidePopups()
 {
     if ( !preventAnimation )
-	TQTimer::singleShot( 10, this, SLOT(allowAnimation()) );
+	TQTimer::singleShot( 10, this, TQ_SLOT(allowAnimation()) );
     preventAnimation = TRUE;
 
     TQMenuItemListIt it(*mitems);
-    register TQMenuItem *mi;
+    TQMenuItem *mi;
     while ( (mi=it.current()) ) {
 	++it;
 	if ( mi->popup() && mi->popup()->parentMenu == this ) //avoid circularity
@@ -873,10 +873,10 @@ void TQPopupMenu::hidePopups()
 
 bool TQPopupMenu::tryMenuBar( TQMouseEvent *e )
 {
-    register TQMenuData *top = this;		// find top level
+    TQMenuData *top = this;		// find top level
     while ( top->parentMenu )
 	top = top->parentMenu;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     return top->isMenuBar ?
 	((TQMenuBar *)top)->tryMouseEvent( this, e ) :
 			      ((TQPopupMenu*)top)->tryMouseEvent(this, e );
@@ -908,13 +908,13 @@ bool TQPopupMenu::tryMouseEvent( TQPopupMenu *p, TQMouseEvent * e)
 
 void TQPopupMenu::byeMenuBar()
 {
-#ifndef QT_NO_MENUBAR
-    register TQMenuData *top = this;		// find top level
+#ifndef TQT_NO_MENUBAR
+    TQMenuData *top = this;		// find top level
     while ( top->parentMenu )
 	top = top->parentMenu;
 #endif
     hideAllPopups();
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( top->isMenuBar )
 	((TQMenuBar *)top)->goodbye();
 #endif
@@ -1069,13 +1069,13 @@ TQSize TQPopupMenu::updateSize(bool force_update, bool do_resize)
     }
 
     if(badSize || force_update) {
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	updateAccel( 0 );
 #endif
 	int height = 0;
 	int max_width = 0, max_height = 0;
 	TQFontMetrics fm = fontMetrics();
-	register TQMenuItem *mi;
+	TQMenuItem *mi;
 	maxPMWidth = 0;
 	int maxWidgetWidth = 0;
 	tab = 0;
@@ -1248,7 +1248,7 @@ TQSize TQPopupMenu::updateSize(bool force_update, bool do_resize)
 }
 
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 /*!
   \internal
   The \a parent is 0 when it is updated when a menu item has
@@ -1258,7 +1258,7 @@ TQSize TQPopupMenu::updateSize(bool force_update, bool do_resize)
 void TQPopupMenu::updateAccel( TQWidget *parent )
 {
     TQMenuItemListIt it(*mitems);
-    register TQMenuItem *mi;
+    TQMenuItem *mi;
 
     if ( parent ) {
 	delete autoaccel;
@@ -1286,12 +1286,12 @@ void TQPopupMenu::updateAccel( TQWidget *parent )
 	// create an autoaccel in any case, even if we might not use
 	// it immediately. Maybe the user needs it later.
 	autoaccel = new TQAccel( parent, this );
-	connect( autoaccel, SIGNAL(activated(int)),
-		 SLOT(accelActivated(int)) );
-	connect( autoaccel, SIGNAL(activatedAmbiguously(int)),
-		 SLOT(accelActivated(int)) );
-	connect( autoaccel, SIGNAL(destroyed()),
-		 SLOT(accelDestroyed()) );
+	connect( autoaccel, TQ_SIGNAL(activated(int)),
+		 TQ_SLOT(accelActivated(int)) );
+	connect( autoaccel, TQ_SIGNAL(activatedAmbiguously(int)),
+		 TQ_SLOT(accelActivated(int)) );
+	connect( autoaccel, TQ_SIGNAL(destroyed()),
+		 TQ_SLOT(accelDestroyed()) );
 	if ( accelDisabled )
 	    autoaccel->setEnabled( FALSE );
     }
@@ -1300,7 +1300,7 @@ void TQPopupMenu::updateAccel( TQWidget *parent )
 	TQKeySequence k = mi->key();
 	if ( (int)k ) {
 	    int id = autoaccel->insertItem( k, mi->id() );
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	    autoaccel->setWhatsThis( id, mi->whatsThis() );
 #endif
 	}
@@ -1349,7 +1349,7 @@ void TQPopupMenu::enableAccel( bool enable )
 	autoaccel->setEnabled( enable );
     accelDisabled = !enable;		// rememeber when updateAccel
     TQMenuItemListIt it(*mitems);
-    register TQMenuItem *mi;
+    TQMenuItem *mi;
     while ( (mi=it.current()) ) {		// do the same for sub popups
 	++it;
 	if ( mi->popup() )			// call recursively
@@ -1422,7 +1422,7 @@ void TQPopupMenu::hide()
 #if defined(QT_ACCESSIBILITY_SUPPORT)
     TQAccessible::updateAccessibility( this, 0, TQAccessible::PopupMenuEnd );
 #endif
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     TQMenuData *top = this;		// find top level
     while ( top->parentMenu )
 	top = top->parentMenu;
@@ -1651,7 +1651,7 @@ void TQPopupMenu::mousePressEvent( TQMouseEvent *e )
 	}
 	return;
     }
-    register TQMenuItem *mi = mitems->at(item);
+    TQMenuItem *mi = mitems->at(item);
     if ( item != actItem )			// new item activated
 	setActiveItem( item );
 
@@ -1702,7 +1702,7 @@ void TQPopupMenu::mouseReleaseEvent( TQMouseEvent *e )
 	else
 	    byeMenuBar();
     } else {	// selected menu item!
-	register TQMenuItem *mi = mitems->at(actItem);
+	TQMenuItem *mi = mitems->at(actItem);
 	if ( mi ->widget() ) {
 	    TQWidget* widgetAt = TQApplication::widgetAt( e->globalPos(), TRUE );
 	    if ( widgetAt && widgetAt != this ) {
@@ -1712,13 +1712,13 @@ void TQPopupMenu::mouseReleaseEvent( TQMouseEvent *e )
 	    }
 	}
 	TQPopupMenu *popup = mi->popup();
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	    bool b = TQWhatsThis::inWhatsThisMode();
 #else
 	    const bool b = FALSE;
 #endif
 	if ( !mi->isEnabledAndVisible() ) {
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	    if ( b ) {
 		actItem = -1;
 		updateItem( mi->id() );
@@ -1784,8 +1784,8 @@ void TQPopupMenu::mouseMoveEvent( TQMouseEvent *e )
            (d->scroll.scrollable & TQPopupMenuPrivate::Scroll::ScrollDown && e->pos().y() >= height()-sh)) {
             if(!d->scroll.scrolltimer) {
                 d->scroll.scrolltimer = new TQTimer(this, "popup scroll timer");
-                TQObject::connect( d->scroll.scrolltimer, SIGNAL(timeout()),
-                                  this, SLOT(subScrollTimer()) );
+                TQObject::connect( d->scroll.scrolltimer, TQ_SIGNAL(timeout()),
+                                  this, TQ_SLOT(subScrollTimer()) );
             }
             if(!d->scroll.scrolltimer->isActive())
                 d->scroll.scrolltimer->start(40);
@@ -1815,7 +1815,7 @@ void TQPopupMenu::mouseMoveEvent( TQMouseEvent *e )
 	if ( (e->state() & TQt::MouseButtonMask) && !mouseBtDn )
 	    mouseBtDn = TRUE; // so mouseReleaseEvent will pop down
 
-	register TQMenuItem *mi = mitems->at( item );
+	TQMenuItem *mi = mitems->at( item );
 
 	if ( mi->widget() ) {
 	    TQWidget* widgetAt = TQApplication::widgetAt( e->globalPos(), TRUE );
@@ -1869,7 +1869,7 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
       -			((e->state() & ControlButton) ? CTRL : 0) |
       -			((e->state() & AltButton) ? ALT : 0));
       -
-      - #ifndef QT_NO_ACCEL
+      - #ifndef TQT_NO_ACCEL
       -	if (mi)
       -	    setAccel(modifier + e->key(), mi->id());
       - #endif
@@ -1918,7 +1918,7 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
 	{
 	    TQMenuData* p = parentMenu;
 	    hide();
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
 	    if ( p && p->isMenuBar )
 		((TQMenuBar*) p)->goodbye( TRUE );
 #endif
@@ -1979,7 +1979,7 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
 	{
 	    if ( actItem < 0 )
 		break;
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	    bool b = TQWhatsThis::inWhatsThisMode();
 #else
 	    const bool b = FALSE;
@@ -2007,7 +2007,7 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
 	    }
 	}
 	break;
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
     case Key_F1:
 	if ( actItem < 0 || e->state() != ShiftButton)
 	    break;
@@ -2034,7 +2034,7 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
 	TQMenuItem* currentSelected = 0;
 	TQMenuItem* firstAfterCurrent = 0;
 
-	register TQMenuItem *m;
+	TQMenuItem *m;
 	mi = 0;
 	int indx = 0;
 	int clashCount = 0;
@@ -2076,7 +2076,7 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
 		popup->setFirstItemActive();
 	    } else {
 		byeMenuBar();
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 		bool b = TQWhatsThis::inWhatsThisMode();
 #else
 		const bool b = FALSE;
@@ -2099,9 +2099,9 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
 		dy = indexOf( firstAfterCurrent->id() ) - actItem;
 	}
     }
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( !ok_key ) {				// send to menu bar
-	register TQMenuData *top = this;		// find top level
+	TQMenuData *top = this;		// find top level
 	while ( top->parentMenu )
 	    top = top->parentMenu;
 	if ( top->isMenuBar ) {
@@ -2118,7 +2118,7 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
 	} else if ( dy < 0 ) {
 	    TQMenuItemListIt it(*mitems);
 	    it.toLast();
-	    register TQMenuItem *mi;
+	    TQMenuItem *mi;
 	    int ai = count() - 1;
 	    while ( (mi=it.current()) ) {
 		--it;
@@ -2134,7 +2134,7 @@ void TQPopupMenu::keyPressEvent( TQKeyEvent *e )
     }
 
     if ( dy ) {				// highlight next/prev
-	register int i = actItem;
+	int i = actItem;
 	int c = mitems->count();
 	for(int n = c; n; n--) {
 	    i = i + dy;
@@ -2513,14 +2513,14 @@ void TQPopupMenu::connectModal( TQPopupMenu* receiver, bool doConnect )
     connectModalRecursionSafety = doConnect;
 
     if ( doConnect )
-	connect( this, SIGNAL(activated(int)),
-		 receiver, SLOT(modalActivation(int)) );
+	connect( this, TQ_SIGNAL(activated(int)),
+		 receiver, TQ_SLOT(modalActivation(int)) );
     else
-	disconnect( this, SIGNAL(activated(int)),
-		    receiver, SLOT(modalActivation(int)) );
+	disconnect( this, TQ_SIGNAL(activated(int)),
+		    receiver, TQ_SLOT(modalActivation(int)) );
 
     TQMenuItemListIt it(*mitems);
-    register TQMenuItem *mi;
+    TQMenuItem *mi;
     while ( (mi=it.current()) ) {
 	++it;
 	if ( mi->popup() && mi->popup() != receiver
@@ -2584,7 +2584,7 @@ void TQPopupMenu::setActiveItem( int i )
     }
     if ( mi->id() != -1 )
 	hilitSig( mi->id() );
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
     if (whatsThisItem && whatsThisItem != mi) {
 	qWhatsThisBDH();
     }
@@ -2641,12 +2641,12 @@ bool TQPopupMenu::customWhatsThis() const
  */
 bool TQPopupMenu::focusNextPrevChild( bool next )
 {
-    register TQMenuItem *mi;
+    TQMenuItem *mi;
     int dy = next? 1 : -1;
     if ( dy && actItem < 0 ) {
 	setFirstItemActive();
     } else if ( dy ) {				// highlight next/prev
-	register int i = actItem;
+	int i = actItem;
 	int c = mitems->count();
 	int n = c;
 	while ( n-- ) {
@@ -2732,7 +2732,7 @@ public:
 int TQPopupMenu::insertTearOffHandle( int id, int index )
 {
     int myid = insertItem( new TQTearOffMenuItem, id, index );
-    connectItem( myid, this, SLOT( toggleTearOff() ) );
+    connectItem( myid, this, TQ_SLOT( toggleTearOff() ) );
     TQMenuData::d->aInt = myid;
     return myid;
 }
@@ -2751,9 +2751,9 @@ void TQPopupMenu::toggleTearOff()
     } else {
 	// create a tear off menu
 	TQPopupMenu* p = new TQPopupMenu( parentWidget(), "tear off menu" );
-	connect( p, SIGNAL( activated(int) ), this, SIGNAL( activated(int) ) );
-        connect( p, SIGNAL( highlighted(int) ), this, SIGNAL( highlighted(int) ) );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+	connect( p, TQ_SIGNAL( activated(int) ), this, TQ_SIGNAL( activated(int) ) );
+        connect( p, TQ_SIGNAL( highlighted(int) ), this, TQ_SIGNAL( highlighted(int) ) );
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	p->setCaption( caption() );
 #endif
 	p->setCheckable( isCheckable() );
@@ -2762,7 +2762,7 @@ void TQPopupMenu::toggleTearOff()
 		     geometry().topLeft(), FALSE );
 	p->mitems->setAutoDelete( FALSE );
 	p->tornOff = TRUE;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         p->x11SetWindowType( X11WindowTypeMenu );
 #endif
 	for ( TQMenuItemListIt it( *mitems ); it.current(); ++it ) {
@@ -2799,13 +2799,13 @@ void TQPopupMenu::activateItemAt( int index )
 	} else {
 	    byeMenuBar();			// deactivate menu bar
 
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	    bool b = TQWhatsThis::inWhatsThisMode();
 #else
 	    const bool b = FALSE;
 #endif
 	    if ( !mi->isEnabledAndVisible() ) {
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 		if ( b ) {
 		    actItem = -1;
 		    updateItem( mi->id() );
@@ -2833,7 +2833,7 @@ void TQPopupMenu::activateItemAt( int index )
 	} else {
 	    TQMenuData* p = parentMenu;
 	    hide();
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
 	    if ( p && p->isMenuBar )
 		((TQMenuBar*) p)->goodbye( TRUE );
 #endif
@@ -2910,5 +2910,5 @@ int TQPopupMenu::menuItemHeight( TQMenuItem *mi, TQFontMetrics fm )
     return h;
 }
 
-#endif // QT_NO_POPUPMENU
+#endif // TQT_NO_POPUPMENU
 

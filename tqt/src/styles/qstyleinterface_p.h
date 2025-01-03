@@ -55,8 +55,8 @@
 #include <private/qcom_p.h>
 #endif // QT_H
 
-#ifndef QT_NO_STYLE
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_STYLE
+#ifndef TQT_NO_COMPONENT
 
 class TQStyle;
 
@@ -65,12 +65,12 @@ class TQStyle;
 #define IID_QStyleFactory TQUuid(0xfc1b6ebe, 0x53c, 0x49c1, 0xa4, 0x83, 0xc3, 0x77, 0x73, 0x9a, 0xb9, 0xa5)
 #endif
 
-struct Q_EXPORT TQStyleFactoryInterface : public TQFeatureListInterface
+struct TQ_EXPORT TQStyleFactoryInterface : public TQFeatureListInterface
 {
     virtual TQStyle* create( const TQString& style ) = 0;
 };
 
-#endif //QT_NO_COMPONENT
-#endif //QT_NO_STYLE
+#endif //TQT_NO_COMPONENT
+#endif //TQT_NO_STYLE
 
 #endif //TQSTYLEINTERFACE_P_H

@@ -147,7 +147,7 @@ signal by using <tt>emit signal(arguments)</tt>.
 <p> Here is one way to connect two of these objects together:
 <p> <pre>
     Foo a, b;
-    connect(&amp;a, SIGNAL(valueChanged(int)), &amp;b, SLOT(setValue(int)));
+    connect(&amp;a, TQ_SIGNAL(valueChanged(int)), &amp;b, TQ_SLOT(setValue(int)));
     b.setValue( 11 ); // a == undefined  b == 11
     a.setValue( 79 ); // a == 79         b == 79
     b.value();        // returns 79        

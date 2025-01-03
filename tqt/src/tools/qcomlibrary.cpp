@@ -38,7 +38,7 @@
 
 #include "qcomlibrary_p.h"
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 #include <ntqapplication.h>
 #include <ntqsettings.h>
 #include <ntqfileinfo.h>
@@ -48,9 +48,9 @@
 #include <errno.h>
 #endif // NO_ERROR_H
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #  include "qmutexpool_p.h"
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #ifndef QT_DEBUG_COMPONENT
 # if defined(QT_DEBUG)
@@ -94,7 +94,7 @@ static bool qt_verify( const TQString& library, uint version, uint flags,
 		    const TQCString &key, bool warn )
 {
     uint our_flags = 1;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     our_flags |= 2;
 #endif
 
@@ -398,10 +398,10 @@ void TQComLibrary::createInstanceInternal()
     bool query_done = FALSE;
     bool warn_mismatch = TRUE;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( tqt_global_mutexpool ?
 			 tqt_global_mutexpool->get( &cache ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     if ( ! cache ) {
 	cache = new TQSettings;
@@ -535,4 +535,4 @@ uint TQComLibrary::qtVersion()
 }
 
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT

@@ -12,7 +12,7 @@ QKbdDriverFactory \- Creates QWSKeyboardHandler objects for Qt/Embedded
 \fC#include <qkbddriverfactory_qws.h>\fR
 .PP
 .SS "Static Public Members"
-<li class=fn>QStringList \fBkeys\fR () <li class=fn>QWSKeyboardHandler * \fBcreate\fR ( const QString & key, const QString & device )
+<li class=fn>QStringList \fBkeys\fR () <li class=fn>QWSKeyboardHandler * \fBcreate\fR ( const TQString & key, const TQString & device )
 .SH DESCRIPTION
 The QKbdDriverFactory class creates QWSKeyboardHandler objects for Qt/Embedded.
 .PP
@@ -24,7 +24,7 @@ This class is only available in Qt/Embedded.
 .PP
 QKbdDriverFactory::keys() returns a list of valid keys.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWSKeyboardHandler * QKbdDriverFactory::create ( const QString & key, const QString & device )\fC [static]\fR"
+.SH "QWSKeyboardHandler * QKbdDriverFactory::create ( const TQString & key, const TQString & device )\fC [static]\fR"
 Creates a QWSKeyboardHandler object that matches \fIkey\fR for device \fIdevice\fR. This is either a built-in driver, or a driver from a driver plugin.
 .PP
 See also keys().
@@ -47,8 +47,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

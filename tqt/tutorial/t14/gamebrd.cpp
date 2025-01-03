@@ -24,7 +24,7 @@ GameBoard::GameBoard( TQWidget *parent, const char *name )
     TQPushButton *quit = new TQPushButton( "&Quit", this, "quit" );
     quit->setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    connect( quit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 
     LCDRange *angle  = new LCDRange( "ANGLE", this, "angle" );
     angle->setRange( 5, 70 );
@@ -37,34 +37,34 @@ GameBoard::GameBoard( TQWidget *parent, const char *name )
 
     cannonField = new CannonField( box, "cannonField" );
 
-    connect( angle, SIGNAL(valueChanged(int)),
-	     cannonField, SLOT(setAngle(int)) );
-    connect( cannonField, SIGNAL(angleChanged(int)),
-	     angle, SLOT(setValue(int)) );
+    connect( angle, TQ_SIGNAL(valueChanged(int)),
+	     cannonField, TQ_SLOT(setAngle(int)) );
+    connect( cannonField, TQ_SIGNAL(angleChanged(int)),
+	     angle, TQ_SLOT(setValue(int)) );
 
-    connect( force, SIGNAL(valueChanged(int)),
-	     cannonField, SLOT(setForce(int)) );
-    connect( cannonField, SIGNAL(forceChanged(int)),
-	     force, SLOT(setValue(int)) );
+    connect( force, TQ_SIGNAL(valueChanged(int)),
+	     cannonField, TQ_SLOT(setForce(int)) );
+    connect( cannonField, TQ_SIGNAL(forceChanged(int)),
+	     force, TQ_SLOT(setValue(int)) );
 
-    connect( cannonField, SIGNAL(hit()),
-	     this, SLOT(hit()) );
-    connect( cannonField, SIGNAL(missed()),
-	     this, SLOT(missed()) );
+    connect( cannonField, TQ_SIGNAL(hit()),
+	     this, TQ_SLOT(hit()) );
+    connect( cannonField, TQ_SIGNAL(missed()),
+	     this, TQ_SLOT(missed()) );
 
     TQPushButton *shoot = new TQPushButton( "&Shoot", this, "shoot" );
     shoot->setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    connect( shoot, SIGNAL(clicked()), SLOT(fire()) );
+    connect( shoot, TQ_SIGNAL(clicked()), TQ_SLOT(fire()) );
 
-    connect( cannonField, SIGNAL(canShoot(bool)),
-             shoot, SLOT(setEnabled(bool)) );
+    connect( cannonField, TQ_SIGNAL(canShoot(bool)),
+             shoot, TQ_SLOT(setEnabled(bool)) );
 
     TQPushButton *restart
 	= new TQPushButton( "&New Game", this, "newgame" );
     restart->setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    connect( restart, SIGNAL(clicked()), this, SLOT(newGame()) );
+    connect( restart, TQ_SIGNAL(clicked()), this, TQ_SLOT(newGame()) );
 
     hits = new TQLCDNumber( 2, this, "hits" );
     shotsLeft = new TQLCDNumber( 2, this, "shotsleft" );
@@ -74,11 +74,11 @@ GameBoard::GameBoard( TQWidget *parent, const char *name )
 
     TQAccel *accel = new TQAccel( this );
     accel->connectItem( accel->insertItem( Key_Enter ),
-			this, SLOT(fire()) );
+			this, TQ_SLOT(fire()) );
     accel->connectItem( accel->insertItem( Key_Return ),
-			this, SLOT(fire()) );
+			this, TQ_SLOT(fire()) );
     accel->connectItem( accel->insertItem( CTRL+Key_Q ),
-			tqApp, SLOT(quit()) );
+			tqApp, TQ_SLOT(quit()) );
 
     TQGridLayout *grid = new TQGridLayout( this, 2, 2, 10 );
     grid->addWidget( quit, 0, 0 );

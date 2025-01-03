@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -41,13 +41,13 @@
 
 \title Style overview
 
-A style in Qt implements the look and feel found in a GUI for a
+A style in TQt implements the look and feel found in a GUI for a
 particular platform. For example, Windows platforms may use the
 Windows or Windows-XP style, Unix platforms may use the Motif style,
 and so on.
 
 This is a short guide that describes the steps that are necessary to
-get started creating and using custom styles with the Qt 3.x style
+get started creating and using custom styles with the TQt 3.x style
 API. First, we go through the steps necessary to create a style:
 \list 1
 \i Pick a base style to inherit from.
@@ -61,11 +61,11 @@ applications.
 
 \section2 1. Pick a base style to inherit from.
 
-The first step is to pick one of the base styles provided with Qt to
+The first step is to pick one of the base styles provided with TQt to
 build your custom style from. The choice will depend on what look and
 feel you are trying to achieve. We recommend that you choose from the
 QWindowsStyle derived classes or the QMotifStyle derived classes.
-These are the two base look and feel classes in the Qt style engine.
+These are the two base look and feel classes in the TQt style engine.
 Inheriting directly from QCommonStyle is also an option if you want to
 start almost from scratch when implementing your style. In this simple
 example we will inherit from QWindowsStyle.
@@ -106,8 +106,8 @@ private:
 \endcode
 
 Note that we disable the copy constructor and the '=' operator for our
-style. QObject is the base class for all style classes in Qt, and a
-QObject inherently cannot be copied since there are some aspects of it
+style. TQObject is the base class for all style classes in Qt, and a
+TQObject inherently cannot be copied since there are some aspects of it
 that are not copyable.
 
 From the QStyle docs we see that \c PE_ArrowUp, \c PE_ArrowDown, \c
@@ -186,7 +186,7 @@ void CustomStyle::drawPrimitive( PrimitiveElement pe,
 
 \section2 Using a custom style
 
-There are several ways of using a custom style in a Qt application.
+There are several ways of using a custom style in a TQt application.
 The simplest way is to include the following lines of code in the
 application's main() function:
 
@@ -207,14 +207,14 @@ customstyle.cpp files in your project.
 
 You may want to make your style available for use in other
 applications, some of which may not be yours and are not available for
-you to recompile. The Qt Plugin system makes it possible to create
+you to recompile. The TQt Plugin system makes it possible to create
 styles as plugins. Styles created as plugins are loaded as shared
-objects at runtime by Qt itself. Please refer to the \link
-plugins-howto.html Qt Plugin\endlink documentation for more
+objects at runtime by TQt itself. Please refer to the \link
+plugins-howto.html TQt Plugin\endlink documentation for more
 information on how to go about creating a style plugin.
 
-Compile your plugin and put it into $QTDIR/plugins/styles. We now have
-a pluggable style that Qt can load automatically. To use your new
+Compile your plugin and put it into $TQTDIR/plugins/styles. We now have
+a pluggable style that TQt can load automatically. To use your new
 style with existing applications, simply start the application with
 the following argument:
 

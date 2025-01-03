@@ -80,10 +80,10 @@ body { background: #ffffff; color: black; }
 class TQString;
 class TQScreen;
 
-class Q_EXPORT TQGfxDriverFactory
+class TQ_EXPORT TQGfxDriverFactory
 {
 public:
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     static TQStringList keys();
 #endif
     static TQScreen *create( const TQString&amp;, int );

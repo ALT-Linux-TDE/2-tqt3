@@ -43,20 +43,20 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 
 class TQString;
 class TQStyle;
 
-class Q_EXPORT TQStyleFactory
+class TQ_EXPORT TQStyleFactory
 {
 public:
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     static TQStringList keys();
 #endif
     static TQStyle *create( const TQString& );
 };
 
-#endif //QT_NO_STYLE
+#endif //TQT_NO_STYLE
 
 #endif //TQSTYLEFACTORY_H

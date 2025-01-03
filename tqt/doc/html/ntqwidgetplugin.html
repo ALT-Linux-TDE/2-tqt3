@@ -58,7 +58,7 @@ to create custom widgets that can be included in forms using <a href="designer-m
 <p> Writing a widget plugin is achieved by subclassing this base
 class, reimplementing the pure virtual functions <a href="#keys">keys</a>(), <a href="#create">create</a>(),
 <a href="#group">group</a>(), <a href="#iconSet">iconSet</a>(), <a href="#includeFile">includeFile</a>(), <a href="#toolTip">toolTip</a>(), <a href="#whatsThis">whatsThis</a>() and
-<a href="#isContainer">isContainer</a>(), and exporting the class with the <tt>Q_EXPORT_PLUGIN</tt>
+<a href="#isContainer">isContainer</a>(), and exporting the class with the <tt>TQ_EXPORT_PLUGIN</tt>
 macro.
 <p> See the <a href="designer-manual.html">TQt Designer manual's</a>,
 'Creating Custom Widgets' section in the 'Creating Custom Widgets'
@@ -72,7 +72,7 @@ supplied with <a href="designer-manual.html">TQt Designer</a>.
 <h3 class=fn><a name="TQWidgetPlugin"></a>TQWidgetPlugin::TQWidgetPlugin ()
 </h3>
 Constructs a widget plugin. This is invoked automatically by the
-<tt>Q_EXPORT_PLUGIN</tt> macro.
+<tt>TQ_EXPORT_PLUGIN</tt> macro.
 
 <h3 class=fn><a name="~TQWidgetPlugin"></a>TQWidgetPlugin::~TQWidgetPlugin ()
 </h3>

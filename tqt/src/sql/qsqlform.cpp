@@ -40,7 +40,7 @@
 
 #include "ntqsqlform.h"
 
-#ifndef QT_NO_SQL_FORM
+#ifndef TQT_NO_SQL_FORM
 
 #include "ntqsqlfield.h"
 #include "ntqsqlpropertymap.h"
@@ -400,4 +400,4 @@ void TQSqlForm::clearMap()
     d->map.clear();
 }
 
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

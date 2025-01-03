@@ -60,7 +60,7 @@
 
 // from qapplication.cpp and qapplication_x11.cpp - These are NOT for
 // external use ignore them
-extern bool Q_EXPORT tqt_resolve_symlinks;
+extern bool TQ_EXPORT tqt_resolve_symlinks;
 
 
 static const char *appearance_text =
@@ -375,14 +375,15 @@ MainWindow::MainWindow()
 
     rtlExtensions->setChecked( settings.readBoolEntry( "/qt/useRtlExtensions", FALSE ) );
 
-#if defined(Q_WS_X11)
-    inputStyle->setCurrentText( settings.readEntry( "/qt/XIMInputStyle", trUtf8( "On The Spot" ) ) );
+#if defined(TQ_WS_X11)
+    inputStyle->setCurrentText( trUtf8(
+            settings.readEntry( "/qt/XIMInputStyle", TQString::fromLatin1( "On The Spot" ) ) ) );
 #else
     inputStyle->hide();
     inputStyleLabel->hide();
 #endif
 
-#if defined(Q_WS_X11) && !defined(QT_NO_IM_EXTENSIONS)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_IM_EXTENSIONS)
     /*
         This code makes it possible to set up default input method.
 
@@ -508,7 +509,7 @@ void MainWindow::fileSave()
 
 	settings.writeEntry("/qt/useRtlExtensions", rtlExtensions->isChecked() );
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	TQString style = inputStyle->currentText();
 	TQString str = "On The Spot";
 	if ( style == trUtf8( "Over The Spot" ) )
@@ -517,9 +518,9 @@ void MainWindow::fileSave()
 	    str = "Off The Spot";
 	else if ( style == trUtf8( "Root" ) )
 	    str = "Root";
-        settings.writeEntry( "/qt/XIMInputStyle", inputStyle->currentText() );
+	settings.writeEntry( "/qt/XIMInputStyle", str );
 
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if !defined(TQT_NO_IM_EXTENSIONS)
 	TQString imSwitcher = settings.readEntry("/qt/DefaultInputMethodSwitcher", "imsw-multi");
 	settings.writeEntry("/qt/DefaultInputMethodSwitcher", imSwitcher);
 	int imIndex = inputMethodCombo->currentItem();
@@ -561,9 +562,9 @@ void MainWindow::fileSave()
 	}
     }
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     TQApplication::x11_apply_settings();
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     setModified(FALSE);
     statusBar()->message("Saved changes.");

@@ -71,4 +71,4 @@ TQStringList TQIBaseDriverPlugin::keys() const
     return l;
 }
 
-Q_EXPORT_PLUGIN( TQIBaseDriverPlugin )
+TQ_EXPORT_PLUGIN( TQIBaseDriverPlugin )

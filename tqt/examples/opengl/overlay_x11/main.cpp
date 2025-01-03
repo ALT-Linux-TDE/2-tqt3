@@ -14,7 +14,7 @@
 #include "gearwidget.h"
 #include "rubberbandwidget.h"
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 #include <X11/Xlib.h>
 #endif
 
@@ -22,7 +22,7 @@ TQColor findOverlayTransparentColor()
 {
     TQColor invalidColor;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 
     Display* appDisplay;
     Visual* appVisual;
@@ -83,7 +83,7 @@ TQColor findOverlayTransparentColor()
     tqWarning( "Default visual is not in overlay plane" );
     return invalidColor;
 
-#else // defined(Q_WS_X11)
+#else // defined(TQ_WS_X11)
     tqWarning( "Wrong window system - Only X11 has overlay support." );
     return invalidColor;
 #endif

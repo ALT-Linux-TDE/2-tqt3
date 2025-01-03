@@ -40,7 +40,7 @@
 
 #include "ntqmessagebox.h"
 
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
 
 #include "ntqaccel.h"
 #include "ntqlabel.h"
@@ -52,13 +52,9 @@
 #if defined(QT_ACCESSIBILITY_SUPPORT)
 #include "ntqaccessible.h"
 #endif
-#if defined QT_NON_COMMERCIAL
-#include "qnc_win.h"
-#endif
 
-
-#ifdef Q_WS_X11
-#include "private/qtkdeintegration_x11_p.h"
+#ifdef TQ_WS_X11
+#include "private/tqttdeintegration_x11_p.h"
 #endif
 
 extern bool tqt_use_native_dialogs;
@@ -462,15 +458,15 @@ static const char * const mb_texts[] = {
 const char * mb_texts[] = {
 #endif
     0,
-    QT_TRANSLATE_NOOP("TQMessageBox","OK"),
-    QT_TRANSLATE_NOOP("TQMessageBox","Cancel"),
-    QT_TRANSLATE_NOOP("TQMessageBox","&Yes"),
-    QT_TRANSLATE_NOOP("TQMessageBox","&No"),
-    QT_TRANSLATE_NOOP("TQMessageBox","&Abort"),
-    QT_TRANSLATE_NOOP("TQMessageBox","&Retry"),
-    QT_TRANSLATE_NOOP("TQMessageBox","&Ignore"),
-    QT_TRANSLATE_NOOP("TQMessageBox","Yes to &All"),
-    QT_TRANSLATE_NOOP("TQMessageBox","N&o to All"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","OK"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","Cancel"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","&Yes"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","&No"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","&Abort"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","&Retry"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","&Ignore"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","Yes to &All"),
+    TQT_TRANSLATE_NOOP("TQMessageBox","N&o to All"),
     0
 };
 
@@ -566,7 +562,7 @@ TQMessageBox::TQMessageBox( const TQString& caption,
     : TQDialog( parent, name, modal, f | WStyle_Customize | WStyle_DialogBorder | WStyle_Title | WStyle_SysMenu )
 {
     init( button0, button1, button2 );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     setCaption( caption );
 #endif
     setText( text );
@@ -590,9 +586,6 @@ void TQMessageBox::init( int button0, int button1, int button2 )
     if ( !translatedTextAboutTQt ) {
 	translatedTextAboutTQt = new TQString;
 
-#if defined(QT_NON_COMMERCIAL)
-    QT_NC_MSGBOX
-#else
         *translatedTextAboutTQt = tr(
 	    "<h3>About TQt</h3>"
 	    "<p>This program uses TQt version %1.</p>"
@@ -603,10 +596,9 @@ void TQMessageBox::init( int button0, int button1, int button2 )
 	    "Linux, and all major commercial Unix variants."
 	    "<br>TQt is also available for embedded devices.</p>"
 	    "<p>TQt is a Trolltech product. "
-	    "See <tt>http://www.trolltech.com/qt/</tt> "
+	    "See <tt>https://trinitydesktop.org/docs/qt3/</tt> "
 	    "for more information.</p>"
 	    ).arg( TQT_VERSION_STR );
-#endif
 
     }
     label = new TQMessageBoxLabel( this );
@@ -689,7 +681,7 @@ void TQMessageBox::init( int button0, int button1, int button2 )
             }
             mbd->pb[i]->setAutoDefault( TRUE );
             mbd->pb[i]->setFocusPolicy( TQWidget::StrongFocus );
-            connect( mbd->pb[i], SIGNAL(clicked()), SLOT(buttonClicked()) );
+            connect( mbd->pb[i], TQ_SIGNAL(clicked()), TQ_SLOT(buttonClicked()) );
         }
     }
     resizeButtons();
@@ -957,7 +949,7 @@ void TQMessageBox::adjustSize()
         w = screen.width();
     resize( w, h );
     setMinimumSize( size() );
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     setMaximumSize(size());
 #endif
 }
@@ -1022,7 +1014,7 @@ void TQMessageBox::keyPressEvent( TQKeyEvent *e )
             return;
         }
     }
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( !( e->state() & AltButton ) ) {
 	TQObjectList *list = queryList( "TQPushButton" );
 	TQObjectListIt it( *list );
@@ -1120,9 +1112,9 @@ int TQMessageBox::information( TQWidget *parent,
                               const TQString& caption, const TQString& text,
                               int button0, int button1, int button2 )
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::information( parent, caption, text, button0, button1, button2 );
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::information( parent, caption, text, button0, button1, button2 );
 #endif
     TQMessageBox *mb = new TQMessageBox( caption, text, Information,
                                        button0, button1, button2,
@@ -1171,9 +1163,9 @@ int TQMessageBox::question( TQWidget *parent,
                            const TQString& caption, const TQString& text,
                            int button0, int button1, int button2 )
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::question( parent, caption, text, button0, button1, button2 );
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::question( parent, caption, text, button0, button1, button2 );
 #endif
     TQMessageBox *mb = new TQMessageBox( caption, text, Question,
                                        button0, button1, button2,
@@ -1223,9 +1215,9 @@ int TQMessageBox::warning( TQWidget *parent,
                           const TQString& caption, const TQString& text,
                           int button0, int button1, int button2 )
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::warning( parent, caption, text, button0, button1, button2 );
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::warning( parent, caption, text, button0, button1, button2 );
 #endif
     TQMessageBox *mb = new TQMessageBox( caption, text, Warning,
                                        button0, button1, button2,
@@ -1275,9 +1267,9 @@ int TQMessageBox::critical( TQWidget *parent,
                            const TQString& caption, const TQString& text,
                            int button0, int button1, int button2 )
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::critical( parent, caption, text, button0, button1, button2 );
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::critical( parent, caption, text, button0, button1, button2 );
 #endif
     TQMessageBox *mb = new TQMessageBox( caption, text, Critical,
                                        button0, button1, button2,
@@ -1315,7 +1307,7 @@ void TQMessageBox::about( TQWidget *parent, const TQString &caption,
                                        parent, "qt_msgbox_simple_about_box", TRUE,
 				       WDestructiveClose);
     TQ_CHECK_PTR( mb );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     const TQPixmap *pm = parent ? parent->icon() : 0;
     if ( pm && !pm->isNull() )
 	mb->setIconPixmap( *pm );
@@ -1381,7 +1373,7 @@ static int textBox( TQWidget *parent, TQMessageBox::Icon severity,
     if ( b[2] )
         mb->setButtonText( 3, button2Text );
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     mb->setCursor( TQt::arrowCursor );
 #endif
     return mb->exec() - 1;
@@ -1426,9 +1418,9 @@ int TQMessageBox::information( TQWidget *parent, const TQString &caption,
                               int defaultButtonNumber,
                               int escapeButtonNumber )
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::information( parent, caption, text,
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::information( parent, caption, text,
             button0Text, button1Text, button2Text, defaultButtonNumber, escapeButtonNumber );
 #endif
     return textBox( parent, Information, caption, text,
@@ -1473,9 +1465,9 @@ int TQMessageBox::question( TQWidget *parent, const TQString &caption,
                            int defaultButtonNumber,
                            int escapeButtonNumber )
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::question( parent, caption, text,
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::question( parent, caption, text,
             button0Text, button1Text, button2Text, defaultButtonNumber, escapeButtonNumber );
 #endif
     return textBox( parent, Question, caption, text,
@@ -1522,9 +1514,9 @@ int TQMessageBox::warning( TQWidget *parent, const TQString &caption,
                                  int defaultButtonNumber,
                                  int escapeButtonNumber )
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::warning( parent, caption, text,
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::warning( parent, caption, text,
             button0Text, button1Text, button2Text, defaultButtonNumber, escapeButtonNumber );
 #endif
     return textBox( parent, Warning, caption, text,
@@ -1567,9 +1559,9 @@ int TQMessageBox::critical( TQWidget *parent, const TQString &caption,
                                   int defaultButtonNumber,
                                   int escapeButtonNumber )
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::critical( parent, caption, text,
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::critical( parent, caption, text,
             button0Text, button1Text, button2Text, defaultButtonNumber, escapeButtonNumber );
 #endif
     return textBox( parent, Critical, caption, text,
@@ -1597,14 +1589,14 @@ void TQMessageBox::aboutTQt( TQWidget *parent, const TQString &caption )
     TQ_CHECK_PTR( mb );
     mb->setWFlags( WDestructiveClose );
 
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     TQString c = caption;
     if ( c.isNull() )
         c = tr( "About TQt" );
     mb->setCaption( c );
 #endif
     mb->setText( *translatedTextAboutTQt );
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     TQPixmap pm;
     TQImage logo( (const char **)qtlogo_xpm);
     if ( tqGray(mb->palette().active().text().rgb()) >
@@ -1641,7 +1633,7 @@ void TQMessageBox::aboutTQt( TQWidget *parent, const TQString &caption )
 void TQMessageBox::setIcon( const TQPixmap &pix )
 {
     //reimplemented to avoid compiler warning.
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     TQDialog::setIcon( pix );
 #endif
 }

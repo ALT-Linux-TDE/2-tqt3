@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2000-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -39,7 +39,7 @@
 /*!
 \page distributingntqt.html
 
-\title Deploying Qt Applications
+\title Deploying TQt Applications
 
 This document lists the platform-specific files needed to distribute
 Qt applications. We do not include any compiler-specific files that
@@ -48,26 +48,26 @@ System-specific Notes\endlink.)
 
 \tableofcontents
 
-\section1 Static Qt Applications
+\section1 Static TQt Applications
 
-To distribute static Qt applications, you need the following file for
+To distribute static TQt applications, you need the following file for
 all platforms:
 
 \list
 \i your application's executable
 \endlist
 
-\section1 Dynamic Qt Applications
+\section1 Dynamic TQt Applications
 
-To distribute dynamic Qt applications, you will need the following
+To distribute dynamic TQt applications, you will need the following
 files for all platforms:
 
 \list
 \i application executable
-\i the Qt library 
+\i the TQt library 
 \endlist
 
-The Qt library must either be in the same directory as the application
+The TQt library must either be in the same directory as the application
 executable or in a directory which is included in the system library
 path.
 
@@ -76,8 +76,8 @@ The library is in provided by the following platform specific files:
 \table
 \header \i Platform \i File
 \row \i Windows \i \c qt[version].dll
-\row \i Unix/Linux \i \c libqt[version].so
-\row \i Mac \i \c libqt[version].dylib
+\row \i Unix/Linux \i \c libtqt[version].so
+\row \i Mac \i \c libtqt[version].dylib
 \endtable
 
 \e version includes the three version numbers. For threaded builds the
@@ -100,8 +100,8 @@ Qt searches in the following directories for plugin categories:
 \endlist
 
 Application specific plugin paths can be added using 
-QApplication::addLibraryPath(). The build-directory of Qt is hardcoded
-in the Qt library and can be changed as a part of the installation
+QApplication::addLibraryPath(). The build-directory of TQt is hardcoded
+in the TQt library and can be changed as a part of the installation
 process (see the \l distributor-example.html Distributor example).
 
 \section1 Dynamic Dialogs 
@@ -110,7 +110,7 @@ For dynamic dialogs if you use QWidgetFactory, you need the following
 files for all platforms:
 
 \list
-\i The same files as used for dynamic Qt applications
+\i The same files as used for dynamic TQt applications
 \i The QUI Library
 \endlist
 

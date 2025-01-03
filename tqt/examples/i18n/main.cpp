@@ -37,7 +37,7 @@ public:
 	vb->setAutoAdd(TRUE);
 	hb = 0;
 	sm = new TQSignalMapper(this);
-	connect(sm,SIGNAL(mapped(int)),this,SLOT(done(int)));
+	connect(sm,TQ_SIGNAL(mapped(int)),this,TQ_SLOT(done(int)));
     }
     void addButtons( const TQString& cancel=TQString::null,
 		    const TQString& ok=TQString::null,
@@ -58,7 +58,7 @@ public:
 	    hb = new TQHBox(this);
 	TQPushButton *c = new TQPushButton(text, hb);
 	sm->setMapping(c,result);
-	connect(c,SIGNAL(clicked()),sm,SLOT(map()));
+	connect(c,TQ_SIGNAL(clicked()),sm,TQ_SLOT(map()));
     }
 
 private:
@@ -99,7 +99,7 @@ int main( int argc, char** argv )
     TQApplication app( argc, argv );
 
     const char* qm[]=
-	{ "ar", "cs", "de", "el", "en", "eo", "fr", "it", "jp", "ko", "no", "ru", "zh", 0 };
+	{ "ar", "cs", "de", "el", "en", "eo", "fr", "it", "jp", "ko", "no", "ru", "sk", "zh", 0 };
 
 #if defined(Q_OS_UNIX)
     srand( getpid() << 2 );
@@ -135,7 +135,7 @@ int main( int argc, char** argv )
 		    MyWidget* w = showLang((const char*)qm[i]);
 
 		    if( w == 0 ) exit( 0 );
-		    TQObject::connect(w, SIGNAL(closed()), tqApp, SLOT(quit()));
+		    TQObject::connect(w, TQ_SIGNAL(closed()), tqApp, TQ_SLOT(quit()));
 		    w->setGeometry(x,y,197,356);
 		    w->show();
 		    if ( tight ) {

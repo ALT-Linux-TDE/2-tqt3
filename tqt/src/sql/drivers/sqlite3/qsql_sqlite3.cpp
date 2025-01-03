@@ -19,17 +19,9 @@
 #include <ntqregexp.h>
 #include <ntqfile.h>
 #include <sqlite3.h>
-
-#if (TQT_VERSION-0 < 0x030200)
-#  include <ntqvector.h>
-#  if !defined Q_WS_WIN32
-#    include <unistd.h>
-#  endif
-#else
-#  include <ntqptrvector.h>
-#  if !defined Q_WS_WIN32
-#    include <unistd.h>
-#  endif
+#include <ntqptrvector.h>
+#if !defined TQ_WS_WIN32
+#  include <unistd.h>
 #endif
 
 typedef struct sqlite3_stmt sqlite3_stmt;

@@ -52,7 +52,7 @@ private:
 
     TQTetrixBoard  *board;
     ShowNextPiece *showNext;
-#ifndef QT_NO_LCDNUMBER
+#ifndef TQT_NO_LCDNUMBER
     TQLCDNumber    *showScore;
     TQLCDNumber    *showLevel;
     TQLCDNumber    *showLines;

@@ -40,7 +40,7 @@
 
 #include "ntqiconset.h"
 
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 
 #include "ntqapplication.h"
 #include "ntqbitmap.h"
@@ -157,7 +157,7 @@ public:
 	factory = newFactory;
     }
 
-    Q_DUMMY_COMPARISON_OPERATOR( TQIconSetPrivate )
+    TQ_DUMMY_COMPARISON_OPERATOR( TQIconSetPrivate )
 };
 
 TQIconSetIcon *TQIconSetPrivate::icon( const TQIconSet *iconSet,
@@ -946,4 +946,4 @@ void TQIconFactory::installDefaultFactory( TQIconFactory *factory )
     q_cleanup_icon_factory.set( &defaultFac );
 }
 
-#endif // QT_NO_ICONSET
+#endif // TQT_NO_ICONSET

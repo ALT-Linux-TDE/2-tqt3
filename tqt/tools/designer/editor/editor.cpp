@@ -50,8 +50,8 @@ Editor::Editor( const TQString &fn, TQWidget *parent, const char *name )
     setVScrollBarMode( TQScrollView::AlwaysOn );
     document()->setUseFormatCollection( FALSE );
     parenMatcher = new ParenMatcher;
-    connect( this, SIGNAL( cursorPositionChanged( TQTextCursor * ) ),
-	     this, SLOT( cursorPosChanged( TQTextCursor * ) ) );
+    connect( this, TQ_SIGNAL( cursorPositionChanged( TQTextCursor * ) ),
+	     this, TQ_SLOT( cursorPosChanged( TQTextCursor * ) ) );
     cfg = new Config;
     document()->addSelection( Error );
     document()->addSelection( Step );
@@ -68,10 +68,10 @@ Editor::Editor( const TQString &fn, TQWidget *parent, const char *name )
 
     accelComment = new TQAccel( this );
     accelComment->connectItem( accelComment->insertItem( ALT + Key_C ),
-			       this, SLOT( commentSelection() ) );
+			       this, TQ_SLOT( commentSelection() ) );
     accelUncomment = new TQAccel( this );
     accelUncomment->connectItem( accelUncomment->insertItem( ALT + Key_U ),
-				 this, SLOT( uncommentSelection() ) );
+				 this, TQ_SLOT( uncommentSelection() ) );
     editable = TRUE;
 }
 
@@ -202,8 +202,8 @@ TQPopupMenu *Editor::createPopupMenu( const TQPoint &p )
 {
     TQPopupMenu *menu = TQTextEdit::createPopupMenu( p );
     menu->insertSeparator();
-    menu->insertItem( tr( "C&omment Code\tAlt+C" ), this, SLOT( commentSelection() ) );
-    menu->insertItem( tr( "Unco&mment Code\tAlt+U" ), this, SLOT( uncommentSelection() ) );
+    menu->insertItem( tr( "C&omment Code\tAlt+C" ), this, TQ_SLOT( commentSelection() ) );
+    menu->insertItem( tr( "Unco&mment Code\tAlt+U" ), this, TQ_SLOT( uncommentSelection() ) );
     return menu;
 }
 

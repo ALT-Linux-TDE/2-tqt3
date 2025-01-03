@@ -18,10 +18,10 @@ Inherited by QDataTable.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTable\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQTable\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQTable\fR ( int numRows, int numCols, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQTable\fR ( int numRows, int numCols, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QTable\fR ()"
@@ -45,7 +45,7 @@ Inherited by QDataTable.
 .BI "virtual void \fBsetItem\fR ( int row, int col, QTableItem * item )"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( int row, int col, const QString & text )"
+.BI "virtual void \fBsetText\fR ( int row, int col, const TQString & text )"
 .br
 .ti -1c
 .BI "virtual void \fBsetPixmap\fR ( int row, int col, const QPixmap & pix )"
@@ -54,7 +54,7 @@ Inherited by QDataTable.
 .BI "virtual QTableItem * \fBitem\fR ( int row, int col ) const"
 .br
 .ti -1c
-.BI "virtual QString \fBtext\fR ( int row, int col ) const"
+.BI "virtual TQString \fBtext\fR ( int row, int col ) const"
 .br
 .ti -1c
 .BI "virtual QPixmap \fBpixmap\fR ( int row, int col ) const"
@@ -156,10 +156,10 @@ Inherited by QDataTable.
 .BI "virtual void \fBtakeItem\fR ( QTableItem * i )"
 .br
 .ti -1c
-.BI "virtual void \fBsetCellWidget\fR ( int row, int col, QWidget * e )"
+.BI "virtual void \fBsetCellWidget\fR ( int row, int col, TQWidget * e )"
 .br
 .ti -1c
-.BI "virtual QWidget * \fBcellWidget\fR ( int row, int col ) const"
+.BI "virtual TQWidget * \fBcellWidget\fR ( int row, int col ) const"
 .br
 .ti -1c
 .BI "virtual void \fBclearCellWidget\fR ( int row, int col )"
@@ -423,13 +423,13 @@ Inherited by QDataTable.
 .BI "virtual void \fBactivateNextCell\fR ()"
 .br
 .ti -1c
-.BI "virtual QWidget * \fBcreateEditor\fR ( int row, int col, bool initFromCell ) const"
+.BI "virtual TQWidget * \fBcreateEditor\fR ( int row, int col, bool initFromCell ) const"
 .br
 .ti -1c
 .BI "virtual void \fBsetCellContentFromEditor\fR ( int row, int col )"
 .br
 .ti -1c
-.BI "virtual QWidget * \fBbeginEdit\fR ( int row, int col, bool replace )"
+.BI "virtual TQWidget * \fBbeginEdit\fR ( int row, int col, bool replace )"
 .br
 .ti -1c
 .BI "virtual void \fBendEdit\fR ( int row, int col, bool accept, bool replace )"
@@ -438,7 +438,7 @@ Inherited by QDataTable.
 .BI "virtual void \fBresizeData\fR ( int len )"
 .br
 .ti -1c
-.BI "virtual void \fBinsertWidget\fR ( int row, int col, QWidget * w )"
+.BI "virtual void \fBinsertWidget\fR ( int row, int col, TQWidget * w )"
 .br
 .ti -1c
 .BI "int \fBindexOf\fR ( int row, int col ) const"
@@ -591,18 +591,18 @@ Specifies how the current cell (focus cell) is drawn.
 .TP
 \fCQTable::MultiRow\fR - The user may select multiple rows.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTable::QTable ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QTable::QTable ( TQWidget * parent = 0, const char * name = 0 )"
 Creates an empty table object called \fIname\fR as a child of \fIparent\fR.
 .PP
 Call setNumRows() and setNumCols() to set the table size before populating the table if you're using QTableItems.
 .PP
-See also QWidget::clearWFlags() and Qt::WidgetFlags.
-.SH "QTable::QTable ( int numRows, int numCols, QWidget * parent = 0, const char * name = 0 )"
+See also TQWidget::clearWFlags() and TQt::WidgetFlags.
+.SH "QTable::QTable ( int numRows, int numCols, TQWidget * parent = 0, const char * name = 0 )"
 Constructs an empty table called \fIname\fR with \fInumRows\fR rows and \fInumCols\fR columns. The table is a child of \fIparent\fR.
 .PP
 If you're using QTableItems to populate the table's cells, you can create QTableItem, QComboTableItem and QCheckTableItem items and insert them into the table using setItem(). (See the notes on large tables for an alternative to using QTableItems.)
 .PP
-See also QWidget::clearWFlags() and Qt::WidgetFlags.
+See also TQWidget::clearWFlags() and TQt::WidgetFlags.
 .SH "QTable::~QTable ()"
 Releases all the resources used by the QTable object, including all QTableItems and their widgets.
 .SH "void QTable::activateNextCell ()\fC [virtual protected]\fR"
@@ -627,7 +627,7 @@ Reimplemented in QDataTable.
 Resizes row \fIrow\fR so that the row height is tall enough to display the tallest item the row contains.
 .PP
 See also adjustColumn().
-.SH "QWidget * QTable::beginEdit ( int row, int col, bool replace )\fC [virtual protected]\fR"
+.SH "TQWidget * QTable::beginEdit ( int row, int col, bool replace )\fC [virtual protected]\fR"
 This function is called to start in-place editing of the cell at \fIrow\fR, \fIcol\fR. Editing is achieved by creating an editor (createEditor() is called) and setting the cell's editor with setCellWidget() to the newly created editor. (After editing is complete endEdit() will be called to replace the cell's content with the editor's content.) If \fIreplace\fR is TRUE the editor will start empty; otherwise it will be initialized with the cell's content (if any), i.e. the user will be modifying the original cell content.
 .PP
 See also endEdit().
@@ -639,7 +639,7 @@ Returns the geometry of cell \fIrow\fR, \fIcol\fR in the cell's coordinate syste
 See also cellGeometry().
 .PP
 Example: chart/setdataform.cpp.
-.SH "QWidget * QTable::cellWidget ( int row, int col ) const\fC [virtual]\fR"
+.SH "TQWidget * QTable::cellWidget ( int row, int col ) const\fC [virtual]\fR"
 Returns the widget that has been set for the cell at \fIrow\fR, \fIcol\fR, or 0 if no widget has been set.
 .PP
 If you don't use QTableItems you may need to reimplement this function: see the notes on large tables.
@@ -656,7 +656,7 @@ Removes the widget (if there is one) set for the cell at \fIrow\fR, \fIcol\fR.
 .PP
 If you don't use QTableItems you may need to reimplement this function: see the notes on large tables.
 .PP
-This function deletes the widget at \fIrow\fR, \fIcol\fR. Note that the widget is not deleted immediately; instead QObject::deleteLater() is called on the widget to avoid problems with timing issues.
+This function deletes the widget at \fIrow\fR, \fIcol\fR. Note that the widget is not deleted immediately; instead TQObject::deleteLater() is called on the widget to avoid problems with timing issues.
 .PP
 See also cellWidget() and setCellWidget().
 .SH "void QTable::clearSelection ( bool repaint = TRUE )\fC [slot]\fR"
@@ -666,7 +666,7 @@ See also removeSelection().
 .SH "void QTable::clicked ( int row, int col, int button, const QPoint & mousePos )\fC [signal]\fR"
 This signal is emitted when mouse button \fIbutton\fR is clicked. The cell where the event took place is at \fIrow\fR, \fIcol\fR, and the mouse's position is in \fImousePos\fR.
 .PP
-See also Qt::ButtonState.
+See also TQt::ButtonState.
 .PP
 Example: chart/setdataform.cpp.
 .SH "int QTable::columnAt ( int x ) const\fC [virtual]\fR"
@@ -715,7 +715,7 @@ This event handler is called when the user ends a drag and drop by dropping some
 Reimplemented from QScrollView.
 .SH "void QTable::contextMenuRequested ( int row, int col, const QPoint & pos )\fC [signal]\fR"
 This signal is emitted when the user invokes a context menu with the right mouse button (or with a system-specific keypress). The cell where the event took place is at \fIrow\fR, \fIcol\fR. \fIpos\fR is the position where the context menu will appear in the global coordinate system. This signal is always emitted, even if the contents of the cell are disabled.
-.SH "QWidget * QTable::createEditor ( int row, int col, bool initFromCell ) const\fC [virtual protected]\fR"
+.SH "TQWidget * QTable::createEditor ( int row, int col, bool initFromCell ) const\fC [virtual protected]\fR"
 This function returns the widget which should be used as an editor for the contents of the cell at \fIrow\fR, \fIcol\fR.
 .PP
 If \fIinitFromCell\fR is TRUE, the editor is used to edit the current contents of the cell (so the editor widget should be initialized with this content). If \fIinitFromCell\fR is FALSE, the content of the cell is replaced with the new content which the user entered into the widget created by this function.
@@ -773,7 +773,7 @@ See also numSelections.
 .SH "void QTable::doubleClicked ( int row, int col, int button, const QPoint & mousePos )\fC [signal]\fR"
 This signal is emitted when mouse button \fIbutton\fR is double-clicked. The cell where the event took place is at \fIrow\fR, \fIcol\fR, and the mouse's position is in \fImousePos\fR.
 .PP
-See also Qt::ButtonState.
+See also TQt::ButtonState.
 .SH "bool QTable::dragEnabled () const\fC [slot]\fR"
 If this function returns TRUE, the table supports dragging.
 .PP
@@ -856,7 +856,7 @@ See also insertRows() and removeColumn().
 Inserts \fIcount\fR empty rows at row \fIrow\fR. Also clears the selection(s).
 .PP
 See also insertColumns() and removeRow().
-.SH "void QTable::insertWidget ( int row, int col, QWidget * w )\fC [virtual protected]\fR"
+.SH "void QTable::insertWidget ( int row, int col, TQWidget * w )\fC [virtual protected]\fR"
 Inserts widget \fIw\fR at \fIrow\fR, \fIcol\fR into the internal data structure. See the documentation of setCellWidget() for further details.
 .PP
 If you don't use QTableItems you may need to reimplement this function: see the notes on large tables.
@@ -973,7 +973,7 @@ Example: chart/setdataform.cpp.
 .SH "void QTable::pressed ( int row, int col, int button, const QPoint & mousePos )\fC [signal]\fR"
 This signal is emitted when mouse button \fIbutton\fR is pressed. The cell where the event took place is at \fIrow\fR, \fIcol\fR, and the mouse's position is in \fImousePos\fR.
 .PP
-See also Qt::ButtonState.
+See also TQt::ButtonState.
 .SH "void QTable::removeColumn ( int col )\fC [virtual slot]\fR"
 Removes column \fIcol\fR, and deletes all its cells including any table items and widgets the cells may contain. Also clears the selection(s).
 .PP
@@ -1064,7 +1064,7 @@ If, for example, you want to create different QTableItems depending on the conte
 If you want to work without QTableItems, you will need to reimplement this function to save the data the user entered into your data structure. (See the notes on large tables.)
 .PP
 See also QTableItem::setContentFromEditor() and createEditor().
-.SH "void QTable::setCellWidget ( int row, int col, QWidget * e )\fC [virtual]\fR"
+.SH "void QTable::setCellWidget ( int row, int col, TQWidget * e )\fC [virtual]\fR"
 Sets the widget \fIe\fR to the cell at \fIrow\fR, \fIcol\fR and takes care of placing and resizing the widget when the cell geometry changes.
 .PP
 By default widgets are inserted into a vector with numRows() * numCols() elements. In very large tables you will probably want to store the widgets in a data structure that consumes less memory (see the notes on large tables). To support the use of your own data structure this function calls insertWidget() to add the widget to the internal data structure. To use your own data structure reimplement insertWidget(), cellWidget() and clearCellWidget().
@@ -1172,7 +1172,7 @@ Sets the current selection mode to \fImode\fR. See the "selectionMode" property 
 Sets whether the table's grid is displayed to \fIb\fR. See the "showGrid" property for details.
 .SH "void QTable::setSorting ( bool b )\fC [virtual slot]\fR"
 Sets whether a click on the header of a column sorts that column to \fIb\fR. See the "sorting" property for details.
-.SH "void QTable::setText ( int row, int col, const QString & text )\fC [virtual]\fR"
+.SH "void QTable::setText ( int row, int col, const TQString & text )\fC [virtual]\fR"
 Sets the text in the cell at \fIrow\fR, \fIcol\fR to \fItext\fR.
 .PP
 If the cell does not contain a table item a QTableItem is created with an EditType of \fCOnTyping\fR, otherwise the existing table item's text (if any) is replaced with \fItext\fR.
@@ -1255,8 +1255,8 @@ Takes the table item \fIi\fR out of the table. This function does \fInot\fR dele
 Use this function if you want to move an item from one cell in a table to another, or to move an item from one table to another, reinserting the item with setItem().
 .PP
 If you want to exchange two cells use swapCells().
-.SH "QString QTable::text ( int row, int col ) const\fC [virtual]\fR"
-Returns the text in the cell at \fIrow\fR, \fIcol\fR, or QString::null if the relevant item does not exist or has no text.
+.SH "TQString QTable::text ( int row, int col ) const\fC [virtual]\fR"
+Returns the text in the cell at \fIrow\fR, \fIcol\fR, or TQString::null if the relevant item does not exist or has no text.
 .PP
 See also setText() and setPixmap().
 .PP
@@ -1322,7 +1322,7 @@ This property holds whether the table is read-only.
 .PP
 Whether a cell in the table is editable or read-only depends on the cell's EditType, and this setting: see QTableItem::EditType.
 .PP
-See also QWidget::enabled, setColumnReadOnly(), and setRowReadOnly().
+See also TQWidget::enabled, setColumnReadOnly(), and setRowReadOnly().
 .PP
 Set this property's value with setReadOnly() and get this property's value with isReadOnly().
 .SH "bool rowMovingEnabled"
@@ -1370,8 +1370,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

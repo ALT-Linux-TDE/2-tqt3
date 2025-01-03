@@ -24,10 +24,10 @@ Inherited by QComboTableItem and QCheckTableItem.
 .BI "\fBQTableItem\fR ( QTable * table, EditType et )"
 .br
 .ti -1c
-.BI "\fBQTableItem\fR ( QTable * table, EditType et, const QString & text )"
+.BI "\fBQTableItem\fR ( QTable * table, EditType et, const TQString & text )"
 .br
 .ti -1c
-.BI "\fBQTableItem\fR ( QTable * table, EditType et, const QString & text, const QPixmap & p )"
+.BI "\fBQTableItem\fR ( QTable * table, EditType et, const TQString & text, const QPixmap & p )"
 .br
 .ti -1c
 .BI "virtual \fB~QTableItem\fR ()"
@@ -36,13 +36,13 @@ Inherited by QComboTableItem and QCheckTableItem.
 .BI "virtual QPixmap \fBpixmap\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBtext\fR () const"
+.BI "virtual TQString \fBtext\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetPixmap\fR ( const QPixmap & p )"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( const QString & str )"
+.BI "virtual void \fBsetText\fR ( const TQString & str )"
 .br
 .ti -1c
 .BI "QTable * \fBtable\fR () const"
@@ -60,10 +60,10 @@ Inherited by QComboTableItem and QCheckTableItem.
 .BI "EditType \fBeditType\fR () const"
 .br
 .ti -1c
-.BI "virtual QWidget * \fBcreateEditor\fR () const"
+.BI "virtual TQWidget * \fBcreateEditor\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetContentFromEditor\fR ( QWidget * w )"
+.BI "virtual void \fBsetContentFromEditor\fR ( TQWidget * w )"
 .br
 .ti -1c
 .BI "virtual void \fBsetReplaceable\fR ( bool b )"
@@ -72,7 +72,7 @@ Inherited by QComboTableItem and QCheckTableItem.
 .BI "bool \fBisReplaceable\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBkey\fR () const"
+.BI "virtual TQString \fBkey\fR () const"
 .br
 .ti -1c
 .BI "virtual QSize \fBsizeHint\fR () const"
@@ -134,7 +134,7 @@ Example:
 .br
             table->setItem( row, col,
 .br
-                new QTableItem( table, QTableItem::WhenCurrent, QString::number( row * col ) ) );
+                new QTableItem( table, QTableItem::WhenCurrent, TQString::number( row * col ) ) );
 .br
         }
 .br
@@ -154,7 +154,7 @@ It is important to ensure that your custom widget can accept the keyboard focus,
 .PP
 .nf
 .br
-    QWidget* MyTableItem::createEditor() const
+    TQWidget* MyTableItem::createEditor() const
 .br
     {
 .br
@@ -209,13 +209,13 @@ Creates a table item that is a child of table \fItable\fR with no text. The item
 The table item will use a QLineEdit for its editor, will not word-wrap and will occupy a single cell. Insert the table item into a table with QTable::setItem().
 .PP
 The table takes ownership of the table item, so a table item should not be inserted into more than one table at a time.
-.SH "QTableItem::QTableItem ( QTable * table, EditType et, const QString & text )"
+.SH "QTableItem::QTableItem ( QTable * table, EditType et, const TQString & text )"
 Creates a table item that is a child of table \fItable\fR with text \fItext\fR. The item has the EditType \fIet\fR.
 .PP
 The table item will use a QLineEdit for its editor, will not word-wrap and will occupy a single cell. Insert the table item into a table with QTable::setItem().
 .PP
 The table takes ownership of the table item, so a table item should not be inserted into more than one table at a time.
-.SH "QTableItem::QTableItem ( QTable * table, EditType et, const QString & text, const QPixmap & p )"
+.SH "QTableItem::QTableItem ( QTable * table, EditType et, const TQString & text, const QPixmap & p )"
 Creates a table item that is a child of table \fItable\fR with text \fItext\fR and pixmap \fIp\fR. The item has the EditType \fIet\fR.
 .PP
 The table item will display the pixmap to the left of the text. It will use a QLineEdit for editing the text, will not word-wrap and will occupy a single cell. Insert the table item into a table with QTable::setItem().
@@ -228,7 +228,7 @@ If the table item is in a table (i.e. was inserted with setItem()), it will be r
 .SH "int QTableItem::alignment () const\fC [virtual]\fR"
 The alignment function returns how the text contents of the cell are aligned when drawn. The default implementation aligns numbers to the right and any other text to the left.
 .PP
-See also Qt::AlignmentFlags.
+See also TQt::AlignmentFlags.
 .SH "int QTableItem::col () const"
 Returns the column where the table item is located. If the cell spans multiple columns, this function returns the left-most column.
 .PP
@@ -239,7 +239,7 @@ Example: table/bigtable/main.cpp.
 Returns the column span of the table item, usually 1.
 .PP
 See also setSpan() and rowSpan().
-.SH "QWidget * QTableItem::createEditor () const\fC [virtual]\fR"
+.SH "TQWidget * QTableItem::createEditor () const\fC [virtual]\fR"
 This virtual function creates an editor which the user can interact with to edit the cell's contents. The default implementation creates a QLineEdit.
 .PP
 If the function returns 0, the cell is read-only.
@@ -250,7 +250,7 @@ If you reimplement this function you'll almost certainly need to reimplement set
 .PP
 .nf
 .br
-    QWidget *ComboItem::createEditor() const
+    TQWidget *ComboItem::createEditor() const
 .br
     {
 .br
@@ -258,7 +258,7 @@ If you reimplement this function you'll almost certainly need to reimplement set
 .br
         ( (ComboItem*)this )->cb = new QComboBox( table()->viewport() );
 .br
-        QObject::connect( cb, SIGNAL( activated( int ) ), table(), SLOT( doValueChanged() ) );
+        TQObject::connect( cb, TQ_SIGNAL( activated( int ) ), table(), TQ_SLOT( doValueChanged() ) );
 .br
         cb->insertItem( "Yes" );
 .br
@@ -290,7 +290,7 @@ This function returns whether the contents of the cell may be replaced with the 
 (This differs from EditType because EditType is concerned with whether the \fIuser\fR is able to change the contents of a cell.)
 .PP
 See also setReplaceable() and EditType.
-.SH "QString QTableItem::key () const\fC [virtual]\fR"
+.SH "TQString QTableItem::key () const\fC [virtual]\fR"
 This virtual function returns the key that should be used for sorting. The default implementation returns the text() of the relevant item.
 .PP
 See also QTable::sorting.
@@ -344,14 +344,14 @@ Sets column \fIc\fR as the table item's column. Usually you will not need to cal
 If the cell spans multiple columns, this function sets the left-most column and retains the width of the multi-cell table item.
 .PP
 See also col(), setRow(), and colSpan().
-.SH "void QTableItem::setContentFromEditor ( QWidget * w )\fC [virtual]\fR"
+.SH "void QTableItem::setContentFromEditor ( TQWidget * w )\fC [virtual]\fR"
 Whenever the content of a cell has been edited by the editor \fIw\fR, QTable calls this virtual function to copy the new values into the QTableItem.
 .PP
 If you reimplement createEditor() and return something that is not a QLineEdit you will need to reimplement this function.
 .PP
 .nf
 .br
-    void ComboItem::setContentFromEditor( QWidget *w )
+    void ComboItem::setContentFromEditor( TQWidget *w )
 .br
     {
 .br
@@ -403,7 +403,7 @@ Changes the extent of the QTableItem so that it spans multiple cells covering \f
 \fBWarning:\fR This function only works if the item has already been inserted into the table using e.g. QTable::setItem(). This function also checks to make sure if \fIrs\fR and \fIcs\fR are within the bounds of the table and returns without changing the span if they are not. In addition swapping, inserting or removing rows and columns that cross QTableItems spanning more than one cell is not supported.
 .PP
 See also rowSpan() and colSpan().
-.SH "void QTableItem::setText ( const QString & str )\fC [virtual]\fR"
+.SH "void QTableItem::setText ( const TQString & str )\fC [virtual]\fR"
 Changes the table item's text to \fIstr\fR.
 .PP
 Note that setText() does not update the cell the table item belongs to. Use QTable::updateCell() to repaint the cell's contents.
@@ -423,8 +423,8 @@ If you subclass QTableItem you will often need to reimplement this function.
 Returns the QTable the table item belongs to.
 .PP
 See also QTable::setItem() and QTableItem().
-.SH "QString QTableItem::text () const\fC [virtual]\fR"
-Returns the text of the table item or QString::null if there is no text.
+.SH "TQString QTableItem::text () const\fC [virtual]\fR"
+Returns the text of the table item or TQString::null if there is no text.
 .PP
 To ensure that the current value of the editor is returned, setContentFromEditor() is called: <ol type=1>
 .TP
@@ -454,8 +454,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

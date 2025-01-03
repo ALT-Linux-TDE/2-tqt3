@@ -11,24 +11,24 @@ QSignalMapper \- Bundles signals from identifiable senders
 .SH SYNOPSIS
 \fC#include <ntqsignalmapper.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSignalMapper\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQSignalMapper\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QSignalMapper\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetMapping\fR ( const QObject * sender, int identifier )"
+.BI "virtual void \fBsetMapping\fR ( const TQObject * sender, int identifier )"
 .br
 .ti -1c
-.BI "virtual void \fBsetMapping\fR ( const QObject * sender, const QString & identifier )"
+.BI "virtual void \fBsetMapping\fR ( const TQObject * sender, const TQString & identifier )"
 .br
 .ti -1c
-.BI "void \fBremoveMappings\fR ( const QObject * sender )"
+.BI "void \fBremoveMappings\fR ( const TQObject * sender )"
 .br
 .in -1c
 .SS "Public Slots"
@@ -43,7 +43,7 @@ Inherits QObject.
 .BI "void \fBmapped\fR ( int )"
 .br
 .ti -1c
-.BI "void \fBmapped\fR ( const QString & )"
+.BI "void \fBmapped\fR ( const TQString & )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -53,7 +53,7 @@ This class collects a set of parameterless signals, and re-emits them with integ
 .PP
 See also Input/Output and Networking.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSignalMapper::QSignalMapper ( QObject * parent, const char * name = 0 )"
+.SH "QSignalMapper::QSignalMapper ( TQObject * parent, const char * name = 0 )"
 Constructs a QSignalMapper called \fIname\fR, with parent \fIparent\fR. Like all QObjects, it will be deleted when the parent is deleted.
 .SH "QSignalMapper::~QSignalMapper ()"
 Destroys the QSignalMapper.
@@ -69,22 +69,22 @@ See also setMapping().
 .PP
 Examples:
 .)l i18n/main.cpp and themes/themes.cpp.
-.SH "void QSignalMapper::mapped ( const QString & )\fC [signal]\fR"
+.SH "void QSignalMapper::mapped ( const TQString & )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when map() is signaled from an object that has a string mapping set.
 .PP
 See also setMapping().
-.SH "void QSignalMapper::removeMappings ( const QObject * sender )"
+.SH "void QSignalMapper::removeMappings ( const TQObject * sender )"
 Removes all mappings for \fIsender\fR. This is done automatically when mapped objects are destroyed.
-.SH "void QSignalMapper::setMapping ( const QObject * sender, int identifier )\fC [virtual]\fR"
+.SH "void QSignalMapper::setMapping ( const TQObject * sender, int identifier )\fC [virtual]\fR"
 Adds a mapping so that when map() is signaled from the given \fIsender\fR, the signal mapped(\fIidentifier\fR) is emitted.
 .PP
 There may be at most one integer identifier for each object.
 .PP
 Examples:
 .)l i18n/main.cpp and themes/themes.cpp.
-.SH "void QSignalMapper::setMapping ( const QObject * sender, const QString & identifier )\fC [virtual]\fR"
+.SH "void QSignalMapper::setMapping ( const TQObject * sender, const TQString & identifier )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Adds a mapping so that when map() is signaled from the given \fIsender\fR, the signal mapper(\fIidentifier\fR) is emitted.
@@ -106,8 +106,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

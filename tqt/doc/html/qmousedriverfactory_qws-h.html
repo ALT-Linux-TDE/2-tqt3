@@ -80,10 +80,10 @@ body { background: #ffffff; color: black; }
 class TQString;
 class TQWSMouseHandler;
 
-class Q_EXPORT TQMouseDriverFactory
+class TQ_EXPORT TQMouseDriverFactory
 {
 public:
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     static TQStringList keys();
 #endif
     static TQWSMouseHandler *create( const TQString&amp;, const TQString &amp; );

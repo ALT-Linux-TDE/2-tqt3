@@ -17,7 +17,7 @@ class TQComboBox;
 class TQTitleBar;
 class TQWidgetStack;
 
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
 class TQIconView;
 #endif
 
@@ -368,7 +368,7 @@ protected:
     TQListView *listView() const;
 };
 
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
 class TQAccessibleIconView : public TQAccessibleScrollView
 {
 public:

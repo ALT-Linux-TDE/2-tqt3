@@ -41,9 +41,9 @@ Paint events are sent to widgets that need to update themselves, for instance wh
 .PP
 The event contains a region() that needs to be updated, and a rect() that is the bounding rectangle of that region. Both are provided because many widgets can't make much use of region(), and rect() can be much faster than region().boundingRect(). Painting is clipped to region() during processing of a paint event.
 .PP
-The erased() function returns TRUE if the region() has been cleared to the widget's background (see QWidget::backgroundMode()), and FALSE if the region's contents are arbitrary.
+The erased() function returns TRUE if the region() has been cleared to the widget's background (see TQWidget::backgroundMode()), and FALSE if the region's contents are arbitrary.
 .PP
-See also QPainter, QWidget::update(), QWidget::repaint(), QWidget::paintEvent(), QWidget::backgroundMode, QRegion, and Event Classes.
+See also QPainter, TQWidget::update(), TQWidget::repaint(), TQWidget::paintEvent(), TQWidget::backgroundMode, QRegion, and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QPaintEvent::QPaintEvent ( const QRegion & paintRegion, bool erased = TRUE )"
 Constructs a paint event object with the region that should be updated. The region is given by \fIpaintRegion\fR. If \fIerased\fR is TRUE the region will be cleared before repainting.
@@ -82,8 +82,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

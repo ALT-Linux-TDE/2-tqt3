@@ -47,7 +47,7 @@
 
 #include "ntqcolor.h"
 
-#ifndef QT_NO_COLORNAMES
+#ifndef TQT_NO_COLORNAMES
 
 #include <stdlib.h>
 
@@ -766,7 +766,7 @@ uint qt_get_rgb_val( const char *name )
     qt_get_named_rgb(name,&r);
     return r;
 }
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 TQStringList TQColor::colorNames()
 {
     int i = 0;
@@ -788,10 +788,10 @@ uint qt_get_rgb_val( const char * )
 {
     return 0;
 }
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 TQStringList TQColor::colorNames()
 {
     return TQStringList();
 }
 #endif
-#endif // QT_NO_COLORNAMES
+#endif // TQT_NO_COLORNAMES

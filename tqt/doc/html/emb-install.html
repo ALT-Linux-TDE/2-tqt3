@@ -48,7 +48,7 @@ Replace <tt>VERSION</tt> with the TQt/Embedded version number throughout.
 <li> Compile the TQt/Embedded library and examples.
 <p> <pre>
     cd ~/qt-embedded-commercial-VERSION
-    export QTDIR=~/qt-embedded-commercial-VERSION
+    export TQTDIR=~/qt-embedded-commercial-VERSION
     ./configure
     make
 </pre>
@@ -70,8 +70,8 @@ as a starting point.
 a little-endian machine (e.g. x86) for a big-endian processor
 (e.g. PowerPC) will use the host's endianness instead of the
 target's. Workaround: after running configure, and before running
-make, edit <tt>$QTDIR/include/ntqconfig.h</tt> and change the definition of
-<tt>Q_BYTE_ORDER</tt>.
+make, edit <tt>$TQTDIR/include/ntqconfig.h</tt> and change the definition of
+<tt>TQ_BYTE_ORDER</tt>.
 <p> <li> Enable framebuffer support.
 <p> You may need to recompile your kernel to enable the framebuffer.
 This document does not describe how to do this; the

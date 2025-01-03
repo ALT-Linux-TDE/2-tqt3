@@ -9,7 +9,7 @@
 .SH NAME
 QXmlEntityResolver \- Interface to resolve external entities contained in XML data
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqxml.h>\fR
 .PP
@@ -18,10 +18,10 @@ Inherited by QXmlDefaultHandler.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "virtual bool \fBresolveEntity\fR ( const QString & publicId, const QString & systemId, QXmlInputSource *& ret ) = 0"
+.BI "virtual bool \fBresolveEntity\fR ( const TQString & publicId, const TQString & systemId, QXmlInputSource *& ret ) = 0"
 .br
 .ti -1c
-.BI "virtual QString \fBerrorString\fR () = 0"
+.BI "virtual TQString \fBerrorString\fR () = 0"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -33,9 +33,9 @@ See also the Introduction to SAX2.
 .PP
 See also QXmlDTDHandler, QXmlDeclHandler, QXmlContentHandler, QXmlErrorHandler, QXmlLexicalHandler, and XML.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QString QXmlEntityResolver::errorString ()\fC [pure virtual]\fR"
+.SH "TQString QXmlEntityResolver::errorString ()\fC [pure virtual]\fR"
 The reader calls this function to get an error string if any of the handler functions returns FALSE.
-.SH "bool QXmlEntityResolver::resolveEntity ( const QString & publicId, const QString & systemId, QXmlInputSource *& ret )\fC [pure virtual]\fR"
+.SH "bool QXmlEntityResolver::resolveEntity ( const TQString & publicId, const TQString & systemId, QXmlInputSource *& ret )\fC [pure virtual]\fR"
 The reader calls this function before it opens any external entity, except the top-level document entity. The application may request the reader to resolve the entity itself (\fIret\fR is 0) or to use an entirely different input source (\fIret\fR points to the input source).
 .PP
 The reader deletes the input source \fIret\fR when it no longer needs it, so you should allocate it on the heap with \fCnew\fR.
@@ -60,8 +60,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

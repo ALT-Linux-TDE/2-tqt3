@@ -286,7 +286,7 @@ void NewForm::insertTemplates( TQIconView *tView,
 
 	TQString templPath = templatePath;
 	TQStringList templRoots;
-	const char *qtdir = getenv( "QTDIR" );
+	const char *qtdir = getenv( "TQTDIR" );
 	if(qtdir)
 	    templRoots << qtdir;
 	templRoots << tqInstallPathData();
@@ -372,7 +372,7 @@ NewForm::NewForm( TQWidget *parent, const TQStringList& projects,
 		  const TQString& currentProject, const TQString &templatePath )
     : NewFormBase( parent, 0, TRUE )
 {
-    connect( helpButton, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( helpButton, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
 
     projectCombo->insertStringList( projects );
     projectCombo->setCurrentText( currentProject );

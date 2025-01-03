@@ -40,7 +40,7 @@
 
 #include "ntqdatatable.h"
 
-#ifndef QT_NO_SQL_VIEW_WIDGETS
+#ifndef TQT_NO_SQL_VIEW_WIDGETS
 
 #include "ntqsqldriver.h"
 #include "ntqsqleditorfactory.h"
@@ -280,8 +280,8 @@ void TQDataTable::init()
     d->falseTxt = tr( "False" );
     d->datefmt = TQt::LocalDate;
     reset();
-    connect( this, SIGNAL( selectionChanged() ),
-	     SLOT( updateCurrentSelection()));
+    connect( this, TQ_SIGNAL( selectionChanged() ),
+	     TQ_SLOT( updateCurrentSelection()));
 }
 
 /*!
@@ -722,7 +722,7 @@ bool TQDataTable::eventFilter( TQObject *o, TQEvent *e )
 	if ( sql && sql->driver() &&
 	     !sql->driver()->hasFeature( TQSqlDriver::QuerySize ) &&
 	     ke->key() == Key_End && d->dat.mode() == TQSql::None ) {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    TQApplication::setOverrideCursor( TQt::WaitCursor );
 #endif
 	    int i = sql->at();
@@ -734,7 +734,7 @@ bool TQDataTable::eventFilter( TQObject *o, TQEvent *e )
 		i++;
 	    setNumRows( i+1 );
 	    setCurrentCell( i+1, currentColumn() );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    TQApplication::restoreOverrideCursor();
 #endif
 	    return TRUE;
@@ -865,13 +865,13 @@ void TQDataTable::endEdit( int row, int col, bool, bool )
 	    switch ( d->dat.mode() ) {
 	    case TQSql::Insert:
 		if ( accept )
-		    TQTimer::singleShot( 0, this, SLOT( doInsertCurrent() ) );
+		    TQTimer::singleShot( 0, this, TQ_SLOT( doInsertCurrent() ) );
 		else
 		    endInsert();
 		break;
 	    case TQSql::Update:
 		if ( accept )
-		    TQTimer::singleShot( 0, this, SLOT( doUpdateCurrent() ) );
+		    TQTimer::singleShot( 0, this, TQ_SLOT( doUpdateCurrent() ) );
 		else
 		    endUpdate();
 		break;
@@ -1059,12 +1059,12 @@ bool TQDataTable::insertCurrent()
 	conf = confirmEdit( TQSql::Insert );
     switch ( conf ) {
     case TQSql::Yes: {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::setOverrideCursor( TQt::waitCursor );
 #endif
 	emit beforeInsert( d->editBuffer );
 	b = sqlCursor()->insert();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::restoreOverrideCursor();
 #endif
 	if ( ( !b && !sqlCursor()->isActive() ) || !sqlCursor()->isActive() ) {
@@ -1141,12 +1141,12 @@ bool TQDataTable::updateCurrent()
 	conf = confirmEdit( TQSql::Update );
     switch ( conf ) {
     case TQSql::Yes: {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::setOverrideCursor( TQt::waitCursor );
 #endif
 	emit beforeUpdate( d->editBuffer );
 	b = sqlCursor()->update();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::restoreOverrideCursor();
 #endif
 	if ( ( !b && !sqlCursor()->isActive() ) || !sqlCursor()->isActive() ) {
@@ -1215,14 +1215,14 @@ bool TQDataTable::deleteCurrent()
 	return FALSE;
     switch ( conf ) {
 	case TQSql::Yes:{
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    TQApplication::setOverrideCursor( TQt::waitCursor );
 #endif
 	    sqlCursor()->primeDelete();
 	    emit primeDelete( sqlCursor()->editBuffer() );
 	    emit beforeDelete( sqlCursor()->editBuffer() );
 	    b = sqlCursor()->del();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    TQApplication::restoreOverrideCursor();
 #endif
 	    if ( !b )
@@ -1300,7 +1300,7 @@ void TQDataTable::find( const TQString & str, bool caseSensitive, bool backwards
     else
 	tmp = str;
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     TQApplication::setOverrideCursor( TQt::waitCursor );
 #endif
     while( wrap ){
@@ -1344,7 +1344,7 @@ void TQDataTable::find( const TQString & str, bool caseSensitive, bool backwards
 	    row = numRows() - 1;
 	}
     }
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     TQApplication::restoreOverrideCursor();
 #endif
 }
@@ -1652,16 +1652,16 @@ void TQDataTable::loadNextPage()
 /*! \internal */
 void TQDataTable::sliderPressed()
 {
-    disconnect( verticalScrollBar(), SIGNAL( valueChanged(int) ),
-		this, SLOT( loadNextPage() ) );
+    disconnect( verticalScrollBar(), TQ_SIGNAL( valueChanged(int) ),
+		this, TQ_SLOT( loadNextPage() ) );
 }
 
 /*! \internal */
 void TQDataTable::sliderReleased()
 {
     loadNextPage();
-    connect( verticalScrollBar(), SIGNAL( valueChanged(int) ),
-	     this, SLOT( loadNextPage() ) );
+    connect( verticalScrollBar(), TQ_SIGNAL( valueChanged(int) ),
+	     this, TQ_SLOT( loadNextPage() ) );
 }
 
 /*!
@@ -1809,22 +1809,22 @@ void TQDataTable::setSize( TQSqlCursor* sql )
     // ### what are the connect/disconnect calls doing here!? move to refresh()
     if ( sql->driver() && sql->driver()->hasFeature( TQSqlDriver::QuerySize ) ) {
 	setVScrollBarMode( Auto );
- 	disconnect( verticalScrollBar(), SIGNAL( sliderPressed() ),
-		    this, SLOT( sliderPressed() ) );
- 	disconnect( verticalScrollBar(), SIGNAL( sliderReleased() ),
-		    this, SLOT( sliderReleased() ) );
-	disconnect( verticalScrollBar(), SIGNAL( valueChanged(int) ),
-		    this, SLOT( loadNextPage() ) );
+ 	disconnect( verticalScrollBar(), TQ_SIGNAL( sliderPressed() ),
+		    this, TQ_SLOT( sliderPressed() ) );
+ 	disconnect( verticalScrollBar(), TQ_SIGNAL( sliderReleased() ),
+		    this, TQ_SLOT( sliderReleased() ) );
+	disconnect( verticalScrollBar(), TQ_SIGNAL( valueChanged(int) ),
+		    this, TQ_SLOT( loadNextPage() ) );
 	if ( numRows() != sql->size() )
 	    setNumRows( sql->size() );
     } else {
 	setVScrollBarMode( AlwaysOn );
- 	connect( verticalScrollBar(), SIGNAL( sliderPressed() ),
- 		 this, SLOT( sliderPressed() ) );
- 	connect( verticalScrollBar(), SIGNAL( sliderReleased() ),
- 		 this, SLOT( sliderReleased() ) );
-	connect( verticalScrollBar(), SIGNAL( valueChanged(int) ),
-		 this, SLOT( loadNextPage() ) );
+ 	connect( verticalScrollBar(), TQ_SIGNAL( sliderPressed() ),
+ 		 this, TQ_SLOT( sliderPressed() ) );
+ 	connect( verticalScrollBar(), TQ_SIGNAL( sliderReleased() ),
+ 		 this, TQ_SLOT( sliderReleased() ) );
+	connect( verticalScrollBar(), TQ_SIGNAL( valueChanged(int) ),
+		 this, TQ_SLOT( loadNextPage() ) );
 	setNumRows(0);
 	loadNextPage();
     }

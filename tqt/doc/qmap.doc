@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -51,10 +51,10 @@
     \ingroup shared
     \mainclass
 
-    QMap is a Qt implementation of an STL-like map container. It can
+    QMap is a TQt implementation of an STL-like map container. It can
     be used in your application if the standard \c map is not
     available on all your target platforms. QMap is part of the \link
-    ntqtl.html Qt Template Library\endlink.
+    ntqtl.html TQt Template Library\endlink.
 
     QMap\<Key, Data\> defines a template instance to create a
     dictionary with keys of type Key and values of type Data. QMap
@@ -68,7 +68,7 @@
     contained items.
 
     Some classes cannot be used within a QMap. For example everything
-    derived from QObject and thus all classes that implement widgets.
+    derived from TQObject and thus all classes that implement widgets.
     Only values can be used in a QMap. To qualify as a value, the
     class must provide
 
@@ -86,7 +86,7 @@
     The class used for the key requires that the \c operator< is
     implemented to define ordering of the keys.
 
-    QMap's function naming is consistent with the other Qt classes
+    QMap's function naming is consistent with the other TQt classes
     (e.g., count(), isEmpty()). QMap also provides extra functions for
     compatibility with STL algorithms, such as size() and empty().
     Programmers already familiar with the STL \c map can use these
@@ -103,18 +103,18 @@
     {
     public:
 	Employee(): sn(0) {}
-	Employee( const QString& forename, const QString& surname, int salary )
+	Employee( const TQString& forename, const TQString& surname, int salary )
 	    : fn(forename), sn(surname), sal(salary)
 	{ }
 
-	QString forename() const { return fn; }
-	QString surname() const { return sn; }
+	TQString forename() const { return fn; }
+	TQString surname() const { return sn; }
 	int salary() const { return sal; }
 	void setSalary( int salary ) { sal = salary; }
 
     private:
-	QString fn;
-	QString sn;
+	TQString fn;
+	TQString sn;
 	int sal;
     };
 
@@ -122,7 +122,7 @@
     {
 	QApplication app( argc, argv );
 
-	typedef QMap<QString, Employee> EmployeeMap;
+	typedef QMap<TQString, Employee> EmployeeMap;
 	EmployeeMap map;
 
 	map["JD001"] = Employee("John", "Doe", 50000);
@@ -180,7 +180,7 @@
     not use operator[]. The following example illustrates this:
 
     \code
-	QMap<QString,QString> map;
+	QMap<TQString,TQString> map;
 	map["Clinton"] = "Bill";
 	str << map["Clinton"] << map["Bush"] << endl;
     \endcode
@@ -215,7 +215,7 @@
     There are a couple of ways of inserting new items into the map.
     One uses the insert() method; the other uses operator[]:
     \code
-    QMap<QString, QString> map;
+    QMap<TQString, TQString> map;
     map["Clinton"] = "Bill";
     map.insert( "Bush", "George" );
     \endcode
@@ -235,9 +235,9 @@
 /*! \enum  QMap::mapped_type
 	The map's data type. */
 /*! \enum  QMap::value_type
-	Corresponds to QPair\<key_type, mapped_type\>. */
+	Corresponds to TQPair\<key_type, mapped_type\>. */
 /*! \enum  QMap::ValueType
-	Corresponds to QPair\<key_type, mapped_type\>, Qt style.*/
+	Corresponds to TQPair\<key_type, mapped_type\>, TQt style.*/
 /*! \enum  QMap::pointer
 	Pointer to value_type.*/
 /*! \enum  QMap::const_pointer
@@ -251,11 +251,11 @@
 /*! \enum  QMap::iterator
 	The map's iterator type.*/
 /*! \enum QMap::Iterator
-	The map's iterator type, Qt style. */
+	The map's iterator type, TQt style. */
 /*! \enum  QMap::const_iterator
 	The map's const iterator type.*/
 /*! \enum  QMap::ConstIterator
-	The map's const iterator type, Qt style.*/
+	The map's const iterator type, TQt style.*/
 /*! \enum QMap::difference_type
     \internal */
 /*! \enum QMap::Priv
@@ -324,7 +324,7 @@
 
     You can use this operator both for reading and writing:
     \code
-    QMap<QString, QString> map;
+    QMap<TQString, TQString> map;
     map["Clinton"] = "Bill";
     stream << map["Clinton"];
     \endcode
@@ -479,11 +479,11 @@
 */
 
 /*!
-    \fn QPair<iterator,bool> QMap::insert( const value_type& x )
+    \fn TQPair<iterator,bool> QMap::insert( const value_type& x )
 
     \overload
 
-    Inserts the (key, value) pair \a x into the map. \a x is a QPair
+    Inserts the (key, value) pair \a x into the map. \a x is a TQPair
     whose \c first element is a key to be inserted and whose \c second
     element is the associated value to be inserted. Returns a pair
     whose \c first element is an iterator pointing to the inserted

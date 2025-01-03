@@ -4,6 +4,7 @@
 **
 ** Created : 920722
 **
+** Copyright (C) 2015 Timothy Pearson. All rights reserved.
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
 ** This file is part of the tools module of the TQt GUI Toolkit.
@@ -40,19 +41,19 @@
 
 // Don't define it while compiling this module, or USERS of TQt will
 // not be able to link.
-#ifdef QT_NO_CAST_ASCII
-#undef QT_NO_CAST_ASCII
+#ifdef TQT_NO_CAST_ASCII
+#undef TQT_NO_CAST_ASCII
 #endif
 
 // WARNING
-// When MAKE_TQSTRING_THREAD_SAFE is defined, overall TQt3 performance suffers badly!
+// When MAKE_QSTRING_THREAD_SAFE is defined, overall TQt3 performance suffers badly!
 // TQString is thread unsafe in many other areas; perhaps this option is not even useful?
-// #define MAKE_TQSTRING_THREAD_SAFE 1
+// #define MAKE_QSTRING_THREAD_SAFE 1
 
 #include "ntqstring.h"
 #include "ntqregexp.h"
 #include "ntqdatastream.h"
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 #include "ntqtextcodec.h"
 #endif
 #include "ntqlocale.h"
@@ -67,13 +68,13 @@
 #ifndef Q_OS_TEMP
 #include <locale.h>
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #include "qt_windows.h"
 #endif
 #if defined(Q_OS_LINUX)
 #include <sys/mman.h>
 #endif
-#if !defined( QT_NO_COMPONENT ) && !defined( QT_LITE_COMPONENT )
+#if !defined( TQT_NO_COMPONENT ) && !defined( QT_LITE_COMPONENT )
 #include "ntqcleanuphandler.h"
 #endif
 
@@ -92,9 +93,9 @@
 #define ULLONG_MAX TQ_UINT64_C(18446744073709551615)
 #endif
 
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 #include "ntqmutex.h"
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 
 extern TQMutex *tqt_sharedStringMutex;
 
@@ -574,8 +575,8 @@ bool TQChar::isSymbol() const
 */
 int TQChar::digitValue() const
 {
-#ifndef QT_NO_UNICODETABLES
-    register int pos = TQUnicodeTables::decimal_info[row()];
+#ifndef TQT_NO_UNICODETABLES
+    int pos = TQUnicodeTables::decimal_info[row()];
     if( !pos )
 	return -1;
     return TQUnicodeTables::decimal_info[(pos<<8) + cell()];
@@ -640,7 +641,7 @@ TQChar TQChar::mirroredChar() const
     return ::mirroredChar( *this );
 }
 
-#ifndef QT_NO_UNICODETABLES
+#ifndef TQT_NO_UNICODETABLES
 // ### REMOVE ME 4.0
 static TQString shared_decomp;
 #endif
@@ -652,8 +653,8 @@ static TQString shared_decomp;
 */
 const TQString &TQChar::decomposition() const
 {
-#ifndef QT_NO_UNICODETABLES
-    register int pos = TQUnicodeTables::decomposition_info[row()];
+#ifndef TQT_NO_UNICODETABLES
+    int pos = TQUnicodeTables::decomposition_info[row()];
     if(!pos) return TQString::null;
 
     pos = TQUnicodeTables::decomposition_info[(pos<<8)+cell()];
@@ -679,8 +680,8 @@ const TQString &TQChar::decomposition() const
 */
 TQChar::Decomposition TQChar::decompositionTag() const
 {
-#ifndef QT_NO_UNICODETABLES
-    register int pos = TQUnicodeTables::decomposition_info[row()];
+#ifndef TQT_NO_UNICODETABLES
+    int pos = TQUnicodeTables::decomposition_info[row()];
     if(!pos) return TQChar::Single;
 
     pos = TQUnicodeTables::decomposition_info[(pos<<8)+cell()];
@@ -937,7 +938,7 @@ TQChar TQChar::upper() const
     FALSE.
 */
 
-#ifndef QT_NO_UNICODETABLES
+#ifndef TQT_NO_UNICODETABLES
 
 // small class used internally in TQString::Compose()
 class TQLigature
@@ -960,7 +961,7 @@ private:
 
 TQLigature::TQLigature( TQChar c )
 {
-    register int pos = TQUnicodeTables::ligature_info[c.row()];
+    int pos = TQUnicodeTables::ligature_info[c.row()];
     if( !pos )
 	ligatures = 0;
     else
@@ -1051,10 +1052,11 @@ TQStringData::TQStringData() : TQShared(),
 	issimpletext(TRUE),
 	maxl(0),
 	islatin1(FALSE),
-	security_unpaged(FALSE) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+	security_unpaged(FALSE),
+	cString(0) {
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	mutex = new TQMutex(FALSE);
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	ref();
 }
 
@@ -1065,10 +1067,11 @@ TQStringData::TQStringData(TQChar *u, uint l, uint m) : TQShared(),
 	issimpletext(FALSE),
 	maxl(m),
 	islatin1(FALSE),
-	security_unpaged(FALSE) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+	security_unpaged(FALSE),
+	cString(0) {
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	mutex = new TQMutex(FALSE);
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 }
 
 TQStringData::~TQStringData() {
@@ -1083,18 +1086,25 @@ TQStringData::~TQStringData() {
 	if ( ascii ) {
 		delete[] ascii;
 	}
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+	if (cString) {
+		delete cString;
+	}
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	if ( mutex ) {
 		delete mutex;
 		mutex = NULL;
 	}
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 }
 
 void TQStringData::setDirty() {
 	if ( ascii ) {
 		delete [] ascii;
 		ascii = 0;
+	}
+	if (cString) {
+		delete cString;
+		cString = 0;
 	}
 	issimpletext = FALSE;
 }
@@ -1118,7 +1128,7 @@ void TQStringData::setDirty() {
 */
 void TQString::compose()
 {
-#ifndef QT_NO_UNICODETABLES
+#ifndef TQT_NO_UNICODETABLES
     unsigned int index=0, len;
     unsigned int cindex = 0;
 
@@ -1446,24 +1456,24 @@ char* TQString::unicodeToLatin1(const TQChar *uc, uint l, bool unpaged)
     flags.
 
 */
-Q_EXPORT TQStringData *TQString::shared_null = 0;
-QT_STATIC_CONST_IMPL TQString TQString::null;
-QT_STATIC_CONST_IMPL TQChar TQChar::null;
-QT_STATIC_CONST_IMPL TQChar TQChar::replacement((ushort)0xfffd);
-QT_STATIC_CONST_IMPL TQChar TQChar::byteOrderMark((ushort)0xfeff);
-QT_STATIC_CONST_IMPL TQChar TQChar::byteOrderSwapped((ushort)0xfffe);
-QT_STATIC_CONST_IMPL TQChar TQChar::nbsp((ushort)0x00a0);
+TQ_EXPORT TQStringData *TQString::shared_null = 0;
+const TQString TQString::null;
+const TQChar TQChar::null;
+const TQChar TQChar::replacement((ushort)0xfffd);
+const TQChar TQChar::byteOrderMark((ushort)0xfeff);
+const TQChar TQChar::byteOrderSwapped((ushort)0xfffe);
+const TQChar TQChar::nbsp((ushort)0x00a0);
 
 TQStringData* TQString::makeSharedNull()
 {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
     if (tqt_sharedStringMutex) tqt_sharedStringMutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 
     if (TQString::shared_null) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	if (tqt_sharedStringMutex) tqt_sharedStringMutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	return TQString::shared_null;
     }
 
@@ -1473,9 +1483,9 @@ TQStringData* TQString::makeSharedNull()
     that->d = TQString::shared_null;
 #endif
 
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
     if (tqt_sharedStringMutex) tqt_sharedStringMutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
     return TQString::shared_null;
 }
 
@@ -1516,13 +1526,13 @@ TQString::TQString( const TQString &s ) :
     d(s.d)
 {
     if ( d && (d != shared_null) ) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
         d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
         d->ref();
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
         d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
     }
 }
 
@@ -1556,7 +1566,7 @@ TQString::TQString( int size, bool /*dummy*/ )
 
 TQString::TQString( const TQByteArray& ba )
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( TQTextCodec::codecForCStrings() ) {
 	d = 0;
 	*this = fromAscii( ba.data(), ba.size() );
@@ -1606,7 +1616,7 @@ TQString::TQString( const TQChar* unicode, uint length )
 
     This is a cast constructor, but it is perfectly safe: converting a
     Latin-1 \c{const char *} to TQString preserves all the information. You
-    can disable this constructor by defining \c QT_NO_CAST_ASCII when
+    can disable this constructor by defining \c TQT_NO_CAST_ASCII when
     you compile your applications. You can also make TQString objects
     by using setLatin1(), fromLatin1(), fromLocal8Bit(), and
     fromUtf8(). Or whatever encoding is appropriate for the 8-bit data
@@ -1617,7 +1627,7 @@ TQString::TQString( const TQChar* unicode, uint length )
 
 TQString::TQString( const char *str )
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( TQTextCodec::codecForCStrings() ) {
 	d = 0;
 	*this = fromAscii( str );
@@ -1629,7 +1639,7 @@ TQString::TQString( const char *str )
     d = new TQStringData(uc,l,l);
 }
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
 /*!
     Constructs a string that is a deep copy of \a str.
 
@@ -1638,7 +1648,7 @@ TQString::TQString( const char *str )
 
 TQString::TQString( const std::string &str )
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( TQTextCodec::codecForCStrings() ) {
 	d = 0;
 	*this = fromAscii( str.c_str() );
@@ -1675,20 +1685,20 @@ TQString::~TQString()
 		return;
 	}
 
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	if ( d->deref() ) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 		d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 		d->deleteSelf();
 		d = NULL;
 	}
 	else {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 		d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	}
 }
 
@@ -1710,22 +1720,22 @@ void TQString::real_detach()
 void TQString::deref()
 {
 	if ( d && (d != shared_null) ) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 		d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 		if ( d->deref() ) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 			d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 			if ( d != shared_null ) {
 				delete d;
 			}
 			d = 0;
 		}
 		else {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 			d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 		}
 	}
 }
@@ -1768,13 +1778,13 @@ void TQStringData::deleteSelf()
 TQString &TQString::operator=( const TQString &s )
 {
     if ( s.d && (s.d != shared_null) ) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
         s.d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
         s.d->ref();
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
         s.d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
     }
     deref();
     d = s.d;
@@ -1882,9 +1892,9 @@ void TQString::truncate( uint newLen )
 */
 void TQString::setLength( uint newLen )
 {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
     d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 
     if ( d->count != 1 || newLen > d->maxl ||
 	 ( newLen * 4 < d->maxl && d->maxl > 4 ) ) {
@@ -1895,24 +1905,24 @@ void TQString::setLength( uint newLen )
 	    uint len = TQMIN( d->len, newLen );
 	    memcpy( nd, d->unicode, sizeof(TQChar) * len );
 	    bool unpaged = d->security_unpaged;
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	    d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	    deref();
 	    d = new TQStringData( nd, newLen, newMax );
 	    setSecurityUnPaged(unpaged);
 	}
 	else {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	    d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	}
     }
     else {
 	d->len = newLen;
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	d->setDirty();
     }
 }
@@ -1998,21 +2008,21 @@ void TQString::squeeze()
 */
 void TQString::grow( uint newLen )
 {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
     d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 
     if ( d->count != 1 || newLen > d->maxl ) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	setLength( newLen );
     }
     else {
 	d->len = newLen;
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	d->setDirty();
     }
 }
@@ -2518,7 +2528,7 @@ TQString TQString::multiArg( int numArgs, const TQString& a1, const TQString& a2
 	int digitUsed[10];
 	int argForDigit[10];
     };
-    register const TQChar *uc = d->unicode;
+    const TQChar *uc = d->unicode;
     const TQString *args[4];
     const int len = (int) length();
     const int end = len - 1;
@@ -2603,19 +2613,26 @@ TQString TQString::multiArg( int numArgs, const TQString& a1, const TQString& a2
     \sa arg()
 */
 
-#ifndef QT_NO_SPRINTF
-TQString &TQString::sprintf( const char* cformat, ... )
+#ifndef TQT_NO_SPRINTF
+TQString &TQString::sprintf(const char *cformat, ...)
 {
-    TQLocale locale(TQLocale::C);
-
     va_list ap;
-    va_start( ap, cformat );
+    va_start(ap, cformat);
 
     if ( !cformat || !*cformat ) {
 	// TQt 1.x compat
 	*this = fromLatin1( "" );
-	return *this;
+    } else {
+	vsprintf(cformat, ap);
     }
+
+    va_end(ap);
+    return *this;
+}
+
+TQString &TQString::vsprintf( const char* cformat, va_list ap )
+{
+    TQLocale locale(TQLocale::C);
 
     // Parse cformat
 
@@ -2933,7 +2950,6 @@ TQString &TQString::sprintf( const char* cformat, ... )
 	    result.append(subst.rightJustify(width));
     }
 
-    va_end(ap);
     *this = result;
 
     return *this;
@@ -3001,7 +3017,7 @@ int TQString::find( TQChar c, int index, bool cs ) const
 	index += l;
     if ( (uint)index >= l )
 	return -1;
-    register const TQChar *uc = unicode()+index;
+    const TQChar *uc = unicode()+index;
     const TQChar *end = unicode() + l;
     if ( cs ) {
 	while ( uc < end && *uc != c )
@@ -3024,7 +3040,7 @@ int TQString::find( TQChar c, int index, bool cs ) const
 static void bm_init_skiptable( const TQString &pattern, uint *skiptable, bool cs )
 {
     int i = 0;
-    register uint *st = skiptable;
+    uint *st = skiptable;
     int l = pattern.length();
     while ( i++ < 0x100/8 ) {
 	*(st++) = l;
@@ -3061,7 +3077,7 @@ static int bm_find( const TQString &str, int index, const TQString &pattern, uin
     const uint pl = pattern.length();
     const uint pl_minus_one = pl - 1;
 
-    register const TQChar *current = uc + index + pl_minus_one;
+    const TQChar *current = uc + index + pl_minus_one;
     const TQChar *end = uc + l;
     if ( cs ) {
 	while ( current < end ) {
@@ -3252,7 +3268,7 @@ int TQString::findRev( TQChar c, int index, bool cs ) const
     if ( (uint)index >= l )
 	return -1;
     const TQChar *end = unicode();
-    register const TQChar *uc = end + index;
+    const TQChar *uc = end + index;
     if ( cs ) {
 	while ( uc >= end && *uc != c )
 	    uc--;
@@ -3501,7 +3517,7 @@ TQString TQString::section( const TQString &sep, int start, int end, int flags )
     return ret;
 }
 
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 class section_chunk {
 public:
     section_chunk(int l, TQString s) { length = l; string = s; }
@@ -3819,7 +3835,7 @@ TQString TQString::mid( uint index, uint len ) const
 	    len = slen - index;
 	if ( index == 0 && len == slen )
 	    return *this;
-	register const TQChar *p = unicode()+index;
+	const TQChar *p = unicode()+index;
 	TQString s( len, TRUE );
 	memcpy( s.d->unicode, p, len * sizeof(TQChar) );
 	s.d->len = len;
@@ -3921,7 +3937,7 @@ TQString TQString::rightJustify( uint width, TQChar fill, bool truncate ) const
 TQString TQString::lower() const
 {
     int l = length();
-    register TQChar *p = d->unicode;
+    TQChar *p = d->unicode;
     while ( l ) {
 	if ( *p != ::lower(*p) ) {
 	    TQString s( *this );
@@ -3954,7 +3970,7 @@ TQString TQString::lower() const
 TQString TQString::upper() const
 {
     int l = length();
-    register TQChar *p = d->unicode;
+    TQChar *p = d->unicode;
     while ( l ) {
 	if ( *p != ::upper(*p) ) {
 	    TQString s( *this );
@@ -3995,7 +4011,7 @@ TQString TQString::stripWhiteSpace() const
 {
     if ( isEmpty() )                            // nothing to do
 	return *this;
-    register const TQChar *s = unicode();
+    const TQChar *s = unicode();
     if ( !s->isSpace() && !s[length()-1].isSpace() )
 	return *this;
 
@@ -4099,11 +4115,11 @@ TQString &TQString::insert( uint index, const TQString &s )
     a reference to the string.
 */
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 TQString &TQString::insertHelper( uint index, const char *s, uint len )
 {
     if ( s ) {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 	if ( TQTextCodec::codecForCStrings() )
 	    return insert( index, fromAscii( s, len ) );
 #endif
@@ -4391,7 +4407,7 @@ TQString &TQString::replace( TQChar c1, TQChar c2 )
     return *this;
 }
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 
 /*! \overload
 
@@ -4649,7 +4665,7 @@ TQString &TQString::replace( const TQString & before, const TQString & after )
     return replace( before, after, TRUE );
 }
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 /*! \overload
 
   Replaces every occurrence of the regexp \a rx in the string with
@@ -4808,7 +4824,7 @@ TQString &TQString::replace( const TQRegExp &rx, const TQString &after )
 }
 #endif
 
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 /*!
     Finds the first match of the regular expression \a rx, starting
     from position \a index. If \a index is -1, the search starts at
@@ -4886,7 +4902,7 @@ int TQString::contains( const TQRegExp &rx ) const
     return count;
 }
 
-#endif //QT_NO_REGEXP
+#endif //TQT_NO_REGEXP
 
 /*!
     Returns the string converted to a \c long using base \a
@@ -5695,7 +5711,7 @@ void TQString::setExpand( uint index, TQChar c )
     \endcode
 
     It will call "operator const char*()", which is inefficent; you
-    may wish to define the macro \c QT_NO_ASCII_CAST when writing code
+    may wish to define the macro \c TQT_NO_ASCII_CAST when writing code
     which you wish to remain Unicode-clean.
 
     When you want the above semantics, use:
@@ -5790,11 +5806,11 @@ TQString& TQString::operator+=( const TQString &str )
     return *this;
 }
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 TQString &TQString::operatorPlusEqHelper( const char *s, uint len2 )
 {
     if ( s ) {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 	if ( TQTextCodec::codecForCStrings() )
 	    return operator+=( fromAscii( s, len2 ) );
 #endif
@@ -5820,7 +5836,7 @@ TQString &TQString::operatorPlusEqHelper( const char *s, uint len2 )
 
   Appends \a str to the string and returns a reference to the string.
 */
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 TQString& TQString::operator+=( const char *str )
 {
     // ### TQt 4: make this function inline
@@ -5848,7 +5864,7 @@ TQString &TQString::operator+=( TQChar c )
 
 TQString &TQString::operator+=( char c )
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( TQTextCodec::codecForCStrings() )
 	return operator+=( fromAscii( &c, 1 ) );
 #endif
@@ -5921,7 +5937,7 @@ const char* TQString::latin1() const
 */
 const char* TQString::ascii() const
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( TQTextCodec::codecForCStrings() ) {
 	if ( !d->ascii || d->islatin1 ) {
 	    if (d->security_unpaged) {
@@ -5948,7 +5964,7 @@ const char* TQString::ascii() const
 	}
 	return d->ascii;
     }
-#endif // QT_NO_TEXTCODEC
+#endif // TQT_NO_TEXTCODEC
     return latin1();
 }
 
@@ -5982,6 +5998,14 @@ void TQString::setSecurityUnPaged(bool lock) {
 */
 TQCString TQString::utf8() const
 {
+    if (!d->cString) {
+        d->cString = new TQCString("");
+    }
+    if(d == shared_null)
+    {
+        return *d->cString;
+    }
+
     int l = length();
     int rlen = l*3+1;
     TQCString rstr(rlen);
@@ -6026,7 +6050,8 @@ TQCString TQString::utf8() const
  	++ch;
     }
     rstr.truncate( cursor - (uchar*)rstr.data() );
-    return rstr;
+    *d->cString = rstr;
+    return *d->cString;
 }
 
 static TQChar *addOne(TQChar *qch, TQString &str)
@@ -6159,7 +6184,7 @@ TQString TQString::fromUtf8( const char* utf8, int len )
 
     This is the same as the TQString(const char*) constructor, but you
     can make that constructor invisible if you compile with the define
-    \c QT_NO_CAST_ASCII, in which case you can explicitly create a
+    \c TQT_NO_CAST_ASCII, in which case you can explicitly create a
     TQString from 8-bit ASCII text using this function.
 
     \code
@@ -6169,7 +6194,7 @@ TQString TQString::fromUtf8( const char* utf8, int len )
  */
 TQString TQString::fromAscii( const char* ascii, int len )
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( TQTextCodec::codecForCStrings() ) {
 	if ( !ascii )
 	    return TQString::null;
@@ -6227,25 +6252,34 @@ TQString TQString::fromLatin1( const char* chars, int len )
 
 TQCString TQString::local8Bit() const
 {
-#ifdef QT_NO_TEXTCODEC
-    return latin1();
+    if (!d->cString) {
+        d->cString = new TQCString("");
+    }
+    if(d == shared_null)
+    {
+        return *d->cString;
+    }
+#ifdef TQT_NO_TEXTCODEC
+    *d->cString = TQCString(latin1());
+    return *d->cString;
 #else
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     TQTextCodec* codec = TQTextCodec::codecForLocale();
-    return codec
-	    ? codec->fromUnicode(*this)
-	    : TQCString(latin1());
+    *d->cString = codec ? codec->fromUnicode(*this) : TQCString(latin1());
+    return *d->cString;
 #endif
-#if defined( Q_WS_MACX )
+#if defined( TQ_WS_MACX )
     return utf8();
 #endif
-#if defined( Q_WS_MAC9 )
-    return TQCString(latin1()); //I'm evil..
+#if defined( TQ_WS_MAC9 )
+    *d->cString = TQCString(latin1()); //I'm evil..
+    return *d->cString;
 #endif
-#ifdef Q_WS_WIN
-    return isNull() ? TQCString("") : qt_winTQString2MB( *this );
+#ifdef TQ_WS_WIN
+    *d->cString = isNull() ? TQCString("") : qt_winTQString2MB( *this );
+    return *d->cString;
 #endif
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     return utf8(); // ### if there is any 8 bit format supported?
 #endif
 #endif
@@ -6269,13 +6303,13 @@ TQCString TQString::local8Bit() const
 */
 TQString TQString::fromLocal8Bit( const char* local8Bit, int len )
 {
-#ifdef QT_NO_TEXTCODEC
+#ifdef TQT_NO_TEXTCODEC
     return fromLatin1( local8Bit, len );
 #else
 
     if ( !local8Bit )
 	return TQString::null;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     TQTextCodec* codec = TQTextCodec::codecForLocale();
     if ( len < 0 )
 	len = strlen( local8Bit );
@@ -6283,21 +6317,21 @@ TQString TQString::fromLocal8Bit( const char* local8Bit, int len )
 	    ? codec->toUnicode( local8Bit, len )
 	    : fromLatin1( local8Bit, len );
 #endif
-#if defined( Q_WS_MAC )
+#if defined( TQ_WS_MAC )
     return fromUtf8(local8Bit,len);
 #endif
 // Should this be OS_WIN32?
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     if ( len >= 0 ) {
 	TQCString s(local8Bit,len+1);
 	return qt_winMB2TQString(s);
     }
     return qt_winMB2TQString( local8Bit );
 #endif
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     return fromUtf8(local8Bit,len);
 #endif
-#endif // QT_NO_TEXTCODEC
+#endif // TQT_NO_TEXTCODEC
 }
 
 /*!
@@ -6306,7 +6340,7 @@ TQString TQString::fromLocal8Bit( const char* local8Bit, int len )
     Returns ascii(). Be sure to see the warnings documented in the
     ascii() function. Note that for new code which you wish to be
     strictly Unicode-clean, you can define the macro \c
-    QT_NO_ASCII_CAST when compiling your code to hide this function so
+    TQT_NO_ASCII_CAST when compiling your code to hide this function so
     that automatic casts are not done. This has the added advantage
     that you catch the programming error described in operator!().
 */
@@ -6415,19 +6449,19 @@ TQString TQString::fromUcs2( const unsigned short *str )
 */
 
 TQChar& TQString::ref(uint i) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 	d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	if ( (d->count != 1) || (i >= d->len) ) {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 		d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 		subat( i );
 	}
 	else {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 		d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 	}
 	d->setDirty();
 	return d->unicode[i];
@@ -6515,9 +6549,9 @@ TQString& TQString::setUnicode( const TQChar *unicode, uint len )
 		}
 	}
 	else {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 		d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 		if ( d->count != 1 || len > d->maxl || ( len * 4 < d->maxl && d->maxl > 4 ) ) {
 			// detach, grown or shrink
 			uint newMax = computeNewMax( len );
@@ -6525,17 +6559,17 @@ TQString& TQString::setUnicode( const TQChar *unicode, uint len )
 			if ( unicode ) {
 				memcpy( nd, unicode, sizeof(TQChar)*len );
 			}
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 			d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 			deref();
 			d = new TQStringData( nd, len, newMax );
 		}
 		else {
 			d->len = len;
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
 			d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 			d->setDirty();
 			if ( unicode ) {
 				memcpy( d->unicode, unicode, sizeof(TQChar)*len );
@@ -6576,12 +6610,12 @@ TQString& TQString::setUnicodeCodes( const ushort* unicode_as_ushorts, uint len 
 
 TQString &TQString::setAscii( const char *str, int len )
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( TQTextCodec::codecForCStrings() ) {
 	*this = TQString::fromAscii( str, len );
 	return *this;
     }
-#endif // QT_NO_TEXTCODEC
+#endif // TQT_NO_TEXTCODEC
     return setLatin1( str, len );
 }
 
@@ -6725,7 +6759,7 @@ int TQString::localeAwareCompare( const TQString& s ) const
     if ( isEmpty() || s.isEmpty() )
 	return compare( s );
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     int res;
     QT_WA( {
 	const TCHAR* s1 = (TCHAR*)ucs2();
@@ -6745,9 +6779,9 @@ int TQString::localeAwareCompare( const TQString& s ) const
     default:
 	return 0;
     }
-#elif defined(Q_WS_MACX)
+#elif defined(TQ_WS_MACX)
     int delta = 0;
-#if !defined(QT_NO_TEXTCODEC)
+#if !defined(TQT_NO_TEXTCODEC)
     TQTextCodec *codec = TQTextCodec::codecForLocale();
     if (codec)
         delta = strcoll(codec->fromUnicode(*this), codec->fromUnicode(s));
@@ -6755,7 +6789,7 @@ int TQString::localeAwareCompare( const TQString& s ) const
 #endif
 	delta = ucstrcmp(*this, s);
     return delta;
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     // declared in <string.h>
     int delta = strcoll( local8Bit(), s.local8Bit() );
     if ( delta == 0 )
@@ -7099,7 +7133,7 @@ bool operator>=( const char *s1, const TQString &s2 )
 /*****************************************************************************
   TQString stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQString
 
@@ -7204,7 +7238,7 @@ TQDataStream &operator>>( TQDataStream &s, TQString &str )
     }
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 /*****************************************************************************
   TQConstString member functions
@@ -7246,9 +7280,9 @@ TQConstString::TQConstString( const TQChar* unicode, uint length ) :
 */
 TQConstString::~TQConstString()
 {
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
     d->mutex->lock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 
     if ( d->count > 1 ) {
 	TQChar* cp = QT_ALLOC_QCHAR_VEC( d->len );
@@ -7260,9 +7294,9 @@ TQConstString::~TQConstString()
     }
 
     // The original d->unicode is now unlinked.
-#if defined(QT_THREAD_SUPPORT) && defined(MAKE_TQSTRING_THREAD_SAFE)
+#if defined(TQT_THREAD_SUPPORT) && defined(MAKE_QSTRING_THREAD_SAFE)
     d->mutex->unlock();
-#endif // QT_THREAD_SUPPORT && MAKE_TQSTRING_THREAD_SAFE
+#endif // TQT_THREAD_SUPPORT && MAKE_QSTRING_THREAD_SAFE
 }
 
 /*!
@@ -7431,7 +7465,7 @@ TQCString qt_winTQString2MB( const TQString& s, int uclen )
 				0, 0, 0, &used_def));
 		// and try again...
 	} else {
-#ifndef QT_NO_DEBUG
+#ifndef TQT_NO_DEBUG
 	    // Fail.
 	    tqWarning("WideCharToMultiByte cannot convert multibyte text (error %d): %s (UTF8)",
 		r, s.utf8().data());

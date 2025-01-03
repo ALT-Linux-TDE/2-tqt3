@@ -59,7 +59,7 @@
 //
 //
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 // {04903F05-54B1-4726-A849-FB5CB097CA87} 
 #ifndef IID_QImageFormat
@@ -68,7 +68,7 @@
 
 class TQImage;
 
-struct Q_EXPORT TQImageFormatInterface : public TQFeatureListInterface
+struct TQ_EXPORT TQImageFormatInterface : public TQFeatureListInterface
 {
     virtual TQRESULT loadImage( const TQString &format, const TQString &filename, TQImage * ) = 0;
     virtual TQRESULT saveImage( const TQString &format, const TQString &filename, const TQImage & ) = 0;
@@ -76,6 +76,6 @@ struct Q_EXPORT TQImageFormatInterface : public TQFeatureListInterface
     virtual TQRESULT installIOHandler( const TQString & ) = 0;
 };
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 #endif // TQIMAGEFORMATINTERFACE_P_H

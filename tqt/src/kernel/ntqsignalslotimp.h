@@ -47,7 +47,7 @@
 #include "ntqptrvector.h"
 #endif // QT_H
 
-class Q_EXPORT TQConnectionList : public TQPtrList<TQConnection>
+class TQ_EXPORT TQConnectionList : public TQPtrList<TQConnection>
 {
 public:
     TQConnectionList() : TQPtrList<TQConnection>() {}
@@ -57,7 +57,7 @@ public:
 	{ return (TQConnectionList&)TQPtrList<TQConnection>::operator=(list); }
 };
 
-class Q_EXPORT TQConnectionListIt : public TQPtrListIterator<TQConnection>
+class TQ_EXPORT TQConnectionListIt : public TQPtrListIterator<TQConnection>
 {
 public:
     TQConnectionListIt( const TQConnectionList &l ) : TQPtrListIterator<TQConnection>(l) {}
@@ -67,12 +67,12 @@ public:
 
 #if defined(Q_TEMPLATEDLL) && defined(Q_CC_INTEL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrVector<TQConnectionList>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrVector<TQConnectionList>;
 #define Q_EXPORTED_QPTRVECTORCONNECTTIONLIST_TEMPLATES
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQSignalVec : public TQPtrVector<TQConnectionList>
+class TQ_EXPORT TQSignalVec : public TQPtrVector<TQConnectionList>
 {
 public:
     TQSignalVec(int size=17 )

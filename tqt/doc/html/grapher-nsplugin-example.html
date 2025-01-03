@@ -190,16 +190,16 @@ private slots:
     for ( Style s = Pie; styleName[s]; s = Style(s+1)) {
         stylemenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>(styleName[s], s+100);
     }
-<a name="x2767"></a>    <a href="ntqobject.html#connect">connect</a>(stylemenu, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
-        this, SLOT(setStyleFromMenu(int)));
+<a name="x2767"></a>    <a href="ntqobject.html#connect">connect</a>(stylemenu, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)),
+        this, TQ_SLOT(setStyleFromMenu(int)));
     <a href="ntqwidget.html#setStyle">setStyle</a>(Pie);
 
     menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Style", stylemenu);
     menubar-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a>* help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>;
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About plugin...", this, SIGNAL(aboutPlugin()) );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About data...", this, SIGNAL(aboutData()) );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About plugin...", this, TQ_SIGNAL(aboutPlugin()) );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About data...", this, TQ_SIGNAL(aboutData()) );
     menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Help", help);
 <a name="x2745"></a>    menubar-&gt;<a href="ntqmenubar.html#hide">hide</a>();
 }
@@ -532,8 +532,8 @@ int <a name="f573"></a>Grapher::nCols() const
 <a name="x2775"></a>    int ptsize = fontsize ? atoi(fontsize) : graph-&gt;<a href="ntqwidget.html#font">font</a>().pointSize();
     if (fontfamily) graph-&gt;<a href="ntqwidget.html#setFont">setFont</a>(TQFont(fontfamily, ptsize));
 
-    <a href="ntqobject.html#connect">connect</a>(graph, SIGNAL(aboutPlugin()), this, SLOT(aboutPlugin()));
-    <a href="ntqobject.html#connect">connect</a>(graph, SIGNAL(aboutData()), this, SLOT(aboutData()));
+    <a href="ntqobject.html#connect">connect</a>(graph, TQ_SIGNAL(aboutPlugin()), this, TQ_SLOT(aboutPlugin()));
+    <a href="ntqobject.html#connect">connect</a>(graph, TQ_SIGNAL(aboutData()), this, TQ_SLOT(aboutData()));
 
     return graph;
 }

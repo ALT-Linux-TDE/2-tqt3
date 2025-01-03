@@ -45,7 +45,7 @@ else
 	done
 	if [ -z "$F" ]; then
 	    CUPS=no
-	    [ "VERBOSE" = "yes" ] && echo "  Could not find CUPS lib anywhere in $LIBDIRS"
+	    [ "$VERBOSE" = "yes" ] && echo "  Could not find CUPS lib anywhere in $LIBDIRS"
 	fi
     done
 fi

@@ -57,11 +57,11 @@ ProgressBar::ProgressBar( TQWidget *parent, const char *name )
     toplayout->addMultiCellWidget( progress, 1, 1, 0, 1 );
 
     // connect the clicked() SIGNALs of the pushbuttons to SLOTs
-    connect( start, SIGNAL( clicked() ), this, SLOT( slotStart() ) );
-    connect( reset, SIGNAL( clicked() ), this, SLOT( slotReset() ) );
+    connect( start, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotStart() ) );
+    connect( reset, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotReset() ) );
 
-    // connect the timeout() SIGNAL of the progress-timer to a SLOT
-    connect( &timer, SIGNAL( timeout() ), this, SLOT( slotTimeout() ) );
+    // connect the timeout() TQ_SIGNAL of the progress-timer to a TQ_SLOT
+    connect( &timer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( slotTimeout() ) );
 
     // Let's start with normal speed...
     normal->setChecked( TRUE );
@@ -73,9 +73,9 @@ ProgressBar::ProgressBar( TQWidget *parent, const char *name )
 }
 
 /*
- * SLOT slotStart
+ * TQ_SLOT slotStart
  *
- * This SLOT is called if the user clicks start/pause/continue
+ * This TQ_SLOT is called if the user clicks start/pause/continue
  * button
  */
 
@@ -113,9 +113,9 @@ void ProgressBar::slotStart()
 }
 
 /*
- * SLOT slotReset
+ * TQ_SLOT slotReset
  *
- * This SLOT is called when the user clicks the reset button
+ * This TQ_SLOT is called when the user clicks the reset button
  */
 
 void ProgressBar::slotReset()
@@ -138,9 +138,9 @@ void ProgressBar::slotReset()
 }
 
 /*
- * SLOT slotTimeout
+ * TQ_SLOT slotTimeout
  *
- * This SLOT is called each ms when the timer is
+ * This TQ_SLOT is called each ms when the timer is
  * active (== progress is running)
  */
 

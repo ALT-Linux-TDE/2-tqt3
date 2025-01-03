@@ -50,10 +50,10 @@
 #if !defined( TQT_MODULE_NETWORK ) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_NETWORK )
 #define TQM_EXPORT_NETWORK
 #else
-#define TQM_EXPORT_NETWORK Q_EXPORT
+#define TQM_EXPORT_NETWORK TQ_EXPORT
 #endif
 
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 class TQSocketPrivate;
 class TQSocketDevice;
 
@@ -82,7 +82,7 @@ public:
     TQSocketDevice *socketDevice();
     virtual void setSocketDevice( TQSocketDevice * );
 
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
     virtual void connectToHost( const TQString &host, TQ_UINT16 port );
 #endif
     TQString	 peerName() const;
@@ -152,5 +152,5 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif //QT_NO_NETWORK
+#endif //TQT_NO_NETWORK
 #endif // TQSOCKET_H

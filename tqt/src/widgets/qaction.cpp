@@ -38,7 +38,7 @@
 
 #include "ntqaction.h"
 
-#ifndef QT_NO_ACTION
+#ifndef TQT_NO_ACTION
 
 #include "ntqtoolbar.h"
 #include "ntqptrlist.h"
@@ -134,7 +134,7 @@ public:
     TQString tooltip;
     TQString statustip;
     TQString whatsthis;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQKeySequence key;
     TQAccel* accel;
     int accelid;
@@ -145,7 +145,7 @@ public:
     uint on : 1;
     uint forceDisabled : 1;
     uint forceInvisible : 1;
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTipGroup tipGroup;
 #endif
     TQActionGroupPrivate* d_group;
@@ -178,19 +178,19 @@ public:
 
 TQActionPrivate::TQActionPrivate(TQAction *act)
     : iconset( 0 ),
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
       key( 0 ), accel( 0 ), accelid( 0 ),
 #endif
       enabled( TRUE ), visible( TRUE ), toggleaction( FALSE ), on( FALSE ),
       forceDisabled( FALSE ), forceInvisible( FALSE ),
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
       tipGroup( 0 ),
 #endif
       d_group( 0 ), action(act)
 {
     menuitems.setAutoDelete( TRUE );
     comboitems.setAutoDelete( TRUE );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     tipGroup.setDelay( FALSE );
 #endif
 }
@@ -241,7 +241,7 @@ TQActionPrivate::~TQActionPrivate()
 	delete siblings;
     }
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     delete accel;
 #endif
     delete iconset;
@@ -275,7 +275,7 @@ void TQActionPrivate::update( uint upd )
     for ( TQPtrListIterator<MenuItem> it( menuitems); it.current(); ++it ) {
 	MenuItem* mi = it.current();
 	TQString t = menuText();
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	if ( key )
 	    t += '\t' + TQAccel::keyToString( key );
 #endif
@@ -322,18 +322,18 @@ void TQActionPrivate::update( uint upd )
 	    btn->setToggleButton( toggleaction );
 	    if ( !text.isEmpty() )
 		btn->setTextLabel( text, FALSE );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	    TQToolTip::remove( btn );
 	    TQToolTip::add( btn, toolTip(), &tipGroup, statusTip() );
 #endif
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	    TQWhatsThis::remove( btn );
 	    if ( !whatsthis.isEmpty() )
 		TQWhatsThis::add( btn, whatsthis );
 #endif
 	}
     }
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( accel ) {
 	accel->setEnabled( enabled && visible );
 	if ( !whatsthis.isEmpty() )
@@ -365,7 +365,7 @@ TQString TQActionPrivate::menuText() const
 TQString TQActionPrivate::toolTip() const
 {
     if ( tooltip.isNull() ) {
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	if ( accel )
 	    return text + " (" + TQAccel::keyToString( accel->key( accelid )) + ")";
 #endif
@@ -431,7 +431,7 @@ TQAction::TQAction( TQObject* parent, const char* name, bool toggle )
 }
 
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 /*!
     This constructor creates an action with the following properties:
@@ -597,7 +597,7 @@ TQAction::~TQAction()
 */
 void TQAction::setIconSet( const TQIconSet& icon )
 {
-    register TQIconSet *i = d->iconset;
+    TQIconSet *i = d->iconset;
     if ( !icon.isNull() )
 	d->iconset = new TQIconSet( icon );
     else
@@ -748,7 +748,7 @@ TQString TQAction::whatsThis() const
 }
 
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 /*!
     \property TQAction::accel
     \brief the action's accelerator key
@@ -782,7 +782,7 @@ void TQAction::setAccel( const TQKeySequence& key )
     if ( p ) {
 	d->accel = new TQAccel( (TQWidget*)p, this, "qt_action_accel" );
 	d->accelid = d->accel->insertItem( d->key );
-	d->accel->connectItem( d->accelid, this, SLOT( internalActivation() ) );
+	d->accel->connectItem( d->accelid, this, TQ_SLOT( internalActivation() ) );
     }
 #if defined(QT_CHECK_STATE)
     else
@@ -1008,7 +1008,7 @@ void TQAction::toolButtonToggled( bool on )
 */
 bool TQAction::addTo( TQWidget* w )
 {
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     if ( ::tqt_cast<TQToolBar*>(w) ) {
 	if ( !qstrcmp( name(), "qt_separator_action" ) ) {
 	    ((TQToolBar*)w)->addSeparator();
@@ -1021,12 +1021,12 @@ bool TQAction::addTo( TQWidget* w )
 	    if ( d->iconset )
 		btn->setIconSet( *d->iconset );
 	    d->update( TQActionPrivate::State | TQActionPrivate::Visibility | TQActionPrivate::EverythingElse ) ;
-	    connect( btn, SIGNAL( clicked() ), this, SIGNAL( activated() ) );
-	    connect( btn, SIGNAL( toggled(bool) ), this, SLOT( toolButtonToggled(bool) ) );
-	    connect( btn, SIGNAL( destroyed() ), this, SLOT( objectDestroyed() ) );
-#ifndef QT_NO_TOOLTIP
-	    connect( &(d->tipGroup), SIGNAL(showTip(const TQString&)), this, SLOT(showStatusText(const TQString&)) );
-	    connect( &(d->tipGroup), SIGNAL(removeTip()), this, SLOT(clearStatusText()) );
+	    connect( btn, TQ_SIGNAL( clicked() ), this, TQ_SIGNAL( activated() ) );
+	    connect( btn, TQ_SIGNAL( toggled(bool) ), this, TQ_SLOT( toolButtonToggled(bool) ) );
+	    connect( btn, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( objectDestroyed() ) );
+#ifndef TQT_NO_TOOLTIP
+	    connect( &(d->tipGroup), TQ_SIGNAL(showTip(const TQString&)), this, TQ_SLOT(showStatusText(const TQString&)) );
+	    connect( &(d->tipGroup), TQ_SIGNAL(removeTip()), this, TQ_SLOT(clearStatusText()) );
 #endif
 	}
     } else
@@ -1042,18 +1042,18 @@ bool TQAction::addTo( TQWidget* w )
 	else
 	    mi->id = mi->popup->insertItem( TQString::fromLatin1("") );
 	addedTo( mi->popup->indexOf( mi->id ), mi->popup );
-	mi->popup->connectItem( mi->id, this, SLOT(internalActivation()) );
+	mi->popup->connectItem( mi->id, this, TQ_SLOT(internalActivation()) );
 	d->menuitems.append( mi );
 	d->update( TQActionPrivate::State | TQActionPrivate::Visibility | TQActionPrivate::EverythingElse ) ;
 	w->topLevelWidget()->className();
-	connect( mi->popup, SIGNAL(highlighted(int)), this, SLOT(menuStatusText(int)) );
-	connect( mi->popup, SIGNAL(aboutToHide()), this, SLOT(clearStatusText()) );
-	connect( mi->popup, SIGNAL( destroyed() ), this, SLOT( objectDestroyed() ) );
+	connect( mi->popup, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(menuStatusText(int)) );
+	connect( mi->popup, TQ_SIGNAL(aboutToHide()), this, TQ_SLOT(clearStatusText()) );
+	connect( mi->popup, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( objectDestroyed() ) );
     // Makes only sense when called by TQActionGroup::addTo
     } else if ( ::tqt_cast<TQComboBox*>(w) ) {
 	TQActionPrivate::ComboItem *ci = new TQActionPrivate::ComboItem;
 	ci->combo = (TQComboBox*)w;
-	connect( ci->combo, SIGNAL( destroyed() ), this, SLOT( objectDestroyed() ) );
+	connect( ci->combo, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( objectDestroyed() ) );
 	ci->id = ci->combo->count();
 	if ( qstrcmp( name(), "qt_separator_action" ) ) {
 	    if ( d->iconset )
@@ -1104,7 +1104,7 @@ void TQAction::addedTo( int index, TQPopupMenu *menu )
 */
 void TQAction::showStatusText( const TQString& text )
 {
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
     // find out whether we are clearing the status bar by the popup that actually set the text
     static TQPopupMenu *lastmenu = 0;
     TQObject *s = (TQObject*)sender();
@@ -1188,7 +1188,7 @@ void TQAction::clearStatusText()
 */
 bool TQAction::removeFrom( TQWidget* w )
 {
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     if ( ::tqt_cast<TQToolBar*>(w) ) {
 	TQPtrListIterator<TQToolButton> it( d->toolbuttons);
 	TQToolButton* btn;
@@ -1196,7 +1196,7 @@ bool TQAction::removeFrom( TQWidget* w )
 	    ++it;
 	    if ( btn->parentWidget() == w ) {
 		d->toolbuttons.removeRef( btn );
-		disconnect( btn, SIGNAL( destroyed() ), this, SLOT( objectDestroyed() ) );
+		disconnect( btn, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( objectDestroyed() ) );
 		delete btn;
 		// no need to disconnect from statusbar
 	    }
@@ -1209,9 +1209,9 @@ bool TQAction::removeFrom( TQWidget* w )
 	while ( ( mi = it.current() ) ) {
 	    ++it;
 	    if ( mi->popup == w ) {
-		disconnect( mi->popup, SIGNAL(highlighted(int)), this, SLOT(menuStatusText(int)) );
-		disconnect( mi->popup, SIGNAL(aboutToHide()), this, SLOT(clearStatusText()) );
-		disconnect( mi->popup, SIGNAL( destroyed() ), this, SLOT( objectDestroyed() ) );
+		disconnect( mi->popup, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(menuStatusText(int)) );
+		disconnect( mi->popup, TQ_SIGNAL(aboutToHide()), this, TQ_SLOT(clearStatusText()) );
+		disconnect( mi->popup, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( objectDestroyed() ) );
 		mi->popup->removeItem( mi->id );
 		d->menuitems.removeRef( mi );
 	    }
@@ -1222,7 +1222,7 @@ bool TQAction::removeFrom( TQWidget* w )
 	while ( ( ci = it.current() ) ) {
 	    ++it;
 	    if ( ci->combo == w ) {
-		disconnect( ci->combo, SIGNAL(destroyed()), this, SLOT(objectDestroyed()) );
+		disconnect( ci->combo, TQ_SIGNAL(destroyed()), this, TQ_SLOT(objectDestroyed()) );
 		d->comboitems.removeRef( ci );
 	    }
 	}
@@ -1313,12 +1313,12 @@ void TQActionGroupPrivate::update( const TQActionGroup* that )
 	combobox->setEnabled( that->isEnabled() );
 	combobox->setShown( that->isVisible() );
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	TQToolTip::remove( combobox );
 	if ( !!that->toolTip() )
 	    TQToolTip::add( combobox, that->toolTip() );
 #endif
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	TQWhatsThis::remove( combobox );
 	if ( !!that->whatsThis() )
 	    TQWhatsThis::add( combobox, that->whatsThis() );
@@ -1335,12 +1335,12 @@ void TQActionGroupPrivate::update( const TQActionGroup* that )
 	if ( !that->iconSet().isNull() )
 	    button->setIconSet( that->iconSet() );
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	TQToolTip::remove( mb.current() );
 	if ( !!that->toolTip() )
 	    TQToolTip::add( button, that->toolTip() );
 #endif
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	TQWhatsThis::remove( button );
 	if ( !!that->whatsThis() )
 	    TQWhatsThis::add( button, that->whatsThis() );
@@ -1370,7 +1370,7 @@ void TQActionGroupPrivate::update( const TQActionGroup* that )
 	else
 	    parent->changeItem( id, that->menuText() );
 	parent->setItemEnabled( id, that->isEnabled() );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	parent->setAccel( that->accel(), id );
 #endif
     }
@@ -1448,7 +1448,7 @@ TQActionGroup::TQActionGroup( TQObject* parent, const char* name )
     d->separatorAction = 0;
     TQAction::d->d_group = d;
 
-    connect( this, SIGNAL(selected(TQAction*)), SLOT(internalToggle(TQAction*)) );
+    connect( this, TQ_SIGNAL(selected(TQAction*)), TQ_SLOT(internalToggle(TQAction*)) );
 }
 
 /*!
@@ -1469,7 +1469,7 @@ TQActionGroup::TQActionGroup( TQObject* parent, const char* name, bool exclusive
     d->separatorAction = 0;
     TQAction::d->d_group = d;
 
-    connect( this, SIGNAL(selected(TQAction*)), SLOT(internalToggle(TQAction*)) );
+    connect( this, TQ_SIGNAL(selected(TQAction*)), TQ_SLOT(internalToggle(TQAction*)) );
 }
 
 /*!
@@ -1483,26 +1483,26 @@ TQActionGroup::~TQActionGroup()
 	TQActionGroupPrivate::MenuItem *mi = mit.current();
 	++mit;
 	if ( mi->popup )
-	    mi->popup->disconnect( SIGNAL(destroyed()), this, SLOT(objectDestroyed()) );
+	    mi->popup->disconnect( TQ_SIGNAL(destroyed()), this, TQ_SLOT(objectDestroyed()) );
     }
 
     TQPtrListIterator<TQComboBox> cbit( d->comboboxes );
     while ( cbit.current() ) {
 	TQComboBox *cb = cbit.current();
 	++cbit;
-	cb->disconnect(  SIGNAL(destroyed()), this, SLOT(objectDestroyed()) );
+	cb->disconnect(  TQ_SIGNAL(destroyed()), this, TQ_SLOT(objectDestroyed()) );
     }
     TQPtrListIterator<TQToolButton> mbit( d->menubuttons );
     while ( mbit.current() ) {
 	TQToolButton *mb = mbit.current();
 	++mbit;
-	mb->disconnect(  SIGNAL(destroyed()), this, SLOT(objectDestroyed()) );
+	mb->disconnect(  TQ_SIGNAL(destroyed()), this, TQ_SLOT(objectDestroyed()) );
     }
     TQPtrListIterator<TQPopupMenu> pmit( d->popupmenus );
     while ( pmit.current() ) {
 	TQPopupMenu *pm = pmit.current();
 	++pmit;
-	pm->disconnect(  SIGNAL(destroyed()), this, SLOT(objectDestroyed()) );
+	pm->disconnect(  TQ_SIGNAL(destroyed()), this, TQ_SLOT(objectDestroyed()) );
     }
 
     delete d->separatorAction;
@@ -1593,9 +1593,9 @@ void TQActionGroup::add( TQAction* action )
     if (!action->d->forceInvisible)
 	action->d->visible = isVisible();
 
-    connect( action, SIGNAL( destroyed() ), this, SLOT( childDestroyed() ) );
-    connect( action, SIGNAL( activated() ), this, SIGNAL( activated() ) );
-    connect( action, SIGNAL( toggled(bool) ), this, SLOT( childToggled(bool) ) );
+    connect( action, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( childDestroyed() ) );
+    connect( action, TQ_SIGNAL( activated() ), this, TQ_SIGNAL( activated() ) );
+    connect( action, TQ_SIGNAL( toggled(bool) ), this, TQ_SLOT( childToggled(bool) ) );
 
     for ( TQPtrListIterator<TQComboBox> cb( d->comboboxes ); cb.current(); ++cb ) {
 	action->addTo( cb.current() );
@@ -1654,7 +1654,7 @@ void TQActionGroup::addSeparator()
 */
 bool TQActionGroup::addTo( TQWidget* w )
 {
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     if ( ::tqt_cast<TQToolBar*>(w) ) {
 	if ( d->dropdown ) {
 	    if ( !d->exclusive ) {
@@ -1666,7 +1666,7 @@ bool TQActionGroup::addTo( TQWidget* w )
 
 		TQToolButton* btn = new TQToolButton( (TQToolBar*) w, "qt_actiongroup_btn" );
 		addedTo( btn, w );
-		connect( btn, SIGNAL(destroyed()), SLOT(objectDestroyed()) );
+		connect( btn, TQ_SIGNAL(destroyed()), TQ_SLOT(objectDestroyed()) );
 		d->menubuttons.append( btn );
 
 		if ( !iconSet().isNull() )
@@ -1677,22 +1677,22 @@ bool TQActionGroup::addTo( TQWidget* w )
 		    btn->setTextLabel( text() );
 		else if ( !!defAction->text() )
 		    btn->setTextLabel( defAction->text() );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 		if ( !!toolTip() )
 		    TQToolTip::add( btn, toolTip() );
 		else if ( !!defAction->toolTip() )
 		    TQToolTip::add( btn, defAction->toolTip() );
 #endif
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 		if ( !!whatsThis() )
 		    TQWhatsThis::add( btn, whatsThis() );
 		else if ( !!defAction->whatsThis() )
 		    TQWhatsThis::add( btn, defAction->whatsThis() );
 #endif
 
-		connect( btn, SIGNAL( clicked() ), defAction, SIGNAL( activated() ) );
-		connect( btn, SIGNAL( toggled(bool) ), defAction, SLOT( toolButtonToggled(bool) ) );
-		connect( btn, SIGNAL( destroyed() ), defAction, SLOT( objectDestroyed() ) );
+		connect( btn, TQ_SIGNAL( clicked() ), defAction, TQ_SIGNAL( activated() ) );
+		connect( btn, TQ_SIGNAL( toggled(bool) ), defAction, TQ_SLOT( toolButtonToggled(bool) ) );
+		connect( btn, TQ_SIGNAL( destroyed() ), defAction, TQ_SLOT( objectDestroyed() ) );
 
 		TQPopupMenu *menu = new TQPopupMenu( btn, "qt_actiongroup_menu" );
 		btn->setPopupDelay( 0 );
@@ -1707,13 +1707,13 @@ bool TQActionGroup::addTo( TQWidget* w )
 	    } else {
 		TQComboBox *box = new TQComboBox( FALSE, w, "qt_actiongroup_combo" );
 		addedTo( box, w );
-		connect( box, SIGNAL(destroyed()), SLOT(objectDestroyed()) );
+		connect( box, TQ_SIGNAL(destroyed()), TQ_SLOT(objectDestroyed()) );
 		d->comboboxes.append( box );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 		if ( !!toolTip() )
 		    TQToolTip::add( box, toolTip() );
 #endif
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 		if ( !!whatsThis() )
 		    TQWhatsThis::add( box, whatsThis() );
 #endif
@@ -1730,8 +1730,8 @@ bool TQActionGroup::addTo( TQWidget* w )
 		}
 		if ( foundOn )
 		    box->setCurrentItem( onIndex );
-		connect( box, SIGNAL(activated(int)), this, SLOT( internalComboBoxActivated(int)) );
-		connect( box, SIGNAL(highlighted(int)), this, SLOT( internalComboBoxHighlighted(int)) );
+		connect( box, TQ_SIGNAL(activated(int)), this, TQ_SLOT( internalComboBoxActivated(int)) );
+		connect( box, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT( internalComboBoxHighlighted(int)) );
 		d->update( this );
 		return TRUE;
 	    }
@@ -1744,7 +1744,7 @@ bool TQActionGroup::addTo( TQWidget* w )
 	    TQPopupMenu *menu = (TQPopupMenu*)w;
 	    popup = new TQPopupMenu( w, "qt_actiongroup_menu" );
 	    d->popupmenus.append( popup );
-	    connect( popup, SIGNAL(destroyed()), SLOT(objectDestroyed()) );
+	    connect( popup, TQ_SIGNAL(destroyed()), TQ_SLOT(objectDestroyed()) );
 
 	    int id;
 	    if ( !iconSet().isNull() ) {
@@ -1791,7 +1791,7 @@ bool TQActionGroup::removeFrom( TQWidget* w )
 	it.current()->removeFrom( w );
     }
 
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     if ( ::tqt_cast<TQToolBar*>(w) ) {
 	TQPtrListIterator<TQComboBox> cb( d->comboboxes );
 	while( cb.current() ) {

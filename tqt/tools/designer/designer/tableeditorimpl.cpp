@@ -32,7 +32,7 @@
 **********************************************************************/
 
 #include "tableeditorimpl.h"
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 #include <ntqtable.h>
 #endif
 #include "formwindow.h"
@@ -53,17 +53,17 @@
 
 TableEditor::TableEditor( TQWidget* parent,  TQWidget *editWidget, FormWindow *fw, const char* name, bool modal, WFlags fl )
     : TableEditorBase( parent, name, modal, fl ),
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     editTable( (TQTable*)editWidget ),
 #endif
     formWindow( fw )
 {
-    connect( buttonHelp, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
-#ifndef QT_NO_TABLE
+    connect( buttonHelp, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
+#ifndef TQT_NO_TABLE
     labelColumnPixmap->setText( "" );
     labelRowPixmap->setText( "" );
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( !::tqt_cast<TQDataTable*>(editTable) ) 
 #endif
     {
@@ -72,7 +72,7 @@ TableEditor::TableEditor( TQWidget* parent,  TQWidget *editWidget, FormWindow *f
 	labelTable->hide();
 	labelTableValue->hide();
     }
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( ::tqt_cast<TQDataTable*>(editTable) ) {
 	// ## why does this behave weird?
 	//	TabWidget->removePage( rows_tab );
@@ -126,7 +126,7 @@ void TableEditor::columnTextChanged( const TQString &s )
     listColumns->blockSignals( TRUE );
     listColumns->changeItem( s, listColumns->currentItem() );
     listColumns->blockSignals( FALSE );
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     if ( table->horizontalHeader()->iconSet( listColumns->currentItem() ) )
 	table->horizontalHeader()->setLabel( listColumns->currentItem(),
 					     *table->horizontalHeader()->iconSet( listColumns->currentItem() ), s );
@@ -163,7 +163,7 @@ void TableEditor::currentColumnChanged( TQListBoxItem *i )
 	labelColumnPixmap->setText( "" );
     editColumnText->blockSignals( FALSE );
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( ::tqt_cast<TQDataTable*>(editTable) ) {
 	TQString s = *fieldMap.find( listColumns->index( i ) );
 	if ( s.isEmpty() )
@@ -206,7 +206,7 @@ void TableEditor::deleteColumnClicked()
 {
     if ( listColumns->currentItem() == -1 )
 	return;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     table->setNumCols( table->numCols() - 1 );
     delete listColumns->item( listColumns->currentItem() );
     readColumns();
@@ -221,7 +221,7 @@ void TableEditor::deleteRowClicked()
 {
     if ( listRows->currentItem() == -1 )
 	return;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     table->setNumRows( table->numRows() - 1 );
     delete listRows->item( listRows->currentItem() );
     readRows();
@@ -234,7 +234,7 @@ void TableEditor::deleteRowClicked()
 
 void TableEditor::newColumnClicked()
 {
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     table->setNumCols( table->numCols() + 1 );
     TQMap<TQString, bool> m;
     for ( int i = 0; i < table->numCols() - 1; ++i )
@@ -248,7 +248,7 @@ void TableEditor::newColumnClicked()
     TQListBoxItem *item = listColumns->item( listColumns->count() - 1 );
     listColumns->setCurrentItem( item );
     listColumns->setSelected( item, TRUE );
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( ::tqt_cast<TQDataTable*>(editTable) ) {
 	comboFields->setFocus();
     } else
@@ -262,7 +262,7 @@ void TableEditor::newColumnClicked()
 
 void TableEditor::newRowClicked()
 {
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     table->setNumRows( table->numRows() + 1 );
     TQMap<TQString, bool> m;
     for ( int i = 0; i < table->numRows() - 1; ++i )
@@ -303,7 +303,7 @@ void TableEditor::rowTextChanged( const TQString &s )
 {
     if ( listRows->currentItem() == -1 )
 	return;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     listRows->blockSignals(TRUE);
     listRows->changeItem( s, listRows->currentItem() );
     listRows->blockSignals(FALSE);
@@ -334,7 +334,7 @@ void TableEditor::applyClicked()
     TQValueList<PopulateTableCommand::Column> cols;
 
     int i = 0;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     for ( i = 0; i < table->horizontalHeader()->count(); ++i ) {
 	PopulateTableCommand::Column col;
 	col.text = table->horizontalHeader()->label( i );
@@ -370,7 +370,7 @@ void TableEditor::chooseRowPixmapClicked()
     if ( pix.isNull() )
 	return;
 
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     table->verticalHeader()->setLabel( listRows->currentItem(), pix, table->verticalHeader()->label( listRows->currentItem() ) );
     listRows->changeItem( pix, listRows->currentText(), listRows->currentItem() );
 #endif
@@ -380,7 +380,7 @@ void TableEditor::deleteRowPixmapClicked()
 {
     if ( listRows->currentItem() == -1 )
 	return;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     table->verticalHeader()->setLabel( listRows->currentItem(), TQPixmap(), table->verticalHeader()->label( listRows->currentItem() ) );
     listRows->changeItem( listRows->currentText(), listRows->currentItem() );
 #endif
@@ -398,7 +398,7 @@ void TableEditor::chooseColPixmapClicked()
 
     if ( pix.isNull() )
 	return;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     table->horizontalHeader()->setLabel( listColumns->currentItem(), pix, table->horizontalHeader()->label( listColumns->currentItem() ) );
     listColumns->changeItem( pix, listColumns->currentText(), listColumns->currentItem() );
 #endif
@@ -408,7 +408,7 @@ void TableEditor::deleteColPixmapClicked()
 {
     if ( listColumns->currentItem() == -1 )
 	return;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     table->horizontalHeader()->setLabel( listColumns->currentItem(), TQPixmap(), table->horizontalHeader()->label( listColumns->currentItem() ) );
     listColumns->changeItem( listColumns->currentText(), listColumns->currentItem() );
 #endif
@@ -416,7 +416,7 @@ void TableEditor::deleteColPixmapClicked()
 
 void TableEditor::readFromTable()
 {
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     TQHeader *cols = editTable->horizontalHeader();
     table->setNumCols( cols->count() );
     TQMap<TQString, TQString> columnFields = MetaDataBase::columnFields( editTable );
@@ -463,7 +463,7 @@ void TableEditor::readFromTable()
 void TableEditor::readColumns()
 {
     int j = 0;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     for ( TQListBoxItem *i = listColumns->firstItem(); i; i = i->next(), ++j ) {
 	if ( i->pixmap() )
 	    table->horizontalHeader()->setLabel( j, *i->pixmap(), i->text() );
@@ -476,7 +476,7 @@ void TableEditor::readColumns()
 void TableEditor::readRows()
 {
     int j = 0;
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     for ( TQListBoxItem *i = listRows->firstItem(); i; i = i->next(), ++j ) {
 	if ( i->pixmap() )
 	    table->verticalHeader()->setLabel( j, *i->pixmap(), i->text() );

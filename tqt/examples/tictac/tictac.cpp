@@ -73,7 +73,7 @@ TicTacGameBoard::TicTacGameBoard( int n, TQWidget *parent, const char *name )
 	TicTacButton *ttb = new TicTacButton( this );
 	ttb->setPalette( p );
 	ttb->setEnabled( FALSE );
-	connect( ttb, SIGNAL(clicked()), SLOT(buttonClicked()) );
+	connect( ttb, TQ_SIGNAL(clicked()), TQ_SLOT(buttonClicked()) );
 	grid->addWidget( ttb, i%nBoard, i/nBoard );
 	buttons->insert( i, ttb );
 	btArray->at(i) = TicTacButton::Blank;	// initial button type
@@ -120,7 +120,7 @@ void TicTacGameBoard::newGame()
 
 
 // --------------------------------------------------------------------------
-// TicTacGameBoard::buttonClicked()		- SLOT
+// TicTacGameBoard::buttonClicked()		- TQ_SLOT
 //
 // This slot is activated when a TicTacButton emits the signal "clicked()",
 // i.e. the user has clicked on a TicTacButton.
@@ -301,7 +301,7 @@ TicTacToe::TicTacToe( int boardSize, TQWidget *parent, const char *name )
     // gameOver() slot
 
     board = new TicTacGameBoard( boardSize, this );
-    connect( board, SIGNAL(finished()), SLOT(gameOver()) );
+    connect( board, TQ_SIGNAL(finished()), TQ_SLOT(gameOver()) );
     l->addWidget( board );
 
     // Create a horizontal frame line
@@ -322,9 +322,9 @@ TicTacToe::TicTacToe( int boardSize, TQWidget *parent, const char *name )
     // to this right slots.
 
     newGame = new TQPushButton( "Play!", this );
-    connect( newGame, SIGNAL(clicked()), SLOT(newGameClicked()) );
+    connect( newGame, TQ_SIGNAL(clicked()), TQ_SLOT(newGameClicked()) );
     quit = new TQPushButton( "Quit", this );
-    connect( quit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
     TQHBoxLayout * b = new TQHBoxLayout;
     l->addLayout( b );
     b->addWidget( newGame );
@@ -335,7 +335,7 @@ TicTacToe::TicTacToe( int boardSize, TQWidget *parent, const char *name )
 
 
 // --------------------------------------------------------------------------
-// TicTacToe::newGameClicked()			- SLOT
+// TicTacToe::newGameClicked()			- TQ_SLOT
 //
 // This slot is activated when the new game button is clicked.
 //
@@ -349,7 +349,7 @@ void TicTacToe::newGameClicked()
 
 
 // --------------------------------------------------------------------------
-// TicTacToe::gameOver()			- SLOT
+// TicTacToe::gameOver()			- TQ_SLOT
 //
 // This slot is activated when the TicTacGameBoard emits the signal
 // "finished()", i.e. when a player has won or when it is a draw.

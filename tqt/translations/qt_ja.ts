@@ -290,11 +290,11 @@
         <translation>QT_LAYOUT_DIRECTION</translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>実行可能ファイル「%1」には Qt %2 が必要です。Qt %3 が見つかりました。</translation>
+        <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+        <translation>実行可能ファイル「%1」には TQt %2 が必要です。Qt %3 が見つかりました。</translation>
     </message>
     <message>
-        <source>Incompatible Qt Library Error</source>
+        <source>Incompatible TQt Library Error</source>
         <translation>互換性のないQtライブラリエラー</translation>
     </message>
 </context>
@@ -1263,8 +1263,8 @@ to
         <translation>無視(&amp;I)</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Qtについて&lt;/h3&gt;&lt;p&gt;このプログラムではQtバージョン %1 を使用しています。&lt;/p&gt;&lt;p&gt;Qtは、マルチプラットフォームGUIアプリケーション開発用のC++ツールキットです。 &lt;/p&gt;&lt;p&gt;Qtは、MS&amp;nbsp;Windows、Mac&amp;nbsp;OS&amp;nbsp;X、Linux、およびあらゆる主要な商用のUnix製品に対して、シングルソースのポータビリティを提供します。&lt;br&gt;Qtは内蔵デバイスでも使用できます。&lt;/p&gt;&lt;p&gt;QtはTrolltech製品です。詳細については、&lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt;を参照してください。.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Qtについて&lt;/h3&gt;&lt;p&gt;このプログラムではQtバージョン %1 を使用しています。&lt;/p&gt;&lt;p&gt;Qtは、マルチプラットフォームGUIアプリケーション開発用のC++ツールキットです。 &lt;/p&gt;&lt;p&gt;Qtは、MS&amp;nbsp;Windows、Mac&amp;nbsp;OS&amp;nbsp;X、Linux、およびあらゆる主要な商用のUnix製品に対して、シングルソースのポータビリティを提供します。&lt;br&gt;Qtは内蔵デバイスでも使用できます。&lt;/p&gt;&lt;p&gt;QtはTrolltech製品です。詳細については、&lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;を参照してください。.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>

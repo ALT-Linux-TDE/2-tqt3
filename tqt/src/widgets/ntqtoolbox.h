@@ -46,12 +46,12 @@
 #include <ntqiconset.h>
 #endif // QT_H
 
-#ifndef QT_NO_TOOLBOX
+#ifndef TQT_NO_TOOLBOX
 
 class TQToolBoxPrivate;
 class TQWidgetList;
 
-class Q_EXPORT TQToolBox : public TQFrame
+class TQ_EXPORT TQToolBox : public TQFrame
 {
     TQ_OBJECT
     TQ_PROPERTY( int currentIndex READ currentIndex WRITE setCurrentIndex )
@@ -122,5 +122,5 @@ inline int TQToolBox::addItem( TQWidget *item, const TQIconSet &iconSet,
 inline int TQToolBox::insertItem( int index, TQWidget *item, const TQString &label )
 { return insertItem( index, item, TQIconSet(), label ); }
 
-#endif // QT_NO_TOOLBOX
+#endif // TQT_NO_TOOLBOX
 #endif

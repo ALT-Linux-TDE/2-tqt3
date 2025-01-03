@@ -123,10 +123,6 @@ template&lt;class type&gt; inline void TQPtrStack&lt;type&gt;::deleteItem( TQPtr
     if ( del_item ) delete (type *)d;
 }
 
-#ifndef QT_NO_COMPAT
-#define TQStack TQPtrStack
-#endif
-
 #endif // TQPTRSTACK_H
 </pre>
 <!-- eof -->

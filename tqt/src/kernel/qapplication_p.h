@@ -65,12 +65,12 @@ class TQKeyEvent;
 class TQMouseEvent;
 class TQWheelEvent;
 
-extern Q_EXPORT bool tqt_modal_state();
-extern Q_EXPORT void tqt_enter_modal( TQWidget* );
-extern Q_EXPORT void tqt_leave_modal( TQWidget* );
+extern TQ_EXPORT bool tqt_modal_state();
+extern TQ_EXPORT void tqt_enter_modal( TQWidget* );
+extern TQ_EXPORT void tqt_leave_modal( TQWidget* );
 
 extern bool tqt_is_gui_used;
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 extern TQClipboard *tqt_clipboard;
 #endif
 
@@ -84,7 +84,7 @@ const int QT_TABLET_NPACKETQSIZE = 128;
 extern TQt::MacintoshVersion qt_macver;
 #endif
 
-#if defined (Q_WS_X11)
+#if defined (TQ_WS_X11)
 extern int qt_ncols_option;
 #endif
 

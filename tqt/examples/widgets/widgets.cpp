@@ -132,7 +132,7 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     // put something in it
     TQPixmap openIcon( fileopen );
     TQToolButton * toolb = new TQToolButton( openIcon, "toolbutton 1",
-					   TQString::null, this, SLOT(open()),
+					   TQString::null, this, TQ_SLOT(open()),
 					   tools, "open file" );
     TQWhatsThis::add( toolb, "This is a <b>TQToolButton</b>. It lives in a "
 		     "TQToolBar. This particular button doesn't do anything "
@@ -140,13 +140,13 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
 
     TQPixmap saveIcon( filesave );
     toolb = new TQToolButton( saveIcon, "toolbutton 2", TQString::null,
-			     this, SLOT(dummy()),
+			     this, TQ_SLOT(dummy()),
 			     tools, "save file" );
     TQWhatsThis::add( toolb, "This is also a <b>TQToolButton</b>." );
 
     TQPixmap  printIcon( fileprint );
     toolb = new TQToolButton( printIcon, "toolbutton 3", TQString::null,
-			     this, SLOT(dummy()),
+			     this, TQ_SLOT(dummy()),
 			     tools, "print file" );
     TQWhatsThis::add( toolb, "This is the third <b>TQToolButton</b>.");
 
@@ -178,10 +178,10 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     int id;
     id = popup->insertItem( "&New" );
     popup->setItemEnabled( id, FALSE );
-    id = popup->insertItem( openIcon, "&Open...", this, SLOT( open() ) );
+    id = popup->insertItem( openIcon, "&Open...", this, TQ_SLOT( open() ) );
 
     popup->insertSeparator();
-    popup->insertItem( "Quit", tqApp, SLOT(quit()), CTRL+Key_Q );
+    popup->insertItem( "Quit", tqApp, TQ_SLOT(quit()), CTRL+Key_Q );
 
     textStylePopup = popup = new TQPopupMenu( this );
     menuBar()->insertItem( "&Edit", popup );
@@ -206,8 +206,8 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     f = font();
     f.setStrikeOut( TRUE );
     id = popup->insertItem( new MyMenuItem( "&Strike", f ) );
-    connect( textStylePopup, SIGNAL(activated(int)),
-	     this, SLOT(popupSelected(int)) );
+    connect( textStylePopup, TQ_SIGNAL(activated(int)),
+	     this, TQ_SLOT(popupSelected(int)) );
 
     // Create an analog and a digital clock
     AnalogClock  *aclock = new AnalogClock( central );
@@ -229,7 +229,7 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     TQPushButton *pb;
     pb = new TQPushButton( "&Push button 1", central, "button1" );
     grid->addWidget( pb, 0, 0, AlignVCenter );
-    connect( pb, SIGNAL(clicked()), SLOT(button1Clicked()) );
+    connect( pb, TQ_SIGNAL(clicked()), TQ_SLOT(button1Clicked()) );
     TQToolTip::add( pb, "push button 1" );
     TQWhatsThis::add( pb, "This is a <b>TQPushButton</b>.<br>"
 		     "Click it and watch...<br>"
@@ -248,8 +248,8 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     // Create a label containing a TQMovie
     movie = TQMovie( MOVIEFILENAME );
     movielabel = new TQLabel( central, "label0" );
-    movie.connectStatus(this, SLOT(movieStatus(int)));
-    movie.connectUpdate(this, SLOT(movieUpdate(const TQRect&)));
+    movie.connectStatus(this, TQ_SLOT(movieStatus(int)));
+    movie.connectUpdate(this, TQ_SLOT(movieUpdate(const TQRect&)));
     movielabel->setFrameStyle( TQFrame::Box | TQFrame::Plain );
     movielabel->setMovie( movie );
     movielabel->setFixedSize( 128+movielabel->frameWidth()*2,
@@ -279,7 +279,7 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     cb[2]->setText( "&Execute" );
     vbox->addWidget( cb[2] );
 
-    connect( bg, SIGNAL(clicked(int)), SLOT(checkBoxClicked(int)) );
+    connect( bg, TQ_SIGNAL(clicked(int)), TQ_SLOT(checkBoxClicked(int)) );
 
     TQToolTip::add( cb[0], "check box 1" );
     TQToolTip::add( cb[1], "check box 2" );
@@ -309,7 +309,7 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     rb->setText( "&Short Wave" );
     vbox->addWidget(rb);
 
-    connect( bg, SIGNAL(clicked(int)), SLOT(radioButtonClicked(int)) );
+    connect( bg, TQ_SIGNAL(clicked(int)), TQ_SLOT(radioButtonClicked(int)) );
     TQToolTip::add( rb, "radio button 3" );
 
     // Create a list box
@@ -323,7 +323,7 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
 	    lb->insertItem( str );
     }
     grid->addMultiCellWidget( lb, 2, 4, 0, 0 );
-    connect( lb, SIGNAL(selected(int)), SLOT(listBoxItemSelected(int)) );
+    connect( lb, TQ_SIGNAL(selected(int)), TQ_SLOT(listBoxItemSelected(int)) );
     TQToolTip::add( lb, "list box" );
     (void)new MyWhatsThis( lb );
 
@@ -338,7 +338,7 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     sb->setFocusPolicy( TQWidget::TabFocus );
     vbox->addWidget( sb );
 
-    connect( sb, SIGNAL(valueChanged(int)), SLOT(sliderValueChanged(int)) );
+    connect( sb, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(sliderValueChanged(int)) );
     TQToolTip::add( sb, "slider" );
     TQWhatsThis::add( sb, "This is a <b>TQSlider</b>. "
 		     "The tick marks are optional."
@@ -351,8 +351,8 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     combo->insertItem( "blue" );
     combo->insertItem( "red" );
     vbox->addWidget( combo );
-    connect( combo, SIGNAL(activated(int)),
-	     this, SLOT(comboBoxItemActivated(int)) );
+    connect( combo, TQ_SIGNAL(activated(int)),
+	     this, TQ_SLOT(comboBoxItemActivated(int)) );
     TQToolTip::add( combo, "read-only combo box" );
 
     // Create an editable combo box
@@ -365,8 +365,8 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     edComboLst->insertItem( "Alterable" );
     edComboLst->insertItem( "Inconstant" );
     vbox->addWidget( edCombo );
-    connect( edCombo, SIGNAL(activated(const TQString&)),
-	     this, SLOT(edComboBoxItemActivated(const TQString&)) );
+    connect( edCombo, TQ_SIGNAL(activated(const TQString&)),
+	     this, TQ_SLOT(edComboBoxItemActivated(const TQString&)) );
     TQToolTip::add( edCombo, "editable combo box" );
 
     edCombo->setAutoCompletion( TRUE );
@@ -378,8 +378,8 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     TQSpinBox *spin = new TQSpinBox( 0, 10, 1, central, "spin" );
     spin->setSuffix(" mm");
     spin->setSpecialValueText( "Auto" );
-    connect( spin, SIGNAL( valueChanged(const TQString&) ),
-	     SLOT( spinBoxValueChanged(const TQString&) ) );
+    connect( spin, TQ_SIGNAL( valueChanged(const TQString&) ),
+	     TQ_SLOT( spinBoxValueChanged(const TQString&) ) );
     TQToolTip::add( spin, "spin box" );
     TQWhatsThis::add( spin, "This is a <b>TQSpinBox</b>. "
 		     "You can chose values in a given range "
@@ -431,8 +431,8 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
 
 
     grid->addMultiCellWidget( le, 4, 4, 1, 2 );
-    connect( le, SIGNAL(textChanged(const TQString&)),
-	     SLOT(lineEditTextChanged(const TQString&)) );
+    connect( le, TQ_SIGNAL(textChanged(const TQString&)),
+	     TQ_SLOT(lineEditTextChanged(const TQString&)) );
     TQToolTip::add( le, "single line editor" );
     TQWhatsThis::add( le, "This is a <b>TQLineEdit</b>, you can enter a "
 		     "single line of text in it. "
@@ -453,14 +453,14 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
     split->setOpaqueResize( TRUE );
     topLayout->addWidget( split, 1 );
     TQListView *lv = new MyListView( split );
-    connect(lv, SIGNAL(selectionChanged() ),
-	    this, SLOT( selectionChanged() ) );
-    connect(lv, SIGNAL(selectionChanged(TQListViewItem*) ),
-	    this, SLOT( selectionChanged(TQListViewItem*) ) );
-    connect(lv, SIGNAL(clicked(TQListViewItem*) ),
-	    this, SLOT( clicked(TQListViewItem*) ) );
-    connect(lv, SIGNAL(mySelectionChanged(TQListViewItem*) ),
-	    this, SLOT( mySelectionChanged(TQListViewItem*) ) );
+    connect(lv, TQ_SIGNAL(selectionChanged() ),
+	    this, TQ_SLOT( selectionChanged() ) );
+    connect(lv, TQ_SIGNAL(selectionChanged(TQListViewItem*) ),
+	    this, TQ_SLOT( selectionChanged(TQListViewItem*) ) );
+    connect(lv, TQ_SIGNAL(clicked(TQListViewItem*) ),
+	    this, TQ_SLOT( clicked(TQListViewItem*) ) );
+    connect(lv, TQ_SIGNAL(mySelectionChanged(TQListViewItem*) ),
+	    this, TQ_SLOT( mySelectionChanged(TQListViewItem*) ) );
     lv->addColumn( "One" );
     lv->addColumn( "Two" );
     lv->setAllColumnsShowFocus( TRUE );
@@ -508,7 +508,7 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
 		   "<p><a href=\"nogo://some.where.com\">Hypertext navigation</a> and style sheets are supported.</p>", "" );
     browser->setFont(TQFont("Charter",11));
     browser->setFrameStyle( TQFrame::WinPanel | TQFrame::Sunken );
-    connect( browser, SIGNAL(linkClicked(const TQString&)), browser, SLOT(setText(const TQString&)) );
+    connect( browser, TQ_SIGNAL(linkClicked(const TQString&)), browser, TQ_SLOT(setText(const TQString&)) );
 
     // Create an label and a message in the status bar
     // The message is updated when buttons are clicked etc.
@@ -521,7 +521,7 @@ WidgetView::WidgetView( TQWidget *parent, const char *name )
 
     TQAccel* a = new TQAccel( this );
     a->connectItem(  a->insertItem( Key_F9 ),
-		     this, SLOT( showProperties() ) );
+		     this, TQ_SLOT( showProperties() ) );
 
     prog = new TQProgressBar( statusBar(), "progress" );
     prog->setTotalSteps( 100 );

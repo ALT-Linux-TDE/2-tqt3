@@ -9,7 +9,7 @@
 .SH NAME
 QDomAttr \- Represents one attribute of a QDomElement
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqdom.h>\fR
 .PP
@@ -30,7 +30,7 @@ Inherits QDomNode.
 .BI "\fB~QDomAttr\fR ()"
 .br
 .ti -1c
-.BI "virtual QString \fBname\fR () const"
+.BI "virtual TQString \fBname\fR () const"
 .br
 .ti -1c
 .BI "virtual bool \fBspecified\fR () const"
@@ -39,10 +39,10 @@ Inherits QDomNode.
 .BI "virtual QDomElement \fBownerElement\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBvalue\fR () const"
+.BI "virtual TQString \fBvalue\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetValue\fR ( const QString & v )"
+.BI "virtual void \fBsetValue\fR ( const TQString & v )"
 .br
 .ti -1c
 .BI "virtual QDomNode::NodeType \fBnodeType\fR () const"
@@ -102,7 +102,7 @@ Destroys the object and frees its resources.
 Returns TRUE.
 .PP
 Reimplemented from QDomNode.
-.SH "QString QDomAttr::name () const\fC [virtual]\fR"
+.SH "TQString QDomAttr::name () const\fC [virtual]\fR"
 Returns the attribute's name.
 .SH "QDomNode::NodeType QDomAttr::nodeType () const\fC [virtual]\fR"
 Returns AttributeNode.
@@ -114,7 +114,7 @@ Assigns \fIx\fR to this DOM attribute.
 The data of the copy is shared (shallow copy): modifying one node will also change the other. If you want to make a deep copy, use cloneNode().
 .SH "QDomElement QDomAttr::ownerElement () const\fC [virtual]\fR"
 Returns the element node this attribute is attached to or a null node if this attribute is not attached to any element.
-.SH "void QDomAttr::setValue ( const QString & v )\fC [virtual]\fR"
+.SH "void QDomAttr::setValue ( const TQString & v )\fC [virtual]\fR"
 Sets the attribute's value to \fIv\fR.
 .PP
 See also value().
@@ -122,8 +122,8 @@ See also value().
 Returns TRUE if the attribute has either been expicitly specified in the XML document or was set by the user with setValue(). Returns FALSE if the value hasn't been specified or set.
 .PP
 See also setValue().
-.SH "QString QDomAttr::value () const\fC [virtual]\fR"
-Returns the value of the attribute or QString::null if the attribute has not been specified.
+.SH "TQString QDomAttr::value () const\fC [virtual]\fR"
+Returns the value of the attribute or TQString::null if the attribute has not been specified.
 .PP
 See also specified() and setValue().
 
@@ -141,8 +141,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

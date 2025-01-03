@@ -384,7 +384,7 @@ void TQPoint::warningDivByZero()
 /*****************************************************************************
   TQPoint stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQPoint
 
@@ -426,7 +426,7 @@ TQDataStream &operator>>( TQDataStream &s, TQPoint &p )
     }
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 /*!
     Returns the sum of the absolute values of x() and y(),
     traditionally known as the "Manhattan length" of the vector from

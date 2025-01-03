@@ -9,7 +9,7 @@
 .SH NAME
 QUuid \- Defines a Universally Unique Identifier (UUID)
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntquuid.h>\fR
 .PP
@@ -31,13 +31,13 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "\fBQUuid\fR ( const QUuid & orig )"
 .br
 .ti -1c
-.BI "\fBQUuid\fR ( const QString & text )"
+.BI "\fBQUuid\fR ( const TQString & text )"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR () const"
+.BI "TQString \fBtoString\fR () const"
 .br
 .ti -1c
-.BI "\fBoperator QString\fR () const"
+.BI "\fBoperator TQString\fR () const"
 .br
 .ti -1c
 .BI "bool \fBisNull\fR () const"
@@ -131,7 +131,7 @@ Example:
 .fi
 .SH "QUuid::QUuid ( const QUuid & orig )"
 Creates a copy of the QUuid \fIorig\fR.
-.SH "QUuid::QUuid ( const QString & text )"
+.SH "QUuid::QUuid ( const TQString & text )"
 Creates a QUuid object from the string \fItext\fR. The function can only convert a string in the format {HHHHHHHH-HHHH-HHHH-HHHH-HHHHHHHHHHHH} (where 'H' stands for a hex digit). If the conversion fails a null UUID is created.
 .SH "QUuid QUuid::createUuid ()\fC [static]\fR"
 Returns a new UUID of DCE variant, and Random type. The UUIDs generated are based on the platform specific pseudo-random generator, which is usually not a cryptographic-quality random number generator. Therefore, a UUID is not guaranteed to be unique cross application instances.
@@ -141,7 +141,7 @@ On Windows, the new UUID is extremely likely to be unique on the same or any oth
 See also variant() and version().
 .SH "bool QUuid::isNull () const"
 Returns TRUE if this is the null UUID {00000000-0000-0000-0000-000000000000}; otherwise returns FALSE.
-.SH "QUuid::operator QString () const"
+.SH "QUuid::operator TQString () const"
 Returns the string representation of the uuid.
 .PP
 See also toString().
@@ -159,8 +159,8 @@ Returns TRUE if this QUuid and the \fIother\fR QUuid are identical; otherwise re
 Returns TRUE if this QUuid is of the same variant, and lexicographically after the \fIother\fR QUuid; otherwise returns FALSE.
 .PP
 See also variant().
-.SH "QString QUuid::toString () const"
-QString QUuid::toString() const
+.SH "TQString QUuid::toString () const"
+TQString QUuid::toString() const
 .PP
 Returns the string representation of the uuid.
 .SH "QUuid::Variant QUuid::variant () const"
@@ -191,8 +191,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -57,7 +57,7 @@ into applications.
 <p> Writing a text codec plugin is achieved by subclassing this base
 class, reimplementing the pure virtual functions <a href="#names">names</a>(),
 <a href="#createForName">createForName</a>(), <a href="#mibEnums">mibEnums</a>() and <a href="#createForMib">createForMib</a>(), and exporting the
-class with the <tt>Q_EXPORT_PLUGIN</tt> macro. See the <a href="plugins-howto.html">TQt Plugins documentation</a> for details.
+class with the <tt>TQ_EXPORT_PLUGIN</tt> macro. See the <a href="plugins-howto.html">TQt Plugins documentation</a> for details.
 <p> See the <a href="http://www.iana.org/assignments/character-sets">IANA
     character-sets encoding file</a> for more information on mime
 names and mib enums.
@@ -67,7 +67,7 @@ names and mib enums.
 <h3 class=fn><a name="TQTextCodecPlugin"></a>TQTextCodecPlugin::TQTextCodecPlugin ()
 </h3>
 Constructs a text codec plugin. This is invoked automatically by
-the <tt>Q_EXPORT_PLUGIN</tt> macro.
+the <tt>TQ_EXPORT_PLUGIN</tt> macro.
 
 <h3 class=fn><a name="~TQTextCodecPlugin"></a>TQTextCodecPlugin::~TQTextCodecPlugin ()
 </h3>

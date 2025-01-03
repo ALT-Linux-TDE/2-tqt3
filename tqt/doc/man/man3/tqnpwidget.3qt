@@ -7,13 +7,13 @@
 .ad l
 .nh
 .SH NAME
-QNPWidget \- QWidget that is a web browser plugin window
+QNPWidget \- TQWidget that is a web browser plugin window
 .SH SYNOPSIS
 This class is part of the \fBQt Netscape Extension\fR.
 .PP
 \fC#include <ntqnp.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
@@ -34,9 +34,9 @@ Inherits QWidget.
 .br
 .in -1c
 .SH DESCRIPTION
-This class is defined in the \fBQt Netscape Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main Qt API.
+This class is defined in the \fBQt Netscape Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main TQt API.
 .PP
-The QNPWidget class provides a QWidget that is a web browser plugin window.
+The QNPWidget class provides a TQWidget that is a web browser plugin window.
 .PP
 Derive from QNPWidget to create a widget that can be used as a web browser plugin window, or create one and add child widgets. Instances of QNPWidget may only be created when QNPInstance::newWindow() is called by the browser.
 .PP
@@ -48,7 +48,7 @@ class MyPluginWindow : public QNPWidget
 .br
 {
 .br
-    QWidget* child;
+    TQWidget* child;
 .br
 public:
 .br
@@ -91,7 +91,7 @@ The default implementation is an empty window.
 .SH "QNPWidget::QNPWidget ()"
 Creates a QNPWidget.
 .SH "QNPWidget::~QNPWidget ()"
-Destroys the window. This will be called by the plugin binding code when the window is no longer required. The web browser will delete windows when they leave the page. The bindings will change the QWidget::winId() of the window when the window is resized, but this should not affect normal widget behavior.
+Destroys the window. This will be called by the plugin binding code when the window is no longer required. The web browser will delete windows when they leave the page. The bindings will change the TQWidget::winId() of the window when the window is resized, but this should not affect normal widget behavior.
 .SH "void QNPWidget::enterInstance ()\fC [virtual]\fR"
 Called when the mouse enters the plugin window. Does nothing by default.
 .PP
@@ -117,8 +117,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

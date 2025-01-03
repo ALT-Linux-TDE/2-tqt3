@@ -60,16 +60,16 @@
 #include "ntqmessagebox.h"
 #include "ntqdir.h"
 #include "ntqfileinfo.h"
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #include "qinputcontext_p.h"
 #endif
 #include "qfontdata_p.h"
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 #  include "ntqmutex.h"
 #  include "ntqthread.h"
 #  include <private/qthreadinstance_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #include <stdlib.h>
 
@@ -319,11 +319,11 @@
 
 void tqt_init( int *, char **, TQApplication::Type );
 void tqt_cleanup();
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 void tqt_init( Display* dpy, TQt::HANDLE, TQt::HANDLE );
 void tqt_init( int *, char **, Display* dpy, TQt::HANDLE, TQt::HANDLE );
 #endif
-Q_EXPORT bool tqt_tryModalHelper( TQWidget *widget, TQWidget **rettop );
+TQ_EXPORT bool tqt_tryModalHelper( TQWidget *widget, TQWidget **rettop );
 
 TQApplication *tqApp = 0;			// global application object
 
@@ -331,12 +331,12 @@ TQStyle   *TQApplication::app_style      = 0;	// default application style
 bool      tqt_explicit_app_style	       = FALSE; // style explicitly set by programmer
 
 int	  TQApplication::app_cspec      = TQApplication::NormalColor;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 TQPalette *TQApplication::app_pal	       = 0;	// default application palette
 #endif
 TQFont	 *TQApplication::app_font       = 0;	// default application font
 bool	  tqt_app_has_font	       = FALSE;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 TQCursor	 *TQApplication::app_cursor     = 0;	// default application cursor
 #endif
 int	  TQApplication::app_tracking   = 0;	// global mouse tracking
@@ -349,12 +349,12 @@ TQWidget	 *TQApplication::active_window  = 0;	// toplevel with keyboard focus
 bool	  TQApplication::obey_desktop_settings = TRUE;	// use winsys resources
 int	  TQApplication::cursor_flash_time = 1000;	// text caret flash time
 int	  TQApplication::mouse_double_click_time = 400;	// mouse dbl click limit
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 int	  TQApplication::wheel_scroll_lines = 3;		// number of lines to scroll
 #endif
 bool	  tqt_is_gui_used;
-bool      Q_EXPORT tqt_resolve_symlinks = TRUE;
-bool      Q_EXPORT tqt_tab_all_widgets  = TRUE;
+bool      TQ_EXPORT tqt_resolve_symlinks = TRUE;
+bool      TQ_EXPORT tqt_tab_all_widgets  = TRUE;
 TQRect tqt_maxWindowRect;
 static int drag_time = 500;
 static int drag_distance = 4;
@@ -369,32 +369,33 @@ bool	  TQApplication::fade_tooltip	= FALSE;
 bool	  TQApplication::animate_toolbox	= FALSE;
 bool	  TQApplication::widgetCount	= FALSE;
 TQApplication::Type tqt_appType=TQApplication::Tty;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 TQStringList *TQApplication::app_libpaths = 0;
 #endif
 bool	  TQApplication::metaComposeUnicode = FALSE;
 int	  TQApplication::composedUnicode   = 0;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 TQMutex *TQApplication::tqt_mutex		= 0;
 TQMutex *tqt_sharedStringMutex			= 0;
-Q_EXPORT TQMutex * tqt_sharedMetaObjectMutex	= 0;
+TQ_EXPORT TQMutex * tqt_sharedMetaObjectMutex	= 0;
+
 #ifdef QT_USE_GLIBMAINLOOP
 TQMutex *tqt_timerListMutex			= 0;
 #endif // QT_USE_GLIBMAINLOOP
-static TQMutex *postevent_mutex			= 0;
+
 static TQt::HANDLE tqt_application_thread_id	= 0;
-Q_EXPORT TQt::HANDLE tqt_get_application_thread_id()
+TQ_EXPORT TQt::HANDLE tqt_get_application_thread_id()
 {
     return tqt_application_thread_id;
 }
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
-#ifndef QT_THREAD_SUPPORT
+#ifndef TQT_THREAD_SUPPORT
 TQEventLoop *TQApplication::eventloop = 0;	// application event loop
 #endif
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 TQEventLoop* TQApplication::currentEventLoop() {
 	TQThread* thread = TQThread::currentThreadObject();
 	if (thread) {
@@ -410,7 +411,7 @@ TQEventLoop* TQApplication::currentEventLoop() {
 }
 #endif
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 extern bool tqt_dispatchAccelEvent( TQWidget*, TQKeyEvent* ); // def in qaccel.cpp
 extern bool tqt_tryComposeUnicode( TQWidget*, TQKeyEvent* ); // def in qaccel.cpp
 #endif
@@ -502,7 +503,7 @@ static TQVFuncList *postRList = 0;		// list of post routines
   to clean up the module's data at the exact right moment.
 */
 
-Q_EXPORT void tqAddPostRoutine( TQtCleanUpFunction p)
+TQ_EXPORT void tqAddPostRoutine( TQtCleanUpFunction p)
 {
     if ( !postRList ) {
 	postRList = new TQVFuncList;
@@ -512,7 +513,7 @@ Q_EXPORT void tqAddPostRoutine( TQtCleanUpFunction p)
 }
 
 
-Q_EXPORT void tqRemovePostRoutine( TQtCleanUpFunction p )
+TQ_EXPORT void tqRemovePostRoutine( TQtCleanUpFunction p )
 {
     if ( !postRList ) return;
     TQVFuncList::Iterator it = postRList->begin();
@@ -530,24 +531,31 @@ Q_EXPORT void tqRemovePostRoutine( TQtCleanUpFunction p )
 TQAsciiDict<TQPalette> *TQApplication::app_palettes = 0;
 TQAsciiDict<TQFont>    *TQApplication::app_fonts = 0;
 
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
 TQString *TQApplication::session_key = 0;		// ## session key. Should be a member in 4.0
 #endif
 TQWidgetList *TQApplication::popupWidgets = 0;	// has keyboard input focus
 
 TQDesktopWidget *tqt_desktopWidget = 0;		// root window widgets
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 TQClipboard	      *tqt_clipboard = 0;	// global clipboard object
 #endif
 TQWidgetList * tqt_modal_stack=0;		// stack of modal widgets
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
+
 // thread wrapper for the main() thread
 class TQCoreApplicationThread : public TQThread
 {
 public:
     inline TQCoreApplicationThread()
     {
+#ifdef QT_CHECK_STATE
+        if ( tqt_gui_thread_self )
+            tqWarning( "TQCoreApplicationThread: there should be exactly one main thread object" );
+#endif
+        tqt_gui_thread_self = this;
+
         TQThreadInstance::setCurrentThread(this);
 
         // thread should be running and not finished for the lifetime
@@ -556,11 +564,19 @@ public:
         d->finished = false;
         d->eventLoop = NULL;
     }
+
     inline ~TQCoreApplicationThread()
     {
+        tqt_gui_thread_self = nullptr;
+
         // avoid warning from TQThread
         d->running = false;
+        // do some cleanup, namely clean up the thread-local storage associated with the GUI thread
+        TQThreadInstance::finishGuiThread(d);
     }
+
+    static TQCoreApplicationThread* self() { return tqt_gui_thread_self; }
+
 private:
     inline void run()
     {
@@ -568,56 +584,91 @@ private:
         // only so that we can instantiate the object
         tqFatal("TQCoreApplicationThread: internal error");
     }
+
+    static TQCoreApplicationThread* tqt_gui_thread_self;
 };
 
+TQCoreApplicationThread* TQCoreApplicationThread::tqt_gui_thread_self = nullptr;
+
+// construct exactly one instance of the core thread with static storage duration. Do it static
+// rather than in the heap as we need it to be properly destroyed on the exit from the program.
 static TQCoreApplicationThread tqt_main_thread;
-static TQThread *mainThread() { return &tqt_main_thread; }
-#else
-static TQThread* mainThread() { return TQThread::currentThread(); }
 #endif
 
 // Definitions for posted events
 struct TQPostEvent {
     TQPostEvent( TQObject *r, TQEvent *e ): receiver( r ), event( e ) {}
-   ~TQPostEvent()			{ delete event; }
+   ~TQPostEvent() { delete event; }
     TQObject  *receiver;
     TQEvent   *event;
 };
 
-class Q_EXPORT TQPostEventList : public TQPtrList<TQPostEvent>
+class TQ_EXPORT TQPostEventList : public TQPtrList<TQPostEvent>
 {
 public:
-    TQPostEventList() : TQPtrList<TQPostEvent>() {}
-    TQPostEventList( const TQPostEventList &list ) : TQPtrList<TQPostEvent>(list) {}
-   ~TQPostEventList() { clear(); }
-    TQPostEventList &operator=(const TQPostEventList &list)
-	{ return (TQPostEventList&)TQPtrList<TQPostEvent>::operator=(list); }
+    TQPostEventList(bool with_mutex = false) : TQPtrList<TQPostEvent>(), m_mutex(nullptr)
+    {
+#ifdef TQT_THREAD_SUPPORT
+	if (with_mutex)
+	{
+	    m_mutex = new TQMutex(TRUE);
+	}
+#endif
+    }
+
+    ~TQPostEventList()
+    {
+	if (m_mutex)
+	{
+	    delete m_mutex;
+	    m_mutex = nullptr;
+	}
+	clear();
+    }
+
+    TQMutex* mutex() const { return m_mutex; }
+
+private:
+    TQMutex *m_mutex;
+
+    TQPostEventList(const TQPostEventList &) = delete;
+    TQPostEventList &operator=(const TQPostEventList &) = delete;
 };
-class Q_EXPORT TQPostEventListIt : public TQPtrListIterator<TQPostEvent>
+
+class TQ_EXPORT TQPostEventListIt : public TQPtrListIterator<TQPostEvent>
 {
 public:
     TQPostEventListIt( const TQPostEventList &l ) : TQPtrListIterator<TQPostEvent>(l) {}
     TQPostEventListIt &operator=(const TQPostEventListIt &i)
-{ return (TQPostEventListIt&)TQPtrListIterator<TQPostEvent>::operator=(i); }
+{
+    return (TQPostEventListIt&)TQPtrListIterator<TQPostEvent>::operator=(i); }
 };
 
-static TQPostEventList *globalPostedEvents = 0;	// list of posted events
+// The global list and its pointer are initialized in different functions
+// to optimize access to the list pointer in normal usage
+static TQPostEventList* InitGlobalPostedEventsList()
+{
+    static TQPostEventList _globalEventList(true);
+    _globalEventList.setAutoDelete(TRUE);
+    return &_globalEventList;
+}
+
+static TQPostEventList* GlobalPostedEvents()
+{
+    static TQPostEventList *_globalPostedEvents = InitGlobalPostedEventsList();
+    return _globalPostedEvents;
+}
 
 uint qGlobalPostedEventsCount()
 {
-#ifdef QT_THREAD_SUPPORT
-    TQMutexLocker locker( postevent_mutex );
-#endif // QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
+    TQMutexLocker locker( GlobalPostedEvents()->mutex() );
+#endif // TQT_THREAD_SUPPORT
 
-    if (!globalPostedEvents) {
-	return 0;
-    }
-    return globalPostedEvents->count();
+    return GlobalPostedEvents()->count();
 }
 
-static TQSingleCleanupHandler<TQPostEventList> qapp_cleanup_events;
-
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 TQPalette *tqt_std_pal = 0;
 
 void tqt_create_std_palette()
@@ -675,7 +726,7 @@ void TQApplication::process_cmdline( int* argcptr, char ** argv )
 	} else if ( qstrcmp(arg,"-style") == 0 && i < argc-1 ) {
 	    s = argv[++i];
 	    s = s.lower();
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
 	} else if ( qstrcmp(arg,"-session") == 0 && i < argc-1 ) {
 	    TQCString s = argv[++i];
 	    if ( !s.isEmpty() ) {
@@ -697,7 +748,7 @@ void TQApplication::process_cmdline( int* argcptr, char ** argv )
 	} else {
 	    argv[j++] = argv[i];
 	}
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 	if ( !s.isEmpty() ) {
 	    setStyle( s );
 	}
@@ -705,7 +756,7 @@ void TQApplication::process_cmdline( int* argcptr, char ** argv )
     }
 
     if(j < argc) {
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 	static char* empty = "\0";
 	argv[j] = empty;
 #else
@@ -733,7 +784,7 @@ void TQApplication::process_cmdline( int* argcptr, char ** argv )
   to process command line arguments.
 
   TQt debugging options (not available if TQt was compiled with the
-  QT_NO_DEBUG flag defined):
+  TQT_NO_DEBUG flag defined):
   \list
   \i -nograb, tells TQt that it must never grab the mouse or the keyboard.
   \i -dograb (only under X11), running under a debugger can cause
@@ -816,7 +867,7 @@ TQApplication::TQApplication( int &argc, char **argv )
   \code
   int main( int argc, char **argv )
   {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     bool useGUI = getenv( "DISPLAY" ) != 0;
 #else
     bool useGUI = TRUE;
@@ -864,7 +915,7 @@ TQApplication::TQApplication( int &argc, char **argv, bool GUIenabled  )
   \code
   int main( int argc, char **argv )
   {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     bool useGUI = getenv( "DISPLAY" ) != 0;
 #else
     bool useGUI = TRUE;
@@ -901,7 +952,7 @@ TQApplication::TQApplication( int &argc, char **argv, Type type )
     construct( argc, argv, type, true );
 }
 
-Q_EXPORT void tqt_ucm_initialize( TQApplication *theApp )
+TQ_EXPORT void tqt_ucm_initialize( TQApplication *theApp )
 {
     if ( tqApp )
 	return;
@@ -943,7 +994,7 @@ TQApplication::Type TQApplication::type() const
     return tqt_appType;
 }
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 /*!
   Create an application, given an already open display \a dpy. If \a
   visual and \a colormap are non-zero, the application will use those as
@@ -1033,11 +1084,11 @@ TQApplication::TQApplication(Display *dpy, int argc, char **argv,
 }
 
 
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 TQThread* TQApplication::guiThread() {
-	return mainThread();
+	return TQCoreApplicationThread::self();
 }
 
 bool TQApplication::isGuiThread() {
@@ -1053,7 +1104,7 @@ void TQApplication::init_precmdline()
 {
     translators = 0;
     is_app_closing = FALSE;
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
     is_session_restored = FALSE;
 #endif
 #if defined(QT_CHECK_STATE)
@@ -1069,28 +1120,27 @@ void TQApplication::init_precmdline()
 
 void TQApplication::initialize( int argc, char **argv, bool enable_sm )
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     tqt_mutex = new TQMutex( TRUE );
     tqt_sharedStringMutex = new TQMutex( TRUE );
     tqt_sharedMetaObjectMutex = new TQMutex( TRUE );
 #ifdef QT_USE_GLIBMAINLOOP
     tqt_timerListMutex = new TQMutex( TRUE );
 #endif // QT_USE_GLIBMAINLOOP
-    postevent_mutex = new TQMutex( TRUE );
     tqt_application_thread_id = TQThread::currentThread();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     app_argc = argc;
     app_argv = argv;
     quit_now = FALSE;
     quit_code = 0;
     TQWidget::createMapper(); // create widget mapper
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     (void) palette();  // trigger creation of application palette
 #endif
     is_app_running = TRUE; // no longer starting up
 
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
     if (enable_sm) {
 	// connect to the session manager
 	if ( !session_key )
@@ -1157,7 +1207,7 @@ TQWidget *TQApplication::activeModalWidget()
 
 TQApplication::~TQApplication()
 {
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     // flush clipboard contents
     if ( tqt_clipboard ) {
 	TQCustomEvent event( TQEvent::Clipboard );
@@ -1185,12 +1235,18 @@ TQApplication::~TQApplication()
     tqt_desktopWidget = 0;
     is_app_closing = TRUE;
 
-#ifndef QT_NO_CLIPBOARD
+    // Due to hacks to speed up TQStyle engine (see git hash 523c1fd99) TQObjects now contain a
+    // reference to TQStyleControlElementData object which among other contain TQFont members.
+    // But for a proper cleanup all fonts should be destroyed before disconnecting from X11 (in
+    // tqt_cleanup()). So we will have to cleanup up the data explicitly.
+    cleanupControlElementData();
+
+#ifndef TQT_NO_CLIPBOARD
     delete tqt_clipboard;
     tqt_clipboard = 0;
 #endif
     TQWidget::destroyMapper();
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     delete tqt_std_pal;
     tqt_std_pal = 0;
     delete app_pal;
@@ -1202,36 +1258,34 @@ TQApplication::~TQApplication()
     app_font = 0;
     delete app_fonts;
     app_fonts = 0;
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     delete app_style;
     app_style = 0;
 #endif
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     delete app_cursor;
     app_cursor = 0;
 #endif
-#ifndef QT_NO_TRANSLATION
+#ifndef TQT_NO_TRANSLATION
     delete translators;
 #endif
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     extern TQDragManager *qt_dnd_manager;
     delete qt_dnd_manager;
 #endif
 
     tqt_cleanup();
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     delete app_libpaths;
     app_libpaths = 0;
 #endif
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     delete tqt_mutex;
     tqt_mutex = 0;
-    delete postevent_mutex;
-    postevent_mutex = 0;
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     if( tqApp == this ) {
 	if ( postedEvents )
@@ -1243,7 +1297,7 @@ TQApplication::~TQApplication()
     if ( widgetCount ) {
 	tqDebug( "Widgets left: %i    Max widgets: %i \n", TQWidget::instanceCounter, TQWidget::maxInstances );
     }
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
     if ( session_manager ) {
 	delete session_manager;
     }
@@ -1252,9 +1306,9 @@ TQApplication::~TQApplication()
 	delete session_key;
     }
     session_key = 0;
-#endif //QT_NO_SESSIONMANAGER
+#endif //TQT_NO_SESSIONMANAGER
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     delete tqt_sharedMetaObjectMutex;
     tqt_sharedMetaObjectMutex = 0;
     delete tqt_sharedStringMutex;
@@ -1263,7 +1317,7 @@ TQApplication::~TQApplication()
     delete tqt_timerListMutex;
     tqt_timerListMutex = 0;
 #endif // QT_USE_GLIBMAINLOOP
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     tqt_explicit_app_style = FALSE;
     tqt_app_has_font = FALSE;
@@ -1271,7 +1325,7 @@ TQApplication::~TQApplication()
     obey_desktop_settings = TRUE;
     cursor_flash_time = 1000;
     mouse_double_click_time = 400;
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     wheel_scroll_lines = 3;
 #endif
     drag_time = 500;
@@ -1349,7 +1403,7 @@ TQApplication::~TQApplication()
 */
 
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 
 static TQString *qt_style_override = 0;
 
@@ -1360,13 +1414,13 @@ static TQString *qt_style_override = 0;
 */
 TQStyle& TQApplication::style()
 {
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     if ( app_style )
 	return *app_style;
     if ( !tqt_is_gui_used )
 	tqFatal( "No style available in non-gui applications!" );
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     if(!qt_style_override)
 	x11_initialize_style(); // run-time search for default style
 #endif
@@ -1379,22 +1433,22 @@ TQStyle& TQApplication::style()
 	    delete qt_style_override;
 	    qt_style_override = 0;
 	} else {
-#  if defined(Q_WS_WIN) && defined(Q_OS_TEMP)
+#  if defined(TQ_WS_WIN) && defined(Q_OS_TEMP)
 	    style = "PocketPC";
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
 	    if ( qWinVersion() >= TQt::WV_XP && qWinVersion() < TQt::WV_NT_based )
 		style = "WindowsXP";
 	    else
 		style = "Windows";		// default styles for Windows
-#elif defined(Q_WS_X11) && defined(Q_OS_SOLARIS)
+#elif defined(TQ_WS_X11) && defined(Q_OS_SOLARIS)
 	    style = "CDE";			// default style for X11 on Solaris
-#elif defined(Q_WS_X11) && defined(Q_OS_IRIX)
+#elif defined(TQ_WS_X11) && defined(Q_OS_IRIX)
 	    style = "SGI";			// default style for X11 on IRIX
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
 		style = "Motif";		// default style for X11
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 		style = "Macintosh";		// default style for all Mac's
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
 	    style = "Compact";		// default style for small devices
 #endif
 	}
@@ -1408,7 +1462,7 @@ TQStyle& TQApplication::style()
 	     !(app_style = TQStyleFactory::create( "Aqua" ) ) &&
 	     !(app_style = TQStyleFactory::create( "SGI" ) ) &&
 	     !(app_style = TQStyleFactory::create( "Compact" ) )
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 	    && !(app_style = TQStyleFactory::create( TQStyleFactory::keys()[0]  ) )
 #endif
 	)
@@ -1421,7 +1475,7 @@ TQStyle& TQApplication::style()
     if ( is_app_running && !is_app_closing && (*app_pal != app_pal_copy) ) {
 	TQEvent e( TQEvent::ApplicationPaletteChange );
 	TQWidgetIntDictIt it( *((TQWidgetIntDict*)TQWidget::mapper) );
-	register TQWidget *w;
+	TQWidget *w;
 	while ( (w=it.current()) ) {		// for all widgets...
 	    ++it;
 	    sendEvent( w, &e );
@@ -1454,9 +1508,9 @@ void TQApplication::setStyle( TQStyle *style )
 {
     TQStyle* old = app_style;
     app_style = style;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     tqt_explicit_app_style = TRUE;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     if ( startingUp() ) {
 	delete old;
@@ -1467,7 +1521,7 @@ void TQApplication::setStyle( TQStyle *style )
     if (old) {
 	if ( is_app_running && !is_app_closing ) {
 	    TQWidgetIntDictIt it( *((TQWidgetIntDict*)TQWidget::mapper) );
-	    register TQWidget *w;
+	    TQWidget *w;
 	    while ( (w=it.current()) ) {		// for all widgets...
 		++it;
 		if ( !w->testWFlags(WType_Desktop) &&	// except desktop
@@ -1494,7 +1548,7 @@ void TQApplication::setStyle( TQStyle *style )
     if (old) {
 	if ( is_app_running && !is_app_closing ) {
 	    TQWidgetIntDictIt it( *((TQWidgetIntDict*)TQWidget::mapper) );
-	    register TQWidget *w;
+	    TQWidget *w;
 	    while ( (w=it.current()) ) {		// for all widgets...
 		++it;
 		if ( !w->testWFlags(WType_Desktop) ) {	// except desktop
@@ -1530,9 +1584,9 @@ void TQApplication::setStyle( TQStyle *style )
 */
 TQStyle* TQApplication::setStyle( const TQString& style )
 {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     tqt_explicit_app_style = TRUE;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     if ( startingUp() ) {
 	if(qt_style_override)
@@ -1695,12 +1749,12 @@ void TQApplication::setGlobalStrut( const TQSize& strut )
     app_strut = strut;
 }
 
-#if defined( Q_WS_WIN ) || defined( Q_WS_MAC )
+#if defined( TQ_WS_WIN ) || defined( TQ_WS_MAC )
 extern const char *tqAppFileName();
 #endif
 
-#ifndef QT_NO_DIR
-#ifndef Q_WS_WIN
+#ifndef TQT_NO_DIR
+#ifndef TQ_WS_WIN
 static TQString resolveSymlinks( const TQString& path, int depth = 0 )
 {
     bool foundLink = FALSE;
@@ -1744,7 +1798,7 @@ static TQString resolveSymlinks( const TQString& path, int depth = 0 )
 	return path;
     }
 }
-#endif // Q_WS_WIN
+#endif // TQ_WS_WIN
 
 /*!
     Returns the directory that contains the application executable.
@@ -1783,7 +1837,7 @@ TQString TQApplication::applicationDirPath()
 */
 TQString TQApplication::applicationFilePath()
 {
-#if defined( Q_WS_WIN )
+#if defined( TQ_WS_WIN )
     TQFileInfo filePath;
     QT_WA({
         WCHAR module_name[256];
@@ -1796,7 +1850,7 @@ TQString TQApplication::applicationFilePath()
     });
 
     return filePath.filePath();
-#elif defined( Q_WS_MAC )
+#elif defined( TQ_WS_MAC )
     return TQDir::cleanDirPath( TQFile::decodeName( tqAppFileName() ) );
 #else
     TQString argv0 = TQFile::decodeName( argv()[0] );
@@ -1840,9 +1894,9 @@ TQString TQApplication::applicationFilePath()
     }
 #endif
 }
-#endif // QT_NO_DIR
+#endif // TQT_NO_DIR
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 /*!
   Returns a list of paths that the application will search when
@@ -1875,7 +1929,7 @@ TQStringList TQApplication::libraryPaths()
 	app_libpaths = new TQStringList;
 	TQString installPathPlugins = TQString::fromLocal8Bit(tqInstallPathPlugins());
 	if ( TQFile::exists(installPathPlugins) ) {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	    installPathPlugins.replace('\\', '/');
 #endif
 	    app_libpaths->append(installPathPlugins);
@@ -1884,7 +1938,7 @@ TQStringList TQApplication::libraryPaths()
 	TQString app_location;
 	if (tqApp)
 	    app_location = tqApp->applicationFilePath();
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	else {
 	    app_location = TQString(tqAppFileName());
 	    app_location.replace('\\', '/');
@@ -1953,7 +2007,7 @@ void TQApplication::removeLibraryPath( const TQString &path )
     if ( app_libpaths->contains( path ) )
 	app_libpaths->remove( path );
 }
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
 /*!
   Returns the application palette.
@@ -1967,7 +2021,7 @@ void TQApplication::removeLibraryPath( const TQString &path )
 
   \sa setPalette(), TQWidget::palette()
 */
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 TQPalette TQApplication::palette(const TQWidget* w)
 {
 #if defined(QT_CHECK_STATE)
@@ -2051,7 +2105,7 @@ void TQApplication::setPalette( const TQPalette &palette, bool informWidgets,
 {
     TQPalette pal = palette;
     TQPalette *oldpal = 0;
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     if ( !startingUp() ) // on startup this has been done already
 	tqApp->style().polish( pal );	// NB: non-const reference
 #endif
@@ -2080,7 +2134,7 @@ void TQApplication::setPalette( const TQPalette &palette, bool informWidgets,
 	if ( !oldpal || ( *oldpal != pal ) ) {
 	    TQEvent e( TQEvent::ApplicationPaletteChange );
 	    TQWidgetIntDictIt it( *((TQWidgetIntDict*)TQWidget::mapper) );
-	    register TQWidget *w;
+	    TQWidget *w;
 	    while ( (w=it.current()) ) {		// for all widgets...
 		++it;
 		if ( all || (!className && w->isTopLevel() ) || w->inherits(className) ) // matching class
@@ -2090,7 +2144,7 @@ void TQApplication::setPalette( const TQPalette &palette, bool informWidgets,
     }
 }
 
-#endif // QT_NO_PALETTE
+#endif // TQT_NO_PALETTE
 
 /*!
   Returns the default font for the widget \a w, or the default
@@ -2170,7 +2224,7 @@ void TQApplication::setFont( const TQFont &font, bool informWidgets,
     if ( informWidgets && is_app_running && !is_app_closing ) {
 	TQEvent e( TQEvent::ApplicationFontChange );
 	TQWidgetIntDictIt it( *((TQWidgetIntDict*)TQWidget::mapper) );
-	register TQWidget *w;
+	TQWidget *w;
 	while ( (w=it.current()) ) {		// for all widgets...
 	    ++it;
 	    if ( all || (!className && w->isTopLevel() ) || w->inherits(className) ) // matching class
@@ -2196,7 +2250,7 @@ void TQApplication::setFont( const TQFont &font, bool informWidgets,
 
 void TQApplication::polish( TQWidget *w )
 {
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     w->style().polish( w );
 #endif
 }
@@ -2318,7 +2372,7 @@ TQFontMetrics TQApplication::fontMetrics()
   Example:
   \code
     TQPushButton *quitButton = new TQPushButton( "Quit" );
-    connect( quitButton, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quitButton, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
   \endcode
 
   \sa exit() aboutToQuit() lastWindowClosed() TQAction
@@ -2340,10 +2394,10 @@ void TQApplication::quit()
   \code
     // the "Quit" menu entry should try to close all windows
     TQPopupMenu* file = new TQPopupMenu( this );
-    file->insertItem( "&Quit", tqApp, SLOT(closeAllWindows()), CTRL+Key_Q );
+    file->insertItem( "&Quit", tqApp, TQ_SLOT(closeAllWindows()), CTRL+Key_Q );
 
     // when the last window is closed, the application should quit
-    connect( tqApp, SIGNAL( lastWindowClosed() ), tqApp, SLOT( quit() ) );
+    connect( tqApp, TQ_SIGNAL( lastWindowClosed() ), tqApp, TQ_SLOT( quit() ) );
   \endcode
 
   The windows are closed in random order, until one window does not
@@ -2387,9 +2441,9 @@ void TQApplication::closeAllWindows()
 */
 void TQApplication::aboutTQt()
 {
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
     TQMessageBox::aboutTQt( mainWidget() );
-#endif // QT_NO_MESSAGEBOX
+#endif // TQT_NO_MESSAGEBOX
 }
 
 
@@ -2521,34 +2575,32 @@ bool TQApplication::notify( TQObject *receiver, TQEvent *e )
     }
 
     if ( e->type() == TQEvent::ChildRemoved && receiver->postedEvents) {
-#ifdef QT_THREAD_SUPPORT
-	TQMutexLocker locker( postevent_mutex );
-#endif // QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
+	TQMutexLocker locker( GlobalPostedEvents()->mutex() );
+#endif // TQT_THREAD_SUPPORT
 
-	if (globalPostedEvents) {
-		// the TQObject destructor calls TQObject::removeChild, which calls
-		// TQApplication::sendEvent() directly.  this can happen while the event
-		// loop is in the middle of posting events, and when we get here, we may
-		// not have any more posted events for this object.
-		if ( receiver->postedEvents ) {
-			// if this is a child remove event and the child insert
-			// hasn't been dispatched yet, kill that insert
-			TQPostEventList * l = receiver->postedEvents;
-			TQObject * c = ((TQChildEvent*)e)->child();
-			TQPostEvent * pe;
-			l->first();
-			while( ( pe = l->current()) != 0 ) {
-				if ( pe->event && pe->receiver == receiver &&
-					pe->event->type() == TQEvent::ChildInserted &&
-					((TQChildEvent*)pe->event)->child() == c ) {
-					pe->event->posted = FALSE;
-					delete pe->event;
-					pe->event = 0;
-					l->remove();
-					continue;
-				}
-				l->next();
+	// the TQObject destructor calls TQObject::removeChild, which calls
+	// TQApplication::sendEvent() directly.  this can happen while the event
+	// loop is in the middle of posting events, and when we get here, we may
+	// not have any more posted events for this object.
+	if ( receiver->postedEvents ) {
+		// if this is a child remove event and the child insert
+		// hasn't been dispatched yet, kill that insert
+		TQPostEventList * l = receiver->postedEvents;
+		TQObject * c = ((TQChildEvent*)e)->child();
+		TQPostEvent * pe;
+		l->first();
+		while( ( pe = l->current()) != 0 ) {
+			if ( pe->event && pe->receiver == receiver &&
+				pe->event->type() == TQEvent::ChildInserted &&
+				((TQChildEvent*)pe->event)->child() == c ) {
+				pe->event->posted = FALSE;
+				delete pe->event;
+				pe->event = 0;
+				l->remove();
+				continue;
 			}
+			l->next();
 		}
 	}
     }
@@ -2558,7 +2610,7 @@ bool TQApplication::notify( TQObject *receiver, TQEvent *e )
 	res = internalNotify( receiver, e );
     }
     else switch ( e->type() ) {
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     case TQEvent::Accel:
 	{
 	    TQKeyEvent* key = (TQKeyEvent*) e;
@@ -2575,14 +2627,14 @@ bool TQApplication::notify( TQObject *receiver, TQEvent *e )
 	    }
 	}
     break;
-#endif //QT_NO_ACCEL
+#endif //TQT_NO_ACCEL
     case TQEvent::KeyPress:
     case TQEvent::KeyRelease:
     case TQEvent::AccelOverride:
 	{
 	    TQWidget* w = (TQWidget*)receiver;
 	    TQKeyEvent* key = (TQKeyEvent*) e;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	    if ( tqt_tryComposeUnicode( w, key ) )
 		break;
 #endif
@@ -2635,7 +2687,7 @@ bool TQApplication::notify( TQObject *receiver, TQEvent *e )
 		mouse->ignore();
 	}
     break;
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     case TQEvent::Wheel:
 	{
 	    if ( e->spontaneous() ) {
@@ -2780,7 +2832,7 @@ bool TQApplication::internalNotify( TQObject *receiver, TQEvent * e)
 {
     if ( eventFilters ) {
 	TQObjectListIt it( *eventFilters );
-	register TQObject *obj;
+	TQObject *obj;
 	while ( (obj=it.current()) != 0 ) {	// send to all filters
 	    ++it;				//   until one returns TRUE
 	    if ( obj->eventFilter(receiver,e) )
@@ -2833,7 +2885,7 @@ bool TQApplication::internalNotify( TQObject *receiver, TQEvent * e)
 		handled = TRUE;
 		consumed = TRUE;
 		break;
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 	    case TQEvent::DragEnter:
 	    case TQEvent::DragMove:
 		( (TQDragMoveEvent*) e)->ignore();
@@ -2850,7 +2902,7 @@ bool TQApplication::internalNotify( TQObject *receiver, TQEvent * e)
 		handled = TRUE;
 		break;
 #endif
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 	    case TQEvent::Wheel:
 		( (TQWheelEvent*) e)->ignore();
 		handled = TRUE;
@@ -2868,7 +2920,7 @@ bool TQApplication::internalNotify( TQObject *receiver, TQEvent * e)
     }
 
     if (!handled) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	int locklevel = 0;
 	int llcount;
 	if (TQApplication::tqt_mutex) {
@@ -2881,7 +2933,7 @@ bool TQApplication::internalNotify( TQObject *receiver, TQEvent * e)
 	}
 #endif
 	consumed = receiver->event( e );
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (TQApplication::tqt_mutex) {
 	    for (llcount=0; llcount<locklevel; llcount++) {
 		TQApplication::tqt_mutex->lock();
@@ -3033,6 +3085,7 @@ int TQApplication::exec()
 */
 void TQApplication::exit( int retcode )
 {
+#ifdef TQT_THREAD_SUPPORT
     TQThread* thread = tqApp->guiThread();
     if (thread) {
         if (thread->d) {
@@ -3041,6 +3094,9 @@ void TQApplication::exit( int retcode )
             }
         }
     }
+#else
+    tqApp->eventLoop()->exit( retcode );
+#endif // TQT_THREAD_SUPPORT
 }
 
 /*!
@@ -3105,7 +3161,7 @@ bool TQApplication::hasPendingEvents()
     return eventLoop()->hasPendingEvents();
 }
 
-#if !defined(Q_WS_X11)
+#if !defined(TQ_WS_X11)
 
 // The doc and X implementation of these functions is in qapplication_x11.cpp
 
@@ -3161,7 +3217,7 @@ TQt::WindowsVersion TQApplication::winVersion()
 }
 #endif
 
-#ifndef QT_NO_TRANSLATION
+#ifndef TQT_NO_TRANSLATION
 
 bool qt_detectRTLLanguage()
 {
@@ -3192,7 +3248,7 @@ void TQApplication::installTranslator( TQTranslator * mf )
 
     translators->prepend( mf );
 
-#ifndef QT_NO_TRANSLATION_BUILDER
+#ifndef TQT_NO_TRANSLATION_BUILDER
     if ( mf->isEmpty() )
 	return;
 #endif
@@ -3238,7 +3294,7 @@ void TQApplication::removeTranslator( TQTranslator * mf )
     }
 }
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 /*! \obsolete
   This is the same as TQTextCodec::setCodecForTr().
 */
@@ -3254,7 +3310,7 @@ TQTextCodec* TQApplication::defaultCodec() const
 {
     return TQTextCodec::codecForTr();
 }
-#endif //QT_NO_TEXTCODEC
+#endif //TQT_NO_TEXTCODEC
 
 /*! \enum TQApplication::Encoding
 
@@ -3322,7 +3378,7 @@ TQString TQApplication::translate( const char * context, const char * sourceText
 		return result;
 	}
     }
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( encoding == UnicodeUTF8 )
 	return TQString::fromUtf8( sourceText );
     else if ( TQTextCodec::codecForTr() != 0 )
@@ -3365,16 +3421,9 @@ void TQApplication::postEvent( TQObject *receiver, TQEvent *event )
 	return;
     }
 
-#ifdef QT_THREAD_SUPPORT
-    TQMutexLocker locker( postevent_mutex );
-#endif // QT_THREAD_SUPPORT
-
-    if ( !globalPostedEvents ) {			// create list
-	globalPostedEvents = new TQPostEventList;
-	TQ_CHECK_PTR( globalPostedEvents );
-	globalPostedEvents->setAutoDelete( TRUE );
-	qapp_cleanup_events.set( &globalPostedEvents );
-    }
+#ifdef TQT_THREAD_SUPPORT
+    TQMutexLocker locker( GlobalPostedEvents()->mutex() );
+#endif // TQT_THREAD_SUPPORT
 
     if ( !receiver->postedEvents ) {
 	receiver->postedEvents = new TQPostEventList;
@@ -3426,7 +3475,7 @@ void TQApplication::postEvent( TQObject *receiver, TQEvent *event )
 	};
     }
 
-#if !defined(QT_NO_IM)
+#if !defined(TQT_NO_IM)
     // if this is one of the compressible IM events, do compression
     else if ( event->type() == TQEvent::IMCompose ) {
 	l->last();
@@ -3459,9 +3508,9 @@ void TQApplication::postEvent( TQObject *receiver, TQEvent *event )
     event->posted = TRUE;
     TQPostEvent * pe = new TQPostEvent( receiver, event );
     l->append( pe );
-    globalPostedEvents->append( pe );
+    GlobalPostedEvents()->append( pe );
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
      // Wake up the receiver thread event loop
      TQThread* thread = receiver->contextThreadObject();
      if (thread) {
@@ -3514,25 +3563,21 @@ void TQApplication::sendPostedEvents( TQObject *receiver, int event_type )
 	sendPostedEvents( 0, TQEvent::ChildInserted );
     }
 
-#ifdef QT_THREAD_SUPPORT
-    TQMutexLocker locker( postevent_mutex );
+#ifdef TQT_THREAD_SUPPORT
+    TQMutexLocker locker( GlobalPostedEvents()->mutex() );
 #endif
-
-    if ( !globalPostedEvents || ( receiver && !receiver->postedEvents ) ) {
-	return;
-    }
 
     bool sent = TRUE;
     while ( sent ) {
 	sent = FALSE;
 
-	if ( !globalPostedEvents || ( receiver && !receiver->postedEvents ) ) {
+	if (receiver && !receiver->postedEvents) {
 	    return;
 	}
 
 	// if we have a receiver, use the local list. Otherwise, use the
 	// global list
-	TQPostEventList * l = receiver ? receiver->postedEvents : globalPostedEvents;
+	TQPostEventList * l = receiver ? receiver->postedEvents : GlobalPostedEvents();
 
 	// okay. here is the tricky loop. be careful about optimizing
 	// this, it looks the way it does for good reasons.
@@ -3540,12 +3585,18 @@ void TQApplication::sendPostedEvents( TQObject *receiver, int event_type )
 	TQPostEvent *pe;
 	while ( (pe=it.current()) != 0 ) {
 	    ++it;
+	    Q_ASSERT(pe->receiver);
 	    if ( pe->event // hasn't been sent yet
 		 && ( receiver == 0 // we send to all receivers
 		      || receiver == pe->receiver ) // we send to THAT receiver
 		 && ( event_type == 0 // we send all types
 		      || event_type == pe->event->type() ) // we send THAT type
-		 && ( (!pe->receiver) || ((pe->receiver) && (!pe->receiver->wasDeleted) && (pe->receiver->contextThreadObject() == TQThread::currentThreadObject())) ) ) { // only send if active thread is receiver object owning thread
+		 && ( !pe->receiver->wasDeleted ) // don't send if receiver was deleted
+#ifdef TQT_THREAD_SUPPORT
+		 // only send if active thread is receiver object owning thread
+		 && ( pe->receiver->contextThreadObject() == TQThread::currentThreadObject() )
+#endif
+		) {
 		// first, we diddle the event so that we can deliver
 		// it, and that noone will try to touch it later.
 		pe->event->posted = FALSE;
@@ -3571,9 +3622,9 @@ void TQApplication::sendPostedEvents( TQObject *receiver, int event_type )
 		    }
 		}
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		if ( locker.mutex() ) locker.mutex()->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		// after all that work, it's time to deliver the event.
 		if ( e->type() == TQEvent::Paint && r->isWidgetType() ) {
 		    TQWidget * w = (TQWidget*)r;
@@ -3585,9 +3636,9 @@ void TQApplication::sendPostedEvents( TQObject *receiver, int event_type )
 		    sent = TRUE;
 		    TQApplication::sendEvent( r, e );
 		}
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		if ( locker.mutex() ) locker.mutex()->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 		delete e;
 		// careful when adding anything below this point - the
@@ -3598,14 +3649,14 @@ void TQApplication::sendPostedEvents( TQObject *receiver, int event_type )
 
 	// clear the global list, i.e. remove everything that was
 	// delivered.
-	if ( l == globalPostedEvents ) {
-	    globalPostedEvents->first();
-	    while( (pe=globalPostedEvents->current()) != 0 ) {
+	if ( l == GlobalPostedEvents() ) {
+	    GlobalPostedEvents()->first();
+	    while( (pe=GlobalPostedEvents()->current()) != 0 ) {
 		if ( pe->event ) {
-		    globalPostedEvents->next();
+		    GlobalPostedEvents()->next();
 		}
 		else {
-		    globalPostedEvents->remove();
+		    GlobalPostedEvents()->remove();
 		}
 	    }
 	}
@@ -3646,9 +3697,9 @@ void TQApplication::removePostedEvents( TQObject *receiver, int event_type )
 	return;
     }
 
-#ifdef QT_THREAD_SUPPORT
-    TQMutexLocker locker( postevent_mutex );
-#endif // QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
+    TQMutexLocker locker( GlobalPostedEvents()->mutex() );
+#endif // TQT_THREAD_SUPPORT
 
     // the TQObject destructor calls this function directly.  this can
     // happen while the event loop is in the middle of posting events,
@@ -3699,19 +3750,11 @@ void TQApplication::removePostedEvent( TQEvent *  event )
 	return;
     }
 
-#ifdef QT_THREAD_SUPPORT
-    TQMutexLocker locker( postevent_mutex );
-#endif // QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
+    TQMutexLocker locker( GlobalPostedEvents()->mutex() );
+#endif // TQT_THREAD_SUPPORT
 
-    if ( !globalPostedEvents ) {
-#if defined(QT_DEBUG)
-	tqDebug( "TQApplication::removePostedEvent: %p %d is posted: impossible",
-		(void*)event, event->type() );
-	return;
-#endif
-    }
-
-    TQPostEventListIt it( *globalPostedEvents );
+    TQPostEventListIt it( *GlobalPostedEvents() );
     TQPostEvent * pe;
     while( (pe = it.current()) != 0 ) {
 	++it;
@@ -3734,7 +3777,7 @@ void TQApplication::removePostedEvent( TQEvent *  event )
 	    case TQEvent::MouseMove:
 		n = "MouseMove";
 		break;
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 	    case TQEvent::Wheel:
 		n = "Wheel";
 		break;
@@ -3796,8 +3839,8 @@ void TQApplication::removePostedEvent( TQEvent *  event )
     }
 }
 
-void tqThreadTerminationHandlerRecursive( TQObject* object, TQThread* originThread, TQThread* destinationThread ) {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
+static void tqThreadTerminationHandlerRecursive( TQObject* object, TQThread* originThread, TQThread* destinationThread ) {
 	TQThread* objectThread = object->contextThreadObject();
 	if (objectThread && (objectThread == originThread)) {
 		TQThread::CleanupType cleanupType = objectThread->cleanupType();
@@ -3822,7 +3865,6 @@ void tqThreadTerminationHandlerRecursive( TQObject* object, TQThread* originThre
 	for ( childObject = children.first(); childObject; childObject = children.next() ) {
 		tqThreadTerminationHandlerRecursive(childObject, originThread, destinationThread);
 	}
-#endif // QT_THREAD_SUPPORT
 }
 
 /*!\internal
@@ -3831,15 +3873,14 @@ void tqThreadTerminationHandlerRecursive( TQObject* object, TQThread* originThre
   for thread destruction.
  */
 void TQApplication::threadTerminationHandler( TQThread *originThread ) {
-#ifdef QT_THREAD_SUPPORT
 	TQMutexLocker locker( tqt_mutex );
 	TQThread* destinationThread = guiThread();
 	const TQObjectList* objects = TQObject::objectTrees();
 	for ( TQObjectListIt objectit( *objects ) ; *objectit; ++objectit ) {
 		tqThreadTerminationHandlerRecursive((*objectit), originThread, destinationThread);
 	}
-#endif // QT_THREAD_SUPPORT
 }
+#endif // TQT_THREAD_SUPPORT
 
 /*!\internal
 
@@ -3862,7 +3903,7 @@ void TQApplication::setActiveWindow( TQWidget* act )
     // first the activation/deactivation events
     if ( active_window ) {
 	TQWidgetList deacts;
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 	if ( style().styleHint(TQStyle::SH_Widget_ShareActivation, active_window ) ) {
 	    TQWidgetList *list = topLevelWidgets();
 	    if ( list ) {
@@ -3885,7 +3926,7 @@ void TQApplication::setActiveWindow( TQWidget* act )
     if ( active_window ) {
 	TQEvent e( TQEvent::WindowActivate );
 	TQWidgetList acts;
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 	if ( style().styleHint(TQStyle::SH_Widget_ShareActivation, active_window ) ) {
 	    TQWidgetList *list = topLevelWidgets();
 	    if ( list ) {
@@ -3908,9 +3949,9 @@ void TQApplication::setActiveWindow( TQWidget* act )
 	TQFocusEvent out( TQEvent::FocusOut );
 	TQWidget *tmp = focus_widget;
 	focus_widget = 0;
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	TQInputContext::accept( tmp );
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
 	tmp->unfocusInputContext();
 #endif
 	TQApplication::sendSpontaneousEvent( tmp, &out );
@@ -3930,7 +3971,7 @@ void TQApplication::setActiveWindow( TQWidget* act )
   Creates the proper Enter/Leave event when widget \a enter is entered
   and widget \a leave is left.
  */
-Q_EXPORT void tqt_dispatchEnterLeave( TQWidget* enter, TQWidget* leave ) {
+TQ_EXPORT void tqt_dispatchEnterLeave( TQWidget* enter, TQWidget* leave ) {
 #if 0
     if ( leave ) {
 	TQEvent e( TQEvent::Leave );
@@ -4011,7 +4052,7 @@ Q_EXPORT void tqt_dispatchEnterLeave( TQWidget* enter, TQWidget* leave ) {
 }
 
 
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 extern TQWidget *tqt_tryModalHelperMac( TQWidget * top ); //qapplication_mac.cpp
 #endif
 
@@ -4021,14 +4062,14 @@ extern TQWidget *tqt_tryModalHelperMac( TQWidget * top ); //qapplication_mac.cpp
   Called from qapplication_<platform>.cpp, returns TRUE
   if the widget should accept the event.
  */
-Q_EXPORT bool tqt_tryModalHelper( TQWidget *widget, TQWidget **rettop ) {
+TQ_EXPORT bool tqt_tryModalHelper( TQWidget *widget, TQWidget **rettop ) {
     TQWidget *modal=0, *top=TQApplication::activeModalWidget();
     if ( rettop ) *rettop = top;
 
     if ( tqApp->activePopupWidget() )
 	return TRUE;
 
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
     top = tqt_tryModalHelperMac( top );
     if ( rettop ) *rettop = top;
 #endif
@@ -4096,7 +4137,7 @@ TQDesktopWidget *TQApplication::desktop()
     return tqt_desktopWidget;
 }
 
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 /*!
   Returns a pointer to the application global clipboard.
 */
@@ -4108,7 +4149,7 @@ TQClipboard *TQApplication::clipboard()
     }
     return tqt_clipboard;
 }
-#endif // QT_NO_CLIPBOARD
+#endif // TQT_NO_CLIPBOARD
 
 /*!
   By default, TQt will try to use the current standard colors, fonts
@@ -4190,7 +4231,7 @@ bool TQApplication::desktopSettingsAware()
   \sa lock(), unlock() \link threads.html Thread Support in TQt\endlink
 */
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 void TQApplication::lock()
 {
     tqt_mutex->lock();
@@ -4283,7 +4324,7 @@ bool TQApplication::tryLock()
 
   \sa isSessionRestored(), sessionId(), saveState(), \link session.html the Session Management overview\endlink
 */
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
 void TQApplication::commitData( TQSessionManager& sm  )
 {
 
@@ -4345,7 +4386,7 @@ void TQApplication::commitData( TQSessionManager& sm  )
 void TQApplication::saveState( TQSessionManager& /* sm */ )
 {
 }
-#endif //QT_NO_SESSIONMANAGER
+#endif //TQT_NO_SESSIONMANAGER
 /*!
   Sets the time after which a drag should start to \a ms ms.
 
@@ -4807,8 +4848,8 @@ void MyApplication::commitData( TQSessionManager& sm ) {
 /*****************************************************************************
   Stubbed session management support
  *****************************************************************************/
-#ifndef QT_NO_SESSIONMANAGER
-#if defined( QT_NO_SM_SUPPORT ) || defined( Q_WS_WIN ) || defined( Q_WS_MAC ) || defined( Q_WS_QWS )
+#ifndef TQT_NO_SESSIONMANAGER
+#if defined( TQT_NO_SM_SUPPORT ) || defined( TQ_WS_WIN ) || defined( TQ_WS_MAC ) || defined( TQ_WS_QWS )
 
 class TQSessionManagerData
 {
@@ -4826,7 +4867,7 @@ TQSessionManager::TQSessionManager( TQApplication * app, TQString &id, TQString 
 {
     qt_session_manager_self = this;
     d = new TQSessionManagerData;
-#if defined(Q_WS_WIN) && !defined(Q_OS_TEMP)
+#if defined(TQ_WS_WIN) && !defined(Q_OS_TEMP)
     wchar_t guidstr[40];
     GUID guid;
     CoCreateGuid( &guid );
@@ -4858,14 +4899,14 @@ TQString TQSessionManager::sessionKey() const
 }
 
 
-#if defined(Q_WS_X11) || defined(Q_WS_MAC)
+#if defined(TQ_WS_X11) || defined(TQ_WS_MAC)
 void* TQSessionManager::handle() const
 {
     return 0;
 }
 #endif
 
-#if !defined(Q_WS_WIN)
+#if !defined(TQ_WS_WIN)
 bool TQSessionManager::allowsInteraction()
 {
     return TRUE;
@@ -4932,5 +4973,5 @@ void TQSessionManager::requestPhase2()
 {
 }
 
-#endif // QT_NO_SM_SUPPORT
-#endif //QT_NO_SESSIONMANAGER
+#endif // TQT_NO_SM_SUPPORT
+#endif //TQT_NO_SESSIONMANAGER

@@ -69,13 +69,13 @@
 #define TQFONTLOADER_DEBUG
 #define TQFONTLOADER_DEBUG_VERBOSE
 
-Q_EXPORT bool tqt_has_xft = FALSE;
+TQ_EXPORT bool tqt_has_xft = FALSE;
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 TQt::HANDLE qt_xft_handle(const TQFont &font)
 {
     TQFontEngine *engine = font.d->engineForScript( TQFontPrivate::defaultScript );
-    if (!engine->type() == TQFontEngine::Xft)
+    if (engine->type() != TQFontEngine::Xft)
         return 0;
     return (long)static_cast<TQFontEngineXft *>(engine)->font();
 }
@@ -195,8 +195,8 @@ void TQFont::initialize()
     // create global font cache
     if ( ! TQFontCache::instance ) (void) new TQFontCache;
 
-#ifndef QT_NO_CODECS
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_CODECS
+#ifndef TQT_NO_BIG_CODECS
     static bool codecs_once = FALSE;
     if ( ! codecs_once ) {
 	(void) new TQFontJis0201Codec;
@@ -210,8 +210,8 @@ void TQFont::initialize()
 	(void) new TQFontLaoCodec;
 	codecs_once = TRUE;
     }
-#endif // QT_NO_BIG_CODECS
-#endif // QT_NO_CODECS
+#endif // TQT_NO_BIG_CODECS
+#endif // TQT_NO_CODECS
 
     extern int qt_encoding_id_for_mib( int mib ); // from qfontdatabase_x11.cpp
     TQTextCodec *codec = TQTextCodec::codecForLocale();
@@ -269,13 +269,13 @@ void TQFont::initialize()
     TQString sample;
 
     if ( ttmp != -1 ) {
-#if defined(QT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+#if defined(TQT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
 	// use the reentrant versions of localtime() where available
 	tm res;
 	tt = localtime_r( &ttmp, &res );
 #else
 	tt = localtime( &ttmp );
-#endif // QT_THREAD_SUPPORT && _POSIX_THREAD_SAFE_FUNCTIONS
+#endif // TQT_THREAD_SUPPORT && _POSIX_THREAD_SAFE_FUNCTIONS
 
 	if ( tt != 0 && strftime( samp, 64, "%A%B", tt ) > 0 )
 	    if ( codec )
@@ -312,6 +312,7 @@ void TQFont::cleanup()
 {
     // delete the global font cache
     delete TQFontCache::instance;
+    TQFontCache::instance = 0;
 }
 
 /*!

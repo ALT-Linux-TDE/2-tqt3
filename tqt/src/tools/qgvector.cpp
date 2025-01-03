@@ -51,9 +51,9 @@
 #include "ntqdatastream.h"
 #include <stdlib.h>
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #  include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #define USE_MALLOC				// comment to use new/delete
 
@@ -126,7 +126,7 @@ int TQGVector::compareItems( Item d1, Item d2 )
     return d1 != d2;				// compare pointers
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
   Reads a collection/vector item from the stream \a s and returns a reference
   to the stream.
@@ -155,7 +155,7 @@ TQDataStream &TQGVector::write( TQDataStream &s, Item ) const
 {						// write item to stream
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 /*****************************************************************************
   TQGVector member functions
@@ -388,8 +388,8 @@ void TQGVector::sort()				// sort vector
 {
     if ( count() == 0 )				// no elements
 	return;
-    register Item *start = &vec[0];
-    register Item *end	= &vec[len-1];
+    Item *start = &vec[0];
+    Item *end	= &vec[len-1];
     Item tmp;
     for (;;) {				// put all zero elements behind
 	while ( start < end && *start != 0 )
@@ -405,10 +405,10 @@ void TQGVector::sort()				// sort vector
 	}
     }
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( tqt_global_mutexpool ?
 			 tqt_global_mutexpool->get( &sort_vec ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     sort_vec = (TQGVector*)this;
     qsort( vec, count(), sizeof(Item), cmp_vec );
@@ -540,7 +540,7 @@ void TQGVector::warningIndexRange( uint i )
 /*****************************************************************************
   TQGVector stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 TQDataStream &operator>>( TQDataStream &s, TQGVector &vec )
 {						// read vector
     return vec.read( s );
@@ -595,4 +595,4 @@ bool TQGVector::operator==( const TQGVector &v ) const
     return TRUE;
 }
 
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM

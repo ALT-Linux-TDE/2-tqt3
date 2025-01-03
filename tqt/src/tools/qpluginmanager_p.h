@@ -57,7 +57,7 @@
 #include "qgpluginmanager_p.h"
 #endif // QT_H
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 template<class Type>
 class TQPluginManager : public TQGPluginManager
@@ -71,6 +71,6 @@ public:
     }
 };
 
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
 #endif //TQPLUGINMANAGER_P_H

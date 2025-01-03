@@ -1,4 +1,4 @@
-# Qt opengl module
+# TQt opengl module
 
 opengl {
 	HEADERS += $$OPENGL_H/ntqgl.h \

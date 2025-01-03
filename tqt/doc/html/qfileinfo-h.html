@@ -88,7 +88,7 @@ struct TQFileInfoCache;
 template &lt;class T&gt; class TQDeepCopy;
 
 
-class Q_EXPORT TQFileInfo
+class TQ_EXPORT TQFileInfo
 {
 public:
     enum PermissionSpec {
@@ -100,7 +100,7 @@ public:
     TQFileInfo();
     TQFileInfo( const TQString &amp;file );
     TQFileInfo( const TQFile &amp; );
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
     TQFileInfo( const TQDir &amp;, const TQString &amp;fileName );
 #endif
     TQFileInfo( const TQFileInfo &amp; );
@@ -110,7 +110,7 @@ public:
 
     void	setFile( const TQString &amp;file );
     void	setFile( const TQFile &amp; );
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
     void	setFile( const TQDir &amp;, const TQString &amp;fileName );
 #endif
     bool	exists()	const;
@@ -120,16 +120,16 @@ public:
 
     TQString	filePath()	const;
     TQString	fileName()	const;
-#ifndef QT_NO_DIR //###
+#ifndef TQT_NO_DIR //###
     TQString	absFilePath()	const;
 #endif
     TQString	baseName( bool complete = FALSE ) const;
     TQString	extension( bool complete = TRUE ) const;
 
-#ifndef QT_NO_DIR //###
+#ifndef TQT_NO_DIR //###
     TQString	dirPath( bool absPath = FALSE ) const;
 #endif
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
     TQDir	dir( bool absPath = FALSE )	const;
 #endif
     bool	isReadable()	const;
@@ -137,7 +137,7 @@ public:
     bool	isExecutable()	const;
     bool 	isHidden()      const;
 
-#ifndef QT_NO_DIR //###
+#ifndef TQT_NO_DIR //###
     bool	isRelative()	const;
     bool	convertToAbs();
 #endif

@@ -46,13 +46,13 @@
 #include "ntqrangecontrol.h"
 #endif // QT_H
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 
 struct TQSliderPrivate;
 
 class TQTimer;
 
-class Q_EXPORT TQSlider : public TQWidget, public TQRangeControl
+class TQ_EXPORT TQSlider : public TQWidget, public TQRangeControl
 {
     TQ_OBJECT
     TQ_ENUMS( TickSetting )
@@ -128,7 +128,7 @@ protected:
     void	mousePressEvent( TQMouseEvent * );
     void	mouseReleaseEvent( TQMouseEvent * );
     void	mouseMoveEvent( TQMouseEvent * );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void	wheelEvent( TQWheelEvent * );
 #endif
     void	focusInEvent( TQFocusEvent *e );
@@ -194,6 +194,6 @@ inline void TQSlider::setSizePolicy( TQSizePolicy::SizeType hor, TQSizePolicy::S
     TQWidget::setSizePolicy( hor, ver, hfw ); 
 }
 
-#endif // QT_NO_SLIDER
+#endif // TQT_NO_SLIDER
 
 #endif // TQSLIDER_H

@@ -40,7 +40,7 @@
 #include <ntqtextstream.h>
 #include <ntqfile.h>
 #include <ntqpainter.h>
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 # include <qt_mac.h>
 #endif
 
@@ -97,7 +97,7 @@ void Skin::setView( TQVFbView *v )
 {
     view = v;
     view->move( viewX1, viewY1 );
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     TQMacSavedPortInfo::setAlphaTransparancy(view, transparancy);
 #endif
 }

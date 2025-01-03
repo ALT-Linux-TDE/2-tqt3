@@ -290,7 +290,7 @@ void TQtFileIconDrag::append( const TQIconDragItem &item, const TQRect &pr,
 {
     TQIconDrag::append( item, pr, tr );
     TQString ourUrl = url;    
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     if (ourUrl.length() > 2 && ourUrl[1] != ':') {
 	TQDir dir(ourUrl);
 	ourUrl = dir.absPath();
@@ -326,8 +326,8 @@ TQtFileIconViewItem::TQtFileIconViewItem( TQtFileIconView *parent, TQFileInfo *f
 
     checkSetText = TRUE;
 
-    TQObject::connect( &timer, SIGNAL( timeout() ),
-		      iconView(), SLOT( openFolder() ) );
+    TQObject::connect( &timer, TQ_SIGNAL( timeout() ),
+		      iconView(), TQ_SLOT( openFolder() ) );
 }
 
 void TQtFileIconViewItem::paintItem( TQPainter *p, const TQColorGroup &cg )
@@ -498,14 +498,14 @@ TQtFileIconView::TQtFileIconView( const TQString &dir, TQWidget *parent, const c
     setResizeMode( Adjust );
     setWordWrapIconText( FALSE );
 
-    connect( this, SIGNAL( doubleClicked( TQIconViewItem * ) ),
-	     this, SLOT( itemDoubleClicked( TQIconViewItem * ) ) );
-    connect( this, SIGNAL( returnPressed( TQIconViewItem * ) ),
-	     this, SLOT( itemDoubleClicked( TQIconViewItem * ) ) );
-    connect( this, SIGNAL( dropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ),
-	     this, SLOT( slotDropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ) );
-    connect( this, SIGNAL( contextMenuRequested( TQIconViewItem *, const TQPoint & ) ),
-	     this, SLOT( slotRightPressed( TQIconViewItem * ) ) );
+    connect( this, TQ_SIGNAL( doubleClicked( TQIconViewItem * ) ),
+	     this, TQ_SLOT( itemDoubleClicked( TQIconViewItem * ) ) );
+    connect( this, TQ_SIGNAL( returnPressed( TQIconViewItem * ) ),
+	     this, TQ_SLOT( itemDoubleClicked( TQIconViewItem * ) ) );
+    connect( this, TQ_SIGNAL( dropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ),
+	     this, TQ_SLOT( slotDropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ) );
+    connect( this, TQ_SIGNAL( contextMenuRequested( TQIconViewItem *, const TQPoint & ) ),
+	     this, TQ_SLOT( slotRightPressed( TQIconViewItem * ) ) );
 
     setHScrollBarMode( AlwaysOff );
     setVScrollBarMode( Auto );
@@ -780,22 +780,22 @@ void TQtFileIconView::slotRightPressed( TQIconViewItem *item )
     if ( !item ) { // right pressed on viewport
 	TQPopupMenu menu( this );
 
-	menu.insertItem( "&Large view", this, SLOT( viewLarge() ) );
-	menu.insertItem( "&Small view", this, SLOT( viewSmall() ) );
+	menu.insertItem( "&Large view", this, TQ_SLOT( viewLarge() ) );
+	menu.insertItem( "&Small view", this, TQ_SLOT( viewSmall() ) );
 	menu.insertSeparator();
-	menu.insertItem( "Text at the &bottom", this, SLOT( viewBottom() ) );
-	menu.insertItem( "Text at the &right", this, SLOT( viewRight() ) );
+	menu.insertItem( "Text at the &bottom", this, TQ_SLOT( viewBottom() ) );
+	menu.insertItem( "Text at the &right", this, TQ_SLOT( viewRight() ) );
 	menu.insertSeparator();
-	menu.insertItem( "Arrange l&eft to right", this, SLOT( flowEast() ) );
-	menu.insertItem( "Arrange t&op to bottom", this, SLOT( flowSouth() ) );
+	menu.insertItem( "Arrange l&eft to right", this, TQ_SLOT( flowEast() ) );
+	menu.insertItem( "Arrange t&op to bottom", this, TQ_SLOT( flowSouth() ) );
 	menu.insertSeparator();
-	menu.insertItem( "&Truncate item text", this, SLOT( itemTextTruncate() ) );
-	menu.insertItem( "&Wordwrap item text", this, SLOT( itemTextWordWrap() ) );
+	menu.insertItem( "&Truncate item text", this, TQ_SLOT( itemTextTruncate() ) );
+	menu.insertItem( "&Wordwrap item text", this, TQ_SLOT( itemTextWordWrap() ) );
 	menu.insertSeparator();
-	menu.insertItem( "Arrange items in &grid", this, SLOT( arrangeItemsInGrid() ) );
+	menu.insertItem( "Arrange items in &grid", this, TQ_SLOT( arrangeItemsInGrid() ) );
 	menu.insertSeparator();
-	menu.insertItem( "Sort &ascending", this, SLOT( sortAscending() ) );
-	menu.insertItem( "Sort &descending", this, SLOT( sortDescending() ) );
+	menu.insertItem( "Sort &ascending", this, TQ_SLOT( sortAscending() ) );
+	menu.insertItem( "Sort &descending", this, TQ_SLOT( sortDescending() ) );
 
 	menu.setMouseTracking( TRUE );
 	menu.exec( TQCursor::pos() );

@@ -26,7 +26,7 @@ MyWidget::MyWidget( TQWidget *parent, const char *name )
     quit->setGeometry( 62, 40, 75, 30 );
     quit->setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    connect( quit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 }
 
 

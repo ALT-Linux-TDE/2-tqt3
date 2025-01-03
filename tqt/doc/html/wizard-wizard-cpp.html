@@ -87,8 +87,8 @@ void <a name="f4"></a>Wizard::setupPage1()
 <a name="x6"></a>    key-&gt;<a href="ntqlineedit.html#setMaxLength">setMaxLength</a>( 4 );
 <a name="x7"></a>    key-&gt;<a href="ntqlineedit.html#setValidator">setValidator</a>( new <a href="qintvalidator.html">TQIntValidator</a>( 1000, 9999, key ) );
 
-<a name="x9"></a>    <a href="ntqobject.html#connect">connect</a>( key, SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             this, SLOT( keyChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+<a name="x9"></a>    <a href="ntqobject.html#connect">connect</a>( key, TQ_SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT( keyChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
 
     <a href="ntqwizard.html#addPage">addPage</a>( page1, "Personal Key" );
 
@@ -143,12 +143,12 @@ void <a name="f5"></a>Wizard::setupPage2()
     phone = new <a href="ntqlineedit.html">TQLineEdit</a>( row4 );
     email = new <a href="ntqlineedit.html">TQLineEdit</a>( row5 );
 
-    <a href="ntqobject.html#connect">connect</a>( firstName, SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             this, SLOT( dataChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
-    <a href="ntqobject.html#connect">connect</a>( lastName, SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             this, SLOT( dataChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
-    <a href="ntqobject.html#connect">connect</a>( email, SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             this, SLOT( dataChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( firstName, TQ_SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT( dataChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( lastName, TQ_SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT( dataChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( email, TQ_SIGNAL( <a href="ntqlineedit.html#textChanged">textChanged</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT( dataChanged( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
 
     <a href="ntqwizard.html#addPage">addPage</a>( page2, "Personal Data" );
 

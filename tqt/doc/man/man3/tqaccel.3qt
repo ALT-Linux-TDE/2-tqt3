@@ -11,15 +11,15 @@ QAccel \- Handles keyboard accelerator and shortcut keys
 .SH SYNOPSIS
 \fC#include <ntqaccel.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQAccel\fR ( QWidget * parent, const char * name = 0 )"
+.BI "\fBQAccel\fR ( TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQAccel\fR ( QWidget * watch, QObject * parent, const char * name = 0 )"
+.BI "\fBQAccel\fR ( TQWidget * watch, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QAccel\fR ()"
@@ -55,19 +55,19 @@ Inherits QObject.
 .BI "void \fBsetItemEnabled\fR ( int id, bool enable )"
 .br
 .ti -1c
-.BI "bool \fBconnectItem\fR ( int id, const QObject * receiver, const char * member )"
+.BI "bool \fBconnectItem\fR ( int id, const TQObject * receiver, const char * member )"
 .br
 .ti -1c
-.BI "bool \fBdisconnectItem\fR ( int id, const QObject * receiver, const char * member )"
+.BI "bool \fBdisconnectItem\fR ( int id, const TQObject * receiver, const char * member )"
 .br
 .ti -1c
 .BI "void repairEventFilter ()  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "void \fBsetWhatsThis\fR ( int id, const QString & text )"
+.BI "void \fBsetWhatsThis\fR ( int id, const TQString & text )"
 .br
 .ti -1c
-.BI "QString \fBwhatsThis\fR ( int id ) const"
+.BI "TQString \fBwhatsThis\fR ( int id ) const"
 .br
 .in -1c
 .SS "Signals"
@@ -82,19 +82,19 @@ Inherits QObject.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QKeySequence \fBshortcutKey\fR ( const QString & str )"
+.BI "QKeySequence \fBshortcutKey\fR ( const TQString & str )"
 .br
 .ti -1c
-.BI "QString keyToString ( QKeySequence k )  \fI(obsolete)\fR"
+.BI "TQString keyToString ( QKeySequence k )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QKeySequence stringToKey ( const QString & s )  \fI(obsolete)\fR"
+.BI "QKeySequence stringToKey ( const TQString & s )  \fI(obsolete)\fR"
 .br
 .in -1c
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual bool eventFilter ( QObject *, QEvent * )  \fI(obsolete)\fR"
+.BI "virtual bool eventFilter ( TQObject *, QEvent * )  \fI(obsolete)\fR"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -110,7 +110,7 @@ In most cases, you will not need to use this class directly. Use the QAction cla
 .br
         QPopupMenu *fileMenu = new fileMenu( parent );
 .br
-        fileMenu->insertItem( "Undo", parent, SLOT(undo()), CTRL+Key_Z );
+        fileMenu->insertItem( "Undo", parent, TQ_SLOT(undo()), CTRL+Key_Z );
 .br
 .fi
 .PP
@@ -147,15 +147,15 @@ Example:
 .br
                         myWindow,                  // connected to myWindow's
 .br
-                        SLOT(printDoc()) );        // printDoc() slot
+                        TQ_SLOT(printDoc()) );        // printDoc() slot
 .br
 .fi
 .PP
-See also QKeyEvent, QWidget::keyPressEvent(), QMenuData::setAccel(), QButton::accel, QLabel::setBuddy(), QKeySequence, GUI Design Handbook: Keyboard Shortcuts, and Miscellaneous Classes.
+See also QKeyEvent, TQWidget::keyPressEvent(), QMenuData::setAccel(), QButton::accel, QLabel::setBuddy(), QKeySequence, GUI Design Handbook: Keyboard Shortcuts, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QAccel::QAccel ( QWidget * parent, const char * name = 0 )"
+.SH "QAccel::QAccel ( TQWidget * parent, const char * name = 0 )"
 Constructs a QAccel object called \fIname\fR, with parent \fIparent\fR. The accelerator operates on \fIparent\fR.
-.SH "QAccel::QAccel ( QWidget * watch, QObject * parent, const char * name = 0 )"
+.SH "QAccel::QAccel ( TQWidget * watch, TQObject * parent, const char * name = 0 )"
 Constructs a QAccel object called \fIname\fR, that operates on \fIwatch\fR, and is a child of \fIparent\fR.
 .PP
 This constructor is not needed for normal application programming.
@@ -171,12 +171,12 @@ This signal is emitted when an accelerator key is pressed. \fIid\fR is a number 
 See also activated().
 .SH "void QAccel::clear ()"
 Removes all accelerator items.
-.SH "bool QAccel::connectItem ( int id, const QObject * receiver, const char * member )"
+.SH "bool QAccel::connectItem ( int id, const TQObject * receiver, const char * member )"
 Connects the accelerator item \fIid\fR to the slot \fImember\fR of \fIreceiver\fR.
 .PP
 .nf
 .br
-        a->connectItem( 201, mainView, SLOT(quit()) );
+        a->connectItem( 201, mainView, TQ_SLOT(quit()) );
 .br
 .fi
 .PP
@@ -189,14 +189,14 @@ See also disconnectItem().
 Example: t14/gamebrd.cpp.
 .SH "uint QAccel::count () const"
 Returns the number of accelerator items in this accelerator.
-.SH "bool QAccel::disconnectItem ( int id, const QObject * receiver, const char * member )"
+.SH "bool QAccel::disconnectItem ( int id, const TQObject * receiver, const char * member )"
 Disconnects an accelerator item with id \fIid\fR from the function called \fImember\fR in the \fIreceiver\fR object.
 .PP
 See also connectItem().
-.SH "bool QAccel::eventFilter ( QObject *, QEvent * )\fC [virtual protected]\fR"
+.SH "bool QAccel::eventFilter ( TQObject *, QEvent * )\fC [virtual protected]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code. serves no purpose anymore
 .PP
-Reimplemented from QObject.
+Reimplemented from TQObject.
 .SH "int QAccel::findKey ( const QKeySequence & key ) const"
 Returns the identifier of the accelerator item with the key code \fIkey\fR, or -1 if the item cannot be found.
 .SH "int QAccel::insertItem ( const QKeySequence & key, int id = -1 )"
@@ -233,12 +233,12 @@ Returns TRUE if the accelerator item with the identifier \fIid\fR is enabled. Re
 See also setItemEnabled() and isEnabled().
 .SH "QKeySequence QAccel::key ( int id )"
 Returns the key sequence of the accelerator item with identifier \fIid\fR, or an invalid key sequence (0) if the id cannot be found.
-.SH "QString QAccel::keyToString ( QKeySequence k )\fC [static]\fR"
+.SH "TQString QAccel::keyToString ( QKeySequence k )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Creates an accelerator string for the key \fIk\fR. For instance CTRL+Key_O gives "Ctrl+O". The "Ctrl" etc. are translated (using QObject::tr()) in the "QAccel" context.
+Creates an accelerator string for the key \fIk\fR. For instance CTRL+Key_O gives "Ctrl+O". The "Ctrl" etc. are translated (using TQObject::tr()) in the "QAccel" context.
 .PP
-The function is superfluous. Cast the QKeySequence \fIk\fR to a QString for the same effect.
+The function is superfluous. Cast the QKeySequence \fIk\fR to a TQString for the same effect.
 .SH "void QAccel::removeItem ( int id )"
 Removes the accelerator item with the identifier \fIid\fR.
 .SH "void QAccel::repairEventFilter ()"
@@ -255,7 +255,7 @@ Enables the accelerator item with the identifier \fIid\fR if \fIenable\fR is TRU
 To work, an item must be enabled and be in an enabled QAccel.
 .PP
 See also isItemEnabled() and isEnabled().
-.SH "void QAccel::setWhatsThis ( int id, const QString & text )"
+.SH "void QAccel::setWhatsThis ( int id, const TQString & text )"
 Sets a What's This help text for the accelerator item \fIid\fR to \fItext\fR.
 .PP
 The text will be shown when the application is in What's This mode and the user hits the accelerator key.
@@ -263,16 +263,16 @@ The text will be shown when the application is in What's This mode and the user 
 To set What's This help on a menu item (with or without an accelerator key), use QMenuData::setWhatsThis().
 .PP
 See also whatsThis(), QWhatsThis::inWhatsThisMode(), QMenuData::setWhatsThis(), and QAction::whatsThis.
-.SH "QKeySequence QAccel::shortcutKey ( const QString & str )\fC [static]\fR"
+.SH "QKeySequence QAccel::shortcutKey ( const TQString & str )\fC [static]\fR"
 Returns the shortcut key sequence for \fIstr\fR, or an invalid key sequence (0) if \fIstr\fR has no shortcut sequence.
 .PP
-For example, shortcutKey("E&xit") returns ALT+Key_X, shortcutKey("&Quit") returns ALT+Key_Q and shortcutKey("Quit") returns 0. (In code that does not inherit the Qt namespace class, you must write e.g. Qt::ALT+Qt::Key_Q.)
+For example, shortcutKey("E&xit") returns ALT+Key_X, shortcutKey("&Quit") returns ALT+Key_Q and shortcutKey("Quit") returns 0. (In code that does not inherit the TQt namespace class, you must write e.g. TQt::ALT+TQt::Key_Q.)
 .PP
 We provide a list of common accelerators in English. At the time of writing, Microsoft and Open Group do not appear to have issued equivalent recommendations for other languages.
-.SH "QKeySequence QAccel::stringToKey ( const QString & s )\fC [static]\fR"
+.SH "QKeySequence QAccel::stringToKey ( const TQString & s )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Returns an accelerator code for the string \fIs\fR. For example" Ctrl+O" gives CTRL+UNICODE_ACCEL+'O'. The strings "Ctrl"," Shift", "Alt" are recognized, as well as their translated equivalents in the "QAccel" context (using QObject::tr()). Returns 0 if \fIs\fR is not recognized.
+Returns an accelerator code for the string \fIs\fR. For example" Ctrl+O" gives CTRL+UNICODE_ACCEL+'O'. The strings "Ctrl"," Shift", "Alt" are recognized, as well as their translated equivalents in the "QAccel" context (using TQObject::tr()). Returns 0 if \fIs\fR is not recognized.
 .PP
 This function is typically used with tr(), so that accelerator keys can be replaced in translations:
 .PP
@@ -280,7 +280,7 @@ This function is typically used with tr(), so that accelerator keys can be repla
 .br
     QPopupMenu *file = new QPopupMenu( this );
 .br
-    file->insertItem( p1, tr("&Open..."), this, SLOT(open()),
+    file->insertItem( p1, tr("&Open..."), this, TQ_SLOT(open()),
 .br
                       QAccel::stringToKey(tr("Ctrl+O", "File|Open")) );
 .br
@@ -290,11 +290,11 @@ Notice the \fC"File|Open"\fR translator comment. It is by no means necessary, bu
 .PP
 The function is superfluous. Construct a QKeySequence from the string \fIs\fR for the same effect.
 .PP
-See also QObject::tr() and Internationalization with Qt.
+See also TQObject::tr() and Internationalization with Qt.
 .PP
 Example: i18n/mywidget.cpp.
-.SH "QString QAccel::whatsThis ( int id ) const"
-Returns the What's This help text for the specified item \fIid\fR or QString::null if no text has been specified.
+.SH "TQString QAccel::whatsThis ( int id ) const"
+Returns the What's This help text for the specified item \fIid\fR or TQString::null if no text has been specified.
 .PP
 See also setWhatsThis().
 
@@ -312,8 +312,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

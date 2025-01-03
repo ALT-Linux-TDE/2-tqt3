@@ -53,57 +53,57 @@ class TQBrush;
 class TQRect;
 class TQPixmap;
 
-#ifndef QT_NO_DRAWUTIL
+#ifndef TQT_NO_DRAWUTIL
 //
 // Standard shade drawing
 //
 
-Q_EXPORT void qDrawShadeLine( TQPainter *p, int x1, int y1, int x2, int y2,
+TQ_EXPORT void qDrawShadeLine( TQPainter *p, int x1, int y1, int x2, int y2,
 			      const TQColorGroup &g, bool sunken = TRUE,
 			      int lineWidth = 1, int midLineWidth = 0 );
 
-Q_EXPORT void qDrawShadeLine( TQPainter *p, const TQPoint &p1, const TQPoint &p2,
+TQ_EXPORT void qDrawShadeLine( TQPainter *p, const TQPoint &p1, const TQPoint &p2,
 			      const TQColorGroup &g, bool sunken = TRUE,
 			      int lineWidth = 1, int midLineWidth = 0 );
 
-Q_EXPORT void qDrawShadeRect( TQPainter *p, int x, int y, int w, int h,
+TQ_EXPORT void qDrawShadeRect( TQPainter *p, int x, int y, int w, int h,
 			      const TQColorGroup &, bool sunken=FALSE,
 			      int lineWidth = 1, int midLineWidth = 0,
 			      const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawShadeRect( TQPainter *p, const TQRect &r,
+TQ_EXPORT void qDrawShadeRect( TQPainter *p, const TQRect &r,
 			      const TQColorGroup &, bool sunken=FALSE,
 			      int lineWidth = 1, int midLineWidth = 0,
 			      const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawShadePanel( TQPainter *p, int x, int y, int w, int h,
+TQ_EXPORT void qDrawShadePanel( TQPainter *p, int x, int y, int w, int h,
 			       const TQColorGroup &, bool sunken=FALSE,
 			       int lineWidth = 1, const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawShadePanel( TQPainter *p, const TQRect &r,
+TQ_EXPORT void qDrawShadePanel( TQPainter *p, const TQRect &r,
 			       const TQColorGroup &, bool sunken=FALSE,
 			       int lineWidth = 1, const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawWinButton( TQPainter *p, int x, int y, int w, int h,
+TQ_EXPORT void qDrawWinButton( TQPainter *p, int x, int y, int w, int h,
 			      const TQColorGroup &g, bool sunken = FALSE,
 			      const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawWinButton( TQPainter *p, const TQRect &r,
+TQ_EXPORT void qDrawWinButton( TQPainter *p, const TQRect &r,
 			      const TQColorGroup &g, bool sunken = FALSE,
 			      const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawWinPanel( TQPainter *p, int x, int y, int w, int h,
+TQ_EXPORT void qDrawWinPanel( TQPainter *p, int x, int y, int w, int h,
 			     const TQColorGroup &, bool sunken=FALSE,
 			     const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawWinPanel( TQPainter *p, const TQRect &r,
+TQ_EXPORT void qDrawWinPanel( TQPainter *p, const TQRect &r,
 			     const TQColorGroup &, bool sunken=FALSE,
 			     const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawPlainRect( TQPainter *p, int x, int y, int w, int h, const TQColor &,
+TQ_EXPORT void qDrawPlainRect( TQPainter *p, int x, int y, int w, int h, const TQColor &,
 			      int lineWidth = 1, const TQBrush *fill = 0 );
 
-Q_EXPORT void qDrawPlainRect( TQPainter *p, const TQRect &r, const TQColor &,
+TQ_EXPORT void qDrawPlainRect( TQPainter *p, const TQRect &r, const TQColor &,
 			      int lineWidth = 1, const TQBrush *fill = 0 );
 
 
@@ -111,18 +111,18 @@ Q_EXPORT void qDrawPlainRect( TQPainter *p, const TQRect &r, const TQColor &,
 // Other obsolete drawing functions.
 // Use TQStyle::itemRect(), TQStyle::drawItem() and TQStyle::drawArrow() instead.
 //
-Q_EXPORT TQRect qItemRect( TQPainter *p, TQt::GUIStyle gs, int x, int y, int w, int h,
+TQ_EXPORT TQRect qItemRect( TQPainter *p, TQt::GUIStyle gs, int x, int y, int w, int h,
 			  int flags, bool enabled,
 			  const TQPixmap *pixmap, const TQString& text, int len=-1 );
 
-Q_EXPORT void qDrawItem( TQPainter *p, TQt::GUIStyle gs, int x, int y, int w, int h,
+TQ_EXPORT void qDrawItem( TQPainter *p, TQt::GUIStyle gs, int x, int y, int w, int h,
 			 int flags, const TQColorGroup &g, bool enabled,
 			 const TQPixmap *pixmap, const TQString& text,
 			 int len=-1, const TQColor* penColor = 0 );
 
-Q_EXPORT void qDrawArrow( TQPainter *p, TQt::ArrowType type, TQt::GUIStyle style, bool down,
+TQ_EXPORT void qDrawArrow( TQPainter *p, TQt::ArrowType type, TQt::GUIStyle style, bool down,
 			  int x, int y, int w, int h,
 			  const TQColorGroup &g, bool enabled );
 
-#endif // QT_NO_DRAWUTIL
+#endif // TQT_NO_DRAWUTIL
 #endif // TQDRAWUTIL_H

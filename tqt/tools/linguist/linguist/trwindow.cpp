@@ -190,7 +190,7 @@ Action::Action( TQPopupMenu *pop, const TQString& menuText, TQObject *receiver,
 	setIconSet( s );
     }
     TQAction::addTo( pop );
-    connect( this, SIGNAL(activated()), receiver, member );
+    connect( this, TQ_SIGNAL(activated()), receiver, member );
 }
 
 Action::Action( TQPopupMenu *pop, const TQString& menuText, int accel,
@@ -231,7 +231,7 @@ TrWindow::TrWindow()
     : TQMainWindow( 0, "translation window", WType_TopLevel | WDestructiveClose )
 {
 
-#ifndef Q_WS_MACX
+#ifndef TQ_WS_MACX
     setIcon( TQPixmap::fromMimeSource( "appicon.png" ) );
 #endif
 
@@ -300,27 +300,27 @@ TrWindow::TrWindow()
     foundWhere = 0;
     foundOffset = 0;
 
-    connect( lv, SIGNAL(selectionChanged(TQListViewItem *)),
-	     this, SLOT(showNewScope(TQListViewItem *)) );
+    connect( lv, TQ_SIGNAL(selectionChanged(TQListViewItem *)),
+	     this, TQ_SLOT(showNewScope(TQListViewItem *)) );
 
-    connect( slv, SIGNAL(currentChanged(TQListViewItem *)),
-	     this, SLOT(showNewCurrent(TQListViewItem *)) );
+    connect( slv, TQ_SIGNAL(currentChanged(TQListViewItem *)),
+	     this, TQ_SLOT(showNewCurrent(TQListViewItem *)) );
 
-    connect( slv, SIGNAL(clicked(TQListViewItem *, const TQPoint&, int)),
-	     this, SLOT(showNewCurrent(TQListViewItem *)) );
+    connect( slv, TQ_SIGNAL(clicked(TQListViewItem *, const TQPoint&, int)),
+	     this, TQ_SLOT(showNewCurrent(TQListViewItem *)) );
 
-    connect( slv, SIGNAL(clicked(TQListViewItem *, const TQPoint&, int)),
-	     this, SLOT(toggleFinished(TQListViewItem *, const TQPoint&, int)) );
+    connect( slv, TQ_SIGNAL(clicked(TQListViewItem *, const TQPoint&, int)),
+	     this, TQ_SLOT(toggleFinished(TQListViewItem *, const TQPoint&, int)) );
 
-    connect( me, SIGNAL(translationChanged(const TQString&)),
-	     this, SLOT(updateTranslation(const TQString&)) );
-    connect( me, SIGNAL(finished(bool)), this, SLOT(updateFinished(bool)) );
-    connect( me, SIGNAL(prevUnfinished()), this, SLOT(prevUnfinished()) );
-    connect( me, SIGNAL(nextUnfinished()), this, SLOT(nextUnfinished()) );
-    connect( me, SIGNAL(focusSourceList()), this, SLOT(focusSourceList()) );
-    connect( me, SIGNAL(focusPhraseList()), this, SLOT(focusPhraseList()) );
-    connect( f, SIGNAL(findNext(const TQString&, int, bool)),
-	     this, SLOT(findNext(const TQString&, int, bool)) );
+    connect( me, TQ_SIGNAL(translationChanged(const TQString&)),
+	     this, TQ_SLOT(updateTranslation(const TQString&)) );
+    connect( me, TQ_SIGNAL(finished(bool)), this, TQ_SLOT(updateFinished(bool)) );
+    connect( me, TQ_SIGNAL(prevUnfinished()), this, TQ_SLOT(prevUnfinished()) );
+    connect( me, TQ_SIGNAL(nextUnfinished()), this, TQ_SLOT(nextUnfinished()) );
+    connect( me, TQ_SIGNAL(focusSourceList()), this, TQ_SLOT(focusSourceList()) );
+    connect( me, TQ_SIGNAL(focusPhraseList()), this, TQ_SLOT(focusPhraseList()) );
+    connect( f, TQ_SIGNAL(findNext(const TQString&, int, bool)),
+	     this, TQ_SLOT(findNext(const TQString&, int, bool)) );
 
     TQWhatsThis::add( lv, tr("This panel lists the source contexts.") );
 
@@ -1415,76 +1415,76 @@ void TrWindow::setupMenuBar()
     m->insertSeparator();
     m->insertItem( tr("&Help"), helpp );
 
-    connect( closePhraseBookp, SIGNAL(activated(int)),
-	     this, SLOT(closePhraseBook(int)) );
-    connect( closePhraseBookp, SIGNAL(aboutToShow()),
-	     this, SLOT(updateClosePhraseBook()) );
-    connect( editPhraseBookp, SIGNAL(activated(int)),
-	     this, SLOT(editPhraseBook(int)) );
-    connect( printPhraseBookp, SIGNAL(activated(int)),
-	     this, SLOT(printPhraseBook(int)) );
+    connect( closePhraseBookp, TQ_SIGNAL(activated(int)),
+	     this, TQ_SLOT(closePhraseBook(int)) );
+    connect( closePhraseBookp, TQ_SIGNAL(aboutToShow()),
+	     this, TQ_SLOT(updateClosePhraseBook()) );
+    connect( editPhraseBookp, TQ_SIGNAL(activated(int)),
+	     this, TQ_SLOT(editPhraseBook(int)) );
+    connect( printPhraseBookp, TQ_SIGNAL(activated(int)),
+	     this, TQ_SLOT(printPhraseBook(int)) );
     // File menu
-    openAct = new Action( filep, tr("&Open..."), this, SLOT(open()),
+    openAct = new Action( filep, tr("&Open..."), this, TQ_SLOT(open()),
 			  "fileopen.png", TQAccel::stringToKey(tr("Ctrl+O")) );
 
     filep->insertSeparator();
 
-    saveAct = new Action( filep, tr("&Save"), this, SLOT(save()),
+    saveAct = new Action( filep, tr("&Save"), this, TQ_SLOT(save()),
 			  "filesave.png", TQAccel::stringToKey(tr("Ctrl+S")) );
-    saveAsAct = new Action( filep, tr("Save &As..."), this, SLOT(saveAs()) );
-    releaseAct = new Action( filep, tr("&Release..."), this, SLOT(release()) );
+    saveAsAct = new Action( filep, tr("Save &As..."), this, TQ_SLOT(saveAs()) );
+    releaseAct = new Action( filep, tr("&Release..."), this, TQ_SLOT(release()) );
     filep->insertSeparator();
-    printAct = new Action( filep, tr("&Print..."), this, SLOT(print()),
+    printAct = new Action( filep, tr("&Print..."), this, TQ_SLOT(print()),
 			   "print.png", TQAccel::stringToKey(tr("Ctrl+P")) );
 
     filep->insertSeparator();
 
     recentFilesMenu = new TQPopupMenu( this );
     filep->insertItem( tr("Re&cently opened files"), recentFilesMenu );
-    connect( recentFilesMenu, SIGNAL(aboutToShow()), this,
-	     SLOT(setupRecentFilesMenu()) );
-    connect( recentFilesMenu, SIGNAL(activated( int )), this,
-	     SLOT(recentFileActivated( int )) );
+    connect( recentFilesMenu, TQ_SIGNAL(aboutToShow()), this,
+	     TQ_SLOT(setupRecentFilesMenu()) );
+    connect( recentFilesMenu, TQ_SIGNAL(activated( int )), this,
+	     TQ_SLOT(recentFileActivated( int )) );
 
     filep->insertSeparator();
 
-    exitAct = new Action( filep, tr("E&xit"), this, SLOT(close()),
+    exitAct = new Action( filep, tr("E&xit"), this, TQ_SLOT(close()),
 			  TQString::null, TQAccel::stringToKey(tr("Ctrl+Q")) );
     // Edit menu
-    undoAct = new Action( editp, tr("&Undo"), me, SLOT(undo()),
+    undoAct = new Action( editp, tr("&Undo"), me, TQ_SLOT(undo()),
 			  "undo.png", TQAccel::stringToKey(tr("Ctrl+Z")) );
     undoAct->setEnabled( FALSE );
-    connect( me, SIGNAL(undoAvailable(bool)), undoAct, SLOT(setEnabled(bool)) );
-    redoAct = new Action( editp, tr("&Redo"), me, SLOT(redo()),
+    connect( me, TQ_SIGNAL(undoAvailable(bool)), undoAct, TQ_SLOT(setEnabled(bool)) );
+    redoAct = new Action( editp, tr("&Redo"), me, TQ_SLOT(redo()),
 			  "redo.png", TQAccel::stringToKey(tr("Ctrl+Y")) );
     redoAct->setEnabled( FALSE );
-    connect( me, SIGNAL(redoAvailable(bool)), redoAct, SLOT(setEnabled(bool)) );
+    connect( me, TQ_SIGNAL(redoAvailable(bool)), redoAct, TQ_SLOT(setEnabled(bool)) );
     editp->insertSeparator();
-    cutAct = new Action( editp, tr("Cu&t"), me, SLOT(cut()),
+    cutAct = new Action( editp, tr("Cu&t"), me, TQ_SLOT(cut()),
 			 "editcut.png", TQAccel::stringToKey(tr("Ctrl+X")) );
     cutAct->setEnabled( FALSE );
-    connect( me, SIGNAL(cutAvailable(bool)), cutAct, SLOT(setEnabled(bool)) );
-    copyAct = new Action( editp, tr("&Copy"), me, SLOT(copy()),
+    connect( me, TQ_SIGNAL(cutAvailable(bool)), cutAct, TQ_SLOT(setEnabled(bool)) );
+    copyAct = new Action( editp, tr("&Copy"), me, TQ_SLOT(copy()),
 			  "editcopy.png", TQAccel::stringToKey(tr("Ctrl+C")) );
     copyAct->setEnabled( FALSE );
-    connect( me, SIGNAL(copyAvailable(bool)), copyAct, SLOT(setEnabled(bool)) );
-    pasteAct = new Action( editp, tr("&Paste"), me, SLOT(paste()),
+    connect( me, TQ_SIGNAL(copyAvailable(bool)), copyAct, TQ_SLOT(setEnabled(bool)) );
+    pasteAct = new Action( editp, tr("&Paste"), me, TQ_SLOT(paste()),
 			   "editpaste.png", TQAccel::stringToKey(tr("Ctrl+V")) );
     pasteAct->setEnabled( FALSE );
-    connect( me, SIGNAL(pasteAvailable(bool)),
-	     pasteAct, SLOT(setEnabled(bool)) );
-    selectAllAct = new Action( editp, tr("Select &All"), me, SLOT(selectAll()),
+    connect( me, TQ_SIGNAL(pasteAvailable(bool)),
+	     pasteAct, TQ_SLOT(setEnabled(bool)) );
+    selectAllAct = new Action( editp, tr("Select &All"), me, TQ_SLOT(selectAll()),
 			       TQString::null, TQAccel::stringToKey(tr("Ctrl+A")) );
     selectAllAct->setEnabled( FALSE );
     editp->insertSeparator();
-    findAct = new Action( editp, tr("&Find..."), this, SLOT(find()),
+    findAct = new Action( editp, tr("&Find..."), this, TQ_SLOT(find()),
 			  "searchfind.png", TQAccel::stringToKey(tr("Ctrl+F")) );
     findAct->setEnabled( FALSE );
     findAgainAct = new Action( editp, tr("Find &Next"),
-			       this, SLOT(findAgain()), TQString::null, Key_F3 );
+			       this, TQ_SLOT(findAgain()), TQString::null, Key_F3 );
     findAgainAct->setEnabled( FALSE );
 #ifdef notyet
-    replaceAct = new Action( editp, tr("&Replace..."), this, SLOT(replace()),
+    replaceAct = new Action( editp, tr("&Replace..."), this, TQ_SLOT(replace()),
 			     TQAccel::stringToKey(tr("Ctrl+H")) );
     replaceAct->setEnabled( FALSE );
 #endif
@@ -1492,36 +1492,36 @@ void TrWindow::setupMenuBar()
     // Translation menu
     // when updating the accelerators, remember the status bar
     prevUnfinishedAct = new Action( translationp, tr("&Prev Unfinished"),
-				    this, SLOT(prevUnfinished()),
+				    this, TQ_SLOT(prevUnfinished()),
 				    "prevunfinished.png", TQAccel::stringToKey(tr("Ctrl+K")) );
     nextUnfinishedAct = new Action( translationp, tr("&Next Unfinished"),
-				    this, SLOT(nextUnfinished()),
+				    this, TQ_SLOT(nextUnfinished()),
 				    "nextunfinished.png", TQAccel::stringToKey(tr("Ctrl+L")) );
 
     prevAct = new Action( translationp, tr("P&rev"),
-			  this, SLOT(prev()), "prev.png",
+			  this, TQ_SLOT(prev()), "prev.png",
 			  TQAccel::stringToKey(tr("Ctrl+Shift+K")) );
     nextAct = new Action( translationp, tr("Ne&xt"),
-			  this, SLOT(next()), "next.png",
+			  this, TQ_SLOT(next()), "next.png",
 			  TQAccel::stringToKey(tr("Ctrl+Shift+L")) );
     doneAndNextAct = new Action( translationp, tr("Done and &Next"),
-				 this, SLOT(doneAndNext()), "doneandnext.png",
+				 this, TQ_SLOT(doneAndNext()), "doneandnext.png",
 				 TQAccel::stringToKey(tr("Ctrl+Enter")) );
     doneAndNextAlt = new TQAction( this );
     doneAndNextAlt->setAccel( TQAccel::stringToKey(tr("Ctrl+Return")) );
-    connect( doneAndNextAlt, SIGNAL(activated()), this, SLOT(doneAndNext()) );
+    connect( doneAndNextAlt, TQ_SIGNAL(activated()), this, TQ_SLOT(doneAndNext()) );
     beginFromSourceAct = new Action( translationp, tr("&Begin from Source"),
-				     me, SLOT(beginFromSource()),
+				     me, TQ_SLOT(beginFromSource()),
 				     TQString::null, TQAccel::stringToKey(tr("Ctrl+B")) );
-    connect( me, SIGNAL(updateActions(bool)), beginFromSourceAct,
-	     SLOT(setEnabled(bool)) );
+    connect( me, TQ_SIGNAL(updateActions(bool)), beginFromSourceAct,
+	     TQ_SLOT(setEnabled(bool)) );
 
     // Phrasebook menu
     newPhraseBookAct = new Action( phrasep, tr("&New Phrase Book..."),
-				   this, SLOT(newPhraseBook()),
+				   this, TQ_SLOT(newPhraseBook()),
 				   TQString::null, TQAccel::stringToKey(tr("Ctrl+N")) );
     openPhraseBookAct = new Action( phrasep, tr("&Open Phrase Book..."),
-				    this, SLOT(openPhraseBook()),
+				    this, TQ_SLOT(openPhraseBook()),
 				    "book.png", TQAccel::stringToKey(tr("Ctrl+H")) );
     closePhraseBookId = phrasep->insertItem( tr("&Close Phrase Book"),
 					     closePhraseBookp );
@@ -1530,41 +1530,41 @@ void TrWindow::setupMenuBar()
 					    editPhraseBookp );
     printPhraseBookId = phrasep->insertItem( tr("&Print Phrase Book..."),
 					     printPhraseBookp );
-    connect( phrasep, SIGNAL(aboutToShow()), this, SLOT(setupPhrase()) );
+    connect( phrasep, TQ_SIGNAL(aboutToShow()), this, TQ_SLOT(setupPhrase()) );
 
     // Validation menu
     acceleratorsAct = new Action( validationp, tr("&Accelerators"),
-				  this, SLOT(revalidate()), "accelerator.png", 0, TRUE );
+				  this, TQ_SLOT(revalidate()), "accelerator.png", 0, TRUE );
     acceleratorsAct->setOn( TRUE );
     endingPunctuationAct = new Action( validationp, tr("&Ending Punctuation"),
-				       this, SLOT(revalidate()), "punctuation.png", 0, TRUE );
+				       this, TQ_SLOT(revalidate()), "punctuation.png", 0, TRUE );
     endingPunctuationAct->setOn( TRUE );
     phraseMatchesAct = new Action( validationp, tr("&Phrase Matches"),
-				   this, SLOT(revalidate()), "phrase.png", 0, TRUE );
+				   this, TQ_SLOT(revalidate()), "phrase.png", 0, TRUE );
     phraseMatchesAct->setOn( TRUE );
 
     // View menu
     revertSortingAct = new Action( viewp, tr("&Revert Sorting"),
-				   this, SLOT(revertSorting()) );
+				   this, TQ_SLOT(revertSorting()) );
     doGuessesAct = new Action( viewp, tr("&Display guesses"),
-			       this, SLOT(toggleGuessing()) );
+			       this, TQ_SLOT(toggleGuessing()) );
     doGuessesAct->setToggleAction( TRUE );
     doGuessesAct->setOn( TRUE );
-    toggleStats = new Action( viewp, tr("&Statistics"), this, SLOT(toggleStatistics()) );
+    toggleStats = new Action( viewp, tr("&Statistics"), this, TQ_SLOT(toggleStatistics()) );
     toggleStats->setToggleAction( TRUE );
     viewp->insertSeparator();
     viewp->insertItem( tr("Vie&ws"), createDockWindowMenu( NoToolBars ) );
     viewp->insertItem( tr("&Toolbars"), createDockWindowMenu( OnlyToolBars ) );
 
     // Help
-    manualAct = new Action( helpp, tr("&Manual"), this, SLOT(manual()), 0,
+    manualAct = new Action( helpp, tr("&Manual"), this, TQ_SLOT(manual()), 0,
 			    Key_F1 );
     helpp->insertSeparator();
-    aboutAct = new Action( helpp, tr("&About"), this, SLOT(about()) );
-    aboutTQtAct = new Action( helpp, tr("About &TQt"), this, SLOT(aboutTQt()) );
+    aboutAct = new Action( helpp, tr("&About"), this, TQ_SLOT(about()) );
+    aboutTQtAct = new Action( helpp, tr("About &TQt"), this, TQ_SLOT(aboutTQt()) );
     helpp->insertSeparator();
     whatsThisAct = new Action( helpp, tr("&What's This?"),
-			       this, SLOT(whatsThis()), "whatsthis.xpm", SHIFT + Key_F1 );
+			       this, TQ_SLOT(whatsThis()), "whatsthis.xpm", SHIFT + Key_F1 );
 
     openAct->setWhatsThis( tr("Open a TQt translation source file (TS file) for"
 			      " editing.") );
@@ -2011,9 +2011,9 @@ void TrWindow::toggleStatistics()
     if ( toggleStats->isOn() ) {
 	if ( !stats ) {
 	    stats = new Statistics( this, "linguist_stats" );
-	    connect( this, SIGNAL(statsChanged(int,int,int,int,int,int)), stats,
-		     SLOT(updateStats(int,int,int,int,int,int)) );
-	    connect( stats, SIGNAL(closed()), toggleStats, SLOT(toggle()) );
+	    connect( this, TQ_SIGNAL(statsChanged(int,int,int,int,int,int)), stats,
+		     TQ_SLOT(updateStats(int,int,int,int,int,int)) );
+	    connect( stats, TQ_SIGNAL(closed()), toggleStats, TQ_SLOT(toggle()) );
 	}
 	updateStatistics();
 	stats->show();

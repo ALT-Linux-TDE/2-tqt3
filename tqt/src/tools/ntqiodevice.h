@@ -88,7 +88,7 @@
 #define IO_UnspecifiedError	8		// unspecified error
 
 
-class Q_EXPORT TQIODevice
+class TQ_EXPORT TQIODevice
 {
 public:
 #if defined(QT_ABI_QT4)

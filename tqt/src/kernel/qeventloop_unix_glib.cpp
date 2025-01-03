@@ -46,7 +46,7 @@
 #include "ntqbitarray.h"
 #include "ntqmutex.h"
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
   #include "ntqthread.h"
 #endif
 
@@ -55,11 +55,11 @@
 
 #include <glib.h>
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #ifdef QT_USE_GLIBMAINLOOP
 extern TQMutex *tqt_timerListMutex;
 #endif // QT_USE_GLIBMAINLOOP
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 /*****************************************************************************
   Timer handling; UNIX has no application timer support so we'll have to
@@ -186,7 +186,7 @@ static int allocTimerId()			// find avail timer identifier
 
 static void insertTimer( const TimerInfo *ti )				// insert timer info into list
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	tqt_timerListMutex->lock();
 #endif
 	TimerInfo *t = timerList->first();
@@ -209,7 +209,7 @@ static void insertTimer( const TimerInfo *ti )				// insert timer info into list
 		tqDebug( "TQObject: %d timers now exist for object %s::%s", dangerCount, ti->obj->className(), ti->obj->name() );
 	}
 #endif
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	tqt_timerListMutex->unlock();
 #endif
 }
@@ -235,16 +235,16 @@ static inline void getTime( timeval &t )				// get time of day
 
 static void repairTimer( const timeval &time )				// repair broken timer
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	tqt_timerListMutex->lock();
 #endif
 	timeval diff = watchtime - time;
-	register TimerInfo *t = timerList->first();
+	TimerInfo *t = timerList->first();
 	while ( t ) {							// repair all timers
 		t->timeout = t->timeout - diff;
 		t = timerList->next();
 	}
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	tqt_timerListMutex->unlock();
 #endif
 }
@@ -262,7 +262,7 @@ static void repairTimer( const timeval &time )				// repair broken timer
 
 timeval *qt_wait_timer()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	tqt_timerListMutex->lock();
 #endif
 	static timeval tm;
@@ -288,19 +288,19 @@ timeval *qt_wait_timer()
 		if ( qt_wait_timer_max && *qt_wait_timer_max < tm ) {
 			tm = *qt_wait_timer_max;
 		}
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		tqt_timerListMutex->unlock();
 #endif
 		return &tm;
 	}
 	if ( qt_wait_timer_max ) {
 		tm = *qt_wait_timer_max;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		tqt_timerListMutex->unlock();
 #endif
 		return &tm;
 	}
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	tqt_timerListMutex->unlock();
 #endif
 	return 0;							// no timers
@@ -316,7 +316,7 @@ static void initTimers()						// initialize timers
 		timerBitVec->clearBit( i );
 	}
 	timerList = new TimerList;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	tqt_timerListMutex = new TQMutex(true);
 #endif
 	TQ_CHECK_PTR( timerList );
@@ -336,18 +336,18 @@ void cleanupTimers()
 // Main timer functions for starting and killing timers
 int qStartTimer( int interval, TQObject *obj )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (tqt_timerListMutex) tqt_timerListMutex->lock();
 #endif
 	if ( !timerList ) {						// initialize timer data
 		initTimers();
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->lock();
 #endif
 	}
 	int id = allocTimerId();					// get free timer id
 	if ( (id <= 0) || (id > (int)timerBitVec->size()) || (!obj) ) {	// cannot create timer
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 		return 0;
@@ -363,7 +363,7 @@ int qStartTimer( int interval, TQObject *obj )
 	t->timeout = currentTime + t->interval;
 	t->obj = obj;
 	insertTimer( t );						// put timer in list
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 	return id;
@@ -371,12 +371,12 @@ int qStartTimer( int interval, TQObject *obj )
 
 bool qKillTimer( int id )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (tqt_timerListMutex) tqt_timerListMutex->lock();
 #endif
-	register TimerInfo *t;
+	TimerInfo *t;
 	if ( (!timerList) || (id <= 0) || (id > (int)timerBitVec->size()) || (!timerBitVec->testBit( id-1 )) ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 		return FALSE;						// not init'd or invalid timer
@@ -389,13 +389,13 @@ bool qKillTimer( int id )
 		bool ret;
 		timerBitVec->clearBit( id-1 );				// set timer inactive
 		ret = timerList->remove();
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 		return ret;
 	}
 	else {								// id not found
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 		return FALSE;
@@ -404,12 +404,12 @@ bool qKillTimer( int id )
 
 bool qKillTimer( TQObject *obj )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (tqt_timerListMutex) tqt_timerListMutex->lock();
 #endif
-	register TimerInfo *t;
+	TimerInfo *t;
 	if ( !timerList ) {						// not initialized
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 		return FALSE;
@@ -425,7 +425,7 @@ bool qKillTimer( TQObject *obj )
 			t = timerList->next();
 		}
 	}
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 	return TRUE;
@@ -433,14 +433,16 @@ bool qKillTimer( TQObject *obj )
 
 
 TQEventLoopPrivate::TQEventLoopPrivate() {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	xfd = -1;
 	x_gPollFD.fd = -1;
 	x_gPollFD.events = 0;
 	x_gPollFD.revents = 0;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
+	gSource = nullptr;
 	singletoolkit = TRUE;
-	ctx = 0;
+	ctx = nullptr;
+	mainloop = nullptr;
 	ctx_is_default = false;
 	reset();
 }
@@ -632,11 +634,11 @@ int TQEventLoop::timeToWait() const
 
 int TQEventLoop::activateTimers()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (tqt_timerListMutex) tqt_timerListMutex->lock();
 #endif
 	if ( !timerList || !timerList->count() ) {		// no timers
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 		return 0;
@@ -645,7 +647,7 @@ int TQEventLoop::activateTimers()
 	timeval currentTime;
 	int n_act = 0, maxCount = timerList->count();
 	TimerInfo *begin = 0;
-	register TimerInfo *t;
+	TimerInfo *t;
 	
 	for ( ;; ) {
 		if ( ! maxCount-- ) {
@@ -682,11 +684,11 @@ int TQEventLoop::activateTimers()
 		if ( t->interval.tv_usec > 0 || t->interval.tv_sec > 0 ) {
 			n_act++;
 		}
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 		TQTimerEvent e( t->id );
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		// Be careful...the current thread may not be the target object's thread!
 		if ((!t->obj) || 
 		    (TQThread::currentThreadObject() && TQThread::currentThreadObject()->threadPostedEventsDisabled()) ||
@@ -696,17 +698,17 @@ int TQEventLoop::activateTimers()
 		else {
 			TQApplication::postEvent( t->obj, new TQTimerEvent(e) );	// post event to correct thread
 		}
-#else // defined(QT_THREAD_SUPPORT)
+#else // defined(TQT_THREAD_SUPPORT)
 		TQApplication::sendEvent( t->obj, &e );					// send event
-#endif // defined(QT_THREAD_SUPPORT)
-#if defined(QT_THREAD_SUPPORT)
+#endif // defined(TQT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (tqt_timerListMutex) tqt_timerListMutex->lock();
 #endif
 		if ( timerList->findRef( begin ) == -1 ) {
 			begin = 0;
 		}
 	}
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (tqt_timerListMutex) tqt_timerListMutex->unlock();
 #endif
 	return n_act;
@@ -731,7 +733,7 @@ int TQEventLoop::activateSocketNotifiers()
 		printf("activate sn  : send event fd=%d\n", sn->gPollFD.fd );
 #endif	
 		sn->pending = FALSE;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		// Be careful...the current thread may not be the target object's thread!
 		if ((!sn->obj) || 
 		    (TQThread::currentThreadObject() && TQThread::currentThreadObject()->threadPostedEventsDisabled()) ||
@@ -741,9 +743,9 @@ int TQEventLoop::activateSocketNotifiers()
 		else {
 			TQApplication::postEvent( sn->obj, new TQEvent(event) );	// post event to correct thread
 		}
-#else // defined(QT_THREAD_SUPPORT)
+#else // defined(TQT_THREAD_SUPPORT)
 		TQApplication::sendEvent( sn->obj, &event );				// send event
-#endif // defined(QT_THREAD_SUPPORT)
+#endif // defined(TQT_THREAD_SUPPORT)
 		n_act++;
 	}
     }

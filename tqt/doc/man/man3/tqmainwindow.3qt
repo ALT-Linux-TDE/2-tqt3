@@ -11,12 +11,12 @@ QMainWindow \- Main application window, with a menu bar, dock windows (e.g. for 
 .SH SYNOPSIS
 \fC#include <ntqmainwindow.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQMainWindow\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = WType_TopLevel )"
+.BI "\fBQMainWindow\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = WType_TopLevel )"
 .br
 .ti -1c
 .BI "\fB~QMainWindow\fR ()"
@@ -31,10 +31,10 @@ Inherits QWidget.
 .BI "QToolTipGroup * \fBtoolTipGroup\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetCentralWidget\fR ( QWidget * w )"
+.BI "virtual void \fBsetCentralWidget\fR ( TQWidget * w )"
 .br
 .ti -1c
-.BI "QWidget * \fBcentralWidget\fR () const"
+.BI "TQWidget * \fBcentralWidget\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetDockEnabled\fR ( Dock dock, bool enable )"
@@ -58,7 +58,7 @@ Inherits QWidget.
 .BI "virtual void \fBaddDockWindow\fR ( QDockWindow * dockWindow, Dock edge = DockTop, bool newLine = FALSE )"
 .br
 .ti -1c
-.BI "virtual void \fBaddDockWindow\fR ( QDockWindow * dockWindow, const QString & label, Dock edge = DockTop, bool newLine = FALSE )"
+.BI "virtual void \fBaddDockWindow\fR ( QDockWindow * dockWindow, const TQString & label, Dock edge = DockTop, bool newLine = FALSE )"
 .br
 .ti -1c
 .BI "virtual void \fBmoveDockWindow\fR ( QDockWindow * dockWindow, Dock edge = DockTop )"
@@ -106,7 +106,7 @@ Inherits QWidget.
 .BI "void addToolBar ( QDockWindow *, Dock = DockTop, bool newLine = FALSE )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "void addToolBar ( QDockWindow *, const QString & label, Dock = DockTop, bool newLine = FALSE )  \fI(obsolete)\fR"
+.BI "void addToolBar ( QDockWindow *, const TQString & label, Dock = DockTop, bool newLine = FALSE )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "void moveToolBar ( QDockWindow *, Dock = DockTop )  \fI(obsolete)\fR"
@@ -247,7 +247,7 @@ Inherits QWidget.
 .SH DESCRIPTION
 The QMainWindow class provides a main application window, with a menu bar, dock windows (e.g. for toolbars), and a status bar.
 .PP
-Main windows are most often used to provide menus, toolbars and a status bar around a large central widget, such as a text edit, drawing canvas or QWorkspace (for MDI applications). QMainWindow is usually subclassed since this makes it easier to encapsulate the central widget, menus and toolbars as well as the window's state. Subclassing makes it possible to create the slots that are called when the user clicks menu items or toolbar buttons. You can also create main windows using Qt Designer. We'll briefly review adding menu items and toolbar buttons then describe the facilities of QMainWindow itself.
+Main windows are most often used to provide menus, toolbars and a status bar around a large central widget, such as a text edit, drawing canvas or QWorkspace (for MDI applications). QMainWindow is usually subclassed since this makes it easier to encapsulate the central widget, menus and toolbars as well as the window's state. Subclassing makes it possible to create the slots that are called when the user clicks menu items or toolbar buttons. You can also create main windows using TQt Designer. We'll briefly review adding menu items and toolbar buttons then describe the facilities of QMainWindow itself.
 .PP
 .nf
 .br
@@ -271,7 +271,7 @@ QMainWindows may be created in their own right as shown above. The central widge
 .br
         ApplicationWindow *mw = new ApplicationWindow();
 .br
-        mw->setCaption( "Qt Example - Application" );
+        mw->setCaption( "TQt Example - Application" );
 .br
         mw->show();
 .fi
@@ -287,7 +287,7 @@ When subclassing we add the menu items and toolbars in the subclass's constructo
         menuBar()->insertItem( "&Help", help );
 .br
 .br
-        help->insertItem( "&About", this, SLOT(about()), Key_F1 );
+        help->insertItem( "&About", this, TQ_SLOT(about()), Key_F1 );
 .fi
 .PP
 Here we've added a new menu with one menu item. The menu has been inserted into the menu bar that QMainWindow provides by default and which is accessible through the menuBar() function. The slot will be called when the menu item is clicked.
@@ -303,9 +303,9 @@ Here we've added a new menu with one menu item. The menu has been inserted into 
 .br
         QToolButton * fileOpen
 .br
-            = new QToolButton( openIcon, "Open File", QString::null,
+            = new QToolButton( openIcon, "Open File", TQString::null,
 .br
-                               this, SLOT(choose()), fileTools, "open file" );
+                               this, TQ_SLOT(choose()), fileTools, "open file" );
 .fi
 .PP
 This extract shows the creation of a toolbar with one toolbar button. QMainWindow supplies four dock areas for toolbars. When a toolbar is created as a child of a QMainWindow (or derived class) instance it will be placed in a dock area (the Top dock area by default). The slot will be called when the toolbar button is clicked. Any dock window can be added to a dock area either using addDockWindow(), or by creating a dock window with the QMainWindow as the parent.
@@ -336,7 +336,7 @@ Often we want to synchronize a toolbar button with a menu item. For example, if 
 .br
                                       CTRL+Key_O, this, "open" );
 .br
-        connect( fileOpenAction, SIGNAL( activated() ) , this, SLOT( choose() ) );
+        connect( fileOpenAction, TQ_SIGNAL( activated() ) , this, TQ_SLOT( choose() ) );
 .fi
 .PP
 Here we create an action with an icon which will be used in any menu and toolbar that the action is added to. We've also given the action a menu name, '&Open', and a keyboard shortcut. The connection that we have made will be used when the user clicks either the menu item \fIor\fR the toolbar button.
@@ -372,7 +372,7 @@ The main window will take care of the dock areas, and the geometry of the centra
 .PP
 QMainWindow provides a QToolTipGroup connected to the status bar. The function toolTipGroup() provides access to the default QToolTipGroup. It isn't possible to set a different tool tip group.
 .PP
-New dock windows and toolbars can be added to a QMainWindow using addDockWindow(). Dock windows can be moved using moveDockWindow() and removed with removeDockWindow(). QMainWindow allows default dock window (toolbar) docking in all its dock areas (Top, Left, Right, Bottom). You can use setDockEnabled() to enable and disable docking areas for dock windows. When adding or moving dock windows you can specify their 'edge' (dock area). The currently available edges are: Top, Left, Right, Bottom, Minimized (effectively a 'hidden' dock area) and TornOff (floating). See Qt::Dock for an explanation of these areas. Note that the *ToolBar functions are included for backward compatibility; all new code should use the *DockWindow functions. QToolbar is a subclass of QDockWindow so all functions that work with dock windows work on toolbars in the same way.
+New dock windows and toolbars can be added to a QMainWindow using addDockWindow(). Dock windows can be moved using moveDockWindow() and removed with removeDockWindow(). QMainWindow allows default dock window (toolbar) docking in all its dock areas (Top, Left, Right, Bottom). You can use setDockEnabled() to enable and disable docking areas for dock windows. When adding or moving dock windows you can specify their 'edge' (dock area). The currently available edges are: Top, Left, Right, Bottom, Minimized (effectively a 'hidden' dock area) and TornOff (floating). See TQt::Dock for an explanation of these areas. Note that the *ToolBar functions are included for backward compatibility; all new code should use the *DockWindow functions. QToolbar is a subclass of QDockWindow so all functions that work with dock windows work on toolbars in the same way.
 .PP
 If the user clicks the close button, then the dock window is hidden. A dock window can be hidden or unhidden by the user by right clicking a dock area and clicking the name of the relevant dock window on the pop up dock window menu. This menu lists the names of every dock window; visible dock windows have a tick beside their names. The dock window menu is created automatically as required by createDockWindowMenu(). Since it may not always be appropriate for a dock window to appear on this menu the setAppropriate() function is used to inform the main window whether or not the dock window menu should include a particular dock window. Double clicking a dock window handle (usually on the left-hand side of the dock window) undocks (floats) the dock window. Double clicking a floating dock window's titlebar will dock the floating dock window. (See also QMainWindow::DockWindows.)
 .PP
@@ -456,7 +456,7 @@ QMainWindow's management of dock windows and toolbars is done transparently behi
 .PP
 For multi-document interfaces (MDI), use a QWorkspace as the central widget.
 .PP
-Adding dock windows, e.g. toolbars, to QMainWindow's dock areas is straightforward. If the supplied dock areas are not sufficient for your application we suggest that you create a QWidget subclass and add your own dock areas (see QDockArea) to the subclass since QMainWindow provides functionality specific to the standard dock areas it provides.
+Adding dock windows, e.g. toolbars, to QMainWindow's dock areas is straightforward. If the supplied dock areas are not sufficient for your application we suggest that you create a TQWidget subclass and add your own dock areas (see QDockArea) to the subclass since QMainWindow provides functionality specific to the standard dock areas it provides.
 .PP
 .ce 1
 .B "[Image Omitted]"
@@ -476,10 +476,10 @@ Right-clicking a dock area will pop-up the dock window menu (createDockWindowMen
 .TP
 \fCQMainWindow::AllDockWindows\fR - The menu will list all toolbars and other dock windows. (This is the default.)
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMainWindow::QMainWindow ( QWidget * parent = 0, const char * name = 0, WFlags f = WType_TopLevel )"
-Constructs an empty main window. The \fIparent\fR, \fIname\fR and widget flags \fIf\fR, are passed on to the QWidget constructor.
+.SH "QMainWindow::QMainWindow ( TQWidget * parent = 0, const char * name = 0, WFlags f = WType_TopLevel )"
+Constructs an empty main window. The \fIparent\fR, \fIname\fR and widget flags \fIf\fR, are passed on to the TQWidget constructor.
 .PP
-By default, the widget flags are set to WType_TopLevel rather than 0 as they are with QWidget. If you don't want your QMainWindow to be a top level widget then you will need to set \fIf\fR to 0.
+By default, the widget flags are set to WType_TopLevel rather than 0 as they are with TQWidget. If you don't want your QMainWindow to be a top level widget then you will need to set \fIf\fR to 0.
 .SH "QMainWindow::~QMainWindow ()"
 Destroys the object and frees any allocated resources.
 .SH "void QMainWindow::addDockWindow ( QDockWindow * dockWindow, Dock edge = DockTop, bool newLine = FALSE )\fC [virtual]\fR"
@@ -488,7 +488,7 @@ Adds \fIdockWindow\fR to the \fIedge\fR dock area.
 If \fInewLine\fR is FALSE (the default) then the \fIdockWindow\fR is added at the end of the \fIedge\fR. For vertical edges the end is at the bottom, for horizontal edges (including Minimized) the end is at the right. If \fInewLine\fR is TRUE a new line of dock windows is started with \fIdockWindow\fR as the first (left-most and top-most) dock window.
 .PP
 If \fIdockWindow\fR is managed by another main window, it is first removed from that window.
-.SH "void QMainWindow::addDockWindow ( QDockWindow * dockWindow, const QString & label, Dock edge = DockTop, bool newLine = FALSE )\fC [virtual]\fR"
+.SH "void QMainWindow::addDockWindow ( QDockWindow * dockWindow, const TQString & label, Dock edge = DockTop, bool newLine = FALSE )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Adds \fIdockWindow\fR to the dock area with label \fIlabel\fR.
@@ -498,7 +498,7 @@ If \fInewLine\fR is FALSE (the default) the \fIdockWindow\fR is added at the end
 If \fIdockWindow\fR is managed by another main window, it is first removed from that window.
 .SH "void QMainWindow::addToolBar ( QDockWindow *, Dock = DockTop, bool newLine = FALSE )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "void QMainWindow::addToolBar ( QDockWindow *, const QString & label, Dock = DockTop, bool newLine = FALSE )"
+.SH "void QMainWindow::addToolBar ( QDockWindow *, const TQString & label, Dock = DockTop, bool newLine = FALSE )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -514,7 +514,7 @@ See also setAppropriate().
 Returns a pointer the Bottom dock area
 .PP
 See also topDock(), leftDock(), and rightDock().
-.SH "QWidget * QMainWindow::centralWidget () const"
+.SH "TQWidget * QMainWindow::centralWidget () const"
 Returns a pointer to the main window's central widget.
 .PP
 The central widget is surrounded by the left, top, right and bottom dock areas. The menu bar is above the top dock area.
@@ -525,7 +525,7 @@ Example: qfd/qfd.cpp.
 .SH "void QMainWindow::childEvent ( QChildEvent * e )\fC [virtual protected]\fR"
 Monitors events, recieved in \fIe\fR, to ensure the layout is updated.
 .PP
-Reimplemented from QObject.
+Reimplemented from TQObject.
 .SH "QPopupMenu * QMainWindow::createDockWindowMenu ( DockWindows dockWindows = AllDockWindows ) const"
 Creates the dock window menu which contains all toolbars (if \fIdockWindows\fR is OnlyToolBars ), all dock windows (if \fIdockWindows\fR is NoToolBars) or all toolbars and dock windows (if \fIdockWindows\fR is AllDockWindows - the default).
 .PP
@@ -672,7 +672,7 @@ Use this function to control whether or not the \fIdw\fR dock window's caption s
 If \fIa\fR is TRUE then the \fIdw\fR will appear as a menu item on the dock window menu. The user is able to change the state (show or hide) a dock window that has a menu item by clicking the item; depending on the state of your application, this may or may not be appropriate. If \fIa\fR is FALSE the \fIdw\fR will not appear on the popup menu.
 .PP
 See also showDockMenu(), isCustomizable(), and customize().
-.SH "void QMainWindow::setCentralWidget ( QWidget * w )\fC [virtual]\fR"
+.SH "void QMainWindow::setCentralWidget ( TQWidget * w )\fC [virtual]\fR"
 Sets the central widget for this main window to \fIw\fR.
 .PP
 The central widget is surrounded by the left, top, right and bottom dock areas. The menu bar is above the top dock area.
@@ -751,7 +751,7 @@ This is the same as QWhatsThis::enterWhatsThisMode(), but implemented as a main 
 .br
     QPopupMenu * help = new QPopupMenu( this );
 .br
-    help->insertItem( "What's &This", this , SLOT(whatsThis()), SHIFT+Key_F1);
+    help->insertItem( "What's &This", this , TQ_SLOT(whatsThis()), SHIFT+Key_F1);
 .br
 .fi
 .PP
@@ -833,8 +833,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

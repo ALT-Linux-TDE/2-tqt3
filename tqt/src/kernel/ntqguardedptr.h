@@ -46,7 +46,7 @@
 #endif // QT_H
 
 // ### 4.0: rename to something without Private in it. Not really internal.
-class Q_EXPORT TQGuardedPtrPrivate : public TQObject, public TQShared
+class TQ_EXPORT TQGuardedPtrPrivate : public TQObject, public TQShared
 {
     TQ_OBJECT
 public:

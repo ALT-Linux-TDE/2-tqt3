@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqhbuttongroup.h"
-#ifndef QT_NO_HBUTTONGROUP
+#ifndef TQT_NO_HBUTTONGROUP
 
 /*!
     \class TQHButtonGroup ntqhbuttongroup.h

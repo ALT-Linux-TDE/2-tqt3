@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** Qt session management overview documentation
+** TQt session management overview documentation
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -83,7 +83,7 @@ QApplication::commitData() method.
 
 X11 has supported complete session management since X11R6.
 
-\section1  Getting session management to work with Qt 
+\section1  Getting session management to work with TQt 
 
 Start by reimplementing \l QApplication::commitData() to
 enable your application to take part in the graceful logout process. If
@@ -116,7 +116,7 @@ the state of the application.
 <strong>Important:</strong> In order to allow the window manager to
 restore window attributes such as stacking order or geometry
 information, you must identify your top level widgets with 
-unique application-wide object names (see \l{QObject::setName()}). When
+unique application-wide object names (see \l{TQObject::setName()}). When
 restoring the application, you must ensure that all restored
 top level widgets are given the same unique names they had before.
 

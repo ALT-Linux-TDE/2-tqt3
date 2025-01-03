@@ -42,7 +42,7 @@
 #if defined(Q_CC_BOR)
     // needed for qsort() because of a std namespace problem on Borland
 #   include "qplatformdefs.h"
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
     // needed for bsearch on some platforms
 #   include "qt_windows.h"
 #endif
@@ -52,9 +52,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #  include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 /*
   If USE_MALLOC isn't defined, we use new[] and delete[] to allocate
@@ -324,17 +324,17 @@ bool TQGArray::fill( const char *d, int len, uint sz )
     if ( sz == 1 )				// 8 bit elements
 	memset( data(), *d, len );
     else if ( sz == 4 ) {			// 32 bit elements
-	register TQ_INT32 *x = (TQ_INT32*)data();
+	TQ_INT32 *x = (TQ_INT32*)data();
 	TQ_INT32 v = *((TQ_INT32*)d);
 	while ( len-- )
 	    *x++ = v;
     } else if ( sz == 2 ) {			// 16 bit elements
-	register TQ_INT16 *x = (TQ_INT16*)data();
+	TQ_INT16 *x = (TQ_INT16*)data();
 	TQ_INT16 v = *((TQ_INT16*)d);
 	while ( len-- )
 	    *x++ = v;
     } else {					// any other size elements
-	register char *x = data();
+	char *x = data();
 	while ( len-- ) {			// more complicated
 	    memcpy( x, d, sz );
 	    x += sz;
@@ -400,7 +400,7 @@ TQGArray &TQGArray::duplicate( const TQGArray &a )
     if ( a.shd == shd ) {			// a.duplicate(a) !
 	if ( shd->count > 1 ) {
 	    shd->count--;
-	    register array_data *n = newData();
+	    array_data *n = newData();
 	    TQ_CHECK_PTR( n );
 	    if ( (n->len=shd->len) ) {
 		n->data = NEW(char,n->len);
@@ -605,11 +605,11 @@ int TQGArray::find( const char *d, uint index, uint sz ) const
 #endif
 	return -1;
     }
-    register uint i;
+    uint i;
     uint ii;
     switch ( sz ) {
 	case 1: {				// 8 bit elements
-	    register char *x = data() + index;
+	    char *x = data() + index;
 	    char v = *d;
 	    for ( i=index; i<shd->len; i++ ) {
 		if ( *x++ == v )
@@ -619,7 +619,7 @@ int TQGArray::find( const char *d, uint index, uint sz ) const
 	    }
 	    break;
 	case 2: {				// 16 bit elements
-	    register TQ_INT16 *x = (TQ_INT16*)(data() + index);
+	    TQ_INT16 *x = (TQ_INT16*)(data() + index);
 	    TQ_INT16 v = *((TQ_INT16*)d);
 	    for ( i=index; i<shd->len; i+=2 ) {
 		if ( *x++ == v )
@@ -629,7 +629,7 @@ int TQGArray::find( const char *d, uint index, uint sz ) const
 	    }
 	    break;
 	case 4: {				// 32 bit elements
-	    register TQ_INT32 *x = (TQ_INT32*)(data() + index);
+	    TQ_INT32 *x = (TQ_INT32*)(data() + index);
 	    TQ_INT32 v = *((TQ_INT32*)d);
 	    for ( i=index; i<shd->len; i+=4 ) {
 		if ( *x++ == v )
@@ -659,11 +659,11 @@ int TQGArray::find( const char *d, uint index, uint sz ) const
 
 int TQGArray::contains( const char *d, uint sz ) const
 {
-    register uint i = shd->len;
+    uint i = shd->len;
     int count = 0;
     switch ( sz ) {
 	case 1: {				// 8 bit elements
-	    register char *x = data();
+	    char *x = data();
 	    char v = *d;
 	    while ( i-- ) {
 		if ( *x++ == v )
@@ -672,7 +672,7 @@ int TQGArray::contains( const char *d, uint sz ) const
 	    }
 	    break;
 	case 2: {				// 16 bit elements
-	    register TQ_INT16 *x = (TQ_INT16*)data();
+	    TQ_INT16 *x = (TQ_INT16*)data();
 	    TQ_INT16 v = *((TQ_INT16*)d);
 	    i /= 2;
 	    while ( i-- ) {
@@ -682,7 +682,7 @@ int TQGArray::contains( const char *d, uint sz ) const
 	    }
 	    break;
 	case 4: {				// 32 bit elements
-	    register TQ_INT32 *x = (TQ_INT32*)data();
+	    TQ_INT32 *x = (TQ_INT32*)data();
 	    TQ_INT32 v = *((TQ_INT32*)d);
 	    i /= 4;
 	    while ( i-- ) {
@@ -733,10 +733,10 @@ void TQGArray::sort( uint sz )
     if ( numItems < 2 )
 	return;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( tqt_global_mutexpool ?
 			 tqt_global_mutexpool->get( &cmp_item_size ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     cmp_item_size = sz;
     qsort( shd->data, numItems, sz, cmp_arr );
@@ -752,10 +752,10 @@ int TQGArray::bsearch( const char *d, uint sz ) const
     if ( !numItems )
 	return -1;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( tqt_global_mutexpool ?
 			 tqt_global_mutexpool->get( &cmp_item_size ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     cmp_item_size = sz;
     char* r = (char*)::bsearch( d, shd->data, numItems, sz, cmp_arr );

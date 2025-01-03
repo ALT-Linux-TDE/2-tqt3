@@ -43,16 +43,16 @@
 #include "ntqregexp.h"
 #include "ntqdatastream.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #  include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <limits.h>
-#ifndef QT_NO_COMPRESS
+#ifndef TQT_NO_COMPRESS
 #include "../3rdparty/zlib/zlib.h"
 #endif
 
@@ -72,8 +72,8 @@
 
 void *tqmemmove( void *dst, const void *src, uint len )
 {
-    register char *d;
-    register char *s;
+    char *d;
+    char *s;
     if ( dst > src ) {
 	d = (char *)dst + len - 1;
 	s = (char *)src + len - 1;
@@ -218,8 +218,8 @@ char *tqstrncpy( char *dst, const char *src, uint len )
 
 int tqstricmp( const char *str1, const char *str2 )
 {
-    register const uchar *s1 = (const uchar *)str1;
-    register const uchar *s2 = (const uchar *)str2;
+    const uchar *s1 = (const uchar *)str1;
+    const uchar *s2 = (const uchar *)str2;
     int res;
     uchar c;
     if ( !s1 || !s2 )
@@ -252,8 +252,8 @@ int tqstricmp( const char *str1, const char *str2 )
 
 int tqstrnicmp( const char *str1, const char *str2, uint len )
 {
-    register const uchar *s1 = (const uchar *)str1;
-    register const uchar *s2 = (const uchar *)str2;
+    const uchar *s1 = (const uchar *)str1;
+    const uchar *s2 = (const uchar *)str2;
     int res;
     uchar c;
     if ( !s1 || !s2 )
@@ -273,8 +273,8 @@ static bool   crc_tbl_init = FALSE;
 
 static void createCRC16Table()			// build CRC16 lookup table
 {
-    register uint i;
-    register uint j;
+    uint i;
+    uint j;
     uint v0, v1, v2, v3;
     for ( i = 0; i < 16; i++ ) {
 	v0 = i & 1;
@@ -312,17 +312,17 @@ TQ_UINT16 tqChecksum( const char *data, uint len )
 {
     if ( !crc_tbl_init ) {			// create lookup table
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	TQMutexLocker locker( tqt_global_mutexpool ?
 			     tqt_global_mutexpool->get( &crc_tbl_init ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 	if ( !crc_tbl_init ) {
 	    createCRC16Table();
 	    crc_tbl_init = TRUE;
 	}
     }
-    register TQ_UINT16 crc = 0xffff;
+    TQ_UINT16 crc = 0xffff;
     uchar c;
     uchar *p = (uchar *)data;
     while ( len-- ) {
@@ -354,7 +354,7 @@ TQ_UINT16 tqChecksum( const char *data, uint len )
     compressed byte array.
 */
 
-#ifndef QT_NO_COMPRESS
+#ifndef TQT_NO_COMPRESS
 TQByteArray tqCompress( const uchar* data, int nbytes )
 {
     if ( nbytes == 0 ) {
@@ -428,7 +428,7 @@ TQByteArray tqCompress( const uchar* data, int nbytes )
     the uncompressed byte array.
 */
 
-#ifndef QT_NO_COMPRESS
+#ifndef TQT_NO_COMPRESS
 TQByteArray tqUncompress( const uchar* data, int nbytes )
 {
     if ( !data ) {
@@ -526,7 +526,7 @@ TQByteArray tqUncompress( const uchar* data, int nbytes )
 
     \sa \link datastreamformat.html Format of the TQDataStream operators \endlink
 */
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 
 TQDataStream &operator<<( TQDataStream &s, const TQByteArray &a )
 {
@@ -561,7 +561,7 @@ TQDataStream &operator>>( TQDataStream &s, TQByteArray &a )
     return s;
 }
 
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 /*****************************************************************************
   TQCString member functions
@@ -940,7 +940,7 @@ int TQCString::find( char c, int index, bool cs ) const
 {
     if ( (uint)index >= size() )		// index outside string
 	return -1;
-    register const char *d;
+    const char *d;
     if ( cs ) {					// case sensitive
 	d = strchr( data()+index, c );
     } else {
@@ -1056,8 +1056,8 @@ int TQCString::find( const char *str, int index, bool cs, uint l ) const
 
 int TQCString::findRev( char c, int index, bool cs ) const
 {
-    register const char *b = data();
-    register const char *d;
+    const char *b = data();
+    const char *d;
     if ( index < 0 )
 	index = length();
     if ( (uint)index >= size() )
@@ -1290,7 +1290,7 @@ TQCString TQCString::mid( uint index, uint len ) const
     } else {
 	if ( len > slen-index )
 	    len = slen - index;
-	register char *p = data()+index;
+	char *p = data()+index;
 	TQCString s( len+1 );
 	strncpy( s.data(), p, len );
 	*(s.data()+len) = '\0';
@@ -1390,7 +1390,7 @@ TQCString TQCString::rightJustify( uint width, char fill, bool truncate ) const
 TQCString TQCString::lower() const
 {
     TQCString s( data() );
-    register char *p = s.data();
+    char *p = s.data();
     if ( p ) {
 	while ( *p ) {
 	    *p = tolower( (uchar) *p );
@@ -1416,7 +1416,7 @@ TQCString TQCString::lower() const
 TQCString TQCString::upper() const
 {
     TQCString s( data() );
-    register char *p = s.data();
+    char *p = s.data();
     if ( p ) {
 	while ( *p ) {
 	    *p = toupper(*p);
@@ -1448,7 +1448,7 @@ TQCString TQCString::stripWhiteSpace() const
     if ( isEmpty() )				// nothing to do
 	return copy();
 
-    register char *s = data();
+    char *s = data();
     TQCString result = s;
     int reslen = result.length();
     if ( !isspace((uchar) s[0]) && !isspace((uchar) s[reslen-1]) )
@@ -1793,7 +1793,7 @@ TQCString &TQCString::replace( char c1, char c2 )
 }
 
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 /*!
     \overload
 
@@ -1891,7 +1891,7 @@ TQCString &TQCString::replace( const TQRegExp &rx, const char *str )
     setStr( d.ascii() );
     return *this;
 }
-#endif //QT_NO_REGEXP
+#endif //TQT_NO_REGEXP
 
 /*!
     Returns the string converted to a \c long value.
@@ -2107,7 +2107,7 @@ TQCString &TQCString::setNum( long n )
 {
     detach();
     char buf[20];
-    register char *p = &buf[19];
+    char *p = &buf[19];
     bool neg;
     if ( n < 0 ) {
 	neg = TRUE;
@@ -2137,7 +2137,7 @@ TQCString &TQCString::setNum( ulong n )
 {
     detach();
     char buf[20];
-    register char *p = &buf[19];
+    char *p = &buf[19];
     *p = '\0';
     do {
 	*--p = ((int)(n%10)) + '0';
@@ -2195,7 +2195,7 @@ TQCString &TQCString::setNum( double n, char f, int prec )
 	tqWarning( "TQCString::setNum: Invalid format char '%c'", f );
 #endif
     char format[20];
-    register char *fs = format;			// generate format string
+    char *fs = format;			// generate format string
     *fs++ = '%';				//   "%.<prec>l<f>"
     if ( prec > 99 )
 	prec = 99;
@@ -2291,7 +2291,7 @@ TQCString &TQCString::operator+=( char c )
 /*****************************************************************************
   TQCString stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQCString
 
@@ -2331,7 +2331,7 @@ TQDataStream &operator>>( TQDataStream &s, TQCString &str )
 	s.readRawBytes( str.data(), (uint)len );
     return s;
 }
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 /*****************************************************************************
   Documentation for related functions

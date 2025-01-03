@@ -153,8 +153,8 @@ this:
         proc-&gt;<a href="#addArgument">addArgument</a>( "i18n" );
         proc-&gt;<a href="#addArgument">addArgument</a>( "small_dialog.ui" );
 
-    <a name="x2123"></a>    <a href="ntqobject.html#connect">connect</a>( proc, SIGNAL(<a href="#readyReadStdout">readyReadStdout</a>()),
-                this, SLOT(readFromStdout()) );
+    <a name="x2123"></a>    <a href="ntqobject.html#connect">connect</a>( proc, TQ_SIGNAL(<a href="#readyReadStdout">readyReadStdout</a>()),
+                this, TQ_SLOT(readFromStdout()) );
 </pre><pre>    <a name="x2124"></a>    if ( !proc-&gt;<a href="#start">start</a>() ) {
             // error handling
 </pre><pre>        }
@@ -347,7 +347,7 @@ tryTerminate().
 is to do something like this:
 <pre>
         process-&gt;tryTerminate();
-        TQTimer::<a href="ntqtimer.html#singleShot">singleShot</a>( 5000, process, SLOT( <a href="#kill">kill</a>() ) );
+        TQTimer::<a href="ntqtimer.html#singleShot">singleShot</a>( 5000, process, TQ_SLOT( <a href="#kill">kill</a>() ) );
     </pre>
  
 <p> This tries to terminate the process the nice way. If the process

@@ -1,6 +1,6 @@
 # -*- makefile -*-
 #
-# Main Makefile for building the Qt library, examples and tutorial.
+# Main Makefile for building the TQt library, examples and tutorial.
 
 SHELL=/bin/sh
 
@@ -13,9 +13,9 @@ install: FORCE
 
 all: symlinks src-qmake src-moc sub-src sub-tools sub-tutorial sub-examples
 	@echo
-	@echo "The Qt library is now built in ./lib"
-	@echo "The Qt examples are built in the directories in ./examples"
-	@echo "The Qt tutorials are built in the directories in ./tutorial"
+	@echo "The TQt library is now built in ./lib"
+	@echo "The TQt examples are built in the directories in ./examples"
+	@echo "The TQt tutorials are built in the directories in ./tutorial"
 	@echo
 	@echo "Enjoy!   - the Trolltech team"
 	@echo
@@ -110,7 +110,7 @@ confclean:
 
 .qmake.cache:
 	@echo
-	@echo '  Qt must first be configured using the "configure" script.'
+	@echo '  TQt must first be configured using the "configure" script.'
 	@echo
 	@test ! /bin/true
 

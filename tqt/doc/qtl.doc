@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** Qt Template Library classes documentation
+** TQt Template Library classes documentation
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -40,9 +40,9 @@
 
 \page qt-template-lib.html
 
-\title Qt Template Library
+\title TQt Template Library
 
-The Qt Template Library (QTL) is a set of templates that provide
+The TQt Template Library (QTL) is a set of templates that provide
 object containers. If a suitable STL implementation is not available
 on all your target platforms, the QTL can be used instead. It provides
 a list of objects, a vector (dynamic array) of objects, a map relating
@@ -66,7 +66,7 @@ object code.
 If you cannot make copies of the objects you want to store you should
 use QPtrCollection and friends, all of which operate on pointers
 rather than values. This applies, for example, to all classes derived
-from \l QObject. A QObject does not have a copy constructor, so using
+from \l TQObject. A TQObject does not have a copy constructor, so using
 it as value is impossible. You may choose to store pointers to
 QObjects in a QValueList, but using QPtrList directly seems to be the
 better choice for this kind of application domain. QPtrList, like all
@@ -74,7 +74,7 @@ other QPtrCollection based containers, provides far more sanity
 checking than a speed-optimized value based container.
 
 If you have objects that implement value semantics, and the STL is not
-available on your target platform, the Qt Template Library can be used
+available on your target platform, the TQt Template Library can be used
 instead. Value semantics require at least:
 \list 
 \i a copy constructor; 
@@ -90,9 +90,9 @@ If you intend sorting your data you must implement \c{operator<()} for
 your data's class.
 
 Good candidates for value based classes are QRect, QPoint, QSize,
-QString and all simple C++ types, such as int, bool or double.
+TQString and all simple C++ types, such as int, bool or double.
 
-The Qt Template Library is designed for speed. Iterators are extremely
+The TQt Template Library is designed for speed. Iterators are extremely
 fast. To achieve this performance, less error checking is done than in
 the QPtrCollection based containers. A QTL container, for example,
 does not track any associated iterators. This makes certain validity
@@ -102,7 +102,7 @@ automatically, but does lead to extremely good performance.
 \target Iterators
 \section1 Iterators
 
-The Qt Template Library deals with value objects, not with pointers.
+The TQt Template Library deals with value objects, not with pointers.
 For that reason, there is no other way of iterating over containers
 other than with iterators. This is no disadvantage as the size of an
 iterator matches the size of a normal pointer.
@@ -125,7 +125,7 @@ operator (it++, it--), since the former is slightly faster.
 
 The same concept applies to the other container classes:
 \code
-    typedef QMap<QString,QString> Map;
+    typedef QMap<TQString,TQString> Map;
     Map map;
     for( Map::iterator it = map.begin(); it != map.end(); ++it )
 	printf( "Key=%s Data=%s\n", it.key().ascii(), it.data().ascii() );
@@ -146,7 +146,7 @@ Iterator is not allowed as it would violate const semantics.
 \target Algorithms
 \section1 Algorithms
 
-The Qt Template Library defines a number of algorithms that operate on
+The TQt Template Library defines a number of algorithms that operate on
 its containers. These algorithms are implemented as template functions
 and provide useful generic code which can be applied to any container
 that provides iterators (including your own containers).
@@ -186,8 +186,8 @@ Naturally, the sorting templates won't work with const iterators.
 
 tqSwap() exchanges the values of two variables:
 \code
-    QString second( "Einstein" );
-    QString name( "Albert" );
+    TQString second( "Einstein" );
+    TQString name( "Albert" );
     tqSwap( second, name );
 \endcode
 
@@ -304,7 +304,7 @@ a container to an OutputIterator, but in reverse order, for example:
 
 \section2 QTL Iterators
 
-You can use any Qt Template Library iterator as the OutputIterator.
+You can use any TQt Template Library iterator as the OutputIterator.
 Just make sure that the right hand of the iterator has as many
 elements present as you want to insert. The following example
 illustrates this:
@@ -315,7 +315,7 @@ illustrates this:
     list2 << "Torben" << "Matthias";
     tqCopy( list2.begin(), list2.end(), list1.begin() );
 
-    QValueVector<QString> vec( list1.size(), "Dave" );
+    QValueVector<TQString> vec( list1.size(), "Dave" );
     tqCopy( list2.begin(), list2.end(), vec.begin() );
 \endcode
 
@@ -358,10 +358,10 @@ The same applies to QStringList, QValueStack and QMap.
 */
 
 /*!
-    \fn QPair qMakePair(T1 t1, T2 t2)
+    \fn TQPair qMakePair(T1 t1, T2 t2)
 
-    \relates QPair
+    \relates TQPair
 
     This is a template convenience function. It is used to create a
-    QPair\<\> object that contains \a t1 and \a t2.
+    TQPair\<\> object that contains \a t1 and \a t2.
 */

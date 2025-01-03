@@ -40,7 +40,7 @@
 
 #include "ntqerrormessage.h"
 
-#ifndef QT_NO_ERRORMESSAGE
+#ifndef TQT_NO_ERRORMESSAGE
 
 #include "ntqapplication.h"
 #include "ntqcheckbox.h"
@@ -162,7 +162,7 @@ TQErrorMessage::TQErrorMessage( TQWidget * parent, const char * name )
 {
     TQGridLayout * grid = new TQGridLayout( this, 3, 2, 11, 6 );
     icon = new TQLabel( this, "qt_icon_lbl" );
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
     icon->setPixmap( TQMessageBox::standardIcon(TQMessageBox::Information) );
 #endif
     grid->addWidget( icon, 0, 0, AlignTop );
@@ -172,7 +172,7 @@ TQErrorMessage::TQErrorMessage( TQWidget * parent, const char * name )
     again->setChecked( TRUE );
     grid->addWidget( again, 1, 1, AlignTop + AlignAuto );
     ok = new TQPushButton( tr( "&OK" ), this, "ok" );
-    connect( ok, SIGNAL(clicked()), this, SLOT(accept()) );
+    connect( ok, TQ_SIGNAL(clicked()), this, TQ_SLOT(accept()) );
     ok->setFocus();
     grid->addMultiCellWidget( ok, 2, 2, 0, 1, AlignCenter );
     grid->setColStretch( 1, 42 );
@@ -225,7 +225,7 @@ TQErrorMessage * TQErrorMessage::qtHandler()
     if ( !qtMessageHandler ) {
 	qtMessageHandler = new TQErrorMessage( 0, "automatic message handler" );
 	tqAddPostRoutine( deleteStaticcTQErrorMessage ); // clean up
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	if ( tqApp->mainWidget() )
 	    qtMessageHandler->setCaption( tqApp->mainWidget()->caption() );
 #endif
@@ -267,4 +267,4 @@ void TQErrorMessage::message( const TQString & m )
 	show();
 }
 
-#endif // QT_NO_ERRORMESSAGE
+#endif // TQT_NO_ERRORMESSAGE

@@ -394,8 +394,8 @@ connects it to the slot <em>member</em> in the object <em>receiver</em>.
 <pre>
         <a href="ntqmenubar.html">TQMenuBar</a>   *mainMenu = new <a href="ntqmenubar.html">TQMenuBar</a>;
         TQPopupMenu *fileMenu = new TQPopupMenu;
-        fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "New",  myView, SLOT(newFile()), CTRL+Key_N );
-        fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Open", myView, SLOT(open()),    CTRL+Key_O );
+        fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "New",  myView, TQ_SLOT(newFile()), CTRL+Key_N );
+        fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Open", myView, TQ_SLOT(open()),    CTRL+Key_O );
         mainMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "File", fileMenu );
     </pre>
  
@@ -405,7 +405,7 @@ accelerator key. Use <a href="ntqmenudata.html#connectItem">connectItem</a>() an
 accelerator. (For translations use a string <a href="ntqkeysequence.html">key
     sequence</a>.):
 <pre>
-        fileMenu-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("Open"), myView, SLOT(open()),
+        fileMenu-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("Open"), myView, TQ_SLOT(open()),
                               <a href="ntqobject.html#tr">tr</a>("Ctrl+O") );
     </pre>
  

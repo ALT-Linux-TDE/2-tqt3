@@ -191,20 +191,20 @@ HierarchyList::HierarchyList( TQWidget *parent, FormWindow *fw, bool doConnects 
     p.setColor( TQColorGroup::Base, TQColor( *backColor2 ) );
     (void)*selectedBack; // hack
     setPalette( p );
-    disconnect( header(), SIGNAL( sectionClicked( int ) ),
-		this, SLOT( changeSortColumn( int ) ) );
+    disconnect( header(), TQ_SIGNAL( sectionClicked( int ) ),
+		this, TQ_SLOT( changeSortColumn( int ) ) );
     setSorting( -1 );
     setHScrollBarMode( AlwaysOff );
     setVScrollBarMode( AlwaysOn );
     if ( doConnects ) {
-	connect( this, SIGNAL( clicked( TQListViewItem * ) ),
-		 this, SLOT( objectClicked( TQListViewItem * ) ) );
-	connect( this, SIGNAL( doubleClicked( TQListViewItem * ) ),
-		 this, SLOT( objectDoubleClicked( TQListViewItem * ) ) );
-	connect( this, SIGNAL( returnPressed( TQListViewItem * ) ),
-		 this, SLOT( objectClicked( TQListViewItem * ) ) );
-	connect( this, SIGNAL( contextMenuRequested( TQListViewItem *, const TQPoint&, int ) ),
-		 this, SLOT( showRMBMenu( TQListViewItem *, const TQPoint & ) ) );
+	connect( this, TQ_SIGNAL( clicked( TQListViewItem * ) ),
+		 this, TQ_SLOT( objectClicked( TQListViewItem * ) ) );
+	connect( this, TQ_SIGNAL( doubleClicked( TQListViewItem * ) ),
+		 this, TQ_SLOT( objectDoubleClicked( TQListViewItem * ) ) );
+	connect( this, TQ_SIGNAL( returnPressed( TQListViewItem * ) ),
+		 this, TQ_SLOT( objectClicked( TQListViewItem * ) ) );
+	connect( this, TQ_SIGNAL( contextMenuRequested( TQListViewItem *, const TQPoint&, int ) ),
+		 this, TQ_SLOT( showRMBMenu( TQListViewItem *, const TQPoint & ) ) );
     }
     deselect = TRUE;
     setColumnWidthMode( 1, Manual );
@@ -350,7 +350,7 @@ void HierarchyList::changeNameOf( TQObject *o, const TQString &name )
 
 void HierarchyList::changeDatabaseOf( TQObject *o, const TQString &info )
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( !formWindow->isDatabaseAware() )
 	return;
     TQListViewItem *item = findItem( o );
@@ -368,7 +368,7 @@ void HierarchyList::setup()
 	return;
     clear();
     TQWidget *w = formWindow->mainContainer();
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( formWindow->isDatabaseAware() ) {
 	if ( columns() == 2 ) {
 	    addColumn( tr( "Database" ) );
@@ -426,7 +426,7 @@ void HierarchyList::insertObject( TQObject *o, TQListViewItem *parent )
     }
 
     TQString dbInfo;
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     dbInfo = MetaDataBase::fakeProperty( o, "database" ).toStringList().join(".");
 #endif
 
@@ -610,8 +610,8 @@ void HierarchyList::showRMBMenu( TQListViewItem *i, const TQPoint & p )
 	    if ( !tabWidgetMenu )
 		tabWidgetMenu =
 		    formWindow->mainWindow()->setupTabWidgetHierarchyMenu(
-				  this, SLOT( addTabPage() ),
-				  SLOT( removeTabPage() ) );
+				  this, TQ_SLOT( addTabPage() ),
+				  TQ_SLOT( removeTabPage() ) );
 	    tabWidgetMenu->popup( p );
 	}
     }
@@ -679,8 +679,8 @@ FormDefinitionView::FormDefinitionView( TQWidget *parent, FormWindow *fw )
 {
     header()->hide();
     removeColumn( 1 );
-    connect( this, SIGNAL( itemRenamed( TQListViewItem *, int, const TQString & ) ),
-	     this, SLOT( renamed( TQListViewItem * ) ) );
+    connect( this, TQ_SIGNAL( itemRenamed( TQListViewItem *, int, const TQString & ) ),
+	     this, TQ_SLOT( renamed( TQListViewItem * ) ) );
     popupOpen = FALSE;
 }
 
@@ -1260,7 +1260,7 @@ HierarchyView::HierarchyView( TQWidget *parent )
 	    ClassBrowser cb( ciface->createClassBrowser( this ), ciface );
 	    addTab( cb.lv, tr( "Class Declarations" ) );
 	    setTabToolTip( cb.lv, tr( "List of all classes and its declarations of the current source file" ) );
-	    ciface->onClick( this, SLOT( jumpTo( const TQString &, const TQString &, int ) ) );
+	    ciface->onClick( this, TQ_SLOT( jumpTo( const TQString &, const TQString &, int ) ) );
 	    classBrowsers->insert( *it, cb );
 	    setTabEnabled( cb.lv, FALSE );
 	}
@@ -1348,7 +1348,7 @@ void HierarchyView::showClasses( SourceEditor *se )
 	return;
 
     lastSourceEditor = se;
-    TQTimer::singleShot( 100, this, SLOT( showClassesTimeout() ) );
+    TQTimer::singleShot( 100, this, TQ_SLOT( showClassesTimeout() ) );
 }
 
 void HierarchyView::showClassesTimeout()
@@ -1445,7 +1445,7 @@ void HierarchyView::namePropertyChanged( TQWidget *w, const TQVariant & )
 
 void HierarchyView::databasePropertyChanged( TQWidget *w, const TQStringList& info )
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQString i = info.join( "." );
     listview->changeDatabaseOf( w, i );
 #endif

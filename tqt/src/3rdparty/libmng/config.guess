@@ -861,15 +861,7 @@ EOF
 	int main (argc, argv) int argc; char *argv[]; {
 #endif
 #ifdef __ELF__
-# ifdef __GLIBC__
-#  if __GLIBC__ >= 2
-    printf ("%s-pc-linux-gnu\n", argv[1]);
-#  else
-    printf ("%s-pc-linux-gnulibc1\n", argv[1]);
-#  endif
-# else
-   printf ("%s-pc-linux-gnulibc1\n", argv[1]);
-# endif
+  printf ("%s-pc-linux-gnu\n", argv[1]);
 #else
   printf ("%s-pc-linux-gnuaout\n", argv[1]);
 #endif
@@ -1308,10 +1300,3 @@ UNAME_VERSION = ${UNAME_VERSION}
 EOF
 
 exit 1
-
-# Local variables:
-# eval: (add-hook 'write-file-hooks 'time-stamp)
-# time-stamp-start: "timestamp='"
-# time-stamp-format: "%:y-%02m-%02d"
-# time-stamp-end: "'"
-# End:

@@ -45,7 +45,7 @@
 #include "ntqimage.h"
 #endif // QT_H
 
-#ifndef QT_NO_IMAGEIO_PNG
+#ifndef TQT_NO_IMAGEIO_PNG
 
 void qInitPngIO();
 
@@ -53,7 +53,7 @@ class TQIODevice;
 
 #ifndef Q_PNGEXPORT
 #if !defined(QT_PLUGIN)
-#define Q_PNGEXPORT Q_EXPORT
+#define Q_PNGEXPORT TQ_EXPORT
 #else
 #define Q_PNGEXPORT
 #endif
@@ -102,6 +102,6 @@ private:
     int alignx;
 };
 
-#endif // QT_NO_IMAGEIO_PNG
+#endif // TQT_NO_IMAGEIO_PNG
 
 #endif // TQPNGIO_H

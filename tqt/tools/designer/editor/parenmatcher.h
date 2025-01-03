@@ -48,7 +48,7 @@ struct Paren
     TQChar chr;
     int pos;
 
-    Q_DUMMY_COMPARISON_OPERATOR( Paren )
+    TQ_DUMMY_COMPARISON_OPERATOR( Paren )
 };
 
 typedef TQValueList<Paren> ParenList;

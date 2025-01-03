@@ -49,7 +49,7 @@
 #include "ntqptrlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_TEXTEDIT
+#ifndef TQT_NO_TEXTEDIT
 // uncomment below to enable optimization mode - also uncomment the
 // optimDoAutoScroll() private slot since moc ignores #ifdefs..
 #define QT_TEXTEDIT_OPTIMIZATION
@@ -132,7 +132,7 @@ public:
 };
 #endif
 
-class Q_EXPORT TQTextEdit : public TQScrollView
+class TQ_EXPORT TQTextEdit : public TQScrollView
 {
     friend class TQTextBrowser;
     friend class TQSyntaxHighlighter;
@@ -247,7 +247,7 @@ public:
     int paragraphLength( int para ) const;
 
     TQStyleSheet* styleSheet() const;
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     TQMimeSourceFactory* mimeSourceFactory() const;
 #endif
     TQBrush paper() const;
@@ -271,7 +271,7 @@ public:
 
     TQSize sizeHint() const;
 
-    bool isReadOnly() const { return readonly; }
+    bool isReadOnly() const { return readOnly; }
 
     void getCursorPosition( int *parag, int *index ) const;
 
@@ -310,7 +310,7 @@ public:
 
 public slots:
     void setEnabled( bool );
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     virtual void setMimeSourceFactory( TQMimeSourceFactory* factory );
 #endif
     virtual void setStyleSheet( TQStyleSheet* styleSheet );
@@ -344,7 +344,7 @@ public slots:
     virtual void redo();
     virtual void cut();
     virtual void paste();
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     virtual void pasteSubType( const TQCString &subtype );
 #endif
     virtual void clear();
@@ -431,13 +431,13 @@ protected:
     void contentsMouseMoveEvent( TQMouseEvent *e );
     void contentsMouseReleaseEvent( TQMouseEvent *e );
     void contentsMouseDoubleClickEvent( TQMouseEvent *e );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void contentsWheelEvent( TQWheelEvent *e );
 #endif
     void imStartEvent( TQIMEvent * );
     void imComposeEvent( TQIMEvent * );
     void imEndEvent( TQIMEvent * );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void contentsDragEnterEvent( TQDragEnterEvent *e );
     void contentsDragMoveEvent( TQDragMoveEvent *e );
     void contentsDragLeaveEvent( TQDragLeaveEvent *e );
@@ -473,7 +473,7 @@ private slots:
     void clipboardChanged();
 
 private:
-    struct Q_EXPORT UndoRedoInfo {
+    struct TQ_EXPORT UndoRedoInfo {
 	enum Type { Invalid, Insert, Delete, Backspace, Return, RemoveSelected, Format, Style, IME };
 
 	UndoRedoInfo( TQTextDocument *dc );
@@ -505,11 +505,11 @@ private:
     void makeParagVisible( TQTextParagraph *p );
     void normalCopy();
     void copyToClipboard();
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     TQCString pickSpecial(TQMimeSource* ms, bool always_ask, const TQPoint&);
     TQTextDrag *dragObject( TQWidget *parent = 0 ) const;
 #endif
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     void pasteSpecial(const TQPoint&);
 #endif
     void setFontInternal( const TQFont &f );
@@ -557,7 +557,7 @@ private slots:
 #endif // QT_TEXTEDIT_OPTIMIZATION
 
 private:
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     void pasteSubType( const TQCString &subtype, TQMimeSource *m );
 #endif
 
@@ -582,11 +582,11 @@ private:
     bool mousePressed : 1;
     bool cursorVisible : 1;
     bool blinkCursorVisible : 1;
-    bool readOnly : 1;
+    bool noop: 1; //< Removed; keep as padding for binary compat or reuse if needed
     bool modified : 1;
     bool mightStartDrag : 1;
     bool inDnD : 1;
-    bool readonly : 1;
+    bool readOnly : 1;
     bool undoEnabled : 1;
     bool overWrite : 1;
 
@@ -612,5 +612,5 @@ inline void TQTextEdit::setCurrentFont( const TQFont &f )
     TQTextEdit::setFontInternal( f );
 }
 
-#endif //QT_NO_TEXTEDIT
+#endif //TQT_NO_TEXTEDIT
 #endif //TQTEXTVIEW_H

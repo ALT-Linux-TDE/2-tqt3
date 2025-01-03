@@ -40,7 +40,7 @@
 
 #include "ntqlocalfs.h"
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
 
 #include "ntqfileinfo.h"
 #include "ntqfile.h"
@@ -404,4 +404,4 @@ int TQLocalFs::calcBlockSize( int totalSize ) const
     return s;
 }
 
-#endif // QT_NO_NETWORKPROTOCOL
+#endif // TQT_NO_NETWORKPROTOCOL

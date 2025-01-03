@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqframe.h"
-#ifndef QT_NO_FRAME
+#ifndef TQT_NO_FRAME
 #include "ntqpainter.h"
 #include "ntqdrawutil.h"
 #include "ntqframe.h"
@@ -568,13 +568,13 @@ void TQFrame::drawFrame( TQPainter *p )
     TQRect       r     = frameRect();
     int         type  = fstyle & MShape;
     int         cstyle = fstyle & MShadow;
-#ifdef QT_NO_DRAWUTIL
+#ifdef TQT_NO_DRAWUTIL
     p->setPen( black ); // ####
     p->drawRect( r ); //### a bit too simple
 #else
     const TQColorGroup & g = colorGroup();
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     TQStyleOption opt(lineWidth(),midLineWidth());
 
     TQStyle::SFlags flags = TQStyle::Style_Default;
@@ -588,7 +588,7 @@ void TQFrame::drawFrame( TQPainter *p )
 	flags |= TQStyle::Style_HasFocus;
     if (hasMouse())
 	flags |= TQStyle::Style_MouseOver;
-#endif // QT_NO_STYLE
+#endif // TQT_NO_STYLE
 
     switch ( type ) {
 
@@ -613,28 +613,28 @@ void TQFrame::drawFrame( TQPainter *p )
 	break;
 
     case MenuBarPanel:
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 	style().drawPrimitive(TQStyle::PE_PanelMenuBar, p, r, g, flags, opt);
 	break;
-#endif // fall through to Panel if QT_NO_STYLE
+#endif // fall through to Panel if TQT_NO_STYLE
 
     case ToolBarPanel:
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 	style().drawPrimitive( TQStyle::PE_PanelDockWindow, p, rect(), g, flags, opt);
         break;
-#endif // fall through to Panel if QT_NO_STYLE
+#endif // fall through to Panel if TQT_NO_STYLE
 
     case StyledPanel:
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
         if ( cstyle == Plain )
             qDrawPlainRect( p, r, g.foreground(), lwidth );
         else
 	    style().drawPrimitive(TQStyle::PE_Panel, p, r, g, flags, opt);
         break;
-#endif // fall through to Panel if QT_NO_STYLE
+#endif // fall through to Panel if TQT_NO_STYLE
 
     case PopupPanel:
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     {
 	int vextra = style().pixelMetric(TQStyle::PM_PopupMenuFrameVerticalExtra, this),
 	    hextra = style().pixelMetric(TQStyle::PM_PopupMenuFrameHorizontalExtra, this);
@@ -665,7 +665,7 @@ void TQFrame::drawFrame( TQPainter *p )
 	    style().drawPrimitive(TQStyle::PE_PanelPopup, p, r, g, flags, opt);
         break;
     }
-#endif // fall through to Panel if QT_NO_STYLE
+#endif // fall through to Panel if TQT_NO_STYLE
 
     case Panel:
         if ( cstyle == Plain )
@@ -701,7 +701,7 @@ void TQFrame::drawFrame( TQPainter *p )
                             lwidth, midLineWidth() );
         break;
     }
-#endif // QT_NO_DRAWUTIL
+#endif // TQT_NO_DRAWUTIL
 }
 
 
@@ -751,4 +751,4 @@ void  TQFrame::styleChange( TQStyle& old )
     TQWidget::styleChange( old );
 }
 
-#endif //QT_NO_FRAME
+#endif //TQT_NO_FRAME

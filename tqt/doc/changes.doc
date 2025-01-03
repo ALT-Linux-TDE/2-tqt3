@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -39,20 +39,20 @@
 /*!
 \page keyfeatures30.html
 
-\title Key Features in Qt 3.0
+\title Key Features in TQt 3.0
 
-Qt 3.0 adds a lot of new features and improvements over the Qt 2.x
+Qt 3.0 adds a lot of new features and improvements over the TQt 2.x
 series. Some internals have undergone major redesign and new classes
 and methods have been added.
 
-We have tried to keep the API of Qt 3.0 as compatible as possible with
-the Qt 2.x series. For most applications only minor changes will be
-needed to compile and run them successfully using Qt 3.0.
+We have tried to keep the API of TQt 3.0 as compatible as possible with
+the TQt 2.x series. For most applications only minor changes will be
+needed to compile and run them successfully using TQt 3.0.
 
 One of the major new features that has been added in the 3.0 release
 is a module allowing you to easily work with databases. The API is
 platform independent and database neutral. This module is seamlessly
-integrated into Qt Designer, greatly simplifying the process of
+integrated into TQt Designer, greatly simplifying the process of
 building database applications and using data aware widgets.
 
 \omit
@@ -61,12 +61,12 @@ to build cross platform components, 'plugins' with Qt.
 \endomit
 Other major new features include a plugin architecture. You can use
 your own and third party plugins your own applications. 
-The Unicode support of Qt 2.x has been greatly enhanced, it now
+The Unicode support of TQt 2.x has been greatly enhanced, it now
 includes full support for scripts written from right to left (e.g.
 Arabic and Hebrew) and also provides improved support for Asian
 languages.
 
-Many new classes have been added to the Qt Library. Amongst them are
+Many new classes have been added to the TQt Library. Amongst them are
 classes that provide a docking architecture
 (\l{QDockArea}/\l{QDockWindow}), a powerful rich text editor
 (QTextEdit), a class to store and access application settings
@@ -74,36 +74,36 @@ classes that provide a docking architecture
 (QProcess).
 
 Apart from the changes in the library itself a lot has been done to
-make the development of Qt applications with Qt 3.0 even easier than
-before. Two new applications have been added: Qt Linguist is a tool to
+make the development of TQt applications with TQt 3.0 even easier than
+before. Two new applications have been added: TQt Linguist is a tool to
 help you translate your application into different languages; Qt
-Assistant is an easy to use help browser for the Qt documentation that
+Assistant is an easy to use help browser for the TQt documentation that
 supports bookmarks and can search by keyword.
 
-Another change concerns the Qt build system, which has been reworked
-to make it a lot easier to port Qt to new platforms. You can use this
+Another change concerns the TQt build system, which has been reworked
+to make it a lot easier to port TQt to new platforms. You can use this
 platform independent build system for your own applications.
 
 
-\section1 The Qt Library
+\section1 The TQt Library
 
-A large number of new features has been added to Qt 3.0. The following
+A large number of new features has been added to TQt 3.0. The following
 list gives an overview of the most important new and changed aspects
-of the Qt library. A full list of every new method follows the
+of the TQt library. A full list of every new method follows the
 overview.
 
 
 \section2 Database support
 
-One of the major new features in Qt 3.0 is the \link sql.html SQL
+One of the major new features in TQt 3.0 is the \link sql.html SQL
 module\endlink that provides multiplatform access to SQL databases,
-making database application programming with Qt seamless and portable.
+making database application programming with TQt seamless and portable.
 The API, built with standard SQL, is database-neutral and software
 development is independent of the underlying database.
 
 A collection of tightly focused C++ classes are provided to give the
 programmer direct access to SQL databases. Developers can send raw SQL
-to the database server or have the Qt SQL classes generate SQL queries
+to the database server or have the TQt SQL classes generate SQL queries
 automatically.  Drivers for Oracle, PostgreSQL, MySQL and ODBC are
 available and writing new drivers is straightforward.
 
@@ -119,9 +119,9 @@ making it easy for developers to include their own data validation and
 auditing code.
 
 Qt Designer fully supports Qt's SQL module. All SQL widgets can be
-laid out within Qt Designer, and relationships can be established
+laid out within TQt Designer, and relationships can be established
 between controls visually. Many interactions can be defined purely in
-terms of Qt's signals/slots mechanism directly in Qt Designer.
+terms of Qt's signals/slots mechanism directly in TQt Designer.
 
 \omit
 \section2 Component model - plugins
@@ -129,11 +129,11 @@ terms of Qt's signals/slots mechanism directly in Qt Designer.
 The QLibrary class provides a platform independent wrapper for runtime
 loading of shared libraries. Access to the shared libraries uses a
 COM-like interface. QPluginManager makes it trivial to implement
-plugin support in applications. The Qt library is able to load
+plugin support in applications. The TQt library is able to load
 additional styles, database drivers and text codecs from plugins which
 implement the relevant interfaces, e.g. QStyleFactoryInterface,
 QSqlDriverInterface or QTextCodecInterface. It is possible to remove
-unused components from the Qt library, and easy to extend any
+unused components from the TQt library, and easy to extend any
 application with 3rd party styles, database drivers or text codecs.
 
 Qt Designer supports custom widgets in plugins, and will use the
@@ -147,7 +147,7 @@ component.
 
 The QLibrary class provides a platform independent wrapper for runtime
 loading of shared libraries. QPluginManager makes it trivial to implement
-plugin support in applications. The Qt library is able to load
+plugin support in applications. The TQt library is able to load
 additional styles, database drivers and text codecs from plugins. 
 
 Qt Designer supports custom widgets in plugins, and will use the
@@ -158,7 +158,7 @@ See the \link plugins-howto.html plugins documentation\endlink.
 
 \section2 Rich text engine and editor
 
-The rich text engine originally introduced in Qt 2.0 has been further
+The rich text engine originally introduced in TQt 2.0 has been further
 optimized and extended to support editing. It allows editing formatted
 text with different fonts, colors, paragraph styles, tables and
 images. The editor supports different word wrap modes, command-based
@@ -169,7 +169,7 @@ and displaying large documents quickly and efficiently.
 
 \section2 Unicode
 
-Apart from the rich text engine, another new feature of Qt 3.0 that
+Apart from the rich text engine, another new feature of TQt 3.0 that
 relates to text handling is the greatly improved Unicode support. Qt
 3.0 includes an implementation of the bidirectional algorithm (BiDi)
 as defined in the Unicode standard and a shaping engine for Arabic,
@@ -177,13 +177,13 @@ which gives full native language support to Arabic and Hebrew speaking
 people. At the same time the support for Asian languages has been
 greatly enhanced.
 
-The support is almost transparent for the developer using Qt to
+The support is almost transparent for the developer using TQt to
 develop their applications. This means that developers who developed
-applications using Qt 2.x will automatically gain the full support for
-these languages when switching to Qt 3.0. Developers can rely on their
+applications using TQt 2.x will automatically gain the full support for
+these languages when switching to TQt 3.0. Developers can rely on their
 application to work for people using writing systems different from
 Latin1, without having to worry about the complexities involved with
-these scripts, as Qt takes care of this automatically.
+these scripts, as TQt takes care of this automatically.
 
 
 \section2 Docked and Floating Windows
@@ -200,7 +200,7 @@ their own right. Dock windows can also be minimized or hidden.
 
 For developers, dock windows behave just like ordinary widgets. QToolbar
 for example is now a specialized subclass of a dock window.  The API
-of QMainWindow and QToolBar is source compatible with Qt 2.x, so
+of QMainWindow and QToolBar is source compatible with TQt 2.x, so
 existing code which uses these classes will continue to work.
 
 
@@ -208,7 +208,7 @@ existing code which uses these classes will continue to work.
 
 Qt has always provided regular expression support, but that support
 was pretty much limited to what was required in common GUI control
-elements such as file dialogs. Qt 3.0 introduces a new regular
+elements such as file dialogs. TQt 3.0 introduces a new regular
 expression engine, QRegExp, that supports most of Perl's regex
 features and is Unicode based. The most useful additions are support
 for parentheses (capturing and non-capturing) and backreferences.
@@ -220,7 +220,7 @@ Most programs will need to store some settings between runs, for
 example, user selected fonts, colors and other preferences, or a list
 of recently used files.  The new QSettings class provides a platform
 independent way to achieve this goal. The API makes it easy to store
-and retrieve most of the basic data types used in Qt (such as basic
+and retrieve most of the basic data types used in TQt (such as basic
 C++ types, strings, lists, colors, etc). The class uses the registry
 on the Windows platform and traditional resource files on Unix.
 
@@ -228,7 +228,7 @@ on the Windows platform and traditional resource files on Unix.
 \section2 Creating and controlling other processes
 
 QProcess is a class that allows you to start other programs from
-within a Qt application in a platform independent manner. It gives you
+within a TQt application in a platform independent manner. It gives you
 full control over the started program, for example you can redirect
 the input and output of console applications.
 
@@ -236,9 +236,9 @@ the input and output of console applications.
 \section2 Accessibility
 
 Accessibility means making software usable and accessible to a wide
-range of users, including those with disabilities. In Qt 3.0, most
+range of users, including those with disabilities. In TQt 3.0, most
 widgets provide accessibility information for assistive tools that can
-be used by a wide range of disabled users. Qt standard widgets like
+be used by a wide range of disabled users. TQt standard widgets like
 buttons or range controls are fully supported. Support for complex
 widgets, like e.g. QListView, is in development. Existing applications
 that make use of standard widgets will become accessible just by using
@@ -246,15 +246,15 @@ Qt 3.0.
 
 Qt uses the Active Accessibility infrastructure on Windows, and needs
 the MSAA SDK, which is part of most platform SDKs. With improving
-standardization of accessibility on other platforms, Qt will support
+standardization of accessibility on other platforms, TQt will support
 assistive technologies on other systems, too.
 
 
 \section2 XML Improvements
 
-The XML framework introduced in Qt 2.2 has been vastly improved. Qt
+The XML framework introduced in TQt 2.2 has been vastly improved. Qt
 2.2 already supported level 1 of the Document Object Model (DOM), a
-W3C standard for accessing and modifying XML documents.  Qt 3.0 has
+W3C standard for accessing and modifying XML documents.  TQt 3.0 has
 added support for DOM Level 2 and XML namespaces.
 
 The XML parser has been extended to allow incremental parsing of XML
@@ -268,7 +268,7 @@ stage.
 
 \section2 SVG support
 
-SVG is a W3C standard for "Scalable Vector Graphics". Qt 3.0's XML
+SVG is a W3C standard for "Scalable Vector Graphics". TQt 3.0's XML
 support means that QPicture can optionally generate and import static
 SVG documents. All the SVG features that have an equivalent in
 QPainter are supported.
@@ -277,7 +277,7 @@ QPainter are supported.
 \section2 Multihead support
 
 Many professional applications, such as DTP and CAD software, are able
-to display data on two or more monitors. In Qt 3.0 the QDesktopWidget
+to display data on two or more monitors. In TQt 3.0 the QDesktopWidget
 class provides the application with runtime information about the
 number and geometry of the desktops on the different monitors and such
 allows applications to efficiently use a multi-monitor setup.
@@ -316,10 +316,10 @@ process. This makes WYSIWYG printing trivial, and also allows you to
 take full advantage of the high resolution of a printer when painting
 on it.
 
-The postscript driver built into Qt and used on Unix has been greatly
+The postscript driver built into TQt and used on Unix has been greatly
 enhanced. It supports the embedding of true/open type and type1 fonts
 into the document, and can correctly handle and display Unicode.
-Support for fonts built into the printer has been enhanced and Qt now
+Support for fonts built into the printer has been enhanced and TQt now
 knows about the most common printer fonts used for Asian languages.
 
 
@@ -331,34 +331,34 @@ This class provides a simple interface for HTTP downloads and uploads.
 \section2 Compatibility with the Standard Template Library (STL)
 
 Support for the C++ Standard Template Library has been added to the
-\link qt-template-lib.html Qt Template Library (QTL)\endlink.  The QTL
+\link qt-template-lib.html TQt Template Library (QTL)\endlink.  The QTL
 classes now contain appropriate copy constructors and typedefs so that
 they can be freely mixed with other STL containers and algorithms.  In
 addition, new member functions have been added to QTL template classes
 which correspond to STL-style naming conventions (e.g., push_back()).
 
 
-\section1 Qt Designer
+\section1 TQt Designer
 
-\link designer-manual.book Qt Designer\endlink was a pure dialog
-editor in Qt 2.2 but has now been extended to provide the full
+\link designer-manual.book TQt Designer\endlink was a pure dialog
+editor in TQt 2.2 but has now been extended to provide the full
 functionality of a GUI design tool.
 
 This includes the ability to lay out main windows with menus and
-toolbars. Actions can be edited within Qt Designer and then plugged
+toolbars. Actions can be edited within TQt Designer and then plugged
 into toolbars and menu bars via drag and drop. Splitters can now be
 used in a way similar to layouts to group widgets horizontally or
 vertically.
 
-In Qt 2.2, many of the dialogs created by Qt Designer had to be
+In TQt 2.2, many of the dialogs created by TQt Designer had to be
 subclassed to implement functionality beyond the predefined signal and
 slot connections. Whilst the subclassing approach is still fully supported,
 Qt Designer now offers an alternative: a plugin for editing 
 slots. The editor offers features such as syntax highlighting,
 completion, parentheses matching and incremental search.
 
-The functionality of Qt Designer can now be extended via plugins.
-Using Qt Designer's interface or by implementing one of the provided
+The functionality of TQt Designer can now be extended via plugins.
+Using TQt Designer's interface or by implementing one of the provided
 interfaces in a plugin, a two way communication between plugin and Qt
 Designer can be established. This functionality is used to implement
 plugins for custom widgets, so that they can be used as real widgets
@@ -370,7 +370,7 @@ and do some global operations on the project. You can now open the
 project file and have one-click access to all the *.ui forms in the
 project.
 
-In addition to generating code via uic, Qt Designer now supports the
+In addition to generating code via uic, TQt Designer now supports the
 dynamic creation of widgets directly from XML user interface
 description files (*.ui files) at runtime. This eliminates the need of
 recompiling your application when the GUI changes, and could be used
@@ -379,20 +379,20 @@ the feature is provided by a new class, QWidgetFactory in the
 QResource library.
 
 
-\section1 Qt Linguist
+\section1 TQt Linguist
 
-\link linguist-manual.book Qt Linguist\endlink is a GUI utility to
+\link linguist-manual.book TQt Linguist\endlink is a GUI utility to
 support translating the user-visible text in applications written with
 Qt. It comes with two command-line tools: lupdate and lrelease.
 
-Translation of a Qt application is a three-step process:
+Translation of a TQt application is a three-step process:
 
 \list
   \i Run lupdate to extract user-visible text from the C++ source
-     code of the Qt application, resulting in a translation source file
+     code of the TQt application, resulting in a translation source file
      (a *.ts file).
   \i Provide translations for the source texts in the *.ts file using
-     Qt Linguist.
+     TQt Linguist.
   \i Run lrelease to obtain a light-weight message file (a *.qm file)
      from the *.ts file, which provides very fast lookup for released
      applications.
@@ -406,10 +406,10 @@ usually be the name of the relevant dialog, and the comment will often
 contain instructions that describe how to navigate to the relevant
 dialog.
 
-You can create phrase books for Qt Linguist to provide common
+You can create phrase books for TQt Linguist to provide common
 translations to help ensure consistency and to speed up the
 translation process. Whenever a translator navigates to a new text to
-translate, Qt Linguist uses an intelligent algorithm to provide a list
+translate, TQt Linguist uses an intelligent algorithm to provide a list
 of possible translations: the list is composed of relevant text from
 any open phrase books and also from identical or similar text that has
 already been translated.
@@ -421,7 +421,7 @@ Linguist is a GUI application with dock windows and mouse control,
 toolbars, etc., it has a full set of keyboard shortcuts to make
 translation as fast and efficient as possible.
 
-When the Qt application that you're developing evolves (e.g. from
+When the TQt application that you're developing evolves (e.g. from
 version 1.0 to version 1.1), the utility lupdate merges the source
 texts from the new version with the previous translation source file,
 reusing existing translations. In some typical cases, lupdate may
@@ -429,16 +429,16 @@ suggest translations. These translations are marked as unfinished, so
 you can easily find and check them.
 
 
-\section1 Qt Assistant
+\section1 TQt Assistant
 
 Thanks to the positive feedback we received about the help system
-built into \link designer-manual.book Qt Designer\endlink, we decided
+built into \link designer-manual.book TQt Designer\endlink, we decided
 to offer this part as a separate application called \link
-assistant.book Qt Assistant\endlink. Qt Assistant can be used to
-browse the Qt class documentation as well as the manuals for Qt
-Designer and Qt Linguist. It offers index searching, a contents
-overview, bookmarks history and incremental search. Qt Assistant is
-used by both Qt Designer and Qt Linguist for browsing their help
+assistant.book TQt Assistant\endlink. TQt Assistant can be used to
+browse the TQt class documentation as well as the manuals for Qt
+Designer and TQt Linguist. It offers index searching, a contents
+overview, bookmarks history and incremental search. TQt Assistant is
+used by both TQt Designer and TQt Linguist for browsing their help
 documentation.
 
 

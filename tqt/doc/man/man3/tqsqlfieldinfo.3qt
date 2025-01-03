@@ -14,7 +14,7 @@ QSqlFieldInfo \- Stores meta data associated with a SQL field
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlFieldInfo\fR ( const QString & name = QString::null, QVariant::Type typ = QVariant::Invalid, int required = -1, int len = -1, int prec = -1, const QVariant & defValue = QVariant ( ), int typeID = 0, bool generated = TRUE, bool trim = FALSE, bool calculated = FALSE )"
+.BI "\fBQSqlFieldInfo\fR ( const TQString & name = TQString::null, QVariant::Type typ = QVariant::Invalid, int required = -1, int len = -1, int prec = -1, const QVariant & defValue = QVariant ( ), int typeID = 0, bool generated = TRUE, bool trim = FALSE, bool calculated = FALSE )"
 .br
 .ti -1c
 .BI "\fBQSqlFieldInfo\fR ( const QSqlFieldInfo & other )"
@@ -50,7 +50,7 @@ QSqlFieldInfo \- Stores meta data associated with a SQL field
 .BI "QVariant \fBdefaultValue\fR () const"
 .br
 .ti -1c
-.BI "QString \fBname\fR () const"
+.BI "TQString \fBname\fR () const"
 .br
 .ti -1c
 .BI "int \fBtypeID\fR () const"
@@ -83,7 +83,7 @@ All values must be set in the constructor, and may be retrieved using isRequired
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlFieldInfo::QSqlFieldInfo ( const QString & name = QString::null, QVariant::Type typ = QVariant::Invalid, int required = -1, int len = -1, int prec = -1, const QVariant & defValue = QVariant ( ), int typeID = 0, bool generated = TRUE, bool trim = FALSE, bool calculated = FALSE )"
+.SH "QSqlFieldInfo::QSqlFieldInfo ( const TQString & name = TQString::null, QVariant::Type typ = QVariant::Invalid, int required = -1, int len = -1, int prec = -1, const QVariant & defValue = QVariant ( ), int typeID = 0, bool generated = TRUE, bool trim = FALSE, bool calculated = FALSE )"
 Constructs a QSqlFieldInfo with the following parameters: <center>.nf
 .TS
 l - l. \fIname\fR the name of the field. \fItyp\fR the field's type in a QVariant. \fIrequired\fR greater than 0 if the field is required, 0 if its value can be NULL and less than 0 if it cannot be determined whether the field is required or not. \fIlen\fR the length of the field. Note that for non-character types some databases return either the length in bytes or the number of digits. -1 signifies that the length cannot be determined. \fIprec\fR the precision of the field, or -1 if the field has no precision or it cannot be determined. \fIdefValue\fR the default value that is inserted into the table if none is specified by the user. QVariant() if there is no default value or it cannot be determined. \fItypeID\fR the internal typeID of the database system (only useful for low-level programming). 0 if unknown. \fIgenerated\fR TRUE indicates that this field should be included in auto-generated SQL statments, e.g. in QSqlCursor. \fItrim\fR TRUE indicates that widgets should remove trailing whitespace from character fields. This does not affect the field value but only its representation inside widgets. \fIcalculated\fR
@@ -114,7 +114,7 @@ Returns TRUE if trailing whitespace should be removed from character fields; oth
 See also setTrim().
 .SH "int QSqlFieldInfo::length () const"
 Returns the field's length. For fields storing text the return value is the maximum number of characters the field can hold. For non-character fields some database systems return the number of bytes needed or the number of digits allowed. If the length cannot be determined -1 is returned.
-.SH "QString QSqlFieldInfo::name () const"
+.SH "TQString QSqlFieldInfo::name () const"
 Returns the name of the field in the SQL table.
 .PP
 Examples:
@@ -163,8 +163,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

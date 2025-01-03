@@ -24,7 +24,7 @@
 
 #include "qt_x11_p.h"
 
-#if !defined(QT_NO_XFTFREETYPE) && !defined(QT_XFT2)
+#if !defined(TQT_NO_XFTFREETYPE) && !defined(QT_XFT2)
 
 #include <X11/Xft/Xft.h>
 
@@ -141,4 +141,4 @@ void XftDrawSetSubwindowMode(XftDraw *draw, int mode)
 
 } // extern "C"
 
-#endif // !QT_NO_XFTFREETYPE && !QT_XFT2
+#endif // !TQT_NO_XFTFREETYPE && !QT_XFT2

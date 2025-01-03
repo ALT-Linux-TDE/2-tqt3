@@ -137,17 +137,17 @@
 	* src/input/ntqinputcontextfactory.h
 	  - Remove #include "ntqinputcontext.h" to reduce compilation dependency
 	  - Add 'class QWidget' declaration
-	  - Remove inappropriate #ifndef QT_NO_STRINGLIST. QStringList is now
+	  - Remove inappropriate #ifndef TQT_NO_STRINGLIST. QStringList is now
 	    required feature for immodule. See also changes of ntqfeatures.h
 	* src/input/qinputcontextfactory.cpp
 	  - Add #include "ntqinputcontext.h"
 	  - Remove unnecessary #include "ntqpopupmenu.h"
-	  - Remove inappropriate #ifndef QT_NO_STRINGLIST. QStringList is now
+	  - Remove inappropriate #ifndef TQT_NO_STRINGLIST. QStringList is now
 	    required feature for immodule. See also changes of ntqfeatures.h
 	
 	* src/tools/ntqfeatures.h
-	  - Define QT_NO_IM if QT_NO_STRINGLIST is defined
-	  - Define QT_NO_IM_EXTENSIONS if QT_NO_IM or QT_NO_STRINGLIST is
+	  - Define TQT_NO_IM if TQT_NO_STRINGLIST is defined
+	  - Define TQT_NO_IM_EXTENSIONS if TQT_NO_IM or TQT_NO_STRINGLIST is
 	    defined
 	
 	* plugins/src/inputmethods/inputmethods.pro
@@ -207,15 +207,15 @@
 	
 	* src/kernel/qapplication_x11.cpp
 	  - (x11_apply_settings): 
-	    * Move immodule handling into #ifndef QT_NO_IM rather than QT_NO_XIM
-	    * Move qtrc handling into #ifndef QT_NO_IM_EXTENSIONS
+	    * Move immodule handling into #ifndef TQT_NO_IM rather than TQT_NO_XIM
+	    * Move qtrc handling into #ifndef TQT_NO_IM_EXTENSIONS
 	
 	* src/inputmethods/imsw-multi/qmultiinputcontext.cpp
 	  - (QMultiInputContext): Move qtrc handling into #ifndef
-	    QT_NO_IM_EXTENSIONS
+	    TQT_NO_IM_EXTENSIONS
 	
 	* tools/qtconfig/mainwindow.cpp
-	  - (MainWindow): Move qtrc handling into #ifndef QT_NO_IM_EXTENSIONS
+	  - (MainWindow): Move qtrc handling into #ifndef TQT_NO_IM_EXTENSIONS
 	
 	* src/kernel/qt_x11.pri
 	  - Remove unnecessary configuration
@@ -246,8 +246,8 @@
 	* plugins/src/inputmethods/simple/simple.pro
 	* plugins/src/inputmethods/imsw-none/imsw-none.pro
 	* plugins/src/inputmethods/xim/xim.pro
-	  - Change plugin directory from $QTDIR/plugins/input/ to
-	    $QTDIR/plugins/inputmethods/
+	  - Change plugin directory from $TQTDIR/plugins/input/ to
+	    $TQTDIR/plugins/inputmethods/
 	* changes.immodule
 	  - Add a description for the change of plugin directory
 	
@@ -309,8 +309,8 @@
 2004-08-12  YamaKen  <yamaken@bp.iij4u.or.jp>
 	
 	* configure
-	  - Fix incomplete qconfig configuratoin about QT_NO_IM and
-	    QT_NO_IM_EXTENSIONS
+	  - Fix incomplete qconfig configuratoin about TQT_NO_IM and
+	    TQT_NO_IM_EXTENSIONS
 	
 	* src/kernel/qwidget_x11.cpp
 	  - (changeInputContext, createInputContext, destroyInputContext): Fix
@@ -343,7 +343,7 @@
 2004-08-11  YamaKen  <yamaken@bp.iij4u.or.jp>
 	
 	* plugins/src/inputmethods/xim/qximinputcontext_x11.cpp
-	  - (language): Remove QLocale dependency to be compiled on Qt 3.2.x
+	  - (language): Remove QLocale dependency to be compiled on TQt 3.2.x
 	    or earlier
 	
 2004-08-11  YamaKen  <yamaken@bp.iij4u.or.jp>
@@ -351,7 +351,7 @@
 	* This commit merges 'Binary Compatible branch' into the trunk to
 	  reduce maintenance cost. Now binary compatibility is
 	  configurable. Binary incompatible features are surrounded by
-	  #ifndef QT_NO_IM_EXTENSIONS
+	  #ifndef TQT_NO_IM_EXTENSIONS
 	
 	* configure
 	  - Add '-im' option to enable immodule feature (default yes).
@@ -360,32 +360,32 @@
 	    standard TQt3
 	
 	* src/kernel/qt_x11.pri
-	  - Add conditional QT_NO_IM and QT_NO_IM_EXTENSIONS definition in
+	  - Add conditional TQT_NO_IM and TQT_NO_IM_EXTENSIONS definition in
 	    accordance with '-im' and '-im-ext' options
 	
 	* src/kernel/ntqwidget.h
-	  - (icHolderWidget): New function for QT_NO_IM_EXTENSIONS
-	  - (ic): Add #ifndef QT_NO_IM_EXTENSIONS for binary incompatible
+	  - (icHolderWidget): New function for TQT_NO_IM_EXTENSIONS
+	  - (ic): Add #ifndef TQT_NO_IM_EXTENSIONS for binary incompatible
 	    variable
-	  - (xic): Add #ifdef QT_NO_IM_EXTENSIONS for binary compatible
+	  - (xic): Add #ifdef TQT_NO_IM_EXTENSIONS for binary compatible
 	    variable
 	* src/kernel/qwidget_x11.cpp
-	  - (create): Add #ifndef QT_NO_IM_EXTENSIONS
-	  - (destroy): Make some codes QT_NO_IM_EXTENSIONS independent
-	  - (createTLSysExtra): Add a code fragment for QT_NO_IM_EXTENSIONS
+	  - (create): Add #ifndef TQT_NO_IM_EXTENSIONS
+	  - (destroy): Make some codes TQT_NO_IM_EXTENSIONS independent
+	  - (createTLSysExtra): Add a code fragment for TQT_NO_IM_EXTENSIONS
 	  - (deleteTLSysExtra): Modify a comment
 	  - (getInputContext, changeInputContext, createInputContext,
-	    destroyInputContext): Merge code fragments for QT_NO_IM_EXTENSIONS
-	  - (deleteExtra): Merge a comment for QT_NO_IM_EXTENSIONS
+	    destroyInputContext): Merge code fragments for TQT_NO_IM_EXTENSIONS
+	  - (deleteExtra): Merge a comment for TQT_NO_IM_EXTENSIONS
 	
 	* src/kernel/ntqapplication.h
 	  - (locateICHolderWidget, icHolderWidgets, create_xim, close_xim):
-	    New functions for QT_NO_IM_EXTENSIONS
+	    New functions for TQT_NO_IM_EXTENSIONS
 	* src/kernel/qapplication_x11.cpp
-	  - (create_im, close_im): Add #ifndef QT_NO_IM_EXTENSIONS
-	  - (create_xim, close_xim): Merge functions for QT_NO_IM_EXTENSIONS
+	  - (create_im, close_im): Add #ifndef TQT_NO_IM_EXTENSIONS
+	  - (create_xim, close_xim): Merge functions for TQT_NO_IM_EXTENSIONS
 	  - (tqt_init_internal, tqt_cleanup): Merge code fragments for
-	    QT_NO_IM_EXTENSIONS
+	    TQT_NO_IM_EXTENSIONS
 	
 	* plugins/src/inputmethods/inputmethods.pro
 	  - Make plugin compilations configurable with '-im' option
@@ -633,7 +633,7 @@
 	  - New file
 	  - (QNoneInputContextPlugin, ~QNoneInputContextPlugin, keys,
 	    languages, displayName, description): New function
-	  - (create): New function. Read key from QT_IM_MODULE or
+	  - (create): New function. Read key from TQT_IM_MODULE or
 	    /qt/DefaultInputMethod of qtrc and creates input context with the
 	    key
 	
@@ -850,8 +850,8 @@
 	* src/kernel/qapplication_x11.cpp
 	  - (defaultIM): Replace "xim" with "imsw-multi"
 	  - (x11_apply_settings):
-	    * Replace the environment variable name QT_IM_MODULE with
-	      QT_IM_SWITCHER
+	    * Replace the environment variable name TQT_IM_MODULE with
+	      TQT_IM_SWITCHER
 	    * Replace the qtrc variable name /qt/DefaultInputMethod with
 	      /qt/DefaultInputMethodSwitcher
 	    * Replace "xim" with "imsw-multi" for default plugin
@@ -860,12 +860,12 @@
 	  - (lastCreatedIMKey): Remove to rename to currentIMKey
 	  - (currentIMKey): New member variable. Renamed from lastCreatedIMKey
 	    because the semantics of the variable has been changed by
-	    introduction of QT_IM_SWITCHER
+	    introduction of TQT_IM_SWITCHER
 	
 	* src/input/qmultiinputcontext.cpp
 	  - Replace lastCreatedIMKey with currentIMKey
 	  - (QMultiInputContext): Add default input method specification
-	    feature using QT_IM_MODULE and /qt/DefaultInputMethod
+	    feature using TQT_IM_MODULE and /qt/DefaultInputMethod
 	  - (createImSelPopup):
 	    * Add IM-switcher plugin elimination feature using "imsw-" prefix
 	    * Add dispName.isNull() checking
@@ -896,7 +896,7 @@
 	
 2004-07-31  LiuCougar  <liucougar@gmail.com>
 	
-	new environment variable QT_IM_MODULE to overwrite the default inputmethod plugin
+	new environment variable TQT_IM_MODULE to overwrite the default inputmethod plugin
 2004-07-31  LiuCougar  <liucougar@gmail.com>
 	
 	"deleteLater" is safer then "delete" QObject directly
@@ -992,18 +992,18 @@
 	    postIMEvent()
 	  - (postIMEvent): New slot. Renamed from imEventReceived()
 	* src/input/qmultiinputcontext.cpp
-	  - (QT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX): New macro. Defined as default
-	  - (filterEvent): Insert #ifdef QT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX
+	  - (TQT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX): New macro. Defined as default
+	  - (filterEvent): Insert #ifdef TQT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX
 	  - (destroyInputContext): New slot. Processes deletionRequested from slave
 	  - (imEventReceived): Remove this inappropriate name to rename to
 	    postIMEvent()
 	  - (postIMEvent): New slot. Renamed from imEventReceived()
 	  - (slave):
 	    * Add proper instanciation code for popup menu mode
-	    * Insert #ifdef QT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX
+	    * Insert #ifdef TQT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX
 	  - (changeInputMethod(int)):
 	    * Add error handling for no available input methods
-	    * Insert #ifdef QT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX
+	    * Insert #ifdef TQT_NO_IM_QMULTIINPUTCONTEXT_IMINDEX
 	  - (changeInputMethod(QString)):
 	    * Add error handling for no available input methods
 	    * Add default selection for null key
@@ -1164,7 +1164,7 @@
 2004-07-23  Kazuki Ohta  <mover@hct.zaq.ne.jp>
 	
 	* src/input/qsimpleinputcontext.cpp
-	  - follow Qt coding rule
+	  - follow TQt coding rule
 	  - more valid capitalize case 
 	
 2004-07-23  Kazuki Ohta  <mover@hct.zaq.ne.jp>
@@ -1220,7 +1220,7 @@
 	  - (lastCreatedIMKey): new variable
 	
 	* src/input/qmultiinputcontext.cpp
-	  - add #ifndef QT_NO_IM
+	  - add #ifndef TQT_NO_IM
 	  - (createImSelPopup): create QPopupMenu object which can switch IM.
 	    Currently selected IM is marked as checked.
 	

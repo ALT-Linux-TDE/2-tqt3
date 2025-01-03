@@ -71,4 +71,4 @@ TQStringList TQODBCDriverPlugin::keys() const
     return l;
 }
 
-Q_EXPORT_PLUGIN( TQODBCDriverPlugin )
+TQ_EXPORT_PLUGIN( TQODBCDriverPlugin )

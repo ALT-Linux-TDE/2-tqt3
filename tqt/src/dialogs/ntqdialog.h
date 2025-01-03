@@ -44,7 +44,7 @@
 #ifndef QT_H
 #include "ntqwidget.h"
 #endif // QT_H
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
 #if 0
 TQ_OBJECT
 #endif
@@ -52,7 +52,7 @@ TQ_OBJECT
 class TQPushButton;
 class TQDialogPrivate;
 
-class Q_EXPORT TQDialog : public TQWidget
+class TQ_EXPORT TQDialog : public TQWidget
 {
 friend class TQPushButton;
     TQ_OBJECT
@@ -137,5 +137,5 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_DIALOG
+#endif // TQT_NO_DIALOG
 #endif // TQDIALOG_H

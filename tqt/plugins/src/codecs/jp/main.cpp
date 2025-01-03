@@ -53,4 +53,4 @@ TQTextCodec *JPTextCodecs::createForName( const TQString &name )
 }
 
 
-Q_EXPORT_PLUGIN( JPTextCodecs );
+TQ_EXPORT_PLUGIN( JPTextCodecs );

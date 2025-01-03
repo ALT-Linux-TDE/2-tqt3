@@ -51,7 +51,7 @@ class TQFontPrivate;                                     /* don't touch */
 class TQStringList;
 class TQTextFormatCollection;
 
-class Q_EXPORT TQFont
+class TQ_EXPORT TQFont
 {
 public:
     enum StyleHint {
@@ -165,11 +165,11 @@ public:
     bool isCopyOf( const TQFont & ) const;
 
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     HFONT handle() const;
-#else // !Q_WS_WIN
+#else // !TQ_WS_WIN
     TQt::HANDLE handle() const;
-#endif // Q_WS_WIN
+#endif // TQ_WS_WIN
 
 
     // needed for X11
@@ -181,21 +181,21 @@ public:
     TQString toString() const;
     bool fromString(const TQString &);
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     static TQString substitute(const TQString &);
     static TQStringList substitutes(const TQString &);
     static TQStringList substitutions();
     static void insertSubstitution(const TQString&, const TQString &);
     static void insertSubstitutions(const TQString&, const TQStringList &);
     static void removeSubstitution(const TQString &);
-#endif //QT_NO_STRINGLIST
+#endif //TQT_NO_STRINGLIST
     static void initialize();
     static void cleanup();
-#ifndef Q_WS_QWS
+#ifndef TQ_WS_QWS
     static void cacheStatistics();
 #endif
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     void qwsRenderToDisk(bool all=TRUE);
 #endif
 
@@ -301,12 +301,12 @@ public:
     TQString lastResortFamily() const;
     TQString lastResortFont() const;
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
     static TQFont defaultFont();
     static void setDefaultFont( const TQFont & );
 
-#endif // QT_NO_COMPAT
+#endif // TQT_NO_COMPAT
 
     TQFont resolve( const TQFont & ) const;
 
@@ -320,9 +320,9 @@ private:
 
     void detach();
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     void macSetFont(TQPaintDevice *);
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     void x11SetScreen( int screen = -1 );
     int x11Screen() const;
 #endif
@@ -337,12 +337,12 @@ private:
     friend class TQTextLayout;
     friend class TQTextItem;
     friend class TQGLContext;
-#if defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE)
     friend TQt::HANDLE qt_xft_handle(const TQFont &font);
 #endif
-#ifndef QT_NO_DATASTREAM
-    friend Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQFont & );
-    friend Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQFont & );
+#ifndef TQT_NO_DATASTREAM
+    friend TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQFont & );
+    friend TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQFont & );
 #endif
 
     TQFontPrivate *d;
@@ -363,9 +363,9 @@ inline void TQFont::setBold( bool enable )
   TQFont stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQFont & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQFont & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQFont & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQFont & );
 #endif
 
 

@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="it">
 <context>
     <name>MyWidget</name>
     <message encoding="UTF-8">
@@ -7,66 +9,66 @@
     </message>
     <message encoding="UTF-8">
         <source>First</source>
-        <translation type="unfinished">Primo</translation>
+        <translation>Primo</translation>
     </message>
     <message encoding="UTF-8">
         <source>Internationalization Example</source>
-        <translation type="unfinished">Esempio di localizzazione</translation>
+        <translation>Esempio di localizzazione</translation>
     </message>
     <message encoding="UTF-8">
         <source>Isometric</source>
-        <translation type="unfinished">Isometrica</translation>
+        <translation>Isometrico</translation>
     </message>
     <message encoding="UTF-8">
         <source>Language: English</source>
-        <translation type="unfinished">Lingua: Italiano</translation>
+        <translation>Lingua: Italiano</translation>
     </message>
     <message encoding="UTF-8">
         <source>Oblique</source>
-        <translation type="unfinished">Obliqua</translation>
+        <translation>Obliquo</translation>
     </message>
     <message encoding="UTF-8">
         <source>Perspective</source>
-        <translation type="unfinished">Prospettica</translation>
+        <translation>Prospettiva</translation>
     </message>
     <message encoding="UTF-8">
         <source>Second</source>
-        <translation type="unfinished">Secondo</translation>
+        <translation>Secondo</translation>
     </message>
     <message encoding="UTF-8">
         <source>The Main Window</source>
-        <translation type="unfinished">La Finestra Principale</translation>
+        <translation>La finestra principale</translation>
     </message>
     <message encoding="UTF-8">
         <source>Third</source>
-        <translation type="unfinished">Terzo</translation>
+        <translation>Terzo</translation>
     </message>
     <message encoding="UTF-8">
         <source>View</source>
-        <translation type="unfinished">Vista</translation>
+        <translation>Vista</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Uscita</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;File</translation>
     </message>
 </context>
 <context>
     <name>QVDialog</name>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
 </context>
 </TS>

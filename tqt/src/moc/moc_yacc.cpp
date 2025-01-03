@@ -1,10 +1,8 @@
+/* A Bison parser, made by GNU Bison 2.5.  */
 
-/* A Bison parser, made by GNU Bison 2.4.1.  */
-
-/* Skeleton implementation for Bison's Yacc-like parsers in C
+/* Bison implementation for Yacc-like parsers in C
    
-      Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006
-   Free Software Foundation, Inc.
+      Copyright (C) 1984, 1989-1990, 2000-2011 Free Software Foundation, Inc.
    
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -46,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "2.4.1"
+#define YYBISON_VERSION "2.5"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -67,7 +65,7 @@
 
 /* Copy the first part of user declarations.  */
 
-/* Line 189 of yacc.c  */
+/* Line 268 of yacc.c  */
 #line 57 "moc.y"
 
 #define MOC_YACC_CODE
@@ -254,10 +252,10 @@ TQCString uTypeExtra( TQCString ctype )
 	    typeExtra.sprintf( "parentObject->enumerator(\"%s\", TRUE )", ctype.data() );
 	}
 	typeExtra =
-	    "\n#ifndef QT_NO_PROPERTIES\n\t  " + typeExtra +
+	    "\n#ifndef TQT_NO_PROPERTIES\n\t  " + typeExtra +
 	    "\n#else"
 	    "\n\t  0"
-	    "\n#endif // QT_NO_PROPERTIES\n\t  ";
+	    "\n#endif // TQT_NO_PROPERTIES\n\t  ";
     }
     return typeExtra;
 }
@@ -701,8 +699,8 @@ extern "C" int hack_isatty( int )
 #endif //YYBISON
 
 
-/* Line 189 of yacc.c  */
-#line 706 "moc_yacc"
+/* Line 268 of yacc.c  */
+#line 704 "moc_yacc"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -848,7 +846,7 @@ extern "C" int hack_isatty( int )
 typedef union YYSTYPE
 {
 
-/* Line 214 of yacc.c  */
+/* Line 293 of yacc.c  */
 #line 692 "moc.y"
 
     char	char_val;
@@ -862,8 +860,8 @@ typedef union YYSTYPE
 
 
 
-/* Line 214 of yacc.c  */
-#line 867 "moc_yacc"
+/* Line 293 of yacc.c  */
+#line 865 "moc_yacc"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -874,8 +872,8 @@ typedef union YYSTYPE
 /* Copy the second part of user declarations.  */
 
 
-/* Line 264 of yacc.c  */
-#line 879 "moc_yacc"
+/* Line 343 of yacc.c  */
+#line 877 "moc_yacc"
 
 #ifdef short
 # undef short
@@ -925,7 +923,7 @@ typedef short int yytype_int16;
 #define YYSIZE_MAXIMUM ((YYSIZE_T) -1)
 
 #ifndef YY_
-# if YYENABLE_NLS
+# if defined YYENABLE_NLS && YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
 #   define YY_(msgid) dgettext ("bison-runtime", msgid)
@@ -978,11 +976,11 @@ YYID (yyi)
 #    define alloca _alloca
 #   else
 #    define YYSTACK_ALLOC alloca
-#    if ! defined _ALLOCA_H && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ \
+#    if ! defined _ALLOCA_H && ! defined EXIT_SUCCESS && (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 #     include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
-#     ifndef _STDLIB_H
-#      define _STDLIB_H 1
+#     ifndef EXIT_SUCCESS
+#      define EXIT_SUCCESS 0
 #     endif
 #    endif
 #   endif
@@ -1005,24 +1003,24 @@ YYID (yyi)
 #  ifndef YYSTACK_ALLOC_MAXIMUM
 #   define YYSTACK_ALLOC_MAXIMUM YYSIZE_MAXIMUM
 #  endif
-#  if (defined __cplusplus && ! defined _STDLIB_H \
+#  if (defined __cplusplus && ! defined EXIT_SUCCESS \
        && ! ((defined YYMALLOC || defined malloc) \
 	     && (defined YYFREE || defined free)))
 #   include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
-#   ifndef _STDLIB_H
-#    define _STDLIB_H 1
+#   ifndef EXIT_SUCCESS
+#    define EXIT_SUCCESS 0
 #   endif
 #  endif
 #  ifndef YYMALLOC
 #   define YYMALLOC malloc
-#   if ! defined malloc && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ \
+#   if ! defined malloc && ! defined EXIT_SUCCESS && (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 void *malloc (YYSIZE_T); /* INFRINGES ON USER NAME SPACE */
 #   endif
 #  endif
 #  ifndef YYFREE
 #   define YYFREE free
-#   if ! defined free && ! defined _STDLIB_H && (defined __STDC__ || defined __C99__FUNC__ \
+#   if ! defined free && ! defined EXIT_SUCCESS && (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 void free (void *); /* INFRINGES ON USER NAME SPACE */
 #   endif
@@ -1051,23 +1049,7 @@ union yyalloc
      ((N) * (sizeof (yytype_int16) + sizeof (YYSTYPE)) \
       + YYSTACK_GAP_MAXIMUM)
 
-/* Copy COUNT objects from FROM to TO.  The source and destination do
-   not overlap.  */
-# ifndef YYCOPY
-#  if defined __GNUC__ && 1 < __GNUC__
-#   define YYCOPY(To, From, Count) \
-      __builtin_memcpy (To, From, (Count) * sizeof (*(From)))
-#  else
-#   define YYCOPY(To, From, Count)		\
-      do					\
-	{					\
-	  YYSIZE_T yyi;				\
-	  for (yyi = 0; yyi < (Count); yyi++)	\
-	    (To)[yyi] = (From)[yyi];		\
-	}					\
-      while (YYID (0))
-#  endif
-# endif
+# define YYCOPY_NEEDED 1
 
 /* Relocate STACK from its old location to the new one.  The
    local variables YYSIZE and YYSTACKSIZE give the old and new number of
@@ -1086,6 +1068,26 @@ union yyalloc
     while (YYID (0))
 
 #endif
+
+#if defined YYCOPY_NEEDED && YYCOPY_NEEDED
+/* Copy COUNT objects from FROM to TO.  The source and destination do
+   not overlap.  */
+# ifndef YYCOPY
+#  if defined __GNUC__ && 1 < __GNUC__
+#   define YYCOPY(To, From, Count) \
+      __builtin_memcpy (To, From, (Count) * sizeof (*(From)))
+#  else
+#   define YYCOPY(To, From, Count)		\
+      do					\
+	{					\
+	  YYSIZE_T yyi;				\
+	  for (yyi = 0; yyi < (Count); yyi++)	\
+	    (To)[yyi] = (From)[yyi];		\
+	}					\
+      while (YYID (0))
+#  endif
+# endif
+#endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  2
@@ -1469,8 +1471,8 @@ static const yytype_uint8 yyr2[] =
        3,     3,     3,     3,     3,     3,     0,     2,     0,     2
 };
 
-/* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
-   STATE-NUM when YYTABLE doesn't specify something else to do.  Zero
+/* YYDEFACT[STATE-NAME] -- Default reduction number in state STATE-NUM.
+   Performed when YYTABLE doesn't specify something else to do.  Zero
    means the default is an error.  */
 static const yytype_uint16 yydefact[] =
 {
@@ -1623,8 +1625,7 @@ static const yytype_int16 yypgoto[] =
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
    positive, shift that token.  If negative, reduce the rule which
-   number is the opposite.  If zero, do what YYDEFACT says.
-   If YYTABLE_NINF, syntax error.  */
+   number is the opposite.  If YYTABLE_NINF, syntax error.  */
 #define YYTABLE_NINF -276
 static const yytype_int16 yytable[] =
 {
@@ -1691,6 +1692,12 @@ static const yytype_int16 yytable[] =
      336,   447,   395,   473,   186,   342,   128,   397,   253,     0,
        0,     0,   255
 };
+
+#define yypact_value_is_default(yystate) \
+  ((yystate) == (-356))
+
+#define yytable_value_is_error(yytable_value) \
+  YYID (0)
 
 static const yytype_int16 yycheck[] =
 {
@@ -1826,9 +1833,18 @@ static const yytype_uint8 yystos[] =
 
 /* Like YYERROR except do call yyerror.  This remains here temporarily
    to ease the transition to the new meaning of YYERROR, for GCC.
-   Once GCC version 2 has supplanted version 1, this can go.  */
+   Once GCC version 2 has supplanted version 1, this can go.  However,
+   YYFAIL appears to be in use.  Nevertheless, it is formally deprecated
+   in Bison 2.4.2's NEWS entry, where a plan to phase it out is
+   discussed.  */
 
 #define YYFAIL		goto yyerrlab
+#if defined YYFAIL
+  /* This is here to suppress warnings from the GCC cpp's
+     -Wunused-macros.  Normally we don't worry about that warning, but
+     some users do, and we want to make it easy for users to remove
+     YYFAIL uses, which will produce warnings from Bison 2.5.  */
+#endif
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
@@ -1838,7 +1854,6 @@ do								\
     {								\
       yychar = (Token);						\
       yylval = (Value);						\
-      yytoken = YYTRANSLATE (yychar);				\
       YYPOPSTACK (1);						\
       goto yybackup;						\
     }								\
@@ -1880,19 +1895,10 @@ while (YYID (0))
 #endif
 
 
-/* YY_LOCATION_PRINT -- Print the location on the stream.
-   This macro was not mandated originally: define only if we know
-   we won't break user code: when these are the locations we know.  */
+/* This macro is provided for backward compatibility. */
 
 #ifndef YY_LOCATION_PRINT
-# if YYLTYPE_IS_TRIVIAL
-#  define YY_LOCATION_PRINT(File, Loc)			\
-     fprintf (File, "%d.%d-%d.%d",			\
-	      (Loc).first_line, (Loc).first_column,	\
-	      (Loc).last_line,  (Loc).last_column)
-# else
-#  define YY_LOCATION_PRINT(File, Loc) ((void) 0)
-# endif
+# define YY_LOCATION_PRINT(File, Loc) ((void) 0)
 #endif
 
 
@@ -2084,7 +2090,6 @@ int yydebug;
 # define YYMAXDEPTH 10000
 #endif
 
-
 
 #if YYERROR_VERBOSE
 
@@ -2112,7 +2117,7 @@ yystrlen (yystr)
 # endif
 
 # ifndef yystpcpy
-#  if defined __GLIBC__ && defined _STRING_H && defined _GNU_SOURCE
+#  if defined __GLIBC__ && defined _STRING_H && defined _DEFAULT_SOURCE
 #   define yystpcpy stpcpy
 #  else
 /* Copy YYSRC to YYDEST, returning the address of the terminating '\0' in
@@ -2187,115 +2192,142 @@ yytnamerr (char *yyres, const char *yystr)
 }
 # endif
 
-/* Copy into YYRESULT an error message about the unexpected token
-   YYCHAR while in state YYSTATE.  Return the number of bytes copied,
-   including the terminating null byte.  If YYRESULT is null, do not
-   copy anything; just return the number of bytes that would be
-   copied.  As a special case, return 0 if an ordinary "syntax error"
-   message will do.  Return YYSIZE_MAXIMUM if overflow occurs during
-   size calculation.  */
-static YYSIZE_T
-yysyntax_error (char *yyresult, int yystate, int yychar)
+/* Copy into *YYMSG, which is of size *YYMSG_ALLOC, an error message
+   about the unexpected token YYTOKEN for the state stack whose top is
+   YYSSP.
+
+   Return 0 if *YYMSG was successfully written.  Return 1 if *YYMSG is
+   not large enough to hold the message.  In that case, also set
+   *YYMSG_ALLOC to the required number of bytes.  Return 2 if the
+   required number of bytes is too large to store.  */
+static int
+yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
+                yytype_int16 *yyssp, int yytoken)
 {
-  int yyn = yypact[yystate];
+  YYSIZE_T yysize0 = yytnamerr (0, yytname[yytoken]);
+  YYSIZE_T yysize = yysize0;
+  YYSIZE_T yysize1;
+  enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
+  /* Internationalized format string. */
+  const char *yyformat = 0;
+  /* Arguments of yyformat. */
+  char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
+  /* Number of reported tokens (one for the "unexpected", one per
+     "expected"). */
+  int yycount = 0;
 
-  if (! (YYPACT_NINF < yyn && yyn <= YYLAST))
-    return 0;
-  else
+  /* There are many possibilities here to consider:
+     - Assume YYFAIL is not used.  It's too flawed to consider.  See
+       <http://lists.gnu.org/archive/html/bison-patches/2009-12/msg00024.html>
+       for details.  YYERROR is fine as it does not invoke this
+       function.
+     - If this state is a consistent state with a default action, then
+       the only way this function was invoked is if the default action
+       is an error action.  In that case, don't check for expected
+       tokens because there are none.
+     - The only way there can be no lookahead present (in yychar) is if
+       this state is a consistent state with a default action.  Thus,
+       detecting the absence of a lookahead is sufficient to determine
+       that there is no unexpected or expected token to report.  In that
+       case, just report a simple "syntax error".
+     - Don't assume there isn't a lookahead just because this state is a
+       consistent state with a default action.  There might have been a
+       previous inconsistent state, consistent state with a non-default
+       action, or user semantic action that manipulated yychar.
+     - Of course, the expected token list depends on states to have
+       correct lookahead information, and it depends on the parser not
+       to perform extra reductions after fetching a lookahead from the
+       scanner and before detecting a syntax error.  Thus, state merging
+       (from LALR or IELR) and default reductions corrupt the expected
+       token list.  However, the list is correct for canonical LR with
+       one exception: it will still contain any token that will not be
+       accepted due to an error action in a later state.
+  */
+  if (yytoken != YYEMPTY)
     {
-      int yytype = YYTRANSLATE (yychar);
-      YYSIZE_T yysize0 = yytnamerr (0, yytname[yytype]);
-      YYSIZE_T yysize = yysize0;
-      YYSIZE_T yysize1;
-      int yysize_overflow = 0;
-      enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
-      char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
-      int yyx;
+      int yyn = yypact[*yyssp];
+      yyarg[yycount++] = yytname[yytoken];
+      if (!yypact_value_is_default (yyn))
+        {
+          /* Start YYX at -YYN if negative to avoid negative indexes in
+             YYCHECK.  In other words, skip the first -YYN actions for
+             this state because they are default actions.  */
+          int yyxbegin = yyn < 0 ? -yyn : 0;
+          /* Stay within bounds of both yycheck and yytname.  */
+          int yychecklim = YYLAST - yyn + 1;
+          int yyxend = yychecklim < YYNTOKENS ? yychecklim : YYNTOKENS;
+          int yyx;
 
-# if 0
-      /* This is so xgettext sees the translatable formats that are
-	 constructed on the fly.  */
-      YY_("syntax error, unexpected %s");
-      YY_("syntax error, unexpected %s, expecting %s");
-      YY_("syntax error, unexpected %s, expecting %s or %s");
-      YY_("syntax error, unexpected %s, expecting %s or %s or %s");
-      YY_("syntax error, unexpected %s, expecting %s or %s or %s or %s");
-# endif
-      char *yyfmt;
-      char const *yyf;
-      static char const yyunexpected[] = "syntax error, unexpected %s";
-      static char const yyexpecting[] = ", expecting %s";
-      static char const yyor[] = " or %s";
-      char yyformat[sizeof yyunexpected
-		    + sizeof yyexpecting - 1
-		    + ((YYERROR_VERBOSE_ARGS_MAXIMUM - 2)
-		       * (sizeof yyor - 1))];
-      char const *yyprefix = yyexpecting;
-
-      /* Start YYX at -YYN if negative to avoid negative indexes in
-	 YYCHECK.  */
-      int yyxbegin = yyn < 0 ? -yyn : 0;
-
-      /* Stay within bounds of both yycheck and yytname.  */
-      int yychecklim = YYLAST - yyn + 1;
-      int yyxend = yychecklim < YYNTOKENS ? yychecklim : YYNTOKENS;
-      int yycount = 1;
-
-      yyarg[0] = yytname[yytype];
-      yyfmt = yystpcpy (yyformat, yyunexpected);
-
-      for (yyx = yyxbegin; yyx < yyxend; ++yyx)
-	if (yycheck[yyx + yyn] == yyx && yyx != YYTERROR)
-	  {
-	    if (yycount == YYERROR_VERBOSE_ARGS_MAXIMUM)
-	      {
-		yycount = 1;
-		yysize = yysize0;
-		yyformat[sizeof yyunexpected - 1] = '\0';
-		break;
-	      }
-	    yyarg[yycount++] = yytname[yyx];
-	    yysize1 = yysize + yytnamerr (0, yytname[yyx]);
-	    yysize_overflow |= (yysize1 < yysize);
-	    yysize = yysize1;
-	    yyfmt = yystpcpy (yyfmt, yyprefix);
-	    yyprefix = yyor;
-	  }
-
-      yyf = YY_(yyformat);
-      yysize1 = yysize + yystrlen (yyf);
-      yysize_overflow |= (yysize1 < yysize);
-      yysize = yysize1;
-
-      if (yysize_overflow)
-	return YYSIZE_MAXIMUM;
-
-      if (yyresult)
-	{
-	  /* Avoid sprintf, as that infringes on the user's name space.
-	     Don't have undefined behavior even if the translation
-	     produced a string with the wrong number of "%s"s.  */
-	  char *yyp = yyresult;
-	  int yyi = 0;
-	  while ((*yyp = *yyf) != '\0')
-	    {
-	      if (*yyp == '%' && yyf[1] == 's' && yyi < yycount)
-		{
-		  yyp += yytnamerr (yyp, yyarg[yyi++]);
-		  yyf += 2;
-		}
-	      else
-		{
-		  yyp++;
-		  yyf++;
-		}
-	    }
-	}
-      return yysize;
+          for (yyx = yyxbegin; yyx < yyxend; ++yyx)
+            if (yycheck[yyx + yyn] == yyx && yyx != YYTERROR
+                && !yytable_value_is_error (yytable[yyx + yyn]))
+              {
+                if (yycount == YYERROR_VERBOSE_ARGS_MAXIMUM)
+                  {
+                    yycount = 1;
+                    yysize = yysize0;
+                    break;
+                  }
+                yyarg[yycount++] = yytname[yyx];
+                yysize1 = yysize + yytnamerr (0, yytname[yyx]);
+                if (! (yysize <= yysize1
+                       && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
+                  return 2;
+                yysize = yysize1;
+              }
+        }
     }
+
+  switch (yycount)
+    {
+# define YYCASE_(N, S)                      \
+      case N:                               \
+        yyformat = S;                       \
+      break
+      YYCASE_(0, YY_("syntax error"));
+      YYCASE_(1, YY_("syntax error, unexpected %s"));
+      YYCASE_(2, YY_("syntax error, unexpected %s, expecting %s"));
+      YYCASE_(3, YY_("syntax error, unexpected %s, expecting %s or %s"));
+      YYCASE_(4, YY_("syntax error, unexpected %s, expecting %s or %s or %s"));
+      YYCASE_(5, YY_("syntax error, unexpected %s, expecting %s or %s or %s or %s"));
+# undef YYCASE_
+    }
+
+  yysize1 = yysize + yystrlen (yyformat);
+  if (! (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
+    return 2;
+  yysize = yysize1;
+
+  if (*yymsg_alloc < yysize)
+    {
+      *yymsg_alloc = 2 * yysize;
+      if (! (yysize <= *yymsg_alloc
+             && *yymsg_alloc <= YYSTACK_ALLOC_MAXIMUM))
+        *yymsg_alloc = YYSTACK_ALLOC_MAXIMUM;
+      return 1;
+    }
+
+  /* Avoid sprintf, as that infringes on the user's name space.
+     Don't have undefined behavior even if the translation
+     produced a string with the wrong number of "%s"s.  */
+  {
+    char *yyp = *yymsg;
+    int yyi = 0;
+    while ((*yyp = *yyformat) != '\0')
+      if (*yyp == '%' && yyformat[1] == 's' && yyi < yycount)
+        {
+          yyp += yytnamerr (yyp, yyarg[yyi++]);
+          yyformat += 2;
+        }
+      else
+        {
+          yyp++;
+          yyformat++;
+        }
+  }
+  return 0;
 }
 #endif /* YYERROR_VERBOSE */
-
 
 /*-----------------------------------------------.
 | Release the memory associated to this symbol.  |
@@ -2328,6 +2360,7 @@ yydestruct (yymsg, yytype, yyvaluep)
     }
 }
 
+
 /* Prevent warnings from -Wmissing-prototypes.  */
 #ifdef YYPARSE_PARAM
 #if defined __STDC__ || defined __cplusplus
@@ -2354,10 +2387,9 @@ YYSTYPE yylval;
 int yynerrs;
 
 
-
-/*-------------------------.
-| yyparse or yypush_parse.  |
-`-------------------------*/
+/*----------.
+| yyparse.  |
+`----------*/
 
 #ifdef YYPARSE_PARAM
 #if (defined __STDC__ || defined __C99__FUNC__ \
@@ -2381,8 +2413,6 @@ yyparse ()
 #endif
 #endif
 {
-
-
     int yystate;
     /* Number of tokens to shift before error messages enabled.  */
     int yyerrstatus;
@@ -2537,7 +2567,7 @@ yybackup:
 
   /* First try to decide what to do without reference to lookahead token.  */
   yyn = yypact[yystate];
-  if (yyn == YYPACT_NINF)
+  if (yypact_value_is_default (yyn))
     goto yydefault;
 
   /* Not known => get a lookahead token if don't already have one.  */
@@ -2568,8 +2598,8 @@ yybackup:
   yyn = yytable[yyn];
   if (yyn <= 0)
     {
-      if (yyn == 0 || yyn == YYTABLE_NINF)
-	goto yyerrlab;
+      if (yytable_value_is_error (yyn))
+        goto yyerrlab;
       yyn = -yyn;
       goto yyreduce;
     }
@@ -2624,21 +2654,21 @@ yyreduce:
     {
         case 11:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 824 "moc.y"
     { enterNameSpace((yyvsp[(2) - (2)].string)); }
     break;
 
   case 12:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 825 "moc.y"
     { BEGIN IN_NAMESPACE; }
     break;
 
   case 13:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 827 "moc.y"
     { leaveNameSpace();
 					       selectOutsideClassState();
@@ -2647,21 +2677,21 @@ yyreduce:
 
   case 14:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 832 "moc.y"
     { enterNameSpace(); }
     break;
 
   case 15:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 833 "moc.y"
     { BEGIN IN_NAMESPACE; }
     break;
 
   case 16:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 835 "moc.y"
     { leaveNameSpace();
 					       selectOutsideClassState();
@@ -2670,42 +2700,42 @@ yyreduce:
 
   case 18:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 844 "moc.y"
     { selectOutsideClassState(); }
     break;
 
   case 19:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 848 "moc.y"
     { selectOutsideClassState(); }
     break;
 
   case 20:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 851 "moc.y"
     { selectOutsideClassState(); }
     break;
 
   case 21:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 852 "moc.y"
     { selectOutsideClassState(); }
     break;
 
   case 22:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 855 "moc.y"
     { initClass(); }
     break;
 
   case 23:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 856 "moc.y"
     { generateClass();
 						registerClassInNamespace();
@@ -2714,21 +2744,21 @@ yyreduce:
 
   case 24:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 864 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 25:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 865 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 26:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 869 "moc.y"
     { g->tmpExpression = rmWS( g->tmpExpression );
 				     (yyval.string) = stradd( (yyvsp[(1) - (4)].string), "<",
@@ -2737,7 +2767,7 @@ yyreduce:
 
   case 27:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 880 "moc.y"
     { initExpression();
 						    templLevel = 1;
@@ -2746,7 +2776,7 @@ yyreduce:
 
   case 28:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 893 "moc.y"
     { initExpression();
 						    BEGIN IN_EXPR; }
@@ -2754,14 +2784,14 @@ yyreduce:
 
   case 29:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 902 "moc.y"
     { BEGIN IN_DEF_ARG; }
     break;
 
   case 30:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 905 "moc.y"
     { initExpression();
 						    BEGIN IN_ENUM; }
@@ -2769,210 +2799,210 @@ yyreduce:
 
   case 31:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 911 "moc.y"
     { (yyval.string) = ""; }
     break;
 
   case 32:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 912 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 33:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 913 "moc.y"
     { (yyval.string) = ""; }
     break;
 
   case 34:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 914 "moc.y"
     { skipFunc = TRUE; (yyval.string) = ""; }
     break;
 
   case 35:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 915 "moc.y"
     { skipFunc = TRUE; (yyval.string) = ""; }
     break;
 
   case 36:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 919 "moc.y"
     { (yyval.string) = straddSpc((yyvsp[(1) - (3)].string),(yyvsp[(2) - (3)].string),(yyvsp[(3) - (3)].string)); }
     break;
 
   case 37:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 921 "moc.y"
     { (yyval.string) = ""; }
     break;
 
   case 38:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 922 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 39:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 925 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 40:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 926 "moc.y"
     { (yyval.string) = straddSpc((yyvsp[(1) - (2)].string),(yyvsp[(2) - (2)].string)); }
     break;
 
   case 43:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 931 "moc.y"
     { skipFunc = TRUE; }
     break;
 
   case 45:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 935 "moc.y"
     { }
     break;
 
   case 46:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 936 "moc.y"
     { }
     break;
 
   case 47:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 939 "moc.y"
     { (yyval.string) = "const"; }
     break;
 
   case 48:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 940 "moc.y"
     { (yyval.string) = "volatile"; }
     break;
 
   case 49:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 943 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 50:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 944 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 51:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 945 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 52:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 949 "moc.y"
     { (yyval.string) = straddSpc((yyvsp[(1) - (2)].string),(yyvsp[(2) - (2)].string)); }
     break;
 
   case 53:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 950 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 54:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 953 "moc.y"
     { (yyval.string) = "char"; }
     break;
 
   case 55:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 954 "moc.y"
     { (yyval.string) = "short"; }
     break;
 
   case 56:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 955 "moc.y"
     { (yyval.string) = "int"; }
     break;
 
   case 57:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 956 "moc.y"
     { (yyval.string) = "long"; }
     break;
 
   case 58:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 957 "moc.y"
     { (yyval.string) = "signed"; }
     break;
 
   case 59:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 958 "moc.y"
     { (yyval.string) = "unsigned"; }
     break;
 
   case 60:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 959 "moc.y"
     { (yyval.string) = "float"; }
     break;
 
   case 61:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 960 "moc.y"
     { (yyval.string) = "double"; }
     break;
 
   case 62:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 961 "moc.y"
     { (yyval.string) = "void"; }
     break;
 
   case 63:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 965 "moc.y"
     { g->tmpExpression = rmWS( g->tmpExpression );
 				     (yyval.string) = stradd( "template<",
@@ -2981,7 +3011,7 @@ yyreduce:
 
   case 65:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 971 "moc.y"
     { templateClassOld = templateClass;
 						  templateClass = TRUE;
@@ -2990,77 +3020,77 @@ yyreduce:
 
   case 66:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 977 "moc.y"
     { (yyval.string) = "class"; }
     break;
 
   case 67:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 978 "moc.y"
     { (yyval.string) = "struct"; }
     break;
 
   case 68:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 981 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 69:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 983 "moc.y"
     { (yyval.string) = stradd( "::", (yyvsp[(2) - (2)].string) ); }
     break;
 
   case 70:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 987 "moc.y"
     { (yyval.string) = stradd( (yyvsp[(1) - (3)].string), "::", (yyvsp[(3) - (3)].string) );}
     break;
 
   case 71:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 988 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 72:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 992 "moc.y"
     { (yyval.string) = straddSpc((yyvsp[(1) - (2)].string),(yyvsp[(2) - (2)].string)); }
     break;
 
   case 73:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 993 "moc.y"
     { (yyval.string) = stradd("enum ",(yyvsp[(2) - (2)].string)); }
     break;
 
   case 74:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 994 "moc.y"
     { (yyval.string) = stradd("union ",(yyvsp[(2) - (2)].string)); }
     break;
 
   case 75:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 999 "moc.y"
     { (yyval.arg_list) = (yyvsp[(1) - (2)].arg_list);}
     break;
 
   case 76:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1000 "moc.y"
     { (yyval.arg_list) = (yyvsp[(1) - (3)].arg_list);
 				       func_warn("Ellipsis not supported"
@@ -3070,28 +3100,28 @@ yyreduce:
 
   case 77:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1006 "moc.y"
     { (yyval.arg_list) = tmpArgList; }
     break;
 
   case 78:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1007 "moc.y"
     { (yyval.arg_list) = (yyvsp[(1) - (1)].arg_list); }
     break;
 
   case 79:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1010 "moc.y"
     { (yyval.arg) = 0; }
     break;
 
   case 82:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1015 "moc.y"
     { func_warn("Ellipsis not supported"
 						 " in signals and slots.\n"
@@ -3100,91 +3130,91 @@ yyreduce:
 
   case 83:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1023 "moc.y"
     { (yyval.arg_list) = addArg((yyvsp[(3) - (3)].arg)); }
     break;
 
   case 84:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1024 "moc.y"
     { (yyval.arg_list) = addArg((yyvsp[(1) - (1)].arg)); }
     break;
 
   case 85:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1028 "moc.y"
     { (yyval.arg) = new Argument(straddSpc((yyvsp[(1) - (2)].string),(yyvsp[(2) - (2)].string)),""); }
     break;
 
   case 86:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1030 "moc.y"
     { expLevel = 1; }
     break;
 
   case 87:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1032 "moc.y"
     { (yyval.arg) = new Argument(straddSpc((yyvsp[(1) - (5)].string),(yyvsp[(2) - (5)].string)),"", 0, TRUE ); }
     break;
 
   case 88:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1035 "moc.y"
     { (yyval.arg) = new Argument(straddSpc((yyvsp[(1) - (4)].string),(yyvsp[(2) - (4)].string)),(yyvsp[(4) - (4)].string), (yyvsp[(3) - (4)].string)); }
     break;
 
   case 89:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1038 "moc.y"
     { expLevel = 1; }
     break;
 
   case 90:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1040 "moc.y"
     { (yyval.arg) = new Argument(straddSpc((yyvsp[(1) - (7)].string),(yyvsp[(2) - (7)].string)),(yyvsp[(4) - (7)].string), (yyvsp[(3) - (7)].string), TRUE); }
     break;
 
   case 91:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1044 "moc.y"
     { (yyval.string) = ""; }
     break;
 
   case 92:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1045 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 93:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1049 "moc.y"
     { (yyval.string) = straddSpc((yyvsp[(1) - (2)].string),(yyvsp[(2) - (2)].string)); }
     break;
 
   case 94:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1050 "moc.y"
     { expLevel = 1; }
     break;
 
   case 95:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1052 "moc.y"
     { (yyval.string) = stradd( "[",
 				     g->tmpExpression =
@@ -3193,14 +3223,14 @@ yyreduce:
 
   case 96:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1055 "moc.y"
     { expLevel = 1; }
     break;
 
   case 97:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1057 "moc.y"
     { (yyval.string) = stradd( (yyvsp[(1) - (5)].string),"[",
 				     g->tmpExpression =
@@ -3209,42 +3239,42 @@ yyreduce:
 
   case 98:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1060 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 99:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1061 "moc.y"
     { (yyval.string) = (yyvsp[(2) - (3)].string); }
     break;
 
   case 100:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1064 "moc.y"
     { (yyval.string) = ""; }
     break;
 
   case 101:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1066 "moc.y"
     { (yyval.string) = straddSpc((yyvsp[(1) - (2)].string),(yyvsp[(2) - (2)].string));}
     break;
 
   case 102:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1067 "moc.y"
     { expLevel = 1; }
     break;
 
   case 103:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1069 "moc.y"
     { (yyval.string) = stradd( (yyvsp[(1) - (5)].string),"[",
 				     g->tmpExpression =
@@ -3253,14 +3283,14 @@ yyreduce:
 
   case 104:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1072 "moc.y"
     { (yyval.string) = (yyvsp[(2) - (3)].string); }
     break;
 
   case 106:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1086 "moc.y"
     { tmpFunc->args	     = (yyvsp[(2) - (8)].arg_list);
 						  tmpFunc->qualifier = (yyvsp[(4) - (8)].string); }
@@ -3268,154 +3298,154 @@ yyreduce:
 
   case 108:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1092 "moc.y"
     { func_warn("Variable as signal or slot."); }
     break;
 
   case 109:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1093 "moc.y"
     { expLevel=0; }
     break;
 
   case 110:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1095 "moc.y"
     { skipFunc = TRUE; }
     break;
 
   case 111:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1096 "moc.y"
     { expLevel=0; }
     break;
 
   case 112:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1098 "moc.y"
     { skipFunc = TRUE; }
     break;
 
   case 113:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1102 "moc.y"
     { expLevel = 1; }
     break;
 
   case 115:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1104 "moc.y"
     { expLevel = 1; }
     break;
 
   case 117:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1109 "moc.y"
     { (yyval.string) = ""; }
     break;
 
   case 118:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1110 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 119:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1113 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 120:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1114 "moc.y"
     { (yyval.string) = straddSpc((yyvsp[(1) - (2)].string),(yyvsp[(2) - (2)].string));}
     break;
 
   case 121:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1117 "moc.y"
     { (yyval.string) = straddSpc("*",(yyvsp[(2) - (2)].string));}
     break;
 
   case 122:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1118 "moc.y"
     { (yyval.string) = stradd("&",(yyvsp[(2) - (2)].string));}
     break;
 
   case 123:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1125 "moc.y"
     { (yyval.string) = ""; }
     break;
 
   case 124:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1126 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 125:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1129 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 126:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1131 "moc.y"
     { (yyval.string) = straddSpc((yyvsp[(1) - (2)].string),(yyvsp[(2) - (2)].string)); }
     break;
 
   case 127:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1134 "moc.y"
     { (yyval.string) = "const"; }
     break;
 
   case 128:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1135 "moc.y"
     { (yyval.string) = "volatile"; }
     break;
 
   case 132:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1143 "moc.y"
     { BEGIN IN_FCT; fctLevel = 1;}
     break;
 
   case 133:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1144 "moc.y"
     { BEGIN QT_DEF; }
     break;
 
   case 134:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1151 "moc.y"
     { BEGIN IN_CLASS;
 						  classPLevel = 1;
@@ -3424,14 +3454,14 @@ yyreduce:
 
   case 135:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1155 "moc.y"
     { BEGIN QT_DEF; }
     break;
 
   case 136:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1156 "moc.y"
     { BEGIN QT_DEF;	  /* -- " -- */
 						  skipClass = TRUE; }
@@ -3439,7 +3469,7 @@ yyreduce:
 
   case 137:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1158 "moc.y"
     { BEGIN QT_DEF;	  /* -- " -- */
  						  skipClass = TRUE; }
@@ -3447,7 +3477,7 @@ yyreduce:
 
   case 138:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1160 "moc.y"
     { BEGIN QT_DEF;	  /* -- " -- */
  						  skipClass = TRUE; }
@@ -3455,7 +3485,7 @@ yyreduce:
 
   case 139:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1164 "moc.y"
     { BEGIN QT_DEF; /* catch ';' */
 						  skipClass = TRUE; }
@@ -3463,7 +3493,7 @@ yyreduce:
 
   case 140:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1166 "moc.y"
     { skipClass = TRUE;
 						  BEGIN GIMME_SEMICOLON; }
@@ -3471,14 +3501,14 @@ yyreduce:
 
   case 144:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1173 "moc.y"
     { (yyval.string) = ""; }
     break;
 
   case 146:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1179 "moc.y"
     { g->className = (yyvsp[(2) - (2)].string);
 						  if ( g->className == "TQObject" )
@@ -3488,7 +3518,7 @@ yyreduce:
 
   case 147:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1185 "moc.y"
     { g->className = (yyvsp[(3) - (3)].string);
 						  if ( g->className == "TQObject" )
@@ -3498,49 +3528,49 @@ yyreduce:
 
   case 148:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1192 "moc.y"
     { g->superClassName = (yyvsp[(2) - (2)].string); }
     break;
 
   case 149:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1197 "moc.y"
     { templateClass = templateClassOld; }
     break;
 
   case 158:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1220 "moc.y"
     { expLevel = 1; }
     break;
 
   case 160:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1225 "moc.y"
     { (yyval.string) = 0; }
     break;
 
   case 161:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1226 "moc.y"
     { (yyval.string) = (yyvsp[(1) - (1)].string); }
     break;
 
   case 166:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1238 "moc.y"
     { tmpAccess = (yyvsp[(1) - (1)].access); }
     break;
 
   case 167:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1239 "moc.y"
     { moc_err( "Missing access specifier"
 						   " before \"slots:\"." ); }
@@ -3548,21 +3578,21 @@ yyreduce:
 
   case 168:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1243 "moc.y"
     { BEGIN QT_DEF; }
     break;
 
   case 170:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1245 "moc.y"
     { BEGIN QT_DEF; }
     break;
 
   case 172:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1247 "moc.y"
     {
 			      if ( tmpAccess )
@@ -3576,7 +3606,7 @@ yyreduce:
 
   case 173:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1255 "moc.y"
     { tmpYYStart = YY_START;
 				       tmpPropOverride = FALSE;
@@ -3585,7 +3615,7 @@ yyreduce:
 
   case 174:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1258 "moc.y"
     {
 						BEGIN tmpYYStart;
@@ -3594,7 +3624,7 @@ yyreduce:
 
   case 176:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1262 "moc.y"
     { tmpYYStart = YY_START;
 				       tmpPropOverride = TRUE;
@@ -3603,7 +3633,7 @@ yyreduce:
 
   case 177:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1265 "moc.y"
     {
 						BEGIN tmpYYStart;
@@ -3612,14 +3642,14 @@ yyreduce:
 
   case 179:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1269 "moc.y"
     { tmpYYStart = YY_START; BEGIN IN_CLASSINFO; }
     break;
 
   case 180:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1271 "moc.y"
     {
 				      g->infos.append( new ClassInfo( (yyvsp[(4) - (7)].string), (yyvsp[(6) - (7)].string) ) );
@@ -3629,14 +3659,14 @@ yyreduce:
 
   case 182:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1276 "moc.y"
     { tmpYYStart = YY_START; BEGIN IN_PROPERTY; }
     break;
 
   case 183:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1277 "moc.y"
     {
 						TQ_PROPERTYdetected = TRUE;
@@ -3646,14 +3676,14 @@ yyreduce:
 
   case 185:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1282 "moc.y"
     { tmpYYStart = YY_START; BEGIN IN_PROPERTY; }
     break;
 
   case 186:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1283 "moc.y"
     {
 						TQ_PROPERTYdetected = TRUE;
@@ -3663,7 +3693,7 @@ yyreduce:
 
   case 188:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1290 "moc.y"
     { moc_err( "Signals cannot "
 						 "have access specifiers" ); }
@@ -3671,7 +3701,7 @@ yyreduce:
 
   case 190:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1293 "moc.y"
     { if ( tmpAccess == Public && TQ_PROPERTYdetected )
 						  BEGIN QT_DEF;
@@ -3683,7 +3713,7 @@ yyreduce:
 
   case 191:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1300 "moc.y"
     {
 					  suppress_func_warn = FALSE;
@@ -3692,7 +3722,7 @@ yyreduce:
 
   case 192:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1303 "moc.y"
     { BEGIN IN_CLASS;
 					   if ( classPLevel != 1 )
@@ -3703,161 +3733,161 @@ yyreduce:
 
   case 197:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1318 "moc.y"
     { addMember( PropertyCandidateMember ); }
     break;
 
   case 202:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1330 "moc.y"
     { addMember( SignalMember ); }
     break;
 
   case 207:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1341 "moc.y"
     { addMember( SlotMember ); }
     break;
 
   case 210:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1348 "moc.y"
     { (yyval.string)=(yyvsp[(2) - (2)].string); }
     break;
 
   case 211:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1351 "moc.y"
     { g->multipleSuperClasses.append( (yyvsp[(3) - (3)].string) ); }
     break;
 
   case 213:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1356 "moc.y"
     { (yyval.string) = stradd( (yyvsp[(1) - (4)].string), "(", (yyvsp[(3) - (4)].string), ")" ); }
     break;
 
   case 214:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1358 "moc.y"
     { (yyval.string) = stradd( (yyvsp[(1) - (4)].string), "(", (yyvsp[(3) - (4)].string), ")" ); }
     break;
 
   case 215:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1361 "moc.y"
     {(yyval.string)=(yyvsp[(1) - (1)].string);}
     break;
 
   case 216:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1362 "moc.y"
     {(yyval.string)=(yyvsp[(3) - (3)].string);}
     break;
 
   case 217:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1363 "moc.y"
     {(yyval.string)=(yyvsp[(2) - (2)].string);}
     break;
 
   case 218:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1364 "moc.y"
     {(yyval.string)=(yyvsp[(3) - (3)].string);}
     break;
 
   case 219:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1365 "moc.y"
     {(yyval.string)=(yyvsp[(2) - (2)].string);}
     break;
 
   case 220:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1366 "moc.y"
     {(yyval.string)=(yyvsp[(1) - (1)].string);}
     break;
 
   case 221:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1367 "moc.y"
     {(yyval.string)=(yyvsp[(3) - (3)].string);}
     break;
 
   case 222:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1368 "moc.y"
     {(yyval.string)=(yyvsp[(2) - (2)].string);}
     break;
 
   case 223:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1369 "moc.y"
     {(yyval.string)=(yyvsp[(3) - (3)].string);}
     break;
 
   case 224:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1370 "moc.y"
     {(yyval.string)=(yyvsp[(2) - (2)].string);}
     break;
 
   case 225:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1373 "moc.y"
     { (yyval.access)=Private; }
     break;
 
   case 226:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1374 "moc.y"
     { (yyval.access)=Protected; }
     break;
 
   case 227:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1375 "moc.y"
     { (yyval.access)=Public; }
     break;
 
   case 228:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1378 "moc.y"
     { }
     break;
 
   case 229:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1379 "moc.y"
     { }
     break;
 
   case 271:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1427 "moc.y"
     { tmpFunc->type = (yyvsp[(1) - (2)].string);
 						  tmpFunc->name = (yyvsp[(2) - (2)].string); }
@@ -3865,7 +3895,7 @@ yyreduce:
 
   case 272:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1430 "moc.y"
     { tmpFunc->type = "int";
 						  tmpFunc->name = (yyvsp[(1) - (1)].string);
@@ -3877,7 +3907,7 @@ yyreduce:
 
   case 273:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1437 "moc.y"
     { tmpFunc->type = "void";
 						  tmpFunc->name = "~";
@@ -3889,7 +3919,7 @@ yyreduce:
 
   case 274:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1445 "moc.y"
     {
 						    char *tmp =
@@ -3901,14 +3931,14 @@ yyreduce:
 
   case 275:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1452 "moc.y"
     { skipFunc = TRUE; }
     break;
 
   case 276:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1454 "moc.y"
     { tmpFunc->type =
 						      straddSpc((yyvsp[(1) - (3)].string),(yyvsp[(2) - (3)].string));
@@ -3917,7 +3947,7 @@ yyreduce:
 
   case 277:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1459 "moc.y"
     { tmpFunc->type =
 						      straddSpc((yyvsp[(1) - (4)].string),(yyvsp[(2) - (4)].string),(yyvsp[(3) - (4)].string));
@@ -3926,77 +3956,77 @@ yyreduce:
 
   case 278:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1463 "moc.y"
     { operatorError();    }
     break;
 
   case 279:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1465 "moc.y"
     { operatorError();    }
     break;
 
   case 280:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1468 "moc.y"
     { operatorError();    }
     break;
 
   case 281:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1470 "moc.y"
     { operatorError();    }
     break;
 
   case 282:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1473 "moc.y"
     { operatorError();    }
     break;
 
   case 284:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1479 "moc.y"
     { func_warn("Unexpected variable declaration."); }
     break;
 
   case 285:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1482 "moc.y"
     { func_warn("Unexpected variable declaration."); }
     break;
 
   case 286:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1484 "moc.y"
     { func_warn("Unexpected enum declaration."); }
     break;
 
   case 287:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1486 "moc.y"
     { func_warn("Unexpected using declaration."); }
     break;
 
   case 288:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1488 "moc.y"
     { func_warn("Unexpected using declaration."); }
     break;
 
   case 289:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1490 "moc.y"
     { classPLevel++;
 				  moc_err("Unexpected namespace declaration."); }
@@ -4004,14 +4034,14 @@ yyreduce:
 
   case 290:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1493 "moc.y"
     { func_warn("Unexpected class declaration.");}
     break;
 
   case 291:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1495 "moc.y"
     { func_warn("Unexpected class declaration.");
 				  BEGIN IN_FCT; fctLevel=1;
@@ -4020,42 +4050,42 @@ yyreduce:
 
   case 292:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1498 "moc.y"
     { BEGIN QT_DEF; }
     break;
 
   case 296:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1507 "moc.y"
     { }
     break;
 
   case 297:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1508 "moc.y"
     { expLevel = 0; }
     break;
 
   case 299:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1510 "moc.y"
     { expLevel = 0; }
     break;
 
   case 302:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1515 "moc.y"
     { expLevel = 0; }
     break;
 
   case 307:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1530 "moc.y"
     { BEGIN QT_DEF;
 				  if ( tmpAccess == Public) {
@@ -4067,42 +4097,42 @@ yyreduce:
 
   case 308:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1537 "moc.y"
     { tmpEnum->clear();}
     break;
 
   case 310:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1541 "moc.y"
     { }
     break;
 
   case 314:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1549 "moc.y"
     { if ( tmpAccess == Public) tmpEnum->append( (yyvsp[(1) - (1)].string) ); }
     break;
 
   case 315:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1550 "moc.y"
     { enumLevel=0; }
     break;
 
   case 316:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1551 "moc.y"
     {  if ( tmpAccess == Public) tmpEnum->append( (yyvsp[(1) - (4)].string) );  }
     break;
 
   case 317:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1555 "moc.y"
     {
 				     g->propWrite = "";
@@ -4123,7 +4153,7 @@ yyreduce:
 
   case 318:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1571 "moc.y"
     {
 				    if ( g->propRead.isEmpty() && !g->propOverride )
@@ -4147,80 +4177,91 @@ yyreduce:
 
   case 320:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1592 "moc.y"
     { g->propRead = (yyvsp[(2) - (3)].string); }
     break;
 
   case 321:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1593 "moc.y"
     { g->propWrite = (yyvsp[(2) - (3)].string); }
     break;
 
   case 322:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1594 "moc.y"
     { g->propReset = (yyvsp[(2) - (3)].string); }
     break;
 
   case 323:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1595 "moc.y"
     { g->propStored = (yyvsp[(2) - (3)].string); }
     break;
 
   case 324:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1596 "moc.y"
     { g->propDesignable = (yyvsp[(2) - (3)].string); }
     break;
 
   case 325:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1597 "moc.y"
     { g->propScriptable = (yyvsp[(2) - (3)].string); }
     break;
 
   case 326:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1600 "moc.y"
     { }
     break;
 
   case 327:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1601 "moc.y"
     { g->qtEnums.append( (yyvsp[(1) - (2)].string) ); }
     break;
 
   case 328:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1604 "moc.y"
     { }
     break;
 
   case 329:
 
-/* Line 1455 of yacc.c  */
+/* Line 1806 of yacc.c  */
 #line 1605 "moc.y"
     { g->qtSets.append( (yyvsp[(1) - (2)].string) ); }
     break;
 
 
 
-/* Line 1455 of yacc.c  */
-#line 4222 "moc_yacc"
+/* Line 1806 of yacc.c  */
+#line 4252 "moc_yacc"
       default: break;
     }
+  /* User semantic actions sometimes alter yychar, and that requires
+     that yytoken be updated with the new translation.  We take the
+     approach of translating immediately before every use of yytoken.
+     One alternative is translating here after every semantic action,
+     but that translation would be missed if the semantic action invokes
+     YYABORT, YYACCEPT, or YYERROR immediately after altering yychar or
+     if it invokes YYBACKUP.  In the case of YYABORT or YYACCEPT, an
+     incorrect destructor might then be invoked immediately.  In the
+     case of YYERROR or YYBACKUP, subsequent parser actions might lead
+     to an incorrect destructor call or verbose syntax error message
+     before the lookahead is translated.  */
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
 
   YYPOPSTACK (yylen);
@@ -4248,6 +4289,10 @@ yyreduce:
 | yyerrlab -- here on detecting error |
 `------------------------------------*/
 yyerrlab:
+  /* Make sure we have latest lookahead translation.  See comments at
+     user semantic actions for why this is necessary.  */
+  yytoken = yychar == YYEMPTY ? YYEMPTY : YYTRANSLATE (yychar);
+
   /* If not already recovering from an error, report this error.  */
   if (!yyerrstatus)
     {
@@ -4255,37 +4300,36 @@ yyerrlab:
 #if ! YYERROR_VERBOSE
       yyerror (YY_("syntax error"));
 #else
+# define YYSYNTAX_ERROR yysyntax_error (&yymsg_alloc, &yymsg, \
+                                        yyssp, yytoken)
       {
-	YYSIZE_T yysize = yysyntax_error (0, yystate, yychar);
-	if (yymsg_alloc < yysize && yymsg_alloc < YYSTACK_ALLOC_MAXIMUM)
-	  {
-	    YYSIZE_T yyalloc = 2 * yysize;
-	    if (! (yysize <= yyalloc && yyalloc <= YYSTACK_ALLOC_MAXIMUM))
-	      yyalloc = YYSTACK_ALLOC_MAXIMUM;
-	    if (yymsg != yymsgbuf)
-	      YYSTACK_FREE (yymsg);
-	    yymsg = (char *) YYSTACK_ALLOC (yyalloc);
-	    if (yymsg)
-	      yymsg_alloc = yyalloc;
-	    else
-	      {
-		yymsg = yymsgbuf;
-		yymsg_alloc = sizeof yymsgbuf;
-	      }
-	  }
-
-	if (0 < yysize && yysize <= yymsg_alloc)
-	  {
-	    (void) yysyntax_error (yymsg, yystate, yychar);
-	    yyerror (yymsg);
-	  }
-	else
-	  {
-	    yyerror (YY_("syntax error"));
-	    if (yysize != 0)
-	      goto yyexhaustedlab;
-	  }
+        char const *yymsgp = YY_("syntax error");
+        int yysyntax_error_status;
+        yysyntax_error_status = YYSYNTAX_ERROR;
+        if (yysyntax_error_status == 0)
+          yymsgp = yymsg;
+        else if (yysyntax_error_status == 1)
+          {
+            if (yymsg != yymsgbuf)
+              YYSTACK_FREE (yymsg);
+            yymsg = (char *) YYSTACK_ALLOC (yymsg_alloc);
+            if (!yymsg)
+              {
+                yymsg = yymsgbuf;
+                yymsg_alloc = sizeof yymsgbuf;
+                yysyntax_error_status = 2;
+              }
+            else
+              {
+                yysyntax_error_status = YYSYNTAX_ERROR;
+                yymsgp = yymsg;
+              }
+          }
+        yyerror (yymsgp);
+        if (yysyntax_error_status == 2)
+          goto yyexhaustedlab;
       }
+# undef YYSYNTAX_ERROR
 #endif
     }
 
@@ -4344,7 +4388,7 @@ yyerrlab1:
   for (;;)
     {
       yyn = yypact[yystate];
-      if (yyn != YYPACT_NINF)
+      if (!yypact_value_is_default (yyn))
 	{
 	  yyn += YYTERROR;
 	  if (0 <= yyn && yyn <= YYLAST && yycheck[yyn] == YYTERROR)
@@ -4403,8 +4447,13 @@ yyexhaustedlab:
 
 yyreturn:
   if (yychar != YYEMPTY)
-     yydestruct ("Cleanup: discarding lookahead",
-		 yytoken, &yylval);
+    {
+      /* Make sure we have latest lookahead translation.  See comments at
+         user semantic actions for why this is necessary.  */
+      yytoken = YYTRANSLATE (yychar);
+      yydestruct ("Cleanup: discarding lookahead",
+                  yytoken, &yylval);
+    }
   /* Do not reclaim the symbols of the rule which action triggered
      this YYABORT or YYACCEPT.  */
   YYPOPSTACK (yylen);
@@ -4429,7 +4478,7 @@ yyreturn:
 
 
 
-/* Line 1675 of yacc.c  */
+/* Line 2067 of yacc.c  */
 #line 1608 "moc.y"
 
 
@@ -4960,7 +5009,7 @@ void registerClassInNamespace()
 }
 
 //
-// Remove white space from SIGNAL and SLOT names.
+// Remove white space from TQ_SIGNAL and TQ_SLOT names.
 // This function has been copied from qobject.cpp.
 //
 
@@ -5288,7 +5337,7 @@ int generateEnums()
     if ( g->enums.count() == 0 )
 	return 0;
 
-    fprintf( out, "#ifndef QT_NO_PROPERTIES\n" );
+    fprintf( out, "#ifndef TQT_NO_PROPERTIES\n" );
     int i = 0;
     for ( TQPtrListIterator<Enum> it( g->enums ); it.current(); ++it, ++i ) {
 	fprintf( out, "    static const TQMetaEnum::Item enum_%i[] = {\n", i );
@@ -5312,7 +5361,7 @@ int generateEnums()
 		 it2.current()->set ? "TRUE" : "FALSE" );
     }
     fprintf( out, "\n    };\n" );
-    fprintf( out, "#endif // QT_NO_PROPERTIES\n" );
+    fprintf( out, "#endif // TQT_NO_PROPERTIES\n" );
 
     return g->enums.count();
 }
@@ -5561,7 +5610,7 @@ int generateProps()
 		moc_err("The declaration of the class \"%s\" contains properties"
 		" but no TQ_OBJECT macro.", g->className.data());
 
-	fprintf( out, "#ifndef QT_NO_PROPERTIES\n" );
+	fprintf( out, "#ifndef TQT_NO_PROPERTIES\n" );
 
 	fprintf( out, "    static const TQMetaProperty props_tbl[%d] = {\n ", g->props.count() );
 	for( TQPtrListIterator<Property> it( g->props ); it.current(); ++it ) {
@@ -5626,7 +5675,7 @@ int generateProps()
 		fprintf( out, "\n" );
 	}
 	fprintf( out, "    };\n" );
-	fprintf( out, "#endif // QT_NO_PROPERTIES\n" );
+	fprintf( out, "#endif // TQT_NO_PROPERTIES\n" );
     }
 
     return g->props.count();
@@ -5659,7 +5708,7 @@ void generateClass()		      // generate C++ source code for a class
 {
     const char *hdr1 = "/****************************************************************************\n"
 		 "** %s meta object code from reading C++ file '%s'\n**\n";
-    const char *hdr2 = "** Created: %s\n";
+    const char *hdr2 = "** Created by: The TQt Meta Object Compiler version %d (TQt %s)\n";
     const char *hdr3 = "** WARNING! All changes made in this file will be lost!\n";
     const char *hdr4 = "*****************************************************************************/\n\n";
     int   i;
@@ -5689,8 +5738,6 @@ void generateClass()		      // generate C++ source code for a class
     g->gen_count++;
 
     if ( g->gen_count == 1 ) {			// first class to be generated
-	TQDateTime dt = TQDateTime::currentDateTime();
-	TQCString dstr = dt.toString().ascii();
 	TQCString fn = g->fileName;
 	i = g->fileName.length()-1;
 	while ( i>0 && g->fileName[i-1] != '/' && g->fileName[i-1] != '\\' )
@@ -5698,22 +5745,22 @@ void generateClass()		      // generate C++ source code for a class
 	if ( i >= 0 )
 	    fn = &g->fileName[i];
 	fprintf( out, hdr1, (const char*)qualifiedClassName(),(const char*)fn);
-	fprintf( out, hdr2, (const char*)dstr );
+	fprintf( out, hdr2, formatRevision, TQT_VERSION_STR );
 	fprintf( out, "%s", hdr3 );
 	fprintf( out, "%s", hdr4 );
 
 	if ( !g->noInclude ) {
 	    /*
 	      The header file might be a TQt header file with
-	      QT_NO_COMPAT macros around signals, slots or
+	      TQT_NO_COMPAT macros around signals, slots or
 	      properties. Without the #undef, we cannot compile the
-	      TQt library with QT_NO_COMPAT defined.
+	      TQt library with TQT_NO_COMPAT defined.
 
 	      Header files of libraries build around TQt can also use
-	      QT_NO_COMPAT, so this #undef might be beneficial to
+	      TQT_NO_COMPAT, so this #undef might be beneficial to
 	      users of TQt, and not only to developers of TQt.
 	    */
-	    fprintf( out, "#undef QT_NO_COMPAT\n" );
+	    fprintf( out, "#undef TQT_NO_COMPAT\n" );
 
 	    if ( !g->pchFile.isEmpty() )
 	    	fprintf( out, "#include \"%s\" // PCH include\n", (const char*)g->pchFile );
@@ -5785,7 +5832,7 @@ void generateClass()		      // generate C++ source code for a class
 //
 // Generate tr and trUtf8 member functions
 //
-    fprintf( out, "#ifndef QT_NO_TRANSLATION\n" );
+    fprintf( out, "#ifndef TQT_NO_TRANSLATION\n" );
     fprintf( out, "TQString %s::tr( const char *s, const char *c )\n{\n",
 	     (const char*)qualifiedClassName() );
     fprintf( out, "    if ( tqApp )\n" );
@@ -5795,7 +5842,7 @@ void generateClass()		      // generate C++ source code for a class
     fprintf( out, "    else\n" );
     fprintf( out, "\treturn TQString::fromLatin1( s );\n");
     fprintf( out, "}\n" );
-    fprintf( out, "#ifndef QT_NO_TRANSLATION_UTF8\n" );
+    fprintf( out, "#ifndef TQT_NO_TRANSLATION_UTF8\n" );
     fprintf( out, "TQString %s::trUtf8( const char *s, const char *c )\n{\n",
 	     (const char*)qualifiedClassName() );
     fprintf( out, "    if ( tqApp )\n" );
@@ -5805,16 +5852,16 @@ void generateClass()		      // generate C++ source code for a class
     fprintf( out, "    else\n" );
     fprintf( out, "\treturn TQString::fromUtf8( s );\n" );
     fprintf( out, "}\n" );
-    fprintf( out, "#endif // QT_NO_TRANSLATION_UTF8\n\n" );
-    fprintf( out, "#endif // QT_NO_TRANSLATION\n\n" );
+    fprintf( out, "#endif // TQT_NO_TRANSLATION_UTF8\n\n" );
+    fprintf( out, "#endif // TQT_NO_TRANSLATION\n\n" );
 
 //
 // Generate staticMetaObject member function
 //
     fprintf( out, "TQMetaObject* %s::staticMetaObject()\n{\n", (const char*)qualifiedClassName() );
     fprintf( out, "    if ( metaObj ) {\n\treturn metaObj;\n}\n" );
-    fprintf( out, "#ifdef QT_THREAD_SUPPORT\n    if (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->lock();\n" );
-    fprintf( out, "    if ( metaObj ) {\n\tif (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->unlock();\n\treturn metaObj;\n    }\n#endif // QT_THREAD_SUPPORT\n" );
+    fprintf( out, "#ifdef TQT_THREAD_SUPPORT\n    if (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->lock();\n" );
+    fprintf( out, "    if ( metaObj ) {\n\tif (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->unlock();\n\treturn metaObj;\n    }\n#endif // TQT_THREAD_SUPPORT\n" );
     if ( isTQObject )
 	fprintf( out, "    TQMetaObject* parentObject = staticTQtMetaObject();\n" );
     else if ( !g->superClassName.isEmpty() )
@@ -5863,7 +5910,7 @@ void generateClass()		      // generate C++ source code for a class
     else
 	fprintf( out, "\t0, 0,\n" );
 
-    fprintf( out, "#ifndef QT_NO_PROPERTIES\n" );
+    fprintf( out, "#ifndef TQT_NO_PROPERTIES\n" );
     if ( n_props )
 	fprintf( out, "\tprops_tbl, %d,\n", n_props );
     else
@@ -5872,7 +5919,7 @@ void generateClass()		      // generate C++ source code for a class
 	fprintf( out, "\tenum_tbl, %d,\n", n_enums );
     else
 	fprintf( out, "\t0, 0,\n" );
-    fprintf( out, "#endif // QT_NO_PROPERTIES\n" );
+    fprintf( out, "#endif // TQT_NO_PROPERTIES\n" );
 
     if ( n_infos )
 	fprintf( out, "\tclassinfo_tbl, %d );\n", n_infos );
@@ -5884,7 +5931,7 @@ void generateClass()		      // generate C++ source code for a class
 // Setup cleanup handler and return meta object
 //
     fprintf( out, "    cleanUp_%s.setMetaObject( metaObj );\n", cleanup.data() );
-    fprintf( out, "#ifdef QT_THREAD_SUPPORT\n    if (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->unlock();\n#endif // QT_THREAD_SUPPORT\n" );
+    fprintf( out, "#ifdef TQT_THREAD_SUPPORT\n    if (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->unlock();\n#endif // TQT_THREAD_SUPPORT\n" );
     fprintf( out, "    return metaObj;\n}\n" );
 
 //
@@ -5966,7 +6013,7 @@ void generateClass()		      // generate C++ source code for a class
 
 	fixRightAngles( &argstr );
 
-	fprintf( out, "\n// SIGNAL %s\n", (const char*)f->name );
+	fprintf( out, "\n// TQ_SIGNAL %s\n", (const char*)f->name );
 	fprintf( out, "%s %s::%s(", (const char*) f->type,
 		 (const char*)qualifiedClassName(),
 		 (const char*)f->name );
@@ -6214,7 +6261,7 @@ void generateClass()		      // generate C++ source code for a class
     }
 
 
-    fprintf( out, "#ifndef QT_NO_PROPERTIES\n" );
+    fprintf( out, "#ifndef TQT_NO_PROPERTIES\n" );
 //
 // Generate internal tqt_property()  functions
 //
@@ -6267,16 +6314,14 @@ void generateClass()		      // generate C++ source code for a class
 	    }
 	    if ( it.current()->getfunc ) {
 		if ( it.current()->gspec == Property::Pointer )
-		    fprintf( out, "\tcase 1: if ( this->%s() ) *v = TQVariant( %s*%s()%s ); break;\n",
+		    fprintf( out, "\tcase 1: if ( this->%s() ) *v = TQVariant( %s*%s() ); break;\n",
 			     it.current()->getfunc->name.data(),
 			     !isVariantType( it.current()->type ) ? "(int)" : "",
-			     it.current()->getfunc->name.data(),
-			     it.current()->type == "bool" ? ", 0" : "" );
+			     it.current()->getfunc->name.data());
 		else
-		    fprintf( out, "\tcase 1: *v = TQVariant( %sthis->%s()%s ); break;\n",
+		    fprintf( out, "\tcase 1: *v = TQVariant( %sthis->%s() ); break;\n",
 			     !isVariantType( it.current()->type ) ? "(int)" : "",
-			     it.current()->getfunc->name.data(),
-			     it.current()->type == "bool" ? ", 0" : "" );
+			     it.current()->getfunc->name.data());
 	    } else if ( it.current()->override ) {
 		flag_propagate |= 1<< (1+1);
 	    }
@@ -6352,7 +6397,7 @@ void generateClass()		      // generate C++ source code for a class
     }
 
     fprintf( out, "\nbool %s::tqt_static_property( TQObject* , int , int , TQVariant* ){ return FALSE; }\n", qualifiedClassName().data() );
-    fprintf( out, "#endif // QT_NO_PROPERTIES\n" );
+    fprintf( out, "#endif // TQT_NO_PROPERTIES\n" );
 }
 
 

@@ -54,24 +54,24 @@ class TQSessionManager;
 class TQStyle;
 class TQTranslator;
 class TQEventLoop;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 class TQIMEvent;
 #endif
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 class TQWSDecoration;
 #endif
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 class TQMutex;
 class TQThread;
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 
 class TQApplication;
-extern Q_EXPORT TQApplication *tqApp;		// global application object
+extern TQ_EXPORT TQApplication *tqApp;		// global application object
 
 
-class Q_EXPORT TQApplication : public TQObject
+class TQ_EXPORT TQApplication : public TQObject
 {
     TQ_OBJECT
 public:
@@ -80,7 +80,7 @@ public:
     TQApplication( int &argc, char **argv, bool GUIenabled, bool SMenabled );
     enum Type { Tty, GuiClient, GuiServer };
     TQApplication( int &argc, char **argv, Type );
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     TQApplication( Display* dpy, HANDLE visual = 0, HANDLE cmap = 0 );
     TQApplication( Display *dpy, int argc, char **argv,
 		  HANDLE visual = 0, HANDLE cmap= 0 );
@@ -92,7 +92,7 @@ public:
 
     Type type() const;
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     static TQStyle  &style();
     static void	    setStyle( TQStyle* );
     static TQStyle*  setStyle( const TQString& );
@@ -106,14 +106,14 @@ public:
     enum ColorSpec { NormalColor=0, CustomColor=1, ManyColor=2 };
     static int	     colorSpec();
     static void      setColorSpec( int );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     static TQCursor  *overrideCursor();
     static void	     setOverrideCursor( const TQCursor &, bool replace=FALSE );
     static void	     restoreOverrideCursor();
 #endif
     static bool	     hasGlobalMouseTracking();
     static void	     setGlobalMouseTracking( bool enable );
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     static TQPalette  palette( const TQWidget* = 0 );
     static TQPalette  palette( TQStringList );
     static void	     setPalette( const TQPalette &, bool informWidgets=FALSE,
@@ -135,7 +135,7 @@ public:
 
     static TQWidget     *activePopupWidget();
     static TQWidget     *activeModalWidget();
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     static TQClipboard  *clipboard();
 #endif
     TQWidget	       *focusWidget() const;
@@ -174,8 +174,8 @@ public:
 
     static void	     beep();
 
-#ifndef QT_NO_TRANSLATION
-# ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TRANSLATION
+# ifndef TQT_NO_TEXTCODEC
     void	     setDefaultCodec( TQTextCodec * );
     TQTextCodec*	     defaultCodec() const;
 # endif
@@ -187,11 +187,11 @@ public:
 				const char * key,
 				const char * comment = 0,
 				Encoding encoding = DefaultCodec ) const;
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
     TQString   applicationDirPath();
     TQString   applicationFilePath();
 #endif
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     // obsolete functions
     static void      setWinStyleHighlightColor( const TQColor &c ) {
 	TQPalette p( palette() );
@@ -210,19 +210,19 @@ public:
 
     static void      setDoubleClickInterval( int );
     static int       doubleClickInterval();
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     static void      setWheelScrollLines( int );
     static int       wheelScrollLines();
 #endif
     static void	     setGlobalStrut( const TQSize & );
     static TQSize     globalStrut();
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     static void      setLibraryPaths( const TQStringList & );
     static TQStringList libraryPaths();
     static void      addLibraryPath( const TQString & );
     static void      removeLibraryPath( const TQString & );
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
     static void setStartDragTime( int ms );
     static int startDragTime();
     static void setStartDragDistance( int l );
@@ -236,18 +236,18 @@ public:
     static bool	    isEffectEnabled( TQt::UIEffect );
     static void	    setEffectEnabled( TQt::UIEffect, bool enable = TRUE );
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     virtual bool     macEventFilter( EventHandlerCallRef, EventRef );
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     virtual bool     winEventFilter( MSG * );
 #endif
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     virtual bool     x11EventFilter( XEvent * );
     virtual int	     x11ClientMessage( TQWidget*, XEvent*, bool passive_only);
     int              x11ProcessEvent( XEvent* );
 #endif
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     virtual bool     qwsEventFilter( TQWSEvent * );
     int              qwsProcessEvent( TQWSEvent* );
     void             qwsSetCustomColors( TQRgb *colortable, int start, int numColors );
@@ -256,7 +256,7 @@ public:
     Returns true if the process is GUI server
 */
     bool          qwsIsGUIServer();
-#ifndef QT_NO_QWS_MANAGER
+#ifndef TQT_NO_QWS_MANAGER
     static TQWSDecoration &qwsDecoration();
     static void      qwsSetDecoration( TQWSDecoration *);
 #endif
@@ -267,12 +267,12 @@ public:
 #elif defined(Q_OS_MAC)
     static MacintoshVersion macVersion();
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     void	     winFocus( TQWidget *, bool );
     static void	     winMouseButtonUp();
 #endif
 
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
     // session management
     bool	     isSessionRestored() const;
     TQString 	sessionId() const;
@@ -280,8 +280,8 @@ public:
     virtual void     commitData( TQSessionManager& sm );
     virtual void     saveState( TQSessionManager& sm );
 #endif
-#if defined(Q_WS_X11)
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if defined(TQ_WS_X11)
+#if !defined(TQT_NO_IM_EXTENSIONS)
     virtual TQWidget *locateICHolderWidget( TQWidget *w );
     virtual TQWidgetList *icHolderWidgets();
     static void create_im();
@@ -297,7 +297,7 @@ public:
     static bool x11_apply_settings();
 #endif
     void	     wakeUpGuiThread();
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     void	     lock();
     void	     unlock(bool wakeUpGui = TRUE);
     bool	     locked();
@@ -314,7 +314,7 @@ public slots:
     void	     closeAllWindows();
     void	     aboutTQt();
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 protected:
     void setArgs(int, char **);
 #endif
@@ -328,12 +328,12 @@ private:
     void init_precmdline();
     void process_cmdline( int* argcptr, char ** argv );
     bool internalNotify( TQObject *, TQEvent * );
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     static TQWidget *findChildWidget( const TQWidget *p, const TQPoint &pos );
     static TQWidget *findWidget( const TQObjectList&, const TQPoint &, bool rec );
 #endif
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     bool do_mouse_down(Point *, bool *);
     static TQMAC_PASCAL OSStatus globalEventProcessor(EventHandlerCallRef,  EventRef, void *);
     static TQMAC_PASCAL OSStatus globalAppleEventProcessor(const AppleEvent *, AppleEvent *, long);
@@ -348,15 +348,15 @@ private:
     friend void tqt_init(int *, char **, TQApplication::Type);
 #endif
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 private slots:
     void postIMEvent( TQObject *receiver, TQIMEvent *event );
 #endif
 
 public:
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     static TQMutex   *tqt_mutex;
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 private:
     int		     app_argc;
@@ -365,14 +365,14 @@ private:
     int		     quit_code;
     static TQStyle   *app_style;
     static int	     app_cspec;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     static TQPalette *app_pal;
 #endif
     static TQFont    *app_font;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     static TQCursor  *app_cursor;
 #endif
-#ifndef QT_THREAD_SUPPORT
+#ifndef TQT_THREAD_SUPPORT
     static TQEventLoop* eventloop;
 #endif
     static int	     app_tracking;
@@ -400,21 +400,21 @@ private:
     static bool	     metaComposeUnicode;
 
     TQValueList<TQTranslator*> *translators;
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
     TQSessionManager *session_manager;
     TQString	     session_id;
     static TQString* session_key;
     bool	     is_session_restored;
 #endif
-#if defined(Q_WS_X11)
-#if !defined (QT_NO_STYLE)
+#if defined(TQ_WS_X11)
+#if !defined (TQT_NO_STYLE)
     static void x11_initialize_style();
 #endif
     static TQString defaultIM; // default input method's name in this application.
 #endif
 
     static TQSize     app_strut;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     static TQStringList *app_libpaths;
 #endif
     static TQAsciiDict<TQPalette> *app_palettes;
@@ -436,16 +436,16 @@ private:
     friend class TQDialog;
     friend class TQAccelManager;
     friend class TQEvent;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     friend class TQThread;
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     friend class TQTranslator;
     friend class TQEventLoop;
-    friend Q_EXPORT void tqt_ucm_initialize( TQApplication * );
-#if defined(Q_WS_WIN)
+    friend TQ_EXPORT void tqt_ucm_initialize( TQApplication * );
+#if defined(TQ_WS_WIN)
     friend bool qt_sendSpontaneousEvent( TQObject*, TQEvent* );
 #endif
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     friend class TQInputContext;
 #endif
 private: // Disabled copy constructor and operator=
@@ -458,7 +458,7 @@ private:
     static TQEventLoop* currentEventLoop();
 
 public:
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     static TQThread* guiThread();
     static void threadTerminationHandler( TQThread * );
 #endif
@@ -475,7 +475,7 @@ inline char **TQApplication::argv() const
     return app_argv;
 }
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 inline void TQApplication::setArgs(int c, char **v)
 {
         app_argc = c;
@@ -483,7 +483,7 @@ inline void TQApplication::setArgs(int c, char **v)
 }
 #endif
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 inline TQCursor *TQApplication::overrideCursor()
 {
     return app_cursor;
@@ -518,7 +518,7 @@ inline bool TQApplication::inPopupMode() const
 {
     return popupWidgets != 0;
 }
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
 inline bool TQApplication::isSessionRestored() const
 {
     return is_session_restored;
@@ -539,12 +539,12 @@ inline TQSize TQApplication::globalStrut()
     return app_strut;
 }
 
-#ifdef QT_NO_TRANSLATION
+#ifdef TQT_NO_TRANSLATION
 // Simple versions
 inline TQString TQApplication::translate( const char *, const char *sourceText,
 					const char *, Encoding encoding ) const
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( encoding == UnicodeUTF8 )
 	return TQString::fromUtf8( sourceText );
     else

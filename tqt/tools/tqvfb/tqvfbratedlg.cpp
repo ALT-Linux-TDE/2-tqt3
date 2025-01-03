@@ -52,16 +52,16 @@ TQVFbRateDialog::TQVFbRateDialog( int rate, TQWidget *parent, const char *name,
     TQHBoxLayout *hl = new TQHBoxLayout( tl );
     rateSlider = new TQSlider( 1, 100, 10, rate, TQSlider::Horizontal, this );
     hl->addWidget( rateSlider );
-    connect( rateSlider, SIGNAL(valueChanged(int)), this, SLOT(rateChanged(int)) );
+    connect( rateSlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(rateChanged(int)) );
     rateLabel = new TQLabel( TQString( "%1fps" ).arg(rate), this );
     hl->addWidget( rateLabel );
 
     hl = new TQHBoxLayout( tl );
     TQPushButton *pb = new TQPushButton( "OK", this );
-    connect( pb, SIGNAL(clicked()), this, SLOT(accept()) );
+    connect( pb, TQ_SIGNAL(clicked()), this, TQ_SLOT(accept()) );
     hl->addWidget( pb );
     pb = new TQPushButton( "Cancel", this );
-    connect( pb, SIGNAL(clicked()), this, SLOT(cancel()) );
+    connect( pb, TQ_SIGNAL(clicked()), this, TQ_SLOT(cancel()) );
     hl->addWidget( pb );
 }
 

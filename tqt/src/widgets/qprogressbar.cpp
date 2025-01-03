@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqprogressbar.h"
-#ifndef QT_NO_PROGRESSBAR
+#ifndef TQT_NO_PROGRESSBAR
 #include "ntqpainter.h"
 #include "ntqdrawutil.h"
 #include "ntqpixmap.h"

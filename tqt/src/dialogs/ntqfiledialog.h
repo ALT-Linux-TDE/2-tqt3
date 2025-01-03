@@ -65,9 +65,9 @@ class TQFileDialogTQFileListView;
 #pragma GCC system_header
 #endif
 
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
 
-class Q_EXPORT TQFileIconProvider : public TQObject
+class TQ_EXPORT TQFileIconProvider : public TQObject
 {
     TQ_OBJECT
 public:
@@ -81,7 +81,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-class Q_EXPORT TQFilePreview
+class TQ_EXPORT TQFilePreview
 {
 public:
     TQFilePreview();
@@ -89,7 +89,7 @@ public:
 
 };
 
-class Q_EXPORT TQFileDialog : public TQDialog
+class TQ_EXPORT TQFileDialog : public TQDialog
 {
     TQ_OBJECT
     TQ_ENUMS( Mode ViewMode PreviewMode )
@@ -297,7 +297,7 @@ private:
     TQPushButton *okB;
     TQPushButton *cancelB;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     static TQString winGetOpenFileName( const TQString &initialSelection,
 				       const TQString &filter,
 				       TQString* workingDirectory,
@@ -324,7 +324,7 @@ private:
 					    const TQString& caption = TQString::null);
     static TQString resolveLinkFile( const TQString& linkfile );
 #endif
-#if defined(Q_WS_MACX) || defined(Q_WS_MAC9)
+#if defined(TQ_WS_MACX) || defined(TQ_WS_MAC9)
     static TQString macGetSaveFileName( const TQString &, const TQString &,
 				       TQString *, TQWidget *, const char*,
 				       const TQString&, TQString *);

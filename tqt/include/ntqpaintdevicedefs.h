@@ -1,1 +1,0 @@
-../src/kernel/ntqpaintdevicedefs.h

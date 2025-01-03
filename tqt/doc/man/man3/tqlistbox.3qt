@@ -16,7 +16,7 @@ Inherits QScrollView.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQListBox\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQListBox\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "\fB~QListBox\fR ()"
@@ -43,19 +43,19 @@ Inherits QScrollView.
 .BI "void \fBinsertItem\fR ( const QListBoxItem * lbi, const QListBoxItem * after )"
 .br
 .ti -1c
-.BI "void \fBinsertItem\fR ( const QString & text, int index = -1 )"
+.BI "void \fBinsertItem\fR ( const TQString & text, int index = -1 )"
 .br
 .ti -1c
 .BI "void \fBinsertItem\fR ( const QPixmap & pixmap, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertItem\fR ( const QPixmap & pixmap, const QString & text, int index = -1 )"
+.BI "void \fBinsertItem\fR ( const QPixmap & pixmap, const TQString & text, int index = -1 )"
 .br
 .ti -1c
 .BI "void \fBremoveItem\fR ( int index )"
 .br
 .ti -1c
-.BI "QString \fBtext\fR ( int index ) const"
+.BI "TQString \fBtext\fR ( int index ) const"
 .br
 .ti -1c
 .BI "const QPixmap * \fBpixmap\fR ( int index ) const"
@@ -64,13 +64,13 @@ Inherits QScrollView.
 .BI "void \fBchangeItem\fR ( const QListBoxItem * lbi, int index )"
 .br
 .ti -1c
-.BI "void \fBchangeItem\fR ( const QString & text, int index )"
+.BI "void \fBchangeItem\fR ( const TQString & text, int index )"
 .br
 .ti -1c
 .BI "void \fBchangeItem\fR ( const QPixmap & pixmap, int index )"
 .br
 .ti -1c
-.BI "void \fBchangeItem\fR ( const QPixmap & pixmap, const QString & text, int index )"
+.BI "void \fBchangeItem\fR ( const QPixmap & pixmap, const TQString & text, int index )"
 .br
 .ti -1c
 .BI "void \fBtakeItem\fR ( const QListBoxItem * item )"
@@ -82,7 +82,7 @@ Inherits QScrollView.
 .BI "int \fBcurrentItem\fR () const"
 .br
 .ti -1c
-.BI "QString \fBcurrentText\fR () const"
+.BI "TQString \fBcurrentText\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetCurrentItem\fR ( int index )"
@@ -142,7 +142,7 @@ Inherits QScrollView.
 .BI "int \fBindex\fR ( const QListBoxItem * lbi ) const"
 .br
 .ti -1c
-.BI "QListBoxItem * \fBfindItem\fR ( const QString & text, ComparisonFlags compare = BeginsWith ) const"
+.BI "QListBoxItem * \fBfindItem\fR ( const TQString & text, ComparisonFlags compare = BeginsWith ) const"
 .br
 .ti -1c
 .BI "void \fBtriggerUpdate\fR ( bool doLayout )"
@@ -220,7 +220,7 @@ Inherits QScrollView.
 .BI "int inSort ( const QListBoxItem * lbi )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "int inSort ( const QString & text )  \fI(obsolete)\fR"
+.BI "int inSort ( const TQString & text )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "int cellHeight ( int i ) const  \fI(obsolete)\fR"
@@ -277,10 +277,10 @@ Inherits QScrollView.
 .BI "void \fBselected\fR ( int index )"
 .br
 .ti -1c
-.BI "void \fBhighlighted\fR ( const QString & )"
+.BI "void \fBhighlighted\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "void \fBselected\fR ( const QString & )"
+.BI "void \fBselected\fR ( const TQString & )"
 .br
 .ti -1c
 .BI "void \fBhighlighted\fR ( QListBoxItem * )"
@@ -349,7 +349,7 @@ Inherits QScrollView.
 .BI "int \fBcurrentItem\fR - the current highlighted item"
 .br
 .ti -1c
-.BI "QString \fBcurrentText\fR - the text of the current item  \fI(read " "only" ")\fR"
+.BI "TQString \fBcurrentText\fR - the text of the current item  \fI(read " "only" ")\fR"
 .br
 .ti -1c
 .BI "bool multiSelection - whether or not the list box is in Multi selection mode  \fI(obsolete)\fR"
@@ -419,7 +419,7 @@ This is typically a single-column list in which either no item or one item is se
 .PP
 QListBox will add scroll bars as necessary, but it isn't intended for \fIreally\fR big lists. If you want more than a few thousand items, it's probably better to use a different widget mainly because the scroll bars won't provide very good navigation, but also because QListBox may become slow with huge lists. (See QListView and QTable for possible alternatives.)
 .PP
-There are a variety of selection modes described in the QListBox::SelectionMode documentation. The default is Single selection mode, but you can change it using setSelectionMode(). (setMultiSelection() is still provided for compatibility with Qt 1.x. We recommend using setSelectionMode() in all code.)
+There are a variety of selection modes described in the QListBox::SelectionMode documentation. The default is Single selection mode, but you can change it using setSelectionMode(). (setMultiSelection() is still provided for compatibility with TQt 1.x. We recommend using setSelectionMode() in all code.)
 .PP
 Because QListBox offers multiple selection it must display keyboard focus and selection state separately. Therefore there are functions both to set the selection state of an item, i.e. setSelected(), and to set which item displays keyboard focus, i.e. setCurrentItem().
 .PP
@@ -483,12 +483,12 @@ This enumerated type is used by QListBox to indicate how it reacts to selection 
 .PP
 In other words, Single is a real single-selection list box, Multi is a real multi-selection list box, Extended is a list box in which users can select multiple items but usually want to select either just one or a range of contiguous items, and NoSelection is for a list box where the user can look but not touch.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QListBox::QListBox ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QListBox::QListBox ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a new empty list box called \fIname\fR and with parent \fIparent\fR.
 .PP
 Performance is boosted by modifying the widget flags \fIf\fR so that only part of the QListBoxItem children is redrawn. This may be unsuitable for custom QListBoxItem classes, in which case WStaticContents and WNoAutoErase should be cleared immediately after construction.
 .PP
-See also QWidget::clearWFlags() and Qt::WidgetFlags.
+See also TQWidget::clearWFlags() and TQt::WidgetFlags.
 .SH "QListBox::~QListBox ()"
 Destroys the list box. Deletes all list box items.
 .SH "bool QListBox::autoBottomScrollBar () const"
@@ -535,7 +535,7 @@ Replaces the item at position \fIindex\fR with \fIlbi\fR. If \fIindex\fR is nega
 The item that has been changed will become selected.
 .PP
 See also insertItem() and removeItem().
-.SH "void QListBox::changeItem ( const QString & text, int index )"
+.SH "void QListBox::changeItem ( const TQString & text, int index )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Replaces the item at position \fIindex\fR with a new list box text item with text \fItext\fR.
@@ -551,7 +551,7 @@ Replaces the item at position \fIindex\fR with a new list box pixmap item with p
 The operation is ignored if \fIindex\fR is out of range.
 .PP
 See also insertItem() and removeItem().
-.SH "void QListBox::changeItem ( const QPixmap & pixmap, const QString & text, int index )"
+.SH "void QListBox::changeItem ( const QPixmap & pixmap, const TQString & text, int index )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Replaces the item at position \fIindex\fR with a new list box pixmap item with pixmap \fIpixmap\fR and text \fItext\fR.
@@ -595,7 +595,7 @@ This signal is emitted when the user makes a new item the current item. \fIitem\
 See also currentItem and currentItem.
 .SH "int QListBox::currentItem () const"
 Returns the current highlighted item. See the "currentItem" property for details.
-.SH "QString QListBox::currentText () const"
+.SH "TQString QListBox::currentText () const"
 Returns the text of the current item. See the "currentText" property for details.
 .SH "void QListBox::doLayout () const\fC [protected]\fR"
 This function does the hard layout work. You should never need to call it.
@@ -603,10 +603,10 @@ This function does the hard layout work. You should never need to call it.
 This signal is emitted whenever an item is double-clicked. It's emitted on the second button press, not the second button release. If \fIitem\fR is not 0, the cursor is on \fIitem\fR. If \fIitem\fR is 0, the mouse cursor isn't on any item.
 .SH "void QListBox::ensureCurrentVisible ()\fC [virtual slot]\fR"
 Ensures that the current item is visible.
-.SH "QListBoxItem * QListBox::findItem ( const QString & text, ComparisonFlags compare = BeginsWith ) const"
+.SH "QListBoxItem * QListBox::findItem ( const TQString & text, ComparisonFlags compare = BeginsWith ) const"
 Finds the first list box item that has the text \fItext\fR and returns it, or returns 0 of no such item could be found. The search starts from the current item if the current item exists, otherwise it starts from the first list box item. If \fCComparisonFlags\fR are specified in \fIcompare\fR then these flags are used, otherwise the default is a case-insensitive, "begins with" search.
 .PP
-See also Qt::StringComparisonMode.
+See also TQt::StringComparisonMode.
 .SH "int QListBox::findItem ( int yPos ) const\fC [protected]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
@@ -619,7 +619,7 @@ Returns the first item in this list box. If the list box is empty, returns 0.
 This signal is emitted when the user makes a new item the current item. \fIindex\fR is the index of the new current item.
 .PP
 See also currentChanged(), selected(), currentItem, and selectionChanged().
-.SH "void QListBox::highlighted ( const QString & )\fC [signal]\fR"
+.SH "void QListBox::highlighted ( const TQString & )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the user makes a new item the current item and the item is (or has) a string. The argument is the text of the new current item.
@@ -641,7 +641,7 @@ Inserts \fIlbi\fR at its sorted position in the list box and returns the positio
 All items must be inserted with inSort() to maintain the sorting order. inSort() treats any pixmap (or user-defined type) as lexicographically less than any string.
 .PP
 See also insertItem() and sort().
-.SH "int QListBox::inSort ( const QString & text )"
+.SH "int QListBox::inSort ( const TQString & text )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -672,7 +672,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Inserts the item \fIlbi\fR into the list after the item \fIafter\fR, or at the beginning if \fIafter\fR is 0.
 .PP
 See also insertStrList().
-.SH "void QListBox::insertItem ( const QString & text, int index = -1 )"
+.SH "void QListBox::insertItem ( const TQString & text, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a new list box text item with the text \fItext\fR into the list at position \fIindex\fR.
@@ -688,7 +688,7 @@ Inserts a new list box pixmap item with the pixmap \fIpixmap\fR into the list at
 If \fIindex\fR is negative, \fIpixmap\fR is inserted at the end of the list.
 .PP
 See also insertStrList().
-.SH "void QListBox::insertItem ( const QPixmap & pixmap, const QString & text, int index = -1 )"
+.SH "void QListBox::insertItem ( const QPixmap & pixmap, const TQString & text, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a new list box pixmap item with the pixmap \fIpixmap\fR and the text \fItext\fR into the list at position \fIindex\fR.
@@ -701,7 +701,7 @@ Inserts the string list \fIlist\fR into the list at position \fIindex\fR.
 .PP
 If \fIindex\fR is negative, \fIlist\fR is inserted at the end of the list. If \fIindex\fR is too large, the operation is ignored.
 .PP
-\fBWarning:\fR This function uses \fCconst char *\fR rather than QString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
+\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
 .PP
 \fBWarning:\fR This function is never significantly faster than a loop around insertItem().
 .PP
@@ -713,7 +713,7 @@ Inserts the string list \fIlist\fR into the list at position \fIindex\fR.
 .PP
 If \fIindex\fR is negative, \fIlist\fR is inserted at the end of the list. If \fIindex\fR is too large, the operation is ignored.
 .PP
-\fBWarning:\fR This function uses \fCconst char *\fR rather than QString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
+\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
 .PP
 \fBWarning:\fR This function is never significantly faster than a loop around insertItem().
 .PP
@@ -725,7 +725,7 @@ Inserts the \fInumStrings\fR strings of the array \fIstrings\fR into the list at
 .PP
 If \fIindex\fR is negative, insertStrList() inserts \fIstrings\fR at the end of the list. If \fIindex\fR is too large, the operation is ignored.
 .PP
-\fBWarning:\fR This function uses \fCconst char *\fR rather than QString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
+\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
 .PP
 \fBWarning:\fR This function is never significantly faster than a loop around insertItem().
 .PP
@@ -803,7 +803,7 @@ Returns the number of visible items. See the "numItemsVisible" property for deta
 .SH "int QListBox::numRows () const"
 Returns the number of rows in the list box. See the "numRows" property for details.
 .SH "void QListBox::onItem ( QListBoxItem * i )\fC [signal]\fR"
-This signal is emitted when the user moves the mouse cursor onto an item, similar to the QWidget::enterEvent() function. \fIi\fR is the QListBoxItem that the mouse has moved on.
+This signal is emitted when the user moves the mouse cursor onto an item, similar to the TQWidget::enterEvent() function. \fIi\fR is the QListBoxItem that the mouse has moved on.
 .SH "void QListBox::onViewport ()\fC [signal]\fR"
 This signal is emitted when the user moves the mouse cursor from an item to an empty part of the list box.
 .SH "void QListBox::paintCell ( QPainter * p, int row, int col )\fC [virtual protected]\fR"
@@ -852,7 +852,7 @@ In Single and NoSelection modes, this function only changes the selection status
 This signal is emitted when the user double-clicks on an item or presses Enter on the current item. \fIindex\fR is the index of the selected item.
 .PP
 See also currentChanged(), highlighted(), and selectionChanged().
-.SH "void QListBox::selected ( const QString & )\fC [signal]\fR"
+.SH "void QListBox::selected ( const TQString & )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the user double-clicks on an item or presses Enter on the current item, and the item is (or has) a string. The argument is the text of the selected item.
@@ -948,8 +948,8 @@ Example: listbox/listbox.cpp.
 Removes \fIitem\fR from the list box and causes an update of the screen display. The item is not deleted. You should normally not need to call this function because QListBoxItem::~QListBoxItem() calls it. The normal way to delete an item is with \fCdelete\fR.
 .PP
 See also QListBox::insertItem().
-.SH "QString QListBox::text ( int index ) const"
-Returns the text at position \fIindex\fR, or QString::null if there is no text at that position.
+.SH "TQString QListBox::text ( int index ) const"
+Returns the text at position \fIindex\fR, or TQString::null if there is no text at that position.
 .PP
 See also pixmap().
 .SH "void QListBox::toggleCurrentItem ()\fC [protected]\fR"
@@ -999,7 +999,7 @@ When setting this property, the highlighting is moved to the item and the list b
 If no item is current, currentItem() returns -1.
 .PP
 Set this property's value with setCurrentItem() and get this property's value with currentItem().
-.SH "QString currentText"
+.SH "TQString currentText"
 This property holds the text of the current item.
 .PP
 This is equivalent to text(currentItem()).
@@ -1098,8 +1098,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

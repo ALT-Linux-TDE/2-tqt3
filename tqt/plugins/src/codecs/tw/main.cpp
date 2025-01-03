@@ -43,5 +43,5 @@ TQTextCodec *TWTextCodecs::createForName( const TQString &name )
 }
 
 
-Q_EXPORT_PLUGIN( TWTextCodecs );
+TQ_EXPORT_PLUGIN( TWTextCodecs );
 

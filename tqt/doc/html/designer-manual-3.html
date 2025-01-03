@@ -474,7 +474,7 @@ body { background: #ffffff; color: black; }
 </pre>
  <p>When <em>TQt Designer</em> generates a <tt>main.cpp</tt> file it includes this line:</p>
 <pre>
-    a.connect( &amp;a, SIGNAL( lastWindowClosed() ), &amp;a, SLOT( quit() ) );
+    a.connect( &amp;a, TQ_SIGNAL( lastWindowClosed() ), &amp;a, TQ_SLOT( quit() ) );
 </pre>
 <p>If we left this code as-is, the user could by-pass our own termination code by clicking the main window's close (X) button. Since we want to give the user the option to save any unsaved changes we need to ensure that we intercept any attempt to close the application. To achieve this we delete the connection and add a new slot, <tt>closeEvent()</tt> which will intercept attempts to close the application and call our <tt>fileExit()</tt> function.</p>
 <p>Click <tt>main.cpp</tt> in the Project Overview window. The file will appear in an editing window. Delete the connect line.</p>

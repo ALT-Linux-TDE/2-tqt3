@@ -50,7 +50,7 @@
 // don't just silently undo people's defines: #undef topLeft
 #endif
 
-class Q_EXPORT TQRect					// rectangle class
+class TQ_EXPORT TQRect					// rectangle class
 {
 public:
     TQRect()	{ x1 = y1 = 0; x2 = y2 = -1; }
@@ -131,11 +131,11 @@ public:
     TQRect  intersect( const TQRect &r ) const;
     bool   intersects( const TQRect &r ) const;
 
-    friend Q_EXPORT bool operator==( const TQRect &, const TQRect & );
-    friend Q_EXPORT bool operator!=( const TQRect &, const TQRect & );
+    friend TQ_EXPORT bool operator==( const TQRect &, const TQRect & );
+    friend TQ_EXPORT bool operator!=( const TQRect &, const TQRect & );
 
 private:
-#if defined(Q_WS_X11) || defined(Q_OS_TEMP)
+#if defined(TQ_WS_X11) || defined(Q_OS_TEMP)
     friend void qt_setCoords( TQRect *r, int xp1, int yp1, int xp2, int yp2 );
 #endif
 #if defined(Q_OS_MAC)
@@ -151,16 +151,16 @@ private:
 #endif
 };
 
-Q_EXPORT bool operator==( const TQRect &, const TQRect & );
-Q_EXPORT bool operator!=( const TQRect &, const TQRect & );
+TQ_EXPORT bool operator==( const TQRect &, const TQRect & );
+TQ_EXPORT bool operator!=( const TQRect &, const TQRect & );
 
 
 /*****************************************************************************
   TQRect stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQRect & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQRect & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQRect & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQRect & );
 #endif
 
 /*****************************************************************************

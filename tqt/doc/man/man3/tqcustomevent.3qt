@@ -31,7 +31,7 @@ Inherits QEvent.
 .SH DESCRIPTION
 The QCustomEvent class provides support for custom events.
 .PP
-QCustomEvent is a generic event class for user-defined events. User defined events can be sent to widgets or other QObject instances using QApplication::postEvent() or QApplication::sendEvent(). Subclasses of QObject can easily receive custom events by implementing the QObject::customEvent() event handler function.
+QCustomEvent is a generic event class for user-defined events. User defined events can be sent to widgets or other TQObject instances using QApplication::postEvent() or QApplication::sendEvent(). Subclasses of TQObject can easily receive custom events by implementing the TQObject::customEvent() event handler function.
 .PP
 QCustomEvent objects should be created with a type ID that uniquely identifies the event type. To avoid clashes with the Qt-defined events types, the value should be at least as large as the value of the "User" entry in the QEvent::Type enum.
 .PP
@@ -49,15 +49,15 @@ Example:
 .br
     public:
 .br
-        ColorChangeEvent( QColor color )
+        ColorChangeEvent( TQColor color )
 .br
             : QCustomEvent( 65432 ), c( color ) {}
 .br
-        QColor color() const { return c; }
+        TQColor color() const { return c; }
 .br
     private:
 .br
-        QColor c;
+        TQColor c;
 .br
     };
 .br
@@ -67,7 +67,7 @@ Example:
 .br
     ColorChangeEvent* ce = new ColorChangeEvent( blue );
 .br
-    QApplication::postEvent( receiver, ce );  // Qt will delete it when done
+    QApplication::postEvent( receiver, ce );  // TQt will delete it when done
 .br
 .br
     // To receive an event of this custom event type:
@@ -89,7 +89,7 @@ Example:
 .br
 .fi
 .PP
-See also QWidget::customEvent(), QApplication::notify(), and Event Classes.
+See also TQWidget::customEvent(), QApplication::notify(), and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QCustomEvent::QCustomEvent ( int type )"
 Constructs a custom event object with event type \fItype\fR. The value of \fItype\fR must be at least as large as QEvent::User. The data pointer is set to 0.
@@ -118,8 +118,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -3,10 +3,10 @@ TARGET = qxim
 DESTDIR  = ../../../inputmethods
 
 INCLUDEPATH += .
-CONFIG      += qt warn_on debug plugin
+CONFIG      += qt warn_on plugin
 target.path += $$plugins.path/inputmethods
 INSTALLS    += target
-DEFINES     += QT_NO_XINERAMA
+DEFINES     += TQT_NO_XINERAMA
 
 # Input
 HEADERS += qximinputcontext.h \

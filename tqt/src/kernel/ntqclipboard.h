@@ -46,11 +46,11 @@
 #include "ntqobject.h"
 #endif // QT_H
 
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 
 class TQMimeSource;
 
-class Q_EXPORT TQClipboard : public TQObject
+class TQ_EXPORT TQClipboard : public TQObject
 {
     TQ_OBJECT
 private:
@@ -75,7 +75,7 @@ public:
     TQString     text( TQCString& subtype, Mode mode ) const;
     void	setText( const TQString &, Mode mode );
 
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     TQMimeSource *data( Mode mode ) const;
     void setData( TQMimeSource*, Mode mode );
 
@@ -90,7 +90,7 @@ public:
     TQString     text(TQCString& subtype) const;
     void	setText( const TQString &);
 
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     TQMimeSource	*data() const;
     void	setData( TQMimeSource* );
 
@@ -117,7 +117,7 @@ protected:
     friend class TQMimeSource;
 
 private:
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     void loadScrap(bool convert);
     void saveScrap();
 #endif
@@ -129,6 +129,6 @@ private:
 #endif
 };
 
-#endif // QT_NO_CLIPBOARD
+#endif // TQT_NO_CLIPBOARD
 
 #endif // TQCLIPBOARD_H

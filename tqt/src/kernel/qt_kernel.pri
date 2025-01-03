@@ -1,4 +1,4 @@
-# Qt kernel module
+# TQt kernel module
 
 kernel {
 	KERNEL_P	= kernel
@@ -51,7 +51,6 @@ kernel {
 		  $$KERNEL_H/ntqobjectdict.h \
 		  $$KERNEL_H/ntqobjectlist.h \
 		  $$KERNEL_H/ntqpaintdevice.h \
-		  $$KERNEL_H/ntqpaintdevicedefs.h \
 		  $$KERNEL_H/ntqpainter.h \
 		  $$KERNEL_P/qpainter_p.h \
 		  $$KERNEL_H/ntqpalette.h \
@@ -99,10 +98,12 @@ kernel {
 		  $$KERNEL_CPP/qfontengine_p.h \
 		  $$KERNEL_CPP/qtextlayout_p.h
 
-	unix:x11 {
-		HEADERS += $$KERNEL_H/ntqinputcontext.h
-	} else {
-		HEADERS += $$KERNEL_P/qinputcontext_p.h
+	inputmethod {
+		unix:x11 {
+			HEADERS += $$KERNEL_H/ntqinputcontext.h
+		} else {
+			HEADERS += $$KERNEL_P/qinputcontext_p.h
+		}
 	}
 
 		  glibmainloop {

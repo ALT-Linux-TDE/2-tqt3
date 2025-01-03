@@ -70,9 +70,9 @@ RegexpTester::RegexpTester(TQWidget* parent, const char* name, bool modal,
 
     languageChange();
 
-    connect(copyPushButton, SIGNAL(clicked()), this, SLOT(copy()));
-    connect(executePushButton, SIGNAL(clicked()), this, SLOT(execute()));
-    connect(quitPushButton, SIGNAL(clicked()), this, SLOT(accept()));
+    connect(copyPushButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(copy()));
+    connect(executePushButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(execute()));
+    connect(quitPushButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(accept()));
 
     execute();
 }

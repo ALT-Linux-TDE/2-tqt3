@@ -40,11 +40,11 @@ Qt's main event loop (QApplication::exec()) fetches native window system events 
 .PP
 In general, events come from the underlying window system (spontaneous() returns TRUE) but it is also possible to manually send events using QApplication::sendEvent() and QApplication::postEvent() (spontaneous() returns FALSE).
 .PP
-QObjects receive events by having their QObject::event() function called. The function can be reimplemented in subclasses to customize event handling and add additional event types; QWidget::event() is a notable example. By default, events are dispatched to event handlers like QObject::timerEvent() and QWidget::mouseMoveEvent(). QObject::installEventFilter() allows an object to intercept events destined for another object.
+QObjects receive events by having their TQObject::event() function called. The function can be reimplemented in subclasses to customize event handling and add additional event types; TQWidget::event() is a notable example. By default, events are dispatched to event handlers like TQObject::timerEvent() and TQWidget::mouseMoveEvent(). TQObject::installEventFilter() allows an object to intercept events destined for another object.
 .PP
 The basic QEvent contains only an event type parameter. Subclasses of QEvent contain additional parameters that describe the particular event.
 .PP
-See also QObject::event(), QObject::installEventFilter(), QWidget::event(), QApplication::sendEvent(), QApplication::postEvent(), QApplication::processEvents(), Environment Classes, and Event Classes.
+See also TQObject::event(), TQObject::installEventFilter(), TQWidget::event(), QApplication::sendEvent(), QApplication::postEvent(), QApplication::processEvents(), Environment Classes, and Event Classes.
 .SS "Member Type Documentation"
 .SH "QEvent::Type"
 This enum type defines the valid event types in Qt. The event types and the specialized classes for each type are these:
@@ -149,7 +149,7 @@ This enum type defines the valid event types in Qt. The event types and the spec
 .TP
 \fCQEvent::Drop\fR - A drag-and-drop is completed, QDropEvent.
 .TP
-\fCQEvent::DragResponse\fR - Internal event used by Qt on some platforms.
+\fCQEvent::DragResponse\fR - Internal event used by TQt on some platforms.
 .TP
 \fCQEvent::ChildInserted\fR - Object gets a child, QChildEvent.
 .TP
@@ -157,9 +157,9 @@ This enum type defines the valid event types in Qt. The event types and the spec
 .TP
 \fCQEvent::LayoutHint\fR - Widget child has changed layout properties.
 .TP
-\fCQEvent::ActivateControl\fR - Internal event used by Qt on some platforms.
+\fCQEvent::ActivateControl\fR - Internal event used by TQt on some platforms.
 .TP
-\fCQEvent::DeactivateControl\fR - Internal event used by Qt on some platforms.
+\fCQEvent::DeactivateControl\fR - Internal event used by TQt on some platforms.
 .TP
 \fCQEvent::LanguageChange\fR - The application translation changed, QTranslator
 .TP
@@ -185,13 +185,13 @@ This enum type defines the valid event types in Qt. The event types and the spec
 .TP
 \fCQEvent::TabletRelease\fR - A Wacom Tablet Release Event
 .TP
-\fCQEvent::OkRequest\fR - Internal event used by Qt on some platforms.
+\fCQEvent::OkRequest\fR - Internal event used by TQt on some platforms.
 .TP
-\fCQEvent::HelpRequest\fR - Internal event used by Qt on some platforms.
+\fCQEvent::HelpRequest\fR - Internal event used by TQt on some platforms.
 .TP
-\fCQEvent::IconDrag\fR - Internal event used by Qt on some platforms when proxy icon is dragged.
+\fCQEvent::IconDrag\fR - Internal event used by TQt on some platforms when proxy icon is dragged.
 .TP
-\fCQEvent::WindowStateChange\fR - The window's state, i.e. minimized, maximized or full-screen, has changed. See QWidget::windowState().
+\fCQEvent::WindowStateChange\fR - The window's state, i.e. minimized, maximized or full-screen, has changed. See TQWidget::windowState().
 .TP
 \fCQEvent::WindowBlocked\fR - The window is modally blocked
 .TP
@@ -226,8 +226,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

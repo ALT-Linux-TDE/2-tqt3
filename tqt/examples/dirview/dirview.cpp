@@ -284,16 +284,16 @@ DirectoryView::DirectoryView( TQWidget *parent, const char *name, bool sdo )
 	fileNormal = new TQPixmap( pix_file );
     }
 
-    connect( this, SIGNAL( doubleClicked( TQListViewItem * ) ),
-	     this, SLOT( slotFolderSelected( TQListViewItem * ) ) );
-    connect( this, SIGNAL( returnPressed( TQListViewItem * ) ),
-	     this, SLOT( slotFolderSelected( TQListViewItem * ) ) );
+    connect( this, TQ_SIGNAL( doubleClicked( TQListViewItem * ) ),
+	     this, TQ_SLOT( slotFolderSelected( TQListViewItem * ) ) );
+    connect( this, TQ_SIGNAL( returnPressed( TQListViewItem * ) ),
+	     this, TQ_SLOT( slotFolderSelected( TQListViewItem * ) ) );
 
     setAcceptDrops( TRUE );
     viewport()->setAcceptDrops( TRUE );
 
-    connect( autoopen_timer, SIGNAL( timeout() ),
-	     this, SLOT( openFolder() ) );
+    connect( autoopen_timer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( openFolder() ) );
 }
 
 void DirectoryView::slotFolderSelected( TQListViewItem *i )
@@ -440,7 +440,7 @@ TQString DirectoryView::fullPath(TQListViewItem* item)
 	else
 	    fullpath = item->text(0) + fullpath;
     }
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	if (fullpath.length() > 2 && fullpath[1] != ':') {
 		TQDir dir(fullpath);
 		fullpath = dir.currentDirPath().left(2) + fullpath;

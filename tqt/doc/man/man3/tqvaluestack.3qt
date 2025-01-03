@@ -9,7 +9,7 @@
 .SH NAME
 QValueStack \- Value-based template class that provides a stack
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqvaluestack.h>\fR
 .PP
@@ -39,7 +39,7 @@ Inherits QValueList<T>.
 .SH DESCRIPTION
 The QValueStack class is a value-based template class that provides a stack.
 .PP
-Define a template instance QValueStack<X> to create a stack of values that all have the class X. QValueStack is part of the Qt Template Library.
+Define a template instance QValueStack<X> to create a stack of values that all have the class X. QValueStack is part of the TQt Template Library.
 .PP
 Note that QValueStack does not store pointers to the members of the stack; it holds a copy of every member. That is why these kinds of classes are called "value based"; QPtrStack, QPtrList, QDict, etc., are "pointer based".
 .PP
@@ -74,7 +74,7 @@ Example:
 .PP
 QValueStack is a specialized QValueList provided for convenience. All of QValueList's functionality also applies to QPtrStack, for example the facility to iterate over all elements using QValueStack<T>::Iterator. See QValueListIterator for further details.
 .PP
-Some classes cannot be used within a QValueStack, for example everything derived from QObject and thus all classes that implement widgets. Only values can be used in a QValueStack. To qualify as a value, the class must provide
+Some classes cannot be used within a QValueStack, for example everything derived from TQObject and thus all classes that implement widgets. Only values can be used in a QValueStack. To qualify as a value, the class must provide
 .TP
 a copy constructor;
 .TP
@@ -84,7 +84,7 @@ a default constructor, i.e. a constructor that does not take any arguments.
 .PP
 Note that C++ defaults to field-by-field assignment operators and copy constructors if no explicit version is supplied. In many cases this is sufficient.
 .PP
-See also Qt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
+See also TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QValueStack::QValueStack ()"
 Constructs an empty stack.
@@ -129,8 +129,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

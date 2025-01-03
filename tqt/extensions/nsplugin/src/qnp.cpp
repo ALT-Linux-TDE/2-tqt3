@@ -39,7 +39,7 @@
 **********************************************************************/
 
 
-// Remaining Q_WS_X11 considerations:
+// Remaining TQ_WS_X11 considerations:
 //   - What if !piApp upon NPP_NewStream?  Are we safe?
 //      - Yes, but users need to know of this:  that no GUI can be
 //         done until after setWindow is called.
@@ -48,7 +48,7 @@
 //	untrap them and retransmit them and set a timer to retrap them
 //	after N seconds.
 
-// Remaining Q_WS_WIN considerations:
+// Remaining TQ_WS_WIN considerations:
 //   - we need to activateZeroTimers() at some time.
 //   - we need to call winEventFilter on events
 //   - timers:
@@ -85,7 +85,7 @@
 #include <time.h>
 #include <limits.h>
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include <X11/Intrinsic.h>
 
 class TQNPXtPrivate;
@@ -123,18 +123,18 @@ extern "C" {
 //
 // Netscape plugin API
 //
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #ifndef _WINDOWS
 #define _WINDOWS
 #endif
 #endif
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #define XP_UNIX
 #endif
 
 
 // This is to allow mingw support on windows without altering the sun header files
-#if defined(Q_CC_GNU) && defined(Q_WS_WIN) && !defined(_MSC_VER)
+#if defined(Q_CC_GNU) && defined(TQ_WS_WIN) && !defined(_MSC_VER)
 #define _MSC_VER 1
 #include "npapi.h"
 #undef _MSC_VER
@@ -142,7 +142,7 @@ extern "C" {
 #include "npapi.h"
 #endif
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #undef XP_UNIX
 #include "npunix.c"
 #endif
@@ -150,7 +150,7 @@ extern "C" {
 //
 // Stuff for the NPP_SetWindow function:
 //
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include <X11/Xlib.h>
 #include <X11/Intrinsic.h>
 #include <X11/IntrinsicP.h> // for XtCreateWindow
@@ -160,12 +160,12 @@ extern "C" {
 #include <X11/Xos.h>
 //#include <dlfcn.h>
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #include <windows.h>
 #endif
 }
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #include "npwin.cpp"
 #endif
 
@@ -176,13 +176,13 @@ struct _NPInstance
 {
     uint16            fMode;
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     HWND            window;
 #endif
 
     NPP npp;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     Window window;
     Display *display;
 #endif
@@ -210,10 +210,10 @@ static _NPInstance* next_pi=0;
 // To avoid looping when browser OR plugin can delete streams
 static int qnps_no_call_back = 0;
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 // defined in qapplication_win.cpp
-Q_EXPORT extern bool qt_win_use_simple_timers;
-Q_EXPORT void qWinProcessConfigRequests();
+TQ_EXPORT extern bool qt_win_use_simple_timers;
+TQ_EXPORT void qWinProcessConfigRequests();
 static HHOOK hhook = 0;
 
 LRESULT CALLBACK FilterProc( int nCode, WPARAM wParam, LPARAM lParam )
@@ -229,7 +229,7 @@ LRESULT CALLBACK FilterProc( int nCode, WPARAM wParam, LPARAM lParam )
 
 #endif
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 static int (*original_x_errhandler)( Display *dpy, XErrorEvent * ) = 0;
 static int dummy_x_errhandler( Display *, XErrorEvent * )
 {
@@ -244,7 +244,7 @@ static int dummy_x_errhandler( Display *, XErrorEvent * )
 
 // Instance state information about the plugin.
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 
 extern "C" char*
 NPP_GetMIMEDescription(void)
@@ -279,7 +279,7 @@ NPP_GetValue(void * /*future*/, NPPVariable variable, void *value)
 extern "C" NPError
 NPP_Initialize(void)
 {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     qt_win_use_simple_timers = TRUE;
     // Nothing more - we do it in DLLMain
 #endif
@@ -322,12 +322,12 @@ NPP_Shutdown(void)
 	qNP = 0;
     }
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     if ( original_x_errhandler )
     	XSetErrorHandler( original_x_errhandler );
 #endif
     if ( tqApp) {
-#ifdef Q_WS_WIN32
+#ifdef TQ_WS_WIN32
 	if ( hhook )
 	    UnhookWindowsHookEx( hhook );
 	hhook = 0;
@@ -434,10 +434,10 @@ NPP_SetWindow(NPP instance, NPWindow* window)
 
     // take a shortcut if all that was changed is the geometry
     if ( This->widget && window
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	 && This->window == (Window) window->window
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	 && This->window == (HWND) window->window
 #endif
 	) {
@@ -454,12 +454,12 @@ NPP_SetWindow(NPP instance, NPWindow* window)
     if ( !window )
 	return result;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     This->window = (Window) window->window;
     This->display =
 	((NPSetWindowCallbackStruct *)window->ws_info)->display;
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     This->window = (HWND) window->window;
 #endif
 
@@ -470,12 +470,12 @@ NPP_SetWindow(NPP instance, NPWindow* window)
 
 
     if (!tqApp) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	// We are the first TQt-based plugin to arrive
 	event_loop = new TQNPXt( "qnp", XtDisplayToApplicationContext(This->display) );
 	application = new TQApplication(This->display);
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	static int argc=0;
 	static char **argv={ 0 };
 	application = new TQApplication( argc, argv );
@@ -488,7 +488,7 @@ NPP_SetWindow(NPP instance, NPWindow* window)
 #endif
     }
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     if ( !original_x_errhandler )
     	original_x_errhandler = XSetErrorHandler( dummy_x_errhandler );
 #endif
@@ -501,12 +501,12 @@ NPP_SetWindow(NPP instance, NPWindow* window)
     if ( !This->widget )
 	return result;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     This->widget->resize( This->width, This->height );
     XReparentWindow( This->widget->x11Display(), This->widget->winId(), This->window, 0, 0 );
     XSync( This->widget->x11Display(), False );
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     LONG oldLong = GetWindowLong(This->window, GWL_STYLE);
     ::SetWindowLong(This->window, GWL_STYLE, oldLong | WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
     ::SetWindowLong( This->widget->winId(), GWL_STYLE, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS );
@@ -647,7 +647,7 @@ typedef struct
     FILE*    fp;
 } NPPrintCallbackStruct;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 
 class TQNPPrinter : public TQPrinter {
     TQFile file;
@@ -681,7 +681,7 @@ NPP_Print(NPP instance, NPPrint* printInfo)
 	    printInfo->print.fullPrint.pluginPrinted =
 		This->instance->printFullPage();
 	} else if (printInfo->mode == NP_EMBED) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	    void* platformPrint =
 		printInfo->print.embedPrint.platformPrint;
 	    FILE* outfile = ((NPPrintCallbackStruct*)platformPrint)->fp;
@@ -697,7 +697,7 @@ NPP_Print(NPP instance, NPPrint* printInfo)
 		// Why does the browser make spurious NPP_Print calls?
 	    }
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	    NPWindow* printWindow =
 		&(printInfo->print.embedPrint.window);
 	    void* platformPrint =
@@ -737,7 +737,7 @@ NPP_URLNotify(NPP instance,
 
 
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 
 BOOL   WINAPI   DllMain (HANDLE hInst,
 			ULONG ul_reason_for_call,
@@ -805,7 +805,7 @@ TQNPWidget::TQNPWidget() :
     next_pi->widget = this;
     next_pi = 0;
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     clearWFlags( WStyle_NormalBorder | WStyle_Title | WStyle_MinMax | WStyle_SysMenu );
     topData()->ftop = 0;
     topData()->fright = 0;
@@ -823,7 +823,7 @@ TQNPWidget::TQNPWidget() :
 */
 TQNPWidget::~TQNPWidget()
 {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     destroy( FALSE, FALSE ); // X has destroyed all windows
 #endif
 }
@@ -1093,7 +1093,7 @@ void TQNPInstance::postURL(const char* url, const char* window,
 */
 void TQNPInstance::getURLNotify(const char* url, const char* window, void*data)
 {
-#ifdef Q_WS_WIN // Only on Windows?
+#ifdef TQ_WS_WIN // Only on Windows?
     NPN_GetURLNotify( pi->npp, url, window, data );
 #else
     Q_UNUSED( url );
@@ -1575,7 +1575,7 @@ void* TQNPlugin::getJavaEnv() const
     return NPN_GetJavaEnv();
 }
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 
 #include <ntqapplication.h>
 #include <ntqwidgetintdict.h>
@@ -2068,4 +2068,4 @@ bool TQNPXt::processEvents( ProcessEventsFlags flags )
 }
 
 
-#endif // Q_WS_X11
+#endif // TQ_WS_X11

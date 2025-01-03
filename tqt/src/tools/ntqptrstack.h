@@ -87,8 +87,4 @@ template<class type> inline void TQPtrStack<type>::deleteItem( TQPtrCollection::
     if ( del_item ) delete (type *)d;
 }
 
-#ifndef QT_NO_COMPAT
-#define TQStack TQPtrStack
-#endif
-
 #endif // TQPTRSTACK_H

@@ -117,16 +117,16 @@ Graph::Graph( GraphModel& mdl ) :
     for ( Style s = Pie; styleName[s]; s = Style(s+1)) {
 	stylemenu->insertItem(styleName[s], s+100);
     }
-    connect(stylemenu, SIGNAL(activated(int)),
-	this, SLOT(setStyleFromMenu(int)));
+    connect(stylemenu, TQ_SIGNAL(activated(int)),
+	this, TQ_SLOT(setStyleFromMenu(int)));
     setStyle(Pie);
 
     menubar->insertItem("Style", stylemenu);
     menubar->insertSeparator();
 
     TQPopupMenu* help = new TQPopupMenu;
-    help->insertItem( "About plugin...", this, SIGNAL(aboutPlugin()) );
-    help->insertItem( "About data...", this, SIGNAL(aboutData()) );
+    help->insertItem( "About plugin...", this, TQ_SIGNAL(aboutPlugin()) );
+    help->insertItem( "About data...", this, TQ_SIGNAL(aboutData()) );
     menubar->insertItem("Help", help);
     menubar->hide();
 }
@@ -459,8 +459,8 @@ TQNPWidget* Grapher::newWindow()
     int ptsize = fontsize ? atoi(fontsize) : graph->font().pointSize();
     if (fontfamily) graph->setFont(TQFont(fontfamily, ptsize));
 
-    connect(graph, SIGNAL(aboutPlugin()), this, SLOT(aboutPlugin()));
-    connect(graph, SIGNAL(aboutData()), this, SLOT(aboutData()));
+    connect(graph, TQ_SIGNAL(aboutPlugin()), this, TQ_SLOT(aboutPlugin()));
+    connect(graph, TQ_SIGNAL(aboutData()), this, TQ_SLOT(aboutData()));
 
     return graph;
 }

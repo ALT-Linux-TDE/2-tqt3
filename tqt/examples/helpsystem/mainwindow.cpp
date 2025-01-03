@@ -59,9 +59,9 @@ MainWindow::MainWindow()
     menuBar()->insertItem( "&File", fileMenu );
     menuBar()->insertItem( "&Help", helpMenu );
 
-    int fileId = fileMenu->insertItem( "E&xit", this, SLOT(close()) );
+    int fileId = fileMenu->insertItem( "E&xit", this, TQ_SLOT(close()) );
 
-    int helpId = helpMenu->insertItem( "Open Assistant", this, SLOT(assistantSlot()) );
+    int helpId = helpMenu->insertItem( "Open Assistant", this, TQ_SLOT(assistantSlot()) );
 
     // populate toolbar
     TQToolBar* toolbar = new TQToolBar( this );
@@ -71,9 +71,9 @@ MainWindow::MainWindow()
 
     //create tooltipgroup
     TQToolTipGroup * tipGroup = new TQToolTipGroup( this );
-    connect( tipGroup, SIGNAL(showTip(const TQString&)), statusBar(),
-	SLOT(message(const TQString&)) );
-    connect( tipGroup, SIGNAL(removeTip()), statusBar(), SLOT(clear()) );
+    connect( tipGroup, TQ_SIGNAL(showTip(const TQString&)), statusBar(),
+	TQ_SLOT(message(const TQString&)) );
+    connect( tipGroup, TQ_SIGNAL(removeTip()), statusBar(), TQ_SLOT(clear()) );
 
     // set up tooltips
     TQToolTip::add( assistantButton, tr ("Open Assistant"), tipGroup, "Opens TQt Assistant" );
@@ -95,13 +95,13 @@ MainWindow::MainWindow()
     helpMenu->setWhatsThis( helpId, "Click here to open Assistant" );
 
     // connections
-    connect( assistantButton, SIGNAL(clicked()), this, SLOT(assistantSlot()) );
-    connect( horizontalWhatsThis, SIGNAL(linkClicked(const TQString&)), assistant,
-	SLOT(showPage(const TQString&)) );
-    connect( verticalWhatsThis, SIGNAL(linkClicked(const TQString&)), assistant,
-	SLOT(showPage(const TQString&)) );
-    connect( cellWhatsThis, SIGNAL(linkClicked(const TQString&)), assistant,
-	SLOT(showPage(const TQString&)) );
+    connect( assistantButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(assistantSlot()) );
+    connect( horizontalWhatsThis, TQ_SIGNAL(linkClicked(const TQString&)), assistant,
+	TQ_SLOT(showPage(const TQString&)) );
+    connect( verticalWhatsThis, TQ_SIGNAL(linkClicked(const TQString&)), assistant,
+	TQ_SLOT(showPage(const TQString&)) );
+    connect( cellWhatsThis, TQ_SIGNAL(linkClicked(const TQString&)), assistant,
+	TQ_SLOT(showPage(const TQString&)) );
 }
 
 MainWindow::~MainWindow()

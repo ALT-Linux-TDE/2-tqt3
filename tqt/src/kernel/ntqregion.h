@@ -46,11 +46,11 @@
 #include "ntqrect.h"
 #endif // QT_H
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 struct TQRegionPrivate;
 #endif
 
-class Q_EXPORT TQRegion
+class TQ_EXPORT TQRegion
 {
 public:
     enum RegionType { Rectangle, Ellipse };
@@ -96,56 +96,56 @@ public:
     bool    operator!=( const TQRegion &r ) const
 			{ return !(operator==(r)); }
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     HRGN    handle() const { return data->rgn; }
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     Region handle() const { if(!data->rgn) updateX11Region(); return data->rgn; }
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     RgnHandle handle(bool require_rgn=FALSE) const;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
     // TQGfx_QWS needs this for region drawing
     void * handle() const { return data->rgn; }
 #endif
 
-#ifndef QT_NO_DATASTREAM
-    friend Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQRegion & );
-    friend Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQRegion & );
+#ifndef TQT_NO_DATASTREAM
+    friend TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQRegion & );
+    friend TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQRegion & );
 #endif
 private:
     TQRegion( bool );
     TQRegion copy() const;
     void    detach();
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     TQRegion winCombine( const TQRegion &, int ) const;
 #endif
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     void updateX11Region() const;
     void *clipRectangles( int &num ) const;
     friend void *qt_getClipRects( const TQRegion &, int & );
 #endif
     void    exec( const TQByteArray &, int ver = 0 );
     struct TQRegionData : public TQShared {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	HRGN   rgn;
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
 	Region rgn;
 	void *xrectangles;
 	TQRegionPrivate *region;
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 	uint is_rect:1;
 	TQRect rect;
 	RgnHandle rgn;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
 	void * rgn;
 #endif
 	bool   is_null;
     } *data;
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     friend struct qt_mac_rgn_data_cache;
     friend TQRegionData *qt_mac_get_rgn_data();
     friend void qt_mac_free_rgn_data(TQRegionData *);
     void rectifyRegion();
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
     friend class TQETWidget;
 #endif
 
@@ -168,9 +168,9 @@ private:
   TQRegion stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQRegion & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQRegion & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQRegion & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQRegion & );
 #endif
 
 

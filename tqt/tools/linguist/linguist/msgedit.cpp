@@ -88,12 +88,12 @@ TQString richText( const TQString& text )
 {
     const char backTab[] = "\a\b\f\n\r\t";
     const char * const friendlyBackTab[] = {
-	QT_TRANSLATE_NOOP( "MessageEditor", "bell" ),
-	QT_TRANSLATE_NOOP( "MessageEditor", "backspace" ),
-	QT_TRANSLATE_NOOP( "MessageEditor", "new page" ),
-	QT_TRANSLATE_NOOP( "MessageEditor", "new line" ),
-	QT_TRANSLATE_NOOP( "MessageEditor", "carriage return" ),
-	QT_TRANSLATE_NOOP( "MessageEditor", "tab" )
+	TQT_TRANSLATE_NOOP( "MessageEditor", "bell" ),
+	TQT_TRANSLATE_NOOP( "MessageEditor", "backspace" ),
+	TQT_TRANSLATE_NOOP( "MessageEditor", "new page" ),
+	TQT_TRANSLATE_NOOP( "MessageEditor", "new line" ),
+	TQT_TRANSLATE_NOOP( "MessageEditor", "carriage return" ),
+	TQT_TRANSLATE_NOOP( "MessageEditor", "tab" )
     };
     TQString rich;
 
@@ -234,7 +234,7 @@ EditorPage::EditorPage( TQWidget * parent, const char * name )
     p = srcText->palette();
     p.setColor( TQPalette::Disabled, TQColorGroup::Base, p.active().base() );
     srcText->setPalette( p );
-    connect( srcText, SIGNAL(textChanged()), SLOT(handleSourceChanges()) );
+    connect( srcText, TQ_SIGNAL(textChanged()), TQ_SLOT(handleSourceChanges()) );
 
     cmtText = new TQTextView( this, "comment/context view" );
     cmtText->setFrameStyle( TQFrame::NoFrame );
@@ -247,7 +247,7 @@ EditorPage::EditorPage( TQWidget * parent, const char * name )
     p.setColor( TQPalette::Active, TQColorGroup::Base, TQColor( 236,245,255 ) );
     p.setColor( TQPalette::Inactive, TQColorGroup::Base, TQColor( 236,245,255 ) );
     cmtText->setPalette( p );
-    connect( cmtText, SIGNAL(textChanged()), SLOT(handleCommentChanges()) );
+    connect( cmtText, TQ_SIGNAL(textChanged()), TQ_SLOT(handleCommentChanges()) );
 
     translationMed = new MED( this, "translation editor" );
     translationMed->setFrameStyle( TQFrame::NoFrame );
@@ -262,8 +262,8 @@ EditorPage::EditorPage( TQWidget * parent, const char * name )
     p = translationMed->palette();
     p.setColor( TQPalette::Disabled, TQColorGroup::Base, p.active().base() );
     translationMed->setPalette( p );
-    connect( translationMed, SIGNAL(textChanged()),
-	     SLOT(handleTranslationChanges()) );
+    connect( translationMed, TQ_SIGNAL(textChanged()),
+	     TQ_SLOT(handleTranslationChanges()) );
 
     pageCurl = new PageCurl( this, "page curl" );
 
@@ -444,8 +444,8 @@ MessageEditor::MessageEditor( MetaTranslator * t, TQWidget * parent,
     sv->viewport()->setBackgroundMode( PaletteBackground );
 
     editorPage = new EditorPage( sv, "editor page" );
-    connect( editorPage, SIGNAL(pageHeightUpdated(int)),
-	     SLOT(updatePageHeight(int)) );
+    connect( editorPage, TQ_SIGNAL(pageHeightUpdated(int)),
+	     TQ_SLOT(updatePageHeight(int)) );
 
     editorPage->translationMed->installEventFilter( this );
 
@@ -487,7 +487,7 @@ MessageEditor::MessageEditor( MetaTranslator * t, TQWidget * parent,
     vl->addWidget( phraseLv );
 
     accel = new TQAccel( this, "accel" );
-    connect( accel, SIGNAL(activated(int)), this, SLOT(guessActivated(int)) );
+    connect( accel, TQ_SIGNAL(activated(int)), this, TQ_SLOT(guessActivated(int)) );
     for ( int i = 0; i < 9; i++ )
 	accel->insertItem( CTRL + (Key_1 + i), i + 1 );
 
@@ -498,29 +498,29 @@ MessageEditor::MessageEditor( MetaTranslator * t, TQWidget * parent,
     v->addWidget( bottomDock );
 
     // Signals
-    connect( editorPage->pageCurl, SIGNAL(nextPage()),
-	     SIGNAL(nextUnfinished()) );
-    connect( editorPage->pageCurl, SIGNAL(prevPage()),
-	     SIGNAL(prevUnfinished()) );
+    connect( editorPage->pageCurl, TQ_SIGNAL(nextPage()),
+	     TQ_SIGNAL(nextUnfinished()) );
+    connect( editorPage->pageCurl, TQ_SIGNAL(prevPage()),
+	     TQ_SIGNAL(prevUnfinished()) );
 
-    connect( editorPage->translationMed, SIGNAL(textChanged()),
-	     this, SLOT(emitTranslationChanged()) );
-    connect( editorPage->translationMed, SIGNAL(textChanged()),
-	     this, SLOT(updateButtons()) );
-    connect( editorPage->translationMed, SIGNAL(undoAvailable(bool)),
-	     this, SIGNAL(undoAvailable(bool)) );
-    connect( editorPage->translationMed, SIGNAL(redoAvailable(bool)),
-	     this, SIGNAL(redoAvailable(bool)) );
-    connect( editorPage->translationMed, SIGNAL(copyAvailable(bool)),
-	     this, SIGNAL(cutAvailable(bool)) );
-    connect( editorPage->translationMed, SIGNAL(copyAvailable(bool)),
-	     this, SIGNAL(copyAvailable(bool)) );
-    connect( tqApp->clipboard(), SIGNAL(dataChanged()),
-	     this, SLOT(updateCanPaste()) );
-    connect( phraseLv, SIGNAL(doubleClicked(TQListViewItem *)),
-	     this, SLOT(insertPhraseInTranslation(TQListViewItem *)) );
-    connect( phraseLv, SIGNAL(returnPressed(TQListViewItem *)),
-	     this, SLOT(insertPhraseInTranslationAndLeave(TQListViewItem *)) );
+    connect( editorPage->translationMed, TQ_SIGNAL(textChanged()),
+	     this, TQ_SLOT(emitTranslationChanged()) );
+    connect( editorPage->translationMed, TQ_SIGNAL(textChanged()),
+	     this, TQ_SLOT(updateButtons()) );
+    connect( editorPage->translationMed, TQ_SIGNAL(undoAvailable(bool)),
+	     this, TQ_SIGNAL(undoAvailable(bool)) );
+    connect( editorPage->translationMed, TQ_SIGNAL(redoAvailable(bool)),
+	     this, TQ_SIGNAL(redoAvailable(bool)) );
+    connect( editorPage->translationMed, TQ_SIGNAL(copyAvailable(bool)),
+	     this, TQ_SIGNAL(cutAvailable(bool)) );
+    connect( editorPage->translationMed, TQ_SIGNAL(copyAvailable(bool)),
+	     this, TQ_SIGNAL(copyAvailable(bool)) );
+    connect( tqApp->clipboard(), TQ_SIGNAL(dataChanged()),
+	     this, TQ_SLOT(updateCanPaste()) );
+    connect( phraseLv, TQ_SIGNAL(doubleClicked(TQListViewItem *)),
+	     this, TQ_SLOT(insertPhraseInTranslation(TQListViewItem *)) );
+    connect( phraseLv, TQ_SIGNAL(returnPressed(TQListViewItem *)),
+	     this, TQ_SLOT(insertPhraseInTranslationAndLeave(TQListViewItem *)) );
 
     // What's this
     TQWhatsThis::add( this, tr("This whole panel allows you to view and edit "

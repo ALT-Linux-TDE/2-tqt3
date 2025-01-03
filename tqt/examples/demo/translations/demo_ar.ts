@@ -332,7 +332,7 @@
 <context>
     <name>Frame</name>
     <message>
-        <source>Qt Demo Collection</source>
+        <source>TQt Demo Collection</source>
         <translation>مجموعة عرض Qt</translation>
     </message>
     <message>
@@ -683,8 +683,8 @@
         <translation>--اللّغة--</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1, a multiplatform C++ GUI toolkit from Trolltech. Qt provides single-source portability across Windows 95/98/NT/2000, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;h3&gt;حول Qt&lt;/h3&gt;&lt;p&gt;هذا البرنامج يستعمل Qt إصدار %1، طقم أدوات C++ لتطوير البرامج البيانية على جميع المنصّات من شركة ترولتك. Qt توفّر إمكانية حمل نفس المصدر إلى ويندوز95\98\NT\2000 ، لينكس، سولاريس، HP-UX و العديد من الإصدارات الأخرى ليونيكس مع X11. أنظر &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; للمزيد من المعلومات.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1, a multiplatform C++ GUI toolkit from Trolltech. TQt provides single-source portability across Windows 95/98/NT/2000, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation type="obsolete">&lt;h3&gt;حول Qt&lt;/h3&gt;&lt;p&gt;هذا البرنامج يستعمل TQt إصدار %1، طقم أدوات C++ لتطوير البرامج البيانية على جميع المنصّات من شركة ترولتك. TQt توفّر إمكانية حمل نفس المصدر إلى ويندوز95\98\NT\2000 ، لينكس، سولاريس، HP-UX و العديد من الإصدارات الأخرى ليونيكس مع X11. أنظر &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; للمزيد من المعلومات.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&amp;New</source>
@@ -695,7 +695,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1, a multiplatform C++ GUI toolkit from Trolltech. Qt provides single-source portability across Windows 95/98/NT/2000, Mac OS X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1, a multiplatform C++ GUI toolkit from Trolltech. TQt provides single-source portability across Windows 95/98/NT/2000, Mac OS X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -122,7 +122,7 @@ DragMoviePlayer::DragMoviePlayer( TQDragObject* p ) :
     dobj(p),
     movie("trolltech.gif" )
 {
-    movie.connectUpdate(this,SLOT(updatePixmap(const TQRect&)));
+    movie.connectUpdate(this,TQ_SLOT(updatePixmap(const TQRect&)));
 }
 
 void DragMoviePlayer::updatePixmap( const TQRect& )

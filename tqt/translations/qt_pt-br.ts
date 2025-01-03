@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="pt-br">
 <context>
     <name>QAccel</name>
     <message>
@@ -175,7 +177,7 @@
     </message>
     <message>
         <source>Media Stop</source>
-        <translation>Interromper Mídia </translation>
+        <translation>Interromper Mídia</translation>
     </message>
     <message>
         <source>Media Previous</source>
@@ -195,7 +197,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation>Pestquisar</translation>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <source>Standby</source>
@@ -290,11 +292,11 @@
         <translation>QT_LAYOUT_DIRECTION</translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>O executável &apos;%1&apos; requer Qt %2, mas Qt %3 foi encontrado.</translation>
+        <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+        <translation>O executável &apos;%1&apos; requer TQt %2, mas TQt %3 foi encontrado.</translation>
     </message>
     <message>
-        <source>Incompatible Qt Library Error</source>
+        <source>Incompatible TQt Library Error</source>
         <translation>Erro de Incompatibilidade de Biblioteca do Qt</translation>
     </message>
 </context>
@@ -1263,8 +1265,8 @@ para
         <translation>&amp;Ignorar</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Sobre o Qt&lt;/h3&gt;&lt;p&gt;Este programa usa a versão %1 do Qt.&lt;/p&gt;&lt;p&gt;O Qt é um conjunto de ferramentas C++ multiplataforma para desenvolvimento de &amp;aplicativos GUI (Graphical User Interface - Interface Gráfica de Usuário).&lt;/p&gt;&lt;p&gt;O Qt oferece portabilidade de fonte única no MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux e todas as principais variantes comerciais do Unix.&lt;br&gt;O Qt também está disponível para dispositivos embutidos.&lt;/p&gt;&lt;p&gt;O Qt é um produto da Trolltech. Consulte &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; para obter mais informações.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Sobre o Qt&lt;/h3&gt;&lt;p&gt;Este programa usa a versão %1 do Qt.&lt;/p&gt;&lt;p&gt;O TQt é um conjunto de ferramentas C++ multiplataforma para desenvolvimento de &amp;aplicativos GUI (Graphical User Interface - Interface Gráfica de Usuário).&lt;/p&gt;&lt;p&gt;O TQt oferece portabilidade de fonte única no MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux e todas as principais variantes comerciais do Unix.&lt;br&gt;O TQt também está disponível para dispositivos embutidos.&lt;/p&gt;&lt;p&gt;O TQt é um produto da Trolltech. Consulte &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; para obter mais informações.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2000,5 +2002,3 @@ para
     </message>
 </context>
 </TS>
-
-

@@ -40,7 +40,7 @@
 
 #include "ntqsqlindex.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 #include "ntqsqlcursor.h"
 

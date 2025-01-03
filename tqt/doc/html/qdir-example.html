@@ -239,8 +239,8 @@ void <a name="f500"></a>PreviewWidget::previewUrl( const <a href="ntqurl.html">T
 <a name="x1848"></a>    TQToolTip::<a href="ntqtooltip.html#add">add</a>( p, tr( "Bookmarks" ) );
 
     bookmarkMenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-<a name="x1835"></a>    <a href="ntqobject.html#connect">connect</a>( bookmarkMenu, SIGNAL( <a href="ntqpopupmenu.html#activated">activated</a>( int ) ),
-             this, SLOT( bookmarkChosen( int ) ) );
+<a name="x1835"></a>    <a href="ntqobject.html#connect">connect</a>( bookmarkMenu, TQ_SIGNAL( <a href="ntqpopupmenu.html#activated">activated</a>( int ) ),
+             this, TQ_SLOT( bookmarkChosen( int ) ) );
     addId = bookmarkMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>( "Add bookmark" ) );
     bookmarkMenu-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
 
@@ -260,16 +260,16 @@ void <a name="f500"></a>PreviewWidget::previewUrl( const <a href="ntqurl.html">T
 
     <a href="ntqfiledialog.html#addToolButton">addToolButton</a>( p, TRUE );
 
-    <a href="ntqobject.html#connect">connect</a>( dirView, SIGNAL( folderSelected( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             this, SLOT( setDir2( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
-    <a href="ntqobject.html#connect">connect</a>( this, SIGNAL( <a href="ntqfiledialog.html#dirEntered">dirEntered</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             dirView, SLOT( <a href="ntqfiledialog.html#setDir">setDir</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( dirView, TQ_SIGNAL( folderSelected( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT( setDir2( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqfiledialog.html#dirEntered">dirEntered</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             dirView, TQ_SLOT( <a href="ntqfiledialog.html#setDir">setDir</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
 
     <a href="ntqtoolbutton.html">TQToolButton</a> *b = new <a href="ntqtoolbutton.html">TQToolButton</a>( this );
     TQToolTip::<a href="ntqtooltip.html#add">add</a>( b, tr( "Go Home!" ) );
     b-&gt;<a href="ntqbutton.html#setPixmap">setPixmap</a>( TQPixmap( home ) );
-    <a href="ntqobject.html#connect">connect</a>( b, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
-             this, SLOT( goHome() ) );
+    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
+             this, TQ_SLOT( goHome() ) );
 
     <a href="ntqfiledialog.html#addToolButton">addToolButton</a>( b );
 

@@ -20,16 +20,16 @@ QSqlPropertyMap \- Used to map widgets to SQL fields
 .BI "virtual \fB~QSqlPropertyMap\fR ()"
 .br
 .ti -1c
-.BI "QVariant \fBproperty\fR ( QWidget * widget )"
+.BI "QVariant \fBproperty\fR ( TQWidget * widget )"
 .br
 .ti -1c
-.BI "virtual void \fBsetProperty\fR ( QWidget * widget, const QVariant & value )"
+.BI "virtual void \fBsetProperty\fR ( TQWidget * widget, const QVariant & value )"
 .br
 .ti -1c
-.BI "void \fBinsert\fR ( const QString & classname, const QString & property )"
+.BI "void \fBinsert\fR ( const TQString & classname, const TQString & property )"
 .br
 .ti -1c
-.BI "void \fBremove\fR ( const QString & classname )"
+.BI "void \fBremove\fR ( const TQString & classname )"
 .br
 .in -1c
 .SS "Static Public Members"
@@ -44,7 +44,7 @@ QSqlPropertyMap \- Used to map widgets to SQL fields
 .SH DESCRIPTION
 The QSqlPropertyMap class is used to map widgets to SQL fields.
 .PP
-The SQL module uses Qt object properties to insert and extract values from editor widgets.
+The SQL module uses TQt object properties to insert and extract values from editor widgets.
 .PP
 This class is used to map editors to SQL fields. This works by associating SQL editor class names to the properties used to insert and extract values to/from the editor.
 .PP
@@ -121,7 +121,7 @@ See also QDataTable, QSqlForm, QSqlEditorFactory, and Database Classes.
 .SH "QSqlPropertyMap::QSqlPropertyMap ()"
 Constructs a QSqlPropertyMap.
 .PP
-The default property mappings used by Qt widgets are: <center>.nf
+The default property mappings used by TQt widgets are: <center>.nf
 .TS
 l - l. Widgets Property QCheckBox, QRadioButton checked QComboBox, QListBox currentItem QDateEdit date QDateTimeEdit dateTime QTextBrowser source QButton, QDial, QLabel, QLineEdit, QMultiLineEdit, QPushButton, QTextEdit, text QTimeEdit time QLCDNumber, QScrollBar QSlider, QSpinBox
 .TE
@@ -133,17 +133,17 @@ Destroys the QSqlPropertyMap.
 Note that if the QSqlPropertyMap is installed with installPropertyMap() the object it was installed into, e.g. the QSqlForm, takes ownership and will delete the QSqlPropertyMap when necessary.
 .SH "QSqlPropertyMap * QSqlPropertyMap::defaultMap ()\fC [static]\fR"
 Returns the application global QSqlPropertyMap.
-.SH "void QSqlPropertyMap::insert ( const QString & classname, const QString & property )"
+.SH "void QSqlPropertyMap::insert ( const TQString & classname, const TQString & property )"
 Insert a new classname/property pair, which is used for custom SQL field editors. There \fImust\fR be a \fCTQ_PROPERTY\fR clause in the \fIclassname\fR class declaration for the \fIproperty\fR.
 .PP
 Example: sql/overview/custom1/main.cpp.
 .SH "void QSqlPropertyMap::installDefaultMap ( QSqlPropertyMap * map )\fC [static]\fR"
 Replaces the global default property map with \fImap\fR. All QDataTable and QSqlForm instantiations will use this new map for inserting and extracting values to and from editors. \fIQSqlPropertyMap takes ownership of &#92;a map, and destroys it when it is no longer needed.\fR
-.SH "QVariant QSqlPropertyMap::property ( QWidget * widget )"
+.SH "QVariant QSqlPropertyMap::property ( TQWidget * widget )"
 Returns the mapped property of \fIwidget\fR as a QVariant.
-.SH "void QSqlPropertyMap::remove ( const QString & classname )"
+.SH "void QSqlPropertyMap::remove ( const TQString & classname )"
 Removes \fIclassname\fR from the map.
-.SH "void QSqlPropertyMap::setProperty ( QWidget * widget, const QVariant & value )\fC [virtual]\fR"
+.SH "void QSqlPropertyMap::setProperty ( TQWidget * widget, const QVariant & value )\fC [virtual]\fR"
 Sets the property of \fIwidget\fR to \fIvalue\fR.
 
 .SH "SEE ALSO"
@@ -160,8 +160,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

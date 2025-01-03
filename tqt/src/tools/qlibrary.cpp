@@ -43,7 +43,7 @@
 #include <ntqstringlist.h>
 #include <ntqfile.h>
 
-#ifndef QT_NO_LIBRARY
+#ifndef TQT_NO_LIBRARY
 
 // uncomment this to get error messages
 //#define QT_DEBUG_COMPONENT 1
@@ -56,10 +56,10 @@
 # endif
 #endif
 
-#if (defined(Q_WS_WIN) && !defined(QT_MAKEDLL)) \
+#if (defined(TQ_WS_WIN) && !defined(QT_MAKEDLL)) \
     || (defined(Q_OS_FREEBSD) && defined(Q_CC_INTEL)) \
     || (defined(Q_OS_IRIX) && defined(Q_CC_GNU))
-#define QT_NO_LIBRARY_UNLOAD
+#define TQT_NO_LIBRARY_UNLOAD
 #endif
 
 TQLibraryPrivate::TQLibraryPrivate( TQLibrary *lib )
@@ -192,7 +192,7 @@ TQLibrary::~TQLibrary()
     with \c MY_EXPORT defined as
 
     \code
-    #ifdef Q_WS_WIN
+    #ifdef TQ_WS_WIN
     # define MY_EXPORT __declspec(dllexport)
     #else
     # define MY_EXPORT
@@ -339,7 +339,7 @@ bool TQLibrary::unload()
     if ( !d->pHnd )
 	return TRUE;
 
-#if !defined(QT_NO_LIBRARY_UNLOAD)
+#if !defined(TQT_NO_LIBRARY_UNLOAD)
     if ( !d->freeLibrary() ) {
 # if defined(QT_DEBUG_COMPONENT)
 	tqWarning( "%s could not be unloaded", (const char*) TQFile::encodeName(library()) );
@@ -398,7 +398,7 @@ TQString TQLibrary::library() const
 
     TQString filename = libfile;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( filename.findRev( '.' ) <= filename.findRev( '/' ) )
 	filename += ".dll";
 #else
@@ -440,4 +440,4 @@ TQString TQLibrary::library() const
 #endif
     return filename;
 }
-#endif //QT_NO_LIBRARY
+#endif //TQT_NO_LIBRARY

@@ -16,7 +16,7 @@ Inherits QLayout.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQGridLayout\fR ( QWidget * parent, int nRows = 1, int nCols = 1, int margin = 0, int space = -1, const char * name = 0 )"
+.BI "\fBQGridLayout\fR ( TQWidget * parent, int nRows = 1, int nCols = 1, int margin = 0, int space = -1, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fBQGridLayout\fR ( int nRows = 1, int nCols = 1, int spacing = -1, const char * name = 0 )"
@@ -91,10 +91,10 @@ Inherits QLayout.
 .BI "void \fBaddMultiCell\fR ( QLayoutItem * item, int fromRow, int toRow, int fromCol, int toCol, int alignment = 0 )"
 .br
 .ti -1c
-.BI "void \fBaddWidget\fR ( QWidget * w, int row, int col, int alignment = 0 )"
+.BI "void \fBaddWidget\fR ( TQWidget * w, int row, int col, int alignment = 0 )"
 .br
 .ti -1c
-.BI "void \fBaddMultiCellWidget\fR ( QWidget * w, int fromRow, int toRow, int fromCol, int toCol, int alignment = 0 )"
+.BI "void \fBaddMultiCellWidget\fR ( TQWidget * w, int fromRow, int toRow, int fromCol, int toCol, int alignment = 0 )"
 .br
 .ti -1c
 .BI "void \fBaddLayout\fR ( QLayout * layout, int row, int col )"
@@ -127,7 +127,7 @@ Inherits QLayout.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "bool \fBfindWidget\fR ( QWidget * w, int * row, int * col )"
+.BI "bool \fBfindWidget\fR ( TQWidget * w, int * row, int * col )"
 .br
 .ti -1c
 .BI "void \fBadd\fR ( QLayoutItem * item, int row, int col )"
@@ -144,7 +144,7 @@ Each column has a minimum width and a stretch factor. The minimum width is the g
 .PP
 Normally, each managed widget or layout is put into a cell of its own using addWidget(), addLayout() or by the auto-add facility. It is also possible for a widget to occupy multiple cells using addMultiCellWidget(). If you do this, QGridLayout will guess how to distribute the size over the columns/rows (based on the stretch factors).
 .PP
-To remove a widget from a layout, call remove(). Calling QWidget::hide() on a widget also effectively removes the widget from the layout until QWidget::show() is called.
+To remove a widget from a layout, call remove(). Calling TQWidget::hide() on a widget also effectively removes the widget from the layout until TQWidget::show() is called.
 .PP
 This illustration shows a fragment of a dialog with a five-column, three-row grid (the grid is shown overlaid in magenta):
 .PP
@@ -179,7 +179,7 @@ This enum identifies which corner is the origin (0, 0) of the layout.
 .TP
 \fCQGridLayout::BottomRight\fR - the bottom-right corner
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QGridLayout::QGridLayout ( QWidget * parent, int nRows = 1, int nCols = 1, int margin = 0, int space = -1, const char * name = 0 )"
+.SH "QGridLayout::QGridLayout ( TQWidget * parent, int nRows = 1, int nCols = 1, int margin = 0, int space = -1, const char * name = 0 )"
 Constructs a new QGridLayout with \fInRows\fR rows, \fInCols\fR columns and parent widget, \fIparent\fR. \fIparent\fR may not be 0. The grid layout is called \fIname\fR.
 .PP
 \fImargin\fR is the number of pixels between the edge of the widget and its managed children. \fIspace\fR is the default number of pixels between cells. If \fIspace\fR is -1, the value of \fImargin\fR is used.
@@ -225,21 +225,21 @@ Examples:
 .SH "void QGridLayout::addMultiCell ( QLayoutItem * item, int fromRow, int toRow, int fromCol, int toCol, int alignment = 0 )"
 Adds the \fIitem\fR to the cell grid, spanning multiple rows/columns.
 .PP
-The cell will span from \fIfromRow\fR, \fIfromCol\fR to \fItoRow\fR, \fItoCol\fR. Alignment is specified by \fIalignment\fR, which is a bitwise OR of Qt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
+The cell will span from \fIfromRow\fR, \fIfromCol\fR to \fItoRow\fR, \fItoCol\fR. Alignment is specified by \fIalignment\fR, which is a bitwise OR of TQt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
 .SH "void QGridLayout::addMultiCellLayout ( QLayout * layout, int fromRow, int toRow, int fromCol, int toCol, int alignment = 0 )"
 Adds the layout \fIlayout\fR to the cell grid, spanning multiple rows/columns. The cell will span from \fIfromRow\fR, \fIfromCol\fR to \fItoRow\fR, \fItoCol\fR.
 .PP
-Alignment is specified by \fIalignment\fR, which is a bitwise OR of Qt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
+Alignment is specified by \fIalignment\fR, which is a bitwise OR of TQt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
 .PP
 A non-zero alignment indicates that the layout should not grow to fill the available space but should be sized according to sizeHint().
 .PP
 \fIlayout\fR becomes a child of the grid layout.
 .PP
 See also addLayout().
-.SH "void QGridLayout::addMultiCellWidget ( QWidget * w, int fromRow, int toRow, int fromCol, int toCol, int alignment = 0 )"
+.SH "void QGridLayout::addMultiCellWidget ( TQWidget * w, int fromRow, int toRow, int fromCol, int toCol, int alignment = 0 )"
 Adds the widget \fIw\fR to the cell grid, spanning multiple rows/columns. The cell will span from \fIfromRow\fR, \fIfromCol\fR to \fItoRow\fR, \fItoCol\fR.
 .PP
-Alignment is specified by \fIalignment\fR, which is a bitwise OR of Qt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
+Alignment is specified by \fIalignment\fR, which is a bitwise OR of TQt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
 .PP
 A non-zero alignment indicates that the widget should not grow to fill the available space but should be sized according to sizeHint().
 .PP
@@ -253,15 +253,15 @@ Examples:
 Sets the minimum height of row \fIrow\fR to \fIminsize\fR pixels.
 .PP
 Use setRowSpacing() instead.
-.SH "void QGridLayout::addWidget ( QWidget * w, int row, int col, int alignment = 0 )"
+.SH "void QGridLayout::addWidget ( TQWidget * w, int row, int col, int alignment = 0 )"
 Adds the widget \fIw\fR to the cell grid at \fIrow\fR, \fIcol\fR. The top-left position is (0, 0) by default.
 .PP
-Alignment is specified by \fIalignment\fR, which is a bitwise OR of Qt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
+Alignment is specified by \fIalignment\fR, which is a bitwise OR of TQt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
 .TP
 You should not call this if you have enabled the auto-add facility of the layout.
 .IP
 .TP
-From Qt 3.0, the \fIalignment\fR parameter is interpreted more aggressively than in previous versions of Qt. A non-default alignment now indicates that the widget should not grow to fill the available space, but should be sized according to sizeHint().
+From TQt 3.0, the \fIalignment\fR parameter is interpreted more aggressively than in previous versions of Qt. A non-default alignment now indicates that the widget should not grow to fill the available space, but should be sized according to sizeHint().
 .PP
 See also addMultiCellWidget().
 .PP
@@ -270,7 +270,7 @@ Examples:
 .SH "QRect QGridLayout::cellGeometry ( int row, int col ) const"
 Returns the geometry of the cell with row \fIrow\fR and column \fIcol\fR in the grid. Returns an invalid rectangle if \fIrow\fR or \fIcol\fR is outside the grid.
 .PP
-\fBWarning:\fR in the current version of Qt this function does not return valid results until setGeometry() has been called, i.e. after the mainWidget() is visible.
+\fBWarning:\fR in the current version of TQt this function does not return valid results until setGeometry() has been called, i.e. after the mainWidget() is visible.
 .SH "int QGridLayout::colSpacing ( int col ) const"
 Returns the column spacing for column \fIcol\fR.
 .PP
@@ -285,7 +285,7 @@ Expands this grid so that it will have \fInRows\fR rows and \fInCols\fR columns.
 Returns whether this layout can make use of more space than sizeHint(). A value of Vertical or Horizontal means that it wants to grow in only one dimension, whereas \fCBothDirections\fR means that it wants to grow in both dimensions.
 .PP
 Reimplemented from QLayout.
-.SH "bool QGridLayout::findWidget ( QWidget * w, int * row, int * col )\fC [protected]\fR"
+.SH "bool QGridLayout::findWidget ( TQWidget * w, int * row, int * col )\fC [protected]\fR"
 Searches for widget \fIw\fR in this layout (not including child layouts). If \fIw\fR is found, it sets \fC<em>row</em>\fR and \fC<em>col</em>\fR to the row and column and returns TRUE; otherwise returns FALSE.
 .PP
 Note: if a widget spans multiple rows/columns, the top-left cell is returned.
@@ -378,8 +378,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

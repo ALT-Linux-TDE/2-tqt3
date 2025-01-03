@@ -92,4 +92,4 @@ bool CustomWidgetPlugin::isContainer( const TQString& ) const
 }
 
 
-Q_EXPORT_PLUGIN( CustomWidgetPlugin )
+TQ_EXPORT_PLUGIN( CustomWidgetPlugin )

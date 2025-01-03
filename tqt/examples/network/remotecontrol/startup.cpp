@@ -14,8 +14,8 @@ StartUp::StartUp()
     mainDialog = 0;
 
     socket = new TQSocket( this );
-    connect( socket, SIGNAL(connected()), SLOT(startRemoteCtrl()) );
-    connect( socket, SIGNAL(error(int)), SLOT(startMainDialog()) );
+    connect( socket, TQ_SIGNAL(connected()), TQ_SLOT(startRemoteCtrl()) );
+    connect( socket, TQ_SIGNAL(error(int)), TQ_SLOT(startMainDialog()) );
     socket->connectToHost( "localhost", ipcPort );
 }
 
@@ -38,8 +38,8 @@ void StartUp::startMainDialog()
 
     IpcServer *server = new IpcServer( ipcPort, this );
 
-    connect( server, SIGNAL(receivedText(const TQString&)),
-	    mainDialog->description, SLOT(setText(const TQString&)) );
-    connect( server, SIGNAL(receivedPixmap(const TQPixmap&)),
-	    mainDialog->image, SLOT(setPixmap(const TQPixmap&)) );
+    connect( server, TQ_SIGNAL(receivedText(const TQString&)),
+	    mainDialog->description, TQ_SLOT(setText(const TQString&)) );
+    connect( server, TQ_SIGNAL(receivedPixmap(const TQPixmap&)),
+	    mainDialog->image, TQ_SLOT(setPixmap(const TQPixmap&)) );
 }

@@ -49,14 +49,14 @@
 #include "ntqobject.h"
 #endif // QT_H
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 
 class TQStyleSheet;
 class TQTextDocument;
 template<class Key, class T> class TQMap;
 class TQStyleSheetItemData;
 
-class Q_EXPORT TQStyleSheetItem : public TQt
+class TQ_EXPORT TQStyleSheetItem : public TQt
 {
 public:
     TQStyleSheetItem( TQStyleSheet* parent, const TQString& name );
@@ -194,18 +194,18 @@ private:
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQDict<TQStyleSheetItem>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList< TQPtrVector<TQStyleSheetItem> >;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrVector<TQStyleSheetItem>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList<TQStyleSheetItem::ListStyle>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQDict<TQStyleSheetItem>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList< TQPtrVector<TQStyleSheetItem> >;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrVector<TQStyleSheetItem>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList<TQStyleSheetItem::ListStyle>;
 // MOC_SKIP_END
 #endif
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
 class TQTextCustomItem;
 #endif
 
-class Q_EXPORT TQStyleSheet : public TQObject
+class TQ_EXPORT TQStyleSheet : public TQObject
 {
     TQ_OBJECT
 public:
@@ -221,7 +221,7 @@ public:
 
     void insert( TQStyleSheetItem* item);
 
-#ifndef QT_NO_TEXTCUSTOMITEM
+#ifndef TQT_NO_TEXTCUSTOMITEM
     virtual TQTextCustomItem* tag( const TQString& name,
 				  const TQMap<TQString, TQString> &attr,
 				  const TQString& context,
@@ -248,6 +248,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_RICHTEXT
+#endif // TQT_NO_RICHTEXT
 
 #endif // TQSTYLESHEET_H

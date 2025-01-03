@@ -48,10 +48,10 @@
 #if !defined( TQT_MODULE_NETWORK ) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_NETWORK )
 #define TQM_EXPORT_NETWORK
 #else
-#define TQM_EXPORT_NETWORK Q_EXPORT
+#define TQM_EXPORT_NETWORK TQ_EXPORT
 #endif
 
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 class TQHostAddressPrivate;
 
 typedef struct {
@@ -65,7 +65,7 @@ public:
     TQHostAddress( TQ_UINT32 ip4Addr );
     TQHostAddress( TQ_UINT8 *ip6Addr );
     TQHostAddress(const Q_IPV6ADDR &ip6Addr);
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     TQHostAddress(const TQString &address);
 #endif
     TQHostAddress( const TQHostAddress & );
@@ -75,7 +75,7 @@ public:
 
     void setAddress( TQ_UINT32 ip4Addr );
     void setAddress( TQ_UINT8 *ip6Addr );
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     bool setAddress( const TQString& address );
 #endif
     bool	 isIp4Addr()	 const; // obsolete
@@ -86,7 +86,7 @@ public:
     bool	 isIPv6Address() const;
     Q_IPV6ADDR	 toIPv6Address() const;
 
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_SPRINTF
     TQString	 toString() const;
 #endif
 
@@ -97,5 +97,5 @@ private:
     TQHostAddressPrivate* d;
 };
 
-#endif //QT_NO_NETWORK
+#endif //TQT_NO_NETWORK
 #endif

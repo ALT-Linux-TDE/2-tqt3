@@ -1,4 +1,4 @@
-# Qt widgets module
+# TQt widgets module
 
 widgets {
 	WIDGETS_P	= widgets
@@ -20,6 +20,7 @@ widgets {
 		  $$WIDGETS_H/ntqheader.h \
 		  $$WIDGETS_H/ntqhgroupbox.h \
 		  $$WIDGETS_H/ntqhbox.h \
+		  $$WIDGETS_H/ntqiconview.h \
 		  $$WIDGETS_H/ntqlabel.h \
 		  $$WIDGETS_H/ntqlcdnumber.h \
 		  $$WIDGETS_H/ntqlineedit.h \
@@ -81,6 +82,7 @@ widgets {
 		  $$WIDGETS_CPP/qheader.cpp \
 		  $$WIDGETS_CPP/qhgroupbox.cpp \
 		  $$WIDGETS_CPP/qhbox.cpp \
+		  $$WIDGETS_CPP/qiconview.cpp \
 		  $$WIDGETS_CPP/qlabel.cpp \
 		  $$WIDGETS_CPP/qlcdnumber.cpp \
 		  $$WIDGETS_CPP/qlineedit.cpp \

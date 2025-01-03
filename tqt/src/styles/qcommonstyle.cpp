@@ -40,7 +40,7 @@
 
 #include "ntqcommonstyle.h"
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 
 #include "ntqmutex.h"
 #include "ntqmenubar.h"
@@ -165,6 +165,10 @@ static TQString TQFrame_static_string("TQFrame");
 static TQString TQWidget_static_string("TQWidget");
 
 static TQStyleControlElementData* TQStyleControlElementData_null = NULL;
+static void tqt_style_control_element_data_null_cleanup() {
+    delete TQStyleControlElementData_null;
+    TQStyleControlElementData_null =0;
+}
 
 #include <ntqmetaobject.h>
 
@@ -805,6 +809,7 @@ const TQStyleControlElementData &populateControlElementDataFromWidget(const TQWi
 	else {
 		if (!TQStyleControlElementData_null) {
 			TQStyleControlElementData_null = new TQStyleControlElementData();
+			tqAddPostRoutine(tqt_style_control_element_data_null_cleanup);
 		}
 		TQStyleControlElementData &ceData = *TQStyleControlElementData_null;
 		return ceData;
@@ -837,7 +842,7 @@ void TQCommonStyle::drawPrimitive( PrimitiveElement pe,
     activePainter = p;
 
     switch (pe) {
-#ifndef QT_NO_LISTVIEW
+#ifndef TQT_NO_LISTVIEW
     case PE_CheckListController: {
 	p->drawPixmap(r, TQPixmap((const char **)check_list_controller_xpm));
 	break; }
@@ -1251,7 +1256,7 @@ void TQCommonStyle::drawPrimitive( PrimitiveElement pe,
 	drawPrimitive( PE_GroupBoxFrame, p, ceData, elementFlags, r, cg, flags, opt );
 	break;
     case PE_GroupBoxFrame: {
-#ifndef QT_NO_FRAME
+#ifndef TQT_NO_FRAME
 	if ( opt.isDefault() )
 	    break;
 	int lwidth = opt.lineWidth(), mlwidth = opt.midLineWidth();
@@ -1326,7 +1331,7 @@ void TQCommonStyle::drawControl( ControlElement element,
 	break; }
     case CE_PushButton:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    TQRect br = r;
 	    int dbi = pixelMetric(PM_ButtonDefaultIndicator, ceData, elementFlags, widget);
 
@@ -1352,7 +1357,7 @@ void TQCommonStyle::drawControl( ControlElement element,
 
     case CE_PushButtonLabel:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    TQRect ir = r;
 
 	    if ((elementFlags & CEF_IsDown) || (elementFlags & CEF_IsOn)) {
@@ -1372,7 +1377,7 @@ void TQCommonStyle::drawControl( ControlElement element,
 	    if ((!styleHint(SH_UnderlineAccelerator, ceData, elementFlags, TQStyleOption::Default, 0, widget)) || ((styleHint(SH_HideUnderlineAcceleratorWhenAltUp, ceData, elementFlags, TQStyleOption::Default, 0, widget)) && (!acceleratorsShown())))
 		tf |= NoAccel;
 
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 	    if ( !ceData.iconSet.isNull() ) {
 		TQIconSet::Mode mode =
 		    (elementFlags & CEF_IsEnabled) ? TQIconSet::Normal : TQIconSet::Disabled;
@@ -1401,7 +1406,7 @@ void TQCommonStyle::drawControl( ControlElement element,
 		else if (!ceData.fgPixmap.isNull())
 		    tf |= AlignHCenter;
 	    } else
-#endif //QT_NO_ICONSET
+#endif //TQT_NO_ICONSET
 		tf |= AlignHCenter;
 	    drawItem(p, ir, tf, cg,
 		     flags & Style_Enabled, (ceData.fgPixmap.isNull())?NULL:&ceData.fgPixmap, ceData.text,
@@ -1420,7 +1425,7 @@ void TQCommonStyle::drawControl( ControlElement element,
 
     case CE_CheckBoxLabel:
 	{
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	    int alignment = TQApplication::reverseLayout() ? AlignRight : AlignLeft;
 	    if ((!styleHint(SH_UnderlineAccelerator, ceData, elementFlags, TQStyleOption::Default, 0, widget)) || ((styleHint(SH_HideUnderlineAcceleratorWhenAltUp, ceData, elementFlags, TQStyleOption::Default, 0, widget)) && (!acceleratorsShown())))
 		alignment |= NoAccel;
@@ -1442,7 +1447,7 @@ void TQCommonStyle::drawControl( ControlElement element,
 
     case CE_RadioButtonLabel:
 	{
-#ifndef QT_NO_RADIOBUTTON
+#ifndef TQT_NO_RADIOBUTTON
 	    int alignment = TQApplication::reverseLayout() ? AlignRight : AlignLeft;
 	    if ((!styleHint(SH_UnderlineAccelerator, ceData, elementFlags, TQStyleOption::Default, 0, widget)) || ((styleHint(SH_HideUnderlineAcceleratorWhenAltUp, ceData, elementFlags, TQStyleOption::Default, 0, widget)) && (!acceleratorsShown())))
 		alignment |= NoAccel;
@@ -1457,7 +1462,7 @@ void TQCommonStyle::drawControl( ControlElement element,
 	    break;
 	}
 
-#ifndef QT_NO_TABBAR
+#ifndef TQT_NO_TABBAR
     case CE_TabBarTab:
 	{
 	    if ( ceData.tabBarData.shape == TQTabBar::TriangularAbove ||
@@ -1520,8 +1525,8 @@ void TQCommonStyle::drawControl( ControlElement element,
 		drawPrimitive( PE_FocusRect, p, ceData, elementFlags, r, cg );
 	    break;
 	}
-#endif // QT_NO_TABBAR
-#ifndef QT_NO_TOOLBOX
+#endif // TQT_NO_TABBAR
+#ifndef TQT_NO_TOOLBOX
     case CE_ToolBoxTab:
 	{
 	    int d = 20 + r.height() - 3;
@@ -1548,12 +1553,12 @@ void TQCommonStyle::drawControl( ControlElement element,
 	    p->setBrush( NoBrush );
 	    break;
 	}
-#endif // QT_NO_TOOLBOX
+#endif // TQT_NO_TOOLBOX
     case CE_ProgressBarGroove:
 	qDrawShadePanel(p, r, cg, TRUE, 1, &cg.brush(TQColorGroup::Background));
 	break;
 
-#ifndef QT_NO_PROGRESSBAR
+#ifndef TQT_NO_PROGRESSBAR
     case CE_ProgressBarContents:
 	{
 	    // Correct the highlight color if same as background,
@@ -1634,11 +1639,11 @@ void TQCommonStyle::drawControl( ControlElement element,
 		     ceData.progressText, -1, pcolor );
 	}
 	break;
-#endif // QT_NO_PROGRESSBAR
+#endif // TQT_NO_PROGRESSBAR
 
     case CE_MenuBarItem:
 	{
-#ifndef QT_NO_MENUDATA
+#ifndef TQT_NO_MENUDATA
 	    if (opt.isDefault())
 		break;
 
@@ -1653,7 +1658,7 @@ void TQCommonStyle::drawControl( ControlElement element,
 	    break;
 	}
 
-#ifndef QT_NO_TOOLBUTTON
+#ifndef TQT_NO_TOOLBUTTON
     case CE_ToolButtonLabel:
 	{
 	    TQRect rect = r;
@@ -1745,8 +1750,8 @@ void TQCommonStyle::drawControl( ControlElement element,
 
 	    break;
 	}
-#endif // QT_NO_TOOLBUTTON
-#ifndef QT_NO_HEADER
+#endif // TQT_NO_TOOLBUTTON
+#ifndef TQT_NO_HEADER
         case CE_HeaderLabel:
 	{
 	    TQRect rect = r;
@@ -1774,7 +1779,7 @@ void TQCommonStyle::drawControl( ControlElement element,
                 drawItem ( p, rect, AlignVCenter, cg, flags & Style_Enabled,
                            0, ceData.textLabel, -1, &(cg.buttonText()) );
 	}
-#endif // QT_NO_HEADER
+#endif // TQT_NO_HEADER
     default:
 	break;
     }
@@ -1826,7 +1831,7 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
     TQRect rect, wrect(ceData.rect);
 
     switch (r) {
-#ifndef QT_NO_DIALOGBUTTONS
+#ifndef TQT_NO_DIALOGBUTTONS
     case SR_DialogButtonAbort:
     case SR_DialogButtonRetry:
     case SR_DialogButtonIgnore:
@@ -1892,10 +1897,10 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 		return TQRect(fw, start, wrect.width() - (fw*2), wrect.height() - start - (fw*2));
 	}
 	return TQRect(); }
-#endif //QT_NO_DIALOGBUTTONS
+#endif //TQT_NO_DIALOGBUTTONS
     case SR_PushButtonContents:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    int dx1, dx2;
 
 	    dx1 = pixelMetric(PM_DefaultFrameWidth, ceData, elementFlags, widget);
@@ -1913,7 +1918,7 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 
     case SR_PushButtonFocusRect:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    int dbw1 = 0, dbw2 = 0;
 	    if ((elementFlags & CEF_IsDefault) || (elementFlags & CEF_AutoDefault)) {
 		dbw1 = pixelMetric(PM_ButtonDefaultIndicator, ceData, elementFlags, widget);
@@ -1941,7 +1946,7 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 
     case SR_CheckBoxContents:
 	{
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	    TQRect ir = subRect(SR_CheckBoxIndicator, ceData, elementFlags, widget);
 	    rect.setRect(ir.right() + 6, wrect.y(),
 			 wrect.width() - ir.width() - 6, wrect.height());
@@ -1951,7 +1956,7 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 
     case SR_CheckBoxFocusRect:
 	{
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	    if ( ceData.fgPixmap.isNull() && ceData.text.isEmpty() ) {
 		rect = subRect( SR_CheckBoxIndicator, ceData, elementFlags, widget );
 		rect.addCoords( 1, 1, -1, -1 );
@@ -1995,7 +2000,7 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 
     case SR_RadioButtonFocusRect:
 	{
-#ifndef QT_NO_RADIOBUTTON
+#ifndef TQT_NO_RADIOBUTTON
 	    if ( ceData.fgPixmap.isNull() && ceData.text.isEmpty() ) {
 		rect = subRect( SR_RadioButtonIndicator, ceData, elementFlags, widget );
 		rect.addCoords( 1, 1, -1, -1 );
@@ -2024,7 +2029,7 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 	rect.setRect(3, 3, ceData.rect.width()-6-16, ceData.rect.height()-6);
 	break;
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case SR_SliderFocusRect:
 	{
 	    int tickOffset = pixelMetric( PM_SliderTickmarkOffset, ceData, elementFlags, widget );
@@ -2037,9 +2042,9 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 	    rect = rect.intersect( ceData.rect ); // ## is this really necessary?
 	    break;
 	}
-#endif // QT_NO_SLIDER
+#endif // TQT_NO_SLIDER
 
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
     case SR_DockWindowHandleRect:
 	{
 	    if (!(elementFlags & CEF_HasParentWidget))
@@ -2055,12 +2060,12 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 	    }
 	    break;
 	}
-#endif // QT_NO_MAINWINDOW
+#endif // TQT_NO_MAINWINDOW
 
     case SR_ProgressBarGroove:
     case SR_ProgressBarContents:
 	{
-#ifndef QT_NO_PROGRESSBAR
+#ifndef TQT_NO_PROGRESSBAR
 	    TQFontMetrics fm( ( (!(elementFlags & CEF_UseGenericParameters)) ? TQFontMetrics(ceData.font) :
 			       TQApplication::fontMetrics() ) );
 	    int textw = 0;
@@ -2079,7 +2084,7 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
 
     case SR_ProgressBarLabel:
 	{
-#ifndef QT_NO_PROGRESSBAR
+#ifndef TQT_NO_PROGRESSBAR
 	    TQFontMetrics fm( ( (!(elementFlags & CEF_UseGenericParameters)) ? TQFontMetrics(ceData.font) :
 			       TQApplication::fontMetrics() ) );
 	    int textw = 0;
@@ -2113,7 +2118,7 @@ TQRect TQCommonStyle::subRect(SubRect r, const TQStyleControlElementData &ceData
     return rect;
 }
 
-#ifndef QT_NO_RANGECONTROL
+#ifndef TQT_NO_RANGECONTROL
 /*
   I really need this and I don't want to expose it in TQRangeControl..
 */
@@ -2145,7 +2150,7 @@ static int qPositionFromValue( const TQStyleControlElementData &ceData, int logi
     // no overflow because of this implicit assumption:
     // span <= 4096
 }
-#endif // QT_NO_RANGECONTROL
+#endif // TQT_NO_RANGECONTROL
 
 /*! \reimp */
 void TQCommonStyle::drawComplexControl( ComplexControl control,
@@ -2163,7 +2168,7 @@ void TQCommonStyle::drawComplexControl( ComplexControl control,
     activePainter = p;
 
     switch (control) {
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
     case CC_ScrollBar:
 	{
 	    TQRect addline, subline, addpage, subpage, slider, first, last;
@@ -2237,9 +2242,9 @@ void TQCommonStyle::drawComplexControl( ComplexControl control,
 
 	    break;
 	}
-#endif // QT_NO_SCROLLBAR
+#endif // TQT_NO_SCROLLBAR
 
-#ifndef QT_NO_TOOLBUTTON
+#ifndef TQT_NO_TOOLBUTTON
     case CC_ToolButton:
 	{
 	    TQColorGroup c = cg;
@@ -2284,9 +2289,9 @@ void TQCommonStyle::drawComplexControl( ComplexControl control,
 
 	    break;
 	}
-#endif // QT_NO_TOOLBUTTON
+#endif // TQT_NO_TOOLBUTTON
 
-#ifndef QT_NO_TITLEBAR
+#ifndef TQT_NO_TITLEBAR
     case CC_TitleBar:
 	{
 	    if ( controls & SC_TitleBarLabel ) {
@@ -2332,7 +2337,7 @@ void TQCommonStyle::drawComplexControl( ComplexControl control,
 		ir = visualRect( querySubControlMetrics( CC_TitleBar, ceData, elementFlags, SC_TitleBarCloseButton, TQStyleOption::Default, widget ), ceData, elementFlags );
 		down = active & SC_TitleBarCloseButton;
 		if ( widget->testWFlags( WStyle_Tool )
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 		     || ::tqt_cast<TQDockWindow*>(widget)
 #endif
 		    )
@@ -2418,7 +2423,7 @@ void TQCommonStyle::drawComplexControl( ComplexControl control,
 		    p->restore();
 		}
 	    }
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	    if ( controls & SC_TitleBarSysMenu ) {
 		if ( !ceData.icon.isNull() ) {
 		    ir = visualRect( querySubControlMetrics( CC_TitleBar, ceData, elementFlags, SC_TitleBarSysMenu, TQStyleOption::Default, widget ), ceData, elementFlags );
@@ -2428,10 +2433,10 @@ void TQCommonStyle::drawComplexControl( ComplexControl control,
 #endif
 	    break;
 	}
-#endif //QT_NO_TITLEBAR
+#endif //TQT_NO_TITLEBAR
 
     case CC_SpinWidget: {
-#ifndef QT_NO_SPINWIDGET
+#ifndef TQT_NO_SPINWIDGET
 	SFlags flags;
 	PrimitiveElement pe;
 
@@ -2476,7 +2481,7 @@ void TQCommonStyle::drawComplexControl( ComplexControl control,
 #endif
 	break; }
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case CC_Slider:
 	switch ( controls ) {
 	case SC_SliderTickmarks: {
@@ -2534,14 +2539,14 @@ void TQCommonStyle::drawComplexControl( ComplexControl control,
 	    break; }
 	}
 	break;
-#endif // QT_NO_SLIDER
-#ifndef QT_NO_LISTVIEW
+#endif // TQT_NO_SLIDER
+#ifndef TQT_NO_LISTVIEW
     case CC_ListView:
 	if ( controls & SC_ListView ) {
 	    p->fillRect( r, ceData.viewportData.bgBrush );
 	}
 	break;
-#endif //QT_NO_LISTVIEW
+#endif //TQT_NO_LISTVIEW
     default:
 	break;
     }
@@ -2624,7 +2629,7 @@ TQRect TQCommonStyle::querySubControlMetrics( ComplexControl control,
 	}
 	break; }
 
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
     case CC_ScrollBar: {
 	int sliderstart = 0;
 	int sbextent = pixelMetric(PM_ScrollBarExtent, ceData, elementFlags, widget);
@@ -2694,9 +2699,9 @@ TQRect TQCommonStyle::querySubControlMetrics( ComplexControl control,
 	}
 
 	break; }
-#endif // QT_NO_SCROLLBAR
+#endif // TQT_NO_SCROLLBAR
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case CC_Slider: {
 	    int tickOffset = pixelMetric( PM_SliderTickmarkOffset, ceData, elementFlags, widget );
 	    int thickness = pixelMetric( PM_SliderControlThickness, ceData, elementFlags, widget );
@@ -2720,9 +2725,9 @@ TQRect TQCommonStyle::querySubControlMetrics( ComplexControl control,
 		break;
 	    }
 	    break; }
-#endif // QT_NO_SLIDER
+#endif // TQT_NO_SLIDER
 
-#if !defined(QT_NO_TOOLBUTTON) && !defined(QT_NO_POPUPMENU)
+#if !defined(TQT_NO_TOOLBUTTON) && !defined(TQT_NO_POPUPMENU)
     case CC_ToolButton: {
 	    int mbi = pixelMetric(PM_MenuButtonIndicator, ceData, elementFlags, widget);
 
@@ -2742,9 +2747,9 @@ TQRect TQCommonStyle::querySubControlMetrics( ComplexControl control,
 	    }
 	    break;
 	}
-#endif // QT_NO_TOOLBUTTON && QT_NO_POPUPMENU
+#endif // TQT_NO_TOOLBUTTON && TQT_NO_POPUPMENU
 
-#ifndef QT_NO_TITLEBAR
+#ifndef TQT_NO_TITLEBAR
     case CC_TitleBar: {
 	    const int controlTop = 2;
 	    const int controlHeight = ceData.rect.height() - controlTop * 2;
@@ -2793,7 +2798,7 @@ TQRect TQCommonStyle::querySubControlMetrics( ComplexControl control,
 	    default: break;
 	    }
 	    break; }
-#endif //QT_NO_TITLEBAR
+#endif //TQT_NO_TITLEBAR
 
     default:
 	break;
@@ -2812,7 +2817,7 @@ TQStyle::SubControl TQCommonStyle::querySubControl(ComplexControl control,
     SubControl ret = SC_None;
 
     switch (control) {
-#ifndef QT_NO_LISTVIEW
+#ifndef TQT_NO_LISTVIEW
     case CC_ListView:
 	{
 	    if(pos.x() >= 0 && pos.x() <
@@ -2821,7 +2826,7 @@ TQStyle::SubControl TQCommonStyle::querySubControl(ComplexControl control,
 	    break;
 	}
 #endif
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
     case CC_ScrollBar:
 	{
 	    TQRect r;
@@ -2842,7 +2847,7 @@ TQStyle::SubControl TQCommonStyle::querySubControl(ComplexControl control,
 #endif
     case CC_TitleBar:
 	{
-#ifndef QT_NO_TITLEBAR
+#ifndef TQT_NO_TITLEBAR
 	    TQRect r;
 	    uint ctrl = SC_TitleBarLabel;
 
@@ -2900,7 +2905,7 @@ int TQCommonStyle::pixelMetric(PixelMetric m, const TQStyleControlElementData &c
         if ( !(elementFlags & CEF_UseGenericParameters) ) {
 	    if ( ceData.wflags & WStyle_Tool ) {
 		ret = TQMAX( TQFontMetrics(ceData.font).lineSpacing(), 16 );
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 	    } else if ( ceData.widgetObjectTypes.containsYesNo(TQDockWindow_static_string) ) {
 		ret = TQMAX( TQFontMetrics(ceData.font).lineSpacing(), 13 );
 #endif
@@ -2949,7 +2954,7 @@ int TQCommonStyle::pixelMetric(PixelMetric m, const TQStyleControlElementData &c
 	ret = 196;
 	break;
 
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
     case PM_ScrollBarExtent:
 	if ( elementFlags & CEF_UseGenericParameters ) {
 	    ret = 16;
@@ -2965,7 +2970,7 @@ int TQCommonStyle::pixelMetric(PixelMetric m, const TQStyleControlElementData &c
 	ret = -1;
 	break;
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case PM_SliderThickness:
 	ret = 16;
 	break;
@@ -3002,7 +3007,7 @@ int TQCommonStyle::pixelMetric(PixelMetric m, const TQStyleControlElementData &c
 		ret = ceData.rect.height() - pixelMetric( PM_SliderLength, ceData, elementFlags, widget );
 	    break;
 	}
-#endif // QT_NO_SLIDER
+#endif // TQT_NO_SLIDER
 
     case PM_DockWindowSeparatorExtent:
 	ret = 6;
@@ -3046,7 +3051,7 @@ int TQCommonStyle::pixelMetric(PixelMetric m, const TQStyleControlElementData &c
 	ret = 2;
 	break;
 
-#ifndef QT_NO_TABBAR
+#ifndef TQT_NO_TABBAR
     case PM_TabBarTabVSpace:
 	{
 	    if ( ceData.widgetObjectTypes.containsYesNo(TQTabBar_static_string) && ( ceData.tabBarData.shape == TQTabBar::RoundedAbove ||
@@ -3117,7 +3122,7 @@ TQSize TQCommonStyle::sizeFromContents(ContentsType contents,
     TQSize sz(contentsSize);
 
     switch (contents) {
-#ifndef QT_NO_DIALOGBUTTONS
+#ifndef TQT_NO_DIALOGBUTTONS
     case CT_DialogButtons: {
 	int w = contentsSize.width(), h = contentsSize.height();
 	const int bwidth = pixelMetric(PM_DialogButtonsButtonWidth, ceData, elementFlags, widget),
@@ -3154,10 +3159,10 @@ TQSize TQCommonStyle::sizeFromContents(ContentsType contents,
 	const int fw = pixelMetric(PM_DefaultFrameWidth, ceData, elementFlags, widget) * 2;
 	sz = TQSize(w + fw, h + fw);
 	break; }
-#endif //QT_NO_DIALOGBUTTONS
+#endif //TQT_NO_DIALOGBUTTONS
     case CT_PushButton:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    int w = contentsSize.width(),
 		h = contentsSize.height(),
 	       bm = pixelMetric(PM_ButtonMargin, ceData, elementFlags, widget),
@@ -3179,7 +3184,7 @@ TQSize TQCommonStyle::sizeFromContents(ContentsType contents,
 
     case CT_CheckBox:
 	{
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 	    TQRect irect = subRect(SR_CheckBoxIndicator, ceData, elementFlags, widget);
 	    int h = pixelMetric( PM_IndicatorHeight, ceData, elementFlags, widget );
 	    int margins = (ceData.fgPixmap.isNull() && ceData.text.isEmpty()) ? 0 : 10;
@@ -3191,7 +3196,7 @@ TQSize TQCommonStyle::sizeFromContents(ContentsType contents,
 
     case CT_RadioButton:
 	{
-#ifndef QT_NO_RADIOBUTTON
+#ifndef TQT_NO_RADIOBUTTON
 	    TQRect irect = subRect(SR_RadioButtonIndicator, ceData, elementFlags, widget);
 	    int h = pixelMetric( PM_ExclusiveIndicatorHeight, ceData, elementFlags, widget );
 	    int margins = (ceData.fgPixmap.isNull() && ceData.text.isEmpty()) ? 0 : 10;
@@ -3216,7 +3221,7 @@ TQSize TQCommonStyle::sizeFromContents(ContentsType contents,
 
     case CT_PopupMenuItem:
 	{
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	    if (opt.isDefault())
 		break;
 
@@ -3285,7 +3290,7 @@ int TQCommonStyle::styleHint(StyleHint sh, const TQStyleControlElementData &ceDa
     int ret;
 
     switch (sh) {
-#ifndef QT_NO_DIALOGBUTTONS
+#ifndef TQT_NO_DIALOGBUTTONS
     case SH_DialogButtons_DefaultButton:
 	ret = TQDialogButtons::Accept;
 	break;
@@ -3373,4 +3378,4 @@ TQPixmap TQCommonStyle::stylePixmap(StylePixmap, const TQStyleControlElementData
     return TQPixmap();
 }
 
-#endif // QT_NO_STYLE
+#endif // TQT_NO_STYLE

@@ -62,11 +62,11 @@
 #include "ntqtextstream.h"
 #endif // QT_H
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
 
 class TQPSPrinterPrivate;
 
-class Q_EXPORT TQPSPrinter : public TQPaintDevice
+class TQ_EXPORT TQPSPrinter : public TQPaintDevice
 {
 private:
     // TQPrinter uses these
@@ -87,6 +87,6 @@ private:
     TQPSPrinter &operator=( const TQPSPrinter & );
 };
 
-#endif // QT_NO_PRINTER
+#endif // TQT_NO_PRINTER
 
 #endif // TQPSPRINTER_P_H

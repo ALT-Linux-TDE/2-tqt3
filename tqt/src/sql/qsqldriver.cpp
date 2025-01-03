@@ -40,7 +40,7 @@
 
 #include "ntqsqldriver.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 #include "ntqdatetime.h"
 #include "qsqlextension_p.h"
@@ -506,4 +506,4 @@ bool TQSqlDriver::open( const TQString& db,
     return open( db, user, password, host, port );
 }
 
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

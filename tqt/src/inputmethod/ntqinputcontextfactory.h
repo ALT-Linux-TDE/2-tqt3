@@ -40,12 +40,12 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 
 class TQInputContext;
 class TQWidget;
 
-class Q_EXPORT TQInputContextFactory
+class TQ_EXPORT TQInputContextFactory
 {
 public:
     static TQStringList keys();
@@ -54,6 +54,6 @@ public:
     static TQString displayName( const TQString &key );
     static TQString description( const TQString &key );
 };
-#endif //QT_NO_IM
+#endif //TQT_NO_IM
 
 #endif //TQINPUTCONTEXTFACTORY_H

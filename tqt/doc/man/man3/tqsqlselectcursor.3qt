@@ -16,7 +16,7 @@ Inherits QSqlCursor.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlSelectCursor\fR ( const QString & query = QString::null, QSqlDatabase * db = 0 )"
+.BI "\fBQSqlSelectCursor\fR ( const TQString & query = TQString::null, QSqlDatabase * db = 0 )"
 .br
 .ti -1c
 .BI "\fBQSqlSelectCursor\fR ( const QSqlSelectCursor & other )"
@@ -28,7 +28,7 @@ Inherits QSqlCursor.
 .SH DESCRIPTION
 The QSqlSelectCursor class provides browsing of general SQL SELECT statements.
 .PP
-QSqlSelectCursor is a convenience class that makes it possible to display result sets from general SQL \fCSELECT\fR statements in data-aware Qt widgets. QSqlSelectCursor is read-only and does not support \fCINSERT\fR, \fCUPDATE\fR or \fCDELETE\fR operations.
+QSqlSelectCursor is a convenience class that makes it possible to display result sets from general SQL \fCSELECT\fR statements in data-aware TQt widgets. QSqlSelectCursor is read-only and does not support \fCINSERT\fR, \fCUPDATE\fR or \fCDELETE\fR operations.
 .PP
 Pass the query in at construction time, or use the QSqlSelectCursor::exec() function.
 .PP
@@ -58,7 +58,7 @@ Example:
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlSelectCursor::QSqlSelectCursor ( const QString & query = QString::null, QSqlDatabase * db = 0 )"
+.SH "QSqlSelectCursor::QSqlSelectCursor ( const TQString & query = TQString::null, QSqlDatabase * db = 0 )"
 Constructs a read only cursor on database \fIdb\fR using the query \fIquery\fR.
 .SH "QSqlSelectCursor::QSqlSelectCursor ( const QSqlSelectCursor & other )"
 Constructs a copy of \fIother\fR
@@ -79,8 +79,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

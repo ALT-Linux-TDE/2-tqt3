@@ -1,4 +1,4 @@
-# Qt xml module
+# TQt xml module
 
 xml {
 	HEADERS += $$XML_H/ntqxml.h $$XML_H/ntqdom.h $$XML_CPP/qsvgdevice_p.h

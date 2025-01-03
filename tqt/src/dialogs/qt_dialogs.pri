@@ -1,4 +1,4 @@
-# Qt dialogs module
+# TQt dialogs module
 
 dialogs {
 	DIALOGS_P	= dialogs

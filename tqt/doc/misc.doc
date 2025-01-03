@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -41,8 +41,8 @@
 \title Brief Technical FAQ
 
 
-This document describes how to use more than one Qt version on one
-machine and how to use Qt on X11 without a window manager. In addition
+This document describes how to use more than one TQt version on one
+machine and how to use TQt on X11 without a window manager. In addition
 it explains the most common source of link errors with Qt.
 
 Other frequently asked questions can be found in the
@@ -52,14 +52,14 @@ in the \link http://www.trolltech.com/developer/faqs/technical.html Technical FA
 \list
 \i \link #linkerror Link error, complaining about a lack of
 <tt>vtbl</tt>, <tt>_vtbl</tt>, <tt>__vtbl</tt> or similar\endlink
-\i \link #diffver Using different versions of Qt on the same
+\i \link #diffver Using different versions of TQt on the same
 machine\endlink
     \list
-    \i \link #qtbin Developers building for a single version of Qt on Unix - Qt binary packages\endlink
-    \i \link #qtsrc Developers building for two versions of Qt on Unix - Qt sources\endlink
+    \i \link #qtbin Developers building for a single version of TQt on Unix - TQt binary packages\endlink
+    \i \link #qtsrc Developers building for two versions of TQt on Unix - TQt sources\endlink
     \endlist
-\i \link #nowinman Using Qt on X11 without a window manager\endlink
-\i \link distributingntqt.html Distributing Qt Applications\endlink
+\i \link #nowinman Using TQt on X11 without a window manager\endlink
+\i \link distributingntqt.html Distributing TQt Applications\endlink
 \endlist
 
 \target linkerror
@@ -71,58 +71,58 @@ moc-generated object code into your executable. See \link moc.html
 Using the Meta Object Compiler\endlink for details on how to use moc.
 
 \target diffver
-\section1 Using different versions of Qt on the same machine
+\section1 Using different versions of TQt on the same machine
 
-Qt programs need the following components of a Qt distribution:
+Qt programs need the following components of a TQt distribution:
 
 <dl>
 
 <dt>Header files - Compile time
 
-<dd>Programmers need to include the Qt header files.  The Qt header files
-are usually located in the \c include subdirectory of Qt distributions.
+<dd>Programmers need to include the TQt header files.  The TQt header files
+are usually located in the \c include subdirectory of TQt distributions.
 Care must be taken to include the header files of the relevant release of
 Qt. Those with a command-line compiler will typically use options such as
-\c{/I%QTDIR%\include} or \c{-I"$QTDIR"/include} provided \c QTDIR specifies
+\c{/I%TQTDIR%\include} or \c{-I"$TQTDIR"/include} provided \c TQTDIR specifies
 the relevant release of Qt.
 
 <dt>Meta Object Compiler and other tools - Compile time
 
 <dd>Programmers need to run \e moc and other tools such as \e uic. These
-tools are usually located in the \c bin subdirectory of Qt distributions.
-Either run \c "$QTDIR"/bin/moc and \c "$QTDIR"/bin/uic or add \c "$QTDIR"/bin
+tools are usually located in the \c bin subdirectory of TQt distributions.
+Either run \c "$TQTDIR"/bin/moc and \c "$TQTDIR"/bin/uic or add \c "$TQTDIR"/bin
 to your \c PATH and run \c moc and \c uic. If you use \c qmake the
 appropriate lines will be added to your Makefiles so that \e uic and
 \e moc will be executed as required.
 
 <dt>Static or shared libraries - Link time
 
-<dd>Programmers need to link with the Qt static or shared libraries. The Qt
-libraries are usually located in the \c lib subdirectory of Qt distributions.
+<dd>Programmers need to link with the TQt static or shared libraries. The Qt
+libraries are usually located in the \c lib subdirectory of TQt distributions.
 Care must be taken to link with the libraries of the relevant release of
 Qt.  Those with a command-line compiler will typically use options such as
-\c{/L%QTDIR%\lib\qt.lib} or \c{-L"$QTDIR"/lib} \c -lqt provided \c QTDIR
+\c{/L%TQTDIR%\lib\qt.lib} or \c{-L"$TQTDIR"/lib} \c -lqt provided \c TQTDIR
 specifies the relevant release of Qt.
 
 <dt>Shared libraries - Run time
 
-<dd>Users of programs linked with shared Qt libraries need these same
-shared libraries to run these programs.  The Qt libraries are usually
-located in the \c lib subdirectory of Qt distributions.  Shared libraries
+<dd>Users of programs linked with shared TQt libraries need these same
+shared libraries to run these programs.  The TQt libraries are usually
+located in the \c lib subdirectory of TQt distributions.  Shared libraries
 are made available to programs in places such as \c{C:\windows\system} on
 Windows platforms, directories listed in file \c /etc/ld.so.conf on Linux,
 standard \c lib directories on Unix, or directories listed in environment
 variables \c LD_LIBRARY_PATH, \c SHLIB_PATH, or \c LIBPATH on various Unix
-flavours.  Make the relevant Qt libraries available using one of these
+flavours.  Make the relevant TQt libraries available using one of these
 mechanisms.
 
 </dl>
 
 Qt distributions consist of different files needed at compile time,
-link time, or run time. Trolltech distributes Qt in the form of a
+link time, or run time. Trolltech distributes TQt in the form of a
 source package that contain all these files once they have been built.
 
-Other vendors distribute Qt in the form of binary packages. Binary packages
+Other vendors distribute TQt in the form of binary packages. Binary packages
 usually consist of two parts:
 
 \list
@@ -134,67 +134,67 @@ kit, usually called \c qt3-dev.
 \endlist
 
 Depending on how you are using Qt, you need to make specific parts of
-the Qt distribution available to your programs.  Typical situations are
+the TQt distribution available to your programs.  Typical situations are
 described below.
 
 \target qtbin
-\section2 Developers building for a single version of Qt on Unix - Qt binary packages
+\section2 Developers building for a single version of TQt on Unix - TQt binary packages
 
 You build programs with a single version of Qt, but you still need
 to run programs linked with another version of Qt.  You are typically
-a Linux developer who builds programs for Qt 3.x on a KDE desktop based
-on Qt 2.x.  Qt packages are usually split into a shared library
+a Linux developer who builds programs for TQt 3.x on a KDE desktop based
+on TQt 2.x.  TQt packages are usually split into a shared library
 package with a name like \c qt and a developer package with a name
 like \c qt-dev.  You will need the appropriate packages:
 
 \list
 
 \i To build programs you will need the header files, the libraries,
-the moc and other tools from Qt 3.x. They are included in the developer
-package of Qt 3.x (\c qt3-dev or similar).
+the moc and other tools from TQt 3.x. They are included in the developer
+package of TQt 3.x (\c qt3-dev or similar).
 
-\i To run programs you will need the shared libraries of Qt 3.x and
-Qt 2.x.  They are included in the regular packages of Qt 3.x (\c qt3
-or similar) and Qt 2.x (\c qt2 or similar).
+\i To run programs you will need the shared libraries of TQt 3.x and
+Qt 2.x.  They are included in the regular packages of TQt 3.x (\c qt3
+or similar) and TQt 2.x (\c qt2 or similar).
 
 \endlist
 
 Just install the packages, \c qt2, \c qt3, and \c qt3-dev. You may
-need to set the environment variable \c QTDIR to point to Qt 3.x.
+need to set the environment variable \c TQTDIR to point to TQt 3.x.
 
 \target qtsrc
-\section2 Developers building for two versions of Qt on Unix - Qt sources
+\section2 Developers building for two versions of TQt on Unix - TQt sources
 
-You build and run programs for Qt 2.x and Qt 3.x. You will need:
+You build and run programs for TQt 2.x and TQt 3.x. You will need:
 
 \list
 
-\i the header files, the libraries, the moc and other tools from Qt 3.x
-and Qt 2.x to build programs,
+\i the header files, the libraries, the moc and other tools from TQt 3.x
+and TQt 2.x to build programs,
 
-\i the shared libraries of Qt 3.x and Qt 2.x to run programs.
+\i the shared libraries of TQt 3.x and TQt 2.x to run programs.
 
 \endlist
 
-Get the source distributions of both Qt 2.x and Qt 3.x.
+Get the source distributions of both TQt 2.x and TQt 3.x.
 
 \list 1
 
-\i Install and build Qt 2.x and Qt 3.x, usually in \c /opt or
+\i Install and build TQt 2.x and TQt 3.x, usually in \c /opt or
 \c /usr/local. In the case of \c /opt:
 
 \code
 $ cd /opt
 $ gunzip -c \c qt-x11-2.3.1.tar.gz | tar xf -
 $ cd qt-2.3.1
-$ setenv QTDIR /opt/qt-2.3.1
+$ setenv TQTDIR /opt/qt-2.3.1
 $ configure [options]
 $ make
 
 $ cd /opt
 $ gunzip -c qt-x11-free-3.0.0.tar.gz | tar xf -
 $ cd qt-3.0.0
-$ setenv QTDIR /opt/qt-3.0.0
+$ setenv TQTDIR /opt/qt-3.0.0
 $ configure [options]
 $ make
 \endcode
@@ -207,40 +207,40 @@ you're using, or make links to the libraries in a standard directory like
 
 \code
 cd /usr/local/lib
-ln -s /opt/qt-2.3.1/lib/libqt.so.2 .
+ln -s /opt/qt-2.3.1/lib/libtqt.so.2 .
 ln -s /opt/qt-2.3.1/lib/libtqt-mt.so.2 .
 ln -s /opt/qt-2.3.1/lib/libqutil.so.1 .
-ln -s /opt/qt-3.0.0/lib/libqt.so.3 .
+ln -s /opt/qt-3.0.0/lib/libtqt.so.3 .
 ln -s /opt/qt-3.0.0/lib/libtqui.so.1 .
 \endcode
 
 \endlist
 
-To develop with Qt 2.x use:
+To develop with TQt 2.x use:
 
 \code
-setenv QTDIR /opt/qt-2.3.1
-setenv PATH ${QTDIR}/bin:${PATH}
+setenv TQTDIR /opt/qt-2.3.1
+setenv PATH ${TQTDIR}/bin:${PATH}
 \endcode
 
-To develop with Qt 3.x use:
+To develop with TQt 3.x use:
 
 \code
-setenv QTDIR /opt/qt-3.0.0
-setenv PATH ${QTDIR}/bin:${PATH}
+setenv TQTDIR /opt/qt-3.0.0
+setenv PATH ${TQTDIR}/bin:${PATH}
 \endcode
 
-Setting \c QTDIR ensures that the proper resources are used, such as the
-documentation appropriate to the version of Qt you're using.  Also
-your Makfiles may refer to \c "$QTDIR"/include and \c "$QTDIR"/lib to
+Setting \c TQTDIR ensures that the proper resources are used, such as the
+documentation appropriate to the version of TQt you're using.  Also
+your Makfiles may refer to \c "$TQTDIR"/include and \c "$TQTDIR"/lib to
 include the proper header files and link with the proper libraries.
 Setting the \c PATH ensures that the proper version of moc and other
 tools is being used.
 
 \target nowinman
-\section1 Using Qt on X11 without a window manager
+\section1 Using TQt on X11 without a window manager
 
-When using Qt without a window manager on Unix/X11, you will most
+When using TQt without a window manager on Unix/X11, you will most
 likely experience focus problems. Without a window manager, there is
 no focus handling on X11, and no concept of an active window
 either. If you want your application to work in such an environment,
@@ -276,7 +276,7 @@ Always include the following information in your bug report:
 \list 1
 \i The name and version number of your compiler
 \i The name and version number of your operating system
-\i The version of Qt you are using, and what configure options it was
+\i The version of TQt you are using, and what configure options it was
 compiled with.
 \endlist
 
@@ -294,11 +294,11 @@ Please send the bug report to
 
 /*! \page license.html
 
-\title Qt Open Source Edition License Agreement
+\title TQt Open Source Edition License Agreement
 
-The Qt Open Source Edition is distributed under the Q Public License (QPL).
-It allows free use of Qt Open Source Edition for running software developed by
-others, and free use of Qt Open Source Edition for development of free and open source
+The TQt Open Source Edition is distributed under the Q Public License (QPL).
+It allows free use of TQt Open Source Edition for running software developed by
+others, and free use of TQt Open Source Edition for development of free and open source
 software. There is \link http://www.trolltech.com/qpl/ more information
 about the QPL\endlink at the Trolltech web site.
 
@@ -306,7 +306,7 @@ Note that the Qt/Embedded Open Source Edition is <b>not</b> distributed
 under the QPL, but under the \link gpl.html GNU General Public
 License (GPL)\endlink.
 
-For development non-free/proprietary software, the Qt Professional
+For development non-free/proprietary software, the TQt Professional
 Edition is available. It has a normal commercial library license, with
 none of the special restrictions of the QPL or the GPL.
 
@@ -444,14 +444,14 @@ by Oslo City Court.
 /*! \page gpl.html
 \title GNU General Public License
 
- The Qt GUI Toolkit is Copyright (C) 1994-2008 Trolltech ASA.
+ The TQt GUI Toolkit is Copyright (C) 1994-2008 Trolltech ASA.
 
- The Qt Open Source Edition and the Qt/Embedded Open Source Edition are available
- under the GPL. The Qt Open Source Edition (for Unix/X11) is also available
+ The TQt Open Source Edition and the Qt/Embedded Open Source Edition are available
+ under the GPL. The TQt Open Source Edition (for Unix/X11) is also available
  under the \link license.html QPL\endlink.
 
 \code
- You may use, distribute and copy the Qt GUI Toolkit under the terms of
+ You may use, distribute and copy the TQt GUI Toolkit under the terms of
  GNU General Public License version 2, which is displayed below.
 
 		    GNU GENERAL PUBLIC LICENSE
@@ -809,7 +809,7 @@ in Brisbane, Australia, and Redwood City, California.
 
 Our flagship product is \link
 http://www.trolltech.com/products/ntqt.html Qt\endlink, the
-multi-platform C++ GUI toolkit. Qt enables you to build professional,
+multi-platform C++ GUI toolkit. TQt enables you to build professional,
 efficient, portable and maintainable GUI applications quickly and
 easily.
 
@@ -838,11 +838,11 @@ most qualified developers and designers themselves.
 \section1 History
 
 Trolltech was founded in 1994. The core team of designers at Trolltech
-started developing Qt in 1992, and the first commercial version of Qt was
+started developing TQt in 1992, and the first commercial version of TQt was
 released in 1995. Since then, Trolltech has experienced rapid growth, and
 Qt is currently used in thousands of successful commercial software
 development projects world wide. At Trolltech, we continously work to
-improve and expand Qt to ensure that it always represents the state of the
+improve and expand TQt to ensure that it always represents the state of the
 art in usability, look and feel, performance, and stability.
 
 For more information, please visit the \link http://www.trolltech.com
@@ -935,8 +935,8 @@ This is not a comprehensive list of books, there are many other
 books worth buying. Here we mention just a few GUI/UI books that don't
 gather dust in our shelves.
 
-<b>C++ GUI Programming with Qt 3</b> by Jasmin Blanchette and Mark
-Summerfield, ISBN 0-13-124072-2. This is the Official Qt book written
+<b>C++ GUI Programming with TQt 3</b> by Jasmin Blanchette and Mark
+Summerfield, ISBN 0-13-124072-2. This is the Official TQt book written
 by two veteran Trolls.
 \link http://www.amazon.com/exec/obidos/ASIN/0131240722/trolltech/
 (Read more about it or buy it.)\endlink
@@ -1015,14 +1015,14 @@ links, Amazon.com gives about 15% of the purchase price to
 \title Licenses for Code Used in Qt
 
 Qt contains a little code that is not under the \link license.html
-QPL\endlink, the \link gpl.html GPL\endlink, or the Qt Commercial
+QPL\endlink, the \link gpl.html GPL\endlink, or the TQt Commercial
 License Agreement, but rather under specific highly permissive
 licenses from the original authors. This page lists the licenses used
 for that code, names the authors, and links to the points where it is
 used.
 
 Trolltech gratefully acknowledges these and others contribution to
-Qt.  We recommend that all programs that use Qt also acknowledge these
+Qt.  We recommend that all programs that use TQt also acknowledge these
 contributions, and quote all these license statements in an appendix
 to the documentation.
 
@@ -1036,7 +1036,7 @@ to the documentation.
 
 \section1 Overview
 
-QWidget provides several functions that deal with a widget's
+TQWidget provides several functions that deal with a widget's
 geometry.  Some of these functions operate on the pure client area
 (i.e. the window excluding the window frame), others include the
 window frame. The differentiation is done in a way that covers the
@@ -1077,13 +1077,13 @@ Conventions Manual (ICCCM), window placement is handled quite
 differently in existing window managers.
 
 X11 provides no standard or easy way to get the frame geometry once
-the window is decorated. Qt solves this problem with nifty heuristics
+the window is decorated. TQt solves this problem with nifty heuristics
 and clever code that works on a wide range of window managers that
 exist today. Don't be surprised if you find one where frameGeometry()
 returns bogus results though.
 
 Nor does X11 provide a way to maximize a window. The showMaximized()
-function in Qt therefore has to emulate the feature. Its result
+function in TQt therefore has to emulate the feature. Its result
 depends on the result of frameGeometry() and the capability of the
 window manager to do proper window placement, neither of which can be
 guaranteed.

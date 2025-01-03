@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqslider.h"
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 #include "ntqpainter.h"
 #include "ntqdrawutil.h"
 #include "ntqtimer.h"
@@ -461,7 +461,7 @@ void TQSlider::mousePressEvent( TQMouseEvent *e )
 	}
 	if ( !timer )
 	    timer = new TQTimer( this );
-	connect( timer, SIGNAL(timeout()), SLOT(repeatTimeout()) );
+	connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(repeatTimeout()) );
 	timer->start( thresholdTime, TRUE );
     } else if ( ( orient == Horizontal && e->pos().x() > r.right() ) //### goodPart
 		|| ( orient == Vertical && e->pos().y() > r.bottom() ) ) {
@@ -474,7 +474,7 @@ void TQSlider::mousePressEvent( TQMouseEvent *e )
 	}
 	if ( !timer )
 	    timer = new TQTimer( this );
-	connect( timer, SIGNAL(timeout()), SLOT(repeatTimeout()) );
+	connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(repeatTimeout()) );
 	timer->start( thresholdTime, TRUE );
     }
     update( sliderRect() );
@@ -511,7 +511,7 @@ void TQSlider::mouseMoveEvent( TQMouseEvent *e )
 /*!
     \reimp
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQSlider::wheelEvent( TQWheelEvent * e )
 {
     if ( e->orientation() != orientation() && !rect().contains(e->pos()) )
@@ -713,9 +713,9 @@ void TQSlider::repeatTimeout()
     Q_ASSERT( timer );
     timer->disconnect();
     if ( state == TimingDown )
-	connect( timer, SIGNAL(timeout()), SLOT(subtractStep()) );
+	connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(subtractStep()) );
     else if ( state == TimingUp )
-	connect( timer, SIGNAL(timeout()), SLOT(addStep()) );
+	connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(addStep()) );
     timer->start( repeatTime, FALSE );
 }
 

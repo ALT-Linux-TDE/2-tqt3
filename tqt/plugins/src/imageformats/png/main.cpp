@@ -1,12 +1,9 @@
-#ifndef QT_CLEAN_NAMESPACE
-#define QT_CLEAN_NAMESPACE
-#endif
 #include <ntqimageformatplugin.h>
 
-#ifndef QT_NO_IMAGEFORMATPLUGIN
+#ifndef TQT_NO_IMAGEFORMATPLUGIN
 
-#ifdef QT_NO_IMAGEIO_PNG
-#undef QT_NO_IMAGEIO_PNG
+#ifdef TQT_NO_IMAGEIO_PNG
+#undef TQT_NO_IMAGEIO_PNG
 #endif
 #include "../../../../src/kernel/qpngio.cpp"
 
@@ -71,6 +68,6 @@ bool PNGFormat::installIOHandler( const TQString &name )
     return TRUE;
 }
 
-Q_EXPORT_PLUGIN( PNGFormat )
+TQ_EXPORT_PLUGIN( PNGFormat )
 
-#endif // QT_NO_IMAGEFORMATPLUGIN
+#endif // TQT_NO_IMAGEFORMATPLUGIN

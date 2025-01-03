@@ -22,7 +22,7 @@ Hello::Hello( const char *text, TQWidget *parent, const char *name )
     : TQWidget(parent,name), t(text), b(0)
 {
     TQTimer *timer = new TQTimer(this);
-    connect( timer, SIGNAL(timeout()), SLOT(animate()) );
+    connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(animate()) );
     timer->start( 40 );
 
     resize( 260, 130 );

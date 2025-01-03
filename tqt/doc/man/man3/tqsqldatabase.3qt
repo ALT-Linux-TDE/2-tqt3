@@ -11,7 +11,7 @@ QSqlDatabase \- Used to create SQL database connections and to provide transacti
 .SH SYNOPSIS
 \fC#include <ntqsqldatabase.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
@@ -22,7 +22,7 @@ Inherits QObject.
 .BI "bool \fBopen\fR ()"
 .br
 .ti -1c
-.BI "bool \fBopen\fR ( const QString & user, const QString & password )"
+.BI "bool \fBopen\fR ( const TQString & user, const TQString & password )"
 .br
 .ti -1c
 .BI "void \fBclose\fR ()"
@@ -40,22 +40,22 @@ Inherits QObject.
 .BI "QStringList \fBtables\fR ( QSql::TableType type ) const"
 .br
 .ti -1c
-.BI "QSqlIndex \fBprimaryIndex\fR ( const QString & tablename ) const"
+.BI "QSqlIndex \fBprimaryIndex\fR ( const TQString & tablename ) const"
 .br
 .ti -1c
-.BI "QSqlRecord \fBrecord\fR ( const QString & tablename ) const"
+.BI "QSqlRecord \fBrecord\fR ( const TQString & tablename ) const"
 .br
 .ti -1c
 .BI "QSqlRecord \fBrecord\fR ( const QSqlQuery & query ) const"
 .br
 .ti -1c
-.BI "QSqlRecordInfo \fBrecordInfo\fR ( const QString & tablename ) const"
+.BI "QSqlRecordInfo \fBrecordInfo\fR ( const TQString & tablename ) const"
 .br
 .ti -1c
 .BI "QSqlRecordInfo \fBrecordInfo\fR ( const QSqlQuery & query ) const"
 .br
 .ti -1c
-.BI "QSqlQuery \fBexec\fR ( const QString & query = QString::null ) const"
+.BI "QSqlQuery \fBexec\fR ( const TQString & query = TQString::null ) const"
 .br
 .ti -1c
 .BI "QSqlError \fBlastError\fR () const"
@@ -70,43 +70,43 @@ Inherits QObject.
 .BI "bool \fBrollback\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetDatabaseName\fR ( const QString & name )"
+.BI "virtual void \fBsetDatabaseName\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "virtual void \fBsetUserName\fR ( const QString & name )"
+.BI "virtual void \fBsetUserName\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "virtual void \fBsetPassword\fR ( const QString & password )"
+.BI "virtual void \fBsetPassword\fR ( const TQString & password )"
 .br
 .ti -1c
-.BI "virtual void \fBsetHostName\fR ( const QString & host )"
+.BI "virtual void \fBsetHostName\fR ( const TQString & host )"
 .br
 .ti -1c
 .BI "virtual void \fBsetPort\fR ( int p )"
 .br
 .ti -1c
-.BI "void \fBsetConnectOptions\fR ( const QString & options = QString::null )"
+.BI "void \fBsetConnectOptions\fR ( const TQString & options = TQString::null )"
 .br
 .ti -1c
-.BI "QString \fBdatabaseName\fR () const"
+.BI "TQString \fBdatabaseName\fR () const"
 .br
 .ti -1c
-.BI "QString \fBuserName\fR () const"
+.BI "TQString \fBuserName\fR () const"
 .br
 .ti -1c
-.BI "QString \fBpassword\fR () const"
+.BI "TQString \fBpassword\fR () const"
 .br
 .ti -1c
-.BI "QString \fBhostName\fR () const"
+.BI "TQString \fBhostName\fR () const"
 .br
 .ti -1c
-.BI "QString \fBdriverName\fR () const"
+.BI "TQString \fBdriverName\fR () const"
 .br
 .ti -1c
 .BI "int \fBport\fR () const"
 .br
 .ti -1c
-.BI "QString \fBconnectOptions\fR () const"
+.BI "TQString \fBconnectOptions\fR () const"
 .br
 .ti -1c
 .BI "QSqlDriver * \fBdriver\fR () const"
@@ -115,61 +115,61 @@ Inherits QObject.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QSqlDatabase * \fBaddDatabase\fR ( const QString & type, const QString & connectionName = defaultConnection )"
+.BI "QSqlDatabase * \fBaddDatabase\fR ( const TQString & type, const TQString & connectionName = defaultConnection )"
 .br
 .ti -1c
-.BI "QSqlDatabase * \fBaddDatabase\fR ( QSqlDriver * driver, const QString & connectionName = defaultConnection )"
+.BI "QSqlDatabase * \fBaddDatabase\fR ( QSqlDriver * driver, const TQString & connectionName = defaultConnection )"
 .br
 .ti -1c
-.BI "QSqlDatabase * \fBdatabase\fR ( const QString & connectionName = defaultConnection, bool open = TRUE )"
+.BI "QSqlDatabase * \fBdatabase\fR ( const TQString & connectionName = defaultConnection, bool open = TRUE )"
 .br
 .ti -1c
-.BI "void \fBremoveDatabase\fR ( const QString & connectionName )"
+.BI "void \fBremoveDatabase\fR ( const TQString & connectionName )"
 .br
 .ti -1c
 .BI "void \fBremoveDatabase\fR ( QSqlDatabase * db )"
 .br
 .ti -1c
-.BI "bool \fBcontains\fR ( const QString & connectionName = defaultConnection )"
+.BI "bool \fBcontains\fR ( const TQString & connectionName = defaultConnection )"
 .br
 .ti -1c
 .BI "QStringList \fBdrivers\fR ()"
 .br
 .ti -1c
-.BI "void \fBregisterSqlDriver\fR ( const QString & name, const QSqlDriverCreatorBase * creator )"
+.BI "void \fBregisterSqlDriver\fR ( const TQString & name, const QSqlDriverCreatorBase * creator )"
 .br
 .ti -1c
-.BI "bool \fBisDriverAvailable\fR ( const QString & name )"
+.BI "bool \fBisDriverAvailable\fR ( const TQString & name )"
 .br
 .in -1c
 .SS "Properties"
 .in +1c
 .ti -1c
-.BI "QString \fBconnectOptions\fR - the database connect options"
+.BI "TQString \fBconnectOptions\fR - the database connect options"
 .br
 .ti -1c
-.BI "QString \fBdatabaseName\fR - the name of the database"
+.BI "TQString \fBdatabaseName\fR - the name of the database"
 .br
 .ti -1c
-.BI "QString \fBhostName\fR - the host name where the database resides"
+.BI "TQString \fBhostName\fR - the host name where the database resides"
 .br
 .ti -1c
-.BI "QString \fBpassword\fR - the password used to connect to the database"
+.BI "TQString \fBpassword\fR - the password used to connect to the database"
 .br
 .ti -1c
 .BI "int \fBport\fR - the port used to connect to the database"
 .br
 .ti -1c
-.BI "QString \fBuserName\fR - the user name connected to the database"
+.BI "TQString \fBuserName\fR - the user name connected to the database"
 .br
 .in -1c
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlDatabase\fR ( const QString & type, const QString & name, QObject * parent = 0, const char * objname = 0 )"
+.BI "\fBQSqlDatabase\fR ( const TQString & type, const TQString & name, TQObject * parent = 0, const char * objname = 0 )"
 .br
 .ti -1c
-.BI "\fBQSqlDatabase\fR ( QSqlDriver * driver, QObject * parent = 0, const char * objname = 0 )"
+.BI "\fBQSqlDatabase\fR ( QSqlDriver * driver, TQObject * parent = 0, const char * objname = 0 )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -181,7 +181,7 @@ The QSqlDatabase class provides an abstract interface for accessing many types o
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlDatabase::QSqlDatabase ( const QString & type, const QString & name, QObject * parent = 0, const char * objname = 0 )\fC [protected]\fR"
+.SH "QSqlDatabase::QSqlDatabase ( const TQString & type, const TQString & name, TQObject * parent = 0, const char * objname = 0 )\fC [protected]\fR"
 Creates a QSqlDatabase connection called \fIname\fR that uses the driver referred to by \fItype\fR, with the parent \fIparent\fR and the object name \fIobjname\fR. If the \fItype\fR is not recognized, the database connection will have no functionality.
 .PP
 The currently available drivers are:
@@ -196,7 +196,7 @@ l - l. Driver Type Description QODBC3 ODBC Driver (includes Microsoft SQL Server
 Additional third party drivers, including your own custom drivers, can be loaded dynamically.
 .PP
 See also registerSqlDriver().
-.SH "QSqlDatabase::QSqlDatabase ( QSqlDriver * driver, QObject * parent = 0, const char * objname = 0 )\fC [protected]\fR"
+.SH "QSqlDatabase::QSqlDatabase ( QSqlDriver * driver, TQObject * parent = 0, const char * objname = 0 )\fC [protected]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Creates a database connection using the driver \fIdriver\fR, with the parent \fIparent\fR and the object name \fIobjname\fR.
@@ -204,7 +204,7 @@ Creates a database connection using the driver \fIdriver\fR, with the parent \fI
 \fBWarning:\fR The framework takes ownership of the \fIdriver\fR pointer, so it should not be deleted.
 .SH "QSqlDatabase::~QSqlDatabase ()"
 Destroys the object and frees any allocated resources.
-.SH "QSqlDatabase * QSqlDatabase::addDatabase ( const QString & type, const QString & connectionName = defaultConnection )\fC [static]\fR"
+.SH "QSqlDatabase * QSqlDatabase::addDatabase ( const TQString & type, const TQString & connectionName = defaultConnection )\fC [static]\fR"
 Adds a database to the list of database connections using the driver \fItype\fR and the connection name \fIconnectionName\fR.
 .PP
 The database connection is referred to by \fIconnectionName\fR. The newly added database connection is returned. This pointer is owned by QSqlDatabase and will be deleted on program exit or when removeDatabase() is called.
@@ -217,7 +217,7 @@ See also database() and removeDatabase().
 .PP
 Examples:
 .)l sql/overview/connect1/main.cpp, sql/overview/connection.cpp, and sql/sqltable/main.cpp.
-.SH "QSqlDatabase * QSqlDatabase::addDatabase ( QSqlDriver * driver, const QString & connectionName = defaultConnection )\fC [static]\fR"
+.SH "QSqlDatabase * QSqlDatabase::addDatabase ( QSqlDriver * driver, const TQString & connectionName = defaultConnection )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This function is useful if you need to set up the database connection and instantiate the driver yourself. If you do this, it is recommended that you include the driver code in your own application. For example, setting up a custom PostgreSQL connection and instantiating the QPSQL7 driver can be done the following way:
@@ -227,7 +227,7 @@ This function is useful if you need to set up the database connection and instan
     #include "qtdir/src/sql/drivers/psql/qsql_psql.cpp"
 .br
 .fi
-(We assume that \fCqtdir\fR is the directory where Qt is installed.) This will pull in the code that is needed to use the PostgreSQL client library and to instantiate a QPSQLDriver object, assuming that you have the PostgreSQL headers somewhere in your include search path.
+(We assume that \fCqtdir\fR is the directory where TQt is installed.) This will pull in the code that is needed to use the PostgreSQL client library and to instantiate a QPSQLDriver object, assuming that you have the PostgreSQL headers somewhere in your include search path.
 .PP
 .nf
 .br
@@ -245,7 +245,7 @@ This function is useful if you need to set up the database connection and instan
 .br
 .fi
 .PP
-The above code sets up a PostgreSQL connection and instantiates a QPSQLDriver object. Next, addDatabase() is called to add the connection to the known connections so that it can be used by the Qt SQL classes. When a driver is instantiated with a connection handle (or set of handles), Qt assumes that you have already opened the database connection.
+The above code sets up a PostgreSQL connection and instantiates a QPSQLDriver object. Next, addDatabase() is called to add the connection to the known connections so that it can be used by the TQt SQL classes. When a driver is instantiated with a connection handle (or set of handles), TQt assumes that you have already opened the database connection.
 .PP
 Remember that you must link your application against the database client library as well. The simplest way to do this is to add lines like those below to your \fC.pro\fR file:
 .PP
@@ -263,7 +263,7 @@ The method described above will work for all the drivers, the only difference is
 .PP
 <center>.nf
 .TS
-l - l. Driver Class name Constructor arguments File to include QPSQL7 QPSQLDriver PGconn* connection QMYSQL3 QMYSQLDriver MYSQL* connection QOCI8 QOCIDriver OCIEnv* environment, OCIError* error, OCISvcCtx* serviceContext QODBC3 QODBCDriver SQLHANDLE environment, SQLHANDLE connection QDB2 QDB2 SQLHANDLE environment, SQLHANDLE connection QTDS7 QTDSDriver LOGINREC* loginRecord, DBPROCESS* dbProcess, const QString& hostName QSQLITE QSQLiteDriver sqlite* connection QIBASE QIBaseDriver isc_db_handle connection 
+l - l. Driver Class name Constructor arguments File to include QPSQL7 QPSQLDriver PGconn* connection QMYSQL3 QMYSQLDriver MYSQL* connection QOCI8 QOCIDriver OCIEnv* environment, OCIError* error, OCISvcCtx* serviceContext QODBC3 QODBCDriver SQLHANDLE environment, SQLHANDLE connection QDB2 QDB2 SQLHANDLE environment, SQLHANDLE connection QTDS7 QTDSDriver LOGINREC* loginRecord, DBPROCESS* dbProcess, const TQString& hostName QSQLITE QSQLiteDriver sqlite* connection QIBASE QIBaseDriver isc_db_handle connection 
 .TE
 .fi
 </center>
@@ -281,22 +281,22 @@ See also removeDatabase().
 Commits a transaction to the database if the driver supports transactions. Returns TRUE if the operation succeeded; otherwise returns FALSE.
 .PP
 See also QSqlDriver::hasFeature() and rollback().
-.SH "QString QSqlDatabase::connectOptions () const"
+.SH "TQString QSqlDatabase::connectOptions () const"
 Returns the database connect options. See the "connectOptions" property for details.
-.SH "bool QSqlDatabase::contains ( const QString & connectionName = defaultConnection )\fC [static]\fR"
+.SH "bool QSqlDatabase::contains ( const TQString & connectionName = defaultConnection )\fC [static]\fR"
 Returns TRUE if the list of database connections contains \fIconnectionName\fR; otherwise returns FALSE.
-.SH "QSqlDatabase * QSqlDatabase::database ( const QString & connectionName = defaultConnection, bool open = TRUE )\fC [static]\fR"
+.SH "QSqlDatabase * QSqlDatabase::database ( const TQString & connectionName = defaultConnection, bool open = TRUE )\fC [static]\fR"
 Returns the database connection called \fIconnectionName\fR. The database connection must have been previously added with addDatabase(). If \fIopen\fR is TRUE (the default) and the database connection is not already open it is opened now. If no \fIconnectionName\fR is specified the default connection is used. If \fIconnectionName\fR does not exist in the list of databases, 0 is returned. The pointer returned is owned by QSqlDatabase and should \fInot\fR be deleted.
 .PP
-\fBWarning:\fR There are restrictions on the use of database connections in threaded applications. Please see the Thread Support in Qt document for more information about threading and SQL databases.
+\fBWarning:\fR There are restrictions on the use of database connections in threaded applications. Please see the Thread Support in TQt document for more information about threading and SQL databases.
 .PP
 Examples:
 .)l sql/overview/basicbrowsing/main.cpp and sql/overview/create_connections/main.cpp.
-.SH "QString QSqlDatabase::databaseName () const"
+.SH "TQString QSqlDatabase::databaseName () const"
 Returns the name of the database. See the "databaseName" property for details.
 .SH "QSqlDriver * QSqlDatabase::driver () const"
 Returns the database driver used to access the database connection.
-.SH "QString QSqlDatabase::driverName () const"
+.SH "TQString QSqlDatabase::driverName () const"
 Returns the name of the driver used by the database connection.
 .SH "QStringList QSqlDatabase::drivers ()\fC [static]\fR"
 Returns a list of all the available database drivers.
@@ -318,13 +318,13 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "QSqlQuery QSqlDatabase::exec ( const QString & query = QString::null ) const"
-Executes a SQL statement (e.g. an \fCINSERT\fR, \fCUPDATE\fR or \fCDELETE\fR statement) on the database, and returns a QSqlQuery object. Use lastError() to retrieve error information. If \fIquery\fR is QString::null, an empty, invalid query is returned and lastError() is not affected.
+.SH "QSqlQuery QSqlDatabase::exec ( const TQString & query = TQString::null ) const"
+Executes a SQL statement (e.g. an \fCINSERT\fR, \fCUPDATE\fR or \fCDELETE\fR statement) on the database, and returns a QSqlQuery object. Use lastError() to retrieve error information. If \fIquery\fR is TQString::null, an empty, invalid query is returned and lastError() is not affected.
 .PP
 See also QSqlQuery and lastError().
-.SH "QString QSqlDatabase::hostName () const"
+.SH "TQString QSqlDatabase::hostName () const"
 Returns the host name where the database resides. See the "hostName" property for details.
-.SH "bool QSqlDatabase::isDriverAvailable ( const QString & name )\fC [static]\fR"
+.SH "bool QSqlDatabase::isDriverAvailable ( const TQString & name )\fC [static]\fR"
 Returns TRUE if a driver called \fIname\fR is available; otherwise returns FALSE.
 .PP
 See also drivers().
@@ -344,7 +344,7 @@ See also lastError().
 .PP
 Examples:
 .)l sql/overview/connect1/main.cpp, sql/overview/connection.cpp, and sql/sqltable/main.cpp.
-.SH "bool QSqlDatabase::open ( const QString & user, const QString & password )"
+.SH "bool QSqlDatabase::open ( const TQString & user, const TQString & password )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Opens the database connection using the given \fIuser\fR name and \fIpassword\fR. Returns TRUE on success; otherwise returns FALSE. Error information can be retrieved using the lastError() function.
@@ -352,13 +352,13 @@ Opens the database connection using the given \fIuser\fR name and \fIpassword\fR
 This function does not store the password it is given. Instead, the password is passed directly to the driver for opening a connection and is then discarded.
 .PP
 See also lastError().
-.SH "QString QSqlDatabase::password () const"
+.SH "TQString QSqlDatabase::password () const"
 Returns the password used to connect to the database. See the "password" property for details.
 .SH "int QSqlDatabase::port () const"
 Returns the port used to connect to the database. See the "port" property for details.
-.SH "QSqlIndex QSqlDatabase::primaryIndex ( const QString & tablename ) const"
+.SH "QSqlIndex QSqlDatabase::primaryIndex ( const TQString & tablename ) const"
 Returns the primary index for table \fItablename\fR. If no primary index exists an empty QSqlIndex will be returned.
-.SH "QSqlRecord QSqlDatabase::record ( const QString & tablename ) const"
+.SH "QSqlRecord QSqlDatabase::record ( const TQString & tablename ) const"
 Returns a QSqlRecord populated with the names of all the fields in the table (or view) called \fItablename\fR. The order in which the fields appear in the record is undefined. If no such table (or view) exists, an empty record is returned.
 .PP
 See also recordInfo().
@@ -368,7 +368,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns a QSqlRecord populated with the names of all the fields used in the SQL \fIquery\fR. If the query is a "SELECT *" the order in which fields appear in the record is undefined.
 .PP
 See also recordInfo().
-.SH "QSqlRecordInfo QSqlDatabase::recordInfo ( const QString & tablename ) const"
+.SH "QSqlRecordInfo QSqlDatabase::recordInfo ( const TQString & tablename ) const"
 Returns a QSqlRecordInfo populated with meta data about the table or view \fItablename\fR. If no such table (or view) exists, an empty record is returned.
 .PP
 See also QSqlRecordInfo, QSqlFieldInfo, and record().
@@ -378,7 +378,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns a QSqlRecordInfo object with meta data for the QSqlQuery \fIquery\fR. Note that this overloaded function may return less information than the recordInfo() function which takes the name of a table as parameter.
 .PP
 See also QSqlRecordInfo, QSqlFieldInfo, and record().
-.SH "void QSqlDatabase::registerSqlDriver ( const QString & name, const QSqlDriverCreatorBase * creator )\fC [static]\fR"
+.SH "void QSqlDatabase::registerSqlDriver ( const TQString & name, const QSqlDriverCreatorBase * creator )\fC [static]\fR"
 This function registers a new SQL driver called \fIname\fR, within the SQL framework. This is useful if you have a custom SQL driver and don't want to compile it as a plugin.
 .PP
 Example usage:
@@ -394,7 +394,7 @@ Example usage:
 .fi
 .PP
 \fBWarning:\fR The framework takes ownership of the \fIcreator\fR pointer, so it should not be deleted.
-.SH "void QSqlDatabase::removeDatabase ( const QString & connectionName )\fC [static]\fR"
+.SH "void QSqlDatabase::removeDatabase ( const TQString & connectionName )\fC [static]\fR"
 Removes the database connection \fIconnectionName\fR from the list of database connections.
 .PP
 \fBWarning:\fR There should be no open queries on the database connection when this function is called, otherwise a resource leak will occur.
@@ -408,17 +408,17 @@ Removes the database connection \fIdb\fR from the list of database connections. 
 Rolls a transaction back on the database if the driver supports transactions. Returns TRUE if the operation succeeded; otherwise returns FALSE.
 .PP
 See also QSqlDriver::hasFeature(), commit(), and transaction().
-.SH "void QSqlDatabase::setConnectOptions ( const QString & options = QString::null )"
+.SH "void QSqlDatabase::setConnectOptions ( const TQString & options = TQString::null )"
 Sets the database connect options to \fIoptions\fR. See the "connectOptions" property for details.
-.SH "void QSqlDatabase::setDatabaseName ( const QString & name )\fC [virtual]\fR"
+.SH "void QSqlDatabase::setDatabaseName ( const TQString & name )\fC [virtual]\fR"
 Sets the name of the database to \fIname\fR. See the "databaseName" property for details.
-.SH "void QSqlDatabase::setHostName ( const QString & host )\fC [virtual]\fR"
+.SH "void QSqlDatabase::setHostName ( const TQString & host )\fC [virtual]\fR"
 Sets the host name where the database resides to \fIhost\fR. See the "hostName" property for details.
-.SH "void QSqlDatabase::setPassword ( const QString & password )\fC [virtual]\fR"
+.SH "void QSqlDatabase::setPassword ( const TQString & password )\fC [virtual]\fR"
 Sets the password used to connect to the database to \fIpassword\fR. See the "password" property for details.
 .SH "void QSqlDatabase::setPort ( int p )\fC [virtual]\fR"
 Sets the port used to connect to the database to \fIp\fR. See the "port" property for details.
-.SH "void QSqlDatabase::setUserName ( const QString & name )\fC [virtual]\fR"
+.SH "void QSqlDatabase::setUserName ( const TQString & name )\fC [virtual]\fR"
 Sets the user name connected to the database to \fIname\fR. See the "userName" property for details.
 .SH "QStringList QSqlDatabase::tables ( QSql::TableType type ) const"
 Returns a list of the database's tables, system tables and views, as specified by the parameter \fItype\fR.
@@ -468,10 +468,10 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 Begins a transaction on the database if the driver supports transactions. Returns TRUE if the operation succeeded; otherwise returns FALSE.
 .PP
 See also QSqlDriver::hasFeature(), commit(), and rollback().
-.SH "QString QSqlDatabase::userName () const"
+.SH "TQString QSqlDatabase::userName () const"
 Returns the user name connected to the database. See the "userName" property for details.
 .SS "Property Documentation"
-.SH "QString connectOptions"
+.SH "TQString connectOptions"
 This property holds the database connect options.
 .PP
 The format of the options string is a semi-colon separated list of option names or option = value pairs. The options depend on the database client used:
@@ -582,7 +582,7 @@ Please refer to the client library documentation for more information about the 
 See also
 .PP
 Set this property's value with setConnectOptions() and get this property's value with connectOptions().
-.SH "QString databaseName"
+.SH "TQString databaseName"
 This property holds the name of the database.
 .PP
 Note that the database name is the TNS Service Name for the QOCI8 (Oracle) driver.
@@ -611,13 +611,13 @@ For the QODBC3 driver it can either be a DSN, a DSN filename (the file must have
 There is no default value.
 .PP
 Set this property's value with setDatabaseName() and get this property's value with databaseName().
-.SH "QString hostName"
+.SH "TQString hostName"
 This property holds the host name where the database resides.
 .PP
 There is no default value.
 .PP
 Set this property's value with setHostName() and get this property's value with hostName().
-.SH "QString password"
+.SH "TQString password"
 This property holds the password used to connect to the database.
 .PP
 There is no default value.
@@ -633,7 +633,7 @@ This property holds the port used to connect to the database.
 There is no default value.
 .PP
 Set this property's value with setPort() and get this property's value with port().
-.SH "QString userName"
+.SH "TQString userName"
 This property holds the user name connected to the database.
 .PP
 There is no default value.
@@ -654,8 +654,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

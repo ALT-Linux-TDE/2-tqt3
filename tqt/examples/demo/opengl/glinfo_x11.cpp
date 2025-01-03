@@ -7,8 +7,6 @@
 **
 *****************************************************************************/
 
-#define QT_CLEAN_NAMESPACE // avoid clashes with Xmd.h
-
 #include <ntqstringlist.h>
 #include <ntqgl.h>
 #include "glinfo.h"

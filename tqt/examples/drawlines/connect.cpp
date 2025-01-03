@@ -123,7 +123,7 @@ int main( int argc, char **argv )
 {
     TQApplication a( argc, argv );
     ConnectWidget connect;
-#ifndef QT_NO_WIDGET_TOPEXTRA   // for TQt/Embedded minimal build
+#ifndef TQT_NO_WIDGET_TOPEXTRA   // for TQt/Embedded minimal build
     connect.setCaption( "TQt Example - Draw lines");
 #endif
     a.setMainWidget( &connect );

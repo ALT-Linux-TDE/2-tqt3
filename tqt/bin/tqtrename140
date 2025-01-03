@@ -1,9 +1,9 @@
 #!/usr/bin/perl -pi.oldnames
 #
 #  Perl script to change programs to use the longer header-file names
-#  introduced in Qt version 1.40.  Note that Qt is distributed with
+#  introduced in TQt version 1.40.  Note that TQt is distributed with
 #  compatilibity headers making this program unnecessary at present,
-#  but which may be discontinued in Qt 2.0.
+#  but which may be discontinued in TQt 2.0.
 #
 #  This is version 1.0 of the conversion script.
 #
@@ -116,7 +116,5 @@ s/\bqobjdefs\./qobjectdefs./g if /#include/;
 s/\bQOBJDEFS_H\b/QOBJECTDEFS_H/g if /#if/;
 s/\bqpaintd\./qpaintdevice./g if /#include/;
 s/\bQPAINTD_H\b/QPAINTDEVICE_H/g if /#if/;
-s/\bqpaintdc\./qpaintdevicedefs./g if /#include/;
-s/\bQPAINTDC_H\b/QPAINTDEVICEDEFS_H/g if /#if/;
 s/\bqwindefs\./qwindowdefs./g if /#include/;
 s/\bQWINDEFS_H\b/QWINDOWDEFS_H/g if /#if/;

@@ -43,7 +43,7 @@
 #include <ntqmainwindow.h>
 #include <ntqmessagebox.h>
 #include <ntqpainter.h>
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 #include <qmemorymanager_qws.h>
 #endif
 
@@ -67,7 +67,7 @@ public:
     void renderAndSave()
     {
 	font = TQFont(family,pointSize,weight,italic);
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 	memorymanager->savePrerenderedFont((TQMemoryManager::FontID)font.handle());
 #endif
 	setHeight(TQFontMetrics(font).lineSpacing());
@@ -77,7 +77,7 @@ public:
     void render(int from, int to)
     {
 	font = TQFont(family,pointSize,weight,italic);
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 	for (int i=from; i<=to; i++) {
 	    if ( memorymanager->inFont((TQMemoryManager::FontID)font.handle(),TQChar(i))) {
 		memorymanager->lockGlyph((TQMemoryManager::FontID)font.handle(),TQChar(i));
@@ -90,7 +90,7 @@ public:
     void save()
     {
 	font = TQFont(family,pointSize,weight,italic);
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 	memorymanager->savePrerenderedFont((TQMemoryManager::FontID)font.handle(),FALSE);
 #endif
 	setHeight(TQFontMetrics(font).lineSpacing());
@@ -150,11 +150,11 @@ public:
 	view->addColumn("Weight");
 	view->addColumn("Style");
 	setCentralWidget(view);
-	TQString fontdir = TQString(getenv("QTDIR")) + "/lib/fonts";
+	TQString fontdir = TQString(getenv("TQTDIR")) + "/lib/fonts";
 	readFontDir(fontdir);
 
-	connect(view,SIGNAL(selectionChanged(TQListViewItem*)),
-	    this,SLOT(renderAndSave(TQListViewItem*)));
+	connect(view,TQ_SIGNAL(selectionChanged(TQListViewItem*)),
+	    this,TQ_SLOT(renderAndSave(TQListViewItem*)));
     }
 
     void readFontDir(const TQString& fntd)

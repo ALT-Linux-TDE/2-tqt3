@@ -58,16 +58,16 @@
 
 // Duplicated from ntqobject.h, but we cannot include ntqobject.h here since
 // it causes qmake to not build on irix g++
-#define QT_TRANSLATE_NOOP(scope,x) (x)
+#define TQT_TRANSLATE_NOOP(scope,x) (x)
 
-const char* qt_fileerr_unknown	= QT_TRANSLATE_NOOP( "TQFile", "Unknown error" );
-const char* qt_fileerr_read	= QT_TRANSLATE_NOOP( "TQFile", "Could not read from the file" );
-const char* qt_fileerr_write	= QT_TRANSLATE_NOOP( "TQFile", "Could not write to the file" );
+const char* qt_fileerr_unknown	= TQT_TRANSLATE_NOOP( "TQFile", "Unknown error" );
+const char* qt_fileerr_read	= TQT_TRANSLATE_NOOP( "TQFile", "Could not read from the file" );
+const char* qt_fileerr_write	= TQT_TRANSLATE_NOOP( "TQFile", "Could not write to the file" );
 
-#define TQFILEERR_EACCES		QT_TRANSLATE_NOOP( "TQFile", "Permission denied" )
-#define TQFILEERR_EMFILE		QT_TRANSLATE_NOOP( "TQFile", "Too many open files" )
-#define TQFILEERR_ENOENT		QT_TRANSLATE_NOOP( "TQFile", "No such file or directory" )
-#define TQFILEERR_ENOSPC		QT_TRANSLATE_NOOP( "TQFile", "No space left on device" )
+#define TQFILEERR_EACCES		TQT_TRANSLATE_NOOP( "TQFile", "Permission denied" )
+#define TQFILEERR_EMFILE		TQT_TRANSLATE_NOOP( "TQFile", "Too many open files" )
+#define TQFILEERR_ENOENT		TQT_TRANSLATE_NOOP( "TQFile", "No such file or directory" )
+#define TQFILEERR_ENOSPC		TQT_TRANSLATE_NOOP( "TQFile", "No space left on device" )
 
 class TQFilePrivate
 {
@@ -625,7 +625,7 @@ void TQFile::setEncodingFunction( EncoderFn f )
 static
 TQString locale_decoder( const TQCString &localFileName )
 {
-#ifndef Q_WS_MAC
+#ifndef TQ_WS_MAC
     return TQString::fromLocal8Bit(localFileName);
 #else
     extern TQString qt_mac_precomposeFileName(const TQString &); // qglobal.cpp

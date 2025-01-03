@@ -46,21 +46,6 @@
 	DEFINES     *= TQT_MODULE_WORKSPACE
 }
 
-!iconview:contains( DEFINES, QT_INTERNAL_ICONVIEW ) {
-	CONFIG += iconview
-	ICONVIEW_CPP = $$QT_SOURCE_TREE/src/iconview
-	win32 {
-		WIN_ALL_H = $$QT_SOURCE_TREE/include
-		ICONVIEW_H = $$WIN_ALL_H
-	}
-	unix {
-		ICONVIEW_H = $$ICONVIEW_CPP
-	}
-	INCLUDEPATH += $$QT_SOURCE_TREE/src/iconview
-	include( $$QT_SOURCE_TREE/src/iconview/qt_iconview.pri )
-	DEFINES     *= TQT_MODULE_ICONVIEW
-}
-
 !canvas:contains( DEFINES, QT_INTERNAL_CANVAS ) {
 	CONFIG += canvas
 	CANVAS_CPP = $$QT_SOURCE_TREE/src/canvas

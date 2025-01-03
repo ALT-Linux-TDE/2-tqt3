@@ -41,151 +41,151 @@
 
 #if defined(Q_DEFINED_QASCIIDICT) && defined(Q_DEFINED_QCONNECTION_LIST) && !defined(Q_EXPORTED_QASCIIDICT_TEMPLATES)
 #define Q_EXPORTED_QASCIIDICT_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQAsciiDictIterator<TQConnectionList>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQAsciiDict<TQConnectionList>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQAsciiDictIterator<TQConnectionList>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQAsciiDict<TQConnectionList>;
 #endif
 
 #if defined(Q_DEFINED_QSTYLESHEET) && defined(Q_DEFINED_QDICT) && !defined(Q_EXPORTED_QSTYLESHEET_TEMPLATES)
 #define Q_EXPORTED_QSTYLESHEET_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQDict<TQStyleSheetItem>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQDict<TQStyleSheetItem>;
 #endif
 
 #if defined(Q_DEFINED_QLIBRARY) && defined(Q_DEFINED_QDICT) && !defined(Q_EXPORTED_QDICTLIBRARY_TEMPLATES)
 #define Q_EXPORTED_QDICTLIBRARY_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQDict<TQLibrary>; // for TQtopia
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQDict<TQLibrary>; // for TQtopia
 #endif
 
 #if defined(Q_DEFINED_QGUARDEDPTR) && defined(Q_DEFINED_QOBJECT) && !defined(Q_EXPORTED_QGUARDEDPTROBJECT_TEMPLATES)
 #define Q_EXPORTED_QGUARDEDPTROBJECT_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQGuardedPtr<TQObject>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQGuardedPtr<TQObject>;
 #endif
 
 // needed for TQtopia
 #if defined(Q_DEFINED_QGUARDEDPTR) && defined(Q_DEFINED_QWIDGET) && !defined(Q_EXPORTED_QGUARDEDPTRTQWIDGET_TEMPLATES)
 #define Q_EXPORTED_QGUARDEDPTRTQWIDGET_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQGuardedPtr<TQWidget>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQGuardedPtr<TQWidget>;
 #endif
 
 #if defined(Q_DEFINED_QGUARDEDPTR) && defined(Q_DEFINED_QACCESSIBLE_OBJECT) && !defined(Q_EXPORTED_QACCESSIBLEOBJECT_TEMPLATES)
 #define Q_EXPORTED_QACCESSIBLEOBJECT_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQGuardedPtr<TQAccessibleObject>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQGuardedPtr<TQAccessibleObject>;
 #endif
 
 #if defined(Q_DEFINED_QINTDICT) && !defined(Q_EXPORTED_QINTDICT_TEMPLATES)
 #define Q_EXPORTED_QINTDICT_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQIntDict<int>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQIntDict<int>;
 #endif
 
 #if defined(Q_DEFINED_QINTDICT) && defined(Q_DEFINED_QWIDGET) && !defined(Q_EXPORTED__TEMPLATES)
 #define Q_EXPORTED__TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQIntDictIterator<TQWidget>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQIntDict<TQWidget>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQIntDictIterator<TQWidget>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQIntDict<TQWidget>;
 #endif
 
 #if defined(Q_DEFINED_QMAP) && !defined(Q_EXPORTED_QMAPBASIC_TEMPLATES)
 #define Q_EXPORTED_QMAPBASIC_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<int, int>; // for TQtopia
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<int, bool>; // for TQtopia
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<int, int>; // for TQtopia
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<int, bool>; // for TQtopia
 #endif
 
 #if defined(Q_DEFINED_QMAP) && defined(Q_DEFINED_QSTRING) && !defined(Q_EXPORTED_QMAPTQSTRING_TEMPLATES)
 #define Q_EXPORTED_QMAPTQSTRING_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<TQString, TQString>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<TQString, int>; // for TQtopia
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMap<int, TQString>; // for TQtopia
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<TQString, TQString>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<TQString, int>; // for TQtopia
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMap<int, TQString>; // for TQtopia
 #endif
 
 #if defined(Q_DEFINED_QMEMARRAY)  && !defined(Q_EXPORTED_QMEMARRAY_BASIC_TEMPLATES)
 #define Q_EXPORTED_QMEMARRAY_BASIC_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMemArray<int>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMemArray<bool>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMemArray<char>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMemArray<int>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMemArray<bool>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMemArray<char>;
 #endif
 
 #if defined(Q_DEFINED_QMEMARRAY) && defined(Q_DEFINED_QPOINT)  && !defined(Q_EXPORTED_QMEMARAYPOINT_TEMPLATES)
 #define Q_EXPORTED_QMEMARAYPOINT_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQMemArray<TQPoint>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQMemArray<TQPoint>;
 #endif
 
 #if defined(Q_DEFINED_QPTRLIST)  && !defined(Q_EXPORTED_QPTRLIST_BASIC_TEMPLATES)
 #define Q_EXPORTED_QPTRLIST_BASIC_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrListIterator<char>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<char>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrListIterator<char>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<char>;
 #endif
 
 #if defined(Q_DEFINED_QPTRLIST) && defined(Q_DEFINED_QWIDGET)  && !defined(Q_EXPORTED_QPTRLISTWIDGET_TEMPLATES)
 #define Q_EXPORTED_QPTRLISTWIDGET_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrListIterator<TQWidget>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<TQWidget>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrListIterator<TQWidget>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<TQWidget>;
 #endif
 
 #if defined(Q_DEFINED_QPTRLIST) && defined(Q_DEFINED_QCONNECTION)  && !defined(Q_EXPORTED_QPTRLISTCONNECTION_TEMPLATES)
 #define Q_EXPORTED_QPTRLISTCONNECTION_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrListIterator<TQConnection>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<TQConnection>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrListIterator<TQConnection>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<TQConnection>;
 #endif
 
 #if defined(Q_DEFINED_QPTRLIST) && defined(Q_DEFINED_QOBJECT)  && !defined(Q_EXPORTED_QPTRLISTOBJECT_TEMPLATES)
 #define Q_EXPORTED_QPTRLISTOBJECT_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrListIterator<TQObject>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<TQObject>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrListIterator<TQObject>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<TQObject>;
 #endif
 
 #if defined(Q_DEFINED_QPTRLIST) && defined(Q_DEFINED_QDOCKWINDOW)  && !defined(Q_EXPORTED_QPTRLISTDOCWINDOW_TEMPLATES)
 #define Q_EXPORTED_QPTRLISTDOCWINDOW_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrListIterator<TQDockWindow>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList<TQDockWindow>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrListIterator<TQDockWindow>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList<TQDockWindow>;
 #endif
 
 #if defined(Q_DEFINED_QPTRVECTOR)  && !defined(Q_EXPORTED_QPTRVECTOR_BASIC_TEMPLATES)
 #define Q_EXPORTED_QPTRVECTOR_BASIC_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrVector<int>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrVector<int>;
 #endif
 
 #if defined(Q_DEFINED_QPTRVECTOR) && defined(Q_DEFINED_QSTYLESHEET)  && !defined(Q_EXPORTED_QPTRVECTORSTYLESHEETITEM_TEMPLATES)
 #define Q_EXPORTED_QPTRVECTORSTYLESHEETITEM_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrVector<TQStyleSheetItem>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrVector<TQStyleSheetItem>;
 #endif
 
 #if defined(Q_DEFINED_QPTRVECTOR) && defined(Q_DEFINED_QWIDGET)  && !defined(Q_EXPORTED_QPTRVECTORWIDGET_TEMPLATES)
 #define Q_EXPORTED_QPTRVECTORWIDGET_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrVector<TQWidget>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrVector<TQWidget>;
 #endif
 
 #if defined(Q_DEFINED_QPTRVECTOR) && defined(Q_DEFINED_QCONNECTION_LIST)  && !defined(Q_EXPORTED_QPTRVECTORCONNECTTIONLIST_TEMPLATES)
 #define Q_EXPORTED_QPTRVECTORCONNECTTIONLIST_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrVector<TQConnectionList>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrVector<TQConnectionList>;
 #endif
 
 #if defined(Q_DEFINED_QVALUELIST)  && !defined(Q_EXPORTED_QVALUELIST_BASIC_TEMPLATES)
 #define Q_EXPORTED_QVALUELIST_BASIC_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueListIterator<bool>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList<bool>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueListIterator<int>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList<int>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueListIterator<bool>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList<bool>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueListIterator<int>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList<int>;
 #endif
 
 #if defined(Q_DEFINED_QVALUELIST) && defined(Q_DEFINED_QRECT)  && !defined(Q_EXPORTED_QVALUELISTRECT_TEMPLATES)
 #define Q_EXPORTED_QVALUELISTRECT_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueListIterator<TQRect>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList<TQRect>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueListIterator<TQRect>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList<TQRect>;
 #endif
 
 #if defined(Q_DEFINED_QVALUELIST) && defined(Q_DEFINED_QSTRING)  && !defined(Q_EXPORTED_QVALUELISTSTRING_TEMPLATES)
 #define Q_EXPORTED_QVALUELISTSTRING_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueListIterator<TQString>;
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList<TQString>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueListIterator<TQString>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList<TQString>;
 #endif
 
 // TQStylesheet template exports
 #if defined(Q_DEFINED_QVALUELIST) && defined(Q_DEFINED_QPTRVECTOR) && defined(Q_DEFINED_QSTYLESHEET)  && !defined(Q_EXPORTED_QSTYLESHEETITEM1_TEMPLATES)
 #define Q_EXPORTED_QSTYLESHEETITEM1_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList< TQPtrVector< TQStyleSheetItem> >;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList< TQPtrVector< TQStyleSheetItem> >;
 #endif
 
 #if defined(Q_DEFINED_QVALUELIST) && defined(Q_DEFINED_QSTYLESHEET)  && !defined(Q_EXPORTED_QSTYLESHEETITEM2_TEMPLATES)
 #define Q_EXPORTED_QSTYLESHEETITEM2_TEMPLATES
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList<TQStyleSheetItem::ListStyle>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList<TQStyleSheetItem::ListStyle>;
 #endif
 
 // qcanvas template exports
@@ -209,13 +209,13 @@ TQM_TEMPLATE_EXTERN_TABLE template class TQM_EXPORT_TABLE TQPtrVector<TQTableIte
 #endif
 
 #if defined(Q_DEFINED_QTABLE) && defined(Q_DEFINED_QPTRVECTOR)
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrVector<TQTable>;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrVector<TQTable>;
 #endif
 
 // qsqlextension template exports
 #if defined(Q_DEFINED_QSQLEXTENSION) && defined(Q_DEFINED_QMAP) && defined(Q_DEFINED_QVALUEVECTOR) && defined(Q_DEFINED_QSTRING) && !defined(Q_EXPORTED_QSQLEXTENSION_TEMPLATES)
 #define Q_EXPORTED_QSQLEXTENSION_TEMPLATES
-TQM_TEMPLATE_EXTERN_SQL template class TQM_EXPORT_SQL TQMap<TQString,Param>;
+TQM_TEMPLATE_EXTERN_SQL template class TQM_EXPORT_SQL TQMap<TQString,TQSqlParam>;
 TQM_TEMPLATE_EXTERN_SQL template class TQM_EXPORT_SQL TQValueVector<Holder>;
 #endif
 

@@ -50,7 +50,7 @@
 #include "ntqfont.h"
 #endif // QT_H
 
-#ifndef QT_NO_MENUDATA
+#ifndef TQT_NO_MENUDATA
 
 class TQPopupMenu;
 class TQMenuDataData;
@@ -59,7 +59,7 @@ class TQObject;
 class TQCustomMenuItem;
 class TQMenuItemData;
 
-class Q_EXPORT TQMenuItem			// internal menu item class
+class TQ_EXPORT TQMenuItem			// internal menu item class
 {
 friend class TQMenuData;
 public:
@@ -74,7 +74,7 @@ public:
     TQPopupMenu *popup()		const	{ return popup_menu; }
     TQWidget *widget()		const	{ return widget_item; }
     TQCustomMenuItem *custom()	const;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQKeySequence key()		const	{ return accel_key; }
 #endif
     TQSignal    *signal()	const	{ return signal_data; }
@@ -99,7 +99,7 @@ public:
     void	setPixmap( TQPixmap* pixmap )    { pixmap_data = pixmap; }
     void	setPopup( TQPopupMenu* popup )   { popup_menu = popup; }
     void	setWidget( TQWidget* widget )    { widget_item = widget; }
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     void	setKey( TQKeySequence key )      { accel_key = key; }
 #endif
     void	setSignal( TQSignal* signal )    { signal_data = signal; }
@@ -112,7 +112,7 @@ private:
     TQPixmap    *pixmap_data;			// item pixmap
     TQPopupMenu *popup_menu;			// item popup menu
     TQWidget    *widget_item;			// widget menu item
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQKeySequence	accel_key;		// accelerator key (state|ascii)
 #endif
     TQSignal    *signal_data;			// connection
@@ -137,7 +137,7 @@ typedef TQPtrList<TQMenuItem>	 TQMenuItemList;
 typedef TQPtrListIterator<TQMenuItem> TQMenuItemListIt;
 
 
-class Q_EXPORT TQCustomMenuItem : public TQt
+class TQ_EXPORT TQCustomMenuItem : public TQt
 {
 public:
     TQCustomMenuItem();
@@ -151,7 +151,7 @@ public:
 };
 
 
-class Q_EXPORT TQMenuData			// menu data class
+class TQ_EXPORT TQMenuData			// menu data class
 {
 friend class TQMenuBar;
 friend class TQPopupMenu;
@@ -209,7 +209,7 @@ public:
     void	removeItemAt( int index );
     void	clear();
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQKeySequence accel( int id )	const;
     void	setAccel( const TQKeySequence& key, int id );
 #endif
@@ -295,6 +295,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_MENUDATA
+#endif // TQT_NO_MENUDATA
 
 #endif // TQMENUDATA_H

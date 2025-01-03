@@ -21,10 +21,10 @@
 ClientInfo::ClientInfo( TQWidget *parent, const char *name ) :
     ClientInfoBase( parent, name )
 {
-    connect( btnOpen, SIGNAL(clicked()), SLOT(downloadFile()) );
-    connect( btnQuit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
-    connect( &op, SIGNAL( data( const TQByteArray &, TQNetworkOperation * ) ),
-	     this, SLOT( newData( const TQByteArray & ) ) );
+    connect( btnOpen, TQ_SIGNAL(clicked()), TQ_SLOT(downloadFile()) );
+    connect( btnQuit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
+    connect( &op, TQ_SIGNAL( data( const TQByteArray &, TQNetworkOperation * ) ),
+	     this, TQ_SLOT( newData( const TQByteArray & ) ) );
 }
 
 void ClientInfo::downloadFile()

@@ -781,7 +781,7 @@ public:
     {
 	TQString text;
 	TQPixmap pix;
-	Q_DUMMY_COMPARISON_OPERATOR( Item )
+	TQ_DUMMY_COMPARISON_OPERATOR( Item )
     };
 
     PopulateListBoxCommand( const TQString &n, FormWindow *fw,
@@ -805,7 +805,7 @@ public:
     {
 	TQString text;
 	TQPixmap pix;
-	Q_DUMMY_COMPARISON_OPERATOR( Item )
+	TQ_DUMMY_COMPARISON_OPERATOR( Item )
     };
 
     PopulateIconViewCommand( const TQString &n, FormWindow *fw,
@@ -863,7 +863,7 @@ public:
     {
 	TQString text;
 	TQPixmap pix;
-	Q_DUMMY_COMPARISON_OPERATOR( Row )
+	TQ_DUMMY_COMPARISON_OPERATOR( Row )
     };
 
     struct Column
@@ -871,7 +871,7 @@ public:
 	TQString text;
 	TQPixmap pix;
 	TQString field;
-	Q_DUMMY_COMPARISON_OPERATOR( Column )
+	TQ_DUMMY_COMPARISON_OPERATOR( Column )
     };
 
     PopulateTableCommand( const TQString &n, FormWindow *fw, TQTable *t,

@@ -190,8 +190,8 @@ TQPointArray::TQPointArray( int nPoints, const TQCOORD *points )
 
 void TQPointArray::translate( int dx, int dy )
 {
-    register TQPoint *p = data();
-    register int i = size();
+    TQPoint *p = data();
+    int i = size();
     TQPoint pt( dx, dy );
     while ( i-- ) {
 	*p += pt;
@@ -440,7 +440,7 @@ TQRect TQPointArray::boundingRect() const
 {
     if ( isEmpty() )
 	return TQRect( 0, 0, 0, 0 );		// null rectangle
-    register TQPoint *pd = data();
+    TQPoint *pd = data();
     int minx, maxx, miny, maxy;
     minx = maxx = pd->x();
     miny = maxy = pd->y();
@@ -488,7 +488,7 @@ static inline int fix_angle( int a )
 
 void TQPointArray::makeArc( int x, int y, int w, int h, int a1, int a2 )
 {
-#if !defined(QT_OLD_MAKEELLIPSE) && !defined(QT_NO_TRANSFORMATIONS)
+#if !defined(QT_OLD_MAKEELLIPSE) && !defined(TQT_NO_TRANSFORMATIONS)
     TQWMatrix unit;
     makeArc(x,y,w,h,a1,a2,unit);
 #else
@@ -520,7 +520,7 @@ void TQPointArray::makeArc( int x, int y, int w, int h, int a1, int a2 )
 #endif
 }
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 // Based upon:
 //   parelarc.c from Graphics Gems III
 //   VanAken / Simar, "A Parametric Elliptical Arc Algorithm"
@@ -670,7 +670,7 @@ void TQPointArray::makeArc( int x, int y, int w, int h,
 #undef PIV2
 }
 
-#endif // QT_NO_TRANSFORMATIONS
+#endif // TQT_NO_TRANSFORMATIONS
 
 /*!
     Sets the points of the array to those describing an ellipse with
@@ -680,7 +680,7 @@ void TQPointArray::makeArc( int x, int y, int w, int h,
 */
 void TQPointArray::makeEllipse( int x, int y, int w, int h )
 {						// midpoint, 1/4 ellipse
-#if !defined(QT_OLD_MAKEELLIPSE) && !defined(QT_NO_TRANSFORMATIONS)
+#if !defined(QT_OLD_MAKEELLIPSE) && !defined(TQT_NO_TRANSFORMATIONS)
     TQWMatrix unit;
     makeArc(x,y,w,h,0,360*16,unit);
     return;
@@ -755,7 +755,7 @@ void TQPointArray::makeEllipse( int x, int y, int w, int h )
 #endif
 }
 
-#ifndef QT_NO_BEZIER
+#ifndef TQT_NO_BEZIER
 // Work functions for TQPointArray::cubicBezier()
 static
 void split(const double *p, double *l, double *r)
@@ -937,7 +937,7 @@ TQPointArray TQPointArray::cubicBezier() const
     if ( m < 2 )				// at least two points
 	m = 2;
     TQPointArray p( m );				// p = Bezier point array
-    register TQPointData *pd = p.data();
+    TQPointData *pd = p.data();
 
     float x0 = xvec[0],	 y0 = yvec[0];
     float dt = 1.0F/m;
@@ -1001,12 +1001,12 @@ TQPointArray TQPointArray::cubicBezier() const
 
 #endif
 }
-#endif //QT_NO_BEZIER
+#endif //TQT_NO_BEZIER
 
 /*****************************************************************************
   TQPointArray stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQPointArray
 
@@ -1018,7 +1018,7 @@ TQPointArray TQPointArray::cubicBezier() const
 
 TQDataStream &operator<<( TQDataStream &s, const TQPointArray &a )
 {
-    register uint i;
+    uint i;
     uint len = a.size();
     s << len;					// write size of array
     for ( i=0; i<len; i++ )			// write each point
@@ -1037,7 +1037,7 @@ TQDataStream &operator<<( TQDataStream &s, const TQPointArray &a )
 
 TQDataStream &operator>>( TQDataStream &s, TQPointArray &a )
 {
-    register uint i;
+    uint i;
     uint len;
     s >> len;					// read size of array
     if ( !a.resize( len ) )			// no memory
@@ -1049,7 +1049,7 @@ TQDataStream &operator>>( TQDataStream &s, TQPointArray &a )
     }
     return s;
 }
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 
 

@@ -42,7 +42,7 @@
 
 #include "ntqapplication.h"
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 #include "ntqwidget.h"
 #include "ntqintdict.h"
@@ -1123,7 +1123,7 @@ void TQDragManager::updateCursor()
 	//if ( qt_xdnd_deco )
 	//    qt_xdnd_deco->hide();
     }
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( c )
 	tqApp->setOverrideCursor( *c, TRUE );
 #endif
@@ -1143,7 +1143,7 @@ void TQDragManager::cancel( bool deleteSource )
 	qt_xdnd_send_leave();
     }
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( restoreCursor ) {
 	TQApplication::restoreOverrideCursor();
 	restoreCursor = FALSE;
@@ -1449,7 +1449,7 @@ void TQDragManager::drop()
 	XSendEvent( TQPaintDevice::x11AppDisplay(), qt_xdnd_current_proxy_target, False,
 		    NoEventMask, (XEvent*)&drop );
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( restoreCursor ) {
 	TQApplication::restoreOverrideCursor();
 	restoreCursor = FALSE;
@@ -1794,7 +1794,7 @@ bool TQDragManager::drag( TQDragObject * o, TQDragObject::DragMode mode )
     heartbeat = startTimer(200);
     need_modifiers_check = FALSE;
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     tqApp->setOverrideCursor( arrowCursor );
     restoreCursor = TRUE;
     updateCursor();
@@ -1808,7 +1808,7 @@ bool TQDragManager::drag( TQDragObject * o, TQDragObject::DragMode mode )
 
     tqApp->enter_loop(); // Do the DND.
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     tqApp->restoreOverrideCursor();
 #endif
 
@@ -1856,4 +1856,4 @@ void TQDragManager::updatePixmap()
     updatePixmap( TQCursor::pos());
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP

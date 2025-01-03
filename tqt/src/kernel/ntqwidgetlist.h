@@ -46,7 +46,7 @@
 #include "ntqptrlist.h"
 #endif // QT_H
 
-class Q_EXPORT TQWidgetList : public TQPtrList<TQWidget>
+class TQ_EXPORT TQWidgetList : public TQPtrList<TQWidget>
 {
 public:
     TQWidgetList() : TQPtrList<TQWidget>() {}
@@ -56,7 +56,7 @@ public:
 	{ return (TQWidgetList&)TQPtrList<TQWidget>::operator=(list); }
 };
 
-class Q_EXPORT TQWidgetListIt : public TQPtrListIterator<TQWidget>
+class TQ_EXPORT TQWidgetListIt : public TQPtrListIterator<TQWidget>
 {
 public:
     TQWidgetListIt( const TQWidgetList &l ) : TQPtrListIterator<TQWidget>(l) {}

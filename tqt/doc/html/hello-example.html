@@ -100,7 +100,7 @@ private:
     : <a href="ntqwidget.html">TQWidget</a>(parent,name), t(text), b(0)
 {
     <a href="ntqtimer.html">TQTimer</a> *timer = new <a href="ntqtimer.html">TQTimer</a>(this);
-<a name="x1640"></a>    <a href="ntqobject.html#connect">connect</a>( timer, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), SLOT(animate()) );
+<a name="x1640"></a>    <a href="ntqobject.html#connect">connect</a>( timer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), TQ_SLOT(animate()) );
 <a name="x1639"></a>    timer-&gt;<a href="ntqtimer.html#start">start</a>( 40 );
 
     <a href="ntqwidget.html#resize">resize</a>( 260, 130 );
@@ -212,10 +212,10 @@ int main( int argc, char **argv )
     if ( s.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
         s = "Hello, World";
     Hello h( s );
-#ifndef QT_NO_WIDGET_TOPEXTRA   // for TQt/Embedded minimal build
+#ifndef TQT_NO_WIDGET_TOPEXTRA   // for TQt/Embedded minimal build
     h.<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt says hello" );
 #endif
-    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;h, SIGNAL(clicked()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;h, TQ_SIGNAL(clicked()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 <a name="x1650"></a>    h.<a href="ntqwidget.html#setFont">setFont</a>( TQFont("times",32,TQFont::Bold) );         // default font
 <a name="x1648"></a>    h.<a href="ntqwidget.html#setBackgroundColor">setBackgroundColor</a>( TQt::white );                  // default bg color
     a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;h );

@@ -192,10 +192,10 @@ widget.
             = new CannonField( this, "cannonField" );
 </pre>
 <p> We create our CannonField.
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( angle, SIGNAL(valueChanged(int)),
-                 cannonField, SLOT(setAngle(int)) );
-        <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(angleChanged(int)),
-                 angle, SLOT(setValue(int)) );
+<p> <pre>        <a href="ntqobject.html#connect">connect</a>( angle, TQ_SIGNAL(valueChanged(int)),
+                 cannonField, TQ_SLOT(setAngle(int)) );
+        <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(angleChanged(int)),
+                 angle, TQ_SLOT(setValue(int)) );
 </pre>
 <p> Here we connect the valueChanged() signal of the LCDRange to the
 setAngle() slot of the CannonField. This will update CannonField's angle

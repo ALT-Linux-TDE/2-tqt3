@@ -11,18 +11,18 @@ QProcess \- Used to start external programs and to communicate with them
 .SH SYNOPSIS
 \fC#include <ntqprocess.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQProcess\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQProcess\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQProcess\fR ( const QString & arg0, QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQProcess\fR ( const TQString & arg0, TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQProcess\fR ( const QStringList & args, QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQProcess\fR ( const QStringList & args, TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QProcess\fR ()"
@@ -37,7 +37,7 @@ Inherits QObject.
 .BI "virtual void \fBsetArguments\fR ( const QStringList & args )"
 .br
 .ti -1c
-.BI "virtual void \fBaddArgument\fR ( const QString & arg )"
+.BI "virtual void \fBaddArgument\fR ( const TQString & arg )"
 .br
 .ti -1c
 .BI "QDir \fBworkingDirectory\fR () const"
@@ -58,7 +58,7 @@ Inherits QObject.
 .BI "virtual bool \fBstart\fR ( QStringList * env = 0 )"
 .br
 .ti -1c
-.BI "virtual bool \fBlaunch\fR ( const QString & buf, QStringList * env = 0 )"
+.BI "virtual bool \fBlaunch\fR ( const TQString & buf, QStringList * env = 0 )"
 .br
 .ti -1c
 .BI "virtual bool \fBlaunch\fR ( const QByteArray & buf, QStringList * env = 0 )"
@@ -85,10 +85,10 @@ Inherits QObject.
 .BI "bool \fBcanReadLineStderr\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBreadLineStdout\fR ()"
+.BI "virtual TQString \fBreadLineStdout\fR ()"
 .br
 .ti -1c
-.BI "virtual QString \fBreadLineStderr\fR ()"
+.BI "virtual TQString \fBreadLineStderr\fR ()"
 .br
 .ti -1c
 .BI "PID \fBprocessIdentifier\fR ()"
@@ -106,7 +106,7 @@ Inherits QObject.
 .BI "virtual void \fBwriteToStdin\fR ( const QByteArray & buf )"
 .br
 .ti -1c
-.BI "virtual void \fBwriteToStdin\fR ( const QString & buf )"
+.BI "virtual void \fBwriteToStdin\fR ( const TQString & buf )"
 .br
 .ti -1c
 .BI "virtual void \fBcloseStdin\fR ()"
@@ -145,7 +145,7 @@ Both start() and launch() can accept a string list of strings each of which has 
 .PP
 You can test to see if a program is running with isRunning(). The program's process identifier is available from processIdentifier(). If you want to terminate a running program use tryTerminate(), but note that the program may ignore this. If you \fIreally\fR want to terminate the program, without it having any chance to clean up, you can use kill().
 .PP
-As an example, suppose we want to start the \fCuic\fR command (a Qt command line tool used with \fIQt Designer\fR) and perform some operations on the output (the \fCuic\fR outputs the code it generates to standard output by default). Suppose further that we want to run the program on the file "small_dialog.ui" with the command line options "-tr i18n". On the command line we would write:
+As an example, suppose we want to start the \fCuic\fR command (a TQt command line tool used with \fIQt Designer\fR) and perform some operations on the output (the \fCuic\fR outputs the code it generates to standard output by default). Suppose further that we want to run the program on the file "small_dialog.ui" with the command line options "-tr i18n". On the command line we would write:
 .PP
 .nf
 .br
@@ -178,9 +178,9 @@ A code snippet for this with the QProcess class might look like this:
         proc->addArgument( "small_dialog.ui" );
 .br
 .br
-        connect( proc, SIGNAL(readyReadStdout()),
+        connect( proc, TQ_SIGNAL(readyReadStdout()),
 .br
-                this, SLOT(readFromStdout()) );
+                this, TQ_SLOT(readFromStdout()) );
 .fi
 .PP
 .nf
@@ -244,18 +244,18 @@ This enum type defines the communication channels connected to the process.
 .PP
 See also setCommunication() and communication().
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QProcess::QProcess ( QObject * parent = 0, const char * name = 0 )"
-Constructs a QProcess object. The \fIparent\fR and \fIname\fR parameters are passed to the QObject constructor.
+.SH "QProcess::QProcess ( TQObject * parent = 0, const char * name = 0 )"
+Constructs a QProcess object. The \fIparent\fR and \fIname\fR parameters are passed to the TQObject constructor.
 .PP
 See also setArguments(), addArgument(), and start().
-.SH "QProcess::QProcess ( const QString & arg0, QObject * parent = 0, const char * name = 0 )"
-Constructs a QProcess with \fIarg0\fR as the command to be executed. The \fIparent\fR and \fIname\fR parameters are passed to the QObject constructor.
+.SH "QProcess::QProcess ( const TQString & arg0, TQObject * parent = 0, const char * name = 0 )"
+Constructs a QProcess with \fIarg0\fR as the command to be executed. The \fIparent\fR and \fIname\fR parameters are passed to the TQObject constructor.
 .PP
 The process is not started. You must call start() or launch() to start the process.
 .PP
 See also setArguments(), addArgument(), and start().
-.SH "QProcess::QProcess ( const QStringList & args, QObject * parent = 0, const char * name = 0 )"
-Constructs a QProcess with \fIargs\fR as the arguments of the process. The first element in the list is the command to be executed. The other elements in the list are the arguments to this command. The \fIparent\fR and \fIname\fR parameters are passed to the QObject constructor.
+.SH "QProcess::QProcess ( const QStringList & args, TQObject * parent = 0, const char * name = 0 )"
+Constructs a QProcess with \fIargs\fR as the arguments of the process. The first element in the list is the command to be executed. The other elements in the list are the arguments to this command. The \fIparent\fR and \fIname\fR parameters are passed to the TQObject constructor.
 .PP
 The process is not started. You must call start() or launch() to start the process.
 .PP
@@ -268,7 +268,7 @@ If the process is running, it is \fBnot\fR terminated! The standard input, stand
 You can connect the destroyed() signal to the kill() slot, if you want the process to be terminated automatically when the instance is destroyed.
 .PP
 See also tryTerminate() and kill().
-.SH "void QProcess::addArgument ( const QString & arg )\fC [virtual]\fR"
+.SH "void QProcess::addArgument ( const TQString & arg )\fC [virtual]\fR"
 Adds \fIarg\fR to the end of the list of arguments.
 .PP
 The first element in the list of arguments is the command to be executed; the following elements are the command's arguments.
@@ -339,7 +339,7 @@ The nice way to end a process and to be sure that it is finished, is to do somet
 .br
         process->tryTerminate();
 .br
-        QTimer::singleShot( 5000, process, SLOT( kill() ) );
+        QTimer::singleShot( 5000, process, TQ_SLOT( kill() ) );
 .br
 .fi
 .PP
@@ -359,21 +359,21 @@ Note that you should not use the slots writeToStdin() and closeStdin() on proces
 .PP
 The process may or may not read the \fIbuf\fR data sent to its standard input.
 .PP
-You can call this function even when a process that was started with this instance is still running. Be aware that if you do this the standard input of the process that was launched first will be closed, with any pending data being deleted, and the process will be left to run out of your control. Similarly, if the process could not be started the standard input will be closed and the pending data deleted. (On operating systems that have zombie processes, Qt will also wait() on the old process.)
+You can call this function even when a process that was started with this instance is still running. Be aware that if you do this the standard input of the process that was launched first will be closed, with any pending data being deleted, and the process will be left to run out of your control. Similarly, if the process could not be started the standard input will be closed and the pending data deleted. (On operating systems that have zombie processes, TQt will also wait() on the old process.)
 .PP
 The object emits the signal launchFinished() when this function call is finished. If the start was successful, this signal is emitted after all the data has been written to standard input. If the start failed, then this signal is emitted immediately.
 .PP
 See also start() and launchFinished().
-.SH "bool QProcess::launch ( const QString & buf, QStringList * env = 0 )\fC [virtual]\fR"
+.SH "bool QProcess::launch ( const TQString & buf, QStringList * env = 0 )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-The data \fIbuf\fR is written to standard input with writeToStdin() using the QString::local8Bit() representation of the strings.
+The data \fIbuf\fR is written to standard input with writeToStdin() using the TQString::local8Bit() representation of the strings.
 .SH "void QProcess::launchFinished ()\fC [signal]\fR"
 This signal is emitted when the process was started with launch(). If the start was successful, this signal is emitted after all the data has been written to standard input. If the start failed, then this signal is emitted immediately.
 .PP
 This signal is especially useful if you want to know when you can safely delete the QProcess object when you are not interested in reading from standard output or standard error.
 .PP
-See also launch() and QObject::deleteLater().
+See also launch() and TQObject::deleteLater().
 .SH "bool QProcess::normalExit () const"
 Returns TRUE if the process has exited normally; otherwise returns FALSE. This implies that this function returns FALSE if the process is still running.
 .PP
@@ -392,14 +392,14 @@ Under Unix the return value is the PID of the process, or -1 if no process belon
 Under Windows it is a pointer to the \fCPROCESS_INFORMATION\fR struct, or 0 if no process is belongs to this object.
 .PP
 Use of this function's return value is likely to be non-portable.
-.SH "QString QProcess::readLineStderr ()\fC [virtual]\fR"
-Reads a line of text from standard error, excluding any trailing newline or carriage return characters and returns it. Returns QString::null if canReadLineStderr() returns FALSE.
+.SH "TQString QProcess::readLineStderr ()\fC [virtual]\fR"
+Reads a line of text from standard error, excluding any trailing newline or carriage return characters and returns it. Returns TQString::null if canReadLineStderr() returns FALSE.
 .PP
 By default, the text is interpreted to be in Latin-1 encoding. If you need other codecs, you can set a different codec with QTextCodec::setCodecForCStrings().
 .PP
 See also canReadLineStderr(), readyReadStderr(), readStderr(), and readLineStdout().
-.SH "QString QProcess::readLineStdout ()\fC [virtual]\fR"
-Reads a line of text from standard output, excluding any trailing newline or carriage return characters, and returns it. Returns QString::null if canReadLineStdout() returns FALSE.
+.SH "TQString QProcess::readLineStdout ()\fC [virtual]\fR"
+Reads a line of text from standard output, excluding any trailing newline or carriage return characters, and returns it. Returns TQString::null if canReadLineStdout() returns FALSE.
 .PP
 By default, the text is interpreted to be in Latin-1 encoding. If you need other codecs, you can set a different codec with QTextCodec::setCodecForCStrings().
 .PP
@@ -463,7 +463,7 @@ Returns TRUE if the process could be started; otherwise returns FALSE.
 .PP
 You can write data to the process's standard input with writeToStdin(). You can close standard input with closeStdin() and you can terminate the process with tryTerminate(), or with kill().
 .PP
-You can call this function even if you've used this instance to create a another process which is still running. In such cases, QProcess closes the old process's standard input and deletes pending data, i.e., you lose all control over the old process, but the old process is not terminated. This applies also if the process could not be started. (On operating systems that have zombie processes, Qt will also wait() on the old process.)
+You can call this function even if you've used this instance to create a another process which is still running. In such cases, QProcess closes the old process's standard input and deletes pending data, i.e., you lose all control over the old process, but the old process is not terminated. This applies also if the process could not be started. (On operating systems that have zombie processes, TQt will also wait() on the old process.)
 .PP
 See also launch() and closeStdin().
 .PP
@@ -486,10 +486,10 @@ This function always returns immediately. The data you pass to writeToStdin() is
 Note that some operating systems use a buffer to transfer the data. As a result, wroteToStdin() may be emitted before the running process has actually read all the data.
 .PP
 See also wroteToStdin(), closeStdin(), readStdout(), and readStderr().
-.SH "void QProcess::writeToStdin ( const QString & buf )\fC [virtual slot]\fR"
+.SH "void QProcess::writeToStdin ( const TQString & buf )\fC [virtual slot]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-The string \fIbuf\fR is handled as text using the QString::local8Bit() representation.
+The string \fIbuf\fR is handled as text using the TQString::local8Bit() representation.
 .SH "void QProcess::wroteToStdin ()\fC [signal]\fR"
 This signal is emitted if the data sent to standard input (via writeToStdin()) was actually written to the process. This does not imply that the process really read the data, since this class only detects when it was able to write the data to the operating system. But it is now safe to close standard input without losing pending data.
 .PP
@@ -509,8 +509,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

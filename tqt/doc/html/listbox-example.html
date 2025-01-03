@@ -135,7 +135,7 @@ private:
 <a name="x1428"></a>    bg-&gt;<a href="ntqbuttongroup.html#insert">insert</a>( b );
 <a name="x1425"></a>    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( b );
 <a name="x1440"></a>    b-&gt;<a href="ntqradiobutton.html#setChecked">setChecked</a>( TRUE );
-<a name="x1426"></a>    <a href="ntqobject.html#connect">connect</a>( b, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(setNumCols()) );
+<a name="x1426"></a>    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setNumCols()) );
     <a href="qhboxlayout.html">TQHBoxLayout</a> * h = new <a href="qhboxlayout.html">TQHBoxLayout</a>;
 <a name="x1422"></a>    v-&gt;<a href="qboxlayout.html#addLayout">addLayout</a>( h );
 <a name="x1423"></a>    h-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 30 );
@@ -151,7 +151,7 @@ private:
                           this );
     bg-&gt;<a href="ntqbuttongroup.html#insert">insert</a>( b );
     v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( b );
-    <a href="ntqobject.html#connect">connect</a>( b, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(setColsByWidth()) );
+    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setColsByWidth()) );
 
     v-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 12 );
 
@@ -160,7 +160,7 @@ private:
                           this );
     bg-&gt;<a href="ntqbuttongroup.html#insert">insert</a>( b );
     v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( b );
-    <a href="ntqobject.html#connect">connect</a>( b, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(setNumRows()) );
+    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setNumRows()) );
     h = new <a href="qhboxlayout.html">TQHBoxLayout</a>;
     v-&gt;<a href="qboxlayout.html#addLayout">addLayout</a>( h );
     h-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 30 );
@@ -177,30 +177,30 @@ private:
                           this );
     bg-&gt;<a href="ntqbuttongroup.html#insert">insert</a>( b );
     v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( b );
-    <a href="ntqobject.html#connect">connect</a>( b, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(setRowsByHeight()) );
+    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setRowsByHeight()) );
 
     v-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 12 );
 
     <a href="ntqcheckbox.html">TQCheckBox</a> * cb = new <a href="ntqcheckbox.html">TQCheckBox</a>( "Variable-height rows", this );
 <a name="x1429"></a>    cb-&gt;<a href="ntqcheckbox.html#setChecked">setChecked</a>( TRUE );
-<a name="x1427"></a>    <a href="ntqobject.html#connect">connect</a>( cb, SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, SLOT(setVariableHeight(bool)) );
+<a name="x1427"></a>    <a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setVariableHeight(bool)) );
     v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( cb );
     v-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 6 );
 
     cb = new <a href="ntqcheckbox.html">TQCheckBox</a>( "Variable-width columns", this );
-    <a href="ntqobject.html#connect">connect</a>( cb, SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, SLOT(setVariableWidth(bool)) );
+    <a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setVariableWidth(bool)) );
     v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( cb );
 
     cb = new <a href="ntqcheckbox.html">TQCheckBox</a>( "Extended-Selection", this );
-    <a href="ntqobject.html#connect">connect</a>( cb, SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, SLOT(setMultiSelection(bool)) );
+    <a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setMultiSelection(bool)) );
     v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( cb );
 
     <a href="ntqpushbutton.html">TQPushButton</a> *pb = new <a href="ntqpushbutton.html">TQPushButton</a>( "Sort ascending", this );
-    <a href="ntqobject.html#connect">connect</a>( pb, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( sortAscending() ) );
+    <a href="ntqobject.html#connect">connect</a>( pb, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( sortAscending() ) );
     v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( pb );
 
     pb = new <a href="ntqpushbutton.html">TQPushButton</a>( "Sort descending", this );
-    <a href="ntqobject.html#connect">connect</a>( pb, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( sortDescending() ) );
+    <a href="ntqobject.html#connect">connect</a>( pb, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( sortDescending() ) );
     v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( pb );
 
 <a name="x1424"></a>    v-&gt;<a href="qboxlayout.html#addStretch">addStretch</a>( 100 );
@@ -214,8 +214,8 @@ private:
     rows-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 1, 256 );
     rows-&gt;<a href="ntqspinbox.html#setValue">setValue</a>( 256 );
 
-<a name="x1445"></a>    <a href="ntqobject.html#connect">connect</a>( columns, SIGNAL(<a href="ntqspinbox.html#valueChanged">valueChanged</a>(int)), this, SLOT(setNumCols()) );
-    <a href="ntqobject.html#connect">connect</a>( rows, SIGNAL(<a href="ntqspinbox.html#valueChanged">valueChanged</a>(int)), this, SLOT(setNumRows()) );
+<a name="x1445"></a>    <a href="ntqobject.html#connect">connect</a>( columns, TQ_SIGNAL(<a href="ntqspinbox.html#valueChanged">valueChanged</a>(int)), this, TQ_SLOT(setNumCols()) );
+    <a href="ntqobject.html#connect">connect</a>( rows, TQ_SIGNAL(<a href="ntqspinbox.html#valueChanged">valueChanged</a>(int)), this, TQ_SLOT(setNumRows()) );
 }
 
 

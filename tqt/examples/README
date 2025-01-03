@@ -1,9 +1,9 @@
-This examples directory contains lots of Qt examples. And there are
+This examples directory contains lots of TQt examples. And there are
 additional examples in ../tools/designer/examples/ and in the
 extensions subdirectories. The documentation contains two detailed Qt
-tutorials and additional tutorials for Qt Designer. The examples here
-are useful for learning particular Qt classes and techniques, but to
-learn Qt itself we recommend starting with the documentation's short
+tutorials and additional tutorials for TQt Designer. The examples here
+are useful for learning particular TQt classes and techniques, but to
+learn TQt itself we recommend starting with the documentation's short
 "How to Learn Qt" document.
 
 It is best to run each example from its own directory since some of
@@ -12,7 +12,7 @@ them assume they are run from there.
 
 aclock
     This example displays an analog clock widget.
-    It shows how to create a custom widget (QWidget subclass) and how
+    It shows how to create a custom widget (TQWidget subclass) and how
     to create a timer using QTimer.
 
 action
@@ -89,7 +89,7 @@ dirview
 
 distributor
     This is a utility program that can be used to modify the paths
-    used in the Qt library binary to make the binary suitable for
+    used in the TQt library binary to make the binary suitable for
     distribution. For experts only.
 
 dragdrop
@@ -98,7 +98,7 @@ dragdrop
 drawdemo
     Draws a color wheel, text and shapes. This example demonstrates
     several drawing functions and printer output using QPainter,
-    QWMatrix, QFont, QFontMetrics, QColor, QBrush, and QPrinter. You
+    QWMatrix, QFont, QFontMetrics, TQColor, QBrush, and QPrinter. You
     can easily add you own drawing functions. See "ourDrawFunctions".
 
 drawlines
@@ -123,7 +123,7 @@ fonts [obsolete; see the qfd example instead]
 
 forever
     WARNING: this program has a strobe effect.
-    See how fast Qt can draw colored rectangles. This example
+    See how fast TQt can draw colored rectangles. This example
     continuously draws rectangles in a window and has another widget
     that counts the number of rectangles that are drawn per second.
 
@@ -134,13 +134,13 @@ hello
     Hello world with colored animated wavy text.
 
 helpdemo
-    Shows how to use Qt Assistant as an application's online help
+    Shows how to use TQt Assistant as an application's online help
     tool. (See also the helpsystem example.)
 
 helpsystem
     This example shows how to implement context-sensitive help in
-    various ways in a Qt application using QToolTip, QWhatsThis, and
-    QAssistantClient to control Qt Assistant.
+    various ways in a TQt application using QToolTip, QWhatsThis, and
+    QAssistantClient to control TQt Assistant.
 
 helpviewer
     The HelpViewer example implements a simple HTML help browser using
@@ -234,7 +234,7 @@ network/remotecontrol
     Controlling one application from another using QSocket-based IPC.
 
 opengl/box
-    Shows how to use OpenGL in Qt using QGLWidget.
+    Shows how to use OpenGL in TQt using QGLWidget.
 
 opengl/gear
     Shows how to build OpenGL display lists.
@@ -307,7 +307,7 @@ scribble
     An implementation of the well known scribble program. You can draw
     with different pen colors and widths and save the result as a
     pixmap in various formats. It shows how to do drawing using a
-    QWidget subclass (rather than a QCanvas for example). It also
+    TQWidget subclass (rather than a QCanvas for example). It also
     shows how to add a QSpinBox to a QToolBar and how to implement a
     button that pops up a menu (using QPushButton and QPopupMenu), and
     also how to use the QColorDialog.
@@ -322,7 +322,7 @@ showimg
     format (GIF, BMP, PPM, XMP, etc.)
 
 sound
-    Shows how to play sounds from a Qt application (and how to see if
+    Shows how to play sounds from a TQt application (and how to see if
     sound is supported) using QSound.
 
 splitter
@@ -363,7 +363,7 @@ tablet
     if a compatible tablet is installed.
 
 tetrix
-    This is the Qt implementation of the well known game Tetris, but
+    This is the TQt implementation of the well known game Tetris, but
     with an unusual twist, not to mention a comment that's almost a
     work of art.
 
@@ -394,7 +394,7 @@ tux
     Shows how to create a non-rectangular window.
 
 widgets
-    Shows many Qt widgets (See also the demo example).
+    Shows many TQt widgets (See also the demo example).
 
 wizard
     This example shows how to use QWizard.

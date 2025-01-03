@@ -1,8 +1,10 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="de">
 <context encoding="UTF-8">
     <name>AboutDialog</name>
     <message encoding="UTF-8">
-        <source>Qt Designer</source>
+        <source>TQt Designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -179,7 +181,7 @@
     </message>
     <message encoding="UTF-8">
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hilfe</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;OK</source>
@@ -423,8 +425,8 @@ so it is not possible to rename it to this name.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <source>&lt;b&gt;Load Descriptions&lt;/b&gt;&lt;p&gt;Loads a file which contains descriptions of custom widgets, so that these custom widgets can be used in the Qt Designer.&lt;/p&gt;
-&lt;p&gt;As it is a lot of work to type in all the information for custom widgets, you should check the tool tqtcreatecw which you can find in $QTDIR/tools/designer/tools/tqtcreatecw. Using that tool you can create custom widget description files for your custom widgets without the need of typing in all that information. For more information about that see the README file in that directory&lt;/p&gt;</source>
+        <source>&lt;b&gt;Load Descriptions&lt;/b&gt;&lt;p&gt;Loads a file which contains descriptions of custom widgets, so that these custom widgets can be used in the TQt Designer.&lt;/p&gt;
+&lt;p&gt;As it is a lot of work to type in all the information for custom widgets, you should check the tool tqtcreatecw which you can find in $TQTDIR/tools/designer/tools/tqtcreatecw. Using that tool you can create custom widget description files for your custom widgets without the need of typing in all that information. For more information about that see the README file in that directory&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -1206,7 +1208,7 @@ Remove these slots?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit...<byte value="x9"/>Alt+V</source>
+        <source>Edit...<byte value="x9"></byte>Alt+V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1229,7 +1231,7 @@ Remove these slots?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt User-Interface Files (*.ui)</source>
+        <source>TQt User-Interface Files (*.ui)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1265,11 +1267,11 @@ Remove these slots?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Designer</source>
+        <source>TQt Designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The file %1 has been changed outside Qt Designer.
+        <source>The file %1 has been changed outside TQt Designer.
 Do you want to reload it?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2209,11 +2211,11 @@ but they are not known to the designer:</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <source>Qt User-Interface Files (*.ui)</source>
+        <source>TQt User-Interface Files (*.ui)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ready - This is the non-commercial version of Qt - For commercial evaluation purposes, use the help menu to register with Trolltech.</source>
+        <source>Ready - This is the non-commercial version of TQt - For commercial evaluation purposes, use the help menu to register with Trolltech.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2265,7 +2267,7 @@ but they are not known to the designer:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Couldn&apos;t find the Qt documentation property index file!
+        <source>Couldn&apos;t find the TQt documentation property index file!
 Define the correct documentation path in the preferences dialog.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2434,8 +2436,8 @@ Define the correct documentation path in the preferences dialog.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The Qt Designer found some temporary saved files, which have been
-written when the Qt Designer crashed last time. Do you want to
+        <source>The TQt Designer found some temporary saved files, which have been
+written when the TQt Designer crashed last time. Do you want to
 load these files?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3208,7 +3210,7 @@ load these files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Opens the Qt Designer manual</source>
+        <source>Opens the TQt Designer manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3232,7 +3234,7 @@ load these files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Displays information about the Qt Toolkit</source>
+        <source>Displays information about the TQt Toolkit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3332,7 +3334,7 @@ load these files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Designer is crashing - attempting to save work...</source>
+        <source>TQt Designer is crashing - attempting to save work...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3836,7 +3838,7 @@ load these files?</source>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hilfe</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;OK</source>
@@ -4407,7 +4409,7 @@ load these files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p&gt;&lt;b&gt;QWidget::%1&lt;/b&gt;&lt;/p&gt;&lt;p&gt;There is no documentation available for this property.&lt;/p&gt;</source>
+        <source>&lt;p&gt;&lt;b&gt;TQWidget::%1&lt;/b&gt;&lt;/p&gt;&lt;p&gt;There is no documentation available for this property.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4677,11 +4679,11 @@ An Action can only be added once to the same toolbar.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Designer</source>
+        <source>TQt Designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The file %1 has been changed outside Qt Designer.
+        <source>The file %1 has been changed outside TQt Designer.
 Do you want to reload it?</source>
         <translation type="unfinished"></translation>
     </message>

@@ -9,7 +9,7 @@
 .SH NAME
 QHebrewCodec \- Conversion to and from visually ordered Hebrew
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqrtlcodec.h>\fR
 .PP
@@ -21,7 +21,7 @@ Inherits QTextCodec.
 .BI "virtual const char * \fBmimeName\fR () const"
 .br
 .ti -1c
-.BI "virtual QCString \fBfromUnicode\fR ( const QString & uc, int & lenInOut ) const"
+.BI "virtual QCString \fBfromUnicode\fR ( const TQString & uc, int & lenInOut ) const"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -39,8 +39,8 @@ This codec has the name "iso8859-8". If you don't want any bidi reordering to ha
 .PP
 See also Internationalization with Qt.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCString QHebrewCodec::fromUnicode ( const QString & uc, int & lenInOut ) const\fC [virtual]\fR"
-Transforms the logically ordered QString, \fIuc\fR, into a visually ordered string in the 8859-8 encoding. Qt's bidi algorithm is used to perform this task. Note that newline characters affect the reordering, since reordering is done on a line by line basis.
+.SH "QCString QHebrewCodec::fromUnicode ( const TQString & uc, int & lenInOut ) const\fC [virtual]\fR"
+Transforms the logically ordered TQString, \fIuc\fR, into a visually ordered string in the 8859-8 encoding. Qt's bidi algorithm is used to perform this task. Note that newline characters affect the reordering, since reordering is done on a line by line basis.
 .PP
 The algorithm is designed to work on whole paragraphs of text, so processing a line at a time may produce incorrect results. This approach is taken because the reordering of the contents of a particular line in a paragraph may depend on the previous line in the same paragraph.
 .PP
@@ -66,8 +66,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

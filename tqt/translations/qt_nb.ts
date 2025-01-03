@@ -292,11 +292,11 @@
       <translation>LTR</translation>
     </message>
     <message>
-      <source>Executable '%1' requires Qt %2, found Qt %3.</source>
-      <translation>Den kjørbare filen '%1' krever Qt %2, Qt %3 ble funnet.</translation>
+      <source>Executable '%1' requires TQt %2, found TQt %3.</source>
+      <translation>Den kjørbare filen '%1' krever TQt %2, TQt %3 ble funnet.</translation>
     </message>
     <message>
-      <source>Incompatible Qt Library Error</source>
+      <source>Incompatible TQt Library Error</source>
       <translation>Inkompatibelt Qt-bibliotek</translation>
     </message>
   </context>
@@ -1265,8 +1265,8 @@ til
       <translation>&amp;Ignorer</translation>
     </message>
     <message>
-      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses Qt version %1.&lt;/p>&lt;p>Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br>Qt is also available for embedded devices.&lt;/p>&lt;p>Qt is a Trolltech product. See &lt;tt>http://www.trolltech.com/qt/&lt;/tt> for more information.&lt;/p></source>
-      <translation>&lt;h3&gt; Om Qt&lt;/h3&gt;&lt;p&gt;Dette programmet bruker Qt versjon %1.&lt;/p&gt;&lt;p&gt;Qt er et C++ bibliotek for multiplattform GUI &amp;amp; applikasjonsutvikling.&lt;/p&gt;&lt;p&gt;Qt gir lik-kildekode portabilitet for MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, og alle de viktigste kommersielle varianter av Unix.&lt;br&gt;Qt er ogs tilgjengelig for integrerte (embedded) enheter.&lt;/p&gt;&lt;p&gt;Qt er et Trolltech produkt. &lt;tt&gt;Se http://www.trolltech.com/qt/&lt;/tt&gt; for mer informasjon.&lt;/p&gt;</translation>
+      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses TQt version %1.&lt;/p>&lt;p>TQt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>TQt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br>TQt is also available for embedded devices.&lt;/p>&lt;p>TQt is a Trolltech product. See &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> for more information.&lt;/p></source>
+      <translation>&lt;h3&gt; Om Qt&lt;/h3&gt;&lt;p&gt;Dette programmet bruker TQt versjon %1.&lt;/p&gt;&lt;p&gt;Qt er et C++ bibliotek for multiplattform GUI &amp;amp; applikasjonsutvikling.&lt;/p&gt;&lt;p&gt;Qt gir lik-kildekode portabilitet for MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, og alle de viktigste kommersielle varianter av Unix.&lt;br&gt;Qt er ogs tilgjengelig for integrerte (embedded) enheter.&lt;/p&gt;&lt;p&gt;Qt er et Trolltech produkt. &lt;tt&gt;Se https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for mer informasjon.&lt;/p&gt;</translation>
     </message>
   </context>
   <context>

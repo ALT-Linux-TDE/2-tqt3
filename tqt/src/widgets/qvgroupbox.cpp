@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqvgroupbox.h"
-#ifndef QT_NO_VGROUPBOX
+#ifndef TQT_NO_VGROUPBOX
 
 /*!
   \class TQVGroupBox ntqvgroupbox.h

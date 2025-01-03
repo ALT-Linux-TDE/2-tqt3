@@ -21,7 +21,7 @@
 *****************************************************************************/
 #ifndef TQARRAY_H
 #define TQARRAY_H
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #include "ntqmemarray.h"
 #endif
 #endif

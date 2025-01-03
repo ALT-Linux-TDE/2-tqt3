@@ -32,7 +32,7 @@ MyWidget::MyWidget( TQWidget* parent, const char* name )
     setCentralWidget(central);
 
     TQPopupMenu* file = new TQPopupMenu(this);
-    file->insertItem( tr("E&xit"), tqApp, SLOT(quit()),
+    file->insertItem( tr("E&xit"), tqApp, TQ_SLOT(quit()),
             TQAccel::stringToKey(tr("Ctrl+Q")) );
     menuBar()->insertItem( tr("&File"), file );
 
@@ -53,9 +53,9 @@ MyWidget::MyWidget( TQWidget* parent, const char* name )
 }
 
 static const char* choices[] = {
-    QT_TRANSLATE_NOOP( "MyWidget", "First" ), 
-    QT_TRANSLATE_NOOP( "MyWidget", "Second" ), 
-    QT_TRANSLATE_NOOP( "MyWidget", "Third" ), 
+    TQT_TRANSLATE_NOOP( "MyWidget", "First" ),
+    TQT_TRANSLATE_NOOP( "MyWidget", "Second" ),
+    TQT_TRANSLATE_NOOP( "MyWidget", "Third" ),
     0
 }; 
 

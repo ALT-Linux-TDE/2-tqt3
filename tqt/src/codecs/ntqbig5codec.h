@@ -49,7 +49,7 @@
 #include "ntqtextcodec.h"
 #endif // QT_H
 
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 class TQBig5Codec : public TQTextCodec {
 public:

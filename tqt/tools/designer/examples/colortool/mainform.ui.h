@@ -356,8 +356,8 @@ void MainForm::editFind()
 {
     if ( ! findForm ) {
 	findForm = new FindForm( this );
-	connect( findForm, SIGNAL( lookfor(const TQString&) ),
-		 this, SLOT( lookfor(const TQString&) ) );
+	connect( findForm, TQ_SIGNAL( lookfor(const TQString&) ),
+		 this, TQ_SLOT( lookfor(const TQString&) ) );
     }
     findForm->show();
 }

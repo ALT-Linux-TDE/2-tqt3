@@ -131,7 +131,7 @@ private:
     <a href="ntqlcdnumber.html">TQLCDNumber</a> *lcd2 = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, cell3 );
 <a name="x1384"></a>    lcd2-&gt;<a href="ntqlcdnumber.html#display">display</a>( 33 );
 <a name="x1385"></a>    lcd2-&gt;<a href="ntqlcdnumber.html#setSegmentStyle">setSegmentStyle</a>( TQLCDNumber::Filled );
-<a name="x1386"></a>    <a href="ntqobject.html#connect">connect</a>( hslider, SIGNAL( <a href="ntqslider.html#valueChanged">valueChanged</a>( int ) ), lcd2, SLOT( <a href="ntqlcdnumber.html#display">display</a>( int ) ) );
+<a name="x1386"></a>    <a href="ntqobject.html#connect">connect</a>( hslider, TQ_SIGNAL( <a href="ntqslider.html#valueChanged">valueChanged</a>( int ) ), lcd2, TQ_SLOT( <a href="ntqlcdnumber.html#display">display</a>( int ) ) );
 
     <a href="ntqhbox.html">TQHBox</a> *cell4 = new <a href="ntqhbox.html">TQHBox</a>( row2 );
     cell4-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::WinPanel | TQFrame::Sunken );
@@ -139,7 +139,7 @@ private:
     <a href="ntqslider.html">TQSlider</a> *vslider = new <a href="ntqslider.html">TQSlider</a>( 0, 64, 1, 8, TQt::Vertical, cell4 );
     <a href="ntqlcdnumber.html">TQLCDNumber</a> *lcd3 = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 3, cell4 );
     lcd3-&gt;<a href="ntqlcdnumber.html#display">display</a>( 8 );
-    <a href="ntqobject.html#connect">connect</a>( vslider, SIGNAL( <a href="ntqslider.html#valueChanged">valueChanged</a>( int ) ), lcd3, SLOT( <a href="ntqlcdnumber.html#display">display</a>( int ) ) );
+    <a href="ntqobject.html#connect">connect</a>( vslider, TQ_SIGNAL( <a href="ntqslider.html#valueChanged">valueChanged</a>( int ) ), lcd3, TQ_SLOT( <a href="ntqlcdnumber.html#display">display</a>( int ) ) );
 }
 </pre>
 

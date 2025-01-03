@@ -28,7 +28,7 @@ Inherits QScrollView.
 .BI "enum \fBItemTextPos\fR { Bottom = 0, Right }"
 .br
 .ti -1c
-.BI "\fBQIconView\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQIconView\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "virtual \fB~QIconView\fR ()"
@@ -70,7 +70,7 @@ Inherits QScrollView.
 .BI "QIconViewItem * \fBfindItem\fR ( const QPoint & pos ) const"
 .br
 .ti -1c
-.BI "QIconViewItem * \fBfindItem\fR ( const QString & text, ComparisonFlags compare = BeginsWith ) const"
+.BI "QIconViewItem * \fBfindItem\fR ( const TQString & text, ComparisonFlags compare = BeginsWith ) const"
 .br
 .ti -1c
 .BI "virtual void \fBselectAll\fR ( bool select )"
@@ -259,7 +259,7 @@ Inherits QScrollView.
 .BI "void \fBonViewport\fR ()"
 .br
 .ti -1c
-.BI "void \fBitemRenamed\fR ( QIconViewItem * item, const QString & name )"
+.BI "void \fBitemRenamed\fR ( QIconViewItem * item, const TQString & name )"
 .br
 .ti -1c
 .BI "void \fBitemRenamed\fR ( QIconViewItem * item )"
@@ -452,7 +452,7 @@ QIconViews and their QIconViewItems can also be the targets of drag and drops. T
 .br
     {
 .br
-        QString label;
+        TQString label;
 .br
         if ( QTextDrag::decode( evt, label ) )
 .br
@@ -513,7 +513,7 @@ This enumerated type is used by QIconView to indicate how it reacts to selection
 .PP
 To summarise: Single is a real single-selection icon view; Multi a real multi-selection icon view; Extended is an icon view in which users can select multiple items but usually want to select either just one or a range of contiguous items; and NoSelection mode is for an icon view where the user can look but not touch.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QIconView::QIconView ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QIconView::QIconView ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs an empty icon view called \fIname\fR, with parent \fIparent\fR and using the widget flags \fIf\fR.
 .SH "QIconView::~QIconView ()\fC [virtual]\fR"
 Destroys the icon view and deletes all items.
@@ -613,10 +613,10 @@ If you want to find all items that touch \fIr\fR, you will need to use this func
 See also findLastVisibleItem() and QIconViewItem::rect().
 .SH "QIconViewItem * QIconView::findItem ( const QPoint & pos ) const"
 Returns a pointer to the item that contains point \fIpos\fR, which is given in contents coordinates, or 0 if no item contains point \fIpos\fR.
-.SH "QIconViewItem * QIconView::findItem ( const QString & text, ComparisonFlags compare = BeginsWith ) const"
+.SH "QIconViewItem * QIconView::findItem ( const TQString & text, ComparisonFlags compare = BeginsWith ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Returns a pointer to the first item whose text begins with \fItext\fR, or 0 if no such item could be found. Use the \fIcompare\fR flag to control the comparison behaviour. (See Qt::StringComparisonMode.)
+Returns a pointer to the first item whose text begins with \fItext\fR, or 0 if no such item could be found. Use the \fIcompare\fR flag to control the comparison behaviour. (See TQt::StringComparisonMode.)
 .SH "QIconViewItem * QIconView::findLastVisibleItem ( const QRect & r ) const"
 Finds the last item whose bounding rectangle overlaps \fIr\fR and returns a pointer to that item. \fIr\fR is given in content coordinates. Returns 0 if no item overlaps \fIr\fR.
 .PP
@@ -647,7 +647,7 @@ Inserts the icon view item \fIitem\fR after \fIafter\fR. If \fIafter\fR is 0, \f
 Inverts the selection. Works only in Multi and Extended selection mode.
 .SH "bool QIconView::isRenaming () const"
 Returns TRUE if an iconview item is being renamed; otherwise returns FALSE.
-.SH "void QIconView::itemRenamed ( QIconViewItem * item, const QString & name )\fC [signal]\fR"
+.SH "void QIconView::itemRenamed ( QIconViewItem * item, const TQString & name )\fC [signal]\fR"
 This signal is emitted when \fIitem\fR has been renamed to \fIname\fR, usually by in-place renaming.
 .PP
 See also QIconViewItem::setRenameEnabled() and QIconViewItem::rename().
@@ -692,7 +692,7 @@ This signal is emitted after successfully dropping one (or more) items of the ic
 .PP
 Example: iconview/main.cpp.
 .SH "void QIconView::onItem ( QIconViewItem * item )\fC [signal]\fR"
-This signal is emitted when the user moves the mouse cursor onto an \fIitem\fR, similar to the QWidget::enterEvent() function.
+This signal is emitted when the user moves the mouse cursor onto an \fIitem\fR, similar to the TQWidget::enterEvent() function.
 .SH "void QIconView::onViewport ()\fC [signal]\fR"
 This signal is emitted when the user moves the mouse cursor from an item to an empty part of the icon view.
 .PP
@@ -949,8 +949,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

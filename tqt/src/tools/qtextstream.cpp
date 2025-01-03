@@ -40,7 +40,7 @@
 
 #include "ntqtextstream.h"
 
-#ifndef QT_NO_TEXTSTREAM
+#ifndef TQT_NO_TEXTSTREAM
 #include "ntqtextcodec.h"
 #include "ntqregexp.h"
 #include "ntqbuffer.h"
@@ -222,7 +222,7 @@ const int TQTextStream::floatfield  = ( TQTextStream::scientific |
 
 class TQTextStreamPrivate {
 public:
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     TQTextStreamPrivate()
 	: decoder( 0 ), encoder( 0 ), sourceType( NotSet ) { }
     ~TQTextStreamPrivate() {
@@ -705,7 +705,7 @@ uint TQTextStream::ts_getbuf( TQChar* buf, uint len )
 	}
     }
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( mapper ) {
 	bool shortRead = FALSE;
 	if ( !d->decoder )
@@ -893,7 +893,7 @@ uint TQTextStream::ts_getline( TQChar* buf )
 	    return rnum;
     }
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( mapper ) {
 	if ( !d->decoder )
 	    d->decoder = mapper->makeDecoder();
@@ -964,7 +964,7 @@ uint TQTextStream::ts_getline( TQChar* buf )
 */
 void TQTextStream::ts_putc( TQChar c )
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( mapper ) {
 	if ( !d->encoder )
 	    d->encoder = mapper->makeEncoder();
@@ -1078,7 +1078,7 @@ TQTextStream &TQTextStream::writeBlock( const char* p, uint len )
 	dev->writeBlock( (char*)u, len * sizeof(TQChar) );
 	delete [] u;
     }
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     else if (mapper) {
         if (!d->encoder)
             d->encoder = mapper->makeEncoder();
@@ -1097,7 +1097,7 @@ TQTextStream &TQTextStream::writeBlock( const char* p, uint len )
 
 TQTextStream &TQTextStream::writeBlock( const TQChar* p, uint len )
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( mapper ) {
 	if ( !d->encoder )
 	    d->encoder = mapper->makeEncoder();
@@ -1869,7 +1869,7 @@ TQTextStream &TQTextStream::output_int( int format, unsigned long long n, bool n
     static const char hexdigits_upper[] = "0123456789ABCDEF";
     CHECK_STREAM_PRECOND
     char buf[76];
-    register char *p;
+    char *p;
     int	  len;
     const char *hexdigits;
 
@@ -2099,7 +2099,7 @@ TQTextStream &TQTextStream::operator<<( double f )
 	f_char = (flags() & uppercase) ? 'E' : 'e';
     else
 	f_char = (flags() & uppercase) ? 'G' : 'g';
-    register char *fs = format;			// generate format string
+    char *fs = format;			// generate format string
     *fs++ = '%';				//   "%.<prec>l<f_char>"
     *fs++ = '.';
     int prec = precision();
@@ -2533,7 +2533,7 @@ void TQTextStream::setEncoding( Encoding e )
 	networkOrder = TQChar::networkOrdered();
 	break;
     case UnicodeUTF8:
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 	mapper = TQTextCodec::codecForMib( 106 );
 	latin1 = FALSE;
 	doUnicodeHeader = TRUE;
@@ -2568,7 +2568,7 @@ void TQTextStream::setEncoding( Encoding e )
 	break;
     case Locale:
 	latin1 = TRUE; // fallback to Latin-1
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 	mapper = TQTextCodec::codecForLocale();
 	// optimized Latin-1 processing
 #if defined(Q_OS_WIN32)
@@ -2590,7 +2590,7 @@ void TQTextStream::setEncoding( Encoding e )
 }
 
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 /*!
     Sets the codec for this stream to \a codec. Will not try to
     autodetect Unicode.
@@ -2633,4 +2633,4 @@ TQTextCodec *TQTextStream::codec()
 
 #endif
 
-#endif // QT_NO_TEXTSTREAM
+#endif // TQT_NO_TEXTSTREAM

@@ -40,7 +40,7 @@
 
 #include "ntqdatabrowser.h"
 
-#ifndef QT_NO_SQL_VIEW_WIDGETS
+#ifndef TQT_NO_SQL_VIEW_WIDGETS
 
 #include "ntqsqlform.h"
 #include "qsqlmanager_p.h"

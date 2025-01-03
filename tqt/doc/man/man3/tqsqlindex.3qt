@@ -16,7 +16,7 @@ Inherits QSqlRecord.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlIndex\fR ( const QString & cursorname = QString::null, const QString & name = QString::null )"
+.BI "\fBQSqlIndex\fR ( const TQString & cursorname = TQString::null, const TQString & name = TQString::null )"
 .br
 .ti -1c
 .BI "\fBQSqlIndex\fR ( const QSqlIndex & other )"
@@ -28,16 +28,16 @@ Inherits QSqlRecord.
 .BI "QSqlIndex & \fBoperator=\fR ( const QSqlIndex & other )"
 .br
 .ti -1c
-.BI "virtual void \fBsetCursorName\fR ( const QString & cursorName )"
+.BI "virtual void \fBsetCursorName\fR ( const TQString & cursorName )"
 .br
 .ti -1c
-.BI "QString \fBcursorName\fR () const"
+.BI "TQString \fBcursorName\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetName\fR ( const QString & name )"
+.BI "virtual void \fBsetName\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "QString \fBname\fR () const"
+.BI "TQString \fBname\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBappend\fR ( const QSqlField & field )"
@@ -67,7 +67,7 @@ Normally, QSqlIndex objects are created by QSqlDatabase or QSqlCursor.
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlIndex::QSqlIndex ( const QString & cursorname = QString::null, const QString & name = QString::null )"
+.SH "QSqlIndex::QSqlIndex ( const TQString & cursorname = TQString::null, const TQString & name = TQString::null )"
 Constructs an empty index using the cursor name \fIcursorname\fR and index name \fIname\fR.
 .SH "QSqlIndex::QSqlIndex ( const QSqlIndex & other )"
 Constructs a copy of \fIother\fR.
@@ -81,7 +81,7 @@ Reimplemented from QSqlRecord.
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Appends the field \fIfield\fR to the list of indexed fields. The field is appended with an ascending sort order, unless \fIdesc\fR is TRUE.
-.SH "QString QSqlIndex::cursorName () const"
+.SH "TQString QSqlIndex::cursorName () const"
 Returns the name of the cursor which the index is associated with.
 .SH "QSqlIndex QSqlIndex::fromStringList ( const QStringList & l, const QSqlCursor * cursor )\fC [static]\fR"
 Returns an index based on the field descriptions in \fIl\fR and the cursor \fIcursor\fR. The field descriptions should be in the same format that toStringList() produces, for example, a surname field in the people table might be in one of these forms: "surname"," surname DESC" or "people.surname ASC".
@@ -89,15 +89,15 @@ Returns an index based on the field descriptions in \fIl\fR and the cursor \fIcu
 See also toStringList().
 .SH "bool QSqlIndex::isDescending ( int i ) const"
 Returns TRUE if field \fIi\fR in the index is sorted in descending order; otherwise returns FALSE.
-.SH "QString QSqlIndex::name () const"
+.SH "TQString QSqlIndex::name () const"
 Returns the name of the index.
 .SH "QSqlIndex & QSqlIndex::operator= ( const QSqlIndex & other )"
 Sets the index equal to \fIother\fR.
-.SH "void QSqlIndex::setCursorName ( const QString & cursorName )\fC [virtual]\fR"
+.SH "void QSqlIndex::setCursorName ( const TQString & cursorName )\fC [virtual]\fR"
 Sets the name of the cursor that the index is associated with to \fIcursorName\fR.
 .SH "void QSqlIndex::setDescending ( int i, bool desc )\fC [virtual]\fR"
 If \fIdesc\fR is TRUE, field \fIi\fR is sorted in descending order. Otherwise, field \fIi\fR is sorted in ascending order (the default). If the field does not exist, nothing happens.
-.SH "void QSqlIndex::setName ( const QString & name )\fC [virtual]\fR"
+.SH "void QSqlIndex::setName ( const TQString & name )\fC [virtual]\fR"
 Sets the name of the index to \fIname\fR.
 
 .SH "SEE ALSO"
@@ -114,8 +114,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

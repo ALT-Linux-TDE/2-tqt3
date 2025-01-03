@@ -51,7 +51,7 @@
 #include "ntqapplication.h"
 #include "ntqcleanuphandler.h"
 #include "ntqstringlist.h"
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 #include "ntqpaintdevicemetrics.h"
 #endif
 
@@ -121,9 +121,9 @@ bool TQFontDef::operator==( const TQFontDef &other ) const
 	    && (this_foundry.isEmpty()
 		|| other_foundry.isEmpty()
 		|| this_foundry == other_foundry)
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	    && addStyle == other.addStyle
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 	);
 }
 
@@ -135,11 +135,11 @@ TQFontPrivate::TQFontPrivate()
       rawMode( FALSE ), underline( FALSE ), overline( FALSE ), strikeOut( FALSE ),
       mask( 0 )
 {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     screen = TQPaintDevice::x11AppScreen();
 #else
     screen = 0;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 }
 
 TQFontPrivate::TQFontPrivate( const TQFontPrivate &other )
@@ -208,19 +208,19 @@ void TQFontPrivate::resolve( const TQFontPrivate *other )
 TQFontEngineData::TQFontEngineData()
     : lineWidth( 1 )
 {
-#if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
     memset( engines, 0, TQFont::LastPrivateScript * sizeof( TQFontEngine * ) );
 #else
     engine = 0;
-#endif // Q_WS_X11 || Q_WS_WIN
-#ifndef Q_WS_MAC
+#endif // TQ_WS_X11 || TQ_WS_WIN
+#ifndef TQ_WS_MAC
     memset( widthCache, 0, widthCacheSize*sizeof( uchar ) );
 #endif
 }
 
 TQFontEngineData::~TQFontEngineData()
 {
-#if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
     for ( int i = 0; i < TQFont::LastPrivateScript; i++ ) {
 	if ( engines[i] )
 	    engines[i]->deref();
@@ -230,7 +230,7 @@ TQFontEngineData::~TQFontEngineData()
     if ( engine )
 	engine->deref();
     engine = 0;
-#endif // Q_WS_X11 || Q_WS_WIN
+#endif // TQ_WS_X11 || TQ_WS_WIN
 }
 
 
@@ -691,9 +691,9 @@ void TQFont::setFamily( const TQString &family )
     detach();
 
     d->request.family = family;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     d->request.addStyle = TQString::null;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     d->mask |= TQFontPrivate::Family;
 }
@@ -1130,9 +1130,9 @@ void TQFont::setStyleHint( StyleHint hint, StyleStrategy strategy )
     d->mask |= TQFontPrivate::StyleHint;
     d->mask |= TQFontPrivate::StyleStrategy;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     d->request.addStyle = TQString::null;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 }
 
 /*!
@@ -1343,7 +1343,7 @@ TQFont TQFont::resolve( const TQFont &other ) const
     return font;
 }
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
 /*! \obsolete
 
@@ -1369,7 +1369,7 @@ void TQFont::setDefaultFont( const TQFont &f )
 
 
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 
 /*****************************************************************************
   TQFont substitution management
@@ -1386,11 +1386,11 @@ static void initFontSubst()
     // default substitutions
     static const char *initTbl[] = {
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	"arial",        "helvetica",
 	"helv",         "helvetica",
 	"tms rmn",      "times",
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
 	"times",        "Times New Roman",
 	"courier",      "Courier New",
 	"helvetica",    "Arial",
@@ -1540,7 +1540,7 @@ TQStringList TQFont::substitutions()
     return ret;
 }
 
-#endif // QT_NO_STRINGLIST
+#endif // TQT_NO_STRINGLIST
 
 
 /*  \internal
@@ -1572,7 +1572,7 @@ static TQ_UINT8 get_font_bits( const TQFontPrivate *f )
 }
 
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 
 /*  \internal
     Internal function. Sets boolean font settings from an unsigned
@@ -1639,7 +1639,7 @@ TQString TQFont::toString() const
  */
 bool TQFont::fromString(const TQString &descrip)
 {
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     TQStringList l(TQStringList::split(',', descrip));
 
     int count = (int)l.count();
@@ -1654,7 +1654,7 @@ bool TQFont::fromString(const TQString &descrip)
 	from = to+1;
 	to = descrip.find( ',', from );
     }
-#endif // QT_NO_STRINGLIST
+#endif // TQT_NO_STRINGLIST
     if ( !count || ( count > 2 && count < 9 ) || count > 11 ) {
 
 #ifdef QT_CHECK_STATE
@@ -1691,7 +1691,7 @@ bool TQFont::fromString(const TQString &descrip)
     return TRUE;
 }
 
-#if !defined( Q_WS_QWS )
+#if !defined( TQ_WS_QWS )
 /*! \internal
 
   Internal function that dumps font cache statistics.
@@ -1701,14 +1701,14 @@ void TQFont::cacheStatistics()
 
 
 }
-#endif // !Q_WS_QWS
+#endif // !TQ_WS_QWS
 
 
 
 /*****************************************************************************
   TQFont stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 
 /*!
     \relates TQFont
@@ -1730,7 +1730,7 @@ TQDataStream &operator<<( TQDataStream &s, const TQFont &font )
     if ( s.version() <= 3 ) {
 	TQ_INT16 pointSize = (TQ_INT16) font.d->request.pointSize;
 	if ( pointSize == -1 ) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	    pointSize = (TQ_INT16)(font.d->request.pixelSize*720/TQPaintDevice::x11AppDpiY());
 #else
 	    pointSize = (TQ_INT16)TQFontInfo( font ).pointSize() * 10;
@@ -1798,7 +1798,7 @@ TQDataStream &operator>>( TQDataStream &s, TQFont &font )
     return s;
 }
 
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 
 
@@ -1926,7 +1926,7 @@ TQFontMetrics::TQFontMetrics( const TQPainter *p )
 
     d = painter->pfont ? painter->pfont->d : painter->cfont.d;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     if ( d->screen != p->scrn ) {
 	TQFontPrivate *new_d = new TQFontPrivate( *d );
 	TQ_CHECK_PTR( new_d );
@@ -1934,7 +1934,7 @@ TQFontMetrics::TQFontMetrics( const TQPainter *p )
 	d->screen = p->scrn;
 	d->count = 1;
     } else
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 	d->ref();
 }
 
@@ -2170,7 +2170,7 @@ bool TQFontMetrics::inFont(TQChar ch) const
 
     \sa rightBearing(), minLeftBearing(), width()
 */
-#if !defined(Q_WS_WIN) && !defined(Q_WS_QWS)
+#if !defined(TQ_WS_WIN) && !defined(TQ_WS_QWS)
 int TQFontMetrics::leftBearing(TQChar ch) const
 {
     TQFont::Script script;
@@ -2190,7 +2190,7 @@ int TQFontMetrics::leftBearing(TQChar ch) const
     glyph_metrics_t gi = engine->boundingBox( glyphs[0] );
     return gi.x;
 }
-#endif // !Q_WS_WIN
+#endif // !TQ_WS_WIN
 
 /*! \fn int TQFontMetrics::rightBearing(TQChar ch) const
     Returns the right bearing of character \a ch in the font.
@@ -2204,7 +2204,7 @@ int TQFontMetrics::leftBearing(TQChar ch) const
 
     \sa leftBearing(), minRightBearing(), width()
 */
-#if !defined(Q_WS_WIN) && !defined(Q_WS_QWS)
+#if !defined(TQ_WS_WIN) && !defined(TQ_WS_QWS)
 int TQFontMetrics::rightBearing(TQChar ch) const
 {
     TQFont::Script script;
@@ -2224,10 +2224,10 @@ int TQFontMetrics::rightBearing(TQChar ch) const
     glyph_metrics_t gi = engine->boundingBox( glyphs[0] );
     return gi.xoff - gi.x - gi.width;
 }
-#endif // !Q_WS_WIN
+#endif // !TQ_WS_WIN
 
 
-#ifndef Q_WS_QWS
+#ifndef TQ_WS_QWS
 /*!
     Returns the width in pixels of the first \a len characters of \a
     str. If \a len is negative (the default), the entire string is
@@ -2249,7 +2249,7 @@ int TQFontMetrics::width( const TQString &str, int len ) const
 
     int pos = 0;
     int width = 0;
-#ifndef Q_WS_MAC
+#ifndef TQ_WS_MAC
     const TQChar *ch = str.unicode();
 
     while (pos < len) {
@@ -2287,7 +2287,7 @@ int TQFontMetrics::width( const TQString &str, int len ) const
 	TQTextEngine layout( str, d );
 	layout.itemize( TQTextEngine::WidthOnly );
 	width += layout.width( pos, len-pos );
-#ifndef Q_WS_MAC
+#ifndef TQ_WS_MAC
     }
 #endif
     return width;
@@ -2339,7 +2339,7 @@ int TQFontMetrics::width( const TQString &str, int len ) const
     account.
 */
 
-#ifndef Q_WS_QWS
+#ifndef TQ_WS_QWS
 /*!
     Returns the bounding rectangle of the first \a len characters of
     \a str, which is the set of pixels the text would cover if drawn
@@ -2986,7 +2986,7 @@ TQFontCache::~TQFontCache()
     instance = 0;
 }
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 void TQFontCache::clear()
 {
     {
@@ -3107,7 +3107,7 @@ void TQFontCache::decreaseCost( uint cost )
 	    cost, total_cost, max_cost );
 }
 
-#if defined(Q_WS_WIN ) || defined (Q_WS_QWS)
+#if defined(TQ_WS_WIN ) || defined (TQ_WS_QWS)
 void TQFontCache::cleanupPrinterFonts()
 {
     FC_DEBUG( "TQFontCache::cleanupPrinterFonts" );
@@ -3125,7 +3125,7 @@ void TQFontCache::cleanupPrinterFonts()
 	    }
 
 	    if( it.data()->count > 0 ) {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 		for(int i = 0; i < TQFont::LastPrivateScript; ++i) {
 		    if( it.data()->engines[i] ) {
 			it.data()->engines[i]->deref();
@@ -3209,13 +3209,13 @@ void TQFontCache::timerEvent( TQTimerEvent * )
 #ifdef TQFONTCACHE_DEBUG
 	    FC_DEBUG( "    %p: ref %2d", it.data(), it.data()->count );
 
-#  if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#  if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
 	    // print out all engines
 	    for ( int i = 0; i < TQFont::LastPrivateScript; ++i ) {
 		if ( ! it.data()->engines[i] ) continue;
 		FC_DEBUG( "      contains %p", it.data()->engines[i] );
 	    }
-#  endif // Q_WS_X11 || Q_WS_WIN
+#  endif // TQ_WS_X11 || TQ_WS_WIN
 #endif // TQFONTCACHE_DEBUG
 
 	    if ( it.data()->count > 0 )

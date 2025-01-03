@@ -38,7 +38,7 @@
 
 #include "ntqinputcontext.h"
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 
 #include "qplatformdefs.h"
 

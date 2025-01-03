@@ -52,7 +52,7 @@
 
 class TQBitArray;
 
-class Q_EXPORT TQBitVal
+class TQ_EXPORT TQBitVal
 {
 private:
     TQBitArray *array;
@@ -69,7 +69,7 @@ public:
   TQBitArray class
  *****************************************************************************/
 
-class Q_EXPORT TQBitArray : public TQByteArray
+class TQ_EXPORT TQBitArray : public TQByteArray
 {
 public:
     TQBitArray();
@@ -135,9 +135,9 @@ inline bool TQBitArray::operator[]( int index ) const
   Misc. TQBitArray operator functions
  *****************************************************************************/
 
-Q_EXPORT TQBitArray operator&( const TQBitArray &, const TQBitArray & );
-Q_EXPORT TQBitArray operator|( const TQBitArray &, const TQBitArray & );
-Q_EXPORT TQBitArray operator^( const TQBitArray &, const TQBitArray & );
+TQ_EXPORT TQBitArray operator&( const TQBitArray &, const TQBitArray & );
+TQ_EXPORT TQBitArray operator|( const TQBitArray &, const TQBitArray & );
+TQ_EXPORT TQBitArray operator^( const TQBitArray &, const TQBitArray & );
 
 
 inline TQBitVal::operator int()
@@ -161,9 +161,9 @@ inline TQBitVal &TQBitVal::operator=( bool v )
 /*****************************************************************************
   TQBitArray stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQBitArray & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQBitArray & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQBitArray & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQBitArray & );
 #endif
 
 #endif // TQBITARRAY_H

@@ -34,7 +34,7 @@ Frame::Frame( TQWidget *parent, const char *name )
 {
     TQMenuBar *mainMenu = menuBar();
     TQPopupMenu *fileMenu = new TQPopupMenu( this, "file" );
-    fileMenu->insertItem( tr( "&Exit" ), this, SLOT( close() ),
+    fileMenu->insertItem( tr( "&Exit" ), this, TQ_SLOT( close() ),
 			  TQAccel::stringToKey( tr( "Ctrl+Q" ) ) );
 
     TQPopupMenu *styleMenu = new TQPopupMenu( this, "style" );
@@ -42,8 +42,8 @@ Frame::Frame( TQWidget *parent, const char *name )
     TQActionGroup *ag = new TQActionGroup( this, 0 );
     ag->setExclusive( TRUE );
     TQSignalMapper *styleMapper = new TQSignalMapper( this );
-    connect( styleMapper, SIGNAL( mapped( const TQString& ) ),
-	     this, SLOT( setStyle( const TQString& ) ) );
+    connect( styleMapper, TQ_SIGNAL( mapped( const TQString& ) ),
+	     this, TQ_SLOT( setStyle( const TQString& ) ) );
 
     TQStringList list = TQStyleFactory::keys();
     list.sort();
@@ -65,7 +65,7 @@ Frame::Frame( TQWidget *parent, const char *name )
 	}
 	TQAction *a = new TQAction( style, TQIconSet(),
 				  styleAccel, 0, ag, 0, ag->isExclusive() );
-	connect( a, SIGNAL( activated() ), styleMapper, SLOT(map()) );
+	connect( a, TQ_SIGNAL( activated() ), styleMapper, TQ_SLOT(map()) );
 	styleMapper->setMapping( a, a->text() );
     }
     ag->addTo( styleMenu );
@@ -117,7 +117,7 @@ TQWidget *Frame::createCategoryPage( CategoryInterface *c )
 	b->setTextPosition( TQToolButton::Right );
 	b->setUsesTextLabel( TRUE );
 	g->insert( b, i + c->categoryOffset() );
-	connect( g, SIGNAL( clicked( int ) ), c, SLOT( setCurrentCategory( int ) ) );
+	connect( g, TQ_SIGNAL( clicked( int ) ), c, TQ_SLOT( setCurrentCategory( int ) ) );
     }
     return g;
 }

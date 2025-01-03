@@ -246,30 +246,8 @@
 #endif
 
 #ifdef PNG_SETJMP_SUPPORTED
-/* This is an attempt to force a single setjmp behaviour on Linux.  If
- * the X config stuff didn't define _BSD_SOURCE we wouldn't need this.
- */
-
-#  ifdef __linux__
-#    ifdef _BSD_SOURCE
-#      define PNG_SAVE_BSD_SOURCE
-#      undef _BSD_SOURCE
-#    endif
-#    ifdef _SETJMP_H
-      __png.h__ already includes setjmp.h;
-      __dont__ include it again.;
-#    endif
-#  endif /* __linux__ */
-
    /* include setjmp.h for error handling */
 #  include <setjmp.h>
-
-#  ifdef __linux__
-#    ifdef PNG_SAVE_BSD_SOURCE
-#      define _BSD_SOURCE
-#      undef PNG_SAVE_BSD_SOURCE
-#    endif
-#  endif /* __linux__ */
 #endif /* PNG_SETJMP_SUPPORTED */
 
 #ifdef BSD

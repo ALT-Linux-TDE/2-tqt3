@@ -51,10 +51,10 @@
 #if !defined( TQT_MODULE_SQL ) || defined( QT_LICENSE_PROFESSIONAL )
 #define TQM_EXPORT_SQL
 #else
-#define TQM_EXPORT_SQL Q_EXPORT
+#define TQM_EXPORT_SQL TQ_EXPORT
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 class TQSqlError;
 class TQSqlDriver;
@@ -129,7 +129,7 @@ public:
     TQSqlDriver*		driver() const;
     
     // MOC_SKIP_BEGIN
-    QT_STATIC_CONST char * const defaultConnection;
+    static const char * const defaultConnection;
     // MOC_SKIP_END
 
     static TQSqlDatabase* addDatabase( const TQString& type, const TQString& connectionName = defaultConnection );
@@ -155,5 +155,5 @@ private:
 
 };
 
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL
 #endif

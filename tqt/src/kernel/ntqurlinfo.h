@@ -53,7 +53,7 @@ class TQUrlOperator;
 class TQUrl;
 class TQUrlInfoPrivate;
 
-class Q_EXPORT TQUrlInfo
+class TQ_EXPORT TQUrlInfo
 {
 public:
     enum PermissionSpec {

@@ -46,9 +46,9 @@
 #include "ntqdir.h"
 #endif // QT_H
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
 
-class Q_EXPORT TQLocalFs : public TQNetworkProtocol
+class TQ_EXPORT TQLocalFs : public TQNetworkProtocol
 {
     TQ_OBJECT
 
@@ -70,6 +70,6 @@ private:
 
 };
 
-#endif // QT_NO_NETWORKPROTOCOL
+#endif // TQT_NO_NETWORKPROTOCOL
 
 #endif // TQLOCALFS_H

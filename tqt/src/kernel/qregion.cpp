@@ -141,7 +141,7 @@ void TQRegion::detach()
 	*this = copy();
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*
     Executes region commands in the internal buffer and rebuilds the
     original region.
@@ -280,7 +280,7 @@ TQDataStream &operator>>( TQDataStream &s, TQRegion &r )
     r.exec( b, s.version() );
     return s;
 }
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 // These are not inline - they can be implemented better on some platforms
 //  (eg. Windows at least provides 3-variable operations).  For now, simple.

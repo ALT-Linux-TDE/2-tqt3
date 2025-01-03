@@ -237,10 +237,10 @@ void <a name="f534"></a>FontRowTable::chooseFont()
 <a name="x2010"></a>    controls-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
     <a href="ntqpushbutton.html">TQPushButton</a> *fontbutton = new <a href="ntqpushbutton.html">TQPushButton</a>(<a href="ntqobject.html#tr">tr</a>("Font..."), controls);
 
-<a name="x2009"></a>    <a href="ntqobject.html#connect">connect</a>(row,SIGNAL(<a href="ntqspinbox.html#valueChanged">valueChanged</a>(int)),table,SLOT(setRow(int)));
-    <a href="ntqobject.html#connect">connect</a>(fontbutton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), table, SLOT(chooseFont()));
-    <a href="ntqobject.html#connect">connect</a>(table,SIGNAL(fontInformation(const <a href="ntqstring.html">TQString</a>&amp;)),
-            <a href="ntqmainwindow.html#statusBar">statusBar</a>(),SLOT(message(const <a href="ntqstring.html">TQString</a>&amp;)));
+<a name="x2009"></a>    <a href="ntqobject.html#connect">connect</a>(row,TQ_SIGNAL(<a href="ntqspinbox.html#valueChanged">valueChanged</a>(int)),table,TQ_SLOT(setRow(int)));
+    <a href="ntqobject.html#connect">connect</a>(fontbutton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), table, TQ_SLOT(chooseFont()));
+    <a href="ntqobject.html#connect">connect</a>(table,TQ_SIGNAL(fontInformation(const <a href="ntqstring.html">TQString</a>&amp;)),
+            <a href="ntqmainwindow.html#statusBar">statusBar</a>(),TQ_SLOT(message(const <a href="ntqstring.html">TQString</a>&amp;)));
     table-&gt;setRow(0);
     <a href="ntqmainwindow.html#setCentralWidget">setCentralWidget</a>(table);
 }

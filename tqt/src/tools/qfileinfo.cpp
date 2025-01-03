@@ -199,7 +199,7 @@ TQFileInfo::TQFileInfo( const TQFile &file )
 
     \sa isRelative()
 */
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 TQFileInfo::TQFileInfo( const TQDir &d, const TQString &fileName )
 {
     fn	  = d.filePath( fileName );
@@ -332,7 +332,7 @@ void TQFileInfo::setFile( const TQFile &file )
 
     \sa isRelative()
 */
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 void TQFileInfo::setFile( const TQDir &d, const TQString &fileName )
 {
     fn	= d.filePath( fileName );
@@ -481,7 +481,7 @@ TQString TQFileInfo::extension( bool complete ) const
 
     \sa dirPath(), filePath(), fileName(), isRelative()
 */
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 TQDir TQFileInfo::dir( bool absPath ) const
 {
     return TQDir( dirPath(absPath) );
@@ -497,7 +497,7 @@ TQDir TQFileInfo::dir( bool absPath ) const
 
 bool TQFileInfo::isReadable() const
 {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     return qt_file_access( fn, R_OK ) && permission( ReadUser );
 #else
     return qt_file_access( fn, R_OK );
@@ -512,7 +512,7 @@ bool TQFileInfo::isReadable() const
 
 bool TQFileInfo::isWritable() const
 {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     return qt_file_access( fn, W_OK ) && permission( WriteUser );
 #else
     return qt_file_access( fn, W_OK );
@@ -527,7 +527,7 @@ bool TQFileInfo::isWritable() const
 
 bool TQFileInfo::isExecutable() const
 {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #if defined(_MSC_VER) && _MSC_VER >= 1400
     return permission( ExeUser );
 #else
@@ -538,7 +538,7 @@ bool TQFileInfo::isExecutable() const
 #endif
 }
 
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 bool TQFileInfo::isHidden() const
 {
     return fileName()[ 0 ] == TQChar( '.' );
@@ -550,7 +550,7 @@ bool TQFileInfo::isHidden() const
     the path is absolute (e.g. under Unix a path is absolute if it
     begins with a "/").
 */
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 bool TQFileInfo::isRelative() const
 {
     return TQDir::isRelativePath( fn );
@@ -656,7 +656,7 @@ TQDateTime TQFileInfo::lastRead() const
     }
 }
 
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 
 /*!
     Returns the absolute path including the file name.

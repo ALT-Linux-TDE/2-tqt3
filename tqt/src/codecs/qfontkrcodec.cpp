@@ -40,8 +40,8 @@
 
 #include "private/qfontcodecs_p.h"
 
-#ifndef QT_NO_CODECS
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 extern unsigned int qt_UnicodeToKsc5601(unsigned int unicode);
 
@@ -117,5 +117,5 @@ bool TQFontKsc5601Codec::canEncode( TQChar ch ) const
     return (qt_UnicodeToKsc5601(ch.unicode()) != 0);
 }
 
-#endif // QT_NO_BIG_CODECS
-#endif // QT_NO_CODECS
+#endif // TQT_NO_BIG_CODECS
+#endif // TQT_NO_CODECS

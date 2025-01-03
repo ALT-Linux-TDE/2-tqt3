@@ -53,7 +53,7 @@ easy to create your own SQL driver plugins that can be loaded
 dynamically by TQt.
 <p> Writing a SQL plugin is achieved by subclassing this base class,
 reimplementing the pure virtual functions <a href="#keys">keys</a>() and <a href="#create">create</a>(), and
-exporting the class with the <tt>Q_EXPORT_PLUGIN</tt> macro. See the SQL
+exporting the class with the <tt>TQ_EXPORT_PLUGIN</tt> macro. See the SQL
 plugins that come with TQt for example implementations (in the
 <tt>plugins/src/sqldrivers</tt> subdirectory of the source
 distribution). Read the <a href="plugins-howto.html">plugins
@@ -64,7 +64,7 @@ distribution). Read the <a href="plugins-howto.html">plugins
 <h3 class=fn><a name="TQSqlDriverPlugin"></a>TQSqlDriverPlugin::TQSqlDriverPlugin ()
 </h3>
 Constructs a SQL driver plugin. This is invoked automatically by
-the <tt>Q_EXPORT_PLUGIN</tt> macro.
+the <tt>TQ_EXPORT_PLUGIN</tt> macro.
 
 <h3 class=fn><a name="~TQSqlDriverPlugin"></a>TQSqlDriverPlugin::~TQSqlDriverPlugin ()
 </h3>

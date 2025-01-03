@@ -45,17 +45,17 @@ and no master process is running. If you do not have a working Linux
 framebuffer you can use the
 <a href="emb-tqvfb.html">TQt/Embedded virtual framebuffer</a>, or you can
 run TQt/Embedded as a <a href="emb-vnc.html">VNC server</a>.
-<p> Change to a Linux console and select an example to run, e.g. <tt>examples/widgets</tt>. Make sure $QTDIR is set to the directory where you
-installed TQt/Embedded and add the $QTDIR/lib directory to
+<p> Change to a Linux console and select an example to run, e.g. <tt>examples/widgets</tt>. Make sure $TQTDIR is set to the directory where you
+installed TQt/Embedded and add the $TQTDIR/lib directory to
 $LD_LIBRARY_PATH, e.g.:
 <pre>
-export QTDIR=$HOME/qt-VERSION
-export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+export TQTDIR=$HOME/qt-VERSION
+export LD_LIBRARY_PATH=$TQTDIR/lib:$LD_LIBRARY_PATH
 </pre>
  
 <p> Run the application with the <em>-qws</em> option:
 <p> <pre>
-cd $QTDIR/examples/widgets
+cd $TQTDIR/examples/widgets
 ./widgets -qws
 </pre>
  

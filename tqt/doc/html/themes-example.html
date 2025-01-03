@@ -59,7 +59,7 @@ during runtime using the pulldown menu.
 
 #include &lt;<a href="qpalette-h.html">ntqpalette.h</a>&gt;
 
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 
 #include &lt;<a href="qwindowsstyle-h.html">ntqwindowsstyle.h</a>&gt;
 
@@ -146,7 +146,7 @@ private:
 
 #include "wood.h"
 
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 
 #include "ntqapplication.h"
 #include "ntqcombobox.h"
@@ -1573,7 +1573,7 @@ void <a name="f226"></a>NorwegianWoodStyle::drawSemicircleButton( <a href="ntqpa
 
 #include &lt;<a href="qpalette-h.html">ntqpalette.h</a>&gt;
 
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 
 #include &lt;<a href="qwindowsstyle-h.html">ntqwindowsstyle.h</a>&gt;
 
@@ -1642,7 +1642,7 @@ private:
 
 #include "metal.h"
 
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 
 #include "ntqapplication.h"
 #include "ntqcombobox.h"
@@ -2224,10 +2224,10 @@ private:
     <a href="qactiongroup.html">TQActionGroup</a> *ag = new <a href="qactiongroup.html">TQActionGroup</a>( this, 0 );
 <a name="x320"></a>    ag-&gt;<a href="qactiongroup.html#setExclusive">setExclusive</a>( TRUE );
     <a href="ntqsignalmapper.html">TQSignalMapper</a> *styleMapper = new <a href="ntqsignalmapper.html">TQSignalMapper</a>( this );
-<a name="x335"></a>    <a href="ntqobject.html#connect">connect</a>( styleMapper, SIGNAL( <a href="ntqsignalmapper.html#mapped">mapped</a>( const <a href="ntqstring.html">TQString</a>&amp; ) ), this, SLOT( makeStyle( const <a href="ntqstring.html">TQString</a>&amp; ) ) );
+<a name="x335"></a>    <a href="ntqobject.html#connect">connect</a>( styleMapper, TQ_SIGNAL( <a href="ntqsignalmapper.html#mapped">mapped</a>( const <a href="ntqstring.html">TQString</a>&amp; ) ), this, TQ_SLOT( makeStyle( const <a href="ntqstring.html">TQString</a>&amp; ) ) );
 <a name="x342"></a>    <a href="ntqstringlist.html">TQStringList</a> list = TQStyleFactory::<a href="ntqstylefactory.html#keys">keys</a>();
 <a name="x341"></a>    list.<a href="ntqstringlist.html#sort">sort</a>();
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 <a name="x346"></a><a name="x344"></a>    list.<a href="ntqvaluelist.html#insert">insert</a>(list.<a href="ntqvaluelist.html#begin">begin</a>(), "Norwegian Wood");
     list.<a href="ntqvaluelist.html#insert">insert</a>(list.<a href="ntqvaluelist.html#begin">begin</a>(), "Metal");
 #endif
@@ -2248,20 +2248,20 @@ private:
             styleAccel = "&amp;"+styleAccel;
         }
 <a name="x319"></a>        <a href="ntqaction.html">TQAction</a> *a = new <a href="ntqaction.html">TQAction</a>( styleStr, TQIconSet(), styleAccel, 0, ag, 0, ag-&gt;<a href="qactiongroup.html#isExclusive">isExclusive</a>() );
-<a name="x334"></a><a name="x316"></a>        <a href="ntqobject.html#connect">connect</a>( a, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), styleMapper, SLOT(<a href="ntqsignalmapper.html#map">map</a>()) );
+<a name="x334"></a><a name="x316"></a>        <a href="ntqobject.html#connect">connect</a>( a, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), styleMapper, TQ_SLOT(<a href="ntqsignalmapper.html#map">map</a>()) );
 <a name="x336"></a><a name="x317"></a>        styleMapper-&gt;<a href="ntqsignalmapper.html#setMapping">setMapping</a>( a, a-&gt;<a href="ntqaction.html#text">text</a>() );
     }
 <a name="x318"></a>    ag-&gt;<a href="qactiongroup.html#addTo">addTo</a>(style);
     style-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    style-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Quit", tqApp, SLOT( <a href="ntqapplication.html#quit">quit</a>() ), CTRL | Key_Q );
+    style-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Quit", tqApp, TQ_SLOT( <a href="ntqapplication.html#quit">quit</a>() ), CTRL | Key_Q );
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a> * help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", help );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, SLOT(about()), Key_F1);
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, SLOT(aboutTQt()));
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), Key_F1);
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()));
 
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 <a name="x325"></a>    tqApp-&gt;<a href="ntqapplication.html#setStyle">setStyle</a>( new NorwegianWoodStyle );
 #endif
 }
@@ -2269,11 +2269,11 @@ private:
 void <a name="f232"></a>Themes::makeStyle(const <a href="ntqstring.html">TQString</a> &amp;style)
 {
     if(style == "Norwegian Wood") {
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
         tqApp-&gt;<a href="ntqapplication.html#setStyle">setStyle</a>( new NorwegianWoodStyle );
 #endif
     } else if( style == "Metal" ) {
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
         tqApp-&gt;<a href="ntqapplication.html#setStyle">setStyle</a>( new MetalStyle );
 #endif
     } else {

@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -72,11 +72,11 @@ The moc is typically used with an input file containing class declarations
 like this:
 
 \code
-    class MyClass : public QObject
+    class MyClass : public TQObject
     {
         TQ_OBJECT
     public:
-        MyClass( QObject * parent=0, const char * name=0 );
+        MyClass( TQObject * parent=0, const char * name=0 );
         ~MyClass();
 
     signals:
@@ -98,13 +98,13 @@ also called "priority" and has a get function \c priority() and a set
 function \c setPriority().
 
 \code
-    class MyClass : public QObject
+    class MyClass : public TQObject
     {
         TQ_OBJECT
         TQ_PROPERTY( Priority priority READ priority WRITE setPriority )
         TQ_ENUMS( Priority )
     public:
-        MyClass( QObject * parent=0, const char * name=0 );
+        MyClass( TQObject * parent=0, const char * name=0 );
         ~MyClass();
 
         enum Priority { High, Low, VeryHigh, VeryLow };
@@ -119,13 +119,13 @@ sets, i.e. OR'ed together. Another macro, TQ_CLASSINFO, can be used to
 attach additional name/value-pairs to the class' meta object:
 
 \code
-    class MyClass : public QObject
+    class MyClass : public TQObject
     {
         TQ_OBJECT
         TQ_CLASSINFO( "Author", "Oscar Peterson")
         TQ_CLASSINFO( "Status", "Active")
     public:
-        MyClass( QObject * parent=0, const char * name=0 );
+        MyClass( TQObject * parent=0, const char * name=0 );
         ~MyClass();
     };
 \endcode
@@ -317,21 +317,21 @@ Less importantly, the following constructs are illegal.  All of them
 have alternatives which we think are usually better, so removing these
 limitations is not a high priority for us.
 
-\section2 Multiple inheritance requires QObject to be first
+\section2 Multiple inheritance requires TQObject to be first
 
 If you are using multiple inheritance, moc assumes that the \e first
-inherited class is a subclass of QObject.  Also, be sure that \e only
-the first inherited class is a QObject.
+inherited class is a subclass of TQObject.  Also, be sure that \e only
+the first inherited class is a TQObject.
 
 \code
-    class SomeClass : public QObject, public OtherClass {
+    class SomeClass : public TQObject, public OtherClass {
 	...
     };
 \endcode
 
 (This limitation is almost impossible to remove; since the moc does not expand
 #include or #define, it cannot find out which one of the base classes
-is a QObject.)
+is a TQObject.)
 
 \section2 Function pointers cannot be arguments to signals or slots
 
@@ -340,7 +340,7 @@ signal/slot arguments, we think inheritance is a better alternative.
 Here is an example of illegal syntax:
 
 \code
-    class SomeClass : public QObject {
+    class SomeClass : public TQObject {
         TQ_OBJECT
 	...
     public slots:
@@ -353,7 +353,7 @@ You can work around this restriction like this:
 \code
     typedef void (*ApplyFunctionType)( List *, void * );
 
-    class SomeClass : public QObject {
+    class SomeClass : public TQObject {
         TQ_OBJECT
 	...
     public slots:
@@ -372,7 +372,7 @@ protected or public sections instead.  Here is an example of the
 illegal syntax:
 
 \code
-    class SomeClass : public QObject {
+    class SomeClass : public TQObject {
         TQ_OBJECT
 	...
     signals:
@@ -420,7 +420,7 @@ will not work in signals and slots. Here is an illegal example:
     #define SIGNEDNESS(a) a
     #endif
 
-    class Whatever : public QObject {
+    class Whatever : public TQObject {
 	...
     signals:
         void someSignal( SIGNEDNESS(int) );
@@ -461,11 +461,11 @@ protected or public sections, where they belong.  Here is an example
 of the illegal syntax:
 
 \code
-    class SomeClass : public QObject {
+    class SomeClass : public TQObject {
 	TQ_OBJECT
     public slots:
-	SomeClass( QObject *parent, const char *name )
-	    : QObject( parent, name ) { } // WRONG
+	SomeClass( TQObject *parent, const char *name )
+	    : TQObject( parent, name ) { } // WRONG
 	...
     };
 \endcode
@@ -480,7 +480,7 @@ find the functions nor resolve the type. Here is an example of the
 illegal syntax:
 
 \code
-    class SomeClass : public QObject {
+    class SomeClass : public TQObject {
         TQ_OBJECT
     public:
 	...
@@ -497,7 +497,7 @@ Work around this limitation by declaring all properties at the
 beginning of the class declaration, right after TQ_OBJECT:
 
 \code
-    class SomeClass : public QObject {
+    class SomeClass : public TQObject {
         TQ_OBJECT
         TQ_PROPERTY( Priority priority READ priority WRITE setPriority )
         TQ_ENUMS( Priority )

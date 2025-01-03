@@ -46,12 +46,12 @@ ApplicationWindow::ApplicationWindow()
     TQAction * fileCloseAction, * fileQuitAction;
 
     fileNewAction = new TQAction( "&New", CTRL+Key_N, this, "new" );
-    connect( fileNewAction, SIGNAL( activated() ) , this,
-             SLOT( newDoc() ) );
+    connect( fileNewAction, TQ_SIGNAL( activated() ) , this,
+             TQ_SLOT( newDoc() ) );
 
     fileOpenAction = new TQAction( TQPixmap( fileopen ), "&Open...",
                                   CTRL+Key_O, this, "open" );
-    connect( fileOpenAction, SIGNAL( activated() ) , this, SLOT( choose() ) );
+    connect( fileOpenAction, TQ_SIGNAL( activated() ) , this, TQ_SLOT( choose() ) );
 
     const char * fileOpenText = "<p><img source=\"fileopen\"> "
                      "Click this button to open a <em>new file</em>. <br>"
@@ -63,7 +63,7 @@ ApplicationWindow::ApplicationWindow()
 
     fileSaveAction = new TQAction( TQPixmap( filesave ),
                                   "&Save", CTRL+Key_S, this, "save" );
-    connect( fileSaveAction, SIGNAL( activated() ) , this, SLOT( save() ) );
+    connect( fileSaveAction, TQ_SIGNAL( activated() ) , this, TQ_SLOT( save() ) );
 
     const char * fileSaveText = "<p>Click this button to save the file you "
                      "are editing. You will be prompted for a file name.\n"
@@ -73,14 +73,14 @@ ApplicationWindow::ApplicationWindow()
 
     fileSaveAsAction = new TQAction( "Save File As", "Save &As...", 0,  this,
                                     "save as" );
-    connect( fileSaveAsAction, SIGNAL( activated() ) , this,
-             SLOT( saveAs() ) );
+    connect( fileSaveAsAction, TQ_SIGNAL( activated() ) , this,
+             TQ_SLOT( saveAs() ) );
     fileSaveAsAction->setWhatsThis( fileSaveText );
 
     filePrintAction = new TQAction( "Print File", TQPixmap( fileprint ),
                                    "&Print...", CTRL+Key_P, this, "print" );
-    connect( filePrintAction, SIGNAL( activated() ) , this,
-             SLOT( print() ) );
+    connect( filePrintAction, TQ_SIGNAL( activated() ) , this,
+             TQ_SLOT( print() ) );
 
     const char * filePrintText = "Click this button to print the file you "
                      "are editing.\n You can also select the Print "
@@ -89,13 +89,13 @@ ApplicationWindow::ApplicationWindow()
 
     fileCloseAction = new TQAction( "Close", "&Close", CTRL+Key_W, this,
                                    "close" );
-    connect( fileCloseAction, SIGNAL( activated() ) , this,
-             SLOT( close() ) );
+    connect( fileCloseAction, TQ_SIGNAL( activated() ) , this,
+             TQ_SLOT( close() ) );
 
     fileQuitAction = new TQAction( "Quit", "&Quit", CTRL+Key_Q, this,
                                   "quit" );
-    connect( fileQuitAction, SIGNAL( activated() ) , tqApp,
-             SLOT( closeAllWindows() ) );
+    connect( fileQuitAction, TQ_SIGNAL( activated() ) , tqApp,
+             TQ_SLOT( closeAllWindows() ) );
 
     // populate a tool bar with some actions
 
@@ -128,10 +128,10 @@ ApplicationWindow::ApplicationWindow()
 
     TQPopupMenu * help = new TQPopupMenu( this );
     menuBar()->insertItem( "&Help", help );
-    help->insertItem( "&About", this, SLOT(about()), Key_F1 );
-    help->insertItem( "About &TQt", this, SLOT(aboutTQt()) );
+    help->insertItem( "&About", this, TQ_SLOT(about()), Key_F1 );
+    help->insertItem( "About &TQt", this, TQ_SLOT(aboutTQt()) );
     help->insertSeparator();
-    help->insertItem( "What's &This", this, SLOT(whatsThis()),
+    help->insertItem( "What's &This", this, TQ_SLOT(whatsThis()),
                       SHIFT+Key_F1 );
 
 

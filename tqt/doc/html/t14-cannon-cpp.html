@@ -55,8 +55,8 @@ body { background: #ffffff; color: black; }
     f = 0;
     timerCount = 0;
     autoShootTimer = new <a href="ntqtimer.html">TQTimer</a>( this, "movement handler" );
-    <a href="ntqobject.html#connect">connect</a>( autoShootTimer, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
-             this, SLOT(moveShot()) );
+    <a href="ntqobject.html#connect">connect</a>( autoShootTimer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
+             this, TQ_SLOT(moveShot()) );
     shoot_ang = 0;
     shoot_f = 0;
     target = TQPoint( 0, 0 );

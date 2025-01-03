@@ -40,7 +40,7 @@
 
 #include "ntqurlinfo.h"
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
 
 #include "ntqurloperator.h"
 #include "ntqdir.h"
@@ -758,4 +758,4 @@ bool TQUrlInfo::isValid() const
     return d != 0;
 }
 
-#endif // QT_NO_NETWORKPROTOCOL
+#endif // TQT_NO_NETWORKPROTOCOL

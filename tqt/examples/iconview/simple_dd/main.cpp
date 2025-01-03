@@ -169,8 +169,8 @@ int main( int argc, char *argv[] )
 
     // Set up the connection so that we can drop items into the icon view
     TQObject::connect( 
-	iv, SIGNAL(dropped(TQDropEvent*, const TQValueList<TQIconDragItem>&)), 
-	iv, SLOT(slotNewItem(TQDropEvent*, const TQValueList<TQIconDragItem>&)));
+	iv, TQ_SIGNAL(dropped(TQDropEvent*, const TQValueList<TQIconDragItem>&)), 
+	iv, TQ_SLOT(slotNewItem(TQDropEvent*, const TQValueList<TQIconDragItem>&)));
 
     // Populate the TQIconView with icons
     DDIconViewItem *item;

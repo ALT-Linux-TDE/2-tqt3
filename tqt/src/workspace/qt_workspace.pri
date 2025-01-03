@@ -1,4 +1,4 @@
-# Qt workspace module
+# TQt workspace module
 
 workspace {
 	HEADERS += $$WORKSPACE_H/ntqworkspace.h

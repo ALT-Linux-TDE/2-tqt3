@@ -9,7 +9,7 @@
 .SH NAME
 QThread \- Platform-independent threads
 .SH SYNOPSIS
-All the functions in this class are thread-safe when Qt is built with thread support.</p>
+All the functions in this class are thread-safe when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqthread.h>\fR
 .PP
@@ -45,10 +45,10 @@ Inherits Qt.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "Qt::HANDLE \fBcurrentThread\fR ()"
+.BI "TQt::HANDLE \fBcurrentThread\fR ()"
 .br
 .ti -1c
-.BI "void postEvent ( QObject * receiver, QEvent * event )  \fI(obsolete)\fR"
+.BI "void postEvent ( TQObject * receiver, QEvent * event )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "void \fBexit\fR ()"
@@ -159,7 +159,7 @@ If \fIstackSize\fR is greater than zero, the maximum stack size is set to \fIsta
 QThread destructor.
 .PP
 Note that deleting a QThread object will not stop the execution of the thread it represents. Deleting a running QThread (i.e. finished() returns FALSE) will probably result in a program crash. You can wait() on a thread to make sure that it has finished.
-.SH "Qt::HANDLE QThread::currentThread ()\fC [static]\fR"
+.SH "TQt::HANDLE QThread::currentThread ()\fC [static]\fR"
 This returns the thread handle of the currently executing thread.
 .PP
 \fBWarning:\fR The handle returned by this function is used for internal purposes and should \fInot\fR be used in any application code. On Windows, the returned value is a pseudo handle for the current thread, and it cannot be used for numerical comparison.
@@ -169,7 +169,7 @@ Ends the execution of the calling thread and wakes up any threads waiting for it
 Returns TRUE if the thread is finished; otherwise returns FALSE.
 .SH "void QThread::msleep ( unsigned long msecs )\fC [static protected]\fR"
 System independent sleep. This causes the current thread to sleep for \fImsecs\fR milliseconds
-.SH "void QThread::postEvent ( QObject * receiver, QEvent * event )\fC [static]\fR"
+.SH "void QThread::postEvent ( TQObject * receiver, QEvent * event )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use QApplication::postEvent() instead.
@@ -218,8 +218,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

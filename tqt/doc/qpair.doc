@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** QPair class documentation
+** TQPair class documentation
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -37,39 +37,39 @@
 **********************************************************************/
 
 /*****************************************************************************
-  QPair documentation
+  TQPair documentation
  *****************************************************************************/
 
 
 /*!
-    \class QPair ntqpair.h
-    \brief The QPair class is a value-based template class that provides a pair of elements.
+    \class TQPair ntqpair.h
+    \brief The TQPair class is a value-based template class that provides a pair of elements.
 
     \ingroup qtl
     \ingroup tools
     \ingroup shared
     
-    QPair is a Qt implementation of an STL-like pair. It can be used
+    TQPair is a TQt implementation of an STL-like pair. It can be used
     in your application if the standard pair\<\> is not available on
     your target platforms.
 
-    QPair\<T1, T2\> defines a template instance to create a pair of
+    TQPair\<T1, T2\> defines a template instance to create a pair of
     values that contains two values of type T1 and T2. Please note
-    that QPair does not store pointers to the two elements; it holds a
+    that TQPair does not store pointers to the two elements; it holds a
     copy of every member. This is why these kinds of classes are
     called \e{value based}. If you're interested in \e{pointer based}
     classes see, for example, QPtrList and QDict.
 
-    QPair holds one copy of type T1 and one copy of type T2, but does
+    TQPair holds one copy of type T1 and one copy of type T2, but does
     not provide iterators to access these elements. Instead, the two
     elements (\c first and \c second) are public member variables of
-    the pair. QPair owns the contained elements. For more relaxed
+    the pair. TQPair owns the contained elements. For more relaxed
     ownership semantics, see QPtrCollection and friends which are
     pointer-based containers.
 
-    Some classes cannot be used within a QPair: for example, all
-    classes derived from QObject and thus all classes that implement
-    widgets. Only "values" can be used in a QPair. To qualify as a
+    Some classes cannot be used within a TQPair: for example, all
+    classes derived from TQObject and thus all classes that implement
+    widgets. Only "values" can be used in a TQPair. To qualify as a
     value the class must provide:
 
     \list
@@ -82,36 +82,36 @@
     copy constructors if no explicit version is supplied. In many
     cases this is sufficient.
 
-    QPair uses an STL-like syntax to manipulate and address the
+    TQPair uses an STL-like syntax to manipulate and address the
     objects it contains. See the \link ntqtl.html QTL
     documentation\endlink for more information.
 
-    Functions that need to return two values can use a QPair.
+    Functions that need to return two values can use a TQPair.
 */
 
-/*! \enum QPair::first_type
+/*! \enum TQPair::first_type
 	The type of the first element in the pair. */
 
-/*! \enum QPair::second_type
+/*! \enum TQPair::second_type
 	The type of the second element in the pair. */
 
 
 /*!
-    \fn QPair::QPair()
+    \fn TQPair::TQPair()
 
     Constructs an empty pair. The \c first and \c second elements are
     default constructed. 
 */
 
 /*!
-    \fn QPair::QPair( const T1& t1, const T2& t2 )
+    \fn TQPair::TQPair( const T1& t1, const T2& t2 )
 
     Constructs a pair and initializes the \c first element with \a t1
     and the \c second element with \a t2.
 */
 
 /*!
-    \fn bool operator==( const QPair<T1, T2>& x, const QPair<T1, T2>& y )
+    \fn bool operator==( const TQPair<T1, T2>& x, const TQPair<T1, T2>& y )
 
     Returns TRUE if \a x is equal to \a y; otherwise returns FALSE.
     Two QPairs are equal if both their \c first and \c second elements
@@ -119,7 +119,7 @@
 */
 
 /*!
-    \fn bool operator<( const QPair<T1, T2>& x, const QPair<T1, T2>& y )
+    \fn bool operator<( const TQPair<T1, T2>& x, const TQPair<T1, T2>& y )
 
     Returns TRUE if \a x is less than \a y; otherwise returns FALSE.
     \a x is less than \a y if x.first is less than y.first, or if
@@ -128,18 +128,18 @@
     For example, (0, 1) < (0, 4) and (0, 4) < (1, 0).
 */
 
-/*! \fn QPair<T1, T2> qMakePair( const T1& x, const T2& y )
+/*! \fn TQPair<T1, T2> qMakePair( const T1& x, const T2& y )
 
-    Convenience wrapper for the QPair constructor.
+    Convenience wrapper for the TQPair constructor.
 */
 
-/*! \fn QDataStream& operator>>( QDataStream& s, QPair<T1, T2>& p )
+/*! \fn QDataStream& operator>>( QDataStream& s, TQPair<T1, T2>& p )
 
     Reads a pair \a p from the stream \a s. The types T1 and T2 must
     implement the streaming operator as well.
 */
 
-/*! \fn QDataStream& operator<<( QDataStream& s, const QPair<T1, T2>& p )
+/*! \fn QDataStream& operator<<( QDataStream& s, const TQPair<T1, T2>& p )
 
     Writes the pair \a p to the stream \a s. The types T1 and T2 must
     implement the streaming operator as well.

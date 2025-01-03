@@ -40,7 +40,7 @@
 
 #include "ntqpicture.h"
 
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
 
 #include "ntqpainter.h"
 #include "ntqpixmap.h"
@@ -49,7 +49,7 @@
 #include "ntqdatastream.h"
 #include "ntqpaintdevicemetrics.h"
 
-#ifndef QT_NO_SVG
+#ifndef TQT_NO_SVG
 #include "private/qsvgdevice_p.h"
 #endif
 
@@ -248,7 +248,7 @@ bool TQPicture::load( const TQString &fileName, const char *format )
 
 bool TQPicture::load( TQIODevice *dev, const char *format )
 {
-#ifndef QT_NO_SVG
+#ifndef TQT_NO_SVG
     if ( qstrcmp( format, "svg" ) == 0 ) {
 	TQSvgDevice svg;
 	if ( !svg.load( dev ) )
@@ -297,7 +297,7 @@ bool TQPicture::save( const TQString &fileName, const char *format )
 	return FALSE;
     }
 
-#ifndef QT_NO_SVG
+#ifndef TQT_NO_SVG
     // identical to TQIODevice* code below but the file name
     // makes a difference when it comes to saving pixmaps
     if ( tqstricmp( format, "svg" ) == 0 ) {
@@ -332,7 +332,7 @@ bool TQPicture::save( TQIODevice *dev, const char *format )
 	return FALSE;
     }
 
-#ifndef QT_NO_SVG
+#ifndef TQT_NO_SVG
     if ( tqstricmp( format, "svg" ) == 0 ) {
 	TQSvgDevice svg;
 	TQPainter p( &svg );
@@ -446,7 +446,7 @@ bool TQPicture::exec( TQPainter *painter, TQDataStream &s, int nrecords )
     TQPen	pen;
     TQBrush	brush;
     TQRegion	rgn;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQWMatrix	matrix;
 #endif
 
@@ -517,7 +517,7 @@ bool TQPicture::exec( TQPainter *painter, TQDataStream &s, int nrecords )
 		break;
 	    case PdcDrawCubicBezier:
 		s >> a;
-#ifndef QT_NO_BEZIER
+#ifndef TQT_NO_BEZIER
 		painter->drawCubicBezier( a );
 #endif
 		break;
@@ -623,35 +623,35 @@ bool TQPicture::exec( TQPainter *painter, TQDataStream &s, int nrecords )
 		break;
 	    case PdcSetVXform:
 		s >> i_8;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 		painter->setViewXForm( i_8 );
 #endif
 		break;
 	    case PdcSetWindow:
 		s >> r;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 		painter->setWindow( r );
 #endif
 		break;
 	    case PdcSetViewport:
 		s >> r;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 		painter->setViewport( r );
 #endif
 		break;
 	    case PdcSetWXform:
 		s >> i_8;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 		painter->setWorldXForm( i_8 );
 #endif
 		break;
 	    case PdcSetWMatrix:
-#ifndef QT_NO_TRANSFORMATIONS	// #### fix me!
+#ifndef TQT_NO_TRANSFORMATIONS	// #### fix me!
 		s >> matrix >> i_8;
 		painter->setWorldMatrix( matrix, i_8 );
 #endif
 		break;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	    case PdcSaveWMatrix:
 		painter->saveWorldMatrix();
 		break;
@@ -782,7 +782,7 @@ bool TQPicture::TQPicturePrivate::cmd( int c, TQPainter *pt, TQPDevCmdParam *p )
 	    br = p[0].ptarr->boundingRect();
 	    corr = TRUE;
 	    break;
-#ifndef QT_NO_BEZIER
+#ifndef TQT_NO_BEZIER
 	case PdcDrawCubicBezier:
 	    s << *p[0].ptarr;
 	    br = p[0].ptarr->cubicBezier().boundingRect();
@@ -884,7 +884,7 @@ bool TQPicture::TQPicturePrivate::cmd( int c, TQPainter *pt, TQPDevCmdParam *p )
 	case PdcSetClip:
 	    s << (TQ_INT8)p[0].ival;
 	    break;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	case PdcSetWindow:
 	case PdcSetViewport:
 	    s << *p[0].rect;
@@ -924,7 +924,7 @@ bool TQPicture::TQPicturePrivate::cmd( int c, TQPainter *pt, TQPDevCmdParam *p )
 	    br.setCoords( br.left() - w2, br.top() - w2,
 			  br.right() + w2, br.bottom() + w2 );
 	}
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	br = pt->worldMatrix().map( br );
 #endif
 	if ( pt->hasClipping() ) {
@@ -1225,5 +1225,5 @@ TQDataStream &operator>>( TQDataStream &s, TQPicture &r )
     return s;
 }
 
-#endif // QT_NO_PICTURE
+#endif // TQT_NO_PICTURE
 

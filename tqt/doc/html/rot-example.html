@@ -100,12 +100,12 @@ private:
 {
     left = new <a href="ntqmultilineedit.html">TQMultiLineEdit</a>( this, "left" );
     right = new <a href="ntqmultilineedit.html">TQMultiLineEdit</a>( this, "right" );
-<a name="x1375"></a>    <a href="ntqobject.html#connect">connect</a>( left, SIGNAL(<a href="ntqtextedit.html#textChanged">textChanged</a>()), this, SLOT(changeRight()) );
-    <a href="ntqobject.html#connect">connect</a>( right, SIGNAL(<a href="ntqtextedit.html#textChanged">textChanged</a>()), this, SLOT(changeLeft()) );
+<a name="x1375"></a>    <a href="ntqobject.html#connect">connect</a>( left, TQ_SIGNAL(<a href="ntqtextedit.html#textChanged">textChanged</a>()), this, TQ_SLOT(changeRight()) );
+    <a href="ntqobject.html#connect">connect</a>( right, TQ_SIGNAL(<a href="ntqtextedit.html#textChanged">textChanged</a>()), this, TQ_SLOT(changeLeft()) );
 
     <a href="ntqpushbutton.html">TQPushButton</a> * quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Quit", this );
 <a name="x1379"></a>    quit-&gt;<a href="ntqwidget.html#setFocusPolicy">setFocusPolicy</a>( NoFocus );
-    <a href="ntqobject.html#connect">connect</a>( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
     <a href="qgridlayout.html">TQGridLayout</a> * l = new <a href="qgridlayout.html">TQGridLayout</a>( this, 2, 2, 5 );
 <a name="x1370"></a>    l-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( left, 0, 0 );

@@ -51,7 +51,7 @@
 //
 //
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 
 #ifndef QT_H
 #include "ntqmutex.h"
@@ -100,10 +100,12 @@ public:
     static void finish( TQThreadInstance * );
 #endif // Q_OS_WIN32
 
+    static void finishGuiThread( TQThreadInstance *d );
+
     TQEventLoop* eventLoop;
     int cleanupType;
     bool disableThreadPostedEvents : 1;
 };
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 #endif // TQTHREAD_P_H

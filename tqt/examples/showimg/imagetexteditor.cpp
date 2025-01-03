@@ -48,23 +48,23 @@ ImageTextEditor::ImageTextEditor( TQImage& i, TQWidget *parent, const char *name
     TQPushButton* cancel = new TQPushButton("Cancel",hbox);
     TQPushButton* ok = new TQPushButton("OK",hbox);
 
-    connect(add,SIGNAL(clicked()),
-	this,SLOT(addText()));
+    connect(add,TQ_SIGNAL(clicked()),
+	this,TQ_SLOT(addText()));
 
-    connect(remove,SIGNAL(clicked()),
-	this,SLOT(removeText()));
+    connect(remove,TQ_SIGNAL(clicked()),
+	this,TQ_SLOT(removeText()));
 
-    connect(ok,SIGNAL(clicked()),
-	this,SLOT(accept()));
+    connect(ok,TQ_SIGNAL(clicked()),
+	this,TQ_SLOT(accept()));
 
-    connect(cancel,SIGNAL(clicked()),
-	this,SLOT(reject()));
+    connect(cancel,TQ_SIGNAL(clicked()),
+	this,TQ_SLOT(reject()));
 
-    connect(languages,SIGNAL(activated(int)),
-	this,SLOT(updateText()));
+    connect(languages,TQ_SIGNAL(activated(int)),
+	this,TQ_SLOT(updateText()));
 
-    connect(keys,SIGNAL(activated(int)),
-	this,SLOT(updateText()));
+    connect(keys,TQ_SIGNAL(activated(int)),
+	this,TQ_SLOT(updateText()));
 
     imageChanged();
 }

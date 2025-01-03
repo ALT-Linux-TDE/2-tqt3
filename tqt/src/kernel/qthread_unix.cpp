@@ -36,7 +36,7 @@
 **
 **********************************************************************/
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
 #include "qplatformdefs.h"
 
@@ -129,6 +129,7 @@ void *TQThreadInstance::start( void *_arg )
 #if defined(QT_USE_GLIBMAINLOOP)
     // This is the first time we have access to the native pthread ID of this newly created thread
     ((TQThreadInstance*)arg[1])->thread_id = pthread_self();
+    pthread_detach(pthread_self());
 #endif // QT_USE_GLIBMAINLOOP
 
 #ifdef QT_DEBUG
@@ -178,6 +179,11 @@ void TQThreadInstance::finish( void * )
         d->deinit();
 	delete d;
     }
+}
+
+void TQThreadInstance::finishGuiThread(TQThreadInstance *d) {
+    TQThreadStorageData::finish( d->thread_storage );
+    d->thread_storage = 0;
 }
 
 TQMutex *TQThreadInstance::mutex() const
@@ -331,7 +337,10 @@ void TQThread::start(Priority priority)
     pthread_attr_init(&attr);
     pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 
-#if !defined(Q_OS_OPENBSD) && defined(_POSIX_THREAD_PRIORITY_SCHEDULING) && (_POSIX_THREAD_PRIORITY_SCHEDULING-0 >= 0)
+#if defined(_POSIX_THREAD_PRIORITY_SCHEDULING) && (_POSIX_THREAD_PRIORITY_SCHEDULING-0 >= 0)
+#if _POSIX_THREAD_PRIORITY_SCHEDULING == 0 && defined _SC_THREAD_PRIORITY_SCHEDULING
+    if (sysconf(_SC_THREAD_PRIORITY_SCHEDULING) > 0)
+#endif
     switch (priority) {
     case InheritPriority:
 	{
@@ -412,14 +421,15 @@ void TQThread::start(Priority priority)
     // The correct thread_id is set in TQThreadInstance::start using the value of d->args[1]
     d->thread_id = 0;
 
-    // Legacy glib versions require this threading system initialization call
-    if (!GLIB_CHECK_VERSION (2, 32, 0)) {
-      if( ! g_thread_get_initialized () ) {
-        g_thread_init(NULL);
-      }
-    }
+    // glib versions < 2.32.0 requires threading system initialization call
+    #if GLIB_CHECK_VERSION(2, 32, 0)
+        GThread* glib_thread_handle = g_thread_new( NULL, (GThreadFunc)TQThreadInstance::start, d->args );
+    #else
+        if( !g_thread_get_initialized() );
+            g_thread_init(NULL);
+        GThread* glib_thread_handle = g_thread_create((GThreadFunc)TQThreadInstance::start, d->args, false, NULL);
+    #endif
 
-    GThread* glib_thread_handle = g_thread_create((GThreadFunc)TQThreadInstance::start, d->args, false, NULL);
     if (glib_thread_handle) {
 	ret = 0;
     }
@@ -474,7 +484,7 @@ bool TQThread::wait( unsigned long time )
 {
     TQMutexLocker locker( d->mutex() );
 
-    if ( d->thread_id == pthread_self() ) {
+    if ( pthread_equal( d->thread_id, pthread_self() ) ) {
 #ifdef QT_CHECK_STATE
 	tqWarning( "TQThread::wait: thread tried to wait on itself" );
 #endif // QT_CHECK_STATE
@@ -557,4 +567,4 @@ TQThread *TQThread::currentThreadObject()
 }
 
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT

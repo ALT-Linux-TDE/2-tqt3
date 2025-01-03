@@ -45,11 +45,11 @@
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_URL
+#ifndef TQT_NO_URL
 
 class TQUrlPrivate;
 
-class Q_EXPORT TQUrl
+class TQ_EXPORT TQUrl
 {
 public:
     TQUrl();
@@ -125,6 +125,6 @@ private:
 
 };
 
-#endif //QT_NO_URL
+#endif //TQT_NO_URL
 
 #endif

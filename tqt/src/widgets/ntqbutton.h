@@ -46,14 +46,14 @@
 #include "ntqkeysequence.h"
 #endif // QT_H
 
-#ifndef QT_NO_BUTTON
+#ifndef TQT_NO_BUTTON
 
 
 class TQButtonGroup;
 class TQToolBar;
 class TQButtonData;
 
-class Q_EXPORT TQButton : public TQWidget
+class TQ_EXPORT TQButton : public TQWidget
 {
     TQ_OBJECT
     TQ_ENUMS( ToggleType ToggleState )
@@ -78,7 +78,7 @@ public:
     const TQPixmap *pixmap() const;
     virtual void setPixmap( const TQPixmap & );
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQKeySequence		accel()	const;
     virtual void	setAccel( const TQKeySequence& );
 #endif
@@ -96,7 +96,7 @@ public:
     enum ToggleState { Off, NoChange, On };
     ToggleState	state() const;
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     bool	autoResize() const;
     void	setAutoResize( bool );
 #endif
@@ -196,7 +196,7 @@ inline bool TQButton::isOn() const
     return ToggleState(stat) != Off;
 }
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 inline bool TQButton::autoResize() const
 {
     return autoresize;
@@ -229,6 +229,6 @@ inline TQButton::ToggleType TQButton::toggleType() const
 }
 
 
-#endif // QT_NO_BUTTON
+#endif // TQT_NO_BUTTON
 
 #endif // TQBUTTON_H

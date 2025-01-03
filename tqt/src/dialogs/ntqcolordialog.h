@@ -45,11 +45,11 @@
 #include "ntqdialog.h"
 #endif // QT_H
 
-#ifndef QT_NO_COLORDIALOG
+#ifndef TQT_NO_COLORDIALOG
 
 class TQColorDialogPrivate;
 
-class Q_EXPORT TQColorDialog : public TQDialog
+class TQ_EXPORT TQColorDialog : public TQDialog
 {
     TQ_OBJECT
 

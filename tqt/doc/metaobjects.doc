@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -50,7 +50,7 @@ property system.
 
 The Meta Object System is based on three things:
 \list 1
-\i the \l QObject class;
+\i the \l TQObject class;
 \i the TQ_OBJECT macro inside the private section of the class
 declaration;
 \i the \link moc.html Meta Object Compiler (moc)\endlink. 
@@ -66,43 +66,43 @@ class's implementation.
 In addition to providing the \link signalsandslots.html signals and
 slots \endlink mechanism for communication between objects (the main
 reason for introducing the system), the meta object code provides
-additional features in QObject:
+additional features in TQObject:
 
 \list
 
-\i the \link QObject::className() className() \endlink function that
+\i the \link TQObject::className() className() \endlink function that
 returns the class name as a string at runtime, without requiring
 native runtime type information (RTTI) support through the C++
 compiler.
 
-\i the \link QObject::inherits() inherits() \endlink function that
+\i the \link TQObject::inherits() inherits() \endlink function that
 returns whether an object is an instance of a class that inherits a
-specified class within the QObject inheritance tree.
+specified class within the TQObject inheritance tree.
 
-\i the \link QObject::tr() tr() \endlink and
-\link QObject::trUtf8() trUtf8() \endlink functions for string
+\i the \link TQObject::tr() tr() \endlink and
+\link TQObject::trUtf8() trUtf8() \endlink functions for string
 translation as used for internationalization.
 
-\i the \link QObject::setProperty() setProperty() \endlink and \link
-QObject::property() property() \endlink functions for dynamically
+\i the \link TQObject::setProperty() setProperty() \endlink and \link
+TQObject::property() property() \endlink functions for dynamically
 setting and getting \link properties.html object properties\endlink by
 name.
 
-\i the \link QObject::metaObject() metaObject() \endlink function that
+\i the \link TQObject::metaObject() metaObject() \endlink function that
 returns the associated \link QMetaObject meta object \endlink for the
 class.
 
 \endlist
 
-While it is possible to use QObject as a base class without the
+While it is possible to use TQObject as a base class without the
 TQ_OBJECT macro and without meta object code, neither signals and slots
 nor the other features described here will be available if the
 TQ_OBJECT macro is not used. From the meta object system's point of
-view, a QObject subclass without meta code is equivalent to its
+view, a TQObject subclass without meta code is equivalent to its
 closest ancestor with meta object code. This means for example, that
 className() will not return the actual name of your class, but the
 class name of this ancestor. We \e strongly recommend that all
-subclasses of QObject use the TQ_OBJECT macro regardless of whether
+subclasses of TQObject use the TQ_OBJECT macro regardless of whether
 they actually use signals, slots and properties or not.
 
 */

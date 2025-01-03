@@ -21,7 +21,7 @@ AnalogClock::AnalogClock( TQWidget *parent, const char *name )
 {
     time = TQTime::currentTime();		// get current time
     internalTimer = new TQTimer( this );	// create internal timer
-    connect( internalTimer, SIGNAL(timeout()), SLOT(timeout()) );
+    connect( internalTimer, TQ_SIGNAL(timeout()), TQ_SLOT(timeout()) );
     internalTimer->start( 5000 );		// emit signal every 5 seconds
 }
 
@@ -48,7 +48,7 @@ void AnalogClock::mouseMoveEvent( TQMouseEvent *e )
 void AnalogClock::setTime( const TQTime & t )
 {
     time = t;
-    disconnect( internalTimer, SIGNAL(timeout()), this, SLOT(timeout()) );
+    disconnect( internalTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(timeout()) );
     if (autoMask())
 	updateMask();
     else

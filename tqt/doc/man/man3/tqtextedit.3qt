@@ -36,31 +36,31 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "enum \fBVerticalAlignment\fR { AlignNormal, AlignSuperScript, AlignSubScript }"
 .br
 .ti -1c
-.BI "\fBQTextEdit\fR ( const QString & text, const QString & context = QString::null, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQTextEdit\fR ( const TQString & text, const TQString & context = TQString::null, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQTextEdit\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQTextEdit\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "QString \fBtext\fR () const"
+.BI "TQString \fBtext\fR () const"
 .br
 .ti -1c
-.BI "QString \fBtext\fR ( int para ) const"
+.BI "TQString \fBtext\fR ( int para ) const"
 .br
 .ti -1c
 .BI "TextFormat \fBtextFormat\fR () const"
 .br
 .ti -1c
-.BI "QString \fBcontext\fR () const"
+.BI "TQString \fBcontext\fR () const"
 .br
 .ti -1c
-.BI "QString \fBdocumentTitle\fR () const"
+.BI "TQString \fBdocumentTitle\fR () const"
 .br
 .ti -1c
 .BI "void \fBgetSelection\fR ( int * paraFrom, int * indexFrom, int * paraTo, int * indexTo, int selNum = 0 ) const"
 .br
 .ti -1c
-.BI "virtual bool \fBfind\fR ( const QString & expr, bool cs, bool wo, bool forward = TRUE, int * para = 0, int * index = 0 )"
+.BI "virtual bool \fBfind\fR ( const TQString & expr, bool cs, bool wo, bool forward = TRUE, int * para = 0, int * index = 0 )"
 .br
 .ti -1c
 .BI "int \fBparagraphs\fR () const"
@@ -108,7 +108,7 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "bool \fBhasSelectedText\fR () const"
 .br
 .ti -1c
-.BI "QString \fBselectedText\fR () const"
+.BI "TQString \fBselectedText\fR () const"
 .br
 .ti -1c
 .BI "bool \fBisUndoAvailable\fR () const"
@@ -129,10 +129,10 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "int \fBtabStopWidth\fR () const"
 .br
 .ti -1c
-.BI "QString \fBanchorAt\fR ( const QPoint & pos )"
+.BI "TQString \fBanchorAt\fR ( const QPoint & pos )"
 .br
 .ti -1c
-.BI "QString \fBanchorAt\fR ( const QPoint & pos, AnchorAttribute attr )"
+.BI "TQString \fBanchorAt\fR ( const QPoint & pos, AnchorAttribute attr )"
 .br
 .ti -1c
 .BI "bool \fBisReadOnly\fR () const"
@@ -153,13 +153,13 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "bool \fBunderline\fR () const"
 .br
 .ti -1c
-.BI "QString \fBfamily\fR () const"
+.BI "TQString \fBfamily\fR () const"
 .br
 .ti -1c
 .BI "int \fBpointSize\fR () const"
 .br
 .ti -1c
-.BI "QColor \fBcolor\fR () const"
+.BI "TQColor \fBcolor\fR () const"
 .br
 .ti -1c
 .BI "QFont font () const  \fI(obsolete)\fR"
@@ -177,7 +177,7 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "bool \fBisOverwriteMode\fR () const"
 .br
 .ti -1c
-.BI "QColor \fBparagraphBackgroundColor\fR ( int para ) const"
+.BI "TQColor \fBparagraphBackgroundColor\fR ( int para ) const"
 .br
 .ti -1c
 .BI "bool \fBisUndoRedoEnabled\fR () const"
@@ -204,7 +204,7 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "virtual void \fBsetStyleSheet\fR ( QStyleSheet * styleSheet )"
 .br
 .ti -1c
-.BI "virtual void \fBscrollToAnchor\fR ( const QString & name )"
+.BI "virtual void \fBscrollToAnchor\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "virtual void \fBsetPaper\fR ( const QBrush & pap )"
@@ -225,13 +225,13 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "virtual void \fBcopy\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBappend\fR ( const QString & text )"
+.BI "virtual void \fBappend\fR ( const TQString & text )"
 .br
 .ti -1c
-.BI "void \fBsetText\fR ( const QString & txt )"
+.BI "void \fBsetText\fR ( const TQString & txt )"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( const QString & text, const QString & context )"
+.BI "virtual void \fBsetText\fR ( const TQString & text, const TQString & context )"
 .br
 .ti -1c
 .BI "virtual void \fBsetTextFormat\fR ( TextFormat f )"
@@ -294,13 +294,13 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "virtual void \fBsetUnderline\fR ( bool b )"
 .br
 .ti -1c
-.BI "virtual void \fBsetFamily\fR ( const QString & fontFamily )"
+.BI "virtual void \fBsetFamily\fR ( const TQString & fontFamily )"
 .br
 .ti -1c
 .BI "virtual void \fBsetPointSize\fR ( int s )"
 .br
 .ti -1c
-.BI "virtual void \fBsetColor\fR ( const QColor & c )"
+.BI "virtual void \fBsetColor\fR ( const TQColor & c )"
 .br
 .ti -1c
 .BI "virtual void \fBsetVerticalAlignment\fR ( VerticalAlignment a )"
@@ -315,7 +315,7 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "virtual void \fBsetSelection\fR ( int paraFrom, int indexFrom, int paraTo, int indexTo, int selNum = 0 )"
 .br
 .ti -1c
-.BI "virtual void \fBsetSelectionAttributes\fR ( int selNum, const QColor & back, bool invertText )"
+.BI "virtual void \fBsetSelectionAttributes\fR ( int selNum, const TQColor & back, bool invertText )"
 .br
 .ti -1c
 .BI "virtual void \fBsetModified\fR ( bool m )"
@@ -351,22 +351,22 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "virtual void \fBscrollToBottom\fR ()"
 .br
 .ti -1c
-.BI "void \fBinsert\fR ( const QString & text, uint insertionFlags = CheckNewLines | RemoveSelected )"
+.BI "void \fBinsert\fR ( const TQString & text, uint insertionFlags = CheckNewLines | RemoveSelected )"
 .br
 .ti -1c
-.BI "virtual void insert ( const QString & text, bool indent, bool checkNewLine = TRUE, bool removeSelected = TRUE )  \fI(obsolete)\fR"
+.BI "virtual void insert ( const TQString & text, bool indent, bool checkNewLine = TRUE, bool removeSelected = TRUE )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "virtual void \fBinsertAt\fR ( const QString & text, int para, int index )"
+.BI "virtual void \fBinsertAt\fR ( const TQString & text, int para, int index )"
 .br
 .ti -1c
 .BI "virtual void \fBremoveParagraph\fR ( int para )"
 .br
 .ti -1c
-.BI "virtual void \fBinsertParagraph\fR ( const QString & text, int para )"
+.BI "virtual void \fBinsertParagraph\fR ( const TQString & text, int para )"
 .br
 .ti -1c
-.BI "virtual void \fBsetParagraphBackgroundColor\fR ( int para, const QColor & bg )"
+.BI "virtual void \fBsetParagraphBackgroundColor\fR ( int para, const TQColor & bg )"
 .br
 .ti -1c
 .BI "virtual void \fBclearParagraphBackground\fR ( int para )"
@@ -405,7 +405,7 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "void \fBcurrentFontChanged\fR ( const QFont & f )"
 .br
 .ti -1c
-.BI "void \fBcurrentColorChanged\fR ( const QColor & c )"
+.BI "void \fBcurrentColorChanged\fR ( const TQColor & c )"
 .br
 .ti -1c
 .BI "void \fBcurrentAlignmentChanged\fR ( int a )"
@@ -435,7 +435,7 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "AutoFormatting \fBautoFormatting\fR - the enabled set of auto formatting features"
 .br
 .ti -1c
-.BI "QString \fBdocumentTitle\fR - the title of the document parsed from the text  \fI(read " "only" ")\fR"
+.BI "TQString \fBdocumentTitle\fR - the title of the document parsed from the text  \fI(read " "only" ")\fR"
 .br
 .ti -1c
 .BI "bool \fBhasSelectedText\fR - whether some text is selected in selection 0  \fI(read " "only" ")\fR"
@@ -459,7 +459,7 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "bool \fBreadOnly\fR - whether the text edit is read-only"
 .br
 .ti -1c
-.BI "QString \fBselectedText\fR - the selected text (from selection " "0" ") or an empty string if there is no currently selected text (in selection " "0" ")  \fI(read " "only" ")\fR"
+.BI "TQString \fBselectedText\fR - the selected text (from selection " "0" ") or an empty string if there is no currently selected text (in selection " "0" ")  \fI(read " "only" ")\fR"
 .br
 .ti -1c
 .BI "bool \fBtabChangesFocus\fR - whether TAB changes focus or is accepted as input"
@@ -468,7 +468,7 @@ Inherited by QMultiLineEdit, QTextBrowser, and QTextView.
 .BI "int \fBtabStopWidth\fR - the tab stop width in pixels"
 .br
 .ti -1c
-.BI "QString \fBtext\fR - the text edit's text"
+.BI "TQString \fBtext\fR - the text edit's text"
 .br
 .ti -1c
 .BI "TextFormat \fBtextFormat\fR - the text format: rich " "text" ", plain " "text" ", log text or auto text"
@@ -537,7 +537,7 @@ l - l. Mode Command Notes Plain Text Editor setTextFormat(PlainText) Set text wi
 .fi
 </center>
 .PP
-<sup>1.</sup><small>A more complete API that supports setting margins, images, etc., is planned for a later Qt release.</small>
+<sup>1.</sup><small>A more complete API that supports setting margins, images, etc., is planned for a later TQt release.</small>
 .PP
 QTextEdit can be used as a syntax highlighting editor when used in conjunction with QSyntaxHighlighter.
 .PP
@@ -555,9 +555,9 @@ QTextEdit can display images (using QMimeSourceFactory), lists and tables. If th
 .PP
 If you want a text browser with more navigation use QTextBrowser. If you just need to display a small piece of rich text use QLabel or QSimpleRichText.
 .PP
-If you create a new QTextEdit, and want to allow the user to edit rich text, call setTextFormat(Qt::RichText) to ensure that the text is treated as rich text. (Rich text uses HTML tags to set text formatting attributes. See QStyleSheet for information on the HTML tags that are supported.). If you don't call setTextFormat() explicitly the text edit will guess from the text itself whether it is rich text or plain text. This means that if the text looks like HTML or XML it will probably be interpreted as rich text, so you should call setTextFormat(Qt::PlainText) to preserve such text.
+If you create a new QTextEdit, and want to allow the user to edit rich text, call setTextFormat(TQt::RichText) to ensure that the text is treated as rich text. (Rich text uses HTML tags to set text formatting attributes. See QStyleSheet for information on the HTML tags that are supported.). If you don't call setTextFormat() explicitly the text edit will guess from the text itself whether it is rich text or plain text. This means that if the text looks like HTML or XML it will probably be interpreted as rich text, so you should call setTextFormat(TQt::PlainText) to preserve such text.
 .PP
-Note that we do not intend to add a full-featured web browser widget to Qt (because that would easily double Qt's size and only a few applications would benefit from it). The rich text support in Qt is designed to provide a fast, portable and efficient way to add reasonable online help facilities to applications, and to provide a basis for rich text editors.
+Note that we do not intend to add a full-featured web browser widget to TQt (because that would easily double Qt's size and only a few applications would benefit from it). The rich text support in TQt is designed to provide a fast, portable and efficient way to add reasonable online help facilities to applications, and to provide a basis for rich text editors.
 .SH "Using QTextEdit as a Display Widget"
 QTextEdit can display a large HTML subset, including tables and images.
 .PP
@@ -639,7 +639,7 @@ Stylesheets can also be used in LogText mode. To create and use a custom tag, yo
 .br
     QTextEdit * log = new QTextEdit( this );
 .br
-    log->setTextFormat( Qt::LogText );
+    log->setTextFormat( TQt::LogText );
 .br
     QStyleSheetItem * item = new QStyleSheetItem( log->styleSheet(), "mytag" );
 .br
@@ -674,7 +674,7 @@ If the text changes, the textChanged() signal is emitted, and if the user insert
 .PP
 QTextEdit provides command-based undo and redo. To set the depth of the command history use setUndoDepth() which defaults to 100 steps. To undo or redo the last operation call undo() or redo(). The signals undoAvailable() and redoAvailable() indicate whether the undo and redo operations can be executed.
 .PP
-The indent() function is used to reindent a paragraph. It is useful for code editors, for example in Qt Designer's code editor \fICtrl+I\fR invokes the indent() function.
+The indent() function is used to reindent a paragraph. It is useful for code editors, for example in TQt Designer's code editor \fICtrl+I\fR invokes the indent() function.
 .PP
 <h4> Editing key bindings </h4>
 .PP
@@ -771,25 +771,25 @@ This enum defines where text can be wrapped in word wrap mode.
 .PP
 See also wrapPolicy.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTextEdit::QTextEdit ( const QString & text, const QString & context = QString::null, QWidget * parent = 0, const char * name = 0 )"
+.SH "QTextEdit::QTextEdit ( const TQString & text, const TQString & context = TQString::null, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a QTextEdit called \fIname\fR, with parent \fIparent\fR. The text edit will display the text \fItext\fR using context \fIcontext\fR.
 .PP
 The \fIcontext\fR is a path which the text edit's QMimeSourceFactory uses to resolve the locations of files and images. It is passed to the mimeSourceFactory() when quering data.
 .PP
 For example if the text contains an image tag, \fC<img src="image.png">\fR, and the context is "path/to/look/in", the QMimeSourceFactory will try to load the image from" path/to/look/in/image.png". If the tag was \fC<img src="/image.png">\fR, the context will not be used (because QMimeSourceFactory recognizes that we have used an absolute path) and will try to load "/image.png". The context is applied in exactly the same way to \fIhrefs\fR, for example, \fC<a href="target.html">Target</a>\fR, would resolve to" path/to/look/in/target.html".
-.SH "QTextEdit::QTextEdit ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QTextEdit::QTextEdit ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs an empty QTextEdit called \fIname\fR, with parent \fIparent\fR.
 .SH "int QTextEdit::alignment () const"
 Returns the alignment of the current paragraph.
 .PP
 See also setAlignment().
-.SH "QString QTextEdit::anchorAt ( const QPoint & pos, AnchorAttribute attr )"
-If there is an anchor at position \fIpos\fR (in contents coordinates), the text for attribute \fIattr\fR is returned, otherwise QString::null is returned.
-.SH "QString QTextEdit::anchorAt ( const QPoint & pos )"
+.SH "TQString QTextEdit::anchorAt ( const QPoint & pos, AnchorAttribute attr )"
+If there is an anchor at position \fIpos\fR (in contents coordinates), the text for attribute \fIattr\fR is returned, otherwise TQString::null is returned.
+.SH "TQString QTextEdit::anchorAt ( const QPoint & pos )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-If there is an anchor at position \fIpos\fR (in contents coordinates), its \fChref\fR is returned, otherwise QString::null is returned.
-.SH "void QTextEdit::append ( const QString & text )\fC [virtual slot]\fR"
+If there is an anchor at position \fIpos\fR (in contents coordinates), its \fChref\fR is returned, otherwise TQString::null is returned.
+.SH "void QTextEdit::append ( const TQString & text )\fC [virtual slot]\fR"
 Appends a new paragraph with \fItext\fR to the end of the text edit. Note that the undo/redo history is cleared by this function, and no undo history is kept for appends which makes them faster than insert()s. If you want to append text which is added to the undo/redo history as well, use insertParagraph().
 .PP
 Examples:
@@ -812,11 +812,11 @@ Clears the background color of the paragraph \fIpara\fR, so that the default col
 This signal is emitted when the mouse is clicked on the paragraph \fIpara\fR at character position \fIpos\fR.
 .PP
 See also doubleClicked().
-.SH "QColor QTextEdit::color () const"
+.SH "TQColor QTextEdit::color () const"
 Returns the color of the current format.
 .PP
 See also setColor() and paper.
-.SH "QString QTextEdit::context () const"
+.SH "TQString QTextEdit::context () const"
 Returns the context of the text edit. The context is a path which the text edit's QMimeSourceFactory uses to resolve the locations of files and images.
 .PP
 See also text.
@@ -853,7 +853,7 @@ This signal is emitted if the alignment of the current paragraph has changed.
 The new alignment is \fIa\fR.
 .PP
 See also setAlignment().
-.SH "void QTextEdit::currentColorChanged ( const QColor & c )\fC [signal]\fR"
+.SH "void QTextEdit::currentColorChanged ( const TQColor & c )\fC [signal]\fR"
 This signal is emitted if the color of the current format has changed.
 .PP
 The new color is \fIc\fR.
@@ -891,7 +891,7 @@ If there is some selected text (in selection 0) it is deleted. If there is no se
 See also removeSelectedText() and cut().
 .SH "void QTextEdit::doKeyboardAction ( KeyboardAction action )\fC [virtual slot]\fR"
 Executes keyboard action \fIaction\fR. This is normally called by a key event handler.
-.SH "QString QTextEdit::documentTitle () const"
+.SH "TQString QTextEdit::documentTitle () const"
 Returns the title of the document parsed from the text. See the "documentTitle" property for details.
 .SH "void QTextEdit::doubleClicked ( int para, int pos )\fC [signal]\fR"
 This signal is emitted when the mouse is double-clicked on the paragraph \fIpara\fR at character position \fIpos\fR.
@@ -901,11 +901,11 @@ See also clicked().
 Ensures that the cursor is visible by scrolling the text edit if necessary.
 .PP
 See also setCursorPosition().
-.SH "QString QTextEdit::family () const"
+.SH "TQString QTextEdit::family () const"
 Returns the font family of the current format.
 .PP
 See also setFamily(), setCurrentFont(), and setPointSize().
-.SH "bool QTextEdit::find ( const QString & expr, bool cs, bool wo, bool forward = TRUE, int * para = 0, int * index = 0 )\fC [virtual]\fR"
+.SH "bool QTextEdit::find ( const TQString & expr, bool cs, bool wo, bool forward = TRUE, int * para = 0, int * index = 0 )\fC [virtual]\fR"
 Finds the next occurrence of the string, \fIexpr\fR. Returns TRUE if \fIexpr\fR was found; otherwise returns FALSE.
 .PP
 If \fIpara\fR and \fIindex\fR are both 0 the search begins from the current cursor position. If \fIpara\fR and \fIindex\fR are both not 0, the search begins from the \fI*index\fR character position in the \fI*para\fR paragraph.
@@ -948,22 +948,22 @@ Returns TRUE if some text is selected in selection 0; otherwise returns FALSE. S
 .SH "int QTextEdit::heightForWidth ( int w ) const\fC [virtual]\fR"
 Returns how many pixels high the text edit needs to be to display all the text if the text edit is \fIw\fR pixels wide.
 .PP
-Reimplemented from QWidget.
-.SH "void QTextEdit::insert ( const QString & text, uint insertionFlags = CheckNewLines | RemoveSelected )\fC [slot]\fR"
+Reimplemented from TQWidget.
+.SH "void QTextEdit::insert ( const TQString & text, uint insertionFlags = CheckNewLines | RemoveSelected )\fC [slot]\fR"
 Inserts \fItext\fR at the current cursor position.
 .PP
-The \fIinsertionFlags\fR define how the text is inserted. If RedoIndentation is set, the paragraph is re-indented. If CheckNewLines is set, newline characters in \fItext\fR result in hard line breaks (i.e. new paragraphs). If \fCcheckNewLine\fR is not set, the behaviour of the editor is undefined if the \fItext\fR contains newlines. (It is not possible to change QTextEdit's newline handling behavior, but you can use QString::replace() to preprocess text before inserting it.) If RemoveSelected is set, any selected text (in selection 0) is removed before the text is inserted.
+The \fIinsertionFlags\fR define how the text is inserted. If RedoIndentation is set, the paragraph is re-indented. If CheckNewLines is set, newline characters in \fItext\fR result in hard line breaks (i.e. new paragraphs). If \fCcheckNewLine\fR is not set, the behaviour of the editor is undefined if the \fItext\fR contains newlines. (It is not possible to change QTextEdit's newline handling behavior, but you can use TQString::replace() to preprocess text before inserting it.) If RemoveSelected is set, any selected text (in selection 0) is removed before the text is inserted.
 .PP
 The default flags are CheckNewLines | RemoveSelected.
 .PP
 If the widget is in LogText mode this function will do nothing.
 .PP
 See also paste() and pasteSubType().
-.SH "void QTextEdit::insert ( const QString & text, bool indent, bool checkNewLine = TRUE, bool removeSelected = TRUE )\fC [virtual slot]\fR"
+.SH "void QTextEdit::insert ( const TQString & text, bool indent, bool checkNewLine = TRUE, bool removeSelected = TRUE )\fC [virtual slot]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "void QTextEdit::insertAt ( const QString & text, int para, int index )\fC [virtual slot]\fR"
+.SH "void QTextEdit::insertAt ( const TQString & text, int para, int index )\fC [virtual slot]\fR"
 Inserts \fItext\fR in the paragraph \fIpara\fR at position \fIindex\fR.
-.SH "void QTextEdit::insertParagraph ( const QString & text, int para )\fC [virtual slot]\fR"
+.SH "void QTextEdit::insertParagraph ( const TQString & text, int para )\fC [virtual slot]\fR"
 Inserts \fItext\fR as a new paragraph at position \fIpara\fR. If \fIpara\fR is -1, the text is appended. Use append() if the append operation is performance critical.
 .SH "bool QTextEdit::isModified () const"
 Returns TRUE if the document has been modified by the user; otherwise returns FALSE. See the "modified" property for details.
@@ -984,7 +984,7 @@ See also setItalic().
 .SH "void QTextEdit::keyPressEvent ( QKeyEvent * e )\fC [virtual protected]\fR"
 Processes the key event, \fIe\fR. By default key events are used to provide keyboard navigation and text editing.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .PP
 Reimplemented in QTextBrowser.
 .SH "int QTextEdit::length () const"
@@ -1018,7 +1018,7 @@ Moves the text cursor according to \fIaction\fR. This is normally used by some k
 Returns the background (paper) brush. See the "paper" property for details.
 .SH "int QTextEdit::paragraphAt ( const QPoint & pos ) const"
 Returns the paragraph which is at position \fIpos\fR (in contents coordinates).
-.SH "QColor QTextEdit::paragraphBackgroundColor ( int para ) const"
+.SH "TQColor QTextEdit::paragraphBackgroundColor ( int para ) const"
 Returns the background color of the paragraph \fIpara\fR or an invalid color if \fIpara\fR is out of range or the paragraph has no background set
 .SH "int QTextEdit::paragraphLength ( int para ) const"
 Returns the length of the paragraph \fIpara\fR (i.e. the number of characters), or -1 if there is no paragraph with index \fIpara\fR.
@@ -1074,7 +1074,7 @@ Repaints any paragraphs that have changed.
 Although used extensively internally you shouldn't need to call this yourself.
 .SH "void QTextEdit::returnPressed ()\fC [signal]\fR"
 This signal is emitted if the user pressed the Return or the Enter key.
-.SH "void QTextEdit::scrollToAnchor ( const QString & name )\fC [virtual slot]\fR"
+.SH "void QTextEdit::scrollToAnchor ( const TQString & name )\fC [virtual slot]\fR"
 Scrolls the text edit to make the text at the anchor called \fIname\fR visible, if it can be found in the document. If the anchor isn't found no scrolling will occur. An anchor is defined using the HTML anchor tag, e.g. \fC<a name="target">\fR.
 .SH "void QTextEdit::scrollToBottom ()\fC [virtual slot]\fR"
 Scrolls to the bottom of the document and does formatting if required.
@@ -1082,14 +1082,14 @@ Scrolls to the bottom of the document and does formatting if required.
 If \fIselect\fR is TRUE (the default), all the text is selected as selection 0. If \fIselect\fR is FALSE any selected text is unselected, i.e. the default selection (selection 0) is cleared.
 .PP
 See also selectedText.
-.SH "QString QTextEdit::selectedText () const"
+.SH "TQString QTextEdit::selectedText () const"
 Returns the selected text (from selection 0) or an empty string if there is no currently selected text (in selection 0). See the "selectedText" property for details.
 .SH "void QTextEdit::selectionChanged ()\fC [signal]\fR"
 This signal is emitted whenever the selection changes.
 .PP
 See also setSelection() and copyAvailable().
 .SH "void QTextEdit::setAlignment ( int a )\fC [virtual slot]\fR"
-Sets the alignment of the current paragraph to \fIa\fR. Valid alignments are Qt::AlignLeft, Qt::AlignRight, Qt::AlignJustify and Qt::AlignCenter (which centers horizontally).
+Sets the alignment of the current paragraph to \fIa\fR. Valid alignments are TQt::AlignLeft, TQt::AlignRight, TQt::AlignJustify and TQt::AlignCenter (which centers horizontally).
 .PP
 Reimplemented in QMultiLineEdit.
 .SH "void QTextEdit::setAutoFormatting ( uint features )"
@@ -1098,7 +1098,7 @@ Sets the enabled set of auto formatting features to \fIfeatures\fR. See the "aut
 If \fIb\fR is TRUE sets the current format to bold; otherwise sets the current format to non-bold.
 .PP
 See also bold().
-.SH "void QTextEdit::setColor ( const QColor & c )\fC [virtual slot]\fR"
+.SH "void QTextEdit::setColor ( const TQColor & c )\fC [virtual slot]\fR"
 Sets the color of the current format, i.e. of the text, to \fIc\fR.
 .PP
 See also color() and paper.
@@ -1112,7 +1112,7 @@ See also currentFont(), setPointSize(), and setFamily().
 Sets the cursor to position \fIindex\fR in paragraph \fIpara\fR.
 .PP
 See also getCursorPosition().
-.SH "void QTextEdit::setFamily ( const QString & fontFamily )\fC [virtual slot]\fR"
+.SH "void QTextEdit::setFamily ( const TQString & fontFamily )\fC [virtual slot]\fR"
 Sets the font family of the current format to \fIfontFamily\fR.
 .PP
 See also family() and setCurrentFont().
@@ -1136,7 +1136,7 @@ Sets whether the document has been modified by the user to \fIm\fR. See the "mod
 Sets the text edit's overwrite mode to \fIb\fR. See the "overwriteMode" property for details.
 .SH "void QTextEdit::setPaper ( const QBrush & pap )\fC [virtual slot]\fR"
 Sets the background (paper) brush to \fIpap\fR. See the "paper" property for details.
-.SH "void QTextEdit::setParagraphBackgroundColor ( int para, const QColor & bg )\fC [virtual slot]\fR"
+.SH "void QTextEdit::setParagraphBackgroundColor ( int para, const TQColor & bg )\fC [virtual slot]\fR"
 Sets the background color of the paragraph \fIpara\fR to \fIbg\fR.
 .SH "void QTextEdit::setPointSize ( int s )\fC [virtual slot]\fR"
 Sets the point size of the current format to \fIs\fR.
@@ -1156,7 +1156,7 @@ Uses the selection settings of selection \fIselNum\fR. If \fIselNum\fR is 0, thi
 The cursor is moved to the end of the selection if \fIselNum\fR is 0, otherwise the cursor position remains unchanged.
 .PP
 See also getSelection() and selectedText.
-.SH "void QTextEdit::setSelectionAttributes ( int selNum, const QColor & back, bool invertText )\fC [virtual slot]\fR"
+.SH "void QTextEdit::setSelectionAttributes ( int selNum, const TQColor & back, bool invertText )\fC [virtual slot]\fR"
 Sets the background color of selection number \fIselNum\fR to \fIback\fR and specifies whether the text of this selection should be inverted with \fIinvertText\fR.
 .PP
 This only works for \fIselNum\fR > 0. The default selection (\fIselNum\fR == 0) gets its attributes from the text edit's colorGroup().
@@ -1168,9 +1168,9 @@ See also styleSheet().
 Sets whether TAB changes focus or is accepted as input to \fIb\fR. See the "tabChangesFocus" property for details.
 .SH "void QTextEdit::setTabStopWidth ( int ts )\fC [virtual slot]\fR"
 Sets the tab stop width in pixels to \fIts\fR. See the "tabStopWidth" property for details.
-.SH "void QTextEdit::setText ( const QString & txt )\fC [slot]\fR"
+.SH "void QTextEdit::setText ( const TQString & txt )\fC [slot]\fR"
 Sets the text edit's text to \fItxt\fR. See the "text" property for details.
-.SH "void QTextEdit::setText ( const QString & text, const QString & context )\fC [virtual slot]\fR"
+.SH "void QTextEdit::setText ( const TQString & text, const TQString & context )\fC [virtual slot]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Changes the text of the text edit to the string \fItext\fR and the context to \fIcontext\fR. Any previous text is removed.
@@ -1221,9 +1221,9 @@ Returns the QSyntaxHighlighter set on this QTextEdit. 0 is returned if no syntax
 Returns TRUE if TAB changes focus or is accepted as input; otherwise returns FALSE. See the "tabChangesFocus" property for details.
 .SH "int QTextEdit::tabStopWidth () const"
 Returns the tab stop width in pixels. See the "tabStopWidth" property for details.
-.SH "QString QTextEdit::text () const"
+.SH "TQString QTextEdit::text () const"
 Returns the text edit's text. See the "text" property for details.
-.SH "QString QTextEdit::text ( int para ) const"
+.SH "TQString QTextEdit::text ( int para ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the text of paragraph \fIpara\fR.
@@ -1292,10 +1292,10 @@ This property holds the enabled set of auto formatting features.
 .PP
 The value can be any combination of the values in the AutoFormatting enum. The default is AutoAll. Choose AutoNone to disable all automatic formatting.
 .PP
-Currently, the only automatic formatting feature provided is AutoBulletList; future versions of Qt may offer more.
+Currently, the only automatic formatting feature provided is AutoBulletList; future versions of TQt may offer more.
 .PP
 Set this property's value with setAutoFormatting() and get this property's value with autoFormatting().
-.SH "QString documentTitle"
+.SH "TQString documentTitle"
 This property holds the title of the document parsed from the text.
 .PP
 For PlainText the title will be an empty string. For RichText the title will be the text between the \fC<title>\fR tags, if present, otherwise an empty string.
@@ -1339,7 +1339,7 @@ In a read-only text edit the user can only navigate through the text and select 
 This property's default is FALSE.
 .PP
 Set this property's value with setReadOnly() and get this property's value with isReadOnly().
-.SH "QString selectedText"
+.SH "TQString selectedText"
 This property holds the selected text (from selection 0) or an empty string if there is no currently selected text (in selection 0).
 .PP
 The text is always returned as PlainText if the textFormat() is PlainText or AutoText, otherwise it is returned as HTML.
@@ -1357,7 +1357,7 @@ Set this property's value with setTabChangesFocus() and get this property's valu
 This property holds the tab stop width in pixels.
 .PP
 Set this property's value with setTabStopWidth() and get this property's value with tabStopWidth().
-.SH "QString text"
+.SH "TQString text"
 This property holds the text edit's text.
 .PP
 There is no default text.
@@ -1366,7 +1366,7 @@ On setting, any previous text is deleted.
 .PP
 The text may be interpreted either as plain text or as rich text, depending on the textFormat(). The default setting is AutoText, i.e. the text edit auto-detects the format of the text.
 .PP
-For richtext, calling text() on an editable QTextEdit will cause the text to be regenerated from the textedit. This may mean that the QString returned may not be exactly the same as the one that was set.
+For richtext, calling text() on an editable QTextEdit will cause the text to be regenerated from the textedit. This may mean that the TQString returned may not be exactly the same as the one that was set.
 .PP
 See also textFormat.
 .PP
@@ -1440,8 +1440,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

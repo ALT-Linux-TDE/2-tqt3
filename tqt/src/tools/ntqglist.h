@@ -45,7 +45,7 @@
 #include "ntqptrcollection.h"
 #endif // QT_H
 
-class Q_EXPORT TQLNode
+class TQ_EXPORT TQLNode
 {
 friend class TQGList;
 friend class TQGListIterator;
@@ -63,7 +63,7 @@ class TQMutex;
 class TQGListPrivate;
 class TQGListIteratorList; // internal helper class
 
-class Q_EXPORT TQGList : public TQPtrCollection	// doubly linked generic list
+class TQ_EXPORT TQGList : public TQPtrCollection	// doubly linked generic list
 {
 friend class TQGListIterator;
 friend class TQGListIteratorList;
@@ -71,7 +71,7 @@ friend class TQGVector;				// needed by TQGVector::toList
 public:
     uint  count() const;			// return number of nodes
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQDataStream &read( TQDataStream & );		// read list from stream
     TQDataStream &write( TQDataStream & ) const;	// write list to stream
 #endif
@@ -126,7 +126,7 @@ protected:
 
     virtual int compareItems( TQPtrCollection::Item, TQPtrCollection::Item );
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     virtual TQDataStream &read( TQDataStream &, TQPtrCollection::Item & );
     virtual TQDataStream &write( TQDataStream &, TQPtrCollection::Item ) const;
 #endif
@@ -150,7 +150,7 @@ private:
     TQLNode *locate( uint );			// get node at i'th pos
     TQLNode *unlink();				// unlink node
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 //     TQMutex* mutex;
 #endif
 
@@ -211,16 +211,16 @@ inline TQPtrCollection::Item TQGList::clast() const
   TQGList stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQGList & );
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQGList & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQGList & );
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQGList & );
 #endif
 
 /*****************************************************************************
   TQGListIterator class
  *****************************************************************************/
 
-class Q_EXPORT TQGListIterator			// TQGList iterator
+class TQ_EXPORT TQGListIterator			// TQGList iterator
 {
 friend class TQGList;
 friend class TQGListIteratorList;
@@ -265,7 +265,7 @@ inline TQPtrCollection::Item TQGListIterator::get() const
     return curNode ? curNode->data : 0;
 }
 
-class Q_EXPORT TQGListStdIterator
+class TQ_EXPORT TQGListStdIterator
 {
 public:
     inline TQGListStdIterator( TQLNode* n ) : node( n ){}

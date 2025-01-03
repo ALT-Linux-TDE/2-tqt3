@@ -98,7 +98,7 @@ private:
 };
 
 template <class T>
-Q_INLINE_TEMPLATES TQVarLengthArray<T>::TQVarLengthArray(int asize)
+TQ_INLINE_TEMPLATES TQVarLengthArray<T>::TQVarLengthArray(int asize)
     : s(asize) {
     if (s > Prealloc) {
         ptr = reinterpret_cast<T *>(malloc(s * sizeof(T)));
@@ -404,7 +404,7 @@ static bool basic_shape(TQShaperItem *item)
 enum {
     CcmpProperty = 0x1
 };
-#if defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE)
 static const TQOpenType::Features hebrew_features[] = {
     { FT_MAKE_TAG('c', 'c', 'm', 'p'), CcmpProperty },
     {0, 0}
@@ -419,7 +419,7 @@ static bool hebrew_shape(TQShaperItem *item)
 {
     Q_ASSERT(item->script == TQFont::Hebrew);
 
-#if defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE)
     TQOpenType *openType = item->font->openType();
 
     if (openType && openType->supportsScript(item->script)) {
@@ -1460,7 +1460,7 @@ static void shapedString(const TQString *uc, int from, int len, TQChar *shapeBuf
     *shapedLength = data - shapeBuffer;
 }
 
-#if defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE)
 
 enum {
     InitProperty = 0x2,
@@ -1582,7 +1582,7 @@ static bool arabic_shape(TQShaperItem *item)
 {
     Q_ASSERT(item->script == TQFont::Arabic);
 
-#if defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE)
     TQOpenType *openType = item->font->openType();
 
     if (openType && openType->supportsScript(TQFont::Arabic)) {
@@ -1613,12 +1613,12 @@ static bool arabic_shape(TQShaperItem *item)
     return TRUE;
 }
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 # include "qscriptengine_x11.cpp"
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
 # include "qscriptengine_win.cpp"
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 # include "qscriptengine_mac.cpp"
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
 # include "qscriptengine_qws.cpp"
 #endif

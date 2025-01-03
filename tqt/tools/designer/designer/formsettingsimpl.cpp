@@ -50,7 +50,7 @@
 FormSettings::FormSettings( TQWidget *parent, FormWindow *fw )
     : FormSettingsBase( parent, 0, TRUE ), formwindow( fw )
 {
-    connect( buttonHelp, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( buttonHelp, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
     MetaDataBase::MetaInfo info = MetaDataBase::metaInfo( fw );
     if ( info.classNameChanged && !info.className.isEmpty() )
 	editClassName->setText( info.className );

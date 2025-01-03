@@ -112,7 +112,7 @@ public:
     ConstIterator end() const { return data() + size(); }
 };
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #define TQArray TQMemArray
 #endif
 

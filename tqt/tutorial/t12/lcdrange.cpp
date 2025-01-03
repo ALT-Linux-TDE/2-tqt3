@@ -37,10 +37,10 @@ void LCDRange::init()
     label = new TQLabel( " ", this, "label"  );
     label->setAlignment( AlignCenter );
 
-    connect( slider, SIGNAL(valueChanged(int)),
-	     lcd, SLOT(display(int)) );
-    connect( slider, SIGNAL(valueChanged(int)),
-	     SIGNAL(valueChanged(int)) );
+    connect( slider, TQ_SIGNAL(valueChanged(int)),
+	     lcd, TQ_SLOT(display(int)) );
+    connect( slider, TQ_SIGNAL(valueChanged(int)),
+	     TQ_SIGNAL(valueChanged(int)) );
 
     setFocusProxy( slider );
 }

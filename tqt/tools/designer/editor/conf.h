@@ -43,7 +43,7 @@ struct ConfigStyle
     TQFont font;
     TQColor color;
 
-    Q_DUMMY_COMPARISON_OPERATOR( ConfigStyle )
+    TQ_DUMMY_COMPARISON_OPERATOR( ConfigStyle )
 };
 
 struct Config

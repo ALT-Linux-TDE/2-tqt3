@@ -21,7 +21,7 @@
 *****************************************************************************/
 #ifndef TQQUEUE_H
 #define TQQUEUE_H
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #include "ntqptrqueue.h"
 #endif
 #endif

@@ -59,17 +59,17 @@ ActionEditor::ActionEditor( TQWidget* parent,  const char* name, WFlags fl )
     buttonConnect->setEnabled( FALSE );
 
     TQPopupMenu *popup = new TQPopupMenu( this );
-    popup->insertItem( tr( "New &Action" ), this, SLOT( newAction() ) );
-    popup->insertItem( tr( "New Action &Group" ), this, SLOT( newActionGroup() ) );
-    popup->insertItem( tr( "New &Dropdown Action Group" ), this, SLOT( newDropDownActionGroup() ) );
+    popup->insertItem( tr( "New &Action" ), this, TQ_SLOT( newAction() ) );
+    popup->insertItem( tr( "New Action &Group" ), this, TQ_SLOT( newActionGroup() ) );
+    popup->insertItem( tr( "New &Dropdown Action Group" ), this, TQ_SLOT( newDropDownActionGroup() ) );
     buttonNewAction->setPopup( popup );
     buttonNewAction->setPopupDelay( 0 );
 
-    connect( listActions, SIGNAL( insertAction() ), this, SLOT( newAction() ) );
-    connect( listActions, SIGNAL( insertActionGroup() ), this, SLOT( newActionGroup() ) );
-    connect( listActions, SIGNAL( insertDropDownActionGroup() ), this, SLOT( newDropDownActionGroup() ) );
-    connect( listActions, SIGNAL( deleteAction() ), this, SLOT( deleteAction() ) );
-    connect( listActions, SIGNAL( connectAction() ), this, SLOT( connectionsClicked() ) );
+    connect( listActions, TQ_SIGNAL( insertAction() ), this, TQ_SLOT( newAction() ) );
+    connect( listActions, TQ_SIGNAL( insertActionGroup() ), this, TQ_SLOT( newActionGroup() ) );
+    connect( listActions, TQ_SIGNAL( insertDropDownActionGroup() ), this, TQ_SLOT( newDropDownActionGroup() ) );
+    connect( listActions, TQ_SIGNAL( deleteAction() ), this, TQ_SLOT( deleteAction() ) );
+    connect( listActions, TQ_SIGNAL( connectAction() ), this, TQ_SLOT( connectionsClicked() ) );
 }
 
 void ActionEditor::closeEvent( TQCloseEvent *e )
@@ -108,8 +108,8 @@ TQAction *ActionEditor::newActionEx()
 {
     ActionItem *i = new ActionItem( listActions, (bool)FALSE );
     TQAction *a = i->action();
-    TQObject::connect( a, SIGNAL( destroyed( TQObject * ) ),
-		      this, SLOT( removeConnections( TQObject* ) ) );
+    TQObject::connect( a, TQ_SIGNAL( destroyed( TQObject * ) ),
+		      this, TQ_SLOT( removeConnections( TQObject* ) ) );
     MetaDataBase::addEntry( i->action() );
     TQString n = "Action";
     formWindow->unify( i->action(), n, TRUE );
@@ -164,8 +164,8 @@ void ActionEditor::newAction()
     else
 	i = new ActionItem( listActions, (bool)FALSE );
     TQAction *a = i->action();
-    TQObject::connect( a, SIGNAL( destroyed( TQObject * ) ),
-		      this, SLOT( removeConnections( TQObject* ) ) );
+    TQObject::connect( a, TQ_SIGNAL( destroyed( TQObject * ) ),
+		      this, TQ_SLOT( removeConnections( TQObject* ) ) );
     MetaDataBase::addEntry( i->action() );
     TQString n = "Action";
     formWindow->unify( i->action(), n, TRUE );
@@ -200,8 +200,8 @@ void ActionEditor::newActionGroup()
     else
 	i = new ActionItem( listActions, TRUE );
     TQAction *ag = i->actionGroup();
-    TQObject::connect( ag, SIGNAL( destroyed( TQObject * ) ),
-		      this, SLOT( removeConnections( TQObject* ) ) );
+    TQObject::connect( ag, TQ_SIGNAL( destroyed( TQObject * ) ),
+		      this, TQ_SLOT( removeConnections( TQObject* ) ) );
     MetaDataBase::addEntry( i->actionGroup() );
     MetaDataBase::setPropertyChanged( i->actionGroup(), "usesDropDown", TRUE );
     TQString n = "ActionGroup";
@@ -242,10 +242,10 @@ void ActionEditor::setFormWindow( FormWindow *fw )
 	    i->setText( 0, a->name() );
 	    i->setPixmap( 0, a->iconSet().pixmap() );
 	    // make sure we don't duplicate the connection
- 	    TQObject::disconnect( a, SIGNAL( destroyed( TQObject * ) ),
- 				 this, SLOT( removeConnections( TQObject * ) ) );
-	    TQObject::connect( a, SIGNAL( destroyed( TQObject * ) ),
-			      this, SLOT( removeConnections( TQObject* ) ) );
+ 	    TQObject::disconnect( a, TQ_SIGNAL( destroyed( TQObject * ) ),
+ 				 this, TQ_SLOT( removeConnections( TQObject * ) ) );
+	    TQObject::connect( a, TQ_SIGNAL( destroyed( TQObject * ) ),
+			      this, TQ_SLOT( removeConnections( TQObject* ) ) );
 	    if ( ::tqt_cast<TQActionGroup*>(a) ) {
 		insertChildActions( i );
 	    }
@@ -273,10 +273,10 @@ void ActionEditor::insertChildActions( ActionItem *i )
 	i2->setText( 0, a->name() );
 	i2->setPixmap( 0, a->iconSet().pixmap() );
 	// make sure we don't duplicate the connection
- 	TQObject::disconnect( o, SIGNAL( destroyed( TQObject * ) ),
- 			     this, SLOT( removeConnections( TQObject * ) ) );
- 	TQObject::connect( o, SIGNAL( destroyed( TQObject * ) ),
- 			  this, SLOT( removeConnections( TQObject * ) ) );
+ 	TQObject::disconnect( o, TQ_SIGNAL( destroyed( TQObject * ) ),
+ 			     this, TQ_SLOT( removeConnections( TQObject * ) ) );
+ 	TQObject::connect( o, TQ_SIGNAL( destroyed( TQObject * ) ),
+ 			  this, TQ_SLOT( removeConnections( TQObject * ) ) );
 	if ( ::tqt_cast<TQActionGroup*>(a) )
 	    insertChildActions( i2 );
     }

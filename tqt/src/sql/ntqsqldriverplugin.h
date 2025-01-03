@@ -46,13 +46,13 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_SQL
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_SQL
+#ifndef TQT_NO_COMPONENT
 
 class TQSqlDriver;
 class TQSqlDriverPluginPrivate;
 
-class Q_EXPORT TQSqlDriverPlugin : public TQGPlugin
+class TQ_EXPORT TQSqlDriverPlugin : public TQGPlugin
 {
     TQ_OBJECT
 public:
@@ -66,7 +66,7 @@ private:
     TQSqlDriverPluginPrivate *d;
 };
 
-#endif // QT_NO_COMPONENT
-#endif // QT_NO_SQL
+#endif // TQT_NO_COMPONENT
+#endif // TQT_NO_SQL
 
 #endif // TQSQLDRIVERPLUGIN_H

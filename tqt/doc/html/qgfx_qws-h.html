@@ -88,7 +88,7 @@ body { background: #ffffff; color: black; }
 
 class TQScreenCursor;
 
-#if !defined( QT_NO_IMAGE_16_BIT ) || !defined( QT_NO_QWS_DEPTH_16 )
+#if !defined( TQT_NO_IMAGE_16_BIT ) || !defined( TQT_NO_QWS_DEPTH_16 )
 # ifndef QT_QWS_DEPTH16_RGB
 #  define QT_QWS_DEPTH16_RGB 565
 # endif
@@ -147,7 +147,7 @@ inline void qt_conv16ToRgb( ushort c, int&amp; r, int&amp; g, int&amp; b )
 const int SourceSolid=0;
 const int SourcePixmap=1;
 
-#ifndef QT_NO_QWS_CURSOR
+#ifndef TQT_NO_QWS_CURSOR
 
 extern bool qt_sw_cursor;
 
@@ -213,7 +213,7 @@ protected:
 
 extern TQScreenCursor * qt_screencursor;
 
-#endif // QT_NO_QWS_CURSOR
+#endif // TQT_NO_QWS_CURSOR
 
 struct fb_cmap;
 
@@ -306,7 +306,7 @@ public:
 
 protected:
 
-    // Only used without QT_NO_QWS_REPEATER, but included so that
+    // Only used without TQT_NO_QWS_REPEATER, but included so that
     // it's binary compatible regardless.
     int * screen_optype;
     int * screen_lastop;
@@ -354,7 +354,7 @@ protected:
 
 extern TQScreen * qt_screen;
 
-class Q_EXPORT TQGfx : public TQt {
+class TQ_EXPORT TQGfx : public TQt {
 public:
     // With loadable drivers, do probe here
     static TQGfx *createGfx( int depth, unsigned char *buffer,
@@ -407,7 +407,7 @@ public:
     virtual void blt( int,int,int,int,int,int )=0;
     virtual void scroll( int,int,int,int,int,int )=0;
 
-#if !defined(QT_NO_MOVIE) || !defined(QT_NO_TRANSFORMATIONS) || !defined(QT_NO_PIXMAP_TRANSFORMATION)
+#if !defined(TQT_NO_MOVIE) || !defined(TQT_NO_TRANSFORMATIONS) || !defined(TQT_NO_PIXMAP_TRANSFORMATION)
     virtual void stretchBlt( int,int,int,int,int,int )=0;
 #endif
     virtual void tiledBlt( int,int,int,int )=0;

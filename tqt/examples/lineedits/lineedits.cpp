@@ -43,9 +43,9 @@ LineEdits::LineEdits( TQWidget *parent, const char *name )
     combo1->insertItem( "Normal" );
     combo1->insertItem( "Password" );
     combo1->insertItem( "No Echo" );
-    // ...and connect the activated() SIGNAL with the slotEchoChanged() SLOT to be able
+    // ...and connect the activated() TQ_SIGNAL with the slotEchoChanged() TQ_SLOT to be able
     // to react when an item is selected
-    connect( combo1, SIGNAL( activated( int ) ), this, SLOT( slotEchoChanged( int ) ) );
+    connect( combo1, TQ_SIGNAL( activated( int ) ), this, TQ_SLOT( slotEchoChanged( int ) ) );
 
     // insert the first LineEdit
     lined1 = new TQLineEdit( this );
@@ -65,8 +65,8 @@ LineEdits::LineEdits( TQWidget *parent, const char *name )
     combo2->insertItem( "No Validator" );
     combo2->insertItem( "Integer Validator" );
     combo2->insertItem( "Double Validator" );
-    // ...and again the activated() SIGNAL gets connected with a SLOT
-    connect( combo2, SIGNAL( activated( int ) ), this, SLOT( slotValidatorChanged( int ) ) );
+    // ...and again the activated() TQ_SIGNAL gets connected with a TQ_SLOT
+    connect( combo2, TQ_SIGNAL( activated( int ) ), this, TQ_SLOT( slotValidatorChanged( int ) ) );
 
     // and the second LineEdit
     lined2 = new TQLineEdit( this );
@@ -86,8 +86,8 @@ LineEdits::LineEdits( TQWidget *parent, const char *name )
     combo3->insertItem( "Left" );
     combo3->insertItem( "Centered" );
     combo3->insertItem( "Right" );
-    // ...and again the activated() SIGNAL gets connected with a SLOT
-    connect( combo3, SIGNAL( activated( int ) ), this, SLOT( slotAlignmentChanged( int ) ) );
+    // ...and again the activated() TQ_SIGNAL gets connected with a TQ_SLOT
+    connect( combo3, TQ_SIGNAL( activated( int ) ), this, TQ_SLOT( slotAlignmentChanged( int ) ) );
 
     // and the third lineedit
     lined3 = new TQLineEdit( this );
@@ -110,8 +110,8 @@ LineEdits::LineEdits( TQWidget *parent, const char *name )
     combo4->insertItem( "License key" );
 
     // ...this time we use the activated( const TQString & ) signal
-    connect( combo4, SIGNAL( activated( int ) ),
-	     this, SLOT( slotInputMaskChanged( int ) ) );
+    connect( combo4, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( slotInputMaskChanged( int ) ) );
 
     // and the fourth lineedit
     lined4 = new TQLineEdit( this );
@@ -129,8 +129,8 @@ LineEdits::LineEdits( TQWidget *parent, const char *name )
     combo5 = new TQComboBox( FALSE, row5 );
     combo5->insertItem( "False" );
     combo5->insertItem( "True" );
-    // ...and again the activated() SIGNAL gets connected with a SLOT
-    connect( combo5, SIGNAL( activated( int ) ), this, SLOT( slotReadOnlyChanged( int ) ) );
+    // ...and again the activated() TQ_SIGNAL gets connected with a TQ_SLOT
+    connect( combo5, TQ_SIGNAL( activated( int ) ), this, TQ_SLOT( slotReadOnlyChanged( int ) ) );
 
     // and the last lineedit
     lined5 = new TQLineEdit( this );
@@ -141,7 +141,7 @@ LineEdits::LineEdits( TQWidget *parent, const char *name )
 }
 
 /*
- * SLOT slotEchoChanged( int i )
+ * TQ_SLOT slotEchoChanged( int i )
  *
  * i contains the number of the item which the user has been chosen in the
  * first Combobox. According to this value, we set the Echo-Mode for the
@@ -166,7 +166,7 @@ void LineEdits::slotEchoChanged( int i )
 }
 
 /*
- * SLOT slotValidatorChanged( int i )
+ * TQ_SLOT slotValidatorChanged( int i )
  *
  * i contains the number of the item which the user has been chosen in the
  * second Combobox. According to this value, we set a validator for the
@@ -196,7 +196,7 @@ void LineEdits::slotValidatorChanged( int i )
 
 
 /*
- * SLOT slotAlignmentChanged( int i )
+ * TQ_SLOT slotAlignmentChanged( int i )
  *
  * i contains the number of the item which the user has been chosen in
  * the third Combobox.  According to this value, we set an alignment
@@ -221,7 +221,7 @@ void LineEdits::slotAlignmentChanged( int i )
 }
 
 /*
- * SLOT slotInputMaskChanged( const TQString &mask )
+ * TQ_SLOT slotInputMaskChanged( const TQString &mask )
  *
  * i contains the number of the item which the user has been chosen in
  * the third Combobox.  According to this value, we set an input mask on
@@ -250,7 +250,7 @@ void LineEdits::slotInputMaskChanged( int i )
 }
 
 /*
- * SLOT slotReadOnlyChanged( int i )
+ * TQ_SLOT slotReadOnlyChanged( int i )
  *
  * i contains the number of the item which the user has been chosen in
  * the fourth Combobox.  According to this value, we toggle read-only.

@@ -17,20 +17,11 @@
 #include <ntqdatetime.h>
 #include <ntqregexp.h>
 #include <ntqfile.h>
-
-#if (TQT_VERSION-0 < 0x030000)
-#  include <ntqvector.h>
-#  if !defined Q_WS_WIN32
-#    include <unistd.h>
-#  endif
-#  include "../../../3rdparty/libraries/sqlite/sqlite.h"
-#else
-#  include <ntqptrvector.h>
-#  if !defined Q_WS_WIN32
-#    include <unistd.h>
-#  endif
-#  include <sqlite.h>
+#include <ntqptrvector.h>
+#if !defined TQ_WS_WIN32
+#  include <unistd.h>
 #endif
+#include <sqlite.h>
 
 typedef struct sqlite_vm sqlite_vm;
 
@@ -169,7 +160,7 @@ bool TQSQLiteResultPrivate::fetchNext(TQtSqlCachedResult::RowCache* row)
     // keep trying while busy, wish I could implement this better.
     while ((res = sqlite_step(currentMachine, &colNum, &fvals, &cnames)) == SQLITE_BUSY) {
 	// sleep instead requesting result again immidiately.
-#if defined Q_WS_WIN32
+#if defined TQ_WS_WIN32
 	Sleep(1000);
 #else
 	sleep(1);

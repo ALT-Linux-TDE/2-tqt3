@@ -19,7 +19,7 @@ Inherited by QSqlCursor.
 .BI "\fBQSqlQuery\fR ( QSqlResult * r )"
 .br
 .ti -1c
-.BI "\fBQSqlQuery\fR ( const QString & query = QString::null, QSqlDatabase * db = 0 )"
+.BI "\fBQSqlQuery\fR ( const TQString & query = TQString::null, QSqlDatabase * db = 0 )"
 .br
 .ti -1c
 .BI "explicit \fBQSqlQuery\fR ( QSqlDatabase * db )"
@@ -46,7 +46,7 @@ Inherited by QSqlCursor.
 .BI "int \fBat\fR () const"
 .br
 .ti -1c
-.BI "QString \fBlastQuery\fR () const"
+.BI "TQString \fBlastQuery\fR () const"
 .br
 .ti -1c
 .BI "int \fBnumRowsAffected\fR () const"
@@ -73,7 +73,7 @@ Inherited by QSqlCursor.
 .BI "void \fBsetForwardOnly\fR ( bool forward )"
 .br
 .ti -1c
-.BI "virtual bool \fBexec\fR ( const QString & query )"
+.BI "virtual bool \fBexec\fR ( const TQString & query )"
 .br
 .ti -1c
 .BI "virtual QVariant \fBvalue\fR ( int i ) const"
@@ -97,10 +97,10 @@ Inherited by QSqlCursor.
 .BI "bool \fBexec\fR ()"
 .br
 .ti -1c
-.BI "bool \fBprepare\fR ( const QString & query )"
+.BI "bool \fBprepare\fR ( const TQString & query )"
 .br
 .ti -1c
-.BI "void \fBbindValue\fR ( const QString & placeholder, const QVariant & val )"
+.BI "void \fBbindValue\fR ( const TQString & placeholder, const QVariant & val )"
 .br
 .ti -1c
 .BI "void \fBbindValue\fR ( int pos, const QVariant & val )"
@@ -109,7 +109,7 @@ Inherited by QSqlCursor.
 .BI "void \fBaddBindValue\fR ( const QVariant & val )"
 .br
 .ti -1c
-.BI "void \fBbindValue\fR ( const QString & placeholder, const QVariant & val, QSql::ParameterType type )"
+.BI "void \fBbindValue\fR ( const TQString & placeholder, const QVariant & val, QSql::ParameterType type )"
 .br
 .ti -1c
 .BI "void \fBbindValue\fR ( int pos, const QVariant & val, QSql::ParameterType type )"
@@ -118,16 +118,16 @@ Inherited by QSqlCursor.
 .BI "void \fBaddBindValue\fR ( const QVariant & val, QSql::ParameterType type )"
 .br
 .ti -1c
-.BI "QVariant \fBboundValue\fR ( const QString & placeholder ) const"
+.BI "QVariant \fBboundValue\fR ( const TQString & placeholder ) const"
 .br
 .ti -1c
 .BI "QVariant \fBboundValue\fR ( int pos ) const"
 .br
 .ti -1c
-.BI "QMap<QString, QVariant> \fBboundValues\fR () const"
+.BI "QMap<TQString, QVariant> \fBboundValues\fR () const"
 .br
 .ti -1c
-.BI "QString \fBexecutedQuery\fR () const"
+.BI "TQString \fBexecutedQuery\fR () const"
 .br
 .in -1c
 .SS "Protected Members"
@@ -168,7 +168,7 @@ For example:
 .br
     while ( query.next() ) {
 .br
-        QString name = query.value(0).toString();
+        TQString name = query.value(0).toString();
 .br
         doSomething( name );
 .br
@@ -178,9 +178,9 @@ For example:
 .PP
 To access the data returned by a query, use the value() method. Each field in the data returned by a SELECT statement is accessed by passing the field's position in the statement, starting from 0. Information about the fields can be obtained via QSqlDatabase::record(). For the sake of efficiency there are no functions to access a field by name. (The QSqlCursor class provides a higher-level interface with field access by name and automatic SQL generation.)
 .PP
-QSqlQuery supports prepared query execution and the binding of parameter values to placeholders. Some databases don't support these features, so for them Qt emulates the required functionality. For example, the Oracle and ODBC drivers have proper prepared query support, and Qt makes use of it; but for databases that don't have this support, Qt implements the feature itself, e.g. by replacing placeholders with actual values when a query is executed. The exception is positional binding using named placeholders, which requires that the database supports prepared queries.
+QSqlQuery supports prepared query execution and the binding of parameter values to placeholders. Some databases don't support these features, so for them TQt emulates the required functionality. For example, the Oracle and ODBC drivers have proper prepared query support, and TQt makes use of it; but for databases that don't have this support, TQt implements the feature itself, e.g. by replacing placeholders with actual values when a query is executed. The exception is positional binding using named placeholders, which requires that the database supports prepared queries.
 .PP
-Oracle databases identify placeholders by using a colon-name syntax, e.g \fC:name\fR. ODBC simply uses \fC?\fR characters. Qt supports both syntaxes (although you can't mix them in the same query).
+Oracle databases identify placeholders by using a colon-name syntax, e.g \fC:name\fR. ODBC simply uses \fC?\fR characters. TQt supports both syntaxes (although you can't mix them in the same query).
 .PP
 Below we present the same example using each of the four different binding approaches.
 .PP
@@ -285,7 +285,7 @@ See also QSqlDatabase, QSqlCursor, QVariant, and Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QSqlQuery::QSqlQuery ( QSqlResult * r )"
 Creates a QSqlQuery object which uses the QSqlResult \fIr\fR to communicate with a database.
-.SH "QSqlQuery::QSqlQuery ( const QString & query = QString::null, QSqlDatabase * db = 0 )"
+.SH "QSqlQuery::QSqlQuery ( const TQString & query = TQString::null, QSqlDatabase * db = 0 )"
 Creates a QSqlQuery object using the SQL \fIquery\fR and the database \fIdb\fR. If \fIdb\fR is 0, (the default), the application's default database is used. If \fIquery\fR is not a null string, it will be executed.
 .PP
 See also QSqlDatabase.
@@ -315,11 +315,11 @@ See also prev(), next(), first(), last(), seek(), isActive(), and isValid().
 Example: sql/overview/navigating/main.cpp.
 .SH "void QSqlQuery::beforeSeek ()\fC [virtual protected]\fR"
 Protected virtual function called before the internal record pointer is moved to a new record. The default implementation does nothing.
-.SH "void QSqlQuery::bindValue ( const QString & placeholder, const QVariant & val, QSql::ParameterType type )"
+.SH "void QSqlQuery::bindValue ( const TQString & placeholder, const QVariant & val, QSql::ParameterType type )"
 Set the placeholder \fIplaceholder\fR to be bound to value \fIval\fR in the prepared statement. Note that the placeholder mark (e.g \fC:\fR) must be included when specifying the placeholder name. If \fItype\fR is QSql::Out or QSql::InOut, the placeholder will be overwritten with data from the database after the exec() call.
 .PP
 See also addBindValue(), prepare(), and exec().
-.SH "void QSqlQuery::bindValue ( const QString & placeholder, const QVariant & val )"
+.SH "void QSqlQuery::bindValue ( const TQString & placeholder, const QVariant & val )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Binds the placeholder with type QSql::In.
@@ -333,13 +333,13 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Set the placeholder in position \fIpos\fR to be bound to value \fIval\fR in the prepared statement. Field numbering starts at 0. If \fItype\fR is QSql::Out or QSql::InOut, the placeholder will be overwritten with data from the database after the exec() call.
 .PP
 See also addBindValue(), prepare(), and exec().
-.SH "QVariant QSqlQuery::boundValue ( const QString & placeholder ) const"
+.SH "QVariant QSqlQuery::boundValue ( const TQString & placeholder ) const"
 Returns the value for the \fIplaceholder\fR.
 .SH "QVariant QSqlQuery::boundValue ( int pos ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the value for the placeholder at position \fIpos\fR.
-.SH "QMap<QString, QVariant> QSqlQuery::boundValues () const"
+.SH "QMap<TQString, QVariant> QSqlQuery::boundValues () const"
 Returns a map of the bound values.
 .PP
 The bound values can be examined in the following way:
@@ -352,9 +352,9 @@ The bound values can be examined in the following way:
 .br
     // Examine the bound values - bound using named binding
 .br
-    QMap<QString, QVariant>::ConstIterator it;
+    QMap<TQString, QVariant>::ConstIterator it;
 .br
-    QMap<QString, QVariant> vals = query.boundValues();
+    QMap<TQString, QVariant> vals = query.boundValues();
 .br
     for ( it = vals.begin(); it != vals.end(); ++it )
 .br
@@ -381,7 +381,7 @@ The bound values can be examined in the following way:
 .fi
 .SH "const QSqlDriver * QSqlQuery::driver () const"
 Returns the database driver associated with the query.
-.SH "bool QSqlQuery::exec ( const QString & query )\fC [virtual]\fR"
+.SH "bool QSqlQuery::exec ( const TQString & query )\fC [virtual]\fR"
 Executes the SQL in \fIquery\fR. Returns TRUE and sets the query state to active if the query was successful; otherwise returns FALSE and sets the query state to inactive. The \fIquery\fR string must use syntax appropriate for the SQL database being queried, for example, standard SQL.
 .PP
 After the query is executed, the query is positioned on an \fIinvalid\fR record, and must be navigated to a valid record before data values can be retrieved, e.g. using next().
@@ -398,7 +398,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Executes a previously prepared SQL query. Returns TRUE if the query executed successfully; otherwise returns FALSE.
 .PP
 See also prepare(), bindValue(), and addBindValue().
-.SH "QString QSqlQuery::executedQuery () const"
+.SH "TQString QSqlQuery::executedQuery () const"
 Returns the last query that was executed.
 .PP
 In most cases this function returns the same as lastQuery(). If a prepared query with placeholders is executed on a DBMS that does not support it, the preparation of this query is emulated. The placeholders in the original query are replaced with their bound values to form a new query. This function returns the modified query. Useful for debugging purposes.
@@ -437,8 +437,8 @@ Example: sql/overview/navigating/main.cpp.
 Returns error information about the last error (if any) that occurred.
 .PP
 See also QSqlError.
-.SH "QString QSqlQuery::lastQuery () const"
-Returns the text of the current query being used, or QString::null if there is no current query text.
+.SH "TQString QSqlQuery::lastQuery () const"
+Returns the text of the current query being used, or TQString::null if there is no current query text.
 .PP
 See also executedQuery().
 .SH "bool QSqlQuery::next ()\fC [virtual]\fR"
@@ -469,7 +469,7 @@ Examples:
 .)l sql/overview/basicbrowsing2/main.cpp and sql/overview/basicdatamanip/main.cpp.
 .SH "QSqlQuery & QSqlQuery::operator= ( const QSqlQuery & other )"
 Assigns \fIother\fR to the query.
-.SH "bool QSqlQuery::prepare ( const QString & query )"
+.SH "bool QSqlQuery::prepare ( const TQString & query )"
 Prepares the SQL query \fIquery\fR for execution. The query may contain placeholders for binding values. Both Oracle style colon-name (e.g. \fC:surname\fR), and ODBC style (e.g. \fC?\fR) placeholders are supported; but they cannot be mixed in the same query. See the Description for examples.
 .PP
 See also exec(), bindValue(), and addBindValue().
@@ -555,8 +555,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

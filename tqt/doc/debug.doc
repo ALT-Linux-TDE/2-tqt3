@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** Qt Debugging Techniques
+** TQt Debugging Techniques
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -45,14 +45,14 @@ Here we present some useful hints to debugging your Qt-based software.
 
 \section1 Command Line Options
 
-When you run a Qt program you can specify several command line options
+When you run a TQt program you can specify several command line options
 that can help with debugging.
 
 \table
 \header \i Option \i Result
 \row \i -nograb
-     \i The application should never grab \link QWidget::grabMouse()
-	the mouse\endlink or \link QWidget::grabKeyboard() the
+     \i The application should never grab \link TQWidget::grabMouse()
+	the mouse\endlink or \link TQWidget::grabKeyboard() the
 	keyboard \endlink. This option is set by default when the
 	program is running in the \c gdb debugger under Linux.
 \row \i -dograb
@@ -79,13 +79,13 @@ errors occur.
 and exiting.
 \endlist
 
-The Qt implementation of these functions prints the text to the \c stderr
+The TQt implementation of these functions prints the text to the \c stderr
 output under Unix/X11 and to the debugger under Windows. You can
 take over these functions by installing a message handler;
 \link ::qInstallMsgHandler() qInstallMsgHandler()\endlink.
 
-The debugging functions \l QObject::dumpObjectTree() and \l
-QObject::dumpObjectInfo() are often useful when an application looks
+The debugging functions \l TQObject::dumpObjectTree() and \l
+TQObject::dumpObjectInfo() are often useful when an application looks
 or acts strangely. More useful if you use object names than not, but
 often useful even without names.
 
@@ -140,10 +140,10 @@ the QT_CHECK_NULL flag defined, the code in the TQ_CHECK_PTR expression is
 not executed (correctly, since it's only a debugging aid) and \e alloc
 returns a wild pointer.
 
-The Qt library contains hundreds of internal checks that will print
+The TQt library contains hundreds of internal checks that will print
 warning messages when some error is detected.
 
-The tests for sanity and the resulting warning messages inside Qt are
+The tests for sanity and the resulting warning messages inside TQt are
 conditional, based on the state of various debugging flags:
 \table
 \header \i Flag		\i Meaning
@@ -151,14 +151,14 @@ conditional, based on the state of various debugging flags:
 \row \i QT_CHECK_RANGE	\i Check for variable range errors
 \row \i QT_CHECK_NULL	\i Check for dangerous null pointers
 \row \i QT_CHECK_MATH	\i Check for dangerous math, e.g. division by 0
-\row \i QT_NO_CHECK	\i Turn off all QT_CHECK_... flags
+\row \i TQT_NO_CHECK	\i Turn off all QT_CHECK_... flags
 \row \i QT_DEBUG	\i Enable debugging code
-\row \i QT_NO_DEBUG	\i Turn off QT_DEBUG flag
+\row \i TQT_NO_DEBUG	\i Turn off QT_DEBUG flag
 \endtable
 
 By default, both QT_DEBUG and all the QT_CHECK flags are on. To turn
-off QT_DEBUG, define QT_NO_DEBUG. To turn off the QT_CHECK flags,
-define QT_NO_CHECK.
+off QT_DEBUG, define TQT_NO_DEBUG. To turn off the QT_CHECK flags,
+define TQT_NO_CHECK.
 
 Example:
 \code

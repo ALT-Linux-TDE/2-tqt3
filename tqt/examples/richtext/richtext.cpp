@@ -100,9 +100,9 @@ MyRichText::MyRichText( TQWidget *parent, const char *name )
 
     bPrev->setEnabled( FALSE );
 
-    connect( bClose, SIGNAL( clicked() ), tqApp, SLOT( quit() ) );
-    connect( bPrev, SIGNAL( clicked() ), this, SLOT( prev() ) );
-    connect( bNext, SIGNAL( clicked() ), this, SLOT( next() ) );
+    connect( bClose, TQ_SIGNAL( clicked() ), tqApp, TQ_SLOT( quit() ) );
+    connect( bPrev, TQ_SIGNAL( clicked() ), this, TQ_SLOT( prev() ) );
+    connect( bNext, TQ_SIGNAL( clicked() ), this, TQ_SLOT( next() ) );
 
     num = 0;
 }

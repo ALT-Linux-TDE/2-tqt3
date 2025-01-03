@@ -146,10 +146,10 @@ FontDisplayer::FontDisplayer( TQWidget* parent, const char* name ) :
     controls->addSeparator();
     TQPushButton *fontbutton = new TQPushButton(tr("Font..."), controls);
 
-    connect(row,SIGNAL(valueChanged(int)),table,SLOT(setRow(int)));
-    connect(fontbutton, SIGNAL(clicked()), table, SLOT(chooseFont()));
-    connect(table,SIGNAL(fontInformation(const TQString&)),
-	    statusBar(),SLOT(message(const TQString&)));
+    connect(row,TQ_SIGNAL(valueChanged(int)),table,TQ_SLOT(setRow(int)));
+    connect(fontbutton, TQ_SIGNAL(clicked()), table, TQ_SLOT(chooseFont()));
+    connect(table,TQ_SIGNAL(fontInformation(const TQString&)),
+	    statusBar(),TQ_SLOT(message(const TQString&)));
     table->setRow(0);
     setCentralWidget(table);
 }

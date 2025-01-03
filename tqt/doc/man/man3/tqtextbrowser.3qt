@@ -16,16 +16,16 @@ Inherits QTextEdit.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTextBrowser\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQTextBrowser\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "QString \fBsource\fR () const"
+.BI "TQString \fBsource\fR () const"
 .br
 .in -1c
 .SS "Public Slots"
 .in +1c
 .ti -1c
-.BI "virtual void \fBsetSource\fR ( const QString & name )"
+.BI "virtual void \fBsetSource\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "virtual void \fBbackward\fR ()"
@@ -49,16 +49,16 @@ Inherits QTextEdit.
 .BI "void \fBforwardAvailable\fR ( bool available )"
 .br
 .ti -1c
-.BI "void \fBsourceChanged\fR ( const QString & src )"
+.BI "void \fBsourceChanged\fR ( const TQString & src )"
 .br
 .ti -1c
-.BI "void \fBhighlighted\fR ( const QString & link )"
+.BI "void \fBhighlighted\fR ( const TQString & link )"
 .br
 .ti -1c
-.BI "void \fBlinkClicked\fR ( const QString & link )"
+.BI "void \fBlinkClicked\fR ( const TQString & link )"
 .br
 .ti -1c
-.BI "void \fBanchorClicked\fR ( const QString & name, const QString & link )"
+.BI "void \fBanchorClicked\fR ( const TQString & name, const TQString & link )"
 .br
 .in -1c
 .SS "Properties"
@@ -73,7 +73,7 @@ Inherits QTextEdit.
 .BI "bool \fBreadOnly\fR - whether the contents are read only  \fI(read " "only" ")\fR"
 .br
 .ti -1c
-.BI "QString \fBsource\fR - the name of the displayed document"
+.BI "TQString \fBsource\fR - the name of the displayed document"
 .br
 .ti -1c
 .BI "int \fBundoDepth\fR - this text browser's undo depth  \fI(read " "only" ")\fR"
@@ -119,9 +119,9 @@ If you want to provide your users with editable rich text use QTextEdit. If you 
 .PP
 See also Advanced Widgets, Help System, and Text Related Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTextBrowser::QTextBrowser ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QTextBrowser::QTextBrowser ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs an empty QTextBrowser called \fIname\fR, with parent \fIparent\fR.
-.SH "void QTextBrowser::anchorClicked ( const QString & name, const QString & link )\fC [signal]\fR"
+.SH "void QTextBrowser::anchorClicked ( const TQString & name, const TQString & link )\fC [signal]\fR"
 This signal is emitted when the user clicks an anchor. The \fIlink\fR is the value of the \fChref\fR i.e. the name of the target document. The \fIname\fR is the name of the anchor.
 .PP
 See also linkClicked().
@@ -145,7 +145,7 @@ Example: helpviewer/helpwindow.cpp.
 This signal is emitted when the availability of forward() changes. \fIavailable\fR is TRUE after the user navigates backward() and FALSE when the user navigates or goes forward().
 .PP
 Example: helpviewer/helpwindow.cpp.
-.SH "void QTextBrowser::highlighted ( const QString & link )\fC [signal]\fR"
+.SH "void QTextBrowser::highlighted ( const TQString & link )\fC [signal]\fR"
 This signal is emitted when the user has selected but not activated a link in the document. \fIlink\fR is the value of the \fChref\fR i.e. the name of the target document.
 .PP
 Example: helpviewer/helpwindow.cpp.
@@ -162,7 +162,7 @@ l - l. Keypress Action Alt+Left Arrow backward() Alt+Right Arrow forward() Alt+U
 </center>
 .PP
 Reimplemented from QTextEdit.
-.SH "void QTextBrowser::linkClicked ( const QString & link )\fC [signal]\fR"
+.SH "void QTextBrowser::linkClicked ( const TQString & link )\fC [signal]\fR"
 This signal is emitted when the user clicks a link. The \fIlink\fR is the value of the \fChref\fR i.e. the name of the target document.
 .PP
 The \fIlink\fR will be the absolute location of the document, based on the value of the anchor's href tag and the current context of the document.
@@ -170,11 +170,11 @@ The \fIlink\fR will be the absolute location of the document, based on the value
 See also anchorClicked() and context().
 .SH "void QTextBrowser::reload ()\fC [virtual slot]\fR"
 Reloads the current set source.
-.SH "void QTextBrowser::setSource ( const QString & name )\fC [virtual slot]\fR"
+.SH "void QTextBrowser::setSource ( const TQString & name )\fC [virtual slot]\fR"
 Sets the name of the displayed document to \fIname\fR. See the "source" property for details.
-.SH "QString QTextBrowser::source () const"
+.SH "TQString QTextBrowser::source () const"
 Returns the name of the displayed document. See the "source" property for details.
-.SH "void QTextBrowser::sourceChanged ( const QString & src )\fC [signal]\fR"
+.SH "void QTextBrowser::sourceChanged ( const TQString & src )\fC [signal]\fR"
 This signal is emitted when the mime source has changed, \fIsrc\fR being the new source.
 .PP
 Source changes happen both programmatically when calling setSource(), forward(), backword() or home() or when the user clicks on links or presses the equivalent key sequences.
@@ -187,10 +187,10 @@ This property holds whether the contents have been modified.
 This property holds this text browser's overwrite mode.
 .SH "bool readOnly"
 This property holds whether the contents are read only.
-.SH "QString source"
+.SH "TQString source"
 This property holds the name of the displayed document.
 .PP
-This is a QString::null if no document is displayed or if the source is unknown.
+This is a TQString::null if no document is displayed or if the source is unknown.
 .PP
 Setting this property uses the mimeSourceFactory() to lookup the named document. It also checks for optional anchors and scrolls the document accordingly.
 .PP
@@ -219,8 +219,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

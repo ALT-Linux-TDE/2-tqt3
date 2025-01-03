@@ -46,11 +46,11 @@
 #include "ntqiconset.h"
 #endif // QT_H
 
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 class TQPushButtonPrivate;
 class TQPopupMenu;
 
-class Q_EXPORT TQPushButton : public TQButton
+class TQ_EXPORT TQPushButton : public TQButton
 {
     TQ_OBJECT
 
@@ -66,7 +66,7 @@ class Q_EXPORT TQPushButton : public TQButton
 public:
     TQPushButton( TQWidget *parent, const char* name=0 );
     TQPushButton( const TQString &text, TQWidget *parent, const char* name=0 );
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
     TQPushButton( const TQIconSet& icon, const TQString &text, TQWidget *parent, const char* name=0 );
 #endif
     ~TQPushButton();
@@ -97,11 +97,11 @@ public:
     }
     bool	isMenuButton() const { return hasMenuArrow; }
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     void setPopup( TQPopupMenu* popup );
     TQPopupMenu* popup() const;
 #endif
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
     void setIconSet( const TQIconSet& );
     TQIconSet* iconSet() const;
 #endif
@@ -119,7 +119,7 @@ protected:
     void	resizeEvent( TQResizeEvent * );
     void	updateMask();
 private slots:
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     void popupPressed();
 #endif
 private:
@@ -144,6 +144,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_PUSHBUTTON
+#endif // TQT_NO_PUSHBUTTON
 
 #endif // TQPUSHBUTTON_H

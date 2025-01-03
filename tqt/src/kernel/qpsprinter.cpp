@@ -52,7 +52,7 @@
 
 #include "qpsprinter_p.h"
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
 
 #undef Q_PRINTER_USE_TYPE42
 
@@ -85,7 +85,7 @@
 #include <stdlib.h>
 #endif
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include "qt_x11_p.h"
 #ifdef None
 #undef None
@@ -95,7 +95,7 @@
 #endif
 #endif
 
-#if defined( Q_WS_X11 ) || defined (Q_WS_QWS)
+#if defined( TQ_WS_X11 ) || defined (TQ_WS_QWS)
 #include "qfontdata_p.h"
 #include "qfontengine_p.h"
 #include "qtextlayout_p.h"
@@ -106,7 +106,7 @@ extern bool tqt_has_xft;
 static bool qt_gen_epsf = FALSE;
 static bool embedFonts = TRUE;
 
-Q_EXPORT void tqt_generate_epsf( bool b )
+TQ_EXPORT void tqt_generate_epsf( bool b )
 {
     qt_gen_epsf = b;
 }
@@ -1416,7 +1416,7 @@ public:
     bool dirtyBkColor;
     TQt::BGMode bkMode;
     bool dirtyBkMode;
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     TQTextCodec * currentFontCodec;
 #endif
     TQString currentFont;
@@ -2433,13 +2433,13 @@ void TQPSPrinterFontTTF::drawText( TQTextStream &stream, const TQPoint &p, TQTex
     glyph_t *glyphs = engine->glyphs( &si );
     advance_t *advances = engine->advances( &si );
     qoffset_t *offsets = engine->offsets( &si );
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     int type = si.fontEngine->type();
     bool glyphIndices = (type == TQFontEngine::Xft);
     // This helps us get arabic for XLFD fonts working. In that case we have a Unicode
     // cmap (== 0), and the glyphs array contains the shaped string.
     bool useGlyphAsUnicode = (type == TQFontEngine::XLFD && si.fontEngine->cmap() == 0);
-#else // Q_WS_QWS
+#else // TQ_WS_QWS
     const bool glyphIndices = FALSE;
     const bool useGlyphAsUnicode = TRUE;
 #endif
@@ -4241,7 +4241,7 @@ void TQPSPrinterFontNotFound::download(TQTextStream& s, bool)
     TQPSPrinterFontPrivate::download(s, TRUE);
 }
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 // =================== A font file for asian ============
 
 class TQPSPrinterFontAsian
@@ -4919,11 +4919,11 @@ TQPSPrinterFont::TQPSPrinterFont(const TQFont &f, int script, TQPSPrinterPrivate
     // ### implement similar code for TQWS and WIN
     xfontname = makePSFontName( engine );
 
-#if defined( Q_WS_X11 )
+#if defined( TQ_WS_X11 )
     bool xlfd = FALSE;
     //tqDebug("engine = %p name=%s, script=%d", engine, engine ? engine->name() : "(null)", script);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if ( tqt_has_xft && engine && engine->type() == TQFontEngine::Xft ) {
         XftPattern *pattern = static_cast<TQFontEngineXft *>( engine )->pattern();
         char *filename = 0;
@@ -4951,8 +4951,8 @@ TQPSPrinterFont::TQPSPrinterFont(const TQFont &f, int script, TQPSPrinterPrivate
             xlfd = TRUE;
         }
     }
-#endif // Q_WS_X11
-#ifndef QT_NO_TEXTCODEC
+#endif // TQ_WS_X11
+#ifndef TQT_NO_TEXTCODEC
     // map some scripts to something more useful
     if ( script == TQFont::Han ) {
 	TQTextCodec *lc = TQTextCodec::codecForLocale();
@@ -4989,7 +4989,7 @@ TQPSPrinterFont::TQPSPrinterFont(const TQFont &f, int script, TQPSPrinterPrivate
 #endif
 
     TQString searchname = xfontname;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     // we need an extension here due to the fact that we use different
     // fonts for different scripts
     if ( xlfd && script >= TQFont::Han && script <= TQFont::Bopomofo )
@@ -5001,7 +5001,7 @@ TQPSPrinterFont::TQPSPrinterFont(const TQFont &f, int script, TQPSPrinterPrivate
     if ( p )
 	return;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     if ( xlfd ) {
 
 	for (TQStringList::Iterator it=priv->fontpath.begin(); it!=priv->fontpath.end() && fontfilename.isEmpty(); ++it) {
@@ -5088,7 +5088,7 @@ TQPSPrinterFont::TQPSPrinterFont(const TQFont &f, int script, TQPSPrinterPrivate
     case NONE:
     default:
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 
         if ( script == TQFont::Hiragana )
             p = new TQPSPrinterFontJapanese( engine );
@@ -5145,7 +5145,7 @@ TQPSPrinterFont::TQPSPrinterFont(const TQFont &f, int script, TQPSPrinterPrivate
 TQPSPrinterPrivate::TQPSPrinterPrivate( TQPrinter *prt, int filedes )
     : buffer( 0 ), outDevice( 0 ), fd( filedes ), pageBuffer( 0 ), fonts(27, FALSE), fontBuffer(0), savedImage( 0 ),
       dirtypen( FALSE ), dirtybrush( FALSE ), dirtyBkColor( FALSE ), bkMode( TQt::TransparentMode ), dirtyBkMode( FALSE ),
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
       currentFontCodec( 0 ),
 #endif
       fm( TQFont() ), textY( 0 )
@@ -5158,7 +5158,7 @@ TQPSPrinterPrivate::TQPSPrinterPrivate( TQPrinter *prt, int filedes )
     scale = 1.;
     scriptUsed = -1;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     // append qsettings fontpath
     TQSettings settings;
     embedFonts = settings.readBoolEntry( "/qt/embedFonts", TRUE );
@@ -5275,10 +5275,10 @@ void TQPSPrinterPrivate::setFont( const TQFont & fnt, int script )
     if ( !fontsUsed.contains( ps ) )
         fontsUsed += ps;
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     TQTextCodec * codec = 0;
 // ###
-// #ifndef QT_NO_TEXTCODEC
+// #ifndef TQT_NO_TEXTCODEC
 //     i = 0;
 //     do {
 //      if ( unicodevalues[i].cs == f.charSet() )
@@ -5859,7 +5859,7 @@ void TQPSPrinterPrivate::drawImage( TQPainter *paint, float x, float y, float w,
 
 void TQPSPrinterPrivate::matrixSetup( TQPainter *paint )
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQWMatrix tmp;
     if ( paint->hasViewXForm() ) {
         TQRect viewport = paint->viewport();
@@ -6165,7 +6165,7 @@ void TQPSPrinterPrivate::flushPage( bool last )
     if ( buffer &&
 //         ( last || pagesInBuffer++ > -1 ||
 //           ( pagesInBuffer > 4 && buffer->size() > 262144 ) ) )
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
          (last || buffer->size() > 2000000) // embedded is usually limited in memory
 #else
          (last || buffer->size() > 50000000)
@@ -6487,7 +6487,7 @@ bool TQPSPrinter::cmd( int c , TQPainter *paint, TQPDevCmdParam *p )
         TQRect r = *(p[0].rect);
         TQImage img = *(p[1].image);
 	TQImage mask;
-#ifndef QT_NO_IMAGE_DITHER_TO_1
+#ifndef TQT_NO_IMAGE_DITHER_TO_1
 	if ( img.hasAlphaBuffer() )
 	    mask = img.createAlphaMask();
 #endif
@@ -6579,4 +6579,4 @@ bool TQPSPrinter::cmd( int c , TQPainter *paint, TQPDevCmdParam *p )
     return TRUE;
 }
 
-#endif // QT_NO_PRINTER
+#endif // TQT_NO_PRINTER

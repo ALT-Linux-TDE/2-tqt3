@@ -132,7 +132,7 @@ void qt_erase_rect( TQWidget* w, const TQRect& r)
 
 }
 
-#ifdef QT_NO_XFTFREETYPE
+#ifdef TQT_NO_XFTFREETYPE
 static const TQt::HANDLE rendhd = 0;
 #endif
 
@@ -153,12 +153,12 @@ static inline void x11SetClipRegion(Display *dpy, GC gc, GC gc2, TQt::HANDLE dra
     if (gc2)
         XSetClipRectangles( dpy, gc2, 0, 0, rects, num, YXBanded );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (draw)
         XftDrawSetClipRectangles((XftDraw *) draw, 0, 0, rects, num);
 #else
     Q_UNUSED(draw);
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 }
 
 static inline void x11ClearClipRegion(Display *dpy, GC gc, GC gc2, TQt::HANDLE draw)
@@ -168,7 +168,7 @@ static inline void x11ClearClipRegion(Display *dpy, GC gc, GC gc2, TQt::HANDLE d
     if (gc2)
         XSetClipMask(dpy, gc2, None);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (draw) {
 #  ifdef QT_XFT2
 	XftDrawSetClip((XftDraw *) draw, None);
@@ -182,7 +182,7 @@ static inline void x11ClearClipRegion(Display *dpy, GC gc, GC gc2, TQt::HANDLE d
     }
 #else
     Q_UNUSED(draw);
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 }
 
 
@@ -303,7 +303,7 @@ static void init_gc_array()
 
 static void cleanup_gc_array( Display *dpy )
 {
-    register TQGC *p = gc_array;
+    TQGC *p = gc_array;
     int i = gc_array_size;
     if ( gc_array_init ) {
         while ( i-- ) {
@@ -328,7 +328,7 @@ static GC alloc_gc( Display *dpy, int scrn, Drawable hd, bool monochrome=FALSE,
         XSetGraphicsExposures( dpy, gc, False );
         return gc;
     }
-    register TQGC *p = gc_array;
+    TQGC *p = gc_array;
     int i = gc_array_size;
     if ( !gc_array_init )                       // not initialized
         init_gc_array();
@@ -364,7 +364,7 @@ static void free_gc( Display *dpy, GC gc, bool privateGC = FALSE )
         XFreeGC( dpy, gc );
         return;
     }
-    register TQGC *p = gc_array;
+    TQGC *p = gc_array;
     int i = gc_array_size;
     if ( gc_array_init ) {
         while ( i-- ) {
@@ -1127,7 +1127,7 @@ bool TQPainter::begin( const TQPaintDevice *pd, bool unclipped )
             updateBrush();
             XSetSubwindowMode( dpy, gc, IncludeInferiors );
             XSetSubwindowMode( dpy, gc_brush, IncludeInferiors );
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	    if (rendhd)
                 XftDrawSetSubwindowMode((XftDraw *) rendhd, IncludeInferiors);
 #endif
@@ -1234,13 +1234,13 @@ bool TQPainter::end()                            // end painting
     if ( testf(ExtDev) )
         pdev->cmd( TQPaintDevice::PdcEnd, this, 0 );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (rendhd) {
         // reset clipping/subwindow mode on our render picture
         XftDrawSetClip((XftDraw *) rendhd, None);
         XftDrawSetSubwindowMode((XftDraw *) rendhd, ClipByChildren);
     }
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
     if ( pfont ) {
 	delete pfont;
@@ -2744,7 +2744,7 @@ void TQPainter::drawPixmap( int x, int y, const TQPixmap &pixmap,
         XSetTSOrigin( dpy, gc, 0, 0 );
         XSetFillStyle( dpy, gc, FillSolid );
     } else {
-#if !defined(QT_NO_XFTFREETYPE) && !defined(QT_NO_XRENDER)
+#if !defined(TQT_NO_XFTFREETYPE) && !defined(TQT_NO_XRENDER)
         Picture pict = rendhd ? XftDrawPicture((XftDraw *) rendhd) : None;
 	TQPixmap *alpha = pixmap.data->alphapm;
 
@@ -2754,7 +2754,7 @@ void TQPainter::drawPixmap( int x, int y, const TQPixmap &pixmap,
 			     alpha->x11RenderHandle(), pict,
 			     sx, sy, sx, sy, x, y, sw, sh);
 	} else
-#endif // !QT_NO_XFTFREETYPE && !QT_NO_XRENDER
+#endif // !TQT_NO_XFTFREETYPE && !TQT_NO_XRENDER
         {
             XCopyArea( dpy, pixmap.handle(), hd, gc, sx, sy, sw, sh, x, y );
         }
@@ -2858,7 +2858,7 @@ void TQPainter::drawTiledPixmap( int x, int y, int w, int h,
         if ( txop == TxTranslate )
             map( x, y, &x, &y );
 
-#if !defined(QT_NO_XFTFREETYPE) && !defined(QT_NO_XRENDER)
+#if !defined(TQT_NO_XFTFREETYPE) && !defined(TQT_NO_XRENDER)
         Picture pict = rendhd ? XftDrawPicture((XftDraw *) rendhd) : None;
 	TQPixmap *alpha = pixmap.data->alphapm;
 
@@ -2889,7 +2889,7 @@ void TQPainter::drawTiledPixmap( int x, int y, int w, int h,
 	    }
 	    return;
 	}
-#endif // !QT_NO_XFTFREETYPE && !QT_NO_XRENDER
+#endif // !TQT_NO_XFTFREETYPE && !TQT_NO_XRENDER
 
 	XSetTile( dpy, gc, pixmap.handle() );
 	XSetFillStyle( dpy, gc, FillTiled );

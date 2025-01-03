@@ -38,9 +38,9 @@
 **
 **********************************************************************/
 
-#undef QT_NO_COMPAT
+#undef TQT_NO_COMPAT
 #include "ntqbutton.h"
-#ifndef QT_NO_BUTTON
+#ifndef TQT_NO_BUTTON
 #include "ntqbuttongroup.h"
 #include "ntqbitmap.h"
 #include "ntqpainter.h"
@@ -64,18 +64,18 @@ class TQButtonData
 {
 public:
     TQButtonData() {
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
 	group = 0;
 #endif
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	a = 0;
 #endif
     }
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
     TQButtonGroup *group;
 #endif
     TQTimer timer;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQAccel *a;
 #endif
 };
@@ -86,7 +86,7 @@ void TQButton::ensureData()
     if ( !d ) {
 	d = new TQButtonData;
 	TQ_CHECK_PTR( d );
-	connect(&d->timer, SIGNAL(timeout()), this, SLOT(autoRepeatTimeout()));
+	connect(&d->timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(autoRepeatTimeout()));
     }
 }
 
@@ -102,7 +102,7 @@ void TQButton::ensureData()
 
 TQButtonGroup *TQButton::group() const
 {
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
     return d ? d->group : 0;
 #else
     return 0;
@@ -112,7 +112,7 @@ TQButtonGroup *TQButton::group() const
 
 void TQButton::setGroup( TQButtonGroup* g )
 {
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
     ensureData();
     d->group = g;
 #endif
@@ -390,7 +390,7 @@ TQButton::TQButton( TQWidget *parent, const char *name, WFlags f )
     animation  = FALSE;				// no pending animateClick
     repeat     = FALSE;				// not in autorepeat mode
     d	       = 0;
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
     if ( ::tqt_cast<TQButtonGroup*>(parent) ) {
 	setGroup((TQButtonGroup*)parent);
 	group()->insert( this );		// insert into button group
@@ -404,7 +404,7 @@ TQButton::TQButton( TQWidget *parent, const char *name, WFlags f )
  */
 TQButton::~TQButton()
 {
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
     if ( group() )
 	group()->remove( this );
 #endif
@@ -477,7 +477,7 @@ void TQButton::setText( const TQString &text )
     if ( btext == text )
 	return;
     btext = text;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     setAccel( TQAccel::shortcutKey( text ) );
 #endif
 
@@ -516,7 +516,7 @@ void TQButton::setPixmap( const TQPixmap &pixmap )
 	bpixmap->setMask( *((TQBitmap *)bpixmap) );
     if ( !btext.isNull() ) {
 	btext = TQString::null;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	setAccel( TQKeySequence() );
 #endif
     }
@@ -530,7 +530,7 @@ void TQButton::setPixmap( const TQPixmap &pixmap )
 }
 
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 TQKeySequence TQButton::accel() const
 {
     if ( d && d->a )
@@ -547,14 +547,14 @@ void TQButton::setAccel( const TQKeySequence& key )
     ensureData();
     if ( !d->a ) {
 	d->a = new TQAccel( this, "buttonAccel" );
-	connect( d->a, SIGNAL( activated(int) ), this, SLOT( animateClick() ) );
-	connect( d->a, SIGNAL( activatedAmbiguously(int) ), this, SLOT( setFocus() ) );
+	connect( d->a, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( animateClick() ) );
+	connect( d->a, TQ_SIGNAL( activatedAmbiguously(int) ), this, TQ_SLOT( setFocus() ) );
     }
     d->a->insertItem( key, 0 );
 }
 #endif
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
 void TQButton::setAutoResize( bool enable )
 {
@@ -595,7 +595,7 @@ void TQButton::animateClick()
     buttonDown = TRUE;
     repaint( FALSE );
     emit pressed();
-    TQTimer::singleShot( 100, this, SLOT(animateTimeout()) );
+    TQTimer::singleShot( 100, this, TQ_SLOT(animateTimeout()) );
 }
 
 void TQButton::emulateClick()
@@ -704,7 +704,7 @@ void TQButton::keyPressEvent( TQKeyEvent *e )
     case Key_Enter:
     case Key_Return:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    TQPushButton *pb = (TQPushButton*)tqt_cast( "TQPushButton" );
 	    if ( pb && ( pb->autoDefault() || pb->isDefault() ) )
 		emit clicked();
@@ -716,7 +716,7 @@ void TQButton::keyPressEvent( TQKeyEvent *e )
     case Key_Space:
 	if ( !e->isAutoRepeat() ) {
 	    setDown( TRUE );
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    if ( ::tqt_cast<TQPushButton*>(this) )
 		emit pressed();
 	    else
@@ -726,7 +726,7 @@ void TQButton::keyPressEvent( TQKeyEvent *e )
 	break;
     case Key_Up:
     case Key_Left:
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
 	if ( group() ) {
 	    group()->moveFocus( e->key() );
 	} else
@@ -739,7 +739,7 @@ void TQButton::keyPressEvent( TQKeyEvent *e )
 	break;
     case Key_Right:
     case Key_Down:
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
 	if ( group() ) {
 	    group()->moveFocus( e->key() );
 	} else
@@ -996,7 +996,7 @@ void TQButton::setToggleType( ToggleType type )
 
 bool TQButton::isExclusiveToggle() const
 {
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
     return group() && ( group()->isExclusive() ||
 			( group()->isRadioButtonExclusive() &&
 			::tqt_cast<TQRadioButton*>(this) ) );

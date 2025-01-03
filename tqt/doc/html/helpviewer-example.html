@@ -155,26 +155,26 @@ private:
 
 <a name="x1030"></a>    browser-&gt;<a href="ntqtextedit.html#mimeSourceFactory">mimeSourceFactory</a>()-&gt;setFilePath( _path );
     browser-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
-<a name="x1027"></a>    <a href="ntqobject.html#connect">connect</a>( browser, SIGNAL( <a href="ntqtextbrowser.html#sourceChanged">sourceChanged</a>(const <a href="ntqstring.html">TQString</a>&amp; ) ),
-             this, SLOT( sourceChanged( const <a href="ntqstring.html">TQString</a>&amp;) ) );
+<a name="x1027"></a>    <a href="ntqobject.html#connect">connect</a>( browser, TQ_SIGNAL( <a href="ntqtextbrowser.html#sourceChanged">sourceChanged</a>(const <a href="ntqstring.html">TQString</a>&amp; ) ),
+             this, TQ_SLOT( sourceChanged( const <a href="ntqstring.html">TQString</a>&amp;) ) );
 
     <a href="ntqmainwindow.html#setCentralWidget">setCentralWidget</a>( browser );
 
     if ( !home_.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
 <a name="x1025"></a>        browser-&gt;<a href="ntqtextbrowser.html#setSource">setSource</a>( home_ );
 
-<a name="x1023"></a>    <a href="ntqobject.html#connect">connect</a>( browser, SIGNAL( <a href="ntqtextbrowser.html#highlighted">highlighted</a>( const <a href="ntqstring.html">TQString</a>&amp;) ),
-             <a href="ntqmainwindow.html#statusBar">statusBar</a>(), SLOT( message( const <a href="ntqstring.html">TQString</a>&amp;)) );
+<a name="x1023"></a>    <a href="ntqobject.html#connect">connect</a>( browser, TQ_SIGNAL( <a href="ntqtextbrowser.html#highlighted">highlighted</a>( const <a href="ntqstring.html">TQString</a>&amp;) ),
+             <a href="ntqmainwindow.html#statusBar">statusBar</a>(), TQ_SLOT( message( const <a href="ntqstring.html">TQString</a>&amp;)) );
 
     <a href="ntqwidget.html#resize">resize</a>( 640,700 );
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a>* file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;New Window"), this, SLOT( newWindow() ), CTRL+Key_N );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Open File"), this, SLOT( openFile() ), CTRL+Key_O );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Print"), this, SLOT( print() ), CTRL+Key_P );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;New Window"), this, TQ_SLOT( newWindow() ), CTRL+Key_N );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Open File"), this, TQ_SLOT( openFile() ), CTRL+Key_O );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Print"), this, TQ_SLOT( print() ), CTRL+Key_P );
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Close"), this, SLOT( <a href="ntqwidget.html#close">close</a>() ), CTRL+Key_Q );
-<a name="x980"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, SLOT( <a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>() ), CTRL+Key_X );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Close"), this, TQ_SLOT( <a href="ntqwidget.html#close">close</a>() ), CTRL+Key_Q );
+<a name="x980"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT( <a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>() ), CTRL+Key_X );
 
     // The same three icons are used twice each.
     <a href="ntqiconset.html">TQIconSet</a> icon_back( TQPixmap("back.xpm") );
@@ -183,33 +183,33 @@ private:
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a>* go = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     backwardId = go-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( icon_back,
-<a name="x1019"></a>                                 <a href="ntqobject.html#tr">tr</a>("&amp;Backward"), browser, SLOT( <a href="ntqtextbrowser.html#backward">backward</a>() ),
+<a name="x1019"></a>                                 <a href="ntqobject.html#tr">tr</a>("&amp;Backward"), browser, TQ_SLOT( <a href="ntqtextbrowser.html#backward">backward</a>() ),
                                  CTRL+Key_Left );
     forwardId = go-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( icon_forward,
-<a name="x1021"></a>                                <a href="ntqobject.html#tr">tr</a>("&amp;Forward"), browser, SLOT( <a href="ntqtextbrowser.html#forward">forward</a>() ),
+<a name="x1021"></a>                                <a href="ntqobject.html#tr">tr</a>("&amp;Forward"), browser, TQ_SLOT( <a href="ntqtextbrowser.html#forward">forward</a>() ),
                                 CTRL+Key_Right );
-<a name="x1024"></a>    go-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( icon_home, tr("&amp;Home"), browser, SLOT( <a href="ntqtextbrowser.html#home">home</a>() ) );
+<a name="x1024"></a>    go-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( icon_home, tr("&amp;Home"), browser, TQ_SLOT( <a href="ntqtextbrowser.html#home">home</a>() ) );
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a>* help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;About"), this, SLOT( about() ) );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("About &amp;TQt"), this, SLOT( aboutTQt() ) );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;About"), this, TQ_SLOT( about() ) );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("About &amp;TQt"), this, TQ_SLOT( aboutTQt() ) );
 
     hist = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     TQStringList::Iterator it = history.begin();
     for ( ; it != history.end(); ++it )
         mHistory[ hist-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( *it ) ] = *it;
-<a name="x1004"></a>    <a href="ntqobject.html#connect">connect</a>( hist, SIGNAL( <a href="ntqpopupmenu.html#activated">activated</a>( int ) ),
-             this, SLOT( histChosen( int ) ) );
+<a name="x1004"></a>    <a href="ntqobject.html#connect">connect</a>( hist, TQ_SIGNAL( <a href="ntqpopupmenu.html#activated">activated</a>( int ) ),
+             this, TQ_SLOT( histChosen( int ) ) );
 
     bookm = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    bookm-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>( "Add Bookmark" ), this, SLOT( addBookmark() ) );
+    bookm-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>( "Add Bookmark" ), this, TQ_SLOT( addBookmark() ) );
     bookm-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
 
     TQStringList::Iterator it2 = bookmarks.begin();
     for ( ; it2 != bookmarks.end(); ++it2 )
         mBookmarks[ bookm-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( *it2 ) ] = *it2;
-    <a href="ntqobject.html#connect">connect</a>( bookm, SIGNAL( <a href="ntqpopupmenu.html#activated">activated</a>( int ) ),
-             this, SLOT( bookmChosen( int ) ) );
+    <a href="ntqobject.html#connect">connect</a>( bookm, TQ_SIGNAL( <a href="ntqpopupmenu.html#activated">activated</a>( int ) ),
+             this, TQ_SLOT( bookmChosen( int ) ) );
 
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("&amp;File"), file );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("&amp;Go"), go );
@@ -220,29 +220,29 @@ private:
 
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;setItemEnabled( forwardId, FALSE);
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;setItemEnabled( backwardId, FALSE);
-<a name="x1020"></a>    <a href="ntqobject.html#connect">connect</a>( browser, SIGNAL( <a href="ntqtextbrowser.html#backwardAvailable">backwardAvailable</a>( bool ) ),
-             this, SLOT( setBackwardAvailable( bool ) ) );
-<a name="x1022"></a>    <a href="ntqobject.html#connect">connect</a>( browser, SIGNAL( <a href="ntqtextbrowser.html#forwardAvailable">forwardAvailable</a>( bool ) ),
-             this, SLOT( setForwardAvailable( bool ) ) );
+<a name="x1020"></a>    <a href="ntqobject.html#connect">connect</a>( browser, TQ_SIGNAL( <a href="ntqtextbrowser.html#backwardAvailable">backwardAvailable</a>( bool ) ),
+             this, TQ_SLOT( setBackwardAvailable( bool ) ) );
+<a name="x1022"></a>    <a href="ntqobject.html#connect">connect</a>( browser, TQ_SIGNAL( <a href="ntqtextbrowser.html#forwardAvailable">forwardAvailable</a>( bool ) ),
+             this, TQ_SLOT( setForwardAvailable( bool ) ) );
 
 
     <a href="ntqtoolbar.html">TQToolBar</a>* toolbar = new <a href="ntqtoolbar.html">TQToolBar</a>( this );
     <a href="ntqmainwindow.html#addToolBar">addToolBar</a>( toolbar, "Toolbar");
     <a href="ntqtoolbutton.html">TQToolButton</a>* button;
 
-    button = new <a href="ntqtoolbutton.html">TQToolButton</a>( icon_back, tr("Backward"), "", browser, SLOT(<a href="ntqtextbrowser.html#backward">backward</a>()), toolbar );
-<a name="x1035"></a>    <a href="ntqobject.html#connect">connect</a>( browser, SIGNAL( <a href="ntqtextbrowser.html#backwardAvailable">backwardAvailable</a>(bool) ), button, SLOT( <a href="ntqwidget.html#setEnabled">setEnabled</a>(bool) ) );
+    button = new <a href="ntqtoolbutton.html">TQToolButton</a>( icon_back, tr("Backward"), "", browser, TQ_SLOT(<a href="ntqtextbrowser.html#backward">backward</a>()), toolbar );
+<a name="x1035"></a>    <a href="ntqobject.html#connect">connect</a>( browser, TQ_SIGNAL( <a href="ntqtextbrowser.html#backwardAvailable">backwardAvailable</a>(bool) ), button, TQ_SLOT( <a href="ntqwidget.html#setEnabled">setEnabled</a>(bool) ) );
     button-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    button = new <a href="ntqtoolbutton.html">TQToolButton</a>( icon_forward, tr("Forward"), "", browser, SLOT(<a href="ntqtextbrowser.html#forward">forward</a>()), toolbar );
-    <a href="ntqobject.html#connect">connect</a>( browser, SIGNAL( <a href="ntqtextbrowser.html#forwardAvailable">forwardAvailable</a>(bool) ), button, SLOT( <a href="ntqwidget.html#setEnabled">setEnabled</a>(bool) ) );
+    button = new <a href="ntqtoolbutton.html">TQToolButton</a>( icon_forward, tr("Forward"), "", browser, TQ_SLOT(<a href="ntqtextbrowser.html#forward">forward</a>()), toolbar );
+    <a href="ntqobject.html#connect">connect</a>( browser, TQ_SIGNAL( <a href="ntqtextbrowser.html#forwardAvailable">forwardAvailable</a>(bool) ), button, TQ_SLOT( <a href="ntqwidget.html#setEnabled">setEnabled</a>(bool) ) );
     button-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    button = new <a href="ntqtoolbutton.html">TQToolButton</a>( icon_home, tr("Home"), "", browser, SLOT(<a href="ntqtextbrowser.html#home">home</a>()), toolbar );
+    button = new <a href="ntqtoolbutton.html">TQToolButton</a>( icon_home, tr("Home"), "", browser, TQ_SLOT(<a href="ntqtextbrowser.html#home">home</a>()), toolbar );
 
 <a name="x1033"></a>    toolbar-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
 
     pathCombo = new <a href="ntqcombobox.html">TQComboBox</a>( TRUE, toolbar );
-<a name="x981"></a>    <a href="ntqobject.html#connect">connect</a>( pathCombo, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
-             this, SLOT( pathSelected( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+<a name="x981"></a>    <a href="ntqobject.html#connect">connect</a>( pathCombo, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT( pathSelected( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
 <a name="x1034"></a>    toolbar-&gt;<a href="ntqtoolbar.html#setStretchableWidget">setStretchableWidget</a>( pathCombo );
     <a href="ntqmainwindow.html#setRightJustification">setRightJustification</a>( TRUE );
     <a href="ntqmainwindow.html#setDockEnabled">setDockEnabled</a>( DockLeft, FALSE );
@@ -326,7 +326,7 @@ void <a name="f355"></a>HelpWindow::aboutTQt()
 
 void <a name="f356"></a>HelpWindow::openFile()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     <a href="ntqstring.html">TQString</a> fn = TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>( <a href="ntqstring.html#TQString-null">TQString::null</a>, TQString::null, this );
     if ( !fn.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
         browser-&gt;<a href="ntqtextbrowser.html#setSource">setSource</a>( fn );
@@ -340,7 +340,7 @@ void <a name="f357"></a>HelpWindow::newWindow()
 
 void <a name="f358"></a>HelpWindow::print()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     <a href="ntqprinter.html">TQPrinter</a> printer( TQPrinter::HighResolution );
 <a name="x1006"></a>    printer.<a href="ntqprinter.html#setFullPage">setFullPage</a>(TRUE);
 <a name="x1007"></a>    if ( printer.<a href="ntqprinter.html#setup">setup</a>( this ) ) {
@@ -462,8 +462,8 @@ int main( int argc, char ** argv )
     else
 <a name="x1045"></a>        help-&gt;<a href="ntqwidget.html#showMaximized">showMaximized</a>();
 
-<a name="x1039"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()),
-                      &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<a name="x1039"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()),
+                      &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
     return a.<a href="ntqapplication.html#exec">exec</a>();
 }

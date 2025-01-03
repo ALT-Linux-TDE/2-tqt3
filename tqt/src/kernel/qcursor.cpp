@@ -40,7 +40,7 @@
 
 #include "ntqcursor.h"
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 
 #include "ntqbitmap.h"
 #include "ntqimage.h"
@@ -147,7 +147,7 @@
   TQCursor stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 
 
 /*!
@@ -161,7 +161,7 @@ TQDataStream &operator<<( TQDataStream &s, const TQCursor &c )
 {
     s << (TQ_INT16)c.shape();			// write shape id to stream
     if ( c.shape() == TQt::BitmapCursor ) {		// bitmap cursor
-#if !defined(QT_NO_IMAGEIO)
+#if !defined(TQT_NO_IMAGEIO)
 	s << *c.bitmap() << *c.mask();
 	s << c.hotSpot();
 #else
@@ -183,7 +183,7 @@ TQDataStream &operator>>( TQDataStream &s, TQCursor &c )
     TQ_INT16 shape;
     s >> shape;					// read shape id from stream
     if ( shape == TQt::BitmapCursor ) {		// read bitmap cursor
-#if !defined(QT_NO_IMAGEIO)
+#if !defined(TQT_NO_IMAGEIO)
 	TQBitmap bm, bmm;
 	TQPoint	hot;
 	s >> bm >> bmm >> hot;
@@ -196,7 +196,7 @@ TQDataStream &operator>>( TQDataStream &s, TQCursor &c )
     }
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 
 /*!
@@ -282,6 +282,6 @@ TQCursor::TQCursor( const TQBitmap &bitmap, const TQBitmap &mask,
     setBitmap(bitmap,mask,hotX,hotY);
 }
 
-#endif // QT_NO_CURSOR
+#endif // TQT_NO_CURSOR
 
 

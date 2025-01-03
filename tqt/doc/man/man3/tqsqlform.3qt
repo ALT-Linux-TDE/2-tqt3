@@ -11,33 +11,33 @@ QSqlForm \- Creates and manages data entry forms tied to SQL databases
 .SH SYNOPSIS
 \fC#include <ntqsqlform.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlForm\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQSqlForm\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QSqlForm\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBinsert\fR ( QWidget * widget, const QString & field )"
+.BI "virtual void \fBinsert\fR ( TQWidget * widget, const TQString & field )"
 .br
 .ti -1c
-.BI "virtual void \fBremove\fR ( const QString & field )"
+.BI "virtual void \fBremove\fR ( const TQString & field )"
 .br
 .ti -1c
 .BI "uint \fBcount\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBwidget\fR ( uint i ) const"
+.BI "TQWidget * \fBwidget\fR ( uint i ) const"
 .br
 .ti -1c
-.BI "QSqlField * \fBwidgetToField\fR ( QWidget * widget ) const"
+.BI "QSqlField * \fBwidgetToField\fR ( TQWidget * widget ) const"
 .br
 .ti -1c
-.BI "QWidget * \fBfieldToWidget\fR ( QSqlField * field ) const"
+.BI "TQWidget * \fBfieldToWidget\fR ( QSqlField * field ) const"
 .br
 .ti -1c
 .BI "void \fBinstallPropertyMap\fR ( QSqlPropertyMap * pmap )"
@@ -49,10 +49,10 @@ Inherits QObject.
 .SS "Public Slots"
 .in +1c
 .ti -1c
-.BI "virtual void \fBreadField\fR ( QWidget * widget )"
+.BI "virtual void \fBreadField\fR ( TQWidget * widget )"
 .br
 .ti -1c
-.BI "virtual void \fBwriteField\fR ( QWidget * widget )"
+.BI "virtual void \fBwriteField\fR ( TQWidget * widget )"
 .br
 .ti -1c
 .BI "virtual void \fBreadFields\fR ()"
@@ -70,10 +70,10 @@ Inherits QObject.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBinsert\fR ( QWidget * widget, QSqlField * field )"
+.BI "virtual void \fBinsert\fR ( TQWidget * widget, QSqlField * field )"
 .br
 .ti -1c
-.BI "virtual void \fBremove\fR ( QWidget * widget )"
+.BI "virtual void \fBremove\fR ( TQWidget * widget )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -152,11 +152,11 @@ Some sample code to initialize a form successfully:
 .PP
 If you want to use custom editors for displaying and editing data fields, you must install a custom QSqlPropertyMap. The form uses this object to get or set the value of a widget.
 .PP
-Note that Qt Designer provides a visual means of creating data-aware forms.
+Note that TQt Designer provides a visual means of creating data-aware forms.
 .PP
 See also installPropertyMap(), QSqlPropertyMap, and Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlForm::QSqlForm ( QObject * parent = 0, const char * name = 0 )"
+.SH "QSqlForm::QSqlForm ( TQObject * parent = 0, const char * name = 0 )"
 Constructs a QSqlForm with parent \fIparent\fR and called \fIname\fR.
 .SH "QSqlForm::~QSqlForm ()"
 Destroys the object and frees any allocated resources.
@@ -166,16 +166,16 @@ Removes every widget, and the fields they're mapped to, from the form.
 Clears the values in all the widgets, and the fields they are mapped to, in the form. If \fInullify\fR is TRUE (the default is FALSE), each field is also set to NULL.
 .SH "uint QSqlForm::count () const"
 Returns the number of widgets in the form.
-.SH "QWidget * QSqlForm::fieldToWidget ( QSqlField * field ) const"
+.SH "TQWidget * QSqlForm::fieldToWidget ( QSqlField * field ) const"
 Returns the widget that field \fIfield\fR is mapped to.
-.SH "void QSqlForm::insert ( QWidget * widget, const QString & field )\fC [virtual]\fR"
+.SH "void QSqlForm::insert ( TQWidget * widget, const TQString & field )\fC [virtual]\fR"
 Inserts a \fIwidget\fR, and the name of the \fIfield\fR it is to be mapped to, into the form. To actually associate inserted widgets with an edit buffer, use setRecord().
 .PP
 See also setRecord().
 .PP
 Examples:
 .)l sql/overview/form1/main.cpp and sql/overview/form2/main.cpp.
-.SH "void QSqlForm::insert ( QWidget * widget, QSqlField * field )\fC [virtual protected]\fR"
+.SH "void QSqlForm::insert ( TQWidget * widget, QSqlField * field )\fC [virtual protected]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a \fIwidget\fR, and the \fIfield\fR it is to be mapped to, into the form.
@@ -187,16 +187,16 @@ QSqlForm takes ownership of \fIpmap\fR, so \fIpmap\fR is deleted when QSqlForm g
 See also QDataTable::installEditorFactory().
 .PP
 Example: sql/overview/custom1/main.cpp.
-.SH "void QSqlForm::readField ( QWidget * widget )\fC [virtual slot]\fR"
+.SH "void QSqlForm::readField ( TQWidget * widget )\fC [virtual slot]\fR"
 Updates the widget \fIwidget\fR with the value from the SQL field it is mapped to. Nothing happens if no SQL field is mapped to the \fIwidget\fR.
 .SH "void QSqlForm::readFields ()\fC [virtual slot]\fR"
 Updates the widgets in the form with current values from the SQL fields they are mapped to.
 .PP
 Examples:
 .)l sql/overview/form1/main.cpp and sql/overview/form2/main.cpp.
-.SH "void QSqlForm::remove ( QWidget * widget )\fC [virtual protected]\fR"
+.SH "void QSqlForm::remove ( TQWidget * widget )\fC [virtual protected]\fR"
 Removes a \fIwidget\fR, and hence the field it's mapped to, from the form.
-.SH "void QSqlForm::remove ( const QString & field )\fC [virtual]\fR"
+.SH "void QSqlForm::remove ( const TQString & field )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Removes \fIfield\fR from the form.
@@ -207,11 +207,11 @@ See also readFields() and writeFields().
 .PP
 Examples:
 .)l sql/overview/custom1/main.cpp, sql/overview/form1/main.cpp, and sql/overview/form2/main.cpp.
-.SH "QWidget * QSqlForm::widget ( uint i ) const"
+.SH "TQWidget * QSqlForm::widget ( uint i ) const"
 Returns the \fIi\fR-th widget in the form. Useful for traversing the widgets in the form.
-.SH "QSqlField * QSqlForm::widgetToField ( QWidget * widget ) const"
+.SH "QSqlField * QSqlForm::widgetToField ( TQWidget * widget ) const"
 Returns the SQL field that widget \fIwidget\fR is mapped to.
-.SH "void QSqlForm::writeField ( QWidget * widget )\fC [virtual slot]\fR"
+.SH "void QSqlForm::writeField ( TQWidget * widget )\fC [virtual slot]\fR"
 Updates the SQL field with the value from the \fIwidget\fR it is mapped to. Nothing happens if no SQL field is mapped to the \fIwidget\fR.
 .SH "void QSqlForm::writeFields ()\fC [virtual slot]\fR"
 Updates the SQL fields with values from the widgets they are mapped to. To actually update the database with the contents of the record buffer, use QSqlCursor::insert(), QSqlCursor::update() or QSqlCursor::del() as appropriate.
@@ -232,8 +232,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

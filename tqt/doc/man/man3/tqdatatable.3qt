@@ -16,31 +16,31 @@ Inherits QTable.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDataTable\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQDataTable\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQDataTable\fR ( QSqlCursor * cursor, bool autoPopulate = FALSE, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQDataTable\fR ( QSqlCursor * cursor, bool autoPopulate = FALSE, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QDataTable\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBaddColumn\fR ( const QString & fieldName, const QString & label = QString::null, int width = -1, const QIconSet & iconset = QIconSet ( ) )"
+.BI "virtual void \fBaddColumn\fR ( const TQString & fieldName, const TQString & label = TQString::null, int width = -1, const QIconSet & iconset = QIconSet ( ) )"
 .br
 .ti -1c
 .BI "virtual void \fBremoveColumn\fR ( uint col )"
 .br
 .ti -1c
-.BI "virtual void \fBsetColumn\fR ( uint col, const QString & fieldName, const QString & label = QString::null, int width = -1, const QIconSet & iconset = QIconSet ( ) )"
+.BI "virtual void \fBsetColumn\fR ( uint col, const TQString & fieldName, const TQString & label = TQString::null, int width = -1, const QIconSet & iconset = QIconSet ( ) )"
 .br
 .ti -1c
-.BI "QString \fBnullText\fR () const"
+.BI "TQString \fBnullText\fR () const"
 .br
 .ti -1c
-.BI "QString \fBtrueText\fR () const"
+.BI "TQString \fBtrueText\fR () const"
 .br
 .ti -1c
-.BI "QString \fBfalseText\fR () const"
+.BI "TQString \fBfalseText\fR () const"
 .br
 .ti -1c
 .BI "DateFormat \fBdateFormat\fR () const"
@@ -67,7 +67,7 @@ Inherits QTable.
 .BI "bool \fBautoEdit\fR () const"
 .br
 .ti -1c
-.BI "QString \fBfilter\fR () const"
+.BI "TQString \fBfilter\fR () const"
 .br
 .ti -1c
 .BI "QStringList \fBsort\fR () const"
@@ -79,13 +79,13 @@ Inherits QTable.
 .BI "QSqlCursor * \fBsqlCursor\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetNullText\fR ( const QString & nullText )"
+.BI "virtual void \fBsetNullText\fR ( const TQString & nullText )"
 .br
 .ti -1c
-.BI "virtual void \fBsetTrueText\fR ( const QString & trueText )"
+.BI "virtual void \fBsetTrueText\fR ( const TQString & trueText )"
 .br
 .ti -1c
-.BI "virtual void \fBsetFalseText\fR ( const QString & falseText )"
+.BI "virtual void \fBsetFalseText\fR ( const TQString & falseText )"
 .br
 .ti -1c
 .BI "virtual void \fBsetDateFormat\fR ( const DateFormat f )"
@@ -112,7 +112,7 @@ Inherits QTable.
 .BI "virtual void \fBsetAutoEdit\fR ( bool autoEdit )"
 .br
 .ti -1c
-.BI "virtual void \fBsetFilter\fR ( const QString & filter )"
+.BI "virtual void \fBsetFilter\fR ( const TQString & filter )"
 .br
 .ti -1c
 .BI "virtual void \fBsetSort\fR ( const QStringList & sort )"
@@ -130,7 +130,7 @@ Inherits QTable.
 .BI "virtual void \fBsortColumn\fR ( int col, bool ascending = TRUE, bool wholeRows = FALSE )"
 .br
 .ti -1c
-.BI "virtual QString \fBtext\fR ( int row, int col ) const"
+.BI "virtual TQString \fBtext\fR ( int row, int col ) const"
 .br
 .ti -1c
 .BI "QVariant \fBvalue\fR ( int row, int col ) const"
@@ -154,7 +154,7 @@ Inherits QTable.
 .SS "Public Slots"
 .in +1c
 .ti -1c
-.BI "virtual void \fBfind\fR ( const QString & str, bool caseSensitive, bool backwards )"
+.BI "virtual void \fBfind\fR ( const TQString & str, bool caseSensitive, bool backwards )"
 .br
 .ti -1c
 .BI "virtual void \fBsortAscending\fR ( int col )"
@@ -223,13 +223,13 @@ Inherits QTable.
 .BI "DateFormat \fBdateFormat\fR - the format used for displaying date/time values"
 .br
 .ti -1c
-.BI "QString \fBfalseText\fR - the text used to represent false values"
+.BI "TQString \fBfalseText\fR - the text used to represent false values"
 .br
 .ti -1c
-.BI "QString \fBfilter\fR - the data filter for the data table"
+.BI "TQString \fBfilter\fR - the data filter for the data table"
 .br
 .ti -1c
-.BI "QString \fBnullText\fR - the text used to represent NULL values"
+.BI "TQString \fBnullText\fR - the text used to represent NULL values"
 .br
 .ti -1c
 .BI "int \fBnumCols\fR - the number of columns in the table  \fI(read " "only" ")\fR"
@@ -241,7 +241,7 @@ Inherits QTable.
 .BI "QStringList \fBsort\fR - the data table's sort"
 .br
 .ti -1c
-.BI "QString \fBtrueText\fR - the text used to represent true values"
+.BI "TQString \fBtrueText\fR - the text used to represent true values"
 .br
 .in -1c
 .SS "Protected Members"
@@ -268,7 +268,7 @@ Inherits QTable.
 .BI "virtual bool \fBbeginInsert\fR ()"
 .br
 .ti -1c
-.BI "virtual QWidget * \fBbeginUpdate\fR ( int row, int col, bool replace )"
+.BI "virtual TQWidget * \fBbeginUpdate\fR ( int row, int col, bool replace )"
 .br
 .ti -1c
 .BI "int \fBindexOf\fR ( uint i ) const"
@@ -305,7 +305,7 @@ Since the data table can perform edits, it must be able to uniquely identify eve
 .PP
 QDataTable creates editors using the default QSqlEditorFactory. Different editor factories can be used by calling installEditorFactory(). A property map is used to map between the cell's value and the editor. You can use your own property map with installPropertyMap().
 .PP
-The contents of a cell is available as a QString with text() or as a QVariant with value(). The current record is returned by currentRecord(). Use the find() function to search for a string in the table.
+The contents of a cell is available as a TQString with text() or as a QVariant with value(). The current record is returned by currentRecord(). Use the find() function to search for a string in the table.
 .PP
 Editing actions can be applied programatically. For example, the insertCurrent() function reads the fields from the current record into the cursor and performs the insert. The updateCurrent() and deleteCurrent() functions perform similarly to update and delete the current record respectively.
 .PP
@@ -328,9 +328,9 @@ This enum describes the refresh options.
 .TP
 \fCQDataTable::RefreshAll\fR - refresh both the data and the list of fields
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDataTable::QDataTable ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QDataTable::QDataTable ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a data table which is a child of \fIparent\fR, called name \fIname\fR.
-.SH "QDataTable::QDataTable ( QSqlCursor * cursor, bool autoPopulate = FALSE, QWidget * parent = 0, const char * name = 0 )"
+.SH "QDataTable::QDataTable ( QSqlCursor * cursor, bool autoPopulate = FALSE, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a data table which is a child of \fIparent\fR, called name \fIname\fR using the cursor \fIcursor\fR.
 .PP
 If \fIautoPopulate\fR is TRUE (the default is FALSE), columns are automatically created based upon the fields in the \fIcursor\fR record. Note that \fIautoPopulate\fR only governs the creation of columns; to load the cursor's data into the table use refresh().
@@ -338,7 +338,7 @@ If \fIautoPopulate\fR is TRUE (the default is FALSE), columns are automatically 
 If the \fIcursor\fR is read-only, the table also becomes read-only. In addition, the table adopts the cursor's driver's definition for representing NULL values as strings.
 .SH "QDataTable::~QDataTable ()"
 Destroys the object and frees any allocated resources.
-.SH "void QDataTable::addColumn ( const QString & fieldName, const QString & label = QString::null, int width = -1, const QIconSet & iconset = QIconSet ( ) )\fC [virtual]\fR"
+.SH "void QDataTable::addColumn ( const TQString & fieldName, const TQString & label = TQString::null, int width = -1, const QIconSet & iconset = QIconSet ( ) )\fC [virtual]\fR"
 Adds the next column to be displayed using the field \fIfieldName\fR, column label \fIlabel\fR, width \fIwidth\fR and iconset \fIiconset\fR.
 .PP
 If \fIlabel\fR is specified, it is used as the column's header label, otherwise the field's display label is used when setSqlCursor() is called. The \fIiconset\fR is used to set the icon used by the column header; by default there is no icon.
@@ -367,7 +367,7 @@ Protected virtual function called when editing is about to begin on a new record
 Editing takes place using the cursor's edit buffer(see QSqlCursor::editBuffer()).
 .PP
 When editing begins, a new row is created in the table marked with an asterisk '*' in the row's vertical header column, i.e. at the left of the row.
-.SH "QWidget * QDataTable::beginUpdate ( int row, int col, bool replace )\fC [virtual protected]\fR"
+.SH "TQWidget * QDataTable::beginUpdate ( int row, int col, bool replace )\fC [virtual protected]\fR"
 Protected virtual function called when editing is about to begin on an existing row. If the table is read-only, or if there's no cursor, nothing happens.
 .PP
 Editing takes place using the cursor's edit buffer (see QSqlCursor::editBuffer()).
@@ -401,13 +401,13 @@ Returns the format used for displaying date/time values. See the "dateFormat" pr
 For an editable table, issues a delete on the current cursor's primary index using the values of the currently selected row. If there is no current cursor or there is no current selection, nothing happens. If confirmEdits() or confirmDelete() is TRUE, confirmEdit() is called to confirm the delete. Returns TRUE if the delete succeeded; otherwise FALSE.
 .PP
 The underlying cursor must have a valid primary index to ensure that a unique record is deleted within the database otherwise the database may be changed to an inconsistent state.
-.SH "QString QDataTable::falseText () const"
+.SH "TQString QDataTable::falseText () const"
 Returns the text used to represent false values. See the "falseText" property for details.
 .SH "int QDataTable::fieldAlignment ( const QSqlField * field )\fC [virtual protected]\fR"
 Returns the alignment for \fIfield\fR.
-.SH "QString QDataTable::filter () const"
+.SH "TQString QDataTable::filter () const"
 Returns the data filter for the data table. See the "filter" property for details.
-.SH "void QDataTable::find ( const QString & str, bool caseSensitive, bool backwards )\fC [virtual slot]\fR"
+.SH "void QDataTable::find ( const TQString & str, bool caseSensitive, bool backwards )\fC [virtual slot]\fR"
 Searches the current cursor for a cell containing the string \fIstr\fR starting at the current cell and working forwards (or backwards if \fIbackwards\fR is TRUE). If the string is found, the cell containing the string is set as the current cell. If \fIcaseSensitive\fR is FALSE the case of \fIstr\fR will be ignored.
 .PP
 The search will wrap, i.e. if the first (or if backwards is TRUE, last) cell is reached without finding \fIstr\fR the search will continue until it reaches the starting cell. If \fIstr\fR is not found the search will fail and the current cell will remain unchanged.
@@ -427,7 +427,7 @@ See also QSqlEditorFactory.
 Installs a new property map \fIm\fR. This enables the user to create and instantiate their own property maps for use in cell editing. Note that QDataTable takes ownership of this pointer, and will delete it when it is no longer needed or when installPropertMap() is called again.
 .PP
 See also QSqlPropertyMap.
-.SH "QString QDataTable::nullText () const"
+.SH "TQString QDataTable::nullText () const"
 Returns the text used to represent NULL values. See the "nullText" property for details.
 .SH "int QDataTable::numCols () const\fC [virtual]\fR"
 Returns the number of columns in the table. See the "numCols" property for details.
@@ -472,7 +472,7 @@ See also setSqlCursor().
 Sets the cursor auto-delete flag to \fIenable\fR. If \fIenable\fR is TRUE, the table will automatically delete the cursor specified by setSqlCursor(). If \fIenable\fR is FALSE (the default), the cursor will not be deleted.
 .SH "void QDataTable::setAutoEdit ( bool autoEdit )\fC [virtual]\fR"
 Sets whether the data table automatically applies edits to \fIautoEdit\fR. See the "autoEdit" property for details.
-.SH "void QDataTable::setColumn ( uint col, const QString & fieldName, const QString & label = QString::null, int width = -1, const QIconSet & iconset = QIconSet ( ) )\fC [virtual]\fR"
+.SH "void QDataTable::setColumn ( uint col, const TQString & fieldName, const TQString & label = TQString::null, int width = -1, const QIconSet & iconset = QIconSet ( ) )\fC [virtual]\fR"
 Sets the \fIcol\fR column to display using the field \fIfieldName\fR, column label \fIlabel\fR, width \fIwidth\fR and iconset \fIiconset\fR.
 .PP
 If \fIlabel\fR is specified, it is used as the column's header label, otherwise the field's display label is used when setSqlCursor() is called. The \fIiconset\fR is used to set the icon used by the column header; by default there is no icon.
@@ -496,11 +496,11 @@ Sets whether the data table confirms insert operations to \fIconfirm\fR. See the
 Sets whether the data table confirms update operations to \fIconfirm\fR. See the "confirmUpdate" property for details.
 .SH "void QDataTable::setDateFormat ( const DateFormat f )\fC [virtual]\fR"
 Sets the format used for displaying date/time values to \fIf\fR. See the "dateFormat" property for details.
-.SH "void QDataTable::setFalseText ( const QString & falseText )\fC [virtual]\fR"
+.SH "void QDataTable::setFalseText ( const TQString & falseText )\fC [virtual]\fR"
 Sets the text used to represent false values to \fIfalseText\fR. See the "falseText" property for details.
-.SH "void QDataTable::setFilter ( const QString & filter )\fC [virtual]\fR"
+.SH "void QDataTable::setFilter ( const TQString & filter )\fC [virtual]\fR"
 Sets the data filter for the data table to \fIfilter\fR. See the "filter" property for details.
-.SH "void QDataTable::setNullText ( const QString & nullText )\fC [virtual]\fR"
+.SH "void QDataTable::setNullText ( const TQString & nullText )\fC [virtual]\fR"
 Sets the text used to represent NULL values to \fInullText\fR. See the "nullText" property for details.
 .SH "void QDataTable::setSize ( QSqlCursor * sql )\fC [protected]\fR"
 If the cursor's \fIsql\fR driver supports query sizes, the number of rows in the table is set to the size of the query. Otherwise, the table dynamically resizes itself as it is scrolled. If \fIsql\fR is not active, it is made active by issuing a select() on the cursor using the \fIsql\fR cursor's current filter and current sort.
@@ -516,7 +516,7 @@ See also sort.
 Sets \fIcursor\fR as the data source for the table. To force the display of the data from \fIcursor\fR, use refresh(). If \fIautoPopulate\fR is TRUE, columns are automatically created based upon the fields in the \fIcursor\fR record. If \fIautoDelete\fR is TRUE (the default is FALSE), the table will take ownership of the \fIcursor\fR and delete it when appropriate. If the \fIcursor\fR is read-only, the table becomes read-only. The table adopts the cursor's driver's definition for representing NULL values as strings.
 .PP
 See also refresh(), readOnly, setAutoDelete(), and QSqlDriver::nullText().
-.SH "void QDataTable::setTrueText ( const QString & trueText )\fC [virtual]\fR"
+.SH "void QDataTable::setTrueText ( const TQString & trueText )\fC [virtual]\fR"
 Sets the text used to represent true values to \fItrueText\fR. See the "trueText" property for details.
 .SH "QStringList QDataTable::sort () const"
 Returns the data table's sort. See the "sort" property for details.
@@ -536,11 +536,11 @@ Sorts column \fIcol\fR in descending order.
 See also sorting.
 .SH "QSqlCursor * QDataTable::sqlCursor () const"
 Returns the cursor used by the data table.
-.SH "QString QDataTable::text ( int row, int col ) const\fC [virtual]\fR"
-Returns the text in cell \fIrow\fR, \fIcol\fR, or an empty string if the cell is empty. If the cell's value is NULL then nullText() will be returned. If the cell does not exist then QString::null is returned.
+.SH "TQString QDataTable::text ( int row, int col ) const\fC [virtual]\fR"
+Returns the text in cell \fIrow\fR, \fIcol\fR, or an empty string if the cell is empty. If the cell's value is NULL then nullText() will be returned. If the cell does not exist then TQString::null is returned.
 .PP
 Reimplemented from QTable.
-.SH "QString QDataTable::trueText () const"
+.SH "TQString QDataTable::trueText () const"
 Returns the text used to represent true values. See the "trueText" property for details.
 .SH "bool QDataTable::updateCurrent ()\fC [virtual protected]\fR"
 For an editable table, issues an update using the cursor's edit buffer. If there is no current cursor or there is no current selection, nothing happens. If confirmEdits() or confirmUpdate() is TRUE, confirmEdit() is called to confirm the update. Returns TRUE if the update succeeded; otherwise returns FALSE.
@@ -604,16 +604,16 @@ Set this property's value with setConfirmUpdate() and get this property's value 
 .SH "DateFormat dateFormat"
 This property holds the format used for displaying date/time values.
 .PP
-The dateFormat property is used for displaying date/time values in the table. The default value is Qt::LocalDate.
+The dateFormat property is used for displaying date/time values in the table. The default value is TQt::LocalDate.
 .PP
 Set this property's value with setDateFormat() and get this property's value with dateFormat().
-.SH "QString falseText"
+.SH "TQString falseText"
 This property holds the text used to represent false values.
 .PP
 The falseText property will be used to represent NULL values in the table. The default value is "False".
 .PP
 Set this property's value with setFalseText() and get this property's value with falseText().
-.SH "QString filter"
+.SH "TQString filter"
 This property holds the data filter for the data table.
 .PP
 The filter applies to the data shown in the table. To view data with a new filter, use refresh(). A filter string is an SQL WHERE clause without the WHERE keyword.
@@ -623,7 +623,7 @@ There is no default filter.
 See also sort.
 .PP
 Set this property's value with setFilter() and get this property's value with filter().
-.SH "QString nullText"
+.SH "TQString nullText"
 This property holds the text used to represent NULL values.
 .PP
 The nullText property will be used to represent NULL values in the table. The default value is provided by the cursor's driver.
@@ -667,7 +667,7 @@ Note that if you want to iterate over the sort list, you should iterate over a c
 See also filter and refresh().
 .PP
 Set this property's value with setSort() and get this property's value with sort().
-.SH "QString trueText"
+.SH "TQString trueText"
 This property holds the text used to represent true values.
 .PP
 The trueText property will be used to represent NULL values in the table. The default value is "True".
@@ -688,8 +688,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

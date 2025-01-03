@@ -304,7 +304,7 @@ public:
     void addObject(TQObject *object, TQAccessibleInterface *iface)
     {
         insert(object, iface);
-        connect(object, SIGNAL(destroyed(TQObject*)), this, SLOT(removeObject(TQObject*)));
+        connect(object, TQ_SIGNAL(destroyed(TQObject*)), this, TQ_SLOT(removeObject(TQObject*)));
     }
 
 public slots:
@@ -327,7 +327,7 @@ static void qAccessibleCleanup()
     qAccessibleManager = 0;
 }
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 TQObject *TQAccessible::queryAccessibleObject(TQAccessibleInterface *o)
 {
     if(qAccessibleInterface) {

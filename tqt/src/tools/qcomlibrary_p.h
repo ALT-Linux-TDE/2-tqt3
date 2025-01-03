@@ -56,9 +56,9 @@
 #include "ntqlibrary.h"
 #endif // QT_H
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
-class Q_EXPORT TQComLibrary : public TQLibrary
+class TQ_EXPORT TQComLibrary : public TQLibrary
 {
 public:
     TQComLibrary( const TQString &filename );
@@ -77,6 +77,6 @@ private:
 
 };
 
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
 #endif

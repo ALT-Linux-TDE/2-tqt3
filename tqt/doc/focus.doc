@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -91,11 +91,11 @@ called the tab order.
 
 In Qt, this list is kept in the \l QFocusData class. There is one
 QFocusData object per window, and widgets automatically append
-themselves to the end of it when \l QWidget::setFocusPolicy() is
-called with an appropriate \l QWidget::FocusPolicy. You can customize
-the tab order using \l QWidget::setTabOrder(). (If you don't, Tab
+themselves to the end of it when \l TQWidget::setFocusPolicy() is
+called with an appropriate \l TQWidget::FocusPolicy. You can customize
+the tab order using \l TQWidget::setTabOrder(). (If you don't, Tab
 generally moves focus in the order of widget construction.) \link
-designer-manual.book Qt Designer\endlink provides a means of visually
+designer-manual.book TQt Designer\endlink provides a means of visually
 changing the tab order.
 
 Since pressing Tab is so common, most widgets that can have focus
@@ -124,9 +124,9 @@ focus to this field.
 
 Another exception to Tab support is text-entry widgets that must
 support the insertion of tabs; almost all text editors fall into this
-class. Qt treats Control+Tab as Tab and Control+Shift+Tab as
-Shift+Tab, and such widgets can reimplement \l QWidget::event() and
-handle Tab before calling QWidget::event() to get normal processing of
+class. TQt treats Control+Tab as Tab and Control+Shift+Tab as
+Shift+Tab, and such widgets can reimplement \l TQWidget::event() and
+handle Tab before calling TQWidget::event() to get normal processing of
 all other keys. However, since some systems use Control+Tab for other
 purposes, and many users aren't aware of Control+Tab anyway, this
 isn't a complete solution.
@@ -156,7 +156,7 @@ entry, and to avoid it for most widgets where a mouse click has a
 different effect. (For buttons, we also recommend adding a keyboard
 shortcut: \l QButton and its subclasses make this very easy.)
 
-In Qt, only the \l QWidget::setFocusPolicy() function affects
+In Qt, only the \l TQWidget::setFocusPolicy() function affects
 click-to-focus.
 
 \section2 The user presses a keyboard shortcut.
@@ -181,7 +181,7 @@ On Microsoft Windows, mouse wheel usage is always handled by the
 widget that has keyboard focus. On Mac OS X and X11, it's handled by
 the widget that gets other mouse events.
 
-The way Qt handles this platform difference is by letting widgets move
+The way TQt handles this platform difference is by letting widgets move
 the keyboard focus when the wheel is used. With the right focus policy
 on each widget, applications can work idiomatically correctly on
 Windows, Mac OS X, and X11.
@@ -193,12 +193,12 @@ In this situation the application must determine which widget within
 the window should receive the focus.
 
 This can be simple: if the focus has been in this window before, then
-the last widget to have focus should regain it. Qt does this
+the last widget to have focus should regain it. TQt does this
 automatically.
 
 If focus has never been in this window before and you know where focus
-should start out, call \l QWidget::setFocus() on the widget which
-should receive focus before you \l QWidget::show() it. If you don't,
+should start out, call \l TQWidget::setFocus() on the widget which
+should receive focus before you \l TQWidget::show() it. If you don't,
 Qt will pick a suitable widget.
 
 */

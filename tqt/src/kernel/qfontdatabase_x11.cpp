@@ -53,7 +53,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #endif
@@ -831,7 +831,7 @@ static void loadXlfds( const char *reqFamily, int encoding_id )
 #endif // QT_XFT2
 }
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 static int getXftWeight(int xftweight)
 {
     int qtweight = TQFont::Black;
@@ -1281,7 +1281,7 @@ static inline void checkXftCoverage( TQtFontFamily *family )
     family->xftScriptCheck = TRUE;
 }
 #endif // QT_XFT2
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 static void load( const TQString &family = TQString::null, int script = -1 )
 {
@@ -1291,7 +1291,7 @@ static void load( const TQString &family = TQString::null, int script = -1 )
 #endif
 
     if ( family.isNull() ) {
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
         static bool xft_readall_done = false;
         if (tqt_has_xft && !xft_readall_done) {
             xft_readall_done = true;
@@ -1316,7 +1316,7 @@ static void load( const TQString &family = TQString::null, int script = -1 )
         if (tqt_has_xft)
             return;
 #endif
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 	if ( script == -1 )
 	    loadXlfds( 0, -1 );
 	else {
@@ -1329,7 +1329,7 @@ static void load( const TQString &family = TQString::null, int script = -1 )
 	TQtFontFamily *f = db->family( family, TRUE );
 	if ( !f->fullyLoaded ) {
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
             if (tqt_has_xft) {
                 TQString mfamily = family;
             redo:
@@ -1365,7 +1365,7 @@ static void load( const TQString &family = TQString::null, int script = -1 )
 		checkXftCoverage( f );
 	    }
 #endif
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 	    // could reduce this further with some more magic:
 	    // would need to remember the encodings loaded for the family.
 	    if ( ( script == -1 && !f->xlfdLoaded ) ||
@@ -1396,14 +1396,14 @@ static void initializeDb()
     TQTime t;
     t.start();
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     loadXft();
     FD_DEBUG("TQFontDatabase: loaded Xft: %d ms",  t.elapsed() );
 #endif
 
     t.start();
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     for ( int i = 0; i < db->count; i++ ) {
 #ifndef QT_XFT2
 	checkXftCoverage( db->families[i] );
@@ -1479,7 +1479,7 @@ void TQFontDatabase::createDatabase()
 // --------------------------------------------------------------------------------------
 #define MAXFONTSIZE_XFT 256
 #define MAXFONTSIZE_XLFD 128
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 static double addPatternProps(XftPattern *pattern, const TQtFontStyle::Key &key, bool fakeOblique,
 			      bool smoothScalable, const TQFontPrivate *fp, const TQFontDef &request)
 {
@@ -1566,7 +1566,7 @@ static double addPatternProps(XftPattern *pattern, const TQtFontStyle::Key &key,
 
     return scale;
 }
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 static
 TQFontEngine *loadEngine( TQFont::Script script,
@@ -1593,7 +1593,7 @@ TQFontEngine *loadEngine( TQFont::Script script,
 	return fe;
     }
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if ( encoding->encoding == -1 ) {
 
 	FM_DEBUG( "    using Xft" );
@@ -1683,7 +1683,7 @@ TQFontEngine *loadEngine( TQFont::Script script,
 	fe->setScale( scale );
 	return fe;
     }
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
     FM_DEBUG( "    using XLFD" );
 

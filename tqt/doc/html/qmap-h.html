@@ -85,14 +85,14 @@ body { background: #ffffff; color: black; }
 #include "ntqvaluelist.h"
 #endif // QT_H
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
 #include &lt;iterator&gt;
 #include &lt;map&gt;
 #endif
 
 //#define QT_CHECK_MAP_RANGE
 
-struct Q_EXPORT TQMapNodeBase
+struct TQ_EXPORT TQMapNodeBase
 {
     enum Color { Red, Black };
 
@@ -138,11 +138,11 @@ class TQMapIterator
      * Typedefs
      */
     typedef TQMapNode&lt; K, T &gt;* NodePtr;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef std::bidirectional_iterator_tag  iterator_category;
 #endif
     typedef T          value_type;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef ptrdiff_t  difference_type;
 #else
     typedef int difference_type;
@@ -202,7 +202,7 @@ public:
 };
 
 template &lt;class K, class T&gt;
-Q_INLINE_TEMPLATES int TQMapIterator&lt;K,T&gt;::inc()
+TQ_INLINE_TEMPLATES int TQMapIterator&lt;K,T&gt;::inc()
 {
     TQMapNodeBase* tmp = node;
     if ( tmp-&gt;right ) {
@@ -223,7 +223,7 @@ Q_INLINE_TEMPLATES int TQMapIterator&lt;K,T&gt;::inc()
 }
 
 template &lt;class K, class T&gt;
-Q_INLINE_TEMPLATES int TQMapIterator&lt;K,T&gt;::dec()
+TQ_INLINE_TEMPLATES int TQMapIterator&lt;K,T&gt;::dec()
 {
     TQMapNodeBase* tmp = node;
     if (tmp-&gt;color == TQMapNodeBase::Red &amp;&amp;
@@ -254,11 +254,11 @@ class TQMapConstIterator
      * Typedefs
      */
     typedef TQMapNode&lt; K, T &gt;* NodePtr;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef std::bidirectional_iterator_tag  iterator_category;
 #endif
     typedef T          value_type;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef ptrdiff_t  difference_type;
 #else
     typedef int difference_type;
@@ -318,7 +318,7 @@ public:
 };
 
 template &lt;class K, class T&gt;
-Q_INLINE_TEMPLATES int TQMapConstIterator&lt;K,T&gt;::inc()
+TQ_INLINE_TEMPLATES int TQMapConstIterator&lt;K,T&gt;::inc()
 {
     TQMapNodeBase* tmp = node;
     if ( tmp-&gt;right ) {
@@ -339,7 +339,7 @@ Q_INLINE_TEMPLATES int TQMapConstIterator&lt;K,T&gt;::inc()
 }
 
 template &lt;class K, class T&gt;
-Q_INLINE_TEMPLATES int TQMapConstIterator&lt;K,T&gt;::dec()
+TQ_INLINE_TEMPLATES int TQMapConstIterator&lt;K,T&gt;::dec()
 {
     TQMapNodeBase* tmp = node;
     if (tmp-&gt;color == TQMapNodeBase::Red &amp;&amp;
@@ -363,7 +363,7 @@ Q_INLINE_TEMPLATES int TQMapConstIterator&lt;K,T&gt;::dec()
 }
 
 // ### 4.0: rename to something without Private in it. Not really internal.
-class Q_EXPORT TQMapPrivateBase : public TQShared
+class TQ_EXPORT TQMapPrivateBase : public TQShared
 {
 public:
     TQMapPrivateBase() {
@@ -467,14 +467,14 @@ protected:
 
 
 template &lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES TQMapPrivate&lt;Key,T&gt;::TQMapPrivate() {
+TQ_INLINE_TEMPLATES TQMapPrivate&lt;Key,T&gt;::TQMapPrivate() {
     header = new Node;
     header-&gt;color = TQMapNodeBase::Red; // Mark the header
     header-&gt;parent = 0;
     header-&gt;left = header-&gt;right = header;
 }
 template &lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES TQMapPrivate&lt;Key,T&gt;::TQMapPrivate( const TQMapPrivate&lt; Key, T &gt;* _map ) : TQMapPrivateBase( _map ) {
+TQ_INLINE_TEMPLATES TQMapPrivate&lt;Key,T&gt;::TQMapPrivate( const TQMapPrivate&lt; Key, T &gt;* _map ) : TQMapPrivateBase( _map ) {
     header = new Node;
     header-&gt;color = TQMapNodeBase::Red; // Mark the header
     if ( _map-&gt;header-&gt;parent == 0 ) {
@@ -489,7 +489,7 @@ Q_INLINE_TEMPLATES TQMapPrivate&lt;Key,T&gt;::TQMapPrivate( const TQMapPrivate&l
 }
 
 template &lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::NodePtr TQMapPrivate&lt;Key,T&gt;::copy( Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::NodePtr p )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQMapPrivate&lt;Key,T&gt;::NodePtr TQMapPrivate&lt;Key,T&gt;::copy( TQ_TYPENAME TQMapPrivate&lt;Key,T&gt;::NodePtr p )
 {
     if ( !p )
 	return 0;
@@ -511,7 +511,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::NodePtr TQMapPrivate&lt
 }
 
 template &lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES void TQMapPrivate&lt;Key,T&gt;::clear()
+TQ_INLINE_TEMPLATES void TQMapPrivate&lt;Key,T&gt;::clear()
 {
     clear( (NodePtr)(header-&gt;parent) );
     header-&gt;color = TQMapNodeBase::Red;
@@ -521,7 +521,7 @@ Q_INLINE_TEMPLATES void TQMapPrivate&lt;Key,T&gt;::clear()
 }
 
 template &lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES void TQMapPrivate&lt;Key,T&gt;::clear( Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::NodePtr p )
+TQ_INLINE_TEMPLATES void TQMapPrivate&lt;Key,T&gt;::clear( TQ_TYPENAME TQMapPrivate&lt;Key,T&gt;::NodePtr p )
 {
     while ( p != 0 ) {
 	clear( (NodePtr)p-&gt;right );
@@ -532,7 +532,7 @@ Q_INLINE_TEMPLATES void TQMapPrivate&lt;Key,T&gt;::clear( Q_TYPENAME TQMapPrivat
 }
 
 template &lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::ConstIterator TQMapPrivate&lt;Key,T&gt;::find(const Key&amp; k) const
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQMapPrivate&lt;Key,T&gt;::ConstIterator TQMapPrivate&lt;Key,T&gt;::find(const Key&amp; k) const
 {
     TQMapNodeBase* y = header;        // Last node
     TQMapNodeBase* x = header-&gt;parent; // Root node.
@@ -555,7 +555,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::ConstIterator TQMapPriv
 }
 
 template &lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::Iterator TQMapPrivate&lt;Key,T&gt;::insertSingle( const Key&amp; k )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQMapPrivate&lt;Key,T&gt;::Iterator TQMapPrivate&lt;Key,T&gt;::insertSingle( const Key&amp; k )
 {
     // Search correct position in the tree
     TQMapNodeBase* y = header;
@@ -586,7 +586,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::Iterator TQMapPrivate&l
 
 
 template &lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::Iterator TQMapPrivate&lt;Key,T&gt;::insert( TQMapNodeBase* x, TQMapNodeBase* y, const Key&amp; k )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQMapPrivate&lt;Key,T&gt;::Iterator TQMapPrivate&lt;Key,T&gt;::insert( TQMapNodeBase* x, TQMapNodeBase* y, const Key&amp; k )
 {
     NodePtr z = new Node( k );
     if (y == header || x != 0 || k &lt; key(y) ) {
@@ -611,16 +611,16 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQMapPrivate&lt;Key,T&gt;::Iterator TQMapPrivate&l
 
 
 #ifdef QT_CHECK_RANGE
-# if !defined( QT_NO_DEBUG ) &amp;&amp; defined( QT_CHECK_MAP_RANGE )
-#  define QT_CHECK_INVALID_MAP_ELEMENT if ( empty() ) tqWarning( "TQMap: Warning invalid element" )
-#  define QT_CHECK_INVALID_MAP_ELEMENT_FATAL Q_ASSERT( !empty() );
+# if !defined( TQT_NO_DEBUG ) &amp;&amp; defined( QT_CHECK_MAP_RANGE )
+#  define TQT_CHECK_INVALID_MAP_ELEMENT if ( empty() ) tqWarning( "TQMap: Warning invalid element" )
+#  define TQT_CHECK_INVALID_MAP_ELEMENT_FATAL Q_ASSERT( !empty() );
 # else
-#  define QT_CHECK_INVALID_MAP_ELEMENT
-#  define QT_CHECK_INVALID_MAP_ELEMENT_FATAL
+#  define TQT_CHECK_INVALID_MAP_ELEMENT
+#  define TQT_CHECK_INVALID_MAP_ELEMENT_FATAL
 # endif
 #else
-# define QT_CHECK_INVALID_MAP_ELEMENT
-# define QT_CHECK_INVALID_MAP_ELEMENT_FATAL
+# define TQT_CHECK_INVALID_MAP_ELEMENT
+# define TQT_CHECK_INVALID_MAP_ELEMENT_FATAL
 #endif
 
 template &lt;class T&gt; class TQDeepCopy;
@@ -639,7 +639,7 @@ public:
     typedef const value_type* const_pointer;
     typedef value_type&amp; reference;
     typedef const value_type&amp; const_reference;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef ptrdiff_t  difference_type;
 #else
     typedef int difference_type;
@@ -666,11 +666,11 @@ public:
 	sh = m.sh; sh-&gt;ref();
     }
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     TQMap( const std::map&lt;Key,T&gt;&amp; m )
     {
 	sh = new TQMapPrivate&lt;Key,T&gt;;
-	Q_TYPENAME std::map&lt;Key,T&gt;::const_iterator it = m.begin();
+	TQ_TYPENAME std::map&lt;Key,T&gt;::const_iterator it = m.begin();
 	for ( ; it != m.end(); ++it ) {
 	    value_type p( (*it).first, (*it).second );
 	    insert( p );
@@ -683,11 +683,11 @@ public:
 	    delete sh;
     }
     TQMap&lt;Key,T&gt;&amp; operator= ( const TQMap&lt;Key,T&gt;&amp; m );
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     TQMap&lt;Key,T&gt;&amp; operator= ( const std::map&lt;Key,T&gt;&amp; m )
     {
 	clear();
-	Q_TYPENAME std::map&lt;Key,T&gt;::const_iterator it = m.begin();
+	TQ_TYPENAME std::map&lt;Key,T&gt;::const_iterator it = m.begin();
 	for ( ; it != m.end(); ++it ) {
 	    value_type p( (*it).first, (*it).second );
 	    insert( p );
@@ -737,7 +737,7 @@ public:
     const_iterator find ( const Key&amp; k ) const {	return sh-&gt;find( k ); }
 
     const T&amp; operator[] ( const Key&amp; k ) const
-	{ QT_CHECK_INVALID_MAP_ELEMENT; return sh-&gt;find( k ).data(); }
+	{ TQT_CHECK_INVALID_MAP_ELEMENT; return sh-&gt;find( k ).data(); }
     bool contains ( const Key&amp; k ) const
 	{ return find( k ) != end(); }
 	//{ return sh-&gt;find( k ) != ((const Priv*)sh)-&gt;end(); }
@@ -764,9 +764,9 @@ public:
     void remove( iterator it ) { detach(); sh-&gt;remove( it ); }
     void remove( const Key&amp; k );
 
-#if defined(Q_FULL_TEMPLATE_INSTANTIATION)
+#if defined(TQ_FULL_TEMPLATE_INSTANTIATION)
     bool operator==( const TQMap&lt;Key,T&gt;&amp; ) const { return FALSE; }
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     bool operator==( const std::map&lt;Key,T&gt;&amp; ) const { return FALSE; }
 #endif
 #endif
@@ -785,7 +785,7 @@ private:
 };
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES TQMap&lt;Key,T&gt;&amp; TQMap&lt;Key,T&gt;::operator= ( const TQMap&lt;Key,T&gt;&amp; m )
+TQ_INLINE_TEMPLATES TQMap&lt;Key,T&gt;&amp; TQMap&lt;Key,T&gt;::operator= ( const TQMap&lt;Key,T&gt;&amp; m )
 {
     m.sh-&gt;ref();
     if ( sh-&gt;deref() )
@@ -795,7 +795,7 @@ Q_INLINE_TEMPLATES TQMap&lt;Key,T&gt;&amp; TQMap&lt;Key,T&gt;::operator= ( const
 }
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQMap&lt;Key,T&gt;::insert_pair TQMap&lt;Key,T&gt;::insert( const Q_TYPENAME TQMap&lt;Key,T&gt;::value_type&amp; x )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQMap&lt;Key,T&gt;::insert_pair TQMap&lt;Key,T&gt;::insert( const TQ_TYPENAME TQMap&lt;Key,T&gt;::value_type&amp; x )
 {
     detach();
     size_type n = size();
@@ -809,7 +809,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQMap&lt;Key,T&gt;::insert_pair TQMap&lt;Key,T&gt;
 }
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::erase( const Key&amp; k )
+TQ_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::erase( const Key&amp; k )
 {
     detach();
     iterator it( sh-&gt;find( k ).node );
@@ -818,7 +818,7 @@ Q_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::erase( const Key&amp; k )
 }
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQMap&lt;Key,T&gt;::size_type TQMap&lt;Key,T&gt;::count( const Key&amp; k ) const
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQMap&lt;Key,T&gt;::size_type TQMap&lt;Key,T&gt;::count( const Key&amp; k ) const
 {
     const_iterator it( sh-&gt;find( k ).node );
     if ( it != end() ) {
@@ -833,7 +833,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQMap&lt;Key,T&gt;::size_type TQMap&lt;Key,T&gt;::
 }
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES T&amp; TQMap&lt;Key,T&gt;::operator[] ( const Key&amp; k )
+TQ_INLINE_TEMPLATES T&amp; TQMap&lt;Key,T&gt;::operator[] ( const Key&amp; k )
 {
     detach();
     TQMapNode&lt;Key,T&gt;* p = sh-&gt;find( k ).node;
@@ -843,7 +843,7 @@ Q_INLINE_TEMPLATES T&amp; TQMap&lt;Key,T&gt;::operator[] ( const Key&amp; k )
 }
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::clear()
+TQ_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::clear()
 {
     if ( sh-&gt;count == 1 )
 	sh-&gt;clear();
@@ -854,7 +854,7 @@ Q_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::clear()
 }
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES Q_TYPENAME TQMap&lt;Key,T&gt;::iterator TQMap&lt;Key,T&gt;::insert( const Key&amp; key, const T&amp; value, bool overwrite )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQMap&lt;Key,T&gt;::iterator TQMap&lt;Key,T&gt;::insert( const Key&amp; key, const T&amp; value, bool overwrite )
 {
     detach();
     size_type n = size();
@@ -865,7 +865,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQMap&lt;Key,T&gt;::iterator TQMap&lt;Key,T&gt;::i
 }
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::remove( const Key&amp; k )
+TQ_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::remove( const Key&amp; k )
 {
     detach();
     iterator it( sh-&gt;find( k ).node );
@@ -874,15 +874,15 @@ Q_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::remove( const Key&amp; k )
 }
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::detachInternal()
+TQ_INLINE_TEMPLATES void TQMap&lt;Key,T&gt;::detachInternal()
 {
     sh-&gt;deref(); sh = new TQMapPrivate&lt;Key,T&gt;( sh );
 }
 
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES TQDataStream&amp; operator&gt;&gt;( TQDataStream&amp; s, TQMap&lt;Key,T&gt;&amp; m ) {
+TQ_INLINE_TEMPLATES TQDataStream&amp; operator&gt;&gt;( TQDataStream&amp; s, TQMap&lt;Key,T&gt;&amp; m ) {
     m.clear();
     TQ_UINT32 c;
     s &gt;&gt; c;
@@ -898,7 +898,7 @@ Q_INLINE_TEMPLATES TQDataStream&amp; operator&gt;&gt;( TQDataStream&amp; s, TQMa
 
 
 template&lt;class Key, class T&gt;
-Q_INLINE_TEMPLATES TQDataStream&amp; operator&lt;&lt;( TQDataStream&amp; s, const TQMap&lt;Key,T&gt;&amp; m ) {
+TQ_INLINE_TEMPLATES TQDataStream&amp; operator&lt;&lt;( TQDataStream&amp; s, const TQMap&lt;Key,T&gt;&amp; m ) {
     s &lt;&lt; (TQ_UINT32)m.size();
     TQMapConstIterator&lt;Key,T&gt; it = m.begin();
     for( ; it != m.end(); ++it )

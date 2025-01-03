@@ -7,7 +7,7 @@
 .ad l
 .nh
 .SH NAME
-QAxBindable \- Interface between a QWidget and an ActiveX client
+QAxBindable \- Interface between a TQWidget and an ActiveX client
 .SH SYNOPSIS
 This class is part of the \fBQt ActiveQt Extension\fR.
 .PP
@@ -28,7 +28,7 @@ This class is part of the \fBQt ActiveQt Extension\fR.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "void \fBreportError\fR ( int code, const QString & src, const QString & desc, const QString & context = QString::null )"
+.BI "void \fBreportError\fR ( int code, const TQString & src, const TQString & desc, const TQString & context = TQString::null )"
 .br
 .in -1c
 .SS "Protected Members"
@@ -44,15 +44,15 @@ This class is part of the \fBQt ActiveQt Extension\fR.
 .br
 .in -1c
 .SH DESCRIPTION
-This class is defined in the \fBQt ActiveQt Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main Qt API.
+This class is defined in the \fBQt ActiveQt Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main TQt API.
 .PP
-The QAxBindable class provides an interface between a QWidget and an ActiveX client.
+The QAxBindable class provides an interface between a TQWidget and an ActiveX client.
 .PP
-The functions provided by this class allow an ActiveX control to communicate property changes to a client application. Inherit your control class from both QWidget (directly or indirectly) and this class to get access to this class's functions. The meta object compiler requires you to inherit from QWidget \fIfirst\fR.
+The functions provided by this class allow an ActiveX control to communicate property changes to a client application. Inherit your control class from both TQWidget (directly or indirectly) and this class to get access to this class's functions. The meta object compiler requires you to inherit from TQWidget \fIfirst\fR.
 .PP
 .nf
 .br
-    class MyActiveX : public QWidget, public QAxBindable
+    class MyActiveX : public TQWidget, public QAxBindable
 .br
     {
 .br
@@ -62,7 +62,7 @@ The functions provided by this class allow an ActiveX control to communicate pro
 .br
     public:
 .br
-        MyActiveX( QWidget *parent = 0, const char *name = 0 );
+        MyActiveX( TQWidget *parent = 0, const char *name = 0 );
 .br
         ...
 .br
@@ -97,7 +97,7 @@ Call this function to notify the client that is hosting this ActiveX control tha
 This function is usually called at the end of the property's write function.
 .PP
 See also requestPropertyChange().
-.SH "void QAxBindable::reportError ( int code, const QString & src, const QString & desc, const QString & context = QString::null )\fC [static]\fR"
+.SH "void QAxBindable::reportError ( int code, const TQString & src, const TQString & desc, const TQString & context = TQString::null )\fC [static]\fR"
 Reports an error to the client application. \fIcode\fR is a control-defined error code. \fIdesc\fR is a human-readable description of the error intended for the application user. \fIsrc\fR is the name of the source for the error, typically the ActiveX server name. \fIcontext\fR can be the location of a help file with more information about the error. If \fIcontext\fR ends with a number in brackets, e.g. [12], this number will be interpreted as the context ID in the help file.
 .SH "bool QAxBindable::requestPropertyChange ( const char * property )\fC [protected]\fR"
 Call this function to request permission to change the property \fIproperty\fR from the client that is hosting this ActiveX control. Returns TRUE if the client allows the change; otherwise returns FALSE.
@@ -106,7 +106,7 @@ This function is usually called first in the write function for \fIproperty\fR, 
 .PP
 .nf
 .br
-    void MyActiveQt::setText( const QString &text )
+    void MyActiveQt::setText( const TQString &text )
 .br
     {
 .br
@@ -140,8 +140,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

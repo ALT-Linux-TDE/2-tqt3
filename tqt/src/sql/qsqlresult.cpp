@@ -41,7 +41,7 @@
 #include "ntqsqlresult.h"
 #include "private/qsqlextension_p.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 class TQSqlResultPrivate
 {
@@ -365,4 +365,4 @@ TQSqlExtension * TQSqlResult::extension()
 {
     return d->ext;
 }
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

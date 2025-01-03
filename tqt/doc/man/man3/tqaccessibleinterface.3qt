@@ -39,10 +39,10 @@ Inherited by QAccessibleObject.
 .BI "virtual int \fBnavigate\fR ( NavDirection direction, int startControl ) const = 0"
 .br
 .ti -1c
-.BI "virtual QString \fBtext\fR ( Text t, int control ) const = 0"
+.BI "virtual TQString \fBtext\fR ( Text t, int control ) const = 0"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( Text t, int control, const QString & text ) = 0"
+.BI "virtual void \fBsetText\fR ( Text t, int control, const TQString & text ) = 0"
 .br
 .ti -1c
 .BI "virtual Role \fBrole\fR ( int control ) const = 0"
@@ -129,13 +129,13 @@ Sets the selection of the child object with ID \fIcontrol\fR to \fIon\fR. If \fI
 Returns TRUE if the selection could be set; otherwise returns FALSE.
 .PP
 See also setFocus() and clearSelection().
-.SH "void QAccessibleInterface::setText ( Text t, int control, const QString & text )\fC [pure virtual]\fR"
+.SH "void QAccessibleInterface::setText ( Text t, int control, const TQString & text )\fC [pure virtual]\fR"
 Sets the text property \fIt\fR of the child object \fIcontrol\fR to \fItext\fR. If \fIcontrol\fR is 0, the text property of the object itself is set.
 .SH "State QAccessibleInterface::state ( int control ) const\fC [pure virtual]\fR"
 Returns the current state of the object if \fIcontrol\fR is 0, or the state of the object's sub-element element with ID \fIcontrol\fR. All objects have a state.
 .PP
 See also text(), role(), and selection().
-.SH "QString QAccessibleInterface::text ( Text t, int control ) const\fC [pure virtual]\fR"
+.SH "TQString QAccessibleInterface::text ( Text t, int control ) const\fC [pure virtual]\fR"
 Returns a string property \fIt\fR of the child object specified by \fIcontrol\fR, or the string property of the object itself if \fIcontrol\fR is 0.
 .PP
 The \fIName\fR is a string used by clients to identify, find or announce an accessible object for the user. All objects must have a name that is unique within their container.
@@ -166,8 +166,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

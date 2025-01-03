@@ -263,7 +263,7 @@ bool Uic::isFrameworkCodeGenerated( const TQDomElement& e )
 {
     TQDomElement n = getObjectProperty( e, "frameworkCode" );
     if ( n.attribute("name") == "frameworkCode" &&
-	 !DomTool::elementToVariant( n.firstChild().toElement(), TQVariant( TRUE, 0 ) ).toBool() )
+	 !DomTool::elementToVariant( n.firstChild().toElement(), TQVariant( true ) ).toBool() )
 	return FALSE;
     return TRUE;
 }

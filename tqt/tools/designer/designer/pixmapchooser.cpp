@@ -164,7 +164,7 @@ TQPixmap qChoosePixmap( TQWidget *parent, FormWindow *fw, const TQPixmap &old, T
 	}
     } else {
 	PixmapFunction dia( parent, 0, TRUE );
-	TQObject::connect( dia.helpButton, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+	TQObject::connect( dia.helpButton, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
 	dia.labelFunction->setText( fw->pixmapLoaderFunction() + "(" );
 	dia.editArguments->setText( MetaDataBase::pixmapArgument( fw, old.serialNumber() ) );
 	dia.editArguments->setFocus();

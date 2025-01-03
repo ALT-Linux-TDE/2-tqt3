@@ -52,7 +52,7 @@ public:
     virtual ~EditorInterfaceImpl();
 
     TQRESULT queryInterface( const TQUuid&, TQUnknownInterface** );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQWidget *editor( bool readonly, TQWidget *parent, TQUnknownInterface *designerIface );
 

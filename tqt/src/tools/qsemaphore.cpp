@@ -38,7 +38,7 @@
 **
 **********************************************************************/
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
 #include "ntqsemaphore.h"
 #include "ntqmutex.h"
@@ -252,4 +252,4 @@ bool TQSemaphore::tryAccess(int n)
     return TRUE;
 }
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT

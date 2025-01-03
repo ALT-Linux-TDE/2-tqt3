@@ -44,11 +44,11 @@
 #include "ntqobject.h"
 #endif // QT_H
 
-#ifndef QT_NO_SOUND
+#ifndef TQT_NO_SOUND
 
 class TQSoundData;
 
-class Q_EXPORT TQSound : public TQObject {
+class TQ_EXPORT TQSound : public TQObject {
     TQ_OBJECT
 public:
     static bool isAvailable();
@@ -66,7 +66,7 @@ public:
 	?
     */
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     static bool available() { return isAvailable(); }
 #endif
 
@@ -96,12 +96,12 @@ private:
   TQAuBucket is whatever you want.
 */
 
-class Q_EXPORT TQAuBucket {
+class TQ_EXPORT TQAuBucket {
 public:
     virtual ~TQAuBucket();
 };
 
-class Q_EXPORT TQAuServer : public TQObject {
+class TQ_EXPORT TQAuServer : public TQObject {
     TQ_OBJECT
 
 public:
@@ -120,6 +120,6 @@ protected:
     int decLoop(TQSound*);
 };
 
-#endif // QT_NO_SOUND
+#endif // TQT_NO_SOUND
 
 #endif

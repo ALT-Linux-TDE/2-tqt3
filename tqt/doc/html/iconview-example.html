@@ -101,9 +101,9 @@ int main( int argc, char **argv )
     qiconview.<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Iconview" );
 
     ListenDND listen_dnd( &amp;qiconview );
-<a name="x1460"></a><a name="x1455"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;qiconview, SIGNAL( <a href="ntqiconview.html#dropped">dropped</a>( <a href="qdropevent.html">TQDropEvent</a> *, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt; &amp; ) ),
-                      &amp;listen_dnd, SLOT( dropped( <a href="qdropevent.html">TQDropEvent</a> * ) ) );
-<a name="x1456"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;qiconview, SIGNAL( <a href="ntqiconview.html#moved">moved</a>() ), &amp;listen_dnd, SLOT( moved() ) );
+<a name="x1460"></a><a name="x1455"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;qiconview, TQ_SIGNAL( <a href="ntqiconview.html#dropped">dropped</a>( <a href="qdropevent.html">TQDropEvent</a> *, const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQIconDragItem&gt; &amp; ) ),
+                      &amp;listen_dnd, TQ_SLOT( dropped( <a href="qdropevent.html">TQDropEvent</a> * ) ) );
+<a name="x1456"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;qiconview, TQ_SIGNAL( <a href="ntqiconview.html#moved">moved</a>() ), &amp;listen_dnd, TQ_SLOT( moved() ) );
 
     a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;qiconview );
 <a name="x1462"></a>    qiconview.<a href="ntqwidget.html#show">show</a>();

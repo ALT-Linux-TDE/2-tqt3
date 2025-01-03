@@ -52,7 +52,7 @@
 // TQStyleControlElementData
 #include "ntqstyle.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #include "ntqmutex.h"
 #include <private/qmutexpool_p.h>
 #include "ntqthread.h"
@@ -88,17 +88,19 @@ class TQStyleControlElementDataPrivate {
 		bool isTQWidget;
 };
 
-#ifndef QT_NO_USERDATA
+#ifndef TQT_NO_USERDATA
 class TQObjectPrivate : public TQPtrVector<TQObjectUserData>
 #else
 class TQObjectPrivate {
 #endif
 {
 public:
-#ifndef QT_NO_USERDATA
+#ifndef TQT_NO_USERDATA
     TQObjectPrivate( uint s ) : TQPtrVector<TQObjectUserData>(s) {
+#ifdef TQT_THREAD_SUPPORT
         ownThread = NULL;
         disableThreadPostedEvents = false;
+#endif
         setAutoDelete( TRUE );
         controlElementData = NULL;
         controlElementDataPrivate = NULL;
@@ -108,10 +110,12 @@ public:
         delete controlElementDataPrivate;
     }
 #endif
+#ifdef TQT_THREAD_SUPPORT
     TQThread* ownThread;
     TQMutex* senderObjectListMutex;
     TQMutex* childObjectListMutex;
     bool disableThreadPostedEvents;
+#endif
     TQStyleControlElementData* controlElementData;
     TQStyleControlElementDataPrivate* controlElementDataPrivate;
 };
@@ -130,16 +134,23 @@ TQStyleControlElementDataPrivate* TQObject::controlElementDataPrivateObject() {
 	return d->controlElementDataPrivate;
 }
 
-#if defined(QT_THREAD_SUPPORT)
+void TQObject::cleanupControlElementData() {
+    delete d->controlElementData;
+    d->controlElementData = 0;
+    delete d->controlElementDataPrivate;
+    d->controlElementDataPrivate = 0;
+}
+
+#if defined(TQT_THREAD_SUPPORT)
 
 void TQObject::moveToThread_helper(TQThread *targetThread)
 {
     TQEvent e(TQEvent::ThreadChange);
     TQApplication::sendEvent(this, &e);
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( d->childObjectListMutex );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     if (childObjects) {
         TQObject *child;
@@ -155,9 +166,9 @@ void TQObject::setThreadObject_helper(TQThread *targetThread)
 {
     d->ownThread = targetThread;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( d->childObjectListMutex );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     if (childObjects) {
         TQObject *child;
@@ -185,9 +196,9 @@ void TQObject::setThreadObject_helper(TQThread *targetThread)
  */
 void TQObject::moveToThread(TQThread *targetThread)
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( TQApplication::tqt_mutex );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     if (parentObj) {
 #if defined(QT_DEBUG)
@@ -240,7 +251,7 @@ void TQObject::disableThreadPostedEvents(bool disable) {
     d->disableThreadPostedEvents = disable;
 }
 
-#endif
+#endif // defined(TQT_THREAD_SUPPORT)
 
 class TQSenderObjectList : public TQObjectList, public TQShared
 {
@@ -250,18 +261,24 @@ class TQSenderObjectList : public TQObjectList, public TQShared
 	
 	public:
 		TQObject *currentSender;
+#ifdef TQT_THREAD_SUPPORT
 		TQMutex *listMutex;
+#endif
 };
 
 TQSenderObjectList::TQSenderObjectList() : currentSender( 0 ) {
+#ifdef TQT_THREAD_SUPPORT
 	listMutex = new TQMutex( TRUE );
+#endif
 }
 
 TQSenderObjectList::~TQSenderObjectList() {
+#ifdef TQT_THREAD_SUPPORT
 	delete listMutex;
+#endif
 }
 
-class Q_EXPORT TQMetaCallEvent : public TQEvent
+class TQ_EXPORT TQMetaCallEvent : public TQEvent
 {
 public:
     enum MetaCallType {
@@ -389,7 +406,7 @@ TQMetaCallEvent::~TQMetaCallEvent()
 
 
 //
-// Remove white space from SIGNAL and SLOT names.
+// Remove white space from TQ_SIGNAL and TQ_SLOT names.
 // Internal for TQObject::connect() and TQObject::disconnect()
 //
 
@@ -491,7 +508,7 @@ void *tqt_find_obj_child( TQObject *parent, const char *type, const char *name )
     return 0;
 }
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 
 /*!
     Returns a pointer to the TQThread* associated with
@@ -507,11 +524,11 @@ TQThread* TQObject::contextThreadObject() const
 
 #endif
 
-#ifndef QT_NO_PRELIMINARY_SIGNAL_SPY
+#ifndef TQT_NO_PRELIMINARY_SIGNAL_SPY
 /*
   Preliminary signal spy
  */
-Q_EXPORT TQObject* tqt_preliminary_signal_spy = 0;
+TQ_EXPORT TQObject* tqt_preliminary_signal_spy = 0;
 static TQObject* qt_spy_signal_sender = 0;
 
 static void qt_spy_signal( TQObject* sender, int signal, TQUObject* o )
@@ -530,12 +547,12 @@ static void qt_spy_signal( TQObject* sender, int signal, TQUObject* o )
 	s.sprintf( "%s_%s", mo->className(), sigData->name );
 	int slot = tqt_preliminary_signal_spy->metaObject()->findSlot( s, TRUE );
 	if ( slot >= 0 ) {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	    // protect access to qt_spy_signal_sender
 	    void * const address = &qt_spy_signal_sender;
 	    TQMutexLocker locker( tqt_global_mutexpool ?
 				 tqt_global_mutexpool->get( address ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 	    TQObject* old_sender = qt_spy_signal_sender;
 	    qt_spy_signal_sender = sender;
@@ -550,11 +567,11 @@ static void qt_spy_signal( TQObject* sender, int signal, TQUObject* o )
 /*
   End Preliminary signal spy
  */
-#endif // QT_NO_PRELIMINARY_SIGNAL_SPY
+#endif // TQT_NO_PRELIMINARY_SIGNAL_SPY
 
 static TQObjectList* object_trees = 0;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 static TQMutex *obj_trees_mutex = 0;
 #endif
 
@@ -562,7 +579,7 @@ static void cleanup_object_trees()
 {
     delete object_trees;
     object_trees = 0;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     delete obj_trees_mutex;
     obj_trees_mutex = 0;
 #endif
@@ -576,7 +593,7 @@ static void ensure_object_trees()
 
 static void insert_tree( TQObject* obj )
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     if ( !obj_trees_mutex )
 	obj_trees_mutex = new TQMutex();
     TQMutexLocker locker( obj_trees_mutex );
@@ -589,7 +606,7 @@ static void insert_tree( TQObject* obj )
 static void remove_tree( TQObject* obj )
 {
     if ( object_trees ) {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	TQMutexLocker locker( obj_trees_mutex );
 #endif
 	object_trees->removeRef( obj );
@@ -667,10 +684,11 @@ TQObject::TQObject( TQObject *parent, const char *name )
 	d = new TQObjectPrivate(0);
     }
 
+#ifdef TQT_THREAD_SUPPORT
     d->ownThread = TQThread::currentThreadObject();
     d->senderObjectListMutex = new TQMutex( TRUE );
     d->childObjectListMutex = new TQMutex( TRUE );
-
+#endif
     if ( !metaObj ) {				// will create object dict
 	(void) staticMetaObject();
     }
@@ -729,14 +747,17 @@ TQObject::~TQObject()
     if ( pendTimer ) {				// might be pending timers
 	qKillTimer( this );
     }
-    TQApplication::removePostedEvents( this );
+    if ( tqApp )
+    {
+	TQApplication::removePostedEvents( this );
+    }
     if ( isTree ) {
 	remove_tree( this );		// remove from global root list
 	isTree = FALSE;
     }
     if ( parentObj )				// remove it from parent object
 	parentObj->removeChild( this );
-    register TQObject *obj;
+    TQObject *obj;
     if ( senderObjects ) {			// disconnect from senders
 	TQSenderObjectList *tmp = senderObjects;
 	senderObjects = 0;
@@ -753,7 +774,7 @@ TQObject::~TQObject()
 	    TQConnectionList* clist = (*connections)[i]; // for each signal...
 	    if ( !clist )
 		continue;
-	    register TQConnection *c;
+	    TQConnection *c;
 	    TQConnectionListIt cit(*clist);
 	    while( (c=cit.current()) ) {	// for each connected slot...
 		++cit;
@@ -780,10 +801,10 @@ TQObject::~TQObject()
 	delete childObjects;
     }
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     delete d->childObjectListMutex;
     delete d->senderObjectListMutex;
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     delete d;
 }
@@ -879,7 +900,7 @@ void *tqt_inheritedBy( TQMetaObject *superClass, const TQObject *object )
 {
     if (!object)
 	return 0;
-    register TQMetaObject *mo = object->metaObject();
+    TQMetaObject *mo = object->metaObject();
     while (mo) {
 	if (mo == superClass)
 	    return (void*)object;
@@ -1073,50 +1094,70 @@ bool TQObject::event( TQEvent *e )
 
     case TQEvent::MetaCall:
 	{
+	    bool handled = false;
 	    TQMetaCallEvent* metaEvent = dynamic_cast<TQMetaCallEvent*>(e);
 	    if (metaEvent) {
-		if ((d->disableThreadPostedEvents) || (d->ownThread == TQThread::currentThreadObject())) {
-		    TQSenderObjectList* sol;
-		    TQObject* oldSender = 0;
-		    sol = senderObjects;
-#ifdef QT_THREAD_SUPPORT
-		    sol->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
-		    if ( sol ) {
+#ifdef TQT_THREAD_SUPPORT
+		if ((d->disableThreadPostedEvents)
+		    || (d->ownThread == TQThread::currentThreadObject()))
+#endif // TQT_THREAD_SUPPORT
+		{
+		    TQObject *oldSender = nullptr;
+		    TQSenderObjectList *sol = senderObjects;
+		    if ( sol )
+		    {
+#ifdef TQT_THREAD_SUPPORT
+			sol->listMutex->lock();
+#endif // TQT_THREAD_SUPPORT
 			oldSender = sol->currentSender;
 			sol->ref();
 			sol->currentSender = metaEvent->sender();
+#ifdef TQT_THREAD_SUPPORT
+			sol->listMutex->unlock();
+#endif // TQT_THREAD_SUPPORT
 		    }
-#ifdef QT_THREAD_SUPPORT
-		    sol->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
 		    TQUObject *o = metaEvent->data();
-		    if (metaEvent->type() == TQMetaCallEvent::MetaCallEmit) {
+		    if (metaEvent->type() == TQMetaCallEvent::MetaCallEmit)
+		    {
+			handled = true;
 			tqt_emit( metaEvent->id(), o );
 		    }
-		    if (metaEvent->type() == TQMetaCallEvent::MetaCallInvoke) {
+		    else if (metaEvent->type() == TQMetaCallEvent::MetaCallInvoke)
+		    {
+			handled = true;
 			tqt_invoke( metaEvent->id(), o );
 		    }
-#ifdef QT_THREAD_SUPPORT
-		    sol->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
-		    if (sol ) {
+		    if ( sol )
+		    {
+#ifdef TQT_THREAD_SUPPORT
+			sol->listMutex->lock();
+#endif // TQT_THREAD_SUPPORT
 			sol->currentSender = oldSender;
-			if ( sol->deref() ) {
+			if ( sol->deref() )
+			{
+#ifdef TQT_THREAD_SUPPORT
 			    sol->listMutex->unlock();
+#endif // TQT_THREAD_SUPPORT
 			    delete sol;
-			    sol = NULL;
+			    sol = nullptr;
 			}
 		    }
-#ifdef QT_THREAD_SUPPORT
-		    if (sol) sol->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
+		    if (sol)
+		    {
+			sol->listMutex->unlock();
+		    }
+#endif // TQT_THREAD_SUPPORT
 		}
-		else {
+#ifdef TQT_THREAD_SUPPORT
+		else
+		{
 		    tqWarning("TQObject: Ignoring metacall event from non-owning thread");
 		}
+#endif // TQT_THREAD_SUPPORT
 		destroyDeepCopiedTQUObjectArray(metaEvent->data());
 	    }
+	    return handled;
 	}
 
     default:
@@ -1266,7 +1307,7 @@ bool TQObject::activate_filters( TQEvent *e )
     if ( !eventFilters )			// no event filter
 	return FALSE;
     TQObjectListIt it( *eventFilters );
-    register TQObject *obj = it.current();
+    TQObject *obj = it.current();
     while ( obj ) {				// send to all filters
 	++it;					//   until one returns TRUE
 	if ( obj->eventFilter(this,e) ) {
@@ -1419,7 +1460,7 @@ static void objSearch( TQObjectList *result,
 	if ( ok ) {
 	    if ( objName )
 		ok = ( qstrcmp(objName,obj->name()) == 0 );
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 	    else if ( rx )
 		ok = ( rx->search(TQString::fromLatin1(obj->name())) != -1 );
 #endif
@@ -1542,7 +1583,7 @@ TQObjectList *TQObject::queryList( const char *inheritsClass,
     TQObjectList *list = new TQObjectList;
     TQ_CHECK_PTR( list );
     bool onlyWidgets = ( inheritsClass && qstrcmp(inheritsClass, "TQWidget") == 0 );
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     if ( regexpMatch && objName ) {		// regexp matching
 	TQRegExp rx(TQString::fromLatin1(objName));
 	objSearch( list, (TQObjectList *)children(), inheritsClass, onlyWidgets,
@@ -1583,7 +1624,7 @@ TQConnectionList *TQObject::receivers( const char* signal ) const
 
 TQConnectionList *TQObject::receivers( int signal ) const
 {
-#ifndef QT_NO_PRELIMINARY_SIGNAL_SPY
+#ifndef TQT_NO_PRELIMINARY_SIGNAL_SPY
     if ( tqt_preliminary_signal_spy && signal >= 0 ) {
 	if ( !connections ) {
 	    TQObject* that = (TQObject*) this;
@@ -1617,9 +1658,9 @@ TQConnectionList *TQObject::receivers( int signal ) const
 
 void TQObject::insertChild( TQObject *obj )
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	TQMutexLocker locker( d->childObjectListMutex );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     if ( obj->isTree ) {
 	remove_tree( obj );
@@ -1663,9 +1704,9 @@ void TQObject::insertChild( TQObject *obj )
 
 void TQObject::removeChild( TQObject *obj )
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	TQMutexLocker locker( d->childObjectListMutex );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     if ( childObjects && childObjects->removeRef(obj) ) {
 	obj->parentObj = 0;
@@ -1755,14 +1796,14 @@ void TQObject::installEventFilter( const TQObject *obj )
 	int c = eventFilters->findRef( obj );
 	if ( c >= 0 )
 	    eventFilters->take( c );
-	disconnect( obj, SIGNAL(destroyed(TQObject*)),
-		    this, SLOT(cleanupEventFilter(TQObject*)) );
+	disconnect( obj, TQ_SIGNAL(destroyed(TQObject*)),
+		    this, TQ_SLOT(cleanupEventFilter(TQObject*)) );
     } else {
 	eventFilters = new TQObjectList;
 	TQ_CHECK_PTR( eventFilters );
     }
     eventFilters->insert( 0, obj );
-    connect( obj, SIGNAL(destroyed(TQObject*)), this, SLOT(cleanupEventFilter(TQObject*)) );
+    connect( obj, TQ_SIGNAL(destroyed(TQObject*)), this, TQ_SLOT(cleanupEventFilter(TQObject*)) );
 }
 
 /*!
@@ -1785,8 +1826,8 @@ void TQObject::removeEventFilter( const TQObject *obj )
 	    delete eventFilters;
 	    eventFilters = 0;			// reset event filter list
 	}
-	disconnect( obj,  SIGNAL(destroyed(TQObject*)),
-		    this, SLOT(cleanupEventFilter(TQObject*)) );
+	disconnect( obj,  TQ_SIGNAL(destroyed(TQObject*)),
+		    this, TQ_SLOT(cleanupEventFilter(TQObject*)) );
     }
 }
 
@@ -1801,12 +1842,12 @@ static bool check_signal_macro( const TQObject *sender, const char *signal,
 				const char *func, const char *op )
 {
     int sigcode = (int)(*signal) - '0';
-    if ( sigcode != TQSIGNAL_CODE ) {
-	if ( sigcode == TQSLOT_CODE )
+    if ( sigcode != TQ_SIGNAL_CODE ) {
+	if ( sigcode == TQ_SLOT_CODE )
 	    tqWarning( "TQObject::%s: Attempt to %s non-signal %s::%s",
 		     func, op, sender->className(), signal+1 );
 	else
-	    tqWarning( "TQObject::%s: Use the SIGNAL macro to %s %s::%s",
+	    tqWarning( "TQObject::%s: Use the TQ_SIGNAL macro to %s %s::%s",
 		     func, op, sender->className(), signal );
 	return FALSE;
     }
@@ -1816,8 +1857,8 @@ static bool check_signal_macro( const TQObject *sender, const char *signal,
 static bool check_member_code( int code, const TQObject *object,
 			       const char *member, const char *func )
 {
-    if ( code != TQSLOT_CODE && code != TQSIGNAL_CODE ) {
-	tqWarning( "TQObject::%s: Use the SLOT or SIGNAL macro to "
+    if ( code != TQ_SLOT_CODE && code != TQ_SIGNAL_CODE ) {
+	tqWarning( "TQObject::%s: Use the TQ_SLOT or TQ_SIGNAL macro to "
 		 "%s %s::%s", func, func, object->className(), member );
 	return FALSE;
     }
@@ -1829,8 +1870,8 @@ static void err_member_notfound( int code, const TQObject *object,
 {
     const char *type = 0;
     switch ( code ) {
-	case TQSLOT_CODE:   type = "slot";   break;
-	case TQSIGNAL_CODE: type = "signal"; break;
+	case TQ_SLOT_CODE:   type = "slot";   break;
+	case TQ_SIGNAL_CODE: type = "signal"; break;
     }
     if ( strchr(member,')') == 0 )		// common typing mistake
 	tqWarning( "TQObject::%s: Parentheses expected, %s %s::%s",
@@ -1866,10 +1907,10 @@ static void err_info_about_candidates( int code,
 	}
 	const TQMetaData *rm = 0;
 	switch ( code ) {
-	case TQSLOT_CODE:
+	case TQ_SLOT_CODE:
 	    rm = mo->slot( mo->findSlot( newname, TRUE ), TRUE );
 	    break;
-	case TQSIGNAL_CODE:
+	case TQ_SIGNAL_CODE:
 	    rm = mo->signal( mo->findSignal( newname, TRUE ), TRUE );
 	    break;
 	}
@@ -1901,14 +1942,14 @@ static void err_info_about_candidates( int code,
 
 const TQObject *TQObject::sender()
 {
-#ifndef QT_NO_PRELIMINARY_SIGNAL_SPY
+#ifndef TQT_NO_PRELIMINARY_SIGNAL_SPY
     if ( this == tqt_preliminary_signal_spy ) {
-#  ifdef QT_THREAD_SUPPORT
+#  ifdef TQT_THREAD_SUPPORT
 	// protect access to qt_spy_signal_sender
 	void * const address = &qt_spy_signal_sender;
 	TQMutexLocker locker( tqt_global_mutexpool ?
 			     tqt_global_mutexpool->get( address ) : 0 );
-#  endif // QT_THREAD_SUPPORT
+#  endif // TQT_THREAD_SUPPORT
 	return qt_spy_signal_sender;
     }
 #endif
@@ -2031,21 +2072,21 @@ TQCString TQObject::normalizeSignalSlot( const char *signalSlot )
     \a receiver, and returns TRUE if the connection succeeds; otherwise
     returns FALSE.
 
-    You must use the SIGNAL() and SLOT() macros when specifying the \a signal
+    You must use the TQ_SIGNAL() and TQ_SLOT() macros when specifying the \a signal
     and the \a member, for example:
     \code
     TQLabel     *label  = new TQLabel;
     TQScrollBar *scroll = new TQScrollBar;
-    TQObject::connect( scroll, SIGNAL(valueChanged(int)),
-                      label,  SLOT(setNum(int)) );
+    TQObject::connect( scroll, TQ_SIGNAL(valueChanged(int)),
+                      label,  TQ_SLOT(setNum(int)) );
     \endcode
 
     This example ensures that the label always displays the current
     scroll bar value. Note that the signal and slots parameters must not
     contain any variable names, only the type. E.g. the following would
     not work and return FALSE:
-    TQObject::connect( scroll, SIGNAL(valueChanged(int v)),
-                      label,  SLOT(setNum(int v)) );
+    TQObject::connect( scroll, TQ_SIGNAL(valueChanged(int v)),
+                      label,  TQ_SLOT(setNum(int v)) );
 
     A signal can also be connected to another signal:
 
@@ -2066,7 +2107,7 @@ TQCString TQObject::normalizeSignalSlot( const char *signalSlot )
     MyWidget::MyWidget()
     {
 	aButton = new TQPushButton( this );
-	connect( aButton, SIGNAL(clicked()), SIGNAL(myUsefulSignal()) );
+	connect( aButton, TQ_SIGNAL(clicked()), TQ_SIGNAL(myUsefulSignal()) );
     }
     \endcode
 
@@ -2124,8 +2165,8 @@ bool TQObject::connect( const TQObject *sender,	const char *signal,
 
     if ( signal_index < 0  ) {			// no such signal
 #if defined(QT_CHECK_RANGE)
-	err_member_notfound( TQSIGNAL_CODE, sender, signal, "connect" );
-	err_info_about_candidates( TQSIGNAL_CODE, smeta, signal, "connect" );
+	err_member_notfound( TQ_SIGNAL_CODE, sender, signal, "connect" );
+	err_info_about_candidates( TQ_SIGNAL_CODE, smeta, signal, "connect" );
 	err_info_about_objects( "connect", sender, receiver );
 #endif
 	return FALSE;
@@ -2148,7 +2189,7 @@ bool TQObject::connect( const TQObject *sender,	const char *signal,
     TQMetaObject *rmeta = r->metaObject();
     int member_index = -1;
     switch ( membcode ) {			// get receiver member
-	case TQSLOT_CODE:
+	case TQ_SLOT_CODE:
 	    member_index = rmeta->findSlot( member, TRUE );
 	    if ( member_index < 0 ) {		// normalize and retry
 		nw_member = qt_rmWS(member);	// remove whitespace
@@ -2156,7 +2197,7 @@ bool TQObject::connect( const TQObject *sender,	const char *signal,
 		member_index = rmeta->findSlot( member, TRUE );
 	    }
 	    break;
-	case TQSIGNAL_CODE:
+	case TQ_SIGNAL_CODE:
 	    member_index = rmeta->findSignal( member, TRUE );
 	    if ( member_index < 0 ) {		// normalize and retry
 		nw_member = qt_rmWS(member);	// remove whitespace
@@ -2181,7 +2222,7 @@ bool TQObject::connect( const TQObject *sender,	const char *signal,
 		 r->className(), member );
 	return FALSE;
     } else {
-	const TQMetaData *rm = membcode == TQSLOT_CODE ?
+	const TQMetaData *rm = membcode == TQ_SLOT_CODE ?
 			      rmeta->slot( member_index, TRUE ) :
 			      rmeta->signal( member_index, TRUE );
 	if ( rm ) {
@@ -2240,10 +2281,10 @@ void TQObject::connectInternal( const TQObject *sender, int signal_index, const 
     const TQMetaData *rm = 0;
 
     switch ( membcode ) {			// get receiver member
-	case TQSLOT_CODE:
+	case TQ_SLOT_CODE:
 	    rm = rmeta->slot( member_index, TRUE );
 	    break;
-	case TQSIGNAL_CODE:
+	case TQ_SIGNAL_CODE:
 	    rm = rmeta->signal( member_index, TRUE );
 	    break;
     }
@@ -2252,24 +2293,24 @@ void TQObject::connectInternal( const TQObject *sender, int signal_index, const 
     TQ_CHECK_PTR( c );
     clist->append( c );
     if ( !r->senderObjects ) {			// create list of senders
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	r->d->senderObjectListMutex->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 	r->senderObjects = new TQSenderObjectList;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	r->senderObjects->listMutex->lock();
 	r->d->senderObjectListMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     }
     else {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	r->senderObjects->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     }
     r->senderObjects->append( s );		// add sender to list
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     r->senderObjects->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 }
 
 
@@ -2312,11 +2353,11 @@ void TQObject::connectInternal( const TQObject *sender, int signal_index, const 
        \endcode
     \i Disconnect everything connected to a specific signal:
        \code
-       disconnect( myObject, SIGNAL(mySignal()), 0, 0 );
+       disconnect( myObject, TQ_SIGNAL(mySignal()), 0, 0 );
        \endcode
        equivalent to the non-static overloaded function
        \code
-       myObject->disconnect( SIGNAL(mySignal()) );
+       myObject->disconnect( TQ_SIGNAL(mySignal()) );
        \endcode
     \i Disconnect a specific receiver:
        \code
@@ -2376,7 +2417,7 @@ bool TQObject::disconnect( const TQObject *sender,   const char *signal,
 	TQMetaObject *rmeta = r->metaObject();
 
 	switch ( membcode ) {			// get receiver member
-	case TQSLOT_CODE:
+	case TQ_SLOT_CODE:
 	    member_index = rmeta->findSlot( member, TRUE );
 	    if ( member_index < 0 ) {		// normalize and retry
 		nw_member = qt_rmWS(member);	// remove whitespace
@@ -2384,7 +2425,7 @@ bool TQObject::disconnect( const TQObject *sender,   const char *signal,
 		member_index = rmeta->findSlot( member, TRUE );
 	    }
 	    break;
-	case TQSIGNAL_CODE:
+	case TQ_SIGNAL_CODE:
 	    member_index = rmeta->findSignal( member, TRUE );
 	    if ( member_index < 0 ) {		// normalize and retry
 		nw_member = qt_rmWS(member);	// remove whitespace
@@ -2436,7 +2477,7 @@ bool TQObject::disconnect( const TQObject *sender,   const char *signal,
 	/* compatibility and safety: If a receiver has several slots
 	 * with the same name, disconnect them all*/
 	bool res = FALSE;
-	if ( membcode == TQSLOT_CODE && r ) {
+	if ( membcode == TQ_SLOT_CODE && r ) {
 	    TQMetaObject * rmeta = r->metaObject();
 	    do {
 		int mi = rmeta->findSlot( member );
@@ -2466,7 +2507,7 @@ bool TQObject::disconnectInternal( const TQObject *sender, int signal_index,
 
     bool success = FALSE;
     TQConnectionList *clist;
-    register TQConnection *c;
+    TQConnection *c;
     if ( signal_index == -1 ) {
 	for ( int i = 0; i < (int) s->connections->size(); i++ ) {
 	    clist = (*s->connections)[i]; // for all signals...
@@ -2475,25 +2516,25 @@ bool TQObject::disconnectInternal( const TQObject *sender, int signal_index,
 	    c = clist->first();
 	    while ( c ) {			// for all receivers...
 		if ( r == 0 ) {			// remove all receivers
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		    if (c->object()->senderObjects) c->object()->senderObjects->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		    removeObjFromList( c->object()->senderObjects, s );
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		    if (c->object()->senderObjects) c->object()->senderObjects->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		    success = TRUE;
 		    c = clist->next();
 		} else if ( r == c->object() &&
 			    ( (member_index == -1) ||
 			      ((member_index == c->member()) && (c->memberType() == membcode)) ) ) {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		    if (c->object()->senderObjects) c->object()->senderObjects->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		    removeObjFromList( c->object()->senderObjects, s, TRUE );
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		    if (c->object()->senderObjects) c->object()->senderObjects->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		    success = TRUE;
 		    clist->remove();
 		    c = clist->current();
@@ -2512,25 +2553,25 @@ bool TQObject::disconnectInternal( const TQObject *sender, int signal_index,
 	c = clist->first();
 	while ( c ) {				// for all receivers...
 	    if ( r == 0 ) {			// remove all receivers
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		    if (c->object()->senderObjects) c->object()->senderObjects->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		removeObjFromList( c->object()->senderObjects, s, TRUE );
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		    if (c->object()->senderObjects) c->object()->senderObjects->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		success = TRUE;
 		c = clist->next();
 	    } else if ( r == c->object() &&
 			( (member_index == -1) ||
 			  ((member_index == c->member()) && (c->memberType() == membcode)) ) ) {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		    if (c->object()->senderObjects) c->object()->senderObjects->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		removeObjFromList( c->object()->senderObjects, s, TRUE );
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 		    if (c->object()->senderObjects) c->object()->senderObjects->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 		success = TRUE;
 		clist->remove();
 		c = clist->current();
@@ -2639,7 +2680,7 @@ TQMetaObject* TQObject::staticTQtMetaObject()
     if ( qtMetaObject )
 	return qtMetaObject;
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     static const TQMetaEnum::Item enum_0[] = {
 	{ "AlignLeft",  (int) TQt::AlignLeft },
 	{ "AlignRight",  (int) TQt::AlignRight },
@@ -2704,7 +2745,7 @@ TQMetaObject* TQObject::staticTQtMetaObject()
     qtMetaObject = new TQMetaObject( "TQt", 0,
 			  0, 0,
 			  0, 0,
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 			  0, 0,
 			  enum_tbl, 5,
 #endif
@@ -2723,7 +2764,7 @@ TQMetaObject* TQObject::staticTQtMetaObject()
   */
 void TQObject::activate_signal( int signal )
 {
-#ifndef QT_NO_PRELIMINARY_SIGNAL_SPY
+#ifndef TQT_NO_PRELIMINARY_SIGNAL_SPY
     if ( tqt_preliminary_signal_spy ) {
 	if ( !signalsBlocked() && signal >= 0 &&
 	     ( !connections || !connections->at( signal ) ) ) {
@@ -2755,14 +2796,16 @@ void TQObject::activate_signal( TQConnectionList *clist, TQUObject *o )
 	return;
     }
 
-#ifndef QT_NO_PRELIMINARY_SIGNAL_SPY
+#ifndef TQT_NO_PRELIMINARY_SIGNAL_SPY
     if ( tqt_preliminary_signal_spy ) {
 	qt_spy_signal( this, connections->findRef( clist), o );
     }
 #endif
 
+#ifdef TQT_THREAD_SUPPORT
     // NOTE currentThread could be NULL if the current thread was not started using the TQThread API
     const TQThread *currentThread = TQThread::currentThreadObject();
+#endif // TQT_THREAD_SUPPORT
 
     TQObject *object;
     TQSenderObjectList* sol;
@@ -2772,26 +2815,25 @@ void TQObject::activate_signal( TQConnectionList *clist, TQUObject *o )
 	c = clist->first();
 	object = c->object();
 	sol = object->senderObjects;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	sol->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 	if ( sol ) {
 	    oldSender = sol->currentSender;
 	    sol->ref();
 	    sol->currentSender = this;
 	}
-	if ( c->memberType() == TQSIGNAL_CODE ) {
+	if ( c->memberType() == TQ_SIGNAL_CODE ) {
+#if !defined(TQT_THREAD_SUPPORT)
+	    object->tqt_emit( c->member(), o );
+#else // defined(TQT_THREAD_SUPPORT)
 	    if ((d->disableThreadPostedEvents) || 
 	        (object->d->disableThreadPostedEvents) || 
 	        (currentThread && currentThread->threadPostedEventsDisabled()) || 
 	        (currentThread && object->d->ownThread == currentThread)) {
-#ifdef QT_THREAD_SUPPORT
 		sol->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
 		object->tqt_emit( c->member(), o );
-#ifdef QT_THREAD_SUPPORT
 		sol->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
 	    }
 	    else {
 		if (object->d->ownThread && !object->d->ownThread->finished()) {
@@ -2801,19 +2843,19 @@ void TQObject::activate_signal( TQConnectionList *clist, TQUObject *o )
 		    TQApplication::postEvent(object, new TQMetaCallEvent(c->member(), this, deepCopyTQUObjectArray(o), TQMetaCallEvent::MetaCallEmit));
 		}
 	    }
+#endif // !defined(TQT_THREAD_SUPPORT)
 	}
 	else {
+#if !defined(TQT_THREAD_SUPPORT)
+	    object->tqt_invoke( c->member(), o );
+#else // defined(TQT_THREAD_SUPPORT)
 	    if ((d->disableThreadPostedEvents) || 
 	        (object->d->disableThreadPostedEvents) || 
 	        (currentThread && currentThread->threadPostedEventsDisabled()) || 
 	        (currentThread && object->d->ownThread == currentThread)) {
-#ifdef QT_THREAD_SUPPORT
 		sol->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
 		object->tqt_invoke( c->member(), o );
-#ifdef QT_THREAD_SUPPORT
 		sol->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
 	    }
 	    else {
 		if (object->d->ownThread && !object->d->ownThread->finished()) {
@@ -2823,18 +2865,21 @@ void TQObject::activate_signal( TQConnectionList *clist, TQUObject *o )
 		    TQApplication::postEvent(object, new TQMetaCallEvent(c->member(), this, deepCopyTQUObjectArray(o), TQMetaCallEvent::MetaCallInvoke));
 		}
 	    }
+#endif // !defined(TQT_THREAD_SUPPORT)
 	}
 	if ( sol ) {
 	    sol->currentSender = oldSender;
 	    if ( sol->deref() ) {
+#ifdef TQT_THREAD_SUPPORT
 	        sol->listMutex->unlock();
+#endif // TQT_THREAD_SUPPORT
 		delete sol;
 		sol = NULL;
 	    }
 	}
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	if (sol) sol->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     } else {
 	TQConnection *cd = 0;
 	TQConnectionListIt it(*clist);
@@ -2845,26 +2890,25 @@ void TQObject::activate_signal( TQConnectionList *clist, TQUObject *o )
 	    cd = c;
 	    object = c->object();
 	    sol = object->senderObjects;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	sol->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 	    if ( sol ) {
 		oldSender = sol->currentSender;
 		sol->ref();
 		sol->currentSender = this;
 	    }
-	    if ( c->memberType() == TQSIGNAL_CODE ) {
+	    if ( c->memberType() == TQ_SIGNAL_CODE ) {
+#if !defined(TQT_THREAD_SUPPORT)
+		object->tqt_emit( c->member(), o );
+#else // defined(TQT_THREAD_SUPPORT)
 		if ((d->disableThreadPostedEvents) || 
 		    (object->d->disableThreadPostedEvents) || 
 		    (currentThread && currentThread->threadPostedEventsDisabled()) || 
 		    (currentThread && object->d->ownThread == currentThread)) {
-#ifdef QT_THREAD_SUPPORT
 		    sol->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
 		    object->tqt_emit( c->member(), o );
-#ifdef QT_THREAD_SUPPORT
 		    sol->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
 		}
 		else {
 		    if (object->d->ownThread && !object->d->ownThread->finished()) {
@@ -2874,19 +2918,19 @@ void TQObject::activate_signal( TQConnectionList *clist, TQUObject *o )
 			TQApplication::postEvent(object, new TQMetaCallEvent(c->member(), this, deepCopyTQUObjectArray(o), TQMetaCallEvent::MetaCallEmit));
 		    }
 		}
+#endif // !defined(TQT_THREAD_SUPPORT)
 	    }
 	    else {
+#if !defined(TQT_THREAD_SUPPORT)
+		object->tqt_invoke( c->member(), o );
+#else // defined(TQT_THREAD_SUPPORT)
 		if ((d->disableThreadPostedEvents) || 
 		    (object->d->disableThreadPostedEvents) || 
 		    (currentThread && currentThread->threadPostedEventsDisabled()) || 
 		    (currentThread && object->d->ownThread == currentThread)) {
-#ifdef QT_THREAD_SUPPORT
 		    sol->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
 		    object->tqt_invoke( c->member(), o );
-#ifdef QT_THREAD_SUPPORT
 		    sol->listMutex->lock();
-#endif // QT_THREAD_SUPPORT
 		}
 		else {
 		    if (object->d->ownThread && !object->d->ownThread->finished()) {
@@ -2896,18 +2940,21 @@ void TQObject::activate_signal( TQConnectionList *clist, TQUObject *o )
 			TQApplication::postEvent(object, new TQMetaCallEvent(c->member(), this, deepCopyTQUObjectArray(o), TQMetaCallEvent::MetaCallInvoke));
 		    }
 		}
+#endif // !defined(TQT_THREAD_SUPPORT)
 	    }
 	    if (sol ) {
 		sol->currentSender = oldSender;
 		if ( sol->deref() ) {
+#ifdef TQT_THREAD_SUPPORT
 		    sol->listMutex->unlock();
+#endif // TQT_THREAD_SUPPORT
 		    delete sol;
 		    sol = NULL;
 		}
 	    }
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	    if (sol) sol->listMutex->unlock();
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 	}
     }
 }
@@ -2932,7 +2979,7 @@ void TQObject::activate_signal( TQConnectionList *clist, TQUObject *o )
   only a typedef it cannot be a simple overload.
 */
 
-#ifndef QT_NO_PRELIMINARY_SIGNAL_SPY
+#ifndef TQT_NO_PRELIMINARY_SIGNAL_SPY
 #define ACTIVATE_SIGNAL_WITH_PARAM(FNAME,TYPE)					\
 void TQObject::FNAME( int signal, TYPE param )					\
 {										\
@@ -3046,9 +3093,9 @@ void TQObject::dumpObjectTree()
 
 void TQObject::dumpObjectInfo()
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( d->senderObjectListMutex );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #if defined(QT_DEBUG)
     tqDebug( "OBJECT %s::%s", className(), name( "unnamed" ) );
@@ -3060,7 +3107,7 @@ void TQObject::dumpObjectInfo()
 	    if ( ( clist = connections->at( i ) ) ) {
 		tqDebug( "\t%s", metaObject()->signal( i, TRUE )->name );
 		n++;
-		register TQConnection *c;
+		TQConnection *c;
 		TQConnectionListIt cit(*clist);
 		while ( (c=cit.current()) ) {
 		    ++cit;
@@ -3090,7 +3137,7 @@ void TQObject::dumpObjectInfo()
 #endif
 }
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 
 /*!
     Sets the value of the object's \a name property to \a value.
@@ -3177,9 +3224,9 @@ TQVariant TQObject::property( const char *name ) const
     return v;
 }
 
-#endif // QT_NO_PROPERTIES
+#endif // TQT_NO_PROPERTIES
 
-#ifndef QT_NO_USERDATA
+#ifndef TQT_NO_USERDATA
 /*!\internal
  */
 uint TQObject::registerUserData()
@@ -3214,4 +3261,4 @@ TQObjectUserData* TQObject::userData( uint id ) const
     return 0;
 }
 
-#endif // QT_NO_USERDATA
+#endif // TQT_NO_USERDATA

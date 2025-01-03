@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="ru">
 <context>
     <name>QAccel</name>
     <message>
@@ -59,19 +61,19 @@
     </message>
     <message>
         <source>Left</source>
-        <translation></translation>
+        <translation>Влево</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Стрелка вверх</translation>
+        <translation>Вверх</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Стрелка вправо</translation>
+        <translation>Вправо</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Стрелка вниз</translation>
+        <translation>Вниз</translation>
     </message>
     <message>
         <source>PgUp</source>
@@ -115,59 +117,59 @@
     </message>
     <message>
         <source>Menu</source>
-        <translation></translation>
+        <translation>Меню</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation></translation>
+        <translation>Справка</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation></translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation></translation>
+        <translation>Вперёд</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation></translation>
+        <translation>Стоп</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation></translation>
+        <translation>Обновить</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation></translation>
+        <translation>Тише</translation>
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation></translation>
+        <translation>Выключить звук</translation>
     </message>
     <message>
         <source>Volume Up</source>
-        <translation></translation>
+        <translation>Громче</translation>
     </message>
     <message>
         <source>Bass Boost</source>
-        <translation></translation>
+        <translation>Усиление басов</translation>
     </message>
     <message>
         <source>Bass Up</source>
-        <translation></translation>
+        <translation>Басы сильнее</translation>
     </message>
     <message>
         <source>Bass Down</source>
-        <translation></translation>
+        <translation>Басы слабее</translation>
     </message>
     <message>
         <source>Treble Up</source>
-        <translation></translation>
+        <translation>Высокие сильнее</translation>
     </message>
     <message>
         <source>Treble Down</source>
-        <translation></translation>
+        <translation>Высокие слабее</translation>
     </message>
     <message>
         <source>Media Play</source>
@@ -203,83 +205,83 @@
     </message>
     <message>
         <source>Open URL</source>
-        <translation></translation>
+        <translation>Открыть URL</translation>
     </message>
     <message>
         <source>Launch Mail</source>
-        <translation></translation>
+        <translation>Открыть почту</translation>
     </message>
     <message>
         <source>Launch Media</source>
-        <translation></translation>
+        <translation>Открыть медиа</translation>
     </message>
     <message>
         <source>Launch (0)</source>
-        <translation></translation>
+        <translation>Запуск (0)</translation>
     </message>
     <message>
         <source>Launch (1)</source>
-        <translation></translation>
+        <translation>Запуск (1)</translation>
     </message>
     <message>
         <source>Launch (2)</source>
-        <translation></translation>
+        <translation>Запуск (2)</translation>
     </message>
     <message>
         <source>Launch (3)</source>
-        <translation></translation>
+        <translation>Запуск (3)</translation>
     </message>
     <message>
         <source>Launch (4)</source>
-        <translation></translation>
+        <translation>Запуск (4)</translation>
     </message>
     <message>
         <source>Launch (5)</source>
-        <translation></translation>
+        <translation>Запуск (5)</translation>
     </message>
     <message>
         <source>Launch (6)</source>
-        <translation></translation>
+        <translation>Запуск (6)</translation>
     </message>
     <message>
         <source>Launch (7)</source>
-        <translation>Запустить (7)</translation>
+        <translation>Запуск (7)</translation>
     </message>
     <message>
         <source>Launch (8)</source>
-        <translation></translation>
+        <translation>Запуск (8)</translation>
     </message>
     <message>
         <source>Launch (9)</source>
-        <translation></translation>
+        <translation>Запуск (9)</translation>
     </message>
     <message>
         <source>Launch (A)</source>
-        <translation></translation>
+        <translation>Запуск (A)</translation>
     </message>
     <message>
         <source>Launch (B)</source>
-        <translation></translation>
+        <translation>Запуск (B)</translation>
     </message>
     <message>
         <source>Launch (C)</source>
-        <translation></translation>
+        <translation>Запуск (C)</translation>
     </message>
     <message>
         <source>Launch (D)</source>
-        <translation>Запустить (D)</translation>
+        <translation>Запуск (D)</translation>
     </message>
     <message>
         <source>Launch (E)</source>
-        <translation></translation>
+        <translation>Запуск (E)</translation>
     </message>
     <message>
         <source>Launch (F)</source>
-        <translation></translation>
+        <translation>Запуск (F)</translation>
     </message>
     <message>
         <source>Meta</source>
-        <translation></translation>
+        <translation>Мета</translation>
     </message>
     <message>
         <source>%1, %2 not defined</source>
@@ -342,12 +344,12 @@
         <translation>LTR</translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>Программный модуль &apos;%1&apos; требует Qt %2, найдена версия Qt %3.</translation>
+        <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+        <translation>Программный модуль &apos;%1&apos; требует TQt %2, найдена версия TQt %3.</translation>
     </message>
     <message>
-        <source>Incompatible Qt Library Error</source>
-        <translation>Ошибка совместимости библиотеки Qt</translation>
+        <source>Incompatible TQt Library Error</source>
+        <translation>Ошибка совместимости библиотеки TQt</translation>
     </message>
 </context>
 <context>
@@ -474,7 +476,7 @@
     </message>
     <message>
         <source> to All</source>
-        <translation>для всех</translation>
+        <translation> для всех</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -544,11 +546,11 @@
     </message>
     <message>
         <source>Could not read from the file</source>
-        <translation>Не удается прочитать из файла</translation>
+        <translation>Не удаётся прочитать из файла</translation>
     </message>
     <message>
         <source>Could not write to the file</source>
-        <translation>Не удается записать в файл</translation>
+        <translation>Не удаётся записать в файл</translation>
     </message>
     <message>
         <source>Permission denied</source>
@@ -890,7 +892,7 @@ Check path and filename.</source>
     </message>
     <message>
         <source>Gujarati</source>
-        <translation></translation>
+        <translation>Гуджарати</translation>
     </message>
     <message>
         <source>Oriya</source>
@@ -930,7 +932,7 @@ Check path and filename.</source>
     </message>
     <message>
         <source>Myanmar</source>
-        <translation></translation>
+        <translation>Мьянма</translation>
     </message>
     <message>
         <source>Khmer</source>
@@ -1018,47 +1020,47 @@ Check path and filename.</source>
     </message>
     <message>
         <source>SpacingModifiers</source>
-        <translation></translation>
+        <translation>Модификации пробела</translation>
     </message>
     <message>
         <source>CombiningMarks</source>
-        <translation></translation>
+        <translation>Комбинируемые знаки</translation>
     </message>
     <message>
         <source>Tagalog</source>
-        <translation></translation>
+        <translation>Тагальский</translation>
     </message>
     <message>
         <source>Hanunoo</source>
-        <translation></translation>
+        <translation>Хануну</translation>
     </message>
     <message>
         <source>Buhid</source>
-        <translation></translation>
+        <translation>Бухид</translation>
     </message>
     <message>
         <source>Tagbanwa</source>
-        <translation></translation>
+        <translation>Тагбанва</translation>
     </message>
     <message>
         <source>Katakana Half-Width Forms</source>
-        <translation>Katakana c половинными формами</translation>
+        <translation>Катакана c половинными формами</translation>
     </message>
     <message>
         <source>Han (Japanese)</source>
-        <translation>Han (Японский)</translation>
+        <translation>Хан (японский)</translation>
     </message>
     <message>
         <source>Han (Simplified Chinese)</source>
-        <translation>Han (упрощенный Китайский)</translation>
+        <translation>Хан (упрощенный китайский)</translation>
     </message>
     <message>
         <source>Han (Traditional Chinese)</source>
-        <translation>Han (традиционный Китайский)</translation>
+        <translation>Хан (традиционный китайский)</translation>
     </message>
     <message>
         <source>Han (Korean)</source>
-        <translation>Han (Корейский)</translation>
+        <translation>Хан (корейский)</translation>
     </message>
     <message>
         <source>Unknown Script</source>
@@ -1338,7 +1340,7 @@ Check path and filename.</source>
     </message>
     <message>
         <source>Select All</source>
-        <translation>Выделить все</translation>
+        <translation>Выделить всё</translation>
     </message>
 </context>
 <context>
@@ -1461,8 +1463,8 @@ to
         <translation>&amp;Игнорировать</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;О Qt&lt;/h3&gt;&lt;p&gt;Эта программа использует Qt версии %1.&lt;/p&gt;&lt;p&gt;Qt - это C++ GUI инструментарий для разработки многоплатформенных приложений.&lt;/p&gt;&lt;p&gt;Qt обеспечивает переносимость на уровне исходного кода между MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux и всеми основными версиями Unix.&lt;br&gt;Qt также доступен для встраиваемых систем.&lt;/p&gt;&lt;p&gt;Qt является продуктом Trolltech. Посетите &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; для получения более подробной информации.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;О Qt&lt;/h3&gt;&lt;p&gt;Эта программа использует TQt версии %1.&lt;/p&gt;&lt;p&gt;Qt - это C++ GUI инструментарий для разработки многоплатформенных приложений.&lt;/p&gt;&lt;p&gt;Qt обеспечивает переносимость на уровне исходного кода между MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux и всеми основными версиями Unix.&lt;br&gt;Qt также доступен для встраиваемых систем.&lt;/p&gt;&lt;p&gt;Qt является продуктом Trolltech. Посетите &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; для получения более подробной информации.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Yes to &amp;All</source>
@@ -1485,7 +1487,7 @@ to
     </message>
 </context>
 <context>
-    <name>QObject</name>
+    <name>TQObject</name>
     <message>
         <source>On The Spot</source>
         <translation></translation>
@@ -1563,7 +1565,7 @@ to
     </message>
     <message>
         <source>Print all</source>
-        <translation>Печатать все</translation>
+        <translation>Печатать всё</translation>
     </message>
     <message>
         <source>Print range</source>
@@ -1749,11 +1751,11 @@ to
     </message>
     <message>
         <source>disabled feature used</source>
-        <translation>использовались отключенные возможности</translation>
+        <translation>использовались отключённые возможности</translation>
     </message>
     <message>
         <source>bad char class syntax</source>
-        <translation>ошибочный синтаксис класса  символа</translation>
+        <translation>ошибочный синтаксис класса символа</translation>
     </message>
     <message>
         <source>bad lookahead syntax</source>
@@ -1874,7 +1876,7 @@ to
     </message>
     <message>
         <source>Select All</source>
-        <translation>Выделить все</translation>
+        <translation>Выделить всё</translation>
     </message>
 </context>
 <context>
@@ -2024,7 +2026,7 @@ to
     </message>
     <message>
         <source>&amp;Next &gt;</source>
-        <translation>&amp;Вперед &gt;</translation>
+        <translation>&amp;Вперёд &gt;</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
@@ -2114,7 +2116,7 @@ to
     </message>
     <message>
         <source>tag mismatch</source>
-        <translation>несоответствие тегов </translation>
+        <translation>несоответствие тегов</translation>
     </message>
     <message>
         <source>error occurred while parsing content</source>

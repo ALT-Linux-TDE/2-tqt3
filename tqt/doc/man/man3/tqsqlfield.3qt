@@ -14,7 +14,7 @@ QSqlField \- Manipulates the fields in SQL database tables and views
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlField\fR ( const QString & fieldName = QString::null, QVariant::Type type = QVariant::Invalid )"
+.BI "\fBQSqlField\fR ( const TQString & fieldName = TQString::null, QVariant::Type type = QVariant::Invalid )"
 .br
 .ti -1c
 .BI "\fBQSqlField\fR ( const QSqlField & other )"
@@ -35,10 +35,10 @@ QSqlField \- Manipulates the fields in SQL database tables and views
 .BI "virtual QVariant \fBvalue\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetName\fR ( const QString & name )"
+.BI "virtual void \fBsetName\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "QString \fBname\fR () const"
+.BI "TQString \fBname\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetNull\fR ()"
@@ -80,7 +80,7 @@ However, the field will attempt to cast certain data types to the field data typ
 .br
     QSqlField f( "myfield", QVariant::Int );
 .br
-    f.setValue( QString("123") ); // casts QString to int
+    f.setValue( TQString("123") ); // casts TQString to int
 .br
 .fi
 .PP
@@ -112,7 +112,7 @@ In practice we rarely need to extract a pointer to a field at all. The previous 
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlField::QSqlField ( const QString & fieldName = QString::null, QVariant::Type type = QVariant::Invalid )"
+.SH "QSqlField::QSqlField ( const TQString & fieldName = TQString::null, QVariant::Type type = QVariant::Invalid )"
 Constructs an empty field called \fIfieldName\fR of type \fItype\fR.
 .SH "QSqlField::QSqlField ( const QSqlField & other )"
 Constructs a copy of \fIother\fR.
@@ -124,7 +124,7 @@ Clears the value of the field. If the field is read-only, nothing happens. If \f
 Returns TRUE if the field is currently NULL; otherwise returns FALSE.
 .SH "bool QSqlField::isReadOnly () const"
 Returns TRUE if the field's value is read only; otherwise returns FALSE.
-.SH "QString QSqlField::name () const"
+.SH "TQString QSqlField::name () const"
 Returns the name of the field.
 .PP
 Example: sql/overview/table4/main.cpp.
@@ -140,7 +140,7 @@ isNull()
 value()
 .TP
 isReadOnly()
-.SH "void QSqlField::setName ( const QString & name )\fC [virtual]\fR"
+.SH "void QSqlField::setName ( const TQString & name )\fC [virtual]\fR"
 Sets the name of the field to \fIname\fR.
 .SH "void QSqlField::setNull ()\fC [virtual]\fR"
 Sets the field to NULL and clears the value using clear(). If the field is read-only, nothing happens.
@@ -151,7 +151,7 @@ Sets the read only flag of the field's value to \fIreadOnly\fR.
 .PP
 See also setValue().
 .SH "void QSqlField::setValue ( const QVariant & value )\fC [virtual]\fR"
-Sets the value of the field to \fIvalue\fR. If the field is read-only (isReadOnly() returns TRUE), nothing happens. If the data type of \fIvalue\fR differs from the field's current data type, an attempt is made to cast it to the proper type. This preserves the data type of the field in the case of assignment, e.g. a QString to an integer data type. For example:
+Sets the value of the field to \fIvalue\fR. If the field is read-only (isReadOnly() returns TRUE), nothing happens. If the data type of \fIvalue\fR differs from the field's current data type, an attempt is made to cast it to the proper type. This preserves the data type of the field in the case of assignment, e.g. a TQString to an integer data type. For example:
 .PP
 .nf
 .br
@@ -187,8 +187,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

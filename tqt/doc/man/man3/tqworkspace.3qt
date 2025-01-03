@@ -11,12 +11,12 @@ QWorkspace \- Workspace window that can contain decorated windows, e.g. for MDI
 .SH SYNOPSIS
 \fC#include <ntqworkspace.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQWorkspace\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQWorkspace\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QWorkspace\fR ()"
@@ -25,7 +25,7 @@ Inherits QWidget.
 .BI "enum \fBWindowOrder\fR { CreationOrder, StackingOrder }"
 .br
 .ti -1c
-.BI "QWidget * \fBactiveWindow\fR () const"
+.BI "TQWidget * \fBactiveWindow\fR () const"
 .br
 .ti -1c
 .BI "QWidgetList windowList () const  \fI(obsolete)\fR"
@@ -64,7 +64,7 @@ Inherits QWidget.
 .SS "Signals"
 .in +1c
 .ti -1c
-.BI "void \fBwindowActivated\fR ( QWidget * w )"
+.BI "void \fBwindowActivated\fR ( TQWidget * w )"
 .br
 .in -1c
 .SS "Properties"
@@ -78,9 +78,9 @@ The QWorkspace widget provides a workspace window that can contain decorated win
 .PP
 MDI (multiple document interface) applications typically have one main window with a menu bar and toolbar, and a central widget that is a QWorkspace. The workspace itself contains zero, one or more document windows, each of which is a widget.
 .PP
-The workspace itself is an ordinary Qt widget. It has a standard constructor that takes a parent widget and an object name. The parent window is usually a QMainWindow, but it need not be.
+The workspace itself is an ordinary TQt widget. It has a standard constructor that takes a parent widget and an object name. The parent window is usually a QMainWindow, but it need not be.
 .PP
-Document windows (i.e. MDI windows) are also ordinary Qt widgets which have the workspace as their parent widget. When you call show(), hide(), showMaximized(), setCaption(), etc. on a document window, it is shown, hidden, etc. with a frame, caption, icon and icon text, just as you'd expect. You can provide widget flags which will be used for the layout of the decoration or the behaviour of the widget itself.
+Document windows (i.e. MDI windows) are also ordinary TQt widgets which have the workspace as their parent widget. When you call show(), hide(), showMaximized(), setCaption(), etc. on a document window, it is shown, hidden, etc. with a frame, caption, icon and icon text, just as you'd expect. You can provide widget flags which will be used for the layout of the decoration or the behaviour of the widget itself.
 .PP
 To change or retrieve the geometry of MDI windows you must operate on the MDI widget's parentWidget(). (The parentWidget() provides access to the decorated window in which the MDI window's widget is shown.)
 .PP
@@ -103,7 +103,7 @@ Specifies the order in which windows are returned from windowList().
 .TP
 \fCQWorkspace::StackingOrder\fR - The windows are returned in the order of their stacking
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWorkspace::QWorkspace ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QWorkspace::QWorkspace ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a workspace with a \fIparent\fR and a \fIname\fR.
 .SH "QWorkspace::~QWorkspace ()"
 Destroys the workspace and frees any allocated resources.
@@ -115,7 +115,7 @@ See also activatePrevWindow().
 Activates the previous window in the child window chain.
 .PP
 See also activateNextWindow().
-.SH "QWidget * QWorkspace::activeWindow () const"
+.SH "TQWidget * QWorkspace::activeWindow () const"
 Returns the active window, or 0 if no window is active.
 .PP
 Example: mdi/application.cpp.
@@ -145,14 +145,14 @@ Arranges all child windows in a tile pattern.
 See also cascade().
 .PP
 Example: mdi/application.cpp.
-.SH "void QWorkspace::windowActivated ( QWidget * w )\fC [signal]\fR"
+.SH "void QWorkspace::windowActivated ( TQWidget * w )\fC [signal]\fR"
 This signal is emitted when the window widget \fIw\fR becomes active. Note that \fIw\fR can be null, and that more than one signal may be emitted for a single activation event.
 .PP
 See also activeWindow() and windowList().
 .SH "QWidgetList QWorkspace::windowList ( WindowOrder order ) const"
 Returns a list of all windows. If \fIorder\fR is CreationOrder (the default) the windows are listed in the order in which they had been inserted into the workspace. If \fIorder\fR is StackingOrder the windows are listed in their stacking order, with the topmost window being the last window in the list.
 .PP
-QWidgetList is the same as QPtrList<QWidget>.
+QWidgetList is the same as QPtrList<TQWidget>.
 .PP
 See also QPtrList.
 .PP
@@ -184,8 +184,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

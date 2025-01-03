@@ -41,7 +41,7 @@
 #include "ntqlayout.h"
 #include "private/qlayoutengine_p.h"
 
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 
 static inline int toFixed( int i ) { return i * 256; }
 static inline int fRound( int i ) {
@@ -63,7 +63,7 @@ static inline int fRound( int i ) {
   count is the count of items in the chain; pos and space give the
   interval (relative to parentWidget topLeft).
 */
-Q_EXPORT void qGeomCalc( TQMemArray<TQLayoutStruct> &chain, int start, int count,
+TQ_EXPORT void qGeomCalc( TQMemArray<TQLayoutStruct> &chain, int start, int count,
 			 int pos, int space, int spacer )
 {
     typedef int fixed;
@@ -242,7 +242,7 @@ Q_EXPORT void qGeomCalc( TQMemArray<TQLayoutStruct> &chain, int start, int count
     }
 }
 
-Q_EXPORT TQSize qSmartMinSize( const TQWidgetItem *i )
+TQ_EXPORT TQSize qSmartMinSize( const TQWidgetItem *i )
 {
     TQWidget *w = ((TQWidgetItem *)i)->widget();
 
@@ -284,13 +284,13 @@ Q_EXPORT TQSize qSmartMinSize( const TQWidgetItem *i )
     return s;
 }
 
-Q_EXPORT TQSize qSmartMinSize( TQWidget *w )
+TQ_EXPORT TQSize qSmartMinSize( TQWidget *w )
 {
     TQWidgetItem item( w );
     return qSmartMinSize( &item );
 }
 
-Q_EXPORT TQSize qSmartMaxSize( const TQWidgetItem *i, int align )
+TQ_EXPORT TQSize qSmartMaxSize( const TQWidgetItem *i, int align )
 {
     TQWidget *w = ( (TQWidgetItem*)i )->widget();
     if ( align & TQt::AlignHorizontal_Mask && align & TQt::AlignVertical_Mask )
@@ -313,10 +313,10 @@ Q_EXPORT TQSize qSmartMaxSize( const TQWidgetItem *i, int align )
     return s;
 }
 
-Q_EXPORT TQSize qSmartMaxSize( TQWidget *w, int align )
+TQ_EXPORT TQSize qSmartMaxSize( TQWidget *w, int align )
 {
     TQWidgetItem item( w );
     return qSmartMaxSize( &item, align );
 }
 
-#endif // QT_NO_LAYOUT
+#endif // TQT_NO_LAYOUT

@@ -49,7 +49,7 @@
 #ifdef QT_PLUGIN
 #define Q_EXPORT_SQLDRIVER_PSQL
 #else
-#define Q_EXPORT_SQLDRIVER_PSQL Q_EXPORT
+#define Q_EXPORT_SQLDRIVER_PSQL TQ_EXPORT
 #endif
 
 class TQPSQLPrivate;

@@ -11,15 +11,15 @@ QSessionManager \- Access to the session manager
 .SH SYNOPSIS
 \fC#include <ntqsessionmanager.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "QString \fBsessionId\fR () const"
+.BI "TQString \fBsessionId\fR () const"
 .br
 .ti -1c
-.BI "QString \fBsessionKey\fR () const"
+.BI "TQString \fBsessionKey\fR () const"
 .br
 .ti -1c
 .BI "void * \fBhandle\fR () const"
@@ -58,10 +58,10 @@ Inherits QObject.
 .BI "QStringList \fBdiscardCommand\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetManagerProperty\fR ( const QString & name, const QString & value )"
+.BI "void \fBsetManagerProperty\fR ( const TQString & name, const TQString & value )"
 .br
 .ti -1c
-.BI "void \fBsetManagerProperty\fR ( const QString & name, const QStringList & value )"
+.BI "void \fBsetManagerProperty\fR ( const TQString & name, const QStringList & value )"
 .br
 .ti -1c
 .BI "bool \fBisPhase2\fR () const"
@@ -77,7 +77,7 @@ The session manager is responsible for session management, most importantly for 
 .PP
 QSessionManager provides an interface between the application and the session manager so that the program can work well with the session manager. In Qt, session management requests for action are handled by the two virtual functions QApplication::commitData() and QApplication::saveState(). Both provide a reference to a session manager object as argument, to allow the application to communicate with the session manager.
 .PP
-During a session management action (i.e. within commitData() and saveState()), no user interaction is possible \fIunless\fR the application got explicit permission from the session manager. You ask for permission by calling allowsInteraction() or, if it's really urgent, allowsErrorInteraction(). Qt does not enforce this, but the session manager may.
+During a session management action (i.e. within commitData() and saveState()), no user interaction is possible \fIunless\fR the application got explicit permission from the session manager. You ask for permission by calling allowsInteraction() or, if it's really urgent, allowsErrorInteraction(). TQt does not enforce this, but the session manager may.
 .PP
 You can try to abort the shutdown process by calling cancel(). The default commitData() function does this if some top-level window rejected its closeEvent().
 .PP
@@ -239,13 +239,13 @@ See also setRestartCommand() and restartHint().
 Returns the application's current restart hint. The default is RestartIfRunning.
 .PP
 See also setRestartHint().
-.SH "QString QSessionManager::sessionId () const"
+.SH "TQString QSessionManager::sessionId () const"
 Returns the identifier of the current session.
 .PP
 If the application has been restored from an earlier session, this identifier is the same as it was in that earlier session.
 .PP
 See also sessionKey() and QApplication::sessionId().
-.SH "QString QSessionManager::sessionKey () const"
+.SH "TQString QSessionManager::sessionKey () const"
 Returns the session key in the current session.
 .PP
 If the application has been restored from an earlier session, this key is the same as it was when the previous session ended.
@@ -255,11 +255,11 @@ The session key changes with every call of commitData() or saveState().
 See also sessionId() and QApplication::sessionKey().
 .SH "void QSessionManager::setDiscardCommand ( const QStringList & )"
 See also discardCommand() and setRestartCommand().
-.SH "void QSessionManager::setManagerProperty ( const QString & name, const QStringList & value )"
+.SH "void QSessionManager::setManagerProperty ( const TQString & name, const QStringList & value )"
 Low-level write access to the application's identification and state record are kept in the session manager.
 .PP
 The property called \fIname\fR has its value set to the string list \fIvalue\fR.
-.SH "void QSessionManager::setManagerProperty ( const QString & name, const QString & value )"
+.SH "void QSessionManager::setManagerProperty ( const TQString & name, const TQString & value )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Low-level write access to the application's identification and state records are kept in the session manager.
@@ -302,8 +302,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -38,7 +38,7 @@
 
 #include "ntqmime.h"
 
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 
 #include "ntqmap.h"
 #include "ntqstringlist.h"
@@ -109,7 +109,7 @@ void TQMimeSource::clearCache()
 */
 TQMimeSource::~TQMimeSource()
 {
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     extern void tqt_clipboard_cleanup_mime_source(TQMimeSource *);
     tqt_clipboard_cleanup_mime_source(this);
 #endif
@@ -363,7 +363,7 @@ const TQMimeSource* TQMimeSourceFactory::data(const TQString& abs_name) const
     TQMimeSource* r = 0;
     TQStringList::Iterator it;
     if ( abs_name[0] == '/'
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	    || ( abs_name[0] && abs_name[1] == ':' ) || abs_name.startsWith("\\\\")
 #endif
     )
@@ -463,7 +463,7 @@ TQString TQMimeSourceFactory::makeAbsolute(const TQString& abs_or_rel_name, cons
 {
     if ( context.isNull() ||
 	 !(context[0] == '/'
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	 || ( context[0] && context[1] == ':')
 #endif
 	   ))
@@ -616,4 +616,4 @@ void TQMimeSourceFactory::removeFactory( TQMimeSourceFactory *f )
     TQMimeSourceFactory::defaultFactory()->d->factories.removeRef( f );
 }
 
-#endif // QT_NO_MIME
+#endif // TQT_NO_MIME

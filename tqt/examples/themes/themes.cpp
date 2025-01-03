@@ -57,10 +57,10 @@ Themes::Themes( TQWidget *parent, const char *name, WFlags f )
     TQActionGroup *ag = new TQActionGroup( this, 0 );
     ag->setExclusive( TRUE );
     TQSignalMapper *styleMapper = new TQSignalMapper( this );
-    connect( styleMapper, SIGNAL( mapped( const TQString& ) ), this, SLOT( makeStyle( const TQString& ) ) );
+    connect( styleMapper, TQ_SIGNAL( mapped( const TQString& ) ), this, TQ_SLOT( makeStyle( const TQString& ) ) );
     TQStringList list = TQStyleFactory::keys();
     list.sort();
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
     list.insert(list.begin(), "Norwegian Wood");
     list.insert(list.begin(), "Metal");
 #endif
@@ -81,20 +81,20 @@ Themes::Themes( TQWidget *parent, const char *name, WFlags f )
 	    styleAccel = "&"+styleAccel;
 	}
 	TQAction *a = new TQAction( styleStr, TQIconSet(), styleAccel, 0, ag, 0, ag->isExclusive() );
-	connect( a, SIGNAL( activated() ), styleMapper, SLOT(map()) );
+	connect( a, TQ_SIGNAL( activated() ), styleMapper, TQ_SLOT(map()) );
 	styleMapper->setMapping( a, a->text() );
     }
     ag->addTo(style);
     style->insertSeparator();
-    style->insertItem("&Quit", tqApp, SLOT( quit() ), CTRL | Key_Q );
+    style->insertItem("&Quit", tqApp, TQ_SLOT( quit() ), CTRL | Key_Q );
 
     TQPopupMenu * help = new TQPopupMenu( this );
     menuBar()->insertSeparator();
     menuBar()->insertItem( "&Help", help );
-    help->insertItem( "&About", this, SLOT(about()), Key_F1);
-    help->insertItem( "About &TQt", this, SLOT(aboutTQt()));
+    help->insertItem( "&About", this, TQ_SLOT(about()), Key_F1);
+    help->insertItem( "About &TQt", this, TQ_SLOT(aboutTQt()));
 
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
     tqApp->setStyle( new NorwegianWoodStyle );
 #endif
 }
@@ -102,11 +102,11 @@ Themes::Themes( TQWidget *parent, const char *name, WFlags f )
 void Themes::makeStyle(const TQString &style)
 {
     if(style == "Norwegian Wood") {
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 	tqApp->setStyle( new NorwegianWoodStyle );
 #endif
     } else if( style == "Metal" ) {
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 	tqApp->setStyle( new MetalStyle );
 #endif
     } else {

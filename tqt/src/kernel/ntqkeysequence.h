@@ -48,20 +48,20 @@
 #endif // QT_H
 #endif
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 /*****************************************************************************
   TQKeySequence stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 class TQKeySequence;
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQKeySequence & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQKeySequence & );
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQKeySequence & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQKeySequence & );
 #endif
 
 class TQKeySequencePrivate;
 
-class Q_EXPORT TQKeySequence : public TQt
+class TQ_EXPORT TQKeySequence : public TQt
 {
 public:
     TQKeySequence();
@@ -90,20 +90,20 @@ private:
 
     TQKeySequencePrivate* d;
 
-    friend Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQKeySequence & );
-    friend Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQKeySequence & );
+    friend TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQKeySequence & );
+    friend TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQKeySequence & );
     friend class TQAccelManager;
 };
 
 #else
 
-class Q_EXPORT TQKeySequence : public TQt
+class TQ_EXPORT TQKeySequence : public TQt
 {
 public:
     TQKeySequence() {}
     TQKeySequence( int ) {}
 };
 
-#endif //QT_NO_ACCEL
+#endif //TQT_NO_ACCEL
 
 #endif

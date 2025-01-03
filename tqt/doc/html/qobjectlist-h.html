@@ -84,12 +84,12 @@ body { background: #ffffff; color: black; }
 
 
 #if defined(Q_TEMPLATEDLL)
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrList&lt;TQObject&gt;;
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQPtrListIterator&lt;TQObject&gt;;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrList&lt;TQObject&gt;;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQPtrListIterator&lt;TQObject&gt;;
 #endif
 
 
-class Q_EXPORT TQObjectList : public TQPtrList&lt;TQObject&gt;
+class TQ_EXPORT TQObjectList : public TQPtrList&lt;TQObject&gt;
 {
 public:
     TQObjectList() : TQPtrList&lt;TQObject&gt;() {}
@@ -99,7 +99,7 @@ public:
 	{ return (TQObjectList&amp;)TQPtrList&lt;TQObject&gt;::operator=(list); }
 };
 
-class Q_EXPORT TQObjectListIterator : public TQPtrListIterator&lt;TQObject&gt;
+class TQ_EXPORT TQObjectListIterator : public TQPtrListIterator&lt;TQObject&gt;
 {
 public:
     TQObjectListIterator( const TQObjectList &amp;l )
@@ -116,7 +116,7 @@ public:
 #endif
 typedef TQObjectListIterator TQObjectListIt;
 #else
-class Q_EXPORT TQObjectListIt : public TQPtrListIterator&lt;TQObject&gt;
+class TQ_EXPORT TQObjectListIt : public TQPtrListIterator&lt;TQObject&gt;
 {
 public:
     TQObjectListIt( const TQObjectList &amp;l ) : TQPtrListIterator&lt;TQObject&gt;(l) {}

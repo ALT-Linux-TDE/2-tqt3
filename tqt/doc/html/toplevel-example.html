@@ -188,7 +188,7 @@ modeless dialogs.
     <a name="x2532"></a>        label-&gt;<a href="ntqlabel.html#setTextFormat">setTextFormat</a>(RichText);
     <a name="x2531"></a>        label-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>(WordBreak);
             <a href="ntqpushbutton.html">TQPushButton</a> *okButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Close", widget );
-    <a name="x2535"></a>        connect( okButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), widget, SLOT(<a href="ntqwidget.html#close">close</a>()) );
+    <a name="x2535"></a>        connect( okButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), widget, TQ_SLOT(<a href="ntqwidget.html#close">close</a>()) );
     <a name="x2537"></a>        widget-&gt;<a href="ntqwidget.html#move">move</a>( pos() );
 </pre>The widget is created if it has not been created yet, or if it was
 closed (since we use the <tt>WDestructiveClose</tt> flag). Note that the
@@ -212,7 +212,7 @@ this attribute for toplevel window.
 <p> <pre>    }
 </pre>Finally the window is shown with the new attributes.
 <p> To build the example go to the toplevel directory
-(<tt>QTDIR/examples/toplevel</tt>) 
+(<tt>TQTDIR/examples/toplevel</tt>) 
 <a href="#footnote3"><sup>(3)</sup></a><a name="footnote-call3"></a> 
 and run <tt>qmake</tt> to generate the makefile, then use the make tool to
 build the library. 
@@ -225,7 +225,7 @@ The example uses <a href="ntqguardedptr.html">TQGuardedPtr</a> to make sure that
 pointer is reset to zero when the widget object is destroyed 
 due to the <tt>WDestructiveClose</tt> flag.  <a href="#footnote-call2">Back...</a> <li><a name="footnote3"></a>
 
-We use <tt>QTDIR</tt> to stand for the directory where TQt is installed.
+We use <tt>TQTDIR</tt> to stand for the directory where TQt is installed.
  <a href="#footnote-call3">Back...</a></ol>
 </hr><p>See also <a href="examples.html">Examples</a>.
 

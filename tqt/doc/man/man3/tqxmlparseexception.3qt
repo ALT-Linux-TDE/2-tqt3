@@ -9,14 +9,14 @@
 .SH NAME
 QXmlParseException \- Used to report errors with the QXmlErrorHandler interface
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqxml.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQXmlParseException\fR ( const QString & name = """", int c = -1, int l = -1, const QString & p = """", const QString & s = """" )"
+.BI "\fBQXmlParseException\fR ( const TQString & name = """", int c = -1, int l = -1, const TQString & p = """", const TQString & s = """" )"
 .br
 .ti -1c
 .BI "int \fBcolumnNumber\fR () const"
@@ -25,13 +25,13 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "int \fBlineNumber\fR () const"
 .br
 .ti -1c
-.BI "QString \fBpublicId\fR () const"
+.BI "TQString \fBpublicId\fR () const"
 .br
 .ti -1c
-.BI "QString \fBsystemId\fR () const"
+.BI "TQString \fBsystemId\fR () const"
 .br
 .ti -1c
-.BI "QString \fBmessage\fR () const"
+.BI "TQString \fBmessage\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -41,17 +41,17 @@ The XML subsystem constructs an instance of this class when it detects an error.
 .PP
 See also QXmlErrorHandler, QXmlReader, and XML.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QXmlParseException::QXmlParseException ( const QString & name = "", int c = -1, int l = -1, const QString & p = "", const QString & s = "" )"
+.SH "QXmlParseException::QXmlParseException ( const TQString & name = "", int c = -1, int l = -1, const TQString & p = "", const TQString & s = "" )"
 Constructs a parse exception with the error string \fIname\fR for column \fIc\fR and line \fIl\fR for the public identifier \fIp\fR and the system identifier \fIs\fR.
 .SH "int QXmlParseException::columnNumber () const"
 Returns the column number where the error occurred.
 .SH "int QXmlParseException::lineNumber () const"
 Returns the line number where the error occurred.
-.SH "QString QXmlParseException::message () const"
+.SH "TQString QXmlParseException::message () const"
 Returns the error message.
-.SH "QString QXmlParseException::publicId () const"
+.SH "TQString QXmlParseException::publicId () const"
 Returns the public identifier where the error occurred.
-.SH "QString QXmlParseException::systemId () const"
+.SH "TQString QXmlParseException::systemId () const"
 Returns the system identifier where the error occurred.
 
 .SH "SEE ALSO"
@@ -68,8 +68,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

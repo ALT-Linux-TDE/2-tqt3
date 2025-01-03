@@ -41,7 +41,7 @@
 #include "ntqsyntaxhighlighter.h"
 #include "private/qsyntaxhighlighter_p.h"
 
-#ifndef QT_NO_SYNTAXHIGHLIGHTER
+#ifndef TQT_NO_SYNTAXHIGHLIGHTER
 #include "../kernel/qrichtext_p.h"
 #include "ntqtextedit.h"
 #include "ntqtimer.h"
@@ -82,7 +82,7 @@ TQSyntaxHighlighter::TQSyntaxHighlighter( TQTextEdit *textEdit )
 {
     textEdit->document()->setPreProcessor( new TQSyntaxHighlighterInternal( this ) );
     textEdit->document()->invalidate();
-    TQTimer::singleShot( 0, textEdit->viewport(), SLOT( update() ) );
+    TQTimer::singleShot( 0, textEdit->viewport(), TQ_SLOT( update() ) );
 }
 
 /*!

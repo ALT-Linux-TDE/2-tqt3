@@ -57,7 +57,7 @@
 # undef raise
 #endif
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #include <qt_windows.h>
 #include <process.h>
 #endif
@@ -200,11 +200,7 @@ int main( int argc, char *argv[] )
 
     MainWindow *mw = new MainWindow( creatPid );
     a.setMainWidget( mw );
-#if defined(QT_NON_COMMERCIAL)
-    mw->setCaption( "TQt Designer by Trolltech for non-commercial use" );
-#else
     mw->setCaption( "TQt Designer by Trolltech" );
-#endif
     if ( config.readBoolEntry( keybase + "Geometries/MainwindowMaximized", FALSE ) ) {
 	int x = config.readNumEntry( keybase + "Geometries/MainwindowX", 0 );
 	int y = config.readNumEntry( keybase + "Geometries/MainwindowY", 0 );

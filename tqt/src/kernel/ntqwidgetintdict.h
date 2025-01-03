@@ -48,12 +48,12 @@
 
 
 #if defined(Q_TEMPLATEDLL)
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQIntDict<TQWidget>;
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQIntDictIterator<TQWidget>;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQIntDict<TQWidget>;
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQIntDictIterator<TQWidget>;
 #endif
 
 
-class Q_EXPORT TQWidgetIntDict : public TQIntDict<TQWidget>
+class TQ_EXPORT TQWidgetIntDict : public TQIntDict<TQWidget>
 {
 public:
     TQWidgetIntDict(int size=17) : TQIntDict<TQWidget>(size) {}
@@ -63,7 +63,7 @@ public:
 	{ return (TQWidgetIntDict&)TQIntDict<TQWidget>::operator=(dict); }
 };
 
-class Q_EXPORT TQWidgetIntDictIt : public TQIntDictIterator<TQWidget>
+class TQ_EXPORT TQWidgetIntDictIt : public TQIntDictIterator<TQWidget>
 {
 public:
     TQWidgetIntDictIt( const TQWidgetIntDict &d ) : TQIntDictIterator<TQWidget>(d) {}

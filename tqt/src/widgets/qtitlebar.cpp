@@ -42,7 +42,7 @@
 
 #include "qtitlebar_p.h"
 
-#ifndef QT_NO_TITLEBAR
+#ifndef TQT_NO_TITLEBAR
 
 #include <ntqcursor.h>
 #include "ntqapplication.h"
@@ -55,14 +55,14 @@
 #include "ntqpainter.h"
 #include "ntqstyle.h"
 #include "private/qinternal_p.h"
-#ifndef QT_NO_WORKSPACE
+#ifndef TQT_NO_WORKSPACE
 #include "ntqworkspace.h"
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #include "qt_windows.h"
 #endif
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 class TQTitleBarTip : public TQToolTip
 {
 public:
@@ -120,7 +120,7 @@ public:
 		break;
 	    }
 	}
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	if ( tipstring.isEmpty() ) {
 	    if ( t->visibleText() != t->caption() )
 		tipstring = t->caption();
@@ -149,7 +149,7 @@ public:
     bool pressed            :1;
     bool autoraise          :1;
     TQString cuttext;
-#ifdef QT_NO_WIDGET_TOPEXTRA
+#ifdef TQT_NO_WIDGET_TOPEXTRA
     TQString cap;
 #endif
 };
@@ -159,7 +159,7 @@ TQTitleBar::TQTitleBar(TQWidget* w, TQWidget* parent, const char* name)
 {
     d = new TQTitleBarPrivate();
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     d->toolTip = new TQTitleBarTip( this );
 #endif
     d->window = w;
@@ -169,7 +169,7 @@ TQTitleBar::TQTitleBar(TQWidget* w, TQWidget* parent, const char* name)
 	setWFlags( ((TQTitleBar*)w)->getWFlags() | WNoAutoErase );
 	if ( w->minimumSize() == w->maximumSize() )
 	    clearWFlags( WStyle_Maximize );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     	setCaption( w->caption() );
 #endif
     } else {
@@ -183,7 +183,7 @@ TQTitleBar::TQTitleBar(TQWidget* w, TQWidget* parent, const char* name)
 
 TQTitleBar::~TQTitleBar()
 {
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     delete d->toolTip;
 #endif
 
@@ -191,7 +191,7 @@ TQTitleBar::~TQTitleBar()
     d = 0;
 }
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 extern TQRgb qt_colorref2qrgb(COLORREF col);
 #endif
 
@@ -201,7 +201,7 @@ void TQTitleBar::readColors()
 
     bool colorsInitialized = FALSE;
 
-#ifdef Q_WS_WIN // ask system properties on windows
+#ifdef TQ_WS_WIN // ask system properties on windows
 #ifndef SPI_GETGRADIENTCAPTIONS
 #define SPI_GETGRADIENTCAPTIONS 0x1008
 #endif
@@ -233,7 +233,7 @@ void TQTitleBar::readColors()
 	    }
 	}
     }
-#endif // Q_WS_WIN
+#endif // TQ_WS_WIN
     if ( !colorsInitialized ) {
 	pal.setColor( TQPalette::Active, TQColorGroup::Highlight, palette().active().highlight() );
 	pal.setColor( TQPalette::Active, TQColorGroup::Base, palette().active().highlight() );
@@ -402,7 +402,7 @@ void TQTitleBar::mouseMoveEvent( TQMouseEvent * e)
 	if ( d->buttonDown == TQStyle::SC_TitleBarLabel && d->movable && d->pressed ) {
 	    if ( (d->moveOffset - mapToParent( e->pos() ) ).manhattanLength() >= 4 ) {
 		TQPoint p = mapFromGlobal(e->globalPos());
-#ifndef QT_NO_WORKSPACE
+#ifndef TQT_NO_WORKSPACE
 		if(d->window && d->window->parentWidget()->inherits("TQWorkspaceChild")) {
 		    TQWorkspace *workspace = ::tqt_cast<TQWorkspace*>(d->window->parentWidget()->parentWidget());
 		    if(workspace) {
@@ -505,7 +505,7 @@ void TQTitleBar::mouseDoubleClickEvent( TQMouseEvent *e )
     }
 }
 
-#ifdef QT_NO_WIDGET_TOPEXTRA
+#ifdef TQT_NO_WIDGET_TOPEXTRA
 // We provide one, since titlebar is useless otherwise.
 TQString TQTitleBar::caption() const
 {
@@ -537,7 +537,7 @@ void TQTitleBar::setCaption( const TQString& title )
 {
     if( caption() == title)
 	return;
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     TQWidget::setCaption( title );
 #else
     d->cap = title;
@@ -550,8 +550,8 @@ void TQTitleBar::setCaption( const TQString& title )
 
 void TQTitleBar::setIcon( const TQPixmap& icon )
 {
-#ifndef QT_NO_WIDGET_TOPEXTRA
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
     TQRect menur = style().querySubControlMetrics(TQStyle::CC_TitleBar, this,
 						  TQStyle::SC_TitleBarSysMenu);
 
@@ -668,4 +668,4 @@ TQSize TQTitleBar::sizeHint() const
     return TQSize( menur.width(), style().pixelMetric( TQStyle::PM_TitleBarHeight, this ) );
 }
 
-#endif //QT_NO_TITLEBAR
+#endif //TQT_NO_TITLEBAR

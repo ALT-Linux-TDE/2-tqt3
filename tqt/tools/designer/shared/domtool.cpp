@@ -199,7 +199,7 @@ TQVariant DomTool::elementToVariant( const TQDomElement& e, const TQVariant& def
 	    v = TQVariant( e.firstChild().toText().data().toDouble() );
     } else if ( e.tagName() == "bool" ) {
 	TQString t = e.firstChild().toText().data();
-	v = TQVariant( t == "true" || t == "1", 0 );
+	v = TQVariant( t == "true" || t == "1" );
     } else if ( e.tagName() == "pixmap" ) {
 	v = TQVariant( e.firstChild().toText().data() );
     } else if ( e.tagName() == "iconset" ) {

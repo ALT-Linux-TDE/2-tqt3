@@ -182,9 +182,9 @@ static const char* sayings[] = {
 
 <a name="x466"></a>    bPrev-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
 
-<a name="x462"></a>    <a href="ntqobject.html#connect">connect</a>( bClose, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), tqApp, SLOT( <a href="ntqapplication.html#quit">quit</a>() ) );
-    <a href="ntqobject.html#connect">connect</a>( bPrev, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( prev() ) );
-    <a href="ntqobject.html#connect">connect</a>( bNext, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( next() ) );
+<a name="x462"></a>    <a href="ntqobject.html#connect">connect</a>( bClose, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), tqApp, TQ_SLOT( <a href="ntqapplication.html#quit">quit</a>() ) );
+    <a href="ntqobject.html#connect">connect</a>( bPrev, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( prev() ) );
+    <a href="ntqobject.html#connect">connect</a>( bNext, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( next() ) );
 
     num = 0;
 }

@@ -61,21 +61,21 @@
 #include "ntqsql.h"
 #endif // QT_H
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 #if !defined( TQT_MODULE_SQL ) || defined( QT_LICENSE_PROFESSIONAL )
 #define TQM_EXPORT_SQL
 #define TQM_TEMPLATE_EXTERN_SQL
 #else
-#define TQM_EXPORT_SQL Q_EXPORT
+#define TQM_EXPORT_SQL TQ_EXPORT
 #define TQM_TEMPLATE_EXTERN_SQL Q_TEMPLATE_EXTERN
 #endif
 
-struct Param {
-    Param( const TQVariant& v = TQVariant(), TQSql::ParameterType t = TQSql::In ): value( v ), typ( t ) {}
+struct TQSqlParam {
+    TQSqlParam( const TQVariant& v = TQVariant(), TQSql::ParameterType t = TQSql::In ): value( v ), typ( t ) {}
     TQVariant value;
     TQSql::ParameterType typ;
-    Q_DUMMY_COMPARISON_OPERATOR(Param)
+    TQ_DUMMY_COMPARISON_OPERATOR(TQSqlParam)
 };
 
 struct Holder {
@@ -102,7 +102,7 @@ public:
     virtual TQVariant parameterValue( int pos );
     TQVariant boundValue( const TQString& holder ) const;
     TQVariant boundValue( int pos ) const;
-    TQMap<TQString, TQVariant> boundValues() const;
+    TQStringVariantMap boundValues() const;
     void clear();
     void clearValues();
     void clearIndex();
@@ -114,7 +114,7 @@ public:
     int bindCount;
 
     TQMap<int, TQString> index;
-    typedef TQMap<TQString, Param> ValueMap;
+    typedef TQMap<TQString, TQSqlParam> ValueMap;
     ValueMap values;
 
     // convenience container for TQSqlQuery

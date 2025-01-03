@@ -40,7 +40,7 @@
 
 #include "ntqdockarea.h"
 
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 #include "ntqsplitter.h"
 #include "ntqlayout.h"
 #include "ntqptrvector.h"
@@ -52,14 +52,14 @@
 
 //#define TQDOCKAREA_DEBUG
 
-struct Q_EXPORT DockData
+struct TQ_EXPORT DockData
 {
     DockData() : w( 0 ), rect() {}
     DockData( TQDockWindow *dw, const TQRect &r ) : w( dw ), rect( r ) {}
     TQDockWindow *w;
     TQRect rect;
 
-    Q_DUMMY_COMPARISON_OPERATOR( DockData )
+    TQ_DUMMY_COMPARISON_OPERATOR( DockData )
 };
 
 static int fix_x( TQDockWindow* w, int width = -1 ) {
@@ -1221,7 +1221,7 @@ bool TQDockArea::isLastDockWindow( TQDockWindow *dw )
     return FALSE;
 }
 
-#ifndef QT_NO_TEXTSTREAM
+#ifndef TQT_NO_TEXTSTREAM
 
 /*!
     \relates TQDockArea
@@ -1319,4 +1319,4 @@ TQTextStream &operator>>( TQTextStream &ts, TQDockArea &dockArea )
 }
 #endif
 
-#endif //QT_NO_MAINWINDOW
+#endif //TQT_NO_MAINWINDOW

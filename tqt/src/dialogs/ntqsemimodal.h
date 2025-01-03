@@ -45,9 +45,9 @@
 #include "ntqdialog.h"
 #endif // QT_H
 
-#ifndef QT_NO_COMPAT
-#ifndef QT_NO_SEMIMODAL
-class Q_EXPORT TQSemiModal : public TQDialog
+#ifndef TQT_NO_COMPAT
+#ifndef TQT_NO_SEMIMODAL
+class TQ_EXPORT TQSemiModal : public TQDialog
 {
     TQ_OBJECT
 public:

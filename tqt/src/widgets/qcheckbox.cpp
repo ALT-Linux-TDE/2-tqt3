@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqcheckbox.h"
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 #include "ntqpainter.h"
 #include "ntqdrawutil.h"
 #include "ntqpixmap.h"
@@ -193,7 +193,7 @@ void TQCheckBox::drawButton( TQPainter *paint )
     TQRect irect = TQStyle::visualRect( style().subRect(TQStyle::SR_CheckBoxIndicator, this), this );
     const TQColorGroup &cg = colorGroup();
 
-#if !defined( QT_NO_TEXTSTREAM ) && !defined( Q_WS_MACX )
+#if !defined( TQT_NO_TEXTSTREAM ) && !defined( TQ_WS_MACX )
 #   define  SAVE_CHECKBOX_PIXMAPS
 #endif
 #if defined(SAVE_CHECKBOX_PIXMAPS)

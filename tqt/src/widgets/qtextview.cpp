@@ -40,7 +40,7 @@
 
 #include "ntqtextview.h"
 
-#ifndef QT_NO_TEXTVIEW
+#ifndef TQT_NO_TEXTVIEW
 
 /*! \class TQTextView
     \brief The TQTextView class provides a rich-text viewer.

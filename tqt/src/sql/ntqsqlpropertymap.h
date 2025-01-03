@@ -46,12 +46,12 @@
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_SQL_FORM
+#ifndef TQT_NO_SQL_FORM
 
 class TQWidget;
 class TQSqlPropertyMapPrivate;
 
-class Q_EXPORT TQSqlPropertyMap {
+class TQ_EXPORT TQSqlPropertyMap {
 public:
     TQSqlPropertyMap();
     virtual ~TQSqlPropertyMap();
@@ -74,5 +74,5 @@ private:	// Disabled copy constructor and operator=
 
 };
 
-#endif // QT_NO_SQL_FORM
+#endif // TQT_NO_SQL_FORM
 #endif // TQSQLPROPERTYMAP_H

@@ -49,7 +49,7 @@
 
 #include <limits.h>
 
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 
 #if 0
 TQ_OBJECT
@@ -66,7 +66,7 @@ class TQMenuBar;
 class TQSpacerItem;
 class TQWidget;
 
-class Q_EXPORT TQGLayoutIterator : public TQShared
+class TQ_EXPORT TQGLayoutIterator : public TQShared
 {
 public:
     virtual ~TQGLayoutIterator();
@@ -75,7 +75,7 @@ public:
     virtual TQLayoutItem *takeCurrent() = 0;
 };
 
-class Q_EXPORT TQLayoutIterator
+class TQ_EXPORT TQLayoutIterator
 {
 public:
     TQLayoutIterator( TQGLayoutIterator *i ) : it( i ) { }
@@ -101,7 +101,7 @@ private:
     TQGLayoutIterator *it;
 };
 
-class Q_EXPORT TQLayoutItem
+class TQ_EXPORT TQLayoutItem
 {
 public:
     TQLayoutItem( int alignment = 0 ) : align( alignment ) { }
@@ -130,7 +130,7 @@ protected:
     int align;
 };
 
-class Q_EXPORT TQSpacerItem : public TQLayoutItem
+class TQ_EXPORT TQSpacerItem : public TQLayoutItem
 {
 public:
     TQSpacerItem( int w, int h,
@@ -156,7 +156,7 @@ private:
     TQRect rect;
 };
 
-class Q_EXPORT TQWidgetItem : public TQLayoutItem
+class TQ_EXPORT TQWidgetItem : public TQLayoutItem
 {
 public:
     TQWidgetItem( TQWidget *w ) : wid( w ) { }
@@ -176,7 +176,7 @@ private:
     TQWidget *wid;
 };
 
-class Q_EXPORT TQLayout : public TQObject, public TQLayoutItem
+class TQ_EXPORT TQLayout : public TQObject, public TQLayoutItem
 {
     TQ_OBJECT
     TQ_ENUMS( ResizeMode )
@@ -207,7 +207,7 @@ public:
     void setResizeMode( ResizeMode );
     ResizeMode resizeMode() const;
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     virtual void setMenuBar( TQMenuBar *w );
     TQMenuBar *menuBar() const { return menubar; }
 #endif
@@ -270,7 +270,7 @@ private:
     uint autoResizeMode : 1;
     TQRect rect;
     TQLayoutData *extraData;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     TQMenuBar *menubar;
 #endif
 
@@ -288,7 +288,7 @@ inline void TQLayoutIterator::deleteCurrent()
     delete takeCurrent();
 }
 
-class Q_EXPORT TQGridLayout : public TQLayout
+class TQ_EXPORT TQGridLayout : public TQLayout
 {
     TQ_OBJECT
 public:
@@ -365,7 +365,7 @@ private:
 class TQBoxLayoutData;
 class TQDockWindow;
 
-class Q_EXPORT TQBoxLayout : public TQLayout
+class TQ_EXPORT TQBoxLayout : public TQLayout
 {
     TQ_OBJECT
 public:
@@ -431,7 +431,7 @@ private:
     TQBoxLayout *createTmpCopy();
 };
 
-class Q_EXPORT TQHBoxLayout : public TQBoxLayout
+class TQ_EXPORT TQHBoxLayout : public TQBoxLayout
 {
     TQ_OBJECT
 public:
@@ -450,7 +450,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-class Q_EXPORT TQVBoxLayout : public TQBoxLayout
+class TQ_EXPORT TQVBoxLayout : public TQBoxLayout
 {
     TQ_OBJECT
 public:
@@ -469,5 +469,5 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_LAYOUT
+#endif // TQT_NO_LAYOUT
 #endif // TQLAYOUT_H

@@ -44,18 +44,16 @@ mac {
     RC_FILE = linguist.icns
 }
 
-PROJECTNAME	= Qt Linguist
+PROJECTNAME	= TQt Linguist
 
 target.path=$$bins.path
-INSTALLS	+= target
 
 linguisttranslations.files = *.qm
 linguisttranslations.path = $$translations.path
-INSTALLS += linguisttranslations
 
 phrasebooks.path=$$data.path/phrasebooks
 phrasebooks.files = ../phrasebooks/*
-INSTALLS += phrasebooks
+
 FORMS	= about.ui \
 	statistics.ui
 IMAGES	= images/accelerator.png \
@@ -107,3 +105,13 @@ IMAGES	= images/accelerator.png \
 	images/undo.png \
 	images/whatsthis.xpm
 INCLUDEPATH	+= ../shared
+
+desktop.path = $$share.path/applications
+desktop.files = tqlinguist.desktop
+
+system( cp images/appicon.png tqlinguist.png ) 
+
+icon.path = $$share.path/pixmaps
+icon.files = tqlinguist.png
+
+INSTALLS += target linguisttranslations phrasebooks desktop icon

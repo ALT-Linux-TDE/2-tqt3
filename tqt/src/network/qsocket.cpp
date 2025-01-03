@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqsocket.h"
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 #include "ntqptrlist.h"
 #include "ntqtimer.h"
 #include "ntqsocketdevice.h"
@@ -133,7 +133,7 @@ public:
     TQValueList<TQHostAddress> addresses;		// alternatives looked up
     TQIODevice::Offset	wsize;			// write total buf size
     TQIODevice::Offset	windex;			// write index
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
     TQDns	       *dns4;
     TQDns	       *dns6;
 #endif
@@ -148,7 +148,7 @@ TQSocketPrivate::TQSocketPrivate()
     : state(TQSocket::Idle), host(TQString::fromLatin1("")), port(0),
       socket(0), rsn(0), wsn(0), readBufferSize(0), wsize(0), windex(0)
 {
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
     dns4 = 0;
     dns6 = 0;
 #endif
@@ -159,7 +159,7 @@ TQSocketPrivate::~TQSocketPrivate()
 {
     close();
     delete socket;
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
     delete dns4;
     delete dns6;
 #endif
@@ -217,9 +217,9 @@ void TQSocketPrivate::setSocketDevice( TQSocket *q, TQSocketDevice *device )
     wsn = new TQSocketNotifier( socket->socket(),
 			       TQSocketNotifier::Write, q, "write" );
 
-    TQObject::connect( rsn, SIGNAL(activated(int)), q, SLOT(sn_read()) );
+    TQObject::connect( rsn, TQ_SIGNAL(activated(int)), q, TQ_SLOT(sn_read()) );
     rsn->setEnabled( FALSE );
-    TQObject::connect( wsn, SIGNAL(activated(int)), q, SLOT(sn_write()) );
+    TQObject::connect( wsn, TQ_SIGNAL(activated(int)), q, TQ_SLOT(sn_write()) );
     wsn->setEnabled( FALSE );
 }
 
@@ -388,7 +388,7 @@ TQSocket::State TQSocket::state() const
 }
 
 
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
 
 /*!
     Attempts to make a connection to \a host on the specified \a port
@@ -424,10 +424,10 @@ void TQSocket::connectToHost( const TQString &host, TQ_UINT16 port )
     // try if the address is already available (for faster connecting...)
     tryConnecting();
     if ( d->state == HostLookup ) {
-	connect( d->dns4, SIGNAL(resultsReady()),
-		 this, SLOT(tryConnecting()) );
-	connect( d->dns6, SIGNAL(resultsReady()),
-		 this, SLOT(tryConnecting()) );
+	connect( d->dns4, TQ_SIGNAL(resultsReady()),
+		 this, TQ_SLOT(tryConnecting()) );
+	connect( d->dns6, TQ_SIGNAL(resultsReady()),
+		 this, TQ_SLOT(tryConnecting()) );
     }
 }
 
@@ -446,7 +446,7 @@ void TQSocket::tryConnecting()
 #endif
     // ### this ifdef isn't correct - addresses() also does /etc/hosts and
     // numeric-address-as-string handling.
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
 
     if ( d->dns4 ) {
 	d->l4 = d->dns4->addresses();
@@ -1364,7 +1364,7 @@ void TQSocket::tryConnection()
 	emit connected();
     } else {
 	d->state = Idle;
-	TQTimer::singleShot( 0, this, SLOT(emitErrorConnectionRefused()) );
+	TQTimer::singleShot( 0, this, TQ_SLOT(emitErrorConnectionRefused()) );
 	return;
     }
 }
@@ -1430,7 +1430,7 @@ void TQSocket::setSocketIntern( int socket )
     // hm... this is not very nice.
     d->host = TQString::null;
     d->port = 0;
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
     delete d->dns4;
     d->dns4 = 0;
     delete d->dns6;
@@ -1543,4 +1543,4 @@ TQ_ULONG TQSocket::readBufferSize() const
     return d->readBufferSize;
 }
 
-#endif //QT_NO_NETWORK
+#endif //TQT_NO_NETWORK

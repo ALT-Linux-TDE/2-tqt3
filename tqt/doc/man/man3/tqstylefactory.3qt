@@ -12,7 +12,7 @@ QStyleFactory \- Creates QStyle objects
 \fC#include <ntqstylefactory.h>\fR
 .PP
 .SS "Static Public Members"
-<li class=fn>QStringList \fBkeys\fR () <li class=fn>QStyle * \fBcreate\fR ( const QString & key )
+<li class=fn>QStringList \fBkeys\fR () <li class=fn>QStyle * \fBcreate\fR ( const TQString & key )
 .SH DESCRIPTION
 The QStyleFactory class creates QStyle objects.
 .PP
@@ -22,7 +22,7 @@ The styles are either built-in or dynamically loaded from a style plugin (see QS
 .PP
 QStyleFactory::keys() returns a list of valid keys, typically including "Windows", "Motif", "CDE", "MotifPlus", "Platinum"," SGI" and "Compact". Depending on the platform, "WindowsXP"," Aqua" or "Macintosh" may be available.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStyle * QStyleFactory::create ( const QString & key )\fC [static]\fR"
+.SH "QStyle * QStyleFactory::create ( const TQString & key )\fC [static]\fR"
 Creates a QStyle object that matches \fIkey\fR case-insensitively. This is either a built-in style, or a style from a style plugin.
 .PP
 See also keys().
@@ -49,8 +49,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -45,11 +45,11 @@
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_LIBRARY
+#ifndef TQT_NO_LIBRARY
 
 class TQLibraryPrivate;
 
-class Q_EXPORT TQLibrary
+class TQ_EXPORT TQLibrary
 {
 public:
     TQLibrary( const TQString& filename );
@@ -82,5 +82,5 @@ private:	// Disabled copy constructor and operator=
 
 #define Q_DEFINED_QLIBRARY
 #include "ntqwinexport.h"
-#endif //QT_NO_LIBRARY
+#endif //TQT_NO_LIBRARY
 #endif //TQLIBRARY_H

@@ -45,14 +45,14 @@
 #include "ntqglobal.h"
 #endif // QT_H
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
 class TQMutexPrivate;
 
 const int Q_MUTEX_NORMAL = 0;
 const int Q_MUTEX_RECURSIVE = 1;
 
-class Q_EXPORT TQMutex
+class TQ_EXPORT TQMutex
 {
     friend class TQThread;
     friend class TQWaitCondition;
@@ -79,7 +79,7 @@ public:
     int level();
 };
 
-class Q_EXPORT TQMutexLocker
+class TQ_EXPORT TQMutexLocker
 {
 public:
     TQMutexLocker( TQMutex * );

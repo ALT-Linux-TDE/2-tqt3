@@ -45,9 +45,9 @@
 #include "ntqbuttongroup.h"
 #endif // QT_H
 
-#ifndef QT_NO_VBUTTONGROUP
+#ifndef TQT_NO_VBUTTONGROUP
 
-class Q_EXPORT TQVButtonGroup : public TQButtonGroup
+class TQ_EXPORT TQVButtonGroup : public TQButtonGroup
 {
     TQ_OBJECT
 public:
@@ -64,6 +64,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_VBUTTONGROUP
+#endif // TQT_NO_VBUTTONGROUP
 
 #endif // TQVBUTTONGROUP_H

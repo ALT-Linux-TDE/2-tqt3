@@ -69,9 +69,9 @@ class TQSocketNotifier;
 class TQMacSockNotPrivate;
 #endif
 
-#if defined(Q_OS_UNIX) || defined (Q_WS_WIN)
+#if defined(Q_OS_UNIX) || defined (TQ_WS_WIN)
 #include "ntqptrlist.h"
-#endif // Q_OS_UNIX || Q_WS_WIN
+#endif // Q_OS_UNIX || TQ_WS_WIN
 
 #if defined(Q_OS_UNIX)
 struct TQSockNot
@@ -95,12 +95,12 @@ public:
 };
 #endif // Q_OS_UNIX
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 struct TQSockNot {
     TQSocketNotifier *obj;
     int fd;
 };
-#endif // Q_WS_WIN
+#endif // TQ_WS_WIN
 
 class TQEventLoopPrivate
 {
@@ -124,14 +124,14 @@ public:
     unsigned int exitloop : 1;
     unsigned int shortcut : 1;
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     uchar        next_select_timer;
     EventLoopTimerRef select_timer;
 #endif
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     int xfd;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 #if defined(Q_OS_UNIX)
     int thread_pipe[2];
@@ -144,10 +144,10 @@ public:
     TQSockNotType sn_vec[3];
 #endif
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     // pending socket notifiers list
     TQPtrList<TQSockNot> sn_pending_list;
-#endif // Q_WS_WIN
+#endif // TQ_WS_WIN
 
 };
 

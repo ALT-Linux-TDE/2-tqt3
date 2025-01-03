@@ -48,7 +48,7 @@
 #include <stdio.h>
 #include <ntqtextcodec.h>
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #define INDEX_CHECK( text ) if( i+1 >= argc ) { TQMessageBox::information( 0, "TQt Assistant", text ); return 1; }
 #else
 #define INDEX_CHECK( text ) if( i+1 >= argc ) { fprintf( stderr, text "\n" ); return 1; }
@@ -92,10 +92,10 @@ private:
 AssistantSocket::AssistantSocket( int sock, TQObject *parent )
     : TQSocket( parent, 0 )
 {
-    connect( this, SIGNAL( readyRead() ),
-	     SLOT( readClient() ) );
-    connect( this, SIGNAL( connectionClosed() ),
-	     SLOT( connectionClosed() ) );
+    connect( this, TQ_SIGNAL( readyRead() ),
+	     TQ_SLOT( readClient() ) );
+    connect( this, TQ_SIGNAL( connectionClosed() ),
+	     TQ_SLOT( connectionClosed() ) );
     setSocket( sock );
 }
 
@@ -135,8 +135,8 @@ TQ_UINT16 AssistantServer::getPort() const
 void AssistantServer::newConnection( int socket )
 {
     AssistantSocket *as = new AssistantSocket( socket, this );
-    connect( as, SIGNAL( showLinkRequest( const TQString& ) ),
-	     this, SIGNAL( showLinkRequest( const TQString& ) ) );
+    connect( as, TQ_SIGNAL( showLinkRequest( const TQString& ) ),
+	     this, TQ_SIGNAL( showLinkRequest( const TQString& ) ) );
     emit newConnect();
 }
 
@@ -148,7 +148,7 @@ int main( int argc, char ** argv )
 	arg = arg.lower();
 	if ( arg == "-addcontentfile"
 	    || arg == "-removecontentfile"
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 	    || arg == "-help"
 #endif
 	    )
@@ -267,7 +267,7 @@ int main( int argc, char ** argv )
 				  " -resourceDir               assistant will load translations from\n"
                   "                            this directory.\n"
 				  " -help                      shows this help.");
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 		TQMessageBox::information( 0, "TQt Assistant", "<pre>" + helpText + "</pre>" );
 #else
 		printf( "%s\n", helpText.latin1() );
@@ -318,8 +318,8 @@ int main( int argc, char ** argv )
 	as = new AssistantServer();
 	printf("%d\n", as->port() );
 	fflush( stdout );
-	as->connect( as, SIGNAL( showLinkRequest( const TQString& ) ),
-		     mw, SLOT( showLinkFromClient( const TQString& ) ) );
+	as->connect( as, TQ_SIGNAL( showLinkRequest( const TQString& ) ),
+		     mw, TQ_SLOT( showLinkFromClient( const TQString& ) ) );
     }
 
     if ( max )
@@ -332,7 +332,7 @@ int main( int argc, char ** argv )
     else if ( file.isEmpty() )
 	mw->showLinks( links );
 
-    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
+    a.connect( &a, TQ_SIGNAL( lastWindowClosed() ), &a, TQ_SLOT( quit() ) );
 
     int appExec = a.exec();
     delete (MainWindow*)mw;

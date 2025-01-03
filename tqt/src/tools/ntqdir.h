@@ -48,14 +48,14 @@
 #endif // QT_H
 
 
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 typedef TQPtrList<TQFileInfo> TQFileInfoList;
 typedef TQPtrListIterator<TQFileInfo> TQFileInfoListIterator;
 class TQStringList;
 template <class T> class TQDeepCopy;
 
 
-class Q_EXPORT TQDir
+class TQ_EXPORT TQDir
 {
 public:
     enum FilterSpec { Dirs	    = 0x001,
@@ -246,5 +246,5 @@ struct TQDirSortItem {
     TQFileInfo* item;
 };
 
-#endif // QT_NO_DIR
+#endif // TQT_NO_DIR
 #endif // TQDIR_H

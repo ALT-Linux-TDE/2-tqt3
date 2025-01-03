@@ -47,12 +47,12 @@
 #include "ntqwidget.h"
 #endif // QT_H
 
-#if !defined(QT_NO_STYLE_SGI) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_SGI) || defined(QT_PLUGIN)
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_STYLE_SGI
 #else
-#define Q_EXPORT_STYLE_SGI Q_EXPORT
+#define Q_EXPORT_STYLE_SGI TQ_EXPORT
 #endif
 
 class TQSGIStylePrivate;
@@ -139,6 +139,6 @@ private:
 
 };
 
-#endif // QT_NO_STYLE_SGI
+#endif // TQT_NO_STYLE_SGI
 
 #endif // TQSGISTYLE_H

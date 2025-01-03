@@ -46,10 +46,10 @@ Inherits QPaintDevice.
 .BI "enum \fBPrinterOption\fR { PrintToFile, PrintSelection, PrintPageRange }"
 .br
 .ti -1c
-.BI "QString \fBprinterName\fR () const"
+.BI "TQString \fBprinterName\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetPrinterName\fR ( const QString & name )"
+.BI "virtual void \fBsetPrinterName\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "bool \fBoutputToFile\fR () const"
@@ -58,34 +58,34 @@ Inherits QPaintDevice.
 .BI "virtual void \fBsetOutputToFile\fR ( bool enable )"
 .br
 .ti -1c
-.BI "QString \fBoutputFileName\fR () const"
+.BI "TQString \fBoutputFileName\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetOutputFileName\fR ( const QString & fileName )"
+.BI "virtual void \fBsetOutputFileName\fR ( const TQString & fileName )"
 .br
 .ti -1c
-.BI "QString \fBprintProgram\fR () const"
+.BI "TQString \fBprintProgram\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetPrintProgram\fR ( const QString & printProg )"
+.BI "virtual void \fBsetPrintProgram\fR ( const TQString & printProg )"
 .br
 .ti -1c
-.BI "QString \fBprinterSelectionOption\fR () const"
+.BI "TQString \fBprinterSelectionOption\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetPrinterSelectionOption\fR ( const QString & option )"
+.BI "virtual void \fBsetPrinterSelectionOption\fR ( const TQString & option )"
 .br
 .ti -1c
-.BI "QString \fBdocName\fR () const"
+.BI "TQString \fBdocName\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetDocName\fR ( const QString & name )"
+.BI "virtual void \fBsetDocName\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "QString \fBcreator\fR () const"
+.BI "TQString \fBcreator\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetCreator\fR ( const QString & creator )"
+.BI "virtual void \fBsetCreator\fR ( const TQString & creator )"
 .br
 .ti -1c
 .BI "Orientation \fBorientation\fR () const"
@@ -178,7 +178,7 @@ Inherits QPaintDevice.
 .BI "bool \fBaborted\fR () const"
 .br
 .ti -1c
-.BI "bool \fBsetup\fR ( QWidget * parent = 0 )"
+.BI "bool \fBsetup\fR ( TQWidget * parent = 0 )"
 .br
 .ti -1c
 .BI "PaperSource \fBpaperSource\fR () const"
@@ -198,7 +198,7 @@ The QPrinter class is a paint device that paints on a printer.
 .PP
 On Windows it uses the built-in printer drivers. On X11 it generates postscript and sends that to lpr, lp, or another print command.
 .PP
-QPrinter is used in much the same way as QWidget and QPixmap are used. The big difference is that you must keep track of the pages.
+QPrinter is used in much the same way as TQWidget and QPixmap are used. The big difference is that you must keep track of the pages.
 .PP
 QPrinter supports a number of settable parameters, most of which can be changed by the end user when the application calls QPrinter::setup().
 .PP
@@ -224,7 +224,7 @@ There are also some settings that the user sets (through the printer dialog) and
 pageOrder() tells the application program whether to print first-page-first or last-page-first.
 .IP
 .TP
-colorMode() tells the application program whether to print in color or grayscale. (If you print in color and the printer does not support color, Qt will try to approximate. The document may take longer to print, but the quality should not be made visibly poorer.)
+colorMode() tells the application program whether to print in color or grayscale. (If you print in color and the printer does not support color, TQt will try to approximate. The document may take longer to print, but the quality should not be made visibly poorer.)
 .IP
 .TP
 fromPage() and toPage() indicate what pages the application program should print.
@@ -264,7 +264,7 @@ This enum type is used to indicate whether QPrinter should print in color or not
 .TP
 \fCQPrinter::GrayScale\fR - print in grayscale, even on color printers. Might be a little faster than Color. This is the default.
 .SH "QPrinter::Orientation"
-This enum type (not to be confused with Qt::Orientation) is used to specify each page's orientation.
+This enum type (not to be confused with TQt::Orientation) is used to specify each page's orientation.
 .TP
 \fCQPrinter::Portrait\fR - the page's height is greater than its width (the default).
 .TP
@@ -396,7 +396,7 @@ This enum describes the mode the printer should work in. It basically presets a 
 .TP
 \fCQPrinter::HighResolution\fR - Use printer resolution on windows, set the resolution of the postscript driver to 600dpi.
 .TP
-\fCQPrinter::Compatible\fR - Almost the same as PrinterResolution, but keeps some peculiarities of the Qt 2.x printer driver. This is useful for applications ported from Qt 2.x to Qt 3.x.
+\fCQPrinter::Compatible\fR - Almost the same as PrinterResolution, but keeps some peculiarities of the TQt 2.x printer driver. This is useful for applications ported from TQt 2.x to TQt 3.x.
 .SH "QPrinter::PrinterOption"
 This enum describes various printer options that appear in the printer setup dialog. It is used to enable and disable these options in the setup dialog.
 .TP
@@ -426,11 +426,11 @@ See also abort().
 Returns the current color mode. The default color mode is Color.
 .PP
 See also setColorMode().
-.SH "QString QPrinter::creator () const"
+.SH "TQString QPrinter::creator () const"
 Returns the name of the application that created the document.
 .PP
 See also setCreator().
-.SH "QString QPrinter::docName () const"
+.SH "TQString QPrinter::docName () const"
 Returns the document name.
 .PP
 See also setDocName().
@@ -493,7 +493,7 @@ See also setNumCopies().
 Returns the orientation setting. The default value is QPrinter::Portrait.
 .PP
 See also setOrientation().
-.SH "QString QPrinter::outputFileName () const"
+.SH "TQString QPrinter::outputFileName () const"
 Returns the name of the output file. There is no default file name.
 .PP
 See also setOutputFileName() and setOutputToFile().
@@ -519,7 +519,7 @@ See also setPageSize().
 Returns the currently set paper source of the printer.
 .PP
 See also setPaperSource().
-.SH "QString QPrinter::printProgram () const"
+.SH "TQString QPrinter::printProgram () const"
 Returns the name of the program that sends the print output to the printer.
 .PP
 The default is to return a null string; meaning that QPrinter will try to be smart in a system-dependent way. On X11 only, you can set it to something different to use a specific print program.
@@ -531,11 +531,11 @@ See also setPrintProgram() and setPrinterSelectionOption().
 Returns the PageRange of the QPrinter. After the print setup dialog has been opened, this function returns the value selected by the user.
 .PP
 See also setPrintRange().
-.SH "QString QPrinter::printerName () const"
+.SH "TQString QPrinter::printerName () const"
 Returns the printer name. This value is initially set to the name of the default printer.
 .PP
 See also setPrinterName().
-.SH "QString QPrinter::printerSelectionOption () const"
+.SH "TQString QPrinter::printerSelectionOption () const"
 Returns the printer options selection string. This is useful only if the print command has been explicitly set.
 .PP
 The default value (a null string) implies that the printer should be selected in a system-dependent manner.
@@ -551,13 +551,13 @@ See also setResolution().
 Sets the printer's color mode to \fInewColorMode\fR, which can be either Color or GrayScale (the default).
 .PP
 See also colorMode().
-.SH "void QPrinter::setCreator ( const QString & creator )\fC [virtual]\fR"
+.SH "void QPrinter::setCreator ( const TQString & creator )\fC [virtual]\fR"
 Sets the name of the application that created the document to \fIcreator\fR.
 .PP
 This function is only applicable to the X11 version of Qt. If no creator name is specified, the creator will be set to "Qt" followed by some version number.
 .PP
 See also creator().
-.SH "void QPrinter::setDocName ( const QString & name )\fC [virtual]\fR"
+.SH "void QPrinter::setDocName ( const TQString & name )\fC [virtual]\fR"
 Sets the document name to \fIname\fR.
 .SH "void QPrinter::setFromTo ( int fromPage, int toPage )\fC [virtual]\fR"
 Sets the from-page and to-page settings to \fIfromPage\fR and \fItoPage\fR respectively.
@@ -612,7 +612,7 @@ The printer driver reads this setting and prints using the specified orientation
 Windows only! This option can be changed while printing and will take effect from the next call to newPage()
 .PP
 See also orientation().
-.SH "void QPrinter::setOutputFileName ( const QString & fileName )\fC [virtual]\fR"
+.SH "void QPrinter::setOutputFileName ( const TQString & fileName )\fC [virtual]\fR"
 Sets the name of the output file to \fIfileName\fR.
 .PP
 Setting a null or empty name (0 or "") disables output to a file, i.e. calls setOutputToFile(FALSE). Setting a non-empty name enables output to a file, i.e. calls setOutputToFile(TRUE).
@@ -652,7 +652,7 @@ Sets the paper source setting to \fIsource\fR.
 Windows only! This option can be changed while printing and will take effect from the next call to newPage()
 .PP
 See also paperSource().
-.SH "void QPrinter::setPrintProgram ( const QString & printProg )\fC [virtual]\fR"
+.SH "void QPrinter::setPrintProgram ( const TQString & printProg )\fC [virtual]\fR"
 Sets the name of the program that should do the print job to \fIprintProg\fR.
 .PP
 On X11, this function sets the program to call with the PostScript output. On other platforms, it has no effect.
@@ -662,7 +662,7 @@ See also printProgram().
 Sets the default selected page range to be used when the print setup dialog is opened to \fIrange\fR. If the PageRange specified by \fIrange\fR is currently disabled the function does nothing.
 .PP
 See also printRange().
-.SH "void QPrinter::setPrinterName ( const QString & name )\fC [virtual]\fR"
+.SH "void QPrinter::setPrinterName ( const TQString & name )\fC [virtual]\fR"
 Sets the printer name to \fIname\fR.
 .PP
 The default printer will be used if no printer name is set.
@@ -670,8 +670,8 @@ The default printer will be used if no printer name is set.
 Under X11, the \fCPRINTER\fR environment variable defines the default printer. Under any other window system, the window system defines the default printer.
 .PP
 See also printerName().
-.SH "void QPrinter::setPrinterSelectionOption ( const QString & option )\fC [virtual]\fR"
-Sets the printer to use \fIoption\fR to select the printer. \fIoption\fR is null by default (which implies that Qt should be smart enough to guess correctly), but it can be set to other values to use a specific printer selection option.
+.SH "void QPrinter::setPrinterSelectionOption ( const TQString & option )\fC [virtual]\fR"
+Sets the printer to use \fIoption\fR to select the printer. \fIoption\fR is null by default (which implies that TQt should be smart enough to guess correctly), but it can be set to other values to use a specific printer selection option.
 .PP
 If the printer selection option is changed while the printer is active, the current print job may or may not be affected.
 .PP
@@ -688,7 +688,7 @@ This function must be called before setup() to have an effect on all platforms.
 See also resolution() and setPageSize().
 .SH "void QPrinter::setWinPageSize ( short winPageSize )"
 Windows only, using this function is not portable! Sets the windows page size value that is used by the \fCDEVMODE\fR struct. The \fIwinPageSize\fR value must be one of the DMPAPER_ defines from wingdi.h.
-.SH "bool QPrinter::setup ( QWidget * parent = 0 )"
+.SH "bool QPrinter::setup ( TQWidget * parent = 0 )"
 Opens a printer setup dialog, with parent \fIparent\fR, and asks the user to specify which printer they wish to use and what settings it should have.
 .PP
 Returns TRUE if the user pressed "OK" to print, or FALSE if the user canceled the operation.
@@ -722,8 +722,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -913,7 +913,7 @@ bool operator!=( const TQRect &r1, const TQRect &r2 )
 /*****************************************************************************
   TQRect stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQRect
 
@@ -957,4 +957,4 @@ TQDataStream &operator>>( TQDataStream &s, TQRect &r )
     }
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM

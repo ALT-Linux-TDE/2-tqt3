@@ -41,7 +41,7 @@
 #include "ntqapplication.h"
 #include "ntqdatetime.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #  include "ntqthread.h"
 #  include "private/qthreadinstance_p.h"
 #endif
@@ -107,16 +107,18 @@ TQEventLoop::TQEventLoop( TQObject *parent, const char *name )
 #if defined(QT_CHECK_STATE)
     if ( TQApplication::currentEventLoop() )
 	tqFatal( "TQEventLoop: there must be only one event loop object per thread. \nIf this is supposed to be the main GUI event loop, construct it before TQApplication." );
+#ifdef TQT_THREAD_SUPPORT
     if (!TQThread::currentThreadObject()) {
 	tqFatal( "TQEventLoop: this object can only be used in threads constructed via TQThread." );
     }
+#endif // TQT_THREAD_SUPPORT
 #endif // QT_CHECK_STATE
 
     d = new TQEventLoopPrivate;
 
     init();
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQThread* thread = TQThread::currentThreadObject();
     if (thread) {
         if (thread->d) {
@@ -135,7 +137,7 @@ TQEventLoop::~TQEventLoop()
 {
     cleanup();
     delete d;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQThread* thread = TQThread::currentThreadObject();
     if (thread) {
         if (thread->d) {
@@ -415,7 +417,7 @@ void TQEventLoop::processEvents( ProcessEventsFlags flags, int maxTime )
     \sa awake()
 */
 
-#if !defined(Q_WS_X11)
+#if !defined(TQ_WS_X11)
 void TQEventLoop::appStartingUp(){}
 void TQEventLoop::appClosingDown(){}
-#endif // Q_WS_X11
+#endif // TQ_WS_X11

@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqwidget.h"
-#ifndef QT_NO_SCROLLVIEW
+#ifndef TQT_NO_SCROLLVIEW
 #include "ntqscrollbar.h"
 #include "ntqobjectlist.h"
 #include "ntqpainter.h"
@@ -52,7 +52,7 @@
 #include "ntqtimer.h"
 #include "ntqstyle.h"
 #include "ntqlistview.h"
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 # include "qt_mac.h"
 #endif
 
@@ -128,7 +128,7 @@ public:
         clipped_viewport( 0 ),
         flags( vpwflags ),
         vx( 0 ), vy( 0 ), vwidth( 1 ), vheight( 1 ),
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
         autoscroll_timer( parent, "scrollview autoscroll timer" ),
 	drag_autoscroll( TRUE ),
 #endif
@@ -194,7 +194,7 @@ public:
     TQScrollView::ResizePolicy policy;
     TQScrollView::ScrollBarMode  vMode;
     TQScrollView::ScrollBarMode  hMode;
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     TQPoint cpDragStart;
     TQTimer autoscroll_timer;
     int autoscroll_time;
@@ -585,26 +585,26 @@ TQScrollView::TQScrollView( TQWidget *parent, const char *name, WFlags f ) :
     WFlags flags = WResizeNoErase | (f&WPaintClever) | (f&WRepaintNoErase) | (f&WStaticContents);
     d = new TQScrollViewData( this, flags );
 
-#ifndef QT_NO_DRAGANDDROP
-    connect( &d->autoscroll_timer, SIGNAL( timeout() ),
-             this, SLOT( doDragAutoScroll() ) );
+#ifndef TQT_NO_DRAGANDDROP
+    connect( &d->autoscroll_timer, TQ_SIGNAL( timeout() ),
+             this, TQ_SLOT( doDragAutoScroll() ) );
 #endif
 
-    connect( d->hbar, SIGNAL( valueChanged(int) ),
-        this, SLOT( hslide(int) ) );
-    connect( d->vbar, SIGNAL( valueChanged(int) ),
-        this, SLOT( vslide(int) ) );
+    connect( d->hbar, TQ_SIGNAL( valueChanged(int) ),
+        this, TQ_SLOT( hslide(int) ) );
+    connect( d->vbar, TQ_SIGNAL( valueChanged(int) ),
+        this, TQ_SLOT( vslide(int) ) );
 
-    connect( d->hbar, SIGNAL(sliderPressed()), this, SLOT(hbarIsPressed()) );
-    connect( d->hbar, SIGNAL(sliderReleased()), this, SLOT(hbarIsReleased()) );
-    connect( d->vbar, SIGNAL(sliderPressed()), this, SLOT(vbarIsPressed()) );
-    connect( d->vbar, SIGNAL(sliderReleased()), this, SLOT(vbarIsReleased()) );
+    connect( d->hbar, TQ_SIGNAL(sliderPressed()), this, TQ_SLOT(hbarIsPressed()) );
+    connect( d->hbar, TQ_SIGNAL(sliderReleased()), this, TQ_SLOT(hbarIsReleased()) );
+    connect( d->vbar, TQ_SIGNAL(sliderPressed()), this, TQ_SLOT(vbarIsPressed()) );
+    connect( d->vbar, TQ_SIGNAL(sliderReleased()), this, TQ_SLOT(vbarIsReleased()) );
 
 
     d->viewport->installEventFilter( this );
 
-    connect( &d->scrollbar_timer, SIGNAL( timeout() ),
-             this, SLOT( updateScrollBars() ) );
+    connect( &d->scrollbar_timer, TQ_SIGNAL( timeout() ),
+             this, TQ_SLOT( updateScrollBars() ) );
 
     setFrameStyle( TQFrame::StyledPanel | TQFrame::Sunken );
     setLineWidth( style().pixelMetric(TQStyle::PM_DefaultFrameWidth, this) );
@@ -892,7 +892,7 @@ void TQScrollView::updateScrollBars()
         else
             showv = needv;
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 	bool mac_need_scroll = FALSE;
 	if(!parentWidget()) {
 	    mac_need_scroll = TRUE;
@@ -1178,7 +1178,7 @@ void  TQScrollView::mouseMoveEvent( TQMouseEvent *e ) //#### remove for 4.0
 /*!
     \reimp
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQScrollView::wheelEvent( TQWheelEvent *e )
 {
     TQWheelEvent ce( viewport()->mapFromGlobal( e->globalPos() ),
@@ -1515,7 +1515,7 @@ bool TQScrollView::eventFilter( TQObject *obj, TQEvent *e )
 	    if ( ((TQMouseEvent*)e)->isAccepted() )
 		return TRUE;
             break;
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
         case TQEvent::DragEnter:
             viewportDragEnterEvent( (TQDragEnterEvent*)e );
             break;
@@ -1541,7 +1541,7 @@ bool TQScrollView::eventFilter( TQObject *obj, TQEvent *e )
             stopDragAutoScroll();
             viewportDropEvent( (TQDropEvent*)e );
             break;
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
         case TQEvent::ContextMenu:
             viewportContextMenuEvent( (TQContextMenuEvent*)e );
 	    if ( ((TQContextMenuEvent*)e)->isAccepted() )
@@ -1610,7 +1610,7 @@ void TQScrollView::contentsMouseMoveEvent( TQMouseEvent* e )
     e->ignore();
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 /*!
     This event handler is called whenever the TQScrollView receives a
@@ -1648,14 +1648,14 @@ void TQScrollView::contentsDropEvent( TQDropEvent * )
 {
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 /*!
     This event handler is called whenever the TQScrollView receives a
     wheelEvent() in \a{e}: the mouse position is translated to be a
     point on the contents.
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQScrollView::contentsWheelEvent( TQWheelEvent * e )
 {
     e->ignore();
@@ -1789,7 +1789,7 @@ void TQScrollView::viewportMouseMoveEvent( TQMouseEvent* e )
 	e->ignore();
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 /*!\internal
 
@@ -1849,7 +1849,7 @@ void TQScrollView::viewportDropEvent( TQDropEvent* e )
     e->setPoint(contentsToViewport(e->pos()));
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 /*!\internal
 
@@ -1859,7 +1859,7 @@ void TQScrollView::viewportDropEvent( TQDropEvent* e )
 
   \sa TQWidget::wheelEvent()
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQScrollView::viewportWheelEvent( TQWheelEvent* e )
 {
     /*
@@ -2743,7 +2743,7 @@ void TQScrollView::drawContents( TQPainter * )
 {
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 /*!
   \internal
@@ -2827,7 +2827,7 @@ bool TQScrollView::dragAutoScroll() const
     return d->drag_autoscroll;
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 /*!\internal
  */
@@ -2851,4 +2851,4 @@ TQSize TQScrollView::cachedSizeHint() const
     return d->use_cached_size_hint ? d->cachedSizeHint : TQSize();
 }
 
-#endif // QT_NO_SCROLLVIEW
+#endif // TQT_NO_SCROLLVIEW

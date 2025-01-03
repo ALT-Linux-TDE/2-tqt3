@@ -25,10 +25,10 @@ ClientInfo::ClientInfo( TQWidget *parent, const char *name ) :
     edHost->setText( "localhost" );
     edPort->setText( TQString::number( (uint)infoPort ) );
 
-    connect( infoList, SIGNAL(selected(const TQString&)), SLOT(selectItem(const TQString&)) );
-    connect( btnConnect, SIGNAL(clicked()), SLOT(connectToServer()) );
-    connect( btnBack, SIGNAL(clicked()), SLOT(stepBack()) );
-    connect( btnQuit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( infoList, TQ_SIGNAL(selected(const TQString&)), TQ_SLOT(selectItem(const TQString&)) );
+    connect( btnConnect, TQ_SIGNAL(clicked()), TQ_SLOT(connectToServer()) );
+    connect( btnBack, TQ_SIGNAL(clicked()), TQ_SLOT(stepBack()) );
+    connect( btnQuit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 }
 
 
@@ -36,10 +36,10 @@ void ClientInfo::connectToServer()
 {
     delete socket;
     socket = new TQSocket( this );
-    connect( socket, SIGNAL(connected()), SLOT(socketConnected()) );
-    connect( socket, SIGNAL(connectionClosed()), SLOT(socketConnectionClosed()) );
-    connect( socket, SIGNAL(readyRead()), SLOT(socketReadyRead()) );
-    connect( socket, SIGNAL(error(int)), SLOT(socketError(int)) );
+    connect( socket, TQ_SIGNAL(connected()), TQ_SLOT(socketConnected()) );
+    connect( socket, TQ_SIGNAL(connectionClosed()), TQ_SLOT(socketConnectionClosed()) );
+    connect( socket, TQ_SIGNAL(readyRead()), TQ_SLOT(socketReadyRead()) );
+    connect( socket, TQ_SIGNAL(error(int)), TQ_SLOT(socketError(int)) );
 
     socket->connectToHost( edHost->text(), edPort->text().toInt() );
 }

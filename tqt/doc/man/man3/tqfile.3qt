@@ -9,11 +9,11 @@
 .SH NAME
 QFile \- I/O device that operates on files
 .SH SYNOPSIS
-Almost all the functions in this class are reentrant when Qt is built with thread support. The exceptions are \fBsetEncodingFunction\fR(), \fBsetDecodingFunction\fR(), and \fBsetErrorString\fR(). </p>
+Almost all the functions in this class are reentrant when TQt is built with thread support. The exceptions are \fBsetEncodingFunction\fR(), \fBsetDecodingFunction\fR(), and \fBsetErrorString\fR(). </p>
 .PP
 \fC#include <ntqfile.h>\fR
 .PP
-Inherits QIODevice.
+Inherits TQIODevice.
 .PP
 .SS "Public Members"
 .in +1c
@@ -21,22 +21,22 @@ Inherits QIODevice.
 .BI "\fBQFile\fR ()"
 .br
 .ti -1c
-.BI "\fBQFile\fR ( const QString & name )"
+.BI "\fBQFile\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "\fB~QFile\fR ()"
 .br
 .ti -1c
-.BI "QString \fBname\fR () const"
+.BI "TQString \fBname\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetName\fR ( const QString & name )"
+.BI "void \fBsetName\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "typedef QCString (* \fBEncoderFn\fR ) ( const QString & fileName )"
+.BI "typedef QCString (* \fBEncoderFn\fR ) ( const TQString & fileName )"
 .br
 .ti -1c
-.BI "typedef QString (* \fBDecoderFn\fR ) ( const QCString & localfileName )"
+.BI "typedef TQString (* \fBDecoderFn\fR ) ( const QCString & localfileName )"
 .br
 .ti -1c
 .BI "bool \fBexists\fR () const"
@@ -69,7 +69,7 @@ Inherits QIODevice.
 .BI "virtual TQ_LONG \fBreadLine\fR ( char * p, TQ_ULONG maxlen )"
 .br
 .ti -1c
-.BI "TQ_LONG \fBreadLine\fR ( QString & s, TQ_ULONG maxlen )"
+.BI "TQ_LONG \fBreadLine\fR ( TQString & s, TQ_ULONG maxlen )"
 .br
 .ti -1c
 .BI "virtual int \fBgetch\fR ()"
@@ -84,16 +84,16 @@ Inherits QIODevice.
 .BI "int \fBhandle\fR () const"
 .br
 .ti -1c
-.BI "QString \fBerrorString\fR () const"
+.BI "TQString \fBerrorString\fR () const"
 .br
 .in -1c
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QCString \fBencodeName\fR ( const QString & fileName )"
+.BI "QCString \fBencodeName\fR ( const TQString & fileName )"
 .br
 .ti -1c
-.BI "QString \fBdecodeName\fR ( const QCString & localFileName )"
+.BI "TQString \fBdecodeName\fR ( const QCString & localFileName )"
 .br
 .ti -1c
 .BI "void \fBsetEncodingFunction\fR ( EncoderFn f )"
@@ -102,10 +102,10 @@ Inherits QIODevice.
 .BI "void \fBsetDecodingFunction\fR ( DecoderFn f )"
 .br
 .ti -1c
-.BI "bool \fBexists\fR ( const QString & fileName )"
+.BI "bool \fBexists\fR ( const TQString & fileName )"
 .br
 .ti -1c
-.BI "bool \fBremove\fR ( const QString & fileName )"
+.BI "bool \fBremove\fR ( const TQString & fileName )"
 .br
 .in -1c
 .SS "Important Inherited Members"
@@ -117,7 +117,7 @@ Inherits QIODevice.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "void \fBsetErrorString\fR ( const QString & str )"
+.BI "void \fBsetErrorString\fR ( const TQString & str )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -143,7 +143,7 @@ Here is a code fragment that uses QTextStream to read a text file line by line. 
 .br
         QTextStream stream( &file );
 .br
-        QString line;
+        TQString line;
 .br
         int i = 1;
 .br
@@ -198,7 +198,7 @@ This is used by QFile::setEncodingFunction().
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QFile::QFile ()"
 Constructs a QFile with no name.
-.SH "QFile::QFile ( const QString & name )"
+.SH "QFile::QFile ( const TQString & name )"
 Constructs a QFile with a file name \fIname\fR.
 .PP
 See also setName().
@@ -211,7 +211,7 @@ See also size().
 .PP
 Example: distributor/distributor.ui.h.
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 .SH "void QFile::close ()\fC [virtual]\fR"
 Closes an open file.
 .PP
@@ -224,14 +224,14 @@ See also open() and flush().
 Examples:
 .)l chart/chartform_files.cpp, distributor/distributor.ui.h, helpviewer/helpwindow.cpp, mdi/application.cpp, qdir/qdir.cpp, qwerty/qwerty.cpp, and xml/outliner/outlinetree.cpp.
 .PP
-Reimplemented from QIODevice.
-.SH "QString QFile::decodeName ( const QCString & localFileName )\fC [static]\fR"
+Reimplemented from TQIODevice.
+.SH "TQString QFile::decodeName ( const QCString & localFileName )\fC [static]\fR"
 This does the reverse of QFile::encodeName() using \fIlocalFileName\fR.
 .PP
 See also setDecodingFunction().
 .PP
 Example: distributor/distributor.ui.h.
-.SH "QCString QFile::encodeName ( const QString & fileName )\fC [static]\fR"
+.SH "QCString QFile::encodeName ( const TQString & fileName )\fC [static]\fR"
 When you use QFile, QFileInfo, and QDir to access the file system with Qt, you can use Unicode file names. On Unix, these file names are converted to an 8-bit encoding. If you want to do your own file I/O on Unix, you should convert the file name using this function. On Windows NT/2000, Unicode file names are supported directly in the file system and this function should be avoided. On Windows 95, non-Latin1 locales are not supported.
 .PP
 By default, this function converts \fIfileName\fR to the local 8-bit encoding determined by the user's locale. This is sufficient for file names that the user chooses. File names hard-coded into the application should only use 7-bit ASCII filename characters.
@@ -241,10 +241,10 @@ The conversion scheme can be changed using setEncodingFunction(). This might be 
 See also decodeName().
 .PP
 Example: distributor/distributor.ui.h.
-.SH "QString QFile::errorString () const"
-Returns a human-readable description of the reason of an error that occurred on the device. The error described by the string corresponds to changes of QIODevice::status(). If the status is reset, the error string is also reset.
+.SH "TQString QFile::errorString () const"
+Returns a human-readable description of the reason of an error that occurred on the device. The error described by the string corresponds to changes of TQIODevice::status(). If the status is reset, the error string is also reset.
 .PP
-The returned strings are not translated with the QObject::tr() or QApplication::translate() functions. They are marked as translatable strings in the "QFile" context. Before you show the string to the user you should translate it first, for example:
+The returned strings are not translated with the TQObject::tr() or QApplication::translate() functions. They are marked as translatable strings in the "QFile" context. Before you show the string to the user you should translate it first, for example:
 .PP
 .nf
 .br
@@ -268,8 +268,8 @@ The returned strings are not translated with the QObject::tr() or QApplication::
 .br
 .fi
 .PP
-See also QIODevice::status(), QIODevice::resetStatus(), and setErrorString().
-.SH "bool QFile::exists ( const QString & fileName )\fC [static]\fR"
+See also TQIODevice::status(), TQIODevice::resetStatus(), and setErrorString().
+.SH "bool QFile::exists ( const TQString & fileName )\fC [static]\fR"
 Returns TRUE if the file given by \fIfileName\fR exists; otherwise returns FALSE.
 .PP
 Examples:
@@ -285,7 +285,7 @@ Flushes the file buffer to the disk.
 .PP
 close() also flushes the file buffer.
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 .SH "int QFile::getch ()\fC [virtual]\fR"
 Reads a single byte/character from the file.
 .PP
@@ -293,7 +293,7 @@ Returns the byte/character read, or -1 if the end of the file has been reached.
 .PP
 See also putch() and ungetch().
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 .SH "int QFile::handle () const"
 Returns the file handle of the file.
 .PP
@@ -302,7 +302,7 @@ This is a small positive integer, suitable for use with C library functions such
 If the file is not open or there is an error, handle() returns -1.
 .PP
 See also QSocketNotifier.
-.SH "QString QFile::name () const"
+.SH "TQString QFile::name () const"
 Returns the name set by setName().
 .PP
 See also setName() and QFileInfo::fileName().
@@ -351,7 +351,7 @@ See also name(), close(), isOpen(), and flush().
 Examples:
 .)l application/application.cpp, chart/chartform_files.cpp, distributor/distributor.ui.h, helpviewer/helpwindow.cpp, qdir/qdir.cpp, qwerty/qwerty.cpp, and xml/outliner/outlinetree.cpp.
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 .SH "bool QFile::open ( int m, FILE * f )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -382,7 +382,7 @@ Example:
 .PP
 When a QFile is opened using this function, close() does not actually close the file, only flushes it.
 .PP
-\fBWarning:\fR If \fIf\fR is \fCstdin\fR, \fCstdout\fR, \fCstderr\fR, you may not be able to seek. See QIODevice::isSequentialAccess() for more information.
+\fBWarning:\fR If \fIf\fR is \fCstdin\fR, \fCstdout\fR, \fCstderr\fR, you may not be able to seek. See TQIODevice::isSequentialAccess() for more information.
 .PP
 See also close().
 .SH "bool QFile::open ( int m, int f )"
@@ -404,8 +404,8 @@ Returns \fIch\fR, or -1 if some error occurred.
 .PP
 See also getch() and ungetch().
 .PP
-Reimplemented from QIODevice.
-.SH "QByteArray QIODevice::readAll ()\fC [virtual]\fR"
+Reimplemented from TQIODevice.
+.SH "QByteArray TQIODevice::readAll ()\fC [virtual]\fR"
 This convenience function returns all of the remaining data in the device.
 .SH "TQ_LONG QFile::readLine ( char * p, TQ_ULONG maxlen )\fC [virtual]\fR"
 Reads a line of text.
@@ -416,8 +416,8 @@ This function is only efficient for buffered files. Avoid readLine() for files t
 .PP
 See also readBlock() and QTextStream::readLine().
 .PP
-Reimplemented from QIODevice.
-.SH "TQ_LONG QFile::readLine ( QString & s, TQ_ULONG maxlen )"
+Reimplemented from TQIODevice.
+.SH "TQ_LONG QFile::readLine ( TQString & s, TQ_ULONG maxlen )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Reads a line of text.
@@ -433,7 +433,7 @@ See also readBlock() and QTextStream::readLine().
 Removes the file specified by the file name currently set. Returns TRUE if successful; otherwise returns FALSE.
 .PP
 The file is closed before it is removed.
-.SH "bool QFile::remove ( const QString & fileName )\fC [static]\fR"
+.SH "bool QFile::remove ( const TQString & fileName )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Removes the file \fIfileName\fR. Returns TRUE if successful, otherwise FALSE.
@@ -449,13 +449,13 @@ See also encodeName() and decodeName().
 Sets the function for encoding Unicode file names to \fIf\fR. The default encodes in the locale-specific 8-bit encoding.
 .PP
 See also encodeName().
-.SH "void QFile::setErrorString ( const QString & str )\fC [protected]\fR"
+.SH "void QFile::setErrorString ( const TQString & str )\fC [protected]\fR"
 \fBWarning:\fR This function is \fInot\fR reentrant.</p>
 .PP
 Sets the error string returned by the errorString() function to \fIstr\fR.
 .PP
-See also errorString() and QIODevice::status().
-.SH "void QFile::setName ( const QString & name )"
+See also errorString() and TQIODevice::status().
+.SH "void QFile::setName ( const TQString & name )"
 Sets the name of the file to \fIname\fR. The name can have no path, a relative path or an absolute absolute path.
 .PP
 Do not call this function if the file has already been opened.
@@ -488,7 +488,7 @@ See also at().
 .PP
 Example: table/statistics/statistics.cpp.
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 .SH "int QFile::ungetch ( int ch )\fC [virtual]\fR"
 Puts the character \fIch\fR back into the file and decrements the index if it is not zero.
 .PP
@@ -498,7 +498,7 @@ Returns \fIch\fR, or -1 if an error occurred.
 .PP
 See also getch() and putch().
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 
 .SH "SEE ALSO"
 .BR http://doc.trolltech.com/ntqfile.html
@@ -514,8 +514,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

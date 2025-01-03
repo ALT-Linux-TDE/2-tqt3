@@ -10,9 +10,9 @@
 RemoteCtrlImpl::RemoteCtrlImpl( TQSocket *s )
 {
     socket = s;
-    connect( sImage, SIGNAL(clicked()), SLOT(sendImage()) );
-    connect( sText, SIGNAL(clicked()), SLOT(sendText()) );
-    connect( sPalette, SIGNAL(clicked()), SLOT(sendPalette()) );
+    connect( sImage, TQ_SIGNAL(clicked()), TQ_SLOT(sendImage()) );
+    connect( sText, TQ_SIGNAL(clicked()), TQ_SLOT(sendText()) );
+    connect( sPalette, TQ_SIGNAL(clicked()), TQ_SLOT(sendPalette()) );
 }
 
 void RemoteCtrlImpl::sendPacket( const TQVariant &v )

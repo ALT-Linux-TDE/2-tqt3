@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqworkspace.h"
-#ifndef QT_NO_WORKSPACE
+#ifndef TQT_NO_WORKSPACE
 #include "ntqapplication.h"
 #include "../widgets/qtitlebar_p.h"
 #include "ntqobjectlist.h"
@@ -297,13 +297,13 @@ TQWorkspace::init()
     d->px = 0;
     d->py = 0;
     d->becomeActive = 0;
-#if defined( QT_WORKSPACE_WINDOWMODE ) && defined( Q_WS_MAC )
+#if defined( QT_WORKSPACE_WINDOWMODE ) && defined( TQ_WS_MAC )
     d->wmode = AutoDetect;
 #else
     d->wmode = MDI;
 #endif
     d->mainwindow = 0;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     d->popup = new TQPopupMenu( this, "qt_internal_mdi_popup" );
     d->toolPopup = new TQPopupMenu( this, "qt_internal_mdi_popup" );
 #else
@@ -313,8 +313,8 @@ TQWorkspace::init()
 
     d->menuId = -1;
     d->controlId = -1;
-    connect( d->popup, SIGNAL( aboutToShow() ), this, SLOT(operationMenuAboutToShow() ));
-    connect( d->popup, SIGNAL( activated(int) ), this, SLOT( operationMenuActivated(int) ) );
+    connect( d->popup, TQ_SIGNAL( aboutToShow() ), this, TQ_SLOT(operationMenuAboutToShow() ));
+    connect( d->popup, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( operationMenuActivated(int) ) );
     d->popup->insertItem(TQIconSet(style().stylePixmap(TQStyle::SP_TitleBarNormalButton)), tr("&Restore"), 1);
     d->popup->insertItem(tr("&Move"), 2);
     d->popup->insertItem(tr("&Size"), 3);
@@ -323,13 +323,13 @@ TQWorkspace::init()
     d->popup->insertSeparator();
     d->popup->insertItem(TQIconSet(style().stylePixmap(TQStyle::SP_TitleBarCloseButton)),
 				  tr("&Close")
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 					+"\t"+TQAccel::keyToString(CTRL+Key_F4)
 #endif
-		    , this, SLOT( closeActiveWindow() ) );
+		    , this, TQ_SLOT( closeActiveWindow() ) );
 
-    connect( d->toolPopup, SIGNAL( aboutToShow() ), this, SLOT(toolMenuAboutToShow() ));
-    connect( d->toolPopup, SIGNAL( activated(int) ), this, SLOT( operationMenuActivated(int) ) );
+    connect( d->toolPopup, TQ_SIGNAL( aboutToShow() ), this, TQ_SLOT(toolMenuAboutToShow() ));
+    connect( d->toolPopup, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( operationMenuActivated(int) ) );
     d->toolPopup->insertItem(tr("&Move"), 2);
     d->toolPopup->insertItem(tr("&Size"), 3);
     d->toolPopup->insertItem(tr("Stay on &Top"), 7);
@@ -339,38 +339,38 @@ TQWorkspace::init()
     d->toolPopup->insertItem(TQIconSet(style().stylePixmap(TQStyle::SP_TitleBarShadeButton)), tr("Sh&ade"), 6);
     d->toolPopup->insertItem(TQIconSet(style().stylePixmap(TQStyle::SP_TitleBarCloseButton)),
 				      tr("&Close")
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 					+"\t"+TQAccel::keyToString( CTRL+Key_F4)
 #endif
-		, this, SLOT( closeActiveWindow() ) );
+		, this, TQ_SLOT( closeActiveWindow() ) );
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQAccel* a = new TQAccel( this );
     a->connectItem( a->insertItem( ALT + Key_Minus),
-		    this, SLOT( showOperationMenu() ) );
+		    this, TQ_SLOT( showOperationMenu() ) );
 
     a->connectItem( a->insertItem( CTRL + Key_F6),
-		    this, SLOT( activateNextWindow() ) );
+		    this, TQ_SLOT( activateNextWindow() ) );
     a->connectItem( a->insertItem( CTRL + Key_Tab),
-		    this, SLOT( activateNextWindow() ) );
+		    this, TQ_SLOT( activateNextWindow() ) );
     a->connectItem( a->insertItem( Key_Forward ),
-		    this, SLOT( activateNextWindow() ) );
+		    this, TQ_SLOT( activateNextWindow() ) );
 
     a->connectItem( a->insertItem( CTRL + SHIFT + Key_F6),
-		    this, SLOT( activatePreviousWindow() ) );
+		    this, TQ_SLOT( activatePreviousWindow() ) );
     a->connectItem( a->insertItem( CTRL + SHIFT + Key_Tab),
-		    this, SLOT( activatePreviousWindow() ) );
+		    this, TQ_SLOT( activatePreviousWindow() ) );
     a->connectItem( a->insertItem( Key_Back ),
-		    this, SLOT( activatePreviousWindow() ) );
+		    this, TQ_SLOT( activatePreviousWindow() ) );
 
     a->connectItem( a->insertItem( CTRL + Key_F4 ),
-		    this, SLOT( closeActiveWindow() ) );
+		    this, TQ_SLOT( closeActiveWindow() ) );
 #endif
 
     setBackgroundMode( PaletteDark );
     setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding ) );
 
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     d->topCaption = topLevelWidget()->caption();
 #endif
 
@@ -434,10 +434,10 @@ void TQWorkspace::childEvent( TQChildEvent * e)
 	TQWorkspaceChild* child = new TQWorkspaceChild( w, this, "qt_workspacechild" );
 	child->installEventFilter( this );
 
-	connect( child, SIGNAL( popupOperationMenu(const TQPoint&) ),
-		 this, SLOT( popupOperationMenu(const TQPoint&) ) );
-	connect( child, SIGNAL( showOperationMenu() ),
-		 this, SLOT( showOperationMenu() ) );
+	connect( child, TQ_SIGNAL( popupOperationMenu(const TQPoint&) ),
+		 this, TQ_SLOT( popupOperationMenu(const TQPoint&) ) );
+	connect( child, TQ_SIGNAL( showOperationMenu() ),
+		 this, TQ_SLOT( showOperationMenu() ) );
 	d->windows.append( child );
 	if ( child->isVisibleTo( this ) )
 	    d->focus.append( child );
@@ -478,7 +478,7 @@ void TQWorkspace::childEvent( TQChildEvent * e)
 
 /*! \reimp
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQWorkspace::wheelEvent( TQWheelEvent *e )
 {
     if ( !scrollBarsEnabled() )
@@ -537,7 +537,7 @@ void TQWorkspace::activateWindow( TQWidget* w, bool change_focus )
 	 !d->active->windowWidget()->testWFlags( WStyle_Tool ) ) {
         d->active->showMaximized();
 	if ( d->maxtools ) {
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	    if ( w->icon() ) {
 		TQPixmap pm(*w->icon());
 		int iconSize = d->maxtools->size().height();
@@ -857,7 +857,7 @@ void TQWorkspace::handleUndock(TQDockWindow *w)
 		while(d->dockwindows.remove(o));
 		d->newdocks.append(o);
 		if(d->newdocks.count() == 1)
-		    TQTimer::singleShot(0, this, SLOT(dockWindowsShow()));
+		    TQTimer::singleShot(0, this, TQ_SLOT(dockWindowsShow()));
 		break;
 	    }
 
@@ -992,7 +992,7 @@ void TQWorkspace::showEvent( TQShowEvent *e )
 			dw->setResizeEnabled(TRUE);
 			dw->setCloseMode( TQDockWindow::Always );
 			dw->setResizeEnabled(FALSE);
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 			dw->setCaption(o->caption());
 #endif
 			TQSize os(w->size());
@@ -1027,7 +1027,7 @@ void TQWorkspace::showEvent( TQShowEvent *e )
 	TQWidget *w = new TQWidget(NULL, "TQDoesNotExist",
 				 WType_Dialog | WStyle_Customize | WStyle_NoBorder);
 //	if(tqApp->mainWidget() == o)
-//	    TQObject::connect(tqApp, SIGNAL(lastWindowClosed()), tqApp, SLOT(quit()));
+//	    TQObject::connect(tqApp, TQ_SIGNAL(lastWindowClosed()), tqApp, TQ_SLOT(quit()));
 	TQDesktopWidget *dw = TQApplication::desktop();
 	w->setGeometry(dw->availableGeometry(dw->screenNumber(o)));
 	o->reparent(w, TQPoint(0, 0), TRUE);
@@ -1099,7 +1099,7 @@ void TQWorkspace::minimizeWindow( TQWidget* w)
 	    wasMax = TRUE;
 	    d->maxWindow = 0;
 	    inCaptionChange = TRUE;
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	    if ( !!d->topCaption )
 		topLevelWidget()->setCaption( d->topCaption );
 #endif
@@ -1154,7 +1154,7 @@ void TQWorkspace::normalizeWindow( TQWidget* w)
 	if ( c == d->maxWindow ) {
 	    c->setGeometry( d->maxRestore );
 	    d->maxWindow = 0;
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	    inCaptionChange = TRUE;
 	    if ( !!d->topCaption )
 		topLevelWidget()->setCaption( d->topCaption );
@@ -1215,7 +1215,7 @@ void TQWorkspace::maximizeWindow( TQWidget* w)
 	    if ( c->titlebar )
 		c->titlebar->setMovable( FALSE );
 	}
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	inCaptionChange = TRUE;
 	if ( !!d->topCaption )
 	    topLevelWidget()->setCaption( tr("%1 - [%2]")
@@ -1326,7 +1326,7 @@ bool TQWorkspace::eventFilter( TQObject *o, TQEvent * e)
 		else
 		    d->newdocks.append(w);
 		if(d->newdocks.count() == 1)
-		    TQTimer::singleShot(0, this, SLOT(dockWindowsShow()));
+		    TQTimer::singleShot(0, this, TQ_SLOT(dockWindowsShow()));
 	    }
 	} else if(e->type() == TQEvent::Hide && !e->spontaneous() && !tqstrncmp(o->name(), "TQMagicDock_", 11)) {
 //	    d->mainwindow->close();
@@ -1336,7 +1336,7 @@ bool TQWorkspace::eventFilter( TQObject *o, TQEvent * e)
 
     static TQTime* t = 0;
     static TQWorkspace* tc = 0;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( o == d->maxtools && d->menuId != -1 ) {
 	switch ( e->type() ) {
 	case TQEvent::MouseButtonPress:
@@ -1406,7 +1406,7 @@ bool TQWorkspace::eventFilter( TQObject *o, TQEvent * e)
 		} else {
 		    hideMaximizeControls();
 		}
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 		inCaptionChange = TRUE;
 		if ( !!d->topCaption )
 		    topLevelWidget()->setCaption( d->topCaption );
@@ -1425,7 +1425,7 @@ bool TQWorkspace::eventFilter( TQObject *o, TQEvent * e)
 	if ( inCaptionChange )
 	    break;
 
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	inCaptionChange = TRUE;
 	if ( o == topLevelWidget() ) {
 	    TQWidget *tlw = (TQWidget*)o;
@@ -1464,7 +1464,7 @@ bool TQWorkspace::eventFilter( TQObject *o, TQEvent * e)
 
 void TQWorkspace::showMaximizeControls()
 {
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     Q_ASSERT(d->maxWindow);
     TQMenuBar* b = 0;
 
@@ -1501,39 +1501,39 @@ void TQWorkspace::showMaximizeControls()
 	if ( d->maxWindow->windowWidget() &&
 	     d->maxWindow->windowWidget()->testWFlags(WStyle_Minimize) ) {
 	    TQToolButton* iconB = new TQToolButton( d->maxcontrols, "iconify" );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	    TQToolTip::add( iconB, tr( "Minimize" ) );
 #endif
 	    l->addWidget( iconB );
 	    iconB->setFocusPolicy( NoFocus );
 	    iconB->setIconSet(style().stylePixmap(TQStyle::SP_TitleBarMinButton));
 	    iconB->setFixedSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-	    connect( iconB, SIGNAL( clicked() ),
-		     this, SLOT( minimizeActiveWindow() ) );
+	    connect( iconB, TQ_SIGNAL( clicked() ),
+		     this, TQ_SLOT( minimizeActiveWindow() ) );
 	}
 
 	TQToolButton* restoreB = new TQToolButton( d->maxcontrols, "restore" );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	TQToolTip::add( restoreB, tr( "Restore Down" ) );
 #endif
 	l->addWidget( restoreB );
 	restoreB->setFocusPolicy( NoFocus );
 	restoreB->setIconSet( style().stylePixmap(TQStyle::SP_TitleBarNormalButton));
 	restoreB->setFixedSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-	connect( restoreB, SIGNAL( clicked() ),
-		 this, SLOT( normalizeActiveWindow() ) );
+	connect( restoreB, TQ_SIGNAL( clicked() ),
+		 this, TQ_SLOT( normalizeActiveWindow() ) );
 
 	l->addSpacing( 2 );
 	TQToolButton* closeB = new TQToolButton( d->maxcontrols, "close" );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	TQToolTip::add( closeB, tr( "Close" ) );
 #endif
 	l->addWidget( closeB );
 	closeB->setFocusPolicy( NoFocus );
 	closeB->setIconSet( style().stylePixmap(TQStyle::SP_TitleBarCloseButton) );
 	closeB->setFixedSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-	connect( closeB, SIGNAL( clicked() ),
-		 this, SLOT( closeActiveWindow() ) );
+	connect( closeB, TQ_SIGNAL( clicked() ),
+		 this, TQ_SLOT( closeActiveWindow() ) );
 
 	d->maxcontrols->setFixedSize( d->maxcontrols->minimumSizeHint() );
     }
@@ -1553,7 +1553,7 @@ void TQWorkspace::showMaximizeControls()
 	    d->maxtools = new TQLabel( topLevelWidget(), "qt_maxtools" );
 	    d->maxtools->installEventFilter( this );
 	}
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	if ( d->active->windowWidget() && d->active->windowWidget()->icon() ) {
 	    TQPixmap pm(*d->active->windowWidget()->icon());
 	    int iconSize = d->maxcontrols->size().height();
@@ -1579,7 +1579,7 @@ void TQWorkspace::showMaximizeControls()
 
 void TQWorkspace::hideMaximizeControls()
 {
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( d->maxmenubar ) {
 	int mi = d->menuId;
 	if ( mi != -1 ) {
@@ -2050,24 +2050,24 @@ TQWorkspaceChild::TQWorkspaceChild( TQWidget* window, TQWorkspace *parent,
 
     if ( window && window->testWFlags( WStyle_Title ) && parent->windowMode() != TQWorkspace::TopLevel ) {
 	titlebar = new TQTitleBar( window, this, "qt_ws_titlebar" );
-	connect( titlebar, SIGNAL( doActivate() ),
-		 this, SLOT( activate() ) );
-	connect( titlebar, SIGNAL( doClose() ),
-		 window, SLOT( close() ) );
-	connect( titlebar, SIGNAL( doMinimize() ),
-		 this, SLOT( showMinimized() ) );
-	connect( titlebar, SIGNAL( doNormal() ),
-		 this, SLOT( showNormal() ) );
-	connect( titlebar, SIGNAL( doMaximize() ),
-		 this, SLOT( showMaximized() ) );
-	connect( titlebar, SIGNAL( popupOperationMenu(const TQPoint&) ),
-		 this, SIGNAL( popupOperationMenu(const TQPoint&) ) );
-	connect( titlebar, SIGNAL( showOperationMenu() ),
-		 this, SIGNAL( showOperationMenu() ) );
-	connect( titlebar, SIGNAL( doShade() ),
-		 this, SLOT( showShaded() ) );
-	connect( titlebar, SIGNAL( doubleClicked() ),
-		 this, SLOT( titleBarDoubleClicked() ) );
+	connect( titlebar, TQ_SIGNAL( doActivate() ),
+		 this, TQ_SLOT( activate() ) );
+	connect( titlebar, TQ_SIGNAL( doClose() ),
+		 window, TQ_SLOT( close() ) );
+	connect( titlebar, TQ_SIGNAL( doMinimize() ),
+		 this, TQ_SLOT( showMinimized() ) );
+	connect( titlebar, TQ_SIGNAL( doNormal() ),
+		 this, TQ_SLOT( showNormal() ) );
+	connect( titlebar, TQ_SIGNAL( doMaximize() ),
+		 this, TQ_SLOT( showMaximized() ) );
+	connect( titlebar, TQ_SIGNAL( popupOperationMenu(const TQPoint&) ),
+		 this, TQ_SIGNAL( popupOperationMenu(const TQPoint&) ) );
+	connect( titlebar, TQ_SIGNAL( showOperationMenu() ),
+		 this, TQ_SIGNAL( showOperationMenu() ) );
+	connect( titlebar, TQ_SIGNAL( doShade() ),
+		 this, TQ_SLOT( showShaded() ) );
+	connect( titlebar, TQ_SIGNAL( doubleClicked() ),
+		 this, TQ_SLOT( titleBarDoubleClicked() ) );
     }
 
     setFrameStyle( TQFrame::StyledPanel | TQFrame::Raised );
@@ -2078,7 +2078,7 @@ TQWorkspaceChild::TQWorkspaceChild( TQWidget* window, TQWorkspace *parent,
     if (!childWidget)
 	return;
 
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     setCaption( childWidget->caption() );
 #endif
 
@@ -2095,7 +2095,7 @@ TQWorkspaceChild::TQWorkspaceChild( TQWidget* window, TQWorkspace *parent,
 
     int th = titlebar ? titlebar->sizeHint().height() : 0;
     if ( titlebar ) {
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	int iconSize = th;
 	if( childWidget->icon() ) {
 	    TQPixmap pm(*childWidget->icon());
@@ -2129,8 +2129,8 @@ TQWorkspaceChild::TQWorkspaceChild( TQWidget* window, TQWorkspace *parent,
 
     widgetResizeHandler = new TQWidgetResizeHandler( this, window );
     widgetResizeHandler->setSizeProtection( !parent->scrollBarsEnabled() );
-    connect( widgetResizeHandler, SIGNAL( activate() ),
-	     this, SLOT( activate() ) );
+    connect( widgetResizeHandler, TQ_SIGNAL( activate() ),
+	     this, TQ_SLOT( activate() ) );
     if ( !style().styleHint( TQStyle::SH_TitleBar_NoBorder, titlebar ) )
 	widgetResizeHandler->setExtraHeight( th + contentsRect().y() - 2*frameWidth() );
     else
@@ -2372,7 +2372,7 @@ bool TQWorkspaceChild::eventFilter( TQObject * o, TQEvent * e)
 	}
 	break;
     case TQEvent::CaptionChange:
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	setCaption( childWidget->caption() );
 	if ( iconw )
 	    iconw->setCaption( childWidget->caption() );
@@ -2386,7 +2386,7 @@ bool TQWorkspaceChild::eventFilter( TQObject * o, TQEvent * e)
 
 	    TQPixmap pm;
 	    int iconSize = titlebar->size().height();
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	    if ( childWidget->icon() ) {
 		pm = *childWidget->icon();
 		if(pm.width() > iconSize || pm.height() > iconSize) {
@@ -2515,7 +2515,7 @@ void TQWorkspaceChild::enterEvent( TQEvent * )
 
 void TQWorkspaceChild::leaveEvent( TQEvent * )
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( !widgetResizeHandler->isButtonDown() )
 	setCursor( arrowCursor );
 #endif
@@ -2630,22 +2630,22 @@ TQWidget* TQWorkspaceChild::iconWidget() const
 	that->iconw = tb;
 	iconw->setActive( isActive() );
 
-	connect( iconw, SIGNAL( doActivate() ),
-		 this, SLOT( activate() ) );
-	connect( iconw, SIGNAL( doClose() ),
-		 windowWidget(), SLOT( close() ) );
-	connect( iconw, SIGNAL( doNormal() ),
-		 this, SLOT( showNormal() ) );
-	connect( iconw, SIGNAL( doMaximize() ),
-		 this, SLOT( showMaximized() ) );
-	connect( iconw, SIGNAL( popupOperationMenu(const TQPoint&) ),
-		 this, SIGNAL( popupOperationMenu(const TQPoint&) ) );
-	connect( iconw, SIGNAL( showOperationMenu() ),
-		 this, SIGNAL( showOperationMenu() ) );
-	connect( iconw, SIGNAL( doubleClicked() ),
-		 this, SLOT( titleBarDoubleClicked() ) );
+	connect( iconw, TQ_SIGNAL( doActivate() ),
+		 this, TQ_SLOT( activate() ) );
+	connect( iconw, TQ_SIGNAL( doClose() ),
+		 windowWidget(), TQ_SLOT( close() ) );
+	connect( iconw, TQ_SIGNAL( doNormal() ),
+		 this, TQ_SLOT( showNormal() ) );
+	connect( iconw, TQ_SIGNAL( doMaximize() ),
+		 this, TQ_SLOT( showMaximized() ) );
+	connect( iconw, TQ_SIGNAL( popupOperationMenu(const TQPoint&) ),
+		 this, TQ_SIGNAL( popupOperationMenu(const TQPoint&) ) );
+	connect( iconw, TQ_SIGNAL( showOperationMenu() ),
+		 this, TQ_SIGNAL( showOperationMenu() ) );
+	connect( iconw, TQ_SIGNAL( doubleClicked() ),
+		 this, TQ_SLOT( titleBarDoubleClicked() ) );
     }
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     if ( windowWidget() ) {
 	iconw->setCaption( windowWidget()->caption() );
 	if ( windowWidget()->icon() ) {
@@ -2751,7 +2751,7 @@ void TQWorkspaceChild::setCaption( const TQString& cap )
 {
     if ( titlebar )
 	titlebar->setCaption( cap );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     TQWidget::setCaption( cap );
 #endif
 }
@@ -2832,9 +2832,9 @@ void TQWorkspace::setScrollBarsEnabled( bool enable )
     d->xoffset = d->yoffset = 0;
     if ( enable ) {
 	d->vbar = new TQScrollBar( Vertical, this, "vertical scrollbar" );
-	connect( d->vbar, SIGNAL( valueChanged(int) ), this, SLOT( scrollBarChanged() ) );
+	connect( d->vbar, TQ_SIGNAL( valueChanged(int) ), this, TQ_SLOT( scrollBarChanged() ) );
 	d->hbar = new TQScrollBar( Horizontal, this, "horizontal scrollbar" );
-	connect( d->hbar, SIGNAL( valueChanged(int) ), this, SLOT( scrollBarChanged() ) );
+	connect( d->hbar, TQ_SIGNAL( valueChanged(int) ), this, TQ_SLOT( scrollBarChanged() ) );
 	d->corner = new TQWidget( this, "qt_corner" );
 	updateWorkspace();
     } else {
@@ -3003,7 +3003,7 @@ TQWorkspace::WindowMode TQWorkspace::windowMode() const
     return d->wmode;
 }
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 /*!\reimp */
 void TQWorkspace::styleChange( TQStyle &olds )
 {
@@ -3023,4 +3023,4 @@ void TQWorkspace::styleChange( TQStyle &olds )
 
 
 #include "qworkspace.moc"
-#endif // QT_NO_WORKSPACE
+#endif // TQT_NO_WORKSPACE

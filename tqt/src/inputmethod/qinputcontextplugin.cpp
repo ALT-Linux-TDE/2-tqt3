@@ -37,8 +37,8 @@
 
 #include "ntqinputcontextplugin.h"
 
-#ifndef QT_NO_IM
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_IM
+#ifndef TQT_NO_COMPONENT
 
 #include "qinputcontextinterface_p.h"
 
@@ -55,7 +55,7 @@
     Writing a input context plugin is achieved by subclassing this
     base class, reimplementing the pure virtual functions keys(),
     create(), languages(), displayName() description() and exporting
-    the class with the \c Q_EXPORT_PLUGIN macro.  See the \link
+    the class with the \c TQ_EXPORT_PLUGIN macro.  See the \link
     plugins-howto.html TQt Plugins documentation \endlink for details.
 
     \sa TQInputContext
@@ -147,7 +147,7 @@ public:
     virtual ~TQInputContextPluginPrivate();
 
     TQRESULT queryInterface( const TQUuid &iid, TQUnknownInterface **iface );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
     TQInputContext *create( const TQString &key );
@@ -209,7 +209,7 @@ TQString TQInputContextPluginPrivate::description( const TQString &key )
 
 /*!
     Constructs a input context plugin. This is invoked automatically by the
-    \c Q_EXPORT_PLUGIN macro.
+    \c TQ_EXPORT_PLUGIN macro.
 */
 TQInputContextPlugin::TQInputContextPlugin()
     : TQGPlugin( d = new TQInputContextPluginPrivate( this ) )
@@ -227,5 +227,5 @@ TQInputContextPlugin::~TQInputContextPlugin()
     // don't delete d, as this is deleted by d
 }
 
-#endif // QT_NO_COMPONENT
-#endif // QT_NO_IM
+#endif // TQT_NO_COMPONENT
+#endif // TQT_NO_IM

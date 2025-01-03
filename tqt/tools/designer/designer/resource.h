@@ -110,7 +110,6 @@ private:
     void saveColor( TQTextStream &ts, int indent, const TQColor &c );
     void saveMetaInfoBefore( TQTextStream &ts, int indent );
     void saveMetaInfoAfter( TQTextStream &ts, int indent );
-    void saveIncludeHints( TQTextStream &ts, int indent );
     void savePixmap( const TQPixmap &p, TQTextStream &ts, int indent, const TQString &tagname = "pixmap" );
     void saveActions( const TQPtrList<TQAction> &actions, TQTextStream &ts, int indent );
     void saveChildActions( TQAction *a, TQTextStream &ts, int indent );
@@ -164,7 +163,6 @@ private:
     TQString currFileName;
     LanguageInterface *langIface;
     bool hasFunctions;
-    TQStringList includeHints;
 
     TQString uiFileVersion;
 };

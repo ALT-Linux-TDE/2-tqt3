@@ -127,20 +127,20 @@ ListViews::ListViews( TQWidget *parent, const char *name )
     menu = new TQPopupMenu( messages );
     for( int i = 1; i <= 10; i++ )
 	menu->insertItem( TQString( "Context Item %1" ).arg( i ) );
-    connect(messages, SIGNAL( contextMenuRequested( TQListViewItem *, const TQPoint& , int ) ),
-	    this, SLOT( slotRMB( TQListViewItem *, const TQPoint &, int ) ) );
+    connect(messages, TQ_SIGNAL( contextMenuRequested( TQListViewItem *, const TQPoint& , int ) ),
+	    this, TQ_SLOT( slotRMB( TQListViewItem *, const TQPoint &, int ) ) );
     vsplitter->setResizeMode( messages, TQSplitter::KeepSize );
 
     message = new TQLabel( vsplitter );
     message->setAlignment( TQt::AlignTop );
     message->setBackgroundMode( PaletteBase );
 
-    connect( folders, SIGNAL( selectionChanged( TQListViewItem* ) ),
-	     this, SLOT( slotFolderChanged( TQListViewItem* ) ) );
-    connect( messages, SIGNAL( selectionChanged() ),
-	     this, SLOT( slotMessageChanged() ) );
-    connect( messages, SIGNAL( currentChanged( TQListViewItem * ) ),
-	     this, SLOT( slotMessageChanged() ) );
+    connect( folders, TQ_SIGNAL( selectionChanged( TQListViewItem* ) ),
+	     this, TQ_SLOT( slotFolderChanged( TQListViewItem* ) ) );
+    connect( messages, TQ_SIGNAL( selectionChanged() ),
+	     this, TQ_SLOT( slotMessageChanged() ) );
+    connect( messages, TQ_SIGNAL( currentChanged( TQListViewItem * ) ),
+	     this, TQ_SLOT( slotMessageChanged() ) );
 
     messages->setSelectionMode( TQListView::Extended );
     // some preparations

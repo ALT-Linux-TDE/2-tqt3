@@ -52,7 +52,7 @@ Inherits QGL.
 .BI "QPaintDevice * \fBdevice\fR () const"
 .br
 .ti -1c
-.BI "QColor \fBoverlayTransparentColor\fR () const"
+.BI "TQColor \fBoverlayTransparentColor\fR () const"
 .br
 .in -1c
 .SS "Static Public Members"
@@ -188,12 +188,12 @@ Returns TRUE if a GL rendering context has been successfully created; otherwise 
 Makes this context the current OpenGL rendering context. All GL functions you call operate on this context until another context is made current.
 .PP
 In some very rare cases the underlying call may fail. If this occurs an error message is output to stderr.
-.SH "QColor QGLContext::overlayTransparentColor () const"
+.SH "TQColor QGLContext::overlayTransparentColor () const"
 If this context is a valid context in an overlay plane, returns the plane's transparent color. Otherwise returns an invalid color.
 .PP
 The returned color's pixel value is the index of the transparent color in the colormap of the overlay plane. (Naturally, the color's RGB values are meaningless.)
 .PP
-The returned QColor object will generally work as expected only when passed as the argument to QGLWidget::qglColor() or QGLWidget::qglClearColor(). Under certain circumstances it can also be used to draw transparent graphics with a QPainter. See the examples/opengl/overlay_x11 example for details.
+The returned TQColor object will generally work as expected only when passed as the argument to QGLWidget::qglColor() or QGLWidget::qglClearColor(). Under certain circumstances it can also be used to draw transparent graphics with a QPainter. See the examples/opengl/overlay_x11 example for details.
 .SH "QGLFormat QGLContext::requestedFormat () const"
 Returns the frame buffer format that was originally requested in the constructor or setFormat().
 .PP
@@ -261,8 +261,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

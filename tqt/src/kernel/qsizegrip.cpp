@@ -40,19 +40,19 @@
 
 #include "ntqsizegrip.h"
 
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
 
 #include "ntqpainter.h"
 #include "ntqapplication.h"
 #include "ntqstyle.h"
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 #include "qt_x11_p.h"
 extern Atom qt_sizegrip;			// defined in qapplication_x11.cpp
-#elif defined (Q_WS_WIN )
+#elif defined (TQ_WS_WIN )
 #include "ntqobjectlist.h"
 #include "qt_windows.h"
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 bool qt_mac_update_sizer(TQWidget *, int); //qwidget_mac.cpp
 #endif
 
@@ -111,8 +111,8 @@ static TQWidget* qt_sizegrip_workspace( TQWidget* w )
 TQSizeGrip::TQSizeGrip( TQWidget * parent, const char* name )
     : TQWidget( parent, name )
 {
-#ifndef QT_NO_CURSOR
-#ifndef Q_WS_MAC
+#ifndef TQT_NO_CURSOR
+#ifndef TQ_WS_MAC
     if ( TQApplication::reverseLayout() )
 	setCursor( sizeBDiagCursor );
     else
@@ -120,7 +120,7 @@ TQSizeGrip::TQSizeGrip( TQWidget * parent, const char* name )
 #endif
 #endif
     setSizePolicy( TQSizePolicy( TQSizePolicy::Minimum, TQSizePolicy::Fixed ) );
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     if ( !qt_sizegrip_workspace( this ) ) {
 	WId id = winId();
 	XChangeProperty(tqt_xdisplay(), topLevelWidget()->winId(),
@@ -140,7 +140,7 @@ TQSizeGrip::TQSizeGrip( TQWidget * parent, const char* name )
 */
 TQSizeGrip::~TQSizeGrip()
 {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     if ( !TQApplication::closingDown() && parentWidget() ) {
 	WId id = None;
  	XChangeProperty(tqt_xdisplay(), topLevelWidget()->winId(),
@@ -232,7 +232,7 @@ void TQSizeGrip::mouseMoveEvent( TQMouseEvent * e )
     } else {
 	tlw->resize( w, h );
     }
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     MSG msg;
     while( PeekMessage( &msg, winId(), WM_MOUSEMOVE, WM_MOUSEMOVE, PM_REMOVE ) )
       ;
@@ -250,7 +250,7 @@ bool TQSizeGrip::eventFilter( TQObject *o, TQEvent *e )
 {
     if ( o == tlw ) {
 	switch ( e->type() ) {
-#ifndef Q_WS_MAC
+#ifndef TQ_WS_MAC
 	/* The size grip goes no where on Mac OS X when you maximize!  --Sam */
 	case TQEvent::ShowMaximized:
 #endif
@@ -264,7 +264,7 @@ bool TQSizeGrip::eventFilter( TQObject *o, TQEvent *e )
 	    break;
 	}
     } else if(o == this) {
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
 	switch(e->type()) {
 	case TQEvent::Hide:
 	case TQEvent::Show:
@@ -283,4 +283,4 @@ bool TQSizeGrip::eventFilter( TQObject *o, TQEvent *e )
     return FALSE;
 }
 
-#endif //QT_NO_SIZEGRIP
+#endif //TQT_NO_SIZEGRIP

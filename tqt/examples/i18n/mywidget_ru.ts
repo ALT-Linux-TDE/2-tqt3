@@ -1,68 +1,70 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="ru">
 <context encoding="UTF-8">
     <name>MyWidget</name>
     <message encoding="UTF-8">
         <source>View</source>
-        <translation type="unfinished">Вид</translation>
+        <translation>&amp;Вид</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;File</source>
-        <translation type="unfinished">Файл</translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message encoding="UTF-8">
         <source>E&amp;xit</source>
-        <translation type="unfinished">Выход</translation>
+        <translation>В&amp;ыход</translation>
     </message>
     <message encoding="UTF-8">
         <source>First</source>
-        <translation type="unfinished">Первый</translation>
+        <translation>Первый</translation>
     </message>
     <message encoding="UTF-8">
         <source>Third</source>
-        <translation type="unfinished">Третий</translation>
+        <translation>Третий</translation>
     </message>
     <message encoding="UTF-8">
         <source>Language: English</source>
-        <translation type="unfinished">Язык: Русский</translation>
+        <translation>Язык: Русский</translation>
     </message>
     <message encoding="UTF-8">
         <source>The Main Window</source>
-        <translation type="unfinished">Главное окно</translation>
+        <translation>Главное окно</translation>
     </message>
     <message encoding="UTF-8">
         <source>Oblique</source>
-        <translation type="unfinished">Курсив</translation>
+        <translation>Курсив</translation>
     </message>
     <message encoding="UTF-8">
         <source>Second</source>
-        <translation type="unfinished">Второй</translation>
+        <translation>Второй</translation>
     </message>
     <message encoding="UTF-8">
         <source>Isometric</source>
-        <translation type="unfinished">Изометрический</translation>
+        <translation>Изометрия</translation>
     </message>
     <message encoding="UTF-8">
         <source>Perspective</source>
-        <translation type="unfinished">Перспектива</translation>
+        <translation>Перспектива</translation>
     </message>
     <message encoding="UTF-8">
         <source>Internationalization Example</source>
-        <translation type="unfinished">Пример интернациноализации</translation>
+        <translation>Пример интернационализации</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
 </context>
 <context>
     <name>QVDialog</name>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>ОК</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
 </context>
 </TS>

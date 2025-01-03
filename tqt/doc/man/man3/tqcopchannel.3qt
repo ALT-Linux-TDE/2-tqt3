@@ -11,12 +11,12 @@ QCopChannel \- Communication capabilities between several clients
 .SH SYNOPSIS
 \fC#include <qcopchannel_qws.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCopChannel\fR ( const QCString & channel, QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQCopChannel\fR ( const QCString & channel, TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "virtual \fB~QCopChannel\fR ()"
@@ -49,7 +49,7 @@ Inherits QObject.
 .SH DESCRIPTION
 The QCopChannel class provides communication capabilities between several clients.
 .PP
-The Qt Cop (QCOP) is a COmmunication Protocol, allowing clients to communicate both within the same address space and between different processes.
+The TQt Cop (QCOP) is a COmmunication Protocol, allowing clients to communicate both within the same address space and between different processes.
 .PP
 Currently, this facility is only available on Qt/Embedded. On X11 and Windows we are exploring the use of existing standards such as DCOP and COM.
 .PP
@@ -59,8 +59,8 @@ The channel() function returns the name of the channel.
 .PP
 In order to \fIlisten\fR to the traffic on a channel, you should either subclass QCopChannel and reimplement receive(), or connect() to the received() signal.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCopChannel::QCopChannel ( const QCString & channel, QObject * parent = 0, const char * name = 0 )"
-Constructs a QCop channel and registers it with the server using the name \fIchannel\fR. The standard \fIparent\fR and \fIname\fR arguments are passed on to the QObject constructor.
+.SH "QCopChannel::QCopChannel ( const QCString & channel, TQObject * parent = 0, const char * name = 0 )"
+Constructs a QCop channel and registers it with the server using the name \fIchannel\fR. The standard \fIparent\fR and \fIname\fR arguments are passed on to the TQObject constructor.
 .SH "QCopChannel::~QCopChannel ()\fC [virtual]\fR"
 Destroys the client's end of the channel and notifies the server that the client has closed its connection. The server will keep the channel open until the last registered client detaches.
 .SH "QCString QCopChannel::channel () const"
@@ -86,17 +86,17 @@ Example:
 .br
         QDataStream stream( data, IO_ReadOnly );
 .br
-        if ( msg == "execute(QString,QString)" ) {
+        if ( msg == "execute(TQString,TQString)" ) {
 .br
-            QString cmd, arg;
+            TQString cmd, arg;
 .br
             stream >> cmd >> arg;
 .br
             ...
 .br
-        } else if ( msg == "delete(QString)" ) {
+        } else if ( msg == "delete(TQString)" ) {
 .br
-            QString filenname;
+            TQString filenname;
 .br
             stream >> filename;
 .br
@@ -127,9 +127,9 @@ Example:
 .br
     QDataStream stream( ba, IO_WriteOnly );
 .br
-    stream << QString("cat") << QString("file.txt");
+    stream << TQString("cat") << TQString("file.txt");
 .br
-    QCopChannel::send( "System/Shell", "execute(QString,QString)", ba );
+    QCopChannel::send( "System/Shell", "execute(TQString,TQString)", ba );
 .br
 .fi
 Here the channel is "System/Shell". The \fImsg\fR is an arbitrary string, but in the example we've used the DCOP convention of passing a function signature. Such a signature is formatted as functionname(types) where types is a list of zero or more comma-separated type names, with no whitespace, no consts and no pointer or reference marks, i.e. no "*" or "&".
@@ -158,8 +158,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -112,7 +112,7 @@ private:
     <a href="ntqmainwindow.html#setCentralWidget">setCentralWidget</a>(central);
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a>* file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>(this);
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()),
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()),
 <a name="x1921"></a>            TQAccel::<a href="ntqaccel.html#stringToKey">stringToKey</a>(<a href="ntqobject.html#tr">tr</a>("Ctrl+Q")) );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("&amp;File"), file );
 
@@ -133,9 +133,9 @@ private:
 }
 
 static const char* choices[] = {
-    QT_TRANSLATE_NOOP( "MyWidget", "First" ),
-    QT_TRANSLATE_NOOP( "MyWidget", "Second" ),
-    QT_TRANSLATE_NOOP( "MyWidget", "Third" ),
+    TQT_TRANSLATE_NOOP( "MyWidget", "First" ),
+    TQT_TRANSLATE_NOOP( "MyWidget", "Second" ),
+    TQT_TRANSLATE_NOOP( "MyWidget", "Third" ),
     0
 };
 
@@ -195,7 +195,7 @@ public:
 <a name="x1938"></a>        vb-&gt;<a href="ntqlayout.html#setAutoAdd">setAutoAdd</a>(TRUE);
         hb = 0;
         sm = new <a href="ntqsignalmapper.html">TQSignalMapper</a>(this);
-<a name="x1946"></a>        connect(sm,SIGNAL(<a href="ntqsignalmapper.html#mapped">mapped</a>(int)),this,SLOT(done(int)));
+<a name="x1946"></a>        connect(sm,TQ_SIGNAL(<a href="ntqsignalmapper.html#mapped">mapped</a>(int)),this,TQ_SLOT(done(int)));
     }
     void addButtons( const <a href="ntqstring.html">TQString</a>&amp; cancel=TQString::null,
                     const <a href="ntqstring.html">TQString</a>&amp; ok=TQString::null,
@@ -216,7 +216,7 @@ public:
             hb = new <a href="ntqhbox.html">TQHBox</a>(this);
         <a href="ntqpushbutton.html">TQPushButton</a> *c = new <a href="ntqpushbutton.html">TQPushButton</a>(text, hb);
 <a name="x1947"></a>        sm-&gt;<a href="ntqsignalmapper.html#setMapping">setMapping</a>(c,result);
-<a name="x1945"></a>        connect(c,SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()),sm,SLOT(<a href="ntqsignalmapper.html#map">map</a>()));
+<a name="x1945"></a>        connect(c,TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()),sm,TQ_SLOT(<a href="ntqsignalmapper.html#map">map</a>()));
     }
 
 private:
@@ -293,7 +293,7 @@ int main( int argc, char** argv )
                     MyWidget* w = showLang((const char*)qm[i]);
 
                     if( w == 0 ) exit( 0 );
-                    TQObject::<a href="ntqobject.html#connect">connect</a>(w, SIGNAL(closed()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()));
+                    TQObject::<a href="ntqobject.html#connect">connect</a>(w, TQ_SIGNAL(closed()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
 <a name="x1953"></a>                    w-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>(x,y,197,356);
                     w-&gt;<a href="ntqwidget.html#show">show</a>();
                     if ( tight ) {

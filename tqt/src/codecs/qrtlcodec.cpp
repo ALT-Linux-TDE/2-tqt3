@@ -41,7 +41,7 @@
 #include "ntqrtlcodec.h"
 #include <private/qtextengine_p.h>
 
-#ifndef QT_NO_CODEC_HEBREW
+#ifndef TQT_NO_CODEC_HEBREW
 
 // NOT REVISED
 

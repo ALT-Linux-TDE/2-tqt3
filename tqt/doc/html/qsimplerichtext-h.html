@@ -83,7 +83,7 @@ body { background: #ffffff; color: black; }
 #include "ntqregion.h"
 #endif // QT_H
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 
 class TQPainter;
 class TQWidget;
@@ -92,7 +92,7 @@ class TQBrush;
 class TQMimeSourceFactory;
 class TQSimpleRichTextData;
 
-class Q_EXPORT TQSimpleRichText
+class TQ_EXPORT TQSimpleRichText
 {
 public:
     TQSimpleRichText( const TQString&amp; text, const TQFont&amp; fnt,
@@ -135,7 +135,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_RICHTEXT
+#endif // TQT_NO_RICHTEXT
 
 #endif // TQSIMPLERICHTEXT_H
 </pre>

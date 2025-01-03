@@ -16,7 +16,7 @@ Inherits QLayoutItem.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQWidgetItem\fR ( QWidget * w )"
+.BI "\fBQWidgetItem\fR ( TQWidget * w )"
 .br
 .ti -1c
 .BI "virtual QSize \fBsizeHint\fR () const"
@@ -37,7 +37,7 @@ Inherits QLayoutItem.
 .BI "virtual void \fBsetGeometry\fR ( const QRect & r )"
 .br
 .ti -1c
-.BI "virtual QWidget * \fBwidget\fR ()"
+.BI "virtual TQWidget * \fBwidget\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -47,7 +47,7 @@ This is used by custom layouts.
 .PP
 See also QLayout, QLayout::widget(), Widget Appearance and Style, and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWidgetItem::QWidgetItem ( QWidget * w )"
+.SH "QWidgetItem::QWidgetItem ( TQWidget * w )"
 Creates an item containing widget \fIw\fR.
 .SH "QSizePolicy::ExpandData QWidgetItem::expanding () const\fC [virtual]\fR"
 Returns whether this item's widget can make use of more space than sizeHint(). A value of \fCVertical\fR or \fCHorizontal\fR means that it wants to grow in only one dimension, whereas \fCBothDirections\fR means that it wants to grow in both dimensions and \fCNoDirection\fR means that it doesn't want to grow at all.
@@ -73,7 +73,7 @@ Reimplemented from QLayoutItem.
 Returns the preferred size of this item.
 .PP
 Reimplemented from QLayoutItem.
-.SH "QWidget * QWidgetItem::widget ()\fC [virtual]\fR"
+.SH "TQWidget * QWidgetItem::widget ()\fC [virtual]\fR"
 Returns the widget managed by this item.
 .PP
 Reimplemented from QLayoutItem.
@@ -92,8 +92,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -23,7 +23,7 @@ void WorkerObject::run()
 	if (!eventLoop) return;
 
 	TQTimer *t = new TQTimer(this);
-	connect( t, SIGNAL(timeout()), SLOT(timerHandler()) );
+	connect( t, TQ_SIGNAL(timeout()), TQ_SLOT(timerHandler()) );
 	t->start( 1000, FALSE );
 
 	for( int count = 0; count < 5; count++ ) {
@@ -61,8 +61,8 @@ void MainObject::buttonClicked()
 	WorkerObject x;															\
 	x.threadFriendlyName = y;													\
 	x.moveToThread(&z);														\
-	TQObject::connect(&x, SIGNAL(displayMessage(TQString,TQString)), &mainobject, SLOT(emitMessage(TQString,TQString)));		\
-	TQTimer::singleShot(0, &x, SLOT(run()));
+	TQObject::connect(&x, TQ_SIGNAL(displayMessage(TQString,TQString)), &mainobject, TQ_SLOT(emitMessage(TQString,TQString)));		\
+	TQTimer::singleShot(0, &x, TQ_SLOT(run()));
 
 int main( int argc, char **argv )
 {
@@ -142,7 +142,7 @@ int main( int argc, char **argv )
 	workerthread19.start();
 
 	a.setMainWidget( &hello );
-	TQObject::connect(&hello, SIGNAL(clicked()), &mainobject, SLOT(buttonClicked()));
+	TQObject::connect(&hello, TQ_SIGNAL(clicked()), &mainobject, TQ_SLOT(buttonClicked()));
 	hello.show();
 	a.exec();
 	hello.hide();

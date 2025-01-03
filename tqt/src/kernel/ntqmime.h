@@ -46,12 +46,12 @@
 #include "ntqmap.h"
 #endif // QT_H
 
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 
 class TQImageDrag;
 class TQTextDrag;
 
-class Q_EXPORT TQMimeSource
+class TQ_EXPORT TQMimeSource
 {
     friend class TQClipboardData;
 
@@ -93,7 +93,7 @@ inline int TQMimeSource::serialNumber() const
 class TQStringList;
 class TQMimeSourceFactoryData;
 
-class Q_EXPORT TQMimeSourceFactory {
+class TQ_EXPORT TQMimeSourceFactory {
 public:
     TQMimeSourceFactory();
     virtual ~TQMimeSourceFactory();
@@ -122,7 +122,7 @@ private:
     TQMimeSourceFactoryData* d;
 };
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 
 #ifndef QT_H
 #include "ntqptrlist.h" // down here for GCC 2.7.* compatibility
@@ -134,7 +134,7 @@ private:
   directly.
 */
 
-class Q_EXPORT TQWindowsMime {
+class TQ_EXPORT TQWindowsMime {
 public:
     TQWindowsMime();
     virtual ~TQWindowsMime();
@@ -158,7 +158,7 @@ public:
 };
 
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
 
 #ifndef QT_H
 #include "ntqptrlist.h" // down here for GCC 2.7.* compatibility
@@ -170,7 +170,7 @@ public:
   directly.
 */
 
-class Q_EXPORT TQMacMime {
+class TQ_EXPORT TQMacMime {
     char type;
 public:
     enum TQMacMimeType { MIME_DND=0x01, MIME_CLIP=0x02, MIME_QT_CONVERTOR=0x04, MIME_ALL=MIME_DND|MIME_CLIP };
@@ -193,8 +193,8 @@ public:
     virtual TQValueList<TQByteArray> convertFromMime(TQByteArray data, const char* mime, int flav)=0;
 };
 
-#endif // Q_WS_MAC
+#endif // TQ_WS_MAC
 
-#endif // QT_NO_MIME
+#endif // TQT_NO_MIME
 
 #endif // TQMIME_H

@@ -13,7 +13,7 @@ public:
     TQString name() { return _name; }
     TQPixmap *pixmap() { return &_pixmap; }
 
-    Q_DUMMY_COMPARISON_OPERATOR( IconItem )
+    TQ_DUMMY_COMPARISON_OPERATOR( IconItem )
 
 protected:
     TQPixmap loadPixmap( const TQString& name );

@@ -110,20 +110,20 @@ private:
     defaultButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Default", this,
                                                    "pushbutton1" );
 <a name="x2860"></a>    defaultButton-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "times" ) );
-    <a href="ntqobject.html#connect">connect</a>( defaultButton, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
-             this, SLOT( setDefault() ) );
+    <a href="ntqobject.html#connect">connect</a>( defaultButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
+             this, TQ_SLOT( setDefault() ) );
 
     sansSerifButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Sans Serif", this,
                                                      "pushbutton2" );
     sansSerifButton-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Helvetica", 12 ) );
-    <a href="ntqobject.html#connect">connect</a>( sansSerifButton, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
-             this, SLOT( setSansSerif() ) );
+    <a href="ntqobject.html#connect">connect</a>( sansSerifButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
+             this, TQ_SLOT( setSansSerif() ) );
 
     italicsButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Italics", this,
                                                    "pushbutton3" );
     italicsButton-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "lucida", 12, TQFont::Bold, TRUE ) );
-    <a href="ntqobject.html#connect">connect</a>( italicsButton, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
-             this, SLOT( setItalics() ) );
+    <a href="ntqobject.html#connect">connect</a>( italicsButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
+             this, TQ_SLOT( setItalics() ) );
 
     <a href="ntqwidget.html#layout">layout</a>();
 }

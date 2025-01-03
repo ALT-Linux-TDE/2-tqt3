@@ -5,7 +5,7 @@ CXX	    =	g++
 CFLAGS	    =	-c -o$@ -O \
 		-I. -Igenerators -Igenerators\unix -Igenerators\win32 -Igenerators\mac -I..\include -I..\src\tools \
 		-I..\mkspecs\win32-g++ \
-		-DUNICODE -DQT_NO_TEXTCODEC -DQT_LITE_COMPONENT -DQT_NODLL -DQT_NO_STL -DQT_NO_COMPRESS
+		-DUNICODE -DTQT_NO_TEXTCODEC -DQT_LITE_COMPONENT -DQT_NODLL -DTQT_NO_STL -DTQT_NO_COMPRESS
 CXXFLAGS    =   $(CFLAGS)
 LFLAGS	    =	
 LIBS	    = -lole32 -luuid 

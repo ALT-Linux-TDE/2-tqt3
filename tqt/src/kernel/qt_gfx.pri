@@ -1,4 +1,4 @@
-# Qt graphics 
+# TQt graphics 
 
 #mng support
 HEADERS += $$KERNEL_H/ntqmngio.h
@@ -36,7 +36,7 @@ mng {
 		CONFIG += jpeg
 	}
 }
-else:DEFINES += QT_NO_IMAGEIO_MNG
+else:DEFINES += TQT_NO_IMAGEIO_MNG
 
 #jpeg support..
 HEADERS += $$KERNEL_H/ntqjpegio.h 
@@ -95,7 +95,7 @@ jpeg {
 		  3rdparty/libjpeg/jmemnobs.c
         }
 }
-else:DEFINES += QT_NO_IMAGEIO_JPEG
+else:DEFINES += TQT_NO_IMAGEIO_JPEG
 
 #png support
 HEADERS+=$$KERNEL_H/ntqpngio.h
@@ -123,7 +123,7 @@ png {
 		  3rdparty/libpng/pngwutil.c 
         }
 }
-else:DEFINES += QT_NO_IMAGEIO_PNG
+else:DEFINES += TQT_NO_IMAGEIO_PNG
 
 #zlib support
 zlib {
@@ -150,6 +150,6 @@ unix:xftfreetype {
 	SOURCES += 3rdparty/opentype/ftxopentype.c
 }
 
-#use Qt gif
+#use TQt gif
 gif:DEFINES += QT_BUILTIN_GIF_READER=1
 

@@ -48,11 +48,11 @@
 #include "ntqsqlfield.h"
 #endif // QT_H
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 class TQSqlRecordPrivate;
 
-class Q_EXPORT TQSqlRecordShared : public TQShared
+class TQ_EXPORT TQSqlRecordShared : public TQShared
 {
 public:
     TQSqlRecordShared( TQSqlRecordPrivate* sqlRecordPrivate )
@@ -62,7 +62,7 @@ public:
     TQSqlRecordPrivate* d;
 };
 
-class Q_EXPORT TQSqlRecord
+class TQ_EXPORT TQSqlRecord
 {
 public:
     TQSqlRecord();
@@ -117,13 +117,13 @@ private:
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList<TQSqlFieldInfo>;
+Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList<TQSqlFieldInfo>;
 // MOC_SKIP_END
 #endif
 
 typedef TQValueList<TQSqlFieldInfo> TQSqlFieldInfoList;
 
-class Q_EXPORT TQSqlRecordInfo: public TQSqlFieldInfoList
+class TQ_EXPORT TQSqlRecordInfo: public TQSqlFieldInfoList
 {
 public:
     TQSqlRecordInfo(): TQSqlFieldInfoList() {}
@@ -137,5 +137,5 @@ public:
 };
 
 
-#endif	// QT_NO_SQL
+#endif	// TQT_NO_SQL
 #endif

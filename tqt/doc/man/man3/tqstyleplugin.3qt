@@ -23,7 +23,7 @@ QStylePlugin \- Abstract base for custom QStyle plugins
 .BI "virtual QStringList \fBkeys\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QStyle * \fBcreate\fR ( const QString & key ) = 0"
+.BI "virtual QStyle * \fBcreate\fR ( const TQString & key ) = 0"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -40,8 +40,8 @@ Constructs a style plugin. This is invoked automatically by the \fCQ_EXPORT_PLUG
 .SH "QStylePlugin::~QStylePlugin ()"
 Destroys the style plugin.
 .PP
-You never have to call this explicitly. Qt destroys a plugin automatically when it is no longer used.
-.SH "QStyle * QStylePlugin::create ( const QString & key )\fC [pure virtual]\fR"
+You never have to call this explicitly. TQt destroys a plugin automatically when it is no longer used.
+.SH "QStyle * QStylePlugin::create ( const TQString & key )\fC [pure virtual]\fR"
 Creates and returns a QStyle object for the style key \fIkey\fR. The style key is usually the class name of the required style.
 .PP
 See also keys().
@@ -66,8 +66,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -50,7 +50,7 @@
 #if !defined( TQT_MODULE_OPENGL ) || defined( QT_LICENSE_PROFESSIONAL )
 #define TQM_EXPORT_OPENGL
 #else
-#define TQM_EXPORT_OPENGL Q_EXPORT
+#define TQM_EXPORT_OPENGL TQ_EXPORT
 #endif
 
 class TQWidget;

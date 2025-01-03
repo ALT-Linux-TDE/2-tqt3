@@ -3,16 +3,16 @@ immodule for Qt
 
 * What is this?
 
-  immodule for Qt is a modular, extensible input method subsystem for
+  immodule for TQt is a modular, extensible input method subsystem for
   Qt.
 
   This project brings functionality similar to the immodule for GTK+
-  to the Qt library. The main goal of the project is to extend and
-  enhance the input method support in the Qt library, in order to
+  to the TQt library. The main goal of the project is to extend and
+  enhance the input method support in the TQt library, in order to
   provide a modern and powerful multi-language input system. Our short
-  term goal is to make Qt (especially Qt/X11) "up-to-date" with other
+  term goal is to make TQt (especially Qt/X11) "up-to-date" with other
   X11-based toolkits such as GTK+. We are also focusing on what the
-  input method API should be for future Qt versions.
+  input method API should be for future TQt versions.
 
   See our webpage for further information.
 
@@ -36,7 +36,7 @@ immodule for Qt
 
 * How to install
 
-  After extract the Qt archive, perform following instructions
+  After extract the TQt archive, perform following instructions
 
     cd qt-x11-free-3.3.3
     patch -p0 < qt-x11-immodule-unified-qt3.3.3-20040910.diff
@@ -46,11 +46,11 @@ immodule for Qt
   Our patch provides following two configure options. Choose 'Binary
   Compatible' for normal use.
 
-  Build Qt with 'Binary Compatible' immodule support (default)
+  Build TQt with 'Binary Compatible' immodule support (default)
 
     configure -inputmethod
 
-  Build Qt without binary compatibility, but supports more advanced
+  Build TQt without binary compatibility, but supports more advanced
   immodule extensions. It cannot be used with ordinary application
   binaries (i.e. the option is for developers)
 
@@ -75,26 +75,26 @@ immodule for Qt
 
   - set "xim" input method as default
 
-    export QT_IM_MODULE=xim
+    export TQT_IM_MODULE=xim
 
 
   - set "simple" composing input method as default
 
-    export QT_IM_MODULE=simple
+    export TQT_IM_MODULE=simple
 
 
   - set "xim" input method as default, and disable input method
     selection menu in the context menu
 
-    export QT_IM_SWITCHER=imsw-none
-    export QT_IM_MODULE=xim
+    export TQT_IM_SWITCHER=imsw-none
+    export TQT_IM_MODULE=xim
 
 
   - set "xim" input method as default, and enable input method
     selection menu in the context menu (default configuration)
 
-    export QT_IM_SWITCHER=imsw-multi
-    export QT_IM_MODULE=xim
+    export TQT_IM_SWITCHER=imsw-multi
+    export TQT_IM_MODULE=xim
 
 
   - set "iiimqcf" that has its own input method switching framework as
@@ -103,5 +103,5 @@ immodule for Qt
     provide unified user interface for global input method switching
     over the desktop
 
-    export QT_IM_SWITCHER=imsw-none
-    export QT_IM_MODULE=iiimqcf
+    export TQT_IM_SWITCHER=imsw-none
+    export TQT_IM_MODULE=iiimqcf

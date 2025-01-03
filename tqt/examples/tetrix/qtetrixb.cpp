@@ -21,7 +21,7 @@ TQTetrixBoard::TQTetrixBoard( TQWidget *p, const char *name )
     paint = 0;
     paint_widget = 0;
     timer = new TQTimer(this);
-    connect( timer, SIGNAL(timeout()), SLOT(timeout()) );
+    connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(timeout()) );
 
     colors[0].setRgb(200,100,100);
     colors[1].setRgb(100,200,100);

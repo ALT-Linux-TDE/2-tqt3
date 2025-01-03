@@ -38,7 +38,7 @@
 
 #include "qlock_p.h"
 
-#ifndef QT_NO_QWS_MULTIPROCESS
+#ifndef TQT_NO_QWS_MULTIPROCESS
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -47,6 +47,7 @@
 #include <sys/stat.h>
 #include <sys/file.h>
 #else
+#define _WANT_SEMUN
 #include <sys/sem.h>
 #if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED) \
     || defined(Q_OS_FREEBSD) || defined(Q_OS_OPENBSD) || defined(Q_OS_NETBSD) || defined(Q_OS_BSDI)
@@ -112,7 +113,7 @@ public:
 
 TQLock::TQLock( const TQString &filename, char id, bool create )
 {
-#ifndef QT_NO_QWS_MULTIPROCESS
+#ifndef TQT_NO_QWS_MULTIPROCESS
     data = new TQLockData;
     data->count = 0;
 #ifdef Q_NO_SEMAPHORE
@@ -153,7 +154,7 @@ TQLock::TQLock( const TQString &filename, char id, bool create )
 
 TQLock::~TQLock()
 {
-#ifndef QT_NO_QWS_MULTIPROCESS
+#ifndef TQT_NO_QWS_MULTIPROCESS
     if ( locked() )
 	unlock();
 #ifdef Q_NO_SEMAPHORE
@@ -181,7 +182,7 @@ TQLock::~TQLock()
 
 bool TQLock::isValid() const
 {
-#ifndef QT_NO_QWS_MULTIPROCESS
+#ifndef TQT_NO_QWS_MULTIPROCESS
     return (data->id != -1);
 #else
     return TRUE;
@@ -202,7 +203,7 @@ bool TQLock::isValid() const
 
 void TQLock::lock( Type t )
 {
-#ifndef QT_NO_QWS_MULTIPROCESS
+#ifndef TQT_NO_QWS_MULTIPROCESS
     if ( !data->count ) {
 #ifdef Q_NO_SEMAPHORE
 	int op = LOCK_SH;
@@ -248,7 +249,7 @@ void TQLock::lock( Type t )
 
 void TQLock::unlock()
 {
-#ifndef QT_NO_QWS_MULTIPROCESS
+#ifndef TQT_NO_QWS_MULTIPROCESS
     if( data->count ) {
 	data->count--;
 	if( !data->count ) {
@@ -289,7 +290,7 @@ void TQLock::unlock()
 
 bool TQLock::locked() const
 {
-#ifndef QT_NO_QWS_MULTIPROCESS
+#ifndef TQT_NO_QWS_MULTIPROCESS
     return (data->count > 0);
 #else
     return FALSE;

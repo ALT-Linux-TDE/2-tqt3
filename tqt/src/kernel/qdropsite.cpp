@@ -38,7 +38,7 @@
 
 #include "ntqdropsite.h"
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 #include "ntqwidget.h"
 
@@ -78,4 +78,4 @@ TQDropSite::~TQDropSite()
 {
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP

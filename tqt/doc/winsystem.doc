@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2000-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -50,13 +50,13 @@ appropriate \c{#ifdef} statements (see below).
 
 For information about which platforms are supported by Qt, see the
 \link http://www.trolltech.com/products/platforms/ Platform
-Notes\endlink. For information on distributing Qt applications, see
-\link distributingntqt.html Deploying Qt Applications\endlink.
+Notes\endlink. For information on distributing TQt applications, see
+\link distributingntqt.html Deploying TQt Applications\endlink.
 
 \target x11
 \section1 Qt/X11
 
-When compiling for this platform, the macro \c{Q_WS_X11} is defined.
+When compiling for this platform, the macro \c{TQ_WS_X11} is defined.
 
 \e{Not documented here. Please contact Trolltech Technical Support
 if you have queries.}
@@ -70,7 +70,7 @@ XRender support only is not enough.
 \target win
 \section1 Qt/Windows
 
-When compiling for this platform, the macro \c{Q_WS_WIN} is defined.
+When compiling for this platform, the macro \c{TQ_WS_WIN} is defined.
 
 \e{Not documented here. Please contact Trolltech Technical Support
 if you have queries.}
@@ -97,7 +97,7 @@ If you have further problems, please see the MSDN document,
 \target macosx
 \section1 Qt/Mac OS X
 
-When compiling for this platform, the macro \c{Q_WS_MACX} is defined.
+When compiling for this platform, the macro \c{TQ_WS_MACX} is defined.
 
 \list
  \i \link mac-differences.html Qt/Mac issues\endlink
@@ -106,8 +106,8 @@ When compiling for this platform, the macro \c{Q_WS_MACX} is defined.
 \target qws
 \section1 Qt/Embedded
 
-When compiling for this platform, the macro \c{Q_WS_QWS} is defined
-(the window system is literally the Qt Window System).
+When compiling for this platform, the macro \c{TQ_WS_QWS} is defined
+(the window system is literally the TQt Window System).
 
 \list
  \i \link emb-install.html Installation\endlink

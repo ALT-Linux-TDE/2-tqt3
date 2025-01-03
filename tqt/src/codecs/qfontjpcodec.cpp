@@ -40,8 +40,8 @@
 
 #include "private/qfontcodecs_p.h"
 
-#ifndef QT_NO_CODECS
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_CODECS
+#ifndef TQT_NO_BIG_CODECS
 #include "ntqjpunicode.h"
 
 
@@ -219,5 +219,5 @@ bool TQFontJis0208Codec::canEncode( TQChar ch ) const
 
 
 
-#endif // QT_NO_BIG_CODECS
-#endif // QT_NO_CODECS
+#endif // TQT_NO_BIG_CODECS
+#endif // TQT_NO_CODECS

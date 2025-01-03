@@ -76,7 +76,7 @@ PaletteEditorAdvanced::PaletteEditorAdvanced( FormWindow *fw, TQWidget * parent,
 					      const char * name, bool modal, WFlags f )
     : PaletteEditorAdvancedBase( parent, name, modal, f ), formWindow( fw ), selectedPalette(0)
 {
-    connect( buttonHelp, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( buttonHelp, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
 
     buttonPixmap->setEditor( StyledButton::PixmapEditor );
 

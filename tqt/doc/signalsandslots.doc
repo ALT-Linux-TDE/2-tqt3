@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -41,7 +41,7 @@
 \title Signals and Slots
 
 Signals and slots are used for communication between objects. The
-signal/slot mechanism is a central feature of Qt and probably the
+signal/slot mechanism is a central feature of TQt and probably the
 part that differs most from other toolkits.
 
 In GUI programming we often want a change in one widget to be notified
@@ -64,7 +64,7 @@ callback to call.
 \img abstract-connections.png
 \caption An abstract view of some signals and slots connections
 
-In Qt we have an alternative to the callback technique. We use signals
+In TQt we have an alternative to the callback technique. We use signals
 and slots. A signal is emitted when a particular event occurs. Qt's
 widgets have many pre-defined signals, but we can always subclass to
 add our own. A slot is a function that is called in reponse to a
@@ -84,8 +84,8 @@ called with the signal's parameters at the right time. Signals and
 slots can take any number of arguments of any type. They are
 completely typesafe: no more callback core dumps!
 
-All classes that inherit from QObject or one of its subclasses
-(e.g. QWidget) can contain signals and slots. Signals are emitted by
+All classes that inherit from TQObject or one of its subclasses
+(e.g. TQWidget) can contain signals and slots. Signals are emitted by
 objects when they change their state in a way that may be interesting
 to the outside world. This is all the object does to communicate. It
 does not know or care whether anything is receiving the signals it
@@ -125,10 +125,10 @@ A minimal C++ class declaration might read:
     };
 \endcode
 
-A small Qt class might read:
+A small TQt class might read:
 
 \code
-    class Foo : public QObject
+    class Foo : public TQObject
     {
 	TQ_OBJECT
     public:
@@ -173,7 +173,7 @@ Here is one way to connect two of these objects together:
 
 \code
     Foo a, b;
-    connect(&a, SIGNAL(valueChanged(int)), &b, SLOT(setValue(int)));
+    connect(&a, TQ_SIGNAL(valueChanged(int)), &b, TQ_SLOT(setValue(int)));
     b.setValue( 11 ); // a == undefined  b == 11
     a.setValue( 79 ); // a == 79         b == 79
     b.value();        // returns 79        
@@ -193,7 +193,7 @@ were connected to \c{a.setValue()}).
 
 A signal is emitted for \e{every} connection you make, so if you
 duplicate a connection, two signals will be emitted. You can always
-break a connection using \c{QObject::disconnect()}.
+break a connection using \c{TQObject::disconnect()}.
 
 This example illustrates that objects can work together without knowing
 about each other, as long as there is someone around to set up a
@@ -306,11 +306,11 @@ declaration in a C++ file and generates C++ code that initializes the
 meta object. The meta object contains the names of all the signal and
 slot members, as well as pointers to these functions. (For more
 information on Qt's Meta Object System, see \link templates.html Why
-doesn't Qt use templates for signals and slots?\endlink.)
+doesn't TQt use templates for signals and slots?\endlink.)
 
 The meta object contains additional information such as the object's \link
-QObject::className() class name\endlink. You can also check if an object
-\link QObject::inherits() inherits\endlink a specific class, for example:
+TQObject::className() class name\endlink. You can also check if an object
+\link TQObject::inherits() inherits\endlink a specific class, for example:
 
 \code
   if ( widget->inherits("QButton") ) {
@@ -329,8 +329,8 @@ Here is a simple commented example (code fragments from \l ntqlcdnumber.h ).
     class QLCDNumber : public QFrame
 \endcode
 
-QLCDNumber inherits QObject, which has most of the signal/slot
-knowledge, via QFrame and QWidget, and #include's the relevant
+QLCDNumber inherits TQObject, which has most of the signal/slot
+knowledge, via QFrame and TQWidget, and #include's the relevant
 declarations.
 
 \code
@@ -346,11 +346,11 @@ include the moc output in the link command.
 
 \code
     public:
-	QLCDNumber( QWidget *parent=0, const char *name=0 );
-	QLCDNumber( uint numDigits, QWidget *parent=0, const char *name=0 );
+	QLCDNumber( TQWidget *parent=0, const char *name=0 );
+	QLCDNumber( uint numDigits, TQWidget *parent=0, const char *name=0 );
 \endcode
 
-It's not obviously relevant to the moc, but if you inherit QWidget you
+It's not obviously relevant to the moc, but if you inherit TQWidget you
 almost certainly want to have the \e{parent} and \e{name}
 arguments in your constructors, and pass them to the parent
 constructor.
@@ -372,7 +372,7 @@ any slot.
 
 If, on the other hand, you want to call two different error functions
 when the number overflows, simply connect the signal to two different
-slots. Qt will call both (in arbitrary order).
+slots. TQt will call both (in arbitrary order).
 
 \code
     public slots:
@@ -396,7 +396,7 @@ Several of the example programs connect the newValue() signal of a
 QScrollBar to the display() slot, so the LCD number continuously shows
 the value of the scroll bar.
 
-Note that display() is overloaded; Qt will select the appropriate version
+Note that display() is overloaded; TQt will select the appropriate version
 when you connect a signal to the slot. With callbacks, you'd have to find
 five different names and keep track of the types yourself.
 

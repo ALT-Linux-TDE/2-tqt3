@@ -263,7 +263,7 @@ reimplement <a href="#setContentFromEditor">setContentFromEditor</a>(), and may 
     {
         // create an editor - a combobox in our case
         ( (ComboItem*)this )-&gt;cb = new <a href="ntqcombobox.html">TQComboBox</a>( <a href="#table">table</a>()-&gt;viewport() );
-        TQObject::<a href="ntqobject.html#connect">connect</a>( cb, SIGNAL( activated( int ) ), table(), SLOT( doValueChanged() ) );
+        TQObject::<a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL( activated( int ) ), table(), TQ_SLOT( doValueChanged() ) );
         cb-&gt;insertItem( "Yes" );
         cb-&gt;insertItem( "No" );
         // and initialize it

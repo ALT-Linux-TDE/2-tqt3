@@ -18,12 +18,12 @@ Rot13::Rot13()
 {
     left = new TQMultiLineEdit( this, "left" );
     right = new TQMultiLineEdit( this, "right" );
-    connect( left, SIGNAL(textChanged()), this, SLOT(changeRight()) );
-    connect( right, SIGNAL(textChanged()), this, SLOT(changeLeft()) );
+    connect( left, TQ_SIGNAL(textChanged()), this, TQ_SLOT(changeRight()) );
+    connect( right, TQ_SIGNAL(textChanged()), this, TQ_SLOT(changeLeft()) );
 
     TQPushButton * quit = new TQPushButton( "&Quit", this );
     quit->setFocusPolicy( NoFocus );
-    connect( quit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 
     TQGridLayout * l = new TQGridLayout( this, 2, 2, 5 );
     l->addWidget( left, 0, 0 );

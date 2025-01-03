@@ -122,27 +122,27 @@ MenuExample::MenuExample( TQWidget *parent, const char *name )
     TQPopupMenu *print = new TQPopupMenu( this );
     TQ_CHECK_PTR( print );
     print->insertTearOffHandle();
-    print->insertItem( "&Print to printer", this, SLOT(printer()) );
-    print->insertItem( "Print to &file", this, SLOT(file()) );
-    print->insertItem( "Print to fa&x", this, SLOT(fax()) );
+    print->insertItem( "&Print to printer", this, TQ_SLOT(printer()) );
+    print->insertItem( "Print to &file", this, TQ_SLOT(file()) );
+    print->insertItem( "Print to fa&x", this, TQ_SLOT(fax()) );
     print->insertSeparator();
-    print->insertItem( "Printer &Setup", this, SLOT(printerSetup()) );
+    print->insertItem( "Printer &Setup", this, TQ_SLOT(printerSetup()) );
 
     TQPopupMenu *file = new TQPopupMenu( this );
     TQ_CHECK_PTR( file );
-    file->insertItem( p1, "&Open",  this, SLOT(open()), CTRL+Key_O );
-    file->insertItem( p2, "&New", this, SLOT(news()), CTRL+Key_N );
-    file->insertItem( p3, "&Save", this, SLOT(save()), CTRL+Key_S );
-    file->insertItem( "&Close", this, SLOT(closeDoc()), CTRL+Key_W );
+    file->insertItem( p1, "&Open",  this, TQ_SLOT(open()), CTRL+Key_O );
+    file->insertItem( p2, "&New", this, TQ_SLOT(news()), CTRL+Key_N );
+    file->insertItem( p3, "&Save", this, TQ_SLOT(save()), CTRL+Key_S );
+    file->insertItem( "&Close", this, TQ_SLOT(closeDoc()), CTRL+Key_W );
     file->insertSeparator();
     file->insertItem( "&Print", print, CTRL+Key_P );
     file->insertSeparator();
-    file->insertItem( "E&xit",  tqApp, SLOT(quit()), CTRL+Key_Q );
+    file->insertItem( "E&xit",  tqApp, TQ_SLOT(quit()), CTRL+Key_Q );
 
     TQPopupMenu *edit = new TQPopupMenu( this );
     TQ_CHECK_PTR( edit );
-    int undoID = edit->insertItem( "&Undo", this, SLOT(undo()) );
-    int redoID = edit->insertItem( "&Redo", this, SLOT(redo()) );
+    int undoID = edit->insertItem( "&Undo", this, TQ_SLOT(undo()) );
+    int redoID = edit->insertItem( "&Redo", this, TQ_SLOT(redo()) );
     edit->setItemEnabled( undoID, FALSE );
     edit->setItemEnabled( redoID, FALSE );
 
@@ -150,7 +150,7 @@ MenuExample::MenuExample( TQWidget *parent, const char *name )
     TQ_CHECK_PTR( options );
     options->insertTearOffHandle();
     options->setCaption("Options");
-    options->insertItem( "&Normal Font", this, SLOT(normal()) );
+    options->insertItem( "&Normal Font", this, TQ_SLOT(normal()) );
     options->insertSeparator();
 
     options->polish(); // adjust system settings
@@ -158,12 +158,12 @@ MenuExample::MenuExample( TQWidget *parent, const char *name )
     f.setBold( TRUE );
     boldID = options->insertItem( new MyMenuItem( "Bold", f ) );
     options->setAccel( CTRL+Key_B, boldID );
-    options->connectItem( boldID, this, SLOT(bold()) );
+    options->connectItem( boldID, this, TQ_SLOT(bold()) );
     f = font();
     f.setUnderline( TRUE );
     underlineID = options->insertItem( new MyMenuItem( "Underline", f ) );
     options->setAccel( CTRL+Key_U, underlineID );
-    options->connectItem( underlineID, this, SLOT(underline()) );
+    options->connectItem( underlineID, this, TQ_SLOT(underline()) );
 
     isBold = FALSE;
     isUnderline = FALSE;
@@ -172,8 +172,8 @@ MenuExample::MenuExample( TQWidget *parent, const char *name )
 
     TQPopupMenu *help = new TQPopupMenu( this );
     TQ_CHECK_PTR( help );
-    help->insertItem( "&About", this, SLOT(about()), CTRL+Key_H );
-    help->insertItem( "About &TQt", this, SLOT(aboutTQt()) );
+    help->insertItem( "&About", this, TQ_SLOT(about()), CTRL+Key_H );
+    help->insertItem( "About &TQt", this, TQ_SLOT(aboutTQt()) );
 
     // If we used a TQMainWindow we could use its built-in menuBar().
     menu = new TQMenuBar( this );
@@ -201,8 +201,8 @@ MenuExample::MenuExample( TQWidget *parent, const char *name )
     label->setLineWidth( 1 );
     label->setAlignment( AlignCenter );
 
-    connect( this,  SIGNAL(explain(const TQString&)),
-	     label, SLOT(setText(const TQString&)) );
+    connect( this,  TQ_SIGNAL(explain(const TQString&)),
+	     label, TQ_SLOT(setText(const TQString&)) );
 
     setMinimumSize( 100, 80 );
     setFocusPolicy( TQWidget::ClickFocus );
@@ -217,14 +217,14 @@ void MenuExample::contextMenuEvent( TQContextMenuEvent * )
 	"Context Menu</b></u></font>", this );
     caption->setAlignment( TQt::AlignCenter );
     contextMenu->insertItem( caption );
-    contextMenu->insertItem( "&New",  this, SLOT(news()), CTRL+Key_N );
-    contextMenu->insertItem( "&Open...", this, SLOT(open()), CTRL+Key_O );
-    contextMenu->insertItem( "&Save", this, SLOT(save()), CTRL+Key_S );
+    contextMenu->insertItem( "&New",  this, TQ_SLOT(news()), CTRL+Key_N );
+    contextMenu->insertItem( "&Open...", this, TQ_SLOT(open()), CTRL+Key_O );
+    contextMenu->insertItem( "&Save", this, TQ_SLOT(save()), CTRL+Key_S );
     TQPopupMenu *submenu = new TQPopupMenu( this );
     TQ_CHECK_PTR( submenu );
-    submenu->insertItem( "&Print to printer", this, SLOT(printer()) );
-    submenu->insertItem( "Print to &file", this, SLOT(file()) );
-    submenu->insertItem( "Print to fa&x", this, SLOT(fax()) );
+    submenu->insertItem( "&Print to printer", this, TQ_SLOT(printer()) );
+    submenu->insertItem( "Print to &file", this, TQ_SLOT(file()) );
+    submenu->insertItem( "Print to fa&x", this, TQ_SLOT(fax()) );
     contextMenu->insertItem( "&Print", submenu );
     contextMenu->exec( TQCursor::pos() );
     delete contextMenu;

@@ -14,7 +14,7 @@ public:
     IpcSocket( TQObject *parent) : TQSocket( parent )
     {
 	packetSize = 0;
-	connect( this, SIGNAL(readyRead()), SLOT(read()) );
+	connect( this, TQ_SIGNAL(readyRead()), TQ_SLOT(read()) );
     }
 
 signals:
@@ -75,10 +75,10 @@ void IpcServer::newConnection( int socket )
 {
     IpcSocket *s = new IpcSocket( this );
     s->setSocket( socket );
-    connect( s, SIGNAL(receivedText(const TQString&)),
-	    SIGNAL(receivedText(const TQString&)) );
-    connect( s, SIGNAL(receivedPixmap(const TQPixmap&)),
-	    SIGNAL(receivedPixmap(const TQPixmap&)) );
+    connect( s, TQ_SIGNAL(receivedText(const TQString&)),
+	    TQ_SIGNAL(receivedText(const TQString&)) );
+    connect( s, TQ_SIGNAL(receivedPixmap(const TQPixmap&)),
+	    TQ_SIGNAL(receivedPixmap(const TQPixmap&)) );
 }
 
 #include "ipcserver.moc"

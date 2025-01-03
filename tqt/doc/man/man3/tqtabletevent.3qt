@@ -19,10 +19,10 @@ Inherits QEvent.
 .BI "enum \fBTabletDevice\fR { NoDevice = -1, Puck, Stylus, Eraser }"
 .br
 .ti -1c
-.BI "\fBQTabletEvent\fR ( Type t, const QPoint & pos, const QPoint & globalPos, int device, int pressure, int xTilt, int yTilt, const QPair<int, int> & uId )"
+.BI "\fBQTabletEvent\fR ( Type t, const QPoint & pos, const QPoint & globalPos, int device, int pressure, int xTilt, int yTilt, const TQPair<int, int> & uId )"
 .br
 .ti -1c
-.BI "QTabletEvent ( const QPoint & pos, const QPoint & globalPos, int device, int pressure, int xTilt, int yTilt, const QPair<int, int> & uId )  \fI(obsolete)\fR"
+.BI "QTabletEvent ( const QPoint & pos, const QPoint & globalPos, int device, int pressure, int xTilt, int yTilt, const TQPair<int, int> & uId )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "int \fBpressure\fR () const"
@@ -64,7 +64,7 @@ Inherits QEvent.
 .BI "void \fBignore\fR ()"
 .br
 .ti -1c
-.BI "QPair<int, int> \fBuniqueId\fR ()"
+.BI "TQPair<int, int> \fBuniqueId\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -74,9 +74,9 @@ Tablet Events are generated from a Wacom&copy; tablet. Most of the time you will
 .PP
 A tablet event contains a special accept flag that indicates whether the receiver wants the event. You should call QTabletEvent::accept() if you handle the tablet event; otherwise it will be sent to the parent widget.
 .PP
-The QWidget::setEnabled() function can be used to enable or disable mouse and keyboard events for a widget.
+The TQWidget::setEnabled() function can be used to enable or disable mouse and keyboard events for a widget.
 .PP
-The event handler QWidget::tabletEvent() receives all three types of tablet events. Qt will first send a tabletEvent and then, if it is not accepted, it will send a mouse event. This allows applications that don't utilize tablets to use a tablet like a mouse while also enabling those who want to use both tablets and mouses differently.
+The event handler TQWidget::tabletEvent() receives all three types of tablet events. TQt will first send a tabletEvent and then, if it is not accepted, it will send a mouse event. This allows applications that don't utilize tablets to use a tablet like a mouse while also enabling those who want to use both tablets and mouses differently.
 .PP
 See also Event Classes.
 .SS "Member Type Documentation"
@@ -91,13 +91,13 @@ This enum defines what type of device is generating the event.
 .TP
 \fCQTabletEvent::Eraser\fR - An Eraser (the broad end of the pen).
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTabletEvent::QTabletEvent ( Type t, const QPoint & pos, const QPoint & globalPos, int device, int pressure, int xTilt, int yTilt, const QPair<int, int> & uId )"
+.SH "QTabletEvent::QTabletEvent ( Type t, const QPoint & pos, const QPoint & globalPos, int device, int pressure, int xTilt, int yTilt, const TQPair<int, int> & uId )"
 Construct a tablet event of type \fIt\fR. The position of when the event occurred is given int \fIpos\fR and \fIglobalPos\fR. \fIdevice\fR contains the device type, \fIpressure\fR contains the pressure exerted on the \fIdevice\fR, \fIxTilt\fR and \fIyTilt\fR contain \fIdevice\fR's degree of tilt from the X and Y axis respectively. The \fIuId\fR contains an event id.
 .PP
 On Irix, \fIglobalPos\fR will contain the high-resolution coordinates received from the tablet device driver, instead of from the windowing system.
 .PP
 See also pos(), globalPos(), device(), pressure(), xTilt(), and yTilt().
-.SH "QTabletEvent::QTabletEvent ( const QPoint & pos, const QPoint & globalPos, int device, int pressure, int xTilt, int yTilt, const QPair<int, int> & uId )"
+.SH "QTabletEvent::QTabletEvent ( const QPoint & pos, const QPoint & globalPos, int device, int pressure, int xTilt, int yTilt, const TQPair<int, int> & uId )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Constructs a tablet event object. The position when the event occurred is is given in \fIpos\fR and \fIglobalPos\fR. \fIdevice\fR contains the device type, \fIpressure\fR contains the pressure exerted on the \fIdevice\fR, \fIxTilt\fR and \fIyTilt\fR contain the \fIdevice\fR's degrees of tilt from the X and Y axis respectively. The \fIuId\fR contains an event id.
@@ -147,7 +147,7 @@ If you move widgets around in response to mouse events, use globalPos() instead 
 See also x(), y(), and globalPos().
 .SH "int QTabletEvent::pressure () const"
 Returns the pressure that is exerted on the device. This number is a value from 0 (no pressure) to 255 (maximum pressure). The pressure is always scaled to be within this range no matter how many pressure levels the underlying hardware supports.
-.SH "QPair<int, int> QTabletEvent::uniqueId ()"
+.SH "TQPair<int, int> QTabletEvent::uniqueId ()"
 Returns a unique ID for the current device. It is possible to generate a unique ID for any Wacom&copy; device. This makes it possible to differentiate between multiple devices being used at the same time on the tablet. The \fCfirst\fR member contains a value for the type, the \fCsecond\fR member contains a physical ID obtained from the device. Each combination of these values is unique. Note: for different platforms, the \fCfirst\fR value is different due to different driver implementations.
 .SH "int QTabletEvent::x () const"
 Returns the x-position of the device, relative to the widget that received the event.
@@ -180,8 +180,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

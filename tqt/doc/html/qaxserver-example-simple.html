@@ -59,8 +59,8 @@ and <a href="qaxbindable.html#propertyChanged">TQAxBindable::propertyChanged</a>
             LCD = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 3, this );
             edit = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
 
-    <a name="x2528"></a>        connect( slider, SIGNAL( <a href="ntqslider.html#valueChanged">valueChanged</a>( int ) ), this, SLOT( setValue(int) ) );
-    <a name="x2523"></a>        connect( edit, SIGNAL(<a href="ntqlineedit.html#textChanged">textChanged</a>(const <a href="ntqstring.html">TQString</a>&amp;)), this, SLOT(setText(const <a href="ntqstring.html">TQString</a>&amp;)) );
+    <a name="x2528"></a>        connect( slider, TQ_SIGNAL( <a href="ntqslider.html#valueChanged">valueChanged</a>( int ) ), this, TQ_SLOT( setValue(int) ) );
+    <a name="x2523"></a>        connect( edit, TQ_SIGNAL(<a href="ntqlineedit.html#textChanged">textChanged</a>(const <a href="ntqstring.html">TQString</a>&amp;)), this, TQ_SLOT(setText(const <a href="ntqstring.html">TQString</a>&amp;)) );
 
             vbox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( slider );
             vbox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( LCD );

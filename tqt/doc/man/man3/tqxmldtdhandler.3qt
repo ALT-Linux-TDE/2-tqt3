@@ -9,7 +9,7 @@
 .SH NAME
 QXmlDTDHandler \- Interface to report DTD content of XML data
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqxml.h>\fR
 .PP
@@ -18,13 +18,13 @@ Inherited by QXmlDefaultHandler.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "virtual bool \fBnotationDecl\fR ( const QString & name, const QString & publicId, const QString & systemId ) = 0"
+.BI "virtual bool \fBnotationDecl\fR ( const TQString & name, const TQString & publicId, const TQString & systemId ) = 0"
 .br
 .ti -1c
-.BI "virtual bool \fBunparsedEntityDecl\fR ( const QString & name, const QString & publicId, const QString & systemId, const QString & notationName ) = 0"
+.BI "virtual bool \fBunparsedEntityDecl\fR ( const TQString & name, const TQString & publicId, const TQString & systemId, const TQString & notationName ) = 0"
 .br
 .ti -1c
-.BI "virtual QString \fBerrorString\fR () = 0"
+.BI "virtual TQString \fBerrorString\fR () = 0"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -38,15 +38,15 @@ See also the Introduction to SAX2.
 .PP
 See also QXmlDeclHandler, QXmlContentHandler, QXmlEntityResolver, QXmlErrorHandler, QXmlLexicalHandler, and XML.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QString QXmlDTDHandler::errorString ()\fC [pure virtual]\fR"
+.SH "TQString QXmlDTDHandler::errorString ()\fC [pure virtual]\fR"
 The reader calls this function to get an error string if any of the handler functions returns FALSE.
-.SH "bool QXmlDTDHandler::notationDecl ( const QString & name, const QString & publicId, const QString & systemId )\fC [pure virtual]\fR"
+.SH "bool QXmlDTDHandler::notationDecl ( const TQString & name, const TQString & publicId, const TQString & systemId )\fC [pure virtual]\fR"
 The reader calls this function when it has parsed a notation declaration.
 .PP
 The argument \fIname\fR is the notation name, \fIpublicId\fR is the notation's public identifier and \fIsystemId\fR is the notation's system identifier.
 .PP
 If this function returns FALSE the reader stops parsing and reports an error. The reader uses the function errorString() to get the error message.
-.SH "bool QXmlDTDHandler::unparsedEntityDecl ( const QString & name, const QString & publicId, const QString & systemId, const QString & notationName )\fC [pure virtual]\fR"
+.SH "bool QXmlDTDHandler::unparsedEntityDecl ( const TQString & name, const TQString & publicId, const TQString & systemId, const TQString & notationName )\fC [pure virtual]\fR"
 The reader calls this function when it finds an unparsed entity declaration.
 .PP
 The argument \fIname\fR is the unparsed entity's name, \fIpublicId\fR is the entity's public identifier, \fIsystemId\fR is the entity's system identifier and \fInotationName\fR is the name of the associated notation.
@@ -69,8 +69,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

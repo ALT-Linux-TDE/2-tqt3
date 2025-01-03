@@ -162,7 +162,7 @@ DrawView::DrawView()
     // Create a button group to contain all buttons
     bgroup = new TQButtonGroup( this );
     bgroup->resize( 200, 200 );
-    connect( bgroup, SIGNAL(clicked(int)), SLOT(updateIt(int)) );
+    connect( bgroup, TQ_SIGNAL(clicked(int)), TQ_SLOT(updateIt(int)) );
 
     // Calculate the size for the radio buttons
     int maxwidth = 80;
@@ -211,7 +211,7 @@ DrawView::DrawView()
 // If -- at compile time -- printer support will be disabled,
 // we won't set up printing functionality.
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     
     printer = new TQPrinter;
 
@@ -219,7 +219,7 @@ DrawView::DrawView()
     print = new TQPushButton( "Print...", bgroup );
     print->resize( 80, 30 );
     print->move( maxwidth/2 - print->width()/2, maxindex*30+20 );
-    connect( print, SIGNAL(clicked()), SLOT(printIt()) );
+    connect( print, TQ_SIGNAL(clicked()), TQ_SLOT(printIt()) );
 
     // Resize bgroup to its final size when printersupport is given.
     bgroup->resize( maxwidth, print->y()+print->height()+10 );
@@ -234,7 +234,7 @@ DrawView::DrawView()
 //
 DrawView::~DrawView()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     delete printer;
 #endif
 }

@@ -11,7 +11,7 @@ QDns \- Asynchronous DNS lookups
 .SH SYNOPSIS
 \fC#include <ntqdns.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
@@ -22,7 +22,7 @@ Inherits QObject.
 .BI "\fBQDns\fR ()"
 .br
 .ti -1c
-.BI "\fBQDns\fR ( const QString & label, RecordType rr = A )"
+.BI "\fBQDns\fR ( const TQString & label, RecordType rr = A )"
 .br
 .ti -1c
 .BI "\fBQDns\fR ( const QHostAddress & address, RecordType rr = Ptr )"
@@ -31,13 +31,13 @@ Inherits QObject.
 .BI "virtual \fB~QDns\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetLabel\fR ( const QString & label )"
+.BI "virtual void \fBsetLabel\fR ( const TQString & label )"
 .br
 .ti -1c
 .BI "virtual void \fBsetLabel\fR ( const QHostAddress & address )"
 .br
 .ti -1c
-.BI "QString \fBlabel\fR () const"
+.BI "TQString \fBlabel\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetRecordType\fR ( RecordType rr = A )"
@@ -64,7 +64,7 @@ Inherits QObject.
 .BI "QStringList \fBtexts\fR () const"
 .br
 .ti -1c
-.BI "QString \fBcanonicalName\fR () const"
+.BI "TQString \fBcanonicalName\fR () const"
 .br
 .ti -1c
 .BI "QStringList \fBqualifiedNames\fR () const"
@@ -114,7 +114,7 @@ We expect that some support for the RFC-2535 extensions will be added in future 
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QDns::QDns ()"
 Constructs a DNS query object with invalid settings for both the label and the search type.
-.SH "QDns::QDns ( const QString & label, RecordType rr = A )"
+.SH "QDns::QDns ( const TQString & label, RecordType rr = A )"
 Constructs a DNS query object that will return record type \fIrr\fR information about \fIlabel\fR.
 .PP
 The DNS lookup is started the next time the application enters the event loop. When the result is found the signal resultsReady() is emitted.
@@ -150,7 +150,7 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "QString QDns::canonicalName () const"
+.SH "TQString QDns::canonicalName () const"
 Returns the canonical name for this DNS node. (This works regardless of what recordType() is set to.)
 .PP
 If the canonical name isn't known, this function returns a null string.
@@ -182,14 +182,14 @@ Returns TRUE if QDns is doing a lookup for this object (i.e. if it does not alre
 QDns emits the resultsReady() signal when the status changes to FALSE.
 .PP
 Example: network/mail/smtp.cpp.
-.SH "QString QDns::label () const"
+.SH "TQString QDns::label () const"
 Returns the domain name for which this object returns information.
 .PP
 See also setLabel().
 .SH "QValueList<MailServer> QDns::mailServers () const"
 Returns a list of mail servers if the record type is Mx. The class \fCQDns::MailServer\fR contains the following public variables:
 .TP
-QString QDns::MailServer::name
+TQString QDns::MailServer::name
 .TP
 TQ_UINT16 QDns::MailServer::priority
 .PP
@@ -243,7 +243,7 @@ Example: network/mail/smtp.cpp.
 .SH "QValueList<Server> QDns::servers () const"
 Returns a list of servers if the record type is Srv. The class \fCQDns::Server\fR contains the following public variables:
 .TP
-QString QDns::Server::name
+TQString QDns::Server::name
 .TP
 TQ_UINT16 QDns::Server::priority
 .TP
@@ -268,7 +268,7 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "void QDns::setLabel ( const QString & label )\fC [virtual]\fR"
+.SH "void QDns::setLabel ( const TQString & label )\fC [virtual]\fR"
 Sets this DNS query object to query for information about \fIlabel\fR.
 .PP
 This does not change the recordType(), but its isWorking() status will probably change as a result.
@@ -319,8 +319,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

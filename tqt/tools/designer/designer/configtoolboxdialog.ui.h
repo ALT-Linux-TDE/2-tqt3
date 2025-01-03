@@ -47,10 +47,10 @@ void ConfigToolboxDialog::init()
     ListViewDnd *commonDnd = new ListViewDnd( listViewCommon );
     commonDnd->setDragMode( ListViewDnd::Both | ListViewDnd::Move | ListViewDnd::Flat );
 
-    TQObject::connect( toolsDnd, SIGNAL( dropped( TQListViewItem * ) ),
-			commonDnd, SLOT( confirmDrop( TQListViewItem * ) ) );
-    TQObject::connect( commonDnd, SIGNAL( dropped( TQListViewItem * ) ),
-			commonDnd, SLOT( confirmDrop( TQListViewItem * ) ) );
+    TQObject::connect( toolsDnd, TQ_SIGNAL( dropped( TQListViewItem * ) ),
+			commonDnd, TQ_SLOT( confirmDrop( TQListViewItem * ) ) );
+    TQObject::connect( commonDnd, TQ_SIGNAL( dropped( TQListViewItem * ) ),
+			commonDnd, TQ_SLOT( confirmDrop( TQListViewItem * ) ) );
 
     TQDict<TQListViewItem> groups;
     TQAction *a;

@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQPixmapCache				// global pixmap cache
+class TQ_EXPORT TQPixmapCache				// global pixmap cache
 {
 public:
     static  int  cacheLimit();

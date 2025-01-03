@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqhgroupbox.h"
-#ifndef QT_NO_HGROUPBOX
+#ifndef TQT_NO_HGROUPBOX
 
 /*!
     \class TQHGroupBox ntqhgroupbox.h

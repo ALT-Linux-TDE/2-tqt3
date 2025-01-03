@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqtextbrowser.h"
-#ifndef QT_NO_TEXTBROWSER
+#ifndef TQT_NO_TEXTBROWSER
 #include "../kernel/qrichtext_p.h"
 
 #include "ntqapplication.h"
@@ -227,7 +227,7 @@ void TQTextBrowser::reload()
 
 void TQTextBrowser::setSource(const TQString& name)
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( isVisible() )
 	tqApp->setOverrideCursor( waitCursor );
 #endif
@@ -262,7 +262,7 @@ void TQTextBrowser::setSource(const TQString& name)
 	    TQString firstTag = txt.left( txt.find( '>' ) + 1 );
 	    if ( firstTag.left( 3 ) == "<qt" && firstTag.contains( "type" ) && firstTag.contains( "detail" ) ) {
 		popupDetail( txt, TQCursor::pos() );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 		tqApp->restoreOverrideCursor();
 #endif
 		return;
@@ -302,7 +302,7 @@ void TQTextBrowser::setSource(const TQString& name)
     else
 	setContentsPos( 0, 0 );
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( isVisible() )
 	tqApp->restoreOverrideCursor();
 #endif
@@ -552,4 +552,4 @@ void TQTextBrowser::emitLinkClicked( const TQString &s )
 	setSource( s );
 }
 
-#endif  // QT_NO_TEXTBROWSER
+#endif  // TQT_NO_TEXTBROWSER

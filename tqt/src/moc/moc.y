@@ -239,10 +239,10 @@ TQCString uTypeExtra( TQCString ctype )
 	    typeExtra.sprintf( "parentObject->enumerator(\"%s\", TRUE )", ctype.data() );
 	}
 	typeExtra =
-	    "\n#ifndef QT_NO_PROPERTIES\n\t  " + typeExtra +
+	    "\n#ifndef TQT_NO_PROPERTIES\n\t  " + typeExtra +
 	    "\n#else"
 	    "\n\t  0"
-	    "\n#endif // QT_NO_PROPERTIES\n\t  ";
+	    "\n#endif // TQT_NO_PROPERTIES\n\t  ";
     }
     return typeExtra;
 }
@@ -2134,7 +2134,7 @@ void registerClassInNamespace()
 }
 
 //
-// Remove white space from SIGNAL and SLOT names.
+// Remove white space from TQ_SIGNAL and TQ_SLOT names.
 // This function has been copied from qobject.cpp.
 //
 
@@ -2462,7 +2462,7 @@ int generateEnums()
     if ( g->enums.count() == 0 )
 	return 0;
 
-    fprintf( out, "#ifndef QT_NO_PROPERTIES\n" );
+    fprintf( out, "#ifndef TQT_NO_PROPERTIES\n" );
     int i = 0;
     for ( TQPtrListIterator<Enum> it( g->enums ); it.current(); ++it, ++i ) {
 	fprintf( out, "    static const TQMetaEnum::Item enum_%i[] = {\n", i );
@@ -2486,7 +2486,7 @@ int generateEnums()
 		 it2.current()->set ? "TRUE" : "FALSE" );
     }
     fprintf( out, "\n    };\n" );
-    fprintf( out, "#endif // QT_NO_PROPERTIES\n" );
+    fprintf( out, "#endif // TQT_NO_PROPERTIES\n" );
 
     return g->enums.count();
 }
@@ -2735,7 +2735,7 @@ int generateProps()
 		moc_err("The declaration of the class \"%s\" contains properties"
 		" but no TQ_OBJECT macro.", g->className.data());
 
-	fprintf( out, "#ifndef QT_NO_PROPERTIES\n" );
+	fprintf( out, "#ifndef TQT_NO_PROPERTIES\n" );
 
 	fprintf( out, "    static const TQMetaProperty props_tbl[%d] = {\n ", g->props.count() );
 	for( TQPtrListIterator<Property> it( g->props ); it.current(); ++it ) {
@@ -2800,7 +2800,7 @@ int generateProps()
 		fprintf( out, "\n" );
 	}
 	fprintf( out, "    };\n" );
-	fprintf( out, "#endif // QT_NO_PROPERTIES\n" );
+	fprintf( out, "#endif // TQT_NO_PROPERTIES\n" );
     }
 
     return g->props.count();
@@ -2833,7 +2833,7 @@ void generateClass()		      // generate C++ source code for a class
 {
     const char *hdr1 = "/****************************************************************************\n"
 		 "** %s meta object code from reading C++ file '%s'\n**\n";
-    const char *hdr2 = "** Created: %s\n";
+    const char *hdr2 = "** Created by: The TQt Meta Object Compiler version %d (TQt %s)\n";
     const char *hdr3 = "** WARNING! All changes made in this file will be lost!\n";
     const char *hdr4 = "*****************************************************************************/\n\n";
     int   i;
@@ -2863,8 +2863,6 @@ void generateClass()		      // generate C++ source code for a class
     g->gen_count++;
 
     if ( g->gen_count == 1 ) {			// first class to be generated
-	TQDateTime dt = TQDateTime::currentDateTime();
-	TQCString dstr = dt.toString().ascii();
 	TQCString fn = g->fileName;
 	i = g->fileName.length()-1;
 	while ( i>0 && g->fileName[i-1] != '/' && g->fileName[i-1] != '\\' )
@@ -2872,22 +2870,22 @@ void generateClass()		      // generate C++ source code for a class
 	if ( i >= 0 )
 	    fn = &g->fileName[i];
 	fprintf( out, hdr1, (const char*)qualifiedClassName(),(const char*)fn);
-	fprintf( out, hdr2, (const char*)dstr );
+	fprintf( out, hdr2, formatRevision, TQT_VERSION_STR );
 	fprintf( out, "%s", hdr3 );
 	fprintf( out, "%s", hdr4 );
 
 	if ( !g->noInclude ) {
 	    /*
 	      The header file might be a TQt header file with
-	      QT_NO_COMPAT macros around signals, slots or
+	      TQT_NO_COMPAT macros around signals, slots or
 	      properties. Without the #undef, we cannot compile the
-	      TQt library with QT_NO_COMPAT defined.
+	      TQt library with TQT_NO_COMPAT defined.
 
 	      Header files of libraries build around TQt can also use
-	      QT_NO_COMPAT, so this #undef might be beneficial to
+	      TQT_NO_COMPAT, so this #undef might be beneficial to
 	      users of TQt, and not only to developers of TQt.
 	    */
-	    fprintf( out, "#undef QT_NO_COMPAT\n" );
+	    fprintf( out, "#undef TQT_NO_COMPAT\n" );
 
 	    if ( !g->pchFile.isEmpty() )
 	    	fprintf( out, "#include \"%s\" // PCH include\n", (const char*)g->pchFile );
@@ -2959,7 +2957,7 @@ void generateClass()		      // generate C++ source code for a class
 //
 // Generate tr and trUtf8 member functions
 //
-    fprintf( out, "#ifndef QT_NO_TRANSLATION\n" );
+    fprintf( out, "#ifndef TQT_NO_TRANSLATION\n" );
     fprintf( out, "TQString %s::tr( const char *s, const char *c )\n{\n",
 	     (const char*)qualifiedClassName() );
     fprintf( out, "    if ( tqApp )\n" );
@@ -2969,7 +2967,7 @@ void generateClass()		      // generate C++ source code for a class
     fprintf( out, "    else\n" );
     fprintf( out, "\treturn TQString::fromLatin1( s );\n");
     fprintf( out, "}\n" );
-    fprintf( out, "#ifndef QT_NO_TRANSLATION_UTF8\n" );
+    fprintf( out, "#ifndef TQT_NO_TRANSLATION_UTF8\n" );
     fprintf( out, "TQString %s::trUtf8( const char *s, const char *c )\n{\n",
 	     (const char*)qualifiedClassName() );
     fprintf( out, "    if ( tqApp )\n" );
@@ -2979,16 +2977,16 @@ void generateClass()		      // generate C++ source code for a class
     fprintf( out, "    else\n" );
     fprintf( out, "\treturn TQString::fromUtf8( s );\n" );
     fprintf( out, "}\n" );
-    fprintf( out, "#endif // QT_NO_TRANSLATION_UTF8\n\n" );
-    fprintf( out, "#endif // QT_NO_TRANSLATION\n\n" );
+    fprintf( out, "#endif // TQT_NO_TRANSLATION_UTF8\n\n" );
+    fprintf( out, "#endif // TQT_NO_TRANSLATION\n\n" );
 
 //
 // Generate staticMetaObject member function
 //
     fprintf( out, "TQMetaObject* %s::staticMetaObject()\n{\n", (const char*)qualifiedClassName() );
     fprintf( out, "    if ( metaObj ) {\n\treturn metaObj;\n}\n" );
-    fprintf( out, "#ifdef QT_THREAD_SUPPORT\n    if (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->lock();\n" );
-    fprintf( out, "    if ( metaObj ) {\n\tif (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->unlock();\n\treturn metaObj;\n    }\n#endif // QT_THREAD_SUPPORT\n" );
+    fprintf( out, "#ifdef TQT_THREAD_SUPPORT\n    if (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->lock();\n" );
+    fprintf( out, "    if ( metaObj ) {\n\tif (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->unlock();\n\treturn metaObj;\n    }\n#endif // TQT_THREAD_SUPPORT\n" );
     if ( isTQObject )
 	fprintf( out, "    TQMetaObject* parentObject = staticTQtMetaObject();\n" );
     else if ( !g->superClassName.isEmpty() )
@@ -3037,7 +3035,7 @@ void generateClass()		      // generate C++ source code for a class
     else
 	fprintf( out, "\t0, 0,\n" );
 
-    fprintf( out, "#ifndef QT_NO_PROPERTIES\n" );
+    fprintf( out, "#ifndef TQT_NO_PROPERTIES\n" );
     if ( n_props )
 	fprintf( out, "\tprops_tbl, %d,\n", n_props );
     else
@@ -3046,7 +3044,7 @@ void generateClass()		      // generate C++ source code for a class
 	fprintf( out, "\tenum_tbl, %d,\n", n_enums );
     else
 	fprintf( out, "\t0, 0,\n" );
-    fprintf( out, "#endif // QT_NO_PROPERTIES\n" );
+    fprintf( out, "#endif // TQT_NO_PROPERTIES\n" );
 
     if ( n_infos )
 	fprintf( out, "\tclassinfo_tbl, %d );\n", n_infos );
@@ -3058,7 +3056,7 @@ void generateClass()		      // generate C++ source code for a class
 // Setup cleanup handler and return meta object
 //
     fprintf( out, "    cleanUp_%s.setMetaObject( metaObj );\n", cleanup.data() );
-    fprintf( out, "#ifdef QT_THREAD_SUPPORT\n    if (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->unlock();\n#endif // QT_THREAD_SUPPORT\n" );
+    fprintf( out, "#ifdef TQT_THREAD_SUPPORT\n    if (tqt_sharedMetaObjectMutex) tqt_sharedMetaObjectMutex->unlock();\n#endif // TQT_THREAD_SUPPORT\n" );
     fprintf( out, "    return metaObj;\n}\n" );
 
 //
@@ -3140,7 +3138,7 @@ void generateClass()		      // generate C++ source code for a class
 
 	fixRightAngles( &argstr );
 
-	fprintf( out, "\n// SIGNAL %s\n", (const char*)f->name );
+	fprintf( out, "\n// TQ_SIGNAL %s\n", (const char*)f->name );
 	fprintf( out, "%s %s::%s(", (const char*) f->type,
 		 (const char*)qualifiedClassName(),
 		 (const char*)f->name );
@@ -3388,7 +3386,7 @@ void generateClass()		      // generate C++ source code for a class
     }
 
 
-    fprintf( out, "#ifndef QT_NO_PROPERTIES\n" );
+    fprintf( out, "#ifndef TQT_NO_PROPERTIES\n" );
 //
 // Generate internal tqt_property()  functions
 //
@@ -3441,16 +3439,14 @@ void generateClass()		      // generate C++ source code for a class
 	    }
 	    if ( it.current()->getfunc ) {
 		if ( it.current()->gspec == Property::Pointer )
-		    fprintf( out, "\tcase 1: if ( this->%s() ) *v = TQVariant( %s*%s()%s ); break;\n",
+		    fprintf( out, "\tcase 1: if ( this->%s() ) *v = TQVariant( %s*%s() ); break;\n",
 			     it.current()->getfunc->name.data(),
 			     !isVariantType( it.current()->type ) ? "(int)" : "",
-			     it.current()->getfunc->name.data(),
-			     it.current()->type == "bool" ? ", 0" : "" );
+			     it.current()->getfunc->name.data());
 		else
-		    fprintf( out, "\tcase 1: *v = TQVariant( %sthis->%s()%s ); break;\n",
+		    fprintf( out, "\tcase 1: *v = TQVariant( %sthis->%s() ); break;\n",
 			     !isVariantType( it.current()->type ) ? "(int)" : "",
-			     it.current()->getfunc->name.data(),
-			     it.current()->type == "bool" ? ", 0" : "" );
+			     it.current()->getfunc->name.data());
 	    } else if ( it.current()->override ) {
 		flag_propagate |= 1<< (1+1);
 	    }
@@ -3526,7 +3522,7 @@ void generateClass()		      // generate C++ source code for a class
     }
 
     fprintf( out, "\nbool %s::tqt_static_property( TQObject* , int , int , TQVariant* ){ return FALSE; }\n", qualifiedClassName().data() );
-    fprintf( out, "#endif // QT_NO_PROPERTIES\n" );
+    fprintf( out, "#endif // TQT_NO_PROPERTIES\n" );
 }
 
 

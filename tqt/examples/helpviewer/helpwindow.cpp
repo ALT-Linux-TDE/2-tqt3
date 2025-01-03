@@ -47,26 +47,26 @@ HelpWindow::HelpWindow( const TQString& home_, const TQString& _path,
 
     browser->mimeSourceFactory()->setFilePath( _path );
     browser->setFrameStyle( TQFrame::Panel | TQFrame::Sunken );
-    connect( browser, SIGNAL( sourceChanged(const TQString& ) ),
-	     this, SLOT( sourceChanged( const TQString&) ) );
+    connect( browser, TQ_SIGNAL( sourceChanged(const TQString& ) ),
+	     this, TQ_SLOT( sourceChanged( const TQString&) ) );
 
     setCentralWidget( browser );
 
     if ( !home_.isEmpty() )
 	browser->setSource( home_ );
 
-    connect( browser, SIGNAL( highlighted( const TQString&) ),
-	     statusBar(), SLOT( message( const TQString&)) );
+    connect( browser, TQ_SIGNAL( highlighted( const TQString&) ),
+	     statusBar(), TQ_SLOT( message( const TQString&)) );
 
     resize( 640,700 );
 
     TQPopupMenu* file = new TQPopupMenu( this );
-    file->insertItem( tr("&New Window"), this, SLOT( newWindow() ), CTRL+Key_N );
-    file->insertItem( tr("&Open File"), this, SLOT( openFile() ), CTRL+Key_O );
-    file->insertItem( tr("&Print"), this, SLOT( print() ), CTRL+Key_P );
+    file->insertItem( tr("&New Window"), this, TQ_SLOT( newWindow() ), CTRL+Key_N );
+    file->insertItem( tr("&Open File"), this, TQ_SLOT( openFile() ), CTRL+Key_O );
+    file->insertItem( tr("&Print"), this, TQ_SLOT( print() ), CTRL+Key_P );
     file->insertSeparator();
-    file->insertItem( tr("&Close"), this, SLOT( close() ), CTRL+Key_Q );
-    file->insertItem( tr("E&xit"), tqApp, SLOT( closeAllWindows() ), CTRL+Key_X );
+    file->insertItem( tr("&Close"), this, TQ_SLOT( close() ), CTRL+Key_Q );
+    file->insertItem( tr("E&xit"), tqApp, TQ_SLOT( closeAllWindows() ), CTRL+Key_X );
 
     // The same three icons are used twice each.
     TQIconSet icon_back( TQPixmap("back.xpm") );
@@ -75,33 +75,33 @@ HelpWindow::HelpWindow( const TQString& home_, const TQString& _path,
 
     TQPopupMenu* go = new TQPopupMenu( this );
     backwardId = go->insertItem( icon_back,
-				 tr("&Backward"), browser, SLOT( backward() ),
+				 tr("&Backward"), browser, TQ_SLOT( backward() ),
 				 CTRL+Key_Left );
     forwardId = go->insertItem( icon_forward,
-				tr("&Forward"), browser, SLOT( forward() ),
+				tr("&Forward"), browser, TQ_SLOT( forward() ),
 				CTRL+Key_Right );
-    go->insertItem( icon_home, tr("&Home"), browser, SLOT( home() ) );
+    go->insertItem( icon_home, tr("&Home"), browser, TQ_SLOT( home() ) );
 
     TQPopupMenu* help = new TQPopupMenu( this );
-    help->insertItem( tr("&About"), this, SLOT( about() ) );
-    help->insertItem( tr("About &TQt"), this, SLOT( aboutTQt() ) );
+    help->insertItem( tr("&About"), this, TQ_SLOT( about() ) );
+    help->insertItem( tr("About &TQt"), this, TQ_SLOT( aboutTQt() ) );
 
     hist = new TQPopupMenu( this );
     TQStringList::Iterator it = history.begin();
     for ( ; it != history.end(); ++it )
 	mHistory[ hist->insertItem( *it ) ] = *it;
-    connect( hist, SIGNAL( activated( int ) ),
-	     this, SLOT( histChosen( int ) ) );
+    connect( hist, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( histChosen( int ) ) );
 
     bookm = new TQPopupMenu( this );
-    bookm->insertItem( tr( "Add Bookmark" ), this, SLOT( addBookmark() ) );
+    bookm->insertItem( tr( "Add Bookmark" ), this, TQ_SLOT( addBookmark() ) );
     bookm->insertSeparator();
 
     TQStringList::Iterator it2 = bookmarks.begin();
     for ( ; it2 != bookmarks.end(); ++it2 )
 	mBookmarks[ bookm->insertItem( *it2 ) ] = *it2;
-    connect( bookm, SIGNAL( activated( int ) ),
-	     this, SLOT( bookmChosen( int ) ) );
+    connect( bookm, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( bookmChosen( int ) ) );
 
     menuBar()->insertItem( tr("&File"), file );
     menuBar()->insertItem( tr("&Go"), go );
@@ -112,29 +112,29 @@ HelpWindow::HelpWindow( const TQString& home_, const TQString& _path,
 
     menuBar()->setItemEnabled( forwardId, FALSE);
     menuBar()->setItemEnabled( backwardId, FALSE);
-    connect( browser, SIGNAL( backwardAvailable( bool ) ),
-	     this, SLOT( setBackwardAvailable( bool ) ) );
-    connect( browser, SIGNAL( forwardAvailable( bool ) ),
-	     this, SLOT( setForwardAvailable( bool ) ) );
+    connect( browser, TQ_SIGNAL( backwardAvailable( bool ) ),
+	     this, TQ_SLOT( setBackwardAvailable( bool ) ) );
+    connect( browser, TQ_SIGNAL( forwardAvailable( bool ) ),
+	     this, TQ_SLOT( setForwardAvailable( bool ) ) );
 
 
     TQToolBar* toolbar = new TQToolBar( this );
     addToolBar( toolbar, "Toolbar");
     TQToolButton* button;
 
-    button = new TQToolButton( icon_back, tr("Backward"), "", browser, SLOT(backward()), toolbar );
-    connect( browser, SIGNAL( backwardAvailable(bool) ), button, SLOT( setEnabled(bool) ) );
+    button = new TQToolButton( icon_back, tr("Backward"), "", browser, TQ_SLOT(backward()), toolbar );
+    connect( browser, TQ_SIGNAL( backwardAvailable(bool) ), button, TQ_SLOT( setEnabled(bool) ) );
     button->setEnabled( FALSE );
-    button = new TQToolButton( icon_forward, tr("Forward"), "", browser, SLOT(forward()), toolbar );
-    connect( browser, SIGNAL( forwardAvailable(bool) ), button, SLOT( setEnabled(bool) ) );
+    button = new TQToolButton( icon_forward, tr("Forward"), "", browser, TQ_SLOT(forward()), toolbar );
+    connect( browser, TQ_SIGNAL( forwardAvailable(bool) ), button, TQ_SLOT( setEnabled(bool) ) );
     button->setEnabled( FALSE );
-    button = new TQToolButton( icon_home, tr("Home"), "", browser, SLOT(home()), toolbar );
+    button = new TQToolButton( icon_home, tr("Home"), "", browser, TQ_SLOT(home()), toolbar );
 
     toolbar->addSeparator();
 
     pathCombo = new TQComboBox( TRUE, toolbar );
-    connect( pathCombo, SIGNAL( activated( const TQString & ) ),
-	     this, SLOT( pathSelected( const TQString & ) ) );
+    connect( pathCombo, TQ_SIGNAL( activated( const TQString & ) ),
+	     this, TQ_SLOT( pathSelected( const TQString & ) ) );
     toolbar->setStretchableWidget( pathCombo );
     setRightJustification( TRUE );
     setDockEnabled( DockLeft, FALSE );
@@ -218,7 +218,7 @@ void HelpWindow::aboutTQt()
 
 void HelpWindow::openFile()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     TQString fn = TQFileDialog::getOpenFileName( TQString::null, TQString::null, this );
     if ( !fn.isEmpty() )
 	browser->setSource( fn );
@@ -232,7 +232,7 @@ void HelpWindow::newWindow()
 
 void HelpWindow::print()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     TQPrinter printer( TQPrinter::HighResolution );
     printer.setFullPage(TRUE);
     if ( printer.setup( this ) ) {

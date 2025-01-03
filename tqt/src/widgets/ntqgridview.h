@@ -45,11 +45,11 @@
 #include "ntqscrollview.h"
 #endif // QT_H
 
-#ifndef QT_NO_GRIDVIEW
+#ifndef TQT_NO_GRIDVIEW
 
 class TQGridViewPrivate;
 
-class Q_EXPORT TQGridView : public TQScrollView
+class TQ_EXPORT TQGridView : public TQScrollView
 {
     TQ_OBJECT
     TQ_PROPERTY( int numRows READ numRows WRITE setNumRows )
@@ -133,7 +133,7 @@ inline TQSize TQGridView::gridSize() const
 
 
 
-#endif // QT_NO_GRIDVIEW
+#endif // TQT_NO_GRIDVIEW
 
 
 #endif // TQTABLEVIEW_H

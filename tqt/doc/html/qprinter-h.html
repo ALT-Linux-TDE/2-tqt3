@@ -83,7 +83,7 @@ body { background: #ffffff; color: black; }
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
 
 #if defined(B0)
 #undef B0 // Terminal hang-up.  We assume that you do not want that.
@@ -91,7 +91,7 @@ body { background: #ffffff; color: black; }
 
 class TQPrinterPrivate;
 
-class Q_EXPORT TQPrinter : public TQPaintDevice
+class TQ_EXPORT TQPrinter : public TQPaintDevice
 {
 public:
     enum PrinterMode { ScreenResolution, PrinterResolution, HighResolution, Compatible };
@@ -144,11 +144,11 @@ public:
     virtual void setOrientation( Orientation );
     PageSize pageSize()      const;
     virtual void setPageSize( PageSize );
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     void setWinPageSize( short winPageSize );
     short winPageSize() const;
 #endif
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     bool printSetup();
     bool pageSetup();
 #endif
@@ -201,17 +201,17 @@ protected:
     bool        cmd( int, TQPainter *, TQPDevCmdParam * );
     int         metric( int ) const;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     virtual void        setActive();
     virtual void        setIdle();
 #endif
 
 private:
-#if defined(Q_WS_X11) || defined(Q_WS_QWS)
+#if defined(TQ_WS_X11) || defined(TQ_WS_QWS)
     TQPaintDevice *pdrv;
     int         pid;
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     friend class TQPrinterPrivate;
     PMPageFormat pformat;
     PMPrintSettings psettings;
@@ -221,7 +221,7 @@ private:
     void interpret(PMPrintSettings *);
     void interpret(PMPageFormat *);
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     void        readPdlg( void* );
     void        readPdlgA( void* );
     void	writeDevmode( TQt::HANDLE );
@@ -315,7 +315,7 @@ inline bool TQPrinter::collateCopies() const
 { return usercolcopies; }
 
 
-#endif // QT_NO_PRINTER
+#endif // TQT_NO_PRINTER
 
 #endif // TQPRINTER_H
 </pre>

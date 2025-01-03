@@ -12,7 +12,6 @@ TARGET	= tqtdesignercore
 DEFINES	+= DESIGNER
 DEFINES += QT_INTERNAL_XML
 DEFINES += QT_INTERNAL_WORKSPACE
-DEFINES += QT_INTERNAL_ICONVIEW
 DEFINES += QT_INTERNAL_TABLE
 table:win32-msvc:DEFINES+=QM_TEMPLATE_EXTERN_TABLE=extern
 
@@ -430,14 +429,21 @@ hpux-acc* {
 TRANSLATIONS	= designer_de.ts designer_fr.ts
 
 target.path=$$libs.path
-INSTALLS += target
 
 templates.path=$$data.path/templates
 templates.files = ../templates/*
-INSTALLS += templates
 
 designertranlations.files = *.qm
 designertranlations.path = $$translations.path
-INSTALLS += designertranlations
 
 !macx-g++:PRECOMPILED_HEADER = designer_pch.h
+
+desktop.path = $$share.path/applications
+desktop.files = tqdesigner.desktop
+
+system( cp images/designer_appicon.png tqdesigner.png )
+
+icon.path = $$share.path/pixmaps
+icon.files = tqdesigner.png
+
+INSTALLS += target templates designertranlations desktop icon

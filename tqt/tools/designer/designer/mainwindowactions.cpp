@@ -74,7 +74,7 @@
 #include "pixmapcollectioneditor.h"
 #include "styledbutton.h"
 #include "customwidgeteditorimpl.h"
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include "dbconnectionsimpl.h"
 #include "dbconnectionimpl.h"
 #endif
@@ -127,101 +127,101 @@ void MainWindow::setupEditActions()
     actionEditUndo = new TQAction( tr("Undo"), createIconSet( "designer_undo.png" ),tr("&Undo: Not Available"), CTRL + Key_Z, this, 0 );
     actionEditUndo->setStatusTip( tr( "Undoes the last action" ) );
     actionEditUndo->setWhatsThis( whatsThisFrom( "Edit|Undo" ) );
-    connect( actionEditUndo, SIGNAL( activated() ), this, SLOT( editUndo() ) );
+    connect( actionEditUndo, TQ_SIGNAL( activated() ), this, TQ_SLOT( editUndo() ) );
     actionEditUndo->setEnabled( FALSE );
 
     actionEditRedo = new TQAction( tr( "Redo" ), createIconSet("designer_redo.png"), tr( "&Redo: Not Available" ), CTRL + Key_Y, this, 0 );
     actionEditRedo->setStatusTip( tr( "Redoes the last undone operation") );
     actionEditRedo->setWhatsThis( whatsThisFrom( "Edit|Redo" ) );
-    connect( actionEditRedo, SIGNAL( activated() ), this, SLOT( editRedo() ) );
+    connect( actionEditRedo, TQ_SIGNAL( activated() ), this, TQ_SLOT( editRedo() ) );
     actionEditRedo->setEnabled( FALSE );
 
     actionEditCut = new TQAction( tr( "Cut" ), createIconSet("designer_editcut.png"), tr( "Cu&t" ), CTRL + Key_X, this, 0 );
     actionEditCut->setStatusTip( tr( "Cuts the selected widgets and puts them on the clipboard" ) );
     actionEditCut->setWhatsThis(  whatsThisFrom( "Edit|Cut" ) );
-    connect( actionEditCut, SIGNAL( activated() ), this, SLOT( editCut() ) );
+    connect( actionEditCut, TQ_SIGNAL( activated() ), this, TQ_SLOT( editCut() ) );
     actionEditCut->setEnabled( FALSE );
 
     actionEditCopy = new TQAction( tr( "Copy" ), createIconSet("designer_editcopy.png"), tr( "&Copy" ), CTRL + Key_C, this, 0 );
     actionEditCopy->setStatusTip( tr( "Copies the selected widgets to the clipboard" ) );
     actionEditCopy->setWhatsThis(  whatsThisFrom( "Edit|Copy" ) );
-    connect( actionEditCopy, SIGNAL( activated() ), this, SLOT( editCopy() ) );
+    connect( actionEditCopy, TQ_SIGNAL( activated() ), this, TQ_SLOT( editCopy() ) );
     actionEditCopy->setEnabled( FALSE );
 
     actionEditPaste = new TQAction( tr( "Paste" ), createIconSet("designer_editpaste.png"), tr( "&Paste" ), CTRL + Key_V, this, 0 );
     actionEditPaste->setStatusTip( tr( "Pastes the clipboard's contents" ) );
     actionEditPaste->setWhatsThis( whatsThisFrom( "Edit|Paste" ) );
-    connect( actionEditPaste, SIGNAL( activated() ), this, SLOT( editPaste() ) );
+    connect( actionEditPaste, TQ_SIGNAL( activated() ), this, TQ_SLOT( editPaste() ) );
     actionEditPaste->setEnabled( FALSE );
 
     actionEditDelete = new TQAction( tr( "Delete" ), TQPixmap(), tr( "&Delete" ), Key_Delete, this, 0 );
     actionEditDelete->setStatusTip( tr( "Deletes the selected widgets" ) );
     actionEditDelete->setWhatsThis( whatsThisFrom( "Edit|Delete" ) );
-    connect( actionEditDelete, SIGNAL( activated() ), this, SLOT( editDelete() ) );
+    connect( actionEditDelete, TQ_SIGNAL( activated() ), this, TQ_SLOT( editDelete() ) );
     actionEditDelete->setEnabled( FALSE );
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     TQAction *macDelete = new TQAction( tr( "Delete" ), TQPixmap(), tr( "&Delete" ), Key_Backspace, this, 0 );
-    connect( macDelete, SIGNAL( activated() ), this, SLOT( editDelete() ) );
+    connect( macDelete, TQ_SIGNAL( activated() ), this, TQ_SLOT( editDelete() ) );
 #endif
 
     actionEditSelectAll = new TQAction( tr( "Select All" ), TQPixmap(), tr( "Select &All" ), CTRL + Key_A, this, 0 );
     actionEditSelectAll->setStatusTip( tr( "Selects all widgets" ) );
     actionEditSelectAll->setWhatsThis( whatsThisFrom( "Edit|Select All" ) );
-    connect( actionEditSelectAll, SIGNAL( activated() ), this, SLOT( editSelectAll() ) );
+    connect( actionEditSelectAll, TQ_SIGNAL( activated() ), this, TQ_SLOT( editSelectAll() ) );
     actionEditSelectAll->setEnabled( TRUE );
 
     actionEditRaise = new TQAction( tr( "Bring to Front" ), createIconSet("designer_editraise.png"), tr( "Bring to &Front" ), 0, this, 0 );
     actionEditRaise->setStatusTip( tr( "Raises the selected widgets" ) );
     actionEditRaise->setWhatsThis( tr( "Raises the selected widgets" ) );
-    connect( actionEditRaise, SIGNAL( activated() ), this, SLOT( editRaise() ) );
+    connect( actionEditRaise, TQ_SIGNAL( activated() ), this, TQ_SLOT( editRaise() ) );
     actionEditRaise->setEnabled( FALSE );
 
     actionEditLower = new TQAction( tr( "Send to Back" ), createIconSet("designer_editlower.png"), tr( "Send to &Back" ), 0, this, 0 );
     actionEditLower->setStatusTip( tr( "Lowers the selected widgets" ) );
     actionEditLower->setWhatsThis( tr( "Lowers the selected widgets" ) );
-    connect( actionEditLower, SIGNAL( activated() ), this, SLOT( editLower() ) );
+    connect( actionEditLower, TQ_SIGNAL( activated() ), this, TQ_SLOT( editLower() ) );
     actionEditLower->setEnabled( FALSE );
 
     actionEditAccels = new TQAction( tr( "Check Accelerators" ), TQPixmap(),
 				    tr( "Chec&k Accelerators" ), ALT + Key_R, this, 0 );
     actionEditAccels->setStatusTip( tr("Checks if the accelerators used in the form are unique") );
     actionEditAccels->setWhatsThis( whatsThisFrom( "Edit|Check Accelerator" ) );
-    connect( actionEditAccels, SIGNAL( activated() ), this, SLOT( editAccels() ) );
-    connect( this, SIGNAL( hasActiveForm(bool) ), actionEditAccels, SLOT( setEnabled(bool) ) );
+    connect( actionEditAccels, TQ_SIGNAL( activated() ), this, TQ_SLOT( editAccels() ) );
+    connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditAccels, TQ_SLOT( setEnabled(bool) ) );
 
     actionEditFunctions = new TQAction( tr( "Slots" ), createIconSet("designer_editslots.png"),
 				   tr( "S&lots..." ), 0, this, 0 );
     actionEditFunctions->setStatusTip( tr("Opens a dialog for editing slots") );
     actionEditFunctions->setWhatsThis( whatsThisFrom( "Edit|Slots" ) );
-    connect( actionEditFunctions, SIGNAL( activated() ), this, SLOT( editFunctions() ) );
-    connect( this, SIGNAL( hasActiveForm(bool) ), actionEditFunctions, SLOT( setEnabled(bool) ) );
+    connect( actionEditFunctions, TQ_SIGNAL( activated() ), this, TQ_SLOT( editFunctions() ) );
+    connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditFunctions, TQ_SLOT( setEnabled(bool) ) );
 
     actionEditConnections = new TQAction( tr( "Connections" ), createIconSet("designer_connecttool.png"),
 					 tr( "Co&nnections..." ), 0, this, 0 );
     actionEditConnections->setStatusTip( tr("Opens a dialog for editing connections") );
     actionEditConnections->setWhatsThis( whatsThisFrom( "Edit|Connections" ) );
-    connect( actionEditConnections, SIGNAL( activated() ), this, SLOT( editConnections() ) );
-    connect( this, SIGNAL( hasActiveForm(bool) ), actionEditConnections, SLOT( setEnabled(bool) ) );
+    connect( actionEditConnections, TQ_SIGNAL( activated() ), this, TQ_SLOT( editConnections() ) );
+    connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditConnections, TQ_SLOT( setEnabled(bool) ) );
 
     actionEditSource = new TQAction( tr( "Source" ), TQIconSet(),
 					 tr( "&Source..." ), CTRL + Key_E, this, 0 );
     actionEditSource->setStatusTip( tr("Opens an editor to edit the form's source code") );
     actionEditSource->setWhatsThis( whatsThisFrom( "Edit|Source" ) );
-    connect( actionEditSource, SIGNAL( activated() ), this, SLOT( editSource() ) );
-    connect( this, SIGNAL( hasActiveForm(bool) ), actionEditSource, SLOT( setEnabled(bool) ) );
+    connect( actionEditSource, TQ_SIGNAL( activated() ), this, TQ_SLOT( editSource() ) );
+    connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditSource, TQ_SLOT( setEnabled(bool) ) );
 
     actionEditFormSettings = new TQAction( tr( "Form Settings" ), TQPixmap(),
 					  tr( "&Form Settings..." ), 0, this, 0 );
     actionEditFormSettings->setStatusTip( tr("Opens a dialog to change the form's settings") );
     actionEditFormSettings->setWhatsThis( whatsThisFrom( "Edit|Form Settings" ) );
-    connect( actionEditFormSettings, SIGNAL( activated() ), this, SLOT( editFormSettings() ) );
-    connect( this, SIGNAL( hasActiveForm(bool) ), actionEditFormSettings, SLOT( setEnabled(bool) ) );
+    connect( actionEditFormSettings, TQ_SIGNAL( activated() ), this, TQ_SLOT( editFormSettings() ) );
+    connect( this, TQ_SIGNAL( hasActiveForm(bool) ), actionEditFormSettings, TQ_SLOT( setEnabled(bool) ) );
 
     actionEditPreferences = new TQAction( tr( "Preferences" ), TQPixmap(),
 					 tr( "Preferences..." ), 0, this, 0 );
     actionEditPreferences->setStatusTip( tr("Opens a dialog to change preferences") );
     actionEditPreferences->setWhatsThis( whatsThisFrom( "Edit|Preferences" ) );
-    connect( actionEditPreferences, SIGNAL( activated() ), this, SLOT( editPreferences() ) );
+    connect( actionEditPreferences, TQ_SIGNAL( activated() ), this, TQ_SLOT( editPreferences() ) );
 
     TQToolBar *tb = new TQToolBar( this, "Edit" );
     tb->setCloseMode( TQDockWindow::Undocked );
@@ -240,7 +240,7 @@ void MainWindow::setupEditActions()
 #endif
 
     TQPopupMenu *menu = new TQPopupMenu( this, "Edit" );
-    connect( menu, SIGNAL( aboutToShow() ), this, SLOT( updateEditorUndoRedo() ) );
+    connect( menu, TQ_SIGNAL( aboutToShow() ), this, TQ_SLOT( updateEditorUndoRedo() ) );
     menubar->insertItem( tr( "&Edit" ), menu );
     actionEditUndo->addTo( menu );
     actionEditRedo->addTo( menu );
@@ -270,25 +270,25 @@ void MainWindow::setupSearchActions()
 {
     actionSearchFind = new TQAction( tr( "Find" ), createIconSet( "designer_searchfind.png" ),
 				    tr( "&Find..." ), CTRL + Key_F, this, 0 );
-    connect( actionSearchFind, SIGNAL( activated() ), this, SLOT( searchFind() ) );
+    connect( actionSearchFind, TQ_SIGNAL( activated() ), this, TQ_SLOT( searchFind() ) );
     actionSearchFind->setEnabled( FALSE );
     actionSearchFind->setWhatsThis( whatsThisFrom( "Search|Find" ) );
 
     actionSearchIncremetal = new TQAction( tr( "Find Incremental" ), TQIconSet(),
 					  tr( "Find &Incremental" ), ALT + Key_I, this, 0 );
-    connect( actionSearchIncremetal, SIGNAL( activated() ), this, SLOT( searchIncremetalFindMenu() ) );
+    connect( actionSearchIncremetal, TQ_SIGNAL( activated() ), this, TQ_SLOT( searchIncremetalFindMenu() ) );
     actionSearchIncremetal->setEnabled( FALSE );
     actionSearchIncremetal->setWhatsThis( whatsThisFrom( "Search|Find Incremental" ) );
 
     actionSearchReplace = new TQAction( tr( "Replace" ), TQIconSet(),
 				    tr( "&Replace..." ), CTRL + Key_R, this, 0 );
-    connect( actionSearchReplace, SIGNAL( activated() ), this, SLOT( searchReplace() ) );
+    connect( actionSearchReplace, TQ_SIGNAL( activated() ), this, TQ_SLOT( searchReplace() ) );
     actionSearchReplace->setEnabled( FALSE );
     actionSearchReplace->setWhatsThis( whatsThisFrom( "Search|Replace" ) );
 
     actionSearchGotoLine = new TQAction( tr( "Goto Line" ), TQIconSet(),
 				    tr( "&Goto Line..." ), ALT + Key_G, this, 0 );
-    connect( actionSearchGotoLine, SIGNAL( activated() ), this, SLOT( searchGotoLine() ) );
+    connect( actionSearchGotoLine, TQ_SIGNAL( activated() ), this, TQ_SLOT( searchGotoLine() ) );
     actionSearchGotoLine->setEnabled( FALSE );
     actionSearchGotoLine->setWhatsThis( whatsThisFrom( "Search|Goto line" ) );
 
@@ -299,10 +299,10 @@ void MainWindow::setupSearchActions()
     actionSearchFind->addTo( tb );
     incrementalSearch = new TQLineEdit( tb );
     TQToolTip::add( incrementalSearch, tr( "Incremetal Search (Alt+I)" ) );
-    connect( incrementalSearch, SIGNAL( textChanged( const TQString & ) ),
-	     this, SLOT( searchIncremetalFind() ) );
-    connect( incrementalSearch, SIGNAL( returnPressed() ),
-	     this, SLOT( searchIncremetalFindNext() ) );
+    connect( incrementalSearch, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SLOT( searchIncremetalFind() ) );
+    connect( incrementalSearch, TQ_SIGNAL( returnPressed() ),
+	     this, TQ_SLOT( searchIncremetalFindNext() ) );
     incrementalSearch->setEnabled( FALSE );
 
     TQPopupMenu *menu = new TQPopupMenu( this, "Search" );
@@ -319,56 +319,56 @@ void MainWindow::setupLayoutActions()
     if ( !actionGroupTools ) {
 	actionGroupTools = new TQActionGroup( this );
 	actionGroupTools->setExclusive( TRUE );
-	connect( actionGroupTools, SIGNAL( selected(TQAction*) ), this, SLOT( toolSelected(TQAction*) ) );
+	connect( actionGroupTools, TQ_SIGNAL( selected(TQAction*) ), this, TQ_SLOT( toolSelected(TQAction*) ) );
     }
 
     actionEditAdjustSize = new TQAction( tr( "Adjust Size" ), createIconSet("designer_adjustsize.png"),
 					tr( "Adjust &Size" ), CTRL + Key_J, this, 0 );
     actionEditAdjustSize->setStatusTip(tr("Adjusts the size of the selected widget") );
     actionEditAdjustSize->setWhatsThis( whatsThisFrom( "Layout|Adjust Size" ) );
-    connect( actionEditAdjustSize, SIGNAL( activated() ), this, SLOT( editAdjustSize() ) );
+    connect( actionEditAdjustSize, TQ_SIGNAL( activated() ), this, TQ_SLOT( editAdjustSize() ) );
     actionEditAdjustSize->setEnabled( FALSE );
 
     actionEditHLayout = new TQAction( tr( "Lay Out Horizontally" ), createIconSet("designer_edithlayout.png"),
 				     tr( "Lay Out &Horizontally" ), CTRL + Key_H, this, 0 );
     actionEditHLayout->setStatusTip(tr("Lays out the selected widgets horizontally") );
     actionEditHLayout->setWhatsThis( whatsThisFrom( "Layout|Lay Out Horizontally" ) );
-    connect( actionEditHLayout, SIGNAL( activated() ), this, SLOT( editLayoutHorizontal() ) );
+    connect( actionEditHLayout, TQ_SIGNAL( activated() ), this, TQ_SLOT( editLayoutHorizontal() ) );
     actionEditHLayout->setEnabled( FALSE );
 
     actionEditVLayout = new TQAction( tr( "Lay Out Vertically" ), createIconSet("designer_editvlayout.png"),
 				     tr( "Lay Out &Vertically" ), CTRL + Key_L, this, 0 );
     actionEditVLayout->setStatusTip(tr("Lays out the selected widgets vertically") );
     actionEditVLayout->setWhatsThis(  whatsThisFrom( "Layout|Lay Out Vertically" ) );
-    connect( actionEditVLayout, SIGNAL( activated() ), this, SLOT( editLayoutVertical() ) );
+    connect( actionEditVLayout, TQ_SIGNAL( activated() ), this, TQ_SLOT( editLayoutVertical() ) );
     actionEditVLayout->setEnabled( FALSE );
 
     actionEditGridLayout = new TQAction( tr( "Lay Out in a Grid" ), createIconSet("designer_editgrid.png"),
 					tr( "Lay Out in a &Grid" ), CTRL + Key_G, this, 0 );
     actionEditGridLayout->setStatusTip(tr("Lays out the selected widgets in a grid") );
     actionEditGridLayout->setWhatsThis( whatsThisFrom( "Layout|Lay Out in a Grid" ) );
-    connect( actionEditGridLayout, SIGNAL( activated() ), this, SLOT( editLayoutGrid() ) );
+    connect( actionEditGridLayout, TQ_SIGNAL( activated() ), this, TQ_SLOT( editLayoutGrid() ) );
     actionEditGridLayout->setEnabled( FALSE );
 
     actionEditSplitHorizontal = new TQAction( tr( "Lay Out Horizontally (in Splitter)" ), createIconSet("designer_editvlayoutsplit.png"),
 					     tr( "Lay Out Horizontally (in S&plitter)" ), 0, this, 0 );
     actionEditSplitHorizontal->setStatusTip(tr("Lays out the selected widgets horizontally in a splitter") );
     actionEditSplitHorizontal->setWhatsThis( whatsThisFrom( "Layout|Lay Out Horizontally (in Splitter)" ) );
-    connect( actionEditSplitHorizontal, SIGNAL( activated() ), this, SLOT( editLayoutHorizontalSplit() ) );
+    connect( actionEditSplitHorizontal, TQ_SIGNAL( activated() ), this, TQ_SLOT( editLayoutHorizontalSplit() ) );
     actionEditSplitHorizontal->setEnabled( FALSE );
 
     actionEditSplitVertical = new TQAction( tr( "Lay Out Vertically (in Splitter)" ), createIconSet("designer_edithlayoutsplit.png"),
 					     tr( "Lay Out Vertically (in Sp&litter)" ), 0, this, 0 );
     actionEditSplitVertical->setStatusTip(tr("Lays out the selected widgets vertically in a splitter") );
     actionEditSplitVertical->setWhatsThis( whatsThisFrom( "Layout|Lay Out Vertically (in Splitter)" ) );
-    connect( actionEditSplitVertical, SIGNAL( activated() ), this, SLOT( editLayoutVerticalSplit() ) );
+    connect( actionEditSplitVertical, TQ_SIGNAL( activated() ), this, TQ_SLOT( editLayoutVerticalSplit() ) );
     actionEditSplitVertical->setEnabled( FALSE );
 
     actionEditBreakLayout = new TQAction( tr( "Break Layout" ), createIconSet("designer_editbreaklayout.png"),
 					 tr( "&Break Layout" ), CTRL + Key_B, this, 0 );
     actionEditBreakLayout->setStatusTip(tr("Breaks the selected layout") );
     actionEditBreakLayout->setWhatsThis( whatsThisFrom( "Layout|Break Layout" ) );
-    connect( actionEditBreakLayout, SIGNAL( activated() ), this, SLOT( editBreakLayout() ) );
+    connect( actionEditBreakLayout, TQ_SIGNAL( activated() ), this, TQ_SLOT( editBreakLayout() ) );
     actionEditBreakLayout->setEnabled( FALSE );
 
     int id = WidgetDatabase::idFromClassName( "Spacer" );
@@ -423,8 +423,8 @@ void MainWindow::setupToolActions()
     if ( !actionGroupTools ) {
 	actionGroupTools = new TQActionGroup( this );
 	actionGroupTools->setExclusive( TRUE );
-	connect( actionGroupTools, SIGNAL( selected(TQAction*) ),
-		 this, SLOT( toolSelected(TQAction*) ) );
+	connect( actionGroupTools, TQ_SIGNAL( selected(TQAction*) ),
+		 this, TQ_SLOT( toolSelected(TQAction*) ) );
     }
 
     actionPointerTool = new TQAction( tr("Pointer"), createIconSet("designer_pointer.png"),
@@ -491,8 +491,8 @@ void MainWindow::setupToolActions()
 					      "custom widgets") );
     actionToolsCustomWidget->setWhatsThis( whatsThisFrom( "Tools|Custom|Edit Custom"
 							  "Widgets" ) );
-    connect( actionToolsCustomWidget, SIGNAL( activated() ),
-	     this, SLOT( toolsCustomWidget() ) );
+    connect( actionToolsCustomWidget, TQ_SIGNAL( activated() ),
+	     this, TQ_SLOT( toolsCustomWidget() ) );
 
     for ( int j = 0; j < WidgetDatabase::numWidgetGroups(); ++j ) {
 	TQString grp = WidgetDatabase::widgetGroup( j );
@@ -604,7 +604,7 @@ void MainWindow::setupToolActions()
     TQAction *a = new TQAction( tr( "Configure Toolbox" ), tr( "Configure Toolbox..." ), 0, this );
     a->setStatusTip( tr( "Opens a dialog to configure the common "
 					       "widgets page of the toolbox") );
-    connect( a, SIGNAL( activated() ), this, SLOT( toolsConfigure() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( toolsConfigure() ) );
     mmenu->insertSeparator();
     a->addTo( mmenu );
     resetTool();
@@ -632,7 +632,7 @@ void MainWindow::setupFileActions()
 	a->setAccel( CTRL + Key_N );
 	a->setStatusTip( tr( "Creates a new project, form or source file." ) );
 	a->setWhatsThis( whatsThisFrom( "File|New" ) );
-	connect( a, SIGNAL( activated() ), this, SLOT( fileNew() ) );
+	connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileNew() ) );
 	a->addTo( tb );
 	a->addTo( fileMenu );
     } else {
@@ -651,7 +651,7 @@ void MainWindow::setupFileActions()
 	newForm->setIconSet( createIconSet("designer_form.png") );
 	newForm->setAccel( CTRL + Key_N );
 	newForm->setStatusTip( tr( "Creates a new dialog." ) );
-	connect( newForm, SIGNAL( activated() ), this, SLOT( fileNewDialog() ) );
+	connect( newForm, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileNewDialog() ) );
 
 	TQAction *newFile = new TQAction( a, 0 );
 	newFile->setText( tr( "New File" ) );
@@ -659,7 +659,7 @@ void MainWindow::setupFileActions()
 	newFile->setIconSet( createIconSet("designer_filenew.png") );
 	newFile->setAccel( ALT + Key_N );
 	newFile->setStatusTip( tr( "Creates a new file." ) );
-	connect( newFile, SIGNAL( activated() ), this, SLOT( fileNewFile() ) );
+	connect( newFile, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileNewFile() ) );
 	actionNewFile = newFile;
 
 	a->addTo( tb );
@@ -675,7 +675,7 @@ void MainWindow::setupFileActions()
     a->setAccel( CTRL + Key_O );
     a->setStatusTip( tr( "Opens an existing project, form or source file ") );
     a->setWhatsThis( whatsThisFrom( "File|Open" ) );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileOpen() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileOpen() ) );
     if ( !singleProject ) {
 	a->addTo( tb );
 	a->addTo( fileMenu );
@@ -688,8 +688,8 @@ void MainWindow::setupFileActions()
     a->setMenuText( tr( "&Close" ) );
     a->setStatusTip( tr( "Closes the current project or document" ) );
     a->setWhatsThis(whatsThisFrom( "File|Close" ) );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileClose() ) );
-    connect( this, SIGNAL( hasActiveWindowOrProject(bool) ), a, SLOT( setEnabled(bool) ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileClose() ) );
+    connect( this, TQ_SIGNAL( hasActiveWindowOrProject(bool) ), a, TQ_SLOT( setEnabled(bool) ) );
     if ( !singleProject ) {
 	a->addTo( fileMenu );
 	fileMenu->insertSeparator();
@@ -703,8 +703,8 @@ void MainWindow::setupFileActions()
     a->setAccel( CTRL + Key_S );
     a->setStatusTip( tr( "Saves the current project or document" ) );
     a->setWhatsThis(whatsThisFrom( "File|Save" ) );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileSave() ) );
-    connect( this, SIGNAL( hasActiveWindowOrProject(bool) ), a, SLOT( setEnabled(bool) ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileSave() ) );
+    connect( this, TQ_SIGNAL( hasActiveWindowOrProject(bool) ), a, TQ_SLOT( setEnabled(bool) ) );
     a->addTo( tb );
     a->addTo( fileMenu );
 
@@ -713,8 +713,8 @@ void MainWindow::setupFileActions()
     a->setMenuText( tr( "Save &As..." ) );
     a->setStatusTip( tr( "Saves the current form with a new filename" ) );
     a->setWhatsThis( whatsThisFrom( "File|Save As" ) );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileSaveAs() ) );
-    connect( this, SIGNAL( hasActiveWindow(bool) ), a, SLOT( setEnabled(bool) ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileSaveAs() ) );
+    connect( this, TQ_SIGNAL( hasActiveWindow(bool) ), a, TQ_SLOT( setEnabled(bool) ) );
     if ( !singleProject )
 	a->addTo( fileMenu );
 
@@ -723,8 +723,8 @@ void MainWindow::setupFileActions()
     a->setMenuText( tr( "Sa&ve All" ) );
     a->setStatusTip( tr( "Saves all open documents" ) );
     a->setWhatsThis( whatsThisFrom( "File|Save All" ) );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileSaveAll() ) );
-    connect( this, SIGNAL( hasActiveWindowOrProject(bool) ), a, SLOT( setEnabled(bool) ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileSaveAll() ) );
+    connect( this, TQ_SIGNAL( hasActiveWindowOrProject(bool) ), a, TQ_SLOT( setEnabled(bool) ) );
     if ( !singleProject ) {
 	a->addTo( fileMenu );
 	fileMenu->insertSeparator();
@@ -735,7 +735,7 @@ void MainWindow::setupFileActions()
     a->setMenuText( tr( "Create &Template..." ) );
     a->setStatusTip( tr( "Creates a new template" ) );
     a->setWhatsThis( whatsThisFrom( "File|Create Template" ) );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileCreateTemplate() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileCreateTemplate() ) );
     if ( !singleProject )
 	a->addTo( fileMenu );
 
@@ -750,14 +750,14 @@ void MainWindow::setupFileActions()
 	fileMenu->insertItem( tr( "Recently opened projects" ), recentlyProjectsMenu );
     }
 
-    connect( recentlyFilesMenu, SIGNAL( aboutToShow() ),
-	     this, SLOT( setupRecentlyFilesMenu() ) );
-    connect( recentlyProjectsMenu, SIGNAL( aboutToShow() ),
-	     this, SLOT( setupRecentlyProjectsMenu() ) );
-    connect( recentlyFilesMenu, SIGNAL( activated( int ) ),
-	     this, SLOT( recentlyFilesMenuActivated( int ) ) );
-    connect( recentlyProjectsMenu, SIGNAL( activated( int ) ),
-	     this, SLOT( recentlyProjectsMenuActivated( int ) ) );
+    connect( recentlyFilesMenu, TQ_SIGNAL( aboutToShow() ),
+	     this, TQ_SLOT( setupRecentlyFilesMenu() ) );
+    connect( recentlyProjectsMenu, TQ_SIGNAL( aboutToShow() ),
+	     this, TQ_SLOT( setupRecentlyProjectsMenu() ) );
+    connect( recentlyFilesMenu, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( recentlyFilesMenuActivated( int ) ) );
+    connect( recentlyProjectsMenu, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( recentlyProjectsMenuActivated( int ) ) );
 
     if ( !singleProject )
 	fileMenu->insertSeparator();
@@ -774,7 +774,7 @@ void MainWindow::setupFileActions()
 	a->setText( tr( "Close" ) );
 	a->setMenuText( tr( "&Close" ) );
     }
-    connect( a, SIGNAL( activated() ), this, SLOT( fileQuit() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileQuit() ) );
     a->addTo( fileMenu );
 }
 
@@ -788,8 +788,8 @@ void MainWindow::setupProjectActions()
     ag->setMenuText( tr( "Active Project" ) );
     ag->setExclusive( TRUE );
     ag->setUsesDropDown( TRUE );
-    connect( ag, SIGNAL( selected( TQAction * ) ), this, SLOT( projectSelected( TQAction * ) ) );
-    connect( ag, SIGNAL( selected( TQAction * ) ), this, SIGNAL( projectChanged() ) );
+    connect( ag, TQ_SIGNAL( selected( TQAction * ) ), this, TQ_SLOT( projectSelected( TQAction * ) ) );
+    connect( ag, TQ_SIGNAL( selected( TQAction * ) ), this, TQ_SIGNAL( projectChanged() ) );
     TQAction *a = new TQAction( tr( "<No Project>" ), tr( "<No Project>" ), 0, ag, 0, TRUE );
     eProject = new Project( "", tr( "<No Project>" ), projectSettingsPluginManager, TRUE );
     projects.insert( a, eProject );
@@ -804,9 +804,9 @@ void MainWindow::setupProjectActions()
     a = new TQAction( tr( "Add File" ), TQPixmap(), tr( "&Add File..." ), 0, this, 0 );
     a->setStatusTip( tr("Adds a file to the current project") );
     a->setWhatsThis( whatsThisFrom( "Project|Add File" ) );
-    connect( a, SIGNAL( activated() ), this, SLOT( projectInsertFile() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( projectInsertFile() ) );
     a->setEnabled( FALSE );
-    connect( this, SIGNAL( hasNonDummyProject(bool) ), a, SLOT( setEnabled(bool) ) );
+    connect( this, TQ_SIGNAL( hasNonDummyProject(bool) ), a, TQ_SLOT( setEnabled(bool) ) );
     if ( !singleProject )
 	a->addTo( projectMenu );
 
@@ -814,19 +814,19 @@ void MainWindow::setupProjectActions()
 					  tr( "&Image Collection..." ), 0, this, 0 );
     actionEditPixmapCollection->setStatusTip( tr("Opens a dialog for editing the current project's image collection") );
     actionEditPixmapCollection->setWhatsThis( whatsThisFrom( "Project|Image Collection" ) );
-    connect( actionEditPixmapCollection, SIGNAL( activated() ), this, SLOT( editPixmapCollection() ) );
+    connect( actionEditPixmapCollection, TQ_SIGNAL( activated() ), this, TQ_SLOT( editPixmapCollection() ) );
     actionEditPixmapCollection->setEnabled( FALSE );
-    connect( this, SIGNAL( hasNonDummyProject(bool) ), actionEditPixmapCollection, SLOT( setEnabled(bool) ) );
+    connect( this, TQ_SIGNAL( hasNonDummyProject(bool) ), actionEditPixmapCollection, TQ_SLOT( setEnabled(bool) ) );
     actionEditPixmapCollection->addTo( projectMenu );
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQAction* actionEditDatabaseConnections = new TQAction( tr( "Database Connections..." ), TQPixmap(),
 						 tr( "&Database Connections..." ), 0, this, 0 );
     actionEditDatabaseConnections->setStatusTip( tr("Opens a dialog for editing the current project's database connections") );
     actionEditDatabaseConnections->setWhatsThis( whatsThisFrom( "Project|Database Connections" ) );
-    connect( actionEditDatabaseConnections, SIGNAL( activated() ), this, SLOT( editDatabaseConnections() ) );
+    connect( actionEditDatabaseConnections, TQ_SIGNAL( activated() ), this, TQ_SLOT( editDatabaseConnections() ) );
     //actionEditDatabaseConnections->setEnabled( FALSE );
-    //connect( this, SIGNAL( hasNonDummyProject(bool) ), actionEditDatabaseConnections, SLOT( setEnabled(bool) ) );
+    //connect( this, TQ_SIGNAL( hasNonDummyProject(bool) ), actionEditDatabaseConnections, TQ_SLOT( setEnabled(bool) ) );
     if ( !singleProject )
 	actionEditDatabaseConnections->addTo( projectMenu );
 #endif
@@ -835,9 +835,9 @@ void MainWindow::setupProjectActions()
 					  tr( "&Project Settings..." ), 0, this, 0 );
     actionEditProjectSettings->setStatusTip( tr("Opens a dialog to change the project's settings") );
     actionEditProjectSettings->setWhatsThis( whatsThisFrom( "Project|Project Settings" ) );
-    connect( actionEditProjectSettings, SIGNAL( activated() ), this, SLOT( editProjectSettings() ) );
+    connect( actionEditProjectSettings, TQ_SIGNAL( activated() ), this, TQ_SLOT( editProjectSettings() ) );
     actionEditProjectSettings->setEnabled( FALSE );
-    connect( this, SIGNAL( hasNonDummyProject(bool) ), actionEditProjectSettings, SLOT( setEnabled(bool) ) );
+    connect( this, TQ_SIGNAL( hasNonDummyProject(bool) ), actionEditProjectSettings, TQ_SLOT( setEnabled(bool) ) );
     actionEditProjectSettings->addTo( projectMenu );
 
 }
@@ -853,14 +853,14 @@ void MainWindow::setupPreviewActions()
     a->setAccel( CTRL + Key_T );
     a->setStatusTip( tr("Opens a preview") );
     a->setWhatsThis( whatsThisFrom( "Preview|Preview Form" ) );
-    connect( a, SIGNAL( activated() ), this, SLOT( previewForm() ) );
-    connect( this, SIGNAL( hasActiveForm(bool) ), a, SLOT( setEnabled(bool) ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( previewForm() ) );
+    connect( this, TQ_SIGNAL( hasActiveForm(bool) ), a, TQ_SLOT( setEnabled(bool) ) );
     a->addTo( menu );
 
     menu->insertSeparator();
 
     TQSignalMapper *mapper = new TQSignalMapper( this );
-    connect( mapper, SIGNAL(mapped(const TQString&)), this, SLOT(previewForm(const TQString&)) );
+    connect( mapper, TQ_SIGNAL(mapped(const TQString&)), this, TQ_SLOT(previewForm(const TQString&)) );
     TQStringList styles = TQStyleFactory::keys();
     for ( TQStringList::Iterator it = styles.begin(); it != styles.end(); ++it ) {
 	TQString info;
@@ -884,8 +884,8 @@ void MainWindow::setupPreviewActions()
 			"<p>Use the preview to test the design and "
 			"signal-slot connections of the current form. %2</p>").arg( *it ).arg( info ) );
 	mapper->setMapping( a, *it );
-	connect( a, SIGNAL(activated()), mapper, SLOT(map()) );
-	connect( this, SIGNAL( hasActiveForm(bool) ), a, SLOT( setEnabled(bool) ) );
+	connect( a, TQ_SIGNAL(activated()), mapper, TQ_SLOT(map()) );
+	connect( this, TQ_SIGNAL( hasActiveForm(bool) ), a, TQ_SLOT( setEnabled(bool) ) );
 	a->addTo( menu );
     }
 }
@@ -899,38 +899,38 @@ void MainWindow::setupWindowActions()
 	actionWindowTile = new TQAction( tr( "Tile" ), tr( "&Tile" ), 0, this );
 	actionWindowTile->setStatusTip( tr("Tiles the windows so that they are all visible") );
 	actionWindowTile->setWhatsThis( whatsThisFrom( "Window|Tile" ) );
-	connect( actionWindowTile, SIGNAL( activated() ), qworkspace, SLOT( tile() ) );
+	connect( actionWindowTile, TQ_SIGNAL( activated() ), qworkspace, TQ_SLOT( tile() ) );
 	actionWindowCascade = new TQAction( tr( "Cascade" ), tr( "&Cascade" ), 0, this );
 	actionWindowCascade->setStatusTip( tr("Cascades the windows so that all their title bars are visible") );
 	actionWindowCascade->setWhatsThis( whatsThisFrom( "Window|Cascade" ) );
-	connect( actionWindowCascade, SIGNAL( activated() ), qworkspace, SLOT( cascade() ) );
+	connect( actionWindowCascade, TQ_SIGNAL( activated() ), qworkspace, TQ_SLOT( cascade() ) );
 
 	actionWindowClose = new TQAction( tr( "Close" ), tr( "Cl&ose" ), CTRL + Key_F4, this );
 	actionWindowClose->setStatusTip( tr( "Closes the active window") );
 	actionWindowClose->setWhatsThis( whatsThisFrom( "Window|Close" ) );
-	connect( actionWindowClose, SIGNAL( activated() ), qworkspace, SLOT( closeActiveWindow() ) );
+	connect( actionWindowClose, TQ_SIGNAL( activated() ), qworkspace, TQ_SLOT( closeActiveWindow() ) );
 
 	actionWindowCloseAll = new TQAction( tr( "Close All" ), tr( "Close Al&l" ), 0, this );
 	actionWindowCloseAll->setStatusTip( tr( "Closes all form windows") );
 	actionWindowCloseAll->setWhatsThis( whatsThisFrom( "Window|Close All" ) );
-	connect( actionWindowCloseAll, SIGNAL( activated() ), qworkspace, SLOT( closeAllWindows() ) );
+	connect( actionWindowCloseAll, TQ_SIGNAL( activated() ), qworkspace, TQ_SLOT( closeAllWindows() ) );
 
 	actionWindowNext = new TQAction( tr( "Next" ), tr( "Ne&xt" ), CTRL + Key_F6, this );
 	actionWindowNext->setStatusTip( tr( "Activates the next window" ) );
 	actionWindowNext->setWhatsThis( whatsThisFrom( "Window|Next" ) );
-	connect( actionWindowNext, SIGNAL( activated() ), qworkspace, SLOT( activateNextWindow() ) );
+	connect( actionWindowNext, TQ_SIGNAL( activated() ), qworkspace, TQ_SLOT( activateNextWindow() ) );
 
 	actionWindowPrevious = new TQAction( tr( "Previous" ), tr( "Pre&vious" ), CTRL + SHIFT + Key_F6, this );
 	actionWindowPrevious->setStatusTip( tr( "Activates the previous window" ) );
 	actionWindowPrevious->setWhatsThis( whatsThisFrom( "Window|Previous" ) );
-	connect( actionWindowPrevious, SIGNAL( activated() ), qworkspace, SLOT( activatePreviousWindow() ) );
+	connect( actionWindowPrevious, TQ_SIGNAL( activated() ), qworkspace, TQ_SLOT( activatePreviousWindow() ) );
     }
 
     if ( !windowMenu ) {
 	windowMenu = new TQPopupMenu( this, "Window" );
 	menubar->insertItem( tr( "&Window" ), windowMenu );
-	connect( windowMenu, SIGNAL( aboutToShow() ),
-		 this, SLOT( setupWindowActions() ) );
+	connect( windowMenu, TQ_SIGNAL( aboutToShow() ),
+		 this, TQ_SLOT( setupWindowActions() ) );
     } else {
 	windowMenu->clear();
     }
@@ -965,7 +965,7 @@ void MainWindow::setupWindowActions()
 	else
 	    itemText += w->caption();
 
-	int id = windowMenu->insertItem( itemText, this, SLOT( windowsMenuActivated( int ) ) );
+	int id = windowMenu->insertItem( itemText, this, TQ_SLOT( windowsMenuActivated( int ) ) );
 	windowMenu->setItemParameter( id, i );
 	windowMenu->setItemChecked( id, qworkspace->activeWindow() == windows.at( i ) );
     }
@@ -976,36 +976,28 @@ void MainWindow::setupHelpActions()
     actionHelpContents = new TQAction( tr( "Contents" ), tr( "&Contents" ), Key_F1, this, 0 );
     actionHelpContents->setStatusTip( tr("Opens the online help") );
     actionHelpContents->setWhatsThis( whatsThisFrom( "Help|Contents" ) );
-    connect( actionHelpContents, SIGNAL( activated() ), this, SLOT( helpContents() ) );
+    connect( actionHelpContents, TQ_SIGNAL( activated() ), this, TQ_SLOT( helpContents() ) );
 
     actionHelpManual = new TQAction( tr( "Manual" ), tr( "&Manual" ), CTRL + Key_M, this, 0 );
     actionHelpManual->setStatusTip( tr("Opens the TQt Designer manual") );
     actionHelpManual->setWhatsThis( whatsThisFrom( "Help|Manual" ) );
-    connect( actionHelpManual, SIGNAL( activated() ), this, SLOT( helpManual() ) );
+    connect( actionHelpManual, TQ_SIGNAL( activated() ), this, TQ_SLOT( helpManual() ) );
 
     actionHelpAbout = new TQAction( tr("About"), TQPixmap(), tr("&About"), 0, this, 0 );
     actionHelpAbout->setStatusTip( tr("Displays information about TQt Designer") );
     actionHelpAbout->setWhatsThis( whatsThisFrom( "Help|About" ) );
-    connect( actionHelpAbout, SIGNAL( activated() ), this, SLOT( helpAbout() ) );
+    connect( actionHelpAbout, TQ_SIGNAL( activated() ), this, TQ_SLOT( helpAbout() ) );
 
     actionHelpAboutTQt = new TQAction( tr("About TQt"), TQPixmap(), tr("About &TQt"), 0, this, 0 );
     actionHelpAboutTQt->setStatusTip( tr("Displays information about the TQt Toolkit") );
     actionHelpAboutTQt->setWhatsThis( whatsThisFrom( "Help|About TQt" ) );
-    connect( actionHelpAboutTQt, SIGNAL( activated() ), this, SLOT( helpAboutTQt() ) );
-
-#if 0 //defined(QT_NON_COMMERCIAL)
-    // ### not used anymore -- should be deleted?
-    actionHelpRegister = new TQAction( tr("Register TQt"), TQPixmap(), tr("&Register TQt..."), 0, this, 0 );
-    actionHelpRegister->setStatusTip( tr("Opens a web browser at the evaluation form on www.trolltech.com") );
-    actionHelpRegister->setWhatsThis( tr("Register with Trolltech") );
-    connect( actionHelpRegister, SIGNAL( activated() ), this, SLOT( helpRegister() ) );
-#endif
+    connect( actionHelpAboutTQt, TQ_SIGNAL( activated() ), this, TQ_SLOT( helpAboutTQt() ) );
 
     actionHelpWhatsThis = new TQAction( tr("What's This?"), TQIconSet( whatsthis_image, whatsthis_image ),
 				       tr("What's This?"), SHIFT + Key_F1, this, 0 );
     actionHelpWhatsThis->setStatusTip( tr("\"What's This?\" context sensitive help") );
     actionHelpWhatsThis->setWhatsThis( whatsThisFrom( "Help|What's This?" ) );
-    connect( actionHelpWhatsThis, SIGNAL( activated() ), this, SLOT( whatsThis() ) );
+    connect( actionHelpWhatsThis, TQ_SIGNAL( activated() ), this, TQ_SLOT( whatsThis() ) );
 
     TQToolBar *tb = new TQToolBar( this, "Help" );
     tb->setCloseMode( TQDockWindow::Undocked );
@@ -1021,11 +1013,6 @@ void MainWindow::setupHelpActions()
     menu->insertSeparator();
     actionHelpAbout->addTo( menu );
     actionHelpAboutTQt->addTo( menu );
-#if 0 //defined(QT_NON_COMMERCIAL)
-    // ### not used anymore -- should be deleted?
-    actionHelpRegister->addTo( menu );
-#endif
-
     menu->insertSeparator();
     actionHelpWhatsThis->addTo( menu );
 }
@@ -1188,7 +1175,7 @@ void MainWindow::projectInsertFile()
     fileOpen( "", "" );
 }
 
-Q_EXPORT void MainWindow::fileOpen( const TQString &filter, const TQString &extension, const TQString &fn, bool inProject  )
+TQ_EXPORT void MainWindow::fileOpen( const TQString &filter, const TQString &extension, const TQString &fn, bool inProject  )
 {
     statusBar()->message( tr( "Open a file...") );
 
@@ -1291,7 +1278,7 @@ Q_EXPORT void MainWindow::fileOpen( const TQString &filter, const TQString &exte
     }
 }
 
-Q_EXPORT FormWindow *MainWindow::openFormWindow( const TQString &filename, bool validFileName, FormFile *ff )
+TQ_EXPORT FormWindow *MainWindow::openFormWindow( const TQString &filename, bool validFileName, FormFile *ff )
 {
     if ( filename.isEmpty() )
 	return 0;
@@ -1431,8 +1418,8 @@ void MainWindow::fileCreateTemplate()
     }
 
     dia.editName->setText( tr( "NewTemplate" ) );
-    connect( dia.buttonCreate, SIGNAL( clicked() ),
-	     this, SLOT( createNewTemplate() ) );
+    connect( dia.buttonCreate, TQ_SIGNAL( clicked() ),
+	     this, TQ_SLOT( createNewTemplate() ) );
     dia.exec();
 }
 
@@ -1447,7 +1434,7 @@ void MainWindow::createNewTemplate()
     }
 
     TQStringList templRoots;
-    const char *qtdir = getenv( "QTDIR" );
+    const char *qtdir = getenv( "TQTDIR" );
     if(qtdir)
 	templRoots << qtdir;
     templRoots << tqInstallPathData();
@@ -1853,7 +1840,7 @@ void MainWindow::editPixmapCollection()
 
 void MainWindow::editDatabaseConnections()
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     DatabaseConnectionsEditor dia( currentProject, this, 0, TRUE );
     dia.exec();
 #endif
@@ -1864,7 +1851,7 @@ void MainWindow::editPreferences()
     statusBar()->message( tr( "Edit preferences..." ) );
     Preferences *dia = new Preferences( this, 0, TRUE );
     prefDia = dia;
-    connect( dia->helpButton, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( dia->helpButton, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
     dia->buttonColor->setEditor( StyledButton::ColorEditor );
     dia->buttonPixmap->setEditor( StyledButton::PixmapEditor );
     dia->groupBoxGrid->setChecked( sGrid );
@@ -1898,11 +1885,11 @@ void MainWindow::editPreferences()
 	Tab t = *it;
 	dia->tabWidget->addTab( t.w, t.title );
 	if ( t.receiver ) {
-	    connect( dia->buttonOk, SIGNAL( clicked() ), senderObject, SLOT( emitAcceptSignal() ) );
-	    connect( senderObject, SIGNAL( acceptSignal( TQUnknownInterface * ) ), t.receiver, t.accept_slot );
-	    connect( senderObject, SIGNAL( initSignal( TQUnknownInterface * ) ), t.receiver, t.init_slot );
+	    connect( dia->buttonOk, TQ_SIGNAL( clicked() ), senderObject, TQ_SLOT( emitAcceptSignal() ) );
+	    connect( senderObject, TQ_SIGNAL( acceptSignal( TQUnknownInterface * ) ), t.receiver, t.accept_slot );
+	    connect( senderObject, TQ_SIGNAL( initSignal( TQUnknownInterface * ) ), t.receiver, t.init_slot );
 	    senderObject->emitInitSignal();
-	    disconnect( senderObject, SIGNAL( initSignal( TQUnknownInterface * ) ), t.receiver, t.init_slot );
+	    disconnect( senderObject, TQ_SIGNAL( initSignal( TQUnknownInterface * ) ), t.receiver, t.init_slot );
 	}
     }
 

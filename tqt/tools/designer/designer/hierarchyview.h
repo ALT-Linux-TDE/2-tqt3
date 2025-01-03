@@ -236,7 +236,7 @@ private:
 	TQListView *lv;
 	TQInterfacePtr<ClassBrowserInterface> iface;
 
-	Q_DUMMY_COMPARISON_OPERATOR( ClassBrowser )
+	TQ_DUMMY_COMPARISON_OPERATOR( ClassBrowser )
     };
     FormWindow *formwindow;
     HierarchyList *listview;

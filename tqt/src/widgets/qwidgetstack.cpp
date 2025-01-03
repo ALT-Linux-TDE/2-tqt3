@@ -41,7 +41,7 @@
 #include "ntqwidgetstack.h"
 #include "ntqlayout.h"
 #include "../kernel/qlayoutengine_p.h"
-#ifndef QT_NO_WIDGETSTACK
+#ifndef TQT_NO_WIDGETSTACK
 
 #include "ntqobjectlist.h"
 #include "ntqfocusdata.h"
@@ -559,7 +559,7 @@ TQSize TQWidgetStack::sizeHint() const
 	    sh.rwidth() = 0;
 	if ( w->sizePolicy().verData() == TQSizePolicy::Ignored )
 	    sh.rheight() = 0;
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 	size = size.expandedTo( sh ).expandedTo( qSmartMinSize(w) );
 #endif
     }
@@ -589,7 +589,7 @@ TQSize TQWidgetStack::minimumSizeHint() const
 	    sh.rwidth() = 0;
 	if ( w->sizePolicy().verData() == TQSizePolicy::Ignored )
 	    sh.rheight() = 0;
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 	size = size.expandedTo( sh ).expandedTo( w->minimumSize() );
 #endif
     }

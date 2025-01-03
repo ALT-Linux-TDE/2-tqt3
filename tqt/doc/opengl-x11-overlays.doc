@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2005-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -39,7 +39,7 @@
 /*!
     \page opengl-x11-overlays.html
 
-    \title How to use X11 overlays with the Qt OpenGL extension
+    \title How to use X11 overlays with the TQt OpenGL extension
 
 X11 overlays are a powerful mechanism for drawing
 annotations etc., on top of an image without destroying it, thus saving
@@ -47,7 +47,7 @@ a great deal of image rendering time. For more information, consult the highly
 recommended book \e{OpenGL Programming for the X Window System} (Mark
 Kilgard, Addison Wesley Developers Press 1996).
 
-\warning From version 5.0 onwards, the Qt OpenGL Extension includes
+\warning From version 5.0 onwards, the TQt OpenGL Extension includes
 direct support for the use of OpenGL overlays. For many uses of
 overlays, this makes the technique described below redundant. See the
 \link opengl-overlay-example.html overlay\endlink example program. The
@@ -55,7 +55,7 @@ following is a discussion on how to use non-QGL widgets in overlay
 planes.
 
 In the typical case, X11 overlays can easily be used together with the
-current version of Qt and the Qt OpenGL Extension. The following
+current version of TQt and the TQt OpenGL Extension. The following
 requirements apply:
 
 \list 1
@@ -96,14 +96,14 @@ An overlay plane has a specific color called the transparent
 color. Pixels drawn in this color will not be visible; instead the
 underlying OpenGL image will show through. In the example program
 \link opengl-overlay-example.html X11 overlay\endlink, the file
-\c main.cpp contains a routine that returns a QColor containing the
+\c main.cpp contains a routine that returns a TQColor containing the
 transparent color. For the overlay widget, you will typically want to
 set the background color to the transparent color, so that the OpenGL
 image shows through except where explicitly overpainted.
 
 Note: to use this technique, you must not use the "ManyColor" or
 "TrueColor" ColorSpec for QApplication, because this will force
-the normal Qt widgets to use a TrueColor visual, which will typically
+the normal TQt widgets to use a TrueColor visual, which will typically
 be in the main plane, not in the overlay plane as desired.
 
 
@@ -126,7 +126,7 @@ means the visual is in an overlay plane.
 transparency information for overlay visuals.
 
 The \link opengl-overlay-example.html X11 overlay\endlink example
-program will output what visual is used for the normal Qt widgets, and
+program will output what visual is used for the normal TQt widgets, and
 what visual is used by the QGLWidget.
 
 */

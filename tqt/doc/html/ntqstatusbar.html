@@ -92,8 +92,8 @@ message, call <a href="#clear">clear</a>(). There are two variants of message():
 that displays the message until the next clear() or message() and
 one that has a time limit:
 <p> <pre>
-        <a href="ntqobject.html#connect">connect</a>( loader, SIGNAL(progressMessage(const <a href="ntqstring.html">TQString</a>&amp;)),
-                 statusBar(), SLOT(<a href="#message">message</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
+        <a href="ntqobject.html#connect">connect</a>( loader, TQ_SIGNAL(progressMessage(const <a href="ntqstring.html">TQString</a>&amp;)),
+                 statusBar(), TQ_SLOT(<a href="#message">message</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
 
         statusBar()-&gt;message("Loading...");  // Initial message
         loader.loadStuff();                  // Emits progress messages

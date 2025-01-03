@@ -13,7 +13,7 @@
 // We are hot - unistd.h should have turned on the specific APIs we requested
 
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 // uncomment if you have problems with <sys/proc.h> because your gcc
 // hasn't been built on exactly the same OS version your are using now.
 // typedef int crid_t;
@@ -51,7 +51,7 @@
 #include <resolv.h>
 
 
-#if !defined(QT_NO_COMPAT)
+#if !defined(TQT_NO_COMPAT)
 #define QT_STATBUF		struct stat
 #define QT_STATBUF4TSTAT	struct stat
 #define QT_STAT			::stat

@@ -48,7 +48,7 @@
 class TQPointArray;
 class TQPoint;
 
-class Q_EXPORT TQPolygonScanner {
+class TQ_EXPORT TQPolygonScanner {
 public:
     // BIC: fix for 3.0
     void scan( const TQPointArray& pa, bool winding, int index=0, int npoints=-1 );

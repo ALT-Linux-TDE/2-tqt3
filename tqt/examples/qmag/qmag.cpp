@@ -90,12 +90,12 @@ MagWidget::MagWidget( TQWidget *parent, const char *name )
     zoom = new TQComboBox( FALSE, this );
     TQ_CHECK_PTR(zoom);
     zoom->insertStrList( zoomfactors, 9 );
-    connect( zoom, SIGNAL(activated(int)), SLOT(setZoom(int)) );
+    connect( zoom, TQ_SIGNAL(activated(int)), TQ_SLOT(setZoom(int)) );
 
     refresh = new TQComboBox( FALSE, this );
     TQ_CHECK_PTR(refresh);
     refresh->insertStrList( refreshrates, 9 );
-    connect( refresh, SIGNAL(activated(int)), SLOT(setRefresh(int)) );
+    connect( refresh, TQ_SIGNAL(activated(int)), TQ_SLOT(setRefresh(int)) );
 
     for( n=0; n<9; n++) {
 	int w2 = zoom->fontMetrics().width( zoomfactors[n] );
@@ -113,7 +113,7 @@ MagWidget::MagWidget( TQWidget *parent, const char *name )
 
     saveButton = new TQPushButton( this );
     TQ_CHECK_PTR(saveButton);
-    connect( saveButton, SIGNAL(clicked()), this, SLOT(save()) );
+    connect( saveButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(save()) );
     saveButton->setText( "Save" );
     saveButton->setGeometry( x+w+30+2, 2,
 			     10+saveButton->fontMetrics().width("Save"), 20 );
@@ -121,14 +121,14 @@ MagWidget::MagWidget( TQWidget *parent, const char *name )
     multiSaveButton = new TQPushButton( this );
     multiSaveButton->setToggleButton(TRUE);
     TQ_CHECK_PTR(multiSaveButton);
-    connect( multiSaveButton, SIGNAL(clicked()), this, SLOT(multiSave()) );
+    connect( multiSaveButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(multiSave()) );
     multiSaveButton->setText( "MultiSave" );
     multiSaveButton->setGeometry( saveButton->geometry().right() + 2, 2,
 			     10+multiSaveButton->fontMetrics().width("MultiSave"), 20 );
 
     quitButton = new TQPushButton( this );
     TQ_CHECK_PTR(quitButton);
-    connect( quitButton, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quitButton, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
     quitButton->setText( "Quit" );
     quitButton->setGeometry( multiSaveButton->geometry().right() + 2, 2,
 			     10+quitButton->fontMetrics().width("Quit"), 20 );

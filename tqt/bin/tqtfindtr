@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
-# vi:wrap:
 
-# See Qt I18N documentation for usage information.
+# See TQt I18N documentation for usage information.
 
 use POSIX qw(strftime);
 
@@ -12,12 +11,12 @@ $translator='FULLNAME <EMAIL@ADDRESS>';
 $revision_date='YYYY-MM-DD';
 
 $real_mark = "tr";
-$noop_mark = "QT_TR_NOOP";
+$noop_mark = "TQT_TR_NOOP";
 $scoped_mark = "qApp->translate";
-$noop_scoped_mark = "QT_TRANSLATE_NOOP";
+$noop_scoped_mark = "TQT_TRANSLATE_NOOP";
 
 $header=
-'# This is a Qt message file in .po format.  Each msgid starts with
+'# This is a TQt message file in .po format.  Each msgid starts with
 # a scope.  This scope should *NOT* be translated - eg. translating
 # from French to English, "Foo::Bar" would be translated to "Pub",
 # not "Foo::Pub".

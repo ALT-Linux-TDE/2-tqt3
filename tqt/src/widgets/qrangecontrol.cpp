@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqrangecontrol.h"
-#ifndef QT_NO_RANGECONTROL
+#ifndef TQT_NO_RANGECONTROL
 #include "ntqglobal.h"
 #include <limits.h>
 

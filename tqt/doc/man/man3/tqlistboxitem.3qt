@@ -25,7 +25,7 @@ Inherited by QListBoxText and QListBoxPixmap.
 .BI "virtual \fB~QListBoxItem\fR ()"
 .br
 .ti -1c
-.BI "virtual QString \fBtext\fR () const"
+.BI "virtual TQString \fBtext\fR () const"
 .br
 .ti -1c
 .BI "virtual const QPixmap * \fBpixmap\fR () const"
@@ -73,7 +73,7 @@ Inherited by QListBoxText and QListBoxPixmap.
 .BI "virtual void \fBpaint\fR ( QPainter * p ) = 0"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( const QString & text )"
+.BI "virtual void \fBsetText\fR ( const TQString & text )"
 .br
 .ti -1c
 .BI "void \fBsetCustomHighlighting\fR ( bool b )"
@@ -158,11 +158,11 @@ See also selected() and paint().
 If \fIb\fR is TRUE (the default) then this item can be selected by the user; otherwise this item cannot be selected by the user.
 .PP
 See also isSelectable().
-.SH "void QListBoxItem::setText ( const QString & text )\fC [virtual protected]\fR"
+.SH "void QListBoxItem::setText ( const TQString & text )\fC [virtual protected]\fR"
 Sets the text of the QListBoxItem to \fItext\fR. This \fItext\fR is also used for sorting. The text is not shown unless explicitly drawn in paint().
 .PP
 See also text().
-.SH "QString QListBoxItem::text () const\fC [virtual]\fR"
+.SH "TQString QListBoxItem::text () const\fC [virtual]\fR"
 Returns the text of the item. This text is also used for sorting.
 .PP
 See also setText().
@@ -191,8 +191,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

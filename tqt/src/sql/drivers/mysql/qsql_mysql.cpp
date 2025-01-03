@@ -350,30 +350,40 @@ int TQMYSQLResult::numRowsAffected()
 static void qServerEnd()
 {
 #ifndef Q_NO_MYSQL_EMBEDDED
-# if MYSQL_VERSION_ID >= 40000
+#if !defined(MARIADB_BASE_VERSION) && !defined(MARIADB_VERSION_ID)
+# if MYSQL_VERSION_ID > 40000
+#  if (MYSQL_VERSION_ID >= 40110 && MYSQL_VERSION_ID < 50000) || MYSQL_VERSION_ID >= 50003
+    mysql_library_end();
+#  else
     mysql_server_end();
-# endif // MYSQL_VERSION_ID
-#endif // Q_NO_MYSQL_EMBEDDED
+#  endif
+# endif
+#endif
+#endif
 }
 
 static void qServerInit()
 {
 #ifndef Q_NO_MYSQL_EMBEDDED
 # if MYSQL_VERSION_ID >= 40000
-    if ( qMySqlInitHandledByUser || qMySqlConnectionCount > 1 )
+    if (qMySqlInitHandledByUser || qMySqlConnectionCount > 1)
         return;
 
-    // this should only be called once
-    // has no effect on client/server library
-    // but is vital for the embedded lib
-    if ( mysql_server_init( 0, 0, 0 ) ) {
-#  ifdef QT_CHECK_RANGE
-	tqWarning( "TQMYSQLDriver::qServerInit: unable to start server." );
-#  endif
+    if (
+# if (MYSQL_VERSION_ID >= 40110 && MYSQL_VERSION_ID < 50000) || MYSQL_VERSION_ID >= 50003
+        mysql_library_init(0, 0, 0)
+# else
+        mysql_server_init(0, 0, 0)
+# endif
+       ) {
+        tqWarning("TQMYSQLDriver::qServerInit: unable to start server.");
     }
-    
 # endif // MYSQL_VERSION_ID
 #endif // Q_NO_MYSQL_EMBEDDED
+
+#if defined(MARIADB_BASE_VERSION) || defined(MARIADB_VERSION_ID)
+    tqAddPostRoutine(mysql_server_end);
+#endif
 }
 
 TQMYSQLDriver::TQMYSQLDriver( TQObject * parent, const char * name )
@@ -471,15 +481,27 @@ bool TQMYSQLDriver::open( const TQString& db,
     TQStringList raw = TQStringList::split( ';', connOpts );
     TQStringList opts;
     TQStringList::ConstIterator it;
+    TQString	ssl_key, ssl_cert, ssl_ca, ssl_capath, ssl_cipher;
     
     // extract the real options from the string
     for ( it = raw.begin(); it != raw.end(); ++it ) {
-	TQString tmp( *it );
+	TQString tmp( *it ), name;
 	int idx;
 	if ( (idx = tmp.find( '=' )) != -1 ) {
 	    TQString val( tmp.mid( idx + 1 ) );
 	    val.simplifyWhiteSpace();
-	    if ( val == "TRUE" || val == "1" )
+	    name = tmp.left( idx );
+	    if (name == "MYSQL_SSL_KEY")
+		ssl_key = val;
+	    else if (name == "MYSQL_SSL_CERT")
+		ssl_cert = val;
+	    else if (name == "MYSQL_SSL_CA")
+		ssl_ca = val;
+	    else if (name == "MYSQL_SSL_CAPATH")
+		ssl_capath = val;
+	    else if (name == "MYSQL_SSL_CIPHER")
+		ssl_capath = val;
+	    else if ( val == "TRUE" || val == "1" )
 		opts << tmp.left( idx );
 	    else
 		tqWarning( "TQMYSQLDriver::open: Illegal connect option value '%s'", tmp.latin1() );
@@ -495,7 +517,7 @@ bool TQMYSQLDriver::open( const TQString& db,
 	    return FALSE;
     }
 
-    my_bool reconnect = 0;
+    bool reconnect = 0;
     for ( it = opts.begin(); it != opts.end(); ++it ) {
 	TQString opt( (*it).upper() );
 	if ( opt == "CLIENT_COMPRESS" )
@@ -518,6 +540,15 @@ bool TQMYSQLDriver::open( const TQString& db,
 	    tqWarning( "TQMYSQLDriver::open: Unknown connect option '%s'", (*it).latin1() );
     }
 
+    if (clientOptionFlags & CLIENT_SSL) {
+	mysql_ssl_set(d->mysql,
+	    ssl_key.isEmpty()? static_cast<const char *>(0):ssl_key.local8Bit().data(),
+	    ssl_cert.isEmpty()? static_cast<const char *>(0):ssl_cert.local8Bit().data(),
+	    ssl_ca.isEmpty()? static_cast<const char *>(0):ssl_ca.local8Bit().data(),
+	    ssl_capath.isEmpty()? static_cast<const char *>(0):ssl_capath.local8Bit().data(),
+	    ssl_cipher.isEmpty()? static_cast<const char *>(0):ssl_cipher.local8Bit().data()
+	);
+    }
     mysql_options(d->mysql, MYSQL_OPT_RECONNECT, &reconnect);
 
     if ( mysql_real_connect( d->mysql,

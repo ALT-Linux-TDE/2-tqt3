@@ -45,9 +45,9 @@
 #include "ntqstyle.h"
 #endif // QT_H
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 
-class Q_EXPORT TQCommonStyle: public TQStyle
+class TQ_EXPORT TQCommonStyle: public TQStyle
 {
     TQ_OBJECT
 
@@ -159,6 +159,6 @@ private:
 #endif
 };
 
-#endif // QT_NO_STYLE
+#endif // TQT_NO_STYLE
 
 #endif // TQCOMMONSTYLE_H

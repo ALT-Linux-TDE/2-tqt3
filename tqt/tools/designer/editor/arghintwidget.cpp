@@ -180,8 +180,8 @@ ArgHintWidget::ArgHintWidget( TQWidget *parent, const char*name )
     hbox->addWidget( ( next = new ArrowButton( this, "editor_right_btn", ArrowButton::Right ) ) );
     funcLabel->setBackgroundColor( white );
     funcLabel->setAlignment( AlignCenter );
-    connect( prev, SIGNAL( clicked() ), this, SLOT( gotoPrev() ) );
-    connect( next, SIGNAL( clicked() ), this, SLOT( gotoNext() ) );
+    connect( prev, TQ_SIGNAL( clicked() ), this, TQ_SLOT( gotoPrev() ) );
+    connect( next, TQ_SIGNAL( clicked() ), this, TQ_SLOT( gotoNext() ) );
     updateState();
     setFocusPolicy( NoFocus );
     prev->setFocusPolicy( NoFocus );

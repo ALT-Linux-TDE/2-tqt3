@@ -1264,11 +1264,11 @@ TQAccessible::Role TQAccessibleDisplay::role( int control ) const
 	TQLabel *l = (TQLabel*)widget();
 	if ( l->pixmap() || l->picture() )
 	    return Graphic;
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
 	if ( l->picture() )
 	    return Graphic;
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
 	if ( l->movie() )
 	    return Animation;
 #endif
@@ -2572,7 +2572,7 @@ TQMemArray<int> TQAccessibleListView::selection() const
     return array;
 }
 
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
 /*!
   \class TQAccessibleIconView qaccessiblewidget.h
   \brief The TQAccessibleIconView class implements the TQAccessibleInterface for icon views.

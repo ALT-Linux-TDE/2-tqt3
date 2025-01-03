@@ -30,5 +30,5 @@ TQStyle* WindowsStyle::create( const TQString& s )
     return 0;
 }
 
-Q_EXPORT_PLUGIN( WindowsStyle )
+TQ_EXPORT_PLUGIN( WindowsStyle )
 

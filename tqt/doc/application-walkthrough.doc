@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -129,7 +129,7 @@ compile them into the binary. This is what we are doing here.
 \printline ApplicationWindow::ApplicationWindow
 \printuntil {
 
-\e ApplicationWindow inherits QMainWindow, the Qt class that provides
+\e ApplicationWindow inherits QMainWindow, the TQt class that provides
 typical application main windows, with menu bars, toolbars, etc.
 
 \printuntil QPrinter
@@ -155,7 +155,7 @@ its location and floats it over the desktop, the toolbar-window will
 show "File Operations" as caption.
 
 \printline fileopen
-\printuntil SLOT(choose())
+\printuntil TQ_SLOT(choose())
 
 Now we create the first tool button for the \e fileTools toolbar
 with the appropriate icon and the tool-tip text "Open File".
@@ -163,7 +163,7 @@ The \c fileopen.xpm we included at the beginning
 contains the definition of a pixmap called \e fileopen.
 We use this icon to illustrate our first tool button. 
 
-\printuntil SLOT(print())
+\printuntil TQ_SLOT(print())
 
 In a similar way we create two more tool buttons in this toolbar, each with 
 appropriate icons and tool-tip text. All three buttons are connected
@@ -235,7 +235,7 @@ In case of the \e Close command, the signal is connected
 to the \e close() slot of the respective \e ApplicationWindow object whilst
 the \e Quit command affects the entire application.
 
-Because \e ApplicationWindow is a QWidget, the \e close() function
+Because \e ApplicationWindow is a TQWidget, the \e close() function
 triggers a call to \link #closeEvent closeEvent()\endlink which we
 will implement later.
 
@@ -285,7 +285,7 @@ destructor.
 
 The only thing an \e ApplicationWindow widget needs to do in its
 destructor is  to delete the printer it created. All other objects are
-child widgets, which Qt will delete when appropriate.
+child widgets, which TQt will delete when appropriate.
 
 Now our task is to implement all the slots mentioned in the header file
 and used in the constructor.
@@ -425,7 +425,7 @@ Last but not least we implement the slots used by the help menu entries.
 
 These two slots use ready-made "about" functions to provide some
 information about this program and the GUI toolkit it uses. (Although you
-don't need to provide an About Qt in your programs, if you use Qt for free
+don't need to provide an About TQt in your programs, if you use TQt for free
 we would appreciate it if you tell people what you're using.)
 
 That was all we needed to write a complete, almost useful application with

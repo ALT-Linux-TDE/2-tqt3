@@ -43,7 +43,7 @@
 #include "ntqwidget.h"
 #endif // QT_H
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 
 #if __GNUC__  - 0 > 3
 #pragma GCC system_header
@@ -53,7 +53,7 @@ class TQTipManager;
 class TQIconViewToolTip;
 class TQListViewToolTip;
 
-class Q_EXPORT TQToolTipGroup: public TQObject
+class TQ_EXPORT TQToolTipGroup: public TQObject
 {
     TQ_OBJECT
     TQ_PROPERTY( bool delay READ delay WRITE setDelay )
@@ -88,7 +88,7 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-class Q_EXPORT TQToolTip: public TQt
+class TQ_EXPORT TQToolTip: public TQt
 {
 public:
     TQToolTip( TQWidget *, TQToolTipGroup * = 0 );
@@ -114,7 +114,7 @@ public:
     static TQPalette palette();
     static void	    setPalette( const TQPalette & );
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     static void	    setEnabled( bool enable ) { setGloballyEnabled( enable ); }
     static bool	    enabled() { return isGloballyEnabled(); }
 #endif
@@ -145,6 +145,6 @@ private:
 };
 
 
-#endif // QT_NO_TOOLTIP
+#endif // TQT_NO_TOOLTIP
 
 #endif // TQTOOLTIP_H

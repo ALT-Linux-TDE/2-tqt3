@@ -40,7 +40,7 @@
 
 #include "ntqpalette.h"
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 #include "ntqdatastream.h"
 #include "ntqcleanuphandler.h"
 
@@ -943,7 +943,7 @@ bool TQPalette::operator==( const TQPalette &p ) const
   TQColorGroup/TQPalette stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQColorGroup
 
@@ -1080,7 +1080,7 @@ TQDataStream &operator>>( TQDataStream &s, TQPalette &p )
     p = newpal;
     return s;
 }
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 /*!
     Returns TRUE if this palette and \a p are copies of each other,
@@ -1221,4 +1221,4 @@ TQColorGroup::ColorRole TQPalette::backgroundRoleFromMode( TQt::BackgroundMode m
     }
 }
 
-#endif // QT_NO_PALETTE
+#endif // TQT_NO_PALETTE

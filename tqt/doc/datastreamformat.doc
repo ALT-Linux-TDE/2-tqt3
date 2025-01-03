@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -41,12 +41,12 @@
 
 \title Format of the QDataStream Operators
 
-The \l QDataStream allows you to serialize some of the Qt data types.
+The \l QDataStream allows you to serialize some of the TQt data types.
 The table below lists the data types that QDataStream can serialize
 and how they are represented.
 
-It is best to always cast integers to a Qt integer type when writing,
-and to read back into the same Qt integer type when reading.
+It is best to always cast integers to a TQt integer type when writing,
+and to read back into the same TQt integer type when reading.
 
 \table
 \row \i TQ_INT8
@@ -95,7 +95,7 @@ and to read back into the same Qt integer type when reading.
 \row \i QBrush
      \i \list
 	\i The brush style (TQ_UINT8)
-	\i The brush color (QColor)
+	\i The brush color (TQColor)
 	\i If style is CustomPattern, the brush pixmap (QPixmap)
 	\endlist
 \row \i QByteArray
@@ -109,7 +109,7 @@ and to read back into the same Qt integer type when reading.
 	\i The string bytes including the terminating 0
 	\endlist
 	The null string is represented as \c {(TQ_UINT32) 0}.
-\row \i \l QColor
+\row \i \l TQColor
      \i \list \i RGB value serialized as a TQ_UINT32 \endlist
 \row \i QColorGroup
      \i \list
@@ -151,7 +151,7 @@ and to read back into the same Qt integer type when reading.
 	\i The weight (TQ_UINT8)
 	\i The font bits (TQ_UINT8)
 	\endlist
-\row \i QImage
+\row \i TQImage
      \i \list
 	\i If the image is null a "null image" marker is saved;
 	otherwise the image is saved in PNG or BMP format (depending
@@ -174,7 +174,7 @@ and to read back into the same Qt integer type when reading.
      \i \list
 	\i The pen styles (TQ_UINT8)
 	\i The pen width (TQ_UINT8)
-	\i The pen color (QColor)
+	\i The pen color (TQColor)
 	\endlist
 \row \i QPicture
      \i \list
@@ -214,7 +214,7 @@ and to read back into the same Qt integer type when reading.
 	\i width (TQ_INT32)
 	\i height (TQ_INT32)
 	\endlist
-\row \i QString
+\row \i TQString
      \i \list
 	\i If the string is null: 0xffffffff (TQ_UINT32)<br>
 	   otherwise: The string length (TQ_UINT32) followed by the

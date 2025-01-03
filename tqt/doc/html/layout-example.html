@@ -76,7 +76,7 @@ public:
 <a name="x540"></a>    menubar-&gt;<a href="ntqmenubar.html#setSeparator">setSeparator</a>( TQMenuBar::InWindowsStyle );
     <a href="ntqpopupmenu.html">TQPopupMenu</a>* popup;
     popup = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    popup-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    popup-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;File", popup );
 
     // ...and tell the layout about it.

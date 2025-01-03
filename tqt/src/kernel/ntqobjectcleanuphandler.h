@@ -45,7 +45,7 @@
 
 class TQObjectList;
 
-class Q_EXPORT TQObjectCleanupHandler : public TQObject
+class TQ_EXPORT TQObjectCleanupHandler : public TQObject
 {
     TQ_OBJECT
 

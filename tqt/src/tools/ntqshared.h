@@ -45,7 +45,7 @@
 #include "ntqglobal.h"
 #endif // QT_H
 
-struct Q_EXPORT TQShared
+struct TQ_EXPORT TQShared
 {
     TQShared() : count( 1 ) { }
     void ref()		{ count++; }

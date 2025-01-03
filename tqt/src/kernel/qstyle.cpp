@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqstyle.h"
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 #include "ntqapplication.h"
 #include "ntqpainter.h"
 #include "ntqbitmap.h"
@@ -912,7 +912,7 @@ void TQStyle::drawItem( TQPainter *p, const TQRect &r,
 		}
 	    } else if ( pm.depth() == 1 ) {	// monochrome pixmap, no mask
 		pm.setMask( *((TQBitmap *)&pm) );
-#ifndef QT_NO_IMAGE_HEURISTIC_MASK
+#ifndef TQT_NO_IMAGE_HEURISTIC_MASK
 	    } else {				// color pixmap, no mask
 		TQString k;
 		k.sprintf( "$qt-drawitem-%x", pm.serialNumber() );
@@ -2806,7 +2806,7 @@ TQPixmap TQStyle::stylePixmap(StylePixmap sp, const TQWidget *w, const TQStyleOp
   \obsolete
 */
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 int TQStyle::defaultFrameWidth() const
 {
 	TQStyleControlElementData ceData;
@@ -2908,4 +2908,4 @@ TQStyleControlElementData::TQStyleControlElementData(const TQStyleControlElement
 	paletteBgPixmap = orig.paletteBgPixmap;
 }
 
-#endif // QT_NO_STYLE
+#endif // TQT_NO_STYLE

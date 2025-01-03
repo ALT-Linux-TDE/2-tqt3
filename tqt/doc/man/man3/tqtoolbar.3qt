@@ -16,10 +16,10 @@ Inherits QDockWindow.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "QToolBar ( const QString & label, QMainWindow *, ToolBarDock = DockTop, bool newLine = FALSE, const char * name = 0 )  \fI(obsolete)\fR"
+.BI "QToolBar ( const TQString & label, QMainWindow *, ToolBarDock = DockTop, bool newLine = FALSE, const char * name = 0 )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "\fBQToolBar\fR ( const QString & label, QMainWindow * mainWindow, QWidget * parent, bool newLine = FALSE, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQToolBar\fR ( const TQString & label, QMainWindow * mainWindow, TQWidget * parent, bool newLine = FALSE, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "\fBQToolBar\fR ( QMainWindow * parent = 0, const char * name = 0 )"
@@ -31,13 +31,13 @@ Inherits QDockWindow.
 .BI "QMainWindow * \fBmainWindow\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetStretchableWidget\fR ( QWidget * w )"
+.BI "virtual void \fBsetStretchableWidget\fR ( TQWidget * w )"
 .br
 .ti -1c
-.BI "virtual void \fBsetLabel\fR ( const QString & )"
+.BI "virtual void \fBsetLabel\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "QString \fBlabel\fR () const"
+.BI "TQString \fBlabel\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBclear\fR ()"
@@ -46,7 +46,7 @@ Inherits QDockWindow.
 .SS "Properties"
 .in +1c
 .ti -1c
-.BI "QString \fBlabel\fR - the toolbar's label"
+.BI "TQString \fBlabel\fR - the toolbar's label"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -73,7 +73,7 @@ This extract from the application/application.cpp example shows the creation of 
 .PP
 You may use most widgets within a toolbar, with QToolButton and QComboBox being the most common.
 .PP
-If you create a new widget on an already visible QToolBar, this widget will automatically become visible without needing a show() call. (This differs from every other Qt widget container. We recommend calling show() anyway since we hope to fix this anomaly in a future release.)
+If you create a new widget on an already visible QToolBar, this widget will automatically become visible without needing a show() call. (This differs from every other TQt widget container. We recommend calling show() anyway since we hope to fix this anomaly in a future release.)
 .PP
 QToolBars, like QDockWindows, are located in QDockAreas or float as top-level windows. QMainWindow provides four QDockAreas (top, left, right and bottom). When you create a new toolbar (as in the example above) as a child of a QMainWindow the toolbar will be added to the top dock area. You can move it to another dock area (or float it) by calling QMainWindow::moveDockWindow(). QDock areas lay out their windows in Lines.
 .PP
@@ -93,9 +93,9 @@ You can use the clear() method to remove all items from a toolbar.
 .PP
 See also QToolButton, QMainWindow, Parts of Isys on Visual Design, GUI Design Handbook: Tool Bar, and Main Window and Related Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QToolBar::QToolBar ( const QString & label, QMainWindow *, ToolBarDock = DockTop, bool newLine = FALSE, const char * name = 0 )"
+.SH "QToolBar::QToolBar ( const TQString & label, QMainWindow *, ToolBarDock = DockTop, bool newLine = FALSE, const char * name = 0 )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "QToolBar::QToolBar ( const QString & label, QMainWindow * mainWindow, QWidget * parent, bool newLine = FALSE, const char * name = 0, WFlags f = 0 )"
+.SH "QToolBar::QToolBar ( const TQString & label, QMainWindow * mainWindow, TQWidget * parent, bool newLine = FALSE, const char * name = 0, WFlags f = 0 )"
 Constructs an empty horizontal toolbar.
 .PP
 The toolbar is called \fIname\fR and is a child of \fIparent\fR and is managed by \fImainWindow\fR. The \fIlabel\fR and \fInewLine\fR parameters are passed straight to QMainWindow::addDockWindow(). \fIname\fR and the widget flags \fIf\fR are passed on to the QDockWindow constructor.
@@ -112,13 +112,13 @@ Examples:
 .)l chart/chartform.cpp, fileiconview/mainwindow.cpp, helpviewer/helpwindow.cpp, qfd/fontdisplayer.cpp, and scribble/scribble.cpp.
 .SH "void QToolBar::clear ()\fC [virtual]\fR"
 Deletes all the toolbar's child widgets.
-.SH "QString QToolBar::label () const"
+.SH "TQString QToolBar::label () const"
 Returns the toolbar's label. See the "label" property for details.
 .SH "QMainWindow * QToolBar::mainWindow () const"
 Returns a pointer to the QMainWindow which manages this toolbar.
-.SH "void QToolBar::setLabel ( const QString & )\fC [virtual]\fR"
+.SH "void QToolBar::setLabel ( const TQString & )\fC [virtual]\fR"
 Sets the toolbar's label. See the "label" property for details.
-.SH "void QToolBar::setStretchableWidget ( QWidget * w )\fC [virtual]\fR"
+.SH "void QToolBar::setStretchableWidget ( TQWidget * w )\fC [virtual]\fR"
 Sets the widget \fIw\fR to be expanded if this toolbar is requested to stretch.
 .PP
 The request to stretch might occur because QMainWindow right-justifies the dock area the toolbar is in, or because this toolbar's isVerticalStretchable() or isHorizontalStretchable() is set to TRUE.
@@ -130,7 +130,7 @@ See also QMainWindow::rightJustification, setVerticalStretchable(), and setHoriz
 Examples:
 .)l fileiconview/mainwindow.cpp and helpviewer/helpwindow.cpp.
 .SS "Property Documentation"
-.SH "QString label"
+.SH "TQString label"
 This property holds the toolbar's label.
 .PP
 If the toolbar is floated the label becomes the toolbar window's caption. There is no default label text.
@@ -151,8 +151,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

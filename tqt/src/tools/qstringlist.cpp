@@ -40,7 +40,7 @@
 
 #include "ntqstringlist.h"
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 #include "ntqregexp.h"
 #include "ntqstrlist.h"
 #include "ntqdatastream.h"
@@ -244,7 +244,7 @@ TQStringList TQStringList::split( const TQString &sep, const TQString &str,
     return lst;
 }
 
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 /*!
     Splits the string \a str into strings wherever the regular
     expression \a sep occurs, and returns the list of those strings.
@@ -323,7 +323,7 @@ TQStringList TQStringList::grep( const TQString &str, bool cs ) const
     return res;
 }
 
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 /*!
     \overload
 
@@ -373,7 +373,7 @@ TQStringList& TQStringList::gres( const TQString &before, const TQString &after,
     return *this;
 }
 
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
 /*!
     \overload
 
@@ -435,13 +435,13 @@ TQString TQStringList::join( const TQString &sep ) const
     return res;
 }
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator>>( TQDataStream & s, TQStringList& l )
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator>>( TQDataStream & s, TQStringList& l )
 {
     return s >> (TQValueList<TQString>&)l;
 }
 
-Q_EXPORT TQDataStream &operator<<( TQDataStream & s, const TQStringList& l )
+TQ_EXPORT TQDataStream &operator<<( TQDataStream & s, const TQStringList& l )
 {
     return s << (const TQValueList<TQString>&)l;
 }
@@ -464,4 +464,4 @@ TQStringList TQStringList::fromStrList(const TQStrList& ascii)
 */
 
 
-#endif //QT_NO_STRINGLIST
+#endif //TQT_NO_STRINGLIST

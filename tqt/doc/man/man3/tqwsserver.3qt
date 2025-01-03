@@ -14,7 +14,7 @@ QWSServer \- Server-specific functionality in Qt/Embedded
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQWSServer\fR ( int flags = 0, QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQWSServer\fR ( int flags = 0, TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QWSServer\fR ()"
@@ -26,7 +26,7 @@ QWSServer \- Server-specific functionality in Qt/Embedded
 .BI "enum \fBGUIMode\fR { NoGui = FALSE, NormalGUI = TRUE, Server }"
 .br
 .ti -1c
-.BI "void \fBsendIMEvent\fR ( IMState state, const QString & txt, int cpos, int selLen )"
+.BI "void \fBsendIMEvent\fR ( IMState state, const TQString & txt, int cpos, int selLen )"
 .br
 .ti -1c
 .BI "class \fBKeyMap\fR { }"
@@ -77,10 +77,10 @@ QWSServer \- Server-specific functionality in Qt/Embedded
 .BI "void \fBwindowEvent\fR ( QWSWindow * w, QWSServer::WindowEvent e )"
 .br
 .ti -1c
-.BI "void \fBnewChannel\fR ( const QString & channel )"
+.BI "void \fBnewChannel\fR ( const TQString & channel )"
 .br
 .ti -1c
-.BI "void \fBremovedChannel\fR ( const QString & channel )"
+.BI "void \fBremovedChannel\fR ( const TQString & channel )"
 .br
 .in -1c
 .SS "Static Public Members"
@@ -107,10 +107,10 @@ QWSServer \- Server-specific functionality in Qt/Embedded
 .BI "void \fBsetMaxWindowRect\fR ( const QRect & r )"
 .br
 .ti -1c
-.BI "void \fBsetDesktopBackground\fR ( const QImage & img )"
+.BI "void \fBsetDesktopBackground\fR ( const TQImage & img )"
 .br
 .ti -1c
-.BI "void \fBsetDesktopBackground\fR ( const QColor & c )"
+.BI "void \fBsetDesktopBackground\fR ( const TQColor & c )"
 .br
 .ti -1c
 .BI "QWSMouseHandler * \fBmouseHandler\fR ()"
@@ -166,7 +166,7 @@ See also Qt/Embedded.
 .SH "QWSServer::GUIMode"
 This determines what sort of QWS server to create:
 .TP
-\fCQWSServer::NoGui\fR - This is used for non-graphical Qt applications.
+\fCQWSServer::NoGui\fR - This is used for non-graphical TQt applications.
 .TP
 \fCQWSServer::NormalGUI\fR - A normal Qt/Embedded application (not the server).
 .TP
@@ -180,13 +180,13 @@ This enum is used to pass various options to the window system server.
 .SH "QWSServer::WindowEvent"
 This specifies what sort of event has occurred to a top-level window:
 .TP
-\fCQWSServer::Create\fR - A new window has been created (QWidget constructor).
+\fCQWSServer::Create\fR - A new window has been created (TQWidget constructor).
 .TP
-\fCQWSServer::Destroy\fR - The window has been closed and deleted (QWidget destructor).
+\fCQWSServer::Destroy\fR - The window has been closed and deleted (TQWidget destructor).
 .TP
-\fCQWSServer::Hide\fR - The window has been hidden with QWidget::hide().
+\fCQWSServer::Hide\fR - The window has been hidden with TQWidget::hide().
 .TP
-\fCQWSServer::Show\fR - The window has been shown with QWidget::show() or similar.
+\fCQWSServer::Show\fR - The window has been shown with TQWidget::show() or similar.
 .TP
 \fCQWSServer::Raise\fR - The window has been raised to the top of the desktop.
 .TP
@@ -198,7 +198,7 @@ This specifies what sort of event has occurred to a top-level window:
 .TP
 \fCQWSServer::Name\fR - The window has been named.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWSServer::QWSServer ( int flags = 0, QObject * parent = 0, const char * name = 0 )"
+.SH "QWSServer::QWSServer ( int flags = 0, TQObject * parent = 0, const char * name = 0 )"
 Construct a QWSServer object.
 .PP
 \fBWarning:\fR This class is instantiated by QApplication for Qt/Embedded server processes. You should never construct this class yourself.
@@ -219,14 +219,14 @@ Returns TRUE if the cursor is visible; otherwise returns FALSE.
 .PP
 See also setCursorVisible().
 .SH "const KeyMap * QWSServer::keyMap ()\fC [static]\fR"
-Returns the keyboard mapping table used to convert keyboard scancodes to Qt keycodes and Unicode values. It's used by the keyboard driver in \fCqkeyboard_qws.cpp\fR.
+Returns the keyboard mapping table used to convert keyboard scancodes to TQt keycodes and Unicode values. It's used by the keyboard driver in \fCqkeyboard_qws.cpp\fR.
 .SH "QWSKeyboardHandler * QWSServer::keyboardHandler ()\fC [static]\fR"
 Returns the primary keyboard handler.
 .SH "QWSPropertyManager * QWSServer::manager ()"
 Returns the QWSPropertyManager, which is used for implementing X11-style window properties.
 .SH "QWSMouseHandler * QWSServer::mouseHandler ()\fC [static]\fR"
 Returns the primary mouse handler.
-.SH "void QWSServer::newChannel ( const QString & channel )\fC [signal]\fR"
+.SH "void QWSServer::newChannel ( const TQString & channel )\fC [signal]\fR"
 This signal is emitted when the QCopChannel \fIchannel\fR is created.
 .SH "void QWSServer::openKeyboard ()"
 Opens the keyboard device(s).
@@ -238,16 +238,16 @@ Refreshes the entire display.
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Refreshes the region \fIr\fR.
-.SH "void QWSServer::removedChannel ( const QString & channel )\fC [signal]\fR"
+.SH "void QWSServer::removedChannel ( const TQString & channel )\fC [signal]\fR"
 This signal is emitted immediately after the QCopChannel \fIchannel\fR is destroyed. Note that a channel is not destroyed until all its listeners have unregistered.
 .SH "void QWSServer::screenSaverActivate ( bool activate )\fC [static]\fR"
 If \fIactivate\fR is TRUE the screensaver is activated immediately; if \fIactivate\fR is FALSE the screensaver is deactivated.
 .SH "bool QWSServer::screenSaverActive ()\fC [static]\fR"
 Returns TRUE if the screensaver is active (i.e. the screen is blanked); otherwise returns FALSE.
-.SH "void QWSServer::sendIMEvent ( IMState state, const QString & txt, int cpos, int selLen )"
+.SH "void QWSServer::sendIMEvent ( IMState state, const TQString & txt, int cpos, int selLen )"
 This function sends an input method event to the server. The current state is passed in \fIstate\fR and the current text in \fItxt\fR. The cursor's position in the text is given by \fIcpos\fR, and the selection length (which could be 0) is given in \fIselLen\fR.
 .SH "void QWSServer::sendKeyEvent ( int unicode, int keycode, int modifiers, bool isPress, bool autoRepeat )\fC [static]\fR"
-Send a key event. You can use this to send key events generated by" virtual keyboards". \fIunicode\fR is the Unicode value of the key to send, \fIkeycode\fR the Qt keycode (e.g. \fCKey_Left\fR), \fImodifiers\fR indicates whether, Shift/Alt/Ctrl keys are pressed, \fIisPress\fR is TRUE if this is a key down event and FALSE if it's a key up event, and \fIautoRepeat\fR is TRUE if this is an autorepeat event (i.e. the user has held the key down and this is the second or subsequent key event being sent).
+Send a key event. You can use this to send key events generated by" virtual keyboards". \fIunicode\fR is the Unicode value of the key to send, \fIkeycode\fR the TQt keycode (e.g. \fCKey_Left\fR), \fImodifiers\fR indicates whether, Shift/Alt/Ctrl keys are pressed, \fIisPress\fR is TRUE if this is a key down event and FALSE if it's a key up event, and \fIautoRepeat\fR is TRUE if this is an autorepeat event (i.e. the user has held the key down and this is the second or subsequent key event being sent).
 .SH "void QWSServer::setCursorVisible ( bool vis )\fC [static]\fR"
 If \fIvis\fR is TRUE, makes the cursor visible; if \fIvis\fR is FALSE, makes the cursor invisible.
 .PP
@@ -256,9 +256,9 @@ See also isCursorVisible().
 Set the keyboard driver to \fIk\fR, e.g. if \fC$QWS_KEYBOARD\fR is not defined. The default is platform-dependent.
 .SH "void QWSServer::setDefaultMouse ( const char * m )\fC [static]\fR"
 Set the mouse driver \fIm\fR to use if \fC$QWS_MOUSE_PROTO\fR is not defined. The default is platform-dependent.
-.SH "void QWSServer::setDesktopBackground ( const QImage & img )\fC [static]\fR"
+.SH "void QWSServer::setDesktopBackground ( const TQImage & img )\fC [static]\fR"
 Sets the image \fIimg\fR to be used as the background in the absence of obscuring windows.
-.SH "void QWSServer::setDesktopBackground ( const QColor & c )\fC [static]\fR"
+.SH "void QWSServer::setDesktopBackground ( const TQColor & c )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the color \fIc\fR to be used as the background in the absence of obscuring windows.
@@ -273,7 +273,7 @@ Sets the primary keyboard handler to \fIkh\fR.
 .SH "void QWSServer::setMaxWindowRect ( const QRect & r )\fC [static]\fR"
 Sets the area of the screen which Qt/Embedded applications will consider to be the maximum area to use for windows to \fIr\fR.
 .PP
-See also QWidget::showMaximized().
+See also TQWidget::showMaximized().
 .SH "void QWSServer::setScreenSaverInterval ( int ms )\fC [static]\fR"
 Sets the timeout for the screensaver to \fIms\fR milliseconds. A setting of zero turns off the screensaver.
 .SH "void QWSServer::setScreenSaverIntervals ( int * ms )\fC [static]\fR"
@@ -299,8 +299,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

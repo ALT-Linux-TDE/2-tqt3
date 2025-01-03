@@ -16,10 +16,10 @@ Inherits QDateTimeEditBase.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDateEdit\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQDateEdit\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQDateEdit\fR ( const QDate & date, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQDateEdit\fR ( const QDate & date, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QDateEdit\fR ()"
@@ -58,10 +58,10 @@ Inherits QDateTimeEditBase.
 .BI "virtual void \fBsetRange\fR ( const QDate & min, const QDate & max )"
 .br
 .ti -1c
-.BI "QString \fBseparator\fR () const"
+.BI "TQString \fBseparator\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetSeparator\fR ( const QString & s )"
+.BI "virtual void \fBsetSeparator\fR ( const TQString & s )"
 .br
 .in -1c
 .SS "Public Slots"
@@ -97,7 +97,7 @@ Inherits QDateTimeEditBase.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual QString \fBsectionFormattedText\fR ( int sec )"
+.BI "virtual TQString \fBsectionFormattedText\fR ( int sec )"
 .br
 .ti -1c
 .BI "virtual void \fBsetYear\fR ( int year )"
@@ -162,9 +162,9 @@ This enum defines the order in which the sections that comprise a date appear.
 .TP
 \fCQDateEdit::YDM\fR - year-day-month (included for completeness; but should not be used)
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDateEdit::QDateEdit ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QDateEdit::QDateEdit ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs an empty date editor which is a child of \fIparent\fR and called name \fIname\fR.
-.SH "QDateEdit::QDateEdit ( const QDate & date, QWidget * parent = 0, const char * name = 0 )"
+.SH "QDateEdit::QDateEdit ( const QDate & date, TQWidget * parent = 0, const char * name = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Constructs a date editor with the initial value \fIdate\fR, parent \fIparent\fR and called \fIname\fR.
@@ -194,11 +194,11 @@ Returns the editor's maximum value. See the "maxValue" property for details.
 Returns the editor's minimum value. See the "minValue" property for details.
 .SH "Order QDateEdit::order () const"
 Returns the order in which the year, month and day appear. See the "order" property for details.
-.SH "QString QDateEdit::sectionFormattedText ( int sec )\fC [virtual protected]\fR"
+.SH "TQString QDateEdit::sectionFormattedText ( int sec )\fC [virtual protected]\fR"
 Returns the formatted number for section \fIsec\fR. This will correspond to either the year, month or day section, depending on the current display order.
 .PP
 See also order.
-.SH "QString QDateEdit::separator () const"
+.SH "TQString QDateEdit::separator () const"
 Returns the editor's separator.
 .SH "void QDateEdit::setAutoAdvance ( bool advance )\fC [virtual]\fR"
 Sets whether the editor automatically advances to the next section to \fIadvance\fR. See the "autoAdvance" property for details.
@@ -216,7 +216,7 @@ Sets the month to \fImonth\fR, which must be a valid month, i.e. between 1 and 1
 Sets the order in which the year, month and day appear to \fIorder\fR. See the "order" property for details.
 .SH "void QDateEdit::setRange ( const QDate & min, const QDate & max )\fC [virtual]\fR"
 Sets the valid input range for the editor to be from \fImin\fR to \fImax\fR inclusive. If \fImin\fR is invalid no minimum date will be set. Similarly, if \fImax\fR is invalid no maximum date will be set.
-.SH "void QDateEdit::setSeparator ( const QString & s )\fC [virtual]\fR"
+.SH "void QDateEdit::setSeparator ( const TQString & s )\fC [virtual]\fR"
 Sets the separator to \fIs\fR. Note that currently only the first character of \fIs\fR is used.
 .SH "void QDateEdit::setYear ( int year )\fC [virtual protected]\fR"
 Sets the year to \fIyear\fR, which must be a valid year. The range currently supported is from 1752 to 8000.
@@ -280,8 +280,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

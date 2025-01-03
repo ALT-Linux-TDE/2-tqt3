@@ -46,12 +46,12 @@
 #include "ntqbitarray.h"
 #endif // QT_H
 
-#ifndef QT_NO_LCDNUMBER
+#ifndef TQT_NO_LCDNUMBER
 
 
 class TQLCDNumberPrivate;
 
-class Q_EXPORT TQLCDNumber : public TQFrame		// LCD number widget
+class TQ_EXPORT TQLCDNumber : public TQFrame		// LCD number widget
 {
     TQ_OBJECT
     TQ_ENUMS( Mode SegmentStyle )
@@ -141,6 +141,6 @@ inline int TQLCDNumber::numDigits() const
 { return ndigits; }
 
 
-#endif // QT_NO_LCDNUMBER
+#endif // TQT_NO_LCDNUMBER
 
 #endif // TQLCDNUMBER_H

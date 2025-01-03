@@ -48,11 +48,11 @@
 #include "ntqtextedit.h"
 #endif // QT_H
 
-#ifndef QT_NO_TEXTBROWSER
+#ifndef TQT_NO_TEXTBROWSER
 
 class TQTextBrowserData;
 
-class Q_EXPORT TQTextBrowser : public TQTextEdit
+class TQ_EXPORT TQTextBrowser : public TQTextEdit
 {
     TQ_OBJECT
     TQ_PROPERTY( TQString source READ source WRITE setSource )
@@ -102,6 +102,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_TEXTBROWSER
+#endif // TQT_NO_TEXTBROWSER
 
 #endif // TQTEXTBROWSER_H

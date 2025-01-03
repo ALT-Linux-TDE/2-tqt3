@@ -44,11 +44,11 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_IMAGEFORMATPLUGIN
+#ifndef TQT_NO_IMAGEFORMATPLUGIN
 class TQImageFormat;
 class TQImageFormatPluginPrivate;
 
-class Q_EXPORT TQImageFormatPlugin : public TQGPlugin
+class TQ_EXPORT TQImageFormatPlugin : public TQGPlugin
 {
     TQ_OBJECT
 public:
@@ -63,5 +63,5 @@ public:
 private:
     TQImageFormatPluginPrivate *d;
 };
-#endif // QT_NO_IMAGEFORMATPLUGIN
+#endif // TQT_NO_IMAGEFORMATPLUGIN
 #endif // TQIMAGEFORMATPLUGIN_H

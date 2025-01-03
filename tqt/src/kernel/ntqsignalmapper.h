@@ -44,12 +44,12 @@
 #ifndef QT_H
 #include "ntqobject.h"
 #endif // QT_H
-#ifndef QT_NO_SIGNALMAPPER
+#ifndef TQT_NO_SIGNALMAPPER
 class  TQSignalMapperData;
 struct TQSignalMapperRec;
 
 
-class Q_EXPORT TQSignalMapper : public TQObject {
+class TQ_EXPORT TQSignalMapper : public TQObject {
     TQ_OBJECT
 public:
     TQSignalMapper( TQObject* parent, const char* name=0 );
@@ -74,5 +74,5 @@ private slots:
     void removeMapping();
 };
 
-#endif // QT_NO_SIGNALMAPPER
+#endif // TQT_NO_SIGNALMAPPER
 #endif // TQSIGNALMAPPER_H

@@ -83,7 +83,7 @@ int main( int argc, char ** argv )
     t5->setMinimumSize( 80, 50 );
     t5->setBackgroundColor( TQt::yellow );
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     // TQt/Embedded XOR drawing not yet implemented.
     s1->setOpaqueResize( TRUE );
 #endif

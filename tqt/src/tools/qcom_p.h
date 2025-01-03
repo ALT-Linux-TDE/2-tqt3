@@ -60,7 +60,7 @@
 #pragma GCC system_header
 #endif
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 class TQObject;
 struct TQUInterfaceDescription;
@@ -82,7 +82,7 @@ struct TQUObject;
 #define IID_QUnknown TQUuid(0x1d8518cd, 0xe8f5, 0x4366, 0x99, 0xe8, 0x87, 0x9f, 0xd7, 0xe4, 0x82, 0xde)
 #endif
 
-struct Q_EXPORT TQUnknownInterface
+struct TQ_EXPORT TQUnknownInterface
 {
     virtual TQRESULT queryInterface( const TQUuid&, TQUnknownInterface** ) = 0;
     virtual ulong   addRef() = 0;
@@ -96,7 +96,7 @@ struct Q_EXPORT TQUnknownInterface
 
 // the dispatch interface that inherits the unknown interface.. It is
 // used to explore interfaces during runtime and to do dynamic calls.
-struct Q_EXPORT TQDispatchInterface : public TQUnknownInterface
+struct TQ_EXPORT TQDispatchInterface : public TQUnknownInterface
 {
     // returns the interface description of this dispatch interface.
     virtual const TQUInterfaceDescription* interfaceDescription() const = 0;
@@ -189,7 +189,7 @@ private:
 #define IID_QObject TQUuid( 0x10a1501b, 0x4c5f, 0x4914, 0x95, 0xdd, 0xc4, 0x00, 0x48, 0x6c, 0xf9, 0x00)
 #endif
 
-struct Q_EXPORT TQObjectInterface
+struct TQ_EXPORT TQObjectInterface
 {
     virtual TQObject*   qObject() = 0;
 };
@@ -199,7 +199,7 @@ struct Q_EXPORT TQObjectInterface
 #define IID_QComponentInformation TQUuid(0x5f3968a5, 0xf451, 0x45b1, 0x96, 0xfb, 0x6, 0x1a, 0xd9, 0x8f, 0x92, 0x6e)
 #endif
 
-struct Q_EXPORT TQComponentInformationInterface : public TQUnknownInterface
+struct TQ_EXPORT TQComponentInformationInterface : public TQUnknownInterface
 {
     virtual TQString name() const = 0;
     virtual TQString description() const = 0;
@@ -212,7 +212,7 @@ struct Q_EXPORT TQComponentInformationInterface : public TQUnknownInterface
 #define IID_QComponentFactory TQUuid( 0x6caa771b, 0x17bb, 0x4988, 0x9e, 0x78, 0xba, 0x5c, 0xdd, 0xaa, 0xc3, 0x1e)
 #endif
 
-struct Q_EXPORT TQComponentFactoryInterface : public TQUnknownInterface
+struct TQ_EXPORT TQComponentFactoryInterface : public TQUnknownInterface
 {
     virtual TQRESULT createInstance( const TQUuid &cid, const TQUuid &iid, TQUnknownInterface** instance, TQUnknownInterface *outer ) = 0;
 };
@@ -222,7 +222,7 @@ struct Q_EXPORT TQComponentFactoryInterface : public TQUnknownInterface
 #define IID_QLibrary TQUuid( 0xd16111d4, 0xe1e7, 0x4c47, 0x85, 0x99, 0x24, 0x48, 0x3d, 0xae, 0x2e, 0x07)
 #endif
 
-struct Q_EXPORT TQLibraryInterface : public TQUnknownInterface
+struct TQ_EXPORT TQLibraryInterface : public TQUnknownInterface
 {
     virtual bool    init() = 0;
     virtual void    cleanup() = 0;
@@ -234,7 +234,7 @@ struct Q_EXPORT TQLibraryInterface : public TQUnknownInterface
 #define IID_QFeatureList TQUuid(0x3f8fdc44, 0x3015, 0x4f3e, 0xb6, 0xd6, 0xe4, 0xaa, 0xaa, 0xbd, 0xea, 0xad)
 #endif
 
-struct Q_EXPORT TQFeatureListInterface : public TQUnknownInterface
+struct TQ_EXPORT TQFeatureListInterface : public TQUnknownInterface
 {
     virtual TQStringList	featureList() const = 0;
 };
@@ -244,14 +244,14 @@ struct Q_EXPORT TQFeatureListInterface : public TQUnknownInterface
 #define IID_QComponentRegistration TQUuid( 0xb5feb5de, 0xe0cd, 0x4e37, 0xb0, 0xeb, 0x8a, 0x81, 0x24, 0x99, 0xa0, 0xc1)
 #endif
 
-struct Q_EXPORT TQComponentRegistrationInterface : public TQUnknownInterface
+struct TQ_EXPORT TQComponentRegistrationInterface : public TQUnknownInterface
 {
     virtual bool    registerComponents( const TQString &filepath ) const = 0;
     virtual bool    unregisterComponents() const = 0;
 };
 
 // internal class that wraps an initialized ulong
-struct Q_EXPORT TQtULong
+struct TQ_EXPORT TQtULong
 {
     TQtULong() : ref( 0 ) { }
     operator unsigned long () const { return ref; }
@@ -265,7 +265,7 @@ struct Q_EXPORT TQtULong
 // default implementation of ref counting. A variable "ulong ref" has to be a member
 
 
-#define Q_REFCOUNT \
+#define TQ_REFCOUNT \
 private:	   \
     TQtULong qtrefcount;   \
 public:		   \
@@ -273,7 +273,7 @@ public:		   \
     ulong release() {if(!--qtrefcount){delete this;return 0;}return qtrefcount;}
 
 #ifndef Q_EXPORT_COMPONENT
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 #define QT_THREADED_BUILD 1
 #define Q_UCM_FLAGS_STRING "11"
 #else
@@ -281,11 +281,11 @@ public:		   \
 #define Q_UCM_FLAGS_STRING "01"
 #endif
 
-#ifndef Q_EXTERN_C
+#ifndef TQ_EXTERN_C
 #ifdef __cplusplus
-#define Q_EXTERN_C    extern "C"
+#define TQ_EXTERN_C    extern "C"
 #else
-#define Q_EXTERN_C    extern
+#define TQ_EXTERN_C    extern
 #endif
 #endif
 
@@ -296,10 +296,10 @@ public:		   \
 #ifndef Q_UCM_VERIFICATION_DATA
 #  define Q_UCM_VERIFICATION_DATA \
 	static const char *qt_ucm_verification_data =			\
-            "pattern=""QT_UCM_VERIFICATION_DATA""\n"			\
-            "version="TQT_VERSION_STR"\n"				\
-            "flags="Q_UCM_FLAGS_STRING"\n"				\
-	    "buildkey="TQT_BUILD_KEY"\0";
+            "pattern=" "QT_UCM_VERIFICATION_DATA" "\n"			\
+            "version=" TQT_VERSION_STR "\n"				\
+            "flags=" Q_UCM_FLAGS_STRING "\n"				\
+	    "buildkey=" TQT_BUILD_KEY "\0";
 #endif // Q_UCM_VERIFICATION_DATA
 
 // This macro expands to the default implementation of ucm_instantiate.
@@ -311,34 +311,34 @@ public:		   \
 	return iface;
 #endif // Q_CREATE_INSTANCE
 
-#    ifdef Q_WS_WIN
+#    ifdef TQ_WS_WIN
 #	ifdef Q_CC_BOR
 #	    define Q_EXPORT_COMPONENT() \
 	        Q_UCM_VERIFICATION_DATA \
-		Q_EXTERN_C __declspec(dllexport) \
+		TQ_EXTERN_C __declspec(dllexport) \
                 const char * __stdcall qt_ucm_query_verification_data() \
                 { return qt_ucm_verification_data; } \
-		Q_EXTERN_C Q_EXPORT __declspec(dllexport) TQUnknownInterface* \
+		TQ_EXTERN_C TQ_EXPORT __declspec(dllexport) TQUnknownInterface* \
                 __stdcall ucm_instantiate()
 #	else
 #	    define Q_EXPORT_COMPONENT() \
 	        Q_UCM_VERIFICATION_DATA \
-		Q_EXTERN_C __declspec(dllexport) \
+		TQ_EXTERN_C __declspec(dllexport) \
                 const char *qt_ucm_query_verification_data() \
                 { return qt_ucm_verification_data; } \
-		Q_EXTERN_C Q_EXPORT __declspec(dllexport) TQUnknownInterface* ucm_instantiate()
+		TQ_EXTERN_C TQ_EXPORT __declspec(dllexport) TQUnknownInterface* ucm_instantiate()
 #	endif
 #    else
 #	define Q_EXPORT_COMPONENT() \
 	    Q_UCM_VERIFICATION_DATA \
-	    Q_EXTERN_C \
+	    TQ_EXTERN_C \
             const char *qt_ucm_query_verification_data() \
             { return qt_ucm_verification_data; } \
-	    Q_EXTERN_C Q_EXPORT TQUnknownInterface* ucm_instantiate()
+	    TQ_EXTERN_C TQ_EXPORT TQUnknownInterface* ucm_instantiate()
 #    endif
 #    define Q_EXPORT_INTERFACE() Q_EXPORT_COMPONENT()
 #endif
 
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
 #endif //TQCOM_P_H

@@ -50,7 +50,7 @@ else
 	done
 	if [ -z "$F" ]; then
 	    NIS=no
-	    [ "VERBOSE" = "yes" ] && echo "  Could not find NIS lib anywhere in $LIBDIRS"
+	    [ "$VERBOSE" = "yes" ] && echo "  Could not find NIS lib anywhere in $LIBDIRS"
 	fi
     done
 fi

@@ -86,7 +86,7 @@ struct glyph_metrics_t
     int yoff;
 };
 
-#if defined( Q_WS_X11 ) || defined ( Q_WS_QWS )
+#if defined( TQ_WS_X11 ) || defined ( TQ_WS_QWS )
 typedef unsigned short glyph_t;
 
 struct qoffset_t {
@@ -112,7 +112,7 @@ struct TQScriptAnalysis
 
 };
 
-#elif defined( Q_WS_MAC )
+#elif defined( TQ_WS_MAC )
 
 typedef unsigned short glyph_t;
 
@@ -139,7 +139,7 @@ struct TQScriptAnalysis
 
 };
 
-#elif defined( Q_WS_WIN )
+#elif defined( TQ_WS_WIN )
 
 // do not change the definitions below unless you know what you are doing!
 // it is designed to be compatible with the types found in uniscribe.
@@ -292,7 +292,7 @@ private:
 
 class TQFontPrivate;
 
-class Q_EXPORT TQTextEngine {
+class TQ_EXPORT TQTextEngine {
 public:
     TQTextEngine( const TQString &str, TQFontPrivate *f );
     ~TQTextEngine();

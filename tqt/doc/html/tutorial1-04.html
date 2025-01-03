@@ -63,7 +63,7 @@ public:
     quit-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( 62, 40, 75, 30 );
     quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a href="ntqobject.html#connect">connect</a>( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 }
 
 
@@ -132,7 +132,7 @@ when you choose to, the child will automatically tell TQt about its
 imminent death.)
 <p> The setGeometry() call does the same as move() and resize() did in the
 previous chapters.
-<p> <pre>    <a name="x2306"></a><a name="x2304"></a>    <a href="ntqobject.html#connect">connect</a>( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<p> <pre>    <a name="x2306"></a><a name="x2304"></a>    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     }
 </pre>
 <p> Because the MyWidget class doesn't know about the application object, it

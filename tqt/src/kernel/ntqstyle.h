@@ -50,7 +50,7 @@
 #endif // QT_H
 
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 
 class TQPopupMenu;
 class TQStylePrivate;
@@ -59,7 +59,7 @@ class TQTab;
 class TQListViewItem;
 class TQCheckListItem;
 
-class Q_EXPORT TQStyleOption {
+class TQ_EXPORT TQStyleOption {
 public:
     enum StyleOptionDefault { Default };
 
@@ -220,7 +220,7 @@ class TQStyleControlElementTabBarData {
 		};
 };
 
-class Q_EXPORT TQStyleControlElementData {
+class TQ_EXPORT TQStyleControlElementData {
 	public:
 		TQStyleControlElementData();
 		~TQStyleControlElementData();
@@ -287,18 +287,18 @@ class Q_EXPORT TQStyleControlElementData {
 		TQ_UINT32 topLevelWidgetFlags;
 		TQPixmap paletteBgPixmap;
 
-#ifdef ENABLE_QSTYLECONTROLELEMENTDATA_SLOW_COPY
+#ifdef ENABLE_TQSTYLECONTROLELEMENTDATA_SLOW_COPY
 	public:
 		TQStyleControlElementData(const TQStyleControlElementData&);
-#else // ENABLE_QSTYLECONTROLELEMENTDATA_SLOW_COPY
+#else
 	private:
 		// Disable copy constructor
 		TQStyleControlElementData(const TQStyleControlElementData&);
-#endif // ENABLE_QSTYLECONTROLELEMENTDATA_SLOW_COPY
+#endif
 
 };
 
-class Q_EXPORT TQStyleWidgetActionRequestData {
+class TQ_EXPORT TQStyleWidgetActionRequestData {
 	public:
 		TQStyleWidgetActionRequestData();
 		TQStyleWidgetActionRequestData(int metric1, int metric2=0);
@@ -322,7 +322,7 @@ class Q_EXPORT TQStyleWidgetActionRequestData {
 
 typedef TQStyleWidgetActionRequestData TQStyleApplicationActionRequestData;
 
-class Q_EXPORT TQStyle: public TQObject
+class TQ_EXPORT TQStyle: public TQObject
 {
     TQ_OBJECT
 
@@ -1199,7 +1199,7 @@ public:
 
     // Old 2.x TQStyle API
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     int defaultFrameWidth() const;
     void tabbarMetrics( const TQWidget* t, int& hf, int& vf, int& ov ) const;
     TQSize scrollBarExtent() const;
@@ -1233,11 +1233,11 @@ private:
 inline TQStyle::ControlElementFlags operator|(const TQStyle::ControlElementFlags a, const TQStyle::ControlElementFlags b) { return static_cast<TQStyle::ControlElementFlags>(static_cast<int>(a) | static_cast<int>(b)); }
 // inline TQStyle::ControlElementFlags operator|=(TQStyle::ControlElementFlags &a, const TQStyle::ControlElementFlags b) { a = static_cast<TQStyle::ControlElementFlags>(static_cast<int>(a) | static_cast<int>(b)); return a; }
 
-Q_EXPORT const TQStyleControlElementData &populateControlElementDataFromWidget(const TQWidget* widget, const TQStyleOption& opt, bool populateReliantFields=true);
-Q_EXPORT const TQStyleControlElementData &populateControlElementDataFromApplication(const TQApplication* app, const TQStyleOption& opt, bool populateReliantFields=true);
-Q_EXPORT TQStyle::ControlElementFlags getControlElementFlagsForObject(const TQObject* object, const TQStyleOption& opt, bool populateReliantFields=true);
-Q_EXPORT TQStringList getObjectTypeListForObject(const TQObject* object);
-Q_EXPORT const TQStyleControlElementData &populateControlElementDataFromWidget(const TQWidget* widget, const TQStyleOption& opt, bool populateReliantFields, bool populateMinimumNumberOfFields);
+TQ_EXPORT const TQStyleControlElementData &populateControlElementDataFromWidget(const TQWidget* widget, const TQStyleOption& opt, bool populateReliantFields=true);
+TQ_EXPORT const TQStyleControlElementData &populateControlElementDataFromApplication(const TQApplication* app, const TQStyleOption& opt, bool populateReliantFields=true);
+TQ_EXPORT TQStyle::ControlElementFlags getControlElementFlagsForObject(const TQObject* object, const TQStyleOption& opt, bool populateReliantFields=true);
+TQ_EXPORT TQStringList getObjectTypeListForObject(const TQObject* object);
+TQ_EXPORT const TQStyleControlElementData &populateControlElementDataFromWidget(const TQWidget* widget, const TQStyleOption& opt, bool populateReliantFields, bool populateMinimumNumberOfFields);
 
-#endif // QT_NO_STYLE
+#endif // TQT_NO_STYLE
 #endif // TQSTYLE_H

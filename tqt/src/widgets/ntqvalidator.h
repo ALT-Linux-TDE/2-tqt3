@@ -47,10 +47,10 @@
 #include "ntqregexp.h" // TQString->TQRegExp conversion
 #endif // QT_H
 
-#ifndef QT_NO_VALIDATOR
+#ifndef TQT_NO_VALIDATOR
 
 
-class Q_EXPORT TQValidator : public TQObject
+class TQ_EXPORT TQValidator : public TQObject
 {
     TQ_OBJECT
 public:
@@ -70,7 +70,7 @@ private:
 };
 
 
-class Q_EXPORT TQIntValidator : public TQValidator
+class TQ_EXPORT TQIntValidator : public TQValidator
 {
     TQ_OBJECT
     TQ_PROPERTY( int bottom READ bottom WRITE setBottom )
@@ -100,9 +100,9 @@ private:
     int b, t;
 };
 
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 
-class Q_EXPORT TQDoubleValidator : public TQValidator
+class TQ_EXPORT TQDoubleValidator : public TQValidator
 {
     TQ_OBJECT
     TQ_PROPERTY( double bottom READ bottom WRITE setBottom )
@@ -137,7 +137,7 @@ private:
 };
 
 
-class Q_EXPORT TQRegExpValidator : public TQValidator
+class TQ_EXPORT TQRegExpValidator : public TQValidator
 {
     TQ_OBJECT
     // TQ_PROPERTY( TQRegExp regExp READ regExp WRITE setRegExp )
@@ -161,9 +161,9 @@ private:
 
     TQRegExp r;
 };
-#endif // QT_NO_REGEXP
+#endif // TQT_NO_REGEXP
 
 
-#endif // QT_NO_VALIDATOR
+#endif // TQT_NO_VALIDATOR
 
 #endif // TQVALIDATOR_H

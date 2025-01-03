@@ -23,7 +23,7 @@ QMovie \- Incremental loading of animations or images, signalling as it progress
 .BI "\fBQMovie\fR ( QDataSource * src, int bufsize = 1024 )"
 .br
 .ti -1c
-.BI "\fBQMovie\fR ( const QString & fileName, int bufsize = 1024 )"
+.BI "\fBQMovie\fR ( const TQString & fileName, int bufsize = 1024 )"
 .br
 .ti -1c
 .BI "\fBQMovie\fR ( QByteArray data, int bufsize = 1024 )"
@@ -44,10 +44,10 @@ QMovie \- Incremental loading of animations or images, signalling as it progress
 .BI "void \fBpushData\fR ( const uchar * data, int length )"
 .br
 .ti -1c
-.BI "const QColor & \fBbackgroundColor\fR () const"
+.BI "const TQColor & \fBbackgroundColor\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetBackgroundColor\fR ( const QColor & c )"
+.BI "void \fBsetBackgroundColor\fR ( const TQColor & c )"
 .br
 .ti -1c
 .BI "const QRect & \fBgetValidRect\fR () const"
@@ -56,7 +56,7 @@ QMovie \- Incremental loading of animations or images, signalling as it progress
 .BI "const QPixmap & \fBframePixmap\fR () const"
 .br
 .ti -1c
-.BI "const QImage & \fBframeImage\fR () const"
+.BI "const TQImage & \fBframeImage\fR () const"
 .br
 .ti -1c
 .BI "bool \fBisNull\fR () const"
@@ -98,25 +98,25 @@ QMovie \- Incremental loading of animations or images, signalling as it progress
 .BI "void \fBsetSpeed\fR ( int percent )"
 .br
 .ti -1c
-.BI "void \fBconnectResize\fR ( QObject * receiver, const char * member )"
+.BI "void \fBconnectResize\fR ( TQObject * receiver, const char * member )"
 .br
 .ti -1c
-.BI "void \fBdisconnectResize\fR ( QObject * receiver, const char * member = 0 )"
+.BI "void \fBdisconnectResize\fR ( TQObject * receiver, const char * member = 0 )"
 .br
 .ti -1c
-.BI "void \fBconnectUpdate\fR ( QObject * receiver, const char * member )"
+.BI "void \fBconnectUpdate\fR ( TQObject * receiver, const char * member )"
 .br
 .ti -1c
-.BI "void \fBdisconnectUpdate\fR ( QObject * receiver, const char * member = 0 )"
+.BI "void \fBdisconnectUpdate\fR ( TQObject * receiver, const char * member = 0 )"
 .br
 .ti -1c
 .BI "enum \fBStatus\fR { SourceEmpty = -2, UnrecognizedFormat = -1, Paused = 1, EndOfFrame = 2, EndOfLoop = 3, EndOfMovie = 4, SpeedChanged = 5 }"
 .br
 .ti -1c
-.BI "void \fBconnectStatus\fR ( QObject * receiver, const char * member )"
+.BI "void \fBconnectStatus\fR ( TQObject * receiver, const char * member )"
 .br
 .ti -1c
-.BI "void \fBdisconnectStatus\fR ( QObject * receiver, const char * member = 0 )"
+.BI "void \fBdisconnectStatus\fR ( TQObject * receiver, const char * member = 0 )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -132,9 +132,9 @@ QMovie objects are explicitly shared. This means that a QMovie copied from anoth
 .PP
 The set of data formats supported by QMovie is determined by the decoder factories that have been installed; the format of the input is determined as the input is decoded.
 .PP
-The supported formats are MNG (if Qt is configured with MNG support enabled) and GIF (if Qt is configured with GIF support enabled, see ntqgif.h).
+The supported formats are MNG (if TQt is configured with MNG support enabled) and GIF (if TQt is configured with GIF support enabled, see ntqgif.h).
 .PP
-If Qt is configured to support GIF reading, we are required to state that "The Graphics Interchange Format(c) is the Copyright property of CompuServe Incorporated. GIF(sm) is a Service Mark property of CompuServe Incorporated.
+If TQt is configured to support GIF reading, we are required to state that "The Graphics Interchange Format(c) is the Copyright property of CompuServe Incorporated. GIF(sm) is a Service Mark property of CompuServe Incorporated.
 .PP
 \fBWarning:\fR If you are in a country that recognizes software patents and in which Unisys holds a patent on LZW compression and/or decompression and you want to use GIF, Unisys may require you to license that technology. Such countries include Canada, Japan, the USA, France, Germany, Italy and the UK.
 .PP
@@ -178,7 +178,7 @@ See also pushData().
 Constructs a QMovie that reads an image sequence from the given data source, \fIsrc\fR. The source must be allocated dynamically, because QMovie will take ownership of it and will destroy it when the movie is destroyed. The movie starts playing as soon as event processing continues.
 .PP
 The \fIbufsize\fR argument sets the maximum amount of data the movie will transfer from the data source per event loop. The lower this value, the better interleaved the movie playback will be with other event processing, but the slower the overall processing will be.
-.SH "QMovie::QMovie ( const QString & fileName, int bufsize = 1024 )"
+.SH "QMovie::QMovie ( const TQString & fileName, int bufsize = 1024 )"
 Constructs a QMovie that reads an image sequence from the file, \fIfileName\fR.
 .PP
 The \fIbufsize\fR argument sets the maximum amount of data the movie will transfer from the data source per event loop. The lower this value, the better interleaved the movie playback will be with other event processing, but the slower the overall processing will be.
@@ -190,15 +190,15 @@ The \fIbufsize\fR argument sets the maximum amount of data the movie will transf
 Constructs a movie that uses the same data as movie \fImovie\fR. QMovies use explicit sharing, so operations on the copy will affect both.
 .SH "QMovie::~QMovie ()"
 Destroys the QMovie. If this is the last reference to the data of the movie, the data is deallocated.
-.SH "const QColor & QMovie::backgroundColor () const"
+.SH "const TQColor & QMovie::backgroundColor () const"
 Returns the background color of the movie set by setBackgroundColor().
-.SH "void QMovie::connectResize ( QObject * receiver, const char * member )"
+.SH "void QMovie::connectResize ( TQObject * receiver, const char * member )"
 Connects the \fIreceiver\fR's \fImember\fR of type \fCvoid member(const QSize&)\fR so that it is signalled when the movie changes size.
 .PP
 Note that due to the explicit sharing of QMovie objects, these connections persist until they are explicitly disconnected with disconnectResize() or until \fIevery\fR shared copy of the movie is deleted.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::connectStatus ( QObject * receiver, const char * member )"
+.SH "void QMovie::connectStatus ( TQObject * receiver, const char * member )"
 Connects the \fIreceiver\fR's \fImember\fR, of type \fCvoid member(int)\fR so that it is signalled when the movie changes status. The status codes are negative for errors and positive for information.
 .PP
 <center>.nf
@@ -213,24 +213,24 @@ More status messages may be added in the future, so a general test for errors wo
 Note that due to the explicit sharing of QMovie objects, these connections persist until they are explicitly disconnected with disconnectStatus() or until \fIevery\fR shared copy of the movie is deleted.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::connectUpdate ( QObject * receiver, const char * member )"
+.SH "void QMovie::connectUpdate ( TQObject * receiver, const char * member )"
 Connects the \fIreceiver\fR's \fImember\fR of type \fCvoid member(const QRect&)\fR so that it is signalled when an area of the framePixmap() has changed since the previous frame.
 .PP
 Note that due to the explicit sharing of QMovie objects, these connections persist until they are explicitly disconnected with disconnectUpdate() or until \fIevery\fR shared copy of the movie is deleted.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::disconnectResize ( QObject * receiver, const char * member = 0 )"
+.SH "void QMovie::disconnectResize ( TQObject * receiver, const char * member = 0 )"
 Disconnects the \fIreceiver\fR's \fImember\fR (or all members if \fImember\fR is zero) that were previously connected by connectResize().
-.SH "void QMovie::disconnectStatus ( QObject * receiver, const char * member = 0 )"
+.SH "void QMovie::disconnectStatus ( TQObject * receiver, const char * member = 0 )"
 Disconnects the \fIreceiver\fR's \fImember\fR (or all members if \fImember\fR is zero) that were previously connected by connectStatus().
-.SH "void QMovie::disconnectUpdate ( QObject * receiver, const char * member = 0 )"
+.SH "void QMovie::disconnectUpdate ( TQObject * receiver, const char * member = 0 )"
 Disconnects the \fIreceiver\fR's \fImember\fR (or all members if \\q member is zero) that were previously connected by connectUpdate().
 .SH "bool QMovie::finished () const"
 Returns TRUE if the image is no longer playing: this happens when all loops of all frames are complete; otherwise returns FALSE.
 .PP
 Example: movies/main.cpp.
-.SH "const QImage & QMovie::frameImage () const"
-Returns the current frame of the movie, as a QImage. It is not generally useful to keep a copy of this image. Also note that you must not call this function if the movie is finished(), since by then the image will not be available.
+.SH "const TQImage & QMovie::frameImage () const"
+Returns the current frame of the movie, as a TQImage. It is not generally useful to keep a copy of this image. Also note that you must not call this function if the movie is finished(), since by then the image will not be available.
 .PP
 See also framePixmap().
 .SH "int QMovie::frameNumber () const"
@@ -267,7 +267,7 @@ Rewinds the movie to the beginning. If the movie has not been paused, it begins 
 Example: movies/main.cpp.
 .SH "bool QMovie::running () const"
 Returns TRUE if the image is not single-stepping, not paused, and not finished; otherwise returns FALSE.
-.SH "void QMovie::setBackgroundColor ( const QColor & c )"
+.SH "void QMovie::setBackgroundColor ( const TQColor & c )"
 Sets the background color of the pixmap to \fIc\fR. If the background color isValid(), the pixmap will never have a mask because the background color will be used in transparent regions of the image.
 .PP
 See also backgroundColor().
@@ -310,8 +310,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

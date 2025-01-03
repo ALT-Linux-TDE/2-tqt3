@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQGArray					// generic array
+class TQ_EXPORT TQGArray					// generic array
 {
 friend class TQBuffer;
 public:

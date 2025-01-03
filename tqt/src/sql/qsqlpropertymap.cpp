@@ -40,7 +40,7 @@
 
 #include "ntqsqlpropertymap.h"
 
-#ifndef QT_NO_SQL_FORM
+#ifndef TQT_NO_SQL_FORM
 
 #include "ntqwidget.h"
 #include "ntqcleanuphandler.h"
@@ -301,4 +301,4 @@ void TQSqlPropertyMap::installDefaultMap( TQSqlPropertyMap * map )
     qsql_cleanup_property_map.add( &defaultmap );
 }
 
-#endif // QT_NO_SQL_FORM
+#endif // TQT_NO_SQL_FORM

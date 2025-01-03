@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -43,7 +43,7 @@
 
 /*!
     \class QCache
-    \brief The QCache class is a template class that provides a cache based on QString keys.
+    \brief The QCache class is a template class that provides a cache based on TQString keys.
 
     \ingroup collection
     \ingroup tools
@@ -85,7 +85,7 @@
     There is a QCacheIterator that can be used to traverse the items
     in the cache in arbitrary order.
 
-    In QCache, the cache items are accessed via \l QString keys, which
+    In QCache, the cache items are accessed via \l TQString keys, which
     are Unicode strings. If you want to use non-Unicode, plain 8-bit
     \c char* keys, use the QAsciiCache template. A QCache has the
     same performance as a QAsciiCache.
@@ -188,7 +188,7 @@
 */
 
 /*!
-    \fn bool QCache::insert( const QString &k, const type *d, int c, int p )
+    \fn bool QCache::insert( const TQString &k, const type *d, int c, int p )
 
     Inserts the item \a d into the cache with key \a k and associated
     cost, \a c. Returns TRUE if it is successfully inserted; otherwise
@@ -205,13 +205,13 @@
     if the cost of this item alone exceeds maxCost()) you must delete
     \a d yourself. Additionally, be very careful about using \a d
     after calling this function because any other insertions into the
-    cache, from anywhere in the application or within Qt itself, could
+    cache, from anywhere in the application or within TQt itself, could
     cause the object to be discarded from the cache and the pointer to
     become invalid.
 */
 
 /*!
-    \fn bool QCache::remove( const QString &k )
+    \fn bool QCache::remove( const TQString &k )
 
     Removes the item associated with \a k, and returns TRUE if the
     item was present in the cache; otherwise returns FALSE.
@@ -229,7 +229,7 @@
 */
 
 /*!
-    \fn type *QCache::take( const QString &k )
+    \fn type *QCache::take( const TQString &k )
 
     Takes the item associated with \a k out of the cache without
     deleting it, and returns a pointer to the item taken out, or 0
@@ -256,7 +256,7 @@
 */
 
 /*!
-    \fn type *QCache::find( const QString &k, bool ref ) const
+    \fn type *QCache::find( const TQString &k, bool ref ) const
 
     Returns the item associated with key \a k, or 0 if the key does
     not exist in the cache. If \a ref is TRUE (the default), the item
@@ -267,7 +267,7 @@
 */
 
 /*!
-    \fn type *QCache::operator[]( const QString &k ) const
+    \fn type *QCache::operator[]( const TQString &k ) const
 
     Returns the item associated with key \a k, or 0 if \a k does not
     exist in the cache, and moves the item to the front of the least
@@ -422,7 +422,7 @@
 */
 
 /*!
-    \fn QString QCacheIterator::currentKey() const
+    \fn TQString QCacheIterator::currentKey() const
 
     Returns the key for the current iterator item.
 */

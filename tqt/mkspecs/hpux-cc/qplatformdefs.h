@@ -13,7 +13,7 @@
 // We are hot - unistd.h should have turned on the specific APIs we requested
 
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #include <pthread.h>
 #endif
 
@@ -24,7 +24,7 @@
 #include <signal.h>
 #include <dl.h>
 #define QT_HPUX_LD
-#define QT_NO_LIBRARY_UNLOAD
+#define TQT_NO_LIBRARY_UNLOAD
 
 #include <sys/types.h>
 #include <sys/ioctl.h>
@@ -42,7 +42,7 @@
 extern "C" int res_init();
 
 
-#if !defined(QT_NO_COMPAT)
+#if !defined(TQT_NO_COMPAT)
 #define QT_STATBUF		struct stat
 #define QT_STATBUF4TSTAT	struct stat
 #define QT_STAT			::stat

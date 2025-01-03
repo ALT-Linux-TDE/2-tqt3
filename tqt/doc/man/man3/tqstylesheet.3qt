@@ -11,30 +11,30 @@ QStyleSheet \- Collection of styles for rich text rendering and a generator of t
 .SH SYNOPSIS
 \fC#include <ntqstylesheet.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQStyleSheet\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQStyleSheet\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "virtual \fB~QStyleSheet\fR ()"
 .br
 .ti -1c
-.BI "QStyleSheetItem * \fBitem\fR ( const QString & name )"
+.BI "QStyleSheetItem * \fBitem\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "const QStyleSheetItem * \fBitem\fR ( const QString & name ) const"
+.BI "const QStyleSheetItem * \fBitem\fR ( const TQString & name ) const"
 .br
 .ti -1c
-.BI "virtual QTextCustomItem * \fBtag\fR ( const QString & name, const QMap<QString, QString> & attr, const QString & context, const QMimeSourceFactory & factory, bool emptyTag, QTextDocument * doc ) const"
+.BI "virtual QTextCustomItem * \fBtag\fR ( const TQString & name, const QMap<TQString, TQString> & attr, const TQString & context, const QMimeSourceFactory & factory, bool emptyTag, QTextDocument * doc ) const"
 .br
 .ti -1c
 .BI "virtual void \fBscaleFont\fR ( QFont & font, int logicalSize ) const"
 .br
 .ti -1c
-.BI "virtual void \fBerror\fR ( const QString & msg ) const"
+.BI "virtual void \fBerror\fR ( const TQString & msg ) const"
 .br
 .in -1c
 .SS "Static Public Members"
@@ -46,13 +46,13 @@ Inherits QObject.
 .BI "void \fBsetDefaultSheet\fR ( QStyleSheet * sheet )"
 .br
 .ti -1c
-.BI "QString \fBescape\fR ( const QString & plain )"
+.BI "TQString \fBescape\fR ( const TQString & plain )"
 .br
 .ti -1c
-.BI "QString \fBconvertFromPlainText\fR ( const QString & plain, QStyleSheetItem::WhiteSpaceMode mode = QStyleSheetItem::WhiteSpacePre )"
+.BI "TQString \fBconvertFromPlainText\fR ( const TQString & plain, QStyleSheetItem::WhiteSpaceMode mode = QStyleSheetItem::WhiteSpacePre )"
 .br
 .ti -1c
-.BI "bool \fBmightBeRichText\fR ( const QString & text )"
+.BI "bool \fBmightBeRichText\fR ( const TQString & text )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -64,7 +64,7 @@ The default QStyleSheet object has the following style bindings, sorted by struc
 .PP
 The structuring tags are <center>.nf
 .TS
-l - l. Structuring tags Notes A Qt rich text document. It understands the following attributes:
+l - l. Structuring tags Notes A TQt rich text document. It understands the following attributes:
 .TP
 	A top-level heading.
 	A sublevel heading.
@@ -136,13 +136,13 @@ A table row. This is only valid within a A table header cell. Similar to A table
 .PP
 See also Graphics Classes, Help System, and Text Related Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStyleSheet::QStyleSheet ( QObject * parent = 0, const char * name = 0 )"
-Creates a style sheet called \fIname\fR, with parent \fIparent\fR. Like any QObject it will be deleted when its parent is destroyed (if the child still exists).
+.SH "QStyleSheet::QStyleSheet ( TQObject * parent = 0, const char * name = 0 )"
+Creates a style sheet called \fIname\fR, with parent \fIparent\fR. Like any TQObject it will be deleted when its parent is destroyed (if the child still exists).
 .PP
 By default the style sheet has the tag definitions defined above.
 .SH "QStyleSheet::~QStyleSheet ()\fC [virtual]\fR"
 Destroys the style sheet. All styles inserted into the style sheet will be deleted.
-.SH "QString QStyleSheet::convertFromPlainText ( const QString & plain, QStyleSheetItem::WhiteSpaceMode mode = QStyleSheetItem::WhiteSpacePre )\fC [static]\fR"
+.SH "TQString QStyleSheet::convertFromPlainText ( const TQString & plain, QStyleSheetItem::WhiteSpaceMode mode = QStyleSheetItem::WhiteSpacePre )\fC [static]\fR"
 Auxiliary function. Converts the plain text string \fIplain\fR to a rich text formatted paragraph while preserving most of its look.
 .PP
 \fImode\fR defines the whitespace mode. Possible values are QStyleSheetItem::WhiteSpacePre (no wrapping, all whitespaces preserved) and QStyleSheetItem::WhiteSpaceNormal (wrapping, simplified whitespaces).
@@ -155,23 +155,23 @@ Examples:
 Returns the application-wide default style sheet. This style sheet is used by rich text rendering classes such as QSimpleRichText, QWhatsThis and QMessageBox to define the rendering style and available tags within rich text documents. It also serves as the initial style sheet for the more complex render widgets, QTextEdit and QTextBrowser.
 .PP
 See also setDefaultSheet().
-.SH "void QStyleSheet::error ( const QString & msg ) const\fC [virtual]\fR"
+.SH "void QStyleSheet::error ( const TQString & msg ) const\fC [virtual]\fR"
 This virtual function is called when an error occurs when processing rich text. Reimplement it if you need to catch error messages.
 .PP
 Errors might occur if some rich text strings contain tags that are not understood by the stylesheet, if some tags are nested incorrectly, or if tags are not closed properly.
 .PP
 \fImsg\fR is the error message.
-.SH "QString QStyleSheet::escape ( const QString & plain )\fC [static]\fR"
+.SH "TQString QStyleSheet::escape ( const TQString & plain )\fC [static]\fR"
 Auxiliary function. Converts the plain text string \fIplain\fR to a rich text formatted string with any HTML meta-characters escaped.
 .PP
 See also convertFromPlainText().
-.SH "QStyleSheetItem * QStyleSheet::item ( const QString & name )"
+.SH "QStyleSheetItem * QStyleSheet::item ( const TQString & name )"
 Returns the style called \fIname\fR or 0 if there is no such style.
-.SH "const QStyleSheetItem * QStyleSheet::item ( const QString & name ) const"
+.SH "const QStyleSheetItem * QStyleSheet::item ( const TQString & name ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the style called \fIname\fR or 0 if there is no such style (const version)
-.SH "bool QStyleSheet::mightBeRichText ( const QString & text )\fC [static]\fR"
+.SH "bool QStyleSheet::mightBeRichText ( const TQString & text )\fC [static]\fR"
 Returns TRUE if the string \fItext\fR is likely to be rich text; otherwise returns FALSE.
 .PP
 This function uses a fast and therefore simple heuristic. It mainly checks whether there is something that looks like a tag before the first line break. Although the result may be correct for common cases, there is no guarantee.
@@ -187,7 +187,7 @@ See also QStyleSheetItem::logicalFontSize(), QStyleSheetItem::logicalFontSizeSte
 Sets the application-wide default style sheet to \fIsheet\fR, deleting any style sheet previously set. The ownership is transferred to QStyleSheet.
 .PP
 See also defaultSheet().
-.SH "QTextCustomItem * QStyleSheet::tag ( const QString & name, const QMap<QString, QString> & attr, const QString & context, const QMimeSourceFactory & factory, bool emptyTag, QTextDocument * doc ) const\fC [virtual]\fR"
+.SH "QTextCustomItem * QStyleSheet::tag ( const TQString & name, const QMap<TQString, TQString> & attr, const TQString & context, const QMimeSourceFactory & factory, bool emptyTag, QTextDocument * doc ) const\fC [virtual]\fR"
 \fBThis function is under development and is subject to change.\fR
 .PP
 Generates an internal object for the tag called \fIname\fR, given the attributes \fIattr\fR, and using additional information provided by the mime source factory \fIfactory\fR.
@@ -212,8 +212,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -93,7 +93,7 @@ KAsteroidsView::KAsteroidsView( TQWidget *parent, const char *name )
     initialized = readSprites();
 
     shieldTimer = new TQTimer( this );
-    connect( shieldTimer, SIGNAL(timeout()), this, SLOT(hideShield()) );
+    connect( shieldTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(hideShield()) );
     mTimerId = -1;
 
     shipPower = MAX_POWER_LEVEL;

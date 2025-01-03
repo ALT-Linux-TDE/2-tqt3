@@ -81,11 +81,11 @@ body { background: #ffffff; color: black; }
 #include "ntqscrollbar.h"
 #endif // QT_H
 
-#ifndef QT_NO_SCROLLVIEW
+#ifndef TQT_NO_SCROLLVIEW
 
 class TQScrollViewData;
 
-class Q_EXPORT TQScrollView : public TQFrame
+class TQ_EXPORT TQScrollView : public TQFrame
 {
     TQ_OBJECT
     TQ_ENUMS( ResizePolicy ScrollBarMode )
@@ -98,7 +98,7 @@ class Q_EXPORT TQScrollView : public TQFrame
     TQ_PROPERTY( int contentsHeight READ contentsHeight )
     TQ_PROPERTY( int contentsX READ contentsX )
     TQ_PROPERTY( int contentsY READ contentsY )
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     TQ_PROPERTY( bool dragAutoScroll READ dragAutoScroll WRITE setDragAutoScroll )
 #endif
 
@@ -178,7 +178,7 @@ public:
     bool	isHorizontalSliderPressed();
     bool	isVerticalSliderPressed();
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual void setDragAutoScroll( bool b );
     bool	 dragAutoScroll() const;
 #endif
@@ -212,13 +212,13 @@ protected:
     virtual void contentsMouseReleaseEvent( TQMouseEvent* );
     virtual void contentsMouseDoubleClickEvent( TQMouseEvent* );
     virtual void contentsMouseMoveEvent( TQMouseEvent* );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual void contentsDragEnterEvent( TQDragEnterEvent * );
     virtual void contentsDragMoveEvent( TQDragMoveEvent * );
     virtual void contentsDragLeaveEvent( TQDragLeaveEvent * );
     virtual void contentsDropEvent( TQDropEvent * );
 #endif
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     virtual void contentsWheelEvent( TQWheelEvent * );
 #endif
     virtual void contentsContextMenuEvent( TQContextMenuEvent * );
@@ -230,13 +230,13 @@ protected:
     virtual void viewportMouseReleaseEvent( TQMouseEvent* );
     virtual void viewportMouseDoubleClickEvent( TQMouseEvent* );
     virtual void viewportMouseMoveEvent( TQMouseEvent* );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual void viewportDragEnterEvent( TQDragEnterEvent * );
     virtual void viewportDragMoveEvent( TQDragMoveEvent * );
     virtual void viewportDragLeaveEvent( TQDragLeaveEvent * );
     virtual void viewportDropEvent( TQDropEvent * );
 #endif
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     virtual void viewportWheelEvent( TQWheelEvent * );
 #endif
     virtual void viewportContextMenuEvent( TQContextMenuEvent * );
@@ -259,7 +259,7 @@ protected:
     void  mouseReleaseEvent( TQMouseEvent * );
     void  mouseDoubleClickEvent( TQMouseEvent * );
     void  mouseMoveEvent( TQMouseEvent * );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void  wheelEvent( TQWheelEvent * );
 #endif
     void contextMenuEvent( TQContextMenuEvent * );
@@ -282,7 +282,7 @@ private slots:
     void hbarIsReleased();
     void vbarIsPressed();
     void vbarIsReleased();
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void doDragAutoScroll();
     void startDragAutoScroll();
     void stopDragAutoScroll();
@@ -300,7 +300,7 @@ public:
 
 };
 
-#endif // QT_NO_SCROLLVIEW
+#endif // TQT_NO_SCROLLVIEW
 
 #endif // TQSCROLLVIEW_H
 </pre>

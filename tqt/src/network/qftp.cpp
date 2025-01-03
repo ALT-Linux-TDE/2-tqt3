@@ -40,7 +40,7 @@
 
 #include "ntqftp.h"
 
-#ifndef QT_NO_NETWORKPROTOCOL_FTP
+#ifndef TQT_NO_NETWORKPROTOCOL_FTP
 
 #include "ntqsocket.h"
 #include "ntqsocketdevice.h"
@@ -52,7 +52,7 @@
 #include "ntqfileinfo.h"
 #include "ntqptrdict.h" // binary compatibility
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 #include "ntqtextcodec.h"
 #endif
 
@@ -297,16 +297,16 @@ TQFtpDTP::TQFtpDTP( TQFtpPI *p, TQObject *parent, const char *name ) :
 {
     clearData();
 
-    connect( &socket, SIGNAL( connected() ),
-	     SLOT( socketConnected() ) );
-    connect( &socket, SIGNAL( readyRead() ),
-	     SLOT( socketReadyRead() ) );
-    connect( &socket, SIGNAL( error(int) ),
-	     SLOT( socketError(int) ) );
-    connect( &socket, SIGNAL( connectionClosed() ),
-	     SLOT( socketConnectionClosed() ) );
-    connect( &socket, SIGNAL( bytesWritten(int) ),
-	     SLOT( socketBytesWritten(int) ) );
+    connect( &socket, TQ_SIGNAL( connected() ),
+	     TQ_SLOT( socketConnected() ) );
+    connect( &socket, TQ_SIGNAL( readyRead() ),
+	     TQ_SLOT( socketReadyRead() ) );
+    connect( &socket, TQ_SIGNAL( error(int) ),
+	     TQ_SLOT( socketError(int) ) );
+    connect( &socket, TQ_SIGNAL( connectionClosed() ),
+	     TQ_SLOT( socketConnectionClosed() ) );
+    connect( &socket, TQ_SIGNAL( bytesWritten(int) ),
+	     TQ_SLOT( socketBytesWritten(int) ) );
 }
 
 void TQFtpDTP::setData( TQByteArray *ba )
@@ -515,7 +515,7 @@ bool TQFtpDTP::parseDir( const TQString &buffer, const TQString &userName, TQUrl
 
 void TQFtpDTP::socketConnected()
 {
-#if !defined (Q_WS_QWS)
+#if !defined (TQ_WS_QWS)
     // Use a large send buffer to reduce the number
     // of writeBlocks when download and uploading files.
     // The actual size used here (128k) is default on most
@@ -637,21 +637,21 @@ TQFtpPI::TQFtpPI( TQObject *parent ) :
     waitForDtpToConnect( FALSE ),
     waitForDtpToClose( FALSE )
 {
-    connect( &commandSocket, SIGNAL(hostFound()),
-	    SLOT(hostFound()) );
-    connect( &commandSocket, SIGNAL(connected()),
-	    SLOT(connected()) );
-    connect( &commandSocket, SIGNAL(connectionClosed()),
-	    SLOT(connectionClosed()) );
-    connect( &commandSocket, SIGNAL(delayedCloseFinished()),
-	    SLOT(delayedCloseFinished()) );
-    connect( &commandSocket, SIGNAL(readyRead()),
-	    SLOT(readyRead()) );
-    connect( &commandSocket, SIGNAL(error(int)),
-	    SLOT(error(int)) );
+    connect( &commandSocket, TQ_SIGNAL(hostFound()),
+	    TQ_SLOT(hostFound()) );
+    connect( &commandSocket, TQ_SIGNAL(connected()),
+	    TQ_SLOT(connected()) );
+    connect( &commandSocket, TQ_SIGNAL(connectionClosed()),
+	    TQ_SLOT(connectionClosed()) );
+    connect( &commandSocket, TQ_SIGNAL(delayedCloseFinished()),
+	    TQ_SLOT(delayedCloseFinished()) );
+    connect( &commandSocket, TQ_SIGNAL(readyRead()),
+	    TQ_SLOT(readyRead()) );
+    connect( &commandSocket, TQ_SIGNAL(error(int)),
+	    TQ_SLOT(error(int)) );
 
-    connect( &dtp, SIGNAL(connectState(int)),
-	     SLOT(dtpConnectState(int)) );
+    connect( &dtp, TQ_SIGNAL(connectState(int)),
+	     TQ_SLOT(dtpConnectState(int)) );
 }
 
 void TQFtpPI::connectToHost( const TQString &host, TQ_UINT16 port )
@@ -935,7 +935,7 @@ bool TQFtpPI::processReply()
     return TRUE;
 }
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 TQM_EXPORT_FTP TQTextCodec *tqt_ftp_filename_codec = 0;
 #endif
 
@@ -964,7 +964,7 @@ bool TQFtpPI::startNextCmd()
     tqDebug( "TQFtpPI send: %s", currentCmd.left( currentCmd.length()-2 ).latin1() );
 #endif
     state = Waiting;
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     if ( tqt_ftp_filename_codec ) {
 	int len = 0;
 	TQCString enc = tqt_ftp_filename_codec->fromUnicode(currentCmd,len);
@@ -1251,21 +1251,21 @@ void TQFtp::init()
     TQFtpPrivate *d = ::d( this );
     d->errorString = tr( "Unknown error" );
 
-    connect( &d->pi, SIGNAL(connectState(int)),
-	    SLOT(piConnectState(int)) );
-    connect( &d->pi, SIGNAL(finished(const TQString&)),
-	    SLOT(piFinished(const TQString&)) );
-    connect( &d->pi, SIGNAL(error(int,const TQString&)),
-	    SLOT(piError(int,const TQString&)) );
-    connect( &d->pi, SIGNAL(rawFtpReply(int,const TQString&)),
-	    SLOT(piFtpReply(int,const TQString&)) );
+    connect( &d->pi, TQ_SIGNAL(connectState(int)),
+	    TQ_SLOT(piConnectState(int)) );
+    connect( &d->pi, TQ_SIGNAL(finished(const TQString&)),
+	    TQ_SLOT(piFinished(const TQString&)) );
+    connect( &d->pi, TQ_SIGNAL(error(int,const TQString&)),
+	    TQ_SLOT(piError(int,const TQString&)) );
+    connect( &d->pi, TQ_SIGNAL(rawFtpReply(int,const TQString&)),
+	    TQ_SLOT(piFtpReply(int,const TQString&)) );
 
-    connect( &d->pi.dtp, SIGNAL(readyRead()),
-	    SIGNAL(readyRead()) );
-    connect( &d->pi.dtp, SIGNAL(dataTransferProgress(int,int)),
-	    SIGNAL(dataTransferProgress(int,int)) );
-    connect( &d->pi.dtp, SIGNAL(listInfo(const TQUrlInfo&)),
-	    SIGNAL(listInfo(const TQUrlInfo&)) );
+    connect( &d->pi.dtp, TQ_SIGNAL(readyRead()),
+	    TQ_SIGNAL(readyRead()) );
+    connect( &d->pi.dtp, TQ_SIGNAL(dataTransferProgress(int,int)),
+	    TQ_SIGNAL(dataTransferProgress(int,int)) );
+    connect( &d->pi.dtp, TQ_SIGNAL(listInfo(const TQUrlInfo&)),
+	    TQ_SIGNAL(listInfo(const TQUrlInfo&)) );
 }
 
 /*!
@@ -1963,7 +1963,7 @@ int TQFtp::addCommand( TQFtpCommand *cmd )
 
     if ( d->pending.count() == 1 )
 	// don't emit the commandStarted() signal before the id is returned
-	TQTimer::singleShot( 0, this, SLOT(startNextCommand()) );
+	TQTimer::singleShot( 0, this, TQ_SLOT(startNextCommand()) );
 
     return cmd->id;
 }
@@ -2020,7 +2020,7 @@ void TQFtp::piFinished( const TQString& )
 
     if ( c->command == Close ) {
 	// The order of in which the slots are called is arbitrary, so
-	// disconnect the SIGNAL-SIGNAL temporary to make sure that we
+	// disconnect the TQ_SIGNAL-TQ_SIGNAL temporary to make sure that we
 	// don't get the commandFinished() signal before the stateChanged()
 	// signal.
 	if ( d->state != TQFtp::Unconnected ) {
@@ -2197,16 +2197,16 @@ bool TQFtp::checkConnection( TQNetworkOperation *op )
 {
     TQFtpPrivate *d = ::d( this );
     if ( state() == Unconnected && !d->npWaitForLoginDone ) {
-	connect( this, SIGNAL(listInfo(const TQUrlInfo&)),
-		this, SLOT(npListInfo(const TQUrlInfo&)) );
-	connect( this, SIGNAL(done(bool)),
-		this, SLOT(npDone(bool)) );
-	connect( this, SIGNAL(stateChanged(int)),
-		this, SLOT(npStateChanged(int)) );
-	connect( this, SIGNAL(dataTransferProgress(int,int)),
-		this, SLOT(npDataTransferProgress(int,int)) );
-	connect( this, SIGNAL(readyRead()),
-		this, SLOT(npReadyRead()) );
+	connect( this, TQ_SIGNAL(listInfo(const TQUrlInfo&)),
+		this, TQ_SLOT(npListInfo(const TQUrlInfo&)) );
+	connect( this, TQ_SIGNAL(done(bool)),
+		this, TQ_SLOT(npDone(bool)) );
+	connect( this, TQ_SIGNAL(stateChanged(int)),
+		this, TQ_SLOT(npStateChanged(int)) );
+	connect( this, TQ_SIGNAL(dataTransferProgress(int,int)),
+		this, TQ_SLOT(npDataTransferProgress(int,int)) );
+	connect( this, TQ_SIGNAL(readyRead()),
+		this, TQ_SLOT(npReadyRead()) );
 
 	d->npWaitForLoginDone = TRUE;
 	switch ( op->operation() ) {
@@ -2321,16 +2321,16 @@ void TQFtp::npDone( bool err )
     d->npWaitForLoginDone = FALSE;
 
     if ( state() == Unconnected ) {
-	disconnect( this, SIGNAL(listInfo(const TQUrlInfo&)),
-		    this, SLOT(npListInfo(const TQUrlInfo&)) );
-	disconnect( this, SIGNAL(done(bool)),
-		    this, SLOT(npDone(bool)) );
-	disconnect( this, SIGNAL(stateChanged(int)),
-		    this, SLOT(npStateChanged(int)) );
-	disconnect( this, SIGNAL(dataTransferProgress(int,int)),
-		    this, SLOT(npDataTransferProgress(int,int)) );
-	disconnect( this, SIGNAL(readyRead()),
-		    this, SLOT(npReadyRead()) );
+	disconnect( this, TQ_SIGNAL(listInfo(const TQUrlInfo&)),
+		    this, TQ_SLOT(npListInfo(const TQUrlInfo&)) );
+	disconnect( this, TQ_SIGNAL(done(bool)),
+		    this, TQ_SLOT(npDone(bool)) );
+	disconnect( this, TQ_SIGNAL(stateChanged(int)),
+		    this, TQ_SLOT(npStateChanged(int)) );
+	disconnect( this, TQ_SIGNAL(dataTransferProgress(int,int)),
+		    this, TQ_SLOT(npDataTransferProgress(int,int)) );
+	disconnect( this, TQ_SIGNAL(readyRead()),
+		    this, TQ_SLOT(npReadyRead()) );
     }
 
     // emit the finished() signal at the very end to avoid reentrance problems
@@ -2416,4 +2416,4 @@ void TQFtp::error( int )
 
 #include "qftp.moc"
 
-#endif // QT_NO_NETWORKPROTOCOL_FTP
+#endif // TQT_NO_NETWORKPROTOCOL_FTP

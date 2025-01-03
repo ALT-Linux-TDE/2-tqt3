@@ -9,7 +9,7 @@
 
 #include "metal.h"
 
-#ifndef QT_NO_STYLE_WINDOWS
+#ifndef TQT_NO_STYLE_WINDOWS
 
 #include "ntqapplication.h"
 #include "ntqcombobox.h"

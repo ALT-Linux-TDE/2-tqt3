@@ -46,10 +46,10 @@
 #include "ntqmenudata.h"
 #endif // QT_H
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 class TQPopupMenuPrivate;
 
-class Q_EXPORT TQPopupMenu : public TQFrame, public TQMenuData
+class TQ_EXPORT TQPopupMenu : public TQFrame, public TQMenuData
 {
     TQ_OBJECT
     TQ_PROPERTY( bool checkable READ isCheckable WRITE setCheckable )
@@ -121,7 +121,7 @@ protected:
 private slots:
     void	subActivated( int itemId );
     void	subHighlighted( int itemId );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     void	accelActivated( int itemId );
     void	accelDestroyed();
 #endif
@@ -156,16 +156,16 @@ private:
     TQSize	updateSize(bool force_recalc=FALSE, bool do_resize=TRUE);
     void	updateRow( int row );
     TQRect       screenRect(const TQPoint& pos);
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     void	updateAccel( TQWidget * );
     void	enableAccel( bool );
 #endif
     TQPopupMenuPrivate  *d;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQAccel     *autoaccel;
 #endif
 
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     bool macPopupMenu(const TQPoint &, int);
     uint mac_dirty_popup : 1;
 #endif
@@ -199,6 +199,6 @@ public:
 };
 
 
-#endif // QT_NO_POPUPMENU
+#endif // TQT_NO_POPUPMENU
 
 #endif // TQPOPUPMENU_H

@@ -59,7 +59,7 @@
 #include "ntqnamespace.h"
 #endif // QT_H
 
-#ifndef QT_NO_EFFECTS
+#ifndef TQT_NO_EFFECTS
 class TQWidget;
 
 struct TQEffects
@@ -74,8 +74,8 @@ struct TQEffects
     typedef uint DirFlags;
 };
 
-extern void Q_EXPORT qScrollEffect( TQWidget*, TQEffects::DirFlags dir = TQEffects::DownScroll, int time = -1 );
-extern void Q_EXPORT qFadeEffect( TQWidget*, int time = -1 );
-#endif // QT_NO_EFFECTS
+extern void TQ_EXPORT qScrollEffect( TQWidget*, TQEffects::DirFlags dir = TQEffects::DownScroll, int time = -1 );
+extern void TQ_EXPORT qFadeEffect( TQWidget*, int time = -1 );
+#endif // TQT_NO_EFFECTS
 
 #endif // TQEFFECTS_P_H

@@ -36,7 +36,7 @@ int main( int argc, char **argv )
     b1->add( new TQPushButton( "More text", f ) );
     b1->add( new TQPushButton( "Even longer button text", f ) );
     TQPushButton* qb = new TQPushButton( "Quit", f );
-    a.connect( qb, SIGNAL( clicked() ), SLOT( quit() ) );
+    a.connect( qb, TQ_SIGNAL( clicked() ), TQ_SLOT( quit() ) );
     b1->add( qb );
 
     TQWidget *wid = new TQWidget( f );

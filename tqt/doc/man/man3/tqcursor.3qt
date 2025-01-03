@@ -95,7 +95,7 @@ This class is mainly used to create mouse cursors that are associated with parti
 .PP
 Qt has a number of standard cursor shapes, but you can also make custom cursor shapes based on a QBitmap, a mask and a hotspot.
 .PP
-To associate a cursor with a widget, use QWidget::setCursor(). To associate a cursor with all widgets (normally for a short period of time), use QApplication::setOverrideCursor().
+To associate a cursor with a widget, use TQWidget::setCursor(). To associate a cursor with all widgets (normally for a short period of time), use QApplication::setOverrideCursor().
 .PP
 To set a cursor shape use QCursor::setShape() or use the QCursor constructor which takes the shape as argument, or you can use one of the predefined cursors defined in the CursorShape enum.
 .PP
@@ -109,13 +109,13 @@ To set or get the position of the mouse cursor use the static methods QCursor::p
 .PP
 </center>
 .PP
-See also QWidget, GUI Design Handbook: Cursors, Widget Appearance and Style, and Implicitly and Explicitly Shared Classes.
+See also TQWidget, GUI Design Handbook: Cursors, Widget Appearance and Style, and Implicitly and Explicitly Shared Classes.
 .PP
-On X11, Qt supports the Xcursor library, which allows for full color icon themes. The table below shows the cursor name used for each Qt::CursorShape value. If a cursor cannot be found using the name shown below, a standard X11 cursor will be used instead. Note: X11 does not provide appropriate cursors for all possible Qt::CursorShape values. It is possible that some cursors will be taken from the Xcursor theme, while others will use an internal bitmap cursor.
+On X11, TQt supports the Xcursor library, which allows for full color icon themes. The table below shows the cursor name used for each TQt::CursorShape value. If a cursor cannot be found using the name shown below, a standard X11 cursor will be used instead. Note: X11 does not provide appropriate cursors for all possible TQt::CursorShape values. It is possible that some cursors will be taken from the Xcursor theme, while others will use an internal bitmap cursor.
 .PP
 <center>.nf
 .TS
-l - l. Qt::CursorShape Values Cursor Names Qt::ArrowCursor left_ptr Qt::UpArrowCursor up_arrow Qt::CrossCursor cross Qt::WaitCursor wait Qt::BusyCursor left_ptr_watch Qt::IbeamCursor ibeam Qt::SizeVerCursor size_ver Qt::SizeHorCursor size_hor Qt::SizeBDiagCursor size_bdiag Qt::SizeFDiagCursor size_fdiag Qt::SizeAllCursor size_all Qt::SplitVCursor split_v Qt::SplitHCursor split_h Qt::PointingHandCursor pointing_hand Qt::ForbiddenCursor forbidden Qt::WhatsThisCursor
+l - l. TQt::CursorShape Values Cursor Names TQt::ArrowCursor left_ptr TQt::UpArrowCursor up_arrow TQt::CrossCursor cross TQt::WaitCursor wait TQt::BusyCursor left_ptr_watch TQt::IbeamCursor ibeam TQt::SizeVerCursor size_ver TQt::SizeHorCursor size_hor TQt::SizeBDiagCursor size_bdiag TQt::SizeFDiagCursor size_fdiag TQt::SizeAllCursor size_all TQt::SplitVCursor split_v TQt::SplitHCursor split_h TQt::PointingHandCursor pointing_hand TQt::ForbiddenCursor forbidden TQt::WhatsThisCursor
 .TE
 .fi
 </center>
@@ -145,7 +145,7 @@ B=0 and M=0 gives transparent.
 .TP
 B=1 and M=0 gives an undefined result.
 .PP
-Use the global Qt color \fCcolor0\fR to draw 0-pixels and \fCcolor1\fR to draw 1-pixels in the bitmaps.
+Use the global TQt color \fCcolor0\fR to draw 0-pixels and \fCcolor1\fR to draw 1-pixels in the bitmaps.
 .PP
 Valid cursor sizes depend on the display hardware (or the underlying window system). We recommend using 32x32 cursors, because this size is supported on all platforms. Some platforms also support 16x16, 48x48 and 64x64 cursors.
 .PP
@@ -193,18 +193,18 @@ Assigns \fIc\fR to this cursor and returns a reference to this cursor.
 .SH "QPoint QCursor::pos ()\fC [static]\fR"
 Returns the position of the cursor (hot spot) in global screen coordinates.
 .PP
-You can call QWidget::mapFromGlobal() to translate it to widget coordinates.
+You can call TQWidget::mapFromGlobal() to translate it to widget coordinates.
 .PP
-See also setPos(), QWidget::mapFromGlobal(), and QWidget::mapToGlobal().
+See also setPos(), TQWidget::mapFromGlobal(), and TQWidget::mapToGlobal().
 .PP
 Examples:
 .)l chart/canvasview.cpp, fileiconview/qfileiconview.cpp, and menu/menu.cpp.
 .SH "void QCursor::setPos ( int x, int y )\fC [static]\fR"
 Moves the cursor (hot spot) to the global screen position (\fIx\fR, \fIy\fR).
 .PP
-You can call QWidget::mapToGlobal() to translate widget coordinates to global screen coordinates.
+You can call TQWidget::mapToGlobal() to translate widget coordinates to global screen coordinates.
 .PP
-See also pos(), QWidget::mapFromGlobal(), and QWidget::mapToGlobal().
+See also pos(), TQWidget::mapFromGlobal(), and TQWidget::mapToGlobal().
 .SH "void QCursor::setPos ( const QPoint & )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .SH "void QCursor::setShape ( int shape )"
@@ -241,8 +241,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

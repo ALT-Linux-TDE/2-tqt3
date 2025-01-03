@@ -71,4 +71,4 @@ TQStringList TQMYSQLDriverPlugin::keys() const
     return l;
 }
 
-Q_EXPORT_PLUGIN( TQMYSQLDriverPlugin )
+TQ_EXPORT_PLUGIN( TQMYSQLDriverPlugin )

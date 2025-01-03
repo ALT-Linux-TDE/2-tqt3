@@ -19,10 +19,10 @@ Qip::Qip()
 {
     state = Start;
     socket = new TQSocket( this );
-    connect( socket, SIGNAL(connected()), SLOT(socketConnected()) );
-    connect( socket, SIGNAL(connectionClosed()), SLOT(socketConnectionClosed()) );
-    connect( socket, SIGNAL(readyRead()), SLOT(socketReadyRead()) );
-    connect( socket, SIGNAL(error(int)), SLOT(socketError(int)) );
+    connect( socket, TQ_SIGNAL(connected()), TQ_SLOT(socketConnected()) );
+    connect( socket, TQ_SIGNAL(connectionClosed()), TQ_SLOT(socketConnectionClosed()) );
+    connect( socket, TQ_SIGNAL(readyRead()), TQ_SLOT(socketReadyRead()) );
+    connect( socket, TQ_SIGNAL(error(int)), TQ_SLOT(socketError(int)) );
 }
 
 int Qip::supportedOperations() const

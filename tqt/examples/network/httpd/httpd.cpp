@@ -39,8 +39,8 @@ public:
 	// works asynchronouslyl, this means that all the communication is done
 	// in the two slots readClient() and discardClient().
 	TQSocket* s = new TQSocket( this );
-	connect( s, SIGNAL(readyRead()), this, SLOT(readClient()) );
-	connect( s, SIGNAL(delayedCloseFinished()), this, SLOT(discardClient()) );
+	connect( s, TQ_SIGNAL(readyRead()), this, TQ_SLOT(readClient()) );
+	connect( s, TQ_SIGNAL(delayedCloseFinished()), this, TQ_SLOT(discardClient()) );
 	s->setSocket( socket );
 	emit newConnect();
     }
@@ -100,10 +100,10 @@ public:
 	infoText = new TQTextView( this );
 	TQPushButton *quit = new TQPushButton( "quit" , this );
 
-	connect( httpd, SIGNAL(newConnect()), SLOT(newConnect()) );
-	connect( httpd, SIGNAL(endConnect()), SLOT(endConnect()) );
-	connect( httpd, SIGNAL(wroteToClient()), SLOT(wroteToClient()) );
-	connect( quit, SIGNAL(pressed()), tqApp, SLOT(quit()) );
+	connect( httpd, TQ_SIGNAL(newConnect()), TQ_SLOT(newConnect()) );
+	connect( httpd, TQ_SIGNAL(endConnect()), TQ_SLOT(endConnect()) );
+	connect( httpd, TQ_SIGNAL(wroteToClient()), TQ_SLOT(wroteToClient()) );
+	connect( quit, TQ_SIGNAL(pressed()), tqApp, TQ_SLOT(quit()) );
     }
 
     ~HttpInfo()

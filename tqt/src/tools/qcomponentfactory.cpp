@@ -40,7 +40,7 @@
 
 #include "qcomponentfactory_p.h"
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 #include "ntqsettings.h"
 #include <private/qcomlibrary_p.h>
 #include "ntqdir.h"
@@ -352,4 +352,4 @@ bool TQComponentFactory::unregisterComponent( const TQUuid &cid )
     return ok;
 }
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT

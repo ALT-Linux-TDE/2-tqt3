@@ -47,13 +47,13 @@
 #include "ntqptrdict.h"
 #endif // QT_H
 
-#ifndef QT_NO_WIDGETSTACK
+#ifndef TQT_NO_WIDGETSTACK
 
 
 class TQWidgetStackPrivate;
 
 
-class Q_EXPORT TQWidgetStack: public TQFrame
+class TQ_EXPORT TQWidgetStack: public TQFrame
 {
     TQ_OBJECT
 public:
@@ -107,6 +107,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_WIDGETSTACK
+#endif // TQT_NO_WIDGETSTACK
 
 #endif // TQWIDGETSTACK_H

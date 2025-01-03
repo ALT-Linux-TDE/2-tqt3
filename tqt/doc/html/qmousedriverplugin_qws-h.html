@@ -80,19 +80,19 @@ body { background: #ffffff; color: black; }
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 class TQWSMouseHandler;
 class TQMouseDriverPluginPrivate;
 
-class Q_EXPORT TQMouseDriverPlugin : public TQGPlugin
+class TQ_EXPORT TQMouseDriverPlugin : public TQGPlugin
 {
     TQ_OBJECT
 public:
     TQMouseDriverPlugin();
     ~TQMouseDriverPlugin();
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     virtual TQStringList keys() const = 0;
 #endif
     virtual TQWSMouseHandler* create( const TQString&amp; driver, const TQString &amp;device ) = 0;
@@ -101,7 +101,7 @@ private:
     TQMouseDriverPluginPrivate *d;
 };
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 #endif // TQMOUSEDRIVERPLUGIN_QWS_H
 </pre>

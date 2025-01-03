@@ -11,7 +11,7 @@ QSqlDriver \- Abstract base class for accessing SQL databases
 .SH SYNOPSIS
 \fC#include <ntqsqldriver.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
@@ -19,7 +19,7 @@ Inherits QObject.
 .BI "enum \fBDriverFeature\fR { Transactions, QuerySize, BLOB, Unicode, PreparedQueries, NamedPlaceholders, PositionalPlaceholders }"
 .br
 .ti -1c
-.BI "\fBQSqlDriver\fR ( QObject * parent = 0, const char * name = 0 )"
+.BI "\fBQSqlDriver\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QSqlDriver\fR ()"
@@ -40,28 +40,28 @@ Inherits QObject.
 .BI "virtual bool \fBrollbackTransaction\fR ()"
 .br
 .ti -1c
-.BI "virtual QStringList \fBtables\fR ( const QString & tableType ) const"
+.BI "virtual QStringList \fBtables\fR ( const TQString & tableType ) const"
 .br
 .ti -1c
-.BI "virtual QSqlIndex \fBprimaryIndex\fR ( const QString & tableName ) const"
+.BI "virtual QSqlIndex \fBprimaryIndex\fR ( const TQString & tableName ) const"
 .br
 .ti -1c
-.BI "virtual QSqlRecord \fBrecord\fR ( const QString & tableName ) const"
+.BI "virtual QSqlRecord \fBrecord\fR ( const TQString & tableName ) const"
 .br
 .ti -1c
 .BI "virtual QSqlRecord \fBrecord\fR ( const QSqlQuery & query ) const"
 .br
 .ti -1c
-.BI "virtual QSqlRecordInfo \fBrecordInfo\fR ( const QString & tablename ) const"
+.BI "virtual QSqlRecordInfo \fBrecordInfo\fR ( const TQString & tablename ) const"
 .br
 .ti -1c
 .BI "virtual QSqlRecordInfo \fBrecordInfo\fR ( const QSqlQuery & query ) const"
 .br
 .ti -1c
-.BI "virtual QString \fBnullText\fR () const"
+.BI "virtual TQString \fBnullText\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBformatValue\fR ( const QSqlField * field, bool trimStrings = FALSE ) const"
+.BI "virtual TQString \fBformatValue\fR ( const QSqlField * field, bool trimStrings = FALSE ) const"
 .br
 .ti -1c
 .BI "QSqlError \fBlastError\fR () const"
@@ -70,7 +70,7 @@ Inherits QObject.
 .BI "virtual bool \fBhasFeature\fR ( DriverFeature f ) const = 0"
 .br
 .ti -1c
-.BI "virtual bool \fBopen\fR ( const QString & db, const QString & user = QString::null, const QString & password = QString::null, const QString & host = QString::null, int port = -1 ) = 0"
+.BI "virtual bool \fBopen\fR ( const TQString & db, const TQString & user = TQString::null, const TQString & password = TQString::null, const TQString & host = TQString::null, int port = -1 ) = 0"
 .br
 .ti -1c
 .BI "virtual void \fBclose\fR () = 0"
@@ -79,7 +79,7 @@ Inherits QObject.
 .BI "virtual QSqlQuery \fBcreateQuery\fR () const = 0"
 .br
 .ti -1c
-.BI "bool \fBopen\fR ( const QString & db, const QString & user, const QString & password, const QString & host, int port, const QString & connOpts )"
+.BI "bool \fBopen\fR ( const TQString & db, const TQString & user, const TQString & password, const TQString & host, int port, const TQString & connOpts )"
 .br
 .in -1c
 .SS "Protected Members"
@@ -118,11 +118,11 @@ This enum contains a list of features a driver may support. Use hasFeature() to 
 .TP
 \fCQSqlDriver::PositionalPlaceholders\fR - whether the driver supports usage of positional placeholders
 .PP
-More information about supported features can be found in the Qt SQL driver documentation.
+More information about supported features can be found in the TQt SQL driver documentation.
 .PP
 See also hasFeature().
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlDriver::QSqlDriver ( QObject * parent = 0, const char * name = 0 )"
+.SH "QSqlDriver::QSqlDriver ( TQObject * parent = 0, const char * name = 0 )"
 Default constructor. Creates a new driver with parent \fIparent\fR, called \fIname\fR.
 .SH "QSqlDriver::~QSqlDriver ()"
 Destroys the object and frees any allocated resources.
@@ -140,7 +140,7 @@ Protected function which derived classes can reimplement to commit a transaction
 See also beginTransaction() and rollbackTransaction().
 .SH "QSqlQuery QSqlDriver::createQuery () const\fC [pure virtual]\fR"
 Creates an empty SQL result on the database. Derived classes must reimplement this function and return a QSqlQuery object appropriate for their database to the caller.
-.SH "QString QSqlDriver::formatValue ( const QSqlField * field, bool trimStrings = FALSE ) const\fC [virtual]\fR"
+.SH "TQString QSqlDriver::formatValue ( const QSqlField * field, bool trimStrings = FALSE ) const\fC [virtual]\fR"
 Returns a string representation of the \fIfield\fR value for the database. This is used, for example, when constructing INSERT and UPDATE statements.
 .PP
 The default implementation returns the value formatted as a string according to the following rules:
@@ -174,15 +174,15 @@ Returns TRUE if the database connection is open; otherwise returns FALSE.
 Returns TRUE if the there was an error opening the database connection; otherwise returns FALSE.
 .SH "QSqlError QSqlDriver::lastError () const"
 Returns a QSqlError object which contains information about the last error that occurred on the database.
-.SH "QString QSqlDriver::nullText () const\fC [virtual]\fR"
+.SH "TQString QSqlDriver::nullText () const\fC [virtual]\fR"
 Returns a string representation of the NULL value for the database. This is used, for example, when constructing INSERT and UPDATE statements. The default implementation returns the string" NULL".
-.SH "bool QSqlDriver::open ( const QString & db, const QString & user = QString::null, const QString & password = QString::null, const QString & host = QString::null, int port = -1 )\fC [pure virtual]\fR"
+.SH "bool QSqlDriver::open ( const TQString & db, const TQString & user = TQString::null, const TQString & password = TQString::null, const TQString & host = TQString::null, int port = -1 )\fC [pure virtual]\fR"
 Derived classes must reimplement this abstract virtual function in order to open a database connection on database \fIdb\fR, using user name \fIuser\fR, password \fIpassword\fR, host \fIhost\fR and port \fIport\fR.
 .PP
 The function \fImust\fR return TRUE on success and FALSE on failure.
 .PP
 See also setOpen().
-.SH "bool QSqlDriver::open ( const QString & db, const QString & user, const QString & password, const QString & host, int port, const QString & connOpts )"
+.SH "bool QSqlDriver::open ( const TQString & db, const TQString & user, const TQString & password, const TQString & host, int port, const TQString & connOpts )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Open a database connection on database \fIdb\fR, using user name \fIuser\fR, password \fIpassword\fR, host \fIhost\fR, port \fIport\fR and connection options \fIconnOpts\fR.
@@ -190,15 +190,15 @@ Open a database connection on database \fIdb\fR, using user name \fIuser\fR, pas
 Returns TRUE on success and FALSE on failure.
 .PP
 See also setOpen().
-.SH "QSqlIndex QSqlDriver::primaryIndex ( const QString & tableName ) const\fC [virtual]\fR"
+.SH "QSqlIndex QSqlDriver::primaryIndex ( const TQString & tableName ) const\fC [virtual]\fR"
 Returns the primary index for table \fItableName\fR. Returns an empty QSqlIndex if the table doesn't have a primary index. The default implementation returns an empty index.
-.SH "QSqlRecord QSqlDriver::record ( const QString & tableName ) const\fC [virtual]\fR"
+.SH "QSqlRecord QSqlDriver::record ( const TQString & tableName ) const\fC [virtual]\fR"
 Returns a QSqlRecord populated with the names of the fields in table \fItableName\fR. If no such table exists, an empty record is returned. The default implementation returns an empty record.
 .SH "QSqlRecord QSqlDriver::record ( const QSqlQuery & query ) const\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a QSqlRecord populated with the names of the fields in the SQL \fIquery\fR. The default implementation returns an empty record.
-.SH "QSqlRecordInfo QSqlDriver::recordInfo ( const QString & tablename ) const\fC [virtual]\fR"
+.SH "QSqlRecordInfo QSqlDriver::recordInfo ( const TQString & tablename ) const\fC [virtual]\fR"
 Returns a QSqlRecordInfo object with meta data about the table \fItablename\fR.
 .SH "QSqlRecordInfo QSqlDriver::recordInfo ( const QSqlQuery & query ) const\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -220,7 +220,7 @@ See also open() and setOpenError().
 Protected function which sets the open error state of the database to \fIe\fR. Derived classes can use this function to report the status of open(). Note that if \fIe\fR is TRUE the open state of the database is set to closed (i.e. isOpen() returns FALSE).
 .PP
 See also open().
-.SH "QStringList QSqlDriver::tables ( const QString & tableType ) const\fC [virtual]\fR"
+.SH "QStringList QSqlDriver::tables ( const TQString & tableType ) const\fC [virtual]\fR"
 Returns a list of tables in the database. The default implementation returns an empty list.
 .PP
 The \fItableType\fR argument describes what types of tables should be returned. Due to binary compatibility, the string contains the value of the enum QSql::TableTypes as text. An empty string should be treated as QSql::Tables for downward compatibility.
@@ -241,8 +241,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

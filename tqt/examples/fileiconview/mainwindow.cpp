@@ -97,8 +97,8 @@ void FileMainWindow::setup()
     pathCombo = new TQComboBox( TRUE, toolbar );
     pathCombo->setAutoCompletion( TRUE );
     toolbar->setStretchableWidget( pathCombo );
-    connect( pathCombo, SIGNAL( activated( const TQString & ) ),
-	     this, SLOT ( changePath( const TQString & ) ) );
+    connect( pathCombo, TQ_SIGNAL( activated( const TQString & ) ),
+	     this, TQ_SLOT ( changePath( const TQString & ) ) );
 
     toolbar->addSeparator();
 
@@ -106,22 +106,22 @@ void FileMainWindow::setup()
 
     pix = TQPixmap( cdtoparent_xpm );
     upButton = new TQToolButton( pix, "One directory up", TQString::null,
-				this, SLOT( cdUp() ), toolbar, "cd up" );
+				this, TQ_SLOT( cdUp() ), toolbar, "cd up" );
 
     pix = TQPixmap( newfolder_xpm );
     mkdirButton = new TQToolButton( pix, "New Folder", TQString::null,
-				   this, SLOT( newFolder() ), toolbar, "new folder" );
+				   this, TQ_SLOT( newFolder() ), toolbar, "new folder" );
 
-    connect( dirlist, SIGNAL( folderSelected( const TQString & ) ),
-	     fileview, SLOT ( setDirectory( const TQString & ) ) );
-    connect( fileview, SIGNAL( directoryChanged( const TQString & ) ),
-	     this, SLOT( directoryChanged( const TQString & ) ) );
-    connect( fileview, SIGNAL( startReadDir( int ) ),
-	     this, SLOT( slotStartReadDir( int ) ) );
-    connect( fileview, SIGNAL( readNextDir() ),
-	     this, SLOT( slotReadNextDir() ) );
-    connect( fileview, SIGNAL( readDirDone() ),
-	     this, SLOT( slotReadDirDone() ) );
+    connect( dirlist, TQ_SIGNAL( folderSelected( const TQString & ) ),
+	     fileview, TQ_SLOT ( setDirectory( const TQString & ) ) );
+    connect( fileview, TQ_SIGNAL( directoryChanged( const TQString & ) ),
+	     this, TQ_SLOT( directoryChanged( const TQString & ) ) );
+    connect( fileview, TQ_SIGNAL( startReadDir( int ) ),
+	     this, TQ_SLOT( slotStartReadDir( int ) ) );
+    connect( fileview, TQ_SIGNAL( readNextDir() ),
+	     this, TQ_SLOT( slotReadNextDir() ) );
+    connect( fileview, TQ_SIGNAL( readDirDone() ),
+	     this, TQ_SLOT( slotReadDirDone() ) );
 
     setDockEnabled( DockLeft, FALSE );
     setDockEnabled( DockRight, FALSE );
@@ -131,14 +131,14 @@ void FileMainWindow::setup()
     progress = new TQProgressBar( statusBar() );
     statusBar()->addWidget( progress, 1, TRUE );
 
-    connect( fileview, SIGNAL( enableUp() ),
-	     this, SLOT( enableUp() ) );
-    connect( fileview, SIGNAL( disableUp() ),
-	     this, SLOT( disableUp() ) );
-    connect( fileview, SIGNAL( enableMkdir() ),
-	     this, SLOT( enableMkdir() ) );
-    connect( fileview, SIGNAL( disableMkdir() ),
-	     this, SLOT( disableMkdir() ) );
+    connect( fileview, TQ_SIGNAL( enableUp() ),
+	     this, TQ_SLOT( enableUp() ) );
+    connect( fileview, TQ_SIGNAL( disableUp() ),
+	     this, TQ_SLOT( disableUp() ) );
+    connect( fileview, TQ_SIGNAL( enableMkdir() ),
+	     this, TQ_SLOT( enableMkdir() ) );
+    connect( fileview, TQ_SIGNAL( disableMkdir() ),
+	     this, TQ_SLOT( disableMkdir() ) );
 }
 
 void FileMainWindow::setPathCombo()

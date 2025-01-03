@@ -57,9 +57,9 @@
 //
 //
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
-class Q_EXPORT TQComponentFactory
+class TQ_EXPORT TQComponentFactory
 {
 public:
     static TQRESULT createInstance( const TQString &cid, const TQUuid &iid, TQUnknownInterface** instance, TQUnknownInterface *outer = 0 );
@@ -71,6 +71,6 @@ public:
     static bool unregisterComponent( const TQUuid &cid );
 };
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT
 
 #endif // TQCOMPONENTFACTORY_P_H

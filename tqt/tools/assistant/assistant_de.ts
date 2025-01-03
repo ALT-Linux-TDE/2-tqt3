@@ -1,20 +1,22 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="de">
 <context>
     <name>Assistant</name>
     <message>
-        <source>Welcome to the &lt;b&gt;Qt Assistant&lt;/b&gt;. Qt Assistant will give you quicker access to help and tips while using applications like Qt Designer.</source>
-        <translation type="obsolete">Wilkommen bei &lt;b&gt;Qt Assistant&lt;/b&gt;. Qt Assistant ermöglicht einen schnellen Zugriff der Onlinehilfe während dem Arbeiten mit Programmen wie dem Qt Designer.</translation>
+        <source>Welcome to the &lt;b&gt;Qt Assistant&lt;/b&gt;. TQt Assistant will give you quicker access to help and tips while using applications like TQt Designer.</source>
+        <translation type="obsolete">Wilkommen bei &lt;b&gt;Qt Assistant&lt;/b&gt;. TQt Assistant ermöglicht einen schnellen Zugriff der Onlinehilfe während dem Arbeiten mit Programmen wie dem TQt Designer.</translation>
     </message>
     <message>
-        <source>Qt Assistant</source>
-        <translation type="obsolete">Qt Assistant</translation>
+        <source>TQt Assistant</source>
+        <translation type="obsolete">TQt Assistant</translation>
     </message>
 </context>
 <context>
     <name>AssistantServer</name>
     <message>
-        <source>Qt Assistant</source>
-        <translation>Qt Assistant</translation>
+        <source>TQt Assistant</source>
+        <translation>TQt Assistant</translation>
     </message>
     <message>
         <source>Failed to bind to port %1</source>
@@ -64,8 +66,8 @@
         <translation>Groß- und &amp;Kleinschreibung beachten</translation>
     </message>
     <message>
-        <source>Qt Assistant - Find Text</source>
-        <translation>Qt Assistant - Textsuche</translation>
+        <source>TQt Assistant - Find Text</source>
+        <translation>TQt Assistant - Textsuche</translation>
     </message>
     <message>
         <source>Enter the text you are looking for.</source>
@@ -119,24 +121,24 @@
         <translation type="obsolete">Inhal&amp;t</translation>
     </message>
     <message>
-        <source>Qt Reference Documentation</source>
-        <translation type="obsolete">Qt Referenzdokumentation</translation>
+        <source>TQt Reference Documentation</source>
+        <translation type="obsolete">TQt Referenzdokumentation</translation>
     </message>
     <message>
-        <source>Qt Designer Manual</source>
-        <translation type="obsolete">Qt Designer Handbuch</translation>
+        <source>TQt Designer Manual</source>
+        <translation type="obsolete">TQt Designer Handbuch</translation>
     </message>
     <message>
-        <source>Qt Linguist Manual</source>
-        <translation type="obsolete">Qt Linguist Handbuch</translation>
+        <source>TQt Linguist Manual</source>
+        <translation type="obsolete">TQt Linguist Handbuch</translation>
     </message>
     <message>
-        <source>Qt Assistant Manual</source>
-        <translation type="obsolete">Qt Assistant Handbuch</translation>
+        <source>TQt Assistant Manual</source>
+        <translation type="obsolete">TQt Assistant Handbuch</translation>
     </message>
     <message>
-        <source>Qt Assistant</source>
-        <translation>Qt Assistant</translation>
+        <source>TQt Assistant</source>
+        <translation>TQt Assistant</translation>
     </message>
     <message>
         <source>Open Link in Current Window</source>
@@ -388,8 +390,8 @@ Der Assistent ist nicht einsatzbereit!</translation>
 <context>
     <name>HelpWindow</name>
     <message>
-        <source>Qt Assistant by Trolltech - %1</source>
-        <translation type="obsolete">Qt Assistant von Trolltech - %1</translation>
+        <source>TQt Assistant by Trolltech - %1</source>
+        <translation type="obsolete">TQt Assistant von Trolltech - %1</translation>
     </message>
     <message>
         <source>Help</source>
@@ -402,7 +404,7 @@ Der Assistent ist nicht einsatzbereit!</translation>
 %1</translation>
     </message>
     <message>
-        <source>Open Link in New Window<byte value="x9"/>Shift+LMB</source>
+        <source>Open Link in New Window<byte value="x9"></byte>Shift+LMB</source>
         <translation>Öffne Link in neuem Fenster</translation>
     </message>
     <message>
@@ -414,8 +416,8 @@ Please use the settings dialog to specify one!
 </translation>
     </message>
     <message>
-        <source>Qt Assistant by Trolltech - %1%2</source>
-        <translation type="obsolete">Qt Assistant von Trolltech - %1%2</translation>
+        <source>TQt Assistant by Trolltech - %1%2</source>
+        <translation type="obsolete">TQt Assistant von Trolltech - %1%2</translation>
     </message>
     <message>
         <source>No PDF Viewer has been specified
@@ -426,13 +428,13 @@ Bitte diesen im Menue Einstellungen festlegen!
 </translation>
     </message>
     <message>
-        <source>Qt Assistant is unable to start the PDF Viewer
+        <source>TQt Assistant is unable to start the PDF Viewer
 
 %1
 
 Please make sure that the executable exists and is located at
 the specified location.</source>
-        <translation>Der Qt Assistent konnte den PDF betrachter
+        <translation>Der TQt Assistent konnte den PDF betrachter
 %1 nicht laden.
 Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translation>
     </message>
@@ -451,8 +453,8 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
 <context>
     <name>MainWindow</name>
     <message>
-        <source>Qt Assistant by Trolltech</source>
-        <translation>Qt Assistant von Trolltech</translation>
+        <source>TQt Assistant by Trolltech</source>
+        <translation>TQt Assistant von Trolltech</translation>
     </message>
     <message>
         <source>Toolbar</source>
@@ -523,12 +525,12 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation type="obsolete">Über Qt</translation>
     </message>
     <message>
-        <source>Qt Class Reference</source>
-        <translation type="obsolete">Qt Klassenreferenz</translation>
+        <source>TQt Class Reference</source>
+        <translation type="obsolete">TQt Klassenreferenz</translation>
     </message>
     <message>
-        <source>Qt Designer Manual</source>
-        <translation type="obsolete">Qt Designer Handbuch</translation>
+        <source>TQt Designer Manual</source>
+        <translation type="obsolete">TQt Designer Handbuch</translation>
     </message>
     <message>
         <source>Zoom in</source>
@@ -547,8 +549,8 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Ver&amp;kleinern</translation>
     </message>
     <message>
-        <source>Qt Linguist Manual</source>
-        <translation type="obsolete">Qt Linguist Handbuch</translation>
+        <source>TQt Linguist Manual</source>
+        <translation type="obsolete">TQt Linguist Handbuch</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -576,8 +578,7 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
     </message>
     <message>
         <source>Ctrl+T</source>
-        <translation>Strg+T
-</translation>
+        <translation>Strg+T</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
@@ -588,16 +589,16 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Strg+E</translation>
     </message>
     <message>
-        <source>Qt Assistant</source>
-        <translation>Qt Assistant</translation>
+        <source>TQt Assistant</source>
+        <translation>TQt Assistant</translation>
     </message>
     <message>
         <source>&amp;Add Bookmark</source>
         <translation>&amp;Füge Lesezeichen hinzu</translation>
     </message>
     <message>
-        <source>Qt Reference Documentation</source>
-        <translation type="obsolete">Qt Referenzdokumention</translation>
+        <source>TQt Reference Documentation</source>
+        <translation type="obsolete">TQt Referenzdokumention</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -632,8 +633,8 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Strg+P</translation>
     </message>
     <message>
-        <source>Quit Qt Assistant.</source>
-        <translation>Beende Qt Assistant.</translation>
+        <source>Quit TQt Assistant.</source>
+        <translation>Beende TQt Assistant.</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -648,16 +649,16 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Strg+C</translation>
     </message>
     <message>
-        <source>Open the Find dialog. Qt Assistant will search the currently displayed page for the text you enter.</source>
-        <translation>Öffne den Suchdialog. Qt Assistant sucht in der aktuellen Seite nach dem eingegebenen Text.</translation>
+        <source>Open the Find dialog. TQt Assistant will search the currently displayed page for the text you enter.</source>
+        <translation>Öffne den Suchdialog. TQt Assistant sucht in der aktuellen Seite nach dem eingegebenen Text.</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
         <translation>Strg+F</translation>
     </message>
     <message>
-        <source>Go to the home page. Qt Assistant&apos;s home page is the Qt Reference Documentation.</source>
-        <translation>Gehe zur Startseite. Qt Assistants Startseite ist die Qt Referenzdokumentation.</translation>
+        <source>Go to the home page. TQt Assistant&apos;s home page is the TQt Reference Documentation.</source>
+        <translation>Gehe zur Startseite. TQt Assistants Startseite ist die TQt Referenzdokumentation.</translation>
     </message>
     <message>
         <source>Ctrl+Home</source>
@@ -680,20 +681,20 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Alt+Rechts</translation>
     </message>
     <message>
-        <source>Display further information about Qt Assistant.</source>
-        <translation>Zeigt weitere Informationen zu Qt Assistant an.</translation>
+        <source>Display further information about TQt Assistant.</source>
+        <translation>Zeigt weitere Informationen zu TQt Assistant an.</translation>
     </message>
     <message>
         <source>Display further information about Qt.</source>
-        <translation type="obsolete">Zeigt weitere Informationen zu Qt an.</translation>
+        <translation type="obsolete">Zeigt weitere Informationen zu TQt an.</translation>
     </message>
     <message>
-        <source>Display the Qt Reference Documentation.</source>
-        <translation type="obsolete">Zeigt die Qt Referenzdokumentation an.</translation>
+        <source>Display the TQt Reference Documentation.</source>
+        <translation type="obsolete">Zeigt die TQt Referenzdokumentation an.</translation>
     </message>
     <message>
-        <source>Display the Qt Designer manual.</source>
-        <translation type="obsolete">Zeigt das Qt Designer Handbuch an.</translation>
+        <source>Display the TQt Designer manual.</source>
+        <translation type="obsolete">Zeigt das TQt Designer Handbuch an.</translation>
     </message>
     <message>
         <source>Zoom in on the document, i.e. increase the font size.</source>
@@ -712,8 +713,8 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Strg+-</translation>
     </message>
     <message>
-        <source>Display the Guide to the Qt Translation Tools.</source>
-        <translation type="obsolete">Zeigt die Anleitung zu den Qt Übersetzungswerkzeugen an.</translation>
+        <source>Display the Guide to the TQt Translation Tools.</source>
+        <translation type="obsolete">Zeigt die Anleitung zu den TQt Übersetzungswerkzeugen an.</translation>
     </message>
     <message>
         <source>Open the settings dialog.</source>
@@ -736,12 +737,12 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Schließt das aktuelle Fenster.</translation>
     </message>
     <message>
-        <source>Qt Assistant Manual</source>
-        <translation>Qt Assistant Handbuch</translation>
+        <source>TQt Assistant Manual</source>
+        <translation>TQt Assistant Handbuch</translation>
     </message>
     <message>
-        <source>Display the Qt Assistant manual.</source>
-        <translation type="obsolete">Zeigt das Qt Assistant Handbuch an.</translation>
+        <source>Display the TQt Assistant manual.</source>
+        <translation type="obsolete">Zeigt das TQt Assistant Handbuch an.</translation>
     </message>
     <message>
         <source>F1</source>
@@ -768,8 +769,8 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Strg+S</translation>
     </message>
     <message>
-        <source>Initializing Qt Assistant...</source>
-        <translation>Initialisiere Qt Assistant...</translation>
+        <source>Initializing TQt Assistant...</source>
+        <translation>Initialisiere TQt Assistant...</translation>
     </message>
     <message>
         <source>Go</source>
@@ -800,8 +801,8 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation>Umschalt+F3</translation>
     </message>
     <message>
-        <source>About Qt Assistant</source>
-        <translation>Über den Qt Assistent</translation>
+        <source>About TQt Assistant</source>
+        <translation>Über den TQt Assistent</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -825,7 +826,7 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
     </message>
     <message>
         <source>Ctrl+Alt+Right</source>
-        <translation></translation>
+        <translation>Strg+Alt+Rechts</translation>
     </message>
     <message>
         <source>Previous Tab</source>
@@ -833,7 +834,7 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
     </message>
     <message>
         <source>Ctrl+Alt+Left</source>
-        <translation></translation>
+        <translation>Strg+Alt+Links</translation>
     </message>
     <message>
         <source>Close Tab</source>
@@ -841,11 +842,11 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
     </message>
     <message>
         <source>Ctrl+Alt+Q</source>
-        <translation></translation>
+        <translation>Strg+Alt+Q</translation>
     </message>
     <message>
         <source>Failed to open about application contents in file: &apos;%1&apos;</source>
-        <translation></translation>
+        <translation>Fehler beim Öffnen des Programmsinhalts in Datei: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Failed to open link: &apos;%1&apos;</source>
@@ -867,12 +868,12 @@ Bitte überprüfen Sie, das dieser an der angegeben Stelle existiert.</translati
         <translation type="obsolete">Alle</translation>
     </message>
     <message>
-        <source>Qt Assistant - Add Documentation</source>
-        <translation type="obsolete">Qt Assistant - Hinzufügen von Dokumentation</translation>
+        <source>TQt Assistant - Add Documentation</source>
+        <translation type="obsolete">TQt Assistant - Hinzufügen von Dokumentation</translation>
     </message>
     <message>
-        <source>Qt Assistant</source>
-        <translation type="obsolete">Qt Assistant</translation>
+        <source>TQt Assistant</source>
+        <translation type="obsolete">TQt Assistant</translation>
     </message>
     <message>
         <source>Parse Error</source>
@@ -889,16 +890,16 @@ Firstly, all contents have to be removed.</source>
 Es müssen zuerst alle Inhalte gelöscht werden.</translation>
     </message>
     <message>
-        <source>Qt Assistant - Set Web Browser</source>
-        <translation>Qt Assistant - Setze Webbrowser</translation>
+        <source>TQt Assistant - Set Web Browser</source>
+        <translation>TQt Assistant - Setze Webbrowser</translation>
     </message>
     <message>
-        <source>Qt Assistant - Set PDF Browser</source>
-        <translation>Qt Assistent - Setze PDF Betrachter</translation>
+        <source>TQt Assistant - Set PDF Browser</source>
+        <translation>TQt Assistent - Setze PDF Betrachter</translation>
     </message>
     <message>
-        <source>Qt Assistant - Set Homepage</source>
-        <translation>Qt Assistent - Setzte Startseite</translation>
+        <source>TQt Assistant - Set Homepage</source>
+        <translation>TQt Assistent - Setzte Startseite</translation>
     </message>
 </context>
 <context>
@@ -932,8 +933,8 @@ Es müssen zuerst alle Inhalte gelöscht werden.</translation>
         <translation type="obsolete">Nicht-proportionale Schrift:</translation>
     </message>
     <message>
-        <source>Qt Assistant - Settings</source>
-        <translation>Qt Assistant - Einstellungen</translation>
+        <source>TQt Assistant - Settings</source>
+        <translation>TQt Assistant - Einstellungen</translation>
     </message>
     <message>
         <source>General</source>

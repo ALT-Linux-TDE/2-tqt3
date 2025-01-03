@@ -162,7 +162,7 @@ public:
 
     static void setFakeProperty( TQObject *o, const TQString &property, const TQVariant& value );
     static TQVariant fakeProperty( TQObject * o, const TQString &property );
-    static TQMap<TQString,TQVariant>* fakeProperties( TQObject* o );
+    static TQStringVariantMap* fakeProperties( TQObject* o );
 
     static void setSpacing( TQObject *o, int spacing );
     static int spacing( TQObject *o );

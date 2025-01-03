@@ -62,7 +62,7 @@ class TQFont;
 class TQString;
 
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include "ntqarray.h"
 #include "ntqwindowdefs.h"
 #include <private/qt_x11_p.h>
@@ -72,7 +72,7 @@ class TQXIMInputContext : public TQInputContext
 {
     TQ_OBJECT
 public:
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     TQXIMInputContext();
     ~TQXIMInputContext();
 
@@ -121,7 +121,7 @@ private:
 
     int lookupString(XKeyEvent *, TQCString &, KeySym *, Status *) const;
 
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 };
 
 

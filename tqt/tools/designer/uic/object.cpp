@@ -537,7 +537,7 @@ TQString Uic::setObjectProperty( const TQString& objClass, const TQString& obj, 
 	if ( stdset )
 	    v = "%1";
 	else
-	    v = "TQVariant( %1, 0 )";
+	    v = "TQVariant( %1 )";
 	v = v.arg( mkBool( e.firstChild().toText().data() ) );
     } else if ( e.tagName() == "pixmap" ) {
 	v = e.firstChild().toText().data();

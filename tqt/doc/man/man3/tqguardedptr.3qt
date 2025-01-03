@@ -53,9 +53,9 @@ QGuardedPtr \- Template class that provides guarded pointers to QObjects
 .SH DESCRIPTION
 The QGuardedPtr class is a template class that provides guarded pointers to QObjects.
 .PP
-A guarded pointer, \fCQGuardedPtr<X>\fR, behaves like a normal C++ pointer \fCX*\fR, except that it is automatically set to 0 when the referenced object is destroyed (unlike normal C++ pointers, which become "dangling pointers" in such cases). \fCX\fR must be a subclass of QObject.
+A guarded pointer, \fCQGuardedPtr<X>\fR, behaves like a normal C++ pointer \fCX*\fR, except that it is automatically set to 0 when the referenced object is destroyed (unlike normal C++ pointers, which become "dangling pointers" in such cases). \fCX\fR must be a subclass of TQObject.
 .PP
-Guarded pointers are useful whenever you need to store a pointer to a QObject that is owned by someone else and therefore might be destroyed while you still hold a reference to it. You can safely test the pointer for validity.
+Guarded pointers are useful whenever you need to store a pointer to a TQObject that is owned by someone else and therefore might be destroyed while you still hold a reference to it. You can safely test the pointer for validity.
 .PP
 Example:
 .PP
@@ -85,9 +85,9 @@ The functions and operators available with a QGuardedPtr are the same as those a
 .PP
 For creating guarded pointers, you can construct or assign to them from an X* or from another guarded pointer of the same type. You can compare them with each other using operator==() and operator!=(), or test for 0 with isNull(). And you can dereference them using either the \fC*x\fR or the \fCx->member\fR notation.
 .PP
-A guarded pointer will automatically cast to an X*, so you can freely mix guarded and unguarded pointers. This means that if you have a QGuardedPtr<QWidget>, you can pass it to a function that requires a QWidget*. For this reason, it is of little value to declare functions to take a QGuardedPtr as a parameter; just use normal pointers. Use a QGuardedPtr when you are storing a pointer over time.
+A guarded pointer will automatically cast to an X*, so you can freely mix guarded and unguarded pointers. This means that if you have a QGuardedPtr<TQWidget>, you can pass it to a function that requires a TQWidget*. For this reason, it is of little value to declare functions to take a QGuardedPtr as a parameter; just use normal pointers. Use a QGuardedPtr when you are storing a pointer over time.
 .PP
-Note again that class \fIX\fR must inherit QObject, or a compilation or link error will result.
+Note again that class \fIX\fR must inherit TQObject, or a compilation or link error will result.
 .PP
 See also Object Model.
 .SH MEMBER FUNCTION DOCUMENTATION
@@ -136,8 +136,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

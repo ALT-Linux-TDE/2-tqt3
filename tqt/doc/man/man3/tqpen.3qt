@@ -22,10 +22,10 @@ Inherits Qt.
 .BI "\fBQPen\fR ( PenStyle style )"
 .br
 .ti -1c
-.BI "\fBQPen\fR ( const QColor & color, uint width = 0, PenStyle style = SolidLine )"
+.BI "\fBQPen\fR ( const TQColor & color, uint width = 0, PenStyle style = SolidLine )"
 .br
 .ti -1c
-.BI "\fBQPen\fR ( const QColor & cl, uint w, PenStyle s, PenCapStyle c, PenJoinStyle j )"
+.BI "\fBQPen\fR ( const TQColor & cl, uint w, PenStyle s, PenCapStyle c, PenJoinStyle j )"
 .br
 .ti -1c
 .BI "\fBQPen\fR ( const QPen & p )"
@@ -49,10 +49,10 @@ Inherits Qt.
 .BI "void \fBsetWidth\fR ( uint w )"
 .br
 .ti -1c
-.BI "const QColor & \fBcolor\fR () const"
+.BI "const TQColor & \fBcolor\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetColor\fR ( const QColor & c )"
+.BI "void \fBsetColor\fR ( const TQColor & c )"
 .br
 .ti -1c
 .BI "PenCapStyle \fBcapStyle\fR () const"
@@ -87,11 +87,11 @@ The QPen class defines how a QPainter should draw lines and outlines of shapes.
 .PP
 A pen has a style, width, color, cap style and join style.
 .PP
-The pen style defines the line type. The default pen style is Qt::SolidLine. Setting the style to NoPen tells the painter to not draw lines or outlines.
+The pen style defines the line type. The default pen style is TQt::SolidLine. Setting the style to NoPen tells the painter to not draw lines or outlines.
 .PP
 When drawing 1 pixel wide diagonal lines you can either use a very fast algorithm (specified by a line width of 0, which is the default), or a slower but more accurate algorithm (specified by a line width of 1). For horizontal and vertical lines a line width of 0 is the same as a line width of 1. The cap and join style have no effect on 0-width lines.
 .PP
-The pen color defines the color of lines and text. The default line color is black. The QColor documentation lists predefined colors.
+The pen color defines the color of lines and text. The default line color is black. The TQColor documentation lists predefined colors.
 .PP
 The cap style defines how the end points of lines are drawn. The join style defines how the joins between two lines are drawn when multiple connected lines are drawn (QPainter::drawPolyline() etc.). The cap and join styles only apply to wide lines, i.e. when the width is 1 or greater.
 .PP
@@ -119,7 +119,7 @@ Example:
 .br
 .fi
 .PP
-See the Qt::PenStyle enum type for a complete list of pen styles.
+See the TQt::PenStyle enum type for a complete list of pen styles.
 .PP
 With reference to the end points of lines, for wide (non-0-width) pens it depends on the cap style whether the end point is drawn or not. QPainter will try to make sure that the end point is drawn for 0-width pens, but this cannot be absolutely guaranteed because the underlying drawing engine is free to use any (typically accelerated) algorithm for drawing 0-width lines. On all tested systems, however, the end point of at least all non-diagonal lines are drawn.
 .PP
@@ -139,11 +139,11 @@ Constructs a default black solid line pen with 0 width, which renders lines 1 pi
 Constructs a black pen with 0 width (fast diagonals) and style \fIstyle\fR.
 .PP
 See also setStyle().
-.SH "QPen::QPen ( const QColor & color, uint width = 0, PenStyle style = SolidLine )"
+.SH "QPen::QPen ( const TQColor & color, uint width = 0, PenStyle style = SolidLine )"
 Constructs a pen with the specified \fIcolor\fR, \fIwidth\fR and \fIstyle\fR.
 .PP
 See also setWidth(), setStyle(), and setColor().
-.SH "QPen::QPen ( const QColor & cl, uint w, PenStyle s, PenCapStyle c, PenJoinStyle j )"
+.SH "QPen::QPen ( const TQColor & cl, uint w, PenStyle s, PenCapStyle c, PenJoinStyle j )"
 Constructs a pen with the specified color \fIcl\fR and width \fIw\fR. The pen style is set to \fIs\fR, the pen cap style to \fIc\fR and the pen join style to \fIj\fR.
 .PP
 A line width of 0 will produce a 1 pixel wide line using a fast algorithm for diagonals. A line width of 1 will also produce a 1 pixel wide line, but uses a slower more accurate algorithm for diagonals. For horizontal and vertical lines a line width of 0 is the same as a line width of 1. The cap and join style have no effect on 0-width lines.
@@ -157,7 +157,7 @@ Destroys the pen.
 Returns the pen's cap style.
 .PP
 See also setCapStyle().
-.SH "const QColor & QPen::color () const"
+.SH "const TQColor & QPen::color () const"
 Returns the pen color.
 .PP
 See also setColor().
@@ -197,7 +197,7 @@ The default value is FlatCap. The cap style has no effect on 0-width pens.
 See also capStyle().
 .PP
 Example: themes/wood.cpp.
-.SH "void QPen::setColor ( const QColor & c )"
+.SH "void QPen::setColor ( const TQColor & c )"
 Sets the pen color to \fIc\fR.
 .PP
 See also color().
@@ -223,7 +223,7 @@ Example: themes/wood.cpp.
 .SH "void QPen::setStyle ( PenStyle s )"
 Sets the pen style to \fIs\fR.
 .PP
-See the Qt::PenStyle documentation for a list of all the styles.
+See the TQt::PenStyle documentation for a list of all the styles.
 .PP
 \fBWarning:\fR On Mac OS X the style setting (other than NoPen and SolidLine) have no effect as they are not implemented by the underlying system.
 .PP
@@ -275,8 +275,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

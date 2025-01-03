@@ -43,7 +43,7 @@
 
 #include "ntqprocess.h"
 
-#ifndef QT_NO_PROCESS
+#ifndef TQT_NO_PROCESS
 
 #include "ntqapplication.h"
 #include "private/qinternal_p.h"
@@ -130,7 +130,7 @@
     \skipto proc = new TQProcess( this );
     \printline proc = new TQProcess( this );
     \skipto proc->addArgument( "uic" );
-    \printuntil this, SLOT(readFromStdout()) );
+    \printuntil this, TQ_SLOT(readFromStdout()) );
     \skipto if ( !proc->start() ) {
     \printuntil // error handling
     \skipto }
@@ -352,7 +352,7 @@ void TQProcess::addArgument( const TQString& arg )
     _arguments.append( arg );
 }
 
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 /*!
     Returns the working directory that was set with
     setWorkingDirectory(), or the current directory if none has been
@@ -379,7 +379,7 @@ void TQProcess::setWorkingDirectory( const TQDir& dir )
 {
     workingDir = dir;
 }
-#endif //QT_NO_DIR
+#endif //TQT_NO_DIR
 
 /*!
     Returns the communication required with the process, i.e. some
@@ -621,8 +621,8 @@ bool TQProcess::launch( const TQByteArray& buf, TQStringList *env )
 {
     if ( start( env ) ) {
 	if ( !buf.isEmpty() ) {
-	    connect( this, SIGNAL(wroteToStdin()),
-		    this, SLOT(closeStdinLaunch()) );
+	    connect( this, TQ_SIGNAL(wroteToStdin()),
+		    this, TQ_SLOT(closeStdinLaunch()) );
 	    writeToStdin( buf );
 	} else {
 	    closeStdin();
@@ -645,8 +645,8 @@ bool TQProcess::launch( const TQString& buf, TQStringList *env )
 {
     if ( start( env ) ) {
 	if ( !buf.isEmpty() ) {
-	    connect( this, SIGNAL(wroteToStdin()),
-		    this, SLOT(closeStdinLaunch()) );
+	    connect( this, TQ_SIGNAL(wroteToStdin()),
+		    this, TQ_SLOT(closeStdinLaunch()) );
 	    writeToStdin( buf );
 	} else {
 	    closeStdin();
@@ -664,8 +664,8 @@ bool TQProcess::launch( const TQString& buf, TQStringList *env )
 */
 void TQProcess::closeStdinLaunch()
 {
-    disconnect( this, SIGNAL(wroteToStdin()),
-	    this, SLOT(closeStdinLaunch()) );
+    disconnect( this, TQ_SIGNAL(wroteToStdin()),
+	    this, TQ_SLOT(closeStdinLaunch()) );
     closeStdin();
     emit launchFinished();
 }
@@ -751,8 +751,8 @@ void TQProcess::connectNotify( const char * signal )
     tqDebug( "TQProcess::connectNotify(): signal %s has been connected", signal );
 #endif
     if ( !ioRedirection )
-	if ( qstrcmp( signal, SIGNAL(readyReadStdout()) )==0 ||
-		qstrcmp( signal, SIGNAL(readyReadStderr()) )==0
+	if ( qstrcmp( signal, TQ_SIGNAL(readyReadStdout()) )==0 ||
+		qstrcmp( signal, TQ_SIGNAL(readyReadStderr()) )==0
 	   ) {
 #if defined(QT_QPROCESS_DEBUG)
 	    tqDebug( "TQProcess::connectNotify(): set ioRedirection to TRUE" );
@@ -760,14 +760,14 @@ void TQProcess::connectNotify( const char * signal )
 	    setIoRedirection( TRUE );
 	    return;
 	}
-    if ( !notifyOnExit && qstrcmp( signal, SIGNAL(processExited()) )==0 ) {
+    if ( !notifyOnExit && qstrcmp( signal, TQ_SIGNAL(processExited()) )==0 ) {
 #if defined(QT_QPROCESS_DEBUG)
 	tqDebug( "TQProcess::connectNotify(): set notifyOnExit to TRUE" );
 #endif
 	setNotifyOnExit( TRUE );
 	return;
     }
-    if ( !wroteToStdinConnected && qstrcmp( signal, SIGNAL(wroteToStdin()) )==0 ) {
+    if ( !wroteToStdinConnected && qstrcmp( signal, TQ_SIGNAL(wroteToStdin()) )==0 ) {
 #if defined(QT_QPROCESS_DEBUG)
 	tqDebug( "TQProcess::connectNotify(): set wroteToStdinConnected to TRUE" );
 #endif
@@ -781,21 +781,21 @@ void TQProcess::connectNotify( const char * signal )
 void TQProcess::disconnectNotify( const char * )
 {
     if ( ioRedirection &&
-	    receivers( SIGNAL(readyReadStdout()) ) ==0 &&
-	    receivers( SIGNAL(readyReadStderr()) ) ==0
+	    receivers( TQ_SIGNAL(readyReadStdout()) ) ==0 &&
+	    receivers( TQ_SIGNAL(readyReadStderr()) ) ==0
 	    ) {
 #if defined(QT_QPROCESS_DEBUG)
 	tqDebug( "TQProcess::disconnectNotify(): set ioRedirection to FALSE" );
 #endif
 	setIoRedirection( FALSE );
     }
-    if ( notifyOnExit && receivers( SIGNAL(processExited()) ) == 0 ) {
+    if ( notifyOnExit && receivers( TQ_SIGNAL(processExited()) ) == 0 ) {
 #if defined(QT_QPROCESS_DEBUG)
 	tqDebug( "TQProcess::disconnectNotify(): set notifyOnExit to FALSE" );
 #endif
 	setNotifyOnExit( FALSE );
     }
-    if ( wroteToStdinConnected && receivers( SIGNAL(wroteToStdin()) ) == 0 ) {
+    if ( wroteToStdinConnected && receivers( TQ_SIGNAL(wroteToStdin()) ) == 0 ) {
 #if defined(QT_QPROCESS_DEBUG)
 	tqDebug( "TQProcess::disconnectNotify(): set wroteToStdinConnected to FALSE" );
 #endif
@@ -803,4 +803,4 @@ void TQProcess::disconnectNotify( const char * )
     }
 }
 
-#endif // QT_NO_PROCESS
+#endif // TQT_NO_PROCESS

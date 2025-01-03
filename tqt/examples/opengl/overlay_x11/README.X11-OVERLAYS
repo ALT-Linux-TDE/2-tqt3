@@ -8,7 +8,7 @@ highly recommended book "OpenGL Programming for the X Window System"
 (Mark Kilgard, Addison Wesley Developers Press 1996).
 
 -----------------------------------------------------------------------
-UPDATE: From version 5.0 onwards, the Qt OpenGL Extension includes
+UPDATE: From version 5.0 onwards, the TQt OpenGL Extension includes
 direct support for use of OpenGL overlays. For many uses of overlays,
 this makes the technique described below redundant. See the 'overlay'
 example program. The following is a discussion on how to use non-QGL
@@ -16,7 +16,7 @@ widgets in overlay planes.
 -----------------------------------------------------------------------
 
 In the typical case, X11 overlays can easily be used together with the
-current version of Qt and the Qt OpenGL Extension. The following
+current version of TQt and the TQt OpenGL Extension. The following
 requirements apply:
 
 1) Your X server and graphics card/hardware must support overlays (of
@@ -55,14 +55,14 @@ An overlay plane has a specific color called the transparent
 color. Pixels drawn in this color will not be visible, instead the
 underlying OpenGL image will show through. In the example program
 "overlayrubber", the file main.cpp contains a routine that returns a
-QColor containing the transparent color. For the overlay widget, one
+TQColor containing the transparent color. For the overlay widget, one
 will typically want to set the background color to the transparent
 color, so that the OpenGL image shows through except where explicitly
 overpainted.
 
 Note: To use this technique, you must not use the "ManyColor" or
 "TrueColor" ColorSpec for the QApplication, because this will force
-the normal Qt widgets to use a TrueColor visual, which will typically
+the normal TQt widgets to use a TrueColor visual, which will typically
 be in the main plane, not in the overlay plane as desired.
 
 
@@ -85,7 +85,7 @@ the visual is in an overlay plane.
 transparency information for overlay visuals.
 
 The overlayrubber example program will output what visual is used for
-the normal Qt widgets, and what visual is used by the QGLWidget.
+the normal TQt widgets, and what visual is used by the QGLWidget.
 
 
 

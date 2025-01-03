@@ -40,7 +40,7 @@
 
 #include "ntqcompactstyle.h"
 
-#if !defined(QT_NO_STYLE_COMPACT) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_COMPACT) || defined(QT_PLUGIN)
 
 #include "ntqfontmetrics.h"
 #include "ntqpalette.h"

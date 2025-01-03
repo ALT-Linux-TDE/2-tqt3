@@ -9,8 +9,8 @@
 
   It provides a graphical user interface for selecting different
   options for widget decoration and behavior, and passes the
-  appropriate widget flags to the QWidget constructor.
-  QWidget::reparent() is used to change the widget flags at runtime.
+  appropriate widget flags to the TQWidget constructor.
+  TQWidget::reparent() is used to change the widget flags at runtime.
 
   \warning Note that the interpretation and functionality of the
   widget flags depends on the window manager used when running the
@@ -18,10 +18,10 @@
   combination.
 
   The user interface providing the different options was created using
-  \link designer-manual.book Qt Designer\endlink. The different
+  \link designer-manual.book TQt Designer\endlink. The different
   options are explained in the user interface through the use of
   tooltips and What's This help. Load the \c options.ui file into 
-  \link designer-manual.book Qt Designer\endlink for more details.
+  \link designer-manual.book TQt Designer\endlink for more details.
 
   \quotefile toplevel/main.cpp
   \printuntil }
@@ -55,7 +55,7 @@
   A titlebar with controls is provided if the appropriate options
   have been checked.
 
-  \printto QWidget *parent
+  \printto TQWidget *parent
   If the window should not have a border it cannot have a titlebar.
   Widgets that provide their own (e.g. themed) window decoration
   should use this flag.
@@ -123,9 +123,9 @@
   Finally the window is shown with the new attributes.
 
   To build the example go to the toplevel directory
-  (\c QTDIR/examples/toplevel) 
+  (\c TQTDIR/examples/toplevel) 
   \footnote
-  We use \c QTDIR to stand for the directory where Qt is installed.
+  We use \c TQTDIR to stand for the directory where TQt is installed.
   \endfootnote
   and run \c qmake to generate the makefile, then use the make tool to
   build the library. 

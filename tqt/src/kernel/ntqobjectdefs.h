@@ -46,8 +46,8 @@
 #endif // QT_H
 
 
-#ifndef QT_NO_TRANSLATION
-# ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TRANSLATION
+# ifndef TQT_NO_TEXTCODEC
 // full set of tr functions
 #  define TQT_TR_FUNCTIONS \
     static TQString tr( const char *, const char * = 0 ); \
@@ -62,7 +62,7 @@
 # define TQT_TR_FUNCTIONS
 #endif
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 # define QT_PROP_FUNCTIONS \
     virtual bool tqt_property( int id, int f, TQVariant* v); \
     static bool tqt_static_property( TQObject* , int, int, TQVariant* );
@@ -90,7 +90,7 @@ struct TQUObject;
 #else
 #define slots					// slots: in class
 #define signals protected			// signals: in class
-#ifndef QT_NO_EMIT
+#ifndef TQT_NO_EMIT
 #define emit					// emit signal
 #endif
 #define TQ_CLASSINFO( name, value )		// class info
@@ -122,35 +122,29 @@ private:								\
 #endif
 
 // macro for naming members
-#ifdef METHOD
-#undef METHOD
+#ifdef TQ_METHOD
+#undef TQ_METHOD
 #endif
-#ifdef SLOT
-#undef SLOT
+#ifdef TQ_SLOT
+#undef TQ_SLOT
 #endif
-#ifdef SIGNAL
-#undef SIGNAL
+#ifdef TQ_SIGNAL
+#undef TQ_SIGNAL
 #endif
 
 #if defined(_OLD_CPP_)
-#define METHOD(a)	"0""a"
-#define SLOT(a)		"1""a"
-#define SIGNAL(a)	"2""a"
+#define TQ_METHOD(a)	"0""a"
+#define TQ_SLOT(a)		"1""a"
+#define TQ_SIGNAL(a)	"2""a"
 #else
-#define METHOD(a)	"0"#a
-#define SLOT(a)		"1"#a
-#define SIGNAL(a)	"2"#a
+#define TQ_METHOD(a)	"0"#a
+#define TQ_SLOT(a)		"1"#a
+#define TQ_SIGNAL(a)	"2"#a
 #endif
 
-#ifndef QT_CLEAN_NAMESPACE
-#define METHOD_CODE	0			// member type codes
-#define SLOT_CODE	1
-#define SIGNAL_CODE	2
-#endif
-
-#define TQMETHOD_CODE	0			// member type codes
-#define TQSLOT_CODE	1
-#define TQSIGNAL_CODE	2
+#define TQ_METHOD_CODE	0			// member type codes
+#define TQ_SLOT_CODE	1
+#define TQ_SIGNAL_CODE	2
 
 class TQObject;
 class TQMetaObject;
@@ -168,13 +162,13 @@ class TQMemberDict;
 
 extern TQMutex *tqt_sharedMetaObjectMutex;
 
-Q_EXPORT void *tqt_find_obj_child( TQObject *, const char *, const char * );
+TQ_EXPORT void *tqt_find_obj_child( TQObject *, const char *, const char * );
 #define Q_CHILD(parent,type,name) \
 	((type*)tqt_find_obj_child(parent,#type,name))
 
-Q_EXPORT void *tqt_inheritedBy( TQMetaObject *super, const TQObject *cls );
+TQ_EXPORT void *tqt_inheritedBy( TQMetaObject *super, const TQObject *cls );
 
 template <typename T>
-Q_INLINE_TEMPLATES T tqt_cast(const TQObject *object)
+TQ_INLINE_TEMPLATES T tqt_cast(const TQObject *object)
 { return (T)tqt_inheritedBy( ((T)0)->staticMetaObject(), object ); }
 #endif // TQOBJECTDEFS_H

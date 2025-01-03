@@ -22,28 +22,28 @@ Inherits QListViewItem.
 .BI "enum \fBToggleState\fR { Off, NoChange, On }"
 .br
 .ti -1c
-.BI "\fBQCheckListItem\fR ( QCheckListItem * parent, const QString & text, Type tt = RadioButtonController )"
+.BI "\fBQCheckListItem\fR ( QCheckListItem * parent, const TQString & text, Type tt = RadioButtonController )"
 .br
 .ti -1c
-.BI "\fBQCheckListItem\fR ( QCheckListItem * parent, QListViewItem * after, const QString & text, Type tt = RadioButtonController )"
+.BI "\fBQCheckListItem\fR ( QCheckListItem * parent, QListViewItem * after, const TQString & text, Type tt = RadioButtonController )"
 .br
 .ti -1c
-.BI "\fBQCheckListItem\fR ( QListViewItem * parent, const QString & text, Type tt = RadioButtonController )"
+.BI "\fBQCheckListItem\fR ( QListViewItem * parent, const TQString & text, Type tt = RadioButtonController )"
 .br
 .ti -1c
-.BI "\fBQCheckListItem\fR ( QListViewItem * parent, QListViewItem * after, const QString & text, Type tt = RadioButtonController )"
+.BI "\fBQCheckListItem\fR ( QListViewItem * parent, QListViewItem * after, const TQString & text, Type tt = RadioButtonController )"
 .br
 .ti -1c
-.BI "\fBQCheckListItem\fR ( QListView * parent, const QString & text, Type tt = RadioButtonController )"
+.BI "\fBQCheckListItem\fR ( QListView * parent, const TQString & text, Type tt = RadioButtonController )"
 .br
 .ti -1c
-.BI "\fBQCheckListItem\fR ( QListView * parent, QListViewItem * after, const QString & text, Type tt = RadioButtonController )"
+.BI "\fBQCheckListItem\fR ( QListView * parent, QListViewItem * after, const TQString & text, Type tt = RadioButtonController )"
 .br
 .ti -1c
-.BI "\fBQCheckListItem\fR ( QListViewItem * parent, const QString & text, const QPixmap & p )"
+.BI "\fBQCheckListItem\fR ( QListViewItem * parent, const TQString & text, const QPixmap & p )"
 .br
 .ti -1c
-.BI "\fBQCheckListItem\fR ( QListView * parent, const QString & text, const QPixmap & p )"
+.BI "\fBQCheckListItem\fR ( QListView * parent, const TQString & text, const QPixmap & p )"
 .br
 .ti -1c
 .BI "\fB~QCheckListItem\fR ()"
@@ -64,7 +64,7 @@ Inherits QListViewItem.
 .BI "Type \fBtype\fR () const"
 .br
 .ti -1c
-.BI "QString \fBtext\fR () const"
+.BI "TQString \fBtext\fR () const"
 .br
 .ti -1c
 .BI "void \fBsetTristate\fR ( bool b )"
@@ -132,21 +132,21 @@ This enum type specifies a QCheckListItem's type:
 .TP
 \fCQCheckListItem::CheckBoxController\fR
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCheckListItem::QCheckListItem ( QCheckListItem * parent, const QString & text, Type tt = RadioButtonController )"
+.SH "QCheckListItem::QCheckListItem ( QCheckListItem * parent, const TQString & text, Type tt = RadioButtonController )"
 Constructs a checkable item with parent \fIparent\fR, text \fItext\fR and of type \fItt\fR. Note that a RadioButton must be the child of a RadioButtonController, otherwise it will not toggle.
-.SH "QCheckListItem::QCheckListItem ( QCheckListItem * parent, QListViewItem * after, const QString & text, Type tt = RadioButtonController )"
+.SH "QCheckListItem::QCheckListItem ( QCheckListItem * parent, QListViewItem * after, const TQString & text, Type tt = RadioButtonController )"
 Constructs a checkable item with parent \fIparent\fR, which is after \fIafter\fR in the parent's list of children, and with text \fItext\fR and of type \fItt\fR. Note that a RadioButton must be the child of a RadioButtonController, otherwise it will not toggle.
-.SH "QCheckListItem::QCheckListItem ( QListViewItem * parent, const QString & text, Type tt = RadioButtonController )"
+.SH "QCheckListItem::QCheckListItem ( QListViewItem * parent, const TQString & text, Type tt = RadioButtonController )"
 Constructs a checkable item with parent \fIparent\fR, text \fItext\fR and of type \fItt\fR. Note that this item must \fInot\fR be a RadioButton. Radio buttons must be children of a RadioButtonController.
-.SH "QCheckListItem::QCheckListItem ( QListViewItem * parent, QListViewItem * after, const QString & text, Type tt = RadioButtonController )"
+.SH "QCheckListItem::QCheckListItem ( QListViewItem * parent, QListViewItem * after, const TQString & text, Type tt = RadioButtonController )"
 Constructs a checkable item with parent \fIparent\fR, which is after \fIafter\fR in the parent's list of children, with text \fItext\fR and of type \fItt\fR. Note that this item must \fInot\fR be a RadioButton. Radio buttons must be children of a RadioButtonController.
-.SH "QCheckListItem::QCheckListItem ( QListView * parent, const QString & text, Type tt = RadioButtonController )"
+.SH "QCheckListItem::QCheckListItem ( QListView * parent, const TQString & text, Type tt = RadioButtonController )"
 Constructs a checkable item with parent \fIparent\fR, text \fItext\fR and of type \fItt\fR. Note that \fItt\fR must \fInot\fR be RadioButton. Radio buttons must be children of a RadioButtonController.
-.SH "QCheckListItem::QCheckListItem ( QListView * parent, QListViewItem * after, const QString & text, Type tt = RadioButtonController )"
+.SH "QCheckListItem::QCheckListItem ( QListView * parent, QListViewItem * after, const TQString & text, Type tt = RadioButtonController )"
 Constructs a checkable item with parent \fIparent\fR, which is after \fIafter\fR in the parent's list of children, with text \fItext\fR and of type \fItt\fR. Note that \fItt\fR must \fInot\fR be RadioButton. Radio buttons must be children of a RadioButtonController.
-.SH "QCheckListItem::QCheckListItem ( QListViewItem * parent, const QString & text, const QPixmap & p )"
+.SH "QCheckListItem::QCheckListItem ( QListViewItem * parent, const TQString & text, const QPixmap & p )"
 Constructs a RadioButtonController item with parent \fIparent\fR, text \fItext\fR and pixmap \fIp\fR.
-.SH "QCheckListItem::QCheckListItem ( QListView * parent, const QString & text, const QPixmap & p )"
+.SH "QCheckListItem::QCheckListItem ( QListView * parent, const TQString & text, const QPixmap & p )"
 Constructs a RadioButtonController item with parent \fIparent\fR, text \fItext\fR and pixmap \fIp\fR.
 .SH "QCheckListItem::~QCheckListItem ()"
 Destroys the item, and all its children to any depth, freeing up all allocated resources.
@@ -161,7 +161,7 @@ Returns TRUE if the item is tristate; otherwise returns FALSE.
 .PP
 See also setTristate().
 .SH "void QCheckListItem::paintCell ( QPainter * p, const QColorGroup & cg, int column, int width, int align )\fC [virtual]\fR"
-Paints the item using the painter \fIp\fR and the color group \fIcg\fR. The item is in column \fIcolumn\fR, has width \fIwidth\fR and has alignment \fIalign\fR. (See Qt::AlignmentFlags for valid alignments.)
+Paints the item using the painter \fIp\fR and the color group \fIcg\fR. The item is in column \fIcolumn\fR, has width \fIwidth\fR and has alignment \fIalign\fR. (See TQt::AlignmentFlags for valid alignments.)
 .PP
 Reimplemented from QListViewItem.
 .SH "void QCheckListItem::paintFocus ( QPainter * p, const QColorGroup & cg, const QRect & r )\fC [virtual]\fR"
@@ -196,7 +196,7 @@ Returns the state of the item.
 See also QCheckListItem::ToggleState.
 .SH "void QCheckListItem::stateChange ( bool )\fC [virtual protected]\fR"
 This virtual function is called when the item changes its state. NoChange (if tristate is enabled and the type is either CheckBox or CheckBoxController) reports the same as Off, so use state() to determine if the state is actually Off or NoChange.
-.SH "QString QCheckListItem::text () const"
+.SH "TQString QCheckListItem::text () const"
 Returns the item's text.
 .SH "void QCheckListItem::turnOffChild ()\fC [protected]\fR"
 If this is a RadioButtonController that has RadioButton children, turn off the child that is on.
@@ -217,8 +217,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

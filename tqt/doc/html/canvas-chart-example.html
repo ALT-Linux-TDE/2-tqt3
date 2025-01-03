@@ -123,9 +123,9 @@ public:
     void setProX( int index, double value );
     void setProY( int index, double value );
 
-#ifdef Q_FULL_TEMPLATE_INSTANTIATION
+#ifdef TQ_FULL_TEMPLATE_INSTANTIATION
     // xlC 3.x workaround
-    Q_DUMMY_COMPARISON_OPERATOR(Element)
+    TQ_DUMMY_COMPARISON_OPERATOR(Element)
     bool operator!=( const Element&amp; e) const {
         return ( !(e == *this) );
     }
@@ -303,41 +303,41 @@ const <a href="ntqstring.html">TQString</a> APP_KEY = "/Chart/";
     fileNewAction = new <a href="ntqaction.html">TQAction</a>(
             "New Chart", TQPixmap( file_new ),
             "&amp;New", CTRL+Key_N, this, "new" );
-<a name="x2869"></a>    <a href="ntqobject.html#connect">connect</a>( fileNewAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, SLOT( fileNew() ) );
+<a name="x2869"></a>    <a href="ntqobject.html#connect">connect</a>( fileNewAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileNew() ) );
 
     fileOpenAction = new <a href="ntqaction.html">TQAction</a>(
             "Open Chart", TQPixmap( file_open ),
             "&amp;Open...", CTRL+Key_O, this, "open" );
-    <a href="ntqobject.html#connect">connect</a>( fileOpenAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, SLOT( fileOpen() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileOpenAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileOpen() ) );
 
     fileSaveAction = new <a href="ntqaction.html">TQAction</a>(
             "Save Chart", TQPixmap( file_save ),
             "&amp;Save", CTRL+Key_S, this, "save" );
-    <a href="ntqobject.html#connect">connect</a>( fileSaveAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, SLOT( fileSave() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileSaveAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileSave() ) );
 
     fileSaveAsAction = new <a href="ntqaction.html">TQAction</a>(
             "Save Chart As", TQPixmap( file_save ),
             "Save &amp;As...", 0, this, "save as" );
-    <a href="ntqobject.html#connect">connect</a>( fileSaveAsAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
-             this, SLOT( fileSaveAs() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileSaveAsAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+             this, TQ_SLOT( fileSaveAs() ) );
 
     fileSaveAsPixmapAction = new <a href="ntqaction.html">TQAction</a>(
             "Save Chart As Bitmap", TQPixmap( file_save ),
             "Save As &amp;Bitmap...", CTRL+Key_B, this, "save as bitmap" );
-    <a href="ntqobject.html#connect">connect</a>( fileSaveAsPixmapAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
-             this, SLOT( fileSaveAsPixmap() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileSaveAsPixmapAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+             this, TQ_SLOT( fileSaveAsPixmap() ) );
 
     filePrintAction = new <a href="ntqaction.html">TQAction</a>(
             "Print Chart", TQPixmap( file_print ),
             "&amp;Print Chart...", CTRL+Key_P, this, "print chart" );
-    <a href="ntqobject.html#connect">connect</a>( filePrintAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
-             this, SLOT( filePrint() ) );
+    <a href="ntqobject.html#connect">connect</a>( filePrintAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+             this, TQ_SLOT( filePrint() ) );
 
     optionsSetDataAction = new <a href="ntqaction.html">TQAction</a>(
             "Set Data", TQPixmap( options_setdata ),
             "Set &amp;Data...", CTRL+Key_D, this, "set data" );
-    <a href="ntqobject.html#connect">connect</a>( optionsSetDataAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
-             this, SLOT( optionsSetData() ) );
+    <a href="ntqobject.html#connect">connect</a>( optionsSetDataAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+             this, TQ_SLOT( optionsSetData() ) );
 
 
     <a href="qactiongroup.html">TQActionGroup</a> *chartGroup = new <a href="qactiongroup.html">TQActionGroup</a>( this ); // Connected later
@@ -363,17 +363,17 @@ const <a href="ntqstring.html">TQString</a> APP_KEY = "/Chart/";
     optionsSetFontAction = new <a href="ntqaction.html">TQAction</a>(
             "Set Font", TQPixmap( options_setfont ),
             "Set &amp;Font...", CTRL+Key_F, this, "set font" );
-    <a href="ntqobject.html#connect">connect</a>( optionsSetFontAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
-             this, SLOT( optionsSetFont() ) );
+    <a href="ntqobject.html#connect">connect</a>( optionsSetFontAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+             this, TQ_SLOT( optionsSetFont() ) );
 
     optionsSetOptionsAction = new <a href="ntqaction.html">TQAction</a>(
             "Set Options", TQPixmap( options_setoptions ),
             "Set &amp;Options...", 0, this, "set options" );
-    <a href="ntqobject.html#connect">connect</a>( optionsSetOptionsAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
-             this, SLOT( optionsSetOptions() ) );
+    <a href="ntqobject.html#connect">connect</a>( optionsSetOptionsAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+             this, TQ_SLOT( optionsSetOptions() ) );
 
     fileQuitAction = new <a href="ntqaction.html">TQAction</a>( "Quit", "&amp;Quit", CTRL+Key_Q, this, "quit" );
-    <a href="ntqobject.html#connect">connect</a>( fileQuitAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, SLOT( fileQuit() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileQuitAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileQuit() ) );
 
 
     <a href="ntqtoolbar.html">TQToolBar</a>* fileTools = new <a href="ntqtoolbar.html">TQToolBar</a>( this, "file operations" );
@@ -425,9 +425,9 @@ const <a href="ntqstring.html">TQString</a> APP_KEY = "/Chart/";
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *helpMenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", helpMenu );
-    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Help", this, SLOT(helpHelp()), Key_F1 );
-    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, SLOT(helpAbout()) );
-    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, SLOT(helpAboutTQt()) );
+    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Help", this, TQ_SLOT(helpHelp()), Key_F1 );
+    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(helpAbout()) );
+    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(helpAboutTQt()) );
 
 
     m_printer = 0;
@@ -459,8 +459,8 @@ const <a href="ntqstring.html">TQString</a> APP_KEY = "/Chart/";
 
     // Connect *after* we've set the chart type on so we don't call
     // drawElements() prematurely.
-<a name="x2873"></a>    <a href="ntqobject.html#connect">connect</a>( chartGroup, SIGNAL( <a href="qactiongroup.html#selected">selected</a>(TQAction*) ),
-             this, SLOT( updateChartType(TQAction*) ) );
+<a name="x2873"></a>    <a href="ntqobject.html#connect">connect</a>( chartGroup, TQ_SIGNAL( <a href="qactiongroup.html#selected">selected</a>(TQAction*) ),
+             this, TQ_SLOT( updateChartType(TQAction*) ) );
 
     <a href="ntqwidget.html#resize">resize</a>( windowWidth, windowHeight );
     if ( windowX != -1 || windowY != -1 )
@@ -604,7 +604,7 @@ void <a name="f603"></a>ChartForm::updateRecentFilesMenu()
         if ( i &lt; int(m_recentFiles.count()) )
             fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQString( "&amp;%1 %2" ).
                                     arg( i + 1 ).arg( m_recentFiles[i] ),
-                                  this, SLOT( fileOpenRecent(int) ),
+                                  this, TQ_SLOT( fileOpenRecent(int) ),
                                   0, i );
     }
 }

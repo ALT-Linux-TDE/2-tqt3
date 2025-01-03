@@ -290,12 +290,12 @@
         <translation></translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>可执行文件"%1"需要 Qt %2 建立 Qt %3。</translation>
+        <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+        <translation>可执行文件"%1"需要 TQt %2 建立 TQt %3。</translation>
     </message>
     <message>
-        <source>Incompatible Qt Library Error</source>
-        <translation>不兼容的 Qt 库错误</translation>
+        <source>Incompatible TQt Library Error</source>
+        <translation>不兼容的 TQt 库错误</translation>
     </message>
 </context>
 <context>
@@ -1262,8 +1262,8 @@ to
         <translation>忽略(&amp;I)</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;关于 Qt&lt;/h3&gt;&lt;p&gt;本程序使用 Qt V%1。&lt;/p&gt;&lt;p&gt;Qt 是一个用于多平台 GUI 应用程序开发的 C++ 工具包。&lt;/p&gt;&lt;p&gt;Qt 提供了跨 MS Windows、 Mac OS X、Linux 和所有主要商用 Unix 版本的单源可移植性。&lt;br&gt;此外，Qt 还可用于嵌入式设备。&lt;/p&gt;&lt;p&gt;Qt 是 Trolltech 产品。 欲了解更多信息，请参阅 &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt;。&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;关于 Qt&lt;/h3&gt;&lt;p&gt;本程序使用 TQt V%1。&lt;/p&gt;&lt;p&gt;Qt 是一个用于多平台 GUI 应用程序开发的 C++ 工具包。&lt;/p&gt;&lt;p&gt;Qt 提供了跨 MS Windows、 Mac OS X、Linux 和所有主要商用 Unix 版本的单源可移植性。&lt;br&gt;此外，Qt 还可用于嵌入式设备。&lt;/p&gt;&lt;p&gt;Qt 是 Trolltech 产品。 欲了解更多信息，请参阅 &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>

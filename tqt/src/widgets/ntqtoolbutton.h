@@ -48,13 +48,13 @@
 #include "ntqiconset.h"
 #endif // QT_H
 
-#ifndef QT_NO_TOOLBUTTON
+#ifndef TQT_NO_TOOLBUTTON
 
 class TQToolButtonPrivate;
 class TQToolBar;
 class TQPopupMenu;
 
-class Q_EXPORT TQToolButton : public TQButton
+class TQ_EXPORT TQToolButton : public TQButton
 {
     TQ_OBJECT
     TQ_ENUMS( TextPosition )
@@ -82,7 +82,7 @@ public:
 	Under = BelowIcon // obsolete
     };
     TQToolButton( TQWidget * parent, const char* name=0 );
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     TQToolButton( const TQIconSet& s, const TQString &textLabel,
 		 const TQString& grouptext,
 		 TQObject * receiver, const char* slot,
@@ -94,7 +94,7 @@ public:
     TQSize sizeHint() const;
     TQSize minimumSizeHint() const;
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     void setOnIconSet( const TQIconSet& );
     void setOffIconSet( const TQIconSet& );
     void setIconSet( const TQIconSet &, bool on );
@@ -109,7 +109,7 @@ public:
     bool usesTextLabel() const { return utl; }
     TQString textLabel() const { return tl; }
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     void setPopup( TQPopupMenu* popup );
     TQPopupMenu* popup() const;
 
@@ -155,7 +155,7 @@ protected:
 
     bool eventFilter( TQObject *o, TQEvent *e );
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     void paletteChange( const TQPalette & );
 #endif
 
@@ -187,6 +187,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_TOOLBUTTON
+#endif // TQT_NO_TOOLBUTTON
 
 #endif // TQTOOLBUTTON_H

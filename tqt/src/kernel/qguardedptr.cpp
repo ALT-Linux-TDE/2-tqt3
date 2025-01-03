@@ -199,7 +199,7 @@ TQGuardedPtrPrivate::TQGuardedPtrPrivate( TQObject* o)
     : TQObject(0, "_ptrpriv" ), obj( o )
 {
     if ( obj )
-	connect( obj, SIGNAL( destroyed() ), this, SLOT( objectDestroyed() ) );
+	connect( obj, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( objectDestroyed() ) );
 }
 
 
@@ -212,12 +212,12 @@ void TQGuardedPtrPrivate::reconnect( TQObject *o )
     if ( obj == o )
 	return;
     if ( obj )
-	disconnect( obj, SIGNAL( destroyed() ),
-		    this, SLOT( objectDestroyed() ) );
+	disconnect( obj, TQ_SIGNAL( destroyed() ),
+		    this, TQ_SLOT( objectDestroyed() ) );
     obj = o;
     if ( obj )
-	connect( obj, SIGNAL( destroyed() ),
-		 this, SLOT( objectDestroyed() ) );
+	connect( obj, TQ_SIGNAL( destroyed() ),
+		 this, TQ_SLOT( objectDestroyed() ) );
 }
 
 void TQGuardedPtrPrivate::objectDestroyed()

@@ -48,7 +48,7 @@
 #include "ntqtextstream.h"
 #endif // QT_H
 
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 
 class TQMenuBar;
 class TQStatusBar;
@@ -57,7 +57,7 @@ class TQMainWindowPrivate;
 class TQMainWindowLayout;
 class TQPopupMenu;
 
-class Q_EXPORT TQMainWindow: public TQWidget
+class TQ_EXPORT TQMainWindow: public TQWidget
 {
     TQ_OBJECT
     TQ_PROPERTY( bool rightJustification READ rightJustification WRITE setRightJustification DESIGNABLE false )
@@ -70,11 +70,11 @@ public:
     TQMainWindow( TQWidget* parent=0, const char* name=0, WFlags f = WType_TopLevel );
     ~TQMainWindow();
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     TQMenuBar * menuBar() const;
 #endif
     TQStatusBar * statusBar() const;
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTipGroup * toolTipGroup() const;
 #endif
 
@@ -118,7 +118,7 @@ public:
 
     // compatibility stuff
     bool hasDockWindow( TQDockWindow *dw );
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     void addToolBar( TQDockWindow *, Dock = DockTop, bool newLine = FALSE );
     void addToolBar( TQDockWindow *, const TQString &label,
 		     Dock = DockTop, bool newLine = FALSE );
@@ -163,7 +163,7 @@ signals:
     void usesTextLabelChanged( bool );
     void dockWindowPositionChanged( TQDockWindow * );
 
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     // compatibility stuff
     void toolBarPositionChanged( TQToolBar * );
 #endif
@@ -188,11 +188,11 @@ private:
     void triggerLayout( bool deleteLayout = TRUE);
     bool dockMainWindow( TQObject *dock );
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     virtual void setMenuBar( TQMenuBar * );
 #endif
     virtual void setStatusBar( TQStatusBar * );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     virtual void setToolTipGroup( TQToolTipGroup * );
 #endif
 
@@ -208,7 +208,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
 inline void TQMainWindow::addToolBar( TQDockWindow *w, ToolBarDock dock, bool newLine )
 {
     addDockWindow( w, dock, newLine );
@@ -251,11 +251,11 @@ inline void TQMainWindow::setToolBarsMovable( bool b )
 }
 #endif
 
-#ifndef QT_NO_TEXTSTREAM
-Q_EXPORT TQTextStream &operator<<( TQTextStream &, const TQMainWindow & );
-Q_EXPORT TQTextStream &operator>>( TQTextStream &, TQMainWindow & );
+#ifndef TQT_NO_TEXTSTREAM
+TQ_EXPORT TQTextStream &operator<<( TQTextStream &, const TQMainWindow & );
+TQ_EXPORT TQTextStream &operator>>( TQTextStream &, TQMainWindow & );
 #endif
 
-#endif // QT_NO_MAINWINDOW
+#endif // TQT_NO_MAINWINDOW
 
 #endif // TQMAINWINDOW_H

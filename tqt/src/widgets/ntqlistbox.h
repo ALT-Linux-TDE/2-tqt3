@@ -46,7 +46,7 @@
 #include "ntqpixmap.h"
 #endif // QT_H
 
-#ifndef QT_NO_LISTBOX
+#ifndef TQT_NO_LISTBOX
 
 
 class TQListBoxPrivate;
@@ -56,7 +56,7 @@ class TQStrList;
 class TQStringList;
 
 
-class Q_EXPORT TQListBox : public TQScrollView
+class TQ_EXPORT TQListBox : public TQScrollView
 {
     friend class TQListBoxItem;
     friend class TQListBoxPrivate;
@@ -169,7 +169,7 @@ public:
 
     void viewportPaintEvent( TQPaintEvent * );
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     bool dragSelect() const { return TRUE; }
     void setDragSelect( bool ) {}
     bool autoScroll() const { return TRUE; }
@@ -258,7 +258,7 @@ protected:
     void updateItem( int index );
     void updateItem( TQListBoxItem * );
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     void updateCellWidth() { }
     int totalWidth() const { return contentsWidth(); }
     int totalHeight() const { return contentsHeight(); }
@@ -273,7 +273,7 @@ protected:
 
     void windowActivationChange( bool );
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     bool itemYPos( int index, int *yPos ) const;
     int findItem( int yPos ) const { return index(itemAt(TQPoint(0,yPos)) ); }
 #endif
@@ -315,7 +315,7 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-class Q_EXPORT TQListBoxItem
+class TQ_EXPORT TQListBoxItem
 {
 public:
     TQListBoxItem( TQListBox* listbox = 0 );
@@ -331,7 +331,7 @@ public:
     bool isSelected() const { return s; }
     bool isCurrent() const;
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     bool selected() const { return isSelected(); }
     bool current() const { return isCurrent(); }
 #endif
@@ -373,7 +373,7 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-class Q_EXPORT TQListBoxText : public TQListBoxItem
+class TQ_EXPORT TQListBoxText : public TQListBoxItem
 {
 public:
     TQListBoxText( TQListBox* listbox, const TQString & text=TQString::null );
@@ -398,7 +398,7 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-class Q_EXPORT TQListBoxPixmap : public TQListBoxItem
+class TQ_EXPORT TQListBoxPixmap : public TQListBoxItem
 {
 public:
     TQListBoxPixmap( TQListBox* listbox, const TQPixmap & );
@@ -430,6 +430,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_LISTBOX
+#endif // TQT_NO_LISTBOX
 
 #endif // TQLISTBOX_H

@@ -17,7 +17,7 @@
 #include <ntqmessagebox.h>
 #include <ntqlabel.h>
 
-#if defined(QT_NO_THREAD)
+#if defined(TQT_NO_THREAD)
 #  error Thread support not enabled.
 #endif
 
@@ -173,7 +173,7 @@ SemaphoreExample::SemaphoreExample()
     greenSem = new TQSemaphore(1);
 
     button = new TQPushButton("&Ignition!", this);
-    connect(button, SIGNAL(clicked()), SLOT(startExample()));
+    connect(button, TQ_SIGNAL(clicked()), TQ_SLOT(startExample()));
 
     mlineedit = new TQMultiLineEdit(this);
     label = new TQLabel(this);

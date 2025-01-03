@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="de">
 <context>
     <name>@default</name>
     <message>
@@ -7,7 +9,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Abbrechen</translation>
+        <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
@@ -162,7 +164,7 @@
     </message>
     <message>
         <source>Bass Boost</source>
-        <translation>Bass Boost</translation>
+        <translation>Bass Verstärkung</translation>
     </message>
     <message>
         <source>Bass Up</source>
@@ -210,7 +212,7 @@
     </message>
     <message>
         <source>Standby</source>
-        <translation>Standby</translation>
+        <translation>Energiesparmodus</translation>
     </message>
     <message>
         <source>Open URL</source>
@@ -301,12 +303,12 @@
         <translation>LTR</translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>Applikation &apos;%1&apos; benötigt Qt %2, aber Qt %3 gefunden.</translation>
+        <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+        <translation>Applikation &apos;%1&apos; benötigt TQt %2, aber TQt %3 gefunden.</translation>
     </message>
     <message>
-        <source>Incompatible Qt Library Error</source>
-        <translation>Qt Bibliothek ist inkompatibel</translation>
+        <source>Incompatible TQt Library Error</source>
+        <translation>TQt Bibliothek ist inkompatibel</translation>
     </message>
 </context>
 <context>
@@ -711,7 +713,7 @@ Datei wurde nicht gefunden.
     </message>
     <message>
         <source>Open </source>
-        <translation>Öffnen</translation>
+        <translation>Öffnen </translation>
     </message>
     <message>
         <source>Select a Directory</source>
@@ -1356,20 +1358,20 @@ nach
         <translation>&amp;Ignorieren</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This application was created with Qt version %1.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;Dieses Programm wurde mit der Qt Version %1 erstellt.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This application was created with TQt version %1.&lt;/p&gt;</source>
+        <translation type="obsolete">&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;Dieses Programm wurde mit der TQt Version %1 erstellt.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;Dieses Programm verwendet Qt Version %1&lt;/p&gt;&lt;p&gt;Qt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;Qt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf  Windows 95/98/NT/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX und vielen anderen Unix-Versionen, die X11 verwenden.&lt;br&gt;Qt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;Qt ist ein Produkt von Trolltech. Weitere Informationen finden Sie unter &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt;.&lt;/p&gt;</translation>
+        <source>&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation type="obsolete">&lt;p&gt;Dieses Programm verwendet TQt Version %1&lt;/p&gt;&lt;p&gt;Qt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;Qt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf  Windows 95/98/NT/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX und vielen anderen Unix-Versionen, die X11 verwenden.&lt;br&gt;Qt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;Qt ist ein Produkt von Trolltech. Weitere Informationen finden Sie unter &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;Dieses Programm verwendet Qt Version %1&lt;/p&gt;&lt;p&gt;Qt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;Qt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf Windows 95/98/NT/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX und vielen anderen Unix-Versionen, die X11 verwenden.&lt;br&gt;Qt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;Qt ist ein Produkt von Trolltech. Weitere Informationen finden Sie unter &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt;.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation type="obsolete">&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;Dieses Programm verwendet TQt Version %1&lt;/p&gt;&lt;p&gt;Qt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;Qt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf Windows 95/98/NT/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX und vielen anderen Unix-Versionen, die X11 verwenden.&lt;br&gt;Qt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;Qt ist ein Produkt von Trolltech. Weitere Informationen finden Sie unter &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;Dieses Programm verwendet Qt Version %1&lt;/p&gt;&lt;p&gt;Qt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;Qt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux und allen anderen großen kommerziellen Unix-Versionen.&lt;br&gt;Qt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;Qt ist ein Produkt von Trolltech. Weitere Informationen finden Sie unter &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt;.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Über TQt&lt;/h3&gt;&lt;p&gt;Dieses Programm verwendet TQt Version %1&lt;/p&gt;&lt;p&gt;TQt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;TQt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux und allen anderen großen kommerziellen Unix-Versionen.&lt;br&gt;TQt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;TQt ist ein Produkt von TDE. Weitere Informationen finden Sie unter &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1607,7 +1609,7 @@ nach
     </message>
     <message>
         <source>US Common #10 Envelope (105 x 241 mm)</source>
-        <translation>US Common #10 Envelope (105 x 241 mm)</translation>
+        <translation>US Allgemein #10 Umschlag (105 x 241 mm)</translation>
     </message>
     <message>
         <source>Setup Printer</source>
@@ -1723,7 +1725,7 @@ nach
     </message>
     <message>
         <source>Defaults</source>
-        <translation>Defaults</translation>
+        <translation>Voreinstellungen</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1831,7 +1833,7 @@ nach
     </message>
     <message>
         <source>The protocol `%1&apos; does not support copying or moving files or directories</source>
-        <translation> Das Protokoll `%1&apos; untersützt nicht das Kopieren oder Verschieben von Dateien oder Verzeichnissen</translation>
+        <translation>Das Protokoll `%1&apos; untersützt nicht das Kopieren oder Verschieben von Dateien oder Verzeichnissen</translation>
     </message>
     <message>
         <source>(unknown)</source>

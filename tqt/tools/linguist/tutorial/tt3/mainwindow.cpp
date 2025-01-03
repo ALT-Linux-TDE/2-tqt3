@@ -22,11 +22,11 @@ MainWindow::MainWindow( TQWidget *parent, const char *name )
     setCentralWidget( pp );
 
     TQPopupMenu *file = new TQPopupMenu( this );
-    file->insertItem( tr("E&xit"), tqApp, SLOT(quit()),
+    file->insertItem( tr("E&xit"), tqApp, TQ_SLOT(quit()),
 		      tr("Ctrl+Q", "Quit") );
     TQPopupMenu *help = new TQPopupMenu( this );
-    help->insertItem( tr("&About"), this, SLOT(about()), Key_F1 );
-    help->insertItem( tr("About &TQt"), this, SLOT(aboutTQt()) );
+    help->insertItem( tr("&About"), this, TQ_SLOT(about()), Key_F1 );
+    help->insertItem( tr("About &TQt"), this, TQ_SLOT(aboutTQt()) );
 
     menuBar()->insertItem( tr("&File"), file );
     menuBar()->insertSeparator();

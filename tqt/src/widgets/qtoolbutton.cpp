@@ -38,9 +38,9 @@
 **
 **********************************************************************/
 
-#undef QT_NO_COMPAT
+#undef TQT_NO_COMPAT
 #include "ntqtoolbutton.h"
-#ifndef QT_NO_TOOLBUTTON
+#ifndef TQT_NO_TOOLBUTTON
 
 #include "ntqdrawutil.h"
 #include "ntqpainter.h"
@@ -61,7 +61,7 @@ class TQToolButtonPrivate
 {
     // ### add tool tip magic here
 public:
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     TQGuardedPtr<TQPopupMenu> popup;
     TQTimer* popupTimer;
     int delay;
@@ -143,16 +143,16 @@ TQToolButton::TQToolButton( TQWidget * parent, const char *name )
     : TQButton( parent, name )
 {
     init();
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     TQToolBar* tb = ::tqt_cast<TQToolBar*>(parent);
     if ( tb ) {
 	setAutoRaise( TRUE );
 	if ( tb->mainWindow() ) {
-	    connect( tb->mainWindow(), SIGNAL(pixmapSizeChanged(bool)),
-	             this, SLOT(setUsesBigPixmap(bool)) );
+	    connect( tb->mainWindow(), TQ_SIGNAL(pixmapSizeChanged(bool)),
+	             this, TQ_SLOT(setUsesBigPixmap(bool)) );
 	    setUsesBigPixmap( tb->mainWindow()->usesBigPixmaps() );
-	    connect( tb->mainWindow(), SIGNAL(usesTextLabelChanged(bool)),
-	             this, SLOT(setUsesTextLabel(bool)) );
+	    connect( tb->mainWindow(), TQ_SIGNAL(usesTextLabelChanged(bool)),
+	             this, TQ_SLOT(setUsesTextLabel(bool)) );
 	    setUsesTextLabel( tb->mainWindow()->usesTextLabel() );
 	} else {
 	    setUsesBigPixmap( FALSE );
@@ -192,7 +192,7 @@ void TQToolButton::init()
 {
     d = new TQToolButtonPrivate;
     d->textPos = Under;
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     d->delay = 600;
     d->popup = 0;
     d->popupTimer = 0;
@@ -215,7 +215,7 @@ void TQToolButton::init()
     setSizePolicy( TQSizePolicy( TQSizePolicy::Minimum, TQSizePolicy::Minimum ) );
 }
 
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
 
 /*!
     Constructs a tool button called \a name, that is a child of \a
@@ -238,18 +238,18 @@ TQToolButton::TQToolButton( const TQIconSet& iconSet, const TQString &textLabel,
     setIconSet( iconSet );
     setTextLabel( textLabel );
     if ( receiver && slot )
-	connect( this, SIGNAL(clicked()), receiver, slot );
+	connect( this, TQ_SIGNAL(clicked()), receiver, slot );
     if ( parent->mainWindow() ) {
-	connect( parent->mainWindow(), SIGNAL(pixmapSizeChanged(bool)),
-		 this, SLOT(setUsesBigPixmap(bool)) );
+	connect( parent->mainWindow(), TQ_SIGNAL(pixmapSizeChanged(bool)),
+		 this, TQ_SLOT(setUsesBigPixmap(bool)) );
 	setUsesBigPixmap( parent->mainWindow()->usesBigPixmaps() );
-	connect( parent->mainWindow(), SIGNAL(usesTextLabelChanged(bool)),
-		 this, SLOT(setUsesTextLabel(bool)) );
+	connect( parent->mainWindow(), TQ_SIGNAL(usesTextLabelChanged(bool)),
+		 this, TQ_SLOT(setUsesTextLabel(bool)) );
 	setUsesTextLabel( parent->mainWindow()->usesTextLabel() );
     } else {
 	setUsesBigPixmap( FALSE );
     }
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     if ( !textLabel.isEmpty() ) {
 	if ( !grouptext.isEmpty() && parent->mainWindow() )
 	    TQToolTip::add( this, textLabel,
@@ -271,7 +271,7 @@ TQToolButton::TQToolButton( const TQIconSet& iconSet, const TQString &textLabel,
 
 TQToolButton::~TQToolButton()
 {
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     d->popupTimer = 0;
     d->popup = 0;
 #endif
@@ -352,7 +352,7 @@ TQSize TQToolButton::sizeHint() const
 	}
     }
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     if ( popup() && ! popupDelay() )
      	w += style().pixelMetric(TQStyle::PM_MenuButtonIndicator, this);
 #endif
@@ -467,7 +467,7 @@ void TQToolButton::drawButton( TQPainter * p )
     if (isDown())
 	active |= TQStyle::SC_ToolButton;
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     if (d->popup && !d->delay) {
 	controls |= TQStyle::SC_ToolButtonMenu;
 	if (d->instantPopup || isDown())
@@ -585,7 +585,7 @@ void TQToolButton::mousePressEvent( TQMouseEvent *e )
 				       TQStyle::SC_ToolButtonMenu), this );
     d->instantPopup = (popupr.isValid() && popupr.contains(e->pos()));
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     if ( d->discardNextMouseEvent ) {
 	d->discardNextMouseEvent = FALSE;
 	d->instantPopup = FALSE;
@@ -607,7 +607,7 @@ void TQToolButton::mousePressEvent( TQMouseEvent *e )
 */
 bool TQToolButton::eventFilter( TQObject *o, TQEvent *e )
 {
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     if ( o != d->popup )
 	return TQButton::eventFilter( o, e );
     switch ( e->type() ) {
@@ -638,7 +638,7 @@ bool TQToolButton::uses3D() const
 {
     return style().styleHint(TQStyle::SH_ToolButton_Uses3D)
 	&& (!autoRaise() || ( hasMouse() && isEnabled() )
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	    || ( d->popup && d->popup->isVisible() && d->delay <= 0 ) || d->instantPopup
 #endif
 	    );
@@ -670,7 +670,7 @@ void TQToolButton::setTextLabel( const TQString &newLabel , bool tipToo )
     if ( tl == newLabel )
 	return;
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     if ( tipToo ) {
         TQToolTip::remove( this );
         TQToolTip::add( this, newLabel );
@@ -685,7 +685,7 @@ void TQToolButton::setTextLabel( const TQString &newLabel , bool tipToo )
 
 }
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
 TQIconSet TQToolButton::onIconSet() const
 {
@@ -787,7 +787,7 @@ void TQToolButton::setIconSet( const TQIconSet & set )
   \sa iconSet TQIconSet::State
 */
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
 void TQToolButton::setIconSet( const TQIconSet & set, bool /* on */ )
 {
@@ -818,7 +818,7 @@ TQIconSet TQToolButton::iconSet() const
     return TQIconSet();
 }
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 /*! \overload
     \obsolete
 
@@ -836,7 +836,7 @@ TQIconSet TQToolButton::iconSet( bool /* on */ ) const
 
 #endif
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 /*!
     Associates the popup menu \a popup with this tool button.
 
@@ -854,9 +854,9 @@ TQIconSet TQToolButton::iconSet( bool /* on */ ) const
 void TQToolButton::setPopup( TQPopupMenu* popup )
 {
     if ( popup && !d->popupTimer ) {
-	connect( this, SIGNAL( pressed() ), this, SLOT( popupPressed() ) );
+	connect( this, TQ_SIGNAL( pressed() ), this, TQ_SLOT( popupPressed() ) );
 	d->popupTimer = new TQTimer( this );
-	connect( d->popupTimer, SIGNAL( timeout() ), this, SLOT( popupTimerDone() ) );
+	connect( d->popupTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( popupTimerDone() ) );
     }
     d->popup = popup;
 
@@ -911,7 +911,7 @@ void TQToolButton::popupTimerDone()
     d->repeat = autoRepeat();
     setAutoRepeat( FALSE );
     bool horizontal = TRUE;
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     TQToolBar *tb = ::tqt_cast<TQToolBar*>(parentWidget());
     if ( tb && tb->orientation() == Vertical )
 	horizontal = FALSE;
@@ -1029,7 +1029,7 @@ void TQToolButton::setText( const TQString &txt )
     }
 }
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 /*!
     \reimp
 */

@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** Qt Coordinate System Documentation
+** TQt Coordinate System Documentation
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -41,8 +41,8 @@
 
 \title The Coordinate System
 
-A \link QPaintDevice paint device\endlink in Qt is a drawable 2D
-surface. \l QWidget, \l QPixmap, \l QPicture and \l QPrinter are all
+A \link QPaintDevice paint device\endlink in TQt is a drawable 2D
+surface. \l TQWidget, \l QPixmap, \l QPicture and \l QPrinter are all
 paint devices. A \l QPainter is an object which can draw on such
 devices.
 
@@ -93,16 +93,16 @@ system:
      \i A single 2D vector. Internally, QPoint and QSize are the same,
 	but a point is not the same as a size, so both classes exist.
 	Again, most functions accept either a QSize or two ints, for
-	example \l QWidget::resize().
+	example \l TQWidget::resize().
 \row \i \l QRect
      \i A 2D rectangle. Most functions accept either a QRect or four
-	ints, for example \l QWidget::setGeometry().
+	ints, for example \l TQWidget::setGeometry().
 \row \i \l QRegion
      \i An arbitrary set of points, including all the normal set
 	operations, e.g. \l QRegion::intersect(), and also a less
 	usual function to return a list of rectangles whose union is
 	equal to the region. QRegion is used e.g. by \l
-	QPainter::setClipRegion(), \l QWidget::repaint() and \l
+	QPainter::setClipRegion(), \l TQWidget::repaint() and \l
 	QPaintEvent::region().
 \row \i \l QPainter
      \i The class that paints. It can paint on any device with the
@@ -113,7 +113,7 @@ system:
      \i A device on which QPainter can paint. There are two internal
 	devices, both pixel-based, and two external devices, \l
 	QPrinter and \l QPicture (which records QPainter commands to a
-	file or other \l QIODevice, and plays them back). Other
+	file or other \l TQIODevice, and plays them back). Other
 	devices can be defined.
 \endtable
 
@@ -131,7 +131,7 @@ OpenGL Programming Guide.\endlink Refer to those for in-depth
 coverage; here we give just a brief overview and an example.
 
 The first step uses the world transformation matrix. Use this matrix
-to orient and position your objects in your model. Qt provides
+to orient and position your objects in your model. TQt provides
 methods such as \l QPainter::rotate(), \l QPainter::scale(), \l
 QPainter::translate() and so on to operate on this matrix.
 
@@ -150,7 +150,7 @@ The third step uses the viewport. The viewport too, describes the view
 boundaries, but in device coordinates. The viewport and the windows
 describe the same rectangle, but in different coordinate systems.
 
-On-screen, the default is the entire \l QWidget or \l QPixmap where
+On-screen, the default is the entire \l TQWidget or \l QPixmap where
 you are drawing, which is usually appropriate. For printing this
 function is vital, since very few printers can print over the entire
 physical page.
@@ -187,7 +187,7 @@ We set the model coordinate system we want a 1000*1000 window where
 0,0 is in the middle.
 
 \printline viewport
-\printline QMIN
+\printline TQMIN
 
 The device may not be square and we want the clock to be, so we find
 its current viewport and compute its shortest side.

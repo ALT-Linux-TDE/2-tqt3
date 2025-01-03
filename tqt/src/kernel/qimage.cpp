@@ -59,13 +59,13 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 #include "qgfx_qws.h"
 #endif
 
 // 16bpp images on supported on TQt/Embedded
-#if !defined( Q_WS_QWS ) && !defined(QT_NO_IMAGE_16_BIT)
-#define QT_NO_IMAGE_16_BIT
+#if !defined( TQ_WS_QWS ) && !defined(TQT_NO_IMAGE_16_BIT)
+#define TQT_NO_IMAGE_16_BIT
 #endif
 
 
@@ -246,7 +246,7 @@
 #pragma message disable narrowptr
 #endif
 
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
 class TQImageDataMisc {
 public:
     TQImageDataMisc() { }
@@ -286,7 +286,7 @@ public:
 
     TQMap<TQImageTextKeyLang,TQString> text_lang;
 };
-#endif // QT_NO_IMAGE_TEXT
+#endif // TQT_NO_IMAGE_TEXT
 
 
 
@@ -372,7 +372,7 @@ TQImage::TQImage( const TQSize& size, int depth, int numColors, Endian bitOrder 
     create( size, depth, numColors, bitOrder );
 }
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 /*!
     Constructs an image and tries to load the image from the file \a
     fileName.
@@ -397,7 +397,7 @@ TQImage::TQImage( const TQString &fileName, const char* format )
     load( fileName, format );
 }
 
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
 // helper
 static void read_xpm_image_or_array( TQImageIO *, const char * const *, TQImage & );
 #endif
@@ -424,7 +424,7 @@ static void read_xpm_image_or_array( TQImageIO *, const char * const *, TQImage 
 TQImage::TQImage( const char * const xpm[] )
 {
     init();
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
     read_xpm_image_or_array( 0, xpm, *this );
 #else
     // We use a tqFatal rather than disabling the whole function, as this
@@ -447,7 +447,7 @@ TQImage::TQImage( const TQByteArray &array )
     init();
     loadFromData(array);
 }
-#endif //QT_NO_IMAGEIO
+#endif //TQT_NO_IMAGEIO
 
 
 /*!
@@ -510,7 +510,7 @@ TQImage::TQImage( uchar* yourdata, int w, int h, int depth,
     data->bitordr = bitOrder;
 }
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 
 /*!
     Constructs an image that uses an existing memory buffer. The
@@ -559,7 +559,7 @@ TQImage::TQImage( uchar* yourdata, int w, int h, int depth,
     data->bits = jt;
     data->bitordr = bitOrder;
 }
-#endif // Q_WS_QWS
+#endif // TQ_WS_QWS
 
 /*!
     Destroys the image and cleans up.
@@ -582,7 +582,7 @@ TQImage::~TQImage()
 
   \sa TQMimeSourceFactory, TQImage::fromMimeSource(), TQImageDrag::decode()
 */
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 TQImage TQImage::fromMimeSource( const TQString &abs_name )
 {
     const TQMimeSource *m = TQMimeSourceFactory::defaultFactory()->data( abs_name );
@@ -666,7 +666,7 @@ TQImage TQImage::copy() const
     } else {
 	TQImage image;
 	image.create( width(), height(), depth(), numColors(), bitOrder() );
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 	// TQt/Embedded can create images with non-default bpl
 	// make sure we don't crash.
 	if ( image.numBytes() != numBytes() )
@@ -680,7 +680,7 @@ TQImage TQImage::copy() const
 	image.data->dpmx = dotsPerMeterX();
 	image.data->dpmy = dotsPerMeterY();
 	image.data->offset = offset();
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
 	if ( data->misc ) {
 	    image.data->misc = new TQImageDataMisc;
 	    *image.data->misc = misc();
@@ -747,7 +747,7 @@ TQImage TQImage::copy(int x, int y, int w, int h, int conversion_flags) const
     image.data->dpmx = dotsPerMeterX();
     image.data->dpmy = dotsPerMeterY();
     image.data->offset = offset();
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     if ( data->misc ) {
         image.data->misc = new TQImageDataMisc;
         *image.data->misc = misc();
@@ -960,7 +960,7 @@ void TQImage::reset()
 {
     freeBits();
     setNumColors( 0 );
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     delete data->misc;
 #endif
     reinit();
@@ -1005,7 +1005,7 @@ void TQImage::fill( uint pixel )
 	int bpl = bytesPerLine();
 	for ( int i=0; i<height(); i++ )
 	    memset( scanLine(i), pixel, bpl );
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
     } else if ( depth() == 16 ) {
 	for ( int i=0; i<height(); i++ ) {
 	    //optimize with 32-bit writes, since image is always aligned
@@ -1018,8 +1018,8 @@ void TQImage::fill( uint pixel )
 	    while ( p < end )
 		*p++ = fill;
 	}
-#endif	// QT_NO_IMAGE_16_BIT
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#endif	// TQT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     } else if ( depth() == 32 ) {
 	if ( hasAlphaBuffer() ) {
 	    pixel &= 0x00ffffff;
@@ -1039,7 +1039,7 @@ void TQImage::fill( uint pixel )
 		    *p++ = pixel;
 	    }
 	}
-#endif // QT_NO_IMAGE_TRUECOLOR
+#endif // TQT_NO_IMAGE_TRUECOLOR
     }
 }
 
@@ -1098,7 +1098,7 @@ TQImage::Endian TQImage::systemByteOrder()
 }
 
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 #include <X11/Xlib.h>				// needed for systemBitOrder
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
@@ -1129,7 +1129,7 @@ TQImage::Endian TQImage::systemByteOrder()
 
 TQImage::Endian TQImage::systemBitOrder()
 {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     return BitmapBitOrder(tqt_xdisplay()) == MSBFirst ? BigEndian :LittleEndian;
 #else
     return BigEndian;
@@ -1257,10 +1257,10 @@ bool TQImage::create( int width, int height, int depth, int numColors,
     switch ( depth ) {
     case 1:
     case 8:
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
     case 16:
 #endif
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     case 32:
 #endif
 	break;
@@ -1279,7 +1279,7 @@ bool TQImage::create( int width, int height, int depth, int numColors,
 	return FALSE;
     }
 // TQt/Embedded doesn't waste memory on unnecessary padding.
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     const int bpl = (width*depth+7)/8;		// bytes per scanline
     const int pad = 0;
 #else
@@ -1348,7 +1348,7 @@ void TQImage::reinit()
     data->bits = 0;
     data->bitordr = TQImage::IgnoreEndian;
     data->alpha = FALSE;
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     data->misc = 0;
 #endif
     data->dpmx = 0;
@@ -1382,7 +1382,7 @@ void TQImage::freeBits()
 //
 // if dithering is needed, only 1 color at most is available for alpha.
 //
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
 struct TQRgbMap {
     TQRgbMap() : rgb(0xffffffff) { }
     bool used() const { return rgb!=0xffffffff; }
@@ -1392,7 +1392,7 @@ struct TQRgbMap {
 
 static bool convert_32_to_8( const TQImage *src, TQImage *dst, int conversion_flags, TQRgb* palette=0, int palette_count=0 )
 {
-    register TQRgb *p;
+    TQRgb *p;
     uchar  *b;
     bool    do_quant = FALSE;
     int	    y, x;
@@ -1649,7 +1649,7 @@ static bool convert_32_to_8( const TQImage *src, TQImage *dst, int conversion_fl
 	    }
 	}
 
-#ifndef QT_NO_IMAGE_DITHER_TO_1
+#ifndef TQT_NO_IMAGE_DITHER_TO_1
 	if ( src->hasAlphaBuffer() ) {
 	    const int trans = 216;
 	    dst->setColor(trans, 0x00000000);	// transparent
@@ -1702,7 +1702,7 @@ static bool convert_8_to_32( const TQImage *src, TQImage *dst )
 	return FALSE;				// create failed
     dst->setAlphaBuffer( src->hasAlphaBuffer() );
     for ( int y=0; y<dst->height(); y++ ) {	// for each scan line...
-	register uint *p = (uint *)dst->scanLine(y);
+	uint *p = (uint *)dst->scanLine(y);
 	uchar  *b = src->scanLine(y);
 	uint *end = p + dst->width();
 	while ( p < end )
@@ -1718,7 +1718,7 @@ static bool convert_1_to_32( const TQImage *src, TQImage *dst )
 	return FALSE;				// could not create
     dst->setAlphaBuffer( src->hasAlphaBuffer() );
     for ( int y=0; y<dst->height(); y++ ) {	// for each scan line...
-	register uint *p = (uint *)dst->scanLine(y);
+	uint *p = (uint *)dst->scanLine(y);
 	uchar *b = src->scanLine(y);
 	int x;
 	if ( src->bitOrder() == TQImage::BigEndian ) {
@@ -1737,7 +1737,7 @@ static bool convert_1_to_32( const TQImage *src, TQImage *dst )
     }
     return TRUE;
 }
-#endif // QT_NO_IMAGE_TRUECOLOR
+#endif // TQT_NO_IMAGE_TRUECOLOR
 
 static bool convert_1_to_8( const TQImage *src, TQImage *dst )
 {
@@ -1756,7 +1756,7 @@ static bool convert_1_to_8( const TQImage *src, TQImage *dst )
 	dst->setColor( 1, 0xff000000 );
     }
     for ( int y=0; y<dst->height(); y++ ) {	// for each scan line...
-	register uchar *p = dst->scanLine(y);
+	uchar *p = dst->scanLine(y);
 	uchar *b = src->scanLine(y);
 	int x;
 	if ( src->bitOrder() == TQImage::BigEndian ) {
@@ -1776,7 +1776,7 @@ static bool convert_1_to_8( const TQImage *src, TQImage *dst )
     return TRUE;
 }
 
-#ifndef QT_NO_IMAGE_DITHER_TO_1
+#ifndef TQT_NO_IMAGE_DITHER_TO_1
 //
 // dither_to_1:  Uses selected dithering algorithm.
 //
@@ -1833,7 +1833,7 @@ static bool dither_to_1( const TQImage *src, TQImage *dst,
 	int bmwidth = (w+7)/8;
 	if ( !(line1 && line2) )
 	    return FALSE;
-	register uchar *p;
+	uchar *p;
 	uchar *end;
 	int *b1, *b2;
 	int wbytes = w * (d/8);
@@ -1843,7 +1843,7 @@ static bool dither_to_1( const TQImage *src, TQImage *dst,
 	if ( use_gray ) {			// 8 bit image
 	    while ( p < end )
 		*b2++ = gray[*p++];
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
 	} else {				// 32 bit image
 	    if ( fromalpha ) {
 		while ( p < end ) {
@@ -1869,7 +1869,7 @@ static bool dither_to_1( const TQImage *src, TQImage *dst,
 		if ( use_gray ) {		// 8 bit image
 		    while ( p < end )
 			*b2++ = gray[*p++];
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
 		} else {			// 24 bit image
 		    if ( fromalpha ) {
 			while ( p < end ) {
@@ -1948,7 +1948,7 @@ static bool dither_to_1( const TQImage *src, TQImage *dst,
 
 	dst->fill( 0 );
 	uchar** mline = dst->jumpTable();
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
 	if ( d == 32 ) {
 	    uint** line = (uint**)src->jumpTable();
 	    for ( int i=0; i<h; i++ ) {
@@ -1982,7 +1982,7 @@ static bool dither_to_1( const TQImage *src, TQImage *dst,
 		}
 	    }
 	} else
-#endif // QT_NO_IMAGE_TRUECOLOR
+#endif // TQT_NO_IMAGE_TRUECOLOR
 	    /* ( d == 8 ) */ {
 	    uchar** line = src->jumpTable();
 	    for ( int i=0; i<h; i++ ) {
@@ -2007,7 +2007,7 @@ static bool dither_to_1( const TQImage *src, TQImage *dst,
       default: { // Threshold:
 	dst->fill( 0 );
 	uchar** mline = dst->jumpTable();
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
 	if ( d == 32 ) {
 	    uint** line = (uint**)src->jumpTable();
 	    for ( int i=0; i<h; i++ ) {
@@ -2040,7 +2040,7 @@ static bool dither_to_1( const TQImage *src, TQImage *dst,
 		}
 	    }
 	} else
-#endif //QT_NO_IMAGE_TRUECOLOR
+#endif //TQT_NO_IMAGE_TRUECOLOR
 	    if ( d == 8 ) {
 	    uchar** line = src->jumpTable();
 	    for ( int i=0; i<h; i++ ) {
@@ -2066,7 +2066,7 @@ static bool dither_to_1( const TQImage *src, TQImage *dst,
 }
 #endif
 
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
 //###### Endianness issues!
 static inline bool is16BitGray( ushort c )
 {
@@ -2083,7 +2083,7 @@ static bool convert_16_to_32( const TQImage *src, TQImage *dst )
 	return FALSE;				// create failed
     dst->setAlphaBuffer( src->hasAlphaBuffer() );
     for ( int y=0; y<dst->height(); y++ ) {	// for each scan line...
-	register uint *p = (uint *)dst->scanLine(y);
+	uint *p = (uint *)dst->scanLine(y);
 	ushort  *s = (ushort*)src->scanLine(y);
 	uint *end = p + dst->width();
 	while ( p < end )
@@ -2099,7 +2099,7 @@ static bool convert_32_to_16( const TQImage *src, TQImage *dst )
 	return FALSE;				// create failed
     dst->setAlphaBuffer( src->hasAlphaBuffer() );
     for ( int y=0; y<dst->height(); y++ ) {	// for each scan line...
-	register ushort *p = (ushort *)dst->scanLine(y);
+	ushort *p = (ushort *)dst->scanLine(y);
 	uint  *s = (uint*)src->scanLine(y);
 	ushort *end = p + dst->width();
 	while ( p < end )
@@ -2133,11 +2133,11 @@ TQImage TQImage::convertDepth( int depth, int conversion_flags ) const
     TQImage image;
     if ( data->d == depth )
 	image = *this;				// no conversion
-#ifndef QT_NO_IMAGE_DITHER_TO_1
+#ifndef TQT_NO_IMAGE_DITHER_TO_1
     else if ( (data->d == 8 || data->d == 32) && depth == 1 ) // dither
 	dither_to_1( this, &image, conversion_flags, FALSE );
 #endif
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     else if ( data->d == 32 && depth == 8 )	// 32 -> 8
 	convert_32_to_8( this, &image, conversion_flags );
     else if ( data->d == 8 && depth == 32 )	// 8 -> 32
@@ -2145,11 +2145,11 @@ TQImage TQImage::convertDepth( int depth, int conversion_flags ) const
 #endif
     else if ( data->d == 1 && depth == 8 )	// 1 -> 8
 	convert_1_to_8( this, &image );
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     else if ( data->d == 1 && depth == 32 )	// 1 -> 32
 	convert_1_to_32( this, &image );
 #endif
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
     else if ( data->d == 16 && depth != 16 ) {
 	TQImage tmp;
 	convert_16_to_32( this, &tmp );
@@ -2219,8 +2219,8 @@ int TQImage::pixelIndex( int x, int y ) const
 	    return (*(s + (x >> 3)) >> (7- (x & 7))) & 1;
     case 8:
 	return (int)s[x];
-#ifndef QT_NO_IMAGE_TRUECOLOR
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_16_BIT
     case 16:
 #endif
     case 32:
@@ -2229,7 +2229,7 @@ int TQImage::pixelIndex( int x, int y ) const
 		 "(no palette)", depth() );
 #endif
 	return 0;
-#endif //QT_NO_IMAGE_TRUECOLOR
+#endif //TQT_NO_IMAGE_TRUECOLOR
     }
     return 0;
 }
@@ -2261,11 +2261,11 @@ TQRgb TQImage::pixel( int x, int y ) const
 	    return color( (*(s + (x >> 3)) >> (7- (x & 7))) & 1 );
     case 8:
 	return color( (int)s[x] );
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
     case 16:
 	return qt_conv16ToRgb(((ushort*)s)[x]);
 #endif
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     case 32:
 	return ((TQRgb*)s)[x];
 #endif
@@ -2324,12 +2324,12 @@ void TQImage::setPixel( int x, int y, uint index_or_rgb )
 	}
 	uchar * s = scanLine( y );
 	s[x] = index_or_rgb;
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
     } else if ( depth() == 16 ) {
 	ushort * s = (ushort*)scanLine( y );
 	s[x] = qt_convRgbTo16(index_or_rgb);
 #endif
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     } else if ( depth() == 32 ) {
 	TQRgb * s = (TQRgb*)scanLine( y );
 	s[x] = index_or_rgb;
@@ -2363,7 +2363,7 @@ TQImage TQImage::convertBitOrder( Endian bitOrder ) const
 
     int bpl = (width() + 7) / 8;
     for ( int y = 0; y < data->h; y++ ) {
-	register uchar *p = jumpTable()[y];
+	uchar *p = jumpTable()[y];
 	uchar *end = p + bpl;
 	uchar *b = image.jumpTable()[y];
 	while ( p < end )
@@ -2392,14 +2392,14 @@ bool isGray(TQRgb c)
 */
 bool TQImage::allGray() const
 {
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     if (depth()==32) {
 	int p = width()*height();
 	TQRgb* b = (TQRgb*)bits();
 	while (p--)
 	    if (!isGray(*b++))
 		return FALSE;
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
     } else if (depth()==16) {
 	int p = width()*height();
 	ushort* b = (ushort*)bits();
@@ -2408,7 +2408,7 @@ bool TQImage::allGray() const
 		return FALSE;
 #endif
     } else
-#endif //QT_NO_IMAGE_TRUECOLOR
+#endif //TQT_NO_IMAGE_TRUECOLOR
 	{
 	if (!data->ctbl) return TRUE;
 	for (int i=0; i<numColors(); i++)
@@ -2431,13 +2431,13 @@ bool TQImage::allGray() const
 bool TQImage::isGrayscale() const
 {
     switch (depth()) {
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     case 32:
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
     case 16:
 #endif
 	return allGray();
-#endif //QT_NO_IMAGE_TRUECOLOR
+#endif //TQT_NO_IMAGE_TRUECOLOR
     case 8: {
 	for (int i=0; i<numColors(); i++)
 	    if (data->ctbl[i] != tqRgb(i,i,i))
@@ -2448,20 +2448,20 @@ bool TQImage::isGrayscale() const
     return FALSE;
 }
 
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
 static
 void pnmscale(const TQImage& src, TQImage& dst)
 {
     TQRgb* xelrow = 0;
     TQRgb* tempxelrow = 0;
-    register TQRgb* xP;
-    register TQRgb* nxP;
+    TQRgb* xP;
+    TQRgb* nxP;
     int rows, cols, rowsread, newrows, newcols;
-    register int row, col, needtoreadrow;
+    int row, col, needtoreadrow;
     const uchar maxval = 255;
     double xscale, yscale;
     long sxscale, syscale;
-    register long fracrowtofill, fracrowleft;
+    long fracrowtofill, fracrowleft;
     long* as;
     long* rs;
     long* gs;
@@ -2551,11 +2551,11 @@ void pnmscale(const TQImage& src, TQImage& dst)
 		xelrow = (TQRgb*)src.scanLine(rowsread++);
 		needtoreadrow = 0;
 	    }
-	    register long a=0;
+	    long a=0;
 	    for ( col = 0, xP = xelrow, nxP = tempxelrow;
 		  col < cols; ++col, ++xP, ++nxP )
 	    {
-		register long r, g, b;
+		long r, g, b;
 
 		if ( as ) {
 		    r = rs[col] + fracrowtofill * tqRed( *xP ) * tqAlpha( *xP ) / 255;
@@ -2601,9 +2601,9 @@ void pnmscale(const TQImage& src, TQImage& dst)
 	    /* shortcut X scaling if possible */
 	    memcpy(dst.scanLine(rowswritten++), tempxelrow, newcols*4);
 	} else {
-	    register long a, r, g, b;
-	    register long fraccoltofill, fraccolleft = 0;
-	    register int needcol;
+	    long a, r, g, b;
+	    long fraccoltofill, fraccolleft = 0;
+	    int needcol;
 
 	    nxP = (TQRgb*)dst.scanLine(rowswritten++);
 	    fraccoltofill = SCALE;
@@ -2738,7 +2738,7 @@ void pnmscale(const TQImage& src, TQImage& dst)
 	be larger than the requested size.
 */
 
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
 /*!
     Returns a smoothly scaled copy of the image. The returned image
     has a size of width \a w by height \a h pixels if \a mode is \c
@@ -2779,7 +2779,7 @@ TQImage TQImage::smoothScale( int w, int h, ScaleMode mode ) const
 }
 #endif
 
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
 /*!
     \overload
 
@@ -2837,7 +2837,7 @@ TQImage TQImage::smoothScale( const TQSize& s, ScaleMode mode ) const
 
     \sa scaleWidth() scaleHeight() smoothScale() xForm()
 */
-#ifndef QT_NO_IMAGE_TRANSFORMATION
+#ifndef TQT_NO_IMAGE_TRANSFORMATION
 TQImage TQImage::scale( int w, int h, ScaleMode mode ) const
 {
     return scale( TQSize( w, h ), mode );
@@ -2849,7 +2849,7 @@ TQImage TQImage::scale( int w, int h, ScaleMode mode ) const
 
     The requested size of the image is \a s.
 */
-#ifndef QT_NO_IMAGE_TRANSFORMATION
+#ifndef TQT_NO_IMAGE_TRANSFORMATION
 TQImage TQImage::scale( const TQSize& s, ScaleMode mode ) const
 {
     if ( isNull() ) {
@@ -2887,7 +2887,7 @@ TQImage TQImage::scale( const TQSize& s, ScaleMode mode ) const
 
     \sa scale() scaleHeight() smoothScale() xForm()
 */
-#ifndef QT_NO_IMAGE_TRANSFORMATION
+#ifndef TQT_NO_IMAGE_TRANSFORMATION
 TQImage TQImage::scaleWidth( int w ) const
 {
     if ( isNull() ) {
@@ -2916,7 +2916,7 @@ TQImage TQImage::scaleWidth( int w ) const
 
     \sa scale() scaleWidth() smoothScale() xForm()
 */
-#ifndef QT_NO_IMAGE_TRANSFORMATION
+#ifndef TQT_NO_IMAGE_TRANSFORMATION
 TQImage TQImage::scaleHeight( int h ) const
 {
     if ( isNull() ) {
@@ -2946,7 +2946,7 @@ TQImage TQImage::scaleHeight( int h ) const
 
     \sa scale() TQPixmap::xForm() TQPixmap::trueMatrix() TQWMatrix
 */
-#ifndef QT_NO_IMAGE_TRANSFORMATION
+#ifndef TQT_NO_IMAGE_TRANSFORMATION
 TQImage TQImage::xForm( const TQWMatrix &matrix ) const
 {
     // This function uses the same algorithm as (and steals quite some
@@ -3054,7 +3054,7 @@ TQImage TQImage::xForm( const TQWMatrix &matrix ) const
 
     \sa createHeuristicMask() hasAlphaBuffer() setAlphaBuffer()
 */
-#ifndef QT_NO_IMAGE_DITHER_TO_1
+#ifndef TQT_NO_IMAGE_DITHER_TO_1
 TQImage TQImage::createAlphaMask( int conversion_flags ) const
 {
     if ( conversion_flags == 1 ) {
@@ -3078,7 +3078,7 @@ TQImage TQImage::createAlphaMask( int conversion_flags ) const
 }
 #endif
 
-#ifndef QT_NO_IMAGE_HEURISTIC_MASK
+#ifndef TQT_NO_IMAGE_HEURISTIC_MASK
 /*!
     Creates and returns a 1-bpp heuristic mask for this image. It
     works by selecting a color from one of the corners, then chipping
@@ -3190,9 +3190,9 @@ TQImage TQImage::createHeuristicMask( bool clipTight ) const
 
     return m;
 }
-#endif //QT_NO_IMAGE_HEURISTIC_MASK
+#endif //TQT_NO_IMAGE_HEURISTIC_MASK
 
-#ifndef QT_NO_IMAGE_MIRROR
+#ifndef TQT_NO_IMAGE_MIRROR
 /*
   This code is contributed by Philipp Lang,
   GeneriCom Software Germany (www.generi.com)
@@ -3238,8 +3238,8 @@ TQImage TQImage::mirror(bool horizontal, bool vertical) const
 		dsl[dx] = ssl[sx];
 	}
     }
-#ifndef QT_NO_IMAGE_TRUECOLOR
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_16_BIT
     // 16 bit
     else if (depth() == 16) {
 	for (int sy = 0; sy < h; sy++, dy += dyi) {
@@ -3309,7 +3309,7 @@ TQImage TQImage::mirror() const
 {
     return mirror(FALSE,TRUE);
 }
-#endif //QT_NO_IMAGE_MIRROR
+#endif //TQT_NO_IMAGE_MIRROR
 
 /*!
     Returns a TQImage in which the values of the red and blue
@@ -3321,7 +3321,7 @@ TQImage TQImage::swapRGB() const
 {
     TQImage res = copy();
     if ( !isNull() ) {
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
 	if ( depth() == 32 ) {
 	    for ( int i=0; i < height(); i++ ) {
 		uint *p = (uint*)scanLine( i );
@@ -3334,12 +3334,12 @@ TQImage TQImage::swapRGB() const
 		    q++;
 		}
 	    }
-#ifndef QT_NO_IMAGE_16_BIT
+#ifndef TQT_NO_IMAGE_16_BIT
 	} else if ( depth() == 16 ) {
 	    tqWarning( "TQImage::swapRGB not implemented for 16bpp" );
 #endif
 	} else
-#endif //QT_NO_IMAGE_TRUECOLOR
+#endif //TQT_NO_IMAGE_TRUECOLOR
 	    {
 	    uint* p = (uint*)colorTable();
 	    uint* q = (uint*)res.colorTable();
@@ -3356,7 +3356,7 @@ TQImage TQImage::swapRGB() const
     return res;
 }
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 /*!
     Returns a string that specifies the image format of the file \a
     fileName, or 0 if the file cannot be read or if the format is not
@@ -3384,7 +3384,7 @@ TQStrList TQImage::inputFormats()
 {
     return TQImageIO::inputFormats();
 }
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 /*!
     Returns a list of image formats that are supported for image
     input.
@@ -3429,7 +3429,7 @@ TQStringList TQImage::outputFormatList()
 {
     return TQStringList::fromStrList(TQImageIO::outputFormats());
 }
-#endif //QT_NO_STRINGLIST
+#endif //TQT_NO_STRINGLIST
 
 /*!
     Returns a list of image formats that are supported for image
@@ -3568,12 +3568,12 @@ bool TQImage::doImageIO( TQImageIO* io, int quality ) const
 	io->setQuality( TQMIN(quality,100) );
     return io->write();
 }
-#endif //QT_NO_IMAGEIO
+#endif //TQT_NO_IMAGEIO
 
 /*****************************************************************************
   TQImage stream functions
  *****************************************************************************/
-#if !defined(QT_NO_DATASTREAM) && !defined(QT_NO_IMAGEIO)
+#if !defined(TQT_NO_DATASTREAM) && !defined(TQT_NO_IMAGEIO)
 /*!
     \relates TQImage
 
@@ -3640,31 +3640,31 @@ TQDataStream &operator>>( TQDataStream &s, TQImage &image )
  *****************************************************************************/
 
 // standard image io handlers (defined below)
-#ifndef QT_NO_IMAGEIO_BMP
+#ifndef TQT_NO_IMAGEIO_BMP
 static void read_bmp_image( TQImageIO * );
 static void write_bmp_image( TQImageIO * );
 #endif
-#ifndef QT_NO_IMAGEIO_PPM
+#ifndef TQT_NO_IMAGEIO_PPM
 static void read_pbm_image( TQImageIO * );
 static void write_pbm_image( TQImageIO * );
 #endif
-#ifndef QT_NO_IMAGEIO_XBM
+#ifndef TQT_NO_IMAGEIO_XBM
 static void read_xbm_image( TQImageIO * );
 static void write_xbm_image( TQImageIO * );
 #endif
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
 static void read_xpm_image( TQImageIO * );
 static void write_xpm_image( TQImageIO * );
 #endif
 
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 static void read_async_image( TQImageIO * ); // Not in table of handlers
 #endif
 
 /*****************************************************************************
   Misc. utility functions
  *****************************************************************************/
-#if !defined(QT_NO_IMAGEIO_XPM) || !defined(QT_NO_IMAGEIO_XBM)
+#if !defined(TQT_NO_IMAGEIO_XPM) || !defined(TQT_NO_IMAGEIO_XBM)
 static TQString fbname( const TQString &fileName ) // get file basename (sort of)
 {
     TQString s = fileName;
@@ -3687,12 +3687,12 @@ static TQString fbname( const TQString &fileName ) // get file basename (sort of
 }
 #endif
 
-#ifndef QT_NO_IMAGEIO_BMP
+#ifndef TQT_NO_IMAGEIO_BMP
 static void swapPixel01( TQImage *image )	// 1-bpp: swap 0 and 1 pixels
 {
     int i;
     if ( image->depth() == 1 && image->numColors() == 2 ) {
-	register uint *p = (uint *)image->bits();
+	uint *p = (uint *)image->bits();
 	int nbytes = image->numBytes();
 	for ( i=0; i<nbytes/4; i++ ) {
 	    *p = ~*p;
@@ -3756,7 +3756,7 @@ static void swapPixel01( TQImage *image )	// 1-bpp: swap 0 and 1 pixels
     \sa TQImage TQPixmap TQFile TQMovie
 */
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 struct TQImageIOData
 {
     const char *parameters;
@@ -3855,7 +3855,7 @@ TQImageHandler::TQImageHandler( const char *f, const char *h, const TQCString& f
 
 typedef TQPtrList<TQImageHandler> TQIHList;// list of image handlers
 static TQIHList *imageHandlers = 0;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 static TQPluginManager<TQImageFormatInterface> *plugin_manager = 0;
 #else
 static void *plugin_manager = 0;
@@ -3863,7 +3863,7 @@ static void *plugin_manager = 0;
 
 void tqt_init_image_plugins()
 {
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     if ( plugin_manager )
 	return;
 
@@ -3887,7 +3887,7 @@ static void cleanup()
     // make sure that image handlers are delete before plugin manager
     delete imageHandlers;
     imageHandlers = 0;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     delete plugin_manager;
     plugin_manager = 0;
 #endif
@@ -3900,11 +3900,11 @@ void tqt_init_image_handlers()		// initialize image handlers
 	TQ_CHECK_PTR( imageHandlers );
 	imageHandlers->setAutoDelete( TRUE );
 	tqAddPostRoutine( cleanup );
-#ifndef QT_NO_IMAGEIO_BMP
+#ifndef TQT_NO_IMAGEIO_BMP
 	TQImageIO::defineIOHandler( "BMP", "^BM", 0,
 				   read_bmp_image, write_bmp_image );
 #endif
-#ifndef QT_NO_IMAGEIO_PPM
+#ifndef TQT_NO_IMAGEIO_PPM
 	TQImageIO::defineIOHandler( "PBM", "^P1", "t",
 				   read_pbm_image, write_pbm_image );
 	TQImageIO::defineIOHandler( "PBMRAW", "^P4", "O",
@@ -3918,21 +3918,21 @@ void tqt_init_image_handlers()		// initialize image handlers
 	TQImageIO::defineIOHandler( "PPMRAW", "^P6", "O",
 				   read_pbm_image, write_pbm_image );
 #endif
-#ifndef QT_NO_IMAGEIO_XBM
+#ifndef TQT_NO_IMAGEIO_XBM
 	TQImageIO::defineIOHandler( "XBM", "^((/\\*(?!.XPM.\\*/))|#define)", "T",
 				   read_xbm_image, write_xbm_image );
 #endif
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
 	TQImageIO::defineIOHandler( "XPM", "/\\*.XPM.\\*/", "T",
 				   read_xpm_image, write_xpm_image );
 #endif
-#ifndef QT_NO_IMAGEIO_MNG
+#ifndef TQT_NO_IMAGEIO_MNG
 	qInitMngIO();
 #endif
-#ifndef QT_NO_IMAGEIO_PNG
+#ifndef TQT_NO_IMAGEIO_PNG
 	qInitPngIO();
 #endif
-#ifndef QT_NO_IMAGEIO_JPEG
+#ifndef TQT_NO_IMAGEIO_JPEG
 	qInitJpegIO();
 #endif
     }
@@ -3942,7 +3942,7 @@ static TQImageHandler *get_image_handler( const char *format )
 {						// get pointer to handler
     tqt_init_image_handlers();
     tqt_init_image_plugins();
-    register TQImageHandler *p = imageHandlers->first();
+    TQImageHandler *p = imageHandlers->first();
     while ( p ) {				// traverse list
 	if ( p->format == format )
 	    return p;
@@ -4310,7 +4310,7 @@ const char *TQImageIO::imageFormat( TQIODevice *d )
 	}
     }
     d->at( pos );				// restore position
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
     if ( !format )
 	format = TQImageDecoder::formatName( (uchar*)buf2, rdlen );
 #endif
@@ -4329,7 +4329,7 @@ TQStrList TQImageIO::inputFormats()
     tqt_init_image_handlers();
     tqt_init_image_plugins();
 
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
     // Include asynchronous loaders first.
     result = TQImageDecoder::inputFormats();
 #endif
@@ -4451,7 +4451,7 @@ bool TQImageIO::read()
     if ( h && h->read_image ) {
 	(*h->read_image)( this );
     }
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
     else {
 	// Format name, but no handler - must be an asychronous reader
 	read_async_image( this );
@@ -4524,9 +4524,9 @@ bool TQImageIO::write()
     }
     return iostat == 0;				// image successfully written?
 }
-#endif //QT_NO_IMAGEIO
+#endif //TQT_NO_IMAGEIO
 
-#ifndef QT_NO_IMAGEIO_BMP
+#ifndef TQT_NO_IMAGEIO_BMP
 
 /*****************************************************************************
   BMP (DIB) image read/write functions
@@ -4667,6 +4667,8 @@ bool read_dib( TQDataStream& s, int offset, int startpos, TQImage& image )
     if ( !(comp == BMP_RGB || (nbits == 4 && comp == BMP_RLE4) ||
 	(nbits == 8 && comp == BMP_RLE8) || ((nbits == 16 || nbits == 32) && comp == BMP_BITFIELDS)) )
 	 return FALSE;				// weird compression type
+    if ((w < 0) || ((w * abs(h)) > (16384 * 16384)))
+        return FALSE;
 
     int ncols;
     int depth;
@@ -4743,7 +4745,7 @@ bool read_dib( TQDataStream& s, int offset, int startpos, TQImage& image )
 	d->at( startpos + offset );		// start of image data
 
     int	     bpl = image.bytesPerLine();
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     //
     // Guess the number of bytes-per-line if we don't know how much
     // image data is in the file (bogus image ?).
@@ -4759,7 +4761,7 @@ bool read_dib( TQDataStream& s, int offset, int startpos, TQImage& image )
 	while ( --h >= 0 ) {
 	    if ( d->readBlock((char*)line[h],bpl) != bpl )
 		break;
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 	    if ( pad > 0 )
 		d->at(d->at()+pad);
 #endif
@@ -4774,7 +4776,7 @@ bool read_dib( TQDataStream& s, int offset, int startpos, TQImage& image )
 	TQ_CHECK_PTR( buf );
 	if ( comp == BMP_RLE4 ) {		// run length compression
 	    int x=0, y=0, b, c, i;
-	    register uchar *p = line[h-1];
+	    uchar *p = line[h-1];
 	    uchar *endp = line[h-1]+w;
 	    while ( y < h ) {
 		if ( (b=d->getch()) == EOF )
@@ -4839,7 +4841,7 @@ bool read_dib( TQDataStream& s, int offset, int startpos, TQImage& image )
 	    while ( --h >= 0 ) {
 		if ( d->readBlock((char*)buf,buflen) != buflen )
 		    break;
-		register uchar *p = line[h];
+		uchar *p = line[h];
 		uchar *b = buf;
 		for ( int i=0; i<w/2; i++ ) {	// convert nibbles to bytes
 		    *p++ = *b >> 4;
@@ -4855,7 +4857,7 @@ bool read_dib( TQDataStream& s, int offset, int startpos, TQImage& image )
     else if ( nbits == 8 ) {			// 8 bit BMP image
 	if ( comp == BMP_RLE8 ) {		// run length compression
 	    int x=0, y=0, b;
-	    register uchar *p = line[h-1];
+	    uchar *p = line[h-1];
 	    const uchar *endp = line[h-1]+w;
 	    while ( y < h ) {
 		if ( (b=d->getch()) == EOF )
@@ -4909,7 +4911,7 @@ bool read_dib( TQDataStream& s, int offset, int startpos, TQImage& image )
 	    while ( --h >= 0 ) {
 		if ( d->readBlock((char *)line[h],bpl) != bpl )
 		    break;
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 		if ( pad > 0 )
 		    d->at(d->at()+pad);
 #endif
@@ -4918,7 +4920,7 @@ bool read_dib( TQDataStream& s, int offset, int startpos, TQImage& image )
     }
 
     else if ( nbits == 16 || nbits == 24 || nbits == 32 ) { // 16,24,32 bit BMP image
-	register TQRgb *p;
+	TQRgb *p;
 	TQRgb  *end;
 	uchar *buf24 = new uchar[bpl];
 	int    bpl24 = ((w*nbits+31)/32)*4;
@@ -4987,7 +4989,7 @@ bool qt_write_dib( TQDataStream& s, TQImage image )
     } else if ( image.depth() == 32 ) {
 	bpl_bmp = ((image.width()*24+31)/32)*4;
 	nbits = 24;
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     } else if ( image.depth() == 1 || image.depth() == 8 ) {
 	// TQt/E doesn't word align.
 	bpl_bmp = ((image.width()*image.depth()+31)/32)*4;
@@ -5033,14 +5035,14 @@ bool qt_write_dib( TQDataStream& s, TQImage image )
     int	 y;
 
     if ( nbits == 1 || nbits == 8 ) {		// direct output
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 	// TQt/E doesn't word align.
 	int pad = bpl_bmp - bpl;
 	char padding[4];
 #endif
 	for ( y=image.height()-1; y>=0; y-- ) {
 	    d->writeBlock( (char*)image.scanLine(y), bpl );
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 	    d->writeBlock( padding, pad );
 #endif
 	}
@@ -5049,7 +5051,7 @@ bool qt_write_dib( TQDataStream& s, TQImage image )
 
     uchar *buf	= new uchar[bpl_bmp];
     uchar *b, *end;
-    register uchar *p;
+    uchar *p;
 
     memset( buf, 0, bpl_bmp );
     for ( y=image.height()-1; y>=0; y-- ) {	// write the image bits
@@ -5115,9 +5117,9 @@ static void write_bmp_image( TQImageIO *iio )
 
 }
 
-#endif // QT_NO_IMAGEIO_BMP
+#endif // TQT_NO_IMAGEIO_BMP
 
-#ifndef QT_NO_IMAGEIO_PPM
+#ifndef TQT_NO_IMAGEIO_PPM
 
 /*****************************************************************************
   PBM/PGM/PPM (ASCII and RAW) image read/write functions
@@ -5194,7 +5196,7 @@ static void read_pbm_image( TQImageIO *iio )	// read PBM image data
 	mcc = 1;				// ignore max color component
     else
 	mcc = read_pbm_int( d );		// get max color component
-    if ( w <= 0 || w > 32767 || h <= 0 || h > 32767 || mcc <= 0 )
+    if ( w <= 0 || w > 32767 || h <= 0 || h > 32767 || mcc <= 0 || mcc > 0xffff )
 	return;					// weird P.M image
 
     int maxc = mcc;
@@ -5235,7 +5237,7 @@ static void read_pbm_image( TQImageIO *iio )	// read PBM image data
 	    }
 	}
     } else {					// read ascii data
-	register uchar *p;
+	uchar *p;
 	int n;
 	for ( y=0; y<h; y++ ) {
 	    p = image.scanLine( y );
@@ -5423,9 +5425,9 @@ static void write_pbm_image( TQImageIO *iio )
     iio->setStatus(0);
 }
 
-#endif // QT_NO_IMAGEIO_PPM
+#endif // TQT_NO_IMAGEIO_PPM
 
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 
 class TQImageIOFrameGrabber : public TQImageConsumer {
 public:
@@ -5493,15 +5495,15 @@ static void read_async_image( TQImageIO *iio )
     delete consumer;
 }
 
-#endif // QT_NO_ASYNC_IMAGE_IO
+#endif // TQT_NO_ASYNC_IMAGE_IO
 
-#ifndef QT_NO_IMAGEIO_XBM
+#ifndef TQT_NO_IMAGEIO_XBM
 
 /*****************************************************************************
   X bitmap image read/write functions
  *****************************************************************************/
 
-static inline int hex2byte( register char *p )
+static inline int hex2byte( char *p )
 {
     return ( (isdigit((uchar) *p) ? *p - '0' : toupper((uchar) *p) - 'A' + 10) << 4 ) |
 	   ( isdigit((uchar) *(p+1)) ? *(p+1) - '0' : toupper((uchar) *(p+1)) - 'A' + 10 );
@@ -5510,18 +5512,32 @@ static inline int hex2byte( register char *p )
 static void read_xbm_image( TQImageIO *iio )
 {
     const int	buflen = 300;
+    const int	maxlen = 4096;
     char	buf[buflen];
     TQRegExp	r1, r2;
     TQIODevice  *d = iio->ioDevice();
     int		w=-1, h=-1;
     TQImage	image;
+    TQ_INT64	readBytes = 0;
+    TQ_INT64	totalReadBytes = 0;
 
     r1 = TQString::fromLatin1("^#define[ \t]+[a-zA-Z0-9._]+[ \t]+");
     r2 = TQString::fromLatin1("[0-9]+");
-    d->readLine( buf, buflen );		// "#define .._width <num>"
 
-    while (!d->atEnd() && buf[0] != '#') //skip leading comment, if any
-        d->readLine( buf, buflen );
+    buf[0] = '\0';
+    while (buf[0] != '#') { //skip leading comment, if any
+        readBytes = d->readLine(buf, buflen);
+
+        // if readBytes >= buflen, it's very probably not a C file
+        if ((readBytes <= 0) || (readBytes >= (buflen-1)))
+            return;
+
+        // limit xbm headers to the first 4k in the file to prevent
+        // excessive reads on non-xbm files
+        totalReadBytes += readBytes;
+        if (totalReadBytes >= maxlen)
+            return;
+    }
 
     TQString sbuf;
     sbuf = TQString::fromLatin1(buf);
@@ -5530,7 +5546,10 @@ static void read_xbm_image( TQImageIO *iio )
 	 r2.search(sbuf, r1.matchedLength()) == r1.matchedLength() )
 	w = atoi( &buf[r1.matchedLength()] );
 
-    d->readLine( buf, buflen );			// "#define .._height <num>"
+    readBytes = d->readLine(buf, buflen );		// "#define .._height <num>"
+    if (readBytes <= 0) {
+        return;
+    }
     sbuf = TQString::fromLatin1(buf);
 
     if ( r1.search(sbuf) == 0 &&
@@ -5541,8 +5560,11 @@ static void read_xbm_image( TQImageIO *iio )
 	return;					// format error
 
     for ( ;; ) {				// scan for data
-	if ( d->readLine(buf, buflen) <= 0 )	// end of file
+	readBytes = d->readLine(buf, buflen);
+	if (readBytes <= 0) {	// end of file
 	    return;
+	}
+	buf[readBytes] = '\0';
 	if ( strstr(buf,"0x") != 0 )		// does line contain data?
 	    break;
     }
@@ -5560,7 +5582,10 @@ static void read_xbm_image( TQImageIO *iio )
     w = (w+7)/8;				// byte width
 
     while ( y < h ) {				// for all encoded bytes...
-	if ( p ) {				// p = "0x.."
+	if (p && (p < (buf + readBytes - 3))) {      // p = "0x.."
+	    if (!isxdigit(p[2]) || !isxdigit(p[3])) {
+		return;
+	    }
 	    *b++ = hex2byte(p+2);
 	    p += 2;
 	    if ( ++x == w && ++y < h ) {
@@ -5569,8 +5594,10 @@ static void read_xbm_image( TQImageIO *iio )
 	    }
 	    p = strstr( p, "0x" );
 	} else {				// read another line
-	    if ( d->readLine(buf,buflen) <= 0 )	// EOF ==> truncated image
+	    readBytes = d->readLine(buf, buflen);
+	    if (readBytes <= 0)	// EOF ==> truncated image
 		break;
+	    buf[readBytes] = '\0';
 	    p = strstr( buf, "0x" );
 	}
     }
@@ -5619,7 +5646,7 @@ static void write_xbm_image( TQImageIO *iio )
 	}
     }
     int bcnt = 0;
-    register char *p = buf;
+    char *p = buf;
     int bpl = (w+7)/8;
     for (int y = 0; y < h; ++y) {
         uchar *b = image.scanLine(y);
@@ -5651,10 +5678,10 @@ static void write_xbm_image( TQImageIO *iio )
     delete [] buf;
 }
 
-#endif // QT_NO_IMAGEIO_XBM
+#endif // TQT_NO_IMAGEIO_XBM
 
 
-#ifndef QT_NO_IMAGEIO_XPM
+#ifndef TQT_NO_IMAGEIO_XPM
 
 /*****************************************************************************
   XPM image read/write functions
@@ -5993,7 +6020,7 @@ static void write_xpm_image( TQImageIO * iio )
     iio->setStatus( 0 );
 }
 
-#endif // QT_NO_IMAGEIO_XPM
+#endif // TQT_NO_IMAGEIO_XPM
 
 /*!
     Returns an image with depth \a d, using the \a palette_count
@@ -6013,7 +6040,7 @@ static void write_xpm_image( TQImageIO * iio )
 
     \sa TQt::ImageConversionFlags
 */
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
 TQImage TQImage::convertDepthWithPalette( int d, TQRgb* palette, int palette_count, int conversion_flags ) const
 {
     if ( depth() == 1 ) {
@@ -6096,7 +6123,7 @@ void bitBlt( TQImage* dst, int dx, int dy, const TQImage* src,
 	{
 	    // easy to copy
 	} else if ( dst->depth() != 32 ) {
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
 
 	    TQImage dstconv = dst->convertDepth( 32 );
 	    bitBlt( &dstconv, dx, dy, src, sx, sy, sw, sh,
@@ -6180,7 +6207,7 @@ void bitBlt( TQImage* dst, int dx, int dy, const TQImage* src,
 	    }
 	}
 	break;
-#ifndef QT_NO_IMAGE_TRUECOLOR
+#ifndef TQT_NO_IMAGE_TRUECOLOR
     case 32:
 	if ( src->hasAlphaBuffer() ) {
 	    TQRgb* d = (TQRgb*)dst->scanLine(dy) + dx;
@@ -6232,7 +6259,7 @@ void bitBlt( TQImage* dst, int dx, int dy, const TQImage* src,
 	    }
 	}
 	break;
-#endif // QT_NO_IMAGE_TRUECOLOR
+#endif // TQT_NO_IMAGE_TRUECOLOR
     }
 }
 
@@ -6353,7 +6380,7 @@ void TQImage::setOffset(const TQPoint& p)
 {
     data->offset = p;
 }
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
 /*!
     \internal
 
@@ -6471,9 +6498,9 @@ void TQImage::setText(const char* key, const char* lang, const TQString& s)
     misc().text_lang.replace(x,s);
 }
 
-#endif // QT_NO_IMAGE_TEXT
+#endif // TQT_NO_IMAGE_TEXT
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 /*!
     \internal
 */

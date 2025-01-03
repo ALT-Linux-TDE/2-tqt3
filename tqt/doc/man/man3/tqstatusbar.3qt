@@ -11,21 +11,21 @@ QStatusBar \- Horizontal bar suitable for presenting status information
 .SH SYNOPSIS
 \fC#include <ntqstatusbar.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQStatusBar\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQStatusBar\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "virtual \fB~QStatusBar\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBaddWidget\fR ( QWidget * widget, int stretch = 0, bool permanent = FALSE )"
+.BI "virtual void \fBaddWidget\fR ( TQWidget * widget, int stretch = 0, bool permanent = FALSE )"
 .br
 .ti -1c
-.BI "virtual void \fBremoveWidget\fR ( QWidget * widget )"
+.BI "virtual void \fBremoveWidget\fR ( TQWidget * widget )"
 .br
 .ti -1c
 .BI "void \fBsetSizeGripEnabled\fR ( bool )"
@@ -37,10 +37,10 @@ Inherits QWidget.
 .SS "Public Slots"
 .in +1c
 .ti -1c
-.BI "void \fBmessage\fR ( const QString & message )"
+.BI "void \fBmessage\fR ( const TQString & message )"
 .br
 .ti -1c
-.BI "void \fBmessage\fR ( const QString & message, int ms )"
+.BI "void \fBmessage\fR ( const TQString & message, int ms )"
 .br
 .ti -1c
 .BI "void \fBclear\fR ()"
@@ -49,7 +49,7 @@ Inherits QWidget.
 .SS "Signals"
 .in +1c
 .ti -1c
-.BI "void \fBmessageChanged\fR ( const QString & message )"
+.BI "void \fBmessageChanged\fR ( const TQString & message )"
 .br
 .in -1c
 .SS "Properties"
@@ -87,9 +87,9 @@ To display a \fItemporary\fR message, call message() (perhaps by connecting a su
 .PP
 .nf
 .br
-        connect( loader, SIGNAL(progressMessage(const QString&)),
+        connect( loader, TQ_SIGNAL(progressMessage(const TQString&)),
 .br
-                 statusBar(), SLOT(message(const QString&)) );
+                 statusBar(), TQ_SLOT(message(const TQString&)) );
 .br
 .br
         statusBar()->message("Loading...");  // Initial message
@@ -119,13 +119,13 @@ By default QStatusBar provides a QSizeGrip in the lower-right corner. You can di
 .PP
 See also QToolBar, QMainWindow, QLabel, GUI Design Handbook: Status Bar, Main Window and Related Classes, and Help System.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStatusBar::QStatusBar ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QStatusBar::QStatusBar ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a status bar called \fIname\fR with parent \fIparent\fR and with a size grip.
 .PP
 See also sizeGripEnabled.
 .SH "QStatusBar::~QStatusBar ()\fC [virtual]\fR"
 Destroys the status bar and frees any allocated resources and child widgets.
-.SH "void QStatusBar::addWidget ( QWidget * widget, int stretch = 0, bool permanent = FALSE )\fC [virtual]\fR"
+.SH "void QStatusBar::addWidget ( TQWidget * widget, int stretch = 0, bool permanent = FALSE )\fC [virtual]\fR"
 Adds \fIwidget\fR to this status bar. \fIwidget\fR is reparented if it isn't already a child of the QStatusBar.
 .PP
 \fIwidget\fR is permanently visible if \fIpermanent\fR is TRUE and may be obscured by temporary messages if \fIpermanent\fR is FALSE. The default is FALSE.
@@ -145,27 +145,27 @@ See also message().
 Ensures that the right widgets are visible. Used by message() and clear().
 .SH "bool QStatusBar::isSizeGripEnabled () const"
 Returns TRUE if the QSizeGrip in the bottom right of the status bar is enabled; otherwise returns FALSE. See the "sizeGripEnabled" property for details.
-.SH "void QStatusBar::message ( const QString & message )\fC [slot]\fR"
+.SH "void QStatusBar::message ( const TQString & message )\fC [slot]\fR"
 Hides the normal status indicators and displays \fImessage\fR until clear() or another message() is called.
 .PP
 See also clear().
 .PP
 Example: regexptester/regexptester.cpp.
-.SH "void QStatusBar::message ( const QString & message, int ms )\fC [slot]\fR"
+.SH "void QStatusBar::message ( const TQString & message, int ms )\fC [slot]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Hides the normal status indications and displays \fImessage\fR for \fIms\fR milli-seconds or until clear() or another message() is called, whichever occurs first.
-.SH "void QStatusBar::messageChanged ( const QString & message )\fC [signal]\fR"
+.SH "void QStatusBar::messageChanged ( const TQString & message )\fC [signal]\fR"
 This signal is emitted when the temporary status messages changes. \fImessage\fR is the new temporary message, and is a null-string when the message has been removed.
 .PP
 See also message() and clear().
 .SH "void QStatusBar::paintEvent ( QPaintEvent * )\fC [virtual protected]\fR"
 Shows the temporary message, if appropriate.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "void QStatusBar::reformat ()\fC [protected]\fR"
 Changes the status bar's appearance to account for item changes. Special subclasses may need this, but geometry management will usually take care of any necessary rearrangements.
-.SH "void QStatusBar::removeWidget ( QWidget * widget )\fC [virtual]\fR"
+.SH "void QStatusBar::removeWidget ( TQWidget * widget )\fC [virtual]\fR"
 Removes \fIwidget\fR from the status bar.
 .PP
 This function may cause some flicker.
@@ -197,8 +197,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

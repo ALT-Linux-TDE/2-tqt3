@@ -46,13 +46,13 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_STYLE
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_STYLE
+#ifndef TQT_NO_COMPONENT
 
 class TQStyle;
 class TQStylePluginPrivate;
 
-class Q_EXPORT TQStylePlugin : public TQGPlugin
+class TQ_EXPORT TQStylePlugin : public TQGPlugin
 {
     TQ_OBJECT
 public:
@@ -66,7 +66,7 @@ private:
     TQStylePluginPrivate *d;
 };
 
-#endif // QT_NO_COMPONENT
-#endif // QT_NO_STYLE
+#endif // TQT_NO_COMPONENT
+#endif // TQT_NO_STYLE
 
 #endif // TQSTYLEPLUGIN_H

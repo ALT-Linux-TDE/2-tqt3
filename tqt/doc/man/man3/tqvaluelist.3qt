@@ -9,7 +9,7 @@
 .SH NAME
 QValueList \- Value-based template class that provides lists
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqvaluelist.h>\fR
 .PP
@@ -228,13 +228,13 @@ Inherited by QCanvasItemList, QStringList, and QValueStack.
 .SH DESCRIPTION
 The QValueList class is a value-based template class that provides lists.
 .PP
-QValueList is a Qt implementation of an STL-like list container. It can be used in your application if the standard \fClist\fR is not available for your target platform(s). QValueList is part of the Qt Template Library.
+QValueList is a TQt implementation of an STL-like list container. It can be used in your application if the standard \fClist\fR is not available for your target platform(s). QValueList is part of the TQt Template Library.
 .PP
 QValueList<T> defines a template instance to create a list of values that all have the class T. Note that QValueList does not store pointers to the members of the list; it holds a copy of every member. This is why these kinds of classes are called "value based"; QPtrList and QDict are "pointer based".
 .PP
 QValueList contains and manages a collection of objects of type T and provides iterators that allow the contained objects to be addressed. QValueList owns the contained items. For more relaxed ownership semantics, see QPtrCollection and friends which are pointer-based containers.
 .PP
-Some classes cannot be used within a QValueList, for example, all classes derived from QObject and thus all classes that implement widgets. Only values can be used in a QValueList. To qualify as a value the class must provide:
+Some classes cannot be used within a QValueList, for example, all classes derived from TQObject and thus all classes that implement widgets. Only values can be used in a QValueList. To qualify as a value the class must provide:
 .TP
 a copy constructor;
 .TP
@@ -246,7 +246,7 @@ Note that C++ defaults to field-by-field assignment operators and copy construct
 .PP
 In addition, some compilers (e.g. Sun CC) might require that the class provides an equality operator (operator==()).
 .PP
-QValueList's function naming is consistent with the other Qt classes (e.g. count(), isEmpty()). QValueList also provides extra functions for compatibility with STL algorithms, such as size() and empty(). Programmers already familiar with the STL \fClist\fR may prefer to use the STL-compatible functions.
+QValueList's function naming is consistent with the other TQt classes (e.g. count(), isEmpty()). QValueList also provides extra functions for compatibility with STL algorithms, such as size() and empty(). Programmers already familiar with the STL \fClist\fR may prefer to use the STL-compatible functions.
 .PP
 Example:
 .PP
@@ -260,16 +260,16 @@ Example:
 .br
         Employee(): sn(0) {}
 .br
-        Employee( const QString& forename, const QString& surname, int salary )
+        Employee( const TQString& forename, const TQString& surname, int salary )
 .br
             : fn(forename), sn(surname), sal(salary)
 .br
         {}
 .br
 .br
-        QString forename() const { return fn; }
+        TQString forename() const { return fn; }
 .br
-        QString surname() const { return sn; }
+        TQString surname() const { return sn; }
 .br
         int salary() const { return sal; }
 .br
@@ -278,9 +278,9 @@ Example:
 .br
     private:
 .br
-        QString fn;
+        TQString fn;
 .br
-        QString sn;
+        TQString sn;
 .br
         int sal;
 .br
@@ -389,7 +389,7 @@ There are several ways to insert items into the list. The prepend() and append()
 .PP
 Items can also be removed from the list in several ways. There are several variants of the remove() function, which removes a specific item from the list. The remove() function will find and remove items according to a specific item value.
 .PP
-Lists can also be sorted using the Qt Template Library. For example with qHeapSort():
+Lists can also be sorted using the TQt Template Library. For example with qHeapSort():
 .PP
 Example:
 .PP
@@ -409,7 +409,7 @@ Example:
 .br
 .fi
 .PP
-See also QValueListIterator, Qt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
+See also QValueListIterator, TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
 .SH "QValueList::ConstIterator"
 This iterator is an instantiation of QValueListConstIterator for the same type as this QValueList. In other words, if you instantiate QValueList<int>, ConstIterator is a QValueListConstIterator<int>. Several member function use it, such as QValueList::begin(), which returns an iterator pointing to the first item in the list.
@@ -744,8 +744,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

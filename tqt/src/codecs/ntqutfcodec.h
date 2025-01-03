@@ -45,9 +45,9 @@
 #include "ntqtextcodec.h"
 #endif // QT_H
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 
-class Q_EXPORT TQUtf8Codec : public TQTextCodec {
+class TQ_EXPORT TQUtf8Codec : public TQTextCodec {
 public:
     virtual int mibEnum() const;
     const char* name() const;
@@ -63,7 +63,7 @@ public:
     int heuristicContentMatch(const char* chars, int len) const;
 };
 
-class Q_EXPORT TQUtf16Codec : public TQTextCodec {
+class TQ_EXPORT TQUtf16Codec : public TQTextCodec {
 public:
     virtual int mibEnum() const;
     const char* name() const;
@@ -74,5 +74,5 @@ public:
     int heuristicContentMatch(const char* chars, int len) const;
 };
 
-#endif //QT_NO_TEXTCODEC
+#endif //TQT_NO_TEXTCODEC
 #endif // TQUTFCODEC_H

@@ -184,16 +184,16 @@ private:
 
 <a name="x1250"></a>    rotS-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( -180, 180 );
 <a name="x1261"></a>    rotS-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
-<a name="x1263"></a>    <a href="ntqobject.html#connect">connect</a>( rotS, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), SLOT(newMtx()) );
+<a name="x1263"></a>    <a href="ntqobject.html#connect">connect</a>( rotS, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), TQ_SLOT(newMtx()) );
 
     shearLCD-&gt;<a href="ntqlcdnumber.html#display">display</a>( "0.00" );
 
     shearS-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( -25, 25 );
     shearS-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
-    <a href="ntqobject.html#connect">connect</a>( shearS, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), SLOT(newMtx()) );
+    <a href="ntqobject.html#connect">connect</a>( shearS, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), TQ_SLOT(newMtx()) );
 
 <a name="x1220"></a>    mirror-&gt;<a href="ntqbutton.html#setText">setText</a>( <a href="ntqobject.html#tr">tr</a>("Mirror") );
-    <a href="ntqobject.html#connect">connect</a>( mirror, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(newMtx()) );
+    <a href="ntqobject.html#connect">connect</a>( mirror, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(newMtx()) );
 
     <a href="ntqbuttongroup.html">TQButtonGroup</a> *bg = new <a href="ntqbuttongroup.html">TQButtonGroup</a>(this);
 <a name="x1267"></a>    bg-&gt;<a href="ntqwidget.html#hide">hide</a>();
@@ -204,23 +204,23 @@ private:
     rb_img-&gt;<a href="ntqbutton.html#setText">setText</a>( <a href="ntqobject.html#tr">tr</a>("Image") );
 <a name="x1249"></a>    rb_img-&gt;<a href="ntqradiobutton.html#setChecked">setChecked</a>(TRUE);
     rb_pic-&gt;<a href="ntqbutton.html#setText">setText</a>( <a href="ntqobject.html#tr">tr</a>("Picture") );
-<a name="x1221"></a>    <a href="ntqobject.html#connect">connect</a>( bg, SIGNAL(<a href="ntqbuttongroup.html#clicked">clicked</a>(int)), SLOT(changeMode(int)) );
+<a name="x1221"></a>    <a href="ntqobject.html#connect">connect</a>( bg, TQ_SIGNAL(<a href="ntqbuttongroup.html#clicked">clicked</a>(int)), TQ_SLOT(changeMode(int)) );
 
     fpb-&gt;<a href="ntqbutton.html#setText">setText</a>( <a href="ntqobject.html#tr">tr</a>("Select font...") );
-    <a href="ntqobject.html#connect">connect</a>( fpb, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(selectFont()) );
+    <a href="ntqobject.html#connect">connect</a>( fpb, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(selectFont()) );
 
 <a name="x1230"></a>    textEd-&gt;<a href="ntqlineedit.html#setText">setText</a>( "Troll" );
-<a name="x1231"></a>    <a href="ntqobject.html#connect">connect</a>( textEd, SIGNAL(<a href="ntqlineedit.html#textChanged">textChanged</a>(const <a href="ntqstring.html">TQString</a>&amp;)),
-                     SLOT(newTxt(const <a href="ntqstring.html">TQString</a>&amp;)) );
+<a name="x1231"></a>    <a href="ntqobject.html#connect">connect</a>( textEd, TQ_SIGNAL(<a href="ntqlineedit.html#textChanged">textChanged</a>(const <a href="ntqstring.html">TQString</a>&amp;)),
+                     TQ_SLOT(newTxt(const <a href="ntqstring.html">TQString</a>&amp;)) );
 
     magLCD = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 4,optionals_other, "magLCD" );
     magLCD-&gt;<a href="ntqlcdnumber.html#display">display</a>( "100" );
     magS = new <a href="ntqslider.html">TQSlider</a>( TQSlider::Horizontal, optionals_other,
                            "magnifySlider" );
     magS-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 0, 800 );
-    <a href="ntqobject.html#connect">connect</a>( magS, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), SLOT(newMtx()) );
+    <a href="ntqobject.html#connect">connect</a>( magS, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), TQ_SLOT(newMtx()) );
     magS-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
-    <a href="ntqobject.html#connect">connect</a>( magS, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), magLCD, SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)));
+    <a href="ntqobject.html#connect">connect</a>( magS, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), magLCD, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)));
 
 <a name="x1266"></a>    optionals_text-&gt;<a href="ntqwidget.html#adjustSize">adjustSize</a>();
     optionals_other-&gt;<a href="ntqwidget.html#adjustSize">adjustSize</a>();
@@ -519,13 +519,13 @@ void <a name="f395"></a>XFormCenter::newMode( int m )
     <a href="ntqhbox.html#setStretchFactor">setStretchFactor</a>(sx,1);
     xc-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Raised );
 <a name="x1227"></a>    xc-&gt;<a href="ntqframe.html#setLineWidth">setLineWidth</a>( 2 );
-    <a href="ntqobject.html#connect">connect</a>( xc, SIGNAL(newText(const <a href="ntqstring.html">TQString</a>&amp;)), sx,
-                 SLOT(setText(const <a href="ntqstring.html">TQString</a>&amp;)) );
-    <a href="ntqobject.html#connect">connect</a>( xc, SIGNAL(newMatrix(TQWMatrix)),
-             sx, SLOT(setMatrix(TQWMatrix)) );
-    <a href="ntqobject.html#connect">connect</a>( xc, SIGNAL(newFont(const <a href="ntqfont.html">TQFont</a>&amp;)), sx,
-                 SLOT(<a href="ntqwidget.html#setFont">setFont</a>(const <a href="ntqfont.html">TQFont</a>&amp;)) );
-    <a href="ntqobject.html#connect">connect</a>( xc, SIGNAL(newMode(int)), SLOT(newMode(int)) );
+    <a href="ntqobject.html#connect">connect</a>( xc, TQ_SIGNAL(newText(const <a href="ntqstring.html">TQString</a>&amp;)), sx,
+                 TQ_SLOT(setText(const <a href="ntqstring.html">TQString</a>&amp;)) );
+    <a href="ntqobject.html#connect">connect</a>( xc, TQ_SIGNAL(newMatrix(TQWMatrix)),
+             sx, TQ_SLOT(setMatrix(TQWMatrix)) );
+    <a href="ntqobject.html#connect">connect</a>( xc, TQ_SIGNAL(newFont(const <a href="ntqfont.html">TQFont</a>&amp;)), sx,
+                 TQ_SLOT(<a href="ntqwidget.html#setFont">setFont</a>(const <a href="ntqfont.html">TQFont</a>&amp;)) );
+    <a href="ntqobject.html#connect">connect</a>( xc, TQ_SIGNAL(newMode(int)), TQ_SLOT(newMode(int)) );
     sx-&gt;setText( "Troll" );
     newMode( Image );
     sx-&gt;setMatrix(xc-&gt;matrix());

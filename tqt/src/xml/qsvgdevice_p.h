@@ -62,10 +62,10 @@
 #if !defined(TQT_MODULE_XML) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_XML )
 #define TQM_EXPORT_SVG
 #else
-#define TQM_EXPORT_SVG Q_EXPORT
+#define TQM_EXPORT_SVG TQ_EXPORT
 #endif
 
-#ifndef QT_NO_SVG
+#ifndef TQT_NO_SVG
 
 class TQPainter;
 class TQDomNode;
@@ -135,6 +135,6 @@ inline TQRect TQSvgDevice::boundingRect() const
     return brect;
 }
 
-#endif // QT_NO_SVG
+#endif // TQT_NO_SVG
 
 #endif // TQSVGDEVICE_P_H

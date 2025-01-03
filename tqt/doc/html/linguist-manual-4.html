@@ -102,7 +102,7 @@ body { background: #ffffff; color: black; }
     rbh = new TQRadioButton( tr("Enabled", "Hue frame"), this );
 </pre>
 <!-- index Ctrl Key --><p>Ctrl key accelerators are also translatable:</p>
-<pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()),
+<pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()),
                           <a href="ntqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
 </pre>
  <p>It is strongly recommended that the two argument form of <tt>tr()</tt> is used for Ctrl key accelerators. The second argument is the only clue the translator has as to the function performed by the accelerator.</p>
@@ -140,24 +140,24 @@ body { background: #ffffff; color: black; }
                 logwid );
     }
 </pre>
-<h5><a name="1-7-2"></a>Using QT_TR_NOOP() and QT_TRANSLATE_NOOP()</h5>
-<p>If you need to have translatable text completely outside a function, there are two macros to help: QT_TR_NOOP() and QT_TRANSLATE_NOOP(). These macros merely mark the text for extraction by <a href="linguist-manual-2.html#2">lupdate</a>. The macros expand to just the text (without the context).</p>
-<p>Example of QT_TR_NOOP():</p>
+<h5><a name="1-7-2"></a>Using TQT_TR_NOOP() and TQT_TRANSLATE_NOOP()</h5>
+<p>If you need to have translatable text completely outside a function, there are two macros to help: TQT_TR_NOOP() and TQT_TRANSLATE_NOOP(). These macros merely mark the text for extraction by <a href="linguist-manual-2.html#2">lupdate</a>. The macros expand to just the text (without the context).</p>
+<p>Example of TQT_TR_NOOP():</p>
 <pre>
     TQString FriendlyConversation::greeting( int greet_type )
     {
         static const char* greeting_strings[] = {
-            QT_TR_NOOP( "Hello" ),
-            QT_TR_NOOP( "Goodbye" )
+            TQT_TR_NOOP( "Hello" ),
+            TQT_TR_NOOP( "Goodbye" )
         };
         return tr( greeting_strings[greet_type] );
     }
 </pre>
-<p>Example of QT_TRANSLATE_NOOP():</p>
+<p>Example of TQT_TRANSLATE_NOOP():</p>
 <pre>
     static const char* greeting_strings[] = {
-        QT_TRANSLATE_NOOP( "FriendlyConversation", "Hello" ),
-        QT_TRANSLATE_NOOP( "FriendlyConversation", "Goodbye" )
+        TQT_TRANSLATE_NOOP( "FriendlyConversation", "Hello" ),
+        TQT_TRANSLATE_NOOP( "FriendlyConversation", "Goodbye" )
     };
 
     TQString FriendlyConversation::greeting( int greet_type )
@@ -336,7 +336,7 @@ TRANSLATIONS    = tt2_fr.ts \
 <pre>        ArrowPad *ap = new ArrowPad( this, "arrow pad" );
 </pre>
  <p>We also call <tt>MainWindow::tr()</tt> twice, once for the menu item and once for the accelerator.</p>
-<!-- index Ctrl Key --><!-- index Alt Key --><pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()),
+<!-- index Ctrl Key --><!-- index Alt Key --><pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()),
                           <a href="ntqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
 </pre>
  <p>Note the use of <tt>tr()</tt> to support different keys in other languages. "Ctrl+Q" is a good choice for Quit in English, but a Dutch translator might want to use "Ctrl+A" (for Afsluiten) and a German translator "Strg+E" (for Beenden). When using <tt>tr()</tt> for Ctrl key accelerators, the two argument form should be used with the second argument describing the function that the accelerator performs.</p>
@@ -452,11 +452,11 @@ TRANSLATIONS    = tt3_pt.ts
 <pre>        <a href="ntqwidget.html#setCaption">setCaption</a>( <a href="ntqobject.html#tr">tr</a>("Troll Print 1.0") );
 </pre>
  <p>We must translate the window's caption.</p>
-<pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()),
+<pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()),
                           <a href="ntqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
         <a href="ntqpopupmenu.html">TQPopupMenu</a> *help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;About"), this, SLOT(about()), Key_F1 );
-        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("About &amp;TQt"), this, SLOT(aboutTQt()) );
+        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;About"), this, TQ_SLOT(about()), Key_F1 );
+        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("About &amp;TQt"), this, TQ_SLOT(aboutTQt()) );
 
         <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("&amp;File"), file );
         <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();

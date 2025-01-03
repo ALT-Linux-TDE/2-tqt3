@@ -48,7 +48,7 @@
 static TQGLFormat* qgl_default_format = 0;
 static TQGLFormat* qgl_default_overlay_format = 0;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 #include "private/qt_x11_p.h"
 #define INT32 dummy_INT32
 #define INT8 dummy_INT8
@@ -886,18 +886,18 @@ void TQGLContext::init( TQPaintDevice *dev )
 {
     d = new Private;
     d->valid = FALSE;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     qt_resolve_gl_symbols();
     gpm = 0;
 #endif
     setDevice( dev );
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     dc = 0;
     win = 0;
     pixelFormatId = 0;
     cmap = 0;
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     d->oldR = TQRect(1, 1, 1, 1);
 #endif
     d->crWin = FALSE;
@@ -1408,7 +1408,7 @@ TQGLWidget::~TQGLWidget()
     if ( doRelease )
 	glXReleaseBuffersMESA( x11Display(), winId() );
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     if(gl_pix) {
 	delete gl_pix;
 	gl_pix = NULL;
@@ -1500,7 +1500,7 @@ bool TQGLWidget::isSharing() const
 
 void TQGLWidget::makeCurrent()
 {
-#if defined( Q_WS_MAC )
+#if defined( TQ_WS_MAC )
     macInternalDoubleBuffer(); //make sure the correct context is used
 #endif
     glcx->makeCurrent();
@@ -1535,7 +1535,7 @@ void TQGLWidget::doneCurrent()
 void TQGLWidget::swapBuffers()
 {
     glcx->swapBuffers();
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     if(macInternalDoubleBuffer() && gl_pix)
 	bitBlt(this, 0, 0, gl_pix);
 #endif
@@ -1824,7 +1824,7 @@ TQPixmap TQGLWidget::renderPixmap( int w, int h, bool useContext )
     if ( (w > 0) && (h > 0) )
 	sz = TQSize( w, h );
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     TQPixmap pm( sz.width(), sz.height(), x11Depth() );
     bool needConversion = x11Visual() != TQPaintDevice::x11AppVisual();
 
@@ -1869,7 +1869,7 @@ TQPixmap TQGLWidget::renderPixmap( int w, int h, bool useContext )
 	ocx->makeCurrent();
 
     if ( success ) {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	if ( needConversion ) {
 	    TQImage image = pm.convertToImage();
 	    TQPixmap p;
@@ -1894,7 +1894,7 @@ TQPixmap TQGLWidget::renderPixmap( int w, int h, bool useContext )
 */
 TQImage TQGLWidget::grabFrameBuffer( bool withAlpha )
 {
-#if defined( Q_WS_MAC )
+#if defined( TQ_WS_MAC )
     if(dblbuf == macInternalDoubleBuffer(FALSE) && gl_pix) //why not optimize?
 	return ((TQPixmap*)gl_pix)->convertToImage();
 #endif
@@ -1928,7 +1928,7 @@ TQImage TQGLWidget::grabFrameBuffer( bool withAlpha )
 	res.setAlphaBuffer( withAlpha && format().alpha() );
     }
     else {
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	res = TQImage( w, h, 8 );
 	glReadPixels( 0, 0, w, h, GL_COLOR_INDEX, GL_UNSIGNED_BYTE,
 		      res.bits() );
@@ -1987,7 +1987,7 @@ void TQGLWidget::glDraw()
 	    swapBuffers();
     } else {
 	glFlush();
-#if defined( Q_WS_MAC )
+#if defined( TQ_WS_MAC )
 	if(dblbuf && gl_pix)
 	    bitBlt(this, 0, 0, gl_pix);
 #endif
@@ -2144,7 +2144,7 @@ int TQGLWidget::displayListBase( const TQFont & fnt, int listBase )
     // contexts can't handle this otherwise
     bool regenerate = glcx->deviceIsPixmap();
 
-#if 0 // QT_NO_XFTFREETYPE
+#if 0 // TQT_NO_XFTFREETYPE
     // font color needs to be part of the font cache key when using
     // antialiased fonts since one set of glyphs needs to be generated
     // for each font color

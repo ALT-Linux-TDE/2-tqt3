@@ -12,7 +12,7 @@ QGfxDriverFactory \- Creates QScreen objects for Qt/Embedded
 \fC#include <qgfxdriverfactory_qws.h>\fR
 .PP
 .SS "Static Public Members"
-<li class=fn>QStringList \fBkeys\fR () <li class=fn>QScreen * \fBcreate\fR ( const QString & key, int displayId )
+<li class=fn>QStringList \fBkeys\fR () <li class=fn>QScreen * \fBcreate\fR ( const TQString & key, int displayId )
 .SH DESCRIPTION
 The QGfxDriverFactory class creates QScreen objects for Qt/Embedded.
 .PP
@@ -20,11 +20,11 @@ The graphics driver factory creates a QScreen object for a given key with QGfxDr
 .PP
 The drivers are either built-in or dynamically loaded from a driver plugin (see QGfxDriverPlugin).
 .PP
-QGfxDriverFactory::keys() returns a list of valid keys. Qt currently ships with "LinuxFb".
+QGfxDriverFactory::keys() returns a list of valid keys. TQt currently ships with "LinuxFb".
 .PP
 This class is only available in Qt/Embedded.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QScreen * QGfxDriverFactory::create ( const QString & key, int displayId )\fC [static]\fR"
+.SH "QScreen * QGfxDriverFactory::create ( const TQString & key, int displayId )\fC [static]\fR"
 Creates a QScreen object of a type that matches \fIkey\fR, and with the ID, \fIdisplayId\fR. The QScreen object returned may be from a built-in driver, or from a driver plugin.
 .PP
 See also keys().
@@ -47,8 +47,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

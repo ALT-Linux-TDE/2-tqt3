@@ -228,7 +228,7 @@ private:
         TicTacButton *ttb = new TicTacButton( this );
 <a name="x45"></a>        ttb-&gt;<a href="ntqwidget.html#setPalette">setPalette</a>( p );
         ttb-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-        <a href="ntqobject.html#connect">connect</a>( ttb, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(buttonClicked()) );
+        <a href="ntqobject.html#connect">connect</a>( ttb, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(buttonClicked()) );
         grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( ttb, i%nBoard, i/nBoard );
         buttons-&gt;insert( i, ttb );
         btArray-&gt;at(i) = TicTacButton::Blank;   // initial button type
@@ -275,7 +275,7 @@ void <a name="f191"></a>TicTacGameBoard::newGame()
 
 
 // --------------------------------------------------------------------------
-// TicTacGameBoard::buttonClicked()             - SLOT
+// TicTacGameBoard::buttonClicked()             - TQ_SLOT
 //
 // This slot is activated when a TicTacButton emits the signal "clicked()",
 // i.e. the user has clicked on a TicTacButton.
@@ -456,7 +456,7 @@ void <a name="f195"></a>TicTacGameBoard::computerMove()
     // gameOver() slot
 
     board = new TicTacGameBoard( boardSize, this );
-    <a href="ntqobject.html#connect">connect</a>( board, SIGNAL(finished()), SLOT(gameOver()) );
+    <a href="ntqobject.html#connect">connect</a>( board, TQ_SIGNAL(finished()), TQ_SLOT(gameOver()) );
     l-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( board );
 
     // Create a horizontal frame line
@@ -477,9 +477,9 @@ void <a name="f195"></a>TicTacGameBoard::computerMove()
     // to this right slots.
 
     newGame = new <a href="ntqpushbutton.html">TQPushButton</a>( "Play!", this );
-    <a href="ntqobject.html#connect">connect</a>( newGame, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(newGameClicked()) );
+    <a href="ntqobject.html#connect">connect</a>( newGame, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(newGameClicked()) );
     quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", this );
-    <a href="ntqobject.html#connect">connect</a>( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     <a href="qhboxlayout.html">TQHBoxLayout</a> * b = new <a href="qhboxlayout.html">TQHBoxLayout</a>;
 <a name="x19"></a>    l-&gt;<a href="qboxlayout.html#addLayout">addLayout</a>( b );
     b-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( newGame );
@@ -490,7 +490,7 @@ void <a name="f195"></a>TicTacGameBoard::computerMove()
 
 
 // --------------------------------------------------------------------------
-// TicTacToe::newGameClicked()                  - SLOT
+// TicTacToe::newGameClicked()                  - TQ_SLOT
 //
 // This slot is activated when the new game button is clicked.
 //
@@ -504,7 +504,7 @@ void <a name="f197"></a>TicTacToe::newGameClicked()
 
 
 // --------------------------------------------------------------------------
-// TicTacToe::gameOver()                        - SLOT
+// TicTacToe::gameOver()                        - TQ_SLOT
 //
 // This slot is activated when the TicTacGameBoard emits the signal
 // "finished()", i.e. when a player has won or when it is a draw.

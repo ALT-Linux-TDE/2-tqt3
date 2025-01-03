@@ -15,7 +15,7 @@ framebuffer.
 
 To use the virtual framebuffer:
 
-1. Ensure QT_NO_QWS_VFB is not set in ntqconfig.h (when you configure Qt,
+1. Ensure TQT_NO_QWS_VFB is not set in ntqconfig.h (when you configure Qt,
    add the -tqvfb option).
 2. Start tqvfb (tqvfb should be compiled as a normal Qt/X11 application,
    NOT as a Qt/Embedded application!).
@@ -43,7 +43,7 @@ The format for skin files is:
     Number of defined button regions
 Then for each button region the format is:
     Button identifier
-    Qt scan codes to generate for the button
+    TQt scan codes to generate for the button
     Top left X coordinate of the button region
     Top left Y coordinate of the button region
     Bottom right X coordinate of the button region
@@ -51,5 +51,5 @@ Then for each button region the format is:
 
 The virtual framebuffer is a development tool only.  No security issues have
 been considered in the virtual framebuffer design.  It should not be used
-in a production environment and QT_NO_QWS_VFB should always be in force
+in a production environment and TQT_NO_QWS_VFB should always be in force
 in production libraries.

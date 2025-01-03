@@ -52,7 +52,7 @@ Inherited by QLayout, QSpacerItem, and QWidgetItem.
 .BI "virtual void \fBinvalidate\fR ()"
 .br
 .ti -1c
-.BI "virtual QWidget * \fBwidget\fR ()"
+.BI "virtual TQWidget * \fBwidget\fR ()"
 .br
 .ti -1c
 .BI "virtual QLayoutIterator \fBiterator\fR ()"
@@ -79,12 +79,12 @@ Pure virtual functions are provided to return information about the layout, incl
 .PP
 The layout's geometry can be set and retrieved with setGeometry() and geometry(), and its alignment with setAlignment() and alignment().
 .PP
-isEmpty() returns whether the layout is empty. iterator() returns an iterator for the layout's children. If the concrete item is a QWidget, it can be retrieved using widget(). Similarly for layout() and spacerItem().
+isEmpty() returns whether the layout is empty. iterator() returns an iterator for the layout's children. If the concrete item is a TQWidget, it can be retrieved using widget(). Similarly for layout() and spacerItem().
 .PP
 See also QLayout, Widget Appearance and Style, and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QLayoutItem::QLayoutItem ( int alignment = 0 )"
-Constructs a layout item with an \fIalignment\fR that is a bitwise OR of the Qt::AlignmentFlags. Not all subclasses support alignment.
+Constructs a layout item with an \fIalignment\fR that is a bitwise OR of the TQt::AlignmentFlags. Not all subclasses support alignment.
 .SH "QLayoutItem::~QLayoutItem ()\fC [virtual]\fR"
 Destroys the QLayoutItem.
 .SH "int QLayoutItem::alignment () const"
@@ -102,7 +102,7 @@ Returns TRUE if this layout's preferred height depends on its width; otherwise r
 .PP
 Reimplement this function in layout managers that support height for width.
 .PP
-See also heightForWidth() and QWidget::heightForWidth().
+See also heightForWidth() and TQWidget::heightForWidth().
 .PP
 Examples:
 .)l customlayout/border.cpp and customlayout/flow.cpp.
@@ -176,7 +176,7 @@ Examples:
 .PP
 Reimplemented in QLayout, QSpacerItem, and QWidgetItem.
 .SH "void QLayoutItem::setAlignment ( int a )\fC [virtual]\fR"
-Sets the alignment of this item to \fIa\fR, which is a bitwise OR of the Qt::AlignmentFlags. Not all subclasses support alignment.
+Sets the alignment of this item to \fIa\fR, which is a bitwise OR of the TQt::AlignmentFlags. Not all subclasses support alignment.
 .PP
 Example: chart/optionsform.cpp.
 .SH "void QLayoutItem::setGeometry ( const QRect & r )\fC [pure virtual]\fR"
@@ -195,8 +195,8 @@ Examples:
 Reimplemented in QSpacerItem, QWidgetItem, QGridLayout, and QBoxLayout.
 .SH "QSpacerItem * QLayoutItem::spacerItem ()\fC [virtual]\fR"
 If this item is a QSpacerItem, it is returned as a QSpacerItem; otherwise 0 is returned. This function provides type-safe casting.
-.SH "QWidget * QLayoutItem::widget ()\fC [virtual]\fR"
-If this item is a QWidget, it is returned as a QWidget; otherwise 0 is returned. This function provides type-safe casting.
+.SH "TQWidget * QLayoutItem::widget ()\fC [virtual]\fR"
+If this item is a TQWidget, it is returned as a TQWidget; otherwise 0 is returned. This function provides type-safe casting.
 .PP
 Reimplemented in QWidgetItem.
 
@@ -214,8 +214,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

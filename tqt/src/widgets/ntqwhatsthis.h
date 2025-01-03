@@ -43,7 +43,7 @@
 #include "ntqobject.h"
 #endif // QT_H
 
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 
 #include "ntqcursor.h"
 
@@ -51,7 +51,7 @@ class TQToolButton;
 class TQPopupMenu;
 class TQStyleSheet;
 
-class Q_EXPORT TQWhatsThis: public TQt
+class TQ_EXPORT TQWhatsThis: public TQt
 {
 public:
     TQWhatsThis( TQWidget *);
@@ -76,6 +76,6 @@ public:
     static void display( const TQString& text, const TQPoint& pos = TQCursor::pos(), TQWidget* w = 0 );
 };
 
-#endif // QT_NO_WHATSTHIS
+#endif // TQT_NO_WHATSTHIS
 
 #endif // TQWHATSTHIS_H

@@ -46,7 +46,7 @@
 PaletteEditor::PaletteEditor( FormWindow *fw, TQWidget * parent, const char * name, bool modal, WFlags f )
     : PaletteEditorBase( parent, name, modal, f ), formWindow( fw )
 {
-    connect( buttonHelp, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( buttonHelp, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
 
     editPalette =  TQApplication::palette();
     setPreviewPalette( editPalette );

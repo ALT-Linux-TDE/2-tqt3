@@ -210,27 +210,27 @@ directly:
 </pre>
  
 <p> If you need to have translatable text completely
-outside a function, there are two macros to help: QT_TR_NOOP()
-and QT_TRANSLATE_NOOP(). They merely mark the text for
+outside a function, there are two macros to help: TQT_TR_NOOP()
+and TQT_TRANSLATE_NOOP(). They merely mark the text for
 extraction by the <em>lupdate</em> utility described below.
 The macros expand to just the text (without the context).
-<p> Example of QT_TR_NOOP():
+<p> Example of TQT_TR_NOOP():
 <pre>
     TQString FriendlyConversation::greeting( int greet_type )
     {
         static const char* greeting_strings[] = {
-            QT_TR_NOOP( "Hello" ),
-            QT_TR_NOOP( "Goodbye" )
+            TQT_TR_NOOP( "Hello" ),
+            TQT_TR_NOOP( "Goodbye" )
         };
         return tr( greeting_strings[greet_type] );
     }
 </pre>
  
-<p> Example of QT_TRANSLATE_NOOP():
+<p> Example of TQT_TRANSLATE_NOOP():
 <pre>
     static const char* greeting_strings[] = {
-        QT_TRANSLATE_NOOP( "FriendlyConversation", "Hello" ),
-        QT_TRANSLATE_NOOP( "FriendlyConversation", "Goodbye" )
+        TQT_TRANSLATE_NOOP( "FriendlyConversation", "Hello" ),
+        TQT_TRANSLATE_NOOP( "FriendlyConversation", "Goodbye" )
     };
 
     TQString FriendlyConversation::greeting( int greet_type )
@@ -246,7 +246,7 @@ The macros expand to just the text (without the context).
 </pre>
  
 <p> If you disable the const char* to <a href="ntqstring.html">TQString</a> automatic conversion
-by compiling your software with the macro QT_NO_CAST_ASCII
+by compiling your software with the macro TQT_NO_CAST_ASCII
 defined, you'll be very likely to catch any strings you are
 missing. See <a href="ntqstring.html#fromLatin1">TQString::fromLatin1</a>() for more information.
 Disabling the conversion can make programming a bit cumbersome.
@@ -263,7 +263,7 @@ your application, translators won't be able to override
 it. The correct idiom is
 <p> <pre>
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( tr("&amp;Quit"), this, SLOT(quit()),
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( tr("&amp;Quit"), this, TQ_SLOT(quit()),
                       TQKeySequence(tr("Ctrl+Q", "File|Quit")) );
 </pre>
  
@@ -361,7 +361,7 @@ source you choose.
 <p> <a name="qt-itself"></a>
 TQt itself contains over 400 strings that will also need to be
 translated into the languages that you are targeting. You will find
-translation files for French and German in <tt>$QTDIR/translations</tt> as
+translation files for French and German in <tt>$TQTDIR/translations</tt> as
 well as a template for translating to other languages. (This directory
 also contains some additional unsupported translations which may be
 useful.)

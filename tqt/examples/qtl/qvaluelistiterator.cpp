@@ -26,7 +26,7 @@ public:
     void setSalary( int salary ) { s = salary; }
 
     // this is here to support very old compilers
-    Q_DUMMY_COMPARISON_OPERATOR( Employee )
+    TQ_DUMMY_COMPARISON_OPERATOR( Employee )
 
 private:
     TQString n;

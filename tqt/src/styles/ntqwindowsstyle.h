@@ -45,12 +45,12 @@
 #include "ntqcommonstyle.h"
 #endif // QT_H
 
-#if !defined(QT_NO_STYLE_WINDOWS) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_WINDOWS) || defined(QT_PLUGIN)
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_STYLE_WINDOWS
 #else
-#define Q_EXPORT_STYLE_WINDOWS Q_EXPORT
+#define Q_EXPORT_STYLE_WINDOWS TQ_EXPORT
 #endif
 
 
@@ -143,6 +143,6 @@ private:
 #endif
 };
 
-#endif // QT_NO_STYLE_WINDOWS
+#endif // TQT_NO_STYLE_WINDOWS
 
 #endif // TQWINDOWSSTYLE_H

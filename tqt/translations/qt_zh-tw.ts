@@ -290,12 +290,12 @@
         <translation>QT_LAYOUT_DIRECTION</translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>執行檔 &apos;%1&apos; 需要 Qt %2，但找到 Qt %3。</translation>
+        <source>Executable &apos;%1&apos; requires TQt %2, found TQt %3.</source>
+        <translation>執行檔 &apos;%1&apos; 需要 TQt %2，但找到 TQt %3。</translation>
     </message>
     <message>
-        <source>Incompatible Qt Library Error</source>
-        <translation>不相容的 Qt 程式庫錯誤</translation>
+        <source>Incompatible TQt Library Error</source>
+        <translation>不相容的 TQt 程式庫錯誤</translation>
     </message>
 </context>
 <context>
@@ -1263,8 +1263,8 @@ to
         <translation>忽略(&amp;I)</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;關於 Qt&lt;/h3&gt;&lt;p&gt;本程式使用 Qt 版本 %1。&lt;/p&gt;&lt;p&gt;Qt 是用於多平臺 GUI 和應用程式開發的 C++ 工具套件。&lt;/p&gt;&lt;p&gt;Qt 為 MS&amp;nbsp;Windows、Mac&amp;nbsp;OS&amp;nbsp;X、Linux 和所有主要的商用 Unix 變異版本，提供跨平臺的單一原始碼可攜性。&lt;br&gt;Qt 也可用於內嵌裝置。&lt;/p&gt;&lt;p&gt;Qt 是 Trolltech 的產品。如需詳細資訊，請參閱 &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt;。&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;關於 Qt&lt;/h3&gt;&lt;p&gt;本程式使用 TQt 版本 %1。&lt;/p&gt;&lt;p&gt;Qt 是用於多平臺 GUI 和應用程式開發的 C++ 工具套件。&lt;/p&gt;&lt;p&gt;Qt 為 MS&amp;nbsp;Windows、Mac&amp;nbsp;OS&amp;nbsp;X、Linux 和所有主要的商用 Unix 變異版本，提供跨平臺的單一原始碼可攜性。&lt;br&gt;Qt 也可用於內嵌裝置。&lt;/p&gt;&lt;p&gt;Qt 是 Trolltech 的產品。如需詳細資訊，請參閱 &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>

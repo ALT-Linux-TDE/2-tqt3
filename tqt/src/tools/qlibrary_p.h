@@ -55,7 +55,7 @@
 
 #include "ntqlibrary.h"
 
-#ifndef QT_NO_LIBRARY
+#ifndef TQT_NO_LIBRARY
 
 #ifndef QT_H
 #include "ntqwindowdefs.h"
@@ -66,7 +66,7 @@ class TQLibraryPrivate
 public:
     TQLibraryPrivate( TQLibrary *lib );
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     HINSTANCE pHnd;
 #else
     void *pHnd;
@@ -80,5 +80,5 @@ private:
     TQLibrary *library;
 };
 
-#endif // QT_NO_LIBRARY
+#endif // TQT_NO_LIBRARY
 #endif // TQLIBRARY_P_H

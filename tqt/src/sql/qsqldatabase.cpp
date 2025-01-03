@@ -40,7 +40,7 @@
 
 #include "ntqsqldatabase.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 #ifdef Q_OS_WIN32
 // Conflicting declarations of LPCBYTE in sqlfront.h and winscard.h
@@ -87,7 +87,7 @@
 #include "ntqdict.h"
 #include <stdlib.h>
 
-QT_STATIC_CONST_IMPL char * const TQSqlDatabase::defaultConnection = "qt_sql_default_connection";
+const char * const TQSqlDatabase::defaultConnection = "qt_sql_default_connection";
 
 TQPtrDict<TQSqlDriverExtension> *qt_driver_extension_dict = 0;
 TQPtrDict<TQSqlOpenExtension> *qt_open_extension_dict = 0;
@@ -95,7 +95,7 @@ TQPtrDict<TQSqlOpenExtension> *qt_open_extension_dict = 0;
 static TQSingleCleanupHandler< TQPtrDict<TQSqlDriverExtension> > qt_driver_ext_cleanup;
 static TQSingleCleanupHandler< TQPtrDict<TQSqlOpenExtension> > qt_open_ext_cleanup;
 
-Q_EXPORT TQPtrDict<TQSqlDriverExtension> *tqSqlDriverExtDict()
+TQ_EXPORT TQPtrDict<TQSqlDriverExtension> *tqSqlDriverExtDict()
 {
     if ( !qt_driver_extension_dict ) {
 	qt_driver_extension_dict = new TQPtrDict<TQSqlDriverExtension>;
@@ -104,7 +104,7 @@ Q_EXPORT TQPtrDict<TQSqlDriverExtension> *tqSqlDriverExtDict()
     return qt_driver_extension_dict;
 }
 
-Q_EXPORT TQPtrDict<TQSqlOpenExtension> *tqSqlOpenExtDict()
+TQ_EXPORT TQPtrDict<TQSqlOpenExtension> *tqSqlOpenExtDict()
 {
     if ( !qt_open_extension_dict ) {
 	qt_open_extension_dict = new TQPtrDict<TQSqlOpenExtension>;
@@ -345,7 +345,7 @@ class TQSqlDatabasePrivate
 public:
     TQSqlDatabasePrivate():
 	driver(0),
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 	plugIns(0),
 #endif
 	port(-1) {}
@@ -353,7 +353,7 @@ public:
     {
     }
     TQSqlDriver* driver;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     TQPluginManager<TQSqlDriverFactoryInterface> *plugIns;
 #endif
     TQString dbname;
@@ -486,7 +486,7 @@ TQStringList TQSqlDatabase::drivers()
 {
     TQStringList l;
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     TQPluginManager<TQSqlDriverFactoryInterface> *plugIns;
     plugIns = new TQPluginManager<TQSqlDriverFactoryInterface>( IID_QSqlDriverFactory, TQApplication::libraryPaths(), "/sqldrivers" );
 
@@ -695,7 +695,7 @@ void TQSqlDatabase::init( const TQString& type, const TQString& )
 	}
     }
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     if ( !d->driver ) {
 	d->plugIns =
 	    new TQPluginManager<TQSqlDriverFactoryInterface>( IID_QSqlDriverFactory, TQApplication::libraryPaths(), "/sqldrivers" );
@@ -724,7 +724,7 @@ void TQSqlDatabase::init( const TQString& type, const TQString& )
 TQSqlDatabase::~TQSqlDatabase()
 {
     delete d->driver;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     delete d->plugIns;
 #endif
     delete d;
@@ -1357,4 +1357,4 @@ TQSqlDatabase* TQSqlDatabase::addDatabase( TQSqlDriver* driver, const TQString& 
 {
     return TQSqlDatabaseManager::addDatabase( new TQSqlDatabase( driver ), connectionName );
 }
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

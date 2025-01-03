@@ -16,14 +16,14 @@
 void AddressBook::fileNew()
 {
     AddressDetails dia( this, 0, TRUE );
-    connect( &dia, SIGNAL( newAddress( const TQString &,
+    connect( &dia, TQ_SIGNAL( newAddress( const TQString &,
 				       const TQString &,
 				       const TQString &,
 				       const TQString &,
 				       const TQString &,
 				       const TQString &,
 				       const TQString & ) ),
-	     this, SLOT( insertAddress( const TQString &,
+	     this, TQ_SLOT( insertAddress( const TQString &,
 					const TQString &,
 					const TQString &,
 					const TQString &,
@@ -118,8 +118,8 @@ void AddressBook::fileExit()
 void AddressBook::editFind()
 {
     SearchDialog dia( this, 0, TRUE );
-    connect( &dia, SIGNAL( searchAddress( const TQString & ) ),
-	     this, SLOT( searchAddress( const TQString & ) ) );
+    connect( &dia, TQ_SIGNAL( searchAddress( const TQString & ) ),
+	     this, TQ_SLOT( searchAddress( const TQString & ) ) );
     dia.exec();
 }
 

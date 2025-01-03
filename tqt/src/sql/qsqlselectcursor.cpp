@@ -41,7 +41,7 @@
 #include "ntqsqlselectcursor.h"
 #include "ntqsqldriver.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 class TQSqlSelectCursorPrivate
 {
@@ -246,4 +246,4 @@ void TQSqlSelectCursor::populateCursor()
 /*! \fn TQString TQSqlSelectCursor::toString( const TQString&, const TQString& ) const
     \reimp
 */
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

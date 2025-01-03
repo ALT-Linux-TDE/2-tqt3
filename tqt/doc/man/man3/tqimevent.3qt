@@ -16,10 +16,10 @@ Inherits QEvent.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQIMEvent\fR ( Type type, const QString & text, int cursorPosition )"
+.BI "\fBQIMEvent\fR ( Type type, const TQString & text, int cursorPosition )"
 .br
 .ti -1c
-.BI "const QString & \fBtext\fR () const"
+.BI "const TQString & \fBtext\fR () const"
 .br
 .ti -1c
 .BI "int \fBcursorPos\fR () const"
@@ -60,19 +60,19 @@ At some point, e.g. when the user presses the Spacebar, they get to this stage, 
 .PP
 Note that the particular key presses used for a given input context may differ from those we've mentioned here, i.e. they may not be Spacebar, Enter and Escape.
 .PP
-These three stages are represented by three different types of events. The IMStartEvent, IMComposeEvent and IMEndEvent. When a new input context is created, an IMStartEvent will be sent to the widget and delivered to the QWidget::imStartEvent() function. The widget can then update internal data structures to reflect this.
+These three stages are represented by three different types of events. The IMStartEvent, IMComposeEvent and IMEndEvent. When a new input context is created, an IMStartEvent will be sent to the widget and delivered to the TQWidget::imStartEvent() function. The widget can then update internal data structures to reflect this.
 .PP
-After this, an IMComposeEvent will be sent to the widget for every key the user presses. It will contain the current composition string the widget has to show and the current cursor position within the composition string. This string is temporary and can change with every key the user types, so the widget will need to store the state before the composition started (the state it had when it received the IMStartEvent). IMComposeEvents will be delivered to the QWidget::imComposeEvent() function.
+After this, an IMComposeEvent will be sent to the widget for every key the user presses. It will contain the current composition string the widget has to show and the current cursor position within the composition string. This string is temporary and can change with every key the user types, so the widget will need to store the state before the composition started (the state it had when it received the IMStartEvent). IMComposeEvents will be delivered to the TQWidget::imComposeEvent() function.
 .PP
 Usually, widgets try to mark the part of the text that is part of the current composition in a way that is visible to the user. A commonly used visual cue is to use a dotted underline.
 .PP
-After the user has selected the final string, an IMEndEvent will be sent to the widget. The event contains the final string the user selected, and could be empty if they canceled the composition. This string should be accepted as the final text the user entered, and the intermediate composition string should be cleared. These events are delivered to QWidget::imEndEvent().
+After the user has selected the final string, an IMEndEvent will be sent to the widget. The event contains the final string the user selected, and could be empty if they canceled the composition. This string should be accepted as the final text the user entered, and the intermediate composition string should be cleared. These events are delivered to TQWidget::imEndEvent().
 .PP
 If the user clicks another widget, taking the focus out of the widget where the composition is taking place the IMEndEvent will be sent and the string it holds will be the result of the composition up to that point (which may be an empty string).
 .PP
 See also Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QIMEvent::QIMEvent ( Type type, const QString & text, int cursorPosition )"
+.SH "QIMEvent::QIMEvent ( Type type, const TQString & text, int cursorPosition )"
 Constructs a new QIMEvent with the accept flag set to FALSE. \fItype\fR can be one of QEvent::IMStartEvent, QEvent::IMComposeEvent or QEvent::IMEndEvent. \fItext\fR contains the current compostion string and \fIcursorPosition\fR the current position of the cursor inside \fItext\fR.
 .SH "void QIMEvent::accept ()"
 Sets the accept flag of the input method event object.
@@ -96,7 +96,7 @@ See also accept().
 Returns TRUE if the receiver of the event processed the event; otherwise returns FALSE.
 .SH "int QIMEvent::selectionLength () const"
 Returns the number of characters in the composition string ( starting at cursorPos() ) that should be marked as selected by the input widget receiving the event. Will return 0 for IMStartEvent and IMEndEvent.
-.SH "const QString & QIMEvent::text () const"
+.SH "const TQString & QIMEvent::text () const"
 Returns the composition text. This is a null string for an
 IMStartEvent, and contains the final accepted string (which may be
 empty) in the IMEndEvent.
@@ -115,8 +115,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

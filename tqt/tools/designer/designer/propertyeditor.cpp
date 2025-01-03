@@ -95,7 +95,7 @@
 static TQFontDatabase *fontDataBase = 0;
 TQString assistantPath();
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 #include <ntqwindowsstyle.h>
 static void setupStyle(TQWidget *w)
 {
@@ -416,8 +416,8 @@ void PropertyItem::createResetButton()
     hbox->layout()->setAlignment( TQt::AlignRight );
     listview->addChild( hbox );
     hbox->hide();
-    TQObject::connect( resetButton, SIGNAL( clicked() ),
-		      listview, SLOT( resetProperty() ) );
+    TQObject::connect( resetButton, TQ_SIGNAL( clicked() ),
+		      listview, TQ_SLOT( resetProperty() ) );
     TQToolTip::add( resetButton, PropertyEditor::tr( "Reset the property to its default value" ) );
     TQWhatsThis::add( resetButton, PropertyEditor::tr( "Click this button to reset the property to its default value" ) );
     updateResetButtonState();
@@ -443,7 +443,7 @@ void PropertyItem::placeEditor( TQWidget *w )
     TQRect r = listview->itemRect( this );
     if ( !r.size().isValid() ) {
 	listview->ensureItemVisible( this );
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	listview->repaintContents( FALSE );
 #endif
 	r = listview->itemRect( this );
@@ -613,18 +613,18 @@ TQLineEdit *PropertyTextItem::lined()
 	button = new TQPushButton( tr("..."), box );
 	setupStyle( button );
 	button->setFixedWidth( 20 );
-	connect( button, SIGNAL( clicked() ),
-		 this, SLOT( getText() ) );
+	connect( button, TQ_SIGNAL( clicked() ),
+		 this, TQ_SLOT( getText() ) );
 	lin->setFrame( FALSE );
     }
-    connect( lin, SIGNAL( returnPressed() ),
-	     this, SLOT( setValue() ) );
-    connect( lin, SIGNAL( textChanged( const TQString & ) ),
-	     this, SLOT( setValue() ) );
+    connect( lin, TQ_SIGNAL( returnPressed() ),
+	     this, TQ_SLOT( setValue() ) );
+    connect( lin, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SLOT( setValue() ) );
     if ( PropertyItem::name() == "name" || PropertyItem::name() == "itemName" )
-	connect( lin, SIGNAL( returnPressed() ),
+	connect( lin, TQ_SIGNAL( returnPressed() ),
 		 listview->propertyEditor()->formWindow()->commandHistory(),
-		 SLOT( checkCompressedCommand() ) );
+		 TQ_SLOT( checkCompressedCommand() ) );
     lin->installEventFilter( listview );
     return lin;
 }
@@ -782,10 +782,10 @@ TQLineEdit *PropertyDoubleItem::lined()
     lin = new TQLineEdit( listview->viewport() );
     lin->setValidator( new TQDoubleValidator( lin, "double_validator" ) );
 
-    connect( lin, SIGNAL( returnPressed() ),
-	     this, SLOT( setValue() ) );
-    connect( lin, SIGNAL( textChanged( const TQString & ) ),
-	     this, SLOT( setValue() ) );
+    connect( lin, TQ_SIGNAL( returnPressed() ),
+	     this, TQ_SLOT( setValue() ) );
+    connect( lin, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SLOT( setValue() ) );
     lin->installEventFilter( listview );
     return lin;
 }
@@ -864,8 +864,8 @@ TQDateEdit *PropertyDateItem::lined()
     for ( TQObject *o = l->first(); o; o = l->next() )
 	o->installEventFilter( listview );
     delete l;
-    connect( lin, SIGNAL( valueChanged( const TQDate & ) ),
-	     this, SLOT( setValue() ) );
+    connect( lin, TQ_SIGNAL( valueChanged( const TQDate & ) ),
+	     this, TQ_SLOT( setValue() ) );
     return lin;
 }
 
@@ -935,8 +935,8 @@ TQTimeEdit *PropertyTimeItem::lined()
     if ( lin )
 	return lin;
     lin = new TQTimeEdit( listview->viewport() );
-    connect( lin, SIGNAL( valueChanged( const TQTime & ) ),
-	     this, SLOT( setValue() ) );
+    connect( lin, TQ_SIGNAL( valueChanged( const TQTime & ) ),
+	     this, TQ_SLOT( setValue() ) );
     TQObjectList *l = lin->queryList( "TQLineEdit" );
     for ( TQObject *o = l->first(); o; o = l->next() )
 	o->installEventFilter( listview );
@@ -1010,8 +1010,8 @@ TQDateTimeEdit *PropertyDateTimeItem::lined()
     if ( lin )
 	return lin;
     lin = new TQDateTimeEdit( listview->viewport() );
-    connect( lin, SIGNAL( valueChanged( const TQDateTime & ) ),
-	     this, SLOT( setValue() ) );
+    connect( lin, TQ_SIGNAL( valueChanged( const TQDateTime & ) ),
+	     this, TQ_SLOT( setValue() ) );
     TQObjectList *l = lin->queryList( "TQLineEdit" );
     for ( TQObject *o = l->first(); o; o = l->next() )
 	o->installEventFilter( listview );
@@ -1088,8 +1088,8 @@ TQComboBox *PropertyBoolItem::combo()
     comb->hide();
     comb->insertItem( tr( "False" ) );
     comb->insertItem( tr( "True" ) );
-    connect( comb, SIGNAL( activated( int ) ),
-	     this, SLOT( setValue() ) );
+    connect( comb, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( setValue() ) );
     comb->installEventFilter( listview );
     return comb;
 }
@@ -1103,7 +1103,7 @@ PropertyBoolItem::~PropertyBoolItem()
 void PropertyBoolItem::toggle()
 {
     bool b = value().toBool();
-    setValue( TQVariant( !b, 0 ) );
+    setValue( TQVariant( !b ) );
     setValue();
 }
 
@@ -1158,7 +1158,7 @@ void PropertyBoolItem::setValue()
 	return;
     setText( 1, combo()->currentText() );
     bool b = combo()->currentItem() == 0 ? (bool)FALSE : (bool)TRUE;
-    PropertyItem::setValue( TQVariant( b, 0 ) );
+    PropertyItem::setValue( TQVariant( b ) );
     notifyValueChange();
 }
 
@@ -1185,8 +1185,8 @@ TQSpinBox *PropertyIntItem::spinBox()
     if ( ol && ol->first() )
 	ol->first()->installEventFilter( listview );
     delete ol;
-    connect( spinBx, SIGNAL( valueChanged( int ) ),
-	     this, SLOT( setValue() ) );
+    connect( spinBx, TQ_SIGNAL( valueChanged( int ) ),
+	     this, TQ_SLOT( setValue() ) );
     return spinBx;
 }
 
@@ -1281,8 +1281,8 @@ TQSpinBox* PropertyLayoutItem::spinBox()
     if ( ol && ol->first() )
 	ol->first()->installEventFilter( listview );
     delete ol;
-    connect( spinBx, SIGNAL( valueChanged( int ) ),
-	     this, SLOT( setValue() ) );
+    connect( spinBx, TQ_SIGNAL( valueChanged( int ) ),
+	     this, TQ_SLOT( setValue() ) );
     return spinBx;
 }
 
@@ -1346,8 +1346,8 @@ TQComboBox *PropertyListItem::combo()
 	return comb;
     comb = new TQComboBox( editable, listview->viewport() );
     comb->hide();
-    connect( comb, SIGNAL( activated( int ) ),
-	     this, SLOT( setValue() ) );
+    connect( comb, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( setValue() ) );
     comb->installEventFilter( listview );
     if ( editable ) {
 	TQObjectList *ol = comb->queryList( "TQLineEdit" );
@@ -1643,8 +1643,8 @@ PropertyPixmapItem::PropertyPixmapItem( PropertyList *l, PropertyItem *after, Pr
     box->setLineWidth( 2 );
     pixPrev->setFrameStyle( TQFrame::NoFrame );
     box->installEventFilter( listview );
-    connect( button, SIGNAL( clicked() ),
-	     this, SLOT( getPixmap() ) );
+    connect( button, TQ_SIGNAL( clicked() ),
+	     this, TQ_SLOT( getPixmap() ) );
 }
 
 PropertyPixmapItem::~PropertyPixmapItem()
@@ -1746,8 +1746,8 @@ PropertyColorItem::PropertyColorItem( PropertyList *l, PropertyItem *after, Prop
     pal.setDisabled( cg );
     colorPrev->setPalette( pal );
     box->installEventFilter( listview );
-    connect( button, SIGNAL( clicked() ),
-	     this, SLOT( getColor() ) );
+    connect( button, TQ_SIGNAL( clicked() ),
+	     this, TQ_SLOT( getColor() ) );
 }
 
 void PropertyColorItem::createChildren()
@@ -1868,8 +1868,8 @@ PropertyFontItem::PropertyFontItem( PropertyList *l, PropertyItem *after, Proper
     box->installEventFilter( listview );
     lined->installEventFilter( listview );
     button->installEventFilter( listview );
-    connect( button, SIGNAL( clicked() ),
-	     this, SLOT( getFont() ) );
+    connect( button, TQ_SIGNAL( clicked() ),
+	     this, TQ_SLOT( getFont() ) );
 }
 
 void PropertyFontItem::createChildren()
@@ -1900,13 +1900,13 @@ void PropertyFontItem::initChildren()
 	} else if ( item->name() == tr( "Point Size" ) )
 	    item->setValue( val.toFont().pointSize() );
 	else if ( item->name() == tr( "Bold" ) )
-	    item->setValue( TQVariant( val.toFont().bold(), 0 ) );
+	    item->setValue( TQVariant( val.toFont().bold() ) );
 	else if ( item->name() == tr( "Italic" ) )
-	    item->setValue( TQVariant( val.toFont().italic(), 0 ) );
+	    item->setValue( TQVariant( val.toFont().italic() ) );
 	else if ( item->name() == tr( "Underline" ) )
-	    item->setValue( TQVariant( val.toFont().underline(), 0 ) );
+	    item->setValue( TQVariant( val.toFont().underline() ) );
 	else if ( item->name() == tr( "Strikeout" ) )
-	    item->setValue( TQVariant( val.toFont().strikeOut(), 0 ) );
+	    item->setValue( TQVariant( val.toFont().strikeOut() ) );
     }
 }
 
@@ -2012,7 +2012,7 @@ void PropertyDatabaseItem::createChildren()
 
 void PropertyDatabaseItem::initChildren()
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     PropertyItem *item = 0;
     TQStringList lst = value().toStringList();
     TQString conn, table;
@@ -2114,7 +2114,7 @@ bool PropertyDatabaseItem::hasSubItems() const
 
 void PropertyDatabaseItem::childValueChanged( PropertyItem *c )
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQStringList lst;
     lst << ( (PropertyListItem*)PropertyItem::child( 0 ) )->currentItem()
 	<< ( (PropertyListItem*)PropertyItem::child( 1 ) )->currentItem();
@@ -2268,8 +2268,8 @@ PropertyPaletteItem::PropertyPaletteItem( PropertyList *l, PropertyItem *after, 
     box->setLineWidth( 2 );
     palettePrev->setFrameStyle( TQFrame::NoFrame );
     box->installEventFilter( listview );
-    connect( button, SIGNAL( clicked() ),
-	     this, SLOT( getPalette() ) );
+    connect( button, TQ_SIGNAL( clicked() ),
+	     this, TQ_SLOT( getPalette() ) );
 }
 PropertyPaletteItem::~PropertyPaletteItem()
 {
@@ -2309,11 +2309,7 @@ void PropertyPaletteItem::getPalette()
     if ( ::tqt_cast<TQScrollView*>(w) )
 	w = ( (TQScrollView*)w )->viewport();
     TQPalette pal = PaletteEditor::getPalette( &ok, val.toPalette(),
-#if defined(QT_NON_COMMERCIAL)
-					      w->backgroundMode(), listview->topLevelWidget(),
-#else
 					      w->backgroundMode(), listview,
-#endif
  					      "choose_palette", listview->propertyEditor()->formWindow() );
     if ( !ok )
 	return;
@@ -2379,8 +2375,8 @@ TQComboBox *PropertyCursorItem::combo()
     comb->insertItem( TQPixmap::fromMimeSource( "designer_hand.png" ), tr("Pointing Hand"), TQObject::PointingHandCursor );
     comb->insertItem( TQPixmap::fromMimeSource( "designer_no.png" ), tr("Forbidden"), TQObject::ForbiddenCursor );
 
-    connect( comb, SIGNAL( activated( int ) ),
-	     this, SLOT( setValue() ) );
+    connect( comb, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( setValue() ) );
     comb->installEventFilter( listview );
     return comb;
 }
@@ -2447,8 +2443,8 @@ PropertyKeysequenceItem::PropertyKeysequenceItem( PropertyList *l,
     box = new TQHBox( listview->viewport() );
     box->hide();
     sequence = new TQLineEdit( box );
-    connect( sequence, SIGNAL(textChanged( const TQString & )),
-	     this, SLOT(setValue()) );
+    connect( sequence, TQ_SIGNAL(textChanged( const TQString & )),
+	     this, TQ_SLOT(setValue()) );
     sequence->installEventFilter( this );
 }
 
@@ -2648,8 +2644,8 @@ EnumBox::EnumBox( TQWidget *parent, const char *name )
     : TQComboBox( parent, name )
 {
     pop = new EnumPopup( this, "popup", TQObject::WType_Popup );
-    connect( pop, SIGNAL( hidden() ), this, SLOT( popupHidden() ) );
-    connect( pop, SIGNAL( closed() ), this, SLOT( popupClosed() ) );
+    connect( pop, TQ_SIGNAL( hidden() ), this, TQ_SLOT( popupHidden() ) );
+    connect( pop, TQ_SIGNAL( closed() ), this, TQ_SLOT( popupClosed() ) );
     popupShown = FALSE;
     arrowDown = FALSE;
 }
@@ -2744,14 +2740,14 @@ void EnumBox::mousePressEvent( TQMouseEvent *e )
     }
 
     popup();
-    TQTimer::singleShot( 100, this, SLOT( restoreArrow() ) );
+    TQTimer::singleShot( 100, this, TQ_SLOT( restoreArrow() ) );
 }
 
 void EnumBox::keyPressEvent( TQKeyEvent *e )
 {
     if ( e->key() == Key_Space ) {
 	popup();
-	TQTimer::singleShot( 100, this, SLOT( restoreArrow() ) );
+	TQTimer::singleShot( 100, this, TQ_SLOT( restoreArrow() ) );
     } else if ( e->key() == Key_Enter || e->key() == Key_Return ) {
 	popup();
     }
@@ -2780,8 +2776,8 @@ PropertyEnumItem::PropertyEnumItem( PropertyList *l,
     box = new EnumBox( listview->viewport() );
     box->hide();
     box->installEventFilter( listview );
-    connect( box, SIGNAL( aboutToShowPopup() ), this, SLOT( insertEnums() ) );
-    connect( box, SIGNAL( valueChanged() ), this, SLOT( setValue() ) );
+    connect( box, TQ_SIGNAL( aboutToShowPopup() ), this, TQ_SLOT( insertEnums() ) );
+    connect( box, TQ_SIGNAL( valueChanged() ), this, TQ_SLOT( setValue() ) );
 }
 
 PropertyEnumItem::~PropertyEnumItem()
@@ -2911,16 +2907,16 @@ PropertyList::PropertyList( PropertyEditor *e )
     viewport()->installEventFilter( this );
     addColumn( tr( "Property" ) );
     addColumn( tr( "Value" ) );
-    connect( header(), SIGNAL( sizeChange( int, int, int ) ),
-	     this, SLOT( updateEditorSize() ) );
-    disconnect( header(), SIGNAL( sectionClicked( int ) ),
-		this, SLOT( changeSortColumn( int ) ) );
-    connect( header(), SIGNAL( sectionClicked( int ) ),
-	     this, SLOT( toggleSort() ) );
-    connect( this, SIGNAL( pressed( TQListViewItem *, const TQPoint &, int ) ),
-	     this, SLOT( itemPressed( TQListViewItem *, const TQPoint &, int ) ) );
-    connect( this, SIGNAL( doubleClicked( TQListViewItem * ) ),
-	     this, SLOT( toggleOpen( TQListViewItem * ) ) );
+    connect( header(), TQ_SIGNAL( sizeChange( int, int, int ) ),
+	     this, TQ_SLOT( updateEditorSize() ) );
+    disconnect( header(), TQ_SIGNAL( sectionClicked( int ) ),
+		this, TQ_SLOT( changeSortColumn( int ) ) );
+    connect( header(), TQ_SIGNAL( sectionClicked( int ) ),
+	     this, TQ_SLOT( toggleSort() ) );
+    connect( this, TQ_SIGNAL( pressed( TQListViewItem *, const TQPoint &, int ) ),
+	     this, TQ_SLOT( itemPressed( TQListViewItem *, const TQPoint &, int ) ) );
+    connect( this, TQ_SIGNAL( doubleClicked( TQListViewItem * ) ),
+	     this, TQ_SLOT( toggleOpen( TQListViewItem * ) ) );
     setSorting( -1 );
     setHScrollBarMode( AlwaysOff );
     setVScrollBarMode( AlwaysOn );
@@ -3008,7 +3004,7 @@ static TQVariant::Type type_to_variant( const TQString &s )
     return TQVariant::Invalid;
 }
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 static bool parent_is_data_aware( TQWidget *w )
 {
     TQWidget *p = w ? w->parentWidget() : 0;
@@ -3270,7 +3266,7 @@ void PropertyList::setupProperties()
 	    item->setChanged( TRUE, FALSE );
     }
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( !::tqt_cast<TQDataTable*>(editor->widget()) && !::tqt_cast<TQDataBrowser*>(editor->widget()) &&
 	 !::tqt_cast<TQDataView*>(editor->widget()) && parent_is_data_aware( ::tqt_cast<TQWidget*>(editor->widget()) ) ) {
 	item = new PropertyDatabaseItem( this, item, 0, "database", editor->formWindow()->mainContainer() != w );
@@ -3560,7 +3556,7 @@ bool PropertyList::eventFilter( TQObject *o, TQEvent *e )
 	    return TRUE;
 	}
     } else if ( e->type() == TQEvent::FocusOut && ::tqt_cast<TQLineEdit*>(o) && editor->formWindow() ) {
-	TQTimer::singleShot( 100, editor->formWindow()->commandHistory(), SLOT( checkCompressedCommand() ) );
+	TQTimer::singleShot( 100, editor->formWindow()->commandHistory(), TQ_SLOT( checkCompressedCommand() ) );
     } else if ( o == viewport() ) {
 	TQMouseEvent *me;
 	PropertyListItem* i;
@@ -3702,9 +3698,9 @@ void PropertyList::setPropertyValue( PropertyItem *i )
 	} else if ( i->name() == "wordwrap" ) {
 	    int align = editor->widget()->property( "alignment" ).toInt();
 	    if ( align & WordBreak )
-		i->setValue( TQVariant( TRUE, 0 ) );
+		i->setValue( TQVariant( true ) );
 	    else
-		i->setValue( TQVariant( FALSE, 0 ) );
+		i->setValue( TQVariant( false ) );
 	} else if ( i->name() == "layoutSpacing" ) {
 	    ( (PropertyLayoutItem*)i )->setValue( MetaDataBase::spacing( WidgetFactory::containerOfWidget( (TQWidget*)editor->widget() ) ) );
 	} else if ( i->name() == "layoutMargin" ) {
@@ -3912,8 +3908,8 @@ EventList::EventList( TQWidget *parent, FormWindow *fw, PropertyEditor *e )
     header()->hide();
     removeColumn( 1 );
     setRootIsDecorated( TRUE );
-    connect( this, SIGNAL( itemRenamed( TQListViewItem *, int, const TQString & ) ),
-	     this, SLOT( renamed( TQListViewItem * ) ) );
+    connect( this, TQ_SIGNAL( itemRenamed( TQListViewItem *, int, const TQString & ) ),
+	     this, TQ_SLOT( renamed( TQListViewItem * ) ) );
 }
 
 TQString clean_arguments( const TQString &s )

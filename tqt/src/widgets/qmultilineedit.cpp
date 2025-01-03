@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqmultilineedit.h"
-#ifndef QT_NO_MULTILINEEDIT
+#ifndef TQT_NO_MULTILINEEDIT
 #include "ntqpainter.h"
 #include "ntqscrollbar.h"
 #include "ntqcursor.h"

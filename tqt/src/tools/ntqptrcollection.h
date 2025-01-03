@@ -50,7 +50,7 @@ class TQGList;
 class TQGDict;
 
 
-class Q_EXPORT TQPtrCollection			// inherited by all collections
+class TQ_EXPORT TQPtrCollection			// inherited by all collections
 {
 public:
     bool autoDelete()	const	       { return del_item; }
@@ -73,7 +73,7 @@ protected:
 };
 
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #define TQCollection TQPtrCollection
 #endif
 

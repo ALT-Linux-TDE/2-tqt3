@@ -45,9 +45,9 @@
 #include "ntqtextedit.h"
 #endif // QT_H
 
-#ifndef QT_NO_TEXTVIEW
+#ifndef TQT_NO_TEXTVIEW
 
-class Q_EXPORT TQTextView : public TQTextEdit
+class TQ_EXPORT TQTextView : public TQTextEdit
 {
     TQ_OBJECT
     TQ_OVERRIDE( int undoDepth DESIGNABLE false SCRIPTABLE false )
@@ -70,5 +70,5 @@ private:
 #endif
 };
 
-#endif //QT_NO_TEXTVIEW
+#endif //TQT_NO_TEXTVIEW
 #endif //TQTEXTVIEW_H

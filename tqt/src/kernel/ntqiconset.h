@@ -46,13 +46,13 @@
 #include "ntqpixmap.h"
 #endif // QT_H
 
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 
 class TQIconFactory;
 class TQIconSetPrivate;
 
 // ### Remove all 'virtual' functions in TQIconSet (but not TQIconFactory) in TQt 4.0
-class Q_EXPORT TQIconSet
+class TQ_EXPORT TQIconSet
 {
 public:
     // the implementation makes assumptions about the value of these
@@ -90,7 +90,7 @@ public:
     static const TQSize& iconSize( Size which );
 
 #ifndef Q_QDOC
-    Q_DUMMY_COMPARISON_OPERATOR(TQIconSet)
+    TQ_DUMMY_COMPARISON_OPERATOR(TQIconSet)
 #endif
 
 private:
@@ -101,7 +101,7 @@ private:
     TQIconSetPrivate *d;
 };
 
-class Q_EXPORT TQIconFactory : private TQShared
+class TQ_EXPORT TQIconFactory : private TQShared
 {
 public:
     TQIconFactory();
@@ -128,5 +128,5 @@ private:
     uint unused : 31;
 };
 
-#endif // QT_NO_ICONSET
+#endif // TQT_NO_ICONSET
 #endif

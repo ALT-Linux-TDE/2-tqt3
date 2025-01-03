@@ -41,7 +41,7 @@
 #include "qplatformdefs.h"
 #include "ntqdir.h"
 
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 #include <private/qdir_p.h>
 #include "ntqfileinfo.h"
 #include "ntqregexp.h"
@@ -1097,7 +1097,7 @@ char TQDir::separator()
 {
 #if defined(Q_OS_UNIX)
     return '/';
-#elif defined (Q_FS_FAT) || defined(Q_WS_WIN)
+#elif defined (Q_FS_FAT) || defined(TQ_WS_WIN)
     return '\\';
 #elif defined (Q_OS_MAC)
     return ':';
@@ -1387,4 +1387,4 @@ void TQDir::detach()
     }
 }
 
-#endif // QT_NO_DIR
+#endif // TQT_NO_DIR

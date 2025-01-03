@@ -92,7 +92,7 @@ class TQWidgetListIt;
 
 // Window system dependent definitions
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
 #if QT_MACOSX_VERSION < 0x1020
 typedef struct OpaqueEventLoopTimerRef* EventLoopTimerRef;
 typedef struct OpaqueMenuHandle *MenuRef;
@@ -101,7 +101,7 @@ typedef struct __EventLoopTimer*        EventLoopTimerRef;
 typedef struct OpaqueMenuRef*        MenuRef;
 #endif
 
-#ifndef Q_WS_MACX
+#ifndef TQ_WS_MACX
 typedef struct CGContext *CGContextRef;
 #endif
 typedef struct OpaqueWindowGroupRef *WindowGroupRef;
@@ -128,18 +128,18 @@ typedef void * MSG;
 typedef int WId;
 typedef struct AEDesc AppleEvent;
 
-#endif // Q_WS_MAC
+#endif // TQ_WS_MAC
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #include "qwindowdefs_win.h"
-#endif // Q_WS_WIN
+#endif // TQ_WS_WIN
 
 
 #if defined(Q_OS_TEMP)
 #include "qwinfunctions_wce.h"
 #endif // Q_OS_TEMP
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 
 typedef struct _XDisplay Display;
 typedef union  _XEvent XEvent;
@@ -147,24 +147,24 @@ typedef struct _XGC *GC;
 typedef struct _XRegion *Region;
 typedef unsigned long  WId;
 
-Q_EXPORT Display *tqt_xdisplay();
-Q_EXPORT int	 tqt_xscreen();
-Q_EXPORT WId	 tqt_xrootwin(); // ### REMOVE 4.0
-Q_EXPORT WId	 tqt_xrootwin( int scrn ); // ### 4.0 add default arg of -1
-Q_EXPORT GC	 tqt_xget_readonly_gc( int scrn, bool monochrome );
-Q_EXPORT GC	 tqt_xget_temp_gc( int scrn, bool monochrome );
+TQ_EXPORT Display *tqt_xdisplay();
+TQ_EXPORT int	 tqt_xscreen();
+TQ_EXPORT WId	 tqt_xrootwin(); // ### REMOVE 4.0
+TQ_EXPORT WId	 tqt_xrootwin( int scrn ); // ### 4.0 add default arg of -1
+TQ_EXPORT GC	 tqt_xget_readonly_gc( int scrn, bool monochrome );
+TQ_EXPORT GC	 tqt_xget_temp_gc( int scrn, bool monochrome );
 
-Q_EXPORT const char *tqAppClass();		// get application class
+TQ_EXPORT const char *tqAppClass();		// get application class
 
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 
 typedef unsigned long  WId;
 struct TQWSEvent;
 class TQGfx;
 
-#endif // Q_WS_QWS
+#endif // TQ_WS_QWS
 
 class TQApplication;
 
@@ -180,18 +180,12 @@ const TQCOORD TQCOORD_MIN = -TQCOORD_MAX - 1;
 
 typedef unsigned int TQRgb;			// RGB triplet
 
-Q_EXPORT const char *tqAppName();		// get application name
+TQ_EXPORT const char *tqAppName();		// get application name
 
 // Misc functions
 
 typedef void (*TQtCleanUpFunction)();
-Q_EXPORT void tqAddPostRoutine( TQtCleanUpFunction );
-Q_EXPORT void tqRemovePostRoutine( TQtCleanUpFunction );
-
-#if !defined(QT_CLEAN_NAMESPACE)
-// source compatibility with TQt 2.x
-typedef TQtCleanUpFunction Q_CleanUpFunction;
-#endif
-
+TQ_EXPORT void tqAddPostRoutine( TQtCleanUpFunction );
+TQ_EXPORT void tqRemovePostRoutine( TQtCleanUpFunction );
 
 #endif // TQWINDOWDEFS_H

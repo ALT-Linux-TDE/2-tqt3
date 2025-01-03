@@ -11,12 +11,12 @@ QSizeGrip \- Corner-grip for resizing a top-level window
 .SH SYNOPSIS
 \fC#include <ntqsizegrip.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSizeGrip\fR ( QWidget * parent, const char * name = 0 )"
+.BI "\fBQSizeGrip\fR ( TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QSizeGrip\fR ()"
@@ -53,26 +53,26 @@ Put this widget anywhere in a widget tree and the user can use it to resize the 
 .PP
 See also QStatusBar, Widget Appearance and Style, Main Window and Related Classes, and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSizeGrip::QSizeGrip ( QWidget * parent, const char * name = 0 )"
+.SH "QSizeGrip::QSizeGrip ( TQWidget * parent, const char * name = 0 )"
 Constructs a resize corner called \fIname\fR, as a child widget of \fIparent\fR.
 .SH "QSizeGrip::~QSizeGrip ()"
 Destroys the size grip.
 .SH "void QSizeGrip::mouseMoveEvent ( QMouseEvent * e )\fC [virtual protected]\fR"
 Resizes the top-level widget containing this widget. The event is in \fIe\fR.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "void QSizeGrip::mousePressEvent ( QMouseEvent * e )\fC [virtual protected]\fR"
 Primes the resize operation. The event is in \fIe\fR.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "void QSizeGrip::paintEvent ( QPaintEvent * e )\fC [virtual protected]\fR"
 Paints the resize grip. Resize grips are usually rendered as small diagonal textured lines in the lower-right corner. The event is in \fIe\fR.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "QSize QSizeGrip::sizeHint () const\fC [virtual]\fR"
 Returns the size grip's size hint; this is a small size.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 
 .SH "SEE ALSO"
 .BR http://doc.trolltech.com/ntqsizegrip.html
@@ -88,8 +88,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

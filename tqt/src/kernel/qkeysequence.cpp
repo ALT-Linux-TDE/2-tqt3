@@ -40,16 +40,16 @@
 
 #include "ntqkeysequence.h"
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 #include "ntqaccel.h"
 #include "ntqshared.h"
 #include "ntqvaluelist.h"
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 # include "ntqregexp.h"
 #endif
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 #define TQMAC_CTRL  (TQString(TQChar(0x2318)))
 #define TQMAC_META  (TQString(TQChar(0x2303)))
 #define TQMAC_ALT   (TQString(TQChar(0x2325)))
@@ -93,87 +93,92 @@ static struct {
     int key;
     const char* name;
 } keyname[] = {
-    { TQt::Key_Space,	    QT_TRANSLATE_NOOP( "TQAccel", "Space" ) },
-    { TQt::Key_Escape,	    QT_TRANSLATE_NOOP( "TQAccel", "Esc" ) },
-    { TQt::Key_Tab,	    QT_TRANSLATE_NOOP( "TQAccel", "Tab" ) },
-    { TQt::Key_Backtab,	    QT_TRANSLATE_NOOP( "TQAccel", "Backtab" ) },
-    { TQt::Key_Backspace,    QT_TRANSLATE_NOOP( "TQAccel", "Backspace" ) },
-    { TQt::Key_Return,	    QT_TRANSLATE_NOOP( "TQAccel", "Return" ) },
-    { TQt::Key_Enter,	    QT_TRANSLATE_NOOP( "TQAccel", "Enter" ) },
-    { TQt::Key_Insert,	    QT_TRANSLATE_NOOP( "TQAccel", "Ins" ) },
-    { TQt::Key_Delete,	    QT_TRANSLATE_NOOP( "TQAccel", "Del" ) },
-    { TQt::Key_Pause,	    QT_TRANSLATE_NOOP( "TQAccel", "Pause" ) },
-    { TQt::Key_Print,	    QT_TRANSLATE_NOOP( "TQAccel", "Print" ) },
-    { TQt::Key_SysReq,	    QT_TRANSLATE_NOOP( "TQAccel", "SysReq" ) },
-    { TQt::Key_Home,	    QT_TRANSLATE_NOOP( "TQAccel", "Home" ) },
-    { TQt::Key_End,	    QT_TRANSLATE_NOOP( "TQAccel", "End" ) },
-    { TQt::Key_Left,	    QT_TRANSLATE_NOOP( "TQAccel", "Left" ) },
-    { TQt::Key_Up,	    QT_TRANSLATE_NOOP( "TQAccel", "Up" ) },
-    { TQt::Key_Right,	    QT_TRANSLATE_NOOP( "TQAccel", "Right" ) },
-    { TQt::Key_Down,	    QT_TRANSLATE_NOOP( "TQAccel", "Down" ) },
-    { TQt::Key_Prior,	    QT_TRANSLATE_NOOP( "TQAccel", "PgUp" ) },
-    { TQt::Key_Next,	    QT_TRANSLATE_NOOP( "TQAccel", "PgDown" ) },
-    { TQt::Key_CapsLock,	    QT_TRANSLATE_NOOP( "TQAccel", "CapsLock" ) },
-    { TQt::Key_NumLock,	    QT_TRANSLATE_NOOP( "TQAccel", "NumLock" ) },
-    { TQt::Key_ScrollLock,   QT_TRANSLATE_NOOP( "TQAccel", "ScrollLock" ) },
-    { TQt::Key_Menu,	    QT_TRANSLATE_NOOP( "TQAccel", "Menu" ) },
-    { TQt::Key_Help,	    QT_TRANSLATE_NOOP( "TQAccel", "Help" ) },
+    { TQt::Key_Space,       TQT_TRANSLATE_NOOP( "TQAccel", "Space" ) },
+    { TQt::Key_Escape,      TQT_TRANSLATE_NOOP( "TQAccel", "Esc" ) },
+    { TQt::Key_Tab,         TQT_TRANSLATE_NOOP( "TQAccel", "Tab" ) },
+    { TQt::Key_Backtab,     TQT_TRANSLATE_NOOP( "TQAccel", "Backtab" ) },
+    { TQt::Key_Backspace,   TQT_TRANSLATE_NOOP( "TQAccel", "Backspace" ) },
+    { TQt::Key_Return,      TQT_TRANSLATE_NOOP( "TQAccel", "Return" ) },
+    { TQt::Key_Enter,       TQT_TRANSLATE_NOOP( "TQAccel", "Enter" ) },
+    { TQt::Key_Insert,      TQT_TRANSLATE_NOOP( "TQAccel", "Ins" ) },
+    { TQt::Key_Delete,      TQT_TRANSLATE_NOOP( "TQAccel", "Del" ) },
+    { TQt::Key_Pause,       TQT_TRANSLATE_NOOP( "TQAccel", "Pause" ) },
+    { TQt::Key_Print,       TQT_TRANSLATE_NOOP( "TQAccel", "Print" ) },
+    { TQt::Key_SysReq,      TQT_TRANSLATE_NOOP( "TQAccel", "SysReq" ) },
+    { TQt::Key_Home,        TQT_TRANSLATE_NOOP( "TQAccel", "Home" ) },
+    { TQt::Key_End,         TQT_TRANSLATE_NOOP( "TQAccel", "End" ) },
+    { TQt::Key_Left,        TQT_TRANSLATE_NOOP( "TQAccel", "Left" ) },
+    { TQt::Key_Up,          TQT_TRANSLATE_NOOP( "TQAccel", "Up" ) },
+    { TQt::Key_Right,       TQT_TRANSLATE_NOOP( "TQAccel", "Right" ) },
+    { TQt::Key_Down,        TQT_TRANSLATE_NOOP( "TQAccel", "Down" ) },
+    { TQt::Key_Prior,       TQT_TRANSLATE_NOOP( "TQAccel", "PgUp" ) },
+    { TQt::Key_Next,        TQT_TRANSLATE_NOOP( "TQAccel", "PgDown" ) },
+    { TQt::Key_CapsLock,    TQT_TRANSLATE_NOOP( "TQAccel", "CapsLock" ) },
+    { TQt::Key_NumLock,     TQT_TRANSLATE_NOOP( "TQAccel", "NumLock" ) },
+    { TQt::Key_ScrollLock,  TQT_TRANSLATE_NOOP( "TQAccel", "ScrollLock" ) },
+    { TQt::Key_Menu,        TQT_TRANSLATE_NOOP( "TQAccel", "Menu" ) },
+    { TQt::Key_Help,        TQT_TRANSLATE_NOOP( "TQAccel", "Help" ) },
 
     // Multimedia keys
-    { TQt::Key_Back,	    QT_TRANSLATE_NOOP( "TQAccel", "Back" ) },
-    { TQt::Key_Forward,	    QT_TRANSLATE_NOOP( "TQAccel", "Forward" ) },
-    { TQt::Key_Stop,	    QT_TRANSLATE_NOOP( "TQAccel", "Stop" ) },
-    { TQt::Key_Refresh,	    QT_TRANSLATE_NOOP( "TQAccel", "Refresh" ) },
-    { TQt::Key_VolumeDown,   QT_TRANSLATE_NOOP( "TQAccel", "Volume Down" ) },
-    { TQt::Key_VolumeMute,   QT_TRANSLATE_NOOP( "TQAccel", "Volume Mute" ) },
-    { TQt::Key_VolumeUp,	    QT_TRANSLATE_NOOP( "TQAccel", "Volume Up" ) },
-    { TQt::Key_BassBoost,    QT_TRANSLATE_NOOP( "TQAccel", "Bass Boost" ) },
-    { TQt::Key_BassUp,	    QT_TRANSLATE_NOOP( "TQAccel", "Bass Up" ) },
-    { TQt::Key_BassDown,	    QT_TRANSLATE_NOOP( "TQAccel", "Bass Down" ) },
-    { TQt::Key_TrebleUp,	    QT_TRANSLATE_NOOP( "TQAccel", "Treble Up" ) },
-    { TQt::Key_TrebleDown,   QT_TRANSLATE_NOOP( "TQAccel", "Treble Down" ) },
-    { TQt::Key_MediaPlay,    QT_TRANSLATE_NOOP( "TQAccel", "Media Play" ) },
-    { TQt::Key_MediaStop,    QT_TRANSLATE_NOOP( "TQAccel", "Media Stop" ) },
-    { TQt::Key_MediaPrev,    QT_TRANSLATE_NOOP( "TQAccel", "Media Previous" ) },
-    { TQt::Key_MediaNext,    QT_TRANSLATE_NOOP( "TQAccel", "Media Next" ) },
-    { TQt::Key_MediaRecord,  QT_TRANSLATE_NOOP( "TQAccel", "Media Record" ) },
-    { TQt::Key_HomePage,	    QT_TRANSLATE_NOOP( "TQAccel", "Home" ) },
-    { TQt::Key_Favorites,    QT_TRANSLATE_NOOP( "TQAccel", "Favorites" ) },
-    { TQt::Key_Search,	    QT_TRANSLATE_NOOP( "TQAccel", "Search" ) },
-    { TQt::Key_Standby,	    QT_TRANSLATE_NOOP( "TQAccel", "Standby" ) },
-    { TQt::Key_OpenUrl,	    QT_TRANSLATE_NOOP( "TQAccel", "Open URL" ) },
-    { TQt::Key_LaunchMail,   QT_TRANSLATE_NOOP( "TQAccel", "Launch Mail" ) },
-    { TQt::Key_LaunchMedia,  QT_TRANSLATE_NOOP( "TQAccel", "Launch Media" ) },
-    { TQt::Key_Launch0,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (0)" ) },
-    { TQt::Key_Launch1,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (1)" ) },
-    { TQt::Key_Launch2,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (2)" ) },
-    { TQt::Key_Launch3,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (3)" ) },
-    { TQt::Key_Launch4,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (4)" ) },
-    { TQt::Key_Launch5,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (5)" ) },
-    { TQt::Key_Launch6,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (6)" ) },
-    { TQt::Key_Launch7,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (7)" ) },
-    { TQt::Key_Launch8,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (8)" ) },
-    { TQt::Key_Launch9,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (9)" ) },
-    { TQt::Key_LaunchA,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (A)" ) },
-    { TQt::Key_LaunchB,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (B)" ) },
-    { TQt::Key_LaunchC,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (C)" ) },
-    { TQt::Key_LaunchD,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (D)" ) },
-    { TQt::Key_LaunchE,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (E)" ) },
-    { TQt::Key_LaunchF,	    QT_TRANSLATE_NOOP( "TQAccel", "Launch (F)" ) },
+    { TQt::Key_Back,        TQT_TRANSLATE_NOOP( "TQAccel", "Back" ) },
+    { TQt::Key_Forward,     TQT_TRANSLATE_NOOP( "TQAccel", "Forward" ) },
+    { TQt::Key_Stop,        TQT_TRANSLATE_NOOP( "TQAccel", "Stop" ) },
+    { TQt::Key_Refresh,     TQT_TRANSLATE_NOOP( "TQAccel", "Refresh" ) },
+    { TQt::Key_VolumeDown,  TQT_TRANSLATE_NOOP( "TQAccel", "Volume Down" ) },
+    { TQt::Key_VolumeMute,  TQT_TRANSLATE_NOOP( "TQAccel", "Volume Mute" ) },
+    { TQt::Key_VolumeUp,    TQT_TRANSLATE_NOOP( "TQAccel", "Volume Up" ) },
+    { TQt::Key_BassBoost,   TQT_TRANSLATE_NOOP( "TQAccel", "Bass Boost" ) },
+    { TQt::Key_BassUp,      TQT_TRANSLATE_NOOP( "TQAccel", "Bass Up" ) },
+    { TQt::Key_BassDown,    TQT_TRANSLATE_NOOP( "TQAccel", "Bass Down" ) },
+    { TQt::Key_TrebleUp,    TQT_TRANSLATE_NOOP( "TQAccel", "Treble Up" ) },
+    { TQt::Key_TrebleDown,  TQT_TRANSLATE_NOOP( "TQAccel", "Treble Down" ) },
+    { TQt::Key_MediaPlay,   TQT_TRANSLATE_NOOP( "TQAccel", "Media Play" ) },
+    { TQt::Key_MediaStop,   TQT_TRANSLATE_NOOP( "TQAccel", "Media Stop" ) },
+    { TQt::Key_MediaPrev,   TQT_TRANSLATE_NOOP( "TQAccel", "Media Previous" ) },
+    { TQt::Key_MediaNext,   TQT_TRANSLATE_NOOP( "TQAccel", "Media Next" ) },
+    { TQt::Key_MediaRecord, TQT_TRANSLATE_NOOP( "TQAccel", "Media Record" ) },
+    { TQt::Key_HomePage,    TQT_TRANSLATE_NOOP( "TQAccel", "Home" ) },
+    { TQt::Key_Favorites,   TQT_TRANSLATE_NOOP( "TQAccel", "Favorites" ) },
+    { TQt::Key_Search,      TQT_TRANSLATE_NOOP( "TQAccel", "Search" ) },
+    { TQt::Key_Standby,     TQT_TRANSLATE_NOOP( "TQAccel", "Standby" ) },
+    { TQt::Key_OpenUrl,     TQT_TRANSLATE_NOOP( "TQAccel", "Open URL" ) },
+    { TQt::Key_LaunchMail,  TQT_TRANSLATE_NOOP( "TQAccel", "Launch Mail" ) },
+    { TQt::Key_LaunchMedia, TQT_TRANSLATE_NOOP( "TQAccel", "Launch Media" ) },
+    { TQt::Key_Launch0,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (0)" ) },
+    { TQt::Key_Launch1,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (1)" ) },
+    { TQt::Key_Launch2,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (2)" ) },
+    { TQt::Key_Launch3,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (3)" ) },
+    { TQt::Key_Launch4,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (4)" ) },
+    { TQt::Key_Launch5,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (5)" ) },
+    { TQt::Key_Launch6,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (6)" ) },
+    { TQt::Key_Launch7,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (7)" ) },
+    { TQt::Key_Launch8,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (8)" ) },
+    { TQt::Key_Launch9,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (9)" ) },
+    { TQt::Key_LaunchA,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (A)" ) },
+    { TQt::Key_LaunchB,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (B)" ) },
+    { TQt::Key_LaunchC,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (C)" ) },
+    { TQt::Key_LaunchD,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (D)" ) },
+    { TQt::Key_LaunchE,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (E)" ) },
+    { TQt::Key_LaunchF,     TQT_TRANSLATE_NOOP( "TQAccel", "Launch (F)" ) },
+    { TQt::Key_MonBrightnessUp,        TQT_TRANSLATE_NOOP( "TQAccel", "Monitor Brightness Up" ) },
+    { TQt::Key_MonBrightnessDown,      TQT_TRANSLATE_NOOP( "TQAccel", "Monitor Brightness Down" ) },
+    { TQt::Key_KeyboardLightOnOff,     TQT_TRANSLATE_NOOP( "TQAccel", "Keyboard Light On Off" ) },
+    { TQt::Key_KeyboardBrightnessUp,   TQT_TRANSLATE_NOOP( "TQAccel", "Keyboard Brightness Up" ) },
+    { TQt::Key_KeyboardBrightnessDown, TQT_TRANSLATE_NOOP( "TQAccel", "Keyboard Brightness Down" ) },
 
     // --------------------------------------------------------------
     // More consistent namings
-    { TQt::Key_Print,	    QT_TRANSLATE_NOOP( "TQAccel", "Print Screen" ) },
-    { TQt::Key_Prior,	    QT_TRANSLATE_NOOP( "TQAccel", "Page Up" ) },
-    { TQt::Key_Next,	    QT_TRANSLATE_NOOP( "TQAccel", "Page Down" ) },
-    { TQt::Key_CapsLock,	    QT_TRANSLATE_NOOP( "TQAccel", "Caps Lock" ) },
-    { TQt::Key_NumLock,	    QT_TRANSLATE_NOOP( "TQAccel", "Num Lock" ) },
-    { TQt::Key_NumLock,	    QT_TRANSLATE_NOOP( "TQAccel", "Number Lock" ) },
-    { TQt::Key_ScrollLock,   QT_TRANSLATE_NOOP( "TQAccel", "Scroll Lock" ) },
-    { TQt::Key_Insert,	    QT_TRANSLATE_NOOP( "TQAccel", "Insert" ) },
-    { TQt::Key_Delete,	    QT_TRANSLATE_NOOP( "TQAccel", "Delete" ) },
-    { TQt::Key_Escape,	    QT_TRANSLATE_NOOP( "TQAccel", "Escape" ) },
-    { TQt::Key_SysReq,	    QT_TRANSLATE_NOOP( "TQAccel", "System Request" ) },
+    { TQt::Key_Print,       TQT_TRANSLATE_NOOP( "TQAccel", "Print Screen" ) },
+    { TQt::Key_Prior,       TQT_TRANSLATE_NOOP( "TQAccel", "Page Up" ) },
+    { TQt::Key_Next,        TQT_TRANSLATE_NOOP( "TQAccel", "Page Down" ) },
+    { TQt::Key_CapsLock,    TQT_TRANSLATE_NOOP( "TQAccel", "Caps Lock" ) },
+    { TQt::Key_NumLock,     TQT_TRANSLATE_NOOP( "TQAccel", "Num Lock" ) },
+    { TQt::Key_NumLock,     TQT_TRANSLATE_NOOP( "TQAccel", "Number Lock" ) },
+    { TQt::Key_ScrollLock,  TQT_TRANSLATE_NOOP( "TQAccel", "Scroll Lock" ) },
+    { TQt::Key_Insert,      TQT_TRANSLATE_NOOP( "TQAccel", "Insert" ) },
+    { TQt::Key_Delete,      TQT_TRANSLATE_NOOP( "TQAccel", "Delete" ) },
+    { TQt::Key_Escape,      TQT_TRANSLATE_NOOP( "TQAccel", "Escape" ) },
+    { TQt::Key_SysReq,      TQT_TRANSLATE_NOOP( "TQAccel", "System Request" ) },
 
     { 0, 0 }
 };
@@ -222,7 +227,7 @@ TQKeySequence::TQKeySequence()
 
     \code
 	TQPopupMenu *file = new TQPopupMenu( this );
-	file->insertItem( tr("&Open..."), this, SLOT(open()),
+	file->insertItem( tr("&Open..."), this, TQ_SLOT(open()),
 			  TQKeySequence( tr("Ctrl+O", "File|Open") ) );
     \endcode
 
@@ -416,7 +421,7 @@ int TQKeySequence::decodeString( const TQString& str )
     for( TQValueList<ModifKeyName>::iterator it = modifs.begin(); it != modifs.end(); ++it ) {
 	if ( sl.contains( (*it).name ) ) {
 	    ret |= (*it).qt_key;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 	    accel.remove( TQRegExp(TQRegExp::escape((*it).name), FALSE) );
 #else
 	    accel.remove( (*it).name );
@@ -671,7 +676,7 @@ bool TQKeySequence::operator!= ( const TQKeySequence& keysequence ) const
 /*****************************************************************************
   TQKeySequence stream functions
  *****************************************************************************/
-#if !defined(QT_NO_DATASTREAM) && !defined(QT_NO_IMAGEIO)
+#if !defined(TQT_NO_DATASTREAM) && !defined(TQT_NO_IMAGEIO)
 /*!
     \relates TQKeySequence
 
@@ -726,6 +731,6 @@ TQDataStream &operator>>( TQDataStream &s, TQKeySequence &keysequence )
     return s;
 }
 
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
-#endif //QT_NO_ACCEL
+#endif //TQT_NO_ACCEL

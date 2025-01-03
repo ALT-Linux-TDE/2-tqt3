@@ -346,12 +346,12 @@ GraphWidget::GraphWidget( TQWidget *parent, const char *name)
     TQHBoxLayout* hb = new TQHBoxLayout(  vb );
     hb->addWidget( new TQLabel("Slow", this ) );
     TQSlider* slider = new TQSlider( 0, 300, 25, d->speed, Horizontal, this );
-    connect( slider, SIGNAL( valueChanged(int) ), this, SLOT( setSpeed(int) ) );
+    connect( slider, TQ_SIGNAL( valueChanged(int) ), this, TQ_SLOT( setSpeed(int) ) );
     hb->addWidget( slider );
     hb->addWidget( new TQLabel("Fast", this ) );
     hb->addSpacing( 10 );
     TQPushButton* btn = new TQPushButton( "Shuffle Nodes", this );
-    connect( btn, SIGNAL( clicked() ), this, SLOT( shuffle() ) );
+    connect( btn, TQ_SIGNAL( clicked() ), this, TQ_SLOT( shuffle() ) );
     hb->addWidget( btn );
 }
 

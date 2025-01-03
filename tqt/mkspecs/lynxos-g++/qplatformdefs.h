@@ -13,7 +13,7 @@
 // We are hot - unistd.h should have turned on the specific APIs we requested
 
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #include <pthread.h>
 #endif
 
@@ -44,7 +44,7 @@
 #include <resolv.h>
 
 
-#if !defined(QT_NO_COMPAT)
+#if !defined(TQT_NO_COMPAT)
 #define QT_STATBUF		struct stat
 #define QT_STATBUF4TSTAT	struct stat
 #define QT_STAT			::stat
@@ -76,11 +76,7 @@
 #define QT_SIGNAL_ARGS		int
 #define QT_SIGNAL_IGNORE	SIG_IGN
 
-#if defined(__GLIBC__) && (__GLIBC__ >= 2)
 #define QT_SOCKLEN_T		socklen_t
-#else
-#define QT_SOCKLEN_T		int
-#endif
 
 #if defined(_XOPEN_SOURCE) && (_XOPEN_SOURCE >= 500)
 #define QT_SNPRINTF		::snprintf

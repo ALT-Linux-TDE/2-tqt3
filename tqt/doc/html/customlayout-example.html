@@ -778,7 +778,7 @@ int main( int argc, char **argv )
     b1-&gt;<a href="ntqlayout.html#add">add</a>( new <a href="ntqpushbutton.html">TQPushButton</a>( "More text", f ) );
     b1-&gt;<a href="ntqlayout.html#add">add</a>( new <a href="ntqpushbutton.html">TQPushButton</a>( "Even longer button text", f ) );
     <a href="ntqpushbutton.html">TQPushButton</a>* qb = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", f );
-    a.<a href="ntqobject.html#connect">connect</a>( qb, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), SLOT( quit() ) );
+    a.<a href="ntqobject.html#connect">connect</a>( qb, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), TQ_SLOT( quit() ) );
     b1-&gt;<a href="ntqlayout.html#add">add</a>( qb );
 
     <a href="ntqwidget.html">TQWidget</a> *wid = new <a href="ntqwidget.html">TQWidget</a>( f );

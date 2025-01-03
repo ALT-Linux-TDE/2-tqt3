@@ -55,8 +55,8 @@ ListBoxRename::ListBoxRename( TQListBox * eventSource, const char * name )
     ed->hide();
     ed->setFrame( FALSE );
 
-    TQObject::connect( ed, SIGNAL( returnPressed() ),
-		      this, SLOT( renameClickedItem() ) );
+    TQObject::connect( ed, TQ_SIGNAL( returnPressed() ),
+		      this, TQ_SLOT( renameClickedItem() ) );
 }
 
 bool ListBoxRename::eventFilter( TQObject *, TQEvent * event )
@@ -70,7 +70,7 @@ bool ListBoxRename::eventFilter( TQObject *, TQEvent * event )
 	    if ( clickedItem &&
 		 clickedItem->isSelected() &&
 		 (clickedItem == src->itemAt( pos )) ) {
-		TQTimer::singleShot( 500, this, SLOT( showLineEdit() ) );
+		TQTimer::singleShot( 500, this, TQ_SLOT( showLineEdit() ) );
 		activity = FALSE; // no drags or clicks for 500 ms before we start the renaming
 	    } else { // new item clicked
 		activity = TRUE;

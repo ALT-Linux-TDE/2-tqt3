@@ -45,32 +45,32 @@
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 
 class TQTextCodec;
 class TQIODevice;
 class TQFont;
 
-class Q_EXPORT TQTextEncoder {
+class TQ_EXPORT TQTextEncoder {
 public:
     virtual ~TQTextEncoder();
     virtual TQCString fromUnicode(const TQString& uc, int& lenInOut) = 0;
 };
 
-class Q_EXPORT TQTextDecoder {
+class TQ_EXPORT TQTextDecoder {
 public:
     virtual ~TQTextDecoder();
     virtual TQString toUnicode(const char* chars, int len) = 0;
 };
 
-class Q_EXPORT TQTextCodec {
+class TQ_EXPORT TQTextCodec {
 public:
     virtual ~TQTextCodec();
 
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
     static TQTextCodec* loadCharmap(TQIODevice*);
     static TQTextCodec* loadCharmapFile(TQString filename);
-#endif //QT_NO_CODECS
+#endif //TQT_NO_CODECS
     static TQTextCodec* codecForMib(int mib);
     static TQTextCodec* codecForName(const char* hint, int accuracy=0);
     static TQTextCodec* codecForContent(const char* chars, int len);
@@ -130,5 +130,5 @@ inline void TQTextCodec::setCodecForTr(TQTextCodec *c) { cftr = c; }
 inline TQTextCodec* TQTextCodec::codecForCStrings() { return cfcs; }
 inline void TQTextCodec::setCodecForCStrings(TQTextCodec *c) { cfcs = c; }
 
-#endif // QT_NO_TEXTCODEC
+#endif // TQT_NO_TEXTCODEC
 #endif // TQTEXTCODEC_H

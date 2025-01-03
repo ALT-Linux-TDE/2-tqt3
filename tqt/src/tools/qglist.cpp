@@ -43,9 +43,9 @@
 #include "ntqdatastream.h"
 #include "ntqvaluelist.h"
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
   #include "ntqmutex.h"
-#endif // defined(QT_THREAD_SUPPORT)
+#endif // defined(TQT_THREAD_SUPPORT)
 
 /*!
   \class TQLNode ntqglist.h
@@ -182,7 +182,7 @@ int TQGList::compareItems( TQPtrCollection::Item item1, TQPtrCollection::Item it
     return item1 != item2;			// compare pointers
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \overload
   Reads a collection/list item from the stream \a s and returns a reference
@@ -213,7 +213,7 @@ TQDataStream &TQGList::write( TQDataStream &s, TQPtrCollection::Item ) const
 {
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 /*****************************************************************************
   TQGList member functions
@@ -225,7 +225,7 @@ TQDataStream &TQGList::write( TQDataStream &s, TQPtrCollection::Item ) const
 
 TQGList::TQGList()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex = new TQMutex(true);
 #endif
     firstNode = lastNode = curNode = 0;		// initialize list
@@ -241,7 +241,7 @@ TQGList::TQGList()
 TQGList::TQGList( const TQGList & list )
     : TQPtrCollection( list )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex = new TQMutex(true);
 #endif
     firstNode = lastNode = curNode = 0;		// initialize list
@@ -268,7 +268,7 @@ TQGList::~TQGList()
     // twice on the same address! This is insane but let's try not to crash
     // here.
     iterators = 0;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //delete mutex;
 #endif
 }
@@ -337,11 +337,11 @@ bool TQGList::operator==( const TQGList &list ) const
 
 TQLNode *TQGList::locate( uint index )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( index == (uint)curIndex ) {		// current node ?
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return curNode;
@@ -350,12 +350,12 @@ TQLNode *TQGList::locate( uint index )
 	curNode	 = firstNode;
 	curIndex = 0;
     }
-    register TQLNode *node;
+    TQLNode *node;
     int	 distance = index - curIndex;		// node distance to cur node
     bool forward;				// direction to traverse
 
     if ( index >= numNodes ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return 0;
@@ -388,7 +388,7 @@ TQLNode *TQGList::locate( uint index )
 	}
     }
     curIndex = index;				// must update index
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return curNode = node;
@@ -401,17 +401,17 @@ TQLNode *TQGList::locate( uint index )
 
 void TQGList::inSort( TQPtrCollection::Item d )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     int index = 0;
-    register TQLNode *n = firstNode;
+    TQLNode *n = firstNode;
     while ( n && compareItems(n->data,d) < 0 ){ // find position in list
 	n = n->next;
 	index++;
     }
     insertAt( index, d );
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
 }
@@ -423,10 +423,10 @@ void TQGList::inSort( TQPtrCollection::Item d )
 
 void TQGList::prepend( TQPtrCollection::Item d )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
-    register TQLNode *n = new TQLNode( newItem(d) );
+    TQLNode *n = new TQLNode( newItem(d) );
     TQ_CHECK_PTR( n );
     n->prev = 0;
     if ( (n->next = firstNode) )		// list is not empty
@@ -436,7 +436,7 @@ void TQGList::prepend( TQPtrCollection::Item d )
     firstNode = curNode = n;			// curNode affected
     numNodes++;
     curIndex = 0;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
 }
@@ -448,10 +448,10 @@ void TQGList::prepend( TQPtrCollection::Item d )
 
 void TQGList::append( TQPtrCollection::Item d )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
-    register TQLNode *n = new TQLNode( newItem(d) );
+    TQLNode *n = new TQLNode( newItem(d) );
     TQ_CHECK_PTR( n );
     n->next = 0;
     if ( (n->prev = lastNode) ) {		// list is not empty
@@ -463,7 +463,7 @@ void TQGList::append( TQPtrCollection::Item d )
     lastNode = curNode = n;			// curNode affected
     curIndex = numNodes;
     numNodes++;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
 }
@@ -475,32 +475,32 @@ void TQGList::append( TQPtrCollection::Item d )
 
 bool TQGList::insertAt( uint index, TQPtrCollection::Item d )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( index == 0 ) {
 	prepend( d );
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return TRUE;
     }
     else if ( index == numNodes ) {
 	append( d );
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return TRUE;
     }
     TQLNode *nextNode = locate( index );
     if ( !nextNode ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return FALSE;
     }
     TQLNode *prevNode = nextNode->prev;
-    register TQLNode *n = new TQLNode( newItem(d) );
+    TQLNode *n = new TQLNode( newItem(d) );
     TQ_CHECK_PTR( n );
     nextNode->prev = n;
     Q_ASSERT( (!((curIndex > 0) && (!prevNode))) );
@@ -509,7 +509,7 @@ bool TQGList::insertAt( uint index, TQPtrCollection::Item d )
     n->next = nextNode;
     curNode = n;				// curIndex set by locate()
     numNodes++;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return TRUE;
@@ -522,11 +522,11 @@ bool TQGList::insertAt( uint index, TQPtrCollection::Item d )
 
 void TQGList::relinkNode( TQLNode *n )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( n == firstNode ) {			// already first
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return;
@@ -543,7 +543,7 @@ void TQGList::relinkNode( TQLNode *n )
     firstNode = curNode = n;			// curNode affected
     numNodes++;
     curIndex = 0;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
 }
@@ -555,16 +555,16 @@ void TQGList::relinkNode( TQLNode *n )
 
 TQLNode *TQGList::unlink()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( curNode == 0 ) {			// null current node
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return 0;
     }
-    register TQLNode *n = curNode;		// unlink this node
+    TQLNode *n = curNode;		// unlink this node
     if ( n == firstNode ) {			// removing first node ?
 	if ( (firstNode = n->next) ) {
 	    firstNode->prev = 0;
@@ -593,7 +593,7 @@ TQLNode *TQGList::unlink()
 	iterators->notifyRemove( n, curNode );
     }
     numNodes--;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return n;
@@ -606,7 +606,7 @@ TQLNode *TQGList::unlink()
 
 bool TQGList::removeNode( TQLNode *n )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
 #if defined(QT_CHECK_NULL)
@@ -622,7 +622,7 @@ bool TQGList::removeNode( TQLNode *n )
     delete n;
     curNode  = firstNode;
     curIndex = curNode ? 0 : -1;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return TRUE;
@@ -636,25 +636,25 @@ bool TQGList::removeNode( TQLNode *n )
 
 bool TQGList::remove( TQPtrCollection::Item d )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( d && find(d) == -1 ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return FALSE;
     }
     TQLNode *n = unlink();
     if ( !n ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return FALSE;
     }
     deleteItem( n->data );
     delete n;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return TRUE;
@@ -666,25 +666,25 @@ bool TQGList::remove( TQPtrCollection::Item d )
 
 bool TQGList::removeRef( TQPtrCollection::Item d )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( findRef(d) == -1 ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return FALSE;
     }
     TQLNode *n = unlink();
     if ( !n ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return FALSE;
     }
     deleteItem( n->data );
     delete n;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return TRUE;
@@ -708,25 +708,25 @@ bool TQGList::removeRef( TQPtrCollection::Item d )
 
 bool TQGList::removeAt( uint index )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( !locate(index) ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return FALSE;
     }
     TQLNode *n = unlink();
     if ( !n ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return FALSE;
     }
     deleteItem( n->data );
     delete n;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return TRUE;
@@ -738,12 +738,12 @@ bool TQGList::removeAt( uint index )
 */
 bool TQGList::replaceAt( uint index, TQPtrCollection::Item d )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     TQLNode *n = locate( index );
     if ( !n ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return FALSE;
@@ -752,7 +752,7 @@ bool TQGList::replaceAt( uint index, TQPtrCollection::Item d )
 	deleteItem( n->data );
 	n->data = newItem( d );
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return TRUE;
@@ -766,14 +766,14 @@ bool TQGList::replaceAt( uint index, TQPtrCollection::Item d )
 
 TQPtrCollection::Item TQGList::takeNode( TQLNode *n )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
 #if defined(QT_CHECK_NULL)
     if ( n == 0 || (n->prev && n->prev->next != n) ||
 	 (n->next && n->next->prev != n) ) {
 	tqWarning( "TQGList::takeNode: Corrupted node" );
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return 0;
@@ -785,7 +785,7 @@ TQPtrCollection::Item TQGList::takeNode( TQLNode *n )
     delete n;					// delete the node, not data
     curNode  = firstNode;
     curIndex = curNode ? 0 : -1;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return d;
@@ -797,13 +797,13 @@ TQPtrCollection::Item TQGList::takeNode( TQLNode *n )
 
 TQPtrCollection::Item TQGList::take()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     TQLNode *n = unlink();			// unlink node
     Item d = n ? n->data : 0;
     delete n;					// delete node, keep contents
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return d;
@@ -815,11 +815,11 @@ TQPtrCollection::Item TQGList::take()
 
 TQPtrCollection::Item TQGList::takeAt( uint index )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( !locate(index) ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return 0;
@@ -827,7 +827,7 @@ TQPtrCollection::Item TQGList::takeAt( uint index )
     TQLNode *n = unlink();			// unlink node
     Item d = n ? n->data : 0;
     delete n;					// delete node, keep contents
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return d;
@@ -839,14 +839,14 @@ TQPtrCollection::Item TQGList::takeAt( uint index )
 
 TQPtrCollection::Item TQGList::takeFirst()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     first();
     TQLNode *n = unlink();			// unlink node
     Item d = n ? n->data : 0;
     delete n;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return d;
@@ -858,14 +858,14 @@ TQPtrCollection::Item TQGList::takeFirst()
 
 TQPtrCollection::Item TQGList::takeLast()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     last();
     TQLNode *n = unlink();			// unlink node
     Item d = n ? n->data : 0;
     delete n;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return d;
@@ -878,10 +878,10 @@ TQPtrCollection::Item TQGList::takeLast()
 
 void TQGList::clear()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
-    register TQLNode *n = firstNode;
+    TQLNode *n = firstNode;
 
     firstNode = lastNode = curNode = 0;		// initialize list
     numNodes = 0;
@@ -898,7 +898,7 @@ void TQGList::clear()
 	n = n->next;
 	delete prevNode;			// deallocate node
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
 }
@@ -911,10 +911,10 @@ void TQGList::clear()
 
 int TQGList::findRef( TQPtrCollection::Item d, bool fromStart )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
-    register TQLNode *n;
+    TQLNode *n;
     int	     index;
     if ( fromStart ) {				// start from first node
 	n = firstNode;
@@ -929,7 +929,7 @@ int TQGList::findRef( TQPtrCollection::Item d, bool fromStart )
     }
     curNode = n;
     curIndex = n ? index : -1;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return curIndex;				// return position of item
@@ -943,10 +943,10 @@ int TQGList::findRef( TQPtrCollection::Item d, bool fromStart )
 
 int TQGList::find( TQPtrCollection::Item d, bool fromStart )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
-    register TQLNode *n;
+    TQLNode *n;
     int	     index;
     if ( fromStart ) {				// start from first node
 	n = firstNode;
@@ -961,7 +961,7 @@ int TQGList::find( TQPtrCollection::Item d, bool fromStart )
     }
     curNode = n;
     curIndex = n ? index : -1;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return curIndex;				// return position of item
@@ -974,17 +974,17 @@ int TQGList::find( TQPtrCollection::Item d, bool fromStart )
 
 uint TQGList::containsRef( TQPtrCollection::Item d ) const
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
-    register TQLNode *n = firstNode;
+    TQLNode *n = firstNode;
     uint     count = 0;
     while ( n ) {				// for all nodes...
 	if ( n->data == d )			// count # exact matches
 	    count++;
 	n = n->next;
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return count;
@@ -997,10 +997,10 @@ uint TQGList::containsRef( TQPtrCollection::Item d ) const
 
 uint TQGList::contains( TQPtrCollection::Item d ) const
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
-    register TQLNode *n = firstNode;
+    TQLNode *n = firstNode;
     uint     count = 0;
     TQGList  *that = (TQGList*)this;		// mutable for compareItems()
     while ( n ) {				// for all nodes...
@@ -1008,7 +1008,7 @@ uint TQGList::contains( TQPtrCollection::Item d ) const
 	    count++;
 	n = n->next;
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return count;
@@ -1058,17 +1058,17 @@ uint TQGList::contains( TQPtrCollection::Item d ) const
 
 TQPtrCollection::Item TQGList::first()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( firstNode ) {
 	curIndex = 0;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return (curNode=firstNode)->data;
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return 0;
@@ -1080,17 +1080,17 @@ TQPtrCollection::Item TQGList::first()
 
 TQPtrCollection::Item TQGList::last()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( lastNode ) {
 	curIndex = numNodes-1;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return (curNode=lastNode)->data;
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return 0;
@@ -1102,14 +1102,14 @@ TQPtrCollection::Item TQGList::last()
 
 TQPtrCollection::Item TQGList::next()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( curNode ) {
 	if ( curNode->next ) {
 	    curIndex++;
 	    curNode = curNode->next;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	    //mutex->unlock();
 #endif
 	    return curNode->data;
@@ -1117,7 +1117,7 @@ TQPtrCollection::Item TQGList::next()
 	curIndex = -1;
 	curNode = 0;
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return 0;
@@ -1129,14 +1129,14 @@ TQPtrCollection::Item TQGList::next()
 
 TQPtrCollection::Item TQGList::prev()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     if ( curNode ) {
 	if ( curNode->prev ) {
 	    curIndex--;
 	    curNode = curNode->prev;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	    //mutex->unlock();
 #endif
 	    return curNode->data;
@@ -1144,7 +1144,7 @@ TQPtrCollection::Item TQGList::prev()
 	curIndex = -1;
 	curNode = 0;
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return 0;
@@ -1157,31 +1157,31 @@ TQPtrCollection::Item TQGList::prev()
 
 void TQGList::toVector( TQGVector *vector ) const
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     vector->clear();
     if ( !vector->resize( count() ) ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return;
     }
-    register TQLNode *n = firstNode;
+    TQLNode *n = firstNode;
     uint i = 0;
     while ( n ) {
 	vector->insert( i, n->data );
 	n = n->next;
 	i++;
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
 }
 
 void TQGList::heapSortPushDown( TQPtrCollection::Item* heap, int first, int last )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     int r = first;
@@ -1218,7 +1218,7 @@ void TQGList::heapSortPushDown( TQPtrCollection::Item* heap, int first, int last
 	    }
 	}
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
 }
@@ -1233,12 +1233,12 @@ void TQGList::heapSortPushDown( TQPtrCollection::Item* heap, int first, int last
 
 void TQGList::sort()
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     uint n = count();
     if ( n < 2 ) {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	//mutex->unlock();
 #endif
 	return;
@@ -1273,7 +1273,7 @@ void TQGList::sort()
     }
 
     delete [] realheap;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
 }
@@ -1283,7 +1283,7 @@ void TQGList::sort()
   TQGList stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 TQDataStream &operator>>( TQDataStream &s, TQGList &list )
 {						// read list
     return list.read( s );
@@ -1300,7 +1300,7 @@ TQDataStream &operator<<( TQDataStream &s, const TQGList &list )
 
 TQDataStream &TQGList::read( TQDataStream &s )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     uint num;
@@ -1326,7 +1326,7 @@ TQDataStream &TQGList::read( TQDataStream &s )
     }
     curNode  = firstNode;
     curIndex = curNode ? 0 : -1;
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return s;
@@ -1338,7 +1338,7 @@ TQDataStream &TQGList::read( TQDataStream &s )
 
 TQDataStream &TQGList::write( TQDataStream &s ) const
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     s << count();				// write number of items
@@ -1347,13 +1347,13 @@ TQDataStream &TQGList::write( TQDataStream &s ) const
 	write( s, n->data );
 	n = n->next;
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return s;
 }
 
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 
 
@@ -1361,13 +1361,13 @@ TQDataStream &TQGList::write( TQDataStream &s ) const
  */
 TQLNode* TQGList::erase( TQLNode* it )
 {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->lock();
 #endif
     TQLNode* n = it;
     it = it->next;
     removeNode( n );
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     //mutex->unlock();
 #endif
     return it;

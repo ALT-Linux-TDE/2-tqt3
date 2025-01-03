@@ -254,10 +254,10 @@ ProdCons::ProdCons()
       prod(0), cons(0), stopped(FALSE), redraw(TRUE)
 {
     startbutton = new TQPushButton("&Start", this);
-    connect(startbutton, SIGNAL(clicked()), SLOT(go()));
+    connect(startbutton, TQ_SIGNAL(clicked()), TQ_SLOT(go()));
 
     stopbutton = new TQPushButton("S&top", this);
-    connect(stopbutton, SIGNAL(clicked()), SLOT(stop()));
+    connect(stopbutton, TQ_SIGNAL(clicked()), TQ_SLOT(stop()));
     stopbutton->setEnabled(FALSE);
 
     loopcheckbox = new TQCheckBox("Loop", this);

@@ -41,7 +41,7 @@
 #include "ntqhostaddress.h"
 #include "ntqstringlist.h"
 
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 class TQHostAddressPrivate
 {
 public:
@@ -209,7 +209,7 @@ void TQHostAddress::setAddress( TQ_UINT8 *ip6Addr )
     d = new TQHostAddressPrivate( ip6Addr );
 }
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 static bool parseIp4(const TQString& address, TQ_UINT32 *addr)
 {
     TQStringList ipv4 = TQStringList::split(".", address, FALSE);
@@ -390,7 +390,7 @@ Q_IPV6ADDR TQHostAddress::toIPv6Address() const
     return d->a6;
 }
 
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_SPRINTF
 /*!
     Returns the address as a string.
 
@@ -450,4 +450,4 @@ bool TQHostAddress::isNull() const
     return TRUE;
 }
 
-#endif //QT_NO_NETWORK
+#endif //TQT_NO_NETWORK

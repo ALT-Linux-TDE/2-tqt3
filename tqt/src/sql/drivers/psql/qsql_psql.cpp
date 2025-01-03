@@ -147,8 +147,10 @@ static TQVariant::Type qDecodePSQLType( int t )
     case FLOAT8OID      :
 	type = TQVariant::Double;
 	break;
+#ifdef ABSTIMEOID // PostgreSQL << 12.x
     case ABSTIMEOID     :
     case RELTIMEOID     :
+#endif
     case DATEOID	:
 	type = TQVariant::Date;
 	break;
@@ -288,7 +290,7 @@ TQVariant TQPSQLResult::data( int i )
     switch ( type ) {
     case TQVariant::Bool:
 	{
-	    TQVariant b ( (bool)(val == "t"), 0 );
+	    TQVariant b ( (bool)(val == "t") );
 	    return ( b );
 	}
     case TQVariant::String:

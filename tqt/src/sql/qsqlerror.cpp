@@ -41,7 +41,7 @@
 #include "ntqsqlerror.h"
 #include <ntqmessagebox.h>
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 /*!
     \class TQSqlError ntqsqlerror.h
@@ -220,9 +220,9 @@ TQString TQSqlError::text() const
 */
 void TQSqlError::showMessage( const TQString& msg ) const
 {
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
     TQMessageBox::warning( NULL, "SQL Error", msg + text(), 
 			  TQMessageBox::Ok, TQMessageBox::NoButton ); 
-#endif // QT_NO_MESSAGEBOX
+#endif // TQT_NO_MESSAGEBOX
 }
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

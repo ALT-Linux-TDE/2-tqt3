@@ -47,7 +47,7 @@
 #include "ntqdatastream.h"
 #endif // QT_H
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
 #include <iterator>
 #include <list>
 #include <cstddef>
@@ -79,12 +79,12 @@ class TQValueListIterator
      * Typedefs
      */
     typedef TQValueListNode<T>* NodePtr;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef std::bidirectional_iterator_tag  iterator_category;
 #endif
     typedef T        value_type;
     typedef size_t size_type;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef ptrdiff_t  difference_type;
 #else
     typedef int difference_type;
@@ -155,12 +155,12 @@ class TQValueListConstIterator
      * Typedefs
      */
     typedef TQValueListNode<T>* NodePtr;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef std::bidirectional_iterator_tag  iterator_category;
 #endif
     typedef T        value_type;
     typedef size_t size_type;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef ptrdiff_t  difference_type;
 #else
     typedef int difference_type;
@@ -250,13 +250,13 @@ public:
 };
 
 template <class T>
-Q_INLINE_TEMPLATES TQValueListPrivate<T>::TQValueListPrivate()
+TQ_INLINE_TEMPLATES TQValueListPrivate<T>::TQValueListPrivate()
 {
     node = new Node(); node->next = node->prev = node; nodes = 0;
 }
 
 template <class T>
-Q_INLINE_TEMPLATES TQValueListPrivate<T>::TQValueListPrivate( const TQValueListPrivate<T>& _p )
+TQ_INLINE_TEMPLATES TQValueListPrivate<T>::TQValueListPrivate( const TQValueListPrivate<T>& _p )
     : TQShared()
 {
     node = new Node(); node->next = node->prev = node; nodes = 0;
@@ -268,7 +268,7 @@ Q_INLINE_TEMPLATES TQValueListPrivate<T>::TQValueListPrivate( const TQValueListP
 }
 
 template <class T>
-Q_INLINE_TEMPLATES TQValueListPrivate<T>::~TQValueListPrivate() {
+TQ_INLINE_TEMPLATES TQValueListPrivate<T>::~TQValueListPrivate() {
     NodePtr p = node->next;
     while( p != node ) {
 	NodePtr x = p->next;
@@ -279,7 +279,7 @@ Q_INLINE_TEMPLATES TQValueListPrivate<T>::~TQValueListPrivate() {
 }
 
 template <class T>
-Q_INLINE_TEMPLATES Q_TYPENAME TQValueListPrivate<T>::Iterator TQValueListPrivate<T>::insert( Q_TYPENAME TQValueListPrivate<T>::Iterator it, const T& x )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQValueListPrivate<T>::Iterator TQValueListPrivate<T>::insert( TQ_TYPENAME TQValueListPrivate<T>::Iterator it, const T& x )
 {
     NodePtr p = new Node( x );
     p->next = it.node;
@@ -291,7 +291,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQValueListPrivate<T>::Iterator TQValueListPrivate
 }
 
 template <class T>
-Q_INLINE_TEMPLATES Q_TYPENAME TQValueListPrivate<T>::Iterator TQValueListPrivate<T>::remove( Q_TYPENAME TQValueListPrivate<T>::Iterator it )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQValueListPrivate<T>::Iterator TQValueListPrivate<T>::remove( TQ_TYPENAME TQValueListPrivate<T>::Iterator it )
 {
     Q_ASSERT ( it.node != node );
     NodePtr next = it.node->next;
@@ -304,7 +304,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQValueListPrivate<T>::Iterator TQValueListPrivate
 }
 
 template <class T>
-Q_INLINE_TEMPLATES Q_TYPENAME TQValueListPrivate<T>::NodePtr TQValueListPrivate<T>::find( Q_TYPENAME TQValueListPrivate<T>::NodePtr start, const T& x ) const
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQValueListPrivate<T>::NodePtr TQValueListPrivate<T>::find( TQ_TYPENAME TQValueListPrivate<T>::NodePtr start, const T& x ) const
 {
     ConstIterator first( start );
     ConstIterator last( node );
@@ -317,7 +317,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQValueListPrivate<T>::NodePtr TQValueListPrivate<
 }
 
 template <class T>
-Q_INLINE_TEMPLATES int TQValueListPrivate<T>::findIndex( Q_TYPENAME TQValueListPrivate<T>::NodePtr start, const T& x ) const
+TQ_INLINE_TEMPLATES int TQValueListPrivate<T>::findIndex( TQ_TYPENAME TQValueListPrivate<T>::NodePtr start, const T& x ) const
 {
     ConstIterator first( start );
     ConstIterator last( node );
@@ -332,7 +332,7 @@ Q_INLINE_TEMPLATES int TQValueListPrivate<T>::findIndex( Q_TYPENAME TQValueListP
 }
 
 template <class T>
-Q_INLINE_TEMPLATES uint TQValueListPrivate<T>::contains( const T& x ) const
+TQ_INLINE_TEMPLATES uint TQValueListPrivate<T>::contains( const T& x ) const
 {
     uint result = 0;
     Iterator first = Iterator( node->next );
@@ -346,7 +346,7 @@ Q_INLINE_TEMPLATES uint TQValueListPrivate<T>::contains( const T& x ) const
 }
 
 template <class T>
-Q_INLINE_TEMPLATES bool TQValueListPrivate<T>::containsYesNo( const T& x ) const
+TQ_INLINE_TEMPLATES bool TQValueListPrivate<T>::containsYesNo( const T& x ) const
 {
     Iterator first = Iterator( node->next );
     Iterator last = Iterator( node );
@@ -359,7 +359,7 @@ Q_INLINE_TEMPLATES bool TQValueListPrivate<T>::containsYesNo( const T& x ) const
 }
 
 template <class T>
-Q_INLINE_TEMPLATES uint TQValueListPrivate<T>::remove( const T& _x )
+TQ_INLINE_TEMPLATES uint TQValueListPrivate<T>::remove( const T& _x )
 {
     const T x = _x;
     uint result = 0;
@@ -376,7 +376,7 @@ Q_INLINE_TEMPLATES uint TQValueListPrivate<T>::remove( const T& _x )
 }
 
 template <class T>
-Q_INLINE_TEMPLATES Q_TYPENAME TQValueListPrivate<T>::NodePtr TQValueListPrivate<T>::at( size_type i ) const
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQValueListPrivate<T>::NodePtr TQValueListPrivate<T>::at( size_type i ) const
 {
     Q_ASSERT( i <= nodes );
     NodePtr p = node->next;
@@ -386,7 +386,7 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQValueListPrivate<T>::NodePtr TQValueListPrivate<
 }
 
 template <class T>
-Q_INLINE_TEMPLATES void TQValueListPrivate<T>::clear()
+TQ_INLINE_TEMPLATES void TQValueListPrivate<T>::clear()
 {
     nodes = 0;
     NodePtr p = node->next;
@@ -399,7 +399,7 @@ Q_INLINE_TEMPLATES void TQValueListPrivate<T>::clear()
 }
 
 #ifdef QT_CHECK_RANGE
-# if !defined( QT_NO_DEBUG ) && defined( QT_CHECK_VALUELIST_RANGE )
+# if !defined( TQT_NO_DEBUG ) && defined( QT_CHECK_VALUELIST_RANGE )
 #  define QT_CHECK_INVALID_LIST_ELEMENT if ( empty() ) tqWarning( "TQValueList: Warning invalid element" )
 #  define QT_CHECK_INVALID_LIST_ELEMENT_FATAL Q_ASSERT( !empty() );
 # else
@@ -428,7 +428,7 @@ public:
     typedef value_type& reference;
     typedef const value_type& const_reference;
     typedef size_t size_type;
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     typedef ptrdiff_t  difference_type;
 #else
     typedef int difference_type;
@@ -439,7 +439,7 @@ public:
      */
     TQValueList() { sh = new TQValueListPrivate<T>; }
     TQValueList( const TQValueList<T>& l ) { sh = l.sh; sh->ref(); }
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     TQValueList( const std::list<T>& l )
     {
 	sh = new TQValueListPrivate<T>;
@@ -463,7 +463,7 @@ public:
 	return *this;
     }
     
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     TQValueList<T>& operator= ( const std::list<T>& l )
     {
 	detach();
@@ -596,7 +596,7 @@ private:
 };
 
 template <class T>
-Q_INLINE_TEMPLATES bool TQValueList<T>::operator== ( const TQValueList<T>& l ) const
+TQ_INLINE_TEMPLATES bool TQValueList<T>::operator== ( const TQValueList<T>& l ) const
 {
     if ( size() != l.size() )
 	return FALSE;
@@ -609,13 +609,13 @@ Q_INLINE_TEMPLATES bool TQValueList<T>::operator== ( const TQValueList<T>& l ) c
 }
 
 template <class T>
-Q_INLINE_TEMPLATES void TQValueList<T>::clear()
+TQ_INLINE_TEMPLATES void TQValueList<T>::clear()
 {
     if ( sh->count == 1 ) sh->clear(); else { sh->deref(); sh = new TQValueListPrivate<T>(); }
 }
 
 template <class T>
-Q_INLINE_TEMPLATES Q_TYPENAME TQValueList<T>::iterator TQValueList<T>::erase( Q_TYPENAME TQValueList<T>::iterator first, Q_TYPENAME TQValueList<T>::iterator last )
+TQ_INLINE_TEMPLATES TQ_TYPENAME TQValueList<T>::iterator TQValueList<T>::erase( TQ_TYPENAME TQValueList<T>::iterator first, TQ_TYPENAME TQValueList<T>::iterator last )
 {
     while ( first != last )
 	erase( first++ );
@@ -624,14 +624,14 @@ Q_INLINE_TEMPLATES Q_TYPENAME TQValueList<T>::iterator TQValueList<T>::erase( Q_
 
 
 template <class T>
-Q_INLINE_TEMPLATES void TQValueList<T>::insert( Q_TYPENAME TQValueList<T>::iterator pos, size_type n, const T& x )
+TQ_INLINE_TEMPLATES void TQValueList<T>::insert( TQ_TYPENAME TQValueList<T>::iterator pos, size_type n, const T& x )
 {
     for ( ; n > 0; --n )
 	insert( pos, x );
 }
 
 template <class T>
-Q_INLINE_TEMPLATES TQValueList<T> TQValueList<T>::operator+ ( const TQValueList<T>& l ) const
+TQ_INLINE_TEMPLATES TQValueList<T> TQValueList<T>::operator+ ( const TQValueList<T>& l ) const
 {
     TQValueList<T> l2( *this );
     for( const_iterator it = l.begin(); it != l.end(); ++it )
@@ -640,7 +640,7 @@ Q_INLINE_TEMPLATES TQValueList<T> TQValueList<T>::operator+ ( const TQValueList<
 }
 
 template <class T>
-Q_INLINE_TEMPLATES TQValueList<T>& TQValueList<T>::operator+= ( const TQValueList<T>& l )
+TQ_INLINE_TEMPLATES TQValueList<T>& TQValueList<T>::operator+= ( const TQValueList<T>& l )
 {
     TQValueList<T> copy = l;
     for( const_iterator it = copy.begin(); it != copy.end(); ++it )
@@ -648,9 +648,9 @@ Q_INLINE_TEMPLATES TQValueList<T>& TQValueList<T>::operator+= ( const TQValueLis
     return *this;
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 template <class T>
-Q_INLINE_TEMPLATES TQDataStream& operator>>( TQDataStream& s, TQValueList<T>& l )
+TQ_INLINE_TEMPLATES TQDataStream& operator>>( TQDataStream& s, TQValueList<T>& l )
 {
     l.clear();
     TQ_UINT32 c;
@@ -665,7 +665,7 @@ Q_INLINE_TEMPLATES TQDataStream& operator>>( TQDataStream& s, TQValueList<T>& l 
 }
 
 template <class T>
-Q_INLINE_TEMPLATES TQDataStream& operator<<( TQDataStream& s, const TQValueList<T>& l )
+TQ_INLINE_TEMPLATES TQDataStream& operator<<( TQDataStream& s, const TQValueList<T>& l )
 {
     s << (TQ_UINT32)l.size();
     TQValueListConstIterator<T> it = l.begin();
@@ -673,7 +673,7 @@ Q_INLINE_TEMPLATES TQDataStream& operator<<( TQDataStream& s, const TQValueList<
 	s << *it;
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 #define Q_DEFINED_QVALUELIST
 #define Q_DEFINED_QVALUELIST

@@ -22,7 +22,7 @@ GLObjectWindow::GLObjectWindow( TQWidget* parent, const char* name )
 {
     // Create a menu
     TQPopupMenu *file = new TQPopupMenu( this );
-    file->insertItem( "Exit",  tqApp, SLOT(quit()), CTRL+Key_Q );
+    file->insertItem( "Exit",  tqApp, TQ_SLOT(quit()), CTRL+Key_Q );
 
     // Create a menu bar
     TQMenuBar *m = new TQMenuBar( this );

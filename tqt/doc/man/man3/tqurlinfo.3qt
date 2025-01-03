@@ -20,16 +20,16 @@ QUrlInfo \- Stores information about URLs
 .BI "\fBQUrlInfo\fR ()"
 .br
 .ti -1c
-.BI "\fBQUrlInfo\fR ( const QUrlOperator & path, const QString & file )"
+.BI "\fBQUrlInfo\fR ( const QUrlOperator & path, const TQString & file )"
 .br
 .ti -1c
 .BI "\fBQUrlInfo\fR ( const QUrlInfo & ui )"
 .br
 .ti -1c
-.BI "\fBQUrlInfo\fR ( const QString & name, int permissions, const QString & owner, const QString & group, uint size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable )"
+.BI "\fBQUrlInfo\fR ( const TQString & name, int permissions, const TQString & owner, const TQString & group, uint size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable )"
 .br
 .ti -1c
-.BI "\fBQUrlInfo\fR ( const QUrl & url, int permissions, const QString & owner, const QString & group, uint size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable )"
+.BI "\fBQUrlInfo\fR ( const QUrl & url, int permissions, const TQString & owner, const TQString & group, uint size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable )"
 .br
 .ti -1c
 .BI "QUrlInfo & \fBoperator=\fR ( const QUrlInfo & ui )"
@@ -38,7 +38,7 @@ QUrlInfo \- Stores information about URLs
 .BI "virtual \fB~QUrlInfo\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetName\fR ( const QString & name )"
+.BI "virtual void \fBsetName\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "virtual void \fBsetDir\fR ( bool b )"
@@ -50,10 +50,10 @@ QUrlInfo \- Stores information about URLs
 .BI "virtual void \fBsetSymLink\fR ( bool b )"
 .br
 .ti -1c
-.BI "virtual void \fBsetOwner\fR ( const QString & s )"
+.BI "virtual void \fBsetOwner\fR ( const TQString & s )"
 .br
 .ti -1c
-.BI "virtual void \fBsetGroup\fR ( const QString & s )"
+.BI "virtual void \fBsetGroup\fR ( const TQString & s )"
 .br
 .ti -1c
 .BI "virtual void \fBsetSize\fR ( uint size )"
@@ -74,16 +74,16 @@ QUrlInfo \- Stores information about URLs
 .BI "bool \fBisValid\fR () const"
 .br
 .ti -1c
-.BI "QString \fBname\fR () const"
+.BI "TQString \fBname\fR () const"
 .br
 .ti -1c
 .BI "int \fBpermissions\fR () const"
 .br
 .ti -1c
-.BI "QString \fBowner\fR () const"
+.BI "TQString \fBowner\fR () const"
 .br
 .ti -1c
-.BI "QString \fBgroup\fR () const"
+.BI "TQString \fBgroup\fR () const"
 .br
 .ti -1c
 .BI "uint \fBsize\fR () const"
@@ -164,7 +164,7 @@ This enum is used by the permissions() function to report the permissions of a f
 Constructs an invalid QUrlInfo object with default values.
 .PP
 See also isValid().
-.SH "QUrlInfo::QUrlInfo ( const QUrlOperator & path, const QString & file )"
+.SH "QUrlInfo::QUrlInfo ( const QUrlOperator & path, const TQString & file )"
 Constructs a QUrlInfo object with information about the file \fIfile\fR in the \fIpath\fR. It tries to find the information about the \fIfile\fR in the QUrlOperator \fIpath\fR.
 .PP
 If the information is not found, this constructor creates an invalid QUrlInfo, i.e. isValid() returns FALSE. You should always check if the URL info is valid before relying on the return values of any getter functions.
@@ -174,11 +174,11 @@ If \fIfile\fR is empty, it defaults to the QUrlOperator \fIpath\fR, i.e. to the 
 See also isValid() and QUrlOperator::info().
 .SH "QUrlInfo::QUrlInfo ( const QUrlInfo & ui )"
 Copy constructor, copies \fIui\fR to this URL info object.
-.SH "QUrlInfo::QUrlInfo ( const QString & name, int permissions, const QString & owner, const QString & group, uint size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable )"
+.SH "QUrlInfo::QUrlInfo ( const TQString & name, int permissions, const TQString & owner, const TQString & group, uint size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable )"
 Constructs a QUrlInfo object by specifying all the URL's information.
 .PP
 The information that is passed is the \fIname\fR, file \fIpermissions\fR, \fIowner\fR and \fIgroup\fR and the file's \fIsize\fR. Also passed is the \fIlastModified\fR date/time and the \fIlastRead\fR date/time. Flags are also passed, specifically, \fIisDir\fR, \fIisFile\fR, \fIisSymLink\fR, \fIisWritable\fR, \fIisReadable\fR and \fIisExecutable\fR.
-.SH "QUrlInfo::QUrlInfo ( const QUrl & url, int permissions, const QString & owner, const QString & group, uint size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable )"
+.SH "QUrlInfo::QUrlInfo ( const QUrl & url, int permissions, const TQString & owner, const TQString & group, uint size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable )"
 Constructs a QUrlInfo object by specifying all the URL's information.
 .PP
 The information that is passed is the \fIurl\fR, file \fIpermissions\fR, \fIowner\fR and \fIgroup\fR and the file's \fIsize\fR. Also passed is the \fIlastModified\fR date/time and the \fIlastRead\fR date/time. Flags are also passed, specifically, \fIisDir\fR, \fIisFile\fR, \fIisSymLink\fR, \fIisWritable\fR, \fIisReadable\fR and \fIisExecutable\fR.
@@ -190,7 +190,7 @@ The QUrlOperator object to which this URL referred (if any) is not affected.
 Returns TRUE if \fIi1\fR equals to \fIi2\fR; otherwise returns FALSE. The objects are compared by the value, which is specified by \fIsortBy\fR. This must be one of QDir::Name, QDir::Time or QDir::Size.
 .SH "bool QUrlInfo::greaterThan ( const QUrlInfo & i1, const QUrlInfo & i2, int sortBy )\fC [static]\fR"
 Returns TRUE if \fIi1\fR is greater than \fIi2\fR; otherwise returns FALSE. The objects are compared by the value, which is specified by \fIsortBy\fR. This must be one of QDir::Name, QDir::Time or QDir::Size.
-.SH "QString QUrlInfo::group () const"
+.SH "TQString QUrlInfo::group () const"
 Returns the group of the URL.
 .PP
 See also isValid().
@@ -237,7 +237,7 @@ Returns the date when the URL was last read.
 See also isValid().
 .SH "bool QUrlInfo::lessThan ( const QUrlInfo & i1, const QUrlInfo & i2, int sortBy )\fC [static]\fR"
 Returns TRUE if \fIi1\fR is less than \fIi2\fR; otherwise returns FALSE. The objects are compared by the value, which is specified by \fIsortBy\fR. This must be one of QDir::Name, QDir::Time or QDir::Size.
-.SH "QString QUrlInfo::name () const"
+.SH "TQString QUrlInfo::name () const"
 Returns the file name of the URL.
 .PP
 See also isValid().
@@ -247,7 +247,7 @@ Example: network/ftpclient/ftpmainwindow.ui.h.
 Assigns the values of \fIui\fR to this QUrlInfo object.
 .SH "bool QUrlInfo::operator== ( const QUrlInfo & i ) const"
 Compares this QUrlInfo with \fIi\fR and returns TRUE if they are equal; otherwise returns FALSE.
-.SH "QString QUrlInfo::owner () const"
+.SH "TQString QUrlInfo::owner () const"
 Returns the owner of the URL.
 .PP
 See also isValid().
@@ -271,7 +271,7 @@ If you call this function for an invalid URL info, this function turns it into a
 See also isValid().
 .PP
 Example: network/networkprotocol/nntp.cpp.
-.SH "void QUrlInfo::setGroup ( const QString & s )\fC [virtual]\fR"
+.SH "void QUrlInfo::setGroup ( const TQString & s )\fC [virtual]\fR"
 Specifies that the owning group of the URL is called \fIs\fR.
 .PP
 If you call this function for an invalid URL info, this function turns it into a valid one.
@@ -283,7 +283,7 @@ Specifies that the object the URL refers to was last modified at \fIdt\fR.
 If you call this function for an invalid URL info, this function turns it into a valid one.
 .PP
 See also isValid().
-.SH "void QUrlInfo::setName ( const QString & name )\fC [virtual]\fR"
+.SH "void QUrlInfo::setName ( const TQString & name )\fC [virtual]\fR"
 Sets the name of the URL to \fIname\fR. The name is the full text, for example, "http://doc.trolltech.com/ntqurlinfo.html".
 .PP
 If you call this function for an invalid URL info, this function turns it into a valid one.
@@ -291,7 +291,7 @@ If you call this function for an invalid URL info, this function turns it into a
 See also isValid().
 .PP
 Example: network/networkprotocol/nntp.cpp.
-.SH "void QUrlInfo::setOwner ( const QString & s )\fC [virtual]\fR"
+.SH "void QUrlInfo::setOwner ( const TQString & s )\fC [virtual]\fR"
 Specifies that the owner of the URL is called \fIs\fR.
 .PP
 If you call this function for an invalid URL info, this function turns it into a valid one.
@@ -354,8 +354,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

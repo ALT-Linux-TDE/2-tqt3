@@ -47,11 +47,11 @@
 #include "ntqstring.h"
 #include "ntqstringlist.h"
 #endif // QT_H
-#ifndef QT_NO_SESSIONMANAGER
+#ifndef TQT_NO_SESSIONMANAGER
 
 class TQSessionManagerData;
 
-class Q_EXPORT  TQSessionManager : public TQObject
+class TQ_EXPORT  TQSessionManager : public TQObject
 {
     TQ_OBJECT
     TQSessionManager( TQApplication *app, TQString &id, TQString &key );
@@ -59,7 +59,7 @@ class Q_EXPORT  TQSessionManager : public TQObject
 public:
     TQString sessionId() const;
     TQString sessionKey() const;
-#if defined(Q_WS_X11) || defined(Q_WS_MAC)
+#if defined(TQ_WS_X11) || defined(TQ_WS_MAC)
     void* handle() const;
 #endif
 
@@ -95,5 +95,5 @@ private:
     TQSessionManagerData* d;
 };
 
-#endif // QT_NO_SESSIONMANAGER
+#endif // TQT_NO_SESSIONMANAGER
 #endif // TQSESSIONMANAGER_H

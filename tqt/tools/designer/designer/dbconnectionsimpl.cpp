@@ -59,10 +59,10 @@ static bool blockChanges = FALSE;
 DatabaseConnectionsEditor::DatabaseConnectionsEditor( Project *pro, TQWidget* parent,  const char* name, bool modal, WFlags fl )
     : DatabaseConnectionBase( parent, name, modal, fl ), project( pro )
 {
-    connect( buttonHelp, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( buttonHelp, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
     connectionWidget = new DatabaseConnectionWidget( grp );
     grpLayout->addWidget( connectionWidget, 0, 0 );
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQPtrList<DatabaseConnection> lst = project->databaseConnections();
     for ( DatabaseConnection *conn = lst.first(); conn; conn = lst.next() )
 	listConnections->insertItem( conn->name() );
@@ -112,7 +112,7 @@ void DatabaseConnectionsEditor::newConnection()
 
 void DatabaseConnectionsEditor::doConnect()
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( listConnections->currentItem() == -1 ||
 	 !listConnections->item( listConnections->currentItem() )->isSelected() ) { // new connection
 	// ### do error checking for duplicated connection names
@@ -154,7 +154,7 @@ void DatabaseConnectionsEditor::doConnect()
 
 void DatabaseConnectionsEditor::currentConnectionChanged( const TQString &s )
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     DatabaseConnection *conn = project->databaseConnection( s );
     blockChanges = TRUE;
     enableAll( conn != 0 );

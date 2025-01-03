@@ -50,41 +50,43 @@ class TQColor;
 class TQCursor;
 
 
-class Q_EXPORT TQt {
+class TQ_EXPORT TQt {
 public:
-    QT_STATIC_CONST TQColor & color0;
-    QT_STATIC_CONST TQColor & color1;
-    QT_STATIC_CONST TQColor & black;
-    QT_STATIC_CONST TQColor & white;
-    QT_STATIC_CONST TQColor & darkGray;
-    QT_STATIC_CONST TQColor & gray;
-    QT_STATIC_CONST TQColor & lightGray;
-    QT_STATIC_CONST TQColor & red;
-    QT_STATIC_CONST TQColor & green;
-    QT_STATIC_CONST TQColor & blue;
-    QT_STATIC_CONST TQColor & cyan;
-    QT_STATIC_CONST TQColor & magenta;
-    QT_STATIC_CONST TQColor & yellow;
-    QT_STATIC_CONST TQColor & darkRed;
-    QT_STATIC_CONST TQColor & darkGreen;
-    QT_STATIC_CONST TQColor & darkBlue;
-    QT_STATIC_CONST TQColor & darkCyan;
-    QT_STATIC_CONST TQColor & darkMagenta;
-    QT_STATIC_CONST TQColor & darkYellow;
+    static const TQColor & color0;
+    static const TQColor & color1;
+    static const TQColor & black;
+    static const TQColor & white;
+    static const TQColor & darkGray;
+    static const TQColor & gray;
+    static const TQColor & lightGray;
+    static const TQColor & red;
+    static const TQColor & green;
+    static const TQColor & blue;
+    static const TQColor & cyan;
+    static const TQColor & magenta;
+    static const TQColor & yellow;
+    static const TQColor & darkRed;
+    static const TQColor & darkGreen;
+    static const TQColor & darkBlue;
+    static const TQColor & darkCyan;
+    static const TQColor & darkMagenta;
+    static const TQColor & darkYellow;
 
     // documented in qevent.cpp
     enum ButtonState {				// mouse/keyboard state values
-	NoButton	= 0x0000,
-	LeftButton	= 0x0001,
-	RightButton	= 0x0002,
-	MidButton	= 0x0004,
-	MouseButtonMask = 0x0007,
-	ShiftButton	= 0x0100,
-	ControlButton   = 0x0200,
-	AltButton	= 0x0400,
-	MetaButton	= 0x0800,
-	KeyButtonMask	= 0x0f00,
-	Keypad		= 0x4000
+	NoButton	     = 0x0000,
+	LeftButton	     = 0x0001,
+	RightButton	     = 0x0002,
+	MidButton	     = 0x0004,
+	HistoryBackButton    = 0x0008,
+	HistoryForwardButton = 0x0010,
+	MouseButtonMask      = 0x001f,
+	ShiftButton	     = 0x0100,
+	ControlButton        = 0x0200,
+	AltButton	     = 0x0400,
+	MetaButton	     = 0x0800,
+	KeyButtonMask	     = 0x0f00,
+	Keypad		     = 0x4000
     };
 
     // documented in qobject.cpp
@@ -173,7 +175,7 @@ public:
 
     // documented in qwidget.cpp
     enum NETWMFlags {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
         WX11DisableMove         = 0x00000001,
         WX11DisableClose        = 0x00000002,
         WX11DisableResize       = 0x00000004,
@@ -224,12 +226,12 @@ public:
 	WMouseNoMask		= 0x00200000,
 	WStaticContents		= 0x00400000,
 	WRepaintNoErase		= 0x00800000, // OBSOLETE
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	WX11BypassWM		= 0x01000000,
 	WWinOwnDC		= 0x00000000,
 	WMacNoSheet             = 0x00000000,
         WMacDrawer              = 0x00000000,
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 	WX11BypassWM		= 0x00000000,
 	WWinOwnDC		= 0x00000000,
 	WMacNoSheet             = 0x01000000,
@@ -244,13 +246,13 @@ public:
 	WShowModal		= 0x04000000,
 	WNoMousePropagation	= 0x08000000,
 	WSubWindow              = 0x10000000,
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
         WStyle_Splash           = 0x20000000,
 #else
 	WStyle_Splash           = WStyle_NoBorder | WMacNoSheet | WStyle_Tool | WWinOwnDC,
 #endif
 	WNoAutoErase		= WRepaintNoErase | WResizeNoErase
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 	,
 	WNorthWestGravity	= WStaticContents,
 	WType_Modal		= WType_Dialog | WShowModal,
@@ -303,7 +305,7 @@ public:
 	OpaqueMode
     };
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     // documented in qpainter.cpp
     enum PaintUnit {				// paint unit
 	PixelUnit,
@@ -316,10 +318,10 @@ public:
 #endif
 
     // documented in qstyle.cpp
-#ifdef QT_NO_COMPAT
+#ifdef TQT_NO_COMPAT
     enum GUIStyle {
 	WindowsStyle = 1,     // ### TQt 4.0: either remove the obsolete enums or clean up compat vs.
-	MotifStyle = 4,       // ### QT_NO_COMPAT by reordering or combination into one enum.
+	MotifStyle = 4,       // ### TQT_NO_COMPAT by reordering or combination into one enum.
     GtkStyle = 6          // Gtk compability mode
     };
 #else
@@ -726,6 +728,11 @@ public:
 	Key_LaunchD  = 0x10af,
 	Key_LaunchE  = 0x10b0,
 	Key_LaunchF  = 0x10b1,
+	Key_MonBrightnessUp = 0x010b2,
+	Key_MonBrightnessDown = 0x010b3,
+	Key_KeyboardLightOnOff = 0x010b4,
+	Key_KeyboardBrightnessUp = 0x010b5,
+	Key_KeyboardBrightnessDown = 0x010b6,
 
 	Key_MediaLast = 0x1fff,
 
@@ -885,25 +892,25 @@ public:
 
     // Global cursors
 
-    QT_STATIC_CONST TQCursor & arrowCursor;	// standard arrow cursor
-    QT_STATIC_CONST TQCursor & upArrowCursor;	// upwards arrow
-    QT_STATIC_CONST TQCursor & crossCursor;	// crosshair
-    QT_STATIC_CONST TQCursor & waitCursor;	// hourglass/watch
-    QT_STATIC_CONST TQCursor & ibeamCursor;	// ibeam/text entry
-    QT_STATIC_CONST TQCursor & sizeVerCursor;	// vertical resize
-    QT_STATIC_CONST TQCursor & sizeHorCursor;	// horizontal resize
-    QT_STATIC_CONST TQCursor & sizeBDiagCursor;	// diagonal resize (/)
-    QT_STATIC_CONST TQCursor & sizeFDiagCursor;	// diagonal resize (\)
-    QT_STATIC_CONST TQCursor & sizeAllCursor;	// all directions resize
-    QT_STATIC_CONST TQCursor & blankCursor;	// blank/invisible cursor
-    QT_STATIC_CONST TQCursor & splitVCursor;	// vertical bar with left-right
+    static const TQCursor & arrowCursor;	// standard arrow cursor
+    static const TQCursor & upArrowCursor;	// upwards arrow
+    static const TQCursor & crossCursor;	// crosshair
+    static const TQCursor & waitCursor;	// hourglass/watch
+    static const TQCursor & ibeamCursor;	// ibeam/text entry
+    static const TQCursor & sizeVerCursor;	// vertical resize
+    static const TQCursor & sizeHorCursor;	// horizontal resize
+    static const TQCursor & sizeBDiagCursor;	// diagonal resize (/)
+    static const TQCursor & sizeFDiagCursor;	// diagonal resize (\)
+    static const TQCursor & sizeAllCursor;	// all directions resize
+    static const TQCursor & blankCursor;	// blank/invisible cursor
+    static const TQCursor & splitVCursor;	// vertical bar with left-right
 						// arrows
-    QT_STATIC_CONST TQCursor & splitHCursor;	// horizontal bar with up-down
+    static const TQCursor & splitHCursor;	// horizontal bar with up-down
 						// arrows
-    QT_STATIC_CONST TQCursor & pointingHandCursor;	// pointing hand
-    QT_STATIC_CONST TQCursor & forbiddenCursor;	// forbidden cursor (slashed circle)
-    QT_STATIC_CONST TQCursor & whatsThisCursor;  // arrow with a question mark
-    QT_STATIC_CONST TQCursor & busyCursor;	// arrow with hourglass
+    static const TQCursor & pointingHandCursor;	// pointing hand
+    static const TQCursor & forbiddenCursor;	// forbidden cursor (slashed circle)
+    static const TQCursor & whatsThisCursor;  // arrow with a question mark
+    static const TQCursor & busyCursor;	// arrow with hourglass
 
 
     enum TextFormat {
@@ -928,7 +935,7 @@ public:
 	DockRight,
 	DockLeft,
 	DockMinimized
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
         ,
 	Unmanaged = DockUnmanaged,
 	TornOff = DockTornOff,
@@ -1000,19 +1007,19 @@ public:
 
     // "handle" type for system objects. Documented as \internal in
     // qapplication.cpp
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     typedef void * HANDLE;
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
     typedef void *HANDLE;
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     typedef unsigned long HANDLE;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
     typedef void * HANDLE;
 #endif
 };
 
 
-class Q_EXPORT TQInternal {
+class TQ_EXPORT TQInternal {
 public:
     enum PaintDeviceFlags {
 	UndefinedDevice = 0x00,

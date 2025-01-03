@@ -168,7 +168,7 @@ const bool no_writing = FALSE;
 <a name="x907"></a><a name="x906"></a>    if ((tqApp-&gt;<a href="ntqapplication.html#argc">argc</a>() &gt; 0) &amp;&amp; !buffer.load(tqApp-&gt;<a href="ntqapplication.html#argv">argv</a>()[1]))
         buffer.fill( <a href="ntqwidget.html#colorGroup">colorGroup</a>().base() );
     <a href="ntqwidget.html#setBackgroundMode">setBackgroundMode</a>( TQWidget::PaletteBase );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     <a href="ntqwidget.html#setCursor">setCursor</a>( TQt::crossCursor );
 #endif
 }
@@ -255,24 +255,24 @@ void <a name="f340"></a>Canvas::clearScreen()
 
     <a href="ntqtoolbar.html">TQToolBar</a> *tools = new <a href="ntqtoolbar.html">TQToolBar</a>( this );
 
-    bSave = new <a href="ntqtoolbutton.html">TQToolButton</a>( TQPixmap(), "Save", "Save as PNG image", this, SLOT( slotSave() ), tools );
+    bSave = new <a href="ntqtoolbutton.html">TQToolButton</a>( TQPixmap(), "Save", "Save as PNG image", this, TQ_SLOT( slotSave() ), tools );
 <a name="x944"></a>    bSave-&gt;<a href="ntqbutton.html#setText">setText</a>( "Save as..." );
 
 <a name="x943"></a>    tools-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
 
-    bPColor = new <a href="ntqtoolbutton.html">TQToolButton</a>( TQPixmap(), "Choose Pen Color", "Choose Pen Color", this, SLOT( slotColor() ), tools );
+    bPColor = new <a href="ntqtoolbutton.html">TQToolButton</a>( TQPixmap(), "Choose Pen Color", "Choose Pen Color", this, TQ_SLOT( slotColor() ), tools );
     bPColor-&gt;<a href="ntqbutton.html#setText">setText</a>( "Choose Pen Color..." );
 
     tools-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
 
     bPWidth = new <a href="ntqspinbox.html">TQSpinBox</a>( 1, 20, 1, tools );
 <a name="x945"></a>    TQToolTip::<a href="ntqtooltip.html#add">add</a>( bPWidth, "Choose Pen Width" );
-<a name="x939"></a>    <a href="ntqobject.html#connect">connect</a>( bPWidth, SIGNAL( <a href="ntqspinbox.html#valueChanged">valueChanged</a>( int ) ), this, SLOT( slotWidth( int ) ) );
+<a name="x939"></a>    <a href="ntqobject.html#connect">connect</a>( bPWidth, TQ_SIGNAL( <a href="ntqspinbox.html#valueChanged">valueChanged</a>( int ) ), this, TQ_SLOT( slotWidth( int ) ) );
 <a name="x938"></a>    bPWidth-&gt;<a href="ntqspinbox.html#setValue">setValue</a>( 3 );
 
     tools-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
 
-    bClear = new <a href="ntqtoolbutton.html">TQToolButton</a>( TQPixmap(), "Clear Screen", "Clear Screen", this, SLOT( slotClear() ), tools );
+    bClear = new <a href="ntqtoolbutton.html">TQToolButton</a>( TQPixmap(), "Clear Screen", "Clear Screen", this, TQ_SLOT( slotClear() ), tools );
     bClear-&gt;<a href="ntqbutton.html#setText">setText</a>( "Clear Screen" );
 }
 

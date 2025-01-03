@@ -19,46 +19,46 @@ Inherited by QUrlOperator.
 .BI "\fBQUrl\fR ()"
 .br
 .ti -1c
-.BI "\fBQUrl\fR ( const QString & url )"
+.BI "\fBQUrl\fR ( const TQString & url )"
 .br
 .ti -1c
 .BI "\fBQUrl\fR ( const QUrl & url )"
 .br
 .ti -1c
-.BI "\fBQUrl\fR ( const QUrl & url, const QString & relUrl, bool checkSlash = FALSE )"
+.BI "\fBQUrl\fR ( const QUrl & url, const TQString & relUrl, bool checkSlash = FALSE )"
 .br
 .ti -1c
 .BI "virtual \fB~QUrl\fR ()"
 .br
 .ti -1c
-.BI "QString \fBprotocol\fR () const"
+.BI "TQString \fBprotocol\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetProtocol\fR ( const QString & protocol )"
+.BI "virtual void \fBsetProtocol\fR ( const TQString & protocol )"
 .br
 .ti -1c
-.BI "QString \fBuser\fR () const"
+.BI "TQString \fBuser\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetUser\fR ( const QString & user )"
+.BI "virtual void \fBsetUser\fR ( const TQString & user )"
 .br
 .ti -1c
 .BI "bool \fBhasUser\fR () const"
 .br
 .ti -1c
-.BI "QString \fBpassword\fR () const"
+.BI "TQString \fBpassword\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetPassword\fR ( const QString & pass )"
+.BI "virtual void \fBsetPassword\fR ( const TQString & pass )"
 .br
 .ti -1c
 .BI "bool \fBhasPassword\fR () const"
 .br
 .ti -1c
-.BI "QString \fBhost\fR () const"
+.BI "TQString \fBhost\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetHost\fR ( const QString & host )"
+.BI "virtual void \fBsetHost\fR ( const TQString & host )"
 .br
 .ti -1c
 .BI "bool \fBhasHost\fR () const"
@@ -73,31 +73,31 @@ Inherited by QUrlOperator.
 .BI "bool \fBhasPort\fR () const"
 .br
 .ti -1c
-.BI "QString \fBpath\fR ( bool correct = TRUE ) const"
+.BI "TQString \fBpath\fR ( bool correct = TRUE ) const"
 .br
 .ti -1c
-.BI "virtual void \fBsetPath\fR ( const QString & path )"
+.BI "virtual void \fBsetPath\fR ( const TQString & path )"
 .br
 .ti -1c
 .BI "bool \fBhasPath\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetEncodedPathAndQuery\fR ( const QString & pathAndQuery )"
+.BI "virtual void \fBsetEncodedPathAndQuery\fR ( const TQString & pathAndQuery )"
 .br
 .ti -1c
-.BI "QString \fBencodedPathAndQuery\fR ()"
+.BI "TQString \fBencodedPathAndQuery\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetQuery\fR ( const QString & txt )"
+.BI "virtual void \fBsetQuery\fR ( const TQString & txt )"
 .br
 .ti -1c
-.BI "QString \fBquery\fR () const"
+.BI "TQString \fBquery\fR () const"
 .br
 .ti -1c
-.BI "QString \fBref\fR () const"
+.BI "TQString \fBref\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetRef\fR ( const QString & txt )"
+.BI "virtual void \fBsetRef\fR ( const TQString & txt )"
 .br
 .ti -1c
 .BI "bool \fBhasRef\fR () const"
@@ -109,34 +109,34 @@ Inherited by QUrlOperator.
 .BI "bool \fBisLocalFile\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBaddPath\fR ( const QString & pa )"
+.BI "virtual void \fBaddPath\fR ( const TQString & pa )"
 .br
 .ti -1c
-.BI "virtual void \fBsetFileName\fR ( const QString & name )"
+.BI "virtual void \fBsetFileName\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "QString \fBfileName\fR () const"
+.BI "TQString \fBfileName\fR () const"
 .br
 .ti -1c
-.BI "QString \fBdirPath\fR () const"
+.BI "TQString \fBdirPath\fR () const"
 .br
 .ti -1c
 .BI "QUrl & \fBoperator=\fR ( const QUrl & url )"
 .br
 .ti -1c
-.BI "QUrl & \fBoperator=\fR ( const QString & url )"
+.BI "QUrl & \fBoperator=\fR ( const TQString & url )"
 .br
 .ti -1c
 .BI "bool \fBoperator==\fR ( const QUrl & url ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QString & url ) const"
+.BI "bool \fBoperator==\fR ( const TQString & url ) const"
 .br
 .ti -1c
-.BI "\fBoperator QString\fR () const"
+.BI "\fBoperator TQString\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBtoString\fR ( bool encodedPath = FALSE, bool forcePrependProtocol = TRUE ) const"
+.BI "virtual TQString \fBtoString\fR ( bool encodedPath = FALSE, bool forcePrependProtocol = TRUE ) const"
 .br
 .ti -1c
 .BI "virtual bool \fBcdUp\fR ()"
@@ -145,13 +145,13 @@ Inherited by QUrlOperator.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "void \fBdecode\fR ( QString & url )"
+.BI "void \fBdecode\fR ( TQString & url )"
 .br
 .ti -1c
-.BI "void \fBencode\fR ( QString & url )"
+.BI "void \fBencode\fR ( TQString & url )"
 .br
 .ti -1c
-.BI "bool \fBisRelativeUrl\fR ( const QString & url )"
+.BI "bool \fBisRelativeUrl\fR ( const TQString & url )"
 .br
 .in -1c
 .SS "Protected Members"
@@ -160,7 +160,7 @@ Inherited by QUrlOperator.
 .BI "virtual void \fBreset\fR ()"
 .br
 .ti -1c
-.BI "virtual bool \fBparse\fR ( const QString & url )"
+.BI "virtual bool \fBparse\fR ( const TQString & url )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -216,11 +216,11 @@ To make it easy to work with QUrls and QStrings, QUrl implements the necessary c
 .br
     QUrl url( "http://www.trolltech.com" );
 .br
-    QString s = url;
+    TQString s = url;
 .br
     // or
 .br
-    QString s( "http://www.trolltech.com" );
+    TQString s( "http://www.trolltech.com" );
 .br
     QUrl url( s );
 .br
@@ -234,13 +234,13 @@ See also QUrlOperator, Input/Output and Networking, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QUrl::QUrl ()"
 Constructs an empty URL that is invalid.
-.SH "QUrl::QUrl ( const QString & url )"
+.SH "QUrl::QUrl ( const TQString & url )"
 Constructs a URL by parsing the string \fIurl\fR.
 .PP
 If you pass a string like "/home/qt", the "file" protocol is assumed.
 .SH "QUrl::QUrl ( const QUrl & url )"
 Copy constructor. Copies the data of \fIurl\fR.
-.SH "QUrl::QUrl ( const QUrl & url, const QString & relUrl, bool checkSlash = FALSE )"
+.SH "QUrl::QUrl ( const QUrl & url, const TQString & relUrl, bool checkSlash = FALSE )"
 Constructs an URL taking \fIurl\fR as the base (context) and \fIrelUrl\fR as a relative URL to \fIurl\fR. If \fIrelUrl\fR is not relative, \fIrelUrl\fR is taken as the new URL.
 .PP
 For example, the path of
@@ -273,7 +273,7 @@ will result in a new URL, with "/usr/local" as the path and "file" as the protoc
 Normally it is expected that the path of \fIurl\fR points to a directory, even if the path has no slash at the end. But if you want the constructor to handle the last part of the path as a file name if there is no slash at the end, and to let it be replaced by the file name of \fIrelUrl\fR (if it contains one), set \fIcheckSlash\fR to TRUE.
 .SH "QUrl::~QUrl ()\fC [virtual]\fR"
 Destructor.
-.SH "void QUrl::addPath ( const QString & pa )\fC [virtual]\fR"
+.SH "void QUrl::addPath ( const TQString & pa )\fC [virtual]\fR"
 Adds the path \fIpa\fR to the path of the URL.
 .PP
 See also setPath() and hasPath().
@@ -281,12 +281,12 @@ See also setPath() and hasPath().
 Changes the directory to one directory up.
 .PP
 See also setPath().
-.SH "void QUrl::decode ( QString & url )\fC [static]\fR"
+.SH "void QUrl::decode ( TQString & url )\fC [static]\fR"
 Decodes the \fIurl\fR in-place into UTF-8. For example
 .PP
 .nf
 .br
-        QString url = "http%3A//www%20trolltech%20com"
+        TQString url = "http%3A//www%20trolltech%20com"
 .br
         QUrl::decode( url );
 .br
@@ -295,18 +295,18 @@ Decodes the \fIurl\fR in-place into UTF-8. For example
 .fi
 .PP
 See also encode().
-.SH "QString QUrl::dirPath () const"
+.SH "TQString QUrl::dirPath () const"
 Returns the directory path of the URL. This is the part of the path of the URL without the fileName(). See the documentation of fileName() for a discussion of what is handled as file name and what is handled as directory path.
 .PP
 See also setPath() and hasPath().
 .PP
 Example: network/networkprotocol/nntp.cpp.
-.SH "void QUrl::encode ( QString & url )\fC [static]\fR"
+.SH "void QUrl::encode ( TQString & url )\fC [static]\fR"
 Encodes the \fIurl\fR in-place into UTF-8. For example
 .PP
 .nf
 .br
-        QString url = http://www.trolltech.com
+        TQString url = http://www.trolltech.com
 .br
         QUrl::encode( url );
 .br
@@ -317,11 +317,11 @@ Encodes the \fIurl\fR in-place into UTF-8. For example
 See also decode().
 .PP
 Example: network/archivesearch/archivedialog.ui.h.
-.SH "QString QUrl::encodedPathAndQuery ()"
+.SH "TQString QUrl::encodedPathAndQuery ()"
 Returns the encoded path and query.
 .PP
 See also decode().
-.SH "QString QUrl::fileName () const"
+.SH "TQString QUrl::fileName () const"
 Returns the file name of the URL. If the path of the URL doesn't have a slash at the end, the part between the last slash and the end of the path string is considered to be the file name. If the path has a slash at the end, an empty string is returned here.
 .PP
 See also setFileName().
@@ -353,7 +353,7 @@ See also setRef().
 Returns TRUE if the URL contains a username; otherwise returns FALSE.
 .PP
 See also setUser() and setPassword().
-.SH "QString QUrl::host () const"
+.SH "TQString QUrl::host () const"
 Returns the hostname of the URL.
 .PP
 See also setHost() and hasHost().
@@ -363,17 +363,17 @@ Example: network/archivesearch/archivedialog.ui.h.
 Returns TRUE if the URL is a local file; otherwise returns FALSE.
 .PP
 Example: qdir/qdir.cpp.
-.SH "bool QUrl::isRelativeUrl ( const QString & url )\fC [static]\fR"
+.SH "bool QUrl::isRelativeUrl ( const TQString & url )\fC [static]\fR"
 Returns TRUE if \fIurl\fR is relative; otherwise returns FALSE.
 .SH "bool QUrl::isValid () const"
 Returns TRUE if the URL is valid; otherwise returns FALSE. A URL is invalid if it cannot be parsed, for example.
-.SH "QUrl::operator QString () const"
+.SH "QUrl::operator TQString () const"
 Composes a string version of the URL and returns it.
 .PP
 See also QUrl::toString().
 .SH "QUrl & QUrl::operator= ( const QUrl & url )"
 Assigns the data of \fIurl\fR to this class.
-.SH "QUrl & QUrl::operator= ( const QString & url )"
+.SH "QUrl & QUrl::operator= ( const TQString & url )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Parses \fIurl\fR and assigns the resulting data to this class.
@@ -381,19 +381,19 @@ Parses \fIurl\fR and assigns the resulting data to this class.
 If you pass a string like "/home/qt" the "file" protocol will be assumed.
 .SH "bool QUrl::operator== ( const QUrl & url ) const"
 Compares this URL with \fIurl\fR and returns TRUE if they are equal; otherwise returns FALSE.
-.SH "bool QUrl::operator== ( const QString & url ) const"
+.SH "bool QUrl::operator== ( const TQString & url ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Compares this URL with \fIurl\fR. \fIurl\fR is parsed first. Returns TRUE if \fIurl\fR is equal to this url; otherwise returns FALSE.
-.SH "bool QUrl::parse ( const QString & url )\fC [virtual protected]\fR"
+.SH "bool QUrl::parse ( const TQString & url )\fC [virtual protected]\fR"
 Parses the \fIurl\fR.
-.SH "QString QUrl::password () const"
+.SH "TQString QUrl::password () const"
 Returns the password of the URL.
 .PP
 \fBWarning:\fR Passwords passed in URLs are normally \fIinsecure\fR; this is due to the mechanism, not because of Qt.
 .PP
 See also setPassword() and setUser().
-.SH "QString QUrl::path ( bool correct = TRUE ) const"
+.SH "TQString QUrl::path ( bool correct = TRUE ) const"
 Returns the path of the URL. If \fIcorrect\fR is TRUE, the path is cleaned (deals with too many or too few slashes, cleans things like "/../..", etc). Otherwise path() returns exactly the path that was parsed or set.
 .PP
 See also setPath() and hasPath().
@@ -403,41 +403,41 @@ Example: qdir/qdir.cpp.
 Returns the port of the URL or -1 if no port has been set.
 .PP
 See also setPort().
-.SH "QString QUrl::protocol () const"
+.SH "TQString QUrl::protocol () const"
 Returns the protocol of the URL. Typically, "file", "http", "ftp", etc.
 .PP
 See also setProtocol().
-.SH "QString QUrl::query () const"
+.SH "TQString QUrl::query () const"
 Returns the (encoded) query of the URL.
 .PP
 See also setQuery() and decode().
-.SH "QString QUrl::ref () const"
+.SH "TQString QUrl::ref () const"
 Returns the (encoded) reference of the URL.
 .PP
 See also setRef(), hasRef(), and decode().
 .SH "void QUrl::reset ()\fC [virtual protected]\fR"
 Resets all parts of the URL to their default values and invalidates it.
-.SH "void QUrl::setEncodedPathAndQuery ( const QString & pathAndQuery )\fC [virtual]\fR"
+.SH "void QUrl::setEncodedPathAndQuery ( const TQString & pathAndQuery )\fC [virtual]\fR"
 Parses \fIpathAndQuery\fR for a path and query and sets those values. The whole string must be encoded.
 .PP
 See also encode().
-.SH "void QUrl::setFileName ( const QString & name )\fC [virtual]\fR"
+.SH "void QUrl::setFileName ( const TQString & name )\fC [virtual]\fR"
 Sets the file name of the URL to \fIname\fR. If this URL contains a fileName(), the original file name is replaced by \fIname\fR.
 .PP
 See the documentation of fileName() for a more detailed discussion of what is handled as file name and what is handled as a directory path.
 .PP
 See also fileName().
-.SH "void QUrl::setHost ( const QString & host )\fC [virtual]\fR"
+.SH "void QUrl::setHost ( const TQString & host )\fC [virtual]\fR"
 Sets the hostname of the URL to \fIhost\fR.
 .PP
 See also host() and hasHost().
-.SH "void QUrl::setPassword ( const QString & pass )\fC [virtual]\fR"
+.SH "void QUrl::setPassword ( const TQString & pass )\fC [virtual]\fR"
 Sets the password of the URL to \fIpass\fR.
 .PP
 \fBWarning:\fR Passwords passed in URLs are normally \fIinsecure\fR; this is due to the mechanism, not because of Qt.
 .PP
 See also password() and setUser().
-.SH "void QUrl::setPath ( const QString & path )\fC [virtual]\fR"
+.SH "void QUrl::setPath ( const TQString & path )\fC [virtual]\fR"
 Sets the path of the URL to \fIpath\fR.
 .PP
 See also path() and hasPath().
@@ -445,27 +445,27 @@ See also path() and hasPath().
 Sets the port of the URL to \fIport\fR.
 .PP
 See also port().
-.SH "void QUrl::setProtocol ( const QString & protocol )\fC [virtual]\fR"
+.SH "void QUrl::setProtocol ( const TQString & protocol )\fC [virtual]\fR"
 Sets the protocol of the URL to \fIprotocol\fR. Typically, "file"," http", "ftp", etc.
 .PP
 See also protocol().
-.SH "void QUrl::setQuery ( const QString & txt )\fC [virtual]\fR"
+.SH "void QUrl::setQuery ( const TQString & txt )\fC [virtual]\fR"
 Sets the query of the URL to \fItxt\fR. \fItxt\fR must be encoded.
 .PP
 See also query() and encode().
-.SH "void QUrl::setRef ( const QString & txt )\fC [virtual]\fR"
+.SH "void QUrl::setRef ( const TQString & txt )\fC [virtual]\fR"
 Sets the reference of the URL to \fItxt\fR. \fItxt\fR must be encoded.
 .PP
 See also ref(), hasRef(), and encode().
-.SH "void QUrl::setUser ( const QString & user )\fC [virtual]\fR"
+.SH "void QUrl::setUser ( const TQString & user )\fC [virtual]\fR"
 Sets the username of the URL to \fIuser\fR.
 .PP
 See also user() and setPassword().
-.SH "QString QUrl::toString ( bool encodedPath = FALSE, bool forcePrependProtocol = TRUE ) const\fC [virtual]\fR"
+.SH "TQString QUrl::toString ( bool encodedPath = FALSE, bool forcePrependProtocol = TRUE ) const\fC [virtual]\fR"
 Composes a string version of the URL and returns it. If \fIencodedPath\fR is TRUE the path in the returned string is encoded. If \fIforcePrependProtocol\fR is TRUE and \fIencodedPath\fR looks like a local filename, the "file:/" protocol is also prepended.
 .PP
 See also encode() and decode().
-.SH "QString QUrl::user () const"
+.SH "TQString QUrl::user () const"
 Returns the username of the URL.
 .PP
 See also setUser() and setPassword().
@@ -484,8 +484,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

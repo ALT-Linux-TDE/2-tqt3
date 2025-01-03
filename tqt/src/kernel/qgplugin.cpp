@@ -38,7 +38,7 @@
 
 #include "ntqgplugin.h"
 
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 #include <private/qcom_p.h>
 
@@ -69,4 +69,4 @@ void TQGPlugin::setIface( TQUnknownInterface *iface )
     _iface = iface;
 }
 
-#endif // QT_NO_COMPONENT
+#endif // TQT_NO_COMPONENT

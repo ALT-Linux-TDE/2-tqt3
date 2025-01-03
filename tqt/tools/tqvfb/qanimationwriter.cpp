@@ -33,7 +33,6 @@
 
 #include "qanimationwriter.h"
 
-#define QT_CLEAN_NAMESPACE
 #include <ntqfile.h>
 
 #include <png.h>

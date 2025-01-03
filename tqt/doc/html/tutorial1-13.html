@@ -256,15 +256,15 @@ class, which was last seen as MyWidget.
 constructor to use it. (The <em>good</em> programmers at Trolltech never
 forget this, but I do. Caveat programmor - if "programmor" is Latin,
 at least. Anyway, back to the code.)
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(hit()),
-                 this, SLOT(hit()) );
-        <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(missed()),
-                 this, SLOT(missed()) );
+<p> <pre>        <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(hit()),
+                 this, TQ_SLOT(hit()) );
+        <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(missed()),
+                 this, TQ_SLOT(missed()) );
 </pre>
 <p> This time we want to do something when the shot has hit or missed the
 target. Thus we connect the hit() and missed() signals of the
 CannonField to two protected slots with the same names in this class.
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( shoot, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(fire()) );
+<p> <pre>        <a href="ntqobject.html#connect">connect</a>( shoot, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(fire()) );
 </pre>
 <p> Previously we connected the Shoot button's clicked() signal directly
 to the CannonField's shoot() slot. This time we want to keep track of
@@ -272,8 +272,8 @@ the number of shots fired, so we connect it to a protected slot in
 this class instead.
 <p> Notice how easy it is to change the behavior of a program when you are
 working with self-contained components.
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( cannonField, SIGNAL(canShoot(bool)),
-    <a name="x2416"></a>             shoot, SLOT(<a href="ntqwidget.html#setEnabled">setEnabled</a>(bool)) );
+<p> <pre>        <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(canShoot(bool)),
+    <a name="x2416"></a>             shoot, TQ_SLOT(<a href="ntqwidget.html#setEnabled">setEnabled</a>(bool)) );
 </pre>
 <p> We also use the cannonField's canShoot() signal to enable or disable
 the Shoot button appropriately.
@@ -281,7 +281,7 @@ the Shoot button appropriately.
             = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;New Game", this, "newgame" );
         restart-&gt;setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-        <a href="ntqobject.html#connect">connect</a>( restart, SIGNAL(clicked()), this, SLOT(newGame()) );
+        <a href="ntqobject.html#connect">connect</a>( restart, TQ_SIGNAL(clicked()), this, TQ_SLOT(newGame()) );
 </pre>
 <p> We create, set up, and connect the New Game button as we have done
 with the other buttons. Clicking this button will activate the

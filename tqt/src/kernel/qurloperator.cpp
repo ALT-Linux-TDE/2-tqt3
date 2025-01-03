@@ -40,7 +40,7 @@
 
 #include "ntqurloperator.h"
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
 
 #include "ntqurlinfo.h"
 #include "ntqnetworkprotocol.h"
@@ -600,23 +600,23 @@ TQPtrList<TQNetworkOperation> TQUrlOperator::copy( const TQString &from, const T
     if ( gProt && (gProt->supportedOperations()&TQNetworkProtocol::OpGet) &&
 	 pProt && (pProt->supportedOperations()&TQNetworkProtocol::OpPut) ) {
 
-	connect( gProt, SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
-		 this, SLOT( copyGotData(const TQByteArray&,TQNetworkOperation*) ) );
-	connect( gProt, SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
-		 this, SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
-	connect( gProt, SIGNAL( finished(TQNetworkOperation*) ),
-		 this, SLOT( continueCopy(TQNetworkOperation*) ) );
-	connect( gProt, SIGNAL( finished(TQNetworkOperation*) ),
-		 this, SIGNAL( finished(TQNetworkOperation*) ) );
-	connect( gProt, SIGNAL( connectionStateChanged(int,const TQString&) ),
-		 this, SIGNAL( connectionStateChanged(int,const TQString&) ) );
+	connect( gProt, TQ_SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
+		 this, TQ_SLOT( copyGotData(const TQByteArray&,TQNetworkOperation*) ) );
+	connect( gProt, TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
+		 this, TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
+	connect( gProt, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+		 this, TQ_SLOT( continueCopy(TQNetworkOperation*) ) );
+	connect( gProt, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+		 this, TQ_SIGNAL( finished(TQNetworkOperation*) ) );
+	connect( gProt, TQ_SIGNAL( connectionStateChanged(int,const TQString&) ),
+		 this, TQ_SIGNAL( connectionStateChanged(int,const TQString&) ) );
 
-	connect( pProt, SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
-		 this, SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
-	connect( pProt, SIGNAL( finished(TQNetworkOperation*) ),
-		 this, SIGNAL( finished(TQNetworkOperation*) ) );
-	connect( pProt, SIGNAL( finished(TQNetworkOperation*) ),
-		 this, SLOT( finishedCopy() ) );
+	connect( pProt, TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
+		 this, TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ) );
+	connect( pProt, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+		 this, TQ_SIGNAL( finished(TQNetworkOperation*) ) );
+	connect( pProt, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+		 this, TQ_SLOT( finishedCopy() ) );
 
 	TQNetworkOperation *opGet = new TQNetworkOperation( TQNetworkProtocol::OpGet, frm, TQString::null, TQString::null );
 	ops.append( opGet );
@@ -935,8 +935,8 @@ void TQUrlOperator::getNetworkProtocol()
 
     d->networkProtocol = (TQNetworkProtocol *)p;
     d->networkProtocol->setUrl( this );
-    connect( d->networkProtocol, SIGNAL( itemChanged(TQNetworkOperation*) ),
-	     this, SLOT( slotItemChanged(TQNetworkOperation*) ) );
+    connect( d->networkProtocol, TQ_SIGNAL( itemChanged(TQNetworkOperation*) ),
+	     this, TQ_SLOT( slotItemChanged(TQNetworkOperation*) ) );
 }
 
 /*!
@@ -1121,10 +1121,10 @@ void TQUrlOperator::continueCopy( TQNetworkOperation *op )
 	    deleteOperation( rm );
 	}
     }
-    disconnect( gProt, SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
-		this, SLOT( copyGotData(const TQByteArray&,TQNetworkOperation*) ) );
-    disconnect( gProt, SIGNAL( finished(TQNetworkOperation*) ),
-		this, SLOT( continueCopy(TQNetworkOperation*) ) );
+    disconnect( gProt, TQ_SIGNAL( data(const TQByteArray&,TQNetworkOperation*) ),
+		this, TQ_SLOT( copyGotData(const TQByteArray&,TQNetworkOperation*) ) );
+    disconnect( gProt, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+		this, TQ_SLOT( continueCopy(TQNetworkOperation*) ) );
 }
 
 /*!
@@ -1223,4 +1223,4 @@ void TQUrlOperator::slotItemChanged( TQNetworkOperation *op )
 }
 
 
-#endif // QT_NO_NETWORKPROTOCOL
+#endif // TQT_NO_NETWORKPROTOCOL

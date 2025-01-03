@@ -41,7 +41,7 @@ const int XKeyRelease = KeyRelease;
 #undef KeyPress
 #undef KeyRelease
 
-#if !defined(QT_NO_IM)
+#if !defined(TQT_NO_IM)
 
 #include "qplatformdefs.h"
 
@@ -55,7 +55,7 @@ const int XKeyRelease = KeyRelease;
 #include <stdlib.h>
 #include <limits.h>
 
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
 
 #define XK_MISCELLANY
 #define XK_LATIN1
@@ -75,7 +75,7 @@ extern int qt_ximComposingKeycode;
 extern TQTextCodec * qt_input_mapper;
 
 
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
 
 #if defined(Q_C_CALLBACKS)
 extern "C" {
@@ -107,16 +107,16 @@ extern "C" {
 }
 #endif // Q_C_CALLBACKS
 
-#endif // QT_NO_XIM
+#endif // TQT_NO_XIM
 
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
 
 /* The cache here is needed, as X11 leaks a few kb for every
    XFreeFontSet call, so we avoid creating and deletion of fontsets as
    much as possible
 */
 static XFontSet fontsetCache[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
-static int fontsetRefCount = 0;
+static int fontsetCacheRefCount = 0;
 
 static const char * const fontsetnames[] = {
     "-*-fixed-medium-r-*-*-16-*,-*-*-medium-r-*-*-16-*",
@@ -334,7 +334,7 @@ extern "C" {
 }
 #endif // Q_C_CALLBACKS
 
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 
 
 
@@ -343,6 +343,14 @@ TQXIMInputContext::TQXIMInputContext()
 {
     if(!isInitXIM)
 	TQXIMInputContext::init_xim();
+
+#if !defined(TQT_NO_XIM)
+    fontsetCacheRefCount++;
+
+    if( ! ximContextList )
+	ximContextList = new TQPtrList<TQXIMInputContext>;
+    ximContextList->append( this );
+#endif // !TQT_NO_XIM
 }
 
 
@@ -353,8 +361,7 @@ void TQXIMInputContext::setHolderWidget( TQWidget *widget )
 
     TQInputContext::setHolderWidget( widget );
 
-#if !defined(QT_NO_XIM)
-    fontsetRefCount++;
+#if !defined(TQT_NO_XIM)
     if (! qt_xim) {
 	tqWarning("TQInputContext: no input method context available");
 	return;
@@ -424,22 +431,18 @@ void TQXIMInputContext::setHolderWidget( TQWidget *widget )
 
     // when resetting the input context, preserve the input state
     (void) XSetICValues((XIC) ic, XNResetState, XIMPreserveState, (char *) 0);
-
-    if( ! ximContextList )
-	ximContextList = new TQPtrList<TQXIMInputContext>;
-    ximContextList->append( this );
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 }
 
 
 TQXIMInputContext::~TQXIMInputContext()
 {
 
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if (ic)
 	XDestroyIC((XIC) ic);
 
-    if ( --fontsetRefCount == 0 ) {
+    if ( --fontsetCacheRefCount == 0 ) {
 	Display *dpy = TQPaintDevice::x11AppDisplay();
 	for ( int i = 0; i < 8; i++ ) {
 	    if ( fontsetCache[i] && fontsetCache[i] != (XFontSet)-1 ) {
@@ -464,14 +467,14 @@ TQXIMInputContext::~TQXIMInputContext()
 	    ximContextList = 0;
 	}
     }
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 
     ic = 0;
 }
 
 void TQXIMInputContext::init_xim()
 {
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
     if(!isInitXIM)
 	isInitXIM = TRUE;
 
@@ -503,7 +506,7 @@ void TQXIMInputContext::init_xim()
     else
 	TQXIMInputContext::create_xim();
 #endif // USE_X11R6_XIM
-#endif // QT_NO_XIM
+#endif // TQT_NO_XIM
 }
 
 
@@ -512,7 +515,7 @@ void TQXIMInputContext::init_xim()
  */
 void TQXIMInputContext::create_xim()
 {
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
     Display *appDpy = TQPaintDevice::x11AppDisplay();
     qt_xim = XOpenIM( appDpy, 0, 0, 0 );
     if ( qt_xim ) {
@@ -571,7 +574,7 @@ void TQXIMInputContext::create_xim()
 	    TQXIMInputContext::close_xim();
 	}
     }
-#endif // QT_NO_XIM
+#endif // TQT_NO_XIM
 }
 
 
@@ -580,7 +583,7 @@ void TQXIMInputContext::create_xim()
 */
 void TQXIMInputContext::close_xim()
 {
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
     TQString errMsg( "TQXIMInputContext::close_xim() has been called" );
 
     // Calling XCloseIM gives a Purify FMR error
@@ -597,13 +600,13 @@ void TQXIMInputContext::close_xim()
 	}
 	// ximContextList will be deleted in ~TQXIMInputContext
     }
-#endif // QT_NO_XIM
+#endif // TQT_NO_XIM
 }
 
 
 bool TQXIMInputContext::x11FilterEvent( TQWidget *keywidget, XEvent *event )
 {
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
     int xkey_keycode = event->xkey.keycode;
     if ( XFilterEvent( event, keywidget->topLevelWidget()->winId() ) ) {
 	qt_ximComposingKeycode = xkey_keycode; // ### not documented in xlib
@@ -694,7 +697,7 @@ bool TQXIMInputContext::x11FilterEvent( TQWidget *keywidget, XEvent *event )
 	    return TRUE;
 	}
     }
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 
     return FALSE;
 }
@@ -711,7 +714,7 @@ void TQXIMInputContext::sendIMEvent( TQEvent::Type type, const TQString &text,
 
 void TQXIMInputContext::reset()
 {
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if ( focusWidget() && isComposing() && ! composingText.isNull() ) {
 #ifdef QT_XIM_DEBUG
 	tqDebug("TQXIMInputContext::reset: composing - sending IMEnd (empty) to %p",
@@ -725,18 +728,18 @@ void TQXIMInputContext::reset()
 	if (mb)
 	    XFree(mb);
     }
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 }
 
 
 void TQXIMInputContext::resetClientState()
 {
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     composingText = TQString::null;
     if ( selectedChars.size() < 128 )
 	selectedChars.resize( 128 );
     selectedChars.fill( 0 );
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 }
 
 
@@ -785,7 +788,7 @@ void TQXIMInputContext::mouseHandler( int , TQEvent::Type type,
 
 void TQXIMInputContext::setComposePosition(int x, int y)
 {
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if (qt_xim && ic) {
 	XPoint point;
 	point.x = x;
@@ -799,13 +802,13 @@ void TQXIMInputContext::setComposePosition(int x, int y)
 	XSetICValues((XIC) ic, XNPreeditAttributes, preedit_attr, (char *) 0);
 	XFree(preedit_attr);
     }
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 }
 
 
 void TQXIMInputContext::setComposeArea(int x, int y, int w, int h)
 {
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if (qt_xim && ic) {
 	XRectangle rect;
 	rect.x = x;
@@ -826,7 +829,7 @@ void TQXIMInputContext::setComposeArea(int x, int y, int w, int h)
 
 void TQXIMInputContext::setXFontSet(const TQFont &f)
 {
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if (font == f) return; // nothing to do
     font = f;
 
@@ -848,7 +851,7 @@ int TQXIMInputContext::lookupString(XKeyEvent *event, TQCString &chars,
 {
     int count = 0;
 
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if (qt_xim && ic) {
 	count = XmbLookupString((XIC) ic, event, chars.data(),
 				chars.size(), key, status);
@@ -860,25 +863,25 @@ int TQXIMInputContext::lookupString(XKeyEvent *event, TQCString &chars,
 	}
     }
 
-#endif // QT_NO_XIM
+#endif // TQT_NO_XIM
 
     return count;
 }
 
 void TQXIMInputContext::setFocus()
 {
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if ( qt_xim && ic )
 	XSetICFocus((XIC) ic);
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 }
 
 void TQXIMInputContext::unsetFocus()
 {
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if (qt_xim && ic)
 	XUnsetICFocus((XIC) ic);
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 
     // Don't reset Japanese input context here. Japanese input context
     // sometimes contains a whole paragraph and has minutes of
@@ -911,7 +914,7 @@ TQString TQXIMInputContext::identifierName()
 
 TQString TQXIMInputContext::language()
 {
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
     if ( qt_xim ) {
 	TQString locale( XLocaleOfIM( qt_xim ) );
 
@@ -927,4 +930,4 @@ TQString TQXIMInputContext::language()
     return _language;
 }
 
-#endif //QT_NO_IM
+#endif //TQT_NO_IM

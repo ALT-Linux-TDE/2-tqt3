@@ -47,32 +47,32 @@ ImageViewer::ImageViewer( TQWidget *parent, const char *name, int wFlags )
 	saveimage->insertItem( f );
 	savepixmap->insertItem( f );
     }
-    connect( saveimage, SIGNAL(activated(int)), this, SLOT(saveImage(int)) );
-    connect( savepixmap, SIGNAL(activated(int)), this, SLOT(savePixmap(int)) );
+    connect( saveimage, TQ_SIGNAL(activated(int)), this, TQ_SLOT(saveImage(int)) );
+    connect( savepixmap, TQ_SIGNAL(activated(int)), this, TQ_SLOT(savePixmap(int)) );
 
     file = new TQPopupMenu( menubar );
     menubar->insertItem( "&File", file );
-    file->insertItem( "&New window", this,  SLOT(newWindow()), CTRL+Key_N );
-    file->insertItem( "&Open...", this,  SLOT(openFile()), CTRL+Key_O );
+    file->insertItem( "&New window", this,  TQ_SLOT(newWindow()), CTRL+Key_N );
+    file->insertItem( "&Open...", this,  TQ_SLOT(openFile()), CTRL+Key_O );
     si = file->insertItem( "Save image", saveimage );
     sp = file->insertItem( "Save pixmap", savepixmap );
     file->insertSeparator();
-    file->insertItem( "E&xit", tqApp,  SLOT(quit()), CTRL+Key_Q );
+    file->insertItem( "E&xit", tqApp,  TQ_SLOT(quit()), CTRL+Key_Q );
 
     edit =  new TQPopupMenu( menubar );
     menubar->insertItem( "&Edit", edit );
-    edit->insertItem("&Copy", this, SLOT(copy()), CTRL+Key_C);
-    edit->insertItem("&Paste", this, SLOT(paste()), CTRL+Key_V);
+    edit->insertItem("&Copy", this, TQ_SLOT(copy()), CTRL+Key_C);
+    edit->insertItem("&Paste", this, TQ_SLOT(paste()), CTRL+Key_V);
     edit->insertSeparator();
-    edit->insertItem("&Horizontal flip", this, SLOT(hFlip()), ALT+Key_H);
-    edit->insertItem("&Vertical flip", this, SLOT(vFlip()), ALT+Key_V);
-    edit->insertItem("&Rotate 180", this, SLOT(rot180()), ALT+Key_R);
+    edit->insertItem("&Horizontal flip", this, TQ_SLOT(hFlip()), ALT+Key_H);
+    edit->insertItem("&Vertical flip", this, TQ_SLOT(vFlip()), ALT+Key_V);
+    edit->insertItem("&Rotate 180", this, TQ_SLOT(rot180()), ALT+Key_R);
     edit->insertSeparator();
-    edit->insertItem("&Text...", this, SLOT(editText()));
+    edit->insertItem("&Text...", this, TQ_SLOT(editText()));
     edit->insertSeparator();
-    t1 = edit->insertItem( "Convert to &1 bit", this, SLOT(to1Bit()) );
-    t8 = edit->insertItem( "Convert to &8 bit", this, SLOT(to8Bit()) );
-    t32 = edit->insertItem( "Convert to &32 bit", this, SLOT(to32Bit()) );
+    t1 = edit->insertItem( "Convert to &1 bit", this, TQ_SLOT(to1Bit()) );
+    t8 = edit->insertItem( "Convert to &8 bit", this, TQ_SLOT(to8Bit()) );
+    t32 = edit->insertItem( "Convert to &32 bit", this, TQ_SLOT(to32Bit()) );
 
     options =  new TQPopupMenu( menubar );
     menubar->insertItem( "&Options", options );
@@ -102,9 +102,9 @@ ImageViewer::ImageViewer( TQWidget *parent, const char *name, int wFlags )
 
     TQPopupMenu* help = new TQPopupMenu( menubar );
     menubar->insertItem( "&Help", help );
-    help->insertItem( "Help!", this, SLOT(giveHelp()), CTRL+Key_H );
+    help->insertItem( "Help!", this, TQ_SLOT(giveHelp()), CTRL+Key_H );
 
-    connect( options, SIGNAL(activated(int)), this, SLOT(doOption(int)) );
+    connect( options, TQ_SIGNAL(activated(int)), this, TQ_SLOT(doOption(int)) );
 
     status = new TQLabel(this);
     status->setFrameStyle( TQFrame::WinPanel | TQFrame::Sunken );
@@ -597,14 +597,14 @@ void ImageViewer::rot180()
 
 void ImageViewer::copy()
 {
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     TQApplication::clipboard()->setImage(image); // Less information loss
 #endif
 }
 
 void ImageViewer::paste()
 {
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     TQImage p = TQApplication::clipboard()->image();
     if ( !p.isNull() ) {
 	filename = "pasted";

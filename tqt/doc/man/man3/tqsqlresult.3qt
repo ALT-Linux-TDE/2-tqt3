@@ -26,7 +26,7 @@ QSqlResult \- Abstract interface for accessing data from SQL databases
 .BI "int \fBat\fR () const"
 .br
 .ti -1c
-.BI "QString \fBlastQuery\fR () const"
+.BI "TQString \fBlastQuery\fR () const"
 .br
 .ti -1c
 .BI "QSqlError \fBlastError\fR () const"
@@ -56,7 +56,7 @@ QSqlResult \- Abstract interface for accessing data from SQL databases
 .BI "virtual void \fBsetLastError\fR ( const QSqlError & e )"
 .br
 .ti -1c
-.BI "virtual void \fBsetQuery\fR ( const QString & query )"
+.BI "virtual void \fBsetQuery\fR ( const TQString & query )"
 .br
 .ti -1c
 .BI "virtual void \fBsetSelect\fR ( bool s )"
@@ -71,7 +71,7 @@ QSqlResult \- Abstract interface for accessing data from SQL databases
 .BI "virtual bool \fBisNull\fR ( int i ) = 0"
 .br
 .ti -1c
-.BI "virtual bool \fBreset\fR ( const QString & query ) = 0"
+.BI "virtual bool \fBreset\fR ( const TQString & query ) = 0"
 .br
 .ti -1c
 .BI "virtual bool \fBfetch\fR ( int i ) = 0"
@@ -134,11 +134,11 @@ Returns TRUE if the current result is from a SELECT statement; otherwise returns
 Returns TRUE if the result is positioned on a valid record (that is, the result is not positioned before the first or after the last record); otherwise returns FALSE.
 .SH "QSqlError QSqlResult::lastError () const\fC [protected]\fR"
 Returns the last error associated with the result.
-.SH "QString QSqlResult::lastQuery () const\fC [protected]\fR"
-Returns the current SQL query text, or QString::null if there is none.
+.SH "TQString QSqlResult::lastQuery () const\fC [protected]\fR"
+Returns the current SQL query text, or TQString::null if there is none.
 .SH "int QSqlResult::numRowsAffected ()\fC [pure virtual protected]\fR"
 Returns the number of rows affected by the last query executed.
-.SH "bool QSqlResult::reset ( const QString & query )\fC [pure virtual protected]\fR"
+.SH "bool QSqlResult::reset ( const TQString & query )\fC [pure virtual protected]\fR"
 Sets the result to use the SQL statement \fIquery\fR for subsequent data retrieval. Derived classes must reimplement this function and apply the \fIquery\fR to the database. This function is called only after the result is set to an inactive state and is positioned before the first record of the new result. Derived classes should return TRUE if the query was successful and ready to be used, or FALSE otherwise.
 .SH "void QSqlResult::setActive ( bool a )\fC [virtual protected]\fR"
 Protected function provided for derived classes to set the internal active state to the value of \fIa\fR.
@@ -156,7 +156,7 @@ See also fetchNext().
 Protected function provided for derived classes to set the last error to the value of \fIe\fR.
 .PP
 See also lastError().
-.SH "void QSqlResult::setQuery ( const QString & query )\fC [virtual protected]\fR"
+.SH "void QSqlResult::setQuery ( const TQString & query )\fC [virtual protected]\fR"
 Sets the current query for the result to \fIquery\fR. The result must be reset() in order to execute the query on the database.
 .SH "void QSqlResult::setSelect ( bool s )\fC [virtual protected]\fR"
 Protected function provided for derived classes to indicate whether or not the current statement is a SQL SELECT statement. The \fIs\fR parameter should be TRUE if the statement is a SELECT statement, or FALSE otherwise.
@@ -177,8 +177,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

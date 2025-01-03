@@ -45,9 +45,9 @@
 #include "ntqbutton.h"
 #endif // QT_H
 
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 
-class Q_EXPORT TQCheckBox : public TQButton
+class TQ_EXPORT TQCheckBox : public TQButton
 {
     TQ_OBJECT
     TQ_PROPERTY( bool checked READ isChecked WRITE setChecked )
@@ -91,6 +91,6 @@ inline void TQCheckBox::setChecked( bool check )
 { setOn( check ); }
 
 
-#endif // QT_NO_CHECKBOX
+#endif // TQT_NO_CHECKBOX
 
 #endif // TQCHECKBOX_H

@@ -49,7 +49,7 @@ StyledButton::StyledButton(TQWidget* parent, const char* name)
     setMinimumSize( minimumSizeHint() );
     setAcceptDrops( TRUE );
 
-    connect( this, SIGNAL(clicked()), SLOT(onEditor()));
+    connect( this, TQ_SIGNAL(clicked()), TQ_SLOT(onEditor()));
 }
 
 StyledButton::StyledButton( const TQBrush& b, TQWidget* parent, const char* name, WFlags f )
@@ -229,7 +229,7 @@ void StyledButton::mousePressEvent(TQMouseEvent* e)
 void StyledButton::mouseMoveEvent(TQMouseEvent* e)
 {
     TQButton::mouseMoveEvent( e );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( !mousePressed )
 	return;
     if ( ( pressPos - e->pos() ).manhattanLength() > TQApplication::startDragDistance() ) {
@@ -256,7 +256,7 @@ void StyledButton::mouseMoveEvent(TQMouseEvent* e)
 #endif
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 void StyledButton::dragEnterEvent( TQDragEnterEvent *e )
 {
     setFocus();
@@ -305,4 +305,4 @@ void StyledButton::dropEvent( TQDropEvent *e )
 	e->ignore();
     }
 }
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP

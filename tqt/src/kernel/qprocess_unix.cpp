@@ -47,7 +47,7 @@
 
 #include "ntqprocess.h"
 
-#ifndef QT_NO_PROCESS
+#ifndef TQT_NO_PROCESS
 
 #include "ntqapplication.h"
 #include "ntqptrqueue.h"
@@ -277,8 +277,8 @@ TQProcessManager::TQProcessManager() : sn(0)
 #endif
 	sn = new TQSocketNotifier( sigchldFd[1],
 		TQSocketNotifier::Read, this );
-	connect( sn, SIGNAL(activated(int)),
-		this, SLOT(sigchldHnd(int)) );
+	connect( sn, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(sigchldHnd(int)) );
 	sn->setEnabled( TRUE );
     }
 
@@ -352,7 +352,7 @@ void TQProcessManager::remove( TQProc *p )
 void TQProcessManager::cleanup()
 {
     if ( procList->count() == 0 ) {
-	TQTimer::singleShot( 0, this, SLOT(removeMe()) );
+	TQTimer::singleShot( 0, this, TQ_SLOT(removeMe()) );
     }
 }
 
@@ -816,7 +816,7 @@ bool TQProcess::start( TQStringList *env )
 	if ( comms & DupStderr ) {
 	    ::dup2( STDOUT_FILENO, STDERR_FILENO );
 	}
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 	if (::chdir( workingDir.absPath().latin1() ) < 0) {
 		tqWarning( "Could not chdir" );
 	}
@@ -871,7 +871,7 @@ bool TQProcess::start( TQStringList *env )
 			if(!TQFile::exists(dir + "/" + command) && TQFile::exists(dir + "/" + command + ".app"))
 			    dir += "/" + command + ".app/Contents/MacOS";
 #endif
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 			TQFileInfo fileInfo( dir, command );
 #else
 			TQFileInfo fileInfo( dir + "/" + command );
@@ -944,8 +944,8 @@ bool TQProcess::start( TQStringList *env )
 	fcntl(d->proc->socketStdin, F_SETFL, originalFlags | O_NONBLOCK);
 
 	d->notifierStdin = new TQSocketNotifier( sStdin[1], TQSocketNotifier::Write );
-	connect( d->notifierStdin, SIGNAL(activated(int)),
-		this, SLOT(socketWrite(int)) );
+	connect( d->notifierStdin, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(socketWrite(int)) );
 	// setup notifiers for the sockets
 	if ( !d->stdinBuf.isEmpty() ) {
 	    d->notifierStdin->setEnabled( TRUE );
@@ -955,8 +955,8 @@ bool TQProcess::start( TQStringList *env )
 	::close( sStdout[1] );
 	d->proc->socketStdout = sStdout[0];
 	d->notifierStdout = new TQSocketNotifier( sStdout[0], TQSocketNotifier::Read );
-	connect( d->notifierStdout, SIGNAL(activated(int)),
-		this, SLOT(socketRead(int)) );
+	connect( d->notifierStdout, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(socketRead(int)) );
 	if ( ioRedirection )
 	    d->notifierStdout->setEnabled( TRUE );
     }
@@ -964,8 +964,8 @@ bool TQProcess::start( TQStringList *env )
 	::close( sStderr[1] );
 	d->proc->socketStderr = sStderr[0];
 	d->notifierStderr = new TQSocketNotifier( sStderr[0], TQSocketNotifier::Read );
-	connect( d->notifierStderr, SIGNAL(activated(int)),
-		this, SLOT(socketRead(int)) );
+	connect( d->notifierStderr, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(socketRead(int)) );
 	if ( ioRedirection )
 	    d->notifierStderr->setEnabled( TRUE );
     }
@@ -1028,7 +1028,7 @@ void TQProcess::tryTerminate() const
     is to do something like this:
     \code
 	process->tryTerminate();
-	TQTimer::singleShot( 5000, process, SLOT( kill() ) );
+	TQTimer::singleShot( 5000, process, TQ_SLOT( kill() ) );
     \endcode
 
     This tries to terminate the process the nice way. If the process
@@ -1414,4 +1414,4 @@ TQProcess::PID TQProcess::processIdentifier()
     return d->proc->pid;
 }
 
-#endif // QT_NO_PROCESS
+#endif // TQT_NO_PROCESS

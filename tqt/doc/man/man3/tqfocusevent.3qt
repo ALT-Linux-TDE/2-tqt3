@@ -45,11 +45,11 @@ The QFocusEvent class contains event parameters for widget focus events.
 .PP
 Focus events are sent to widgets when the keyboard input focus changes. Focus events occur due to mouse actions, keypresses (e.g. Tab or Backtab), the window system, popup menus, keyboard shortcuts or other application specific reasons. The reason for a particular focus event is returned by reason() in the appropriate event handler.
 .PP
-The event handlers QWidget::focusInEvent() and QWidget::focusOutEvent() receive focus events.
+The event handlers TQWidget::focusInEvent() and TQWidget::focusOutEvent() receive focus events.
 .PP
 Use setReason() to set the reason for all focus events, and resetReason() to set the reason for all focus events to the reason in force before the last setReason() call.
 .PP
-See also QWidget::setFocus(), QWidget::focusPolicy, and Event Classes.
+See also TQWidget::setFocus(), TQWidget::focusPolicy, and Event Classes.
 .SS "Member Type Documentation"
 .SH "QFocusEvent::Reason"
 This enum specifies why the focus changed.
@@ -105,8 +105,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

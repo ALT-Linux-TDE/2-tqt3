@@ -56,7 +56,7 @@
 // Be sure to include qplatformdefs.h first!
 struct TQFileInfoCache
 {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     QT_STATBUF st;
 #else
     struct stat st;

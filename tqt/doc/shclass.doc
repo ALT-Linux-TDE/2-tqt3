@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** Qt Shared Classes Documentation
+** TQt Shared Classes Documentation
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -50,7 +50,7 @@
 \keyword shared implicitly
 \keyword shared explicitly
 
-Many C++ classes in Qt use \e explicit and \e implicit data sharing
+Many C++ classes in TQt use \e explicit and \e implicit data sharing
 to maximize resource usage and minimize copying of data.
 
 \tableofcontents
@@ -194,13 +194,13 @@ These classes have a detach() function that can be called if you want
 your object to get a private copy of the shared data. They also have a
 copy() function that returns a deep copy with a reference count of 1.
 
-The same is true for \l QImage, which does not inherit QMemArray. \l
+The same is true for \l TQImage, which does not inherit QMemArray. \l
 QMovie is also explicitly shared, but it does not support detach() or
 copy().
 
 \section1 Implicitly Shared Classes
 
-The Qt classes that are implicitly shared are:
+The TQt classes that are implicitly shared are:
 \list
 \i \l QBitmap
 \i \l QBrush
@@ -216,7 +216,7 @@ The Qt classes that are implicitly shared are:
 \i \l QPixmap
 \i \l QRegion
 \i \l QRegExp
-\i \l QString
+\i \l TQString
 \i \l QStringList
 \i \l QValueList
 \i \l QValueStack
@@ -254,7 +254,7 @@ QValueVector, etc.) while you are iterating over it.
 \l QCString uses a mixture of implicit and explicit sharing. Functions
 inherited from QByteArray, such as data(), employ explicit sharing, while
 those only in QCString detach automatically. Thus, QCString is rather an
-"experts only" class, provided mainly to ease porting from Qt 1.x to Qt 2.0.
-We recommend that you use \l QString, a purely implicitly shared class.
+"experts only" class, provided mainly to ease porting from TQt 1.x to TQt 2.0.
+We recommend that you use \l TQString, a purely implicitly shared class.
 
 */

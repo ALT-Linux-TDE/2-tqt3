@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqcanvas.h"
-#ifndef QT_NO_CANVAS
+#ifndef TQT_NO_CANVAS
 #include "ntqapplication.h"
 #include "ntqbitmap.h"
 #include "ntqimage.h"
@@ -66,7 +66,7 @@ public:
 class TQCanvasViewData {
 public:
     TQCanvasViewData() : repaint_from_moving( FALSE ) {}
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQWMatrix xform;
     TQWMatrix ixform;
 #endif
@@ -989,7 +989,7 @@ void TQCanvas::setAdvancePeriod(int ms)
 	if ( update_timer )
 	    delete update_timer;
 	update_timer = new TQTimer(this);
-	connect(update_timer,SIGNAL(timeout()),this,SLOT(advance()));
+	connect(update_timer,TQ_SIGNAL(timeout()),this,TQ_SLOT(advance()));
 	update_timer->start(ms);
     }
 }
@@ -1010,7 +1010,7 @@ void TQCanvas::setUpdatePeriod(int ms)
 	if ( update_timer )
 	    delete update_timer;
 	update_timer = new TQTimer(this);
-	connect(update_timer,SIGNAL(timeout()),this,SLOT(update()));
+	connect(update_timer,TQ_SIGNAL(timeout()),this,TQ_SLOT(update()));
 	update_timer->start(ms);
     }
 }
@@ -1067,7 +1067,7 @@ void TQCanvas::drawViewArea( TQCanvasView* view, TQPainter* p, const TQRect& vr,
 {
     TQPoint tl = view->contentsToViewport(TQPoint(0,0));
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQWMatrix wm = view->worldMatrix();
     TQWMatrix iwm = wm.invert();
     // ivr = covers all chunks in vr
@@ -1084,7 +1084,7 @@ void TQCanvas::drawViewArea( TQCanvasView* view, TQPainter* p, const TQRect& vr,
     if ( !all.contains(ivr) ) {
 	// Need to clip with edge of canvas.
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	// For translation-only transformation, it is safe to include the right
 	// and bottom edges, but otherwise, these must be excluded since they
 	// are not precisely defined (different bresenham paths).
@@ -1109,11 +1109,11 @@ void TQCanvas::drawViewArea( TQCanvasView* view, TQPainter* p, const TQRect& vr,
 
     if ( dbuf ) {
         offscr = TQPixmap(vr.size().expandedTo(TQSize(1, 1)));
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         offscr.x11SetScreen(p->device()->x11Screen());
 #endif
         TQPainter dbp(&offscr);
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
         twm.translate(-vr.x(),-vr.y());
         twm.translate(-tl.x(),-tl.y());
         dbp.setWorldMatrix( wm*twm, TRUE );
@@ -1135,7 +1135,7 @@ void TQCanvas::drawViewArea( TQCanvasView* view, TQPainter* p, const TQRect& vr,
 	} else {
 	    p->setClipRect(r);
 	}
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	p->setWorldMatrix( wm*twm );
 #else
 #endif
@@ -1152,7 +1152,7 @@ void TQCanvas::drawViewArea( TQCanvasView* view, TQPainter* p, const TQRect& vr,
 void TQCanvas::update()
 {
     TQCanvasClusterizer clusterizer(d->viewList.count());
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQPtrList<TQRect> doneareas;
     doneareas.setAutoDelete(TRUE);
 #endif
@@ -1161,13 +1161,13 @@ void TQCanvas::update()
     TQCanvasView* view;
     while( (view=it.current()) != 0 ) {
 	++it;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	TQWMatrix wm = view->worldMatrix();
 #endif
 	TQRect area(view->contentsX(),view->contentsY(),
 		   view->visibleWidth(),view->visibleHeight());
 	if (area.width()>0 && area.height()>0) {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	    if ( !wm.isIdentity() ) {
 		// r = Visible area of the canvas where there are changes
 		TQRect r = changeBounds(view->inverseWorldMatrix().map(area));
@@ -1190,7 +1190,7 @@ void TQCanvas::update()
     for (int i=0; i<clusterizer.clusters(); i++)
 	drawChanges(clusterizer[i]);
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     for ( TQRect* r=doneareas.first(); r != 0; r=doneareas.next() )
 	setUnchanged(*r);
 #endif
@@ -1415,7 +1415,7 @@ void TQCanvas::drawCanvasArea(const TQRect& inarea, TQPainter* p, bool double_bu
 
     if ( double_buffer ) {
         offscr = TQPixmap(area.size().expandedTo(TQSize(1, 1)));
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         if (p)
             offscr.x11SetScreen(p->device()->x11Screen());
 #endif
@@ -1452,7 +1452,7 @@ void TQCanvas::drawCanvasArea(const TQRect& inarea, TQPainter* p, bool double_bu
     trtr -= area.topLeft();
 
     for (TQCanvasView* view=d->viewList.first(); view; view=d->viewList.next()) {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	if ( !view->worldMatrix().isIdentity() )
 	    continue; // Cannot paint those here (see callers).
 #endif
@@ -2841,7 +2841,7 @@ TQRect TQCanvasItem::boundingRectAdvanced() const
     \sa TQCanvasPixmapArray TQCanvasItem TQCanvasSprite
 */
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 
 /*!
     Constructs a TQCanvasPixmap that uses the image stored in \a
@@ -2876,7 +2876,7 @@ void TQCanvasPixmap::init(const TQImage& image)
     convertFromImage(image);
     hotx = image.offset().x();
     hoty = image.offset().y();
-#ifndef QT_NO_IMAGE_DITHER_TO_1
+#ifndef TQT_NO_IMAGE_DITHER_TO_1
     if( image.hasAlphaBuffer() ) {
 	TQImage i = image.createAlphaMask();
 	collision_mask = new TQImage(i);
@@ -2971,7 +2971,7 @@ TQCanvasPixmapArray::TQCanvasPixmapArray()
 {
 }
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 /*!
     Constructs a TQCanvasPixmapArray from files.
 
@@ -3072,7 +3072,7 @@ void TQCanvasPixmapArray::reset()
     framecount = 0;
 }
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 /*!
     Reads one or more pixmaps into the pixmap array.
 
@@ -3535,7 +3535,7 @@ TQCanvasView::TQCanvasView(TQWidget* parent, const char* name, WFlags f) :
     d = new TQCanvasViewData;
     viewing = 0;
     setCanvas(0);
-    connect(this,SIGNAL(contentsMoving(int,int)),this,SLOT(cMoving(int,int)));
+    connect(this,TQ_SIGNAL(contentsMoving(int,int)),this,TQ_SLOT(cMoving(int,int)));
 }
 
 /*!
@@ -3551,7 +3551,7 @@ TQCanvasView::TQCanvasView(TQCanvas* canvas, TQWidget* parent, const char* name,
     viewing = 0;
     setCanvas(canvas);
 
-    connect(this,SIGNAL(contentsMoving(int,int)),this,SLOT(cMoving(int,int)));
+    connect(this,TQ_SIGNAL(contentsMoving(int,int)),this,TQ_SLOT(cMoving(int,int)));
 }
 
 /*!
@@ -3584,14 +3584,14 @@ void TQCanvasView::setCanvas(TQCanvas* canvas)
     }
     viewing=canvas;
     if (viewing) {
-	connect(viewing,SIGNAL(resized()), this, SLOT(updateContentsSize()));
+	connect(viewing,TQ_SIGNAL(resized()), this, TQ_SLOT(updateContentsSize()));
 	viewing->addView(this);
     }
     if ( d ) // called by d'tor
         updateContentsSize();
 }
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 /*!
     Returns a reference to the canvas view's current transformation matrix.
 
@@ -3643,7 +3643,7 @@ void TQCanvasView::updateContentsSize()
 {
     if ( viewing ) {
 	TQRect br;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	br = d->xform.map(TQRect(0,0,viewing->width(),viewing->height()));
 #else
 	br = TQRect(0,0,viewing->width(),viewing->height());
@@ -5412,4 +5412,4 @@ void TQCanvasPolygonalItem::scanPolygon(const TQPointArray& pa, int winding, TQP
 }
 
 
-#endif // QT_NO_CANVAS
+#endif // TQT_NO_CANVAS

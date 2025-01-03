@@ -65,11 +65,11 @@ Wheel events are sent to the widget under the mouse, and if that widget does not
 .PP
 A wheel event contains a special accept flag that indicates whether the receiver wants the event. You should call QWheelEvent::accept() if you handle the wheel event; otherwise it will be sent to the parent widget.
 .PP
-The QWidget::setEnable() function can be used to enable or disable mouse and keyboard events for a widget.
+The TQWidget::setEnable() function can be used to enable or disable mouse and keyboard events for a widget.
 .PP
-The event handler QWidget::wheelEvent() receives wheel events.
+The event handler TQWidget::wheelEvent() receives wheel events.
 .PP
-See also QMouseEvent, QWidget::grabMouse(), and Event Classes.
+See also QMouseEvent, TQWidget::grabMouse(), and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QWheelEvent::QWheelEvent ( const QPoint & pos, int delta, int state, Orientation orient = Vertical )"
 Constructs a wheel event object.
@@ -148,8 +148,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

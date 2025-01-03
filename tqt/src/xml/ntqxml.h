@@ -52,10 +52,10 @@
 #if !defined(TQT_MODULE_XML) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_XML )
 #define TQM_EXPORT_XML
 #else
-#define TQM_EXPORT_XML Q_EXPORT
+#define TQM_EXPORT_XML TQ_EXPORT
 #endif
 
-#ifndef QT_NO_XML
+#ifndef TQT_NO_XML
 
 class TQXmlNamespaceSupport;
 class TQXmlAttributes;
@@ -311,7 +311,7 @@ private:
     // for the DTD currently being parsed.
     static const uint dtdRecursionLimit = 2U;
     // The maximum amount of characters an entity value may contain, after expansion.
-    static const uint entityCharacterLimit = 65536U;
+    static const uint entityCharacterLimit = 4096U;
 
     const TQString &string();
     void stringClear();
@@ -533,6 +533,6 @@ inline int TQXmlAttributes::count() const
 { return length(); }
 
 
-#endif //QT_NO_XML
+#endif //TQT_NO_XML
 
 #endif

@@ -106,12 +106,12 @@ body { background: #ffffff; color: black; }
 #include "ntqtextcodec.h"
 #endif // QT_H
 
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_CODECS_KR
 #else
-#define Q_EXPORT_CODECS_KR Q_EXPORT
+#define Q_EXPORT_CODECS_KR TQ_EXPORT
 #endif
 
 class Q_EXPORT_CODECS_KR TQEucKrCodec : public TQTextCodec {

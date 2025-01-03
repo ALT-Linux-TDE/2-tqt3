@@ -271,8 +271,8 @@ body { background: #ffffff; color: black; }
     {
         if ( ! findForm ) {
             findForm = new FindForm( this );
-            <a href="ntqobject.html#connect">connect</a>( findForm, SIGNAL( lookfor(const <a href="ntqstring.html">TQString</a>&amp;) ),
-                     this, SLOT( lookfor(const <a href="ntqstring.html">TQString</a>&amp;) ) );
+            <a href="ntqobject.html#connect">connect</a>( findForm, TQ_SIGNAL( lookfor(const <a href="ntqstring.html">TQString</a>&amp;) ),
+                     this, TQ_SLOT( lookfor(const <a href="ntqstring.html">TQString</a>&amp;) ) );
         }
         findForm-&gt;show();
     }

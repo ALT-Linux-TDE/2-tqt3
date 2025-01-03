@@ -177,10 +177,10 @@ public:
 	      i2->setConnection( this );
 	      i3->setConnection( this );
 	      i4->setConnection( this );
-	      connect( i1, SIGNAL( changed() ), this, SLOT( somethingChanged() ) );
-	      connect( i2, SIGNAL( changed() ), this, SLOT( somethingChanged() ) );
-	      connect( i3, SIGNAL( changed() ), this, SLOT( somethingChanged() ) );
-	      connect( i4, SIGNAL( changed() ), this, SLOT( somethingChanged() ) );
+	      connect( i1, TQ_SIGNAL( changed() ), this, TQ_SLOT( somethingChanged() ) );
+	      connect( i2, TQ_SIGNAL( changed() ), this, TQ_SLOT( somethingChanged() ) );
+	      connect( i3, TQ_SIGNAL( changed() ), this, TQ_SLOT( somethingChanged() ) );
+	      connect( i4, TQ_SIGNAL( changed() ), this, TQ_SLOT( somethingChanged() ) );
     }
 
     bool isModified() const { return mod; }

@@ -47,7 +47,7 @@ private:
     void rebuildCodecList();
     TQMenuBar 	   *m;
     TQMultiLineEdit *e;
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     TQPrinter        printer;
 #endif
     TQPopupMenu	   *save_as;

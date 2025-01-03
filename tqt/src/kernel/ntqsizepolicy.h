@@ -47,7 +47,7 @@
 
 // Documentation is in qabstractlayout.cpp.
 
-class Q_EXPORT TQSizePolicy
+class TQ_EXPORT TQSizePolicy
 {
 private:
     enum SizePolicy_Internal { HSize = 6, HMask = 0x3f, VMask = HMask << HSize,
@@ -64,7 +64,7 @@ public:
     enum ExpandData { NoDirection = 0,
 		      Horizontally = 1,
 		      Vertically = 2,
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 		      Horizontal = Horizontally,
 		      Vertical = Vertically,
 #endif

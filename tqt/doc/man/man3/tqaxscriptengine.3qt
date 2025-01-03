@@ -21,7 +21,7 @@ Inherits QAxObject.
 .BI "enum \fBState\fR { Uninitialized = 0, Initialized = 5, Started = 1, Connected = 2, Disconnected = 3, Closed = 4 }"
 .br
 .ti -1c
-.BI "\fBQAxScriptEngine\fR ( const QString & language, QAxScript * script )"
+.BI "\fBQAxScriptEngine\fR ( const TQString & language, QAxScript * script )"
 .br
 .ti -1c
 .BI "\fB~QAxScriptEngine\fR ()"
@@ -33,7 +33,7 @@ Inherits QAxObject.
 .BI "bool \fBhasIntrospection\fR () const"
 .br
 .ti -1c
-.BI "QString \fBscriptLanguage\fR () const"
+.BI "TQString \fBscriptLanguage\fR () const"
 .br
 .ti -1c
 .BI "State \fBstate\fR () const"
@@ -42,14 +42,14 @@ Inherits QAxObject.
 .BI "void \fBsetState\fR ( State st )"
 .br
 .ti -1c
-.BI "void \fBaddItem\fR ( const QString & name )"
+.BI "void \fBaddItem\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "long \fBqueryInterface\fR ( const QUuid & uuid, void ** iface ) const"
 .br
 .in -1c
 .SH DESCRIPTION
-This class is defined in the \fBQt ActiveQt Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main Qt API.
+This class is defined in the \fBQt ActiveQt Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main TQt API.
 .PP
 The QAxScriptEngine class provides a wrapper around a script engine.
 .PP
@@ -74,13 +74,13 @@ The State enumeration defines the different states a script engine can be in.
 .TP
 \fCQAxScriptEngine::Closed\fR - The script has been closed.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QAxScriptEngine::QAxScriptEngine ( const QString & language, QAxScript * script )"
+.SH "QAxScriptEngine::QAxScriptEngine ( const TQString & language, QAxScript * script )"
 Constructs a QAxScriptEngine object interpreting script code in \fIlanguage\fR provided by the code in \fIscript\fR. This is usually done by the QAxScript class when loading a script.
 .PP
 Instances of QAxScriptEngine should always have both a language and a script.
 .SH "QAxScriptEngine::~QAxScriptEngine ()"
 Destroys the QAxScriptEngine object, releasing all allocated resources.
-.SH "void QAxScriptEngine::addItem ( const QString & name )"
+.SH "void QAxScriptEngine::addItem ( const TQString & name )"
 Registers an item with the script engine. Script code can refer to this item using \fIname\fR.
 .SH "bool QAxScriptEngine::hasIntrospection () const"
 Returns TRUE if the script engine supports introspection; otherwise returns FALSE.
@@ -90,7 +90,7 @@ Returns TRUE if the script engine has been initialized correctly; otherwise retu
 Requests the interface \fIuuid\fR from the script engine object and sets the value of \fIiface\fR to the provided interface, or to 0 if the requested interface could not be provided.
 .PP
 Returns the result of the QueryInterface implementation of the COM object.
-.SH "QString QAxScriptEngine::scriptLanguage () const"
+.SH "TQString QAxScriptEngine::scriptLanguage () const"
 Returns the scripting language, for example "VBScript", or "JScript".
 .SH "void QAxScriptEngine::setState ( State st )"
 Sets the state of the script engine to \fIst\fR. Calling this function is usually not necessary.
@@ -111,8 +111,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

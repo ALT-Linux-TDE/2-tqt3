@@ -40,7 +40,7 @@
 
 #include "ntqlayout.h"
 
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 
 #include "ntqapplication.h"
 #include "ntqwidget.h"
@@ -1399,7 +1399,7 @@ void TQGridLayout::setColStretch( int col, int stretch )
 }
 
 #if TQT_VERSION >= 0x040000
-#error "Make add{Row,Col}Spacing() inline QT_NO_COMPAT functions defined in terms of set{Row,Col}Spacing()"
+#error "Make add{Row,Col}Spacing() inline TQT_NO_COMPAT functions defined in terms of set{Row,Col}Spacing()"
 #endif
 
 /*!
@@ -2602,4 +2602,4 @@ TQBoxLayout *TQBoxLayout::createTmpCopy()
     return bl;
 }
 
-#endif // QT_NO_LAYOUT
+#endif // TQT_NO_LAYOUT

@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqvbuttongroup.h"
-#ifndef QT_NO_VBUTTONGROUP
+#ifndef TQT_NO_VBUTTONGROUP
 
 /*!
   \class TQVButtonGroup ntqvbuttongroup.h

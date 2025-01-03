@@ -41,11 +41,11 @@
 #include "ntqframe.h"
 #endif // QT_H
 
-#ifndef QT_NO_GRID
+#ifndef TQT_NO_GRID
 
 class TQGridLayout;
 
-class Q_EXPORT TQGrid : public TQFrame
+class TQ_EXPORT TQGrid : public TQFrame
 {
     TQ_OBJECT
 public:
@@ -56,7 +56,7 @@ public:
     void setSpacing( int );
     TQSize sizeHint() const;
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     typedef Orientation Direction;
 #endif
 
@@ -72,6 +72,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_GRID
+#endif // TQT_NO_GRID
 
 #endif // TQGRID_H

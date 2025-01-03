@@ -154,8 +154,8 @@ protected slots:
     // insert a checkbox...
     state = new <a href="ntqcheckbox.html">TQCheckBox</a>( "E&amp;nable Radiobuttons", bgrp3 );
     state-&gt;<a href="ntqcheckbox.html#setChecked">setChecked</a>( TRUE );
-    // ...and connect its SIGNAL clicked() with the SLOT slotChangeGrp3State()
-    <a href="ntqobject.html#connect">connect</a>( state, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( slotChangeGrp3State() ) );
+    // ...and connect its TQ_SIGNAL clicked() with the TQ_SLOT slotChangeGrp3State()
+    <a href="ntqobject.html#connect">connect</a>( state, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotChangeGrp3State() ) );
 
     // ------------ fourth group
 
@@ -186,7 +186,7 @@ protected slots:
 }
 
 /*
- * SLOT slotChangeGrp3State()
+ * TQ_SLOT slotChangeGrp3State()
  *
  * enables/disables the radiobuttons of the third buttongroup
  */

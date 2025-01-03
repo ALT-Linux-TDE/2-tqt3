@@ -45,14 +45,14 @@
 #include "ntqglobal.h"
 #endif // QT_H
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
 #include <limits.h>
 
 class TQWaitConditionPrivate;
 class TQMutex;
 
-class Q_EXPORT TQWaitCondition
+class TQ_EXPORT TQWaitCondition
 {
 public:
     TQWaitCondition();

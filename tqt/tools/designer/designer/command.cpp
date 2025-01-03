@@ -58,7 +58,7 @@
 #include <ntqptrstack.h>
 #include <ntqheader.h>
 #include <ntqsplitter.h>
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 #include <ntqtable.h>
 #endif
 #include <ntqaction.h>
@@ -609,7 +609,7 @@ void SetPropertyCommand::setProperty( const TQVariant &v, const TQString &curren
 	editor->refetchData();
 	editor->emitWidgetChanged();
 	( ( PropertyItem* )editor->propertyList()->currentItem() )->setChanged( MetaDataBase::isPropertyChanged( widget, propName ) );
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 	if ( propName == "database" ) {
 	    formWindow()->mainWindow()->objectHierarchy()->databasePropertyChanged( (TQWidget*)((TQObject *)widget), MetaDataBase::fakeProperty( widget, "database" ).toStringList() );
 	}
@@ -1532,7 +1532,7 @@ PopulateIconViewCommand::PopulateIconViewCommand( const TQString &n, FormWindow 
 						  TQIconView *iv, const TQValueList<Item> &items )
     : Command( n, fw ), newItems( items ), iconview( iv )
 {
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
     TQIconViewItem *i = 0;
     for ( i = iconview->firstItem(); i; i = i->nextItem() ) {
 	Item item;
@@ -1546,7 +1546,7 @@ PopulateIconViewCommand::PopulateIconViewCommand( const TQString &n, FormWindow 
 
 void PopulateIconViewCommand::execute()
 {
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
     iconview->clear();
     for ( TQValueList<Item>::Iterator it = newItems.begin(); it != newItems.end(); ++it ) {
 	Item i = *it;
@@ -1557,7 +1557,7 @@ void PopulateIconViewCommand::execute()
 
 void PopulateIconViewCommand::unexecute()
 {
-#ifndef QT_NO_ICONVIEW
+#ifndef TQT_NO_ICONVIEW
     iconview->clear();
     for ( TQValueList<Item>::Iterator it = oldItems.begin(); it != oldItems.end(); ++it ) {
 	Item i = *it;
@@ -1715,7 +1715,7 @@ PopulateTableCommand::PopulateTableCommand( const TQString &n, FormWindow *fw, T
 					    const TQValueList<Column> &columns )
     : Command( n, fw ), newRows( rows ), newColumns( columns ), table( t )
 {
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     int i = 0;
     TQMap<TQString, TQString> columnFields = MetaDataBase::columnFields( table );
     for ( i = 0; i < table->horizontalHeader()->count(); ++i ) {
@@ -1738,7 +1738,7 @@ PopulateTableCommand::PopulateTableCommand( const TQString &n, FormWindow *fw, T
 
 void PopulateTableCommand::execute()
 {
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     TQMap<TQString, TQString> columnFields;
     table->setNumCols( (int)newColumns.count() );
     int i = 0;
@@ -1757,7 +1757,7 @@ void PopulateTableCommand::execute()
 
 void PopulateTableCommand::unexecute()
 {
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     TQMap<TQString, TQString> columnFields;
     table->setNumCols( (int)oldColumns.count() );
     int i = 0;
@@ -1809,7 +1809,7 @@ void AddActionToToolBarCommand::execute()
 	else
 	    toolBar->insertAction( index, action );
 	toolBar->reInsert();
-	TQObject::connect( action, SIGNAL( destroyed() ), toolBar, SLOT( actionRemoved() ) );
+	TQObject::connect( action, TQ_SIGNAL( destroyed() ), toolBar, TQ_SLOT( actionRemoved() ) );
     } else {
 	if ( action->children() ) {
 	    TQObjectListIt it( *action->children() );
@@ -1829,11 +1829,11 @@ void AddActionToToolBarCommand::execute()
 		    else
 			toolBar->insertAction( index + (i++), ac );
 		}
-		TQObject::connect( o, SIGNAL( destroyed() ), toolBar, SLOT( actionRemoved() ) );
+		TQObject::connect( o, TQ_SIGNAL( destroyed() ), toolBar, TQ_SLOT( actionRemoved() ) );
 	    }
 	}
 	toolBar->reInsert();
-	TQObject::connect( action, SIGNAL( destroyed() ), toolBar, SLOT( actionRemoved() ) );
+	TQObject::connect( action, TQ_SIGNAL( destroyed() ), toolBar, TQ_SLOT( actionRemoved() ) );
     }
     formWindow()->mainWindow()->objectHierarchy()->rebuild();
 }
@@ -1848,7 +1848,7 @@ void AddActionToToolBarCommand::unexecute()
 
     toolBar->removeAction( action );
     action->removeFrom( toolBar );
-    TQObject::disconnect( action, SIGNAL( destroyed() ), toolBar, SLOT( actionRemoved() ) );
+    TQObject::disconnect( action, TQ_SIGNAL( destroyed() ), toolBar, TQ_SLOT( actionRemoved() ) );
     if ( !::tqt_cast<TQActionGroup*>(action) || ( (TQActionGroup*)action )->usesDropDown()) {
 	action->removeEventFilter( toolBar );
     } else {
@@ -1863,7 +1863,7 @@ void AddActionToToolBarCommand::unexecute()
 		    o->removeEventFilter( toolBar );
 		    toolBar->removeAction( (TQAction*)o );
 		}
-		TQObject::disconnect( o, SIGNAL( destroyed() ), toolBar, SLOT( actionRemoved() ) );
+		TQObject::disconnect( o, TQ_SIGNAL( destroyed() ), toolBar, TQ_SLOT( actionRemoved() ) );
 	    }
 	}
     }

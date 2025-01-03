@@ -25,8 +25,8 @@ GLObjectWindow::GLObjectWindow( TQWidget* parent, const char* name )
     // Create a menu
     TQPopupMenu *file = new TQPopupMenu( this );
     file->insertItem( "Delete Left TQGLWidget", this, 
-		      SLOT(deleteFirstWidget()) );
-    file->insertItem( "Exit",  tqApp, SLOT(quit()), CTRL+Key_Q );
+		      TQ_SLOT(deleteFirstWidget()) );
+    file->insertItem( "Exit",  tqApp, TQ_SLOT(quit()), CTRL+Key_Q );
 
     // Create a menu bar
     TQMenuBar *m = new TQMenuBar( this );
@@ -51,18 +51,18 @@ GLObjectWindow::GLObjectWindow( TQWidget* parent, const char* name )
     // Make them spin the boxes, but not in synch
     TQSlider* x = new TQSlider ( 0, 360, 60, 0, TQSlider::Vertical, this, "xsl" );
     x->setTickmarks( TQSlider::Left );
-    connect( x, SIGNAL(valueChanged(int)), c1, SLOT(setXRotation(int)) );
-    connect( x, SIGNAL(valueChanged(int)), c2, SLOT(setZRotation(int)) );
+    connect( x, TQ_SIGNAL(valueChanged(int)), c1, TQ_SLOT(setXRotation(int)) );
+    connect( x, TQ_SIGNAL(valueChanged(int)), c2, TQ_SLOT(setZRotation(int)) );
 
     TQSlider* y = new TQSlider ( 0, 360, 60, 0, TQSlider::Vertical, this, "ysl" );
     y->setTickmarks( TQSlider::Left );
-    connect( y, SIGNAL(valueChanged(int)), c1, SLOT(setYRotation(int)) );
-    connect( y, SIGNAL(valueChanged(int)), c2, SLOT(setXRotation(int)) );
+    connect( y, TQ_SIGNAL(valueChanged(int)), c1, TQ_SLOT(setYRotation(int)) );
+    connect( y, TQ_SIGNAL(valueChanged(int)), c2, TQ_SLOT(setXRotation(int)) );
 
     TQSlider* z = new TQSlider ( 0, 360, 60, 0, TQSlider::Vertical, this, "zsl" );
     z->setTickmarks( TQSlider::Left );
-    connect( z, SIGNAL(valueChanged(int)), c1, SLOT(setZRotation(int)) );
-    connect( z, SIGNAL(valueChanged(int)), c2, SLOT(setYRotation(int)) );
+    connect( z, TQ_SIGNAL(valueChanged(int)), c1, TQ_SLOT(setZRotation(int)) );
+    connect( z, TQ_SIGNAL(valueChanged(int)), c2, TQ_SLOT(setYRotation(int)) );
 
 
     // Now that we have all the widgets, put them into a nice layout

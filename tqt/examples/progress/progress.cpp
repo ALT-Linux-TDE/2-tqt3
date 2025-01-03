@@ -149,20 +149,20 @@ public:
 	menubar->insertItem( "&File", file );
 	for (int i=first_draw_item; i<=last_draw_item; i++)
 	    file->insertItem( drawItemText(i), i );
-	connect( menubar, SIGNAL(activated(int)), this, SLOT(doMenuItem(int)) );
+	connect( menubar, TQ_SIGNAL(activated(int)), this, TQ_SLOT(doMenuItem(int)) );
 	file->insertSeparator();
-	file->insertItem( "Quit", tqApp,  SLOT(quit()) );
+	file->insertItem( "Quit", tqApp,  TQ_SLOT(quit()) );
 
 	options = new TQPopupMenu();
 	TQ_CHECK_PTR( options );
 	menubar->insertItem( "&Options", options );
-	td_id = options->insertItem( "Timer driven", this, SLOT(timerDriven()) );
-	ld_id = options->insertItem( "Loop driven", this, SLOT(loopDriven()) );
+	td_id = options->insertItem( "Timer driven", this, TQ_SLOT(timerDriven()) );
+	ld_id = options->insertItem( "Loop driven", this, TQ_SLOT(loopDriven()) );
 	options->insertSeparator();
-	dl_id = options->insertItem( "Default label", this, SLOT(defaultLabel()) );
-	cl_id = options->insertItem( "Custom label", this, SLOT(customLabel()) );
+	dl_id = options->insertItem( "Default label", this, TQ_SLOT(defaultLabel()) );
+	cl_id = options->insertItem( "Custom label", this, TQ_SLOT(customLabel()) );
 	options->insertSeparator();
-	md_id = options->insertItem( "No minimum duration", this, SLOT(toggleMinimumDuration()) );
+	md_id = options->insertItem( "No minimum duration", this, TQ_SLOT(toggleMinimumDuration()) );
 	options->setCheckable( TRUE );
 	loopDriven();
 	defaultLabel();
@@ -279,7 +279,7 @@ private:
 	    pb = newProgressDialog("Drawing rectangles.\n"
 				   "Using timer event.", n, FALSE);
 	    pb->setCaption("Please Wait");
-	    connect(pb, SIGNAL(cancelled()), this, SLOT(stopDrawing()));
+	    connect(pb, TQ_SIGNAL(cancelled()), this, TQ_SLOT(stopDrawing()));
 	    enableDrawingItems(FALSE);
 	    startTimer(0);
 	    got_stop = FALSE;

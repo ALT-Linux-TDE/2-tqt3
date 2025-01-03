@@ -20,7 +20,7 @@ int main( int argc, char ** argv )
     a.setMainWidget( mw );
     mw->show();
 
-    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
+    a.connect( &a, TQ_SIGNAL( lastWindowClosed() ), &a, TQ_SLOT( quit() ) );
     int result = a.exec();
     delete mw;
     return result;

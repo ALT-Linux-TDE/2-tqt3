@@ -30,16 +30,16 @@ Inherited by QCheckListItem.
 .BI "\fBQListViewItem\fR ( QListViewItem * parent, QListViewItem * after )"
 .br
 .ti -1c
-.BI "\fBQListViewItem\fR ( QListView * parent, QString label1, QString label2 = QString::null, QString label3 = QString::null, QString label4 = QString::null, QString label5 = QString::null, QString label6 = QString::null, QString label7 = QString::null, QString label8 = QString::null )"
+.BI "\fBQListViewItem\fR ( QListView * parent, TQString label1, TQString label2 = TQString::null, TQString label3 = TQString::null, TQString label4 = TQString::null, TQString label5 = TQString::null, TQString label6 = TQString::null, TQString label7 = TQString::null, TQString label8 = TQString::null )"
 .br
 .ti -1c
-.BI "\fBQListViewItem\fR ( QListViewItem * parent, QString label1, QString label2 = QString::null, QString label3 = QString::null, QString label4 = QString::null, QString label5 = QString::null, QString label6 = QString::null, QString label7 = QString::null, QString label8 = QString::null )"
+.BI "\fBQListViewItem\fR ( QListViewItem * parent, TQString label1, TQString label2 = TQString::null, TQString label3 = TQString::null, TQString label4 = TQString::null, TQString label5 = TQString::null, TQString label6 = TQString::null, TQString label7 = TQString::null, TQString label8 = TQString::null )"
 .br
 .ti -1c
-.BI "\fBQListViewItem\fR ( QListView * parent, QListViewItem * after, QString label1, QString label2 = QString::null, QString label3 = QString::null, QString label4 = QString::null, QString label5 = QString::null, QString label6 = QString::null, QString label7 = QString::null, QString label8 = QString::null )"
+.BI "\fBQListViewItem\fR ( QListView * parent, QListViewItem * after, TQString label1, TQString label2 = TQString::null, TQString label3 = TQString::null, TQString label4 = TQString::null, TQString label5 = TQString::null, TQString label6 = TQString::null, TQString label7 = TQString::null, TQString label8 = TQString::null )"
 .br
 .ti -1c
-.BI "\fBQListViewItem\fR ( QListViewItem * parent, QListViewItem * after, QString label1, QString label2 = QString::null, QString label3 = QString::null, QString label4 = QString::null, QString label5 = QString::null, QString label6 = QString::null, QString label7 = QString::null, QString label8 = QString::null )"
+.BI "\fBQListViewItem\fR ( QListViewItem * parent, QListViewItem * after, TQString label1, TQString label2 = TQString::null, TQString label3 = TQString::null, TQString label4 = TQString::null, TQString label5 = TQString::null, TQString label6 = TQString::null, TQString label7 = TQString::null, TQString label8 = TQString::null )"
 .br
 .ti -1c
 .BI "virtual \fB~QListViewItem\fR ()"
@@ -72,10 +72,10 @@ Inherited by QCheckListItem.
 .BI "int \fBdepth\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( int column, const QString & text )"
+.BI "virtual void \fBsetText\fR ( int column, const TQString & text )"
 .br
 .ti -1c
-.BI "virtual QString \fBtext\fR ( int column ) const"
+.BI "virtual TQString \fBtext\fR ( int column ) const"
 .br
 .ti -1c
 .BI "virtual void \fBsetPixmap\fR ( int column, const QPixmap & pm )"
@@ -84,7 +84,7 @@ Inherited by QCheckListItem.
 .BI "virtual const QPixmap * \fBpixmap\fR ( int column ) const"
 .br
 .ti -1c
-.BI "virtual QString \fBkey\fR ( int column, bool ascending ) const"
+.BI "virtual TQString \fBkey\fR ( int column, bool ascending ) const"
 .br
 .ti -1c
 .BI "virtual int \fBcompare\fR ( QListViewItem * i, int col, bool ascending ) const"
@@ -324,21 +324,21 @@ Constructs a new list view item that is a child of \fIparent\fR and first in the
 Constructs an empty list view item that is a child of \fIparent\fR and is after item \fIafter\fR in the parent's list of children. Since \fIparent\fR is a QListView the item will be a top-level item.
 .SH "QListViewItem::QListViewItem ( QListViewItem * parent, QListViewItem * after )"
 Constructs an empty list view item that is a child of \fIparent\fR and is after item \fIafter\fR in the parent's list of children.
-.SH "QListViewItem::QListViewItem ( QListView * parent, QString label1, QString label2 = QString::null, QString label3 = QString::null, QString label4 = QString::null, QString label5 = QString::null, QString label6 = QString::null, QString label7 = QString::null, QString label8 = QString::null )"
+.SH "QListViewItem::QListViewItem ( QListView * parent, TQString label1, TQString label2 = TQString::null, TQString label3 = TQString::null, TQString label4 = TQString::null, TQString label5 = TQString::null, TQString label6 = TQString::null, TQString label7 = TQString::null, TQString label8 = TQString::null )"
 Constructs a new top-level list view item in the QListView \fIparent\fR, with up to eight constant strings, \fIlabel1\fR, \fIlabel2\fR, \fIlabel3\fR, \fIlabel4\fR, \fIlabel5\fR, \fIlabel6\fR, \fIlabel7\fR and \fIlabel8\fR defining its columns' contents.
 .PP
 See also setText().
-.SH "QListViewItem::QListViewItem ( QListViewItem * parent, QString label1, QString label2 = QString::null, QString label3 = QString::null, QString label4 = QString::null, QString label5 = QString::null, QString label6 = QString::null, QString label7 = QString::null, QString label8 = QString::null )"
+.SH "QListViewItem::QListViewItem ( QListViewItem * parent, TQString label1, TQString label2 = TQString::null, TQString label3 = TQString::null, TQString label4 = TQString::null, TQString label5 = TQString::null, TQString label6 = TQString::null, TQString label7 = TQString::null, TQString label8 = TQString::null )"
 Constructs a new list view item as a child of the QListViewItem \fIparent\fR with up to eight constant strings, \fIlabel1\fR, \fIlabel2\fR, \fIlabel3\fR, \fIlabel4\fR, \fIlabel5\fR, \fIlabel6\fR, \fIlabel7\fR and \fIlabel8\fR as columns' contents.
 .PP
 See also setText().
-.SH "QListViewItem::QListViewItem ( QListView * parent, QListViewItem * after, QString label1, QString label2 = QString::null, QString label3 = QString::null, QString label4 = QString::null, QString label5 = QString::null, QString label6 = QString::null, QString label7 = QString::null, QString label8 = QString::null )"
+.SH "QListViewItem::QListViewItem ( QListView * parent, QListViewItem * after, TQString label1, TQString label2 = TQString::null, TQString label3 = TQString::null, TQString label4 = TQString::null, TQString label5 = TQString::null, TQString label6 = TQString::null, TQString label7 = TQString::null, TQString label8 = TQString::null )"
 Constructs a new list view item in the QListView \fIparent\fR that is included after item \fIafter\fR and that has up to eight column texts, \fIlabel1\fR, \fIlabel2\fR, \fIlabel3\fR, \fIlabel4\fR, \fIlabel5\fR, \fIlabel6\fR, \fIlabel7\fR and\fIlabel8\fR.
 .PP
 Note that the order is changed according to QListViewItem::key() unless the list view's sorting is disabled using QListView::setSorting(-1).
 .PP
 See also setText().
-.SH "QListViewItem::QListViewItem ( QListViewItem * parent, QListViewItem * after, QString label1, QString label2 = QString::null, QString label3 = QString::null, QString label4 = QString::null, QString label5 = QString::null, QString label6 = QString::null, QString label7 = QString::null, QString label8 = QString::null )"
+.SH "QListViewItem::QListViewItem ( QListViewItem * parent, QListViewItem * after, TQString label1, TQString label2 = TQString::null, TQString label3 = TQString::null, TQString label4 = TQString::null, TQString label5 = TQString::null, TQString label6 = TQString::null, TQString label7 = TQString::null, TQString label8 = TQString::null )"
 Constructs a new list view item as a child of the QListViewItem \fIparent\fR. It is inserted after item \fIafter\fR and may contain up to eight strings, \fIlabel1\fR, \fIlabel2\fR, \fIlabel3\fR, \fIlabel4\fR, \fIlabel5\fR, \fIlabel6\fR, \fIlabel7\fR and \fIlabel8\fR as column entries.
 .PP
 Note that the order is changed according to QListViewItem::key() unless the list view's sorting is disabled using QListView::setSorting(-1).
@@ -377,7 +377,7 @@ Compares this list view item to \fIi\fR using the column \fIcol\fR in \fIascendi
 .PP
 This function is used for sorting.
 .PP
-The default implementation compares the item keys (key()) using QString::localeAwareCompare(). A reimplementation can use different values and a different comparison function. Here is a reimplementation that uses plain Unicode comparison:
+The default implementation compares the item keys (key()) using TQString::localeAwareCompare(). A reimplementation can use different values and a different comparison function. Here is a reimplementation that uses plain Unicode comparison:
 .PP
 .nf
 .br
@@ -394,7 +394,7 @@ The default implementation compares the item keys (key()) using QString::localeA
 .fi
 We don't recommend using \fIascending\fR so your code can safely ignore it.
 .PP
-See also key(), QString::localeAwareCompare(), and QString::compare().
+See also key(), TQString::localeAwareCompare(), and TQString::compare().
 .SH "int QListViewItem::depth () const"
 Returns the depth of this item.
 .PP
@@ -487,7 +487,7 @@ Example: dirview/dirview.cpp.
 Returns the y coordinate of this item in the list view's coordinate system. This function is normally much slower than QListView::itemAt(), but it works for all items whereas QListView::itemAt() normally only works for items on the screen.
 .PP
 See also QListView::itemAt(), QListView::itemRect(), and QListView::itemPos().
-.SH "QString QListViewItem::key ( int column, bool ascending ) const\fC [virtual]\fR"
+.SH "TQString QListViewItem::key ( int column, bool ascending ) const\fC [virtual]\fR"
 Returns a key that can be used for sorting by column \fIcolumn\fR. The default implementation returns text(). Derived classes may also incorporate the order indicated by \fIascending\fR into this key, although this is not recommended.
 .PP
 If you want to sort on non-alphabetical data, e.g. dates, numbers, etc., it is more efficient to reimplement compare().
@@ -631,7 +631,7 @@ This function does not maintain any invariants or repaint anything -- QListView:
 See also height() and totalHeight().
 .PP
 Example: addressbook/centralwidget.cpp.
-.SH "void QListViewItem::setText ( int column, const QString & text )\fC [virtual]\fR"
+.SH "void QListViewItem::setText ( int column, const TQString & text )\fC [virtual]\fR"
 Sets the text in column \fIcolumn\fR to \fItext\fR, if \fIcolumn\fR is a valid column number and \fItext\fR is different from the existing text.
 .PP
 If \fItext()\fR has been reimplemented, this function may be a no-op.
@@ -674,8 +674,8 @@ If a taken item is part of a selection in \fCSingle\fR selection mode, it is uns
 \fBWarning:\fR This function leaves \fIitem\fR and its children in a state where most member functions are unsafe. Only a few functions work correctly on an item in this state, most notably insertItem(). The functions that work on taken items are explicitly documented as such.
 .PP
 See also QListViewItem::insertItem().
-.SH "QString QListViewItem::text ( int column ) const\fC [virtual]\fR"
-Returns the text in column \fIcolumn\fR, or QString::null if there is no text in that column.
+.SH "TQString QListViewItem::text ( int column ) const\fC [virtual]\fR"
+Returns the text in column \fIcolumn\fR, or TQString::null if there is no text in that column.
 .PP
 See also key() and paintCell().
 .PP
@@ -712,8 +712,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

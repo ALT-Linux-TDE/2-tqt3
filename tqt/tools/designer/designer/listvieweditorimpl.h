@@ -87,7 +87,7 @@ private:
 	TQString text;
 	TQPixmap pixmap;
 	bool clickable, resizable;
-	Q_DUMMY_COMPARISON_OPERATOR( Column )
+	TQ_DUMMY_COMPARISON_OPERATOR( Column )
     };
 
 private:

@@ -69,8 +69,8 @@ Index::Index( const TQString &dp, const TQString &hp )
 {
     alreadyHaveDocList = FALSE;
     lastWindowClosed = FALSE;
-    connect( tqApp, SIGNAL( lastWindowClosed() ),
-	     this, SLOT( setLastWinClosed() ) );
+    connect( tqApp, TQ_SIGNAL( lastWindowClosed() ),
+	     this, TQ_SLOT( setLastWinClosed() ) );
 }
 
 Index::Index( const TQStringList &dl, const TQString &hp )
@@ -79,8 +79,8 @@ Index::Index( const TQStringList &dl, const TQString &hp )
     docList = dl;
     alreadyHaveDocList = TRUE;
     lastWindowClosed = FALSE;
-    connect( tqApp, SIGNAL( lastWindowClosed() ),
-	     this, SLOT( setLastWinClosed() ) );
+    connect( tqApp, TQ_SIGNAL( lastWindowClosed() ),
+	     this, TQ_SLOT( setLastWinClosed() ) );
 }
 
 void Index::setLastWinClosed()

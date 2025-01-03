@@ -141,11 +141,11 @@ protected slots:
 <a name="x965"></a>    toplayout-&gt;<a href="qgridlayout.html#addMultiCellWidget">addMultiCellWidget</a>( progress, 1, 1, 0, 1 );
 
     // connect the clicked() SIGNALs of the pushbuttons to SLOTs
-<a name="x962"></a>    <a href="ntqobject.html#connect">connect</a>( start, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( slotStart() ) );
-    <a href="ntqobject.html#connect">connect</a>( reset, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( slotReset() ) );
+<a name="x962"></a>    <a href="ntqobject.html#connect">connect</a>( start, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotStart() ) );
+    <a href="ntqobject.html#connect">connect</a>( reset, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotReset() ) );
 
-    // connect the timeout() SIGNAL of the progress-timer to a SLOT
-    <a href="ntqobject.html#connect">connect</a>( &amp;timer, SIGNAL( timeout() ), this, SLOT( slotTimeout() ) );
+    // connect the timeout() TQ_SIGNAL of the progress-timer to a TQ_SLOT
+    <a href="ntqobject.html#connect">connect</a>( &amp;timer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( slotTimeout() ) );
 
     // Let's start with normal speed...
 <a name="x972"></a>    normal-&gt;<a href="ntqradiobutton.html#setChecked">setChecked</a>( TRUE );
@@ -157,9 +157,9 @@ protected slots:
 }
 
 /*
- * SLOT slotStart
+ * TQ_SLOT slotStart
  *
- * This SLOT is called if the user clicks start/pause/continue
+ * This TQ_SLOT is called if the user clicks start/pause/continue
  * button
  */
 
@@ -197,9 +197,9 @@ void <a name="f347"></a>ProgressBar::slotStart()
 }
 
 /*
- * SLOT slotReset
+ * TQ_SLOT slotReset
  *
- * This SLOT is called when the user clicks the reset button
+ * This TQ_SLOT is called when the user clicks the reset button
  */
 
 void <a name="f348"></a>ProgressBar::slotReset()
@@ -222,9 +222,9 @@ void <a name="f348"></a>ProgressBar::slotReset()
 }
 
 /*
- * SLOT slotTimeout
+ * TQ_SLOT slotTimeout
  *
- * This SLOT is called each ms when the timer is
+ * This TQ_SLOT is called each ms when the timer is
  * active (== progress is running)
  */
 

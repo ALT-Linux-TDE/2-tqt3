@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqsocketdevice.h"
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 
 #include "ntqwindowdefs.h"
 #include <string.h>
@@ -572,5 +572,5 @@ void TQSocketDevice::setError( Error err )
 {
     e = err;
 }
-#endif //QT_NO_NETWORK
+#endif //TQT_NO_NETWORK
 

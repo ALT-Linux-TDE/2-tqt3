@@ -383,7 +383,7 @@ app {
 <p>This list will go before all builtin dependencies.</p>
 <a name="QMAKE_INCDIR_OPENGL"></a><h5><a name="4-2-43"></a>QMAKE_INCDIR_OPENGL</h5>
 <p>This variable contains the location of OpenGL header files to be added to INCLUDEPATH when building an application with OpenGL support. The value of this variable is typically handled by <em>qmake</em> or <a href="qmake-manual-8.html#QMAKESPEC">qmake.conf</a> and rarely needs to be modified.</p>
-<a name="QMAKE_INCDIR_QT"></a><h5><a name="4-2-44"></a>QMAKE_INCDIR_QT</h5>
+<a name="QMAKE_INCDIR_TQT"></a><h5><a name="4-2-44"></a>QMAKE_INCDIR_TQT</h5>
 <p>This variable contains the location of all known header file paths to be added to INCLUDEPATH when building a TQt application. The value of this variable is typically handled by <em>qmake</em> or <a href="qmake-manual-8.html#QMAKESPEC">qmake.conf</a> and rarely needs to be modified.</p>
 <a name="QMAKE_INCDIR_THREAD"></a><h5><a name="4-2-45"></a>QMAKE_INCDIR_THREAD</h5>
 <p>This variable contains the location of all known header file paths to be added to INCLUDEPATH when building a multi-threaded application. The value of this variable is typically handled by <em>qmake</em> or <a href="qmake-manual-8.html#QMAKESPEC">qmake.conf</a> and rarely needs to be modified.</p>
@@ -430,7 +430,7 @@ app {
 <p>This variable contains the list of all directories to look in to resolve dependencies. This will be used when crawling through 'included' files.</p>
 <h5><a name="4-2-63"></a>QMAKE_LIBDIR_OPENGL</h5>
 <p>This variable contains the location of the OpenGL library directory.The value of this variable is typically handled by <em>qmake</em> or <a href="qmake-manual-8.html#QMAKESPEC">qmake.conf</a> and rarely needs to be modified.</p>
-<h5><a name="4-2-64"></a>QMAKE_LIBDIR_QT</h5>
+<h5><a name="4-2-64"></a>QMAKE_LIBDIR_TQT</h5>
 <p>This variable contains the location of the TQt library directory.The value of this variable is typically handled by <em>qmake</em> or <a href="qmake-manual-8.html#QMAKESPEC">qmake.conf</a> and rarely needs to be modified.</p>
 <h5><a name="4-2-65"></a>QMAKE_LIBDIR_X11</h5>
 <p><em>This is used on Unix platforms only</em></p>
@@ -571,7 +571,7 @@ OPTIONS = standard custom
 <p>This function will test if <em>file</em> exists. If the file exists, then it will succeed; otherwise it will fail. You can specify a regular expression in file and it will succeed if any file matches the regular expression specified.</p>
 <p>For example:</p>
 <pre>
-exists( $(QTDIR)/lib/libtqt-mt* ) {
+exists( $(TQTDIR)/lib/libtqt-mt* ) {
       message( "Configuring for multi-threaded TQt..." )
       CONFIG += thread
 }
@@ -645,7 +645,7 @@ QMAKE_VERS = $$[QMAKE_VERSION]
 <p><em>qmake</em> requires a platform and compiler description file which contains many default values used to generate appropriate makefiles. The standard TQt distribution comes with many of these files, located in the 'mkspecs' subdirectory of the TQt installation.</p>
 <p>The QMAKESPEC environment variable can contain any of the following:</p>
 <ul><li><p>A complete path to a directory containing a qmake.conf file. In this case <em>qmake</em> will open the qmake.conf file from within that directory. If the file does not exist, <em>qmake</em> will exit with an error.</p>
-<li><p>The name of a platform-compiler combination. In this case, <em>qmake</em> will search in the directory specified by the QTDIR environment variable.</p>
+<li><p>The name of a platform-compiler combination. In this case, <em>qmake</em> will search in the directory specified by the TQTDIR environment variable.</p>
 </ul><p>Note: the QMAKESPEC path will automatically be added to the <a href="qmake-manual-8.html#INCLUDEPATH">INCLUDEPATH</a> system variable.</p>
 <a name="INSTALLS"></a><h4><a name="7-2"></a>INSTALLS</h4>
 <p>It is common on UNIX to be able to install from the same utility as you build with (e.g make install). For this <em>qmake</em> has introduce the concept of an install set. The notation for this is quite simple, first you fill in an "object" in qmake for example:</p>

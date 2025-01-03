@@ -40,7 +40,7 @@
 class TQDomElement;
 class TQDomDocument;
 
-class Q_EXPORT DomTool : public TQt
+class TQ_EXPORT DomTool : public TQt
 {
 public:
     static TQVariant readProperty( const TQDomElement& e, const TQString& name, const TQVariant& defValue );

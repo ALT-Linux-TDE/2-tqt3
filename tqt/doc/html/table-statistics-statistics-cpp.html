@@ -74,8 +74,8 @@ const char* dirs[] = {
     <a href="ntqtable.html#adjustColumn">adjustColumn</a>( 0 );
 
     // if the user edited something we might need to recalculate the sum
-    <a href="ntqobject.html#connect">connect</a>( this, SIGNAL( <a href="ntqtable.html#valueChanged">valueChanged</a>( int, int ) ),
-             this, SLOT( recalcSum( int, int ) ) );
+    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqtable.html#valueChanged">valueChanged</a>( int, int ) ),
+             this, TQ_SLOT( recalcSum( int, int ) ) );
 }
 
 void <a name="f146"></a>Table::initTable()
@@ -175,7 +175,7 @@ void <a name="f147"></a>Table::recalcSum( int, int col )
 {
     // create an editor - a combobox in our case
     ( (ComboItem*)this )-&gt;cb = new <a href="ntqcombobox.html">TQComboBox</a>( <a href="qtableitem.html#table">table</a>()-&gt;viewport() );
-    TQObject::<a href="ntqobject.html#connect">connect</a>( cb, SIGNAL( activated( int ) ), table(), SLOT( doValueChanged() ) );
+    TQObject::<a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL( activated( int ) ), table(), TQ_SLOT( doValueChanged() ) );
     cb-&gt;insertItem( "Yes" );
     cb-&gt;insertItem( "No" );
     // and initialize it

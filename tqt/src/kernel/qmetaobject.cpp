@@ -41,9 +41,9 @@
 #include "ntqmetaobject.h"
 #include "ntqasciidict.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 /*!
   \class TQMetaData ntqmetaobject.h
@@ -142,13 +142,13 @@ class TQMetaObjectPrivate
 {
 public:
     TQMetaObjectPrivate() :
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 	enumData(0), numEnumData(0),
 	propData(0),numPropData(0),
 	tqt_static_property(0),
 #endif
 	classInfo(0), numClassInfo(0) {}
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     const TQMetaEnum *enumData;
     int numEnumData;
     const TQMetaProperty *propData;
@@ -170,7 +170,7 @@ typedef TQMetaData TQConstMetaData;
 typedef const TQMetaData TQConstMetaData;
 #endif
 
-class Q_EXPORT TQMemberDict : public TQAsciiDict<TQConstMetaData>
+class TQ_EXPORT TQMemberDict : public TQAsciiDict<TQConstMetaData>
 {
 public:
     TQMemberDict( int size = 17, bool cs = TRUE, bool ck = TRUE ) :
@@ -210,7 +210,7 @@ static int optDictSize( int n )
 TQMetaObject::TQMetaObject( const char *const class_name, TQMetaObject *super_class,
 			  const TQMetaData *const slot_data, int n_slots,
 			  const TQMetaData *const signal_data, int n_signals,
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 			  const TQMetaProperty *const prop_data, int n_props,
 			  const TQMetaEnum *const enum_data, int n_enums,
 #endif
@@ -225,7 +225,7 @@ TQMetaObject::TQMetaObject( const char *const class_name, TQMetaObject *super_cl
     d = new TQMetaObjectPrivate;
     reserved = 0;
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     d->propData = prop_data;
     d->numPropData = n_props;
     d->enumData = enum_data;
@@ -236,12 +236,12 @@ TQMetaObject::TQMetaObject( const char *const class_name, TQMetaObject *super_cl
 
     signaloffset = superclass ? ( superclass->signalOffset() + superclass->numSignals() ) : 0;
     slotoffset = superclass ? ( superclass->slotOffset() + superclass->numSlots() ) : 0;
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     propertyoffset = superclass ? ( superclass->propertyOffset() + superclass->numProperties() ) : 0;
 #endif
 }
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 /*!\internal
  */
 TQMetaObject::TQMetaObject( const char *const class_name, TQMetaObject *super_class,
@@ -282,10 +282,10 @@ TQMetaObject::~TQMetaObject()
     delete slotDict;				// delete dicts
     delete signalDict;
     delete d;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker( tqt_global_mutexpool ?
 		  tqt_global_mutexpool->get( &qt_metaobjects ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     if ( qt_metaobjects ) {
 	qt_metaobjects->remove( classname );
 	if ( qt_metaobjects->isEmpty() ) {
@@ -468,7 +468,7 @@ TQMetaObject *TQMetaObject::new_metaobject( const char *classname,
 					  TQMetaObject *superclassobject,
 					  const TQMetaData * const slot_data, int n_slots,
 					  const TQMetaData * const signal_data, int n_signals,
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 					  const TQMetaProperty * const prop_data, int n_props,
 					  const TQMetaEnum * const enum_data, int n_enums,
 #endif
@@ -476,14 +476,14 @@ TQMetaObject *TQMetaObject::new_metaobject( const char *classname,
 {
     return new TQMetaObject( classname, superclassobject, slot_data, n_slots,
 			    signal_data, n_signals,
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 			    prop_data, n_props,
 			    enum_data, n_enums,
 #endif
 			    class_info, n_info );
 }
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 /*!\internal
  */
 TQMetaObject *TQMetaObject::new_metaobject( const char *classname,
@@ -565,7 +565,7 @@ const char* TQMetaObject::classInfo( const char* name, bool super ) const
     return superclass->classInfo( name, super );
 }
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 
 /*!
     Returns the number of properties for this class.
@@ -773,7 +773,7 @@ const TQMetaEnum* TQMetaObject::enumerator( const char* name, bool super ) const
     return superclass->enumerator( name, super );
 }
 
-#endif // QT_NO_PROPERTIES
+#endif // TQT_NO_PROPERTIES
 
 
 /*!
@@ -799,10 +799,10 @@ TQMetaObject *TQMetaObject::metaObject( const char *class_name )
 {
     if ( !qt_metaobjects )
 	return 0;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker( tqt_global_mutexpool ?
 		  tqt_global_mutexpool->get( &qt_metaobjects ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     TQtStaticMetaObjectFunction func = (TQtStaticMetaObjectFunction)qt_metaobjects->find( class_name );
     if ( func )
 	return func();
@@ -814,14 +814,14 @@ bool TQMetaObject::hasMetaObject( const char *class_name )
 {
     if ( !qt_metaobjects )
 	return FALSE;
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker( tqt_global_mutexpool ?
 		  tqt_global_mutexpool->get( &qt_metaobjects ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     return !!qt_metaobjects->find( class_name );
 }
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 /*! \internal
 
 ### this functions will go away. It exists purely for the sake of meta
@@ -1194,7 +1194,7 @@ bool TQMetaProperty::reset( TQObject* o ) const
   \internal
 */
 
-#endif // QT_NO_PROPERTIES
+#endif // TQT_NO_PROPERTIES
 
 /*
  * TQMetaObjectCleanUp is used as static global object in the moc-generated cpp
@@ -1204,10 +1204,10 @@ bool TQMetaProperty::reset( TQObject* o ) const
 TQMetaObjectCleanUp::TQMetaObjectCleanUp( const char *mo_name, TQtStaticMetaObjectFunction func )
     : metaObject( 0 )
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker( tqt_global_mutexpool ?
 		  tqt_global_mutexpool->get( &qt_metaobjects ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     if ( !qt_metaobjects )
 	qt_metaobjects = new TQAsciiDict<void>( 257 );
     qt_metaobjects->insert( mo_name, (void*)func );
@@ -1226,10 +1226,10 @@ TQMetaObjectCleanUp::TQMetaObjectCleanUp()
 
 TQMetaObjectCleanUp::~TQMetaObjectCleanUp()
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker( tqt_global_mutexpool ?
 		  tqt_global_mutexpool->get( &qt_metaobjects ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
     if ( !--qt_metaobjects_count ) {
 	delete qt_metaobjects;
 	qt_metaobjects = 0;

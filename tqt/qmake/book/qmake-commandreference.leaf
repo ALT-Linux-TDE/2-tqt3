@@ -199,7 +199,7 @@ These \c CONFIG values control compilation flags:
 These options define the application/library type:
 
 \list
-\i qt - The target is a Qt application/library and requires the Qt header
+\i qt - The target is a TQt application/library and requires the TQt header
      files/library.  The proper include and library paths for the Qt
      library will automatically be added to the project.
 \i opengl - The target requires the OpenGL (or Mesa)
@@ -336,7 +336,7 @@ For example:
 \section3 FORMS
 
 This variable specifies the .ui files (see \link
-designer-manual.book Qt Designer \endlink) to be processed through \e uic
+designer-manual.book TQt Designer \endlink) to be processed through \e uic
 before compiling.  All dependencies, headers and source files required
 to build these .ui files will automatically be added to the project.
 
@@ -772,7 +772,7 @@ and rarely needs to be modified.
 \section3 QMAKE_CFLAGS_MT
 
 This variable contains the compiler flags for creating a
-multi-threaded application or when the version of Qt that you link
+multi-threaded application or when the version of TQt that you link
 against is a multi-threaded statically linked library.  The value of 
 this variable is typically handled by \e qmake or 
 \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
@@ -784,7 +784,7 @@ this variable is typically handled by \e qmake or
 \section3 QMAKE_CFLAGS_MT_DBG
 
 This variable contains the compiler flags for creating a debuggable
-multi-threaded application or when the version of Qt that you link
+multi-threaded application or when the version of TQt that you link
 against is a debuggable multi-threaded statically linked library.  The 
 value of this variable is typically handled by \e qmake or 
 \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
@@ -798,7 +798,7 @@ value of this variable is typically handled by \e qmake or
 \e {This is used on Windows only}
 
 This variable contains the compiler flags for creating a 
-multi-threaded dll or when the version of Qt that you link
+multi-threaded dll or when the version of TQt that you link
 against is a multi-threaded dll.  The value of this variable is typically
 handled by \e qmake or \link #QMAKESPEC qmake.conf \endlink and
 rarely needs to be modified.
@@ -812,7 +812,7 @@ rarely needs to be modified.
 \e {This is used on Windows only}
 
 This variable contains the compiler flags for creating a debuggable
-multi-threaded dll or when the version of Qt that you link
+multi-threaded dll or when the version of TQt that you link
 against is a debuggable multi-threaded statically linked library. 
 The value of this variable is typically handled by \e qmake or 
 \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
@@ -1070,11 +1070,11 @@ value of this variable is typically handled by \e qmake or
 
 
 
-\target QMAKE_INCDIR_QT
-\section3 QMAKE_INCDIR_QT
+\target QMAKE_INCDIR_TQT
+\section3 QMAKE_INCDIR_TQT
 
 This variable contains the location of all known header file
-paths to be added to INCLUDEPATH when building a Qt application. The value 
+paths to be added to INCLUDEPATH when building a TQt application. The value 
 of this variable is typically handled by \e qmake or
  \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
 
@@ -1151,7 +1151,7 @@ of this variable is typically handled by \e qmake or
 \section3 QMAKE_LFLAGS_QT_DLL
 
 This variable contains link flags when building programs that
-use the Qt library built as a dll. The value of this variable is
+use the TQt library built as a dll. The value of this variable is
 typically handled by \e qmake or
  \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
 
@@ -1277,9 +1277,9 @@ directory.The value of this variable is typically handled by
 
 
 
-\section3 QMAKE_LIBDIR_QT
+\section3 QMAKE_LIBDIR_TQT
 
-This variable contains the location of the Qt library
+This variable contains the location of the TQt library
 directory.The value of this variable is typically handled by
 \e qmake or
  \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
@@ -1328,7 +1328,7 @@ variable is typically handled by \e qmake or
 
 \section3 QMAKE_LIBS_OPENGL_QT
 
-This variable contains all OpenGL Qt libraries.The value of this
+This variable contains all OpenGL TQt libraries.The value of this
 variable is typically handled by \e qmake or
  \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
 
@@ -1338,7 +1338,7 @@ variable is typically handled by \e qmake or
 
 \section3 QMAKE_LIBS_QT
 
-This variable contains all Qt libraries.The value of this
+This variable contains all TQt libraries.The value of this
 variable is typically handled by \e qmake or
  \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
 
@@ -1350,7 +1350,7 @@ variable is typically handled by \e qmake or
 
 \e {This is used on Windows only}
 
-This variable contains all Qt libraries when Qt is built as a dll.  The 
+This variable contains all TQt libraries when TQt is built as a dll.  The 
 value of this variable is typically handled by \e qmake or
  \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
 
@@ -1527,7 +1527,7 @@ The value of this variable is typically handled by \e qmake or
 
 \section3 QMAKE_QT_DLL
 
-This variable is not empty if Qt was built as a dll.  The
+This variable is not empty if TQt was built as a dll.  The
 value of this variable is typically handled by \e qmake or
  \link #QMAKESPEC qmake.conf \endlink and rarely needs to be modified.
 
@@ -1793,7 +1793,7 @@ matches the regular expression specified.
 
 For example:
 \code
-exists( $(QTDIR)/lib/libtqt-mt* ) {
+exists( $(TQTDIR)/lib/libtqt-mt* ) {
       message( "Configuring for multi-threaded Qt..." )
       CONFIG += thread
 }
@@ -1904,7 +1904,7 @@ qmake -query "1.06a/VARIABLE"
 \endcode
 
 qmake also has the notion of 'builtin' properties, for example you can
-query the installation of Qt for this version of qmake with the
+query the installation of TQt for this version of qmake with the
 QT_INSTALL_PREFIX property:
 
 \code
@@ -1916,8 +1916,8 @@ they are not versioned and each qmake will have its own notion of
 these values. The list below outlines the builtin properties:
 
 \list
-\i QT_INSTALL_PREFIX - Where the version of Qt this qmake is built for resides
-\i QT_INSTALL_DATA - Where data for this version of Qt resides
+\i QT_INSTALL_PREFIX - Where the version of TQt this qmake is built for resides
+\i QT_INSTALL_DATA - Where data for this version of TQt resides
 \i QMAKE_VERSION - The current version of qmake
 \endlist
 
@@ -1936,14 +1936,14 @@ QMAKE_VERS = $$[QMAKE_VERSION]
 
 \e qmake requires a platform and compiler description file which
 contains many default values used to generate appropriate makefiles.
-The standard Qt distribution comes with many of these files, located
-in the 'mkspecs' subdirectory of the Qt installation.
+The standard TQt distribution comes with many of these files, located
+in the 'mkspecs' subdirectory of the TQt installation.
 
 The QMAKESPEC environment variable can contain any of the following:
 
 \list
 \i A complete path to a directory containing a qmake.conf file.  In this case \e qmake will open the qmake.conf file from within that directory.  If the file does not exist, \e qmake will exit with an error.
-\i The name of a platform-compiler combination.  In this case, \e qmake will search in the directory specified by the QTDIR environment variable.
+\i The name of a platform-compiler combination.  In this case, \e qmake will search in the directory specified by the TQTDIR environment variable.
 \endlist
 
 Note: the QMAKESPEC path will automatically be added to the

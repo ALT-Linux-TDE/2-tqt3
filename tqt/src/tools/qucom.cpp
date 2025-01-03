@@ -43,6 +43,8 @@
 
 #include "ntqvariant.h"
 
+#include <new>
+
 // Standard types
 
 // {DE56510E-4E9F-4b76-A3C2-D1E2EF42F1AC}
@@ -226,7 +228,7 @@ bool TQUType_idisp::convertFrom( TQUObject *o, TQUType *t )
 
 bool TQUType_idisp::convertTo( TQUObject *o, TQUType *t )
 {
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     if ( isEqual( t, &static_QUType_iface ) ) {
 	o->payload.iface = (TQUnknownInterface*)o->payload.idisp;
 	o->type = &static_QUType_iface;

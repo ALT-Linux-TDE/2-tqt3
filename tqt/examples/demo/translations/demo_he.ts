@@ -214,7 +214,7 @@
 <context>
     <name>Frame</name>
     <message>
-        <source>Qt Demo Collection</source>
+        <source>TQt Demo Collection</source>
         <translation>אוסף ההדגמות של Qt</translation>
     </message>
     <message>
@@ -494,7 +494,7 @@
         <translation>--שפה--</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1, a multiplatform C++ GUI toolkit from Trolltech. Qt provides single-source portability across Windows 95/98/NT/2000, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1, a multiplatform C++ GUI toolkit from Trolltech. TQt provides single-source portability across Windows 95/98/NT/2000, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
         <translation>&lt;div dir=rtl&gt;&lt;h3&gt;אודות Qt&lt;/h3&gt;&lt;/div&gt;&lt;p dir=rtl&gt;תוכנית זו עושה שימוש ב-Qt מרובת פלטפורמות גירסה %1, ערכת כלי ממשק משתמש גרפי ל-++C מ-Qt .Trolltech מספקת ניידות קוד מקור יחיד בין Windows 95/98/NT/2000, Linux, Solaris, HP-UX וגירסאות רבות נוספות של יוניקס עם X11.&lt;/p&gt;&lt;p dir=rtl&gt;עיין ב-&lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; למידע נוסף.&lt;/p&gt;</translation>
     </message>
 </context>

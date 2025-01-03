@@ -113,7 +113,7 @@ class TQAxFactory : public TQAxFactoryInterface
 public:
     TQAxFactory( const TQUuid &amp;, const TQUuid &amp;);
     virtual ~TQAxFactory();
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQRESULT queryInterface( const TQUuid &amp;iid, TQUnknownInterface **iface );
 

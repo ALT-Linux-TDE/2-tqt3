@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -53,8 +53,8 @@ indicates inheritance.
 \section1 QFontManager
 
 There is one of these per application. At application startup time it
-reads the font definition file from \c $QTDIR/etc/fonts/fontdir (or \c
-/usr/local/etc/qt-embedded/fonts/fontdir if QTDIR is undefined). It
+reads the font definition file from \c $TQTDIR/etc/fonts/fontdir (or \c
+/usr/local/etc/qt-embedded/fonts/fontdir if TQTDIR is undefined). It
 keeps track of all font information and maintains a cache of rendered
 fonts. It also creates the font factories: QFontManager::QFontManager
 is the place to add constructors for new factories. It provides a

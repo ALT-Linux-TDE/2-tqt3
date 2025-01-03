@@ -50,7 +50,7 @@ int main( int argc, char **argv )
 	}
     }
 
-    TQObject::connect(tqApp, SIGNAL(lastWindowClosed()), tqApp, SLOT(quit()));
+    TQObject::connect(tqApp, TQ_SIGNAL(lastWindowClosed()), tqApp, TQ_SLOT(quit()));
 
     return a.exec();
 }

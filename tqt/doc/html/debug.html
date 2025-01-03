@@ -128,13 +128,13 @@ conditional, based on the state of various debugging flags:
 <tr bgcolor="#f0f0f0"> <td valign="top">QT_CHECK_RANGE	<td valign="top">Check for variable range errors
 <tr bgcolor="#d0d0d0"> <td valign="top">QT_CHECK_NULL	<td valign="top">Check for dangerous null pointers
 <tr bgcolor="#f0f0f0"> <td valign="top">QT_CHECK_MATH	<td valign="top">Check for dangerous math, e.g. division by 0
-<tr bgcolor="#d0d0d0"> <td valign="top">QT_NO_CHECK	<td valign="top">Turn off all QT_CHECK_... flags
+<tr bgcolor="#d0d0d0"> <td valign="top">TQT_NO_CHECK	<td valign="top">Turn off all QT_CHECK_... flags
 <tr bgcolor="#f0f0f0"> <td valign="top">QT_DEBUG	<td valign="top">Enable debugging code
-<tr bgcolor="#d0d0d0"> <td valign="top">QT_NO_DEBUG	<td valign="top">Turn off QT_DEBUG flag
+<tr bgcolor="#d0d0d0"> <td valign="top">TQT_NO_DEBUG	<td valign="top">Turn off QT_DEBUG flag
 </table></center>
 <p> By default, both QT_DEBUG and all the QT_CHECK flags are on. To turn
-off QT_DEBUG, define QT_NO_DEBUG. To turn off the QT_CHECK flags,
-define QT_NO_CHECK.
+off QT_DEBUG, define TQT_NO_DEBUG. To turn off the QT_CHECK flags,
+define TQT_NO_CHECK.
 <p> Example:
 <pre>
   void f( char *p, int i )

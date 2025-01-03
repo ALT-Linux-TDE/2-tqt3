@@ -41,8 +41,6 @@
 #ifndef TQGLOBAL_H
 #define TQGLOBAL_H
 
-#define TQT_REAL_TQT 1
-
 #define TQT_VERSION_STR   "3.5.0"
 /*
    TQT_VERSION is (major << 16) + (minor << 8) + patch.
@@ -250,12 +248,12 @@
 #  define Q_CC_MSVC
 /* proper support of bool for _MSC_VER >= 1100 */
 #  define Q_CANNOT_DELETE_CONSTANT
-#  define Q_INLINE_TEMPLATES inline
+#  define TQ_INLINE_TEMPLATES inline
 /* Visual C++.Net issues for _MSC_VER >= 1300 */
 #  if _MSC_VER >= 1300
 #    define Q_CC_MSVC_NET
 #    if _MSC_VER < 1310 || (defined(Q_OS_WIN64) && defined(_M_IA64))
-#      define Q_TYPENAME
+#      define TQ_TYPENAME
 #    endif
 #  endif
 /* Intel C++ disguising as Visual C++: the `using' keyword avoids warnings */
@@ -280,31 +278,31 @@
 #  define Q_CC_WAT
 #  if defined(Q_OS_QNX4)
 /* compiler flags */
-#    define Q_TYPENAME
+#    define TQ_TYPENAME
 #    define Q_NO_BOOL_TYPE
 #    define Q_CANNOT_DELETE_CONSTANT
 #    define mutable
 /* ??? */
 #    define Q_BROKEN_TEMPLATE_SPECIALIZATION
 /* no template classes in TQVariant */
-#    define QT_NO_TEMPLATE_VARIANT
+#    define TQT_NO_TEMPLATE_VARIANT
 /* Wcc does not fill in functions needed by valuelists, maps, and
    valuestacks implicitly */
-#    define Q_FULL_TEMPLATE_INSTANTIATION
+#    define TQ_FULL_TEMPLATE_INSTANTIATION
 /* can we just compare the structures? */
-#    define Q_FULL_TEMPLATE_INSTANTIATION_MEMCMP
+#    define TQ_FULL_TEMPLATE_INSTANTIATION_MEMCMP
 /* these are not useful to our customers */
 #    define QT_QWS_NO_SHM
-#    define QT_NO_QWS_MULTIPROCESS
-#    define QT_NO_SQL
-#    define QT_NO_QWS_CURSOR
+#    define TQT_NO_QWS_MULTIPROCESS
+#    define TQT_NO_SQL
+#    define TQT_NO_QWS_CURSOR
 #  endif
 
 #elif defined(__GNUC__)
 #  define Q_CC_GNU
 #  define Q_C_CALLBACKS
 #  if __GNUC__ == 2 && __GNUC_MINOR__ <= 7
-#    define Q_FULL_TEMPLATE_INSTANTIATION
+#    define TQ_FULL_TEMPLATE_INSTANTIATION
 #  endif
 /* GCC 2.95 knows "using" but does not support it correctly */
 #  if __GNUC__ == 2 && __GNUC_MINOR__ <= 95
@@ -354,13 +352,13 @@
               but it is not defined on older compilers like C Set 3.1 */
 #elif defined(__xlC__)
 #  define Q_CC_XLC
-#  define Q_FULL_TEMPLATE_INSTANTIATION
+#  define TQ_FULL_TEMPLATE_INSTANTIATION
 #  if __xlC__ < 0x400
 #    define Q_NO_BOOL_TYPE
 #    define Q_NO_EXPLICIT_KEYWORD
 #    define Q_NO_USING_KEYWORD
-#    define Q_TYPENAME
-#    define Q_INLINE_TEMPLATES inline
+#    define TQ_TYPENAME
+#    define TQ_INLINE_TEMPLATES inline
 #    define Q_BROKEN_TEMPLATE_SPECIALIZATION
 #    define Q_CANNOT_DELETE_CONSTANT
 #  endif
@@ -388,12 +386,12 @@
 /* Apply to all versions prior to Compaq C++ V6.0-000 - observed on
    DEC C++ V5.5-004. */
 #  if __DECCXX_VER < 60060000
-#    define Q_TYPENAME
+#    define TQ_TYPENAME
 #    define Q_BROKEN_TEMPLATE_SPECIALIZATION
 #    define Q_CANNOT_DELETE_CONSTANT
 #  endif
 /* avoid undefined symbol problems with out-of-line template members */
-#  define Q_INLINE_TEMPLATES inline
+#  define TQ_INLINE_TEMPLATES inline
 
 /* Compilers with EDG front end are similar. To detect them we test:
    __EDG documented by SGI, observed on MIPSpro 7.3.1.1 and KAI C++ 4.0b
@@ -450,7 +448,7 @@
 #    define Q_CC_USLC
 /* The latest UDK 7.1.1b does not need this, but previous versions do */
 #    if !defined(__SCO_VERSION__) || (__SCO_VERSION__ < 302200010)
-#      define Q_INLINE_TEMPLATES inline
+#      define TQ_INLINE_TEMPLATES inline
 #    endif
 #    define Q_NO_USING_KEYWORD /* ### check "using" status */
 
@@ -473,12 +471,12 @@
 #  elif defined(__sgi)
 #    define Q_CC_MIPS
 #    if defined(_MIPS_SIM) && (_MIPS_SIM == _ABIO32) /* o32 ABI */
-#      define Q_TYPENAME
+#      define TQ_TYPENAME
 #      define Q_BROKEN_TEMPLATE_SPECIALIZATION
 #      define Q_NO_EXPLICIT_KEYWORD
-#      define Q_INLINE_TEMPLATES inline
+#      define TQ_INLINE_TEMPLATES inline
 #    elif defined(_COMPILER_VERSION) && (_COMPILER_VERSION < 730) /* 7.2 */
-#      define Q_TYPENAME
+#      define TQ_TYPENAME
 #      define Q_BROKEN_TEMPLATE_SPECIALIZATION
 #    endif
 #    define Q_NO_USING_KEYWORD /* ### check "using" status */
@@ -490,11 +488,11 @@
 /* The older UnixWare 2.X compiler? */
 #elif defined(__USLC__)
 #  define Q_CC_USLC
-#  define Q_TYPENAME
+#  define TQ_TYPENAME
 #  define Q_NO_BOOL_TYPE
 #  define Q_NO_EXPLICIT_KEYWORD
 #  define Q_NO_USING_KEYWORD
-#  define Q_INLINE_TEMPLATES inline
+#  define TQ_INLINE_TEMPLATES inline
 
 /* Never tested! */
 #elif defined(__HIGHC__)
@@ -538,7 +536,7 @@
 #  else
 #    define Q_CC_HP
 #    define Q_NO_BOOL_TYPE
-#    define Q_FULL_TEMPLATE_INSTANTIATION
+#    define TQ_FULL_TEMPLATE_INSTANTIATION
 #    define Q_BROKEN_TEMPLATE_SPECIALIZATION
 #    define Q_NO_EXPLICIT_KEYWORD
 #  endif
@@ -554,7 +552,7 @@
 
 
 /*
-   The window system, must be one of: (Q_WS_x)
+   The window system, must be one of: (TQ_WS_x)
 
      MACX	- Mac OS X
      MAC9	- Mac OS 9
@@ -566,40 +564,40 @@
 */
 
 #if defined(Q_OS_MAC9)
-#  define Q_WS_MAC9
+#  define TQ_WS_MAC9
 #elif defined(Q_OS_MSDOS)
-#  define Q_WS_WIN16
+#  define TQ_WS_WIN16
 #  error "TQt requires Win32 and does not work with Windows 3.x"
 #elif defined(_WIN32_X11_)
-#  define Q_WS_X11
+#  define TQ_WS_X11
 #elif defined(Q_OS_WIN32)
-#  define Q_WS_WIN32
+#  define TQ_WS_WIN32
 #  if defined(Q_OS_WIN64)
-#    define Q_WS_WIN64
+#    define TQ_WS_WIN64
 #  endif
 #elif defined(Q_OS_OS2)
-#  define Q_WS_PM
+#  define TQ_WS_PM
 #  error "TQt does not work with OS/2 Presentation Manager or Workplace Shell"
 #elif defined(Q_OS_UNIX)
 #  if defined(TQWS)
-#    define Q_WS_QWS
-#    define QT_NO_QWS_IM
+#    define TQ_WS_QWS
+#    define TQT_NO_QWS_IM
 #  elif defined(Q_OS_MACX)
-#    define Q_WS_MACX
+#    define TQ_WS_MACX
 #  else
-#    define Q_WS_X11
+#    define TQ_WS_X11
 #  endif
 #endif
 #if defined(Q_OS_MAC) && !defined(TQMAC_PASCAL)
 #  define TQMAC_PASCAL
 #endif
 
-#if defined(Q_WS_WIN16) || defined(Q_WS_WIN32)
-#  define Q_WS_WIN
+#if defined(TQ_WS_WIN16) || defined(TQ_WS_WIN32)
+#  define TQ_WS_WIN
 #endif
 
-#if (defined(Q_WS_MAC9) || defined(Q_WS_MACX)) && !defined(Q_WS_QWS) && !defined(Q_WS_X11)
-#  define Q_WS_MAC
+#if (defined(TQ_WS_MAC9) || defined(TQ_WS_MACX)) && !defined(TQ_WS_QWS) && !defined(TQ_WS_X11)
+#  define TQ_WS_MAC
 #endif
 
 
@@ -672,19 +670,6 @@ const bool true = TRUE;
 
 
 //
-// Workaround for static const members on MSVC++.
-//
-
-#if defined(Q_CC_MSVC)
-#  define QT_STATIC_CONST static
-#  define QT_STATIC_CONST_IMPL
-#else
-#  define QT_STATIC_CONST static const
-#  define QT_STATIC_CONST_IMPL const
-#endif
-
-
-//
 // Utility macros and inline functions
 //
 
@@ -701,16 +686,6 @@ inline int tqRound( double d )
 //
 // Size-dependent types (architechture-dependent byte order)
 //
-
-#if !defined(QT_CLEAN_NAMESPACE)
-// source compatibility with TQt 1.x
-typedef signed char		INT8;		// 8 bit signed
-typedef unsigned char		UINT8;		// 8 bit unsigned
-typedef short			INT16;		// 16 bit signed
-typedef unsigned short		UINT16;		// 16 bit unsigned
-typedef int			INT32;		// 32 bit signed
-typedef unsigned int		UINT32;		// 32 bit unsigned
-#endif
 
 typedef signed char		TQ_INT8;		// 8 bit signed
 typedef unsigned char		TQ_UINT8;	// 8 bit unsigned
@@ -753,14 +728,15 @@ typedef TQ_UINT64		TQ_ULLONG;	// unsigned long long
 // Data stream functions is provided by many classes (defined in ntqdatastream.h)
 //
 
+class TQCString;
 class TQDataStream;
-
+class TQString;
 
 //
 // Feature subsetting
 //
-// Note that disabling some features will produce a libqt that is not
-// compatible with other libqt builds. Such modifications are only
+// Note that disabling some features will produce a libtqt that is not
+// compatible with other libtqt builds. Such modifications are only
 // supported on TQt/Embedded where reducing the library size is important
 // and where the application-suite is often a fixed set.
 //
@@ -789,34 +765,34 @@ class TQDataStream;
 // prune to local config
 #include "ntqmodules.h"
 #ifndef TQT_MODULE_DIALOGS
-# define QT_NO_DIALOG
+# define TQT_NO_DIALOG
 #endif
-#ifndef TQT_MODULE_ICONVIEW
-# define QT_NO_ICONVIEW
+#ifndef TQT_MODULE_INPUTMETHOD
+# define TQT_NO_IM
 #endif
 #ifndef TQT_MODULE_WORKSPACE
-# define QT_NO_WORKSPACE
+# define TQT_NO_WORKSPACE
 #endif
 #ifndef TQT_MODULE_NETWORK
-#define QT_NO_NETWORK
+#define TQT_NO_NETWORK
 #endif
 #ifndef TQT_MODULE_CANVAS
-# define QT_NO_CANVAS
+# define TQT_NO_CANVAS
 #endif
 #ifndef TQT_MODULE_TABLE
-#define QT_NO_TABLE
+#define TQT_NO_TABLE
 #endif
 #ifndef TQT_MODULE_XML
-# define QT_NO_XML
+# define TQT_NO_XML
 #endif
 #ifndef TQT_MODULE_OPENGL
-# define QT_NO_OPENGL
+# define TQT_NO_OPENGL
 #endif
 #if !defined(TQT_MODULE_SQL)
-# define QT_NO_SQL
+# define TQT_NO_SQL
 #endif
 
-#if defined(Q_WS_MAC9)
+#if defined(TQ_WS_MAC9)
 //No need for menu merging
 #  ifndef TQMAC_QMENUBAR_NO_MERGE
 #    define TQMAC_QMENUBAR_NO_MERGE
@@ -829,7 +805,7 @@ class TQDataStream;
 #    define TQMAC_QMENUBAR_NO_EVENT
 #  endif
 #endif
-#if defined(Q_WS_MACX) //for no nobody uses quartz, just putting in first level hooks
+#if defined(TQ_WS_MACX) //for no nobody uses quartz, just putting in first level hooks
 #  ifndef TQMAC_NO_QUARTZ
 #    define TQMAC_NO_QUARTZ
 #  endif
@@ -838,8 +814,8 @@ class TQDataStream;
 #  endif
 #endif
 
-#if !defined(Q_WS_QWS) && !defined(QT_NO_COP)
-#  define QT_NO_COP
+#if !defined(TQ_WS_QWS) && !defined(TQT_NO_COP)
+#  define TQT_NO_COP
 #endif
 
 #ifndef QT_H
@@ -860,12 +836,12 @@ class TQDataStream;
 #    if defined(QT_DLL)
 #      undef QT_DLL
 #    endif
-#    define Q_EXPORT  __declspec(dllexport)
+#    define TQ_EXPORT  __declspec(dllexport)
 #    define Q_TEMPLATEDLL
 #    define Q_TEMPLATE_EXTERN
 #    undef  TQ_DISABLE_COPY	/* avoid unresolved externals */
 #  elif defined(QT_DLL)		/* use a TQt DLL library */
-#    define Q_EXPORT  __declspec(dllimport)
+#    define TQ_EXPORT  __declspec(dllimport)
 #    define Q_TEMPLATEDLL
 #    ifndef Q_TEMPLATE_EXTERN
 #      if defined(Q_CC_MSVC_NET)
@@ -878,7 +854,7 @@ class TQDataStream;
 #  endif
 #elif defined(Q_OS_LINUX) && defined(Q_CC_BOR)
 #  if defined(QT_SHARED)	/* create a TQt shared library */
-#    define Q_EXPORT  __declspec(dllexport)
+#    define TQ_EXPORT  __declspec(dllexport)
 #    define Q_TEMPLATEDLL
 #    define Q_TEMPLATE_EXTERN
 #    undef  TQ_DISABLE_COPY	/* avoid unresolved externals */
@@ -888,7 +864,7 @@ class TQDataStream;
 #    undef  TQ_DISABLE_COPY 	/* avoid unresolved externals */
 #  endif
 #elif defined(Q_CC_GNU) && __GNUC__ - 0 >= 4
-#    define Q_EXPORT __attribute__((visibility("default")))
+#    define TQ_EXPORT __attribute__((visibility("default")))
 #    undef QT_MAKEDLL		/* ignore these for other platforms */
 #    undef QT_DLL
 #else
@@ -896,8 +872,8 @@ class TQDataStream;
 #  undef QT_DLL
 #endif
 
-#ifndef Q_EXPORT
-#  define Q_EXPORT
+#ifndef TQ_EXPORT
+#  define TQ_EXPORT
 #endif
 
 
@@ -905,8 +881,8 @@ class TQDataStream;
 // Some platform specific stuff
 //
 
-#if defined(Q_WS_WIN)
-extern Q_EXPORT bool qt_winunicode;
+#if defined(TQ_WS_WIN)
+extern TQ_EXPORT bool qt_winunicode;
 #endif
 
 
@@ -914,13 +890,13 @@ extern Q_EXPORT bool qt_winunicode;
 // System information
 //
 
-Q_EXPORT const char *tqVersion();
-Q_EXPORT bool tqSysInfo( int *wordSize, bool *bigEndian );
-Q_EXPORT bool tqSharedBuild();
+TQ_EXPORT const char *tqVersion();
+TQ_EXPORT bool tqSysInfo( int *wordSize, bool *bigEndian );
+TQ_EXPORT bool tqSharedBuild();
 #if defined(Q_OS_MAC)
 int qMacVersion();
-#elif defined(Q_WS_WIN)
-Q_EXPORT int qWinVersion();
+#elif defined(TQ_WS_WIN)
+TQ_EXPORT int qWinVersion();
 #if defined(UNICODE)
 #define QT_WA( uni, ansi ) if ( qt_winunicode ) { uni } else { ansi }
 #define QT_WA_INLINE( uni, ansi ) ( qt_winunicode ? uni : ansi )
@@ -939,12 +915,12 @@ Q_EXPORT int qWinVersion();
 #define QT_WA_INLINE( uni, ansi ) ( uni )
 #endif
 
-#ifndef Q_INLINE_TEMPLATES
-#  define Q_INLINE_TEMPLATES
+#ifndef TQ_INLINE_TEMPLATES
+#  define TQ_INLINE_TEMPLATES
 #endif
 
-#ifndef Q_TYPENAME
-#  define Q_TYPENAME typename
+#ifndef TQ_TYPENAME
+#  define TQ_TYPENAME typename
 #endif
 
 //
@@ -956,16 +932,16 @@ Q_EXPORT int qWinVersion();
 // Debugging and error handling
 //
 
-#if !defined(QT_NO_CHECK)
+#if !defined(TQT_NO_CHECK)
 #  define QT_CHECK_STATE			// check state of objects etc.
 #  define QT_CHECK_RANGE			// check range of indexes etc.
 #  define QT_CHECK_NULL				// check null pointers
 #  define QT_CHECK_MATH				// check math functions
 #endif
 
-#if !defined(QT_NO_DEBUG) && !defined(QT_DEBUG)
+#if !defined(TQT_NO_DEBUG) && !defined(QT_DEBUG)
 #  define QT_DEBUG				// display debug messages
-#  if !defined(QT_NO_COMPAT)			// compatibility with TQt 2
+#  if !defined(TQT_NO_COMPAT)			// compatibility with TQt 2
 #    if !defined(NO_DEBUG) && !defined(DEBUG)
 #      if !defined(Q_OS_MACX)			// clash with MacOS X headers
 #        define DEBUG
@@ -975,47 +951,31 @@ Q_EXPORT int qWinVersion();
 #endif
 
 
-Q_EXPORT void tqDebug( const char *, ... )	// print debug message
+TQ_EXPORT void tqDebug( const TQString& );     // print debug message
+TQ_EXPORT void tqDebug( const TQCString& );    // print debug message
+TQ_EXPORT void tqDebug( const char *, ... )    // print debug message
 #if defined(Q_CC_GNU) && !defined(__INSURE__)
     __attribute__ ((format (printf, 1, 2)))
 #endif
 ;
 
-Q_EXPORT void tqWarning( const char *, ... )	// print warning message
+TQ_EXPORT void tqWarning( const TQString& );   // print warning message
+TQ_EXPORT void tqWarning( const TQCString& );  // print warning message
+TQ_EXPORT void tqWarning( const char *, ... )  // print warning message
 #if defined(Q_CC_GNU) && !defined(__INSURE__)
     __attribute__ ((format (printf, 1, 2)))
 #endif
 ;
 
-Q_EXPORT void tqFatal( const char *, ... )	// print fatal message and exit
+TQ_EXPORT void tqFatal( const TQString& );     // print fatal message and exit
+TQ_EXPORT void tqFatal( const TQCString& );    // print fatal message and exit
+TQ_EXPORT void tqFatal( const char *, ... )    // print fatal message and exit
 #if defined(Q_CC_GNU)
     __attribute__ ((format (printf, 1, 2)))
 #endif
 ;
 
-Q_EXPORT void tqSystemWarning( const char *, int code = -1 );
-
-#if !defined(QT_CLEAN_NAMESPACE) 		// compatibility with TQt 1
-
-Q_EXPORT void debug( const char *, ... )	// print debug message
-#if defined(Q_CC_GNU) && !defined(__INSURE__)
-    __attribute__ ((format (printf, 1, 2)))
-#endif
-;
-
-Q_EXPORT void warning( const char *, ... )	// print warning message
-#if defined(Q_CC_GNU) && !defined(__INSURE__)
-    __attribute__ ((format (printf, 1, 2)))
-#endif
-;
-
-Q_EXPORT void fatal( const char *, ... )	// print fatal message and exit
-#if defined(Q_CC_GNU) && !defined(__INSURE__)
-    __attribute__ ((format (printf, 1, 2)))
-#endif
-;
-
-#endif // QT_CLEAN_NAMESPACE
+TQ_EXPORT void tqSystemWarning( const char *, int code = -1 );
 
 
 #if !defined(Q_ASSERT)
@@ -1030,16 +990,16 @@ Q_EXPORT void fatal( const char *, ... )	// print fatal message and exit
 #  endif
 #endif
 
-#if !defined(QT_NO_COMPAT)			// compatibility with TQt 2
+#if !defined(TQT_NO_COMPAT)			// compatibility with TQt 2
 #  if !defined(ASSERT)
 #    if !defined(Q_OS_TEMP)
 #      define ASSERT(x) Q_ASSERT(x)
 #    endif
 #  endif
-#endif // QT_NO_COMPAT
+#endif // TQT_NO_COMPAT
 
 
-Q_EXPORT bool tqt_check_pointer( bool c, const char *, int );
+TQ_EXPORT bool tqt_check_pointer( bool c, const char *, int );
 
 #if defined(QT_CHECK_NULL)
 #  define TQ_CHECK_PTR(p) (tqt_check_pointer((p)==0,__FILE__,__LINE__))
@@ -1047,42 +1007,37 @@ Q_EXPORT bool tqt_check_pointer( bool c, const char *, int );
 #  define TQ_CHECK_PTR(p)
 #endif
 
-#if !defined(QT_NO_COMPAT)			// compatibility with TQt 2
-#  if !defined(CHECK_PTR)
-#    define CHECK_PTR(x) TQ_CHECK_PTR(x)
-#  endif
-#endif // QT_NO_COMPAT
-
 enum TQtMsgType { TQtDebugMsg, TQtWarningMsg, TQtFatalMsg };
 
 typedef void (*TQtMsgHandler)(TQtMsgType, const char *);
-Q_EXPORT TQtMsgHandler qInstallMsgHandler( TQtMsgHandler );
+TQ_EXPORT TQtMsgHandler qInstallMsgHandler( TQtMsgHandler );
 
-#if !defined(QT_NO_COMPAT)			// compatibility with TQt 2
+#if !defined(TQT_NO_COMPAT)			// compatibility with TQt 2
 typedef TQtMsgHandler msg_handler;
-#endif // QT_NO_COMPAT
+#endif // TQT_NO_COMPAT
 
-Q_EXPORT void tqSuppressObsoleteWarnings( bool = TRUE );
+TQ_EXPORT void tqSuppressObsoleteWarnings( bool = TRUE );
 
-Q_EXPORT void tqObsolete( const char *obj, const char *oldfunc,
+TQ_EXPORT void tqObsolete( const char *obj, const char *oldfunc,
 		   const char *newfunc );
-Q_EXPORT void tqObsolete( const char *obj, const char *oldfunc );
-Q_EXPORT void tqObsolete( const char *message );
+TQ_EXPORT void tqObsolete( const char *obj, const char *oldfunc );
+TQ_EXPORT void tqObsolete( const char *message );
 
 
 //
 // Install paths from configure
 //
 
-Q_EXPORT const char *tqInstallPath();
-Q_EXPORT const char *tqInstallPathDocs();
-Q_EXPORT const char *tqInstallPathHeaders();
-Q_EXPORT const char *tqInstallPathLibs();
-Q_EXPORT const char *tqInstallPathBins();
-Q_EXPORT const char *tqInstallPathPlugins();
-Q_EXPORT const char *tqInstallPathData();
-Q_EXPORT const char *tqInstallPathTranslations();
-Q_EXPORT const char *tqInstallPathSysconf();
+TQ_EXPORT const char *tqInstallPath();
+TQ_EXPORT const char *tqInstallPathDocs();
+TQ_EXPORT const char *tqInstallPathHeaders();
+TQ_EXPORT const char *tqInstallPathLibs();
+TQ_EXPORT const char *tqInstallPathBins();
+TQ_EXPORT const char *tqInstallPathPlugins();
+TQ_EXPORT const char *tqInstallPathData();
+TQ_EXPORT const char *tqInstallPathTranslations();
+TQ_EXPORT const char *tqInstallPathSysconf();
+TQ_EXPORT const char *tqInstallPathShare();
 
 #endif /* __cplusplus */
 
@@ -1094,14 +1049,14 @@ Q_EXPORT const char *tqInstallPathSysconf();
  Just in case other code relies on it we better trigger a warning
  mandating a real implementation.
 */
-#ifdef Q_FULL_TEMPLATE_INSTANTIATION
-#  define Q_DUMMY_COMPARISON_OPERATOR(C) \
+#ifdef TQ_FULL_TEMPLATE_INSTANTIATION
+#  define TQ_DUMMY_COMPARISON_OPERATOR(C) \
     bool operator==( const C& ) const { \
         tqWarning( #C"::operator==( const "#C"& ) got called." ); \
         return FALSE; \
     }
 #else
-#  define Q_DUMMY_COMPARISON_OPERATOR(C)
+#  define TQ_DUMMY_COMPARISON_OPERATOR(C)
 #endif
 
 #endif /* TQGLOBAL_H */
@@ -1109,13 +1064,13 @@ Q_EXPORT const char *tqInstallPathSysconf();
 /*
  Avoid some particularly useless warnings from some stupid compilers.
  To get ALL C++ compiler warnings, define QT_CC_WARNINGS or comment out
- the line "#define QT_NO_WARNINGS"
+ the line "#define TQT_NO_WARNINGS"
 */
 
 #if !defined(QT_CC_WARNINGS)
-#  define QT_NO_WARNINGS
+#  define TQT_NO_WARNINGS
 #endif
-#if defined(QT_NO_WARNINGS)
+#if defined(TQT_NO_WARNINGS)
 #  if defined(Q_CC_MSVC)
 #    pragma warning(disable: 4244) // 'conversion' conversion from 'type1' to 'type2', possible loss of data
 #    pragma warning(disable: 4275) // non - DLL-interface classkey 'identifier' used as base for DLL-interface classkey 'identifier'

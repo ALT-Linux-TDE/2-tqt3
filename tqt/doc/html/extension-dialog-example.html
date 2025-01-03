@@ -151,7 +151,7 @@ int main( int argc, char ** argv )
     <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
     MainForm *w = new MainForm;
     w-&gt;show();
-<a name="x2868"></a><a name="x2867"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL( <a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>() ), w, SLOT( quit() ) );
+<a name="x2868"></a><a name="x2867"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL( <a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>() ), w, TQ_SLOT( quit() ) );
     return a.<a href="ntqapplication.html#exec">exec</a>();
 }
 </pre>

@@ -500,14 +500,14 @@ int sqliteHashNoCase(const char *z, int n){
 ** there is no consistency, we will define our own.
 */
 int sqliteStrICmp(const char *zLeft, const char *zRight){
-  register unsigned char *a, *b;
+  unsigned char *a, *b;
   a = (unsigned char *)zLeft;
   b = (unsigned char *)zRight;
   while( *a!=0 && UpperToLower[*a]==UpperToLower[*b]){ a++; b++; }
   return *a - *b;
 }
 int sqliteStrNICmp(const char *zLeft, const char *zRight, int N){
-  register unsigned char *a, *b;
+  unsigned char *a, *b;
   a = (unsigned char *)zLeft;
   b = (unsigned char *)zRight;
   while( N-- > 0 && *a!=0 && UpperToLower[*a]==UpperToLower[*b]){ a++; b++; }
@@ -941,7 +941,7 @@ static int sqlite_utf8_to_int(const unsigned char *z){
 */
 int 
 sqliteGlobCompare(const unsigned char *zPattern, const unsigned char *zString){
-  register int c;
+  int c;
   int invert;
   int seen;
   int c2;
@@ -1030,7 +1030,7 @@ sqliteGlobCompare(const unsigned char *zPattern, const unsigned char *zString){
 */
 int 
 sqliteLikeCompare(const unsigned char *zPattern, const unsigned char *zString){
-  register int c;
+  int c;
   int c2;
 
   while( (c = UpperToLower[*zPattern])!=0 ){

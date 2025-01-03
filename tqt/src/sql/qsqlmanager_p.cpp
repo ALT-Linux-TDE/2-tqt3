@@ -40,7 +40,7 @@
 
 #include "qsqlmanager_p.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 #include "ntqapplication.h"
 #include "ntqwidget.h"
@@ -444,7 +444,7 @@ bool TQSqlCursorManager::findBuffer( const TQSqlIndex& idx, int atHint )
 #ifdef QT_DEBUG_DATAMANAGER
 	tqDebug(" Using brute search...");
 #endif
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::setOverrideCursor( TQt::waitCursor );
 #endif
 	/* give up, use brute force */
@@ -460,7 +460,7 @@ bool TQSqlCursorManager::findBuffer( const TQSqlIndex& idx, int atHint )
 	    if ( !cur->next() )
 		break;
 	}
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	TQApplication::restoreOverrideCursor();
 #endif
     }
@@ -470,7 +470,7 @@ bool TQSqlCursorManager::findBuffer( const TQSqlIndex& idx, int atHint )
     return indexEquals;
 }
 
-#ifndef QT_NO_SQL_FORM
+#ifndef TQT_NO_SQL_FORM
 
 class TQSqlFormManagerPrivate
 {
@@ -614,7 +614,7 @@ void TQSqlFormManager::writeFields()
     }
 }
 
-#endif // QT_NO_SQL_FORM
+#endif // TQT_NO_SQL_FORM
 
 class TQDataManagerPrivate
 {
@@ -677,14 +677,14 @@ TQDataManager::~TQDataManager()
 */
 void TQDataManager::handleError( TQWidget* parent, const TQSqlError& e )
 {
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
     if (e.driverText().isEmpty() && e.databaseText().isEmpty()) {
 	TQMessageBox::warning ( parent, "Warning", "An error occurred while accessing the database");
     } else {
 	TQMessageBox::warning ( parent, "Warning", e.driverText() + "\n" + e.databaseText(),
 			   0, 0 );
     }
-#endif // QT_NO_MESSAGEBOX
+#endif // TQT_NO_MESSAGEBOX
 }
 
 
@@ -867,7 +867,7 @@ TQSql::Confirm TQDataManager::confirmEdit( TQWidget* parent, TQSql::Op m )
 {
     int ans = 2;
     if ( m == TQSql::Delete ) {
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
 	ans = TQMessageBox::information( parent,
 					tqApp->translate( "TQSql", "Delete" ),
 					tqApp->translate( "TQSql", "Delete this record?" ),
@@ -876,7 +876,7 @@ TQSql::Confirm TQDataManager::confirmEdit( TQWidget* parent, TQSql::Op m )
 					TQString::null, 0, 1 );
 #else
 	ans = TQSql::No;
-#endif // QT_NO_MESSAGEBOX
+#endif // TQT_NO_MESSAGEBOX
     } else if ( m != TQSql::None ) {
 	TQString caption;
 	if ( m == TQSql::Insert ) {
@@ -884,7 +884,7 @@ TQSql::Confirm TQDataManager::confirmEdit( TQWidget* parent, TQSql::Op m )
 	} else { // TQSql::Update
 	    caption = tqApp->translate( "TQSql", "Update" );
 	}
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
 	ans = TQMessageBox::information( parent, caption,
 					tqApp->translate( "TQSql", "Save edits?" ),
 					tqApp->translate( "TQSql", "Yes" ),
@@ -893,7 +893,7 @@ TQSql::Confirm TQDataManager::confirmEdit( TQWidget* parent, TQSql::Op m )
 					0, 2 );
 #else
 	ans = TQSql::No;
-#endif // QT_NO_MESSAGEBOX
+#endif // TQT_NO_MESSAGEBOX
     }
 
     switch ( ans ) {
@@ -919,7 +919,7 @@ TQSql::Confirm TQDataManager::confirmEdit( TQWidget* parent, TQSql::Op m )
 
 TQSql::Confirm TQDataManager::confirmCancel( TQWidget* parent, TQSql::Op )
 {
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
     switch ( TQMessageBox::information( parent,
 				       tqApp->translate( "TQSql", "Confirm" ),
 				       tqApp->translate( "TQSql", "Cancel your edits?" ),
@@ -935,7 +935,7 @@ TQSql::Confirm TQDataManager::confirmCancel( TQWidget* parent, TQSql::Op )
     }
 #else
     return TQSql::Yes;
-#endif // QT_NO_MESSAGEBOX
+#endif // TQT_NO_MESSAGEBOX
 }
 
 #endif

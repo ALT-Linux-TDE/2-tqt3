@@ -71,10 +71,10 @@ void <a name="f68"></a>LCDRange::init()
     label = new <a href="ntqlabel.html">TQLabel</a>( " ", this, "label"  );
     label-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
 
-    <a href="ntqobject.html#connect">connect</a>( slider, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
-             lcd, SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
-    <a href="ntqobject.html#connect">connect</a>( slider, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
-             SIGNAL(valueChanged(int)) );
+    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
+             lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
+    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
+             TQ_SIGNAL(valueChanged(int)) );
 
     <a href="ntqwidget.html#setFocusProxy">setFocusProxy</a>( slider );
 }

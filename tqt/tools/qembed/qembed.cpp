@@ -77,7 +77,7 @@ int main( int argc, char **argv )
     TQStringList args;
     for ( int i = 1; i < argc; ++i ) {
 	TQString file( argv[i] );
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	// Since wildcards are not expanded automatically for us on Windows, we need to do 
 	// it ourselves
 	if ( file.contains( '*' ) || file.contains( '?' ) ) {

@@ -30,7 +30,7 @@ Inherits QDialog.
 .BI "\fBQMotifDialog\fR ( Widget parent, const char * name = 0, bool modal = FALSE, WFlags flags = 0 )"
 .br
 .ti -1c
-.BI "\fBQMotifDialog\fR ( QWidget * parent, const char * name = 0, bool modal = FALSE, WFlags flags = 0 )"
+.BI "\fBQMotifDialog\fR ( TQWidget * parent, const char * name = 0, bool modal = FALSE, WFlags flags = 0 )"
 .br
 .ti -1c
 .BI "virtual \fB~QMotifDialog\fR ()"
@@ -52,11 +52,11 @@ Inherits QDialog.
 .br
 .in -1c
 .SH DESCRIPTION
-This class is defined in the \fBQt Motif Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main Qt API.
+This class is defined in the \fBQt Motif Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main TQt API.
 .PP
 The QMotifDialog class provides the QDialog API for Motif-based dialogs.
 .PP
-QMotifDialog provides two separate modes of operation. The application programmer can use QMotifDialog with an existing Motif-based dialog and a QWidget parent, or the application programmer can use QMotifDialog with a custom Qt-based dialog and a Motif-based parent. Modality continues to work as expected.
+QMotifDialog provides two separate modes of operation. The application programmer can use QMotifDialog with an existing Motif-based dialog and a TQWidget parent, or the application programmer can use QMotifDialog with a custom Qt-based dialog and a Motif-based parent. Modality continues to work as expected.
 .PP
 Motif-based dialogs must have a \fCShell\fR widget parent with a single child, due to requirements of the Motif toolkit. The \fCShell\fR widget, which is a special subclass of \fCXmDialogShell\fR, is created during construction. It can be accessed using the shell() member function.
 .PP
@@ -64,7 +64,7 @@ The single child of the \fCShell\fR can be accessed using the dialog() member fu
 .PP
 The acceptCallback() and rejectCallback() functions provide a convenient way to call QDialog::accept() and QDialog::reject() through callbacks. A pointer to the QMotifDialog should be passed as the \fCclient_data\fR argument to the callback.
 .PP
-The API and behavior QMotifDialog is identical to that of QDialog when using a custom Qt-based dialog with a Motif-based parent. The only difference is that a Motif-based \fIparent\fR argument is passed to the constructor, instead of a QWidget parent.
+The API and behavior QMotifDialog is identical to that of QDialog when using a custom Qt-based dialog with a Motif-based parent. The only difference is that a Motif-based \fIparent\fR argument is passed to the constructor, instead of a TQWidget parent.
 .SS "Member Type Documentation"
 .SH "QMotifDialog::DialogType"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
@@ -125,8 +125,8 @@ Creates a QMotifDialog which allows the application programmer to use the Motif-
 This constructor creates a \fCShell\fR widget, which is a special subclass of \fCXmDialogShell\fR. You can access the \fCShell\fR widget with the shell() member function.
 .PP
 See also shell().
-.SH "QMotifDialog::QMotifDialog ( QWidget * parent, const char * name = 0, bool modal = FALSE, WFlags flags = 0 )"
-Creates a QMotifDialog which allows the application programmer to use a QWidget parent for an existing Motif-based dialog. The \fIparent\fR, \fIname\fR, \fImodal\fR and \fIflags\fR arguments are passed to the QDialog constructor.
+.SH "QMotifDialog::QMotifDialog ( TQWidget * parent, const char * name = 0, bool modal = FALSE, WFlags flags = 0 )"
+Creates a QMotifDialog which allows the application programmer to use a TQWidget parent for an existing Motif-based dialog. The \fIparent\fR, \fIname\fR, \fImodal\fR and \fIflags\fR arguments are passed to the QDialog constructor.
 .PP
 This constructor creates a \fCShell\fR widget, which is a special subclass of \fCXmDialogShell\fR. You can access the \fCShell\fR widget with the shell() member functon.
 .PP
@@ -166,8 +166,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqradiobutton.h"
-#ifndef QT_NO_RADIOBUTTON
+#ifndef TQT_NO_RADIOBUTTON
 #include "ntqbuttongroup.h"
 #include "ntqpainter.h"
 #include "ntqdrawutil.h"
@@ -138,7 +138,7 @@ void TQRadioButton::init()
 {
     setSizePolicy( TQSizePolicy( TQSizePolicy::Minimum, TQSizePolicy::Fixed ) );
     setToggleButton( TRUE );
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
     TQButtonGroup *bgrp = ::tqt_cast<TQButtonGroup*>(parentWidget());
     if ( bgrp )
 	bgrp->setRadioButtonExclusive( TRUE );
@@ -197,7 +197,7 @@ void TQRadioButton::drawButton( TQPainter *paint )
     TQRect irect = TQStyle::visualRect( style().subRect(TQStyle::SR_RadioButtonIndicator, this), this );
     const TQColorGroup &cg = colorGroup();
 
-#if !defined( QT_NO_TEXTSTREAM ) && !defined( Q_WS_MACX )
+#if !defined( TQT_NO_TEXTSTREAM ) && !defined( TQ_WS_MACX )
 #   define  SAVE_RADIOBUTTON_PIXMAPS
 #endif
 #if defined(SAVE_RADIOBUTTON_PIXMAPS)

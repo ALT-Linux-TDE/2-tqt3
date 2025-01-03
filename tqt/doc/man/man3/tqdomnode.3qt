@@ -9,7 +9,7 @@
 .SH NAME
 QDomNode \- The base class for all the nodes in a DOM tree
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqdom.h>\fR
 .PP
@@ -63,10 +63,10 @@ Inherited by QDomDocumentType, QDomDocument, QDomDocumentFragment, QDomCharacter
 .BI "virtual void \fBnormalize\fR ()"
 .br
 .ti -1c
-.BI "virtual bool \fBisSupported\fR ( const QString & feature, const QString & version ) const"
+.BI "virtual bool \fBisSupported\fR ( const TQString & feature, const TQString & version ) const"
 .br
 .ti -1c
-.BI "virtual QString \fBnodeName\fR () const"
+.BI "virtual TQString \fBnodeName\fR () const"
 .br
 .ti -1c
 .BI "virtual QDomNode::NodeType \fBnodeType\fR () const"
@@ -96,25 +96,25 @@ Inherited by QDomDocumentType, QDomDocument, QDomDocumentFragment, QDomCharacter
 .BI "virtual QDomDocument \fBownerDocument\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBnamespaceURI\fR () const"
+.BI "virtual TQString \fBnamespaceURI\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBlocalName\fR () const"
+.BI "virtual TQString \fBlocalName\fR () const"
 .br
 .ti -1c
 .BI "virtual bool \fBhasAttributes\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBnodeValue\fR () const"
+.BI "virtual TQString \fBnodeValue\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetNodeValue\fR ( const QString & v )"
+.BI "virtual void \fBsetNodeValue\fR ( const TQString & v )"
 .br
 .ti -1c
-.BI "virtual QString \fBprefix\fR () const"
+.BI "virtual TQString \fBprefix\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetPrefix\fR ( const QString & pre )"
+.BI "virtual void \fBsetPrefix\fR ( const TQString & pre )"
 .br
 .ti -1c
 .BI "virtual bool \fBisAttr\fR () const"
@@ -156,7 +156,7 @@ Inherited by QDomDocumentType, QDomDocument, QDomDocumentFragment, QDomCharacter
 .BI "virtual bool \fBisComment\fR () const"
 .br
 .ti -1c
-.BI "QDomNode \fBnamedItem\fR ( const QString & name ) const"
+.BI "QDomNode \fBnamedItem\fR ( const TQString & name ) const"
 .br
 .ti -1c
 .BI "bool \fBisNull\fR () const"
@@ -494,7 +494,7 @@ If this function returns TRUE, it does not imply that this object is a QDomProce
 See also toProcessingInstruction().
 .PP
 Reimplemented in QDomProcessingInstruction.
-.SH "bool QDomNode::isSupported ( const QString & feature, const QString & version ) const\fC [virtual]\fR"
+.SH "bool QDomNode::isSupported ( const TQString & feature, const TQString & version ) const\fC [virtual]\fR"
 Returns TRUE if the DOM implementation implements the feature \fIfeature\fR and this feature is supported by this node in the version \fIversion\fR; otherwise returns FALSE.
 .PP
 See also QDomImplementation::hasFeature().
@@ -510,20 +510,20 @@ Reimplemented in QDomText.
 Returns the last child of the node. If there is no child node, a null node is returned. Changing the returned node will also change the node in the document tree.
 .PP
 See also firstChild() and childNodes().
-.SH "QString QDomNode::localName () const\fC [virtual]\fR"
-If the node uses namespaces, this function returns the local name of the node; otherwise it returns QString::null.
+.SH "TQString QDomNode::localName () const\fC [virtual]\fR"
+If the node uses namespaces, this function returns the local name of the node; otherwise it returns TQString::null.
 .PP
 Only nodes of type ElementNode or AttributeNode can have namespaces. A namespace must have been specified at creation time; it is not possible to add a namespace afterwards.
 .PP
 See also prefix(), namespaceURI(), QDomDocument::createElementNS(), and QDomDocument::createAttributeNS().
-.SH "QDomNode QDomNode::namedItem ( const QString & name ) const"
+.SH "QDomNode QDomNode::namedItem ( const TQString & name ) const"
 Returns the first direct child node for which nodeName() equals \fIname\fR.
 .PP
 If no such direct child exists, a null node is returned.
 .PP
 See also nodeName().
-.SH "QString QDomNode::namespaceURI () const\fC [virtual]\fR"
-Returns the namespace URI of this node or QString::null if the node has no namespace URI.
+.SH "TQString QDomNode::namespaceURI () const\fC [virtual]\fR"
+Returns the namespace URI of this node or TQString::null if the node has no namespace URI.
 .PP
 Only nodes of type ElementNode or AttributeNode can have namespaces. A namespace URI must be specified at creation time and cannot be changed later.
 .PP
@@ -547,7 +547,7 @@ and this QDomNode represents the <p> tag, nextSibling() will return the node rep
 See also previousSibling().
 .PP
 Example: xml/outliner/outlinetree.cpp.
-.SH "QString QDomNode::nodeName () const\fC [virtual]\fR"
+.SH "TQString QDomNode::nodeName () const\fC [virtual]\fR"
 Returns the name of the node.
 .PP
 The meaning of the name depends on the subclass: <center>.nf
@@ -566,7 +566,7 @@ Returns the type of the node.
 See also toAttr(), toCDATASection(), toDocumentFragment(), toDocument(), toDocumentType(), toElement(), toEntityReference(), toText(), toEntity(), toNotation(), toProcessingInstruction(), toCharacterData(), and toComment().
 .PP
 Reimplemented in QDomDocumentType, QDomDocument, QDomDocumentFragment, QDomCharacterData, QDomAttr, QDomElement, QDomNotation, QDomEntity, QDomEntityReference, and QDomProcessingInstruction.
-.SH "QString QDomNode::nodeValue () const\fC [virtual]\fR"
+.SH "TQString QDomNode::nodeValue () const\fC [virtual]\fR"
 Returns the value of the node.
 .PP
 The meaning of the value depends on the subclass: <center>.nf
@@ -576,7 +576,7 @@ l - l. Name Meaning QDomAttr The attribute value QDomCDATASection The content of
 .fi
 </center>
 .PP
-All the other subclasses do not have a node value and will return QString::null.
+All the other subclasses do not have a node value and will return TQString::null.
 .PP
 See also setNodeValue() and nodeName().
 .PP
@@ -595,12 +595,12 @@ Returns TRUE if \fIn\fR and this DOM node are equal; otherwise returns FALSE.
 Returns the document to which this node belongs.
 .SH "QDomNode QDomNode::parentNode () const\fC [virtual]\fR"
 Returns the parent node. If this node has no parent, a null node is returned (i.e. a node for which isNull() returns TRUE).
-.SH "QString QDomNode::prefix () const\fC [virtual]\fR"
-Returns the namespace prefix of the node or QString::null if the node has no namespace prefix.
+.SH "TQString QDomNode::prefix () const\fC [virtual]\fR"
+Returns the namespace prefix of the node or TQString::null if the node has no namespace prefix.
 .PP
 Only nodes of type ElementNode or AttributeNode can have namespaces. A namespace prefix must be specified at creation time. If a node was created with a namespace prefix, you can change it later with setPrefix().
 .PP
-If you create an element or attribute with QDomDocument::createElement() or QDomDocument::createAttribute(), the prefix will be QString::null. If you use QDomDocument::createElementNS() or QDomDocument::createAttributeNS() instead, the prefix will not be QString::null; but it might be an empty string if the name does not have a prefix.
+If you create an element or attribute with QDomDocument::createElement() or QDomDocument::createAttribute(), the prefix will be TQString::null. If you use QDomDocument::createElementNS() or QDomDocument::createAttributeNS() instead, the prefix will not be TQString::null; but it might be an empty string if the name does not have a prefix.
 .PP
 See also setPrefix(), localName(), namespaceURI(), QDomDocument::createElementNS(), and QDomDocument::createAttributeNS().
 .SH "QDomNode QDomNode::previousSibling () const\fC [virtual]\fR"
@@ -638,11 +638,11 @@ Returns a new reference to \fIoldChild\fR on success or a null node an failure.
 See also insertBefore(), insertAfter(), removeChild(), and appendChild().
 .SH "void QDomNode::save ( QTextStream & str, int indent ) const"
 Writes the XML representation of the node and all its children to the stream \fIstr\fR. This function uses \fIindent\fR as the amount of space to indent the node.
-.SH "void QDomNode::setNodeValue ( const QString & v )\fC [virtual]\fR"
+.SH "void QDomNode::setNodeValue ( const TQString & v )\fC [virtual]\fR"
 Sets the node's value to \fIv\fR.
 .PP
 See also nodeValue().
-.SH "void QDomNode::setPrefix ( const QString & pre )\fC [virtual]\fR"
+.SH "void QDomNode::setPrefix ( const TQString & pre )\fC [virtual]\fR"
 If the node has a namespace prefix, this function changes the namespace prefix of the node to \fIpre\fR. Otherwise this function does nothing.
 .PP
 Only nodes of type ElementNode or AttributeNode can have namespaces. A namespace prefix must have be specified at creation time; it is not possible to add a namespace prefix afterwards.
@@ -721,8 +721,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

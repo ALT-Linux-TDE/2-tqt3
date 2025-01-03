@@ -48,11 +48,11 @@
 #include "ntqbrush.h" // TQColor->TQBrush conversion
 #endif // QT_H
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 
 class TQColorGroupPrivate;
 
-class Q_EXPORT TQColorGroup
+class TQ_EXPORT TQColorGroup
 {
 public:
     TQColorGroup();
@@ -110,7 +110,7 @@ private:
 };
 
 
-class Q_EXPORT TQPalette
+class TQ_EXPORT TQPalette
 {
 public:
     TQPalette();
@@ -137,14 +137,14 @@ public:
     const TQColorGroup &active() const { return data->active; }
     const TQColorGroup &disabled() const { return data->disabled; }
     const TQColorGroup &inactive() const { return data->inactive; }
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     const TQColorGroup &normal() const { return active(); }
 #endif
 
     void	setActive( const TQColorGroup & );
     void	setDisabled( const TQColorGroup & );
     void	setInactive( const TQColorGroup & );
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     void	setNormal( const TQColorGroup & cg ) { setActive(cg); }
 #endif
 
@@ -177,13 +177,13 @@ private:
   TQColorGroup/TQPalette stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQColorGroup & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQColorGroup & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQColorGroup & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQColorGroup & );
 
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPalette & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQPalette & );
-#endif // QT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPalette & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQPalette & );
+#endif // TQT_NO_DATASTREAM
 
-#endif // QT_NO_PALETTE
+#endif // TQT_NO_PALETTE
 #endif // TQPALETTE_H

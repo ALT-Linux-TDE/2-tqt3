@@ -103,6 +103,7 @@ public:
     uint  containsRef( const type *d ) const
 					{ return TQGList::containsRef((TQPtrCollection::Item)d); }
     bool replace( uint i, const type *d ) { return TQGList::replaceAt( i, (TQPtrCollection::Item)d ); }
+    type *operator[]( uint i )		{ return (type *)TQGList::at(i); }
     type *at( uint i )			{ return (type *)TQGList::at(i); }
     int	  at() const			{ return TQGList::at(); }
     type *current()  const		{ return (type *)TQGList::get(); }
@@ -183,11 +184,6 @@ public:
     TQPtrListIterator<type>& operator=(const TQPtrListIterator<type>&it)
 			      { TQGListIterator::operator=(it); return *this; }
 };
-
-#ifndef QT_NO_COMPAT
-#define TQList TQPtrList
-#define TQListIterator TQPtrListIterator
-#endif
 
 #define Q_DEFINED_QPTRLIST
 #include "ntqwinexport.h"

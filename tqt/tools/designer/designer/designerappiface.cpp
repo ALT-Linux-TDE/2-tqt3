@@ -140,13 +140,13 @@ void DesignerInterfaceImpl::updateFunctionList()
 
 void DesignerInterfaceImpl::onProjectChange( TQObject *receiver, const char *slot )
 {
-    TQObject::connect( mainWindow, SIGNAL( projectChanged() ), receiver, slot );
+    TQObject::connect( mainWindow, TQ_SIGNAL( projectChanged() ), receiver, slot );
 }
 
 void DesignerInterfaceImpl::onFormChange( TQObject *receiver, const char *slot )
 {
-    TQObject::connect( mainWindow, SIGNAL( formWindowChanged() ), receiver, slot );
-    TQObject::connect( mainWindow, SIGNAL( editorChanged() ), receiver, slot );
+    TQObject::connect( mainWindow, TQ_SIGNAL( formWindowChanged() ), receiver, slot );
+    TQObject::connect( mainWindow, TQ_SIGNAL( editorChanged() ), receiver, slot );
 }
 
 bool DesignerInterfaceImpl::singleProjectMode() const
@@ -278,7 +278,7 @@ void DesignerProjectImpl::setupDatabases() const
 TQPtrList<DesignerDatabase> DesignerProjectImpl::databaseConnections() const
 {
     TQPtrList<DesignerDatabase> lst;
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     TQPtrList<DatabaseConnection> conns = project->databaseConnections();
     for ( DatabaseConnection *d = conns.first(); d; d = conns.next() )
 	lst.append( d->iFace() );
@@ -437,7 +437,7 @@ bool DesignerProjectImpl::isGenericObject( TQObject *o ) const
 
 
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 DesignerDatabaseImpl::DesignerDatabaseImpl( DatabaseConnection *d )
     : db( d )
 {
@@ -963,7 +963,7 @@ void DesignerFormWindowImpl::setSignalList( const TQStringList &lst )
 
 void DesignerFormWindowImpl::onModificationChange( TQObject *receiver, const char *slot )
 {
-    TQObject::connect( formWindow, SIGNAL( modificationChanged( bool, FormWindow * ) ), receiver, slot );
+    TQObject::connect( formWindow, TQ_SIGNAL( modificationChanged( bool, FormWindow * ) ), receiver, slot );
 }
 
 void DesignerFormWindowImpl::addMenu( const TQString &text, const TQString &name )

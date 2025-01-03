@@ -46,13 +46,13 @@
 #include "ntqframe.h"
 #endif // QT_H
 
-#ifndef QT_NO_RANGECONTROL
+#ifndef TQT_NO_RANGECONTROL
 
 
 class TQRangeControlPrivate;
 
 
-class Q_EXPORT TQRangeControl
+class TQ_EXPORT TQRangeControl
 {
 public:
     TQRangeControl();
@@ -122,12 +122,12 @@ inline int TQRangeControl::pageStep() const
 { return page; }
 
 
-#endif // QT_NO_RANGECONTROL
+#endif // TQT_NO_RANGECONTROL
 
-#ifndef QT_NO_SPINWIDGET
+#ifndef TQT_NO_SPINWIDGET
 
 class TQSpinWidgetPrivate;
-class Q_EXPORT TQSpinWidget : public TQWidget
+class TQ_EXPORT TQSpinWidget : public TQWidget
 {
     TQ_OBJECT
 public:
@@ -165,7 +165,7 @@ protected:
     void resizeEvent( TQResizeEvent* ev );
     void mouseReleaseEvent( TQMouseEvent *e );
     void mouseMoveEvent( TQMouseEvent *e );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void wheelEvent( TQWheelEvent * );
 #endif
     void styleChange( TQStyle& );
@@ -189,6 +189,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_SPINWIDGET
+#endif // TQT_NO_SPINWIDGET
 
 #endif // TQRANGECONTROL_H

@@ -82,15 +82,15 @@ SetDataForm::SetDataForm( ElementVector *elements, int decimalPlaces,
 
     tableButtonBox->addLayout( buttonBox );
 
-    connect( table, SIGNAL( clicked(int,int,int,const TQPoint&) ),
-	     this, SLOT( setColor(int,int) ) );
-    connect( table, SIGNAL( currentChanged(int,int) ),
-	     this, SLOT( currentChanged(int,int) ) );
-    connect( table, SIGNAL( valueChanged(int,int) ),
-	     this, SLOT( valueChanged(int,int) ) );
-    connect( colorPushButton, SIGNAL( clicked() ), this, SLOT( setColor() ) );
-    connect( okPushButton, SIGNAL( clicked() ), this, SLOT( accept() ) );
-    connect( cancelPushButton, SIGNAL( clicked() ), this, SLOT( reject() ) );
+    connect( table, TQ_SIGNAL( clicked(int,int,int,const TQPoint&) ),
+	     this, TQ_SLOT( setColor(int,int) ) );
+    connect( table, TQ_SIGNAL( currentChanged(int,int) ),
+	     this, TQ_SLOT( currentChanged(int,int) ) );
+    connect( table, TQ_SIGNAL( valueChanged(int,int) ),
+	     this, TQ_SLOT( valueChanged(int,int) ) );
+    connect( colorPushButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( setColor() ) );
+    connect( okPushButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( accept() ) );
+    connect( cancelPushButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( reject() ) );
 
     TQPixmap patterns[MAX_PATTERNS];
     patterns[0]  = TQPixmap( pattern01 );

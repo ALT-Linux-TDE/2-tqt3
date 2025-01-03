@@ -36,19 +36,14 @@
 #ifndef TQINPUTCONTEXT_H
 #define TQINPUTCONTEXT_H
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 
 #ifndef QT_H
 #include "ntqobject.h"
 #include "ntqglobal.h"
 #include "ntqevent.h"
 #include "ntqstring.h"
-#if (TQT_VERSION-0 >= 0x040000)
-#include "ntqlist.h"
-#include "ntqaction.h"
-#else
 #include "ntqptrlist.h"
-#endif
 #endif
 
 class TQWidget;
@@ -69,7 +64,7 @@ struct TQInputContextMenu {
 };
 
 
-class Q_EXPORT TQInputContext : public TQObject
+class TQ_EXPORT TQInputContext : public TQObject
 {
     TQ_OBJECT
 public:
@@ -79,9 +74,9 @@ public:
     virtual TQString identifierName();
     virtual TQString language();
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     virtual bool x11FilterEvent( TQWidget *keywidget, XEvent *event );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
     virtual bool filterEvent( const TQEvent *event );
     virtual void reset();
 
@@ -95,14 +90,14 @@ public:
     virtual bool isPreeditRelocationEnabled();
 
 #if (TQT_VERSION-0 >= 0x040000)
-    virtual TQList<TQAction *> actions();
+    virtual TQPtrList<TQAction *> actions();
     void addActionsTo( TQMenu *menu, TQInputContextMenu::Action action = TQInputContextMenu::InsertSeparator );
 #else
     virtual TQPtrList<TQInputContextMenu> *menus();
     void addMenusTo( TQPopupMenu *popup, TQInputContextMenu::Action action = TQInputContextMenu::InsertSeparator );
 #endif
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     // these functions are not recommended for ordinary use 
     virtual TQWidget *focusWidget() const;
     virtual TQWidget *holderWidget() const;

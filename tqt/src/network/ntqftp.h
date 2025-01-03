@@ -50,10 +50,10 @@
 #if !defined( TQT_MODULE_NETWORK ) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_NETWORK )
 #define TQM_EXPORT_FTP
 #else
-#define TQM_EXPORT_FTP Q_EXPORT
+#define TQM_EXPORT_FTP TQ_EXPORT
 #endif
 
-#ifndef QT_NO_NETWORKPROTOCOL_FTP
+#ifndef TQT_NO_NETWORKPROTOCOL_FTP
 
 
 class TQSocket;
@@ -197,6 +197,6 @@ protected slots:
     void error( int );
 };
 
-#endif // QT_NO_NETWORKPROTOCOL_FTP
+#endif // TQT_NO_NETWORKPROTOCOL_FTP
 
 #endif // TQFTP_H

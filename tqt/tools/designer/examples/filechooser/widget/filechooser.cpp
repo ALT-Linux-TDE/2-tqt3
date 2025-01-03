@@ -13,15 +13,15 @@ FileChooser::FileChooser( TQWidget *parent, const char *name )
     lineEdit = new TQLineEdit( this, "filechooser_lineedit" );
     layout->addWidget( lineEdit );
 
-    connect( lineEdit, SIGNAL( textChanged( const TQString & ) ),
-	     this, SIGNAL( fileNameChanged( const TQString & ) ) );
+    connect( lineEdit, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SIGNAL( fileNameChanged( const TQString & ) ) );
 
     button = new TQPushButton( "...", this, "filechooser_button" );
     button->setFixedWidth( button->fontMetrics().width( " ... " ) );
     layout->addWidget( button );
 
-    connect( button, SIGNAL( clicked() ),
-	     this, SLOT( chooseFile() ) );
+    connect( button, TQ_SIGNAL( clicked() ),
+	     this, TQ_SLOT( chooseFile() ) );
 
     setFocusProxy( lineEdit );
 }

@@ -339,20 +339,20 @@ void <a name="f210"></a>FolderListItem::insertSubFolders( const <a href="ntqobje
     menu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( messages );
     for( int i = 1; i &lt;= 10; i++ )
         menu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQString( "Context Item %1" ).arg( i ) );
-<a name="x143"></a>    <a href="ntqobject.html#connect">connect</a>(messages, SIGNAL( <a href="ntqlistview.html#contextMenuRequested">contextMenuRequested</a>( <a href="qlistviewitem.html">TQListViewItem</a> *, const <a href="ntqpoint.html">TQPoint</a>&amp; , int ) ),
-            this, SLOT( slotRMB( <a href="qlistviewitem.html">TQListViewItem</a> *, const <a href="ntqpoint.html">TQPoint</a> &amp;, int ) ) );
+<a name="x143"></a>    <a href="ntqobject.html#connect">connect</a>(messages, TQ_SIGNAL( <a href="ntqlistview.html#contextMenuRequested">contextMenuRequested</a>( <a href="qlistviewitem.html">TQListViewItem</a> *, const <a href="ntqpoint.html">TQPoint</a>&amp; , int ) ),
+            this, TQ_SLOT( slotRMB( <a href="qlistviewitem.html">TQListViewItem</a> *, const <a href="ntqpoint.html">TQPoint</a> &amp;, int ) ) );
 <a name="x161"></a>    vsplitter-&gt;<a href="ntqsplitter.html#setResizeMode">setResizeMode</a>( messages, TQSplitter::KeepSize );
 
     message = new <a href="ntqlabel.html">TQLabel</a>( vsplitter );
     message-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( TQt::AlignTop );
 <a name="x163"></a>    message-&gt;<a href="ntqwidget.html#setBackgroundMode">setBackgroundMode</a>( PaletteBase );
 
-<a name="x148"></a>    <a href="ntqobject.html#connect">connect</a>( folders, SIGNAL( <a href="ntqlistview.html#selectionChanged">selectionChanged</a>( <a href="qlistviewitem.html">TQListViewItem</a>* ) ),
-             this, SLOT( slotFolderChanged( <a href="qlistviewitem.html">TQListViewItem</a>* ) ) );
-    <a href="ntqobject.html#connect">connect</a>( messages, SIGNAL( <a href="ntqlistview.html#selectionChanged">selectionChanged</a>() ),
-             this, SLOT( slotMessageChanged() ) );
-<a name="x144"></a>    <a href="ntqobject.html#connect">connect</a>( messages, SIGNAL( <a href="ntqlistview.html#currentChanged">currentChanged</a>( <a href="qlistviewitem.html">TQListViewItem</a> * ) ),
-             this, SLOT( slotMessageChanged() ) );
+<a name="x148"></a>    <a href="ntqobject.html#connect">connect</a>( folders, TQ_SIGNAL( <a href="ntqlistview.html#selectionChanged">selectionChanged</a>( <a href="qlistviewitem.html">TQListViewItem</a>* ) ),
+             this, TQ_SLOT( slotFolderChanged( <a href="qlistviewitem.html">TQListViewItem</a>* ) ) );
+    <a href="ntqobject.html#connect">connect</a>( messages, TQ_SIGNAL( <a href="ntqlistview.html#selectionChanged">selectionChanged</a>() ),
+             this, TQ_SLOT( slotMessageChanged() ) );
+<a name="x144"></a>    <a href="ntqobject.html#connect">connect</a>( messages, TQ_SIGNAL( <a href="ntqlistview.html#currentChanged">currentChanged</a>( <a href="qlistviewitem.html">TQListViewItem</a> * ) ),
+             this, TQ_SLOT( slotMessageChanged() ) );
 
 <a name="x154"></a>    messages-&gt;<a href="ntqlistview.html#setSelectionMode">setSelectionMode</a>( TQListView::Extended );
     // some preparations

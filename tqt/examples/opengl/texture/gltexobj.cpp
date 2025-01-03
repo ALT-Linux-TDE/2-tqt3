@@ -35,7 +35,7 @@ GLTexobj::GLTexobj( TQWidget* parent, const char* name )
     object = 0;
     animation = TRUE;
     timer = new TQTimer( this );
-    connect( timer, SIGNAL(timeout()), SLOT(update()) );
+    connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(update()) );
     timer->start( redrawWait, TRUE );
 }
 

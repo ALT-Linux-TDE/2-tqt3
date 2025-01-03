@@ -47,7 +47,7 @@ public:
     Source create( const TQString &templ, TQUnknownInterface *appIface );
     TQString language( const TQString &templ ) const;
 
-    Q_REFCOUNT
+    TQ_REFCOUNT
 };
 
 

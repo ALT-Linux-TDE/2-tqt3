@@ -34,8 +34,8 @@ Forever::Forever( TQWidget *parent, const char *name )
     rectangles = 0;
     startTimer( 0 );				// run continuous timer
     TQTimer * counter = new TQTimer( this );
-    connect( counter, SIGNAL(timeout()),
-	     this, SLOT(updateCaption()) );
+    connect( counter, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(updateCaption()) );
     counter->start( 1000 );
 }
 

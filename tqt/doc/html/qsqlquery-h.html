@@ -86,13 +86,13 @@ body { background: #ffffff; color: black; }
 #include "ntqsql.h"
 #endif // QT_H
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 class TQSqlDriver;
 class TQSqlResult;
 class TQSqlDatabase;
 
-class Q_EXPORT TQSqlResultShared : public TQObject, public TQShared
+class TQ_EXPORT TQSqlResultShared : public TQObject, public TQShared
 {
     TQ_OBJECT
 public:
@@ -104,7 +104,7 @@ private slots:
     void slotResultDestroyed();
 };
 
-class Q_EXPORT TQSqlQuery
+class TQ_EXPORT TQSqlQuery
 {
 public:
     TQSqlQuery( TQSqlResult * r );
@@ -164,7 +164,7 @@ private:
 };
 
 
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL
 #endif
 </pre>
 <!-- eof -->

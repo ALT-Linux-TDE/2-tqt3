@@ -40,7 +40,7 @@
 **
 **********************************************************************/
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "qsimpleinputcontext.h"
 #include "qsimpleinputcontextplugin.h"
 #include <ntqinputcontextplugin.h>
@@ -81,6 +81,6 @@ TQString TQSimpleInputContextPlugin::description( const TQString & )
 }
 
 
-Q_EXPORT_PLUGIN( TQSimpleInputContextPlugin )
+TQ_EXPORT_PLUGIN( TQSimpleInputContextPlugin )
 
 #endif

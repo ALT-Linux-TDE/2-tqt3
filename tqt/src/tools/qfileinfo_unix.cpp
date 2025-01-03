@@ -133,7 +133,7 @@ TQString TQFileInfo::readLink() const
     if ( !isSymLink() )
         return TQString();
 #if defined(Q_OS_UNIX) && !defined(Q_OS_OS2EMX)
-#if defined(__GLIBC__) && !defined(PATH_MAX)
+#if !defined(PATH_MAX)
     int size = 256;
     char *s = NULL, *s2;
 
@@ -165,7 +165,7 @@ TQString TQFileInfo::readLink() const
 	s[len] = '\0';
 	return TQFile::decodeName(s);
     }
-#endif /* __GLIBC__ && !PATH_MAX */
+#endif /* !PATH_MAX */
 #endif /* Q_OS_UNIX && !Q_OS_OS2EMX */
 #if !defined(TQWS) && defined(Q_OS_MAC)
     {
@@ -358,7 +358,7 @@ void TQFileInfo::doStat() const
 
     \sa dir(), filePath(), fileName(), isRelative()
 */
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 TQString TQFileInfo::dirPath( bool absPath ) const
 {
     TQString s;

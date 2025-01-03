@@ -41,27 +41,27 @@
 #ifndef TQTHREAD_H
 #define TQTHREAD_H
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
 #ifndef QT_H
 #include "ntqwindowdefs.h"
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #include "ntqmutex.h"
 #include "ntqsemaphore.h"
 #include "ntqwaitcondition.h"
-#endif // QT_NO_COMPAT
+#endif // TQT_NO_COMPAT
 #endif // QT_H
 
 #include <limits.h>
 
 class TQThreadInstance;
 
-class Q_EXPORT TQThread : public TQt
+class TQ_EXPORT TQThread : public TQt
 {
 public:
     static TQt::HANDLE currentThread();
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     static void postEvent( TQObject *,TQEvent * );
 #endif
 
@@ -129,6 +129,7 @@ protected:
 private:
     TQThreadInstance * d;
     friend class TQThreadInstance;
+    friend class TQThreadStorageData;
     friend class TQCoreApplicationThread;
     friend class TQApplication;
     friend class TQEventLoop;
@@ -142,7 +143,7 @@ public:
     static TQThread* currentThreadObject();
 };
 
-class Q_EXPORT TQEventLoopThread : public TQThread
+class TQ_EXPORT TQEventLoopThread : public TQThread
 {
     public:
         TQEventLoopThread();
@@ -150,6 +151,6 @@ class Q_EXPORT TQEventLoopThread : public TQThread
         virtual void run();
 };
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #endif // TQTHREAD_H

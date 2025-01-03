@@ -46,7 +46,7 @@
 #include "ntqrect.h"
 #endif // QT_H
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 class TQWSDisplay;
 class TQGfx;
 #endif
@@ -56,7 +56,7 @@ class TQString;
 class TQTextItem;
 
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 struct TQPaintDeviceX11Data;
 #endif
 
@@ -81,7 +81,7 @@ union TQPDevCmdParam {
 
 
 
-class Q_EXPORT TQPaintDevice				// device for TQPainter
+class TQ_EXPORT TQPaintDevice				// device for TQPainter
 {
 public:
     virtual ~TQPaintDevice();
@@ -95,18 +95,18 @@ public:
 
     // Windows:	  get device context
     // X-Windows: get drawable
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     virtual HDC		handle() const;
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     virtual TQt::HANDLE	handle() const;
     virtual TQt::HANDLE  x11RenderHandle() const;
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     virtual TQt::HANDLE      handle() const;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
     virtual TQt::HANDLE	handle() const;
 #endif
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     Display 	   *x11Display() const;
     int		    x11Screen() const;
     int		    x11Depth() const;
@@ -146,7 +146,7 @@ public:
     static void     x11SetAppDpiY( int, int );
 #endif
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     static TQWSDisplay *qwsDisplay();
     virtual unsigned char * scanLine(int) const;
     virtual int bytesPerLine() const;
@@ -215,9 +215,9 @@ public:
 protected:
     TQPaintDevice( uint devflags );
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     HDC		hdc;				// device context
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     TQt::HANDLE	hd;				// handle to drawable
     TQt::HANDLE  rendhd;                         // handle to RENDER pict
 
@@ -225,12 +225,12 @@ protected:
     void		 cloneX11Data( const TQPaintDevice * );
     virtual void	 setX11Data( const TQPaintDeviceX11Data* );
     TQPaintDeviceX11Data* getX11Data( bool def=FALSE ) const;
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 #if !defined( TQMAC_NO_QUARTZ )
     CGContextRef ctx;
 #endif
     void * hd;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
     TQt::HANDLE hd;
 #endif
 
@@ -244,24 +244,24 @@ protected:
 
     friend class TQPainter;
     friend class TQPaintDeviceMetrics;
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
 #ifndef TQMAC_NO_QUARTZ
     virtual CGContextRef macCGContext(bool clipped=TRUE) const;
 #endif
-    friend Q_EXPORT void unclippedScaledBitBlt( TQPaintDevice *, int, int, int, int,
+    friend TQ_EXPORT void unclippedScaledBitBlt( TQPaintDevice *, int, int, int, int,
 						const TQPaintDevice *, int, int, int, int, TQt::RasterOp, bool, bool );
 #else
-    friend Q_EXPORT void bitBlt( TQPaintDevice *, int, int,
+    friend TQ_EXPORT void bitBlt( TQPaintDevice *, int, int,
 				 const TQPaintDevice *,
 				 int, int, int, int, TQt::RasterOp, bool );
 #endif
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     friend void tqt_init_internal( int *, char **, Display *, TQt::HANDLE, TQt::HANDLE );
     friend void tqt_cleanup();
 #endif
 
 private:
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     static Display *x_appdisplay;
     static int	    x_appscreen;
 
@@ -293,20 +293,20 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-Q_EXPORT
+TQ_EXPORT
 void bitBlt( TQPaintDevice *dst, int dx, int dy,
 	     const TQPaintDevice *src, int sx=0, int sy=0, int sw=-1, int sh=-1,
 	     TQt::RasterOp = TQt::CopyROP, bool ignoreMask=FALSE );
 
-Q_EXPORT
+TQ_EXPORT
 void bitBlt( TQPaintDevice *dst, int dx, int dy,
 	     const TQImage *src, int sx=0, int sy=0, int sw=-1, int sh=-1,
 	     int conversion_flags=0 );
 
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 
-struct Q_EXPORT TQPaintDeviceX11Data : public TQShared {
+struct TQ_EXPORT TQPaintDeviceX11Data : public TQShared {
     Display*	x_display;
     int		x_screen;
     int		x_depth;
@@ -332,7 +332,7 @@ inline bool TQPaintDevice::isExtDev() const
 inline bool TQPaintDevice::paintingActive() const
 { return painters != 0; }
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 inline Display *TQPaintDevice::x11Display() const
 { return x11Data ? x11Data->x_display : x_appdisplay; }
 
@@ -405,10 +405,10 @@ inline void *TQPaintDevice::x11AppVisual()
 inline bool TQPaintDevice::x11AppDefaultVisual()
 { return x_appdefvisual; }
 
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 
-Q_EXPORT
+TQ_EXPORT
 inline void bitBlt( TQPaintDevice *dst, const TQPoint &dp,
 		    const TQPaintDevice *src, const TQRect &sr =TQRect(0,0,-1,-1),
 		    TQt::RasterOp rop=TQt::CopyROP, bool ignoreMask=FALSE )

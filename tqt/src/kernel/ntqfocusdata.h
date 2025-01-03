@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQFocusData {
+class TQ_EXPORT TQFocusData {
 public:
     TQWidget* focusWidget() const { return it.current(); }
 

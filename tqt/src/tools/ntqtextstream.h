@@ -47,20 +47,20 @@
 #include <stdio.h>
 #endif // QT_H
 
-#ifndef QT_NO_TEXTSTREAM
+#ifndef TQT_NO_TEXTSTREAM
 class TQTextCodec;
 class TQTextDecoder;
 
 class TQTextStreamPrivate;
 
-class Q_EXPORT TQTextStream				// text stream class
+class TQ_EXPORT TQTextStream				// text stream class
 {
 public:
     enum Encoding { Locale, Latin1, Unicode, UnicodeNetworkOrder,
 		    UnicodeReverse, RawUnicode, UnicodeUTF8 };
 
     void	setEncoding( Encoding );
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     void	setCodec( TQTextCodec* );
     TQTextCodec *codec();
 #endif
@@ -201,7 +201,7 @@ private:	// Disabled copy constructor and operator=
 
 typedef TQTextStream TQTS;
 
-class Q_EXPORT TQTextIStream : public TQTextStream {
+class TQ_EXPORT TQTextIStream : public TQTextStream {
 public:
     TQTextIStream( const TQString* s ) :
 	TQTextStream((TQString*)s,IO_ReadOnly) { }
@@ -217,7 +217,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-class Q_EXPORT TQTextOStream : public TQTextStream {
+class TQ_EXPORT TQTextOStream : public TQTextStream {
 public:
     TQTextOStream( TQString* s ) :
 	TQTextStream(s,IO_WriteOnly) { }
@@ -292,7 +292,7 @@ inline TQChar TQTextStream::ts_getc()
 typedef TQTextStream & (*TQTSFUNC)(TQTextStream &);// manipulator function
 typedef int (TQTextStream::*TQTSMFI)(int);	// manipulator w/int argument
 
-class Q_EXPORT TQTSManip {			// text stream manipulator
+class TQ_EXPORT TQTSManip {			// text stream manipulator
 public:
     TQTSManip( TQTSMFI m, int a ) { mf=m; arg=a; }
     void exec( TQTextStream &s ) { (s.*mf)(arg); }
@@ -301,41 +301,41 @@ private:
     int	   arg;					// member function argument
 };
 
-Q_EXPORT inline TQTextStream &operator>>( TQTextStream &s, TQTSFUNC f )
+TQ_EXPORT inline TQTextStream &operator>>( TQTextStream &s, TQTSFUNC f )
 { return (*f)( s ); }
 
-Q_EXPORT inline TQTextStream &operator<<( TQTextStream &s, TQTSFUNC f )
+TQ_EXPORT inline TQTextStream &operator<<( TQTextStream &s, TQTSFUNC f )
 { return (*f)( s ); }
 
-Q_EXPORT inline TQTextStream &operator<<( TQTextStream &s, TQTSManip m )
+TQ_EXPORT inline TQTextStream &operator<<( TQTextStream &s, TQTSManip m )
 { m.exec(s); return s; }
 
-Q_EXPORT TQTextStream &bin( TQTextStream &s );	// set bin notation
-Q_EXPORT TQTextStream &oct( TQTextStream &s );	// set oct notation
-Q_EXPORT TQTextStream &dec( TQTextStream &s );	// set dec notation
-Q_EXPORT TQTextStream &hex( TQTextStream &s );	// set hex notation
-Q_EXPORT TQTextStream &endl( TQTextStream &s );	// insert EOL ('\n')
-Q_EXPORT TQTextStream &flush( TQTextStream &s );	// flush output
-Q_EXPORT TQTextStream &ws( TQTextStream &s );	// eat whitespace on input
-Q_EXPORT TQTextStream &reset( TQTextStream &s );	// set default flags
+TQ_EXPORT TQTextStream &bin( TQTextStream &s );	// set bin notation
+TQ_EXPORT TQTextStream &oct( TQTextStream &s );	// set oct notation
+TQ_EXPORT TQTextStream &dec( TQTextStream &s );	// set dec notation
+TQ_EXPORT TQTextStream &hex( TQTextStream &s );	// set hex notation
+TQ_EXPORT TQTextStream &endl( TQTextStream &s );	// insert EOL ('\n')
+TQ_EXPORT TQTextStream &flush( TQTextStream &s );	// flush output
+TQ_EXPORT TQTextStream &ws( TQTextStream &s );	// eat whitespace on input
+TQ_EXPORT TQTextStream &reset( TQTextStream &s );	// set default flags
 
-Q_EXPORT inline TQTSManip qSetW( int w )
+TQ_EXPORT inline TQTSManip qSetW( int w )
 {
     TQTSMFI func = &TQTextStream::width;
     return TQTSManip(func,w);
 }
 
-Q_EXPORT inline TQTSManip qSetFill( int f )
+TQ_EXPORT inline TQTSManip qSetFill( int f )
 {
     TQTSMFI func = &TQTextStream::fill;
     return TQTSManip(func,f);
 }
 
-Q_EXPORT inline TQTSManip qSetPrecision( int p )
+TQ_EXPORT inline TQTSManip qSetPrecision( int p )
 {
     TQTSMFI func = &TQTextStream::precision;
     return TQTSManip(func,p);
 }
 
-#endif // QT_NO_TEXTSTREAM
+#endif // TQT_NO_TEXTSTREAM
 #endif // TQTEXTSTREAM_H

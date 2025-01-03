@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqdrawutil.h"
-#ifndef QT_NO_DRAWUTIL
+#ifndef TQT_NO_DRAWUTIL
 #include "ntqbitmap.h"
 #include "ntqpixmapcache.h"
 #include "ntqapplication.h"
@@ -629,7 +629,7 @@ void qDrawItem( TQPainter *p, TQt::GUIStyle gs,
 		}
 	    } else if ( pm.depth() == 1 ) {	// monochrome pixmap, no mask
 		pm.setMask( *((TQBitmap *)&pm) );
-#ifndef QT_NO_IMAGE_HEURISTIC_MASK
+#ifndef TQT_NO_IMAGE_HEURISTIC_MASK
 	    } else {				// color pixmap, no mask
 		TQString k;
 		k.sprintf( "$qt-drawitem-%x", pm.serialNumber() );
@@ -795,7 +795,7 @@ static void qDrawWinArrow( TQPainter *p, TQt::ArrowType type, bool down,
 #pragma warning(disable: 4244)
 #endif
 
-#ifndef QT_NO_STYLE_MOTIF
+#ifndef TQT_NO_STYLE_MOTIF
 // motif arrows look the same whether they are used or not
 // is this correct?
 static void qDrawMotifArrow( TQPainter *p, TQt::ArrowType type, bool down,
@@ -806,7 +806,7 @@ static void qDrawMotifArrow( TQPainter *p, TQt::ArrowType type, bool down,
     TQPointArray bTop;				// top shadow.
     TQPointArray bBot;				// bottom shadow.
     TQPointArray bLeft;				// left shadow.
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQWMatrix	matrix;				// xform matrix
 #endif
     bool vertical = type == TQt::UpArrow || type == TQt::DownArrow;
@@ -857,7 +857,7 @@ static void qDrawMotifArrow( TQPainter *p, TQt::ArrowType type, bool down,
     }
 
     if ( type == TQt::UpArrow || type == TQt::LeftArrow ) {
-#ifndef QT_NO_TRANSFORMATIONS	// #### fix me!
+#ifndef TQT_NO_TRANSFORMATIONS	// #### fix me!
 	matrix.translate( x, y );
 	if ( vertical ) {
 	    matrix.translate( 0, h - 1 );
@@ -873,7 +873,7 @@ static void qDrawMotifArrow( TQPainter *p, TQt::ArrowType type, bool down,
 	    colspec = horizontal ? 0x1443 : 0x1434;
     }
     else if ( type == TQt::DownArrow || type == TQt::RightArrow ) {
-#ifndef QT_NO_TRANSFORMATIONS	// #### fix me!
+#ifndef TQT_NO_TRANSFORMATIONS	// #### fix me!
 	matrix.translate( x, y );
 	if ( vertical ) {
 	    matrix.translate( w-1, 0 );
@@ -899,7 +899,7 @@ static void qDrawMotifArrow( TQPainter *p, TQt::ArrowType type, bool down,
 
     TQPen     savePen   = p->pen();		// save current pen
     TQBrush   saveBrush = p->brush();		// save current brush
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQWMatrix wxm = p->worldMatrix();
 #endif
     TQPen     pen( TQt::NoPen );
@@ -907,7 +907,7 @@ static void qDrawMotifArrow( TQPainter *p, TQt::ArrowType type, bool down,
 
     p->setPen( pen );
     p->setBrush( brush );
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     p->setWorldMatrix( matrix, TRUE );		// set transformation matrix
 #endif
     p->drawPolygon( bFill );			// fill arrow
@@ -920,7 +920,7 @@ static void qDrawMotifArrow( TQPainter *p, TQt::ArrowType type, bool down,
     p->setPen( CBOT );
     p->drawLineSegments( bBot );
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     p->setWorldMatrix( wxm );
 #endif
     p->setBrush( saveBrush );			// restore brush
@@ -941,7 +941,7 @@ void qDrawArrow( TQPainter *p, TQt::ArrowType type, TQt::GUIStyle style, bool do
 	case TQt::WindowsStyle:
 	    qDrawWinArrow( p, type, down, x, y, w, h, g, enabled );
 	    break;
-#ifndef QT_NO_STYLE_MOTIF
+#ifndef TQT_NO_STYLE_MOTIF
 	case TQt::MotifStyle:
 	    qDrawMotifArrow( p, type, down, x, y, w, h, g, enabled );
 	    break;
@@ -954,4 +954,4 @@ void qDrawArrow( TQPainter *p, TQt::ArrowType type, TQt::GUIStyle style, bool do
 #endif
     }
 }
-#endif //QT_NO_DRAWUTIL
+#endif //TQT_NO_DRAWUTIL

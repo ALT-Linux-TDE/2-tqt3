@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** Qt Year 2000 Compliance
+** TQt Year 2000 Compliance
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -45,13 +45,13 @@ product or part of product does not contain errors related to
 transition from December 31, 1999 to January 1, 2000, or to the
 existence of February 29, 2000.
 
-This document certifies that the API provided by Qt and the
-implementation of Qt are both Year 2000 Compliant, and that the use of
-underlying APIs by Qt does not have any known problems.
+This document certifies that the API provided by TQt and the
+implementation of TQt are both Year 2000 Compliant, and that the use of
+underlying APIs by TQt does not have any known problems.
 
 \section1 The API Provided by Qt
 
-Several parts of Qt deal with dates and times:
+Several parts of TQt deal with dates and times:
 \list
 \i \l QDate - provides date management
 \i \l QDateTime - provides date/time management
@@ -65,7 +65,7 @@ not deal with years or leap days at all.
 
 \section1 Implementation Issues in Qt
 
-All date/time calculation and storage in Qt uses number of days,
+All date/time calculation and storage in TQt uses number of days,
 seconds or milliseconds, and is thus Year 2000 Compliant.
 
 This applies to the above four classes and also to \l QFileDialog
@@ -84,7 +84,7 @@ time warps) in the underlying operating system.
 \section1 Use of System APIs
 
 It is of course impossible for Trolltech to ensure that both of the
-window systems and all of the operating systems on which Qt runs are
-Year 2000 Compliant. However, Qt does not use any APIs that are known
+window systems and all of the operating systems on which TQt runs are
+Year 2000 Compliant. However, TQt does not use any APIs that are known
 to have any Year 2000-related bugs, or seem at risk to have any.
 */

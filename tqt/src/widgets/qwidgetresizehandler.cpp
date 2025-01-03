@@ -40,12 +40,12 @@
 
 #include "qwidgetresizehandler_p.h"
 
-#ifndef QT_NO_RESIZEHANDLER
+#ifndef TQT_NO_RESIZEHANDLER
 #include "ntqframe.h"
 #include "ntqapplication.h"
 #include "ntqcursor.h"
 #include "ntqsizegrip.h"
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #include "qt_windows.h"
 #endif
 
@@ -113,7 +113,7 @@ bool TQWidgetResizeHandler::eventFilter( TQObject *o, TQEvent *ee )
 
     TQWidget *w = childOf( widget, (TQWidget*)o );
     if ( !w
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
 	 || ::tqt_cast<TQSizeGrip*>(o)
 #endif
 	 || tqApp->activePopupWidget() ) {
@@ -200,7 +200,7 @@ void TQWidgetResizeHandler::mouseMoveEvent( TQMouseEvent *e )
 
 	if ( widget->isMinimized() || !isActive(Resize) )
 	    mode = Center;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	setMouseCursor( mode );
 #endif
 	return;
@@ -299,7 +299,7 @@ void TQWidgetResizeHandler::mouseMoveEvent( TQMouseEvent *e )
 	    widget->setGeometry( geom );
     }
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     MSG msg;
     QT_WA( {
 	while(PeekMessageW( &msg, widget->winId(), WM_MOUSEMOVE, WM_MOUSEMOVE, PM_REMOVE ))
@@ -315,7 +315,7 @@ void TQWidgetResizeHandler::mouseMoveEvent( TQMouseEvent *e )
 
 void TQWidgetResizeHandler::setMouseCursor( MousePosition m )
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     switch ( m ) {
     case TopLeft:
     case BottomRight:
@@ -365,7 +365,7 @@ void TQWidgetResizeHandler::keyPressEvent( TQKeyEvent * e )
 		mode = BottomLeft;
 	    else if ( mode == TopRight )
 		mode = TopLeft;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    setMouseCursor( mode );
 	    widget->grabMouse( widget->cursor() );
 #else
@@ -390,7 +390,7 @@ void TQWidgetResizeHandler::keyPressEvent( TQKeyEvent * e )
 		mode = BottomRight;
 	    else if ( mode == TopLeft )
 		mode = TopRight;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    setMouseCursor( mode );
 	    widget->grabMouse( widget->cursor() );
 #else
@@ -415,7 +415,7 @@ void TQWidgetResizeHandler::keyPressEvent( TQKeyEvent * e )
 		mode = TopLeft;
 	    else if ( mode == BottomRight )
 		mode = TopRight;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    setMouseCursor( mode );
 	    widget->grabMouse( widget->cursor() );
 #else
@@ -440,7 +440,7 @@ void TQWidgetResizeHandler::keyPressEvent( TQKeyEvent * e )
 		mode = BottomLeft;
 	    else if ( mode == TopRight )
 		mode = BottomRight;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    setMouseCursor( mode );
 	    widget->grabMouse( widget->cursor() );
 #else
@@ -484,7 +484,7 @@ void TQWidgetResizeHandler::doResize()
 	    mode = BottomRight;
     }
     invertedMoveOffset = widget->rect().bottomRight() - moveOffset;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     setMouseCursor( mode );
     widget->grabMouse( widget->cursor()  );
 #else
@@ -505,7 +505,7 @@ void TQWidgetResizeHandler::doMove()
     buttonDown = TRUE;
     moveOffset = widget->mapFromGlobal( TQCursor::pos() );
     invertedMoveOffset = widget->rect().bottomRight() - moveOffset;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     widget->grabMouse( SizeAllCursor );
 #else
     widget->grabMouse();
@@ -513,4 +513,4 @@ void TQWidgetResizeHandler::doMove()
     widget->grabKeyboard();
 }
 
-#endif //QT_NO_RESIZEHANDLER
+#endif //TQT_NO_RESIZEHANDLER

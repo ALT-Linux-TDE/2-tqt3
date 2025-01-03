@@ -62,7 +62,7 @@
 
 #include "ntqclipboard.h"
 
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 
 #include "ntqapplication.h"
 #include "ntqeventloop.h"
@@ -112,7 +112,7 @@ static int pending_timer_id = 0;
 static bool pending_clipboard_changed = FALSE;
 static bool pending_selection_changed = FALSE;
 
-Q_EXPORT bool tqt_qclipboard_bailout_hack = false;
+TQ_EXPORT bool tqt_qclipboard_bailout_hack = false;
 
 // event capture mechanism for qt_xclb_wait_for_event
 static bool waiting_for_data = FALSE;
@@ -1670,4 +1670,4 @@ bool qt_check_clipboard_sentinel()
     return doIt;
 }
 
-#endif // QT_NO_CLIPBOARD
+#endif // TQT_NO_CLIPBOARD

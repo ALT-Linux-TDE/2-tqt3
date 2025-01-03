@@ -81,7 +81,7 @@ body { background: #ffffff; color: black; }
 #endif // QT_H
 
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 
 class TQPopupMenu;
 class TQStylePrivate;
@@ -157,7 +157,7 @@ private:
 
 class TQStyleHintReturn; // not defined yet
 
-class Q_EXPORT TQStyle: public TQObject
+class TQ_EXPORT TQStyle: public TQObject
 {
     TQ_OBJECT
 
@@ -759,7 +759,7 @@ public:
 
     // Old 2.x TQStyle API
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     int defaultFrameWidth() const
     {
 	return pixelMetric( PM_DefaultFrameWidth );
@@ -788,7 +788,7 @@ private:
 #endif
 };
 
-#endif // QT_NO_STYLE
+#endif // TQT_NO_STYLE
 #endif // TQSTYLE_H
 </pre>
 <!-- eof -->

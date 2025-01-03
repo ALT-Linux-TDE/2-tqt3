@@ -45,9 +45,9 @@
 #include "ntqgroupbox.h"
 #endif // QT_H
 
-#ifndef QT_NO_HGROUPBOX
+#ifndef TQT_NO_HGROUPBOX
 
-class Q_EXPORT TQHGroupBox : public TQGroupBox
+class TQ_EXPORT TQHGroupBox : public TQGroupBox
 {
     TQ_OBJECT
 public:
@@ -62,6 +62,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_HGROUPBOX
+#endif // TQT_NO_HGROUPBOX
 
 #endif // TQHGROUPBOX_H

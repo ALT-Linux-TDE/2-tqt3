@@ -40,9 +40,10 @@
 
 #ifndef TQPRINTER_P_H
 #define TQPRINTER_P_H
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
 
 #ifndef QT_H
+#include <ntqprinter.h>
 #include <ntqshared.h>
 #include <ntqstring.h>
 #include <ntqsize.h>
@@ -53,6 +54,8 @@ class TQPrinterPrivate
 public:
     TQ_UINT32 printerOptions;
     TQPrinter::PrintRange printRange;
+
+    virtual ~TQPrinterPrivate() {};
 };
 
 #endif

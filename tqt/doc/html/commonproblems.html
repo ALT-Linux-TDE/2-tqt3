@@ -66,13 +66,13 @@ moc-generated object code into your executable. See <a href="moc.html">Using the
 are usually located in the <tt>include</tt> subdirectory of TQt distributions.
 Care must be taken to include the header files of the relevant release of
 TQt. Those with a command-line compiler will typically use options such as
-<tt>/I%QTDIR%&#92;include</tt>
+<tt>/I%TQTDIR%&#92;include</tt>
 
 the relevant release of TQt.
 <p> <dt>Meta Object Compiler and other tools - Compile time
 <p> <dd>Programmers need to run <em>moc</em> and other tools such as <em>uic</em>. These
 tools are usually located in the <tt>bin</tt> subdirectory of TQt distributions.
-Either run <tt>"$QTDIR"/bin/moc</tt> and <tt>"$QTDIR"/bin/uic</tt> or add <tt>"$QTDIR"/bin</tt>
+Either run <tt>"$TQTDIR"/bin/moc</tt> and <tt>"$TQTDIR"/bin/uic</tt> or add <tt>"$TQTDIR"/bin</tt>
 to your <tt>PATH</tt> and run <a href="moc.html#moc">moc</a> and <tt>uic</tt>. If you use <tt>qmake</tt> the
 appropriate lines will be added to your Makefiles so that <em>uic</em> and
 <em>moc</em> will be executed as required.
@@ -81,7 +81,7 @@ appropriate lines will be added to your Makefiles so that <em>uic</em> and
 libraries are usually located in the <tt>lib</tt> subdirectory of TQt distributions.
 Care must be taken to link with the libraries of the relevant release of
 TQt.  Those with a command-line compiler will typically use options such as
-<tt>/L%QTDIR%&#92;lib&#92;qt.lib</tt> or <tt>-L"$QTDIR"/lib</tt> <tt>-lqt</tt> provided <tt>QTDIR</tt>
+<tt>/L%TQTDIR%&#92;lib&#92;qt.lib</tt> or <tt>-L"$TQTDIR"/lib</tt> <tt>-lqt</tt> provided <tt>TQTDIR</tt>
 specifies the relevant release of TQt.
 <p> <dt>Shared libraries - Run time
 <p> <dd>Users of programs linked with shared TQt libraries need these same
@@ -125,7 +125,7 @@ TQt 2.x.  They are included in the regular packages of TQt 3.x (<tt>qt3</tt>
 or similar) and TQt 2.x (<tt>qt2</tt> or similar).
 <p> </ul>
 <p> Just install the packages, <tt>qt2</tt>, <tt>qt3</tt>, and <tt>qt3-dev</tt>. You may
-need to set the environment variable <tt>QTDIR</tt> to point to TQt 3.x.
+need to set the environment variable <tt>TQTDIR</tt> to point to TQt 3.x.
 <p> <a name="qtsrc"></a>
 <h3> Developers building for two versions of TQt on Unix - TQt sources
 </h3>
@@ -143,14 +143,14 @@ and TQt 2.x to build programs,
 $ cd /opt
 $ gunzip -c \c qt-x11-2.3.1.tar.gz | tar xf -
 $ cd qt-2.3.1
-$ setenv QTDIR /opt/qt-2.3.1
+$ setenv TQTDIR /opt/qt-2.3.1
 $ configure [options]
 $ make
 
 $ cd /opt
 $ gunzip -c qt-x11-free-3.0.0.tar.gz | tar xf -
 $ cd qt-3.0.0
-$ setenv QTDIR /opt/qt-3.0.0
+$ setenv TQTDIR /opt/qt-3.0.0
 $ configure [options]
 $ make
 </pre>
@@ -162,29 +162,29 @@ you're using, or make links to the libraries in a standard directory like
 <tt>/usr/local/lib</tt>:
 <p> <pre>
 cd /usr/local/lib
-ln -s /opt/qt-2.3.1/lib/libqt.so.2 .
+ln -s /opt/qt-2.3.1/lib/libtqt.so.2 .
 ln -s /opt/qt-2.3.1/lib/libtqt-mt.so.2 .
 ln -s /opt/qt-2.3.1/lib/libqutil.so.1 .
-ln -s /opt/qt-3.0.0/lib/libqt.so.3 .
+ln -s /opt/qt-3.0.0/lib/libtqt.so.3 .
 ln -s /opt/qt-3.0.0/lib/libtqui.so.1 .
 </pre>
  
 <p> </ol>
 <p> To develop with TQt 2.x use:
 <p> <pre>
-setenv QTDIR /opt/qt-2.3.1
-setenv PATH ${QTDIR}/bin:${PATH}
+setenv TQTDIR /opt/qt-2.3.1
+setenv PATH ${TQTDIR}/bin:${PATH}
 </pre>
  
 <p> To develop with TQt 3.x use:
 <p> <pre>
-setenv QTDIR /opt/qt-3.0.0
-setenv PATH ${QTDIR}/bin:${PATH}
+setenv TQTDIR /opt/qt-3.0.0
+setenv PATH ${TQTDIR}/bin:${PATH}
 </pre>
  
-<p> Setting <tt>QTDIR</tt> ensures that the proper resources are used, such as the
+<p> Setting <tt>TQTDIR</tt> ensures that the proper resources are used, such as the
 documentation appropriate to the version of TQt you're using.  Also
-your Makfiles may refer to <tt>"$QTDIR"/include</tt> and <tt>"$QTDIR"/lib</tt> to
+your Makfiles may refer to <tt>"$TQTDIR"/include</tt> and <tt>"$TQTDIR"/lib</tt> to
 include the proper header files and link with the proper libraries.
 Setting the <tt>PATH</tt> ensures that the proper version of moc and other
 tools is being used.

@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** Qt collection classes documentation
+** TQt collection classes documentation
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -54,7 +54,7 @@ classes. The pointer-based collection classes work with pointers to
 items, while the value-based classes store copies of their items. The
 value-based collections are very similar to STL container classes, and
 can be used with STL algorithms and containers. See the \link
-qt-template-lib.html Qt Template Library\endlink documentation for
+qt-template-lib.html TQt Template Library\endlink documentation for
 details.
 
 The value-based collections are:
@@ -96,8 +96,8 @@ is a class for traversing the items in a collection:
 \endlist
 
 The value-based collections plus algorithms operating on them are
-grouped together in the \link qt-template-lib.html Qt Template
-Library\endlink; see also the \link ntqtl.html Qt Template
+grouped together in the \link qt-template-lib.html TQt Template
+Library\endlink; see also the \link ntqtl.html TQt Template
 Library Classes\endlink.
 
 The rest of this page dicusses the pointer-based containers.
@@ -130,7 +130,7 @@ them out in reverse order:
         const char *name()   const		 { return n; }
         int	    salary() const		 { return s; }
     private:
-        QString     n;
+        TQString     n;
         int         s;
     };
 
@@ -239,7 +239,7 @@ Qt has the following predefined collection classes:
 \endlist
 
 In almost all cases you would choose \l QStringList, a value
-list of implicitly shared QString Unicode strings. QPtrStrList and
+list of implicitly shared TQString Unicode strings. QPtrStrList and
 QPtrStrIList store only char pointers, not the strings themselves.
 
 \section1 List of Pointer-based Collection Classes and Related

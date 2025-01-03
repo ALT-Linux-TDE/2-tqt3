@@ -92,7 +92,7 @@ Example:
 <pre>
         <a href="ntqpushbutton.html">TQPushButton</a> p( "&amp;Exit", parent ); // automatic shortcut ALT+Key_E
         <a href="ntqpopupmenu.html">TQPopupMenu</a> *fileMenu = new fileMenu( parent );
-        fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Undo", parent, SLOT(undo()), CTRL+Key_Z );
+        fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Undo", parent, TQ_SLOT(undo()), CTRL+Key_Z );
     </pre>
  
 <p> A TQAccel contains a list of accelerator items that can be
@@ -138,7 +138,7 @@ combination.
         TQAccel *a = new TQAccel( myWindow );        // create accels for myWindow
         a-&gt;<a href="#connectItem">connectItem</a>( a-&gt;<a href="#insertItem">insertItem</a>(Key_P+CTRL), // adds Ctrl+P accelerator
                         myWindow,                  // connected to myWindow's
-                        SLOT(printDoc()) );        // printDoc() slot
+                        TQ_SLOT(printDoc()) );        // printDoc() slot
     </pre>
  
 <p> <p>See also <a href="qkeyevent.html">TQKeyEvent</a>, <a href="ntqwidget.html#keyPressEvent">TQWidget::keyPressEvent</a>(), <a href="ntqmenudata.html#setAccel">TQMenuData::setAccel</a>(), <a href="ntqbutton.html#accel-prop">TQButton::accel</a>, <a href="ntqlabel.html#setBuddy">TQLabel::setBuddy</a>(), <a href="ntqkeysequence.html">TQKeySequence</a>, <a href="guibooks.html#fowler">GUI Design Handbook: Keyboard Shortcuts</a>, and <a href="misc.html">Miscellaneous Classes</a>.
@@ -180,7 +180,7 @@ Removes all accelerator items.
 </h3>
 Connects the accelerator item <em>id</em> to the slot <em>member</em> of <em>receiver</em>.
 <p> <pre>
-        a-&gt;connectItem( 201, mainView, SLOT(quit()) );
+        a-&gt;connectItem( 201, mainView, TQ_SLOT(quit()) );
     </pre>
  
 <p> Of course, you can also send a signal as <em>member</em>.
@@ -307,7 +307,7 @@ if <em>s</em> is not recognized.
 translations:
 <p> <pre>
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p1, tr("&amp;Open..."), this, SLOT(open()),
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p1, tr("&amp;Open..."), this, TQ_SLOT(open()),
                       TQAccel::<a href="#stringToKey">stringToKey</a>(<a href="ntqobject.html#tr">tr</a>("Ctrl+O", "File|Open")) );
   </pre>
  

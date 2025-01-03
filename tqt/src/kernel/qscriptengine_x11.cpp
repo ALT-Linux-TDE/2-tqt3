@@ -45,7 +45,7 @@ static bool syriac_shape(TQShaperItem *item)
 {
     Q_ASSERT(item->script == TQFont::Syriac);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     TQOpenType *openType = item->font->openType();
     if (openType && openType->supportsScript(TQFont::Syriac)) {
         bool ot_ok;
@@ -64,7 +64,7 @@ static bool thaana_shape(TQShaperItem *item)
 {
     Q_ASSERT(item->script == TQFont::Thaana);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     TQOpenType *openType = item->font->openType();
 
     if (openType && openType->supportsScript(item->script)) {
@@ -1167,7 +1167,7 @@ enum IndicProperties {
     CligProperty = 0x10000
 };
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 static const TQOpenType::Features indic_features[] = {
     { FT_MAKE_TAG('c', 'c', 'm', 'p'), CcmpProperty },
     { FT_MAKE_TAG('i', 'n', 'i', 't'), InitProperty },
@@ -1571,7 +1571,7 @@ static bool indic_shape_syllable(TQOpenType *openType, TQShaperItem *item, bool 
     for (i = 0; i < len; ++i)
         control |= (form(reordered[i]) == Control);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (openType) {
 
         // we need to keep track of where the base glyph is for some
@@ -1816,7 +1816,7 @@ static bool indic_shape(TQShaperItem *item)
 {
     Q_ASSERT(item->script >= TQFont::Devanagari && item->script <= TQFont::Sinhala);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     TQOpenType *openType = item->font->openType();
     if (openType)
         openType->selectScript(item->script, indic_features);
@@ -1905,12 +1905,12 @@ static void indic_attributes(int script, const TQString &text, int from, int len
 
 static void thaiWordBreaks(const TQChar *string, const int len, TQCharAttributes *attributes)
 {
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     typedef int (*th_brk_def)(const char*, int[], int);
     static TQTextCodec *thaiCodec = TQTextCodec::codecForMib(2259);
     static th_brk_def th_brk = 0;
 
-#ifndef QT_NO_LIBRARY
+#ifndef TQT_NO_LIBRARY
     /* load libthai dynamically */
     if (!th_brk && thaiCodec) {
         th_brk = (th_brk_def)TQLibrary::resolve("thai", "th_brk");
@@ -2026,7 +2026,7 @@ static inline TibetanForm tibetan_form(const TQChar &c)
     return (TibetanForm)tibetanForm[c.unicode() - 0x0f40];
 }
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 static const TQOpenType::Features tibetan_features[] = {
     { FT_MAKE_TAG('c', 'c', 'm', 'p'), CcmpProperty },
     { FT_MAKE_TAG('a', 'b', 'v', 's'), AboveSubstProperty },
@@ -2070,7 +2070,7 @@ static bool tibetan_shape_syllable(TQOpenType *openType, TQShaperItem *item, boo
 
     // now we have the syllable in the right order, and can start running it through open type.
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (openType && openType->supportsScript(TQFont::Tibetan)) {
         openType->selectScript(TQFont::Tibetan, tibetan_features);
 
@@ -2133,7 +2133,7 @@ static bool tibetan_shape(TQShaperItem *item)
 {
     Q_ASSERT(item->script == TQFont::Tibetan);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     TQOpenType *openType = item->font->openType();
     if (openType && !openType->supportsScript(item->script))
         openType = 0;
@@ -2509,7 +2509,7 @@ static inline int khmer_nextSyllableBoundary(const TQString &s, int start, int e
 }
 
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 static const TQOpenType::Features khmer_features[] = {
     { FT_MAKE_TAG( 'p', 'r', 'e', 'f' ), PreFormProperty },
     { FT_MAKE_TAG( 'b', 'l', 'w', 'f' ), BelowFormProperty },
@@ -2527,7 +2527,7 @@ static const TQOpenType::Features khmer_features[] = {
 
 static bool khmer_shape_syllable(TQOpenType *openType, TQShaperItem *item)
 {
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (openType)
         openType->selectScript(TQFont::Khmer, khmer_features);
 #endif
@@ -2723,7 +2723,7 @@ static bool khmer_shape_syllable(TQOpenType *openType, TQShaperItem *item)
 
     // now we have the syllable in the right order, and can start running it through open type.
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (openType) {
 	uint where[16];
 
@@ -2762,7 +2762,7 @@ static bool khmer_shape(TQShaperItem *item)
 {
     assert(item->script == TQFont::Khmer);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     TQOpenType *openType = item->font->openType();
     if (openType && !openType->supportsScript(item->script))
         openType = 0;
@@ -3033,7 +3033,7 @@ static inline int myanmar_nextSyllableBoundary(const TQString &s, int start, int
 }
 
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 // ###### might have to change order of above and below forms and substitutions,
 // but according to Unicode below comes before above
 static const TQOpenType::Features myanmar_features[] = {
@@ -3066,7 +3066,7 @@ static const TQOpenType::Features myanmar_features[] = {
 
 static bool myanmar_shape_syllable(TQOpenType *openType, TQShaperItem *item, bool invalid)
 {
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (openType)
         openType->selectScript(TQFont::Myanmar, myanmar_features);
 #endif
@@ -3230,7 +3230,7 @@ static bool myanmar_shape_syllable(TQOpenType *openType, TQShaperItem *item, boo
 
     // now we have the syllable in the right order, and can start running it through open type.
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (openType) {
 	uint where[32];
 
@@ -3269,7 +3269,7 @@ static bool myanmar_shape(TQShaperItem *item)
 {
     assert(item->script == TQFont::Myanmar);
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     TQOpenType *openType = item->font->openType();
     if (openType && !openType->supportsScript(item->script))
         openType = 0;
@@ -3452,7 +3452,7 @@ static int hangul_nextSyllableBoundary(const TQString &s, int start, int end)
     return start+pos;
 }
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 static const TQOpenType::Features hangul_features [] = {
     { FT_MAKE_TAG('c', 'c', 'm', 'p'), CcmpProperty },
     { FT_MAKE_TAG('l', 'j', 'm', 'o'), CcmpProperty },
@@ -3510,7 +3510,7 @@ static bool hangul_shape_syllable(TQOpenType *openType, TQShaperItem *item)
         IDEBUG("    %d: %4x", i, ch[i].unicode());
     }
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (openType && !composed) {
 
         TQVarLengthArray<unsigned short> logClusters(len);
@@ -3544,7 +3544,7 @@ static bool hangul_shape(TQShaperItem *item)
     }
 
     if (!allPrecomposed) {
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
         TQOpenType *openType = item->font->openType();
         if (openType && !openType->supportsScript(item->script))
             openType = 0;

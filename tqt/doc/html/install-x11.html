@@ -54,7 +54,7 @@ files from the main archive.
 depending on your shell) in your home directory. Create the
 file if it is not there already.
 <p> <ul>
-<li> QTDIR -- the directory in which you're building TQt
+<li> TQTDIR -- the directory in which you're building TQt
 <li> PATH -- to locate the <a href="moc.html#moc">moc</a> program and other TQt tools
 <li> MANPATH -- to access the TQt man pages
 <li> LD_LIBRARY_PATH -- for the shared TQt library
@@ -63,24 +63,24 @@ file if it is not there already.
 <p> In <tt>.profile</tt> (if your shell is bash, ksh, zsh or sh), add the
 following lines:
 <p> <pre>
-    QTDIR=/usr/local/qt
-    PATH=$QTDIR/bin:$PATH
-    MANPATH=$QTDIR/man:$MANPATH
-    LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+    TQTDIR=/usr/local/qt
+    PATH=$TQTDIR/bin:$PATH
+    MANPATH=$TQTDIR/man:$MANPATH
+    LD_LIBRARY_PATH=$TQTDIR/lib:$LD_LIBRARY_PATH
 
-    export QTDIR PATH MANPATH LD_LIBRARY_PATH
+    export TQTDIR PATH MANPATH LD_LIBRARY_PATH
 </pre>
  
 <p> In <tt>.login</tt> (in case your shell is csh or tcsh), add the following lines:
 <p> <pre>
-    setenv QTDIR /usr/local/qt
-    setenv PATH $QTDIR/bin:$PATH
-    setenv MANPATH $QTDIR/man:$MANPATH
-    setenv LD_LIBRARY_PATH $QTDIR/lib:$LD_LIBRARY_PATH
+    setenv TQTDIR /usr/local/qt
+    setenv PATH $TQTDIR/bin:$PATH
+    setenv MANPATH $TQTDIR/man:$MANPATH
+    setenv LD_LIBRARY_PATH $TQTDIR/lib:$LD_LIBRARY_PATH
 </pre>
  
 <p> After you have done this, you will need to login again, or
-re-source the profile before continuing, so that at least <tt>$QTDIR</tt>
+re-source the profile before continuing, so that at least <tt>$TQTDIR</tt>
 is set.  The installation will give an error message and not
 proceed otherwise.
 <p> On AIX set LIBPATH and on HP-UX set SHLIB_PATH instead of LD_LIBRARY_PATH.
@@ -112,7 +112,7 @@ If you have problems, see
 similar at this point if you are using shared libraries.
 <p> If you have problems running the example programs, e.g. messages like
 <pre>
-    can't load library 'libqt.so.2'
+    can't load library 'libtqt.so.2'
 </pre>
  
 you probably need to put a reference to the qt library in a

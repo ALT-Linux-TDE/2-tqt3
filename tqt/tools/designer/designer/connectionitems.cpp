@@ -129,26 +129,26 @@ void ConnectionItem::slotChanged( const TQString & )
 
 void ConnectionItem::setSender( SenderItem *i )
 {
-    connect( i, SIGNAL( currentSenderChanged( TQObject * ) ),
-	     this, SLOT( senderChanged( TQObject * ) ) );
+    connect( i, TQ_SIGNAL( currentSenderChanged( TQObject * ) ),
+	     this, TQ_SLOT( senderChanged( TQObject * ) ) );
 }
 
 void ConnectionItem::setReceiver( ReceiverItem *i )
 {
-    connect( i, SIGNAL( currentReceiverChanged( TQObject * ) ),
-	     this, SLOT( receiverChanged( TQObject * ) ) );
+    connect( i, TQ_SIGNAL( currentReceiverChanged( TQObject * ) ),
+	     this, TQ_SLOT( receiverChanged( TQObject * ) ) );
 }
 
 void ConnectionItem::setSignal( SignalItem *i )
 {
-    connect( i, SIGNAL( currentSignalChanged( const TQString & ) ),
-	     this, SLOT( signalChanged( const TQString & ) ) );
+    connect( i, TQ_SIGNAL( currentSignalChanged( const TQString & ) ),
+	     this, TQ_SLOT( signalChanged( const TQString & ) ) );
 }
 
 void ConnectionItem::setSlot( SlotItem *i )
 {
-    connect( i, SIGNAL( currentSlotChanged( const TQString & ) ),
-	     this, SLOT( slotChanged( const TQString & ) ) );
+    connect( i, TQ_SIGNAL( currentSlotChanged( const TQString & ) ),
+	     this, TQ_SLOT( slotChanged( const TQString & ) ) );
 }
 
 void ConnectionItem::paint( TQPainter *p, const TQColorGroup &cg,
@@ -252,8 +252,8 @@ TQWidget *SenderItem::createEditor() const
 {
     TQComboBox *cb = (TQComboBox*)ConnectionItem::createEditor();
     cb->listBox()->setMinimumWidth( cb->fontMetrics().width( "01234567890123456789012345678901234567890123456789" ) );
-    connect( cb, SIGNAL( activated( const TQString & ) ),
-	     this, SLOT( senderChanged( const TQString & ) ) );
+    connect( cb, TQ_SIGNAL( activated( const TQString & ) ),
+	     this, TQ_SLOT( senderChanged( const TQString & ) ) );
     return cb;
 }
 
@@ -309,8 +309,8 @@ TQWidget *ReceiverItem::createEditor() const
 {
     TQComboBox *cb = (TQComboBox*)ConnectionItem::createEditor();
     cb->listBox()->setMinimumWidth( cb->fontMetrics().width( "01234567890123456789012345678901234567890123456789" ) );
-    connect( cb, SIGNAL( activated( const TQString & ) ),
-	     this, SLOT( receiverChanged( const TQString & ) ) );
+    connect( cb, TQ_SIGNAL( activated( const TQString & ) ),
+	     this, TQ_SLOT( receiverChanged( const TQString & ) ) );
     return cb;
 }
 
@@ -378,8 +378,8 @@ TQWidget *SignalItem::createEditor() const
 {
     TQComboBox *cb = (TQComboBox*)ConnectionItem::createEditor();
     cb->listBox()->setMinimumWidth( cb->fontMetrics().width( "01234567890123456789012345678901234567890123456789" ) );
-    connect( cb, SIGNAL( activated( const TQString & ) ),
-	     this, SIGNAL( currentSignalChanged( const TQString & ) ) );
+    connect( cb, TQ_SIGNAL( activated( const TQString & ) ),
+	     this, TQ_SIGNAL( currentSignalChanged( const TQString & ) ) );
     return cb;
 }
 
@@ -413,7 +413,7 @@ void SlotItem::signalChanged( const TQString &signal )
 
 bool SlotItem::ignoreSlot( const char* slot ) const
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( qstrcmp( slot, "update()" ) == 0 &&
 	 ::tqt_cast<TQDataBrowser*>(lastReceiver) )
 	return FALSE;
@@ -509,8 +509,8 @@ TQWidget *SlotItem::createEditor() const
 {
     TQComboBox *cb = (TQComboBox*)ConnectionItem::createEditor();
     cb->listBox()->setMinimumWidth( cb->fontMetrics().width( "01234567890123456789012345678901234567890123456789" ) );
-    connect( cb, SIGNAL( activated( const TQString & ) ),
-	     this, SIGNAL( currentSlotChanged( const TQString & ) ) );
+    connect( cb, TQ_SIGNAL( activated( const TQString & ) ),
+	     this, TQ_SIGNAL( currentSlotChanged( const TQString & ) ) );
     return cb;
 }
 

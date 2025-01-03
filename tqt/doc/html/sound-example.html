@@ -120,15 +120,15 @@ private:
     }
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>;
-<a name="x2810"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play &amp;1",  this, SLOT(doPlay1()), CTRL+Key_1);
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play &amp;2",  this, SLOT(doPlay2()), CTRL+Key_2);
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play from bucket &amp;3",  this, SLOT(doPlay3()), CTRL+Key_3);
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play from bucket &amp;4",  this, SLOT(doPlay4()), CTRL+Key_4);
+<a name="x2810"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play &amp;1",  this, TQ_SLOT(doPlay1()), CTRL+Key_1);
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play &amp;2",  this, TQ_SLOT(doPlay2()), CTRL+Key_2);
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play from bucket &amp;3",  this, TQ_SLOT(doPlay3()), CTRL+Key_3);
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play from bucket &amp;4",  this, TQ_SLOT(doPlay4()), CTRL+Key_4);
 <a name="x2811"></a>    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play 3 and 4 together",  this, SLOT(doPlay34()));
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play all together",  this, SLOT(doPlay1234()));
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play 3 and 4 together",  this, TQ_SLOT(doPlay34()));
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play all together",  this, TQ_SLOT(doPlay1234()));
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("E&amp;xit",  tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()));
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("E&amp;xit",  tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem("&amp;File", file);
 }
 

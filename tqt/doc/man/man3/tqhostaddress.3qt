@@ -41,7 +41,7 @@ QHostAddress \- IP address
 .BI "void \fBsetAddress\fR ( TQ_UINT8 * ip6Addr )"
 .br
 .ti -1c
-.BI "bool \fBsetAddress\fR ( const QString & address )"
+.BI "bool \fBsetAddress\fR ( const TQString & address )"
 .br
 .ti -1c
 .BI "bool isIp4Addr () const  \fI(obsolete)\fR"
@@ -62,7 +62,7 @@ QHostAddress \- IP address
 .BI "Q_IPV6ADDR \fBtoIPv6Address\fR () const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR () const"
+.BI "TQString \fBtoString\fR () const"
 .br
 .ti -1c
 .BI "bool \fBoperator==\fR ( const QHostAddress & other ) const"
@@ -122,7 +122,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Set the IPv6 address specified by \fIip6Addr\fR.
 .PP
 \fIip6Addr\fR must be a 16 byte array in network byte order (high-order byte first).
-.SH "bool QHostAddress::setAddress ( const QString & address )"
+.SH "bool QHostAddress::setAddress ( const TQString & address )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the IPv4 or IPv6 address specified by the string representation \fIaddress\fR (e.g. "127.0.0.1"). Returns TRUE and sets the address if the address was successfully parsed; otherwise returns FALSE and leaves the address unchanged.
@@ -155,7 +155,7 @@ Returns the IPv6 address as a Q_IPV6ADDR structure. The structure consists of 16
 This value is only valid when isIPv6Address() returns TRUE.
 .PP
 See also toString().
-.SH "QString QHostAddress::toString () const"
+.SH "TQString QHostAddress::toString () const"
 Returns the address as a string.
 .PP
 For example, if the address is the IPv4 address 127.0.0.1, the returned string is "127.0.0.1".
@@ -176,8 +176,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -41,20 +41,21 @@
 #include "qplatformdefs.h"
 #include "ntqdir.h"
 
-#ifndef QT_NO_DIR
+#ifndef TQT_NO_DIR
 
 #include "qdir_p.h"
 #include "ntqfileinfo.h"
 #include "ntqregexp.h"
 #include "ntqstringlist.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #  include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #include <stdlib.h>
 #include <limits.h>
 #include <errno.h>
+#include <sys/param.h>
 
 
 void TQDir::slashify( TQString& )
@@ -74,7 +75,7 @@ TQString TQDir::homeDirPath()
 TQString TQDir::canonicalPath() const
 {
     TQString r;
-#if defined(__GLIBC__) && !defined(PATH_MAX)
+#if !defined(PATH_MAX)
     char *cur = ::get_current_dir_name();
     if ( cur ) {
         char *tmp = canonicalize_file_name( TQFile::encodeName( dPath ).data() );
@@ -103,7 +104,7 @@ TQString TQDir::canonicalPath() const
 		// FIXME
 	}
     }
-#endif  /* __GLIBC__ && !PATH_MAX */
+#endif  /* !PATH_MAX */
     return r;
 }
 
@@ -165,7 +166,7 @@ TQString TQDir::currentDirPath()
 
     struct stat st;
     if ( ::stat( ".", &st ) == 0 ) {
-#if defined(__GLIBC__)  && !defined(PATH_MAX)
+#if !defined(PATH_MAX)
         char *currentName = ::get_current_dir_name();
         if ( currentName ) {
             result = TQFile::decodeName(currentName);
@@ -175,7 +176,7 @@ TQString TQDir::currentDirPath()
 	char currentName[PATH_MAX+1];
 	if ( ::getcwd( currentName, PATH_MAX ) )
 	    result = TQFile::decodeName(currentName);
-#endif /* __GLIBC__ && !PATH_MAX */
+#endif /* !PATH_MAX */
 #if defined(QT_DEBUG)
 	if ( result.isNull() )
 	    tqWarning( "TQDir::currentDirPath: getcwd() failed" );
@@ -237,7 +238,7 @@ bool TQDir::readDirEntries( const TQString &nameFilter,
     if ( !dir )
 	return FALSE; // cannot read the directory
 
-#if defined(QT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_CYGWIN)
+#if defined(TQT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_CYGWIN)
     union {
 	struct dirent mt_file;
 	char b[sizeof(struct dirent) + MAXNAMLEN + 1];
@@ -245,7 +246,7 @@ bool TQDir::readDirEntries( const TQString &nameFilter,
     while ( readdir_r(dir, &u.mt_file, &file ) == 0 && file )
 #else
     while ( (file = readdir(dir)) )
-#endif // QT_THREAD_SUPPORT && _POSIX_THREAD_SAFE_FUNCTIONS
+#endif // TQT_THREAD_SUPPORT && _POSIX_THREAD_SAFE_FUNCTIONS
     {
 	TQString fn = TQFile::decodeName(file->d_name);
 	fi.setFile( *this, fn );
@@ -311,10 +312,10 @@ const TQFileInfoList * TQDir::drives()
 
     if ( !knownMemoryLeak ) {
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	TQMutexLocker locker( tqt_global_mutexpool ?
 			     tqt_global_mutexpool->get( &knownMemoryLeak ) : 0 );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 	if ( !knownMemoryLeak ) {
 	    knownMemoryLeak = new TQFileInfoList;
@@ -325,4 +326,4 @@ const TQFileInfoList * TQDir::drives()
 
     return knownMemoryLeak;
 }
-#endif //QT_NO_DIR
+#endif //TQT_NO_DIR

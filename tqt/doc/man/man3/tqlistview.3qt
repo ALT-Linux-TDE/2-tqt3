@@ -16,7 +16,7 @@ Inherits QScrollView.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQListView\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQListView\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "\fB~QListView\fR ()"
@@ -40,22 +40,22 @@ Inherits QScrollView.
 .BI "QHeader * \fBheader\fR () const"
 .br
 .ti -1c
-.BI "virtual int \fBaddColumn\fR ( const QString & label, int width = -1 )"
+.BI "virtual int \fBaddColumn\fR ( const TQString & label, int width = -1 )"
 .br
 .ti -1c
-.BI "virtual int \fBaddColumn\fR ( const QIconSet & iconset, const QString & label, int width = -1 )"
+.BI "virtual int \fBaddColumn\fR ( const QIconSet & iconset, const TQString & label, int width = -1 )"
 .br
 .ti -1c
 .BI "virtual void \fBremoveColumn\fR ( int index )"
 .br
 .ti -1c
-.BI "virtual void \fBsetColumnText\fR ( int column, const QString & label )"
+.BI "virtual void \fBsetColumnText\fR ( int column, const TQString & label )"
 .br
 .ti -1c
-.BI "virtual void \fBsetColumnText\fR ( int column, const QIconSet & iconset, const QString & label )"
+.BI "virtual void \fBsetColumnText\fR ( int column, const QIconSet & iconset, const TQString & label )"
 .br
 .ti -1c
-.BI "QString \fBcolumnText\fR ( int c ) const"
+.BI "TQString \fBcolumnText\fR ( int c ) const"
 .br
 .ti -1c
 .BI "virtual void \fBsetColumnWidth\fR ( int column, int w )"
@@ -184,7 +184,7 @@ Inherits QScrollView.
 .BI "virtual void \fBsort\fR ()"
 .br
 .ti -1c
-.BI "virtual bool \fBeventFilter\fR ( QObject * o, QEvent * e )"
+.BI "virtual bool \fBeventFilter\fR ( TQObject * o, QEvent * e )"
 .br
 .ti -1c
 .BI "virtual void \fBsetShowSortIndicator\fR ( bool show )"
@@ -208,7 +208,7 @@ Inherits QScrollView.
 .BI "ResizeMode \fBresizeMode\fR () const"
 .br
 .ti -1c
-.BI "QListViewItem * \fBfindItem\fR ( const QString & text, int column, ComparisonFlags compare = ExactMatch | CaseSensitive ) const"
+.BI "QListViewItem * \fBfindItem\fR ( const TQString & text, int column, ComparisonFlags compare = ExactMatch | CaseSensitive ) const"
 .br
 .ti -1c
 .BI "enum \fBRenameAction\fR { Accept, Reject }"
@@ -310,7 +310,7 @@ Inherits QScrollView.
 .BI "void \fBdropped\fR ( QDropEvent * e )"
 .br
 .ti -1c
-.BI "void \fBitemRenamed\fR ( QListViewItem * item, int col, const QString & text )"
+.BI "void \fBitemRenamed\fR ( QListViewItem * item, int col, const TQString & text )"
 .br
 .ti -1c
 .BI "void \fBitemRenamed\fR ( QListViewItem * item, int col )"
@@ -513,15 +513,15 @@ This enum type describes how the width of a column in the view changes.
 .PP
 See also setColumnWidth(), setColumnWidthMode(), and columnWidth().
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QListView::QListView ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QListView::QListView ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a new empty list view called \fIname\fR with parent \fIparent\fR.
 .PP
 Performance is boosted by modifying the widget flags \fIf\fR so that only part of the QListViewItem children is redrawn. This may be unsuitable for custom QListViewItem classes, in which case WStaticContents and WNoAutoErase should be cleared.
 .PP
-See also QWidget::clearWFlags() and Qt::WidgetFlags.
+See also TQWidget::clearWFlags() and TQt::WidgetFlags.
 .SH "QListView::~QListView ()"
 Destroys the list view, deleting all its items, and frees up all allocated resources.
-.SH "int QListView::addColumn ( const QString & label, int width = -1 )\fC [virtual]\fR"
+.SH "int QListView::addColumn ( const TQString & label, int width = -1 )\fC [virtual]\fR"
 Adds a \fIwidth\fR pixels wide column with the column header \fIlabel\fR to the list view, and returns the index of the new column.
 .PP
 All columns apart from the first one are inserted to the right of the existing ones.
@@ -532,7 +532,7 @@ See also setColumnText(), setColumnWidth(), and setColumnWidthMode().
 .PP
 Examples:
 .)l addressbook/centralwidget.cpp, checklists/checklists.cpp, dirview/main.cpp, fileiconview/mainwindow.cpp, listviews/listviews.cpp, and qdir/qdir.cpp.
-.SH "int QListView::addColumn ( const QIconSet & iconset, const QString & label, int width = -1 )\fC [virtual]\fR"
+.SH "int QListView::addColumn ( const QIconSet & iconset, const TQString & label, int width = -1 )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Adds a \fIwidth\fR pixels wide new column with the header \fIlabel\fR and the \fIiconset\fR to the list view, and returns the index of the column.
@@ -580,8 +580,8 @@ See also setOpen() and expanded().
 .SH "int QListView::columnAlignment ( int column ) const"
 Returns the alignment of column \fIcolumn\fR. The default is AlignAuto.
 .PP
-See also Qt::AlignmentFlags.
-.SH "QString QListView::columnText ( int c ) const"
+See also TQt::AlignmentFlags.
+.SH "TQString QListView::columnText ( int c ) const"
 Returns the text of column \fIc\fR.
 .PP
 See also setColumnText().
@@ -670,7 +670,7 @@ This signal is emitted, when a drop event occurred on the viewport (not onto an 
 Ensures that item \fIi\fR is visible, scrolling the list view vertically if necessary and opening (expanding) any parent items if this is required to show the item.
 .PP
 See also itemRect() and QScrollView::ensureVisible().
-.SH "bool QListView::eventFilter ( QObject * o, QEvent * e )\fC [virtual]\fR"
+.SH "bool QListView::eventFilter ( TQObject * o, QEvent * e )\fC [virtual]\fR"
 Redirects the event \fIe\fR relating to object \fIo\fR, for the viewport to mousePressEvent(), keyPressEvent() and friends.
 .PP
 Reimplemented from QScrollView.
@@ -678,8 +678,8 @@ Reimplemented from QScrollView.
 This signal is emitted when \fIitem\fR has been expanded, i.e. when the children of \fIitem\fR are shown.
 .PP
 See also setOpen() and collapsed().
-.SH "QListViewItem * QListView::findItem ( const QString & text, int column, ComparisonFlags compare = ExactMatch | CaseSensitive ) const"
-Finds the first list view item in column \fIcolumn\fR, that matches \fItext\fR and returns the item, or returns 0 of no such item could be found. The search starts from the current item if the current item exists, otherwise it starts from the first list view item. After reaching the last item the search continues from the first item. Pass OR-ed together Qt::StringComparisonMode values in the \fIcompare\fR flag, to control how the matching is performed. The default comparison mode is case-sensitive, exact match.
+.SH "QListViewItem * QListView::findItem ( const TQString & text, int column, ComparisonFlags compare = ExactMatch | CaseSensitive ) const"
+Finds the first list view item in column \fIcolumn\fR, that matches \fItext\fR and returns the item, or returns 0 of no such item could be found. The search starts from the current item if the current item exists, otherwise it starts from the first list view item. After reaching the last item the search continues from the first item. Pass OR-ed together TQt::StringComparisonMode values in the \fIcompare\fR flag, to control how the matching is performed. The default comparison mode is case-sensitive, exact match.
 .SH "QListViewItem * QListView::firstChild () const"
 Returns the first item in this QListView. Returns 0 if there is no first item.
 .PP
@@ -769,7 +769,7 @@ The rectangle returned does not include any children of the rectangle (i.e. it u
 .br
     QRect r( listView->itemRect( item ) );
 .br
-    r.setHeight( (QCOORD)(QMIN( item->totalHeight(),
+    r.setHeight( (QCOORD)(TQMIN( item->totalHeight(),
 .br
                                 listView->viewport->height() - r.y() ) ) )
 .br
@@ -778,7 +778,7 @@ The rectangle returned does not include any children of the rectangle (i.e. it u
 Note the way it avoids too-high rectangles. totalHeight() can be much larger than the window system's coordinate system allows.
 .PP
 itemRect() is comparatively slow. It's best to call it only for items that are probably on-screen.
-.SH "void QListView::itemRenamed ( QListViewItem * item, int col, const QString & text )\fC [signal]\fR"
+.SH "void QListView::itemRenamed ( QListViewItem * item, int col, const TQString & text )\fC [signal]\fR"
 This signal is emitted when \fIitem\fR has been renamed to \fItext\fR, e.g. by in in-place renaming, in column \fIcol\fR.
 .PP
 See also QListViewItem::setRenameEnabled().
@@ -801,7 +801,7 @@ This signal is emitted whenever the user pressed the mouse button in the list vi
 .PP
 \fBWarning:\fR Do not delete any QListViewItem objects in slots connected to this signal.
 .SH "void QListView::onItem ( QListViewItem * i )\fC [signal]\fR"
-This signal is emitted when the user moves the mouse cursor onto item \fIi\fR, similar to the QWidget::enterEvent() function.
+This signal is emitted when the user moves the mouse cursor onto item \fIi\fR, similar to the TQWidget::enterEvent() function.
 .SH "void QListView::onViewport ()\fC [signal]\fR"
 This signal is emitted when the user moves the mouse cursor from an item to an empty part of the list view.
 .SH "void QListView::paintEmptyArea ( QPainter * p, const QRect & rect )\fC [virtual protected]\fR"
@@ -873,16 +873,16 @@ Returns the list view's selection mode. See the "selectionMode" property for det
 .SH "void QListView::setAllColumnsShowFocus ( bool )\fC [virtual]\fR"
 Sets whether items should show keyboard focus using all columns. See the "allColumnsShowFocus" property for details.
 .SH "void QListView::setColumnAlignment ( int column, int align )\fC [virtual]\fR"
-Sets column \fIcolumn\fR's alignment to \fIalign\fR. The alignment is ultimately passed to QListViewItem::paintCell() for each item in the list view. For horizontally aligned text with Qt::AlignLeft or Qt::AlignHCenter the ellipsis (...) will be to the right, for Qt::AlignRight the ellipsis will be to the left.
+Sets column \fIcolumn\fR's alignment to \fIalign\fR. The alignment is ultimately passed to QListViewItem::paintCell() for each item in the list view. For horizontally aligned text with TQt::AlignLeft or TQt::AlignHCenter the ellipsis (...) will be to the right, for TQt::AlignRight the ellipsis will be to the left.
 .PP
-See also Qt::AlignmentFlags.
+See also TQt::AlignmentFlags.
 .PP
 Example: listviews/listviews.cpp.
-.SH "void QListView::setColumnText ( int column, const QString & label )\fC [virtual]\fR"
+.SH "void QListView::setColumnText ( int column, const TQString & label )\fC [virtual]\fR"
 Sets the heading of column \fIcolumn\fR to \fIlabel\fR.
 .PP
 See also columnText().
-.SH "void QListView::setColumnText ( int column, const QIconSet & iconset, const QString & label )\fC [virtual]\fR"
+.SH "void QListView::setColumnText ( int column, const QIconSet & iconset, const TQString & label )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the heading of column \fIcolumn\fR to \fIiconset\fR and \fIlabel\fR.
@@ -1096,8 +1096,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

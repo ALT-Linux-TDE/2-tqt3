@@ -290,7 +290,7 @@ extern const uchar *qt_get_bitflip_array();		// defined in qimage.cpp
 
 static uchar *flip_bits( const uchar *bits, int len )
 {
-    register const uchar *p = bits;
+    const uchar *p = bits;
     const uchar *end = p + len;
     uchar *newdata = new uchar[len];
     uchar *b = newdata;
@@ -374,12 +374,12 @@ static int defaultScreen = -1;
 extern bool tqt_use_xrender; // defined in qapplication_x11.cpp
 extern bool tqt_has_xft;     // defined in qfont_x11.cpp
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 #ifndef QT_XFT2
 // Xft1 doesn't have XftDrawCreateAlpha, so we fake it in qtaddons_x11.cpp
 extern "C" XftDraw *XftDrawCreateAlpha( Display *, TQt::HANDLE, int );
 #endif // QT_XFT2
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 /*****************************************************************************
   TQPixmap member functions
@@ -450,7 +450,7 @@ void TQPixmap::init( int w, int h, int d, bool bitmap, Optimization optim )
     hd = (HANDLE)XCreatePixmap( x11Display(), RootWindow(x11Display(), x11Screen() ),
 				w, h, data->d );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if ( tqt_has_xft ) {
 	if ( data->d == 1 ) {
 	    rendhd = (HANDLE) XftDrawCreateBitmap( x11Display(), hd );
@@ -460,7 +460,7 @@ void TQPixmap::init( int w, int h, int d, bool bitmap, Optimization optim )
 					     x11Colormap() );
 	}
     }
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 }
 
@@ -476,12 +476,12 @@ void TQPixmap::deref()
 	    XFreeGC( x11Display(), (GC)data->maskgc );
 	if ( tqApp && hd) {
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	    if (rendhd) {
 		XftDrawDestroy( (XftDraw *) rendhd );
 		rendhd = 0;
 	    }
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 	    XFreePixmap( x11Display(), hd );
 	    hd = 0;
@@ -520,10 +520,10 @@ TQPixmap::TQPixmap( int w, int h, const uchar *bits, bool isXbitmap)
 					RootWindow(x11Display(), x11Screen() ),
 					(char *)bits, w, h );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if ( tqt_has_xft )
 	rendhd = (HANDLE) XftDrawCreateBitmap (x11Display (), hd);
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
     if ( flipped_bits )				// Avoid purify complaint
 	delete [] flipped_bits;
@@ -958,7 +958,7 @@ TQImage TQPixmap::convertToImage() const
 	image.setColor( 0, tqRgb(255,255,255) );
 	image.setColor( 1, tqRgb(0,0,0) );
     } else if ( !trucol ) {			// pixmap with colormap
-	register uchar *p;
+	uchar *p;
 	uchar *end;
 	uchar  use[256];			// pixel-in-use table
 	uchar  pix[256];			// pixel translation table
@@ -1159,12 +1159,12 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
     if ( d == 1 ) {				// 1 bit pixmap (bitmap)
 	if ( hd ) {				// delete old X pixmap
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	    if (rendhd) {
 		XftDrawDestroy( (XftDraw *) rendhd );
 		rendhd = 0;
 	    }
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 	    XFreePixmap( x11Display(), hd );
 	}
@@ -1220,10 +1220,10 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
 					    RootWindow(x11Display(), x11Screen() ),
 					    bits, w, h );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	if ( tqt_has_xft )
 	    rendhd = (HANDLE) XftDrawCreateBitmap( x11Display(), hd );
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 	if ( tmp_bits )				// Avoid purify complaint
 	    delete [] tmp_bits;
@@ -1243,8 +1243,8 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
     bool    trucol = (visual->c_class == TrueColor || visual->c_class == DirectColor);
     int	    nbytes = image.numBytes();
     uchar  *newbits= 0;
-    int newbits_size = 0;
 #ifdef QT_MITSHM_CONVERSIONS
+    int newbits_size = 0;
     bool mitshm_ximage = false;
     XShmSegmentInfo shminfo;
 #endif
@@ -1615,7 +1615,9 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
 	}
 
 	newbits = (uchar *)malloc( nbytes );	// copy image into newbits
+#ifdef QT_MITSHM_CONVERSIONS
         newbits_size = nbytes;
+#endif
 	TQ_CHECK_PTR( newbits );
 	if ( !newbits )				// no memory
 	    return FALSE;
@@ -1744,7 +1746,9 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
 	    ushort *p2;
 	    int	    p2inc = xi->bytes_per_line/sizeof(ushort);
 	    ushort *newerbits = (ushort *)malloc( xi->bytes_per_line * h );
+#ifdef QT_MITSHM_CONVERSIONS
             newbits_size = xi->bytes_per_line * h;
+#endif
 	    TQ_CHECK_PTR( newerbits );
 	    if ( !newerbits )				// no memory
 		return FALSE;
@@ -1775,12 +1779,12 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
 
     if ( hd && (width() != (int)w || height() != (int)h || this->depth() != dd) ) {
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	if (rendhd) {
 	    XftDrawDestroy( (XftDraw *) rendhd );
 	    rendhd = 0;
 	}
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 	XFreePixmap( dpy, hd );			// don't reuse old pixmap
 	hd = 0;
@@ -1790,7 +1794,7 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
 				    RootWindow(x11Display(), x11Screen() ),
 				    w, h, dd );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	if ( tqt_has_xft ) {
 	    if ( data->d == 1 ) {
 		rendhd = (HANDLE) XftDrawCreateBitmap( x11Display (), hd );
@@ -1799,7 +1803,7 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
 						 (Visual *) x11Visual(), x11Colormap() );
 	    }
 	}
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
     }
 
@@ -1826,7 +1830,7 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
 	m = image.createAlphaMask( conversion_flags );
 	setMask( m );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	// does this image have an alphamap (and not just a 1bpp mask)?
 	bool alphamap = image.depth() == 32;
 	if (image.depth() == 8) {
@@ -1907,7 +1911,7 @@ bool TQPixmap::convertFromImage( const TQImage &img, int conversion_flags )
                 XFreeGC(x11Display(), gc);
 	    }
 	}
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
     }
 
 #ifdef QT_MITSHM_CONVERSIONS
@@ -2235,7 +2239,7 @@ TQPixmap TQPixmap::xForm( const TQWMatrix &matrix ) const
 	if ( data->mask ) // xform mask, too
 	    pm.setMask( data->mask->xForm(matrix) );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	if ( tqt_use_xrender && tqt_has_xft && data->alphapm ) { // xform the alpha channel
 	    XImage *axi = 0;
 	    if ((axi = XGetImage(x11Display(), data->alphapm->handle(),
@@ -2286,7 +2290,7 @@ TQPixmap TQPixmap::xForm( const TQWMatrix &matrix ) const
 		qSafeXDestroyImage(axi);
 	    }
 	}
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 	return pm;
     }
@@ -2388,7 +2392,7 @@ bool TQPixmap::hasAlphaChannel() const
 
     copyBlt() does nothing if \a src and \a dst have different depths.
 */
-Q_EXPORT void copyBlt( TQPixmap *dst, int dx, int dy,
+TQ_EXPORT void copyBlt( TQPixmap *dst, int dx, int dy,
 		       const TQPixmap *src, int sx, int sy, int sw, int sh )
 {
     if ( ! dst || ! src || sw == 0 || sh == 0 || dst->depth() != src->depth() ) {
@@ -2415,7 +2419,7 @@ Q_EXPORT void copyBlt( TQPixmap *dst, int dx, int dy,
 		src->data->mask, sx, sy, sw, sh, TQt::CopyROP, TRUE );
     }
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     // copy alpha data
     extern bool tqt_use_xrender; // from qapplication_x11.cpp
     if ( ! tqt_use_xrender || ! src->data->alphapm )
@@ -2474,5 +2478,5 @@ Q_EXPORT void copyBlt( TQPixmap *dst, int dx, int dy,
     XCopyArea(dst->x11Display(), src->data->alphapm->hd, dst->data->alphapm->hd, gc,
 	      sx, sy, sw, sh, dx, dy);
     XFreeGC(dst->x11Display(), gc);
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 }

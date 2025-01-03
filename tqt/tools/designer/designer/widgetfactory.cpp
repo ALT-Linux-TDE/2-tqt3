@@ -45,7 +45,7 @@
 #include "formwindow.h"
 #include "multilineeditorimpl.h"
 #include "../interfaces/widgetinterface.h"
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 #include "tableeditorimpl.h"
 #endif
 #include "project.h"
@@ -57,10 +57,10 @@
 #include <ntqpixmap.h>
 #include <ntqgroupbox.h>
 #include <ntqiconview.h>
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 #include <ntqtable.h>
 #endif
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include <ntqdatatable.h>
 #endif
 #include <ntqdatetimeedit.h>
@@ -95,7 +95,7 @@
 #include <ntqsplitter.h>
 #include <ntqtoolbox.h>
 #include <ntqsizegrip.h>
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include "database.h"
 #endif
 
@@ -302,8 +302,8 @@ TQDesignerWidgetStack::TQDesignerWidgetStack( TQWidget *parent, const char *name
     next->setAutoRaise( TRUE );
     next->setAutoRepeat( TRUE );
     next->setSizePolicy( TQSizePolicy( TQSizePolicy::Ignored, TQSizePolicy::Ignored ) );
-    connect( prev, SIGNAL( clicked() ), this, SLOT( prevPage() ) );
-    connect( next, SIGNAL( clicked() ), this, SLOT( nextPage() ) );
+    connect( prev, TQ_SIGNAL( clicked() ), this, TQ_SLOT( prevPage() ) );
+    connect( next, TQ_SIGNAL( clicked() ), this, TQ_SLOT( nextPage() ) );
     updateButtons();
 }
 
@@ -735,7 +735,7 @@ TQWidget *WidgetFactory::createWidget( const TQString &className, TQWidget *pare
 	    return new TQButtonGroup( TQString::fromLatin1( name ), parent, name );
 	return new TQButtonGroup( parent, name );
     } else if ( className == "TQIconView" ) {
-#if !defined(QT_NO_ICONVIEW)
+#if !defined(TQT_NO_ICONVIEW)
 	TQIconView* iv = new TQIconView( parent, name );
 	if ( init )
 	    (void) new TQIconViewItem( iv, MainWindow::tr( "New Item" ) );
@@ -744,17 +744,17 @@ TQWidget *WidgetFactory::createWidget( const TQString &className, TQWidget *pare
 	return 0;
 #endif
     } else if ( className == "TQTable" ) {
-#if !defined(QT_NO_TABLE)
+#if !defined(TQT_NO_TABLE)
 	if ( init )
 	    return new TQTable( 3, 3, parent, name );
 	return new TQTable( parent, name );
 #else
 	return 0;
 #endif
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     } else if ( className == "TQDataTable" ) {
 	return new TQDataTable( parent, name );
-#endif //QT_NO_SQL
+#endif //TQT_NO_SQL
     } else if ( className == "TQDateEdit" ) {
 	return new TQDateEdit( parent, name );
     } else if ( className == "TQTimeEdit" ) {
@@ -854,26 +854,18 @@ TQWidget *WidgetFactory::createWidget( const TQString &className, TQWidget *pare
 	    dia = new TQDesignerDialog( (FormWindow*)parent, parent, name );
 	else
 	    dia = new TQDialog( parent, name );
-#if defined(QT_NON_COMMERCIAL)
-	if ( ::tqt_cast<MainWindow*>(parent) )
-#else
 	if ( parent )
-#endif
 	    dia->reparent( parent, TQPoint( 0, 0 ), TRUE );
 	return dia;
     } else if ( className == "TQWizard" ) {
 	TQWizard *wiz = new TQDesignerWizard( parent, name );
-#if defined(QT_NON_COMMERCIAL)
-	if ( ::tqt_cast<MainWindow*>(parent) )
-#else
 	if ( parent )
-#endif
 	    wiz->reparent( parent, TQPoint( 0, 0 ), TRUE );
 	if ( init && ::tqt_cast<FormWindow*>(parent) ) {
 	    TQDesignerWidget *dw = new TQDesignerWidget( (FormWindow*)parent, wiz, "WizardPage" );
 	    MetaDataBase::addEntry( dw );
 	    wiz->addPage( dw, FormWindow::tr( "Page" ) );
-	    TQTimer::singleShot( 0, wiz, SLOT( next() ) );
+	    TQTimer::singleShot( 0, wiz, TQ_SLOT( next() ) );
 	}
 	return wiz;
     } else if ( className == "Spacer" ) {
@@ -966,7 +958,7 @@ TQWidget *WidgetFactory::createWidget( const TQString &className, TQWidget *pare
 	MetaDataBase::addEntry( w );
 	return tb;
     }
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     else if ( className == "TQDataBrowser" ) {
 	TQWidget *w = new TQDesignerDataBrowser( parent, name );
 	if ( parent )
@@ -1259,7 +1251,7 @@ const char* WidgetFactory::classNameOf( TQObject* o )
 	return "TQPopupMenu";
     else if ( ::tqt_cast<TQDesignerToolBox*>(o) )
 	return "TQToolBox";
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     else if ( ::tqt_cast<TQDesignerDataBrowser*>(o) )
 	return "TQDataBrowser";
     else if ( ::tqt_cast<TQDesignerDataView*>(o) )
@@ -1343,9 +1335,9 @@ void WidgetFactory::initChangedProperties( TQObject *o )
 	MetaDataBase::setPropertyChanged( o, "itemIconSet", TRUE );
 	MetaDataBase::setPropertyChanged( o, "itemToolTip", TRUE );
 	MetaDataBase::setPropertyChanged( o, "itemBackgroundMode", TRUE );
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     } else if ( ::tqt_cast<TQTable*>(o) ) {
-#  ifndef QT_NO_SQL
+#  ifndef TQT_NO_SQL
         if (!::tqt_cast<TQDataTable*>(o) )
 #  endif
         {
@@ -1455,7 +1447,7 @@ void WidgetFactory::editWidget( int id, TQWidget *parent, TQWidget *editWidget, 
 	delete e;
 	return;
     }
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     if (::tqt_cast<TQTable*>(editWidget) != 0) {
 	TableEditor *e = new TableEditor( parent, editWidget, fw );
 	e->exec();
@@ -1486,13 +1478,13 @@ TQVariant WidgetFactory::defaultValue( TQObject *w, const TQString &propName )
 {
     if ( propName == "wordwrap" ) {
 	int v = defaultValue( w, "alignment" ).toInt();
-	return TQVariant( ( v & WordBreak ) == WordBreak, 0 );
+	return TQVariant( ( v & WordBreak ) == WordBreak );
     } else if ( propName == "toolTip" || propName == "whatsThis" ) {
 	return TQVariant( TQString::fromLatin1( "" ) );
     } else if ( w->inherits( "CustomWidget" ) ) {
 	return TQVariant();
     } else if ( propName == "frameworkCode" ) {
-	return TQVariant( TRUE, 0 );
+	return TQVariant( true );
     } else if ( propName == "layoutMargin" || propName == "layoutSpacing" ) {
 	return TQVariant( -1 );
     }

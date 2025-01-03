@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqbuttongroup.h"
-#ifndef QT_NO_BUTTONGROUP
+#ifndef TQT_NO_BUTTONGROUP
 #include "ntqbutton.h"
 #include "ntqptrlist.h"
 #include "ntqapplication.h"
@@ -268,10 +268,10 @@ int TQButtonGroup::insert( TQButton *button, int id )
     button->setGroup(this);
     buttons->append( bi );
 
-    connect( button, SIGNAL(pressed()) , SLOT(buttonPressed()) );
-    connect( button, SIGNAL(released()), SLOT(buttonReleased()) );
-    connect( button, SIGNAL(clicked()) , SLOT(buttonClicked()) );
-    connect( button, SIGNAL(toggled(bool)) , SLOT(buttonToggled(bool)) );
+    connect( button, TQ_SIGNAL(pressed()) , TQ_SLOT(buttonPressed()) );
+    connect( button, TQ_SIGNAL(released()), TQ_SLOT(buttonReleased()) );
+    connect( button, TQ_SIGNAL(clicked()) , TQ_SLOT(buttonClicked()) );
+    connect( button, TQ_SIGNAL(toggled(bool)) , TQ_SLOT(buttonToggled(bool)) );
 
     if ( button->isToggleButton() && !button->isOn() &&
 	 selected() && (selected()->focusPolicy() & TabFocus) != 0 )
@@ -371,7 +371,7 @@ void TQButtonGroup::buttonPressed()
     // introduce a TQButtonListIt if calling anything
     int id = -1;
     TQButton *bt = (TQButton *)sender();		// object that sent the signal
-    for ( register TQButtonItem *i=buttons->first(); i; i=buttons->next() )
+    for ( TQButtonItem *i=buttons->first(); i; i=buttons->next() )
 	if ( bt == i->button ) {		// button was clicked
 	    id = i->id;
 	    break;
@@ -391,7 +391,7 @@ void TQButtonGroup::buttonReleased()
     // introduce a TQButtonListIt if calling anything
     int id = -1;
     TQButton *bt = (TQButton *)sender();		// object that sent the signal
-    for ( register TQButtonItem *i=buttons->first(); i; i=buttons->next() )
+    for ( TQButtonItem *i=buttons->first(); i; i=buttons->next() )
 	if ( bt == i->button ) {		// button was clicked
 	    id = i->id;
 	    break;
@@ -414,7 +414,7 @@ void TQButtonGroup::buttonClicked()
 #if defined(QT_CHECK_NULL)
     Q_ASSERT( bt );
 #endif
-    for ( register TQButtonItem *i=buttons->first(); i; i=buttons->next() ) {
+    for ( TQButtonItem *i=buttons->first(); i; i=buttons->next() ) {
 	if ( bt == i->button ) {			// button was clicked
 	    id = i->id;
 	    break;

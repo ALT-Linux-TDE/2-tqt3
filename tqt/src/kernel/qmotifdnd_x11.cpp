@@ -70,7 +70,7 @@ in doc/dnd.doc, where the documentation system can see it. */
 
 #include "ntqapplication.h"
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 #include "ntqwidget.h"
 #include "qt_x11_p.h"
@@ -975,4 +975,4 @@ void qt_motifdnd_handle_msg( TQWidget * /* w */ , const XEvent * xe, bool /* pas
     }   //  end of switch ( dnd_data.reason )
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP

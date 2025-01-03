@@ -19,7 +19,7 @@ MainWindow::MainWindow( TQWidget *parent, const char *name )
     setCentralWidget( ap );
 
     TQPopupMenu *file = new TQPopupMenu( this );
-    file->insertItem( tr("E&xit"), tqApp, SLOT(quit()),
+    file->insertItem( tr("E&xit"), tqApp, TQ_SLOT(quit()),
 		      tr("Ctrl+Q", "Quit") );
     menuBar()->insertItem( tr("&File"), file );
     menuBar()->setSeparator( TQMenuBar::InWindowsStyle );

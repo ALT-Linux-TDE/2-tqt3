@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqlabel.h"
-#ifndef QT_NO_LABEL
+#ifndef TQT_NO_LABEL
 #include "ntqpainter.h"
 #include "ntqdrawutil.h"
 #include "ntqaccel.h"
@@ -196,7 +196,7 @@ TQLabel::TQLabel( TQWidget *buddy,  const TQString &text,
     : TQFrame( parent, name, f | WMouseNoMask )
 {
     init();
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     setBuddy( buddy );
 #endif
     setText( text );
@@ -216,15 +216,15 @@ TQLabel::~TQLabel()
 void TQLabel::init()
 {
     lpixmap = 0;
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     lmovie = 0;
 #endif
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     lbuddy = 0;
     accel = 0;
 #endif
     lpixmap = 0;
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     lpicture = 0;
 #endif
     align = AlignAuto | AlignVCenter | ExpandTabs;
@@ -232,7 +232,7 @@ void TQLabel::init()
     autoresize = FALSE;
     scaledcontents = FALSE;
     textformat = TQt::AutoText;
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     doc = 0;
 #endif
 
@@ -273,18 +273,18 @@ void TQLabel::setText( const TQString &text )
     if ( ltext == text )
 	return;
     TQSize osh = sizeHint();
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     bool hadRichtext = doc != 0;
 #endif
     clearContents();
     ltext = text;
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     bool useRichText = (textformat == RichText ||
       ( ( textformat == AutoText ) && TQStyleSheet::mightBeRichText(ltext) ) );
 #else
     bool useRichText = TRUE;
 #endif
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     // ### Setting accelerators for rich text labels will not work.
     // Eg. <b>&gt;Hello</b> will return ALT+G which is clearly
     // not intended.
@@ -294,11 +294,11 @@ void TQLabel::setText( const TQString &text )
 	    if ( !accel )
 		accel = new TQAccel( this, "accel label accel" );
 	    accel->connectItem( accel->insertItem( p ),
-				this, SLOT(acceleratorSlot()) );
+				this, TQ_SLOT(acceleratorSlot()) );
 	}
     }
 #endif
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     if ( useRichText ) {
 	if ( !hadRichtext )
 	    align |= WordBreak;
@@ -351,7 +351,7 @@ void TQLabel::setPixmap( const TQPixmap &pixmap )
     updateLabel( osh );
 }
 
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
 /*!
     Sets the label contents to \a picture. Any previous content is
     cleared.
@@ -369,7 +369,7 @@ void TQLabel::setPicture( const TQPicture &picture )
 
     updateLabel( osh );
 }
-#endif // QT_NO_PICTURE
+#endif // TQT_NO_PICTURE
 
 /*!
     Sets the label contents to plain text containing the textual
@@ -440,14 +440,14 @@ void TQLabel::setAlignment( int alignment )
     if ( alignment == align )
 	return;
     TQSize osh = sizeHint();
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( lbuddy )
 	align = alignment | ShowPrefix;
     else
 #endif
 	align = alignment;
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     TQString t = ltext;
     if ( !t.isNull() ) {
 	ltext = TQString::null;
@@ -531,12 +531,12 @@ TQSize TQLabel::sizeForWidth( int w ) const
 {
     TQRect br;
     TQPixmap *pix = pixmap();
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     TQPicture *pic = picture();
 #else
     const int pic = 0;
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     TQMovie *mov = movie();
 #else
     const int mov = 0;
@@ -560,15 +560,15 @@ TQSize TQLabel::sizeForWidth( int w ) const
 
     if ( pix )
 	br = pix->rect();
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     else if ( pic )
 	br = pic->boundingRect();
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     else if ( mov )
 	br = mov->framePixmap().rect();
 #endif
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     else if ( doc ) {
 	int oldW = doc->width();
 	if ( align & WordBreak ) {
@@ -608,7 +608,7 @@ TQSize TQLabel::sizeForWidth( int w ) const
 int TQLabel::heightForWidth( int w ) const
 {
     if (
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 	doc ||
 #endif
 	(align & WordBreak) )
@@ -642,7 +642,7 @@ TQSize TQLabel::minimumSizeHint() const
     TQSize sz( -1, -1 );
 
     if (
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 	 !doc &&
 #endif
 	 (align & WordBreak) == 0 ) {
@@ -669,7 +669,7 @@ void TQLabel::resizeEvent( TQResizeEvent* e )
 {
     TQFrame::resizeEvent( e );
 
-#ifdef QT_NO_RICHTEXT
+#ifdef TQT_NO_RICHTEXT
     static const bool doc = FALSE;
 #endif
 
@@ -731,12 +731,12 @@ void TQLabel::drawContents( TQPainter *p )
     TQRect cr = contentsRect();
 
     TQPixmap *pix = pixmap();
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     TQPicture *pic = picture();
 #else
     const int pic = 0;
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     TQMovie *mov = movie();
 #else
     const int mov = 0;
@@ -759,7 +759,7 @@ void TQLabel::drawContents( TQPainter *p )
 	}
     }
 
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     if ( mov ) {
 	// ### should add movie to qDrawItem
 	TQRect r = style().itemRect( p, cr, align, isEnabled(), &(mov->framePixmap()),
@@ -769,7 +769,7 @@ void TQLabel::drawContents( TQPainter *p )
     }
     else
 #endif
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     if ( doc ) {
 	doc->setWidth(p, cr.width() );
 	int rh = doc->height();
@@ -796,7 +796,7 @@ void TQLabel::drawContents( TQPainter *p )
 	doc->draw(p, cr.x(), cr.y()+yo, cr, cg, 0);
     } else
 #endif
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     if ( pic ) {
 	TQRect br = pic->boundingRect();
 	int rw = br.width();
@@ -804,7 +804,7 @@ void TQLabel::drawContents( TQPainter *p )
 	if ( scaledcontents ) {
 	    p->save();
 	    p->translate( cr.x(), cr.y() );
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	    p->scale( (double)cr.width()/rw, (double)cr.height()/rh );
 #endif
 	    p->drawPicture( -br.x(), -br.y(), *pic );
@@ -825,7 +825,7 @@ void TQLabel::drawContents( TQPainter *p )
     } else
 #endif
     {
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
 	if ( scaledcontents && pix ) {
 	    if ( !d->img )
 		d->img = new TQImage( lpixmap->convertToImage() );
@@ -876,7 +876,7 @@ void TQLabel::updateLabel( TQSize oldSizeHint )
 
   Internal slot, used to set focus for accelerator labels.
 */
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 void TQLabel::acceleratorSlot()
 {
     if ( !lbuddy )
@@ -900,7 +900,7 @@ void TQLabel::acceleratorSlot()
 
   Internal slot, used to clean up if the buddy widget dies.
 */
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 void TQLabel::buddyDied() // I can't remember if I cried.
 {
     lbuddy = 0;
@@ -949,13 +949,13 @@ void TQLabel::setBuddy( TQWidget *buddy )
 	setAlignment( alignment() & ~ShowPrefix );
 
     if ( lbuddy )
-	disconnect( lbuddy, SIGNAL(destroyed()), this, SLOT(buddyDied()) );
+	disconnect( lbuddy, TQ_SIGNAL(destroyed()), this, TQ_SLOT(buddyDied()) );
 
     lbuddy = buddy;
 
     if ( !lbuddy )
 	return;
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     if ( !( textformat == RichText || (textformat == AutoText &&
 				       TQStyleSheet::mightBeRichText(ltext) ) ) )
 #endif
@@ -965,11 +965,11 @@ void TQLabel::setBuddy( TQWidget *buddy )
 	    if ( !accel )
 		accel = new TQAccel( this, "accel label accel" );
 	    accel->connectItem( accel->insertItem( p ),
-				this, SLOT(acceleratorSlot()) );
+				this, TQ_SLOT(acceleratorSlot()) );
 	}
     }
 
-    connect( lbuddy, SIGNAL(destroyed()), this, SLOT(buddyDied()) );
+    connect( lbuddy, TQ_SIGNAL(destroyed()), this, TQ_SLOT(buddyDied()) );
 }
 
 
@@ -983,10 +983,10 @@ TQWidget * TQLabel::buddy() const
 {
     return lbuddy;
 }
-#endif //QT_NO_ACCEL
+#endif //TQT_NO_ACCEL
 
 
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
 void TQLabel::movieUpdated(const TQRect& rect)
 {
     TQMovie *mov = movie();
@@ -1027,14 +1027,14 @@ void TQLabel::setMovie( const TQMovie& movie )
     clearContents();
 
     lmovie = new TQMovie( movie );
-	lmovie->connectResize(this, SLOT(movieResized(const TQSize&)));
-	lmovie->connectUpdate(this, SLOT(movieUpdated(const TQRect&)));
+	lmovie->connectResize(this, TQ_SLOT(movieResized(const TQSize&)));
+	lmovie->connectUpdate(this, TQ_SLOT(movieUpdated(const TQRect&)));
 
     if ( !lmovie->running() )	// Assume that if the movie is running,
 	updateLabel( osh );	// resize/update signals will come soon enough
 }
 
-#endif // QT_NO_MOVIE
+#endif // TQT_NO_MOVIE
 
 /*!
   \internal
@@ -1044,14 +1044,14 @@ void TQLabel::setMovie( const TQMovie& movie )
 
 void TQLabel::clearContents()
 {
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
     delete doc;
     doc = 0;
 #endif
 
     delete lpixmap;
     lpixmap = 0;
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     delete lpicture;
     lpicture = 0;
 #endif
@@ -1061,14 +1061,14 @@ void TQLabel::clearContents()
     d->pix = 0;
 
     ltext = TQString::null;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( accel )
 	accel->clear();
 #endif
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
     if ( lmovie ) {
-	lmovie->disconnectResize(this, SLOT(movieResized(const TQSize&)));
-	lmovie->disconnectUpdate(this, SLOT(movieUpdated(const TQRect&)));
+	lmovie->disconnectResize(this, TQ_SLOT(movieResized(const TQSize&)));
+	lmovie->disconnectUpdate(this, TQ_SLOT(movieUpdated(const TQRect&)));
 	delete lmovie;
 	lmovie = 0;
     }
@@ -1076,7 +1076,7 @@ void TQLabel::clearContents()
 }
 
 
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
 
 /*!
     Returns a pointer to the label's movie, or 0 if no movie has been
@@ -1090,7 +1090,7 @@ TQMovie* TQLabel::movie() const
     return lmovie;
 }
 
-#endif  // QT_NO_MOVIE
+#endif  // TQT_NO_MOVIE
 
 /*!
     \property TQLabel::backgroundMode
@@ -1137,7 +1137,7 @@ void TQLabel::setTextFormat( TQt::TextFormat format )
 void TQLabel::fontChange( const TQFont & )
 {
     if ( !ltext.isEmpty() ) {
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 	if ( doc )
 	    doc->setDefaultFont( font() );
 #endif
@@ -1145,7 +1145,7 @@ void TQLabel::fontChange( const TQFont & )
     }
 }
 
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
 /*!
     \property TQLabel::scaledContents
     \brief whether the label will scale its contents to fill all
@@ -1177,7 +1177,7 @@ void TQLabel::setScaledContents( bool enable )
     update( contentsRect() );
 }
 
-#endif // QT_NO_IMAGE_SMOOTHSCALE
+#endif // TQT_NO_IMAGE_SMOOTHSCALE
 
 /*!
     Sets the font used on the TQLabel to font \a f.
@@ -1188,4 +1188,4 @@ void TQLabel::setFont( const TQFont &f )
     TQFrame::setFont( f );
 }
 
-#endif // QT_NO_LABEL
+#endif // TQT_NO_LABEL

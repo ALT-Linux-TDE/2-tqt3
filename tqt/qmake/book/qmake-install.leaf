@@ -2,14 +2,14 @@
 
 \section1 Installing qmake
 
-\e qmake is built by default when Qt is built.  
+\e qmake is built by default when TQt is built.  
 
 This section explains how to build \e qmake manually. Skip ahead to
 \l{The 10 minute guide to using qmake}, if you already have \e qmake.
 
 \section2 Installing qmake manually
 
-Before building Qt manually the following environment variables must
+Before building TQt manually the following environment variables must
 be set:
 
 \list
@@ -37,12 +37,12 @@ one of the following:
 linux-arm-g++      linux-generic-g++  linux-mips-g++     linux-x86-g++
 linux-freebsd-g++  linux-ipaq-g++     linux-solaris-g++  qnx-rtp-g++
 
-\i QTDIR \BR This must be set to where Qt is (or will be) installed.
+\i TQTDIR \BR This must be set to where TQt is (or will be) installed.
 For example, \e {c:\\qt} and \e {\\local\\qt} 
 \endlist
 
 Once the environment variables are set go into the qmake directory, \e
-$QTDIR/qmake, e.g. \e{C:\\qt\\qmake}. Now run \e make or \e nmake
+$TQTDIR/qmake, e.g. \e{C:\\qt\\qmake}. Now run \e make or \e nmake
 depending on your compiler.
 
 When the make has completed, \e qmake is ready for use.

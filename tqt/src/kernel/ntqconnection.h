@@ -45,7 +45,7 @@
 #include "ntqobject.h"
 #endif // QT_H
 
-class Q_EXPORT TQConnection
+class TQ_EXPORT TQConnection
 {
 public:
     TQConnection( const TQObject *, int, const char *memberName, int memberType );

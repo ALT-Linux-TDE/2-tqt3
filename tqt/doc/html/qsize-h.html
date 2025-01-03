@@ -81,7 +81,7 @@ body { background: #ffffff; color: black; }
 #include "ntqpoint.h" // ### change to ntqwindowdefs.h?
 #endif // QT_H
 
-class Q_EXPORT TQSize
+class TQ_EXPORT TQSize
 // ### Make TQSize inherit TQt in TQt 4.0
 {
 public:
@@ -144,8 +144,8 @@ private:
   TQSize stream functions
  *****************************************************************************/
 
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQSize &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQSize &amp; );
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQSize &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQSize &amp; );
 
 
 /*****************************************************************************

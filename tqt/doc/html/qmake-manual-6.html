@@ -101,20 +101,20 @@ body { background: #ffffff; color: black; }
 <pre>
     win32 {
         thread {
-            DEFINES += QT_THREAD_SUPPORT
+            DEFINES += TQT_THREAD_SUPPORT
         }
     }
 </pre>
 <p>To save writing many nested scopes, you can nest scopes using a colon like this:</p>
 <pre>
     win32:thread {
-        DEFINES += QT_THREAD_SUPPORT
+        DEFINES += TQT_THREAD_SUPPORT
     }
 </pre>
 <p>Once a test has been performed you may also do else/elseif operations. With this you may easily write complicated tests. This can be done with the special 'else' scope, it can be combined with other scopes (separated by colons as above) for example:</p>
 <pre>
     win32:thread {
-        DEFINES += QT_THREAD_SUPPORT
+        DEFINES += TQT_THREAD_SUPPORT
     } else:debug {
         DEFINES += QT_NOTHREAD_DEBUG
     } else {
@@ -166,10 +166,10 @@ body { background: #ffffff; color: black; }
 <p>If <em>value</em> is in the list of values stored in the variable called <em>variablename</em>, then the settings inside the scope will be processed. For example:</p>
 <pre>
     contains( CONFIG, thread ) {
-        DEFINES += QT_THREAD_SUPPORT
+        DEFINES += TQT_THREAD_SUPPORT
     }
 </pre>
-<p>If <em>thread</em> is in the list of values for the <em>CONFIG</em> variable, then QT_THREAD_SUPPORT will be added to the list of values in the <em>DEFINES</em> variable.</p>
+<p>If <em>thread</em> is in the list of values for the <em>CONFIG</em> variable, then TQT_THREAD_SUPPORT will be added to the list of values in the <em>DEFINES</em> variable.</p>
 <h4><a name="5-2"></a>count( variablename, number )</h4>
 <p>If <em>number</em> matches the number of values stored in the variable called <em>variablename</em>, then the settings inside the scope will be processed. For example:</p>
 <pre>

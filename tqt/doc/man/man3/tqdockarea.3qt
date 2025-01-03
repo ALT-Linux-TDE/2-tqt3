@@ -11,7 +11,7 @@ QDockArea \- Manages and lays out QDockWindows
 .SH SYNOPSIS
 \fC#include <ntqdockarea.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
@@ -19,7 +19,7 @@ Inherits QWidget.
 .BI "enum \fBHandlePosition\fR { Normal, Reverse }"
 .br
 .ti -1c
-.BI "\fBQDockArea\fR ( Orientation o, HandlePosition h = Normal, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQDockArea\fR ( Orientation o, HandlePosition h = Normal, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QDockArea\fR ()"
@@ -93,7 +93,7 @@ The QDockArea class manages and lays out QDockWindows.
 .PP
 A QDockArea is a container which manages a list of QDockWindows which it lays out within its area. In cooperation with the QDockWindows it is responsible for the docking and undocking of QDockWindows and moving them inside the dock area. QDockAreas also handle the wrapping of QDockWindows to fill the available space as compactly as possible. QDockAreas can contain QToolBars since QToolBar is a QDockWindow subclass.
 .PP
-QMainWindow contains four QDockAreas which you can use for your QToolBars and QDockWindows, so in most situations you do not need to use the QDockArea class directly. Although QMainWindow contains support for its own dock areas it isn't convenient for adding new QDockAreas. If you need to create your own dock areas we suggest that you create a subclass of QWidget and add your QDockAreas to your subclass.
+QMainWindow contains four QDockAreas which you can use for your QToolBars and QDockWindows, so in most situations you do not need to use the QDockArea class directly. Although QMainWindow contains support for its own dock areas it isn't convenient for adding new QDockAreas. If you need to create your own dock areas we suggest that you create a subclass of TQWidget and add your QDockAreas to your subclass.
 .PP
 <center>
 .ce 1
@@ -136,7 +136,7 @@ This enum specifies where the dock window splitter handle is placed in the dock 
 .TP
 \fCQDockArea::Reverse\fR - The splitter handles of dock windows are placed at the left or top.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDockArea::QDockArea ( Orientation o, HandlePosition h = Normal, QWidget * parent = 0, const char * name = 0 )"
+.SH "QDockArea::QDockArea ( Orientation o, HandlePosition h = Normal, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a QDockArea with orientation \fIo\fR, HandlePosition \fIh\fR, parent \fIparent\fR and called \fIname\fR.
 .SH "QDockArea::~QDockArea ()"
 Destroys the dock area and all the dock windows docked in the dock area.
@@ -221,8 +221,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

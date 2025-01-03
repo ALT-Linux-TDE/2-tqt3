@@ -82,8 +82,8 @@ private:
     // Layout
     output = new <a href="ntqtextview.html">TQTextView</a>( this );
     quitButton = new <a href="ntqpushbutton.html">TQPushButton</a>( <a href="ntqobject.html#tr">tr</a>("Quit"), this );
-    <a href="ntqobject.html#connect">connect</a>( quitButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()),
-            tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quitButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()),
+            tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     <a href="ntqwidget.html#resize">resize</a>( 500, 500 );
 
     // TQProcess related code
@@ -97,10 +97,10 @@ private:
     proc-&gt;<a href="ntqprocess.html#addArgument">addArgument</a>( "i18n" );
     proc-&gt;<a href="ntqprocess.html#addArgument">addArgument</a>( "small_dialog.ui" );
 
-<a name="x100"></a>    <a href="ntqobject.html#connect">connect</a>( proc, SIGNAL(<a href="ntqprocess.html#readyReadStdout">readyReadStdout</a>()),
-            this, SLOT(readFromStdout()) );
-<a name="x98"></a>    <a href="ntqobject.html#connect">connect</a>( proc, SIGNAL(<a href="ntqprocess.html#processExited">processExited</a>()),
-            this, SLOT(scrollToTop()) );
+<a name="x100"></a>    <a href="ntqobject.html#connect">connect</a>( proc, TQ_SIGNAL(<a href="ntqprocess.html#readyReadStdout">readyReadStdout</a>()),
+            this, TQ_SLOT(readFromStdout()) );
+<a name="x98"></a>    <a href="ntqobject.html#connect">connect</a>( proc, TQ_SIGNAL(<a href="ntqprocess.html#processExited">processExited</a>()),
+            this, TQ_SLOT(scrollToTop()) );
 
 <a name="x101"></a>    if ( !proc-&gt;<a href="ntqprocess.html#start">start</a>() ) {
         // error handling

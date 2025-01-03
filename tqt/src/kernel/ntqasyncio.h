@@ -47,11 +47,11 @@
 #include "ntqtimer.h"
 #endif // QT_H
 
-#ifndef QT_NO_ASYNC_IO
+#ifndef TQT_NO_ASYNC_IO
 
 class TQIODevice;
 
-class Q_EXPORT TQAsyncIO {
+class TQ_EXPORT TQAsyncIO {
 public:
     virtual ~TQAsyncIO();
     void connect(TQObject*, const char *member);
@@ -63,7 +63,7 @@ private:
     TQSignal signal;
 };
 
-class Q_EXPORT TQDataSink : public TQAsyncIO {
+class TQ_EXPORT TQDataSink : public TQAsyncIO {
 public:
     // Call this to know how much I can take.
     virtual int readyToReceive()=0;
@@ -72,7 +72,7 @@ public:
     void maybeReady();
 };
 
-class Q_EXPORT TQDataSource : public TQAsyncIO {
+class TQ_EXPORT TQDataSource : public TQAsyncIO {
 public:
     virtual int readyToSend()=0; // returns -1 when never any more ready
     virtual void sendTo(TQDataSink*, int count)=0;
@@ -83,7 +83,7 @@ public:
     virtual void rewind();
 };
 
-class Q_EXPORT TQIODeviceSource : public TQDataSource {
+class TQ_EXPORT TQIODeviceSource : public TQDataSource {
     const int buf_size;
     uchar *buffer;
     TQIODevice* iod;
@@ -100,7 +100,7 @@ public:
     void rewind();
 };
 
-class Q_EXPORT TQDataPump : public TQObject {
+class TQ_EXPORT TQDataPump : public TQObject {
     TQ_OBJECT
     int interval;
     TQTimer timer;
@@ -115,6 +115,6 @@ private slots:
     void tryToPump();
 };
 
-#endif	// QT_NO_ASYNC_IO
+#endif	// TQT_NO_ASYNC_IO
 
 #endif

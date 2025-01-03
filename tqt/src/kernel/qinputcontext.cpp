@@ -33,11 +33,11 @@
 **
 **********************************************************************/
 
-//#define QT_NO_IM_PREEDIT_RELOCATION
+//#define TQT_NO_IM_PREEDIT_RELOCATION
 
 #include "ntqinputcontext.h"
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 
 #include "qplatformdefs.h"
 
@@ -54,7 +54,7 @@ public:
     TQInputContextPrivate()
 	: holderWidget( 0 ), composingWidget( 0 ), hasFocus( FALSE ),
 	  isComposing( FALSE ) 
-#if !defined(QT_NO_IM_PREEDIT_RELOCATION)
+#if !defined(TQT_NO_IM_PREEDIT_RELOCATION)
 	  , preeditString( TQString::null ),
 	  cursorPosition( -1 ), selLength ( 0 )
 #endif
@@ -67,7 +67,7 @@ public:
 
     void updateComposingState( const TQString &text,
 			       int newCursorPosition, int newSelLength ) {
-#if !defined(QT_NO_IM_PREEDIT_RELOCATION)
+#if !defined(TQT_NO_IM_PREEDIT_RELOCATION)
 	preeditString = text;
 	cursorPosition = newCursorPosition;
 	selLength = newSelLength;
@@ -76,14 +76,14 @@ public:
 
     void resetComposingState() {
 	isComposing = FALSE;
-#if !defined(QT_NO_IM_PREEDIT_RELOCATION)
+#if !defined(TQT_NO_IM_PREEDIT_RELOCATION)
 	preeditString = TQString::null;
 	cursorPosition = -1;
 	selLength = 0;
 #endif
     }
 
-#if !defined(QT_NO_IM_PREEDIT_RELOCATION)
+#if !defined(TQT_NO_IM_PREEDIT_RELOCATION)
     TQString preeditString;
     int cursorPosition;
     int selLength;
@@ -281,7 +281,7 @@ public:
     method dependent submenus.
 
     \code
-    #ifndef QT_NO_IM
+    #ifndef TQT_NO_IM
         TQInputContext *qic = getInputContext();
         if ( qic )
             qic->addMenusTo( popup );
@@ -313,7 +313,7 @@ TQInputContext::~TQInputContext()
     delete d;
 }
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 /*!
     \internal
     Returns the owner of this input context. Ordinary input methods
@@ -384,7 +384,7 @@ void TQInputContext::setFocusWidget( TQWidget *w )
 	}
 	d->composingWidget = w;  // changes recipient of TQIMEvent
 	if ( isPreeditRelocation == TRUE ) {
-#if !defined(QT_NO_IM_PREEDIT_RELOCATION)
+#if !defined(TQT_NO_IM_PREEDIT_RELOCATION)
 	    if ( isPreeditRelocationEnabled() ) {
 		// copy preedit state to the widget that gaining focus
 		sendIMEventInternal( TQEvent::IMStart );
@@ -416,7 +416,7 @@ void TQInputContext::releaseComposingWidget( TQWidget *w )
 	d->hasFocus = FALSE;
     }
 }
-#endif  // Q_WS_X11
+#endif  // TQ_WS_X11
 
 /*!
     \internal
@@ -518,9 +518,9 @@ void TQInputContext::sendIMEventInternal( TQEvent::Type type,
     TQObject *receiver = 0;
     TQIMEvent *event = 0;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     receiver = d->composingWidget;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
     // just a placeholder
 #endif
     if ( ! receiver )
@@ -597,7 +597,7 @@ void TQInputContext::sendIMEventInternal( TQEvent::Type type,
 void TQInputContext::sendIMEvent( TQEvent::Type type, const TQString &text,
                                  int cursorPosition, int selLength )
 {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     if ( !focusWidget() )
 	return;
 #endif
@@ -806,7 +806,7 @@ TQString TQInputContext::language()
 /*!
     This is a preliminary interface for TQt4
  */
-TQList<TQAction *> TQInputContext::actions()
+TQPtrList<TQAction *> TQInputContext::actions()
 {
 }
 #else

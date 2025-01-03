@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 # xcompose2q.rb: X Compose table to QSimpleInputContext table translator
-# Copyright (C) 2004 immodule for Qt Project.  All rights reserved.
+# Copyright (C) 2004 immodule for TQt Project.  All rights reserved.
 #
 # This file is written to contribute to Trolltech AS under their own
-# licence. You may use this file under your Qt license. Following
+# licence. You may use this file under your TQt license. Following
 # description is copied from their original file headers. Contact
 # immodule-qt@freedesktop.org if any conditions of this licensing are
 # not clear to you.
@@ -18,15 +18,15 @@
 # Foundation and appearing in the file LICENSE.GPL included in the
 # packaging of this file.
 #
-# Licensees holding valid Qt Enterprise Edition or Qt Professional Edition
-# licenses may use this file in accordance with the Qt Commercial License
+# Licensees holding valid TQt Enterprise Edition or TQt Professional Edition
+# licenses may use this file in accordance with the TQt Commercial License
 # Agreement provided with the Software.
 #
 # This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 # WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 #
 # See http://www.trolltech.com/pricing.html or email sales@trolltech.com for
-#   information about Qt Commercial License Agreements.
+#   information about TQt Commercial License Agreements.
 # See http://www.trolltech.com/qpl/ for QPL licensing information.
 # See http://www.trolltech.com/gpl/ for GPL licensing information.
 #
@@ -41,26 +41,26 @@ require 'uconv'
 
 # translation table for lazy sorting
 raw2key = {
-  "0y1120" => "UNITIZE(Qt::Key_Multi_key)",
-  "0y1250" => "UNITIZE(Qt::Key_Dead_Grave)",
-  "0y1251" => "UNITIZE(Qt::Key_Dead_Acute)",
-  "0y1252" => "UNITIZE(Qt::Key_Dead_Circumflex)",
-  "0y1253" => "UNITIZE(Qt::Key_Dead_Tilde)",
-  "0y1254" => "UNITIZE(Qt::Key_Dead_Macron)",
-  "0y1255" => "UNITIZE(Qt::Key_Dead_Breve)",
-  "0y1256" => "UNITIZE(Qt::Key_Dead_Abovedot)",
-  "0y1257" => "UNITIZE(Qt::Key_Dead_Diaeresis)",
-  "0y1258" => "UNITIZE(Qt::Key_Dead_Abovering)",
-  "0y1259" => "UNITIZE(Qt::Key_Dead_Doubleacute)",
-  "0y125a" => "UNITIZE(Qt::Key_Dead_Caron)",
-  "0y125b" => "UNITIZE(Qt::Key_Dead_Cedilla)",
-  "0y125c" => "UNITIZE(Qt::Key_Dead_Ogonek)",
-  "0y125d" => "UNITIZE(Qt::Key_Dead_Iota)",
-  "0y125e" => "UNITIZE(Qt::Key_Dead_Voiced_Sound)",
-  "0y125f" => "UNITIZE(Qt::Key_Dead_Semivoiced_Sound)",
-  "0y1260" => "UNITIZE(Qt::Key_Dead_Belowdot)",
-  "0y1261" => "UNITIZE(Qt::Key_Dead_Hook)",
-  "0y1262" => "UNITIZE(Qt::Key_Dead_Horn)",
+  "0y1120" => "UNITIZE(TQt::Key_Multi_key)",
+  "0y1250" => "UNITIZE(TQt::Key_Dead_Grave)",
+  "0y1251" => "UNITIZE(TQt::Key_Dead_Acute)",
+  "0y1252" => "UNITIZE(TQt::Key_Dead_Circumflex)",
+  "0y1253" => "UNITIZE(TQt::Key_Dead_Tilde)",
+  "0y1254" => "UNITIZE(TQt::Key_Dead_Macron)",
+  "0y1255" => "UNITIZE(TQt::Key_Dead_Breve)",
+  "0y1256" => "UNITIZE(TQt::Key_Dead_Abovedot)",
+  "0y1257" => "UNITIZE(TQt::Key_Dead_Diaeresis)",
+  "0y1258" => "UNITIZE(TQt::Key_Dead_Abovering)",
+  "0y1259" => "UNITIZE(TQt::Key_Dead_Doubleacute)",
+  "0y125a" => "UNITIZE(TQt::Key_Dead_Caron)",
+  "0y125b" => "UNITIZE(TQt::Key_Dead_Cedilla)",
+  "0y125c" => "UNITIZE(TQt::Key_Dead_Ogonek)",
+  "0y125d" => "UNITIZE(TQt::Key_Dead_Iota)",
+  "0y125e" => "UNITIZE(TQt::Key_Dead_Voiced_Sound)",
+  "0y125f" => "UNITIZE(TQt::Key_Dead_Semivoiced_Sound)",
+  "0y1260" => "UNITIZE(TQt::Key_Dead_Belowdot)",
+  "0y1261" => "UNITIZE(TQt::Key_Dead_Hook)",
+  "0y1262" => "UNITIZE(TQt::Key_Dead_Horn)",
 }
 
 # X's KeySym to Unicode translation table. The unicode value is

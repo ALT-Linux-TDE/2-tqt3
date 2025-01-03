@@ -40,7 +40,7 @@
 
 #include "ntqutfcodec.h"
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 
 int TQUtf8Codec::mibEnum() const
 {
@@ -347,4 +347,4 @@ TQTextEncoder* TQUtf16Codec::makeEncoder() const
     return new TQUtf16Encoder;
 }
 
-#endif //QT_NO_TEXTCODEC
+#endif //TQT_NO_TEXTCODEC

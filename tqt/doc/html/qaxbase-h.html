@@ -172,7 +172,7 @@ inline TQString TQAxBase::generateDocumentation()
     return qax_generateDocumentation(this, d);
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 inline TQDataStream &amp;operator &gt;&gt;( TQDataStream &amp;s, TQAxBase &amp;c )
 {
     TQAxBase::PropertyBag bag;
@@ -195,7 +195,7 @@ inline TQDataStream &amp;operator &lt;&lt;( TQDataStream &amp;s, const TQAxBase 
 
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
 #endif // TQAXBASE_H
 </pre>

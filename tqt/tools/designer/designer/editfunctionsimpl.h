@@ -84,7 +84,7 @@ private:
 	TQString type;
 	TQString oldType;
 
-	Q_DUMMY_COMPARISON_OPERATOR( FunctItem )
+	TQ_DUMMY_COMPARISON_OPERATOR( FunctItem )
     };
 
     void changeItem( TQListViewItem *item, Attribute a, const TQString &nV );

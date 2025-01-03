@@ -27,7 +27,7 @@ MyWidget::MyWidget( TQWidget *parent, const char *name )
     TQPushButton *quit = new TQPushButton( "Quit", this, "quit" );
     quit->setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    connect( quit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 
     LCDRange *angle = new LCDRange( this, "angle" );
     angle->setRange( 5, 70 );
@@ -35,10 +35,10 @@ MyWidget::MyWidget( TQWidget *parent, const char *name )
     CannonField *cannonField 
 	= new CannonField( this, "cannonField" );
 
-    connect( angle, SIGNAL(valueChanged(int)),
-	     cannonField, SLOT(setAngle(int)) );
-    connect( cannonField, SIGNAL(angleChanged(int)),
-	     angle, SLOT(setValue(int)) );
+    connect( angle, TQ_SIGNAL(valueChanged(int)),
+	     cannonField, TQ_SLOT(setAngle(int)) );
+    connect( cannonField, TQ_SIGNAL(angleChanged(int)),
+	     angle, TQ_SLOT(setValue(int)) );
 
     TQGridLayout *grid = new TQGridLayout( this, 2, 2, 10 );
     //2x2, 10 pixel border

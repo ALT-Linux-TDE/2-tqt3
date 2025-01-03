@@ -45,7 +45,7 @@ ColorButton::ColorButton(TQWidget *parent, const char *name)
 {
     setAcceptDrops(TRUE);
     col = black;
-    connect(this, SIGNAL(clicked()), SLOT(changeColor()));
+    connect(this, TQ_SIGNAL(clicked()), TQ_SLOT(changeColor()));
 }
 
 
@@ -54,7 +54,7 @@ ColorButton::ColorButton(const TQColor &c, TQWidget *parent, const char *name)
 {
     setAcceptDrops(TRUE);
     col = c;
-    connect(this, SIGNAL(clicked()), SLOT(changeColor()));
+    connect(this, TQ_SIGNAL(clicked()), TQ_SLOT(changeColor()));
 }
 
 

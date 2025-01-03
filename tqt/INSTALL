@@ -18,17 +18,17 @@ the directories where you choose to install Qt.
 
 	mv qt-x11-free-3.3.8 qt
 
-    The rest of this file assumes that Qt is installed in /usr/local/qt.
+    The rest of this file assumes that TQt is installed in /usr/local/qt.
 
 
 2.  Set some environment variables in the file .profile (or .login,
     depending on your shell) in your home directory. Create the
     file if it is not there already.
 
-	QTDIR		   - the directory in which you're building Qt
-	PATH		   - to locate the moc program and other Qt tools
-	MANPATH 	   - to access the Qt man pages
-	LD_LIBRARY_PATH	   - for the shared Qt library
+	TQTDIR		   - the directory in which you're building Qt
+	PATH		   - to locate the moc program and other TQt tools
+	MANPATH 	   - to access the TQt man pages
+	LD_LIBRARY_PATH	   - for the shared TQt library
 
     Note that under IRIX the additional LD_LIBRARYN32_PATH and
     LD_LIBRARY64_PATH variables are used for specifying library
@@ -41,27 +41,27 @@ the directories where you choose to install Qt.
     In .profile (if your shell is bash, ksh, zsh or sh), add the
     following lines:
 
-	QTDIR=/usr/local/qt
-	PATH=$QTDIR/bin:$PATH
-	MANPATH=$QTDIR/doc/man:$MANPATH
-	LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+	TQTDIR=/usr/local/qt
+	PATH=$TQTDIR/bin:$PATH
+	MANPATH=$TQTDIR/doc/man:$MANPATH
+	LD_LIBRARY_PATH=$TQTDIR/lib:$LD_LIBRARY_PATH
 
-	export QTDIR PATH MANPATH LD_LIBRARY_PATH
+	export TQTDIR PATH MANPATH LD_LIBRARY_PATH
 
     In .login (in case your shell is csh or tcsh), add the following lines:
 
-	setenv QTDIR /usr/local/qt
-	setenv PATH $QTDIR/bin:$PATH
-	setenv MANPATH $QTDIR/doc/man:$MANPATH
-	setenv LD_LIBRARY_PATH $QTDIR/lib:$LD_LIBRARY_PATH
+	setenv TQTDIR /usr/local/qt
+	setenv PATH $TQTDIR/bin:$PATH
+	setenv MANPATH $TQTDIR/doc/man:$MANPATH
+	setenv LD_LIBRARY_PATH $TQTDIR/lib:$LD_LIBRARY_PATH
 
     After you have done this, you will need to login again, or
-    re-source the profile before continuing, so that at least $QTDIR
+    re-source the profile before continuing, so that at least $TQTDIR
     and $PATH are set. Without these the installation will halt with an error
     message.
 
     Note that the SGI MIPSpro o32 and Sun WorkShop 5.0 targets are no
-    longer supported as of Qt 3.3.
+    longer supported as of TQt 3.3.
 
 3.  Install your license file as $HOME/.qt-license.
     For the free edition and evaluation version, you do not need a license
@@ -70,14 +70,14 @@ the directories where you choose to install Qt.
 
 4.  Building.
 
-    This step compiles the Qt library, and builds the example programs,
-    the tutorial, and the tools (e.g. Qt Designer).
+    This step compiles the TQt library, and builds the example programs,
+    the tutorial, and the tools (e.g. TQt Designer).
 
     Type:
 
 	./configure
 
-    This will configure the Qt library for your machine. Note that
+    This will configure the TQt library for your machine. Note that
     GIF support is turned off by default. Run ./configure -help
     to get a list of configuration options. Read PLATFORMS for a
     list of supported platforms.
@@ -93,10 +93,10 @@ the directories where you choose to install Qt.
     information on known issues.
 
 
-    At this point you have binaries created in $QTDIR (eg. $QTDIR/lib/
-    contains libqt.so). If, however, you would like to have your Qt
+    At this point you have binaries created in $TQTDIR (eg. $TQTDIR/lib/
+    contains libtqt.so). If, however, you would like to have your Qt
     installed in a non-local installation you can run configure with
-    options splitting Qt into different areas for example:
+    options splitting TQt into different areas for example:
 
         ./configure -libdir /usr/local/lib -bindir /usr/local/bin -headerdir /usr/local/include/qt
 
@@ -105,10 +105,10 @@ the directories where you choose to install Qt.
 
 	make install
 
-    This will install Qt onto your machine using the paths you've set.
+    This will install TQt onto your machine using the paths you've set.
     (See ./configure -help for more information). If you choose to
-    install Qt like this, remember that you must set your
-    LD_LIBRARY_PATH to match your -libdir and your QTDIR to your
+    install TQt like this, remember that you must set your
+    LD_LIBRARY_PATH to match your -libdir and your TQTDIR to your
     -headerdir (as described in (2) above).
 
 
@@ -117,7 +117,7 @@ the directories where you choose to install Qt.
 
     If you have problems running the example programs, e.g. messages like
 
-	 can't load library 'libqt.so.3'
+	 can't load library 'libtqt.so.3'
 
     you probably need to put a reference to the qt library in a
     configuration file and run /sbin/ldconfig as root on your system.
@@ -130,4 +130,4 @@ the directories where you choose to install Qt.
 
 
 
-That's all.  Qt is now installed.
+That's all.  TQt is now installed.

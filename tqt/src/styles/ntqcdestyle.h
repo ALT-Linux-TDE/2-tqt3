@@ -46,12 +46,12 @@
 #include "ntqmotifstyle.h"
 #endif // QT_H
 
-#if !defined(QT_NO_STYLE_CDE) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_CDE) || defined(QT_PLUGIN)
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_STYLE_CDE
 #else
-#define Q_EXPORT_STYLE_CDE Q_EXPORT
+#define Q_EXPORT_STYLE_CDE TQ_EXPORT
 #endif
 
 class Q_EXPORT_STYLE_CDE TQCDEStyle : public TQMotifStyle
@@ -85,6 +85,6 @@ public:
 
 };
 
-#endif // QT_NO_STYLE_CDE
+#endif // TQT_NO_STYLE_CDE
 
 #endif // TQCDESTYLE_H

@@ -9,7 +9,7 @@
 .SH NAME
 QTextCodecPlugin \- Abstract base for custom QTextCodec plugins
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqtextcodecplugin.h>\fR
 .PP
@@ -25,7 +25,7 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "virtual QStringList \fBnames\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QTextCodec * \fBcreateForName\fR ( const QString & name ) = 0"
+.BI "virtual QTextCodec * \fBcreateForName\fR ( const TQString & name ) = 0"
 .br
 .ti -1c
 .BI "virtual QValueList<int> \fBmibEnums\fR () const = 0"
@@ -39,7 +39,7 @@ The QTextCodecPlugin class provides an abstract base for custom QTextCodec plugi
 .PP
 The text codec plugin is a simple plugin interface that makes it easy to create custom text codecs that can be loaded dynamically into applications.
 .PP
-Writing a text codec plugin is achieved by subclassing this base class, reimplementing the pure virtual functions names(), createForName(), mibEnums() and createForMib(), and exporting the class with the \fCQ_EXPORT_PLUGIN\fR macro. See the Qt Plugins documentation for details.
+Writing a text codec plugin is achieved by subclassing this base class, reimplementing the pure virtual functions names(), createForName(), mibEnums() and createForMib(), and exporting the class with the \fCQ_EXPORT_PLUGIN\fR macro. See the TQt Plugins documentation for details.
 .PP
 See the IANA character-sets encoding file for more information on mime names and mib enums.
 .PP
@@ -50,14 +50,14 @@ Constructs a text codec plugin. This is invoked automatically by the \fCQ_EXPORT
 .SH "QTextCodecPlugin::~QTextCodecPlugin ()"
 Destroys the text codec plugin.
 .PP
-You never have to call this explicitly. Qt destroys a plugin automatically when it is no longer used.
+You never have to call this explicitly. TQt destroys a plugin automatically when it is no longer used.
 .SH "QTextCodec * QTextCodecPlugin::createForMib ( int mib )\fC [pure virtual]\fR"
 Creates a QTextCodec object for the mib enum \fImib\fR.
 .PP
 (See the IANA character-sets encoding file for more information)
 .PP
 See also mibEnums().
-.SH "QTextCodec * QTextCodecPlugin::createForName ( const QString & name )\fC [pure virtual]\fR"
+.SH "QTextCodec * QTextCodecPlugin::createForName ( const TQString & name )\fC [pure virtual]\fR"
 Creates a QTextCodec object for the codec called \fIname\fR.
 .PP
 See also names().
@@ -84,8 +84,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

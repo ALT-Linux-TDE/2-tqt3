@@ -39,10 +39,10 @@
 **********************************************************************/
 
 #include "ntqlineedit.h"
-#ifndef QT_NO_LINEEDIT
+#ifndef TQT_NO_LINEEDIT
 
 // Keep this position to avoid patch rejection
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "ntqinputcontext.h"
 #endif
 
@@ -70,7 +70,7 @@
 #include "ntqaccessible.h"
 #endif
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 #include "ntqkeysequence.h"
 #define ACCEL_KEY(k) "\t" + TQString(TQKeySequence( TQt::CTRL | TQt::Key_ ## k ))
 #else
@@ -95,7 +95,7 @@ struct TQLineEditPrivate : public TQt
 	  hscroll(0), validator(0), maskData(0),
 	  undoState(0), selstart(0), selend(0),
 	  imstart(0), imend(0), imselstart(0), imselend(0)
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 	,dndTimer(0)
 #endif
 	{}
@@ -245,7 +245,7 @@ struct TQLineEditPrivate : public TQt
     inline bool hasSelectedText() const { return !text.isEmpty() && selend > selstart; }
     inline void deselect() { selDirty |= (selend > selstart); selstart = selend = 0; }
     void removeSelectedText();
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     void copy( bool clipboard = TRUE ) const;
 #endif
     inline bool inSelection( int x ) const
@@ -278,7 +278,7 @@ struct TQLineEditPrivate : public TQt
     TQRect cursorRect() const;
     void updateMicroFocusHint();
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     // drag and drop
     TQPoint dndPos;
     int dndTimer;
@@ -669,12 +669,12 @@ const TQValidator * TQLineEdit::validator() const
 void TQLineEdit::setValidator( const TQValidator *v )
 {
     if ( d->validator )
-	disconnect( (TQObject*)d->validator, SIGNAL( destroyed() ),
-		    this, SLOT( clearValidator() ) );
+	disconnect( (TQObject*)d->validator, TQ_SIGNAL( destroyed() ),
+		    this, TQ_SLOT( clearValidator() ) );
     d->validator = v;
     if ( d->validator )
-	connect( (TQObject*)d->validator, SIGNAL( destroyed() ),
-	         this, SLOT( clearValidator() ) );
+	connect( (TQObject*)d->validator, TQ_SIGNAL( destroyed() ),
+	         this, TQ_SLOT( clearValidator() ) );
 }
 
 
@@ -1115,7 +1115,7 @@ void TQLineEdit::setDragEnabled( bool b )
 */
 bool TQLineEdit::hasAcceptableInput() const
 {
-#ifndef QT_NO_VALIDATOR
+#ifndef TQT_NO_VALIDATOR
     TQString text = d->text;
     int cursor = d->cursor;
     if ( d->validator && d->validator->validate( text, cursor ) != TQValidator::Acceptable )
@@ -1319,14 +1319,14 @@ bool TQLineEdit::isReadOnly() const
 void TQLineEdit::setReadOnly( bool enable )
 {
     d->readOnly = enable;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     setCursor( enable ? arrowCursor : ibeamCursor );
 #endif
     update();
 }
 
 
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 /*!
     Copies the selected text to the clipboard and deletes it, if there
     is any, and if echoMode() is \c Normal.
@@ -1378,14 +1378,14 @@ void TQLineEditPrivate::copy( bool clipboard ) const
 {
     TQString t = q->selectedText();
     if ( !t.isEmpty() && echoMode == TQLineEdit::Normal ) {
-	q->disconnect( TQApplication::clipboard(), SIGNAL(selectionChanged()), q, 0);
+	q->disconnect( TQApplication::clipboard(), TQ_SIGNAL(selectionChanged()), q, 0);
 	TQApplication::clipboard()->setText( t, clipboard ? TQClipboard::Clipboard : TQClipboard::Selection );
-	q->connect( TQApplication::clipboard(), SIGNAL(selectionChanged()),
-		 q, SLOT(clipboardChanged()) );
+	q->connect( TQApplication::clipboard(), TQ_SIGNAL(selectionChanged()),
+		 q, TQ_SLOT(clipboardChanged()) );
     }
 }
 
-#endif // !QT_NO_CLIPBOARD
+#endif // !TQT_NO_CLIPBOARD
 
 /*!\reimp
 */
@@ -1436,7 +1436,7 @@ bool TQLineEdit::event( TQEvent * e )
 	    case Key_Z:
 	    case Key_Left:
 	    case Key_Right:
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	    case Key_Insert:
 	    case Key_Delete:
 #endif
@@ -1451,7 +1451,7 @@ bool TQLineEdit::event( TQEvent * e )
 	if ( timerId == d->cursorTimer ) {
 	    if(!hasSelectedText() || style().styleHint( TQStyle::SH_BlinkCursorWhenTextSelected ))
 		d->setCursorVisible( !d->cursorVisible );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 	} else if ( timerId == d->dndTimer ) {
 	    if( !d->drag() )
                 return TRUE;
@@ -1479,7 +1479,7 @@ void TQLineEdit::mousePressEvent( TQMouseEvent* e )
     }
     bool mark = e->state() & ShiftButton;
     int cursor = d->xToPos( e->pos().x() );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( !mark && d->dragEnabled && d->echoMode == Normal &&
 	 e->button() == LeftButton && d->inSelection( e->pos().x() ) ) {
 	d->cursor = cursor;
@@ -1501,10 +1501,10 @@ void TQLineEdit::mouseMoveEvent( TQMouseEvent * e )
 {
     if ( sendMouseEventToInputContext( e ) )
 	return;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( ( e->state() & MouseButtonMask ) == 0 ) {
 	if ( !d->readOnly && d->dragEnabled
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	     && !TQWhatsThis::inWhatsThisMode()
 #endif
 	    )
@@ -1513,7 +1513,7 @@ void TQLineEdit::mouseMoveEvent( TQMouseEvent * e )
 #endif
 
     if ( e->state() & LeftButton ) {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 	if ( d->dndTimer ) {
 	    if ( ( d->dndPos - e->pos() ).manhattanLength() > TQApplication::startDragDistance() )
 		d->drag();
@@ -1531,7 +1531,7 @@ void TQLineEdit::mouseReleaseEvent( TQMouseEvent* e )
 {
     if ( sendMouseEventToInputContext( e ) )
 	return;
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( e->button() == LeftButton ) {
 	if ( d->dndTimer ) {
 	    killTimer( d->dndTimer );
@@ -1541,7 +1541,7 @@ void TQLineEdit::mouseReleaseEvent( TQMouseEvent* e )
 	}
     }
 #endif
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     if (TQApplication::clipboard()->supportsSelection() ) {
 	if ( e->button() == LeftButton ) {
 	    d->copy( FALSE );
@@ -1601,7 +1601,7 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
 	if ( hasAcceptableInput() ) {
 	    emit returnPressed();
 	}
-#ifndef QT_NO_VALIDATOR
+#ifndef TQT_NO_VALIDATOR
 	else if ( v && v->validate( d->text, d->cursor ) != TQValidator::Acceptable ) {
 	    TQString vstr = d->text;
 	    v->fixup( vstr );
@@ -1620,7 +1620,7 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
 	if ( !t.isEmpty() && (!e->ascii() || e->ascii()>=32) &&
 	     e->key() != Key_Delete &&
 	     e->key() != Key_Backspace ) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	    extern bool tqt_hebrew_keyboard_hack;
 	    if ( tqt_hebrew_keyboard_hack ) {
 		// the X11 keyboard layout is broken and does not reverse
@@ -1645,7 +1645,7 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
     if ( e->state() & ControlButton ) {
 	switch ( e->key() ) {
 	case Key_A:
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	    home( e->state() & ShiftButton );
 #else
 	    selectAll();
@@ -1654,7 +1654,7 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
 	case Key_B:
 	    cursorForward( e->state() & ShiftButton, -1 );
 	    break;
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 	case Key_C:
 	    copy();
 	    break;
@@ -1684,13 +1684,13 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
 		d->finishChange( priorState );
 	    }
 	    break;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
         case Key_U:
 	    if ( !d->readOnly )
 		clear();
 	    break;
 #endif
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 	case Key_V:
 	    if ( !d->readOnly )
 		paste();
@@ -1701,7 +1701,7 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
 		del();
 	    }
 	    break;
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	case Key_Insert:
 	    copy();
 	    break;
@@ -1765,20 +1765,20 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
 	    }
 	    break;
 	case Key_Home:
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 	case Key_Up:
 #endif
 	    home( e->state() & ShiftButton );
 	    break;
 	case Key_End:
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 	case Key_Down:
 #endif
 	    end( e->state() & ShiftButton );
 	    break;
 	case Key_Delete:
 	    if ( !d->readOnly ) {
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 		if ( e->state() & ShiftButton ) {
 		    cut();
 		    break;
@@ -1787,7 +1787,7 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
 		del();
 	    }
 	    break;
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	case Key_Insert:
 	    if ( !d->readOnly && e->state() & ShiftButton )
 		paste();
@@ -1799,7 +1799,7 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
 	    if ( !d->readOnly )
 		undo();
 	    break;
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 	case Key_F16: // Copy key on Sun keyboards
 	    copy();
 	    break;
@@ -1836,7 +1836,7 @@ void TQLineEdit::keyPressEvent( TQKeyEvent * e )
  */
 bool TQLineEdit::sendMouseEventToInputContext( TQMouseEvent *e )
 {
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     if ( d->composeMode() ) {
 	int cursor = d->xToPosInternal( e->pos().x(), TQTextItem::OnCharacters );
 	int mousePos = cursor - d->imstart;
@@ -2119,7 +2119,7 @@ void TQLineEdit::drawContents( TQPainter *p )
 }
 
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 /*!\reimp
 */
 void TQLineEdit::dragMoveEvent( TQDragMoveEvent *e )
@@ -2203,13 +2203,13 @@ bool TQLineEditPrivate::drag()
 	removeSelectedText();
 	finishChange( priorState );
     }
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     q->setCursor( readOnly ? arrowCursor : ibeamCursor );
 #endif
     return TRUE;
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 enum { IdUndo, IdRedo, IdSep1, IdCut, IdCopy, IdPaste, IdClear, IdSep2, IdSelectAll };
 
@@ -2217,8 +2217,8 @@ enum { IdUndo, IdRedo, IdSep1, IdCut, IdCopy, IdPaste, IdClear, IdSep2, IdSelect
 */
 void TQLineEdit::contextMenuEvent( TQContextMenuEvent * e )
 {
-#ifndef QT_NO_POPUPMENU
-#ifndef QT_NO_IM
+#ifndef TQT_NO_POPUPMENU
+#ifndef TQT_NO_IM
     if ( d->composeMode() )
 	return;
 #endif
@@ -2238,7 +2238,7 @@ void TQLineEdit::contextMenuEvent( TQContextMenuEvent * e )
 	case IdSelectAll: selectAll(); break;
 	case IdUndo: undo(); break;
 	case IdRedo: redo(); break;
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 	case IdCut: cut(); break;
 	case IdCopy: copy(); break;
 	case IdPaste: paste(); break;
@@ -2247,7 +2247,7 @@ void TQLineEdit::contextMenuEvent( TQContextMenuEvent * e )
 	    ; // nothing selected or lineedit destroyed. Be careful.
 	}
     }
-#endif //QT_NO_POPUPMENU
+#endif //TQT_NO_POPUPMENU
 }
 
 /*!
@@ -2260,7 +2260,7 @@ void TQLineEdit::contextMenuEvent( TQContextMenuEvent * e )
 
 TQPopupMenu *TQLineEdit::createPopupMenu()
 {
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     TQPopupMenu *popup = new TQPopupMenu( this, "qt_edit_menu" );
     int id = d->menuId = popup->insertItem( tr( "&Undo" ) + ACCEL_KEY( Z ) );
     popup->insertItem( tr( "&Redo" ) + ACCEL_KEY( Y ) );
@@ -2271,12 +2271,12 @@ TQPopupMenu *TQLineEdit::createPopupMenu()
     popup->insertItem( tr( "Clear" ) );
     popup->insertSeparator();
     popup->insertItem( tr( "Select All" )
-#ifndef Q_WS_X11
+#ifndef TQ_WS_X11
     + ACCEL_KEY( A )
 #endif
 	);
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     TQInputContext *qic = getInputContext();
     if ( qic )
 	qic->addMenusTo( popup );
@@ -2284,7 +2284,7 @@ TQPopupMenu *TQLineEdit::createPopupMenu()
     
     popup->setItemEnabled( id - IdUndo, d->isUndoAvailable() );
     popup->setItemEnabled( id - IdRedo, d->isRedoAvailable() );
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     popup->setItemEnabled( id - IdCut, !d->readOnly && d->hasSelectedText() );
     popup->setItemEnabled( id - IdCopy, d->hasSelectedText() );
     popup->setItemEnabled( id - IdPaste, !d->readOnly && !TQApplication::clipboard()->text().isEmpty() );
@@ -2375,7 +2375,7 @@ void TQLineEdit::clipboardChanged()
 
 void TQLineEditPrivate::init( const TQString& txt )
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     q->setCursor( readOnly ? arrowCursor : ibeamCursor );
 #endif
     q->setFocusPolicy( TQWidget::StrongFocus );
@@ -2513,7 +2513,7 @@ void TQLineEditPrivate::finishChange( int validateFromState, bool setModified )
 	// do validation
 	bool wasValidInput = validInput;
 	validInput = TRUE;
-#ifndef QT_NO_VALIDATOR
+#ifndef TQT_NO_VALIDATOR
 	if ( validator && validateFromState >= 0 ) {
 	    TQString textCopy = text;
 	    int cursorCopy = cursor;
@@ -2956,4 +2956,4 @@ int TQLineEditPrivate::findInMask( int pos, bool forward, bool findSeparator, TQ
 }
 
 
-#endif // QT_NO_LINEEDIT
+#endif // TQT_NO_LINEEDIT

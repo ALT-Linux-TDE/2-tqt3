@@ -51,7 +51,7 @@
 #include "qrichtext_p.h"
 #include "ntqregexp.h"
 #include "ntqcleanuphandler.h"
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 #include "qgfx_qws.h"
 #endif
 #include <string.h>
@@ -59,7 +59,7 @@
 #include "qtextlayout_p.h"
 #include "qfontengine_p.h"
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 typedef TQPtrStack<TQWMatrix> TQWMatrixStack;
 #endif
 
@@ -554,7 +554,7 @@ TQPainter::~TQPainter()
 	killPStack();
     if ( tabarray )				// delete tab array
 	delete [] tabarray;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( wm_stack )
 	delete (TQWMatrixStack *)wm_stack;
 #endif
@@ -662,7 +662,7 @@ struct TQPState {				// painter state
     uchar	rop;
     TQPoint	bro;
     TQRect	wr, vr;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQWMatrix	wm;
 #else
     int		xlatex;
@@ -729,7 +729,7 @@ void TQPainter::save()
     ps->bgm   = bg_mode;
     ps->rop   = rop;
     ps->bro   = bro;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     ps->wr    = TQRect( wx, wy, ww, wh );
     ps->vr    = TQRect( vx, vy, vw, vh );
     ps->wm    = wxmat;
@@ -786,7 +786,7 @@ void TQPainter::restore()
 	setRasterOp( (RasterOp)ps->rop );
     if ( ps->bro != bro || hardRestore )
 	setBrushOrigin( ps->bro );
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQRect wr( wx, wy, ww, wh );
     TQRect vr( vx, vy, vw, vh );
     if ( ps->wr != wr || hardRestore )
@@ -813,7 +813,7 @@ void TQPainter::restore()
     tabstops = ps->ts;
     tabarray = ps->ta;
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( wm_stack )
 	delete (TQWMatrixStack *)wm_stack;
     wm_stack = ps->wm_stack;
@@ -1206,7 +1206,7 @@ void TQPainter::setTabArray( int *ta )
   TQPainter xform settings
  *****************************************************************************/
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 
 /*!
     Enables view transformations if \a enable is TRUE, or disables
@@ -1504,7 +1504,7 @@ void TQPainter::restoreWorldMatrix()
     delete m;
 }
 
-#endif // QT_NO_TRANSFORMATIONS
+#endif // TQT_NO_TRANSFORMATIONS
 
 /*!
     Translates the coordinate system by \a (dx, dy). After this call,
@@ -1528,7 +1528,7 @@ void TQPainter::restoreWorldMatrix()
 
 void TQPainter::translate( double dx, double dy )
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQWMatrix m;
     m.translate( dx, dy );
     setWorldMatrix( m, TRUE );
@@ -1540,7 +1540,7 @@ void TQPainter::translate( double dx, double dy )
 }
 
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 /*!
     Scales the coordinate system by \a (sx, sy).
 
@@ -1633,13 +1633,13 @@ void TQPainter::updateXForm()
 		txop = TxTranslate;
 	} else {
 	    txop = TxScale;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	    setf(DirtyFont);
 #endif
 	}
     } else {
 	txop = TxRotShear;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	setf(DirtyFont);
 #endif
     }
@@ -1680,7 +1680,7 @@ void TQPainter::resetXForm()
     xlatey = 0;
     clearf( VxF );
 }
-#endif // QT_NO_TRANSFORMATIONS
+#endif // TQT_NO_TRANSFORMATIONS
 
 
 extern bool qt_old_transformations;
@@ -1692,7 +1692,7 @@ extern bool qt_old_transformations;
 
 void TQPainter::map( int x, int y, int *rx, int *ry ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( qt_old_transformations ) {
 	switch ( txop ) {
 	    case TxNone:
@@ -1751,7 +1751,7 @@ void TQPainter::map( int x, int y, int *rx, int *ry ) const
 void TQPainter::map( int x, int y, int w, int h,
 		    int *rx, int *ry, int *rw, int *rh ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( qt_old_transformations ) {
 	switch ( txop ) {
 	    case TxNone:
@@ -1818,7 +1818,7 @@ void TQPainter::map( int x, int y, int w, int h,
 
 void TQPainter::mapInv( int x, int y, int *rx, int *ry ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 #if defined(QT_CHECK_STATE)
     if ( !txinv )
 	tqWarning( "TQPainter::mapInv: Internal error" );
@@ -1847,7 +1847,7 @@ void TQPainter::mapInv( int x, int y, int *rx, int *ry ) const
 void TQPainter::mapInv( int x, int y, int w, int h,
 		       int *rx, int *ry, int *rw, int *rh ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 #if defined(QT_CHECK_STATE)
     if ( !txinv || txop == TxRotShear )
 	tqWarning( "TQPainter::mapInv: Internal error" );
@@ -1885,7 +1885,7 @@ void TQPainter::mapInv( int x, int y, int w, int h,
 
 TQPoint TQPainter::xForm( const TQPoint &pv ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( txop == TxNone )
 	return pv;
     int x=pv.x(), y=pv.y();
@@ -1910,7 +1910,7 @@ TQPoint TQPainter::xForm( const TQPoint &pv ) const
 
 TQRect TQPainter::xForm( const TQRect &rv ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( txop == TxNone )
 	return rv;
     if ( txop == TxRotShear ) {			// rotation/shear
@@ -1938,7 +1938,7 @@ TQRect TQPainter::xForm( const TQRect &rv ) const
 TQPointArray TQPainter::xForm( const TQPointArray &av ) const
 {
     TQPointArray a = av;
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( txop != TxNone )
     {
 	return xmat * av;
@@ -1978,7 +1978,7 @@ TQPointArray TQPainter::xForm( const TQPointArray &av, int index,
     int lastPoint = npoints < 0 ? av.size() : index+npoints;
     TQPointArray a( lastPoint-index );
     memcpy( a.data(), av.data()+index, (lastPoint-index)*sizeof( TQPoint ) );
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     return xmat*a;
 #else
     a.translate( xlatex, xlatey );
@@ -1997,7 +1997,7 @@ TQPointArray TQPainter::xForm( const TQPointArray &av, int index,
 
 TQPoint TQPainter::xFormDev( const TQPoint &pd ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( txop == TxNone )
 	return pd;
     if ( !txinv ) {
@@ -2022,7 +2022,7 @@ TQPoint TQPainter::xFormDev( const TQPoint &pd ) const
 
 TQRect TQPainter::xFormDev( const TQRect &rd ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( txop == TxNone )
 	return rd;
     if ( !txinv ) {
@@ -2051,7 +2051,7 @@ TQRect TQPainter::xFormDev( const TQRect &rd ) const
 
 TQPointArray TQPainter::xFormDev( const TQPointArray &ad ) const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( txop == TxNone )
 	return ad;
     if ( !txinv ) {
@@ -2094,7 +2094,7 @@ TQPointArray TQPainter::xFormDev( const TQPointArray &ad, int index,
     int lastPoint = npoints < 0 ? ad.size() : index+npoints;
     TQPointArray a( lastPoint-index );
     memcpy( a.data(), ad.data()+index, (lastPoint-index)*sizeof( TQPoint ) );
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     if ( txop == TxNone )
 	return a;
     if ( !txinv ) {
@@ -2174,7 +2174,7 @@ TQRegion TQPainter::clipRegion( CoordinateMode m ) const
     // If the transformation mode is CoordPainter, we should transform the
     // clip region with painter transformations.
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQRegion r;
     if ( m == CoordDevice ) {
 	r = crgn;
@@ -2253,7 +2253,7 @@ TQRegion TQPainter::clipRegion( CoordinateMode m ) const
 */
 
 
-#if !defined(Q_WS_X11) && !defined(Q_WS_QWS) && !defined(Q_WS_MAC)
+#if !defined(TQ_WS_X11) && !defined(TQ_WS_QWS) && !defined(TQ_WS_MAC)
 // The doc and X implementation of this functions is in qpainter_x11.cpp
 void TQPainter::drawWinFocusRect( int, int, int, int,
 				 bool, const TQColor & )
@@ -2315,7 +2315,7 @@ void TQPainter::drawPixmap( const TQPoint &p, const TQPixmap &pm )
     drawPixmap( p.x(), p.y(), pm, 0, 0, pm.width(), pm.height() );
 }
 
-#if !defined(QT_NO_IMAGE_SMOOTHSCALE) || !defined(QT_NO_PIXMAP_TRANSFORMATION)
+#if !defined(TQT_NO_IMAGE_SMOOTHSCALE) || !defined(TQT_NO_PIXMAP_TRANSFORMATION)
 
 /*!
     \overload
@@ -2340,13 +2340,13 @@ void TQPainter::drawPixmap( const TQRect &r, const TQPixmap &pm )
 	TQPDevCmdParam param[2];
 	param[0].rect = &r;
 	param[1].pixmap = &pm;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	if ( !pdev->cmd( TQPaintDevice::PdcDrawPixmap, this, param ) || !hdc )
 	    return;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
 	pdev->cmd( TQPaintDevice::PdcDrawPixmap, this, param );
 	return;
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 	if ( !pdev->cmd( TQPaintDevice::PdcDrawPixmap, this, param ) || !pdev->handle())
 	    return;
 #else
@@ -2358,19 +2358,19 @@ void TQPainter::drawPixmap( const TQRect &r, const TQPixmap &pm )
     TQPixmap pixmap = pm;
 
     if ( scale ) {
-#ifndef QT_NO_IMAGE_SMOOTHSCALE
-# ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_IMAGE_SMOOTHSCALE
+# ifndef TQT_NO_PIXMAP_TRANSFORMATION
 	if ( smooth )
 # endif
 	{
 	    TQImage i = pm.convertToImage();
 	    pixmap = TQPixmap( i.smoothScale( rw, rh ) );
 	}
-# ifndef QT_NO_PIXMAP_TRANSFORMATION
+# ifndef TQT_NO_PIXMAP_TRANSFORMATION
 	else
 # endif
 #endif
-#ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_PIXMAP_TRANSFORMATION
 	{
 	    pixmap = pm.xForm( TQWMatrix( scaleX, 0, 0, scaleY, 0, 0 ) );
 	}
@@ -2417,9 +2417,9 @@ void TQPainter::drawImage( int x, int y, const TQImage & image,
 			  int sx, int sy, int sw, int sh,
 			  int conversionFlags )
 {
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     //### Hackish
-# ifndef QT_NO_TRANSFORMATIONS
+# ifndef TQT_NO_TRANSFORMATIONS
     if ( !image.isNull() && gfx &&
 	(txop==TxNone||txop==TxTranslate) && !testf(ExtDev) )
 # else
@@ -2488,13 +2488,13 @@ void TQPainter::drawImage( int x, int y, const TQImage & image,
 	TQRect r( x, y, subimage.width(), subimage.height() );
 	param[0].rect = &r;
 	param[1].image = &subimage;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	if ( !pdev->cmd( TQPaintDevice::PdcDrawImage, this, param ) || !hdc )
 	    return;
-#elif defined (Q_WS_QWS)
+#elif defined (TQ_WS_QWS)
 	pdev->cmd( TQPaintDevice::PdcDrawImage, this, param );
 	return;
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 	if(!pdev->cmd( TQPaintDevice::PdcDrawImage, this, param ) || !pdev->handle() )
 	    return;
 #else
@@ -2525,7 +2525,7 @@ void TQPainter::drawImage( const TQPoint & p, const TQImage & i,
     drawImage(p, i, i.rect(), conversion_flags);
 }
 
-#if !defined(QT_NO_IMAGE_TRANSFORMATION) || !defined(QT_NO_IMAGE_SMOOTHSCALE)
+#if !defined(TQT_NO_IMAGE_TRANSFORMATION) || !defined(TQT_NO_IMAGE_SMOOTHSCALE)
 
 /*!
     \overload
@@ -2547,13 +2547,13 @@ void TQPainter::drawImage( const TQRect &r, const TQImage &i )
 	TQPDevCmdParam param[2];
 	param[0].rect = &r;
 	param[1].image = &i;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	if ( !pdev->cmd( TQPaintDevice::PdcDrawImage, this, param ) || !hdc )
 	    return;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
 	pdev->cmd( TQPaintDevice::PdcDrawImage, this, param );
 	return;
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 	if ( !pdev->cmd( TQPaintDevice::PdcDrawImage, this, param ) || !pdev->handle() )
 	    return;
 #else
@@ -2570,9 +2570,9 @@ void TQPainter::drawImage( const TQRect &r, const TQImage &i )
 
     TQImage img = scale
 	? (
-#if defined(QT_NO_IMAGE_TRANSFORMATION)
+#if defined(TQT_NO_IMAGE_TRANSFORMATION)
 		i.smoothScale( rw, rh )
-#elif defined(QT_NO_IMAGE_SMOOTHSCALE)
+#elif defined(TQT_NO_IMAGE_SMOOTHSCALE)
 		i.scale( rw, rh )
 #else
 		smooth ? i.smoothScale( rw, rh ) : i.scale( rw, rh )
@@ -2786,15 +2786,15 @@ void TQPainter::drawText( const TQRect &r, int tf,
 	    param[1].ival = tf;
 	    param[2].str = &newstr;
 	    if ( pdev->devType() != TQInternal::Printer ) {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 		if ( !pdev->cmd( TQPaintDevice::PdcDrawText2Formatted,
 				 this, param) ||
 		     !hdc )
 		    return;			// TQPrinter wants PdcDrawText2
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
 		pdev->cmd( TQPaintDevice::PdcDrawText2Formatted, this, param);
 		return;
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 		if ( !pdev->cmd( TQPaintDevice::PdcDrawText2Formatted, this, param) ||
 		    !pdev->handle())
 		    return;			// TQPrinter wants PdcDrawText2
@@ -3006,7 +3006,7 @@ void qt_format_text( const TQFont& font, const TQRect &_r,
 	bool painterHasClip = FALSE;
 	TQRegion painterClipRegion;
 	if ( !dontclip ) {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 	    TQRegion reg = painter->xmat * r;
 #else
 	    TQRegion reg = r;
@@ -3045,7 +3045,7 @@ void qt_format_text( const TQFont& font, const TQRect &_r,
 		textFlags |= TQt::Underline;
 		cUlChar++;
 	    }
-#if defined(Q_WS_X11) || defined(Q_WS_QWS)
+#if defined(TQ_WS_X11) || defined(TQ_WS_QWS)
 	    if ( painter->bg_mode == TQt::OpaqueMode ) {
                 int h = ti.ascent() + ti.descent() + 1;
                 if (ti.y() + h < height)
@@ -3524,7 +3524,7 @@ bool TQPen::operator==( const TQPen &p ) const
 /*****************************************************************************
   TQPen stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQPen
 
@@ -3563,7 +3563,7 @@ TQDataStream &operator>>( TQDataStream &s, TQPen &p )
     p = TQPen( color, (uint)width, (TQt::PenStyle)style );	// owl
     return s;
 }
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 /*****************************************************************************
   TQBrush member functions
@@ -3915,7 +3915,7 @@ bool TQBrush::operator==( const TQBrush &b ) const
 /*****************************************************************************
   TQBrush stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQBrush
 
@@ -3929,7 +3929,7 @@ TQDataStream &operator<<( TQDataStream &s, const TQBrush &b )
 {
     s << (TQ_UINT8)b.style() << b.color();
     if ( b.style() == TQt::CustomPattern )
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 	s << *b.pixmap();
 #else
 	tqWarning("No Image Brush I/O");
@@ -3953,7 +3953,7 @@ TQDataStream &operator>>( TQDataStream &s, TQBrush &b )
     s >> style;
     s >> color;
     if ( style == TQt::CustomPattern ) {
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 	TQPixmap pm;
 	s >> pm;
 	b = TQBrush( color, pm );
@@ -3965,4 +3965,4 @@ TQDataStream &operator>>( TQDataStream &s, TQBrush &b )
 	b = TQBrush( color, (TQt::BrushStyle)style );
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM

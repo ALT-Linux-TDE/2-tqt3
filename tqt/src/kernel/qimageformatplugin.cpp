@@ -37,7 +37,7 @@
 **********************************************************************/
 
 #include "ntqimageformatplugin.h"
-#ifndef QT_NO_IMAGEFORMATPLUGIN
+#ifndef TQT_NO_IMAGEFORMATPLUGIN
 #include "qimageformatinterface_p.h"
 #include "ntqimage.h"
 
@@ -54,7 +54,7 @@
     Writing an image format plugin is achieved by subclassing this
     base class, reimplementing the pure virtual functions keys() and
     installIOHandler(), and exporting the class with the
-    Q_EXPORT_PLUGIN macro.  See the \link plugins-howto.html Plugins
+    TQ_EXPORT_PLUGIN macro.  See the \link plugins-howto.html Plugins
     documentation\endlink for details.
 */
 
@@ -86,7 +86,7 @@ public:
     virtual ~TQImageFormatPluginPrivate();
 
     TQRESULT queryInterface( const TQUuid &iid, TQUnknownInterface **iface );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
 
@@ -143,7 +143,7 @@ TQRESULT TQImageFormatPluginPrivate::installIOHandler( const TQString &format )
 
 /*!
     Constructs an image format plugin. This is invoked automatically
-    by the Q_EXPORT_PLUGIN macro.
+    by the TQ_EXPORT_PLUGIN macro.
 */
 TQImageFormatPlugin::TQImageFormatPlugin()
     : TQGPlugin( d = new TQImageFormatPluginPrivate( this ) )
@@ -181,4 +181,4 @@ bool TQImageFormatPlugin::saveImage( const TQString &format, const TQString &fil
     return FALSE;
 }
 
-#endif // QT_NO_IMAGEFORMATPLUGIN
+#endif // TQT_NO_IMAGEFORMATPLUGIN

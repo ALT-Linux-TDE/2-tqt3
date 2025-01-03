@@ -40,7 +40,7 @@
 
 #include "ntqtoolbox.h"
 
-#ifndef QT_NO_TOOLBOX
+#ifndef TQT_NO_TOOLBOX
 
 #include <ntqbutton.h>
 #include <ntqlayout.h>
@@ -349,12 +349,12 @@ int TQToolBox::insertItem( int index, TQWidget *item, const TQIconSet &iconSet,
     if ( !item )
 	return -1;
 
-    connect(item, SIGNAL(destroyed(TQObject*)), this, SLOT(itemDestroyed(TQObject*)));
+    connect(item, TQ_SIGNAL(destroyed(TQObject*)), this, TQ_SLOT(itemDestroyed(TQObject*)));
 
     TQToolBoxPrivate::Page c;
     c.widget = item;
     c.button = new TQToolBoxButton( this, label.latin1() );
-    connect( c.button, SIGNAL( clicked() ), this, SLOT( buttonClicked() ) );
+    connect( c.button, TQ_SIGNAL( clicked() ), this, TQ_SLOT( buttonClicked() ) );
 
     c.sv = new TQScrollView( this );
     c.sv->hide();
@@ -487,7 +487,7 @@ int TQToolBox::removeItem( TQWidget *item )
 {
     int index = indexOf(item);
     if (index >= 0) {
-	disconnect(item, SIGNAL(destroyed(TQObject*)), this, SLOT(itemDestroyed(TQObject*)));
+	disconnect(item, TQ_SIGNAL(destroyed(TQObject*)), this, TQ_SLOT(itemDestroyed(TQObject*)));
 	item->reparent( this, TQPoint(0,0) );
 	// destroy internal data
 	itemDestroyed(item);
@@ -690,4 +690,4 @@ void TQToolBox::itemRemoved( int index )
     Q_UNUSED(index)
 }
 
-#endif //QT_NO_TOOLBOX
+#endif //TQT_NO_TOOLBOX

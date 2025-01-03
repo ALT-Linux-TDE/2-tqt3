@@ -38,14 +38,11 @@
 **
 **********************************************************************/
 
-// ### 4.0: examine Q_EXPORT's below. The respective symbols had all
+// ### 4.0: examine TQ_EXPORT's below. The respective symbols had all
 // been in use (e.g. in the KDE wm ) before the introduction of a version
 // map. One might want to turn some of them into propert public API and
 // provide a proper alternative for others. See also the exports in
 // qapplication_win.cpp which suggest a unification.
-
-// ### needed for solaris-g++ in beta5
-#define QT_CLEAN_NAMESPACE
 
 #include "qplatformdefs.h"
 
@@ -92,12 +89,12 @@
 #include "ntqfileinfo.h"
 
 // Input method stuff - UNFINISHED
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "ntqinputcontext.h"
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 #include "qinternal_p.h" // shared double buffer cleanup
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 # include "ntqthread.h"
 #endif
 
@@ -107,7 +104,7 @@
 
 #include "qt_x11_p.h"
 
-#if !defined(QT_NO_XFTFREETYPE)
+#if !defined(TQT_NO_XFTFREETYPE)
 // XFree86 4.0.3 implementation is missing XftInitFtLibrary forward
 extern "C" Bool XftInitFtLibrary(void);
 #endif
@@ -195,7 +192,7 @@ static const char *appBTNCol	= 0;		// application btn color
 static const char *mwGeometry	= 0;		// main widget geometry
 static const char *mwTitle	= 0;		// main widget title
 //Ming-Che 10/10
-Q_EXPORT char    *qt_ximServer	= 0;		// XIM Server will connect to
+TQ_EXPORT char    *qt_ximServer	= 0;		// XIM Server will connect to
 static bool	mwIconic	= FALSE;	// main widget iconified
 //Ming-Che 10/10
 static Display *appDpy		= 0;		// X11 application display
@@ -217,9 +214,9 @@ static GC*	app_gc_tmp	= 0;		// temporary GC
 static GC*	app_gc_ro_m	= 0;		// read-only GC (monochrome)
 static GC*	app_gc_tmp_m	= 0;		// temporary GC (monochrome)
 // symbols needed by extern TQXEmbed class
-Q_EXPORT Atom	tqt_wm_protocols		= 0;	// window manager protocols
-Q_EXPORT Atom	tqt_wm_delete_window	= 0;	// delete window protocol
-Q_EXPORT Atom	tqt_wm_take_focus	= 0;	// take focus window protocol
+TQ_EXPORT Atom	tqt_wm_protocols		= 0;	// window manager protocols
+TQ_EXPORT Atom	tqt_wm_delete_window	= 0;	// delete window protocol
+TQ_EXPORT Atom	tqt_wm_take_focus	= 0;	// take focus window protocol
 
 Atom		qt_qt_scrolldone	= 0;	// scroll synchronization
 Atom		qt_net_wm_context_help	= 0;	// context help
@@ -230,15 +227,15 @@ Atom            qt_xa_clipboard         = 0;
 Atom		qt_selection_property	= 0;
 Atom            tqt_clipboard_sentinel   = 0;
 Atom		qt_selection_sentinel	= 0;
-Q_EXPORT Atom	tqt_wm_state		= 0;
+TQ_EXPORT Atom	tqt_wm_state		= 0;
 Atom		qt_wm_change_state	= 0;
 static Atom     qt_settings_timestamp	= 0;    // TQt >=3 settings timestamp
 static Atom	qt_input_encoding	= 0;	// TQt desktop properties
 static Atom	qt_resource_manager	= 0;	// X11 Resource manager
 Atom		qt_sizegrip		= 0;	// sizegrip
 Atom		qt_wm_client_leader	= 0;
-Q_EXPORT Atom	tqt_window_role		= 0;
-Q_EXPORT Atom	tqt_sm_client_id		= 0;
+TQ_EXPORT Atom	tqt_window_role		= 0;
+TQ_EXPORT Atom	tqt_sm_client_id		= 0;
 Atom		qt_xa_motif_wm_hints	= 0;
 Atom		qt_cde_running		= 0;
 Atom		qt_twin_running	= 0;
@@ -305,7 +302,7 @@ Window		*qt_net_virtual_root_list	= 0;
 
 
 // X11 SYNC support
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 Atom		qt_net_wm_sync_request_counter	= 0;
 Atom		qt_net_wm_sync_request     	= 0;
 #endif
@@ -322,7 +319,7 @@ static const int FocusModel_Other = 0;
 static const int FocusModel_PointerRoot = 1;
 static int qt_focus_model = -1;
 
-#ifndef QT_NO_XRANDR
+#ifndef TQT_NO_XRANDR
 // TRUE if TQt is compiled w/ XRandR support and XRandR exists on the connected
 // Display
 bool	qt_use_xrandr	= FALSE;
@@ -331,9 +328,9 @@ static int xrandr_eventbase;
 
 // TRUE if TQt is compiled w/ XRender support and XRender exists on the connected
 // Display
-Q_EXPORT bool tqt_use_xrender = FALSE;
+TQ_EXPORT bool tqt_use_xrender = FALSE;
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 // True if SYNC extension exists on the connected display
 bool qt_use_xsync = FALSE;
 static int xsync_eventbase;
@@ -350,7 +347,7 @@ static long qt_mode_switch_remove_mask = 0;
 
 // flags for extensions for special Languages, currently only for RTL languages
 static bool 	qt_use_rtl_extensions = FALSE;
-Q_EXPORT bool tqt_hebrew_keyboard_hack = FALSE;
+TQ_EXPORT bool tqt_hebrew_keyboard_hack = FALSE;
 
 static Window	mouseActWindow	     = 0;	// window where mouse is
 static int	mouseButtonPressed   = 0;	// last mouse button pressed
@@ -409,7 +406,7 @@ typedef int (*QX11EventFilter) (XEvent*);
 QX11EventFilter tqt_set_x11_event_filter(QX11EventFilter filter);
 
 static QX11EventFilter qt_x11_event_filter = 0;
-Q_EXPORT QX11EventFilter tqt_set_x11_event_filter(QX11EventFilter filter)
+TQ_EXPORT QX11EventFilter tqt_set_x11_event_filter(QX11EventFilter filter)
 {
     QX11EventFilter old_filter = qt_x11_event_filter;
     qt_x11_event_filter = filter;
@@ -426,18 +423,18 @@ static bool qt_x11EventFilter( XEvent* ev )
 
 
 
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
 //XIM		qt_xim			= 0;
-Q_EXPORT XIMStyle	qt_xim_style		= 0;
-Q_EXPORT XIMStyle	qt_xim_preferred_style	= 0;
+TQ_EXPORT XIMStyle	qt_xim_style		= 0;
+TQ_EXPORT XIMStyle	qt_xim_preferred_style	= 0;
 static XIMStyle xim_default_style	= XIMPreeditCallbacks | XIMStatusNothing;
 #endif
 
-Q_EXPORT int qt_ximComposingKeycode=0;
-Q_EXPORT TQTextCodec * qt_input_mapper = 0;
+TQ_EXPORT int qt_ximComposingKeycode=0;
+TQ_EXPORT TQTextCodec * qt_input_mapper = 0;
 
-Q_EXPORT Time	tqt_x_time = CurrentTime;
-Q_EXPORT Time	tqt_x_user_time = CurrentTime;
+TQ_EXPORT Time	tqt_x_time = CurrentTime;
+TQ_EXPORT Time	tqt_x_user_time = CurrentTime;
 extern bool     qt_check_clipboard_sentinel(); //def in qclipboard_x11.cpp
 extern bool	qt_check_selection_sentinel(); //def in qclipboard_x11.cpp
 
@@ -669,16 +666,16 @@ TQString TQApplication::defaultInputMethod()
 }
 
 
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if !defined(TQT_NO_IM_EXTENSIONS)
 /*! \internal
     Creates the application input method.
 */
 void TQApplication::create_im()
 {
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
     if ( ! qt_xim_preferred_style ) // no configured input style, use the default
 	qt_xim_preferred_style = xim_default_style;
-#endif // QT_NO_XIM
+#endif // TQT_NO_XIM
 }
 
 
@@ -703,10 +700,10 @@ void TQApplication::close_im()
 */
 void TQApplication::create_xim()
 {
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
     if ( ! qt_xim_preferred_style ) // no configured input style, use the default
 	qt_xim_preferred_style = xim_default_style;
-#endif // QT_NO_XIM
+#endif // TQT_NO_XIM
 
     TQWidgetList *list= tqApp->topLevelWidgets();
     TQWidgetListIt it(*list);
@@ -724,7 +721,7 @@ void TQApplication::create_xim()
  */
 void TQApplication::close_xim()
 {
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
     // Calling XCloseIM gives a Purify FMR error
     // XCloseIM( qt_xim );
     // We prefer a less serious memory leak
@@ -732,7 +729,7 @@ void TQApplication::close_xim()
     // if ( qt_xim )
     // 	qt_xim = 0;
 
-#endif // QT_NO_XIM
+#endif // TQT_NO_XIM
     TQWidgetList *list = tqApp->topLevelWidgets();
     TQWidgetListIt it(*list);
     while(it.current()) {
@@ -1111,33 +1108,33 @@ bool TQApplication::x11_apply_settings()
     qt_use_rtl_extensions =
     	settings.readBoolEntry("/qt/useRtlExtensions", FALSE);
 
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
     if (qt_xim_preferred_style == 0) {
         TQString ximInputStyle =
             settings.readEntry( "/qt/XIMInputStyle",
-                                TQObject::trUtf8( "On The Spot" ) ).lower();
-        if ( ximInputStyle == "on the spot" )
-            qt_xim_preferred_style = XIMPreeditCallbacks | XIMStatusNothing;
-        else if ( ximInputStyle == "over the spot" )
+                                TQString::fromLatin1( "On The Spot" ) ).lower();
+        if ( ximInputStyle == "over the spot" )
             qt_xim_preferred_style = XIMPreeditPosition | XIMStatusNothing;
         else if ( ximInputStyle == "off the spot" )
             qt_xim_preferred_style = XIMPreeditArea | XIMStatusArea;
         else if ( ximInputStyle == "root" )
             qt_xim_preferred_style = XIMPreeditNothing | XIMStatusNothing;
+        else // ximInputStyle == "on the spot" or others
+            qt_xim_preferred_style = XIMPreeditCallbacks | XIMStatusNothing;
     }
 #endif
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     /*
 	The identifier name of an input method is acquired from the
 	configuration file as a default. If a environment variable
-	"QT_IM_SWITCHER" is not empty it will overwrite the
+	"TQT_IM_SWITCHER" is not empty it will overwrite the
 	configuration file. The "imsw-multi" becomes the default if the entry
 	is not configured.
      */
-    if ( getenv( "QT_IM_SWITCHER" ) )
-        defaultIM = getenv( "QT_IM_SWITCHER" );
-#ifndef QT_NO_IM_EXTENSIONS
+    if ( getenv( "TQT_IM_SWITCHER" ) )
+        defaultIM = getenv( "TQT_IM_SWITCHER" );
+#ifndef TQT_NO_IM_EXTENSIONS
     else
         defaultIM = settings.readEntry( "/qt/DefaultInputMethodSwitcher", "imsw-multi" );
 #endif
@@ -1624,6 +1621,21 @@ static Visual *find_truecolor_visual( Display *dpy, int scr, int *depth, int *nc
     return v;
 }
 
+static KeySym qt_x11_keycode_to_keysym(Display *dpy, KeyCode kc) {
+#ifndef TQT_NO_XKB
+	return XkbKeycodeToKeysym(dpy, kc, 0, 0);
+#else
+	KeySym rv = NoSymbol;
+	int keysyms_per_keycode;
+	KeySym *keysym_p = XGetKeyboardMapping(dpy, kc, 1, &keysyms_per_keycode);
+	if (keysyms_per_keycode>0) { //< Should always be true unless X server is bugged
+		rv = keysym_p[0];
+	}
+	XFree(keysym_p);
+
+	return rv;
+#endif // TQT_NO_XKB
+}
 
 /*****************************************************************************
   tqt_init() - initializes TQt for X11
@@ -1645,7 +1657,7 @@ void tqt_init_internal( int *argcptr, char **argv,
     setlocale( LC_ALL, "" );		// use correct char set mapping
     setlocale( LC_NUMERIC, "C" );	// make sprintf()/scanf() work
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     if (( tqt_is_gui_used ) && ( !display )) {
 	// If TQt is running standalone with a GUI, initialize X11 threading
 	XInitThreads();
@@ -1745,7 +1757,7 @@ void tqt_init_internal( int *argcptr, char **argv,
 			// ### Should we honor any others?
 		    }
 		}
-#ifndef QT_NO_XIM
+#ifndef TQT_NO_XIM
 	    } else if ( arg == "-inputstyle" ) {
 		if ( ++i < argc ) {
 		    TQCString s = TQCString(argv[i]).lower();
@@ -2063,7 +2075,7 @@ void tqt_init_internal( int *argcptr, char **argv,
 	qt_x11_intern_atom( "UTF8_STRING", &qt_utf8_string );
         qt_x11_intern_atom( "_SGI_DESKS_MANAGER", &qt_sgi_desks_manager );
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 	qt_x11_intern_atom( "_NET_WM_SYNC_REQUEST_COUNTER", &qt_net_wm_sync_request_counter );
 	qt_x11_intern_atom( "_NET_WM_SYNC_REQUEST", &qt_net_wm_sync_request );
 #endif
@@ -2081,7 +2093,7 @@ void tqt_init_internal( int *argcptr, char **argv,
 	qt_get_net_supported();
 	qt_get_net_virtual_roots();
 
-#ifndef QT_NO_XRANDR
+#ifndef TQT_NO_XRANDR
 	// See if XRandR is supported on the connected display
 	int xrandr_errorbase;
 	Q_UNUSED( xrandr_eventbase );
@@ -2089,9 +2101,9 @@ void tqt_init_internal( int *argcptr, char **argv,
 	    // XRandR is supported
 	    qt_use_xrandr = TRUE;
 	}
-#endif // QT_NO_XRANDR
+#endif // TQT_NO_XRANDR
 
-#ifndef QT_NO_XRENDER
+#ifndef TQT_NO_XRENDER
 	// See if XRender is supported on the connected display
 	int xrender_eventbase, xrender_errorbase;
 	if (XRenderQueryExtension(appDpy, &xrender_eventbase, &xrender_errorbase)) {
@@ -2102,9 +2114,9 @@ void tqt_init_internal( int *argcptr, char **argv,
 					(Visual *) TQPaintDevice::x_appvisual);
 	    tqt_use_xrender = (format != 0) && (TQPaintDevice::x_appdepth != 8);
 	}
-#endif // QT_NO_XRENDER
+#endif // TQT_NO_XRENDER
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 	// Try to initialize SYNC extension on the connected display
 	int xsync_major, xsync_minor;
 	if ( XSyncQueryExtension( appDpy, &xsync_eventbase, &xsync_errorbase ) && 
@@ -2113,14 +2125,14 @@ void tqt_init_internal( int *argcptr, char **argv,
 	}
 #endif 
 
-#ifndef QT_NO_XKB
+#ifndef TQT_NO_XKB
 	// If XKB is detected, set the GrabsUseXKBState option so input method
 	// compositions continue to work (ie. deadkeys)
 	unsigned int state = XkbPCF_GrabsUseXKBStateMask;
 	(void) XkbSetPerClientControls(appDpy, state, &state);
 #endif
 
-#if !defined(QT_NO_XFTFREETYPE)
+#if !defined(TQT_NO_XFTFREETYPE)
 	// defined in qfont_x11.cpp
 	extern bool tqt_has_xft;
 #ifndef QT_XFT2
@@ -2144,7 +2156,7 @@ void tqt_init_internal( int *argcptr, char **argv,
                 }
             }
         }
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 	// look at the modifier mapping, and get the correct masks for alt/meta
 	// find the alt/meta masks
@@ -2154,8 +2166,7 @@ void tqt_init_internal( int *argcptr, char **argv,
 	    for (maskIndex = 0; maskIndex < 8; maskIndex++) {
 		for (i = 0; i < map->max_keypermod; i++) {
 		    if (map->modifiermap[mapIndex]) {
-			KeySym sym =
-			    XkbKeycodeToKeysym(appDpy, map->modifiermap[mapIndex], 0, 0);
+			KeySym sym = qt_x11_keycode_to_keysym(appDpy, map->modifiermap[ mapIndex ]);
 			if ( qt_alt_mask == 0 &&
 			     ( sym == XK_Alt_L || sym == XK_Alt_R ) ) {
 			    qt_alt_mask = 1 << maskIndex;
@@ -2184,8 +2195,7 @@ void tqt_init_internal( int *argcptr, char **argv,
 
 		for ( i = 0; i < map->max_keypermod; i++ ) {
 		    if ( map->modifiermap[ mapIndex ] ) {
-			KeySym sym =
-			    XkbKeycodeToKeysym( appDpy, map->modifiermap[ mapIndex ], 0, 0 );
+			KeySym sym = qt_x11_keycode_to_keysym(appDpy, map->modifiermap[ mapIndex ]);
 			if ( sym == XK_Mode_switch ) {
 			    qt_mode_switch_remove_mask |= 1 << maskIndex;
 			}
@@ -2210,7 +2220,7 @@ void tqt_init_internal( int *argcptr, char **argv,
 	TQPainter::initialize();
     }
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     TQThread::initialize();
 #endif
 
@@ -2223,10 +2233,10 @@ void tqt_init_internal( int *argcptr, char **argv,
 			  KeymapStateMask | EnterWindowMask | LeaveWindowMask |
 			  PropertyChangeMask );
 
-#ifndef QT_NO_XRANDR
+#ifndef TQT_NO_XRANDR
 	    if (qt_use_xrandr)
 		XRRSelectInput( appDpy, TQPaintDevice::x11AppRootWindow( screen ), True );
-#endif // QT_NO_XRANDR
+#endif // TQT_NO_XRANDR
 	}
     }
 
@@ -2249,8 +2259,8 @@ void tqt_init_internal( int *argcptr, char **argv,
 	    TQApplication::setFont( f );
 	}
 
-#if !defined(QT_NO_IM)
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if !defined(TQT_NO_IM)
+#if !defined(TQT_NO_IM_EXTENSIONS)
     TQApplication::create_im();
 #else
     TQApplication::create_xim();
@@ -2417,7 +2427,7 @@ void tqt_init_internal( int *argcptr, char **argv,
     }
 
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     // run-time search for default style
 void TQApplication::x11_initialize_style()
 {
@@ -2498,7 +2508,7 @@ void tqt_cleanup()
 	TQColor::cleanup();
 	TQSharedDoubleBuffer::cleanup();
     }
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     TQThread::cleanup();
 #endif
 
@@ -2509,8 +2519,8 @@ void tqt_cleanup()
 	XCloseDevice( appDpy, devEraser );
 #endif
 
-#if !defined(QT_NO_IM)
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if !defined(TQT_NO_IM)
+#if !defined(TQT_NO_IM_EXTENSIONS)
     TQApplication::close_im();
 #else
     TQApplication::close_xim();
@@ -2828,7 +2838,7 @@ void TQApplication::setMainWidget( TQWidget *mainWidget )
     }
 }
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 
 /*****************************************************************************
   TQApplication cursor stack
@@ -2897,7 +2907,7 @@ void TQApplication::setOverrideCursor( const TQCursor &cursor, bool replace )
     cursorStack->append( app_cursor );
 
     TQWidgetIntDictIt it( *((TQWidgetIntDict*)TQWidget::mapper) );
-    register TQWidget *w;
+    TQWidget *w;
     while ( (w=it.current()) ) {		// for all widgets that have
 	if ( w->testWState( WState_OwnCursor ) )
 	    tqt_x11_enforce_cursor( w );
@@ -2925,7 +2935,7 @@ void TQApplication::restoreOverrideCursor()
     app_cursor = cursorStack->last();
     if ( TQWidget::mapper != 0 && !closingDown() ) {
 	TQWidgetIntDictIt it( *((TQWidgetIntDict*)TQWidget::mapper) );
-	register TQWidget *w;
+	TQWidget *w;
 	while ( (w=it.current()) ) {		// set back to original cursors
 	    if ( w->testWState( WState_OwnCursor ) )
 		tqt_x11_enforce_cursor( w );
@@ -2989,7 +2999,7 @@ void TQApplication::setGlobalMouseTracking( bool enable )
     }
     if ( tellAllWidgets ) {
 	TQWidgetIntDictIt it( *((TQWidgetIntDict*)TQWidget::mapper) );
-	register TQWidget *w;
+	TQWidget *w;
 	while ( (w=it.current()) ) {
 	    if ( app_tracking > 0 ) {		// switch on
 		if ( !w->testWState(WState_MouseTracking) ) {
@@ -3255,10 +3265,10 @@ int TQApplication::x11ClientMessage(TQWidget* w, XEvent* event, bool passive_onl
 			amw->setActiveWindow();
 		    }
 		}
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
 	    } else if ( a == qt_net_wm_context_help ) {
 		TQWhatsThis::enterWhatsThisMode();
-#endif // QT_NO_WHATSTHIS
+#endif // TQT_NO_WHATSTHIS
 	    } else if ( a == qt_net_wm_ping ) {
 		// avoid send/reply loops
 		Window root = TQPaintDevice::x11AppRootWindow( w->x11Screen() );
@@ -3267,7 +3277,7 @@ int TQApplication::x11ClientMessage(TQWidget* w, XEvent* event, bool passive_onl
 		    XSendEvent( event->xclient.display, event->xclient.window,
 				False, SubstructureNotifyMask|SubstructureRedirectMask, event );
 		}
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 	    } else if (a == qt_net_wm_sync_request ) {
 		    widget->handleSyncRequest( event );
 #endif
@@ -3377,7 +3387,7 @@ int TQApplication::x11ProcessEvent( XEvent* event )
 	}
     }
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     // Filtering input events by the input context. It has to be taken
     // place before any other key event consumers such as eventfilters
     // and accelerators because some input methods require quite
@@ -3386,7 +3396,7 @@ int TQApplication::x11ProcessEvent( XEvent* event )
     // filtering opportunity first to ensure all input methods work
     // properly regardless of application design.
 
-// #ifndef QT_NO_IM_EXTENSIONS
+// #ifndef TQT_NO_IM_EXTENSIONS
     if( keywidget && keywidget->isEnabled() && keywidget->isInputMethodEnabled() ) {
 // #else
 //    if( keywidget && keywidget->isEnabled() ) {
@@ -3426,7 +3436,7 @@ int TQApplication::x11ProcessEvent( XEvent* event )
 		return TRUE;
 	}
     } else
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
     {
 	if ( XFilterEvent( event, None ) )
 	    return TRUE;
@@ -3475,7 +3485,7 @@ int TQApplication::x11ProcessEvent( XEvent* event )
 	return 0;
     }
 
-#ifndef QT_NO_XRANDR
+#ifndef TQT_NO_XRANDR
     // XRandR doesn't care if TQt doesn't know about the widget, so handle XRandR stuff before the !widget check below
     if (event->type == xrandr_eventbase + RRScreenChangeNotify
 	|| ( event->type == ConfigureNotify && event->xconfigure.window == TQPaintDevice::x11AppRootWindow())) {
@@ -3507,7 +3517,7 @@ int TQApplication::x11ProcessEvent( XEvent* event )
 	    }
 	}
     }
-#endif // QT_NO_XRANDR
+#endif // TQT_NO_XRANDR
 
     if ( !widget ) {				// don't know this windows
 	TQWidget* popup = TQApplication::activePopupWidget();
@@ -3911,7 +3921,7 @@ void tqt_leave_modal( TQWidget *widget )
 }
 
 
-Q_EXPORT bool tqt_try_modal( TQWidget *widget, XEvent *event )
+TQ_EXPORT bool tqt_try_modal( TQWidget *widget, XEvent *event )
 {
     if (qt_xdnd_dragging) {
 	// allow mouse events while DnD is active
@@ -4231,6 +4241,10 @@ bool TQETWidget::translateMouseEvent( const XEvent *event )
 		translateWheelEvent( globalPos.x(), globalPos.y(), delta, state, (hor)?Horizontal:Vertical );
 	    }
 	    return TRUE;
+
+        // history navigation buttons
+        case 8: button = HistoryBackButton; break;
+        case 9: button = HistoryForwardButton; break;
 	}
 	if ( event->type == ButtonPress ) {	// mouse button pressed
 #if defined(Q_OS_IRIX) && defined(QT_TABLET_SUPPORT)
@@ -4821,6 +4835,11 @@ bool TQETWidget::translatePropertyEvent(const XEvent *event)
 #define XF86XK_LaunchD		0x1008FF4D
 #define XF86XK_LaunchE		0x1008FF4E
 #define XF86XK_LaunchF		0x1008FF4F
+#define XF86XK_MonBrightnessUp   0x1008FF02  /* Monitor/panel brightness */
+#define XF86XK_MonBrightnessDown 0x1008FF03  /* Monitor/panel brightness */
+#define XF86XK_KbdLightOnOff     0x1008FF04  /* Keyboards may be lit     */
+#define XF86XK_KbdBrightnessUp   0x1008FF05  /* Keyboards may be lit     */
+#define XF86XK_KbdBrightnessDown 0x1008FF06  /* Keyboards may be lit     */
 // end of XF86keysyms.h
 
 
@@ -5019,6 +5038,11 @@ static const KeySym KeyTbl[] = {		// keyboard mapping table
     XF86XK_LaunchB,	TQt::Key_LaunchD,
     XF86XK_LaunchC,	TQt::Key_LaunchE,
     XF86XK_LaunchD,	TQt::Key_LaunchF,
+    XF86XK_MonBrightnessUp,	TQt::Key_MonBrightnessUp,
+    XF86XK_MonBrightnessDown,	TQt::Key_MonBrightnessDown,
+    XF86XK_KbdLightOnOff,	TQt::Key_KeyboardLightOnOff,
+    XF86XK_KbdBrightnessUp,	TQt::Key_KeyboardBrightnessUp,
+    XF86XK_KbdBrightnessDown,	TQt::Key_KeyboardBrightnessDown,
 
     0,			0
 };
@@ -5037,7 +5061,7 @@ static void deleteKeyDicts()
     textDict = 0;
 }
 
-#if !defined(QT_NO_XIM)
+#if !defined(TQT_NO_XIM)
 static const unsigned short katakanaKeysymsToUnicode[] = {
     0x0000, 0x3002, 0x300C, 0x300D, 0x3001, 0x30FB, 0x30F2, 0x30A1,
     0x30A3, 0x30A5, 0x30A7, 0x30A9, 0x30E3, 0x30E5, 0x30E7, 0x30C3,
@@ -5224,7 +5248,7 @@ bool TQETWidget::translateKeyEventInternal( const XEvent *event, int& count,
 
     type = (event->type == XKeyPress)
            ? TQEvent::KeyPress : TQEvent::KeyRelease;
-#if defined(QT_NO_XIM)
+#if defined(TQT_NO_XIM)
 
     count = XLookupString( &xkeyevent, chars.data(), chars.size(), &key, 0 );
 
@@ -5330,7 +5354,7 @@ bool TQETWidget::translateKeyEventInternal( const XEvent *event, int& count,
 	    ascii = (char)(s-256);
 	}
     }
-#endif // !QT_NO_XIM
+#endif // !TQT_NO_XIM
 
     state = qt_x11_translateButtonState( keystate );
 
@@ -5608,13 +5632,13 @@ bool TQETWidget::translateKeyEvent( const XEvent *event, bool grab )
 	translateKeyEventInternal( event, count, text, state, ascii, code, type );
     }
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     TQInputContext *qic = getInputContext();
 #endif
 
     // compress keys
     if ( !text.isEmpty() && testWState(WState_CompressKeys) &&
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 	 // Ordinary input methods require discrete key events to work
 	 // properly, so key compression has to be disabled when input
 	 // context exists.
@@ -5635,7 +5659,7 @@ bool TQETWidget::translateKeyEvent( const XEvent *event, bool grab )
 	 // such as key repeat mechanism is required to implement such
 	 // feature.
 	 ! qic &&
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 	 // do not compress keys if the key event we just got above matches
 	 // one of the key ranges used to compute stopCompression
 	 ! ( ( code >= Key_Escape && code <= Key_SysReq ) ||
@@ -5695,10 +5719,10 @@ bool TQETWidget::translateKeyEvent( const XEvent *event, bool grab )
     // autorepeat compression makes sense for all widgets (Windows
     // does it automatically .... )
     if ( event->type == XKeyPress && text.length() <= 1
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 	 // input methods need discrete key events
 	 && ! qic
-#endif// QT_NO_IM
+#endif// TQT_NO_IM
 	 ) {
 	XEvent dummy;
 
@@ -5782,7 +5806,7 @@ void qt_insert_sip( TQWidget* scrolled_widget, int dx, int dy )
     TQScrollInProgress* sip = new TQScrollInProgress( scrolled_widget, dx, dy );
     sip_list->append( sip );
 
-    XClientMessageEvent client_message;
+    XClientMessageEvent client_message = {};
     client_message.type = ClientMessage;
     client_message.window = scrolled_widget->winId();
     client_message.format = 32;
@@ -5910,7 +5934,7 @@ bool TQETWidget::translateScrollDoneEvent( const XEvent *event )
 #if defined(Q_C_CALLBACKS)
 extern "C" {
 #endif
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 static Bool qt_net_wm_sync_request_scanner(Display*, XEvent* event, XPointer arg)
 {
     return (event->type == ClientMessage && event->xclient.window == *(Window*)arg
@@ -5976,7 +6000,7 @@ bool TQETWidget::translateConfigEvent( const XEvent *event )
                 }
                 ++compressed_configs;
             }
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
             // _NET_WM_SYNC_REQUEST compression 
             Window wid = winId();
             while ( compressed_configs &&
@@ -6227,7 +6251,7 @@ bool TQApplication::isEffectEnabled( TQt::UIEffect effect )
   Session management support
  *****************************************************************************/
 
-#ifndef QT_NO_SM_SUPPORT
+#ifndef TQT_NO_SM_SUPPORT
 
 #include <X11/SM/SMlib.h>
 
@@ -6252,7 +6276,7 @@ public:
 	: TQObject(0,0)
 	{
 	    TQSocketNotifier* sn = new TQSocketNotifier( socket, TQSocketNotifier::Read, this );
-	    connect( sn, SIGNAL( activated(int) ), this, SLOT( socketActivated(int) ) );
+	    connect( sn, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( socketActivated(int) ) );
 	}
 
 public slots:
@@ -6705,4 +6729,4 @@ void TQSessionManager::requestPhase2()
 }
 
 
-#endif // QT_NO_SM_SUPPORT
+#endif // TQT_NO_SM_SUPPORT

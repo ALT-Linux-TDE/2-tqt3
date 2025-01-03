@@ -23,10 +23,10 @@ QWSWindow \- Server-specific functionality in Qt/Embedded
 .BI "int \fBwinId\fR () const"
 .br
 .ti -1c
-.BI "const QString & \fBname\fR () const"
+.BI "const TQString & \fBname\fR () const"
 .br
 .ti -1c
-.BI "const QString & \fBcaption\fR () const"
+.BI "const TQString & \fBcaption\fR () const"
 .br
 .ti -1c
 .BI "QWSClient * \fBclient\fR () const"
@@ -85,7 +85,7 @@ Destructor.
 Returns the region that the window is allowed to draw onto, including any window decorations but excluding regions covered by other windows.
 .PP
 See also requested().
-.SH "const QString & QWSWindow::caption () const"
+.SH "const TQString & QWSWindow::caption () const"
 Returns the window's caption.
 .SH "QWSClient * QWSWindow::client () const"
 Returns the QWSClient that owns this window.
@@ -99,7 +99,7 @@ Returns TRUE if the window is partially obsured by another window or by the boun
 Returns TRUE if the window is visible; otherwise returns FALSE.
 .SH "void QWSWindow::lower ()"
 Lowers the window below other windows.
-.SH "const QString & QWSWindow::name () const"
+.SH "const TQString & QWSWindow::name () const"
 Returns the window's name.
 .SH "void QWSWindow::raise ()"
 Raises the window above all other windows except "Stay on top" windows.
@@ -128,8 +128,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

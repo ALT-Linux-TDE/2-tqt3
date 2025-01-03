@@ -40,7 +40,7 @@
 
 #include "ntqdialog.h"
 
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
 
 #include "ntqpushbutton.h"
 #include "ntqfocusdata.h"
@@ -215,7 +215,7 @@ public:
 
     TQDialogPrivate()
 	: mainDef(0), orientation(Horizontal),extension(0), doShowExtension(FALSE)
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
 	,resizer(0)
 #endif
 	{
@@ -226,7 +226,7 @@ public:
     TQWidget* extension;
     bool doShowExtension;
     TQSize size, min, max;
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     TQSizeGrip* resizer;
 #endif
     TQPoint lastRMBPress;
@@ -283,7 +283,7 @@ TQDialog::~TQDialog()
 
 void TQDialog::setDefault( TQPushButton *pushButton )
 {
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
     TQObjectList *list = queryList( "TQPushButton" );
     Q_ASSERT(list);
     TQObjectListIt it( *list );
@@ -313,7 +313,7 @@ void TQDialog::setDefault( TQPushButton *pushButton )
 */
 void TQDialog::setMainDefault( TQPushButton *pushButton )
 {
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
     d->mainDef = 0;
     setDefault(pushButton);
 #endif
@@ -326,7 +326,7 @@ void TQDialog::setMainDefault( TQPushButton *pushButton )
  */
 void TQDialog::hideDefault()
 {
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
     TQObjectList *list = queryList( "TQPushButton" );
     TQObjectListIt it( *list );
     TQPushButton *pb;
@@ -468,7 +468,7 @@ void TQDialog::done( int r )
     bool isMain = tqApp->mainWidget() == this;
     bool checkLastWindowClosed = isTopLevel() && !isPopup();
     if ( checkLastWindowClosed
-	 && tqApp->receivers(SIGNAL(lastWindowClosed())) ) {
+	 && tqApp->receivers(TQ_SIGNAL(lastWindowClosed())) ) {
 	/* if there is no non-withdrawn top level window left (except
 	   the desktop, popups, or dialogs with parents), we emit the
 	   lastWindowClosed signal */
@@ -529,7 +529,7 @@ bool TQDialog::eventFilter( TQObject *o, TQEvent *e )
 /*! \reimp */
 void TQDialog::contextMenuEvent( TQContextMenuEvent *e )
 {
-#if !defined(QT_NO_WHATSTHIS) && !defined(QT_NO_POPUPMENU)
+#if !defined(TQT_NO_WHATSTHIS) && !defined(TQT_NO_POPUPMENU)
     TQWidget* w = childAt( e->pos(), TRUE );
     if ( !w )
 	return;
@@ -563,7 +563,7 @@ void TQDialog::keyPressEvent( TQKeyEvent *e )
 	switch ( e->key() ) {
 	case Key_Enter:
 	case Key_Return: {
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    TQObjectList *list = queryList( "TQPushButton" );
 	    TQObjectListIt it( *list );
 	    TQPushButton *pb;
@@ -622,7 +622,7 @@ void TQDialog::keyPressEvent( TQKeyEvent *e )
 /*! \reimp */
 void TQDialog::closeEvent( TQCloseEvent *e )
 {
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
     if ( isModal() && TQWhatsThis::inWhatsThisMode() )
 	TQWhatsThis::leaveWhatsThisMode();
 #endif
@@ -671,14 +671,14 @@ bool TQDialog::event( TQEvent *e )
   Geometry management.
  *****************************************************************************/
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 extern "C" { int XSetTransientForHint( Display *, unsigned long, unsigned long ); }
 #include <private/qt_x11_p.h>
 #undef FocusIn
 // defined in qapplication_x11.cpp
 extern Atom qt_net_wm_full_placement;
 extern bool qt_net_supports(Atom atom);
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 /*!
     Shows the dialog as a \link #modeless modeless \endlink dialog.
@@ -710,14 +710,14 @@ void TQDialog::show()
     if (windowState() != state)
 	setWindowState(state);
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     if (!parentWidget() && testWFlags(WShowModal)
 	&& tqApp->mainWidget() && tqApp->mainWidget()->isVisible()
 	&& !tqApp->mainWidget()->isMinimized()) {
 	// make sure the transient for hint is set properly for modal dialogs
         x11SetWindowTransient( tqApp->mainWidget());
     }
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 #ifdef Q_OS_TEMP
     hideSpecial();
@@ -725,7 +725,7 @@ void TQDialog::show()
 
     TQWidget::show();
     showExtension( d->doShowExtension );
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
     TQWidget *fw = focusWidget();
     TQFocusData *fd = focusData();
 
@@ -1043,7 +1043,7 @@ void TQDialog::showExtension( bool showIt )
 	d->size = size();
 	d->min = minimumSize();
 	d->max = maximumSize();
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 	if ( layout() )
 	    layout()->setEnabled( FALSE );
 #endif
@@ -1066,7 +1066,7 @@ void TQDialog::showExtension( bool showIt )
 	setMinimumSize( d->min.expandedTo( TQSize( 1, 1 ) ) );
 	setMaximumSize( d->max );
 	resize( d->size );
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 	if ( layout() )
 	    layout()->setEnabled( TRUE );
 #endif
@@ -1132,7 +1132,7 @@ bool TQDialog::isModal() const
 
 bool TQDialog::isSizeGripEnabled() const
 {
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     return !!d->resizer;
 #else
     return FALSE;
@@ -1142,7 +1142,7 @@ bool TQDialog::isSizeGripEnabled() const
 
 void TQDialog::setSizeGripEnabled(bool enabled)
 {
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     if ( !enabled != !d->resizer ) {
 	if ( enabled ) {
 	    d->resizer = new TQSizeGrip( this, "TQDialog::resizer" );
@@ -1159,7 +1159,7 @@ void TQDialog::setSizeGripEnabled(bool enabled)
 	    d->resizer = 0;
 	}
     }
-#endif //QT_NO_SIZEGRIP
+#endif //TQT_NO_SIZEGRIP
 }
 
 
@@ -1167,7 +1167,7 @@ void TQDialog::setSizeGripEnabled(bool enabled)
 /*! \reimp */
 void TQDialog::resizeEvent( TQResizeEvent * )
 {
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     if ( d->resizer ) {
 	if ( TQApplication::reverseLayout() )
 	    d->resizer->move( rect().bottomLeft() -d->resizer->rect().bottomLeft() );
@@ -1177,4 +1177,4 @@ void TQDialog::resizeEvent( TQResizeEvent * )
 #endif
 }
 
-#endif // QT_NO_DIALOG
+#endif // TQT_NO_DIALOG

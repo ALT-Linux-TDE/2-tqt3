@@ -49,7 +49,7 @@ static inline int qt_open(const char *pathname, int flags, mode_t mode)
 
 #include "ntqprinter.h"
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
 
 #include "ntqpaintdevicemetrics.h"
 #include "qpsprinter_p.h"
@@ -126,7 +126,7 @@ TQPrinter::TQPrinter( PrinterMode m )
     paper_source = OnlyOne;
     switch ( m ) {
 	case ScreenResolution:
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 	    res = 72;
 #else
 	    res = TQPaintDevice::x11AppDpiY();
@@ -250,7 +250,7 @@ static void deleteGlobalPrinterDefaults()
 
 bool TQPrinter::setup( TQWidget * parent )
 {
-#ifndef QT_NO_PRINTDIALOG
+#ifndef TQT_NO_PRINTDIALOG
     bool result = TQPrintDialog::getPrinterSetup( this, parent  );
 #else
     bool result = FALSE;

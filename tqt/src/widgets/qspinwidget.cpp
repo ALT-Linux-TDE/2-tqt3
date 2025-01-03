@@ -38,7 +38,7 @@
 
 #include "ntqrangecontrol.h"
 
-#ifndef QT_NO_SPINWIDGET
+#ifndef TQT_NO_SPINWIDGET
 
 #include "ntqrect.h"
 #include "ntqtimer.h"
@@ -87,7 +87,7 @@ TQSpinWidget::TQSpinWidget( TQWidget* parent, const char* name )
     : TQWidget( parent, name )
 {
     d = new TQSpinWidgetPrivate();
-    connect( &d->auRepTimer, SIGNAL( timeout() ), this, SLOT( timerDone() ) );
+    connect( &d->auRepTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( timerDone() ) );
     setFocusPolicy( StrongFocus );
 
     arrange();
@@ -209,7 +209,7 @@ void TQSpinWidget::timerDone()
 {
     // we use a double timer to make it possible for users to do
     // something with 0-timer on valueChanged.
-    TQTimer::singleShot( 1, this, SLOT( timerDoneEx() ) );
+    TQTimer::singleShot( 1, this, TQ_SLOT( timerDoneEx() ) );
 }
 
 void TQSpinWidget::timerDoneEx()
@@ -292,7 +292,7 @@ void TQSpinWidget::mouseMoveEvent( TQMouseEvent *e )
 /*!
     The event is passed in \a e.
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQSpinWidget::wheelEvent( TQWheelEvent *e )
 {
     e->accept();

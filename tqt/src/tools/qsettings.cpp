@@ -55,7 +55,7 @@ static inline int qt_open( const char *pathname, int flags, mode_t mode )
 
 #include "ntqsettings.h"
 
-#ifndef QT_NO_SETTINGS
+#ifndef TQT_NO_SETTINGS
 
 #include "ntqdir.h"
 #include "ntqfile.h"
@@ -339,7 +339,7 @@ void TQSettingsHeading::read(const TQString &filename)
     if (! TQFileInfo(filename).exists())
 	return;
 
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     HANDLE lockfd = openlock( filename, Q_LOCKREAD );
 #endif
 
@@ -362,7 +362,7 @@ void TQSettingsHeading::read(const TQString &filename)
 
     file.close();
 
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     closelock( lockfd );
 #endif
 }
@@ -446,7 +446,7 @@ void TQSettingsHeading::parseLine(TQTextStream &stream)
     }
 }
 
-#ifdef Q_WS_WIN // for homedirpath reading from registry
+#ifdef TQ_WS_WIN // for homedirpath reading from registry
 #include "qt_windows.h"
 #include "ntqlibrary.h"
 
@@ -462,7 +462,7 @@ void TQSettingsHeading::parseLine(TQTextStream &stream)
 TQSettingsPrivate::TQSettingsPrivate( TQSettings::Format format )
     : groupDirty( TRUE ), modified(FALSE), globalScope(TRUE)
 {
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( format != TQSettings::Ini )
 	return;
 #else
@@ -470,7 +470,7 @@ TQSettingsPrivate::TQSettingsPrivate( TQSettings::Format format )
 #endif
 
     TQString home;
-    home = getenv("TQT_HOME_DIR");
+    home = getenv("QT_HOME_DIR");
     if ( !home.isEmpty() ) {
        home += "/";
        TQFileInfo i( home + "qtrc" );
@@ -483,7 +483,7 @@ TQSettingsPrivate::TQSettingsPrivate( TQSettings::Format format )
     TQString appSettings(home);
 
     TQString defPath;
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #ifdef Q_OS_TEMP
 	TCHAR path[MAX_PATH];
 	SHGetSpecialFolderPath( 0, path, CSIDL_APPDATA, FALSE );
@@ -532,7 +532,7 @@ TQSettingsPrivate::TQSettingsPrivate( TQSettings::Format format )
 	searchPaths.append(defPath);
 
     TQString system;
-    system = getenv("TQT_SYSTEM_DIR");
+    system = getenv("QT_SYSTEM_DIR");
     if ( !system.isEmpty() && system[0] == '/') {
        TQFileInfo i( system + "/qtrc" );
        if ( i.isReadable() ) {
@@ -809,14 +809,14 @@ static TQString groupKey( const TQString &group, const TQString &key )
 */
 void TQSettings::insertSearchPath( System s, const TQString &path)
 {
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd ) {
 	d->sysInsertSearchPath( s, path );
 	return;
     }
 #endif
 
-#if !defined(Q_WS_WIN)
+#if !defined(TQ_WS_WIN)
     if ( s == Windows )
 	return;
 #endif
@@ -832,7 +832,7 @@ void TQSettings::insertSearchPath( System s, const TQString &path)
 	return;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd && s != Unix ) {
 #else
     if ( s != Unix ) {
@@ -844,7 +844,7 @@ void TQSettings::insertSearchPath( System s, const TQString &path)
     }
 
     TQString realPath = path;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     TQString defPath = d->globalScope ? d->searchPaths.first() : d->searchPaths.last();
     realPath = defPath + path;
 #endif
@@ -872,13 +872,13 @@ void TQSettings::removeSearchPath( System s, const TQString &path)
 	return;
     }
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     if ( d->sysd ) {
 	d->sysRemoveSearchPath( s, path );
 	return;
     }
 #endif
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd && s != Unix ) {
 #else
     if ( s != Unix ) {
@@ -907,7 +907,7 @@ TQSettings::TQSettings()
     d = new TQSettingsPrivate( Native );
     TQ_CHECK_PTR(d);
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     d->sysd = 0;
     d->sysInit();
 #endif
@@ -927,7 +927,7 @@ TQSettings::TQSettings( Format format )
     d = new TQSettingsPrivate( format );
     TQ_CHECK_PTR(d);
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     d->sysd = 0;
     if ( format == Native )
 	d->sysInit();
@@ -945,7 +945,7 @@ TQSettings::~TQSettings()
 {
     sync();
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	d->sysClear();
 #endif
@@ -960,7 +960,7 @@ TQSettings::~TQSettings()
 */
 bool TQSettings::sync()
 {
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysSync();
 #endif
@@ -992,7 +992,7 @@ bool TQSettings::sync()
 
 	    if ((fi.exists() && fi.isFile() && fi.isWritable()) ||
 		(! fi.exists() && di.isDir()
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 		&& di.isWritable()
 #else
 		&& ((qWinVersion()&TQt::WV_NT_based) > TQt::WV_2000 || di.isWritable())
@@ -1015,7 +1015,7 @@ bool TQSettings::sync()
 	    continue;
 	}
 
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 	HANDLE lockfd = openlock( filename, Q_LOCKWRITE );
 #endif
 
@@ -1089,7 +1089,7 @@ bool TQSettings::sync()
 	// remove temporary file
 	file.remove();
 
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 	closelock( lockfd );
 #endif
     }
@@ -1127,7 +1127,7 @@ bool TQSettings::readBoolEntry(const TQString &key, bool def, bool *ok )
 	return def;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysReadBoolEntry( grp_key, def, ok );
 #endif
@@ -1179,7 +1179,7 @@ double TQSettings::readDoubleEntry(const TQString &key, double def, bool *ok )
 	return def;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysReadDoubleEntry( grp_key, def, ok );
 #endif
@@ -1224,7 +1224,7 @@ int TQSettings::readNumEntry(const TQString &key, int def, bool *ok )
 	return def;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysReadNumEntry( grp_key, def, ok );
 #endif
@@ -1270,7 +1270,7 @@ TQString TQSettings::readEntry(const TQString &key, const TQString &def, bool *o
 	return def;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysReadEntry( grp_key, def, ok );
 #endif
@@ -1349,7 +1349,7 @@ bool TQSettings::writeEntry(const TQString &key, bool value)
 	return FALSE;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysWriteEntry( grp_key, value );
 #endif
@@ -1380,7 +1380,7 @@ bool TQSettings::writeEntry(const TQString &key, double value)
 	return FALSE;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysWriteEntry( grp_key, value );
 #endif
@@ -1410,7 +1410,7 @@ bool TQSettings::writeEntry(const TQString &key, int value)
 	return FALSE;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysWriteEntry( grp_key, value );
 #endif
@@ -1463,7 +1463,7 @@ bool TQSettings::writeEntry(const TQString &key, const TQString &value)
 	return FALSE;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysWriteEntry( grp_key, value );
 #endif
@@ -1526,7 +1526,7 @@ bool TQSettings::removeEntry(const TQString &key)
 	return FALSE;
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysRemoveEntry( grp_key );
 #endif
@@ -1606,7 +1606,7 @@ TQStringList TQSettings::entryList(const TQString &key) const
 	return TQStringList();
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysEntryList( grp_key );
 #endif
@@ -1714,7 +1714,7 @@ TQStringList TQSettings::subkeyList(const TQString &key) const
 	return TQStringList();
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return d->sysSubkeyList( grp_key );
 #endif
@@ -1809,7 +1809,7 @@ TQDateTime TQSettings::lastModificationTime( const TQString &key )
 	return TQDateTime();
     }
 
-#if !defined(TQWS) && (defined(Q_WS_WIN) || defined(Q_OS_MAC))
+#if !defined(TQWS) && (defined(TQ_WS_WIN) || defined(Q_OS_MAC))
     if ( d->sysd )
 	return TQDateTime();
 #endif
@@ -2038,7 +2038,7 @@ void TQSettings::setPath( const TQString &domain, const TQString &product, Scope
     TQString actualSearchPath;
     int lastDot = domain.findRev( '.' );
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     actualSearchPath = "/" + domain.mid( 0, lastDot ) + "/" + product;
     insertSearchPath( Windows, actualSearchPath );
 #elif !defined(TQWS) && defined(Q_OS_MAC)

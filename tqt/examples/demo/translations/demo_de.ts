@@ -1,229 +1,231 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="de">
 <context encoding="UTF-8">
     <name>BookForm</name>
     <message encoding="UTF-8">
         <source>Book</source>
-        <translation type="unfinished"></translation>
+        <translation>Buch</translation>
     </message>
     <message encoding="UTF-8">
         <source>Surname</source>
-        <translation type="unfinished"></translation>
+        <translation>Nachname</translation>
     </message>
     <message encoding="UTF-8">
         <source>surname</source>
-        <translation type="unfinished"></translation>
+        <translation>nachname</translation>
     </message>
     <message encoding="UTF-8">
         <source>Forename</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorname</translation>
     </message>
     <message encoding="UTF-8">
         <source>forename</source>
-        <translation type="unfinished"></translation>
+        <translation>vorname</translation>
     </message>
     <message encoding="UTF-8">
         <source>surname ASC</source>
-        <translation type="unfinished"></translation>
+        <translation>nachname ASC</translation>
     </message>
     <message encoding="UTF-8">
         <source>forename ASC</source>
-        <translation type="unfinished"></translation>
+        <translation>vorname ASC</translation>
     </message>
     <message encoding="UTF-8">
         <source>(default)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Voreinstellung)</translation>
     </message>
     <message encoding="UTF-8">
         <source>author</source>
-        <translation type="unfinished"></translation>
+        <translation>autor</translation>
     </message>
     <message encoding="UTF-8">
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titel</translation>
     </message>
     <message encoding="UTF-8">
         <source>title</source>
-        <translation type="unfinished"></translation>
+        <translation>titel</translation>
     </message>
     <message encoding="UTF-8">
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>Preis</translation>
     </message>
     <message encoding="UTF-8">
         <source>price</source>
-        <translation type="unfinished"></translation>
+        <translation>preis</translation>
     </message>
     <message encoding="UTF-8">
         <source>Notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Notizen</translation>
     </message>
     <message encoding="UTF-8">
         <source>notes</source>
-        <translation type="unfinished"></translation>
+        <translation>notizen</translation>
     </message>
     <message encoding="UTF-8">
         <source>title ASC</source>
-        <translation type="unfinished"></translation>
+        <translation>titel ASC</translation>
     </message>
     <message encoding="UTF-8">
         <source>book</source>
-        <translation type="unfinished"></translation>
+        <translation>buch</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Connect...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verbinden ...</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Edit Books</source>
-        <translation type="unfinished"></translation>
+        <translation>Bücher &amp;bearbeiten</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>ConnectDialog</name>
     <message encoding="UTF-8">
         <source>Connect...</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbinden ...</translation>
     </message>
     <message encoding="UTF-8">
         <source>Connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbindungseinstellungen</translation>
     </message>
     <message encoding="UTF-8">
         <source>Database Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Name der Datenbank:</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nutzername:</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Password:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Passwort:</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rechnername:</translation>
     </message>
     <message encoding="UTF-8">
         <source>P&amp;ort:</source>
-        <translation type="unfinished"></translation>
+        <translation>P&amp;ort:</translation>
     </message>
     <message encoding="UTF-8">
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Voreinstellung</translation>
     </message>
     <message encoding="UTF-8">
         <source>D&amp;river</source>
-        <translation type="unfinished"></translation>
+        <translation>T&amp;reiber</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;OK</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;OK</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Abbrechen</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>DnDDemoBase</name>
     <message encoding="UTF-8">
         <source>Form1</source>
-        <translation type="unfinished"></translation>
+        <translation>Formular1</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>EditBookForm</name>
     <message encoding="UTF-8">
         <source>Edit Books</source>
-        <translation type="unfinished"></translation>
+        <translation>Bücher Bearbeiten</translation>
     </message>
     <message encoding="UTF-8">
         <source>title ASC</source>
-        <translation type="unfinished"></translation>
+        <translation>titel ASC</translation>
     </message>
     <message encoding="UTF-8">
         <source>(default)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Voreinstellung)</translation>
     </message>
     <message encoding="UTF-8">
         <source>book</source>
-        <translation type="unfinished"></translation>
+        <translation>buch</translation>
     </message>
     <message encoding="UTF-8">
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>Preis</translation>
     </message>
     <message encoding="UTF-8">
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titel</translation>
     </message>
     <message encoding="UTF-8">
         <source>title</source>
-        <translation type="unfinished"></translation>
+        <translation>titel</translation>
     </message>
     <message encoding="UTF-8">
         <source>price</source>
-        <translation type="unfinished"></translation>
+        <translation>preis</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Insert</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Einfügen</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Update</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aktualisieren</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Löschen</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Schließen</translation>
     </message>
     <message encoding="UTF-8">
         <source>|&lt; &amp;First</source>
-        <translation type="unfinished"></translation>
+        <translation>|&lt; &amp;Erste</translation>
     </message>
     <message encoding="UTF-8">
         <source>&lt;&lt; &amp;Prev</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;&lt; &amp;Vorherige</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Next &gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nächste &gt;&gt;</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Last &gt;|</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Letze &gt;|</translation>
     </message>
     <message encoding="UTF-8">
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message encoding="UTF-8">
         <source>author_view</source>
-        <translation type="unfinished"></translation>
+        <translation>autor_ansicht</translation>
     </message>
     <message encoding="UTF-8">
         <source>name</source>
-        <translation type="unfinished"></translation>
+        <translation>name</translation>
     </message>
 </context>
 <context>
     <name>Frame</name>
     <message>
-        <source>Qt Demo Collection</source>
-        <translation type="unfinished"></translation>
+        <source>TQt Demo Collection</source>
+        <translation>TQt Demonstrationssammelung</translation>
     </message>
     <message>
         <source>&amp;Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verlassen</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Q</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -231,165 +233,165 @@
     </message>
     <message>
         <source>St&amp;yle</source>
-        <translation>St&amp;yle</translation>
+        <translation>St&amp;il</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>GLLandscapeViewer</name>
     <message encoding="UTF-8">
         <source>Qt/OpenGL example</source>
-        <translation type="unfinished"></translation>
+        <translation>TQt/OpenGL Beispiel</translation>
     </message>
     <message encoding="UTF-8">
         <source>X-rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>X-Rotation</translation>
     </message>
     <message encoding="UTF-8">
         <source>Y-rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>Y-Rotation</translation>
     </message>
     <message encoding="UTF-8">
         <source>Z-rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>Z-Rotation</translation>
     </message>
     <message encoding="UTF-8">
         <source>Rendering mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Darstellungsmodus</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Wireframe</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Drahtmodell</translation>
     </message>
     <message encoding="UTF-8">
         <source>Fl&amp;at shaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Fl&amp;ach schattiert</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Smooth shaded</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Weich schatttiert</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Landscape</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Landschaft</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Fractalize</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fraktalisieren</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Reset grid</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Raster zurücksetzen</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Animate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Animieren</translation>
     </message>
     <message encoding="UTF-8">
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Vergrößerung</translation>
     </message>
     <message encoding="UTF-8">
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Größe</translation>
     </message>
 </context>
 <context>
     <name>GLWorkspace</name>
     <message>
         <source>&amp;Scene</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Szene</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neu</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Neu</translation>
     </message>
     <message>
         <source>Wirebox</source>
-        <translation type="unfinished"></translation>
+        <translation>Drahtkiste</translation>
     </message>
     <message>
         <source>&amp;Wirebox</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Drahtkiste</translation>
     </message>
     <message>
         <source>Gear</source>
-        <translation type="unfinished"></translation>
+        <translation>Gang</translation>
     </message>
     <message>
         <source>&amp;Gears</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gänge</translation>
     </message>
     <message>
         <source>Texture</source>
-        <translation type="unfinished"></translation>
+        <translation>Textur</translation>
     </message>
     <message>
         <source>&amp;Texture</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Textur</translation>
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Drucken</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Drucken</translation>
     </message>
     <message>
         <source>Window Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenstergröße</translation>
     </message>
     <message>
         <source>&amp;Window Size</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fenstergröße</translation>
     </message>
     <message>
         <source>Low Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Niedrige Auflösung</translation>
     </message>
     <message>
         <source>&amp;Low Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Niedrige Auflösung</translation>
     </message>
     <message>
         <source>Medium Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Mittlere Auflösung</translation>
     </message>
     <message>
         <source>&amp;Medium Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mittlere Auflösung</translation>
     </message>
     <message>
         <source>High Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Hohe Auflösung</translation>
     </message>
     <message>
         <source>&amp;High Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hohe Auflösung</translation>
     </message>
     <message>
         <source>Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>Einrichtung</translation>
     </message>
     <message>
         <source>&amp;Setup...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Einrichtung ...</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Schließen</translation>
     </message>
     <message>
         <source>WireBox</source>
-        <translation type="unfinished"></translation>
+        <translation>Drahtbox</translation>
     </message>
     <message>
         <source>Nurbs</source>
@@ -400,86 +402,86 @@
     <name>HelpWindow</name>
     <message>
         <source>&amp;New Window</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neues Fenster</translation>
     </message>
     <message>
         <source>&amp;Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datei öffnen</translation>
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Drucken</translation>
     </message>
     <message>
         <source>&amp;Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rückwärts</translation>
     </message>
     <message>
         <source>&amp;Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vorwärts</translation>
     </message>
     <message>
         <source>&amp;Home</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nach Hause</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen hinzufügen</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">&amp;Datei</translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
         <source>&amp;Go</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Los</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Verlaufsspeicher</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen</translation>
     </message>
     <message>
         <source>Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Rückwärts</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorwärts</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach Hause</translation>
     </message>
 </context>
 <context>
     <name>I18nDemo</name>
     <message>
         <source>Close the current window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuelles Fenster schließen.</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <source>Close all opened windows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle geöffneten Fenster schließen.</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle schließen</translation>
     </message>
     <message>
         <source>Tile opened windows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geöffnete Fenster kacheln.</translation>
     </message>
     <message>
         <source>Tile</source>
-        <translation type="unfinished"></translation>
+        <translation>Kachel</translation>
     </message>
     <message>
         <source>Cascade opened windows.</source>
@@ -494,79 +496,80 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1, a multiplatform C++ GUI toolkit from Trolltech. Qt provides single-source portability across Windows 95/98/NT/2000, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1, a multiplatform C++ GUI toolkit from Trolltech. TQt provides single-source portability across Windows 95/98/NT/2000, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;dieses Programm benutzt Qt Version %1, ein plattformunabhängiges C++ GUI toolkit von Trolltech. TQt liefert Portabilität über 
+Windows 95/98/NT/2000, Linux, Solaris, HP-UX. und viele andere Unix-Derivate mit X11 in einem Quellcode. &lt;/p&gt;&lt;p&gt;Siehe &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; für weitere Informationen&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>KAstTopLevel</name>
     <message>
         <source>Score</source>
-        <translation type="unfinished"></translation>
+        <translation>Punkte</translation>
     </message>
     <message>
         <source>Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Stufe</translation>
     </message>
     <message>
         <source>Ships</source>
-        <translation type="unfinished"></translation>
+        <translation>Schiffe</translation>
     </message>
     <message>
         <source>Fuel</source>
-        <translation type="unfinished"></translation>
+        <translation>Treibstoff</translation>
     </message>
     <message>
         <source>Press N to start playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Drücken Sie N um zu beginnen</translation>
     </message>
     <message>
         <source>Ship Destroyed. Press L to launch.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schiff zerstört. Drücken SIe L um zu starten.</translation>
     </message>
     <message>
         <source>Game Over!</source>
-        <translation type="unfinished"></translation>
+        <translation>Spiel verloren!</translation>
     </message>
 </context>
 <context>
     <name>KAsteroidsView</name>
     <message>
         <source>QCanvas demo</source>
-        <translation type="unfinished"></translation>
+        <translation>QCanvas Demonstration</translation>
     </message>
     <message>
         <source>This game has been implemented using the QCanvas class.
 The QCanvas class is not part of the Professional Edition. Please 
 contact Trolltech if you want to upgrade to the Enterprise Edition.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dieses Spiel wurde mit der QCanvas Klasse implementiert. Diese ist kein Teil der Professional Edition. Bitte kontaktieren Sie Trolltech wenn sie auf the Enterprise Edition upgraden möchten.</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>PrintPreview</name>
     <message encoding="UTF-8">
         <source>Print Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Druckvorschau</translation>
     </message>
     <message encoding="UTF-8">
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorschau</translation>
     </message>
     <message encoding="UTF-8">
         <source>TextLabel1</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel1</translation>
     </message>
     <message encoding="UTF-8">
         <source>Modify</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändern</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Invert Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Farben &amp;umkehren</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Mirror</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Spiegeln</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Flip</source>
@@ -574,165 +577,165 @@ contact Trolltech if you want to upgrade to the Enterprise Edition.</source>
     </message>
     <message encoding="UTF-8">
         <source>Rotate 90° &amp;left</source>
-        <translation type="unfinished"></translation>
+        <translation>Um 90° nach &amp;Links rotieren.</translation>
     </message>
     <message encoding="UTF-8">
         <source>Rotate 90° &amp;right</source>
-        <translation type="unfinished"></translation>
+        <translation>Um 90° nach &amp;Rechts rotieren</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hilfe</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Drucken</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Discard</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verwerfen</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>SqlEx</name>
     <message encoding="UTF-8">
         <source>Form1</source>
-        <translation type="unfinished"></translation>
+        <translation>Formular1</translation>
     </message>
     <message encoding="UTF-8">
         <source>Tables</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabellen</translation>
     </message>
     <message encoding="UTF-8">
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
     <message encoding="UTF-8">
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Erforderlich</translation>
     </message>
     <message encoding="UTF-8">
         <source>SQL Query</source>
-        <translation type="unfinished"></translation>
+        <translation>SQL Abfrage</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Submit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Senden</translation>
     </message>
     <message encoding="UTF-8">
         <source>C&amp;lear</source>
-        <translation type="unfinished"></translation>
+        <translation>L&amp;öschen</translation>
     </message>
     <message encoding="UTF-8">
         <source>Press &quot;Connect&quot; to open a database</source>
-        <translation type="unfinished"></translation>
+        <translation>Drücken Sie  &quot;Verbinden&quot; um eine Datenbank zu öffnen.</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Connect...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verbinden ...</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">&amp;Datei</translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Neu</translation>
     </message>
     <message>
         <source>&amp;New...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neu ...</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffnen</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Öffnen ...</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>&amp;Save...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Speichern ...</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern als</translation>
     </message>
     <message>
         <source>Save &amp;As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern &amp;unter ...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Drucken</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Drucken ...</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Schließen</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bearbeiten</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Rückgängig</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rückgängig</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiederherstellen</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Wiederherstellen</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausschneiden</translation>
     </message>
     <message>
         <source>&amp;Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ausschneiden</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <source>C&amp;opy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopieren</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Einfügen</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Einfügen</translation>
     </message>
     <message>
         <source>For&amp;mat</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Format</translation>
     </message>
     <message>
         <source>Standard</source>

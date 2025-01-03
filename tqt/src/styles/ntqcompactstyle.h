@@ -45,12 +45,12 @@
 #include "ntqwindowsstyle.h"
 #endif // QT_H
 
-#if !defined(QT_NO_STYLE_COMPACT) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_COMPACT) || defined(QT_PLUGIN)
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_STYLE_COMPACT
 #else
-#define Q_EXPORT_STYLE_COMPACT Q_EXPORT
+#define Q_EXPORT_STYLE_COMPACT TQ_EXPORT
 #endif
 
 class Q_EXPORT_STYLE_COMPACT TQCompactStyle : public TQWindowsStyle
@@ -81,6 +81,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_STYLE_WINDOWS
+#endif // TQT_NO_STYLE_WINDOWS
 
 #endif // TQCOMPACTSTYLE_H

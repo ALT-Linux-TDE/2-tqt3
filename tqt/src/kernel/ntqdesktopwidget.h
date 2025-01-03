@@ -46,7 +46,7 @@
 class TQApplication;
 class TQDesktopWidgetPrivate; /* Don't touch! */
 
-class Q_EXPORT TQDesktopWidget : public TQWidget
+class TQ_EXPORT TQDesktopWidget : public TQWidget
 {
     TQ_OBJECT
 public:
@@ -95,7 +95,7 @@ private:
 #endif
 
     friend class TQApplication;
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     friend class TQWSDisplay;
 #endif
 };

@@ -50,7 +50,7 @@
 #include <ntqspinbox.h>
 #include <limits.h>
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include <ntqdatatable.h>
 #include <ntqdatabrowser.h>
 #include <ntqdataview.h>
@@ -91,7 +91,7 @@ SqlFormWizard::SqlFormWizard( TQUnknownInterface *aIface, TQWidget *w,
 	mode = View;
     }
 
-    connect( nextButton(), SIGNAL(clicked()), SLOT(nextPageClicked()) );
+    connect( nextButton(), TQ_SIGNAL(clicked()), TQ_SLOT(nextPageClicked()) );
     setupPage1();
 }
 
@@ -154,7 +154,7 @@ void SqlFormWizard::autoPopulate( bool populate )
 		// remove primary index fields, if any
 		listBoxSortField->insertStringList( lst );
 		d->open( FALSE );
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 		TQSqlCursor tab( listBoxTable->currentText(), TRUE, d->connection() );
 		TQSqlIndex pIdx = tab.primaryIndex();
 		for ( uint i = 0; i < pIdx.count(); i++ ) {
@@ -323,7 +323,7 @@ void SqlFormWizard::accept()
     if ( !appIface || mode == None )
 	return;
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     DesignerProject *proIface = (DesignerProject*)( (DesignerInterface*)appIface )->currentProject();
     if ( !widget || !proIface ) {
 	SqlFormWizardBase::accept();

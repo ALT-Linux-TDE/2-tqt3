@@ -40,7 +40,7 @@
 **
 **********************************************************************/
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "qximinputcontext.h"
 #include <ntqinputcontextplugin.h>
 #include <ntqstringlist.h>

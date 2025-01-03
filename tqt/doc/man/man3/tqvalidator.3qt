@@ -11,14 +11,14 @@ QValidator \- Validation of input text
 .SH SYNOPSIS
 \fC#include <ntqvalidator.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 Inherited by QIntValidator, QDoubleValidator, and QRegExpValidator.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQValidator\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQValidator\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QValidator\fR ()"
@@ -27,10 +27,10 @@ Inherited by QIntValidator, QDoubleValidator, and QRegExpValidator.
 .BI "enum \fBState\fR { Invalid, Intermediate, Valid = Intermediate, Acceptable }"
 .br
 .ti -1c
-.BI "virtual State \fBvalidate\fR ( QString & input, int & pos ) const = 0"
+.BI "virtual State \fBvalidate\fR ( TQString & input, int & pos ) const = 0"
 .br
 .ti -1c
-.BI "virtual void \fBfixup\fR ( QString & input ) const"
+.BI "virtual void \fBfixup\fR ( TQString & input ) const"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -71,15 +71,15 @@ This enum type defines the states in which a validated string can exist.
 .TP
 \fCQValidator::Acceptable\fR - the string is acceptable as a final result, i.e. it is valid.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QValidator::QValidator ( QObject * parent, const char * name = 0 )"
-Sets up the validator. The \fIparent\fR and \fIname\fR parameters are passed on to the QObject constructor.
+.SH "QValidator::QValidator ( TQObject * parent, const char * name = 0 )"
+Sets up the validator. The \fIparent\fR and \fIname\fR parameters are passed on to the TQObject constructor.
 .SH "QValidator::~QValidator ()"
 Destroys the validator, freeing any storage and other resources used.
-.SH "void QValidator::fixup ( QString & input ) const\fC [virtual]\fR"
+.SH "void QValidator::fixup ( TQString & input ) const\fC [virtual]\fR"
 This function attempts to change \fIinput\fR to be valid according to this validator's rules. It need not result in a valid string: callers of this function must re-test afterwards; the default does nothing.
 .PP
 Reimplementations of this function can change \fIinput\fR even if they do not produce a valid string. For example, an ISBN validator might want to delete every character except digits and "-", even if the result is still not a valid ISBN; a surname validator might want to remove whitespace from the start and end of the string, even if the resulting string is not in the list of accepted surnames.
-.SH "State QValidator::validate ( QString & input, int & pos ) const\fC [pure virtual]\fR"
+.SH "State QValidator::validate ( TQString & input, int & pos ) const\fC [pure virtual]\fR"
 This pure virtual function returns Invalid if \fIinput\fR is invalid according to this validator's rules, Intermediate if it is likely that a little more editing will make the input acceptable (e.g. the user types '4' into a widget which accepts integers between 10 and 99) and Acceptable if the input is valid.
 .PP
 The function can change \fIinput\fR and \fIpos\fR (the cursor position) if it wants to.
@@ -100,8 +100,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -6,6 +6,6 @@ int main( int argc, char ** argv )
     TQApplication a( argc, argv );
     MainForm *w = new MainForm;
     w->show();
-    a.connect( &a, SIGNAL( lastWindowClosed() ), w, SLOT( quit() ) );
+    a.connect( &a, TQ_SIGNAL( lastWindowClosed() ), w, TQ_SLOT( quit() ) );
     return a.exec();
 }

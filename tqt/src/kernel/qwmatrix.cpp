@@ -41,7 +41,7 @@
 #include "ntqwmatrix.h"
 #include "ntqdatastream.h"
 #include "ntqregion.h"
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 double qsincos( double, bool calcCos );		// defined in qpainter_x11.cpp
 #else
 #include <math.h>
@@ -49,7 +49,7 @@ double qsincos( double, bool calcCos );		// defined in qpainter_x11.cpp
 
 #include <limits.h>
 
-#ifndef QT_NO_WMATRIX
+#ifndef TQT_NO_WMATRIX
 
 /*!
     \class TQWMatrix ntqwmatrix.h
@@ -724,8 +724,8 @@ TQRegion TQWMatrix::operator * (const TQRegion &r ) const
 	return r;
     TQMemArray<TQRect> rects = r.rects();
     TQRegion result;
-    register TQRect *rect = rects.data();
-    register int i = rects.size();
+    TQRect *rect = rects.data();
+    int i = rects.size();
     if ( _m12 == 0.0F && _m21 == 0.0F && _m11 > 1.0F && _m22 > 1.0F ) {
 	// simple case, no rotation
 	while ( i ) {
@@ -851,7 +851,7 @@ const double deg2rad = 0.017453292519943295769;	// pi/180
 TQWMatrix &TQWMatrix::rotate( double a )
 {
     double b = deg2rad*a;			// convert to radians
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     double sina = qsincos(b,FALSE);		// fast and convenient
     double cosa = qsincos(b,TRUE);
 #else
@@ -984,7 +984,7 @@ TQWMatrix operator*( const TQWMatrix &m1, const TQWMatrix &m2 )
 /*****************************************************************************
   TQWMatrix stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQWMatrix
 
@@ -1030,7 +1030,7 @@ TQDataStream &operator>>( TQDataStream &s, TQWMatrix &m )
     }
     return s;
 }
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 
-#endif // QT_NO_WMATRIX
+#endif // TQT_NO_WMATRIX
 

@@ -29,7 +29,7 @@ QFont \- Font used for drawing text
 .BI "\fBQFont\fR ()"
 .br
 .ti -1c
-.BI "\fBQFont\fR ( const QString & family, int pointSize = 12, int weight = Normal, bool italic = FALSE )"
+.BI "\fBQFont\fR ( const TQString & family, int pointSize = 12, int weight = Normal, bool italic = FALSE )"
 .br
 .ti -1c
 .BI "\fBQFont\fR ( const QFont & font )"
@@ -38,10 +38,10 @@ QFont \- Font used for drawing text
 .BI "\fB~QFont\fR ()"
 .br
 .ti -1c
-.BI "QString \fBfamily\fR () const"
+.BI "TQString \fBfamily\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetFamily\fR ( const QString & family )"
+.BI "void \fBsetFamily\fR ( const TQString & family )"
 .br
 .ti -1c
 .BI "int \fBpointSize\fR () const"
@@ -149,19 +149,19 @@ QFont \- Font used for drawing text
 .BI "HFONT \fBhandle\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetRawName\fR ( const QString & name )"
+.BI "void \fBsetRawName\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "QString \fBrawName\fR () const"
+.BI "TQString \fBrawName\fR () const"
 .br
 .ti -1c
-.BI "QString \fBkey\fR () const"
+.BI "TQString \fBkey\fR () const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR () const"
+.BI "TQString \fBtoString\fR () const"
 .br
 .ti -1c
-.BI "bool \fBfromString\fR ( const QString & descrip )"
+.BI "bool \fBfromString\fR ( const TQString & descrip )"
 .br
 .ti -1c
 .BI "void \fBqwsRenderToDisk\fR ( bool all = TRUE )"
@@ -170,13 +170,13 @@ QFont \- Font used for drawing text
 .BI "enum \fBScript\fR { Latin, Greek, Cyrillic, Armenian, Georgian, Runic, Ogham, SpacingModifiers, CombiningMarks, Hebrew, Arabic, Syriac, Thaana, Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam, Sinhala, Thai, Lao, Tibetan, Myanmar, Khmer, Han, Hiragana, Katakana, Hangul, Bopomofo, Yi, Ethiopic, Cherokee, CanadianAboriginal, Mongolian, CurrencySymbols, LetterlikeSymbols, NumberForms, MathematicalOperators, TechnicalSymbols, GeometricSymbols, MiscellaneousSymbols, EnclosedAndSquare, Braille, Unicode, Tagalog, Hanunoo, Buhid, Tagbanwa, KatakanaHalfWidth, Limbu, TaiLe }"
 .br
 .ti -1c
-.BI "QString \fBdefaultFamily\fR () const"
+.BI "TQString \fBdefaultFamily\fR () const"
 .br
 .ti -1c
-.BI "QString \fBlastResortFamily\fR () const"
+.BI "TQString \fBlastResortFamily\fR () const"
 .br
 .ti -1c
-.BI "QString \fBlastResortFont\fR () const"
+.BI "TQString \fBlastResortFont\fR () const"
 .br
 .ti -1c
 .BI "QFont \fBresolve\fR ( const QFont & other ) const"
@@ -185,22 +185,22 @@ QFont \- Font used for drawing text
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QString \fBsubstitute\fR ( const QString & familyName )"
+.BI "TQString \fBsubstitute\fR ( const TQString & familyName )"
 .br
 .ti -1c
-.BI "QStringList \fBsubstitutes\fR ( const QString & familyName )"
+.BI "QStringList \fBsubstitutes\fR ( const TQString & familyName )"
 .br
 .ti -1c
 .BI "QStringList \fBsubstitutions\fR ()"
 .br
 .ti -1c
-.BI "void \fBinsertSubstitution\fR ( const QString & familyName, const QString & substituteName )"
+.BI "void \fBinsertSubstitution\fR ( const TQString & familyName, const TQString & substituteName )"
 .br
 .ti -1c
-.BI "void \fBinsertSubstitutions\fR ( const QString & familyName, const QStringList & substituteNames )"
+.BI "void \fBinsertSubstitutions\fR ( const TQString & familyName, const QStringList & substituteNames )"
 .br
 .ti -1c
-.BI "void \fBremoveSubstitution\fR ( const QString & familyName )"
+.BI "void \fBremoveSubstitution\fR ( const TQString & familyName )"
 .br
 .ti -1c
 .BI "QFont defaultFont ()  \fI(obsolete)\fR"
@@ -230,7 +230,7 @@ QFont \- Font used for drawing text
 .SH DESCRIPTION
 The QFont class specifies a font used for drawing text.
 .PP
-When you create a QFont object you specify various attributes that you want the font to have. Qt will use the font with the specified attributes, or if no matching font exists, Qt will use the closest matching installed font. The attributes of the font that is actually used are retrievable from a QFontInfo object. If the window system provides an exact match exactMatch() returns TRUE. Use QFontMetrics to get measurements, e.g. the pixel length of a string using QFontMetrics::width().
+When you create a QFont object you specify various attributes that you want the font to have. TQt will use the font with the specified attributes, or if no matching font exists, TQt will use the closest matching installed font. The attributes of the font that is actually used are retrievable from a QFontInfo object. If the window system provides an exact match exactMatch() returns TRUE. Use QFontMetrics to get measurements, e.g. the pixel length of a string using QFontMetrics::width().
 .PP
 Use QApplication::setFont() to set the application's default font.
 .PP
@@ -270,9 +270,9 @@ Each replacement font family is searched for.
 .IP 4
 If none of these are found or there was no styleHint(), "helvetica" will be searched for.
 .IP 5
-If "helvetica" isn't found Qt will try the lastResortFamily().
+If "helvetica" isn't found TQt will try the lastResortFamily().
 .IP 6
-If the lastResortFamily() isn't found Qt will try the lastResortFont() which will always return a name of some kind.
+If the lastResortFamily() isn't found TQt will try the lastResortFont() which will always return a name of some kind.
 .PP
 Once a font is found, the remaining attributes are matched in order of priority: <ol type=1>
 .IP 7
@@ -302,9 +302,9 @@ If you had both an Adobe and a Cronyx Helvetica, you might get either.
 .PP
 .nf
 .br
-    QFont f1( "Helvetica [Cronyx]" );  // Qt 3.x
+    QFont f1( "Helvetica [Cronyx]" );  // TQt 3.x
 .br
-    QFont f2( "Cronyx-Helvetica" );    // Qt 2.x compatibility
+    QFont f2( "Cronyx-Helvetica" );    // TQt 2.x compatibility
 .br
 .fi
 You can specify the foundry you want in the family name. Both fonts, f1 and f2, in the above example will be set to "Helvetica [Cronyx]".
@@ -315,7 +315,7 @@ To determine the attributes of the font actually used in the window system, use 
 .br
     QFontInfo info( f1 );
 .br
-    QString family = info.family();
+    TQString family = info.family();
 .br
 .fi
 .PP
@@ -333,7 +333,7 @@ To find out font metrics use a QFontMetrics object, e.g.
 .PP
 For more general information on fonts, see the comp.fonts FAQ. Information on encodings can be found from Roman Czyborra's page.
 .PP
-See also QFontMetrics, QFontInfo, QFontDatabase, QApplication::setFont(), QWidget::font, QPainter::setFont(), QFont::StyleHint, QFont::Weight, Widget Appearance and Style, Graphics Classes, and Implicitly and Explicitly Shared Classes.
+See also QFontMetrics, QFontInfo, QFontDatabase, QApplication::setFont(), TQWidget::font, QPainter::setFont(), QFont::StyleHint, QFont::Weight, Widget Appearance and Style, Graphics Classes, and Implicitly and Explicitly Shared Classes.
 .SS "Member Type Documentation"
 .SH "QFont::Script"
 This enum represents Unicode allocated scripts. For exhaustive coverage see The Unicode Standard Version 3.0. The following scripts are supported:
@@ -548,12 +548,12 @@ This enum contains the predefined font weights:
 Constructs a font object that uses the application's default font.
 .PP
 See also QApplication::setFont() and QApplication::font().
-.SH "QFont::QFont ( const QString & family, int pointSize = 12, int weight = Normal, bool italic = FALSE )"
+.SH "QFont::QFont ( const TQString & family, int pointSize = 12, int weight = Normal, bool italic = FALSE )"
 Constructs a font object with the specified \fIfamily\fR, \fIpointSize\fR, \fIweight\fR and \fIitalic\fR settings.
 .PP
 If \fIpointSize\fR is <= 0 it is set to 1.
 .PP
-The \fIfamily\fR name may optionally also include a foundry name, e.g. "Helvetica [Cronyx]". (The Qt 2.x syntax, i.e." Cronyx-Helvetica", is also supported.) If the \fIfamily\fR is available from more than one foundry and the foundry isn't specified, an arbitrary foundry is chosen. If the family isn't available a family will be set using the font matching algorithm.
+The \fIfamily\fR name may optionally also include a foundry name, e.g. "Helvetica [Cronyx]". (The TQt 2.x syntax, i.e." Cronyx-Helvetica", is also supported.) If the \fIfamily\fR is available from more than one foundry and the foundry isn't specified, an arbitrary foundry is chosen. If the family isn't available a family will be set using the font matching algorithm.
 .PP
 See also Weight, setFamily(), setPointSize(), setWeight(), setItalic(), setStyleHint(), and QApplication::font().
 .SH "QFont::QFont ( const QFont & font )"
@@ -572,7 +572,7 @@ Returns the point size in 1/10ths of a point.
 The returned value will be -1 if the font size has been specified in pixels.
 .PP
 See also pointSize() and pointSizeFloat().
-.SH "QString QFont::defaultFamily () const"
+.SH "TQString QFont::defaultFamily () const"
 Returns the family name that corresponds to the current style hint.
 .PP
 See also StyleHint, styleHint(), and setStyleHint().
@@ -586,7 +586,7 @@ Returns TRUE if the font attributes have been changed and the font has to be (re
 Returns TRUE if a window system font exactly matching the settings of this font is available.
 .PP
 See also QFontInfo.
-.SH "QString QFont::family () const"
+.SH "TQString QFont::family () const"
 Returns the requested font family name, i.e. the name set in the constructor or the last setFont() call.
 .PP
 See also setFamily(), substitutes(), and substitute().
@@ -597,19 +597,19 @@ Examples:
 Returns TRUE if fixed pitch has been set; otherwise returns FALSE.
 .PP
 See also setFixedPitch() and QFontInfo::fixedPitch().
-.SH "bool QFont::fromString ( const QString & descrip )"
+.SH "bool QFont::fromString ( const TQString & descrip )"
 Sets this font to match the description \fIdescrip\fR. The description is a comma-separated list of the font attributes, as returned by toString().
 .PP
 See also toString() and operator>>().
 .SH "HFONT QFont::handle () const"
 Returns the window system handle to the font, for low-level access. Using this function is \fInot\fR portable.
-.SH "void QFont::insertSubstitution ( const QString & familyName, const QString & substituteName )\fC [static]\fR"
+.SH "void QFont::insertSubstitution ( const TQString & familyName, const TQString & substituteName )\fC [static]\fR"
 Inserts the family name \fIsubstituteName\fR into the substitution table for \fIfamilyName\fR.
 .PP
 See also insertSubstitutions(), removeSubstitution(), substitutions(), substitute(), and substitutes().
 .PP
 Example: fonts/simple-qfont-demo/viewer.cpp.
-.SH "void QFont::insertSubstitutions ( const QString & familyName, const QStringList & substituteNames )\fC [static]\fR"
+.SH "void QFont::insertSubstitutions ( const TQString & familyName, const QStringList & substituteNames )\fC [static]\fR"
 Inserts the list of families \fIsubstituteNames\fR into the substitution list for \fIfamilyName\fR.
 .PP
 See also insertSubstitution(), removeSubstitution(), substitutions(), and substitute().
@@ -625,22 +625,22 @@ Returns TRUE if italic has been set; otherwise returns FALSE.
 See also setItalic().
 .PP
 Example: chart/optionsform.cpp.
-.SH "QString QFont::key () const"
+.SH "TQString QFont::key () const"
 Returns the font's key, a textual representation of a font. It is typically used as the key for a cache or dictionary of fonts.
 .PP
 See also QMap.
-.SH "QString QFont::lastResortFamily () const"
+.SH "TQString QFont::lastResortFamily () const"
 Returns the "last resort" font family name.
 .PP
 The current implementation tries a wide variety of common fonts, returning the first one it finds. Is is possible that no family is found in which case a null string is returned.
 .PP
 See also lastResortFont().
-.SH "QString QFont::lastResortFont () const"
+.SH "TQString QFont::lastResortFont () const"
 Returns a "last resort" font name for the font matching algorithm. This is used if the last resort family is not available. It will always return a name, if necessary returning something like" fixed" or "system".
 .PP
 The current implementation tries a wide variety of common fonts, returning the first one it finds. The implementation may change at any time, but this function will always return a string containing something.
 .PP
-It is theoretically possible that there really isn't a lastResortFont() in which case Qt will abort with an error message. We have not been able to identify a case where this happens. Please report it as a bug if it does, preferably with a list of the fonts you have installed.
+It is theoretically possible that there really isn't a lastResortFont() in which case TQt will abort with an error message. We have not been able to identify a case where this happens. Please report it as a bug if it does, preferably with a list of the fonts you have installed.
 .PP
 See also lastResortFamily() and rawName().
 .SH "bool QFont::operator!= ( const QFont & f ) const"
@@ -686,17 +686,17 @@ Note that this function is only applicable on Qt/Embedded.
 Returns TRUE if raw mode is used for font name matching; otherwise returns FALSE.
 .PP
 See also setRawMode() and rawName().
-.SH "QString QFont::rawName () const"
+.SH "TQString QFont::rawName () const"
 Returns the name of the font within the underlying window system.
 .PP
 On Windows, this is usually just the family name of a TrueType font.
 .PP
-On X11, it is an XLFD (X Logical Font Description). When Qt is build with Xft support on X11, the return value can be an Xft pattern or an XLFD.
+On X11, it is an XLFD (X Logical Font Description). When TQt is build with Xft support on X11, the return value can be an Xft pattern or an XLFD.
 .PP
 Using the return value of this function is usually \fInot\fR \fIportable\fR.
 .PP
 See also setRawName().
-.SH "void QFont::removeSubstitution ( const QString & familyName )\fC [static]\fR"
+.SH "void QFont::removeSubstitution ( const TQString & familyName )\fC [static]\fR"
 Removes all the substitutions for \fIfamilyName\fR.
 .PP
 See also insertSubstitutions(), insertSubstitution(), substitutions(), and substitute().
@@ -715,10 +715,10 @@ Examples:
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Please use QApplication::setFont() instead.
-.SH "void QFont::setFamily ( const QString & family )"
+.SH "void QFont::setFamily ( const TQString & family )"
 Sets the family name of the font. The name is case insensitive and may include a foundry name.
 .PP
-The \fIfamily\fR name may optionally also include a foundry name, e.g. "Helvetica [Cronyx]". (The Qt 2.x syntax, i.e." Cronyx-Helvetica", is also supported.) If the \fIfamily\fR is available from more than one foundry and the foundry isn't specified, an arbitrary foundry is chosen. If the family isn't available a family will be set using the font matching algorithm.
+The \fIfamily\fR name may optionally also include a foundry name, e.g. "Helvetica [Cronyx]". (The TQt 2.x syntax, i.e." Cronyx-Helvetica", is also supported.) If the \fIfamily\fR is available from more than one foundry and the foundry isn't specified, an arbitrary foundry is chosen. If the family isn't available a family will be set using the font matching algorithm.
 .PP
 See also family(), setStyleHint(), and QFontInfo.
 .SH "void QFont::setFixedPitch ( bool enable )"
@@ -761,12 +761,12 @@ See also pointSizeFloat(), setPointSize(), and setPixelSize().
 .SH "void QFont::setRawMode ( bool enable )"
 If \fIenable\fR is TRUE, turns raw mode on; otherwise turns raw mode off. This function only has an effect under X11.
 .PP
-If raw mode is enabled, Qt will search for an X font with a complete font name matching the family name, ignoring all other values set for the QFont. If the font name matches several fonts, Qt will use the first font returned by X. QFontInfo \fIcannot\fR be used to fetch information about a QFont using raw mode (it will return the values set in the QFont for all parameters, including the family name).
+If raw mode is enabled, TQt will search for an X font with a complete font name matching the family name, ignoring all other values set for the QFont. If the font name matches several fonts, TQt will use the first font returned by X. QFontInfo \fIcannot\fR be used to fetch information about a QFont using raw mode (it will return the values set in the QFont for all parameters, including the family name).
 .PP
 \fBWarning:\fR Do not use raw mode unless you really, really need it! In most (if not all) cases, setRawName() is a much better choice.
 .PP
 See also rawMode() and setRawName().
-.SH "void QFont::setRawName ( const QString & name )"
+.SH "void QFont::setRawName ( const TQString & name )"
 Sets a font by its system specific name. The function is particularly useful under X, where system font settings (for example X resources) are usually available in XLFD (X Logical Font Description) form only. You can pass an XLFD as \fIname\fR to this function.
 .PP
 A font set with setRawName() is still a full-featured QFont. It can be queried (for example with italic()) or modified (for example with setItalic()) and is therefore also suitable for rendering rich text.
@@ -838,7 +838,7 @@ Returns the StyleStrategy.
 The style strategy affects the font matching algorithm. See QFont::StyleStrategy for the list of strategies.
 .PP
 See also setStyleHint() and QFont::StyleHint.
-.SH "QString QFont::substitute ( const QString & familyName )\fC [static]\fR"
+.SH "TQString QFont::substitute ( const TQString & familyName )\fC [static]\fR"
 Returns the first family name to be used whenever \fIfamilyName\fR is specified. The lookup is case insensitive.
 .PP
 If there is no substitution for \fIfamilyName\fR, \fIfamilyName\fR is returned.
@@ -846,7 +846,7 @@ If there is no substitution for \fIfamilyName\fR, \fIfamilyName\fR is returned.
 To obtain a list of substitutions use substitutes().
 .PP
 See also setFamily(), insertSubstitutions(), insertSubstitution(), and removeSubstitution().
-.SH "QStringList QFont::substitutes ( const QString & familyName )\fC [static]\fR"
+.SH "QStringList QFont::substitutes ( const TQString & familyName )\fC [static]\fR"
 Returns a list of family names to be used whenever \fIfamilyName\fR is specified. The lookup is case insensitive.
 .PP
 If there is no substitution for \fIfamilyName\fR, an empty list is returned.
@@ -858,7 +858,7 @@ Example: fonts/simple-qfont-demo/viewer.cpp.
 Returns a sorted list of substituted family names.
 .PP
 See also insertSubstitution(), removeSubstitution(), and substitute().
-.SH "QString QFont::toString () const"
+.SH "TQString QFont::toString () const"
 Returns a description of the font. The description is a comma-separated list of the attributes, perfectly suited for use in QSettings.
 .PP
 See also fromString() and operator<<().
@@ -894,8 +894,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

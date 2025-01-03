@@ -44,10 +44,10 @@
 #include "ntqwidget.h"
 #endif // QT_H
 
-#ifndef QT_NO_SPLASHSCREEN
+#ifndef TQT_NO_SPLASHSCREEN
 class TQSplashScreenPrivate;
 
-class Q_EXPORT TQSplashScreen : public TQWidget
+class TQ_EXPORT TQSplashScreen : public TQWidget
 {
     TQ_OBJECT
 public:
@@ -76,5 +76,5 @@ private:
 
     TQSplashScreenPrivate *d;
 };
-#endif //QT_NO_SPLASHSCREEN
+#endif //TQT_NO_SPLASHSCREEN
 #endif

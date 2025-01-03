@@ -15,6 +15,6 @@ int main( int argc, char ** argv ) {
     ApplicationWindow *mw = new ApplicationWindow();
     mw->setCaption( "TQt Example - Application" );
     mw->show();
-    a.connect( &a, SIGNAL(lastWindowClosed()), &a, SLOT(quit()) );
+    a.connect( &a, TQ_SIGNAL(lastWindowClosed()), &a, TQ_SLOT(quit()) );
     return a.exec();
 }

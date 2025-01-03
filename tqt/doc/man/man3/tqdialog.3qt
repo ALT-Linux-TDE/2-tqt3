@@ -11,14 +11,14 @@ QDialog \- The base class of dialog windows
 .SH SYNOPSIS
 \fC#include <ntqdialog.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 Inherited by QColorDialog, QErrorMessage, QFileDialog, QFontDialog, QInputDialog, QMessageBox, QMotifDialog, QProgressDialog, QTabDialog, and QWizard.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "explicit \fBQDialog\fR ( QWidget * parent = 0, const char * name = 0, bool modal = FALSE, WFlags f = 0 )"
+.BI "explicit \fBQDialog\fR ( TQWidget * parent = 0, const char * name = 0, bool modal = FALSE, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "\fB~QDialog\fR ()"
@@ -39,10 +39,10 @@ Inherited by QColorDialog, QErrorMessage, QFileDialog, QFontDialog, QInputDialog
 .BI "Orientation \fBorientation\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetExtension\fR ( QWidget * extension )"
+.BI "void \fBsetExtension\fR ( TQWidget * extension )"
 .br
 .ti -1c
-.BI "QWidget * \fBextension\fR () const"
+.BI "TQWidget * \fBextension\fR () const"
 .br
 .ti -1c
 .BI "void \fBsetSizeGripEnabled\fR ( bool )"
@@ -124,13 +124,13 @@ A modal dialog.
 .br
         QFileDialog *dlg = new QFileDialog( workingDirectory,
 .br
-                QString::null, 0, 0, TRUE );
+                TQString::null, 0, 0, TRUE );
 .br
         dlg->setCaption( QFileDialog::tr( "Open" ) );
 .br
         dlg->setMode( QFileDialog::ExistingFile );
 .br
-        QString result;
+        TQString result;
 .br
         if ( dlg->exec() == QDialog::Accepted ) {
 .br
@@ -167,7 +167,7 @@ A modeless dialog. After the show() call, control returns to the main event loop
 .br
         a.setMainWidget( life );
 .br
-        life->setCaption("Qt Example - Life");
+        life->setCaption("TQt Example - Life");
 .br
         life->show();
 .fi
@@ -179,7 +179,7 @@ A modeless dialog. After the show() call, control returns to the main event loop
     }
 .fi
 .PP
-See also QTabDialog, QWidget, QProgressDialog, GUI Design Handbook: Dialogs, Standard, Abstract Widget Classes, and Dialog Classes.
+See also QTabDialog, TQWidget, QProgressDialog, GUI Design Handbook: Dialogs, Standard, Abstract Widget Classes, and Dialog Classes.
 .SS "Member Type Documentation"
 .SH "QDialog::DialogCode"
 The value returned by a modal dialog.
@@ -189,16 +189,16 @@ The value returned by a modal dialog.
 \fCQDialog::Rejected\fR
 .PP
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "explicit QDialog::QDialog ( QWidget * parent = 0, const char * name = 0, bool modal = FALSE, WFlags f = 0 )"
+.SH "explicit QDialog::QDialog ( TQWidget * parent = 0, const char * name = 0, bool modal = FALSE, WFlags f = 0 )"
 Constructs a dialog called \fIname\fR, with parent \fIparent\fR.
 .PP
 A dialog is always a top-level widget, but if it has a parent, its default location is centered on top of the parent. It will also share the parent's taskbar entry.
 .PP
-The widget flags \fIf\fR are passed on to the QWidget constructor. If, for example, you don't want a What's This button in the titlebar of the dialog, pass WStyle_Customize | WStyle_NormalBorder | WStyle_Title | WStyle_SysMenu in \fIf\fR.
+The widget flags \fIf\fR are passed on to the TQWidget constructor. If, for example, you don't want a What's This button in the titlebar of the dialog, pass WStyle_Customize | WStyle_NormalBorder | WStyle_Title | WStyle_SysMenu in \fIf\fR.
 .PP
-\fBWarning:\fR In Qt 3.2, the \fImodal\fR flag is obsolete. There is now a setModal() function that can be used for obtaining a modal behavior when calling show(). This is rarely needed, because modal dialogs are usually invoked using exec(), which ignores the \fImodal\fR flag.
+\fBWarning:\fR In TQt 3.2, the \fImodal\fR flag is obsolete. There is now a setModal() function that can be used for obtaining a modal behavior when calling show(). This is rarely needed, because modal dialogs are usually invoked using exec(), which ignores the \fImodal\fR flag.
 .PP
-See also QWidget::setWFlags() and Qt::WidgetFlags.
+See also TQWidget::setWFlags() and TQt::WidgetFlags.
 .SH "QDialog::~QDialog ()"
 Destroys the QDialog, deleting all its children.
 .SH "void QDialog::accept ()\fC [virtual protected slot]\fR"
@@ -211,7 +211,7 @@ Examples:
 .SH "void QDialog::done ( int r )\fC [virtual protected slot]\fR"
 Closes the dialog and sets its result code to \fIr\fR. If this dialog is shown with exec(), done() causes the local event loop to finish, and exec() to return \fIr\fR.
 .PP
-As with QWidget::close(), done() deletes the dialog if the WDestructiveClose flag is set. If the dialog is the application's main widget, the application terminates. If the dialog is the last window closed, the QApplication::lastWindowClosed() signal is emitted.
+As with TQWidget::close(), done() deletes the dialog if the WDestructiveClose flag is set. If the dialog is the application's main widget, the application terminates. If the dialog is the last window closed, the QApplication::lastWindowClosed() signal is emitted.
 .PP
 See also accept(), reject(), QApplication::mainWidget(), and QApplication::quit().
 .SH "int QDialog::exec ()\fC [slot]\fR"
@@ -223,7 +223,7 @@ See also show() and result().
 .PP
 Examples:
 .)l chart/chartform.cpp, dialog/mainwindow.cpp, i18n/main.cpp, network/ftpclient/ftpmainwindow.ui.h, network/networkprotocol/view.cpp, qdir/qdir.cpp, and wizard/main.cpp.
-.SH "QWidget * QDialog::extension () const"
+.SH "TQWidget * QDialog::extension () const"
 Returns the dialog's extension or 0 if no extension has been defined.
 .PP
 See also setExtension().
@@ -243,7 +243,7 @@ See also accept() and done().
 Returns the modal dialog's result code, Accepted or Rejected.
 .PP
 Do not call this function if the dialog was constructed with the WDestructiveClose flag.
-.SH "void QDialog::setExtension ( QWidget * extension )"
+.SH "void QDialog::setExtension ( TQWidget * extension )"
 Sets the widget, \fIextension\fR, to be the dialog's extension, deleting any previous extension. The dialog takes ownership of the extension. Note that if 0 is passed any existing extension will be deleted.
 .PP
 This function must only be called while the dialog is hidden.
@@ -269,7 +269,7 @@ See also exec() and modal.
 Examples:
 .)l movies/main.cpp, regexptester/main.cpp, showimg/showimg.cpp, and sql/overview/form1/main.cpp.
 .PP
-Reimplemented from QWidget.
+Reimplemented from TQWidget.
 .SH "void QDialog::showExtension ( bool showIt )\fC [protected slot]\fR"
 If \fIshowIt\fR is TRUE, the dialog's extension is shown; otherwise the extension is hidden.
 .PP
@@ -310,8 +310,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

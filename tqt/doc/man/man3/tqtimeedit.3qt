@@ -19,10 +19,10 @@ Inherits QDateTimeEditBase.
 .BI "enum \fBDisplay\fR { Hours = 0x01, Minutes = 0x02, Seconds = 0x04, AMPM = 0x10 }"
 .br
 .ti -1c
-.BI "\fBQTimeEdit\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQTimeEdit\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQTimeEdit\fR ( const QTime & time, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQTimeEdit\fR ( const QTime & time, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QTimeEdit\fR ()"
@@ -52,10 +52,10 @@ Inherits QDateTimeEditBase.
 .BI "virtual void \fBsetRange\fR ( const QTime & min, const QTime & max )"
 .br
 .ti -1c
-.BI "QString \fBseparator\fR () const"
+.BI "TQString \fBseparator\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetSeparator\fR ( const QString & s )"
+.BI "virtual void \fBsetSeparator\fR ( const TQString & s )"
 .br
 .ti -1c
 .BI "uint \fBdisplay\fR () const"
@@ -97,7 +97,7 @@ Inherits QDateTimeEditBase.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual QString \fBsectionFormattedText\fR ( int sec )"
+.BI "virtual TQString \fBsectionFormattedText\fR ( int sec )"
 .br
 .ti -1c
 .BI "virtual void \fBsetHour\fR ( int h )"
@@ -150,9 +150,9 @@ This enum defines the sections that comprise a time
 .PP
 The values can be or'ed together to show any combination.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTimeEdit::QTimeEdit ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QTimeEdit::QTimeEdit ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs an empty time edit with parent \fIparent\fR and called \fIname\fR.
-.SH "QTimeEdit::QTimeEdit ( const QTime & time, QWidget * parent = 0, const char * name = 0 )"
+.SH "QTimeEdit::QTimeEdit ( const QTime & time, TQWidget * parent = 0, const char * name = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Constructs a time edit with the initial time value, \fItime\fR, parent \fIparent\fR and called \fIname\fR.
@@ -166,9 +166,9 @@ Returns the sections that are displayed in the time edit. See the "display" prop
 Returns the maximum time value. See the "maxValue" property for details.
 .SH "QTime QTimeEdit::minValue () const"
 Returns the minimum time value. See the "minValue" property for details.
-.SH "QString QTimeEdit::sectionFormattedText ( int sec )\fC [virtual protected]\fR"
+.SH "TQString QTimeEdit::sectionFormattedText ( int sec )\fC [virtual protected]\fR"
 Returns the formatted number for section \fIsec\fR. This will correspond to either the hour, minute or second section, depending on \fIsec\fR.
-.SH "QString QTimeEdit::separator () const"
+.SH "TQString QTimeEdit::separator () const"
 Returns the editor's separator.
 .SH "void QTimeEdit::setAutoAdvance ( bool advance )\fC [virtual]\fR"
 Sets whether the editor automatically advances to the next section to \fIadvance\fR. See the "autoAdvance" property for details.
@@ -186,7 +186,7 @@ Sets the minute to \fIm\fR, which must be a valid minute, i.e. in the range 0..5
 Sets the valid input range for the editor to be from \fImin\fR to \fImax\fR inclusive. If \fImin\fR is invalid no minimum time is set. Similarly, if \fImax\fR is invalid no maximum time is set.
 .SH "void QTimeEdit::setSecond ( int s )\fC [virtual protected]\fR"
 Sets the second to \fIs\fR, which must be a valid second, i.e. in the range 0..59.
-.SH "void QTimeEdit::setSeparator ( const QString & s )\fC [virtual]\fR"
+.SH "void QTimeEdit::setSeparator ( const TQString & s )\fC [virtual]\fR"
 Sets the separator to \fIs\fR. Note that currently only the first character of \fIs\fR is used.
 .SH "void QTimeEdit::setTime ( const QTime & time )\fC [virtual slot]\fR"
 Sets the editor's time value to \fItime\fR. See the "time" property for details.
@@ -244,8 +244,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

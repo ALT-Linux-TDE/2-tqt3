@@ -141,7 +141,7 @@ this:
 \code
     win32 {
 	thread {
-	    DEFINES += QT_THREAD_SUPPORT
+	    DEFINES += TQT_THREAD_SUPPORT
 	}
     }
 \endcode
@@ -151,7 +151,7 @@ like this:
 
 \code
     win32:thread {
-	DEFINES += QT_THREAD_SUPPORT
+	DEFINES += TQT_THREAD_SUPPORT
     }
 \endcode
 
@@ -162,7 +162,7 @@ colons as above) for example:
 
 \code
     win32:thread {
-	DEFINES += QT_THREAD_SUPPORT
+	DEFINES += TQT_THREAD_SUPPORT
     } else:debug {
 	DEFINES += QT_NOTHREAD_DEBUG
     } else {
@@ -276,12 +276,12 @@ For example:
 
 \code
     contains( CONFIG, thread ) {
-	DEFINES += QT_THREAD_SUPPORT
+	DEFINES += TQT_THREAD_SUPPORT
     }
 \endcode
 
 If \e thread is in the list of values for the \e CONFIG variable, then
-QT_THREAD_SUPPORT will be added to the list of values in the \e
+TQT_THREAD_SUPPORT will be added to the list of values in the \e
 DEFINES variable.
 
 \section2 count( variablename, number )

@@ -40,7 +40,7 @@
 
 #include "ntqclipboard.h"
 
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 
 #include "ntqapplication.h"
 #include "qapplication_p.h"
@@ -157,7 +157,7 @@ TQClipboard::TQClipboard( TQObject *parent, const char *name )
     // nothing
 }
 
-#ifndef Q_WS_WIN32
+#ifndef TQ_WS_WIN32
 /*!
     \internal
 
@@ -208,7 +208,7 @@ TQClipboard::~TQClipboard()
   TQApplication member functions related to TQClipboard.
  *****************************************************************************/
 
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
 // text handling is done directly in qclipboard_qws, for now
 
 /*!
@@ -563,5 +563,5 @@ void TQClipboard::clear()
     clear( selectionModeEnabled() ? Selection : Clipboard );
 }
 
-#endif // QT_NO_MIMECLIPBOARD
-#endif // QT_NO_CLIPBOARD
+#endif // TQT_NO_MIMECLIPBOARD
+#endif // TQT_NO_CLIPBOARD

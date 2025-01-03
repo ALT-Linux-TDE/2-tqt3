@@ -47,7 +47,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQBrush: public TQt
+class TQ_EXPORT TQBrush: public TQt
 {
 friend class TQPainter;
 public:
@@ -86,9 +86,9 @@ private:
   TQBrush stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQBrush & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQBrush & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQBrush & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQBrush & );
 #endif
 
 #endif // TQBRUSH_H

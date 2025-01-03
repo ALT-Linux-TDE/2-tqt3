@@ -82,8 +82,8 @@ WorkspaceItem::WorkspaceItem( TQListViewItem *parent, TQObject *o, Project *p )
     project = p;
     t = ObjectType;
     setPixmap( 0, TQPixmap::fromMimeSource( "designer_object.png" ) );
-    TQObject::connect( p->fakeFormFileFor( o ), SIGNAL( somethingChanged(FormFile*) ),
-		      listView(), SLOT( update() ) );
+    TQObject::connect( p->fakeFormFileFor( o ), TQ_SIGNAL( somethingChanged(FormFile*) ),
+		      listView(), TQ_SLOT( update() ) );
 }
 
 WorkspaceItem::WorkspaceItem( TQListViewItem *parent, FormFile* ff, Type type )
@@ -94,7 +94,7 @@ WorkspaceItem::WorkspaceItem( TQListViewItem *parent, FormFile* ff, Type type )
     t = type;
     if ( type ==  FormFileType ) {
 	setPixmap( 0, TQPixmap::fromMimeSource( "designer_form.png" ) );
-	TQObject::connect( ff, SIGNAL( somethingChanged(FormFile*) ), listView(), SLOT( update(FormFile*) ) );
+	TQObject::connect( ff, TQ_SIGNAL( somethingChanged(FormFile*) ), listView(), TQ_SLOT( update(FormFile*) ) );
 	if ( formFile->supportsCodeFile() ) {
 	    (void) new WorkspaceItem( this, formFile, FormSourceType );
 	}
@@ -286,7 +286,7 @@ Workspace::Workspace( TQWidget *parent, MainWindow *mw )
     header()->hide();
     setSorting( 0 );
     setResizePolicy( TQScrollView::Manual );
-#ifndef Q_WS_MAC
+#ifndef TQ_WS_MAC
     TQPalette p( palette() );
     p.setColor( TQColorGroup::Base, TQColor( *backColor2 ) );
     (void)*selectedBack; // hack
@@ -294,12 +294,12 @@ Workspace::Workspace( TQWidget *parent, MainWindow *mw )
 #endif
     addColumn( tr( "Files" ) );
     setAllColumnsShowFocus( TRUE );
-    connect( this, SIGNAL( mouseButtonClicked( int, TQListViewItem *, const TQPoint &, int ) ),
-	     this, SLOT( itemClicked( int, TQListViewItem *, const TQPoint& ) ) ),
-    connect( this, SIGNAL( doubleClicked( TQListViewItem * ) ),
-	     this, SLOT( itemDoubleClicked( TQListViewItem * ) ) ),
-    connect( this, SIGNAL( contextMenuRequested( TQListViewItem *, const TQPoint &, int ) ),
-	     this, SLOT( rmbClicked( TQListViewItem *, const TQPoint& ) ) ),
+    connect( this, TQ_SIGNAL( mouseButtonClicked( int, TQListViewItem *, const TQPoint &, int ) ),
+	     this, TQ_SLOT( itemClicked( int, TQListViewItem *, const TQPoint& ) ) ),
+    connect( this, TQ_SIGNAL( doubleClicked( TQListViewItem * ) ),
+	     this, TQ_SLOT( itemDoubleClicked( TQListViewItem * ) ) ),
+    connect( this, TQ_SIGNAL( contextMenuRequested( TQListViewItem *, const TQPoint &, int ) ),
+	     this, TQ_SLOT( rmbClicked( TQListViewItem *, const TQPoint& ) ) ),
     setHScrollBarMode( AlwaysOff );
     setVScrollBarMode( AlwaysOn );
     viewport()->setAcceptDrops( TRUE );
@@ -321,23 +321,23 @@ void Workspace::setCurrentProject( Project *pro )
     if ( project == pro )
 	return;
     if ( project ) {
-	disconnect( project, SIGNAL( sourceFileAdded(SourceFile*) ), this, SLOT( sourceFileAdded(SourceFile*) ) );
-	disconnect( project, SIGNAL( sourceFileRemoved(SourceFile*) ), this, SLOT( sourceFileRemoved(SourceFile*) ) );
-	disconnect( project, SIGNAL( formFileAdded(FormFile*) ), this, SLOT( formFileAdded(FormFile*) ) );
-	disconnect( project, SIGNAL( formFileRemoved(FormFile*) ), this, SLOT( formFileRemoved(FormFile*) ) );
-	disconnect( project, SIGNAL( objectAdded(TQObject*) ), this, SLOT( objectAdded(TQObject*) ) );
-	disconnect( project, SIGNAL( objectRemoved(TQObject*) ), this, SLOT( objectRemoved(TQObject*) ) );
-	disconnect( project, SIGNAL( projectModified() ), this, SLOT( update() ) );
+	disconnect( project, TQ_SIGNAL( sourceFileAdded(SourceFile*) ), this, TQ_SLOT( sourceFileAdded(SourceFile*) ) );
+	disconnect( project, TQ_SIGNAL( sourceFileRemoved(SourceFile*) ), this, TQ_SLOT( sourceFileRemoved(SourceFile*) ) );
+	disconnect( project, TQ_SIGNAL( formFileAdded(FormFile*) ), this, TQ_SLOT( formFileAdded(FormFile*) ) );
+	disconnect( project, TQ_SIGNAL( formFileRemoved(FormFile*) ), this, TQ_SLOT( formFileRemoved(FormFile*) ) );
+	disconnect( project, TQ_SIGNAL( objectAdded(TQObject*) ), this, TQ_SLOT( objectAdded(TQObject*) ) );
+	disconnect( project, TQ_SIGNAL( objectRemoved(TQObject*) ), this, TQ_SLOT( objectRemoved(TQObject*) ) );
+	disconnect( project, TQ_SIGNAL( projectModified() ), this, TQ_SLOT( update() ) );
     }
     project = pro;
-    connect( project, SIGNAL( sourceFileAdded(SourceFile*) ), this, SLOT( sourceFileAdded(SourceFile*) ) );
-    connect( project, SIGNAL( sourceFileRemoved(SourceFile*) ), this, SLOT( sourceFileRemoved(SourceFile*) ) );
-    connect( project, SIGNAL( formFileAdded(FormFile*) ), this, SLOT( formFileAdded(FormFile*) ) );
-    connect( project, SIGNAL( formFileRemoved(FormFile*) ), this, SLOT( formFileRemoved(FormFile*) ) );
-    connect( project, SIGNAL( destroyed(TQObject*) ), this, SLOT( projectDestroyed(TQObject*) ) );
-    connect( project, SIGNAL( objectAdded(TQObject*) ), this, SLOT( objectAdded(TQObject*) ) );
-    connect( project, SIGNAL( objectRemoved(TQObject*) ), this, SLOT( objectRemoved(TQObject*) ) );
-    connect( project, SIGNAL( projectModified() ), this, SLOT( update() ) );
+    connect( project, TQ_SIGNAL( sourceFileAdded(SourceFile*) ), this, TQ_SLOT( sourceFileAdded(SourceFile*) ) );
+    connect( project, TQ_SIGNAL( sourceFileRemoved(SourceFile*) ), this, TQ_SLOT( sourceFileRemoved(SourceFile*) ) );
+    connect( project, TQ_SIGNAL( formFileAdded(FormFile*) ), this, TQ_SLOT( formFileAdded(FormFile*) ) );
+    connect( project, TQ_SIGNAL( formFileRemoved(FormFile*) ), this, TQ_SLOT( formFileRemoved(FormFile*) ) );
+    connect( project, TQ_SIGNAL( destroyed(TQObject*) ), this, TQ_SLOT( projectDestroyed(TQObject*) ) );
+    connect( project, TQ_SIGNAL( objectAdded(TQObject*) ), this, TQ_SLOT( objectAdded(TQObject*) ) );
+    connect( project, TQ_SIGNAL( objectRemoved(TQObject*) ), this, TQ_SLOT( objectRemoved(TQObject*) ) );
+    connect( project, TQ_SIGNAL( projectModified() ), this, TQ_SLOT( update() ) );
     clear();
 
     if ( bufferEdit )
@@ -658,8 +658,8 @@ bool Workspace::eventFilter( TQObject *o, TQEvent * e )
 void Workspace::setBufferEdit( TQCompletionEdit *edit )
 {
     bufferEdit = edit;
-    connect( bufferEdit, SIGNAL( chosen( const TQString & ) ),
-	     this, SLOT( bufferChosen( const TQString & ) ) );
+    connect( bufferEdit, TQ_SIGNAL( chosen( const TQString & ) ),
+	     this, TQ_SLOT( bufferChosen( const TQString & ) ) );
     bufferEdit->installEventFilter( this );
 }
 

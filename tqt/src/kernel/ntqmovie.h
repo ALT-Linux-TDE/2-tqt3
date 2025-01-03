@@ -45,13 +45,13 @@
 #include "ntqpixmap.h" // ### remove or keep for users' convenience?
 #endif // QT_H
 
-#ifndef QT_NO_MOVIE
+#ifndef TQT_NO_MOVIE
 
 class TQDataSource;
 class TQObject;
 class TQMoviePrivate;
 
-class Q_EXPORT TQMovie {
+class TQ_EXPORT TQMovie {
 public:
     TQMovie();
     TQMovie(int bufsize);
@@ -96,7 +96,7 @@ public:
     void connectUpdate(TQObject* receiver, const char *member);
     void disconnectUpdate(TQObject* receiver, const char *member=0);
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     // Temporary hack
     void setDisplayWidget(TQWidget * w);
 #endif
@@ -115,6 +115,6 @@ private:
     TQMoviePrivate *d;
 };
 
-#endif	// QT_NO_MOVIE
+#endif	// TQT_NO_MOVIE
 
 #endif

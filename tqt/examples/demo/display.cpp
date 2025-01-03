@@ -160,8 +160,8 @@ DisplayWidget::DisplayWidget( TQWidget *parent, const char *name )
     dial->setRange( -10, 10 );
     dial->setValue( 1 );
     screen->setStep( dial->value() );
-    connect( dial, SIGNAL( valueChanged( int )),
-	     screen, SLOT( setStep( int )));
+    connect( dial, TQ_SIGNAL( valueChanged( int )),
+	     screen, TQ_SLOT( setStep( int )));
     lcd = new TQLCDNumber( 2, this );
     lcd->setSizePolicy( TQSizePolicy::MinimumExpanding, TQSizePolicy::Preferred );
     lcdval = 0;
@@ -172,7 +172,7 @@ DisplayWidget::DisplayWidget( TQWidget *parent, const char *name )
 
     curve = new Curve( this );
     spin = new TQSpinBox( 1, 10, 1, this );
-    connect( spin, SIGNAL( valueChanged( int )), curve, SLOT( setFactor( int )));
+    connect( spin, TQ_SIGNAL( valueChanged( int )), curve, TQ_SLOT( setFactor( int )));
     spin->setValue( 2 );
     vb2->addWidget( curve );
     vb2->addWidget( spin );
@@ -192,7 +192,7 @@ void DisplayWidget::run()
 {
     if ( !timer ) {
 	timer = new TQTimer( this );
-	connect( timer, SIGNAL( timeout() ), SLOT( tick() ) );
+	connect( timer, TQ_SIGNAL( timeout() ), TQ_SLOT( tick() ) );
     }
 
     timer->start( 5 );

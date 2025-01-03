@@ -49,4 +49,4 @@ TQTextCodec *CNTextCodecs::createForName( const TQString &name )
 }
 
 
-Q_EXPORT_PLUGIN( CNTextCodecs );
+TQ_EXPORT_PLUGIN( CNTextCodecs );

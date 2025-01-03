@@ -839,7 +839,7 @@ void Glade2Ui::emitPushButton( const TQString& text, const TQString& name )
     emitProperty( TQString("name"), name.latin1() );
     emitProperty( TQString("text"), text );
     if ( name.contains(TQString("ok")) > 0 ) {
-	emitProperty( TQString("default"), TQVariant(TRUE, 0) );
+	emitProperty( TQString("default"), TQVariant(true) );
     } else if ( name.contains(TQString("help")) > 0 ) {
 	emitProperty( TQString("accel"), (int) TQt::Key_F1 );
     }
@@ -1215,7 +1215,7 @@ void Glade2Ui::emitTQListViewColumns( const TQDomElement& qlistview )
 	} else if ( tagName == TQString("class") ) {
 	    TQString gtkClass = getTextValue( n );
 	    if ( gtkClass.endsWith(TQString("Tree")) )
-		emitProperty( TQString("rootIsDecorated"), TQVariant(TRUE, 0) );
+		emitProperty( TQString("rootIsDecorated"), TQVariant(true) );
 	} else if ( tagName == TQString("selection_mode") ) {
 	    emitProperty( TQString("selectionMode"),
 			  gtk2qtSelectionMode(getTextValue(n)) );
@@ -1815,16 +1815,16 @@ TQString Glade2Ui::emitWidget( const TQDomElement& widget, bool layouted,
 	    if ( !layouted && (x != 0 || y != 0 || width != 0 || height != 0) )
 		emitProperty( TQString("geometry"), TQRect(x, y, width, height) );
 	    if ( gtkClass == TQString("GtkToggleButton") ) {
-		emitProperty( TQString("toggleButton"), TQVariant(TRUE, 0) );
+		emitProperty( TQString("toggleButton"), TQVariant(true) );
 		if ( active )
-		    emitProperty( TQString("on"), TQVariant(TRUE, 0) );
+		    emitProperty( TQString("on"), TQVariant(true) );
 	    } else {
 		if ( active )
-		    emitProperty( TQString("checked"), TQVariant(TRUE, 0) );
+		    emitProperty( TQString("checked"), TQVariant(true) );
 	    }
 
 	    if ( !editable )
-		emitProperty( TQString("readOnly"), TQVariant(TRUE, 0) );
+		emitProperty( TQString("readOnly"), TQVariant(true) );
 	    if ( !focusTarget.isEmpty() )
 		emitProperty( TQString("buddy"),
 			      fixedName(focusTarget).latin1() );
@@ -1889,7 +1889,7 @@ TQString Glade2Ui::emitWidget( const TQDomElement& widget, bool layouted,
 	    }
 	    if ( !showText )
 		emitProperty( TQString("percentageVisible"),
-			      TQVariant(FALSE, 0) );
+			      TQVariant(false) );
 	    if ( step != 1 )
 		emitProperty( TQString("lineStep"), step );
 	    if ( tabPos.endsWith(TQString("_BOTTOM")) ||
@@ -1905,12 +1905,12 @@ TQString Glade2Ui::emitWidget( const TQDomElement& widget, bool layouted,
 	    if ( !tooltip.isEmpty() )
 		emitProperty( TQString("toolTip"), tooltip );
 	    if ( !valueInList )
-		emitProperty( TQString("editable"), TQVariant(TRUE, 0) );
+		emitProperty( TQString("editable"), TQVariant(true) );
 	    if ( wrap && gtkClass == TQString("GtkSpinButton") )
-		emitProperty( TQString("wrapping"), TQVariant(TRUE, 0) );
+		emitProperty( TQString("wrapping"), TQVariant(true) );
 
 	    if ( gtkClass.endsWith(TQString("Tree")) ) {
-		emitProperty( TQString("rootIsDecorated"), TQVariant(TRUE, 0) );
+		emitProperty( TQString("rootIsDecorated"), TQVariant(true) );
 	    } else if ( gtkOrientedWidget.exactMatch(gtkClass) ) {
 		TQString s = ( gtkOrientedWidget.cap(1) == TQChar('H') ) ?
 			    TQString( "Horizontal" ) : TQString( "Vertical" );

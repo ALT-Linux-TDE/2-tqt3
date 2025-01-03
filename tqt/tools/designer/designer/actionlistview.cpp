@@ -41,8 +41,8 @@ ActionListView::ActionListView( TQWidget *parent, const char *name )
     setShowSortIndicator( TRUE );
     setResizeMode( LastColumn );
     setRootIsDecorated( TRUE );
-    connect( this, SIGNAL( contextMenuRequested( TQListViewItem *, const TQPoint &, int ) ),
-	     this, SLOT( rmbMenu( TQListViewItem *, const TQPoint & ) ) );
+    connect( this, TQ_SIGNAL( contextMenuRequested( TQListViewItem *, const TQPoint &, int ) ),
+	     this, TQ_SLOT( rmbMenu( TQListViewItem *, const TQPoint & ) ) );
 }
 
 ActionItem::ActionItem( TQListView *lv, TQAction *ac )

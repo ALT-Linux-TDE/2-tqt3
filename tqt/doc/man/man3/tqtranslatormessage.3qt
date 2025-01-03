@@ -17,7 +17,7 @@ QTranslatorMessage \- Translator message and its properties
 .BI "\fBQTranslatorMessage\fR ()"
 .br
 .ti -1c
-.BI "\fBQTranslatorMessage\fR ( const char * context, const char * sourceText, const char * comment, const QString & translation = QString::null )"
+.BI "\fBQTranslatorMessage\fR ( const char * context, const char * sourceText, const char * comment, const TQString & translation = TQString::null )"
 .br
 .ti -1c
 .BI "\fBQTranslatorMessage\fR ( QDataStream & stream )"
@@ -41,10 +41,10 @@ QTranslatorMessage \- Translator message and its properties
 .BI "const char * \fBcomment\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetTranslation\fR ( const QString & translation )"
+.BI "void \fBsetTranslation\fR ( const TQString & translation )"
 .br
 .ti -1c
-.BI "QString \fBtranslation\fR () const"
+.BI "TQString \fBtranslation\fR () const"
 .br
 .ti -1c
 .BI "enum \fBPrefix\fR { NoPrefix, Hash, HashContext, HashContextSourceText, HashContextSourceTextComment }"
@@ -77,7 +77,7 @@ QTranslatorMessage \- Translator message and its properties
 .SH DESCRIPTION
 The QTranslatorMessage class contains a translator message and its properties.
 .PP
-This class is of no interest to most applications. It is useful for translation tools such as Qt Linguist. It is provided simply to make the API complete and regular.
+This class is of no interest to most applications. It is useful for translation tools such as TQt Linguist. It is provided simply to make the API complete and regular.
 .PP
 For a QTranslator object, a lookup key is a triple (\fIcontext\fR, \fIsource text\fR, \fIcomment\fR) that uniquely identifies a message. An extended key is a quadruple (\fIhash\fR, \fIcontext\fR, \fIsource text\fR, \fIcomment\fR), where \fIhash\fR is computed from the source text and the comment. Unless you plan to read and write messages yourself, you need not worry about the hash value.
 .PP
@@ -101,8 +101,8 @@ Let (\fIh\fR, \fIc\fR, \fIs\fR, \fIm\fR) be the extended key. The possible prefi
 See also write() and commonPrefix().
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QTranslatorMessage::QTranslatorMessage ()"
-Constructs a translator message with the extended key (0, 0, 0, 0) and QString::null as translation.
-.SH "QTranslatorMessage::QTranslatorMessage ( const char * context, const char * sourceText, const char * comment, const QString & translation = QString::null )"
+Constructs a translator message with the extended key (0, 0, 0, 0) and TQString::null as translation.
+.SH "QTranslatorMessage::QTranslatorMessage ( const char * context, const char * sourceText, const char * comment, const TQString & translation = TQString::null )"
 Constructs an translator message with the extended key (\fIh\fR, \fIcontext\fR, \fIsourceText\fR, \fIcomment\fR), where \fIh\fR is computed from \fIsourceText\fR and \fIcomment\fR, and possibly with a \fItranslation\fR.
 .SH "QTranslatorMessage::QTranslatorMessage ( QDataStream & stream )"
 Constructs a translator message read from the \fIstream\fR. The resulting message may have any combination of content.
@@ -142,7 +142,7 @@ Returns TRUE if the extended key of this object is equal to that of \fIm\fR; oth
 Returns TRUE if the extended key of this object is lexicographically after that of \fIm\fR; otherwise returns FALSE.
 .SH "bool QTranslatorMessage::operator>= ( const QTranslatorMessage & m ) const"
 Returns TRUE if the extended key of this object is lexicographically after that of \fIm\fR or if they are equal; otherwise returns FALSE.
-.SH "void QTranslatorMessage::setTranslation ( const QString & translation )"
+.SH "void QTranslatorMessage::setTranslation ( const TQString & translation )"
 Sets the translation of the source text to \fItranslation\fR.
 .PP
 See also translation().
@@ -150,7 +150,7 @@ See also translation().
 Returns the source text of this message (e.g. "&Save").
 .PP
 \fBWarning:\fR This may return 0 if the QTranslator object is stripped (compressed).
-.SH "QString QTranslatorMessage::translation () const"
+.SH "TQString QTranslatorMessage::translation () const"
 Returns the translation of the source text (e.g., "&Sauvegarder").
 .PP
 See also setTranslation().
@@ -173,8 +173,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

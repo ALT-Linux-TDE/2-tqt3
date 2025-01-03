@@ -80,10 +80,10 @@ body { background: #ffffff; color: black; }
 class TQString;
 class TQWSKeyboardHandler;
 
-class Q_EXPORT TQKbdDriverFactory
+class TQ_EXPORT TQKbdDriverFactory
 {
 public:
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     static TQStringList keys();
 #endif
     static TQWSKeyboardHandler *create( const TQString&amp;, const TQString&amp; );

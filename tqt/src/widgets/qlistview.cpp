@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqlistview.h"
-#ifndef QT_NO_LISTVIEW
+#ifndef TQT_NO_LISTVIEW
 #include "ntqtimer.h"
 #include "ntqheader.h"
 #include "ntqpainter.h"
@@ -260,7 +260,7 @@ struct TQListViewPrivate
     TQListView::ResizeMode resizeMode;
 };
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 class TQListViewToolTip : public TQToolTip
 {
 public:
@@ -1125,7 +1125,7 @@ bool TQListViewItem::acceptDrop( const TQMimeSource * ) const
     return FALSE;
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 /*!
     This function is called when something was dropped on the item. \a e
@@ -2089,7 +2089,7 @@ void TQListViewItem::paintCell( TQPainter * p, const TQColorGroup & cg,
 		ci->truncated = TRUE;
 		ci->tmpText = qEllipsisText( t, fm, width - pw, align );
 	    } else if ( mlenabled && fm.width( t ) + pw > width ) {
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 		TQStringList list = TQStringList::split( TQChar('\n'), t, TRUE );
 		for ( TQStringList::Iterator it = list.begin(); it != list.end(); ++it ) {
 		    TQString z = *it;
@@ -2351,7 +2351,7 @@ void TQListViewItem::ignoreDoubleClick()
     item \a i, similar to the TQWidget::enterEvent() function.
 */
 
-// ### bug here too? see qiconview.cppp onItem/onViewport
+// ### bug here too? see qiconview.cpp onItem/onViewport
 
 /*!
     \fn void  TQListView::onViewport()
@@ -2678,7 +2678,7 @@ void TQListView::init()
     d->useDoubleBuffer = FALSE;
     d->startDragItem = 0;
     d->toolTips = TRUE;
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     d->toolTip = new TQListViewToolTip( viewport(), this );
 #endif
     d->updateHeader = FALSE;
@@ -2694,29 +2694,29 @@ void TQListView::init()
     setMouseTracking( TRUE );
     viewport()->setMouseTracking( TRUE );
 
-    connect( d->timer, SIGNAL(timeout()),
-	     this, SLOT(updateContents()) );
-    connect( d->dirtyItemTimer, SIGNAL(timeout()),
-	     this, SLOT(updateDirtyItems()) );
-    connect( d->visibleTimer, SIGNAL(timeout()),
-	     this, SLOT(makeVisible()) );
-    connect( d->renameTimer, SIGNAL(timeout()),
-	     this, SLOT(startRename()) );
-    connect( d->autoopenTimer, SIGNAL(timeout()),
-	     this, SLOT(openFocusItem()) );
+    connect( d->timer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(updateContents()) );
+    connect( d->dirtyItemTimer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(updateDirtyItems()) );
+    connect( d->visibleTimer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(makeVisible()) );
+    connect( d->renameTimer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(startRename()) );
+    connect( d->autoopenTimer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(openFocusItem()) );
 
-    connect( d->h, SIGNAL(sizeChange(int,int,int)),
-	     this, SLOT(handleSizeChange(int,int,int)) );
-    connect( d->h, SIGNAL(indexChange(int,int,int)),
-	     this, SLOT(handleIndexChange()) );
-    connect( d->h, SIGNAL(sectionClicked(int)),
-	     this, SLOT(changeSortColumn(int)) );
-    connect( d->h, SIGNAL(sectionHandleDoubleClicked(int)),
-	     this, SLOT(adjustColumn(int)) );
-    connect( horizontalScrollBar(), SIGNAL(sliderMoved(int)),
-	     d->h, SLOT(setOffset(int)) );
-    connect( horizontalScrollBar(), SIGNAL(valueChanged(int)),
-	     d->h, SLOT(setOffset(int)) );
+    connect( d->h, TQ_SIGNAL(sizeChange(int,int,int)),
+	     this, TQ_SLOT(handleSizeChange(int,int,int)) );
+    connect( d->h, TQ_SIGNAL(indexChange(int,int,int)),
+	     this, TQ_SLOT(handleIndexChange()) );
+    connect( d->h, TQ_SIGNAL(sectionClicked(int)),
+	     this, TQ_SLOT(changeSortColumn(int)) );
+    connect( d->h, TQ_SIGNAL(sectionHandleDoubleClicked(int)),
+	     this, TQ_SLOT(adjustColumn(int)) );
+    connect( horizontalScrollBar(), TQ_SIGNAL(sliderMoved(int)),
+	     d->h, TQ_SLOT(setOffset(int)) );
+    connect( horizontalScrollBar(), TQ_SIGNAL(valueChanged(int)),
+	     d->h, TQ_SLOT(setOffset(int)) );
 
     // will access d->r
     TQListViewPrivate::Root * r = new TQListViewPrivate::Root( this );
@@ -2835,7 +2835,7 @@ TQListView::~TQListView()
     d->drawables = 0;
     delete d->vci;
     d->vci = 0;
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     delete d->toolTip;
     d->toolTip = 0;
 #endif
@@ -3460,11 +3460,11 @@ void TQListView::setColumnWidth( int column, int w )
     int oldw = d->h->sectionSize( column );
     if ( column < d->h->count() && oldw != w ) {
  	d->h->resizeSection( column, w );
-	disconnect( d->h, SIGNAL(sizeChange(int,int,int)),
-		 this, SLOT(handleSizeChange(int,int,int)) );
+	disconnect( d->h, TQ_SIGNAL(sizeChange(int,int,int)),
+		 this, TQ_SLOT(handleSizeChange(int,int,int)) );
 	emit d->h->sizeChange( column, oldw, w);
-	connect( d->h, SIGNAL(sizeChange(int,int,int)),
-		 this, SLOT(handleSizeChange(int,int,int)) );
+	connect( d->h, TQ_SIGNAL(sizeChange(int,int,int)),
+		 this, TQ_SLOT(handleSizeChange(int,int,int)) );
 	updateGeometries();
 	viewport()->update();
     }
@@ -4446,7 +4446,7 @@ void TQListView::contentsMousePressEventEx( TQMouseEvent * e )
 
 void TQListView::contentsContextMenuEvent( TQContextMenuEvent *e )
 {
-    if ( !receivers( SIGNAL(contextMenuRequested(TQListViewItem*,const TQPoint&,int)) ) ) {
+    if ( !receivers( TQ_SIGNAL(contextMenuRequested(TQListViewItem*,const TQPoint&,int)) ) ) {
 	e->ignore();
 	return;
     }
@@ -4486,8 +4486,8 @@ void TQListView::contentsMouseReleaseEventEx( TQMouseEvent * e )
     d->buttonDown = FALSE;
     // delete and disconnect autoscroll timer, if we have one
     if ( d->scrollTimer ) {
-	disconnect( d->scrollTimer, SIGNAL(timeout()),
-		    this, SLOT(doAutoScroll()) );
+	disconnect( d->scrollTimer, TQ_SIGNAL(timeout()),
+		    this, TQ_SLOT(doAutoScroll()) );
 	d->scrollTimer->stop();
 	delete d->scrollTimer;
 	d->scrollTimer = 0;
@@ -4694,7 +4694,7 @@ void TQListView::contentsMouseMoveEvent( TQMouseEvent * e )
 	}
 	if ( ( d->dragStartPos - e->pos() ).manhattanLength() > TQApplication::startDragDistance() ) {
 	    d->buttonDown = FALSE;
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 	    startDrag();
 #endif
 	}
@@ -4709,8 +4709,8 @@ void TQListView::contentsMouseMoveEvent( TQMouseEvent * e )
     // connect the timer
     if ( needAutoScroll && !d->scrollTimer ) {
 	d->scrollTimer = new TQTimer( this );
-	connect( d->scrollTimer, SIGNAL(timeout()),
-		 this, SLOT(doAutoScroll()) );
+	connect( d->scrollTimer, TQ_SIGNAL(timeout()),
+		 this, TQ_SLOT(doAutoScroll()) );
 	d->scrollTimer->start( 100, FALSE );
 	// call it once manually
 	doAutoScroll( vp );
@@ -4720,8 +4720,8 @@ void TQListView::contentsMouseMoveEvent( TQMouseEvent * e )
     if ( !needAutoScroll ) {
 	// if there is a autoscroll timer, delete it
 	if ( d->scrollTimer ) {
-	    disconnect( d->scrollTimer, SIGNAL(timeout()),
-			this, SLOT(doAutoScroll()) );
+	    disconnect( d->scrollTimer, TQ_SIGNAL(timeout()),
+			this, TQ_SLOT(doAutoScroll()) );
 	    d->scrollTimer->stop();
 	    delete d->scrollTimer;
 	    d->scrollTimer = 0;
@@ -5366,9 +5366,17 @@ void TQListView::selectAll( bool select )
 	TQListViewItemIterator it( this );
 	while ( it.current() ) {
 	    TQListViewItem *i = it.current();
-	    if ( (bool)i->selected != select ) {
-		i->setSelected( select );
-		anything = TRUE;
+	    if ( i->isVisible()) {
+		if ( (bool)i->selected != select ) {
+		    i->setSelected( select );
+		    anything = TRUE;
+		}
+	    }
+	    else {
+		if ( (bool)i->selected != FALSE ) {
+		    i->setSelected( FALSE );
+		    anything = TRUE;
+		}
 	    }
 	    ++it;
 	}
@@ -5398,8 +5406,16 @@ void TQListView::invertSelection()
     bool b = signalsBlocked();
     blockSignals( TRUE );
     TQListViewItemIterator it( this );
-    for ( ; it.current(); ++it )
-	it.current()->setSelected( !it.current()->isSelected() );
+    for ( ; it.current(); ++it ) {
+        if (it.current()->isVisible()) {
+            it.current()->setSelected( !it.current()->isSelected() );
+        }
+        else {
+            if ( FALSE != it.current()->isSelected() ) {
+                it.current()->setSelected( FALSE );
+            }
+        }
+    }
     blockSignals( b );
     emit selectionChanged();
     triggerUpdate();
@@ -7200,7 +7216,7 @@ void TQListView::openFocusItem()
 
 static const int autoopenTime = 750;
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 /*! \reimp */
 
@@ -7313,7 +7329,7 @@ void TQListView::startDrag()
     drag->drag();
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 /*!
     \property TQListView::defaultRenameAction
@@ -8187,4 +8203,4 @@ void TQListView::adjustColumn( int col )
     }
 }
 
-#endif // QT_NO_LISTVIEW
+#endif // TQT_NO_LISTVIEW

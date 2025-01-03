@@ -40,7 +40,7 @@
 
 #include "ntqwidgetplugin.h"
 
-#ifndef QT_NO_WIDGETPLUGIN
+#ifndef TQT_NO_WIDGETPLUGIN
 #include "qwidgetinterface_p.h"
 #include "ntqobjectcleanuphandler.h"
 #include "ntqwidget.h"
@@ -61,7 +61,7 @@
     Writing a widget plugin is achieved by subclassing this base
     class, reimplementing the pure virtual functions keys(), create(),
     group(), iconSet(), includeFile(), toolTip(), whatsThis() and
-    isContainer(), and exporting the class with the \c Q_EXPORT_PLUGIN
+    isContainer(), and exporting the class with the \c TQ_EXPORT_PLUGIN
     macro.
 
     See the \link designer-manual.book TQt Designer manual's\endlink,
@@ -88,7 +88,7 @@ public:
     virtual ~TQWidgetPluginPrivate();
 
     TQRESULT queryInterface( const TQUuid &iid, TQUnknownInterface **iface );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
     TQWidget *create( const TQString &key, TQWidget *parent, const char *name );
@@ -351,7 +351,7 @@ TQString TQWidgetPluginPrivate::createCode( const TQString &key, const TQString 
 
 /*!
     Constructs a widget plugin. This is invoked automatically by the
-    \c Q_EXPORT_PLUGIN macro.
+    \c TQ_EXPORT_PLUGIN macro.
 */
 TQWidgetPlugin::TQWidgetPlugin()
     : TQGPlugin( (TQWidgetFactoryInterface*)(d = new TQWidgetPluginPrivate( this )) )
@@ -461,7 +461,7 @@ bool TQWidgetPlugin::isContainer( const TQString & ) const
     subclassing this base class. First by reimplementing
     TQWidgetPlugin's pure virtual functions keys(), create(), group(),
     iconSet(), includeFile(), toolTip(), whatsThis() and
-    isContainer(), and exporting the class with the \c Q_EXPORT_PLUGIN
+    isContainer(), and exporting the class with the \c TQ_EXPORT_PLUGIN
     macro. In addition containerOfWidget(), isPassiveInteractor() and
     supportsPages() must be reimplemented. If the widget
     supportsPages(), count(), currentIndex(), pageLabel(), page(),
@@ -475,7 +475,7 @@ bool TQWidgetPlugin::isContainer( const TQString & ) const
 
 /*!
     Constructs a complex container widget plugin. This is invoked
-    automatically by the \c Q_EXPORT_PLUGIN macro.
+    automatically by the \c TQ_EXPORT_PLUGIN macro.
 */
 
 TQWidgetContainerPlugin::TQWidgetContainerPlugin()
@@ -726,4 +726,4 @@ TQString TQWidgetContainerPlugin::createCode( const TQString &, const TQString &
 
 #endif // QT_CONTAINER_CUSTOM_WIDGETS
 
-#endif //QT_NO_WIDGETPLUGIN
+#endif //TQT_NO_WIDGETPLUGIN

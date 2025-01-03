@@ -4,6 +4,7 @@
 **
 ** Created : 920609
 **
+** Copyright (C) 2015 Timothy Pearson. All rights reserved.
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
 ** This file is part of the tools module of the TQt GUI Toolkit.
@@ -45,11 +46,11 @@
 #include "ntqcstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 #include <limits.h>
 #endif
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
 #if defined ( Q_CC_MSVC_NET ) && _MSC_VER < 1310 // Avoids nasty warning for xlocale, line 450
 #  pragma warning ( push )
 #  pragma warning ( disable : 4189 )
@@ -63,6 +64,9 @@
 #endif
 #endif
 
+#ifndef TQT_NO_SPRINTF
+#include <stdarg.h>
+#endif
 
 /*****************************************************************************
   TQString class
@@ -74,7 +78,7 @@ class TQCharRef;
 class TQMutex;
 template <class T> class TQDeepCopy;
 
-class Q_EXPORT TQChar {
+class TQ_EXPORT TQChar {
 public:
     TQChar();
     TQChar( char c );
@@ -86,11 +90,11 @@ public:
     TQChar( uint rc );
     TQChar( int rc );
 
-    QT_STATIC_CONST TQChar null;            // 0000
-    QT_STATIC_CONST TQChar replacement;     // FFFD
-    QT_STATIC_CONST TQChar byteOrderMark;     // FEFF
-    QT_STATIC_CONST TQChar byteOrderSwapped;     // FFFE
-    QT_STATIC_CONST TQChar nbsp;            // 00A0
+    static const TQChar null;            // 0000
+    static const TQChar replacement;     // FFFD
+    static const TQChar byteOrderMark;     // FEFF
+    static const TQChar byteOrderSwapped;     // FFFE
+    static const TQChar nbsp;            // 00A0
 
     // Unicode information
 
@@ -202,7 +206,7 @@ public:
 #else
     ushort &unicode() { return ucs; }
 #endif
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     // like all ifdef'd code this is undocumented
     operator char() const { return latin1(); }
 #endif
@@ -240,6 +244,12 @@ public:
     friend inline bool operator<=( char ch, TQChar c );
     friend inline bool operator<=( TQChar c1, TQChar c2 );
 
+#if defined(__cplusplus) && __cplusplus >= 201103L
+    // Explicit declarations to suppress warnings
+    // This could be removed when TQChar( const TQChar& c ) is removed
+    TQChar& operator=(const TQChar& other) = default;
+    ~TQChar() = default;
+#endif
 private:
     ushort ucs;
 #if defined(QT_QSTRING_UCS_4)
@@ -359,7 +369,7 @@ inline bool operator>( char ch, TQChar c ) { return !(c>=ch); }
 inline bool operator>( TQChar c1, TQChar c2 ) { return !(c2>=c1); }
 
 // internal
-struct Q_EXPORT TQStringData : public TQShared {
+struct TQ_EXPORT TQStringData : public TQShared {
     TQStringData();
     TQStringData(TQChar *u, uint l, uint m);
     ~TQStringData();
@@ -384,6 +394,7 @@ struct Q_EXPORT TQStringData : public TQShared {
     bool security_unpaged : 1;
 
     TQMutex* mutex;
+    TQCString *cString;
 
 private:
 #if defined(TQ_DISABLE_COPY)
@@ -393,7 +404,7 @@ private:
 };
 
 
-class Q_EXPORT TQString
+class TQ_EXPORT TQString
 {
 public:
     TQString();                                  // make null string
@@ -401,24 +412,24 @@ public:
     TQString( const TQString & );                 // impl-shared copy
     TQString( const TQByteArray& );               // deep copy
     TQString( const TQChar* unicode, uint length ); // deep copy
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQString( const char *str );                 // deep copy
 #endif
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     TQString( const std::string& );                   // deep copy
 #endif
     ~TQString();
 
     TQString    &operator=( const TQString & );   // impl-shared copy
     TQString    &operator=( const char * );      // deep copy
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     TQString    &operator=( const std::string& );     // deep copy
 #endif
     TQString    &operator=( const TQCString& );   // deep copy
     TQString    &operator=( TQChar c );
     TQString    &operator=( char c );
 
-    QT_STATIC_CONST TQString null;
+    static const TQString null;
 
     bool        isNull()        const;
     bool        isEmpty()       const;
@@ -448,10 +459,15 @@ public:
     TQString arg( const TQString& a1, const TQString& a2, const TQString& a3,
 		 const TQString& a4 ) const;
 
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_SPRINTF
     TQString    &sprintf( const char* format, ... )
 #if defined(Q_CC_GNU) && !defined(__INSURE__)
         __attribute__ ((format (printf, 2, 3)))
+#endif
+        ;
+    TQString    &vsprintf(const char *format, va_list ap)
+#if defined(Q_CC_GNU) && !defined(__INSURE__)
+        __attribute__ ((format (printf, 2, 0)))
 #endif
         ;
 #endif
@@ -459,29 +475,29 @@ public:
     int         find( TQChar c, int index=0, bool cs=TRUE ) const;
     int         find( char c, int index=0, bool cs=TRUE ) const;
     int         find( const TQString &str, int index=0, bool cs=TRUE ) const;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     int         find( const TQRegExp &, int index=0 ) const;
 #endif
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     int         find( const char* str, int index=0 ) const;
 #endif
     int         findRev( TQChar c, int index=-1, bool cs=TRUE) const;
     int         findRev( char c, int index=-1, bool cs=TRUE) const;
     int         findRev( const TQString &str, int index=-1, bool cs=TRUE) const;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     int         findRev( const TQRegExp &, int index=-1 ) const;
 #endif
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     int         findRev( const char* str, int index=-1 ) const;
 #endif
     int         contains( TQChar c, bool cs=TRUE ) const;
     int         contains( char c, bool cs=TRUE ) const
                     { return contains(TQChar(c), cs); }
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     int         contains( const char* str, bool cs=TRUE ) const;
 #endif
     int         contains( const TQString &str, bool cs=TRUE ) const;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     int         contains( const TQRegExp & ) const;
 #endif
 
@@ -494,11 +510,11 @@ public:
     };
     TQString     section( TQChar sep, int start, int end = 0xffffffff, int flags = SectionDefault ) const;
     TQString     section( char sep, int start, int end = 0xffffffff, int flags = SectionDefault ) const;
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQString      section( const char *in_sep, int start, int end = 0xffffffff, int flags = SectionDefault ) const;
 #endif
     TQString     section( const TQString &in_sep, int start, int end = 0xffffffff, int flags = SectionDefault ) const;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     TQString     section( const TQRegExp &reg, int start, int end = 0xffffffff, int flags = SectionDefault ) const;
 #endif
 
@@ -516,7 +532,7 @@ public:
     TQString     simplifyWhiteSpace()    const;
 
     TQString    &insert( uint index, const TQString & );
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQString    &insert( uint index, const TQByteArray & );
     TQString    &insert( uint index, const char * );
 #endif
@@ -526,21 +542,21 @@ public:
     TQString    &append( char );
     TQString    &append( TQChar );
     TQString    &append( const TQString & );
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQString    &append( const TQByteArray & );
     TQString    &append( const char * );
 #endif
-#if !defined(QT_NO_STL) && !defined(QT_NO_CAST_ASCII)
+#if !defined(TQT_NO_STL) && !defined(TQT_NO_CAST_ASCII)
     TQString    &append( const std::string& );
 #endif
     TQString    &prepend( char );
     TQString    &prepend( TQChar );
     TQString    &prepend( const TQString & );
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQString    &prepend( const TQByteArray & );
     TQString    &prepend( const char * );
 #endif
-#if !defined(QT_NO_STL) && !defined(QT_NO_CAST_ASCII)
+#if !defined(TQT_NO_STL) && !defined(TQT_NO_CAST_ASCII)
     TQString    &prepend( const std::string& );
 #endif
     TQString    &remove( uint index, uint len );
@@ -554,10 +570,10 @@ public:
     TQString    &remove( TQChar c );
     TQString    &remove( char c )
     { return remove( TQChar(c) ); }
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQString    &remove( const char * );
 #endif
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     TQString    &remove( const TQRegExp & );
 #endif
     TQString    &replace( uint index, uint len, const TQString & );
@@ -585,7 +601,7 @@ public:
     TQString    &replace( const TQString &, const TQString & );
     TQString    &replace( const TQString &, const TQString &, bool );
 #endif
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     TQString    &replace( const TQRegExp &, const TQString & );
 #endif
     TQString    &replace( TQChar, TQChar );
@@ -623,11 +639,11 @@ public:
     void        setExpand( uint index, TQChar c );
 
     TQString    &operator+=( const TQString &str );
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQString    &operator+=( const TQByteArray &str );
     TQString    &operator+=( const char *str );
 #endif
-#if !defined(QT_NO_STL) && !defined(QT_NO_CAST_ASCII)
+#if !defined(TQT_NO_STL) && !defined(TQT_NO_CAST_ASCII)
     TQString    &operator+=( const std::string& );
 #endif
     TQString    &operator+=( TQChar c );
@@ -653,10 +669,10 @@ public:
     TQCString local8Bit() const;
     static TQString fromLocal8Bit(const char*, int len=-1);
     bool operator!() const;
-#ifndef QT_NO_ASCII_CAST
+#ifndef TQT_NO_ASCII_CAST
     operator const char *() const { return ascii(); }
 #endif
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
     operator std::string() const { return ascii() ? ascii() : ""; }
 #endif
 
@@ -676,13 +692,13 @@ public:
     static int localeAwareCompare( const TQString& s1, const TQString& s2 )
     { return s1.localeAwareCompare( s2 ); }
 
-#ifndef QT_NO_DATASTREAM
-    friend Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQString & );
+#ifndef TQT_NO_DATASTREAM
+    friend TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQString & );
 #endif
 
     void compose();
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     const char* data() const { return ascii(); }
 #endif
 
@@ -721,7 +737,7 @@ private:
 
     void checkSimpleText() const;
     void grow( uint newLength );
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQString &insertHelper( uint index, const char *s, uint len=UINT_MAX );
     TQString &operatorPlusEqHelper( const char *s, uint len2=UINT_MAX );
 #endif
@@ -748,7 +764,7 @@ private:
     friend class TQLineEdit;
 };
 
-class Q_EXPORT TQCharRef {
+class TQ_EXPORT TQCharRef {
     friend class TQString;
     TQString& s;
     uint p;
@@ -759,6 +775,12 @@ public:
 
     // all this is not documented: We just say "like TQChar" and let it be.
 #ifndef Q_QDOC
+#if defined(__cplusplus) && __cplusplus >= 201103L
+    // tells compiler that we know what we are doing and suppresses -Wdeprecated-copy warnings
+    TQCharRef(const TQCharRef&) = default;
+    ~TQCharRef() = default;
+#endif
+
     ushort unicode() const { return s.constref(p).unicode(); }
     char latin1() const { return s.constref(p).latin1(); }
 
@@ -808,7 +830,7 @@ inline TQCharRef TQString::at( uint i ) { return TQCharRef(this,i); }
 inline TQCharRef TQString::operator[]( int i ) { return at((uint)i); }
 
 
-class Q_EXPORT TQConstString : private TQString {
+class TQ_EXPORT TQConstString : private TQString {
 public:
     TQConstString( const TQChar* unicode, uint length );
     ~TQConstString();
@@ -819,9 +841,9 @@ public:
 /*****************************************************************************
   TQString stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQString & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQString & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQString & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQString & );
 #endif
 
 /*****************************************************************************
@@ -838,7 +860,7 @@ inline TQString TQString::section( TQChar sep, int start, int end, int flags ) c
 inline TQString TQString::section( char sep, int start, int end, int flags ) const
 { return section(TQChar(sep), start, end, flags); }
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 inline TQString TQString::section( const char *in_sep, int start, int end, int flags ) const
 { return section(TQString(in_sep), start, end, flags); }
 #endif
@@ -867,7 +889,7 @@ inline bool TQString::isEmpty() const
 inline TQString TQString::copy() const
 { return TQString( *this ); }
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 inline TQString &TQString::insert( uint index, const char *s )
 { return insertHelper( index, s ); }
 
@@ -887,12 +909,12 @@ inline TQString &TQString::prepend( TQChar c )
 inline TQString &TQString::prepend( char c )
 { return insert(0,c); }
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 inline TQString &TQString::prepend( const TQByteArray & s )
 { return insert(0,s); }
 #endif
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 inline TQString &TQString::operator+=( const TQByteArray &s )
 {
     int pos = s.find( 0 );
@@ -903,7 +925,7 @@ inline TQString &TQString::operator+=( const TQByteArray &s )
 inline TQString &TQString::append( const TQString & s )
 { return operator+=(s); }
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 inline TQString &TQString::append( const TQByteArray &s )
 { return operator+=(s); }
 
@@ -917,10 +939,10 @@ inline TQString &TQString::append( TQChar c )
 inline TQString &TQString::append( char c )
 { return operator+=(c); }
 
-#ifndef QT_NO_STL
+#ifndef TQT_NO_STL
 inline TQString &TQString::operator=( const std::string& str )
 { return operator=(str.c_str()); }
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 inline TQString &TQString::operator+=( const std::string& s )
 { return operator+=(s.c_str()); }
 inline TQString &TQString::append( const std::string& s )
@@ -977,7 +999,7 @@ inline int TQString::find( char c, int index, bool cs ) const
 inline int TQString::findRev( char c, int index, bool cs ) const
 { return findRev( TQChar(c), index, cs ); }
 
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
 inline int TQString::find( const char* str, int index ) const
 { return find(TQString::fromAscii(str), index); }
 
@@ -990,43 +1012,43 @@ inline int TQString::findRev( const char* str, int index ) const
   TQString non-member operators
  *****************************************************************************/
 
-Q_EXPORT bool operator!=( const TQString &s1, const TQString &s2 );
-Q_EXPORT bool operator<( const TQString &s1, const TQString &s2 );
-Q_EXPORT bool operator<=( const TQString &s1, const TQString &s2 );
-Q_EXPORT bool operator==( const TQString &s1, const TQString &s2 );
-Q_EXPORT bool operator>( const TQString &s1, const TQString &s2 );
-Q_EXPORT bool operator>=( const TQString &s1, const TQString &s2 );
-#ifndef QT_NO_CAST_ASCII
-Q_EXPORT bool operator!=( const TQString &s1, const char *s2 );
-Q_EXPORT bool operator<( const TQString &s1, const char *s2 );
-Q_EXPORT bool operator<=( const TQString &s1, const char *s2 );
-Q_EXPORT bool operator==( const TQString &s1, const char *s2 );
-Q_EXPORT bool operator>( const TQString &s1, const char *s2 );
-Q_EXPORT bool operator>=( const TQString &s1, const char *s2 );
-Q_EXPORT bool operator!=( const char *s1, const TQString &s2 );
-Q_EXPORT bool operator<( const char *s1, const TQString &s2 );
-Q_EXPORT bool operator<=( const char *s1, const TQString &s2 );
-Q_EXPORT bool operator==( const char *s1, const TQString &s2 );
-//Q_EXPORT bool operator>( const char *s1, const TQString &s2 ); // MSVC++
-Q_EXPORT bool operator>=( const char *s1, const TQString &s2 );
+TQ_EXPORT bool operator!=( const TQString &s1, const TQString &s2 );
+TQ_EXPORT bool operator<( const TQString &s1, const TQString &s2 );
+TQ_EXPORT bool operator<=( const TQString &s1, const TQString &s2 );
+TQ_EXPORT bool operator==( const TQString &s1, const TQString &s2 );
+TQ_EXPORT bool operator>( const TQString &s1, const TQString &s2 );
+TQ_EXPORT bool operator>=( const TQString &s1, const TQString &s2 );
+#ifndef TQT_NO_CAST_ASCII
+TQ_EXPORT bool operator!=( const TQString &s1, const char *s2 );
+TQ_EXPORT bool operator<( const TQString &s1, const char *s2 );
+TQ_EXPORT bool operator<=( const TQString &s1, const char *s2 );
+TQ_EXPORT bool operator==( const TQString &s1, const char *s2 );
+TQ_EXPORT bool operator>( const TQString &s1, const char *s2 );
+TQ_EXPORT bool operator>=( const TQString &s1, const char *s2 );
+TQ_EXPORT bool operator!=( const char *s1, const TQString &s2 );
+TQ_EXPORT bool operator<( const char *s1, const TQString &s2 );
+TQ_EXPORT bool operator<=( const char *s1, const TQString &s2 );
+TQ_EXPORT bool operator==( const char *s1, const TQString &s2 );
+//TQ_EXPORT bool operator>( const char *s1, const TQString &s2 ); // MSVC++
+TQ_EXPORT bool operator>=( const char *s1, const TQString &s2 );
 #endif
 
-Q_EXPORT inline const TQString operator+( const TQString &s1, const TQString &s2 )
+TQ_EXPORT inline const TQString operator+( const TQString &s1, const TQString &s2 )
 {
     TQString tmp( s1 );
     tmp += s2;
     return tmp;
 }
 
-#ifndef QT_NO_CAST_ASCII
-Q_EXPORT inline const TQString operator+( const TQString &s1, const char *s2 )
+#ifndef TQT_NO_CAST_ASCII
+TQ_EXPORT inline const TQString operator+( const TQString &s1, const char *s2 )
 {
     TQString tmp( s1 );
     tmp += TQString::fromAscii(s2);
     return tmp;
 }
 
-Q_EXPORT inline const TQString operator+( const char *s1, const TQString &s2 )
+TQ_EXPORT inline const TQString operator+( const char *s1, const TQString &s2 )
 {
     TQString tmp = TQString::fromAscii( s1 );
     tmp += s2;
@@ -1034,21 +1056,21 @@ Q_EXPORT inline const TQString operator+( const char *s1, const TQString &s2 )
 }
 #endif
 
-Q_EXPORT inline const TQString operator+( const TQString &s1, TQChar c2 )
+TQ_EXPORT inline const TQString operator+( const TQString &s1, TQChar c2 )
 {
     TQString tmp( s1 );
     tmp += c2;
     return tmp;
 }
 
-Q_EXPORT inline const TQString operator+( const TQString &s1, char c2 )
+TQ_EXPORT inline const TQString operator+( const TQString &s1, char c2 )
 {
     TQString tmp( s1 );
     tmp += c2;
     return tmp;
 }
 
-Q_EXPORT inline const TQString operator+( TQChar c1, const TQString &s2 )
+TQ_EXPORT inline const TQString operator+( TQChar c1, const TQString &s2 )
 {
     TQString tmp;
     tmp += c1;
@@ -1056,7 +1078,7 @@ Q_EXPORT inline const TQString operator+( TQChar c1, const TQString &s2 )
     return tmp;
 }
 
-Q_EXPORT inline const TQString operator+( char c1, const TQString &s2 )
+TQ_EXPORT inline const TQString operator+( char c1, const TQString &s2 )
 {
     TQString tmp;
     tmp += c1;
@@ -1064,13 +1086,13 @@ Q_EXPORT inline const TQString operator+( char c1, const TQString &s2 )
     return tmp;
 }
 
-#ifndef QT_NO_STL
-Q_EXPORT inline const TQString operator+(const TQString& s1, const std::string& s2)
+#ifndef TQT_NO_STL
+TQ_EXPORT inline const TQString operator+(const TQString& s1, const std::string& s2)
 {
     return s1 + TQString(s2);
 }
 
-Q_EXPORT inline const TQString operator+(const std::string& s1, const TQString& s2)
+TQ_EXPORT inline const TQString operator+(const std::string& s1, const TQString& s2)
 {
     TQString tmp(s2);
     return TQString(tmp.prepend(s1));
@@ -1079,11 +1101,11 @@ Q_EXPORT inline const TQString operator+(const std::string& s1, const TQString& 
 
 
 #if defined(Q_OS_WIN32)
-extern Q_EXPORT TQString qt_winTQString(void*);
-extern Q_EXPORT const void* qt_winTchar(const TQString& str, bool addnul);
-extern Q_EXPORT void* qt_winTchar_new(const TQString& str);
-extern Q_EXPORT TQCString qt_winTQString2MB( const TQString& s, int len=-1 );
-extern Q_EXPORT TQString qt_winMB2TQString( const char* mb, int len=-1 );
+extern TQ_EXPORT TQString qt_winTQString(void*);
+extern TQ_EXPORT const void* qt_winTchar(const TQString& str, bool addnul);
+extern TQ_EXPORT void* qt_winTchar_new(const TQString& str);
+extern TQ_EXPORT TQCString qt_winTQString2MB( const TQString& s, int len=-1 );
+extern TQ_EXPORT TQString qt_winMB2TQString( const char* mb, int len=-1 );
 #endif
 
 #define Q_DEFINED_QSTRING

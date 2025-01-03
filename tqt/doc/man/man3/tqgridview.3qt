@@ -16,7 +16,7 @@ Inherits QScrollView.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQGridView\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQGridView\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "\fB~QGridView\fR ()"
@@ -114,7 +114,7 @@ QGridView is a very simple abstract class based on QScrollView. It is designed t
 .PP
 See also Abstract Widget Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QGridView::QGridView ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QGridView::QGridView ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a grid view.
 .PP
 The \fIparent\fR, \fIname\fR and widget flag, \fIf\fR, arguments are passed to the QScrollView constructor.
@@ -170,9 +170,9 @@ paintEmptyArea() is invoked by drawContents() to erase or fill unused areas.
 .SH "void QGridView::repaintCell ( int row, int column, bool erase = TRUE )"
 Repaints cell (\fIrow\fR, \fIcolumn\fR).
 .PP
-If \fIerase\fR is TRUE, Qt erases the area of the cell before the paintCell() call; otherwise no erasing takes place.
+If \fIerase\fR is TRUE, TQt erases the area of the cell before the paintCell() call; otherwise no erasing takes place.
 .PP
-See also QWidget::repaint().
+See also TQWidget::repaint().
 .SH "int QGridView::rowAt ( int y ) const"
 Returns the number of the row at position \fIy\fR. \fIy\fR must be given in content coordinates.
 .PP
@@ -188,7 +188,7 @@ Sets the number of rows in the grid. See the "numRows" property for details.
 .SH "void QGridView::updateCell ( int row, int column )"
 Updates cell (\fIrow\fR, \fIcolumn\fR).
 .PP
-See also QWidget::update().
+See also TQWidget::update().
 .SS "Property Documentation"
 .SH "int cellHeight"
 This property holds the height of a grid row.
@@ -233,8 +233,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

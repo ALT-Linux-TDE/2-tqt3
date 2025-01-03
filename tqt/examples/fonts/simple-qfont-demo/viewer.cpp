@@ -28,20 +28,20 @@ Viewer::Viewer()
     defaultButton = new TQPushButton( "Default", this,
                                                    "pushbutton1" );
     defaultButton->setFont( TQFont( "times" ) );
-    connect( defaultButton, SIGNAL( clicked() ),
-             this, SLOT( setDefault() ) );
+    connect( defaultButton, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( setDefault() ) );
 
     sansSerifButton = new TQPushButton( "Sans Serif", this,
                                                      "pushbutton2" );
     sansSerifButton->setFont( TQFont( "Helvetica", 12 ) );
-    connect( sansSerifButton, SIGNAL( clicked() ),
-             this, SLOT( setSansSerif() ) );
+    connect( sansSerifButton, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( setSansSerif() ) );
 
     italicsButton = new TQPushButton( "Italics", this,
                                                    "pushbutton3" );
     italicsButton->setFont( TQFont( "lucida", 12, TQFont::Bold, TRUE ) );
-    connect( italicsButton, SIGNAL( clicked() ),
-             this, SLOT( setItalics() ) );
+    connect( italicsButton, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( setItalics() ) );
 
     layout();
 }

@@ -202,7 +202,7 @@ public:
     OpenGLWidgetInterface();
 
     TQRESULT queryInterface( const TQUuid&, TQUnknownInterface ** );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
 
@@ -266,7 +266,7 @@ TQString OpenGLWidgetInterface::includeFile( const TQString &description ) const
 TQString OpenGLWidgetInterface::toolTip( const TQString &description ) const
 {
     if ( description == "GLWidget" )
-	return QT_TR_NOOP("OpenGL Widget");
+	return TQT_TR_NOOP("OpenGL Widget");
     return TQString::null;
 }
 

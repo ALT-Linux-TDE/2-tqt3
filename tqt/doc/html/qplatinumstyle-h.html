@@ -81,14 +81,14 @@ body { background: #ffffff; color: black; }
 #include "ntqwindowsstyle.h"
 #endif // QT_H
 
-#if !defined(QT_NO_STYLE_PLATINUM) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_PLATINUM) || defined(QT_PLUGIN)
 
 class TQPalette;
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_STYLE_PLATINUM
 #else
-#define Q_EXPORT_STYLE_PLATINUM Q_EXPORT
+#define Q_EXPORT_STYLE_PLATINUM TQ_EXPORT
 #endif
 
 class Q_EXPORT_STYLE_PLATINUM TQPlatinumStyle : public TQWindowsStyle
@@ -148,7 +148,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_STYLE_PLATINUM
+#endif // TQT_NO_STYLE_PLATINUM
 
 #endif // TQPLATINUMSTYLE_H
 </pre>

@@ -34,11 +34,9 @@ win32:RC_FILE = assistant.rc
 mac:RC_FILE = assistant.icns
 
 target.path = $$bins.path
-INSTALLS += target
 
 assistanttranslations.files = *.qm
 assistanttranslations.path = $$translations.path
-INSTALLS += assistanttranslations
 
 TRANSLATIONS	= assistant_de.ts \
 		  assistant_fr.ts
@@ -70,3 +68,13 @@ IMAGES	= images/editcopy.png \
 	images/addtab.png \
 	images/closetab.png \
 	images/d_closetab.png
+
+desktop.path = $$share.path/applications
+desktop.files = tqassistant.desktop
+
+system( cp images/appicon.png tqassistant.png )
+
+icon.path = $$share.path/pixmaps
+icon.files = tqassistant.png
+
+INSTALLS += target assistanttranslations desktop icon

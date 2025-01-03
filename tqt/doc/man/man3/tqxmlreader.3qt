@@ -9,7 +9,7 @@
 .SH NAME
 QXmlReader \- Interface for XML readers (i.e. parsers)
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqxml.h>\fR
 .PP
@@ -18,22 +18,22 @@ Inherited by QXmlSimpleReader.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "virtual bool \fBfeature\fR ( const QString & name, bool * ok = 0 ) const = 0"
+.BI "virtual bool \fBfeature\fR ( const TQString & name, bool * ok = 0 ) const = 0"
 .br
 .ti -1c
-.BI "virtual void \fBsetFeature\fR ( const QString & name, bool value ) = 0"
+.BI "virtual void \fBsetFeature\fR ( const TQString & name, bool value ) = 0"
 .br
 .ti -1c
-.BI "virtual bool \fBhasFeature\fR ( const QString & name ) const = 0"
+.BI "virtual bool \fBhasFeature\fR ( const TQString & name ) const = 0"
 .br
 .ti -1c
-.BI "virtual void * \fBproperty\fR ( const QString & name, bool * ok = 0 ) const = 0"
+.BI "virtual void * \fBproperty\fR ( const TQString & name, bool * ok = 0 ) const = 0"
 .br
 .ti -1c
-.BI "virtual void \fBsetProperty\fR ( const QString & name, void * value ) = 0"
+.BI "virtual void \fBsetProperty\fR ( const TQString & name, void * value ) = 0"
 .br
 .ti -1c
-.BI "virtual bool \fBhasProperty\fR ( const QString & name ) const = 0"
+.BI "virtual bool \fBhasProperty\fR ( const TQString & name ) const = 0"
 .br
 .ti -1c
 .BI "virtual void \fBsetEntityResolver\fR ( QXmlEntityResolver * handler ) = 0"
@@ -83,7 +83,7 @@ The QXmlReader class provides an interface for XML readers (i.e. parsers).
 .PP
 This abstract class provides an interface for all of Qt's XML readers. Currently there is only one implementation of a reader included in Qt's XML module: QXmlSimpleReader. In future releases there might be more readers with different properties available (e.g. a validating parser).
 .PP
-The design of the XML classes follows the SAX2 Java interface, with the names adapted to fit Qt naming conventions. It should be very easy for anybody who has worked with SAX2 to get started with the Qt XML classes.
+The design of the XML classes follows the SAX2 Java interface, with the names adapted to fit TQt naming conventions. It should be very easy for anybody who has worked with SAX2 to get started with the TQt XML classes.
 .PP
 All readers use the class QXmlInputSource to read the input document. Since you are normally interested in particular content in the XML document, the reader reports the content through special handler classes (QXmlDTDHandler, QXmlDeclHandler, QXmlContentHandler, QXmlEntityResolver, QXmlErrorHandler and QXmlLexicalHandler), which you must subclass, if you want to process the contents.
 .PP
@@ -113,17 +113,17 @@ See also setEntityResolver().
 Returns the error handler or 0 if none is set.
 .PP
 See also setErrorHandler().
-.SH "bool QXmlReader::feature ( const QString & name, bool * ok = 0 ) const\fC [pure virtual]\fR"
+.SH "bool QXmlReader::feature ( const TQString & name, bool * ok = 0 ) const\fC [pure virtual]\fR"
 If the reader has the feature called \fIname\fR, the feature's value is returned. If no such feature exists the return value is undefined.
 .PP
 If \fIok\fR is not 0: \fI*ok\fR is set to TRUE if the reader has the feature called \fIname\fR; otherwise \fI*ok\fR is set to FALSE.
 .PP
 See also setFeature() and hasFeature().
-.SH "bool QXmlReader::hasFeature ( const QString & name ) const\fC [pure virtual]\fR"
+.SH "bool QXmlReader::hasFeature ( const TQString & name ) const\fC [pure virtual]\fR"
 Returns \fCTRUE\fR if the reader has the feature called \fIname\fR; otherwise returns FALSE.
 .PP
 See also feature() and setFeature().
-.SH "bool QXmlReader::hasProperty ( const QString & name ) const\fC [pure virtual]\fR"
+.SH "bool QXmlReader::hasProperty ( const TQString & name ) const\fC [pure virtual]\fR"
 Returns TRUE if the reader has the property \fIname\fR; otherwise returns FALSE.
 .PP
 See also property() and setProperty().
@@ -137,7 +137,7 @@ Reads an XML document from \fIinput\fR and parses it. Returns TRUE if the parsin
 Example: xml/tagreader/tagreader.cpp.
 .SH "bool QXmlReader::parse ( const QXmlInputSource & input )\fC [pure virtual]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "void * QXmlReader::property ( const QString & name, bool * ok = 0 ) const\fC [pure virtual]\fR"
+.SH "void * QXmlReader::property ( const TQString & name, bool * ok = 0 ) const\fC [pure virtual]\fR"
 If the reader has the property \fIname\fR, this function returns the value of the property; otherwise the return value is undefined.
 .PP
 If \fIok\fR is not 0: if the reader has the \fIname\fR property \fI*ok\fR is set to TRUE; otherwise \fI*ok\fR is set to FALSE.
@@ -165,7 +165,7 @@ See also entityResolver().
 Sets the error handler to \fIhandler\fR. Clears the error handler if \fIhandler\fR is 0.
 .PP
 See also errorHandler().
-.SH "void QXmlReader::setFeature ( const QString & name, bool value )\fC [pure virtual]\fR"
+.SH "void QXmlReader::setFeature ( const TQString & name, bool value )\fC [pure virtual]\fR"
 Sets the feature called \fIname\fR to the given \fIvalue\fR. If the reader doesn't have the feature nothing happens.
 .PP
 See also feature() and hasFeature().
@@ -175,7 +175,7 @@ Reimplemented in QXmlSimpleReader.
 Sets the lexical handler to \fIhandler\fR.
 .PP
 See also lexicalHandler().
-.SH "void QXmlReader::setProperty ( const QString & name, void * value )\fC [pure virtual]\fR"
+.SH "void QXmlReader::setProperty ( const TQString & name, void * value )\fC [pure virtual]\fR"
 Sets the property \fIname\fR to \fIvalue\fR. If the reader doesn't have the property nothing happens.
 .PP
 See also property() and hasProperty().
@@ -194,8 +194,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

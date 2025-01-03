@@ -87,7 +87,7 @@ template<class type> inline void TQPtrQueue<type>::deleteItem( TQPtrCollection::
     if ( del_item ) delete (type *)d;
 }
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #define TQQueue TQPtrQueue
 #endif
 

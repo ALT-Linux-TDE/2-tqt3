@@ -38,7 +38,7 @@ Composer::Composer( TQWidget *parent )
 
     send = new TQPushButton( tr( "&Send" ), this );
     layout->addWidget( send, 4, 0 );
-    connect( send, SIGNAL( clicked() ), this, SLOT( sendMessage() ) );
+    connect( send, TQ_SIGNAL( clicked() ), this, TQ_SLOT( sendMessage() ) );
 
     sendStatus = new TQLabel( this );
     layout->addWidget( sendStatus, 4, 1 );
@@ -52,10 +52,10 @@ void Composer::sendMessage()
     Smtp *smtp = new Smtp( from->text(), to->text(),
 			   subject->text(),
 			   message->text() );
-    connect( smtp, SIGNAL(destroyed()),
-	     this, SLOT(enableSend()) );
-    connect( smtp, SIGNAL(status(const TQString &)),
-	     sendStatus, SLOT(setText(const TQString &)) );
+    connect( smtp, TQ_SIGNAL(destroyed()),
+	     this, TQ_SLOT(enableSend()) );
+    connect( smtp, TQ_SIGNAL(status(const TQString &)),
+	     sendStatus, TQ_SLOT(setText(const TQString &)) );
 }
 
 

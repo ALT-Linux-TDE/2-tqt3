@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 4; -*- */
 /*******************************************************************************
  * Java Runtime Interface - Machine Dependent Types
  * Copyright (c) 1996 Netscape Communications Corporation. All rights reserved.

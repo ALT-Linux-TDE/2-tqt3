@@ -99,7 +99,7 @@ void FormFile::setFormWindow( FormWindow *f )
     if ( fw )
 	fw->setFormFile( this );
     parseCode( cod, FALSE );
-    TQTimer::singleShot( 0, this, SLOT( notifyFormWindowChange() ) );
+    TQTimer::singleShot( 0, this, TQ_SLOT( notifyFormWindowChange() ) );
 }
 
 void FormFile::setEditor( SourceEditor *e )

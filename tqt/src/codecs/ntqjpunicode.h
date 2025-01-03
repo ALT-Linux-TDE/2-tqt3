@@ -74,12 +74,12 @@
 #include "ntqglobal.h"
 #endif // QT_H
 
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_CODECS_JP
 #else
-#define Q_EXPORT_CODECS_JP Q_EXPORT
+#define Q_EXPORT_CODECS_JP TQ_EXPORT
 #endif
 
 class Q_EXPORT_CODECS_JP TQJpUnicodeConv {
@@ -178,5 +178,5 @@ private:
     int rule;
 };
 
-#endif // QT_NO_BIG_CODECS
+#endif // TQT_NO_BIG_CODECS
 #endif /* TQJPUNICODE_H */

@@ -41,7 +41,7 @@ Configuration
 
   http://freedesktop.org/pipermail/immodule-qt/2004-August/000416.html
 
-- Added new environment variables QT_IM_SWITCHER and QT_IM_MODULE to
+- Added new environment variables TQT_IM_SWITCHER and TQT_IM_MODULE to
   set user's favorite input method as default. See README.immodule for
   examples.
 
@@ -56,10 +56,10 @@ Build & Install
   input method plugins (i.e. update your additional input method
   plugins)
 
-- Plugin directory has been changed from $QTDIR/plugins/input/ to
-  $QTDIR/plugins/inputmethods/. Delete old directory.
+- Plugin directory has been changed from $TQTDIR/plugins/input/ to
+  $TQTDIR/plugins/inputmethods/. Delete old directory.
 
-- Some codes have been changed to allow compiling against Qt 3.2.x or
+- Some codes have been changed to allow compiling against TQt 3.2.x or
   earlier.
 
 
@@ -112,15 +112,15 @@ General
 - 'dead keys' for latin languages have been added into Qt::Key
 
 - Added plugins/src/inputmethods directory to build input method
-  plugins within the Qt source tree. The directory name 'inputmethods'
+  plugins within the TQt source tree. The directory name 'inputmethods'
   is intended to be compatible with Qt/Embedded. Install directory
   name is still kept as 'input' for backward compatibility
 
 - Changed XIM input method to a plugin instead of directly link into
-  libqt
+  libtqt
 
-- Plugin directory has been changed from $QTDIR/plugins/input/ to
-  $QTDIR/plugins/inputmethods/. Replace install directory with new
+- Plugin directory has been changed from $TQTDIR/plugins/input/ to
+  $TQTDIR/plugins/inputmethods/. Replace install directory with new
   one.
 
 - Fixed some bugs in previous qt-x11-immodule-bc-qt3.3.2-20040623. See
@@ -133,7 +133,7 @@ General
       originally written. See added comment to recognize the original
       intention
 
-- QLocale dependency has been removed to be compiled on Qt 3.2.x or
+- QLocale dependency has been removed to be compiled on TQt 3.2.x or
   earlier
 
 - Many internal improvements and cleanups

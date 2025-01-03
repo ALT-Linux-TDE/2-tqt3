@@ -89,9 +89,6 @@ body { background: #ffffff; color: black; }
         &lt;property name="menuText"&gt;
             &lt;string&gt;&amp;amp;New&lt;/string&gt;
         &lt;/property&gt;
-        &lt;property name="accel"&gt;
-            &lt;number&gt;4194382&lt;/number&gt;
-        &lt;/property&gt;
     &lt;/action&gt;
     ...
 &lt;/actions&gt;
@@ -185,7 +182,7 @@ body { background: #ffffff; color: black; }
 </pre>
 <a name="exportmacro"></a><h4><a name="1-7"></a>exportmacro</h4>
 <p>This tag is only relevant to Windows users.</p>
-<p>If you have a class that requires some Windows-specific export macro, e.g. for classes in a DLL that need to be declared like this: <tt>class win_specific_declaration_goes_here Class</tt>, you can use the <tt>&lt;exportmacro&gt;</tt> tag. (In standard TQt we use the <tt>Q_EXPORT</tt> macro, e.g. <tt>class Q_EXPORT TQWidget</tt>.) If you use this tag you must also:</p>
+<p>If you have a class that requires some Windows-specific export macro, e.g. for classes in a DLL that need to be declared like this: <tt>class win_specific_declaration_goes_here Class</tt>, you can use the <tt>&lt;exportmacro&gt;</tt> tag. (In standard TQt we use the <tt>TQ_EXPORT</tt> macro, e.g. <tt>class TQ_EXPORT TQWidget</tt>.) If you use this tag you must also:</p>
 <ol type=1><li><p><a href="designer-manual-16.html#1-11">include</a> the file which contains the macro definition;</p>
 <li><p>add the export macro to the form -- this is achieved by entering the macro's name in the 'export macro' sub-property of the form's name property.</p>
 </ol><p>Following these steps will ensure that <a href="uic.html">uic</a> will create the correct <tt>class YOUR_MACRO Form</tt> declarations.</p>

@@ -23,7 +23,7 @@ QSqlDriverPlugin \- Abstract base for custom QSqlDriver plugins
 .BI "virtual QStringList \fBkeys\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QSqlDriver * \fBcreate\fR ( const QString & key ) = 0"
+.BI "virtual QSqlDriver * \fBcreate\fR ( const TQString & key ) = 0"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -31,7 +31,7 @@ The QSqlDriverPlugin class provides an abstract base for custom QSqlDriver plugi
 .PP
 The SQL driver plugin is a simple plugin interface that makes it easy to create your own SQL driver plugins that can be loaded dynamically by Qt.
 .PP
-Writing a SQL plugin is achieved by subclassing this base class, reimplementing the pure virtual functions keys() and create(), and exporting the class with the \fCQ_EXPORT_PLUGIN\fR macro. See the SQL plugins that come with Qt for example implementations (in the \fCplugins/src/sqldrivers\fR subdirectory of the source distribution). Read the plugins documentation for more information on plugins.
+Writing a SQL plugin is achieved by subclassing this base class, reimplementing the pure virtual functions keys() and create(), and exporting the class with the \fCQ_EXPORT_PLUGIN\fR macro. See the SQL plugins that come with TQt for example implementations (in the \fCplugins/src/sqldrivers\fR subdirectory of the source distribution). Read the plugins documentation for more information on plugins.
 .PP
 See also Plugins.
 .SH MEMBER FUNCTION DOCUMENTATION
@@ -40,8 +40,8 @@ Constructs a SQL driver plugin. This is invoked automatically by the \fCQ_EXPORT
 .SH "QSqlDriverPlugin::~QSqlDriverPlugin ()"
 Destroys the SQL driver plugin.
 .PP
-You never have to call this explicitly. Qt destroys a plugin automatically when it is no longer used.
-.SH "QSqlDriver * QSqlDriverPlugin::create ( const QString & key )\fC [pure virtual]\fR"
+You never have to call this explicitly. TQt destroys a plugin automatically when it is no longer used.
+.SH "QSqlDriver * QSqlDriverPlugin::create ( const TQString & key )\fC [pure virtual]\fR"
 Creates and returns a QSqlDriver object for the driver key \fIkey\fR. The driver key is usually the class name of the required driver.
 .PP
 See also keys().
@@ -66,8 +66,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

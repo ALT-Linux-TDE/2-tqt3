@@ -291,12 +291,12 @@
       <translation>LTR</translation>
     </message>
     <message>
-      <source>Executable '%1' requires Qt %2, found Qt %3.</source>
-      <translation>L'executable '%1' requereix Qt %2, s'ha trobat Qt %3.</translation>
+      <source>Executable '%1' requires TQt %2, found TQt %3.</source>
+      <translation>L'executable '%1' requereix TQt %2, s'ha trobat TQt %3.</translation>
     </message>
     <message>
-      <source>Incompatible Qt Library Error</source>
-      <translation>Error: Biblioteca Qt incompatible</translation>
+      <source>Incompatible TQt Library Error</source>
+      <translation>Error: Biblioteca TQt incompatible</translation>
     </message>
   </context>
   <context>
@@ -1264,15 +1264,15 @@ a
       <translation>&amp;Ignora</translation>
     </message>
     <message>
-      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses Qt version %1.&lt;/p>&lt;p>Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br>Qt is also available for embedded devices.&lt;/p>&lt;p>Qt is a Trolltech product. See &lt;tt>http://www.trolltech.com/qt/&lt;/tt> for more information.&lt;/p></source>
+      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses TQt version %1.&lt;/p>&lt;p>TQt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>TQt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br>TQt is also available for embedded devices.&lt;/p>&lt;p>TQt is a Trolltech product. See &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> for more information.&lt;/p></source>
       <translation>&lt;h3>Quant a Qt&lt;/h3>
 &lt;p>Aquest programa usa la versió %1 de Qt.&lt;/p> 
-&lt;p>Qt és un conjunt d'eines C++ per GUI multiplataforma i desenvolupament 
+&lt;p>TQt és un conjunt d'eines C++ per GUI multiplataforma i desenvolupament 
 d'aplicacions.&lt;/p>
-&lt;p>Qt proporciona portabilitat amb una sola font entre MS&amp;nbsp;Windows, 
+&lt;p>TQt proporciona portabilitat amb una sola font entre MS&amp;nbsp;Windows, 
 Mac&amp;nbsp;OS&amp;nbsp;X, Linux i les principals varietats comercials de Unix. 
-&lt;br>Qt també és disponible per a dispositius encastats&lt;/p>
-&lt;p>QT és un producte Trolltech. Consulteu &lt;tt>http://www.trolltech.com/qt/&lt;/tt> 
+&lt;br>TQt també és disponible per a dispositius encastats&lt;/p>
+&lt;p>QT és un producte Trolltech. Consulteu &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> 
 per a més informació.&lt;/p></translation>
     </message>
   </context>

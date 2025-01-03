@@ -589,7 +589,7 @@ bool TQGCache::makeRoomFor( int cost, int priority )
 	return FALSE;				//   than maximum cost
     if ( priority == -1 )
 	priority = 32767;
-    register TQCacheItem *ci = lruList->last();
+    TQCacheItem *ci = lruList->last();
     int cntCost = 0;
     int dumps	= 0;				// number of items to dump
     while ( cntCost < cost && ci && ci->skipPriority <= priority ) {

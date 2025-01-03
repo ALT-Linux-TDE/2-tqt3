@@ -55,7 +55,7 @@ ImageItem::ImageItem( TQImage img, TQCanvas *canvas )
 {
     setSize( image.width(), image.height() );
 
-#if !defined(Q_WS_QWS)
+#if !defined(TQ_WS_QWS)
     pixmap.convertFromImage(image, OrderedAlphaDither);
 #endif
 }
@@ -65,7 +65,7 @@ void ImageItem::drawShape( TQPainter &p )
 {
 // On TQt/Embedded, we can paint a TQImage as fast as a TQPixmap,
 // but on other platforms, we need to use a TQPixmap.
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
     p.drawImage( int(x()), int(y()), image, 0, 0, -1, -1, OrderedAlphaDither );
 #else
     p.drawPixmap( int(x()), int(y()), pixmap );
@@ -202,15 +202,24 @@ void FigureEditor::contentsMouseMoveEvent(TQMouseEvent* e)
     }
 }
 
-
+static uint bouncyLogoCount = 0;
+static TQCanvasPixmapArray *logoarr = 0;
 
 BouncyLogo::BouncyLogo(TQCanvas* canvas) :
     TQCanvasSprite(0,canvas)
 {
-    static TQCanvasPixmapArray logo("qt-trans.xpm");
-    setSequence(&logo);
+    if ( !logoarr ) {
+	logoarr = new TQCanvasPixmapArray("qt-trans.xpm");
+    }
+    bouncyLogoCount++;
+    setSequence(logoarr);
     setAnimated(TRUE);
     initPos();
+}
+
+BouncyLogo::~BouncyLogo()
+{
+    --bouncyLogoCount;
 }
 
 
@@ -301,9 +310,10 @@ void BouncyLogo::advance(int stage)
     }
 }
 
+// Some objects to cache among different views
 static uint mainCount = 0;
-static TQImage *butterflyimg;
-static TQImage *logoimg;
+static TQImage *butterflyimg = 0;
+static TQImage *logoimg = 0;
 
 Main::Main(TQCanvas& c, TQWidget* parent, const char* name, WFlags f) :
     TQMainWindow(parent,name,f),
@@ -313,52 +323,52 @@ Main::Main(TQCanvas& c, TQWidget* parent, const char* name, WFlags f) :
     TQMenuBar* menu = menuBar();
 
     TQPopupMenu* file = new TQPopupMenu( menu );
-    file->insertItem("&Fill canvas", this, SLOT(init()), CTRL+Key_F);
-    file->insertItem("&Erase canvas", this, SLOT(clear()), CTRL+Key_E);
-    file->insertItem("&New view", this, SLOT(newView()), CTRL+Key_N);
+    file->insertItem("&Fill canvas", this, TQ_SLOT(init()), CTRL+Key_F);
+    file->insertItem("&Erase canvas", this, TQ_SLOT(clear()), CTRL+Key_E);
+    file->insertItem("&New view", this, TQ_SLOT(newView()), CTRL+Key_N);
     file->insertSeparator();
-    file->insertItem("&Print...", this, SLOT(print()), CTRL+Key_P);
+    file->insertItem("&Print...", this, TQ_SLOT(print()), CTRL+Key_P);
     file->insertSeparator();
-    file->insertItem("E&xit", tqApp, SLOT(quit()), CTRL+Key_Q);
+    file->insertItem("E&xit", tqApp, TQ_SLOT(quit()), CTRL+Key_Q);
     menu->insertItem("&File", file);
 
     TQPopupMenu* edit = new TQPopupMenu( menu );
-    edit->insertItem("Add &Circle", this, SLOT(addCircle()), ALT+Key_C);
-    edit->insertItem("Add &Hexagon", this, SLOT(addHexagon()), ALT+Key_H);
-    edit->insertItem("Add &Polygon", this, SLOT(addPolygon()), ALT+Key_P);
-    edit->insertItem("Add Spl&ine", this, SLOT(addSpline()), ALT+Key_I);
-    edit->insertItem("Add &Text", this, SLOT(addText()), ALT+Key_T);
-    edit->insertItem("Add &Line", this, SLOT(addLine()), ALT+Key_L);
-    edit->insertItem("Add &Rectangle", this, SLOT(addRectangle()), ALT+Key_R);
-    edit->insertItem("Add &Sprite", this, SLOT(addSprite()), ALT+Key_S);
-    edit->insertItem("Create &Mesh", this, SLOT(addMesh()), ALT+Key_M );
-    edit->insertItem("Add &Alpha-blended image", this, SLOT(addButterfly()), ALT+Key_A);
+    edit->insertItem("Add &Circle", this, TQ_SLOT(addCircle()), ALT+Key_C);
+    edit->insertItem("Add &Hexagon", this, TQ_SLOT(addHexagon()), ALT+Key_H);
+    edit->insertItem("Add &Polygon", this, TQ_SLOT(addPolygon()), ALT+Key_P);
+    edit->insertItem("Add Spl&ine", this, TQ_SLOT(addSpline()), ALT+Key_I);
+    edit->insertItem("Add &Text", this, TQ_SLOT(addText()), ALT+Key_T);
+    edit->insertItem("Add &Line", this, TQ_SLOT(addLine()), ALT+Key_L);
+    edit->insertItem("Add &Rectangle", this, TQ_SLOT(addRectangle()), ALT+Key_R);
+    edit->insertItem("Add &Sprite", this, TQ_SLOT(addSprite()), ALT+Key_S);
+    edit->insertItem("Create &Mesh", this, TQ_SLOT(addMesh()), ALT+Key_M );
+    edit->insertItem("Add &Alpha-blended image", this, TQ_SLOT(addButterfly()), ALT+Key_A);
     menu->insertItem("&Edit", edit);
 
     TQPopupMenu* view = new TQPopupMenu( menu );
-    view->insertItem("&Enlarge", this, SLOT(enlarge()), SHIFT+CTRL+Key_Plus);
-    view->insertItem("Shr&ink", this, SLOT(shrink()), SHIFT+CTRL+Key_Minus);
+    view->insertItem("&Enlarge", this, TQ_SLOT(enlarge()), SHIFT+CTRL+Key_Plus);
+    view->insertItem("Shr&ink", this, TQ_SLOT(shrink()), SHIFT+CTRL+Key_Minus);
     view->insertSeparator();
-    view->insertItem("&Rotate clockwise", this, SLOT(rotateClockwise()), CTRL+Key_PageDown);
-    view->insertItem("Rotate &counterclockwise", this, SLOT(rotateCounterClockwise()), CTRL+Key_PageUp);
-    view->insertItem("&Zoom in", this, SLOT(zoomIn()), CTRL+Key_Plus);
-    view->insertItem("Zoom &out", this, SLOT(zoomOut()), CTRL+Key_Minus);
-    view->insertItem("Translate left", this, SLOT(moveL()), CTRL+Key_Left);
-    view->insertItem("Translate right", this, SLOT(moveR()), CTRL+Key_Right);
-    view->insertItem("Translate up", this, SLOT(moveU()), CTRL+Key_Up);
-    view->insertItem("Translate down", this, SLOT(moveD()), CTRL+Key_Down);
-    view->insertItem("&Mirror", this, SLOT(mirror()), CTRL+Key_Home);
+    view->insertItem("&Rotate clockwise", this, TQ_SLOT(rotateClockwise()), CTRL+Key_PageDown);
+    view->insertItem("Rotate &counterclockwise", this, TQ_SLOT(rotateCounterClockwise()), CTRL+Key_PageUp);
+    view->insertItem("&Zoom in", this, TQ_SLOT(zoomIn()), CTRL+Key_Plus);
+    view->insertItem("Zoom &out", this, TQ_SLOT(zoomOut()), CTRL+Key_Minus);
+    view->insertItem("Translate left", this, TQ_SLOT(moveL()), CTRL+Key_Left);
+    view->insertItem("Translate right", this, TQ_SLOT(moveR()), CTRL+Key_Right);
+    view->insertItem("Translate up", this, TQ_SLOT(moveU()), CTRL+Key_Up);
+    view->insertItem("Translate down", this, TQ_SLOT(moveD()), CTRL+Key_Down);
+    view->insertItem("&Mirror", this, TQ_SLOT(mirror()), CTRL+Key_Home);
     menu->insertItem("&View", view);
 
     options = new TQPopupMenu( menu );
-    dbf_id = options->insertItem("Double buffer", this, SLOT(toggleDoubleBuffer()));
+    dbf_id = options->insertItem("Double buffer", this, TQ_SLOT(toggleDoubleBuffer()));
     options->setItemChecked(dbf_id, TRUE);
     menu->insertItem("&Options",options);
 
     menu->insertSeparator();
 
     TQPopupMenu* help = new TQPopupMenu( menu );
-    help->insertItem("&About", this, SLOT(help()), Key_F1);
+    help->insertItem("&About", this, TQ_SLOT(help()), Key_F1);
     help->setItemChecked(dbf_id, TRUE);
     menu->insertItem("&Help",help);
 
@@ -367,6 +377,8 @@ Main::Main(TQCanvas& c, TQWidget* parent, const char* name, WFlags f) :
     setCentralWidget(editor);
 
     printer = 0;
+
+    mainCount++;
 
     init();
 }
@@ -377,10 +389,6 @@ void Main::init()
 
     static int r=24;
     srand(++r);
-
-    mainCount++;
-    butterflyimg = 0;
-    logoimg = 0;
 
     int i;
     for ( i=0; i<canvas.width() / 56; i++) {
@@ -402,6 +410,10 @@ Main::~Main()
 	butterflyimg = 0;
 	delete[] logoimg;
 	logoimg = 0;
+	if ( bouncyLogoCount == 0 ) {
+	    delete logoarr;
+	    logoarr = 0;
+	}
     }
 }
 
@@ -689,7 +701,7 @@ void Main::addMesh()
     int rows = h / dist;
     int cols = w / dist;
 
-#ifndef QT_NO_PROGRESSDIALOG
+#ifndef TQT_NO_PROGRESSDIALOG
     TQProgressDialog progress( "Creating mesh...", "Abort", rows,
 			      this, "progress", TRUE );
 #endif
@@ -723,13 +735,13 @@ void Main::addMesh()
 	    el->show();
 	}
 	lastRow[n-1]=prev;
-#ifndef QT_NO_PROGRESSDIALOG
+#ifndef TQT_NO_PROGRESSDIALOG
 	progress.setProgress( j );
 	if ( progress.wasCancelled() )
 	    break;
 #endif
     }
-#ifndef QT_NO_PROGRESSDIALOG
+#ifndef TQT_NO_PROGRESSDIALOG
     progress.setProgress( rows );
 #endif
     // tqDebug( "%d nodes, %d edges", nodecount, EdgeItem::count() );

@@ -149,8 +149,8 @@ void Layout::setup()
     // widgets to get informed if one gets deleted to be able to
     // handle that and do not crash in this case
     for ( w = widgets.first(); w; w = widgets.next() ) {
-	connect( w, SIGNAL( destroyed() ),
-		 this, SLOT( widgetDestroyed() ) );
+	connect( w, TQ_SIGNAL( destroyed() ),
+		 this, TQ_SLOT( widgetDestroyed() ) );
 	startPoint = TQPoint( TQMIN( startPoint.x(), w->x() ),
 			     TQMIN( startPoint.y(), w->y() ) );
 	geometries.insert( w, TQRect( w->pos(), w->size() ) );

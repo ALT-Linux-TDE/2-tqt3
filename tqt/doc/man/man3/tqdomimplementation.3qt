@@ -9,7 +9,7 @@
 .SH NAME
 QDomImplementation \- Information about the features of the DOM implementation
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqdom.h>\fR
 .PP
@@ -34,13 +34,13 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "bool \fBoperator!=\fR ( const QDomImplementation & x ) const"
 .br
 .ti -1c
-.BI "virtual bool \fBhasFeature\fR ( const QString & feature, const QString & version )"
+.BI "virtual bool \fBhasFeature\fR ( const TQString & feature, const TQString & version )"
 .br
 .ti -1c
-.BI "virtual QDomDocumentType \fBcreateDocumentType\fR ( const QString & qName, const QString & publicId, const QString & systemId )"
+.BI "virtual QDomDocumentType \fBcreateDocumentType\fR ( const TQString & qName, const TQString & publicId, const TQString & systemId )"
 .br
 .ti -1c
-.BI "virtual QDomDocument \fBcreateDocument\fR ( const QString & nsURI, const QString & qName, const QDomDocumentType & doctype )"
+.BI "virtual QDomDocument \fBcreateDocument\fR ( const TQString & nsURI, const TQString & qName, const QDomDocumentType & doctype )"
 .br
 .ti -1c
 .BI "bool \fBisNull\fR ()"
@@ -65,23 +65,23 @@ Constructs a QDomImplementation object.
 Constructs a copy of \fIx\fR.
 .SH "QDomImplementation::~QDomImplementation ()\fC [virtual]\fR"
 Destroys the object and frees its resources.
-.SH "QDomDocument QDomImplementation::createDocument ( const QString & nsURI, const QString & qName, const QDomDocumentType & doctype )\fC [virtual]\fR"
+.SH "QDomDocument QDomImplementation::createDocument ( const TQString & nsURI, const TQString & qName, const QDomDocumentType & doctype )\fC [virtual]\fR"
 Creates a DOM document with the document type \fIdoctype\fR. This function also adds a root element node with the qualified name \fIqName\fR and the namespace URI \fInsURI\fR.
-.SH "QDomDocumentType QDomImplementation::createDocumentType ( const QString & qName, const QString & publicId, const QString & systemId )\fC [virtual]\fR"
+.SH "QDomDocumentType QDomImplementation::createDocumentType ( const TQString & qName, const TQString & publicId, const TQString & systemId )\fC [virtual]\fR"
 Creates a document type node for the name \fIqName\fR.
 .PP
-\fIpublicId\fR specifies the public identifier of the external subset. If you specify QString::null as the \fIpublicId\fR, this means that the document type has no public identifier.
+\fIpublicId\fR specifies the public identifier of the external subset. If you specify TQString::null as the \fIpublicId\fR, this means that the document type has no public identifier.
 .PP
-\fIsystemId\fR specifies the system identifier of the external subset. If you specify QString::null as the \fIsystemId\fR, this means that the document type has no system identifier.
+\fIsystemId\fR specifies the system identifier of the external subset. If you specify TQString::null as the \fIsystemId\fR, this means that the document type has no system identifier.
 .PP
-Since you cannot have a public identifier without a system identifier, the public identifier is set to QString::null if there is no system identifier.
+Since you cannot have a public identifier without a system identifier, the public identifier is set to TQString::null if there is no system identifier.
 .PP
 DOM level 2 does not support any other document type declaration features.
 .PP
 The only way you can use a document type that was created this way, is in combination with the createDocument() function to create a QDomDocument with this document type.
 .PP
 See also createDocument().
-.SH "bool QDomImplementation::hasFeature ( const QString & feature, const QString & version )\fC [virtual]\fR"
+.SH "bool QDomImplementation::hasFeature ( const TQString & feature, const TQString & version )\fC [virtual]\fR"
 The function returns TRUE if QDom implements the requested \fIversion\fR of a \fIfeature\fR; otherwise returns FALSE.
 .PP
 The currently supported features and their versions: <center>.nf
@@ -114,8 +114,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

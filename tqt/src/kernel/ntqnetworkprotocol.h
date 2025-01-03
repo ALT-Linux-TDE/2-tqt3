@@ -48,7 +48,7 @@
 #include "ntqobject.h"
 #endif // QT_H
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
 
 #if __GNUC__ - 0 > 3
 #pragma GCC system_header
@@ -61,7 +61,7 @@ class TQUrlOperator;
 class TQNetworkProtocolPrivate;
 template <class T> class TQValueList;
 
-class Q_EXPORT TQNetworkProtocolFactoryBase
+class TQ_EXPORT TQNetworkProtocolFactoryBase
 {
 public:
    TQNetworkProtocolFactoryBase();
@@ -84,7 +84,7 @@ public:
 
 typedef TQDict< TQNetworkProtocolFactoryBase > TQNetworkProtocolDict;
 
-class Q_EXPORT TQNetworkProtocol : public TQObject
+class TQ_EXPORT TQNetworkProtocol : public TQObject
 {
     TQ_OBJECT
 
@@ -200,7 +200,7 @@ private:	// Disabled copy constructor and operator=
 
 class TQNetworkOperationPrivate;
 
-class Q_EXPORT TQNetworkOperation : public TQObject
+class TQ_EXPORT TQNetworkOperation : public TQObject
 {
     TQ_OBJECT
     friend class TQUrlOperator;
@@ -243,6 +243,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_NETWORKPROTOCOL
+#endif // TQT_NO_NETWORKPROTOCOL
 
 #endif // TQNETWORKPROTOCOL_H

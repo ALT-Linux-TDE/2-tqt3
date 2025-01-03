@@ -56,17 +56,17 @@
 #include "ntqstyle.h"
 #include "ntqmetaobject.h"
 #include "ntqguardedptr.h"
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 #include "ntqthread.h"
 #endif
 #if defined(QT_ACCESSIBILITY_SUPPORT)
 #include "ntqaccessible.h"
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #include "qt_windows.h"
 #include "qinputcontext_p.h"
 #endif
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 #include "qwsmanager_qws.h"
 #endif
 #include "qfontdata_p.h"
@@ -455,7 +455,7 @@
   in the file qapp_xxx.cpp.
  *****************************************************************************/
 
-#if defined(Q_WS_QWS) || defined(Q_OS_TEMP)
+#if defined(TQ_WS_QWS) || defined(Q_OS_TEMP)
 static const int WDictSize = 163; // plenty for small devices
 #else
 static const int WDictSize = 1123; // plenty for 5 big complex windows
@@ -530,7 +530,7 @@ static TQFont qt_naturalWidgetFont( TQWidget* w ) {
     return naturalfont;
 }
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 static TQPalette qt_naturalWidgetPalette( TQWidget* w ) {
     TQPalette naturalpalette = TQApplication::palette( w );
     if ( !w->isTopLevel() && naturalpalette.isCopyOf( TQApplication::palette() ) )
@@ -542,7 +542,7 @@ static TQPalette qt_naturalWidgetPalette( TQWidget* w ) {
 TQSize qt_naturalWidgetSize( TQWidget *w ) {
     TQSize s = w->sizeHint();
     TQSizePolicy::ExpandData exp;
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
     if ( w->layout() ) {
 	if ( w->layout()->hasHeightForWidth() )
 	    s.setHeight( w->layout()->totalHeightForWidth( s.width() ) );
@@ -558,7 +558,7 @@ TQSize qt_naturalWidgetSize( TQWidget *w ) {
 	s.setWidth( TQMAX( s.width(), 200 ) );
     if ( exp & TQSizePolicy::Vertically )
 	s.setHeight( TQMAX( s.height(), 150 ) );
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     TQRect screen = TQApplication::desktop()->screenGeometry( w->x11Screen() );
 #else // all others
     TQRect screen = TQApplication::desktop()->screenGeometry( w->pos() );
@@ -883,14 +883,14 @@ TQSize qt_naturalWidgetSize( TQWidget *w ) {
 TQWidget::TQWidget( TQWidget *parent, const char *name, WFlags f, NFlags n )
     : TQObject( parent, name ), TQPaintDevice( TQInternal::Widget )
 {
-#if defined(QT_CHECK_STATE) && !defined(Q_WS_WIN)
+#if defined(QT_CHECK_STATE) && !defined(TQ_WS_WIN)
     if ( tqApp->type() == TQApplication::Tty ) {
 	tqWarning( "TQWidget: Cannot create a TQWidget when no GUI "
 		  "is being used" );
     }
 #endif
 
-#if defined(QT_THREAD_SUPPORT) && defined(QT_CHECK_STATE)
+#if defined(TQT_THREAD_SUPPORT) && defined(QT_CHECK_STATE)
     if (TQThread::currentThreadObject() != TQApplication::guiThread()) {
 	tqFatal( "TQWidget: Cannot create a TQWidget outside of the main GUI thread" );
     }
@@ -911,22 +911,22 @@ TQWidget::TQWidget( TQWidget *parent, const char *name, WFlags f, NFlags n )
     in_show = 0;
     in_show_maximized = 0;
     im_enabled = FALSE;
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
     lay_out = 0;
 #endif
     extra = 0;					// no extra widget info
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     bg_col = pal.active().background();		// default background color
 #endif
     create();					// platform-dependent init
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     pal = isTopLevel() ? TQApplication::palette() : parentWidget()->palette();
 #endif
     if ( ! isTopLevel() )
 	fnt = parentWidget()->font();
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     fnt.x11SetScreen( x11Screen() );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     if ( !isDesktop() )
 	setBackgroundFromMode(); //### parts of this are done in create but not all (see reparent(...) )
@@ -988,8 +988,8 @@ TQWidget::~TQWidget()
 	    tqApp->quit();
     }
 
-    if ( hasFocus() )
-	clearFocus();
+    if ( tqApp && hasFocus() )
+        clearFocus();
 
     if ( isTopLevel() && isShown() && winId() )
 	hide();
@@ -1008,7 +1008,10 @@ TQWidget::~TQWidget()
 	childObjects = 0;
     }
 
-    TQApplication::removePostedEvents( this );
+    if ( tqApp )
+    {
+	TQApplication::removePostedEvents( this );
+    }
 
     destroy();					// platform-dependent cleanup
     if ( extra )
@@ -1044,7 +1047,7 @@ void TQWidget::destroyMapper()
     TQWidgetIntDictIt it( *((TQWidgetIntDict*)mapper) );
     TQWidgetMapper * myMapper = mapper;
     mapper = 0;
-    register TQWidget *w;
+    TQWidget *w;
     while ( (w=it.current()) ) {		// remove parents widgets
 	++it;
 	if ( !w->parentObj )			// widget is a parent
@@ -1100,7 +1103,7 @@ void TQWidget::setWinId( WId id )		// set widget identifier
     if ( winid )
 	mapper->remove( winid );
     winid = id;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     hd = id;					// X11: hd == ident
 #endif
     if ( id )
@@ -1139,10 +1142,10 @@ void TQWidget::createTLExtra()
 	createExtra();
     if ( !extra->topextra ) {
 	TQTLWExtra* x = extra->topextra = new TQTLWExtra;
-#if defined( Q_WS_WIN ) || defined( Q_WS_MAC )
+#if defined( TQ_WS_WIN ) || defined( TQ_WS_MAC )
 	x->opacity = 255;
 #endif
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	x->icon = 0;
 #endif
 	x->focusData = 0;
@@ -1150,7 +1153,7 @@ void TQWidget::createTLExtra()
 	x->incw = x->inch = 0;
 	x->basew = x->baseh = 0;
 	x->normalGeometry = TQRect(0,0,-1,-1);
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	x->embedded = 0;
 	x->parentWinId = 0;
 	x->spont_unmapped = 0;
@@ -1159,7 +1162,7 @@ void TQWidget::createTLExtra()
 	x->ussize = 0;
 #endif
 	x->savedFlags = 0;
-#if defined(Q_WS_QWS) && !defined(QT_NO_QWS_MANAGER)
+#if defined(TQ_WS_QWS) && !defined(TQT_NO_QWS_MANAGER)
 	x->decor_allocated_region = TQRegion();
 	x->qwsManager = 0;
 #endif
@@ -1181,14 +1184,14 @@ void TQWidget::createExtra()
 	extra->maxw = extra->maxh = TQWIDGETSIZE_MAX;
 	extra->bg_pix = 0;
 	extra->focus_proxy = 0;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	extra->curs = 0;
 #endif
 	extra->topextra = 0;
 	extra->bg_mode = PaletteBackground;
 	extra->bg_mode_visual = PaletteBackground;
 	extra->bg_origin = WidgetOrigin;
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 	extra->style = 0;
 #endif
 	extra->size_policy = TQSizePolicy( TQSizePolicy::Preferred,
@@ -1211,17 +1214,17 @@ void TQWidget::deleteExtra()
     if ( extra ) {				// if exists
 	delete extra->m_ceData;
 	delete extra->bg_pix;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	delete extra->curs;
 #endif
 	deleteSysExtra();
 	if ( extra->topextra ) {
 	    deleteTLSysExtra();
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 	    delete extra->topextra->icon;
 #endif
 	    delete extra->topextra->focusData;
-#if defined(Q_WS_QWS) && !defined(QT_NO_QWS_MANAGER)
+#if defined(TQ_WS_QWS) && !defined(TQT_NO_QWS_MANAGER)
 	    delete extra->topextra->qwsManager;
 #endif
 	    delete extra->topextra;
@@ -1246,7 +1249,7 @@ void TQWidget::deactivateWidgetCleanup()
     if ( this == TQApplication::active_window )
 	tqApp->setActiveWindow( 0 );
     // If the is the active mouse press widget, reset it
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     extern TQGuardedPtr<TQWidget> qt_button_down;
 #else
     extern TQWidget *qt_button_down;
@@ -1323,7 +1326,7 @@ TQWidget *TQWidget::find( WId id )
     \sa find()
 */
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 /*!
     Returns the GUI style for this widget
 
@@ -1768,7 +1771,7 @@ void TQWidget::setEnabled( bool enable )
 	    }
 	}
     }
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     if ( testWState( WState_OwnCursor ) ) {
 	// enforce the windows behavior of clearing the cursor on
 	// disabled widgets
@@ -1777,7 +1780,7 @@ void TQWidget::setEnabled( bool enable )
 	tqt_x11_enforce_cursor( this );
     }
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     TQInputContext::enable( this, im_enabled & !((bool)testWState(WState_Disabled)) );
 #endif
 }
@@ -1839,7 +1842,7 @@ void TQWidget::enabledChange( bool )
 
 void TQWidget::windowActivationChange( bool )
 {
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     if ( !isVisible() )
 	return;
 
@@ -2415,7 +2418,7 @@ TQWidget *TQWidget::topLevelWidget() const
 */
 const TQColor &TQWidget::paletteForegroundColor() const
 {
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     BackgroundMode mode = extra ? (BackgroundMode) extra->bg_mode_visual : PaletteBackground;
     return colorGroup().color( TQPalette::foregroundRoleFromMode(mode) );
 #else
@@ -2425,7 +2428,7 @@ const TQColor &TQWidget::paletteForegroundColor() const
 
 void TQWidget::setPaletteForegroundColor( const TQColor & color )
 {
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     BackgroundMode mode = extra ? (BackgroundMode) extra->bg_mode_visual : PaletteBackground;
     TQPalette pal = palette();
     TQColorGroup::ColorRole role = TQPalette::foregroundRoleFromMode( mode );
@@ -2496,7 +2499,7 @@ void TQWidget::setErasePixmap( const TQPixmap &pixmap )
 
 void TQWidget::setBackgroundFromMode()
 {
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     TQColorGroup::ColorRole r = TQColorGroup::Background;
     if ( extra ) {
 	int i = (BackgroundMode)extra->bg_mode;
@@ -2549,7 +2552,7 @@ void TQWidget::setBackgroundFromMode()
 	    r = TQColorGroup::ButtonText;
 	    break;
 	case X11ParentRelative:
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	    setBackgroundX11Relative();
 #endif
 	    return;
@@ -2734,7 +2737,7 @@ void TQWidget::setBackgroundModeDirect( BackgroundMode m )
 */
 const TQColor & TQWidget::paletteBackgroundColor() const
 {
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     BackgroundMode mode = extra ? (BackgroundMode) extra->bg_mode_visual : PaletteBackground;
     switch( mode ) {
     case FixedColor:
@@ -2753,7 +2756,7 @@ const TQColor & TQWidget::paletteBackgroundColor() const
 
 void TQWidget::setPaletteBackgroundColor( const TQColor &color )
 {
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     BackgroundMode mode = extra ? (BackgroundMode) extra->bg_mode_visual : PaletteBackground;
     switch( mode ) {
     case FixedColor:
@@ -2797,7 +2800,7 @@ void TQWidget::setPaletteBackgroundColor( const TQColor &color )
 */
 const TQPixmap *TQWidget::paletteBackgroundPixmap() const
 {
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     BackgroundMode mode = extra ? (BackgroundMode) extra->bg_mode_visual : PaletteBackground;
     switch( mode ) {
     case FixedColor:
@@ -2816,7 +2819,7 @@ const TQPixmap *TQWidget::paletteBackgroundPixmap() const
 
 void TQWidget::setPaletteBackgroundPixmap( const TQPixmap &pixmap )
 {
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     BackgroundMode mode = extra ? (BackgroundMode) extra->bg_mode_visual : PaletteBackground;
     switch( mode ) {
     case FixedColor:
@@ -2853,7 +2856,7 @@ void TQWidget::setPaletteBackgroundPixmap( const TQPixmap &pixmap )
 const TQBrush& TQWidget::backgroundBrush() const
 {
     static TQBrush noBrush;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     BackgroundMode mode = extra ? (BackgroundMode) extra->bg_mode_visual : PaletteBackground;
     switch( mode ) {
     case FixedColor:
@@ -2882,7 +2885,7 @@ const TQBrush& TQWidget::backgroundBrush() const
 
     \sa palette
 */
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 const TQColorGroup &TQWidget::colorGroup() const
 {
     if ( !isEnabled() )
@@ -2913,7 +2916,7 @@ const TQColorGroup &TQWidget::colorGroup() const
     \sa ownPalette, colorGroup(), TQApplication::palette()
 */
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 void TQWidget::setPalette( const TQPalette &palette )
 {
     own_palette = TRUE;
@@ -2968,7 +2971,7 @@ void TQWidget::unsetPalette()
 void TQWidget::paletteChange( const TQPalette & )
 {
 }
-#endif // QT_NO_PALETTE
+#endif // TQT_NO_PALETTE
 
 /*!
     \property TQWidget::font
@@ -3000,7 +3003,7 @@ void TQWidget::setFont( const TQFont &font )
 	return;
     TQFont old = fnt;
     fnt = font.resolve( qt_naturalWidgetFont( this ) );
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     // make sure the font set on this widget is associated with the correct screen
     fnt.x11SetScreen( x11Screen() );
 #endif
@@ -3095,7 +3098,7 @@ void TQWidget::fontChange( const TQFont & )
     \sa TQApplication::setOverrideCursor()
 */
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 const TQCursor &TQWidget::cursor() const
 {
     if ( testWState(WState_OwnCursor) )
@@ -3106,7 +3109,7 @@ const TQCursor &TQWidget::cursor() const
 	return (isTopLevel() || !parentWidget()) ? arrowCursor : parentWidget()->cursor();
 }
 #endif
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 /*!
     \property TQWidget::caption
     \brief the window caption (title)
@@ -3153,7 +3156,7 @@ TQString TQWidget::iconText() const
     return ( extra && extra->topextra ) ? extra->topextra->iconText
 	: TQString::null;
 }
-#endif //QT_NO_WIDGET_TOPEXTRA
+#endif //TQT_NO_WIDGET_TOPEXTRA
 
 /*!
     \property TQWidget::mouseTracking
@@ -3203,15 +3206,15 @@ void TQWidget::setFocusProxy( TQWidget * w )
     createExtra();
 
     if ( extra->focus_proxy ) {
-	disconnect( extra->focus_proxy, SIGNAL(destroyed()),
-		    this, SLOT(focusProxyDestroyed()) );
+	disconnect( extra->focus_proxy, TQ_SIGNAL(destroyed()),
+		    this, TQ_SLOT(focusProxyDestroyed()) );
 	extra->focus_proxy = 0;
     }
 
     if ( w ) {
 	setFocusPolicy( w->focusPolicy() );
-	connect( w, SIGNAL(destroyed()),
-		 this, SLOT(focusProxyDestroyed()) );
+	connect( w, TQ_SIGNAL(destroyed()),
+		 this, TQ_SLOT(focusProxyDestroyed()) );
     }
     extra->focus_proxy = w;
 }
@@ -3298,7 +3301,7 @@ void TQWidget::setFocus()
 
     TQFocusData * f = focusData( TRUE );
     if ( f->it.current() == this && tqApp->focusWidget() == this
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	&& GetFocus() == winId()
 #endif
 	)
@@ -3318,7 +3321,7 @@ void TQWidget::setFocus()
     if ( isActiveWindow() ) {
 	TQWidget * prev = tqApp->focus_widget;
 	if ( prev ) {
-	    // This part is never executed when Q_WS_X11? Preceding XFocusOut
+	    // This part is never executed when TQ_WS_X11? Preceding XFocusOut
 	    // had already reset focus_widget when received XFocusIn
 
 	    // Don't reset input context explicitly here. Whether reset or not
@@ -3337,7 +3340,7 @@ void TQWidget::setFocus()
 #endif
 	    }
 	}
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	else {
 	    TQInputContext::endComposition();
 	}
@@ -3346,7 +3349,7 @@ void TQWidget::setFocus()
 	if( isInputMethodEnabled() )
 	    focusInputContext();
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	if ( !topLevelWidget()->isPopup() )
 	    SetFocus( winId() );
 	else {
@@ -3354,7 +3357,7 @@ void TQWidget::setFocus()
 #if defined(QT_ACCESSIBILITY_SUPPORT)
 	    TQAccessible::updateAccessibility( this, 0, TQAccessible::Focus );
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	}
 #endif
 
@@ -3392,7 +3395,7 @@ void TQWidget::clearFocus()
 	focusProxy()->clearFocus();
 	return;
     } else if ( hasFocus() ) {
-#if !defined(Q_WS_X11)
+#if !defined(TQ_WS_X11)
         resetInputContext();
 #else
 	unfocusInputContext();
@@ -3402,7 +3405,7 @@ void TQWidget::clearFocus()
 	tqApp->focus_widget = 0;
 	TQFocusEvent out( TQEvent::FocusOut );
 	TQApplication::sendEvent( w, &out );
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	if ( !isPopup() && GetFocus() == winId() )
 	    SetFocus( 0 );
 	else {
@@ -3410,7 +3413,7 @@ void TQWidget::clearFocus()
 #if defined(QT_ACCESSIBILITY_SUPPORT)
 	    TQAccessible::updateAccessibility( this, 0, TQAccessible::Focus );
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	}
 #endif
     }
@@ -3540,7 +3543,7 @@ TQFocusData * TQWidget::focusData( bool create )
 void TQWidget::setInputMethodEnabled( bool b )
 {
     im_enabled = b;
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     TQInputContext::enable( this, im_enabled & !((bool)testWState(WState_Disabled)) );
 #endif
 }
@@ -3603,7 +3606,7 @@ bool TQWidget::isActiveWindow() const
 	tlw = parentWidget()->topLevelWidget();
     if(tlw == tqApp->activeWindow() || ( isVisible() && tlw->isPopup() ))
 	return TRUE;
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     const_cast<TQWidget*>(this)->createExtra();
     if (!extra->m_ceData) {
         const_cast<TQWidget*>(this)->extra->m_ceData = new TQStyleControlElementData();
@@ -3629,7 +3632,7 @@ bool TQWidget::isActiveWindow() const
 	}
     }
 #endif
-#if defined(Q_WS_WIN32)
+#if defined(TQ_WS_WIN32)
     HWND parent = tlw->winId();
     HWND topparent = GetActiveWindow();
     while ( parent ) {
@@ -4056,7 +4059,7 @@ void TQWidget::show()
 
     // On Windows, show the popup now so that our own focus handling
     // stores the correct old focus widget even if it's stolen in the showevent
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( testWFlags(WType_Popup) )
 	tqApp->openPopup( this );
 #endif
@@ -4077,7 +4080,7 @@ void TQWidget::show()
     else
 	showWindow();
 
-#if !defined(Q_WS_WIN)
+#if !defined(TQ_WS_WIN)
     if ( testWFlags(WType_Popup) )
 	tqApp->openPopup( this );
 #endif
@@ -4119,7 +4122,7 @@ void TQWidget::hide()
     if ( testWFlags(WShowModal) )
 	tqt_leave_modal( this );
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if ( isTopLevel() && !isPopup() && parentWidget() && isActiveWindow() )
 	parentWidget()->setActiveWindow();	// Activate parent
 #endif
@@ -4172,7 +4175,7 @@ void TQWidget::showChildren( bool spontaneous )
 {
      if ( children() ) {
 	TQObjectListIt it(*children());
-	register TQObject *object;
+	TQObject *object;
 	TQWidget *widget;
 	while ( it ) {
 	    object = it.current();
@@ -4197,7 +4200,7 @@ void TQWidget::hideChildren( bool spontaneous )
 {
      if ( children() ) {
 	TQObjectListIt it(*children());
-	register TQObject *object;
+	TQObject *object;
 	TQWidget *widget;
 	while ( it ) {
 	    object = it.current();
@@ -4242,7 +4245,7 @@ void TQWidget::hideChildren( bool spontaneous )
 
 void TQWidget::polish()
 {
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     if ( isTopLevel() ) {
 	const TQPixmap *pm = icon();
 	if ( !pm || pm->isNull() ) {
@@ -4269,7 +4272,7 @@ void TQWidget::polish()
 	if ( ! own_font &&
 	     ! TQApplication::font( this ).isCopyOf( TQApplication::font() ) )
 	    unsetFont();
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 	if ( ! own_palette &&
 	     ! TQApplication::palette( this ).isCopyOf( TQApplication::palette() ) )
 	    unsetPalette();
@@ -4338,7 +4341,7 @@ bool TQWidget::close( bool alsoDelete )
     if ( !deleted && !isHidden() )
 	hide();
     if ( checkLastWindowClosed
-	 && tqApp->receivers(SIGNAL(lastWindowClosed())) ) {
+	 && tqApp->receivers(TQ_SIGNAL(lastWindowClosed())) ) {
 	/* if there is no non-withdrawn top level window left (except
 	   the desktop, popups, or dialogs with parents), we emit the
 	   lastWindowClosed signal */
@@ -4543,13 +4546,13 @@ void TQWidget::adjustSize()
 
     if ( isTopLevel() ) {
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	TQRect screen = TQApplication::desktop()->screenGeometry( x11Screen() );
 #else // all others
 	TQRect screen = TQApplication::desktop()->screenGeometry( pos() );
 #endif
 
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 	if ( layout() ) {
 	    if ( layout()->hasHeightForWidth() ) {
 		s = s.boundedTo( screen.size() );
@@ -4592,7 +4595,7 @@ void TQWidget::adjustSize()
 
 TQSize TQWidget::sizeHint() const
 {
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
     if ( layout() )
 	return layout()->totalSizeHint();
 #endif
@@ -4618,7 +4621,7 @@ TQSize TQWidget::sizeHint() const
 */
 TQSize TQWidget::minimumSizeHint() const
 {
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
     if ( layout() )
 	return layout()->totalMinimumSize();
 #endif
@@ -4753,7 +4756,7 @@ bool TQWidget::event( TQEvent *e )
 	    if ( ! ((TQMouseEvent*)e)->isAccepted() )
 		return FALSE;
 	    break;
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 	case TQEvent::Wheel:
 	    wheelEvent( (TQWheelEvent*)e );
 	    if ( ! ((TQWheelEvent*)e)->isAccepted() )
@@ -4873,7 +4876,7 @@ bool TQWidget::event( TQEvent *e )
 	    }
 	    break;
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 	case TQEvent::Drop:
 	    dropEvent( (TQDropEvent*) e);
 	    break;
@@ -4915,7 +4918,7 @@ bool TQWidget::event( TQEvent *e )
 		unsetFont();
 	    break;
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 	case TQEvent::ParentPaletteChange:
 	    if ( isTopLevel() )
 		break;
@@ -4923,7 +4926,7 @@ bool TQWidget::event( TQEvent *e )
 	case TQEvent::ApplicationPaletteChange:
 	    if ( !own_palette && !isDesktop() )
 		unsetPalette();
-# if defined(Q_WS_QWS) && !defined (QT_NO_QWS_MANAGER)
+# if defined(TQ_WS_QWS) && !defined (TQT_NO_QWS_MANAGER)
 	    if ( isTopLevel() && topData()->qwsManager ) {
 		TQRegion r( topData()->qwsManager->region() );
 		TQApplication::postEvent(topData()->qwsManager, new TQPaintEvent(r, FALSE) );
@@ -4965,7 +4968,7 @@ bool TQWidget::event( TQEvent *e )
 	    }
 	    update();
 	    break;
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 	case TQEvent::LayoutDirectionChange:
 	    if ( layout() ) {
 		layout()->activate();
@@ -5108,7 +5111,7 @@ void TQWidget::mouseDoubleClickEvent( TQMouseEvent *e )
     mousePressEvent( e );			// try mouse press event
 }
 
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 /*!
     This event handler, for event \a e, can be reimplemented in a
     subclass to receive wheel events for the widget.
@@ -5468,7 +5471,7 @@ void TQWidget::imEndEvent( TQIMEvent *e )
 }
 
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 /*!
     This event handler is called when a drag is in progress and the
@@ -5522,7 +5525,7 @@ void TQWidget::dropEvent( TQDropEvent * )
 {
 }
 
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 /*!
     This event handler can be reimplemented in a subclass to receive
@@ -5568,7 +5571,7 @@ void TQWidget::hideEvent( TQHideEvent * )
 */
 
 
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
 
 /*!
     This special event handler can be reimplemented in a subclass to
@@ -5590,7 +5593,7 @@ bool TQWidget::macEvent( MSG * )
 }
 
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 
 /*!
     This special event handler can be reimplemented in a subclass to
@@ -5611,7 +5614,7 @@ bool TQWidget::winEvent( MSG * )
 }
 
 #endif
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 
 /*!
     This special event handler can be reimplemented in a subclass to
@@ -5632,7 +5635,7 @@ bool TQWidget::x11Event( XEvent * )
 }
 
 #endif
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 
 /*!
     This special event handler can be reimplemented in a subclass to
@@ -5834,7 +5837,7 @@ TQPoint TQWidget::backgroundOffset() const
 
   \sa layout() TQLayout sizePolicy()
 */
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 void TQWidget::setLayout( TQLayout *l )
 {
     lay_out = l;
@@ -6027,7 +6030,7 @@ void TQWidget::reparent( TQWidget *parent, WFlags f, const TQPoint &p,
 	unsetFont();
     else
 	setFont( fnt.resolve( qt_naturalWidgetFont( this ) ) );
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     if (!own_palette)
 	unsetPalette();
 #endif

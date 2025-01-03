@@ -190,20 +190,20 @@ public:
         menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;File", file );
         for (int i=first_draw_item; i&lt;=last_draw_item; i++)
             file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( drawItemText(i), i );
-<a name="x67"></a>        connect( menubar, SIGNAL(<a href="ntqmenubar.html#activated">activated</a>(int)), this, SLOT(doMenuItem(int)) );
+<a name="x67"></a>        connect( menubar, TQ_SIGNAL(<a href="ntqmenubar.html#activated">activated</a>(int)), this, TQ_SLOT(doMenuItem(int)) );
 <a name="x69"></a>        file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Quit", tqApp,  SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Quit", tqApp,  TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
         options = new <a href="ntqpopupmenu.html">TQPopupMenu</a>();
         <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( options );
         menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Options", options );
-        td_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Timer driven", this, SLOT(timerDriven()) );
-        ld_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Loop driven", this, SLOT(loopDriven()) );
+        td_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Timer driven", this, TQ_SLOT(timerDriven()) );
+        ld_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Loop driven", this, TQ_SLOT(loopDriven()) );
         options-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        dl_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Default label", this, SLOT(defaultLabel()) );
-        cl_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Custom label", this, SLOT(customLabel()) );
+        dl_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Default label", this, TQ_SLOT(defaultLabel()) );
+        cl_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Custom label", this, TQ_SLOT(customLabel()) );
         options-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-        md_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "No minimum duration", this, SLOT(toggleMinimumDuration()) );
+        md_id = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "No minimum duration", this, TQ_SLOT(toggleMinimumDuration()) );
 <a name="x81"></a>        options-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
         loopDriven();
         defaultLabel();
@@ -320,7 +320,7 @@ private:
             pb = newProgressDialog("Drawing rectangles.\n"
                                    "Using timer event.", n, FALSE);
             pb-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>("Please Wait");
-<a name="x82"></a>            connect(pb, SIGNAL(<a href="ntqprogressdialog.html#cancelled">cancelled</a>()), this, SLOT(stopDrawing()));
+<a name="x82"></a>            connect(pb, TQ_SIGNAL(<a href="ntqprogressdialog.html#cancelled">cancelled</a>()), this, TQ_SLOT(stopDrawing()));
             enableDrawingItems(FALSE);
             startTimer(0);
             got_stop = FALSE;

@@ -87,10 +87,10 @@ body { background: #ffffff; color: black; }
 
 struct TQAccessibleInterface;
 
-class Q_EXPORT TQAccessible
+class TQ_EXPORT TQAccessible
 {
 private:
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     static TQMAC_PASCAL OSStatus globalEventProcessor(EventHandlerCallRef,  EventRef, void *);
     static TQObject *queryAccessibleObject(TQAccessibleInterface *);
 #endif
@@ -267,7 +267,7 @@ public:
 // {EC86CB9C-5DA0-4c43-A739-13EBDF1C6B14}
 #define IID_QAccessible TQUuid( 0xec86cb9c, 0x5da0, 0x4c43, 0xa7, 0x39, 0x13, 0xeb, 0xdf, 0x1c, 0x6b, 0x14 )
 
-struct Q_EXPORT TQAccessibleInterface : public TQAccessible, public TQUnknownInterface
+struct TQ_EXPORT TQAccessibleInterface : public TQAccessible, public TQUnknownInterface
 {
     // check for valid pointers
     virtual bool	isValid() const = 0;
@@ -301,19 +301,19 @@ struct Q_EXPORT TQAccessibleInterface : public TQAccessible, public TQUnknownInt
 #define IID_QAccessibleFactory TQUuid( 0x49f4c6a7, 0x412f, 0x41de, 0x9e, 0x24, 0x64, 0x88, 0x43, 0x42, 0x1f, 0xd3 )
 #endif
 
-struct Q_EXPORT TQAccessibleFactoryInterface : public TQAccessible, public TQFeatureListInterface
+struct TQ_EXPORT TQAccessibleFactoryInterface : public TQAccessible, public TQFeatureListInterface
 {
     virtual TQRESULT createAccessibleInterface( const TQString &amp;, TQObject *, TQAccessibleInterface** ) = 0;
 };
 
-class Q_EXPORT TQAccessibleObject : public TQObject, public TQAccessibleInterface
+class TQ_EXPORT TQAccessibleObject : public TQObject, public TQAccessibleInterface
 {
 public:
     TQAccessibleObject( TQObject *object );
     virtual ~TQAccessibleObject();
 
     TQRESULT	queryInterface( const TQUuid &amp;, TQUnknownInterface** );
-    Q_REFCOUNT
+    TQ_REFCOUNT
 
     bool	isValid() const;
 

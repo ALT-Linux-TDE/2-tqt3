@@ -38,16 +38,16 @@ void ABMainWindow::setupMenuBar()
     TQPopupMenu *file = new TQPopupMenu( this );
     menuBar()->insertItem( "&File", file );
 
-    file->insertItem( "New", this, SLOT( fileNew() ), CTRL + Key_N );
-    file->insertItem( TQPixmap( "fileopen.xpm" ), "Open", this, SLOT( fileOpen() ), CTRL + Key_O );
+    file->insertItem( "New", this, TQ_SLOT( fileNew() ), CTRL + Key_N );
+    file->insertItem( TQPixmap( "fileopen.xpm" ), "Open", this, TQ_SLOT( fileOpen() ), CTRL + Key_O );
     file->insertSeparator();
-    file->insertItem( TQPixmap( "filesave.xpm" ), "Save", this, SLOT( fileSave() ), CTRL + Key_S );
-    file->insertItem( "Save As...", this, SLOT( fileSaveAs() ) );
+    file->insertItem( TQPixmap( "filesave.xpm" ), "Save", this, TQ_SLOT( fileSave() ), CTRL + Key_S );
+    file->insertItem( "Save As...", this, TQ_SLOT( fileSaveAs() ) );
     file->insertSeparator();
-    file->insertItem( TQPixmap( "fileprint.xpm" ), "Print...", this, SLOT( filePrint() ), CTRL + Key_P );
+    file->insertItem( TQPixmap( "fileprint.xpm" ), "Print...", this, TQ_SLOT( filePrint() ), CTRL + Key_P );
     file->insertSeparator();
-    file->insertItem( "Close", this, SLOT( closeWindow() ), CTRL + Key_W );
-    file->insertItem( "Quit", tqApp, SLOT( quit() ), CTRL + Key_Q );
+    file->insertItem( "Close", this, TQ_SLOT( closeWindow() ), CTRL + Key_W );
+    file->insertItem( "Quit", tqApp, TQ_SLOT( quit() ), CTRL + Key_Q );
 }
 
 void ABMainWindow::setupFileTools()

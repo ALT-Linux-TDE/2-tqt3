@@ -51,12 +51,12 @@ class TQPopupMenu;
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_LINEEDIT
+#ifndef TQT_NO_LINEEDIT
 
 class TQTextParagraph;
 class TQTextCursor;
 
-class Q_EXPORT TQLineEdit : public TQFrame
+class TQ_EXPORT TQLineEdit : public TQFrame
 {
     TQ_OBJECT
     TQ_ENUMS( EchoMode )
@@ -109,7 +109,7 @@ public:
 
     int alignment() const;
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     void cursorLeft( bool mark, int steps = 1 ) { cursorForward( mark, -steps ); }
     void cursorRight( bool mark, int steps = 1 ) { cursorForward( mark, steps ); }
 #endif
@@ -135,7 +135,7 @@ public:
     bool isUndoAvailable() const;
     bool isRedoAvailable() const;
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     bool hasMarkedText() const { return hasSelectedText(); }
     TQString markedText() const { return selectedText(); }
 #endif
@@ -165,7 +165,7 @@ public slots:
     virtual void setSelection( int, int );
     virtual void setCursorPosition( int );
     virtual void setAlignment( int flag );
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     virtual void cut();
     virtual void copy() const;
     virtual void paste();
@@ -192,7 +192,7 @@ protected:
     void focusOutEvent( TQFocusEvent * );
     void resizeEvent( TQResizeEvent * );
     void drawContents( TQPainter * );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void dragEnterEvent( TQDragEnterEvent * );
     void dragMoveEvent( TQDragMoveEvent *e );
     void dragLeaveEvent( TQDragLeaveEvent *e );
@@ -202,7 +202,7 @@ protected:
     bool sendMouseEventToInputContext( TQMouseEvent *e );
     virtual TQPopupMenu *createPopupMenu();
     void windowActivationChange( bool );
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     void repaintArea( int, int ) { update(); }
 #endif
 
@@ -227,6 +227,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_LINEEDIT
+#endif // TQT_NO_LINEEDIT
 
 #endif // TQLINEEDIT_H

@@ -20,8 +20,8 @@
 
 \title Tutorial #2
 
-This tutorial presents a more "real world" example of Qt programming
-than the first tutorial. It introduces many aspects of Qt programming,
+This tutorial presents a more "real world" example of TQt programming
+than the first tutorial. It introduces many aspects of TQt programming,
 including the creation of menus (including a recent files list),
 toolbars and dialogs, loading and saving user settings, etc. 
 
@@ -134,15 +134,15 @@ of chart has a (relative) position stored in the \c m_propoints array.
 \printto class
 
 Although the \c Element class is a purely internal data class, it
-\c{#include}s four Qt classes. Qt is often perceived as a purely GUI
+\c{#include}s four TQt classes. TQt is often perceived as a purely GUI
 toolkit, but it provides many non-GUI classes to support most aspects
 of application programming. We use \c ntqcolor.h so that we can hold the
 paint color and text color in the \c Element class. The use of \c
-ntqnamespace.h is slightly obscure. Most Qt classes are derived from the
+ntqnamespace.h is slightly obscure. Most TQt classes are derived from the
 \link ntqt.html Qt\endlink superclass which contains various
 enumerations. The \c Element class does not derive from \link ntqt.html
 Qt\endlink, so we need to include \c ntqnamespace.h to have access to
-the Qt enum names. An alternative approach would have been to have
+the TQt enum names. An alternative approach would have been to have
 made \c Element a \link ntqt.html Qt\endlink subclass. We include \c
 ntqstring.h to make use of Qt's Unicode strings. As a convenience we
 will \c typedef a vector container for \c{Element}s, which is why we
@@ -286,7 +286,7 @@ separator. The final field is the label followed by a newline.
 To read an element we read one record (i.e. one line). We break the
 data into fields using QStringList::split(). Because it is possible
 that a label will contain \c FIELD_SEP characters we use
-QString::section() to extract all the text from the last field to the
+TQString::section() to extract all the text from the last field to the
 end of the line. If there are enough fields and the value, colors and
 pattern data is valid we use \c Element::set() to write this data into
 the element; otherwise we leave the element \c INVALID. We then
@@ -307,7 +307,7 @@ which our users will create, edit and visualise their data sets.
 \row
 \i For more information on Qt's data streaming facilities see \link
 datastreamformat.html QDataStream Operators' Formats\endlink, and see
-the source code for any of the Qt classes mentioned that are similar
+the source code for any of the TQt classes mentioned that are similar
 to what you want to store.
 \endtable
 
@@ -422,7 +422,7 @@ outside of the constructor.
 \table
 \row
 \i Most user actions are suitable as both menu items and as toolbar
-buttons. Qt allows us to create a single QAction which can be added to
+buttons. TQt allows us to create a single QAction which can be added to
 both a menu and a toolbar. This approach ensures that menu items and
 toolbar buttons stay in sync and saves duplicating code.
 \endtable
@@ -556,7 +556,7 @@ the elements (in the \c m_elements \c ElementVector) when the form is
 constructed, and also whenever the user loads an existing data set or
 creates a new data set.
 
-We reset the caption and set the current filename to QString::null. We
+We reset the caption and set the current filename to TQString::null. We
 also populate the elements vector with invalid elements. This isn't
 necessary, but giving each element a different color is more
 convenient for the user since when they enter values each one will
@@ -628,7 +628,7 @@ We hold the list of recently opened files in a string list.
 
 \quotefile chart/chartform.cpp
 \skipto ::updateRecentFilesMenu()
-\printuntil SLOT
+\printuntil TQ_SLOT
 \printline
 \printline
 \printline
@@ -642,7 +642,7 @@ menu item an id which is the same as the index position of the item in
 the string list, and connect each menu item to the fileOpenRecent()
 slot. The old file menu items are deleted at the same time by going
 through each possible recent file menu item id. This works because the
-other file menu items had ids created by Qt (all of which are \< 0);
+other file menu items had ids created by TQt (all of which are \< 0);
 whereas the menu items we're creating all have ids \>= 0.
 
 \quotefile chart/chartform.cpp
@@ -1215,7 +1215,7 @@ color and set the cell's text to the new color's name.
 If the user clicks OK we must update the elements vector. We iterate
 over the vector and set each element's value to the value the user has
 entered or \c INVALID if the value is invalid. We set the value color
-and the label color by constructing QColor temporaries that take a
+and the label color by constructing TQColor temporaries that take a
 color name as argument. The pattern is set to the pattern combobox's
 current item with an offset of 1 (since our pattern numbers begin at
 1, but the combobox's items are indexed from 0).
@@ -1313,7 +1313,7 @@ The user may opt to display their own labels as they are or to add the
 values at the end of each label, either as-is or as percentages. 
 
 We create a frame to present the radio buttons in and create a layout
-for them. We create a button group (so that Qt will take care of
+for them. We create a button group (so that TQt will take care of
 handling the exclusive radio button behaviour automatically). Next we
 create the radio buttons, making "No" the default.
 

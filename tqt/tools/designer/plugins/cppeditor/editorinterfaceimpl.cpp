@@ -45,8 +45,8 @@ EditorInterfaceImpl::EditorInterfaceImpl()
     : EditorInterface(), viewManager( 0 ), dIface( 0 )
 {
     updateTimer = new TQTimer( this );
-    connect( updateTimer, SIGNAL( timeout() ),
-	     this, SLOT( update() ) );
+    connect( updateTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( update() ) );
 }
 
 EditorInterfaceImpl::~EditorInterfaceImpl()
@@ -82,7 +82,7 @@ TQWidget *EditorInterfaceImpl::editor( bool readonly,
 	CppEditor *e = new CppEditor( TQString::null, viewManager, "editor", dIface );
 	e->setEditable( !readonly );
 	e->installEventFilter( this );
-	connect( e, SIGNAL( intervalChanged() ), this, SLOT( intervalChanged() ) );
+	connect( e, TQ_SIGNAL( intervalChanged() ), this, TQ_SLOT( intervalChanged() ) );
 	TQApplication::sendPostedEvents( viewManager, TQEvent::ChildInserted );
     }
     return viewManager->currentView();
@@ -93,10 +93,10 @@ void EditorInterfaceImpl::setText( const TQString &txt )
     if ( !viewManager || !viewManager->currentView() )
 	return;
     CppEditor *e = (CppEditor*)viewManager->currentView();
-    disconnect( e, SIGNAL( modificationChanged( bool ) ), this, SLOT( modificationChanged( bool ) ) );
+    disconnect( e, TQ_SIGNAL( modificationChanged( bool ) ), this, TQ_SLOT( modificationChanged( bool ) ) );
     e->setText( txt );
     e->setModified( FALSE );
-    connect( e, SIGNAL( modificationChanged( bool ) ), this, SLOT( modificationChanged( bool ) ) );
+    connect( e, TQ_SIGNAL( modificationChanged( bool ) ), this, TQ_SLOT( modificationChanged( bool ) ) );
 }
 
 TQString EditorInterfaceImpl::text() const
@@ -334,5 +334,5 @@ void EditorInterfaceImpl::onBreakPointChange( TQObject *receiver, const char *sl
 {
     if ( !viewManager )
 	return;
-    connect( viewManager, SIGNAL( markersChanged() ), receiver, slot );
+    connect( viewManager, TQ_SIGNAL( markersChanged() ), receiver, slot );
 }

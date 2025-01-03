@@ -38,11 +38,9 @@
 **
 **********************************************************************/
 
-#define QT_CLEAN_NAMESPACE
-
 #include "ntqsound.h"
 
-#ifndef QT_NO_SOUND
+#ifndef TQT_NO_SOUND
 
 #include "ntqptrdict.h"
 #include "ntqsocketnotifier.h"
@@ -122,8 +120,8 @@ TQAuServerNAS::TQAuServerNAS(TQObject* parent) :
 	// Ask TQt for async messages...
 	sn=new TQSocketNotifier(AuServerConnectionNumber(nas),
 		TQSocketNotifier::Read);
-	TQObject::connect(sn, SIGNAL(activated(int)),
-		this, SLOT(dataReceived()));
+	TQObject::connect(sn, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(dataReceived()));
     } else {
 	sn = 0;
     }
@@ -225,8 +223,8 @@ void TQAuServerNAS::stop(TQSound* s)
 
 void TQAuServerNAS::init(TQSound* s)
 {
-    connect(s, SIGNAL(destroyed(TQObject *)),
-	    this, SLOT(soundDestroyed(TQObject *)));
+    connect(s, TQ_SIGNAL(destroyed(TQObject *)),
+	    this, TQ_SLOT(soundDestroyed(TQObject *)));
 
     if ( nas ) {
         AuBucketID b_id =
@@ -280,4 +278,4 @@ TQAuServer* qt_new_audio_server()
     return new TQAuServerNull(tqApp);
 }
 
-#endif // QT_NO_SOUND
+#endif // TQT_NO_SOUND

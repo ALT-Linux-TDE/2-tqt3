@@ -45,9 +45,9 @@
 #include "ntqwidget.h"
 #endif // QT_H
 
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
 
-class Q_EXPORT TQSizeGrip: public TQWidget
+class TQ_EXPORT TQSizeGrip: public TQWidget
 {
     TQ_OBJECT
 public:
@@ -70,5 +70,5 @@ private:
     TQWidget *tlw;
 };
 
-#endif //QT_NO_SIZEGRIP
+#endif //TQT_NO_SIZEGRIP
 #endif

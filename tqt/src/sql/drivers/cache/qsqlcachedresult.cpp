@@ -40,7 +40,7 @@
 #include "qsqlcachedresult.h"
 #include <ntqdatetime.h>
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 static const uint initial_cache_size = 128;
 
 class TQtSqlCachedResultPrivate
@@ -256,4 +256,4 @@ int TQtSqlCachedResult::colCount() const
 {
     return d->colCount;
 }
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

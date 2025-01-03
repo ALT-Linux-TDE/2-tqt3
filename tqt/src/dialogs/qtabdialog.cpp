@@ -40,7 +40,7 @@
 
 #include "ntqtabdialog.h"
 
-#ifndef QT_NO_TABDIALOG
+#ifndef TQT_NO_TABDIALOG
 
 #include "ntqobjectlist.h"
 #include "ntqtabbar.h"
@@ -190,17 +190,17 @@ TQTabDialog::TQTabDialog( TQWidget *parent, const char *name, bool modal,
     TQ_CHECK_PTR( d );
 
     d->tw = new TQTabWidget( this, "tab widget" );
-    connect ( d->tw, SIGNAL ( selected(const TQString&) ), this, SIGNAL( selected(const TQString&) ) );
-    connect ( d->tw, SIGNAL ( currentChanged(TQWidget*) ), this, SIGNAL( currentChanged(TQWidget*) ) );
+    connect ( d->tw, TQ_SIGNAL ( selected(const TQString&) ), this, TQ_SIGNAL( selected(const TQString&) ) );
+    connect ( d->tw, TQ_SIGNAL ( currentChanged(TQWidget*) ), this, TQ_SIGNAL( currentChanged(TQWidget*) ) );
 
     d->ok = new TQPushButton( this, "ok" );
     TQ_CHECK_PTR( d->ok );
     d->ok->setText( tr("OK") );
     d->ok->setDefault( TRUE );
-    connect( d->ok, SIGNAL(clicked()),
-	     this, SIGNAL(applyButtonPressed()) );
-    connect( d->ok, SIGNAL(clicked()),
-	     this, SLOT(accept()) );
+    connect( d->ok, TQ_SIGNAL(clicked()),
+	     this, TQ_SIGNAL(applyButtonPressed()) );
+    connect( d->ok, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(accept()) );
 }
 
 
@@ -686,8 +686,8 @@ void TQTabDialog::setApplyButton( const TQString &text )
     } else {
 	if ( !d->ab ) {
 	    d->ab = new TQPushButton( this, "apply settings" );
-	    connect( d->ab, SIGNAL(clicked()),
-		     this, SIGNAL(applyButtonPressed()) );
+	    connect( d->ab, TQ_SIGNAL(clicked()),
+		     this, TQ_SIGNAL(applyButtonPressed()) );
 	    setUpLayout();
 	}
 	d->ab->setText( text );
@@ -730,8 +730,8 @@ void TQTabDialog::setHelpButton( const TQString &text )
     } else {
 	if ( !d->hb ) {
 	    d->hb = new TQPushButton( this, "give help" );
-	    connect( d->hb, SIGNAL(clicked()),
-		     this, SIGNAL(helpButtonPressed()) );
+	    connect( d->hb, TQ_SIGNAL(clicked()),
+		     this, TQ_SIGNAL(helpButtonPressed()) );
 	    setUpLayout();
 	}
 	d->hb->setText( text );
@@ -777,8 +777,8 @@ void TQTabDialog::setDefaultButton( const TQString &text )
     } else {
 	if ( !d->db ) {
 	    d->db = new TQPushButton( this, "back to default" );
-	    connect( d->db, SIGNAL(clicked()),
-		     this, SIGNAL(defaultButtonPressed()) );
+	    connect( d->db, TQ_SIGNAL(clicked()),
+		     this, TQ_SIGNAL(defaultButtonPressed()) );
 	    setUpLayout();
 	}
 	d->db->setText( text );
@@ -826,10 +826,10 @@ void TQTabDialog::setCancelButton( const TQString &text )
     } else {
 	if ( !d->cb ) {
 	    d->cb = new TQPushButton( this, "cancel dialog" );
-	    connect( d->cb, SIGNAL(clicked()),
-		     this, SIGNAL(cancelButtonPressed()) );
-	    connect( d->cb, SIGNAL(clicked()),
-		     this, SLOT(reject()) );
+	    connect( d->cb, TQ_SIGNAL(clicked()),
+		     this, TQ_SIGNAL(cancelButtonPressed()) );
+	    connect( d->cb, TQ_SIGNAL(clicked()),
+		     this, TQ_SLOT(reject()) );
 	    setUpLayout();
 	}
 	d->cb->setText( text );
@@ -1051,8 +1051,8 @@ void TQTabDialog::setOkButton( const TQString &text )
     } else {
 	if ( !d->ok ) {
 	    d->ok = new TQPushButton( this, "ok" );
-	    connect( d->ok, SIGNAL(clicked()),
-		     this, SIGNAL(applyButtonPressed()) );
+	    connect( d->ok, TQ_SIGNAL(clicked()),
+		     this, TQ_SIGNAL(applyButtonPressed()) );
 	    setUpLayout();
 	}
 	d->ok->setText( text );

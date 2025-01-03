@@ -1,12 +1,9 @@
-#ifndef QT_CLEAN_NAMESPACE
-#define QT_CLEAN_NAMESPACE
-#endif
 #include <ntqimageformatplugin.h>
 
-#ifndef QT_NO_IMAGEFORMATPLUGIN
+#ifndef TQT_NO_IMAGEFORMATPLUGIN
 
-#ifdef QT_NO_IMAGEIO_JPEG
-#undef QT_NO_IMAGEIO_JPEG
+#ifdef TQT_NO_IMAGEIO_JPEG
+#undef TQT_NO_IMAGEIO_JPEG
 #endif
 #include "../../../../src/kernel/qjpegio.cpp"
 
@@ -71,6 +68,6 @@ bool JPEGFormat::installIOHandler( const TQString &name )
     return TRUE;
 }
 
-Q_EXPORT_PLUGIN( JPEGFormat )
+TQ_EXPORT_PLUGIN( JPEGFormat )
 
-#endif // QT_NO_IMAGEFORMATPLUGIN
+#endif // TQT_NO_IMAGEFORMATPLUGIN

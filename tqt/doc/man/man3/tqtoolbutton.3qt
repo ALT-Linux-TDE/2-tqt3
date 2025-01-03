@@ -19,13 +19,13 @@ Inherits QButton.
 .BI "enum \fBTextPosition\fR { BesideIcon, BelowIcon, Right = BesideIcon, Under = BelowIcon }"
 .br
 .ti -1c
-.BI "\fBQToolButton\fR ( QWidget * parent, const char * name = 0 )"
+.BI "\fBQToolButton\fR ( TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQToolButton\fR ( const QIconSet & iconSet, const QString & textLabel, const QString & grouptext, QObject * receiver, const char * slot, QToolBar * parent, const char * name = 0 )"
+.BI "\fBQToolButton\fR ( const QIconSet & iconSet, const TQString & textLabel, const TQString & grouptext, TQObject * receiver, const char * slot, QToolBar * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQToolButton\fR ( ArrowType type, QWidget * parent, const char * name = 0 )"
+.BI "\fBQToolButton\fR ( ArrowType type, TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QToolButton\fR ()"
@@ -61,7 +61,7 @@ Inherits QButton.
 .BI "bool \fBusesTextLabel\fR () const"
 .br
 .ti -1c
-.BI "QString \fBtextLabel\fR () const"
+.BI "TQString \fBtextLabel\fR () const"
 .br
 .ti -1c
 .BI "void \fBsetPopup\fR ( QPopupMenu * popup )"
@@ -97,7 +97,7 @@ Inherits QButton.
 .BI "virtual void \fBsetUsesTextLabel\fR ( bool enable )"
 .br
 .ti -1c
-.BI "virtual void \fBsetTextLabel\fR ( const QString & newLabel, bool tipToo )"
+.BI "virtual void \fBsetTextLabel\fR ( const TQString & newLabel, bool tipToo )"
 .br
 .ti -1c
 .BI "virtual void \fBsetToggleButton\fR ( bool enable )"
@@ -109,7 +109,7 @@ Inherits QButton.
 .BI "void \fBtoggle\fR ()"
 .br
 .ti -1c
-.BI "void \fBsetTextLabel\fR ( const QString & )"
+.BI "void \fBsetTextLabel\fR ( const TQString & )"
 .br
 .ti -1c
 .BI "void \fBsetTextPosition\fR ( TextPosition pos )"
@@ -142,7 +142,7 @@ Inherits QButton.
 .BI "int \fBpopupDelay\fR - the time delay between pressing the button and the appearance of the associated popup menu in milliseconds"
 .br
 .ti -1c
-.BI "QString \fBtextLabel\fR - the label of this button"
+.BI "TQString \fBtextLabel\fR - the label of this button"
 .br
 .ti -1c
 .BI "TextPosition \fBtextPosition\fR - the position of the text label of this button"
@@ -191,18 +191,18 @@ The position of the tool button's textLabel in relation to the tool button's ico
 .TP
 \fCQToolButton::BelowIcon\fR - The text appears below the icon.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QToolButton::QToolButton ( QWidget * parent, const char * name = 0 )"
+.SH "QToolButton::QToolButton ( TQWidget * parent, const char * name = 0 )"
 Constructs an empty tool button called \fIname\fR, with parent \fIparent\fR.
-.SH "QToolButton::QToolButton ( const QIconSet & iconSet, const QString & textLabel, const QString & grouptext, QObject * receiver, const char * slot, QToolBar * parent, const char * name = 0 )"
+.SH "QToolButton::QToolButton ( const QIconSet & iconSet, const TQString & textLabel, const TQString & grouptext, TQObject * receiver, const char * slot, QToolBar * parent, const char * name = 0 )"
 Constructs a tool button called \fIname\fR, that is a child of \fIparent\fR (which must be a QToolBar).
 .PP
 The tool button will display \fIiconSet\fR, with its text label and tool tip set to \fItextLabel\fR and its status bar message set to \fIgrouptext\fR. It will be connected to the \fIslot\fR in object \fIreceiver\fR.
-.SH "QToolButton::QToolButton ( ArrowType type, QWidget * parent, const char * name = 0 )"
+.SH "QToolButton::QToolButton ( ArrowType type, TQWidget * parent, const char * name = 0 )"
 Constructs a tool button as an arrow button. The ArrowType \fItype\fR defines the arrow direction. Possible values are LeftArrow, RightArrow, UpArrow and DownArrow.
 .PP
 An arrow button has auto-repeat turned on by default.
 .PP
-The \fIparent\fR and \fIname\fR arguments are sent to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are sent to the TQWidget constructor.
 .SH "QToolButton::~QToolButton ()"
 Destroys the object and frees any allocated resources.
 .SH "bool QToolButton::autoRaise () const"
@@ -214,7 +214,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 .PP
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Since Qt 3.0, QIconSet contains both the On and Off icons.
+Since TQt 3.0, QIconSet contains both the On and Off icons.
 .PP
 For ease of porting, this function ignores the \fIon\fR parameter and returns the iconSet property. If you relied on the \fIon\fR parameter, you probably want to update your code to use the QIconSet On/Off mechanism.
 .SH "QIconSet QToolButton::offIconSet () const"
@@ -238,7 +238,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 .PP
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Since Qt 3.0, QIconSet contains both the On and Off icons.
+Since TQt 3.0, QIconSet contains both the On and Off icons.
 .PP
 For ease of porting, this function ignores the \fIon\fR parameter and sets the iconSet property. If you relied on the \fIon\fR parameter, you probably want to update your code to use the QIconSet On/Off mechanism.
 .PP
@@ -259,9 +259,9 @@ Ownership of the popup menu is not transferred to the tool button.
 See also popup().
 .SH "void QToolButton::setPopupDelay ( int delay )"
 Sets the time delay between pressing the button and the appearance of the associated popup menu in milliseconds to \fIdelay\fR. See the "popupDelay" property for details.
-.SH "void QToolButton::setTextLabel ( const QString & )\fC [slot]\fR"
+.SH "void QToolButton::setTextLabel ( const TQString & )\fC [slot]\fR"
 Sets the label of this button. See the "textLabel" property for details.
-.SH "void QToolButton::setTextLabel ( const QString & newLabel, bool tipToo )\fC [virtual slot]\fR"
+.SH "void QToolButton::setTextLabel ( const TQString & newLabel, bool tipToo )\fC [virtual slot]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the label of this button to \fInewLabel\fR and automatically sets it as a tool tip if \fItipToo\fR is TRUE.
@@ -273,7 +273,7 @@ Sets whether this tool button is a toggle button to \fIenable\fR. See the "toggl
 Sets whether this toolbutton uses big pixmaps to \fIenable\fR. See the "usesBigPixmap" property for details.
 .SH "void QToolButton::setUsesTextLabel ( bool enable )\fC [virtual slot]\fR"
 Sets whether the toolbutton displays a text label below the button pixmap to \fIenable\fR. See the "usesTextLabel" property for details.
-.SH "QString QToolButton::textLabel () const"
+.SH "TQString QToolButton::textLabel () const"
 Returns the label of this button. See the "textLabel" property for details.
 .SH "TextPosition QToolButton::textPosition () const"
 Returns the position of the text label of this button. See the "textPosition" property for details.
@@ -303,7 +303,7 @@ This property holds the toolbutton's background mode.
 .PP
 Get this property with backgroundMode().
 .PP
-See also QWidget::backgroundMode.
+See also TQWidget::backgroundMode.
 .SH "QIconSet iconSet"
 This property holds the icon set providing the icon shown on the button.
 .PP
@@ -317,7 +317,7 @@ This property holds the icon set that is used when the button is in an "off" sta
 .PP
 \fBThis property is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Since Qt 3.0, QIconSet contains both the On and Off icons. There is now an QToolButton::iconSet property that replaces both QToolButton::onIconSet and QToolButton::offIconSet.
+Since TQt 3.0, QIconSet contains both the On and Off icons. There is now an QToolButton::iconSet property that replaces both QToolButton::onIconSet and QToolButton::offIconSet.
 .PP
 For ease of porting, this property is a synonym for QToolButton::iconSet. You probably want to go over your application code and use the QIconSet On/Off mechanism.
 .PP
@@ -337,7 +337,7 @@ This property holds the icon set that is used when the button is in an "on" stat
 .PP
 \fBThis property is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Since Qt 3.0, QIconSet contains both the On and Off icons. There is now an QToolButton::iconSet property that replaces both QToolButton::onIconSet and QToolButton::offIconSet.
+Since TQt 3.0, QIconSet contains both the On and Off icons. There is now an QToolButton::iconSet property that replaces both QToolButton::onIconSet and QToolButton::offIconSet.
 .PP
 For ease of porting, this property is a synonym for QToolButton::iconSet. You probably want to go over your application code and use the QIconSet On/Off mechanism.
 .PP
@@ -356,7 +356,7 @@ Usually this is around half a second. A value of 0 draws the down arrow button t
 See also setPopup().
 .PP
 Set this property's value with setPopupDelay() and get this property's value with popupDelay().
-.SH "QString textLabel"
+.SH "TQString textLabel"
 This property holds the label of this button.
 .PP
 Setting this property automatically sets the text as a tool tip too. There is no default text.
@@ -407,8 +407,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

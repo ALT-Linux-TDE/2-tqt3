@@ -31,22 +31,22 @@ Inherited by QSqlCursor and QSqlIndex.
 .BI "virtual QVariant \fBvalue\fR ( int i ) const"
 .br
 .ti -1c
-.BI "virtual QVariant \fBvalue\fR ( const QString & name ) const"
+.BI "virtual QVariant \fBvalue\fR ( const TQString & name ) const"
 .br
 .ti -1c
 .BI "virtual void \fBsetValue\fR ( int i, const QVariant & val )"
 .br
 .ti -1c
-.BI "virtual void \fBsetValue\fR ( const QString & name, const QVariant & val )"
+.BI "virtual void \fBsetValue\fR ( const TQString & name, const QVariant & val )"
 .br
 .ti -1c
 .BI "bool \fBisGenerated\fR ( int i ) const"
 .br
 .ti -1c
-.BI "bool \fBisGenerated\fR ( const QString & name ) const"
+.BI "bool \fBisGenerated\fR ( const TQString & name ) const"
 .br
 .ti -1c
-.BI "virtual void \fBsetGenerated\fR ( const QString & name, bool generated )"
+.BI "virtual void \fBsetGenerated\fR ( const TQString & name, bool generated )"
 .br
 .ti -1c
 .BI "virtual void \fBsetGenerated\fR ( int i, bool generated )"
@@ -55,31 +55,31 @@ Inherited by QSqlCursor and QSqlIndex.
 .BI "virtual void \fBsetNull\fR ( int i )"
 .br
 .ti -1c
-.BI "virtual void \fBsetNull\fR ( const QString & name )"
+.BI "virtual void \fBsetNull\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "bool \fBisNull\fR ( int i ) const"
 .br
 .ti -1c
-.BI "bool \fBisNull\fR ( const QString & name ) const"
+.BI "bool \fBisNull\fR ( const TQString & name ) const"
 .br
 .ti -1c
-.BI "int \fBposition\fR ( const QString & name ) const"
+.BI "int \fBposition\fR ( const TQString & name ) const"
 .br
 .ti -1c
-.BI "QString \fBfieldName\fR ( int i ) const"
+.BI "TQString \fBfieldName\fR ( int i ) const"
 .br
 .ti -1c
 .BI "QSqlField * \fBfield\fR ( int i )"
 .br
 .ti -1c
-.BI "QSqlField * \fBfield\fR ( const QString & name )"
+.BI "QSqlField * \fBfield\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "const QSqlField * \fBfield\fR ( int i ) const"
 .br
 .ti -1c
-.BI "const QSqlField * \fBfield\fR ( const QString & name ) const"
+.BI "const QSqlField * \fBfield\fR ( const TQString & name ) const"
 .br
 .ti -1c
 .BI "virtual void \fBappend\fR ( const QSqlField & field )"
@@ -94,7 +94,7 @@ Inherited by QSqlCursor and QSqlIndex.
 .BI "bool \fBisEmpty\fR () const"
 .br
 .ti -1c
-.BI "bool \fBcontains\fR ( const QString & name ) const"
+.BI "bool \fBcontains\fR ( const TQString & name ) const"
 .br
 .ti -1c
 .BI "virtual void \fBclear\fR ()"
@@ -106,10 +106,10 @@ Inherited by QSqlCursor and QSqlIndex.
 .BI "uint \fBcount\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBtoString\fR ( const QString & prefix = QString::null, const QString & sep = "","" ) const"
+.BI "virtual TQString \fBtoString\fR ( const TQString & prefix = TQString::null, const TQString & sep = "","" ) const"
 .br
 .ti -1c
-.BI "virtual QStringList \fBtoStringList\fR ( const QString & prefix = QString::null ) const"
+.BI "virtual QStringList \fBtoStringList\fR ( const TQString & prefix = TQString::null ) const"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -139,29 +139,29 @@ See also clearValues().
 Reimplemented in QSqlCursor.
 .SH "void QSqlRecord::clearValues ( bool nullify = FALSE )\fC [virtual]\fR"
 Clears the value of all fields in the record. If \fInullify\fR is TRUE, (the default is FALSE), each field is set to NULL.
-.SH "bool QSqlRecord::contains ( const QString & name ) const"
+.SH "bool QSqlRecord::contains ( const TQString & name ) const"
 Returns TRUE if there is a field in the record called \fIname\fR; otherwise returns FALSE.
 .SH "uint QSqlRecord::count () const"
 Returns the number of fields in the record.
 .SH "QSqlField * QSqlRecord::field ( int i )"
 Returns the field at position \fIi\fR within the record, or 0 if it cannot be found.
-.SH "QSqlField * QSqlRecord::field ( const QString & name )"
+.SH "QSqlField * QSqlRecord::field ( const TQString & name )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the field called \fIname\fR within the record, or 0 if it cannot be found. Field names are not case-sensitive.
 .SH "const QSqlField * QSqlRecord::field ( int i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
-.SH "const QSqlField * QSqlRecord::field ( const QString & name ) const"
+.SH "const QSqlField * QSqlRecord::field ( const TQString & name ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the field called \fIname\fR within the record, or 0 if it cannot be found. Field names are not case-sensitive.
-.SH "QString QSqlRecord::fieldName ( int i ) const"
-Returns the name of the field at position \fIi\fR. If the field does not exist, QString::null is returned.
+.SH "TQString QSqlRecord::fieldName ( int i ) const"
+Returns the name of the field at position \fIi\fR. If the field does not exist, TQString::null is returned.
 .SH "void QSqlRecord::insert ( int pos, const QSqlField & field )\fC [virtual]\fR"
 Insert a copy of \fIfield\fR at position \fIpos\fR. If a field already exists at \fIpos\fR, it is removed.
 .SH "bool QSqlRecord::isEmpty () const"
 Returns TRUE if there are no fields in the record; otherwise returns FALSE.
-.SH "bool QSqlRecord::isGenerated ( const QString & name ) const"
+.SH "bool QSqlRecord::isGenerated ( const TQString & name ) const"
 Returns TRUE if the record has a field called \fIname\fR and this field is to be generated (the default); otherwise returns FALSE.
 .PP
 See also setGenerated().
@@ -171,7 +171,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns TRUE if the record has a field at position \fIi\fR and this field is to be generated (the default); otherwise returns FALSE.
 .PP
 See also setGenerated().
-.SH "bool QSqlRecord::isNull ( const QString & name ) const"
+.SH "bool QSqlRecord::isNull ( const TQString & name ) const"
 Returns TRUE if the field called \fIname\fR is NULL or if there is no field called \fIname\fR; otherwise returns FALSE.
 .PP
 See also position().
@@ -183,13 +183,13 @@ Returns TRUE if the field \fIi\fR is NULL or if there is no field at position \f
 See also fieldName().
 .SH "QSqlRecord & QSqlRecord::operator= ( const QSqlRecord & other )"
 Sets the record equal to \fIother\fR.
-.SH "int QSqlRecord::position ( const QString & name ) const"
+.SH "int QSqlRecord::position ( const TQString & name ) const"
 Returns the position of the field called \fIname\fR within the record, or -1 if it cannot be found. Field names are not case-sensitive. If more than one field matches, the first one is returned.
 .SH "void QSqlRecord::remove ( int pos )\fC [virtual]\fR"
 Removes the field at \fIpos\fR. If \fIpos\fR does not exist, nothing happens.
 .PP
 Reimplemented in QSqlCursor.
-.SH "void QSqlRecord::setGenerated ( const QString & name, bool generated )\fC [virtual]\fR"
+.SH "void QSqlRecord::setGenerated ( const TQString & name, bool generated )\fC [virtual]\fR"
 Sets the generated flag for the field called \fIname\fR to \fIgenerated\fR. If the field does not exist, nothing happens. Only fields that have \fIgenerated\fR set to TRUE are included in the SQL that is generated, e.g. by QSqlCursor.
 .PP
 See also isGenerated().
@@ -205,7 +205,7 @@ See also isGenerated().
 Reimplemented in QSqlCursor.
 .SH "void QSqlRecord::setNull ( int i )\fC [virtual]\fR"
 Sets the value of field \fIi\fR to NULL. If the field does not exist, nothing happens.
-.SH "void QSqlRecord::setNull ( const QString & name )\fC [virtual]\fR"
+.SH "void QSqlRecord::setNull ( const TQString & name )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the value of the field called \fIname\fR to NULL. If the field does not exist, nothing happens.
@@ -214,17 +214,17 @@ Sets the value of the field at position \fIi\fR to \fIval\fR. If the field does 
 .PP
 Examples:
 .)l sql/overview/insert/main.cpp, sql/overview/insert2/main.cpp, sql/overview/subclass5/main.cpp, sql/overview/update/main.cpp, and sql/sqltable/main.cpp.
-.SH "void QSqlRecord::setValue ( const QString & name, const QVariant & val )\fC [virtual]\fR"
+.SH "void QSqlRecord::setValue ( const TQString & name, const QVariant & val )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the value of the field called \fIname\fR to \fIval\fR. If the field does not exist, nothing happens.
-.SH "QString QSqlRecord::toString ( const QString & prefix = QString::null, const QString & sep = "," ) const\fC [virtual]\fR"
+.SH "TQString QSqlRecord::toString ( const TQString & prefix = TQString::null, const TQString & sep = "," ) const\fC [virtual]\fR"
 Returns a list of all the record's field names as a string separated by \fIsep\fR.
 .PP
 Note that fields which are not generated are \fInot\fR included (see isGenerated()). The returned string is suitable, for example, for generating SQL SELECT statements. If a \fIprefix\fR is specified, e.g. a table name, all fields are prefixed in the form:
 .PP"
 \fIprefix\fR.<fieldname>"
-.SH "QStringList QSqlRecord::toStringList ( const QString & prefix = QString::null ) const\fC [virtual]\fR"
+.SH "QStringList QSqlRecord::toStringList ( const TQString & prefix = TQString::null ) const\fC [virtual]\fR"
 Returns a list of all the record's field names, each having the prefix \fIprefix\fR.
 .PP
 Note that fields which have generated set to FALSE are \fInot\fR included. (See isGenerated()). If \fIprefix\fR is supplied, e.g. a table name, all fields are prefixed in the form:
@@ -233,10 +233,10 @@ Note that fields which have generated set to FALSE are \fInot\fR included. (See 
 .SH "QVariant QSqlRecord::value ( int i ) const\fC [virtual]\fR"
 Returns the value of the field located at position \fIi\fR in the record. If field \fIi\fR does not exist the resultant behaviour is undefined.
 .PP
-This function should be used with QSqlQuerys. When working with a QSqlCursor the value(const QString&) overload which uses field names is more appropriate.
+This function should be used with QSqlQuerys. When working with a QSqlCursor the value(const TQString&) overload which uses field names is more appropriate.
 .PP
 Example: sql/overview/update/main.cpp.
-.SH "QVariant QSqlRecord::value ( const QString & name ) const\fC [virtual]\fR"
+.SH "QVariant QSqlRecord::value ( const TQString & name ) const\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the value of the field called \fIname\fR in the record. If
@@ -256,8 +256,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

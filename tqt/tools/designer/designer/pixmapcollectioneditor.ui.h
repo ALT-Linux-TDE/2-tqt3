@@ -116,8 +116,8 @@ void PixmapCollectionEditor::setChooserMode( bool c )
 	buttonCancel->show();
 	buttonOk->setEnabled( FALSE );
 	buttonOk->setDefault( TRUE );
-	connect( viewPixmaps, SIGNAL( doubleClicked( TQIconViewItem * ) ), buttonOk, SIGNAL( clicked() ) );
-	connect( viewPixmaps, SIGNAL( returnPressed( TQIconViewItem * ) ), buttonOk, SIGNAL( clicked() ) );
+	connect( viewPixmaps, TQ_SIGNAL( doubleClicked( TQIconViewItem * ) ), buttonOk, TQ_SIGNAL( clicked() ) );
+	connect( viewPixmaps, TQ_SIGNAL( returnPressed( TQIconViewItem * ) ), buttonOk, TQ_SIGNAL( clicked() ) );
 	setCaption( tr( "Choose an Image" ) );
     } else {
 	buttonClose->show();

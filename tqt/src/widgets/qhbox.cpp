@@ -35,7 +35,7 @@
 **********************************************************************/
 
 #include "ntqhbox.h"
-#ifndef QT_NO_HBOX
+#ifndef TQT_NO_HBOX
 #include "ntqlayout.h"
 #include "ntqapplication.h"
 #include "ntqobjectlist.h"

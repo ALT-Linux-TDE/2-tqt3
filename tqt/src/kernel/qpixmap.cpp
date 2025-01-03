@@ -258,7 +258,7 @@ TQPixmap::TQPixmap( const TQSize &size, int depth, Optimization optimization )
     init( size.width(), size.height(), depth, FALSE, optimization );
 }
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 /*!
     Constructs a pixmap from the file \a fileName. If the file does
     not exist or is of an unknown format, the pixmap becomes a null
@@ -351,7 +351,7 @@ TQPixmap::TQPixmap( const TQByteArray & img_data )
     init( 0, 0, 0, FALSE, defOptim );
     loadFromData( img_data );
 }
-#endif //QT_NO_IMAGEIO
+#endif //TQT_NO_IMAGEIO
 
 /*!
     Constructs a pixmap that is a copy of \a pixmap.
@@ -367,13 +367,13 @@ TQPixmap::TQPixmap( const TQPixmap &pixmap )
 	data = pixmap.data;
 	data->ref();
 	devFlags = pixmap.devFlags;		// copy TQPaintDevice flags
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	hdc = pixmap.hdc;			// copy Windows device context
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
 	hd = pixmap.hd;				// copy X11 drawable
 	rendhd = pixmap.rendhd;
 	copyX11Data( &pixmap );			// copy x11Data
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
 	hd = pixmap.hd;
 #endif
     }
@@ -396,7 +396,7 @@ TQPixmap::~TQPixmap()
   \sa TQMimeSourceFactory, TQImage::fromMimeSource(), TQImageDrag::decode()
 */
 
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 TQPixmap TQPixmap::fromMimeSource( const TQString &abs_name )
 {
     const TQMimeSource *m = TQMimeSourceFactory::defaultFactory()->data( abs_name );
@@ -425,16 +425,16 @@ TQPixmap TQPixmap::fromMimeSource( const TQString &abs_name )
 
 TQPixmap TQPixmap::copy( bool ignoreMask ) const
 {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     int old = x11SetDefaultScreen( x11Screen() );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     TQPixmap pm( data->w, data->h, data->d, data->bitmap, data->optim );
 
     if ( !pm.isNull() ) {			// copy the bitmap
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	pm.cloneX11Data( this );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 	if ( ignoreMask )
 	    bitBlt( &pm, 0, 0, this, 0, 0, data->w, data->h, TQt::CopyROP, TRUE );
@@ -442,9 +442,9 @@ TQPixmap TQPixmap::copy( bool ignoreMask ) const
 	    copyBlt( &pm, 0, 0, this, 0, 0, data->w, data->h );
     }
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     x11SetDefaultScreen( old );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     return pm;
 }
@@ -475,13 +475,13 @@ TQPixmap &TQPixmap::operator=( const TQPixmap &pixmap )
     } else {
 	data = pixmap.data;
 	devFlags = pixmap.devFlags;		// copy TQPaintDevice flags
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	hdc = pixmap.hdc;
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
 	hd = pixmap.hd;				// copy TQPaintDevice drawable
 	rendhd = pixmap.rendhd;
 	copyX11Data( &pixmap );			// copy x11Data
-#elif defined(Q_WS_MACX) || defined(Q_OS_MAC9)
+#elif defined(TQ_WS_MACX) || defined(Q_OS_MAC9)
 	hd = pixmap.hd;
 #endif
     }
@@ -660,22 +660,22 @@ void TQPixmap::resize( int w, int h )
 	d = isTQBitmap() ? 1 : -1;
     // Create new pixmap
     TQPixmap pm( w, h, d, data->bitmap, data->optim );
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     pm.x11SetScreen( x11Screen() );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
     if ( !data->uninit && !isNull() )		// has existing pixmap
 	bitBlt( &pm, 0, 0, this, 0, 0,		// copy old pixmap
 		TQMIN(width(), w),
 		TQMIN(height(),h), CopyROP, TRUE );
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     if(data->alphapm) {
 	data->alphapm->resize(w, h);
     } else
-#elif defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE)
+#elif defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE)
     if (data->alphapm)
 	tqWarning("TQPixmap::resize: TODO: resize alpha data");
     else
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 	if ( data->mask ) {				// resize mask as well
 	    if ( data->selfmask ) {			// preserve self-mask
 		pm.setMask( *((TQBitmap*)&pm) );
@@ -751,11 +751,11 @@ void TQPixmap::setMask( const TQBitmap &newmask )
 #endif
 	return;
     }
-#if defined(Q_WS_MAC) || (defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE))
+#if defined(TQ_WS_MAC) || (defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE))
     // when setting the mask, we get rid of the alpha channel completely
     delete data->alphapm;
     data->alphapm = 0;
-#endif // Q_WS_X11 && !QT_NO_XFTFREETYPE
+#endif // TQ_WS_X11 && !TQT_NO_XFTFREETYPE
 
     delete data->mask;
     TQBitmap* newmaskcopy;
@@ -763,7 +763,7 @@ void TQPixmap::setMask( const TQBitmap &newmask )
 	newmaskcopy = (TQBitmap*)new TQPixmap( tmp->copy( TRUE ) );
     else
 	newmaskcopy = new TQBitmap( newmask );
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     newmaskcopy->x11SetScreen( x11Screen() );
 #endif
     data->mask = newmaskcopy;
@@ -779,7 +779,7 @@ void TQPixmap::setMask( const TQBitmap &newmask )
     \sa mask()
 */
 
-#ifndef QT_NO_IMAGE_HEURISTIC_MASK
+#ifndef TQT_NO_IMAGE_HEURISTIC_MASK
 /*!
     Creates and returns a heuristic mask for this pixmap. It works by
     selecting a color from one of the corners and then chipping away
@@ -808,7 +808,7 @@ TQBitmap TQPixmap::createHeuristicMask( bool clipTight ) const
     return m;
 }
 #endif
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 /*!
     Returns a string that specifies the image format of the file \a
     fileName, or 0 if the file cannot be read or if the format cannot
@@ -886,7 +886,7 @@ bool TQPixmap::load( const TQString &fileName, const char *format,
     }
     return load( fileName, format, conversion_flags );
 }
-#endif //QT_NO_IMAGEIO
+#endif //TQT_NO_IMAGEIO
 
 /*!
     \overload
@@ -919,7 +919,7 @@ bool TQPixmap::convertFromImage( const TQImage &image, ColorMode mode )
     return convertFromImage( image, conversion_flags );
 }
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 /*!
     Loads a pixmap from the binary data in \a buf (\a len bytes).
     Returns TRUE if successful; otherwise returns FALSE.
@@ -1061,7 +1061,7 @@ bool TQPixmap::doImageIO( TQImageIO* io, int quality ) const
     return io->write();
 }
 
-#endif //QT_NO_IMAGEIO
+#endif //TQT_NO_IMAGEIO
 
 /*!
     \fn int TQPixmap::serialNumber() const
@@ -1234,7 +1234,7 @@ TQPixmap TQPixmap::grabWidget( TQWidget * widget, int x, int y, int w, int h )
 
     \sa xForm(), TQWMatrix
 */
-#ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_PIXMAP_TRANSFORMATION
 TQWMatrix TQPixmap::trueMatrix( const TQWMatrix &matrix, int w, int h )
 {
     const double dt = (double)0.;
@@ -1275,7 +1275,7 @@ TQWMatrix TQPixmap::trueMatrix( const TQWMatrix &matrix, int w, int h )
     mat.setMatrix( matrix.m11(), matrix.m12(), matrix.m21(), matrix.m22(), -xmin, -ymin );
     return mat;
 }
-#endif // QT_NO_WMATRIX
+#endif // TQT_NO_WMATRIX
 
 
 
@@ -1284,7 +1284,7 @@ TQWMatrix TQPixmap::trueMatrix( const TQWMatrix &matrix, int w, int h )
 /*****************************************************************************
   TQPixmap stream functions
  *****************************************************************************/
-#if !defined(QT_NO_DATASTREAM) && !defined(QT_NO_IMAGEIO)
+#if !defined(TQT_NO_DATASTREAM) && !defined(TQT_NO_IMAGEIO)
 /*!
     \relates TQPixmap
 
@@ -1319,7 +1319,7 @@ TQDataStream &operator>>( TQDataStream &s, TQPixmap &pixmap )
     return s;
 }
 
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 
 
@@ -1346,7 +1346,7 @@ TQDataStream &operator>>( TQDataStream &s, TQPixmap &pixmap )
   line of the source data, \a sWidth and \a sHeight are the width and height of
   the source data.
 */
-#ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_PIXMAP_TRANSFORMATION
 #undef IWX_MSB
 #define IWX_MSB(b)	if ( trigx < maxws && trigy < maxhs ) {			      \
 			    if ( *(sptr+sbpl*(trigy>>16)+(trigx>>19)) &		      \
@@ -1481,7 +1481,7 @@ bool qt_xForm_helper( const TQWMatrix &trueMat, int xoffset,
 			dptr++;
 		    }
 		    break;
-#  if defined(Q_WS_WIN)
+#  if defined(TQ_WS_WIN)
 		case QT_XFORM_TYPE_WINDOWSPIXMAP:
 		    while ( dptr < maxp ) {
 			IWX_PIX(128);
@@ -1507,4 +1507,4 @@ bool qt_xForm_helper( const TQWMatrix &trueMat, int xoffset,
 #undef IWX_MSB
 #undef IWX_LSB
 #undef IWX_PIX
-#endif // QT_NO_PIXMAP_TRANSFORMATION
+#endif // TQT_NO_PIXMAP_TRANSFORMATION

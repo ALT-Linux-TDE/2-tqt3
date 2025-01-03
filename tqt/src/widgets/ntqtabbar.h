@@ -44,12 +44,12 @@
 #include "ntqptrlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_TABBAR
+#ifndef TQT_NO_TABBAR
 
 class TQTabBar;
 class TQIconSet;
 
-class Q_EXPORT TQTab : public TQt
+class TQ_EXPORT TQTab : public TQt
 {
     friend class TQTabBar;
     friend class TQTabWidget;
@@ -85,7 +85,7 @@ private:
 struct TQTabPrivate;
 //class *TQAccel;
 
-class Q_EXPORT TQTabBar: public TQWidget
+class TQ_EXPORT TQTabBar: public TQWidget
 {
     TQ_OBJECT
     TQ_ENUMS( Shape )
@@ -191,6 +191,6 @@ public:
 };
 
 
-#endif // QT_NO_TABBAR
+#endif // TQT_NO_TABBAR
 
 #endif // TQTABBAR_H

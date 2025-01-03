@@ -43,9 +43,9 @@
 #include "qcolor_p.h"
 #include "qt_x11_p.h"
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 #  include "ntqmutex.h"
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #include <errno.h>
 
@@ -138,7 +138,7 @@ bool TQEventLoop::processEvents( ProcessEventsFlags flags )
     XEvent event;
     int	   nevents = 0;
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     TQMutexLocker locker( TQApplication::tqt_mutex );
 #endif
 
@@ -283,7 +283,7 @@ bool TQEventLoop::processEvents( ProcessEventsFlags flags )
 
     // unlock the GUI mutex and select.  when we return from this function, there is
     // something for us to do
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     if ( locker.mutex() ) locker.mutex()->unlock();
     else return false;
 #endif
@@ -298,7 +298,7 @@ bool TQEventLoop::processEvents( ProcessEventsFlags flags )
     } while (nsel == -1 && (errno == EINTR || errno == EAGAIN));
 
     // relock the GUI mutex before processing any pending events
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
     if ( locker.mutex() ) locker.mutex()->lock();
     else return false;
 #endif

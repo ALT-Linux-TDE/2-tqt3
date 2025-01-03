@@ -1,13 +1,13 @@
 
 -----------------------------------------------------------------------
-UPDATE: From version 5.0 onwards, the Qt OpenGL Extension includes
+UPDATE: From version 5.0 onwards, the TQt OpenGL Extension includes
 direct support for use of OpenGL overlays. For many uses of overlays,
 this makes the technique described below redundant. See the 'overlay'
 example program. The following is a discussion on how to use non-QGL
 widgets in overlay planes.
 -----------------------------------------------------------------------
 
-Overlayrubber: An example program showing how to use Qt and Qt OpenGL
+Overlayrubber: An example program showing how to use TQt and TQt OpenGL
 Extension with X11 overlay visuals.
 
 (Background information for this example can be found in the file
@@ -21,7 +21,7 @@ itself. Thus, you can eaily confirm that drawing in the overlay plane
 does not cause redrawings in the main plane where the QGLWidget
 resides.
 
-RubberbandWidget: Very simple standard (non-GL) Qt widget that
+RubberbandWidget: Very simple standard (non-GL) TQt widget that
 implements rubberband drawing. Designed for use in an overlay
 plane. It takes the planes' transparent color as a constructor
 argument and uses that for its background color. Thus, the widget
@@ -50,7 +50,7 @@ For clarity, this example program has been kept very simple. Here are
 some hints for real application use:
 
 All normal widgets can go in the overlay plane: This means that you
-can put all kinds of Qt widgets (your own or those provided with Qt)
+can put all kinds of TQt widgets (your own or those provided with Qt)
 on top of the OpenGL image (widget), e.g. pushbuttons etc., and they
 can be moved, resized, or removed without destroying the OpenGL image.
 
@@ -67,7 +67,7 @@ two widgets' geometries synchronized.
 Using with QPalette and QColorGroup: Instead of the somewhat
 simplistic setBackgroundColor( transparentColor ), you can use Qt's
 QPalette system for having your overlay widgets use transparent color
-for what you want. This way, the normal Qt widgets can be used as
+for what you want. This way, the normal TQt widgets can be used as
 overlays for fancy effects: just create a palette for them with the
 transparent color for the wanted color roles, e.g. Background and
 Base, in the Normal and/or Active modes. This way, you can create

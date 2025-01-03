@@ -875,11 +875,11 @@ static void calcLineBreaks(const TQString &str, TQCharAttributes *charAttributes
     }
 }
 
-#if defined( Q_WS_X11 ) || defined ( Q_WS_QWS )
+#if defined( TQ_WS_X11 ) || defined ( TQ_WS_QWS )
 # include "qtextengine_unix.cpp"
-#elif defined( Q_WS_WIN )
+#elif defined( TQ_WS_WIN )
 # include "qtextengine_win.cpp"
-#elif defined( Q_WS_MAC )
+#elif defined( TQ_WS_MAC )
 # include "qtextengine_mac.cpp"
 #endif
 
@@ -888,7 +888,7 @@ static void calcLineBreaks(const TQString &str, TQCharAttributes *charAttributes
 TQTextEngine::TQTextEngine( const TQString &str, TQFontPrivate *f )
     : string( str ), fnt( f ), direction( TQChar::DirON ), haveCharAttributes( FALSE ), widthOnly( FALSE )
 {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     if ( !resolvedUsp10 )
 	resolveUsp10();
 #endif
@@ -983,7 +983,7 @@ const TQCharAttributes *TQTextEngine::attributes()
     
     for ( int i = 0; i < items.size(); i++ ) {
 	TQScriptItem &si = items[i];
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
         int script = uspScriptForItem(this, i);
 #else
         int script = si.analysis.script;

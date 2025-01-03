@@ -11,7 +11,7 @@ QDesktopWidget \- Access to screen information on multi-head systems
 .SH SYNOPSIS
 \fC#include <ntqdesktopwidget.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
@@ -31,19 +31,19 @@ Inherits QWidget.
 .BI "int \fBprimaryScreen\fR () const"
 .br
 .ti -1c
-.BI "int \fBscreenNumber\fR ( QWidget * widget = 0 ) const"
+.BI "int \fBscreenNumber\fR ( TQWidget * widget = 0 ) const"
 .br
 .ti -1c
 .BI "int \fBscreenNumber\fR ( const QPoint & point ) const"
 .br
 .ti -1c
-.BI "QWidget * \fBscreen\fR ( int screen = -1 )"
+.BI "TQWidget * \fBscreen\fR ( int screen = -1 )"
 .br
 .ti -1c
 .BI "const QRect & \fBscreenGeometry\fR ( int screen = -1 ) const"
 .br
 .ti -1c
-.BI "const QRect & \fBscreenGeometry\fR ( QWidget * widget ) const"
+.BI "const QRect & \fBscreenGeometry\fR ( TQWidget * widget ) const"
 .br
 .ti -1c
 .BI "const QRect & \fBscreenGeometry\fR ( const QPoint & p ) const"
@@ -52,7 +52,7 @@ Inherits QWidget.
 .BI "const QRect & \fBavailableGeometry\fR ( int screen = -1 ) const"
 .br
 .ti -1c
-.BI "const QRect & \fBavailableGeometry\fR ( QWidget * widget ) const"
+.BI "const QRect & \fBavailableGeometry\fR ( TQWidget * widget ) const"
 .br
 .ti -1c
 .BI "const QRect & \fBavailableGeometry\fR ( const QPoint & p ) const"
@@ -71,7 +71,7 @@ Systems with more than one graphics card and monitor can manage the physical scr
 .PP
 The QDesktopWidget provides information about the geometry of the available screens with screenGeometry(). The number of screens available is returned by numScreens(). The screen number that a particular point or widget is located in is returned by screenNumber().
 .PP
-Widgets provided by Qt use this class, for example, to place tooltips, menus and dialog boxes according to the parent or application widget.
+Widgets provided by TQt use this class, for example, to place tooltips, menus and dialog boxes according to the parent or application widget.
 .PP
 Applications can use this class to save window positions, or to place child widgets on one screen.
 .PP
@@ -97,7 +97,7 @@ Destroy the object and free allocated resources.
 Returns the available geometry of the screen with index \fIscreen\fR. What is available will be subrect of screenGeometry() based on what the platform decides is available (for example excludes the Dock and Menubar on Mac OS X, or the taskbar on Windows).
 .PP
 See also screenNumber() and screenGeometry().
-.SH "const QRect & QDesktopWidget::availableGeometry ( QWidget * widget ) const"
+.SH "const QRect & QDesktopWidget::availableGeometry ( TQWidget * widget ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the available geometry of the screen which contains \fIwidget\fR.
@@ -123,7 +123,7 @@ Returns the index of the primary screen.
 See also numScreens().
 .SH "void QDesktopWidget::resized ( int screen )\fC [signal]\fR"
 This signal is emitted when the size of \fIscreen\fR changes.
-.SH "QWidget * QDesktopWidget::screen ( int screen = -1 )"
+.SH "TQWidget * QDesktopWidget::screen ( int screen = -1 )"
 Returns a widget that represents the screen with index \fIscreen\fR. This widget can be used to draw directly on the desktop, using an unclipped painter like this:
 .PP
 .nf
@@ -145,7 +145,7 @@ See also primaryScreen(), numScreens(), and isVirtualDesktop().
 Returns the geometry of the screen with index \fIscreen\fR.
 .PP
 See also screenNumber().
-.SH "const QRect & QDesktopWidget::screenGeometry ( QWidget * widget ) const"
+.SH "const QRect & QDesktopWidget::screenGeometry ( TQWidget * widget ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the geometry of the screen which contains \fIwidget\fR.
@@ -153,7 +153,7 @@ Returns the geometry of the screen which contains \fIwidget\fR.
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the geometry of the screen which contains \fIp\fR.
-.SH "int QDesktopWidget::screenNumber ( QWidget * widget = 0 ) const"
+.SH "int QDesktopWidget::screenNumber ( TQWidget * widget = 0 ) const"
 Returns the index of the screen that contains the largest part of \fIwidget\fR, or -1 if the widget not on a screen.
 .PP
 See also primaryScreen().
@@ -178,8 +178,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -82,7 +82,7 @@ static inline int qt_socket_socket(int domain, int type, int protocol)
 
 #include "ntqsocketdevice.h"
 
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 
 #include "ntqwindowdefs.h"
 
@@ -93,7 +93,7 @@ static inline int qt_socket_socket(int domain, int type, int protocol)
 static inline void qt_socket_getportaddr( struct sockaddr *sa,
 					  TQ_UINT16 *port, TQHostAddress *addr )
 {
-#if !defined(QT_NO_IPV6)
+#if !defined(TQT_NO_IPV6)
     if ( sa->sa_family == AF_INET6 ) {
 	struct sockaddr_in6 *sa6 = ( struct sockaddr_in6 * )sa;
 	Q_IPV6ADDR tmp;
@@ -123,14 +123,14 @@ void TQSocketDevice::init()
 TQSocketDevice::Protocol TQSocketDevice::getProtocol() const
 {
     if ( isValid() ) {
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
 	struct sockaddr_storage sa;
 #else
 	struct sockaddr sa;
 #endif
 	memset( &sa, 0, sizeof(sa) );
 	QT_SOCKLEN_T sz = sizeof( sa );
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
 	struct sockaddr *sap = reinterpret_cast<struct sockaddr *>(&sa);
 	if ( !::getsockname(fd, sap, &sz) ) {
 	    switch ( sap->sa_family ) {
@@ -165,7 +165,7 @@ TQSocketDevice::Protocol TQSocketDevice::getProtocol() const
 
 int TQSocketDevice::createNewSocket()
 {
-#if !defined(QT_NO_IPV6)
+#if !defined(TQT_NO_IPV6)
     int s = qt_socket_socket( protocol() == IPv6 ? AF_INET6 : AF_INET,
 			      t == Datagram ? SOCK_DGRAM : SOCK_STREAM, 0 );
 #else
@@ -414,7 +414,7 @@ bool TQSocketDevice::connect( const TQHostAddress &addr, TQ_UINT16 port )
     struct sockaddr *aa;
     QT_SOCKLEN_T aalen;
 
-#if !defined(QT_NO_IPV6)
+#if !defined(TQT_NO_IPV6)
     struct sockaddr_in6 a6;
 
     if ( addr.isIPv6Address() ) {
@@ -499,7 +499,7 @@ bool TQSocketDevice::bind( const TQHostAddress &address, TQ_UINT16 port )
 	return FALSE;
     int r;
     struct sockaddr_in a4;
-#if !defined(QT_NO_IPV6)
+#if !defined(TQT_NO_IPV6)
     struct sockaddr_in6 a6;
 
     if ( address.isIPv6Address() ) {
@@ -593,7 +593,7 @@ int TQSocketDevice::accept()
     if ( !isValid() )
 	return -1;
 
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
     struct sockaddr_storage aa;
 #else
     struct sockaddr aa;
@@ -781,7 +781,7 @@ TQ_LONG TQSocketDevice::readBlock( char *data, TQ_ULONG maxlen )
     int r = 0;
     while ( done == FALSE ) {
 	if ( t == Datagram ) {
-#if !defined(QT_NO_IPV6)
+#if !defined(TQT_NO_IPV6)
             struct sockaddr_storage aa;
 #else
             struct sockaddr_in aa;
@@ -971,7 +971,7 @@ TQ_LONG TQSocketDevice::writeBlock( const char * data, TQ_ULONG len,
     struct sockaddr_in a4;
     struct sockaddr *aa;
     QT_SOCKLEN_T slen;
-#if !defined(QT_NO_IPV6)
+#if !defined(TQT_NO_IPV6)
     struct sockaddr_in6 a6;
     if ( host.isIPv6Address() ) {
 	memset( &a6, 0, sizeof(a6) );
@@ -1052,7 +1052,7 @@ void TQSocketDevice::fetchConnectionParameters()
 	pa = TQHostAddress();
 	return;
     }
-#if !defined(QT_NO_IPV6)
+#if !defined(TQT_NO_IPV6)
     struct sockaddr_storage sa;
 #else
     struct sockaddr_in sa;
@@ -1096,4 +1096,4 @@ TQHostAddress TQSocketDevice::peerAddress() const
     return pa;
 }
 
-#endif //QT_NO_NETWORK
+#endif //TQT_NO_NETWORK

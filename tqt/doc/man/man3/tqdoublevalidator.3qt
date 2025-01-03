@@ -16,16 +16,16 @@ Inherits QValidator.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDoubleValidator\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQDoubleValidator\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQDoubleValidator\fR ( double bottom, double top, int decimals, QObject * parent, const char * name = 0 )"
+.BI "\fBQDoubleValidator\fR ( double bottom, double top, int decimals, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QDoubleValidator\fR ()"
 .br
 .ti -1c
-.BI "virtual QValidator::State \fBvalidate\fR ( QString & input, int & ) const"
+.BI "virtual QValidator::State \fBvalidate\fR ( TQString & input, int & ) const"
 .br
 .ti -1c
 .BI "virtual void \fBsetRange\fR ( double minimum, double maximum, int decimals = 0 )"
@@ -70,9 +70,9 @@ You can set the acceptable range in one call with setRange(), or with setBottom(
 .PP
 See also QIntValidator, QRegExpValidator, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDoubleValidator::QDoubleValidator ( QObject * parent, const char * name = 0 )"
+.SH "QDoubleValidator::QDoubleValidator ( TQObject * parent, const char * name = 0 )"
 Constructs a validator object with parent \fIparent\fR, called \fIname\fR, which accepts any double.
-.SH "QDoubleValidator::QDoubleValidator ( double bottom, double top, int decimals, QObject * parent, const char * name = 0 )"
+.SH "QDoubleValidator::QDoubleValidator ( double bottom, double top, int decimals, TQObject * parent, const char * name = 0 )"
 Constructs a validator object with parent \fIparent\fR, called \fIname\fR. This validator will accept doubles from \fIbottom\fR to \fItop\fR inclusive, with up to \fIdecimals\fR digits after the decimal point.
 .SH "QDoubleValidator::~QDoubleValidator ()"
 Destroys the validator, freeing any resources used.
@@ -90,7 +90,7 @@ Sets the validator to accept doubles from \fIminimum\fR to \fImaximum\fR inclusi
 Sets the validator's maximum acceptable value. See the "top" property for details.
 .SH "double QDoubleValidator::top () const"
 Returns the validator's maximum acceptable value. See the "top" property for details.
-.SH "QValidator::State QDoubleValidator::validate ( QString & input, int & ) const\fC [virtual]\fR"
+.SH "QValidator::State QDoubleValidator::validate ( TQString & input, int & ) const\fC [virtual]\fR"
 Returns Acceptable if the string \fIinput\fR contains a double that is within the valid range and is in the correct format.
 .PP
 Returns Intermediate if \fIinput\fR contains a double that is outside the range or is in the wrong format, e.g. with too many digits after the decimal point or is empty.
@@ -134,8 +134,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

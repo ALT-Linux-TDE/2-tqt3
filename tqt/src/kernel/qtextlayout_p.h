@@ -46,7 +46,7 @@
 class TQTextEngine;
 class TQFont;
 
-class Q_EXPORT TQTextItem
+class TQ_EXPORT TQTextItem
 {
 public:
     inline TQTextItem() : item(0), engine(0) {}
@@ -97,7 +97,7 @@ private:
 
 class TQPainter;
 
-class Q_EXPORT TQTextLayout
+class TQ_EXPORT TQTextLayout
 {
 public:
     // does itemization

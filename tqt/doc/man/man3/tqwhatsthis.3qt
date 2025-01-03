@@ -16,16 +16,16 @@ Inherits Qt.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQWhatsThis\fR ( QWidget * widget )"
+.BI "\fBQWhatsThis\fR ( TQWidget * widget )"
 .br
 .ti -1c
 .BI "virtual \fB~QWhatsThis\fR ()"
 .br
 .ti -1c
-.BI "virtual QString \fBtext\fR ( const QPoint & )"
+.BI "virtual TQString \fBtext\fR ( const QPoint & )"
 .br
 .ti -1c
-.BI "virtual bool \fBclicked\fR ( const QString & href )"
+.BI "virtual bool \fBclicked\fR ( const TQString & href )"
 .br
 .in -1c
 .SS "Static Public Members"
@@ -34,16 +34,16 @@ Inherits Qt.
 .BI "void \fBsetFont\fR ( const QFont & font )"
 .br
 .ti -1c
-.BI "void \fBadd\fR ( QWidget * widget, const QString & text )"
+.BI "void \fBadd\fR ( TQWidget * widget, const TQString & text )"
 .br
 .ti -1c
-.BI "void \fBremove\fR ( QWidget * widget )"
+.BI "void \fBremove\fR ( TQWidget * widget )"
 .br
 .ti -1c
-.BI "QString \fBtextFor\fR ( QWidget * w, const QPoint & pos = QPoint ( ), bool includeParents = FALSE )"
+.BI "TQString \fBtextFor\fR ( TQWidget * w, const QPoint & pos = QPoint ( ), bool includeParents = FALSE )"
 .br
 .ti -1c
-.BI "QToolButton * \fBwhatsThisButton\fR ( QWidget * parent )"
+.BI "QToolButton * \fBwhatsThisButton\fR ( TQWidget * parent )"
 .br
 .ti -1c
 .BI "void \fBenterWhatsThisMode\fR ()"
@@ -52,10 +52,10 @@ Inherits Qt.
 .BI "bool \fBinWhatsThisMode\fR ()"
 .br
 .ti -1c
-.BI "void \fBleaveWhatsThisMode\fR ( const QString & text = QString::null, const QPoint & pos = QCursor::pos ( ), QWidget * w = 0 )"
+.BI "void \fBleaveWhatsThisMode\fR ( const TQString & text = TQString::null, const QPoint & pos = QCursor::pos ( ), TQWidget * w = 0 )"
 .br
 .ti -1c
-.BI "void \fBdisplay\fR ( const QString & text, const QPoint & pos = QCursor::pos ( ), QWidget * w = 0 )"
+.BI "void \fBdisplay\fR ( const TQString & text, const QPoint & pos = QCursor::pos ( ), TQWidget * w = 0 )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -101,19 +101,19 @@ If you are using QMainWindow you can also use the QMainWindow::whatsThis() slot 
 .PP
 For more control you can create a dedicated QWhatsThis object for a special widget. By subclassing and reimplementing QWhatsThis::text() it is possible to have different help texts, depending on the position of the mouse click. By reimplementing QWhatsThis::clicked() it is possible to have hyperlinks inside the help texts.
 .PP
-If you wish to control the "What's this?" behavior of a widget manually see QWidget::customWhatsThis().
+If you wish to control the "What's this?" behavior of a widget manually see TQWidget::customWhatsThis().
 .PP
 The What's This object can be removed using QWhatsThis::remove(), although this is rarely necessary because it is automatically removed when the widget is destroyed.
 .PP
 See also QToolTip and Help System.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWhatsThis::QWhatsThis ( QWidget * widget )"
+.SH "QWhatsThis::QWhatsThis ( TQWidget * widget )"
 Constructs a dynamic "What's this?" object for \fIwidget\fR. The object is deleted when the \fIwidget\fR is destroyed.
 .PP
 When the widget is queried by the user the text() function of this QWhatsThis will be called to provide the appropriate text, rather than using the text assigned by add().
 .SH "QWhatsThis::~QWhatsThis ()\fC [virtual]\fR"
 Destroys the object and frees any allocated resources.
-.SH "void QWhatsThis::add ( QWidget * widget, const QString & text )\fC [static]\fR"
+.SH "void QWhatsThis::add ( TQWidget * widget, const TQString & text )\fC [static]\fR"
 Adds \fItext\fR as "What's this" help for \fIwidget\fR. If the text is rich text formatted (i.e. it contains markup) it will be rendered with the default stylesheet QStyleSheet::defaultSheet().
 .PP
 The text is destroyed if the widget is later destroyed, so it need not be explicitly removed.
@@ -122,13 +122,13 @@ See also remove().
 .PP
 Examples:
 .)l application/application.cpp, helpsystem/mainwindow.cpp, and mdi/application.cpp.
-.SH "bool QWhatsThis::clicked ( const QString & href )\fC [virtual]\fR"
-This virtual function is called when the user clicks inside the" What's this?" window. \fIhref\fR is the link the user clicked on, or QString::null if there was no link.
+.SH "bool QWhatsThis::clicked ( const TQString & href )\fC [virtual]\fR"
+This virtual function is called when the user clicks inside the" What's this?" window. \fIhref\fR is the link the user clicked on, or TQString::null if there was no link.
 .PP
 If the function returns TRUE (the default), the "What's this?" window is closed, otherwise it remains visible.
 .PP
 The default implementation ignores \fIhref\fR and returns TRUE.
-.SH "void QWhatsThis::display ( const QString & text, const QPoint & pos = QCursor::pos ( ), QWidget * w = 0 )\fC [static]\fR"
+.SH "void QWhatsThis::display ( const TQString & text, const QPoint & pos = QCursor::pos ( ), TQWidget * w = 0 )\fC [static]\fR"
 Display \fItext\fR in a help window at the global screen position \fIpos\fR.
 .PP
 If widget \fIw\fR is not 0 and has its own dedicated QWhatsThis object, this object will receive clicked() messages when the user clicks on hyperlinks inside the help text.
@@ -137,7 +137,7 @@ See also QWhatsThis::clicked().
 .SH "void QWhatsThis::enterWhatsThisMode ()\fC [static]\fR"
 Enters "What's this?" mode and returns immediately.
 .PP
-Qt will install a special cursor and take over mouse input until the user clicks somewhere. It then shows any help available and ends "What's this?" mode. Finally, Qt removes the special cursor and help window and then restores ordinary event processing, at which point the left mouse button is no longer pressed.
+Qt will install a special cursor and take over mouse input until the user clicks somewhere. It then shows any help available and ends "What's this?" mode. Finally, TQt removes the special cursor and help window and then restores ordinary event processing, at which point the left mouse button is no longer pressed.
 .PP
 The user can also use the Esc key to leave "What's this?" mode.
 .PP
@@ -146,31 +146,31 @@ See also inWhatsThisMode() and leaveWhatsThisMode().
 Returns TRUE if the application is in "What's this?" mode; otherwise returns FALSE.
 .PP
 See also enterWhatsThisMode() and leaveWhatsThisMode().
-.SH "void QWhatsThis::leaveWhatsThisMode ( const QString & text = QString::null, const QPoint & pos = QCursor::pos ( ), QWidget * w = 0 )\fC [static]\fR"
+.SH "void QWhatsThis::leaveWhatsThisMode ( const TQString & text = TQString::null, const QPoint & pos = QCursor::pos ( ), TQWidget * w = 0 )\fC [static]\fR"
 Leaves "What's this?" question mode.
 .PP
-This function is used internally by widgets that support QWidget::customWhatsThis(); applications do not usually call it. An example of such a widget is QPopupMenu: menus still work normally in "What's this?" mode but also provide help texts for individual menu items.
+This function is used internally by widgets that support TQWidget::customWhatsThis(); applications do not usually call it. An example of such a widget is QPopupMenu: menus still work normally in "What's this?" mode but also provide help texts for individual menu items.
 .PP
-If \fItext\fR is not QString::null, a "What's this?" help window is displayed at the global screen position \fIpos\fR. If widget \fIw\fR is not 0 and has its own dedicated QWhatsThis object, this object will receive clicked() messages when the user clicks on hyperlinks inside the help text.
+If \fItext\fR is not TQString::null, a "What's this?" help window is displayed at the global screen position \fIpos\fR. If widget \fIw\fR is not 0 and has its own dedicated QWhatsThis object, this object will receive clicked() messages when the user clicks on hyperlinks inside the help text.
 .PP
 See also inWhatsThisMode(), enterWhatsThisMode(), and QWhatsThis::clicked().
-.SH "void QWhatsThis::remove ( QWidget * widget )\fC [static]\fR"
+.SH "void QWhatsThis::remove ( TQWidget * widget )\fC [static]\fR"
 Removes the "What's this?" help associated with the \fIwidget\fR. This happens automatically if the widget is destroyed.
 .PP
 See also add().
 .SH "void QWhatsThis::setFont ( const QFont & font )\fC [static]\fR"
 Sets the font for all "What's this?" helps to \fIfont\fR.
-.SH "QString QWhatsThis::text ( const QPoint & )\fC [virtual]\fR"
-This virtual function returns the text for position \fIp\fR in the widget that this "What's this?" object documents. If there is no" What's this?" text for the position, QString::null is returned.
+.SH "TQString QWhatsThis::text ( const QPoint & )\fC [virtual]\fR"
+This virtual function returns the text for position \fIp\fR in the widget that this "What's this?" object documents. If there is no" What's this?" text for the position, TQString::null is returned.
 .PP
-The default implementation returns QString::null.
-.SH "QString QWhatsThis::textFor ( QWidget * w, const QPoint & pos = QPoint ( ), bool includeParents = FALSE )\fC [static]\fR"
-Returns the what's this text for widget \fIw\fR or QString::null if there is no "What's this?" help for the widget. \fIpos\fR contains the mouse position; this is useful, for example, if you've subclassed to make the text that is displayed position dependent.
+The default implementation returns TQString::null.
+.SH "TQString QWhatsThis::textFor ( TQWidget * w, const QPoint & pos = QPoint ( ), bool includeParents = FALSE )\fC [static]\fR"
+Returns the what's this text for widget \fIw\fR or TQString::null if there is no "What's this?" help for the widget. \fIpos\fR contains the mouse position; this is useful, for example, if you've subclassed to make the text that is displayed position dependent.
 .PP
 If \fIincludeParents\fR is TRUE, parent widgets are taken into consideration as well when looking for what's this help text.
 .PP
 See also add().
-.SH "QToolButton * QWhatsThis::whatsThisButton ( QWidget * parent )\fC [static]\fR"
+.SH "QToolButton * QWhatsThis::whatsThisButton ( TQWidget * parent )\fC [static]\fR"
 Creates a QToolButton preconfigured to enter "What's this?" mode when clicked. You will often use this with a tool bar as \fIparent\fR:
 .PP
 .nf
@@ -195,8 +195,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -50,8 +50,8 @@
 #include "ntqnamespace.h"
 #endif // QT_H
 
-#define QT_TR_NOOP(x) (x)
-#define QT_TRANSLATE_NOOP(scope,x) (x)
+#define TQT_TR_NOOP(x) (x)
+#define TQT_TRANSLATE_NOOP(scope,x) (x)
 
 class TQMetaObject;
 class TQVariant;
@@ -59,19 +59,19 @@ class TQMetaProperty;
 class TQPostEventList;
 class TQSenderObjectList;
 class TQObjectPrivate;
-#ifndef QT_NO_USERDATA
+#ifndef TQT_NO_USERDATA
 class TQObjectUserData;
 #endif
 struct TQUObject;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 class TQThread;
 #endif
 
 class TQStyleControlElementData;
 class TQStyleControlElementDataPrivate;
 
-class Q_EXPORT TQObject: public TQt
+class TQ_EXPORT TQObject: public TQt
 {
     TQ_OBJECT
     TQ_PROPERTY( TQCString name READ name WRITE setName )
@@ -146,22 +146,22 @@ public:
     TQStyleControlElementData* controlElementDataObject();
     TQStyleControlElementDataPrivate* controlElementDataPrivateObject();
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     virtual bool setProperty( const char *name, const TQVariant& value );
     virtual TQVariant property( const char *name ) const;
-#endif // QT_NO_PROPERTIES
-#ifdef QT_NO_TRANSLATION
+#endif // TQT_NO_PROPERTIES
+#ifdef TQT_NO_TRANSLATION
     static TQString tr( const char *sourceText, const char * = 0);
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
     static TQString trUtf8( const char *sourceText, const char * = 0);
 #endif
-#endif //QT_NO_TRANSLATION
+#endif //TQT_NO_TRANSLATION
 
-#ifndef QT_NO_USERDATA
+#ifndef TQT_NO_USERDATA
     static uint registerUserData();
     void setUserData( uint id, TQObjectUserData* data);
     TQObjectUserData* userData( uint id ) const;
-#endif // QT_NO_USERDATA
+#endif // TQT_NO_USERDATA
 
 signals:
     void	 destroyed();
@@ -230,22 +230,23 @@ private:	// Disabled copy constructor and operator=
 #endif
 
 public:
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQThread* contextThreadObject() const;
     void moveToThread(TQThread *targetThread);
     void disableThreadPostedEvents(bool disable);
 #endif
 
 private:
-#ifdef QT_THREAD_SUPPORT
+    void cleanupControlElementData();
+#ifdef TQT_THREAD_SUPPORT
     void moveToThread_helper(TQThread *targetThread);
     void setThreadObject_helper(TQThread *targetThread);
 #endif
 };
 
 
-#ifndef QT_NO_USERDATA
-class Q_EXPORT TQObjectUserData {
+#ifndef TQT_NO_USERDATA
+class TQ_EXPORT TQObjectUserData {
 public:
     virtual ~TQObjectUserData();
 };
@@ -272,16 +273,16 @@ inline bool TQObject::disconnect( const TQObject *receiver, const char *member )
 }
 
 
-#ifdef QT_NO_TRANSLATION
+#ifdef TQT_NO_TRANSLATION
 inline TQString TQObject::tr( const char *sourceText, const char * ) {
     return TQString::fromLatin1( sourceText );
 }
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 inline TQString TQObject::trUtf8( const char *sourceText, const char * ) {
     return TQString::fromUtf8( sourceText );
 }
 #endif
-#endif //QT_NO_TRANSLATION
+#endif //TQT_NO_TRANSLATION
 
 
 #define Q_DEFINED_QOBJECT

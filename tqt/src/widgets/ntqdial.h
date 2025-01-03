@@ -47,11 +47,11 @@
 #include "ntqrangecontrol.h"
 #endif // QT_H
 
-#ifndef QT_NO_DIAL
+#ifndef TQT_NO_DIAL
 
 class TQDialPrivate;
 
-class Q_EXPORT TQDial: public TQWidget, public TQRangeControl
+class TQ_EXPORT TQDial: public TQWidget, public TQRangeControl
 {
     TQ_OBJECT
     TQ_PROPERTY( bool tracking READ tracking WRITE setTracking )
@@ -119,7 +119,7 @@ protected:
     void mousePressEvent( TQMouseEvent * );
     void mouseReleaseEvent( TQMouseEvent * );
     void mouseMoveEvent( TQMouseEvent * );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void wheelEvent( TQWheelEvent * );
 #endif
     void focusInEvent( TQFocusEvent * );
@@ -148,6 +148,6 @@ private: // Disabled copy constructor and operator=
 
 };
 
-#endif  // QT_NO_DIAL
+#endif  // TQT_NO_DIAL
 
 #endif

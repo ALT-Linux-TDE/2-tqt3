@@ -201,8 +201,8 @@ CustomFileDialog::CustomFileDialog()
     TQToolTip::add( p, tr( "Bookmarks" ) );
 
     bookmarkMenu = new TQPopupMenu( this );
-    connect( bookmarkMenu, SIGNAL( activated( int ) ),
-	     this, SLOT( bookmarkChosen( int ) ) );
+    connect( bookmarkMenu, TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( bookmarkChosen( int ) ) );
     addId = bookmarkMenu->insertItem( tr( "Add bookmark" ) );
     bookmarkMenu->insertSeparator();
 
@@ -222,16 +222,16 @@ CustomFileDialog::CustomFileDialog()
 
     addToolButton( p, TRUE );
 
-    connect( dirView, SIGNAL( folderSelected( const TQString & ) ),
-	     this, SLOT( setDir2( const TQString & ) ) );
-    connect( this, SIGNAL( dirEntered( const TQString & ) ),
-	     dirView, SLOT( setDir( const TQString & ) ) );
+    connect( dirView, TQ_SIGNAL( folderSelected( const TQString & ) ),
+	     this, TQ_SLOT( setDir2( const TQString & ) ) );
+    connect( this, TQ_SIGNAL( dirEntered( const TQString & ) ),
+	     dirView, TQ_SLOT( setDir( const TQString & ) ) );
 
     TQToolButton *b = new TQToolButton( this );
     TQToolTip::add( b, tr( "Go Home!" ) );
     b->setPixmap( TQPixmap( home ) );
-    connect( b, SIGNAL( clicked() ),
-	     this, SLOT( goHome() ) );
+    connect( b, TQ_SIGNAL( clicked() ),
+	     this, TQ_SLOT( goHome() ) );
 
     addToolButton( b );
 

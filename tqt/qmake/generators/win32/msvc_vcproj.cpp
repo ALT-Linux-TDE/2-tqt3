@@ -459,8 +459,8 @@ void VcprojGenerator::init()
 
     // Are we building TQt?
     bool is_qt =
-	( project->first("TARGET") == "qt"TQTDLL_POSTFIX ||
-	  project->first("TARGET") == "tqt-mt"TQTDLL_POSTFIX );
+	( project->first("TARGET") == "qt" TQTDLL_POSTFIX ||
+	  project->first("TARGET") == "tqt-mt" TQTDLL_POSTFIX );
 
     // Are we using TQt?
     bool isTQtActive = project->isActiveConfig("qt");
@@ -468,8 +468,8 @@ void VcprojGenerator::init()
     if ( isTQtActive ) {
 	project->variables()["CONFIG"] += "moc";
 	project->variables()["CONFIG"] += "windows";
-	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_QT"];
-	project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_QT"];
+	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_TQT"];
+	project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_TQT"];
 
 	if( projectTarget == SharedLib )
 	    project->variables()["DEFINES"] += "QT_DLL";
@@ -483,7 +483,7 @@ void VcprojGenerator::init()
 	}
 
 	if( project->isActiveConfig("thread") ) {
-	    project->variables()["DEFINES"] += "QT_THREAD_SUPPORT";
+	    project->variables()["DEFINES"] += "TQT_THREAD_SUPPORT";
 	    project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QT_THREAD"];
 	} else {
 	    project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QT"];
@@ -648,8 +648,8 @@ void VcprojGenerator::initConfiguration()
         if (!project->variables()["QMAKE_CXXFLAGS_RELEASE"].contains("Gm")
             && project->variables()["QMAKE_CXXFLAGS_DEBUG"].contains("Gm"))
             RConf.compiler.parseOption("-Gm-");
-        if (RConf.compiler.PreprocessorDefinitions.findIndex("QT_NO_DEBUG") == -1)
-            RConf.compiler.PreprocessorDefinitions += "QT_NO_DEBUG";
+        if (RConf.compiler.PreprocessorDefinitions.findIndex("TQT_NO_DEBUG") == -1)
+            RConf.compiler.PreprocessorDefinitions += "TQT_NO_DEBUG";
     } else {
 	DConf.IntermediateDirectory =
 	DConf.compiler.AssemblerListingLocation =
@@ -659,7 +659,7 @@ void VcprojGenerator::initConfiguration()
 	DConf.linker.DelayLoadDLLs.clear();
 	DConf.compiler.parseOptions(project->variables()["QMAKE_CFLAGS_DEBUG"]);
         DConf.compiler.parseOptions(project->variables()["QMAKE_CXXFLAGS_DEBUG"]);
-        DConf.compiler.PreprocessorDefinitions.remove("QT_NO_DEBUG");
+        DConf.compiler.PreprocessorDefinitions.remove("TQT_NO_DEBUG");
     }
 
     // Add Debug configuration to project
@@ -704,7 +704,7 @@ void VcprojGenerator::initCompilerTool()
 	// Release version
 	RConf.compiler.parseOptions( project->variables()["QMAKE_CXXFLAGS"] );
 	RConf.compiler.parseOptions( project->variables()["QMAKE_CXXFLAGS_RELEASE"] );
-	RConf.compiler.PreprocessorDefinitions += "QT_NO_DEBUG";
+	RConf.compiler.PreprocessorDefinitions += "TQT_NO_DEBUG";
 	RConf.compiler.PreprocessorDefinitions += "NDEBUG";
 	if ( project->isActiveConfig("thread") ) {
 	    if ( (projectTarget == Application) || (projectTarget == StaticLib) )
@@ -1097,8 +1097,8 @@ void VcprojGenerator::initOld()
 	project->variables()["QMAKESPEC"].append( getenv("QMAKESPEC") );
 
     bool is_qt =
-	( project->first("TARGET") == "qt"TQTDLL_POSTFIX ||
-	  project->first("TARGET") == "tqt-mt"TQTDLL_POSTFIX );
+	( project->first("TARGET") == "qt" TQTDLL_POSTFIX ||
+	  project->first("TARGET") == "tqt-mt" TQTDLL_POSTFIX );
 
    TQStringList &configs = project->variables()["CONFIG"];
 
@@ -1150,8 +1150,8 @@ void VcprojGenerator::initOld()
     // QT ------------------------------------------------------------
     if ( project->isActiveConfig("qt") ) {
 	project->variables()["CONFIG"].append("moc");
-	project->variables()["INCLUDEPATH"] +=	project->variables()["QMAKE_INCDIR_QT"];
-	project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_QT"];
+	project->variables()["INCLUDEPATH"] +=	project->variables()["QMAKE_INCDIR_TQT"];
+	project->variables()["QMAKE_LIBDIR"] += project->variables()["QMAKE_LIBDIR_TQT"];
 
 	if ( is_qt && !project->variables()["QMAKE_LIB_FLAG"].isEmpty() ) {
 	    if ( !project->variables()["QMAKE_QT_DLL"].isEmpty() ) {
@@ -1164,9 +1164,9 @@ void VcprojGenerator::initOld()
 	    else
 		project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QT"];
 	    if ( !project->variables()["QMAKE_QT_DLL"].isEmpty() ) {
-		int hver = findHighestVersion(project->first("QMAKE_LIBDIR_QT"), "qt");
+		int hver = findHighestVersion(project->first("QMAKE_LIBDIR_TQT"), "qt");
 		if( hver==-1 ) {
-		    hver = findHighestVersion( project->first("QMAKE_LIBDIR_QT"), "tqt-mt" );
+		    hver = findHighestVersion( project->first("QMAKE_LIBDIR_TQT"), "tqt-mt" );
 		}
 
 		if(hver != -1) {
@@ -1209,7 +1209,7 @@ void VcprojGenerator::initOld()
     // THREAD --------------------------------------------------------
     if ( project->isActiveConfig("thread") ) {
 	if(project->isActiveConfig("qt"))
-	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("QT_THREAD_SUPPORT" );
+	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("TQT_THREAD_SUPPORT" );
 	if ( !project->variables()["DEFINES"].contains("QT_DLL") && is_qt
 	     && project->first("TARGET") != "qtmain" )
 	    project->variables()["QMAKE_LFLAGS"].append("/NODEFAULTLIB:libc");
@@ -1376,8 +1376,8 @@ void VcprojGenerator::initOld()
     project->variables()["MSVCPROJ_TARGET"] = project->first("TARGET");
     Option::fixPathToTargetOS(project->first("TARGET"));
     dest = project->first("TARGET") + project->first( "TARGET_EXT" );
-    if ( project->first("TARGET").startsWith("$(QTDIR)") )
-	dest.replace( TQRegExp("\\$\\(QTDIR\\)"), getenv("QTDIR") );
+    if ( project->first("TARGET").startsWith("$(TQTDIR)") )
+	dest.replace( TQRegExp("\\$\\(TQTDIR\\)"), getenv("TQTDIR") );
     project->variables()["MSVCPROJ_TARGET"] = dest;
 
     // DLL COPY ------------------------------------------------------
@@ -1509,7 +1509,7 @@ TQString VcprojGenerator::findTemplate(TQString file)
     TQString ret;
     if(!TQFile::exists((ret = file)) &&
        !TQFile::exists((ret = TQString(Option::mkfile::qmakespec + "/" + file))) &&
-       !TQFile::exists((ret = TQString(getenv("QTDIR")) + "/mkspecs/win32-msvc.net/" + file)) &&
+       !TQFile::exists((ret = TQString(getenv("TQTDIR")) + "/mkspecs/win32-msvc.net/" + file)) &&
        !TQFile::exists((ret = (TQString(getenv("HOME")) + "/.tmake/" + file))))
 	return "";
     debug_msg(1, "Generator: MSVC.NET: Found template \'%s\'", ret.latin1() );

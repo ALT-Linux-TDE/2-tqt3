@@ -98,7 +98,7 @@ struct TQMetaData				// - member function meta data
     Access access;				// - access permission
 };
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 struct TQMetaEnum				// enumerator meta data
 {						//  for properties
     const char *name;				// - enumerator name
@@ -113,9 +113,9 @@ struct TQMetaEnum				// enumerator meta data
 };
 #endif
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 
-class Q_EXPORT TQMetaProperty			// property meta data
+class TQ_EXPORT TQMetaProperty			// property meta data
 {
 public:
     const char*	type() const { return t; }	// type of the property
@@ -167,7 +167,7 @@ public:
 inline bool TQMetaProperty::testFlags( uint f ) const
 { return (flags &amp; (uint)f) != (uint)0; }
 
-#endif // QT_NO_PROPERTIES
+#endif // TQT_NO_PROPERTIES
 
 struct TQClassInfo				// class info meta data
 {
@@ -175,19 +175,19 @@ struct TQClassInfo				// class info meta data
     const char* value;				// - value of the info
 };
 
-class Q_EXPORT TQMetaObject			// meta object class
+class TQ_EXPORT TQMetaObject			// meta object class
 {
 public:
     TQMetaObject( const char * const class_name, TQMetaObject *superclass,
 		 const TQMetaData * const slot_data, int n_slots,
 		 const TQMetaData * const signal_data, int n_signals,
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 		 const TQMetaProperty *const prop_data, int n_props,
 		 const TQMetaEnum *const enum_data, int n_enums,
 #endif
 		 const TQClassInfo *const class_info, int n_info );
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     TQMetaObject( const char * const class_name, TQMetaObject *superclass,
 		 const TQMetaData * const slot_data, int n_slots,
 		 const TQMetaData * const signal_data, int n_signals,
@@ -227,7 +227,7 @@ public:
     const TQClassInfo	*classInfo( int index, bool super = FALSE ) const;
     const char	*classInfo( const char* name, bool super = FALSE ) const;
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     const TQMetaProperty	*property( int index, bool super = FALSE ) const;
     int findProperty( const char *name, bool super = FALSE ) const;
     int indexOfProperty( const TQMetaProperty*, bool super = FALSE ) const;
@@ -243,12 +243,12 @@ public:
     static TQMetaObject	*new_metaobject( const char *, TQMetaObject *,
 					const TQMetaData *const, int,
 					const TQMetaData *const, int,
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 					const TQMetaProperty *const prop_data, int n_props,
 					const TQMetaEnum *const enum_data, int n_enums,
 #endif
 					const TQClassInfo *const  class_info, int n_info );
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     static TQMetaObject	*new_metaobject( const char *, TQMetaObject *,
 					const TQMetaData *const, int,
 					const TQMetaData *const, int,
@@ -278,7 +278,7 @@ private:
     TQMemberDict	*signalDict;			// signal dictionary
     int signaloffset;
     int slotoffset;
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
     int propertyoffset;
 public:
     bool tqt_static_property( TQObject* o, int id, int f, TQVariant* v);
@@ -299,14 +299,14 @@ inline int TQMetaObject::slotOffset() const
 inline int TQMetaObject::signalOffset() const
 { return signaloffset; }
 
-#ifndef QT_NO_PROPERTIES
+#ifndef TQT_NO_PROPERTIES
 inline int TQMetaObject::propertyOffset() const
 { return propertyoffset; }
 #endif
 
 typedef TQMetaObject *(*TQtStaticMetaObjectFunction)();
 
-class Q_EXPORT TQMetaObjectCleanUp
+class TQ_EXPORT TQMetaObjectCleanUp
 {
 public:
     TQMetaObjectCleanUp( const char *mo_name, TQtStaticMetaObjectFunction );

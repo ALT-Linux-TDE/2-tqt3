@@ -62,7 +62,7 @@
 
 #include "ntqdns.h"
 
-#ifndef QT_NO_DNS
+#ifndef TQT_NO_DNS
 
 #include "ntqdatetime.h"
 #include "ntqdict.h"
@@ -102,7 +102,7 @@ static TQ_UINT32 now()
     return 0;
 }
 
-#if defined(__GLIBC__) && ((__GLIBC__ > 2) || ((__GLIBC__ == 2) && (__GLIBC_MINOR__ >= 3)))
+#if defined(__RES) && (__RES >= 19980901)
 #define Q_MODERN_RES_API
 #else
 #endif
@@ -891,7 +891,7 @@ public:
     TQPtrVector<TQDnsQuery> queries;
     TQDict<TQDnsDomain> cache;
     TQSocketDevice * ipv4Socket;
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
     TQSocketDevice * ipv6Socket;
 #endif
 };
@@ -933,7 +933,7 @@ TQDnsManager::TQDnsManager()
       queries( TQPtrVector<TQDnsQuery>( 0 ) ),
       cache( TQDict<TQDnsDomain>( 83, FALSE ) ),
       ipv4Socket( new TQSocketDevice( TQSocketDevice::Datagram, TQSocketDevice::IPv4, 0 ) )
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
       , ipv6Socket( new TQSocketDevice( TQSocketDevice::Datagram, TQSocketDevice::IPv6, 0 ) )
 #endif
 {
@@ -942,17 +942,17 @@ TQDnsManager::TQDnsManager()
 
     TQTimer * sweepTimer = new TQTimer( this );
     sweepTimer->start( 1000 * 60 * 3 );
-    connect( sweepTimer, SIGNAL(timeout()),
-	     this, SLOT(cleanCache()) );
+    connect( sweepTimer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(cleanCache()) );
 
     TQSocketNotifier * rn4 = new TQSocketNotifier( ipv4Socket->socket(),
 						 TQSocketNotifier::Read,
 						 this, "dns IPv4 socket watcher" );
     ipv4Socket->setAddressReusable( FALSE );
     ipv4Socket->setBlocking( FALSE );
-    connect( rn4, SIGNAL(activated(int)), SLOT(answer()) );
+    connect( rn4, TQ_SIGNAL(activated(int)), TQ_SLOT(answer()) );
 
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
     // Don't connect the IPv6 socket notifier if the host does not
     // support IPv6.
     if ( ipv6Socket->socket() != -1 ) {
@@ -963,7 +963,7 @@ TQDnsManager::TQDnsManager()
 	ipv6support = TRUE;
 	ipv6Socket->setAddressReusable( FALSE );
 	ipv6Socket->setBlocking( FALSE );
-	connect( rn6, SIGNAL(activated(int)), SLOT(answer()) );
+	connect( rn6, TQ_SIGNAL(activated(int)), TQ_SLOT(answer()) );
     }
 #endif
 
@@ -1028,7 +1028,7 @@ TQDnsManager::~TQDnsManager()
     queries.setAutoDelete( TRUE );
     cache.setAutoDelete( TRUE );
     delete ipv4Socket;
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
     delete ipv6Socket;
 #endif
 }
@@ -1076,7 +1076,7 @@ void TQDnsManager::answer()
     TQByteArray a( 16383 ); // large enough for anything, one suspects
 
     int r;
-#if defined (QT_NO_IPV6)
+#if defined (TQT_NO_IPV6)
     r = ipv4Socket->readBlock(a.data(), a.size());
 #else
     if (((TQSocketNotifier *)sender())->socket() == ipv4Socket->socket())
@@ -1085,7 +1085,7 @@ void TQDnsManager::answer()
         r = ipv6Socket->readBlock(a.data(), a.size());
 #endif
 #if defined(TQDNS_DEBUG)
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
     tqDebug("DNS Manager: answer arrived: %d bytes from %s:%d", r,
 	   useIpv4Socket ? ipv4Socket->peerAddress().toString().ascii()
 	   : ipv6Socket->peerAddress().toString().ascii(),
@@ -1169,7 +1169,7 @@ void TQDnsManager::transmitQuery( int i )
 	tqDebug( "DNS Manager: giving up on query 0x%04x", q->id );
 #endif
 	delete q;
-	TQTimer::singleShot( 0, TQDnsManager::manager(), SLOT(cleanCache()) );
+	TQTimer::singleShot( 0, TQDnsManager::manager(), TQ_SLOT(cleanCache()) );
 	// and don't process anything more
 	return;
     }
@@ -1265,7 +1265,7 @@ void TQDnsManager::transmitQuery( int i )
 	tqDebug( "DNS Manager: no DNS server found on query 0x%04x", q->id );
 #endif
 	delete q;
-	TQTimer::singleShot( 1000*10, TQDnsManager::manager(), SLOT(cleanCache()) );
+	TQTimer::singleShot( 1000*10, TQDnsManager::manager(), TQ_SLOT(cleanCache()) );
 	// and don't process anything more
 	return;
     }
@@ -1273,7 +1273,7 @@ void TQDnsManager::transmitQuery( int i )
     TQHostAddress receiver = *ns->at( q->step % ns->count() );
     if (receiver.isIPv4Address())
 	ipv4Socket->writeBlock( p.data(), pp, receiver, 53 );
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
     else
 	ipv6Socket->writeBlock( p.data(), pp, receiver, 53 );
 #endif
@@ -1291,7 +1291,7 @@ void TQDnsManager::transmitQuery( int i )
 	while( (server=ns->next()) != 0 ) {
 	    if (server->isIPv4Address())
 		ipv4Socket->writeBlock( p.data(), pp, *server, 53 );
-#if !defined (QT_NO_IPV6)
+#if !defined (TQT_NO_IPV6)
 	    else
 		ipv6Socket->writeBlock( p.data(), pp, *server, 53 );
 #endif
@@ -1467,9 +1467,9 @@ TQPtrList<TQDnsRR> * TQDnsDomain::cached( const TQDns * r )
 			// timeouts: we make sure to use high timeouts
 			// and few tramsissions.
 			query->step = ns->count();
-			TQObject::connect( query, SIGNAL(timeout()),
+			TQObject::connect( query, TQ_SIGNAL(timeout()),
 					  TQDnsManager::manager(),
-					  SLOT(retransmit()) );
+					  TQ_SLOT(retransmit()) );
 			TQDnsManager::manager()->transmitQuery( query );
 		    }
 		}
@@ -1519,8 +1519,8 @@ TQPtrList<TQDnsRR> * TQDnsDomain::cached( const TQDns * r )
 		query->t = r->recordType();
 		query->l = s;
 		query->dns->replace( (void*)r, (void*)r );
-		TQObject::connect( query, SIGNAL(timeout()),
-				  TQDnsManager::manager(), SLOT(retransmit()) );
+		TQObject::connect( query, TQ_SIGNAL(timeout()),
+				  TQDnsManager::manager(), TQ_SLOT(retransmit()) );
 		TQDnsManager::manager()->transmitQuery( query );
 	    } else if ( q < m->queries.size() ) {
 		// if we've found an earlier query for the same
@@ -1908,8 +1908,8 @@ void TQDns::setStartQueryTimer()
     {
 	// start the query the next time we enter event loop
 	d->queryTimer = new TQTimer( this );
-	connect( d->queryTimer, SIGNAL(timeout()),
-		 this, SLOT(startQuery()) );
+	connect( d->queryTimer, TQ_SIGNAL(timeout()),
+		 this, TQ_SLOT(startQuery()) );
 	d->queryTimer->start( 0, TRUE );
     }
 }
@@ -2278,7 +2278,7 @@ TQString TQDns::canonicalName() const
 */
 void TQDns::connectNotify( const char *signal )
 {
-    if ( d->noEventLoop && qstrcmp(signal,SIGNAL(resultsReady()) )==0 ) {
+    if ( d->noEventLoop && qstrcmp(signal,TQ_SIGNAL(resultsReady()) )==0 ) {
 	doSynchronousLookup();
     }
 }
@@ -2594,6 +2594,8 @@ void TQDns::doResInit()
     if (ns->isEmpty()) {
 #if defined(Q_MODERN_RES_API)
 	struct __res_state res;
+	/* the storage must be clean */
+	memset(&res, 0, sizeof(res));
 	res_ninit( &res );
 	int i;
 	// find the name servers to use
@@ -2691,4 +2693,4 @@ void TQDns::doResInit()
 
 #endif
 
-#endif // QT_NO_DNS
+#endif // TQT_NO_DNS

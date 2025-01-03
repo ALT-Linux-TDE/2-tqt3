@@ -40,7 +40,7 @@
 
 #include "ntqlayout.h"
 
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 #include "ntqapplication.h"
 #include "qlayoutengine_p.h"
 #include "ntqmenubar.h"
@@ -48,7 +48,7 @@
 
 static int menuBarHeightForWidth( TQMenuBar *menubar, int w )
 {
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( menubar && !menubar->isHidden() && !menubar->isTopLevel() )
 	return menubar->heightForWidth( TQMAX(w, menubar->minimumWidth()) );
     else
@@ -636,7 +636,7 @@ void TQLayout::init()
     autoMinimum = FALSE;
     autoResizeMode = TRUE;
     extraData = 0;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     menubar = 0;
 #endif
 }
@@ -858,7 +858,7 @@ bool TQLayout::eventFilter( TQObject *o, TQEvent *e )
 	if ( activated ) {
 	    TQResizeEvent *r = (TQResizeEvent *)e;
 	    int mbh = 0;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
 	    mbh = menuBarHeightForWidth( menubar, r->size().width() );
 #endif
 	    int b = marginImpl ? 0 : outsideBorder;
@@ -873,7 +873,7 @@ bool TQLayout::eventFilter( TQObject *o, TQEvent *e )
 	    TQChildEvent *c = (TQChildEvent *)e;
 	    if ( c->child()->isWidgetType() ) {
 		TQWidget *w = (TQWidget *)c->child();
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
 		if ( w == menubar )
 		    menubar = 0;
 #endif
@@ -890,7 +890,7 @@ bool TQLayout::eventFilter( TQObject *o, TQEvent *e )
 	    if ( c->child()->isWidgetType() ) {
 		TQWidget *w = (TQWidget *)c->child();
 		if ( !w->isTopLevel() ) {
-#if !defined(QT_NO_MENUBAR) && !defined(QT_NO_TOOLBAR)
+#if !defined(TQT_NO_MENUBAR) && !defined(TQT_NO_TOOLBAR)
 		    if ( ::tqt_cast<TQMenuBar*>(w) && !::tqt_cast<TQToolBar*>(w->parentWidget()) )
 			menubar = (TQMenuBar *)w;
 		    else
@@ -949,7 +949,7 @@ int TQLayout::totalHeightForWidth( int w ) const
     }
     int b = ( topLevel && !marginImpl ) ? 2 * outsideBorder : 0;
     int h = heightForWidth( w - b ) + b;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     h += menuBarHeightForWidth( menubar, w );
 #endif
     return h;
@@ -970,7 +970,7 @@ TQSize TQLayout::totalMinimumSize() const
 
     TQSize s = minimumSize();
     int h = b;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     h += menuBarHeightForWidth( menubar, s.width() );
 #endif
     return s + TQSize( b, h );
@@ -993,7 +993,7 @@ TQSize TQLayout::totalSizeHint() const
     if ( hasHeightForWidth() )
 	s.setHeight( heightForWidth(s.width()) );
     int h = b;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     h += menuBarHeightForWidth( menubar, s.width() );
 #endif
     return s + TQSize( b, h );
@@ -1015,7 +1015,7 @@ TQSize TQLayout::totalMaximumSize() const
 
     TQSize s = maximumSize();
     int h = b;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     h += menuBarHeightForWidth( menubar, s.width() );
 #endif
 
@@ -1103,7 +1103,7 @@ void TQLayout::freeze( int w, int h )
     }
 }
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
 
 /*!
     Makes the geometry manager take account of the menu bar \a w. All
@@ -1198,7 +1198,7 @@ bool TQLayout::activate()
     TQSize s = mw->size();
     TQSize ms;
     int mbh = 0;
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     mbh = menuBarHeightForWidth( menubar, s.width() );
 #endif
     int b = marginImpl ? 0 : outsideBorder;
@@ -1942,4 +1942,4 @@ void TQLayout::propagateSpacing( TQLayout *parent )
     }
 }
 
-#endif // QT_NO_LAYOUT
+#endif // TQT_NO_LAYOUT

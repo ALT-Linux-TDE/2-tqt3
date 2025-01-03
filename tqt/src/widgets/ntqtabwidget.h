@@ -46,7 +46,7 @@
 #include "ntqiconset.h"
 #endif // QT_H
 
-#ifndef QT_NO_TABWIDGET
+#ifndef TQT_NO_TABWIDGET
 
 class TQTabBar;
 class TQTabWidgetData;
@@ -54,7 +54,7 @@ class TQTab;
 class TQWidgetStack;
 
 
-class Q_EXPORT TQTabWidget : public TQWidget
+class TQ_EXPORT TQTabWidget : public TQWidget
 {
     TQ_OBJECT
     TQ_ENUMS( TabPosition )
@@ -157,6 +157,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_TABWIDGET
+#endif // TQT_NO_TABWIDGET
 
 #endif // TQTABWIDGET_H

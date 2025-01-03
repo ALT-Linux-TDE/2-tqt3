@@ -36,7 +36,7 @@ ExampleWidget::ExampleWidget( TQWidget *parent, const char *name )
     menubar->setSeparator( TQMenuBar::InWindowsStyle );
     TQPopupMenu* popup;
     popup = new TQPopupMenu( this );
-    popup->insertItem( "&Quit", tqApp, SLOT(quit()) );
+    popup->insertItem( "&Quit", tqApp, TQ_SLOT(quit()) );
     menubar->insertItem( "&File", popup );
 
     // ...and tell the layout about it.

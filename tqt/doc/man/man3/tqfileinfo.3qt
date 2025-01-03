@@ -9,7 +9,7 @@
 .SH NAME
 QFileInfo \- System-independent file information
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqfileinfo.h>\fR
 .PP
@@ -22,13 +22,13 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "\fBQFileInfo\fR ()"
 .br
 .ti -1c
-.BI "\fBQFileInfo\fR ( const QString & file )"
+.BI "\fBQFileInfo\fR ( const TQString & file )"
 .br
 .ti -1c
 .BI "\fBQFileInfo\fR ( const QFile & file )"
 .br
 .ti -1c
-.BI "\fBQFileInfo\fR ( const QDir & d, const QString & fileName )"
+.BI "\fBQFileInfo\fR ( const QDir & d, const TQString & fileName )"
 .br
 .ti -1c
 .BI "\fBQFileInfo\fR ( const QFileInfo & fi )"
@@ -40,13 +40,13 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "QFileInfo & \fBoperator=\fR ( const QFileInfo & fi )"
 .br
 .ti -1c
-.BI "void \fBsetFile\fR ( const QString & file )"
+.BI "void \fBsetFile\fR ( const TQString & file )"
 .br
 .ti -1c
 .BI "void \fBsetFile\fR ( const QFile & file )"
 .br
 .ti -1c
-.BI "void \fBsetFile\fR ( const QDir & d, const QString & fileName )"
+.BI "void \fBsetFile\fR ( const QDir & d, const TQString & fileName )"
 .br
 .ti -1c
 .BI "bool \fBexists\fR () const"
@@ -61,22 +61,22 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "void \fBsetCaching\fR ( bool enable )"
 .br
 .ti -1c
-.BI "QString \fBfilePath\fR () const"
+.BI "TQString \fBfilePath\fR () const"
 .br
 .ti -1c
-.BI "QString \fBfileName\fR () const"
+.BI "TQString \fBfileName\fR () const"
 .br
 .ti -1c
-.BI "QString \fBabsFilePath\fR () const"
+.BI "TQString \fBabsFilePath\fR () const"
 .br
 .ti -1c
-.BI "QString \fBbaseName\fR ( bool complete = FALSE ) const"
+.BI "TQString \fBbaseName\fR ( bool complete = FALSE ) const"
 .br
 .ti -1c
-.BI "QString \fBextension\fR ( bool complete = TRUE ) const"
+.BI "TQString \fBextension\fR ( bool complete = TRUE ) const"
 .br
 .ti -1c
-.BI "QString \fBdirPath\fR ( bool absPath = FALSE ) const"
+.BI "TQString \fBdirPath\fR ( bool absPath = FALSE ) const"
 .br
 .ti -1c
 .BI "QDir \fBdir\fR ( bool absPath = FALSE ) const"
@@ -109,16 +109,16 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "bool \fBisSymLink\fR () const"
 .br
 .ti -1c
-.BI "QString \fBreadLink\fR () const"
+.BI "TQString \fBreadLink\fR () const"
 .br
 .ti -1c
-.BI "QString \fBowner\fR () const"
+.BI "TQString \fBowner\fR () const"
 .br
 .ti -1c
 .BI "uint \fBownerId\fR () const"
 .br
 .ti -1c
-.BI "QString \fBgroup\fR () const"
+.BI "TQString \fBgroup\fR () const"
 .br
 .ti -1c
 .BI "uint \fBgroupId\fR () const"
@@ -187,11 +187,11 @@ This enum is used by the permission() function to report the permissions and own
 .TP
 \fCQFileInfo::ExeOther\fR - The file is executable by anyone.
 .PP
-\fBWarning:\fR The semantics of ReadUser, WriteUser and ExeUser are unfortunately not platform independent: on Unix, the rights of the owner of the file are returned and on Windows the rights of the current user are returned. This behavior might change in a future Qt version. If you want to find the rights of the owner of the file, you should use the flags ReadOwner, WriteOwner and ExeOwner. If you want to find out the rights of the current user, you should use isReadable(), isWritable() and isExecutable().
+\fBWarning:\fR The semantics of ReadUser, WriteUser and ExeUser are unfortunately not platform independent: on Unix, the rights of the owner of the file are returned and on Windows the rights of the current user are returned. This behavior might change in a future TQt version. If you want to find the rights of the owner of the file, you should use the flags ReadOwner, WriteOwner and ExeOwner. If you want to find out the rights of the current user, you should use isReadable(), isWritable() and isExecutable().
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QFileInfo::QFileInfo ()"
 Constructs a new empty QFileInfo.
-.SH "QFileInfo::QFileInfo ( const QString & file )"
+.SH "QFileInfo::QFileInfo ( const TQString & file )"
 Constructs a new QFileInfo that gives information about the given file. The \fIfile\fR can also include an absolute or relative path.
 .PP
 \fBWarning:\fR Some functions might behave in a counter-intuitive way if \fIfile\fR has a trailing directory separator.
@@ -203,7 +203,7 @@ Constructs a new QFileInfo that gives information about file \fIfile\fR.
 If the \fIfile\fR has a relative path, the QFileInfo will also have a relative path.
 .PP
 See also isRelative().
-.SH "QFileInfo::QFileInfo ( const QDir & d, const QString & fileName )"
+.SH "QFileInfo::QFileInfo ( const QDir & d, const TQString & fileName )"
 Constructs a new QFileInfo that gives information about the file called \fIfileName\fR in the directory \fId\fR.
 .PP
 If \fId\fR has a relative path, the QFileInfo will also have a relative path.
@@ -213,7 +213,7 @@ See also isRelative().
 Constructs a new QFileInfo that is a copy of \fIfi\fR.
 .SH "QFileInfo::~QFileInfo ()"
 Destroys the QFileInfo and frees its resources.
-.SH "QString QFileInfo::absFilePath () const"
+.SH "TQString QFileInfo::absFilePath () const"
 Returns the absolute path including the file name.
 .PP
 The absolute path name consists of the full path and the file name. On Unix this will always begin with the root, '/', directory. On Windows this will always begin 'D:/' where D is a drive letter, except for network shares that are not mapped to a drive letter, in which case the path will begin '//sharename/'.
@@ -228,7 +228,7 @@ See also isRelative() and filePath().
 .PP
 Examples:
 .)l biff/biff.cpp and fileiconview/qfileiconview.cpp.
-.SH "QString QFileInfo::baseName ( bool complete = FALSE ) const"
+.SH "TQString QFileInfo::baseName ( bool complete = FALSE ) const"
 Returns the base name of the file.
 .PP
 If \fIcomplete\fR is FALSE (the default) the base name consists of all characters in the file name up to (but not including) the \fIfirst\fR '.' character.
@@ -243,7 +243,7 @@ Example:
 .br
         QFileInfo fi( "/tmp/archive.tar.gz" );
 .br
-        QString base = fi.baseName();  // base = "archive"
+        TQString base = fi.baseName();  // base = "archive"
 .br
         base = fi.baseName( TRUE );    // base = "archive.tar"
 .br
@@ -274,7 +274,7 @@ If the QFileInfo is relative and \fIabsPath\fR is FALSE, the QDir will be relati
 See also dirPath(), filePath(), fileName(), and isRelative().
 .PP
 Example: fileiconview/qfileiconview.cpp.
-.SH "QString QFileInfo::dirPath ( bool absPath = FALSE ) const"
+.SH "TQString QFileInfo::dirPath ( bool absPath = FALSE ) const"
 Returns the file's path.
 .PP
 If \fIabsPath\fR is TRUE an absolute path is returned.
@@ -287,7 +287,7 @@ Returns TRUE if the file exists; otherwise returns FALSE.
 .PP
 Examples:
 .)l biff/biff.cpp, distributor/distributor.ui.h, and i18n/main.cpp.
-.SH "QString QFileInfo::extension ( bool complete = TRUE ) const"
+.SH "TQString QFileInfo::extension ( bool complete = TRUE ) const"
 Returns the file's extension name.
 .PP
 If \fIcomplete\fR is TRUE (the default), extension() returns the string of all characters in the file name after (but not including) the first '.' character.
@@ -300,7 +300,7 @@ Example:
 .br
         QFileInfo fi( "/tmp/archive.tar.gz" );
 .br
-        QString ext = fi.extension();  // ext = "tar.gz"
+        TQString ext = fi.extension();  // ext = "tar.gz"
 .br
         ext = fi.extension( FALSE );   // ext = "gz"
 .br
@@ -309,7 +309,7 @@ Example:
 See also fileName() and baseName().
 .PP
 Example: qdir/qdir.cpp.
-.SH "QString QFileInfo::fileName () const"
+.SH "TQString QFileInfo::fileName () const"
 Returns the name of the file, excluding the path.
 .PP
 Example:
@@ -318,7 +318,7 @@ Example:
 .br
         QFileInfo fi( "/tmp/archive.tar.gz" );
 .br
-        QString name = fi.fileName();           // name = "archive.tar.gz"
+        TQString name = fi.fileName();           // name = "archive.tar.gz"
 .br
 .fi
 .PP
@@ -326,15 +326,15 @@ See also isRelative(), filePath(), baseName(), and extension().
 .PP
 Examples:
 .)l dirview/dirview.cpp, fileiconview/qfileiconview.cpp, and network/ftpclient/ftpmainwindow.ui.h.
-.SH "QString QFileInfo::filePath () const"
+.SH "TQString QFileInfo::filePath () const"
 Returns the file name, including the path (which may be absolute or relative).
 .PP
 See also isRelative() and absFilePath().
 .PP
 Examples:
 .)l dirview/main.cpp and fileiconview/qfileiconview.cpp.
-.SH "QString QFileInfo::group () const"
-Returns the group of the file. On Windows, on systems where files do not have groups, or if an error occurs, QString::null is returned.
+.SH "TQString QFileInfo::group () const"
+Returns the group of the file. On Windows, on systems where files do not have groups, or if an error occurs, TQString::null is returned.
 .PP
 This function can be time consuming under Unix (in the order of milliseconds).
 .PP
@@ -404,8 +404,8 @@ See also created() and lastModified().
 Example: biff/biff.cpp.
 .SH "QFileInfo & QFileInfo::operator= ( const QFileInfo & fi )"
 Makes a copy of \fIfi\fR and assigns it to this QFileInfo.
-.SH "QString QFileInfo::owner () const"
-Returns the owner of the file. On systems where files do not have owners, or if an error occurs, QString::null is returned.
+.SH "TQString QFileInfo::owner () const"
+Returns the owner of the file. On systems where files do not have owners, or if an error occurs, TQString::null is returned.
 .PP
 This function can be time consuming under Unix (in the order of milliseconds).
 .PP
@@ -438,8 +438,8 @@ Example:
 .fi
 .PP
 See also isReadable(), isWritable(), and isExecutable().
-.SH "QString QFileInfo::readLink () const"
-Returns the name a symlink (or shortcut on Windows) points to, or a QString::null if the object isn't a symbolic link.
+.SH "TQString QFileInfo::readLink () const"
+Returns the name a symlink (or shortcut on Windows) points to, or a TQString::null if the object isn't a symbolic link.
 .PP
 This name may not represent an existing file; it is only a string. QFileInfo::exists() returns TRUE if the symlink points to an existing file.
 .PP
@@ -456,7 +456,7 @@ When caching is enabled, QFileInfo reads the file information from the file syst
 Caching is enabled by default.
 .PP
 See also refresh() and caching().
-.SH "void QFileInfo::setFile ( const QString & file )"
+.SH "void QFileInfo::setFile ( const TQString & file )"
 Sets the file that the QFileInfo provides information about to \fIfile\fR.
 .PP
 The \fIfile\fR can also include an absolute or relative file path. Absolute paths begin with the directory separator (e.g. "/" under Unix) or a drive specification (under Windows). Relative file names begin with a directory name or a file name and specify a path relative to the current directory.
@@ -465,9 +465,9 @@ Example:
 .PP
 .nf
 .br
-    QString absolute = "/local/bin";
+    TQString absolute = "/local/bin";
 .br
-    QString relative = "local/bin";
+    TQString relative = "local/bin";
 .br
     QFileInfo absFile( absolute );
 .br
@@ -498,7 +498,7 @@ Sets the file that the QFileInfo provides information about to \fIfile\fR.
 If \fIfile\fR includes a relative path, the QFileInfo will also have a relative path.
 .PP
 See also isRelative().
-.SH "void QFileInfo::setFile ( const QDir & d, const QString & fileName )"
+.SH "void QFileInfo::setFile ( const QDir & d, const TQString & fileName )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the file that the QFileInfo provides information about to \fIfileName\fR in directory \fId\fR.
@@ -525,8 +525,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

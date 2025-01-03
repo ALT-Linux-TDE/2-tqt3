@@ -40,7 +40,7 @@
 
 #include "ntqdatastream.h"
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 #include "ntqbuffer.h"
 #include <stdio.h>
 #include <ctype.h>
@@ -493,7 +493,7 @@ extern "C" long long __strtoll( const char *, char**, int );
 
 static TQ_INT64 read_int_ascii( TQDataStream *s )
 {
-    register int n = 0;
+    int n = 0;
     char buf[40];
     for ( ;; ) {
 	buf[n] = s->device()->getch();
@@ -575,7 +575,7 @@ TQDataStream &TQDataStream::operator>>( TQ_INT16 &i )
     } else if ( noswap ) {			// no conversion needed
 	dev->readBlock( (char *)&i, sizeof(TQ_INT16) );
     } else {					// swap bytes
-	register uchar *p = (uchar *)(&i);
+	uchar *p = (uchar *)(&i);
 	char b[2];
 	if (dev->readBlock( b, 2 ) >= 2) {
 		*p++ = b[1];
@@ -687,7 +687,7 @@ TQDataStream &TQDataStream::operator>>( TQ_LONG &i )
     } else if ( noswap ) {			// no conversion needed
 	dev->readBlock( (char *)&i, sizeof(TQ_LONG) );
     } else {					// swap bytes
-	register uchar *p = (uchar *)(&i);
+	uchar *p = (uchar *)(&i);
 	char b[sizeof(TQ_LONG)];
 	if (dev->readBlock( b, sizeof(TQ_LONG) ) >= (int)sizeof(TQ_LONG)) {
 		for ( int j = sizeof(TQ_LONG); j;  ) {
@@ -701,7 +701,7 @@ TQDataStream &TQDataStream::operator>>( TQ_LONG &i )
 
 static double read_double_ascii( TQDataStream *s )
 {
-    register int n = 0;
+    int n = 0;
     char buf[80];
     for ( ;; ) {
 	buf[n] = s->device()->getch();
@@ -759,7 +759,7 @@ TQDataStream &TQDataStream::operator>>( double &f )
     } else if ( noswap ) {			// no conversion needed
 	dev->readBlock( (char *)&f, sizeof(double) );
     } else {					// swap bytes
-	register uchar *p = (uchar *)(&f);
+	uchar *p = (uchar *)(&f);
 	char b[8];
 	if (dev->readBlock( b, 8 ) >= 8) {
 		*p++ = b[7];
@@ -841,7 +841,7 @@ TQDataStream &TQDataStream::readRawBytes( char *s, uint len )
 {
     CHECK_STREAM_PRECOND
     if ( printable ) {				// printable data
-	register TQ_INT8 *p = (TQ_INT8*)s;
+	TQ_INT8 *p = (TQ_INT8*)s;
 	if ( version() < 4 ) {
 	    while ( len-- ) {
 		TQ_INT32 tmp;
@@ -918,7 +918,7 @@ TQDataStream &TQDataStream::operator<<( TQ_INT16 i )
     } else if ( noswap ) {			// no conversion needed
 	dev->writeBlock( (char *)&i, sizeof(TQ_INT16) );
     } else {					// swap bytes
-	register uchar *p = (uchar *)(&i);
+	uchar *p = (uchar *)(&i);
 	char b[2];
 	b[1] = *p++;
 	b[0] = *p;
@@ -944,7 +944,7 @@ TQDataStream &TQDataStream::operator<<( TQ_INT32 i )
     } else if ( noswap ) {			// no conversion needed
 	dev->writeBlock( (char *)&i, sizeof(TQ_INT32) );
     } else {					// swap bytes
-	register uchar *p = (uchar *)(&i);
+	uchar *p = (uchar *)(&i);
 	char b[4];
 	b[3] = *p++;
 	b[2] = *p++;
@@ -987,7 +987,7 @@ TQDataStream &TQDataStream::operator<<( TQ_INT64 i )
     } else if ( noswap ) {			// no conversion needed
 	dev->writeBlock( (char *)&i, sizeof(TQ_INT64) );
     } else {					// swap bytes
-	register uchar *p = (uchar *)(&i);
+	uchar *p = (uchar *)(&i);
 	char b[8];
 	b[7] = *p++;
 	b[6] = *p++;
@@ -1027,7 +1027,7 @@ TQDataStream &TQDataStream::operator<<( TQ_LONG i )
     } else if ( noswap ) {			// no conversion needed
 	dev->writeBlock( (char *)&i, sizeof(TQ_LONG) );
     } else {					// swap bytes
-	register uchar *p = (uchar *)(&i);
+	uchar *p = (uchar *)(&i);
 	char b[sizeof(TQ_LONG)];
 	for ( int j = sizeof(TQ_LONG); j;  )
 	    b[--j] = *p++;
@@ -1064,7 +1064,7 @@ TQDataStream &TQDataStream::operator<<( float f )
 	if ( noswap ) {				// no conversion needed
 	    dev->writeBlock( (char *)&g, sizeof(float) );
 	} else {				// swap bytes
-	    register uchar *p = (uchar *)(&g);
+	    uchar *p = (uchar *)(&g);
 	    char b[4];
 	    b[3] = *p++;
 	    b[2] = *p++;
@@ -1094,7 +1094,7 @@ TQDataStream &TQDataStream::operator<<( double f )
     } else if ( noswap ) {			// no conversion needed
 	dev->writeBlock( (char *)&f, sizeof(double) );
     } else {					// swap bytes
-	register uchar *p = (uchar *)(&f);
+	uchar *p = (uchar *)(&f);
 	char b[8];
 	b[7] = *p++;
 	b[6] = *p++;
@@ -1163,11 +1163,11 @@ TQDataStream &TQDataStream::writeRawBytes( const char *s, uint len )
     CHECK_STREAM_PRECOND
     if ( printable ) {				// write printable
 	if ( version() < 4 ) {
-	    register char *p = (char *)s;
+	    char *p = (char *)s;
 	    while ( len-- )
 		*this << *p++;
 	} else {
-	    register TQ_INT8 *p = (TQ_INT8*)s;
+	    TQ_INT8 *p = (TQ_INT8*)s;
 	    while ( len-- )
 		*this << *p++;
 	}
@@ -1177,4 +1177,4 @@ TQDataStream &TQDataStream::writeRawBytes( const char *s, uint len )
     return *this;
 }
 
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM

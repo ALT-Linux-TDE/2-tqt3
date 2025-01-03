@@ -41,7 +41,7 @@
 #include <float.h>
 
 #include "ntqvariant.h"
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
 #include "ntqstring.h"
 #include "ntqcstring.h"
 #include "ntqfont.h"
@@ -125,11 +125,11 @@ TQVariant::Private::Private( Private* d )
 	    // TQCString is explicit shared
 	    value.ptr = new TQCString( *((TQCString*)d->value.ptr) );
 	    break;
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 	case TQVariant::StringList:
 	    value.ptr = new TQStringList( *((TQStringList*)d->value.ptr) );
 	    break;
-#endif //QT_NO_STRINGLIST
+#endif //TQT_NO_STRINGLIST
 	case TQVariant::Font:
 	    value.ptr = new TQFont( *((TQFont*)d->value.ptr) );
 	    break;
@@ -157,7 +157,7 @@ TQVariant::Private::Private( Private* d )
 	case TQVariant::Color:
 	    value.ptr = new TQColor( *((TQColor*)d->value.ptr) );
 	    break;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 	case TQVariant::Palette:
 	    value.ptr = new TQPalette( *((TQPalette*)d->value.ptr) );
 	    break;
@@ -165,12 +165,12 @@ TQVariant::Private::Private( Private* d )
 	    value.ptr = new TQColorGroup( *((TQColorGroup*)d->value.ptr) );
 	    break;
 #endif
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 	case TQVariant::IconSet:
 	    value.ptr = new TQIconSet( *((TQIconSet*)d->value.ptr) );
 	    break;
 #endif
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 	case TQVariant::Map:
 	    value.ptr = new TQMap<TQString,TQVariant>( *((TQMap<TQString,TQVariant>*)d->value.ptr) );
 	    break;
@@ -193,7 +193,7 @@ TQVariant::Private::Private( Private* d )
 	case TQVariant::BitArray:
 	    value.ptr = new TQBitArray( *((TQBitArray*)d->value.ptr) );
 	    break;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	case TQVariant::KeySequence:
 	    value.ptr = new TQKeySequence( *((TQKeySequence*)d->value.ptr) );
 	    break;
@@ -263,11 +263,11 @@ void TQVariant::Private::clear()
 	case TQVariant::CString:
 	    delete (TQCString*)value.ptr;
 	    break;
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 	case TQVariant::StringList:
 	    delete (TQStringList*)value.ptr;
 	    break;
-#endif //QT_NO_STRINGLIST
+#endif //TQT_NO_STRINGLIST
 	case TQVariant::Font:
 	    delete (TQFont*)value.ptr;
 	    break;
@@ -292,7 +292,7 @@ void TQVariant::Private::clear()
 	case TQVariant::Color:
 	    delete (TQColor*)value.ptr;
 	    break;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 	case TQVariant::Palette:
 	    delete (TQPalette*)value.ptr;
 	    break;
@@ -300,12 +300,12 @@ void TQVariant::Private::clear()
 	    delete (TQColorGroup*)value.ptr;
 	    break;
 #endif
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 	case TQVariant::IconSet:
 	    delete (TQIconSet*)value.ptr;
 	    break;
 #endif
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 	case TQVariant::Map:
 	    delete (TQMap<TQString,TQVariant>*)value.ptr;
 	    break;
@@ -331,7 +331,7 @@ void TQVariant::Private::clear()
 	case TQVariant::BitArray:
 	    delete (TQBitArray*)value.ptr;
 	    break;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	case TQVariant::KeySequence:
 	    delete (TQKeySequence*)value.ptr;
 	    break;
@@ -512,7 +512,7 @@ TQVariant::TQVariant( const TQVariant& p )
     d = p.d;
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     Reads the variant from the data stream, \a s.
 */
@@ -521,7 +521,7 @@ TQVariant::TQVariant( TQDataStream& s )
     d = new Private;
     s >> *this;
 }
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 /*!
     Constructs a new variant with a string value, \a val.
@@ -562,7 +562,7 @@ TQVariant::TQVariant( const char* val )
     d->value.ptr = new TQCString( val );
 }
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 /*!
     Constructs a new variant with a string list value, \a val.
 */
@@ -573,9 +573,9 @@ TQVariant::TQVariant( const TQStringList& val )
     d->value.ptr = new TQStringList( val );
     d->is_null = FALSE;
 }
-#endif // QT_NO_STRINGLIST
+#endif // TQT_NO_STRINGLIST
 
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 /*!
     Constructs a new variant with a map of TQVariants, \a val.
 */
@@ -675,7 +675,7 @@ TQVariant::TQVariant( const TQColor& val )
     d->is_null = FALSE;
 }
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 /*!
     Constructs a new variant with a color palette value, \a val.
 */
@@ -697,8 +697,8 @@ TQVariant::TQVariant( const TQColorGroup& val )
     d->value.ptr = new TQColorGroup( val );
     d->is_null = FALSE;
 }
-#endif //QT_NO_PALETTE
-#ifndef QT_NO_ICONSET
+#endif //TQT_NO_PALETTE
+#ifndef TQT_NO_ICONSET
 /*!
     Constructs a new variant with an icon set value, \a val.
 */
@@ -708,7 +708,7 @@ TQVariant::TQVariant( const TQIconSet& val )
     d->typ = IconSet;
     d->value.ptr = new TQIconSet( val );
 }
-#endif //QT_NO_ICONSET
+#endif //TQT_NO_ICONSET
 /*!
     Constructs a new variant with a region value, \a val.
 */
@@ -806,7 +806,7 @@ TQVariant::TQVariant( const TQBitArray& val )
     d->value.ptr = new TQBitArray( val );
 }
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 /*!
     Constructs a new variant with a key sequence value, \a val.
@@ -877,12 +877,10 @@ TQVariant::TQVariant( TQ_ULLONG val )
 }
 
 /*!
-    Constructs a new variant with a boolean value, \a val. The integer
-    argument is a dummy, necessary for compatibility with some
-    compilers.
+    Constructs a new variant with a boolean value, \a val.
 */
-TQVariant::TQVariant( bool val, int )
-{ // this is the comment that does NOT name said compiler.
+TQVariant::TQVariant( bool val )
+{
     d = new Private;
     d->typ = Bool;
     d->value.b = val;
@@ -901,7 +899,7 @@ TQVariant::TQVariant( double val )
     d->is_null = FALSE;
 }
 
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 /*!
     Constructs a new variant with a list value, \a val.
 */
@@ -1060,7 +1058,7 @@ TQVariant::Type TQVariant::nameToType( const char* name )
     return Invalid;
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     Internal function for loading a variant from stream \a s. Use the
     stream operators instead.
@@ -1084,7 +1082,7 @@ void TQVariant::load( TQDataStream& s )
 	    d->is_null = TRUE;
 	}
 	break;
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     case Map:
 	{
 	    TQMap<TQString,TQVariant>* x = new TQMap<TQString,TQVariant>;
@@ -1104,7 +1102,7 @@ void TQVariant::load( TQDataStream& s )
 #endif
     case Cursor:
 	{
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    TQCursor* x = new TQCursor;
 	    s >> *x;
 	    d->value.ptr = x;
@@ -1115,7 +1113,7 @@ void TQVariant::load( TQDataStream& s )
     case Bitmap:
 	{
 	    TQBitmap* x = new TQBitmap;
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 	    s >> *x;
 #endif
 	    d->value.ptr = x;
@@ -1149,7 +1147,7 @@ void TQVariant::load( TQDataStream& s )
 	    d->value.ptr = x;
 	}
 	break;
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     case StringList:
 	{
 	    TQStringList* x = new TQStringList;
@@ -1158,7 +1156,7 @@ void TQVariant::load( TQDataStream& s )
 	    d->is_null = FALSE;
 	}
 	break;
-#endif // QT_NO_STRINGLIST
+#endif // TQT_NO_STRINGLIST
     case Font:
 	{
 	    TQFont* x = new TQFont;
@@ -1170,7 +1168,7 @@ void TQVariant::load( TQDataStream& s )
     case Pixmap:
 	{
 	    TQPixmap* x = new TQPixmap;
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 	    s >> *x;
 #endif
 	    d->value.ptr = x;
@@ -1179,7 +1177,7 @@ void TQVariant::load( TQDataStream& s )
     case Image:
 	{
 	    TQImage* x = new TQImage;
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 	    s >> *x;
 #endif
 	    d->value.ptr = x;
@@ -1222,7 +1220,7 @@ void TQVariant::load( TQDataStream& s )
 	    d->is_null = FALSE;
 	}
 	break;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     case Palette:
 	{
 	    TQPalette* x = new TQPalette;
@@ -1240,7 +1238,7 @@ void TQVariant::load( TQDataStream& s )
 	}
 	break;
 #endif
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
     case IconSet:
 	{
 	    TQPixmap x;
@@ -1341,7 +1339,7 @@ void TQVariant::load( TQDataStream& s )
 	    d->value.ptr = x;
 	}
 	break;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     case KeySequence:
 	{
 	    TQKeySequence* x = new TQKeySequence;
@@ -1350,7 +1348,7 @@ void TQVariant::load( TQDataStream& s )
 	    d->is_null = FALSE;
 	}
 	break;
-#endif // QT_NO_ACCEL
+#endif // TQT_NO_ACCEL
     case Pen:
 	{
 	    TQPen* x = new TQPen;
@@ -1378,7 +1376,7 @@ void TQVariant::save( TQDataStream& s ) const
 	s << *((TQCursor*)d->value.ptr);
 	break;
     case Bitmap:
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 	s << *((TQBitmap*)d->value.ptr);
 #endif
 	break;
@@ -1388,7 +1386,7 @@ void TQVariant::save( TQDataStream& s ) const
     case Region:
 	s << *((TQRegion*)d->value.ptr);
 	break;
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     case List:
 	s << *((TQValueList<TQVariant>*)d->value.ptr);
 	break;
@@ -1402,7 +1400,7 @@ void TQVariant::save( TQDataStream& s ) const
     case CString:
 	s << *((TQCString*)d->value.ptr);
 	break;
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     case StringList:
 	s << *((TQStringList*)d->value.ptr);
 	break;
@@ -1411,12 +1409,12 @@ void TQVariant::save( TQDataStream& s ) const
 	s << *((TQFont*)d->value.ptr);
 	break;
     case Pixmap:
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 	s << *((TQPixmap*)d->value.ptr);
 #endif
 	break;
     case Image:
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 	s << *((TQImage*)d->value.ptr);
 #endif
 	break;
@@ -1435,7 +1433,7 @@ void TQVariant::save( TQDataStream& s ) const
     case Color:
 	s << *((TQColor*)d->value.ptr);
 	break;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     case Palette:
 	s << *((TQPalette*)d->value.ptr);
 	break;
@@ -1443,7 +1441,7 @@ void TQVariant::save( TQDataStream& s ) const
 	s << *((TQColorGroup*)d->value.ptr);
 	break;
 #endif
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
     case IconSet:
 	//### add stream operator to iconset
 	s << ((TQIconSet*)d->value.ptr)->pixmap();
@@ -1489,7 +1487,7 @@ void TQVariant::save( TQDataStream& s ) const
     case BitArray:
 	s << *((TQBitArray*)d->value.ptr);
 	break;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     case KeySequence:
 	s << *((TQKeySequence*)d->value.ptr);
 	break;
@@ -1549,7 +1547,7 @@ TQDataStream& operator<< ( TQDataStream& s, const TQVariant::Type p )
     return s;
 }
 
-#endif //QT_NO_DATASTREAM
+#endif //TQT_NO_DATASTREAM
 
 /*!
     \fn Type TQVariant::type() const
@@ -1644,7 +1642,7 @@ const TQString TQVariant::toString() const
 	return TQString::number( toULongLong() );
     case Double:
 	return TQString::number( toDouble(), 'g', DBL_DIG );
-#if !defined(QT_NO_SPRINTF) && !defined(QT_NO_DATESTRING)
+#if !defined(TQT_NO_SPRINTF) && !defined(TQT_NO_DATESTRING)
     case Date:
 	return toDate().toString( TQt::ISODate );
     case Time:
@@ -1654,7 +1652,7 @@ const TQString TQVariant::toString() const
 #endif
     case Bool:
 	return toInt() ? "true" : "false";
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     case KeySequence:
 	return (TQString) *( (TQKeySequence*)d->value.ptr );
 #endif
@@ -1691,7 +1689,7 @@ const TQCString TQVariant::toCString() const
 }
 
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 /*!
     Returns the variant as a TQStringList if the variant has type()
     StringList or List of a type that can be converted to TQString;
@@ -1715,7 +1713,7 @@ const TQStringList TQVariant::toStringList() const
     switch ( d->typ ) {
     case StringList:
 	return *((TQStringList*)d->value.ptr);
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     case List:
 	{
 	    TQStringList lst;
@@ -1733,9 +1731,9 @@ const TQStringList TQVariant::toStringList() const
 	return TQStringList();
     }
 }
-#endif //QT_NO_STRINGLIST
+#endif //TQT_NO_STRINGLIST
 
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 /*!
     Returns the variant as a TQMap<TQString,TQVariant> if the variant has
     type() Map; otherwise returns an empty map.
@@ -1892,7 +1890,7 @@ const TQColor TQVariant::toColor() const
 	return TQColor();
     }
 }
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 /*!
     Returns the variant as a TQPalette if the variant has type()
     Palette; otherwise returns a completely black palette.
@@ -1920,8 +1918,8 @@ const TQColorGroup TQVariant::toColorGroup() const
 
     return *((TQColorGroup*)d->value.ptr);
 }
-#endif //QT_NO_PALETTE
-#ifndef QT_NO_ICONSET
+#endif //TQT_NO_PALETTE
+#ifndef TQT_NO_ICONSET
 /*!
     Returns the variant as a TQIconSet if the variant has type()
     IconSet; otherwise returns an icon set of null pixmaps.
@@ -1935,7 +1933,7 @@ const TQIconSet TQVariant::toIconSet() const
 
     return *((TQIconSet*)d->value.ptr);
 }
-#endif //QT_NO_ICONSET
+#endif //TQT_NO_ICONSET
 /*!
     Returns the variant as a TQPointArray if the variant has type()
     PointArray; otherwise returns an empty TQPointArray.
@@ -1986,7 +1984,7 @@ const TQRegion TQVariant::toRegion() const
 */
 const TQCursor TQVariant::toCursor() const
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( d->typ != Cursor )
 	return TQCursor();
 #endif
@@ -2011,7 +2009,7 @@ const TQDate TQVariant::toDate() const
 	return *((TQDate*)d->value.ptr);
     case DateTime:
 	return ((TQDateTime*)d->value.ptr)->date();
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
     case String:
 	return TQDate::fromString( *((TQString*)d->value.ptr), TQt::ISODate );
     case CString:
@@ -2040,7 +2038,7 @@ const TQTime TQVariant::toTime() const
 	return *((TQTime*)d->value.ptr);
     case DateTime:
 	return ((TQDateTime*)d->value.ptr)->time();
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
     case String:
 	return TQTime::fromString( *((TQString*)d->value.ptr), TQt::ISODate );
     case CString:
@@ -2067,7 +2065,7 @@ const TQDateTime TQVariant::toDateTime() const
     switch ( d->typ ) {
     case DateTime:
 	return *((TQDateTime*)d->value.ptr);
-#ifndef QT_NO_DATESTRING
+#ifndef TQT_NO_DATESTRING
     case String:
 	return TQDateTime::fromString( *((TQString*)d->value.ptr), TQt::ISODate );
     case CString:
@@ -2116,7 +2114,7 @@ const TQBitArray TQVariant::toBitArray() const
     return TQBitArray();
 }
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 /*!
     Returns the variant as a TQKeySequence if the variant can be cast
@@ -2144,7 +2142,7 @@ const TQKeySequence TQVariant::toKeySequence() const
     }
 }
 
-#endif // QT_NO_ACCEL
+#endif // TQT_NO_ACCEL
 
 /*!
     Returns the variant as a TQPen if the variant has type()
@@ -2192,7 +2190,7 @@ int TQVariant::toInt( bool * ok ) const
 	return (int)d->value.d;
     case Bool:
 	return (int)d->value.b;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     case KeySequence:
 	return (int) *( (TQKeySequence*)d->value.ptr );
 #endif
@@ -2391,7 +2389,7 @@ double TQVariant::toDouble( bool * ok ) const
     }
 }
 
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 /*!
     Returns the variant as a TQValueList<TQVariant> if the variant has
     type() List or StringList; otherwise returns an empty list.
@@ -2413,7 +2411,7 @@ const TQValueList<TQVariant> TQVariant::toList() const
 {
     if ( d->typ == List )
 	return *((TQValueList<TQVariant>*)d->value.ptr);
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     if ( d->typ == StringList ) {
 	TQValueList<TQVariant> lst;
 	TQStringList::ConstIterator it = stringListBegin();
@@ -2422,7 +2420,7 @@ const TQValueList<TQVariant> TQVariant::toList() const
 	    lst.append( TQVariant( *it ) );
 	return lst;
     }
-#endif //QT_NO_STRINGLIST
+#endif //TQT_NO_STRINGLIST
     return TQValueList<TQVariant>();
 }
 #endif
@@ -2455,7 +2453,7 @@ TQSizePolicy TQVariant::toSizePolicy() const
 
 Q_VARIANT_AS(String)
 Q_VARIANT_AS(CString)
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 Q_VARIANT_AS(StringList)
 #endif
 Q_VARIANT_AS(Font)
@@ -2466,11 +2464,11 @@ Q_VARIANT_AS(Point)
 Q_VARIANT_AS(Rect)
 Q_VARIANT_AS(Size)
 Q_VARIANT_AS(Color)
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 Q_VARIANT_AS(Palette)
 Q_VARIANT_AS(ColorGroup)
 #endif
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 Q_VARIANT_AS(IconSet)
 #endif
 Q_VARIANT_AS(PointArray)
@@ -2483,7 +2481,7 @@ Q_VARIANT_AS(Time)
 Q_VARIANT_AS(DateTime)
 Q_VARIANT_AS(ByteArray)
 Q_VARIANT_AS(BitArray)
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 Q_VARIANT_AS(KeySequence)
 #endif
 Q_VARIANT_AS(Pen)
@@ -2884,7 +2882,7 @@ double& TQVariant::asDouble()
     return d->value.d;
 }
 
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 /*!
     Returns the variant's value as variant list reference.
 
@@ -3061,11 +3059,11 @@ bool TQVariant::canCast( Type t ) const
 	}
 	break;
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     case List:
 	return d->typ == StringList;
 #endif
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     case StringList:
 	if ( d->typ == List ) {
 	    TQValueList<TQVariant>::ConstIterator it = listBegin();
@@ -3114,7 +3112,7 @@ bool TQVariant::canCast( Type t ) const
 bool TQVariant::cast( Type t )
 {
     switch ( t ) {
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     case TQVariant::Map:
 	asMap();
 	break;
@@ -3125,7 +3123,7 @@ bool TQVariant::cast( Type t )
     case TQVariant::String:
 	asString();
 	break;
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     case TQVariant::StringList:
 	asStringList();
 	break;
@@ -3148,7 +3146,7 @@ bool TQVariant::cast( Type t )
     case TQVariant::Color:
 	asColor();
 	break;
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     case TQVariant::Palette:
 	asPalette();
 	break;
@@ -3156,7 +3154,7 @@ bool TQVariant::cast( Type t )
 	asColorGroup();
 	break;
 #endif
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
     case TQVariant::IconSet:
 	asIconSet();
 	break;
@@ -3212,7 +3210,7 @@ bool TQVariant::cast( Type t )
     case TQVariant::BitArray:
 	asBitArray();
 	break;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     case TQVariant::KeySequence:
 	asKeySequence();
 	break;
@@ -3285,7 +3283,7 @@ bool TQVariant::operator==( const TQVariant &v ) const
 
     switch( d->typ ) {
     case Cursor:
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	return v.toCursor().shape() == toCursor().shape();
 #endif
     case Bitmap:
@@ -3294,7 +3292,7 @@ bool TQVariant::operator==( const TQVariant &v ) const
 	return v.toPointArray() == toPointArray();
     case Region:
 	return v.toRegion() == toRegion();
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
     case List:
 	return v.toList() == toList();
     case Map: {
@@ -3315,7 +3313,7 @@ bool TQVariant::operator==( const TQVariant &v ) const
 	return v.toString() == toString();
     case CString:
 	return v.toCString() == toCString();
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
     case StringList:
 	return v.toStringList() == toStringList();
 #endif
@@ -3335,13 +3333,13 @@ bool TQVariant::operator==( const TQVariant &v ) const
 	return v.toSize() == toSize();
     case Color:
 	return v.toColor() == toColor();
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
     case Palette:
 	return v.toPalette() == toPalette();
     case ColorGroup:
 	return v.toColorGroup() == toColorGroup();
 #endif
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
     case IconSet:
 	return v.toIconSet().pixmap().serialNumber()
 	    == toIconSet().pixmap().serialNumber();
@@ -3370,7 +3368,7 @@ bool TQVariant::operator==( const TQVariant &v ) const
 	return v.toByteArray() == toByteArray();
     case BitArray:
 	return v.toBitArray() == toBitArray();
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     case KeySequence:
 	return v.toKeySequence() == toKeySequence();
 #endif
@@ -3448,7 +3446,7 @@ bool TQVariant::isNull() const
 	    return ((TQRect*) d->value.ptr)->isNull();
 	case TQVariant::Size:
 	    return ((TQSize*) d->value.ptr)->isNull();
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 	case TQVariant::IconSet:
 	    return ((TQIconSet*) d->value.ptr)->isNull();
 #endif
@@ -3463,22 +3461,22 @@ bool TQVariant::isNull() const
 	case TQVariant::BitArray:
 	    return ((TQBitArray*) d->value.ptr)->isNull();
 	case TQVariant::Cursor:
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 	case TQVariant::StringList:
-#endif //QT_NO_STRINGLIST
+#endif //TQT_NO_STRINGLIST
 	case TQVariant::Font:
 	case TQVariant::Brush:
 	case TQVariant::Color:
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 	case TQVariant::Palette:
 	case TQVariant::ColorGroup:
 #endif
-#ifndef QT_NO_TEMPLATE_VARIANT
+#ifndef TQT_NO_TEMPLATE_VARIANT
 	case TQVariant::Map:
 	case TQVariant::List:
 #endif
 	case TQVariant::SizePolicy:
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	case TQVariant::KeySequence:
 #endif
 	case TQVariant::Pen:
@@ -3493,4 +3491,4 @@ bool TQVariant::isNull() const
 	}
     return d->is_null;
 }
-#endif //QT_NO_VARIANT
+#endif //TQT_NO_VARIANT

@@ -84,7 +84,7 @@ TQStringList qmake_mkspec_paths()
 	    ret << ((*it) + concat);
 #endif
     }
-    if(const char *qtdir = getenv("QTDIR"))
+    if(const char *qtdir = getenv("TQTDIR"))
 	ret << (TQString(qtdir) + concat);
 #ifdef QT_INSTALL_PREFIX
     ret << (QT_INSTALL_PREFIX + concat);
@@ -99,9 +99,9 @@ TQStringList qmake_mkspec_paths()
     ret << (tqInstallPathData() + concat);
 #endif
 
-    /* prefer $QTDIR if it is set */
-    if (getenv("QTDIR"))
-	ret << getenv("QTDIR");
+    /* prefer $TQTDIR if it is set */
+    if (getenv("TQTDIR"))
+	ret << getenv("TQTDIR");
     ret << tqInstallPathData();
     return ret;
 }
@@ -724,7 +724,7 @@ TQMakeProject::isActiveConfig(const TQString &x, bool regex, TQMap<TQString, TQS
 	static char *buffer = NULL;
 	if(!buffer)
 	    buffer = (char *)malloc(1024);
-	int l = readlink(Option::mkfile::qmakespec, buffer, 1024);
+	int l = readlink(Option::mkfile::qmakespec, buffer, 1023);
 	if(l != -1) {
 	    buffer[l] = '\0';
 	    TQString r = buffer;
@@ -925,7 +925,7 @@ TQMakeProject::doProjectTest(const TQString& func, TQStringList args, TQMap<TQSt
 #endif
 		}
 		feature_roots << Option::mkfile::qmakespec;
-		if(const char *qtdir = getenv("QTDIR"))
+		if(const char *qtdir = getenv("TQTDIR"))
 		    feature_roots << (qtdir + concat);
 #ifdef QT_INSTALL_PREFIX
 		feature_roots << (QT_INSTALL_PREFIX + concat);

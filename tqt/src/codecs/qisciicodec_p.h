@@ -5,7 +5,7 @@
 #include "ntqtextcodec.h"
 #endif // QT_H
 
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
 
 class TQIsciiCodec : public TQTextCodec {
 public:
@@ -29,5 +29,5 @@ private:
     int idx;
 };
 
-#endif // QT_NO_CODECS
+#endif // TQT_NO_CODECS
 #endif // TQISCIIDEVCODEC_H

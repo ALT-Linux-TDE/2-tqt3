@@ -191,7 +191,7 @@ TQBitmap::TQBitmap( const TQBitmap &bitmap )
 {
 }
 
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
 /*!
     Constructs a bitmap from the file \a fileName. If the file does
     not exist or is of an unknown format, the bitmap becomes a null
@@ -277,7 +277,7 @@ TQBitmap &TQBitmap::operator=( const TQImage &image )
 }
 
 
-#ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_PIXMAP_TRANSFORMATION
 /*!
     Returns a transformed copy of this bitmap by using \a matrix.
 
@@ -298,7 +298,7 @@ TQBitmap TQBitmap::xForm( const TQWMatrix &matrix ) const
     bm = pm;
     return bm;
 }
-#endif // QT_NO_TRANSFORMATIONS
+#endif // TQT_NO_TRANSFORMATIONS
 
 
 

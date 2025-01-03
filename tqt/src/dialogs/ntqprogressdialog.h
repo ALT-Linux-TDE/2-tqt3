@@ -47,13 +47,13 @@
 #include "ntqprogressbar.h" // ### remove or keep for users' convenience?
 #endif // QT_H
 
-#ifndef QT_NO_PROGRESSDIALOG
+#ifndef TQT_NO_PROGRESSDIALOG
 
 class TQPushButton;
 class TQTimer;
 class TQProgressDialogData;
 
-class Q_EXPORT TQProgressDialog : public TQDialog
+class TQ_EXPORT TQProgressDialog : public TQDialog
 {
     TQ_OBJECT
     TQ_PROPERTY( bool wasCancelled READ wasCancelled DESIGNABLE false STORED false ) // ### remove in 4.0
@@ -136,6 +136,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_PROGRESSDIALOG
+#endif // TQT_NO_PROGRESSDIALOG
 
 #endif // TQPROGRESSDIALOG_H

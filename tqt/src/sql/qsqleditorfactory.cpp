@@ -40,7 +40,7 @@
 
 #include "ntqsqleditorfactory.h"
 
-#ifndef QT_NO_SQL_EDIT_WIDGETS
+#ifndef TQT_NO_SQL_EDIT_WIDGETS
 
 #include "ntqsqlfield.h"
 #include "ntqcleanuphandler.h"
@@ -189,7 +189,7 @@ TQWidget * TQSqlEditorFactory::createEditor( TQWidget * parent,
 	case TQVariant::DateTime:
 	    w = new TQDateTimeEdit( parent, "qt_editor_datetime" );
 	    break;
-#ifndef QT_NO_LABEL
+#ifndef TQT_NO_LABEL
 	case TQVariant::Pixmap:
 	    w = new TQLabel( parent, "qt_editor_pixmap" );
 	    break;
@@ -218,4 +218,4 @@ TQWidget * TQSqlEditorFactory::createEditor( TQWidget * parent,
     return w;
 }
 
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

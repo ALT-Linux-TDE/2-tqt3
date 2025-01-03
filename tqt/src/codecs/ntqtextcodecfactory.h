@@ -43,17 +43,17 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 
 class TQTextCodec;
 
-class Q_EXPORT TQTextCodecFactory
+class TQ_EXPORT TQTextCodecFactory
 {
 public:
     static TQTextCodec *createForName( const TQString & );
     static TQTextCodec *createForMib( int );
 };
 
-#endif // QT_NO_TEXTCODEC
+#endif // TQT_NO_TEXTCODEC
 
 #endif // TQTEXTCODECFACTORY_H

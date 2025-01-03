@@ -11,14 +11,14 @@ QDragObject \- Encapsulates MIME-based data transfer
 .SH SYNOPSIS
 \fC#include <ntqdragobject.h>\fR
 .PP
-Inherits QObject and QMimeSource.
+Inherits TQObject and QMimeSource.
 .PP
 Inherited by QStoredDrag, QTextDrag, QImageDrag, and QIconDrag.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDragObject\fR ( QWidget * dragSource = 0, const char * name = 0 )"
+.BI "\fBQDragObject\fR ( TQWidget * dragSource = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "virtual \fB~QDragObject\fR ()"
@@ -48,7 +48,7 @@ Inherited by QStoredDrag, QTextDrag, QImageDrag, and QIconDrag.
 .BI "QPoint \fBpixmapHotSpot\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBsource\fR ()"
+.BI "TQWidget * \fBsource\fR ()"
 .br
 .ti -1c
 .BI "enum \fBDragMode\fR { DragDefault, DragCopy, DragMove, DragLink, DragCopyOrMove }"
@@ -57,7 +57,7 @@ Inherited by QStoredDrag, QTextDrag, QImageDrag, and QIconDrag.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QWidget * \fBtarget\fR ()"
+.BI "TQWidget * \fBtarget\fR ()"
 .br
 .in -1c
 .SS "Protected Members"
@@ -92,7 +92,7 @@ This enum describes the possible drag modes.
 .TP
 \fCQDragObject::DragCopyOrMove\fR - The user chooses the mode by using a control key to switch from the default.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDragObject::QDragObject ( QWidget * dragSource = 0, const char * name = 0 )"
+.SH "QDragObject::QDragObject ( TQWidget * dragSource = 0, const char * name = 0 )"
 Constructs a drag object called \fIname\fR, which is a child of \fIdragSource\fR.
 .PP
 Note that the drag object will be deleted when \fIdragSource\fR is deleted.
@@ -148,10 +148,10 @@ Example: fileiconview/qfileiconview.cpp.
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Uses a hotspot that positions the pixmap below and to the right of the mouse pointer. This allows the user to clearly see the point on the window which they are dragging the data onto.
-.SH "QWidget * QDragObject::source ()"
+.SH "TQWidget * QDragObject::source ()"
 Returns a pointer to the drag source where this object originated.
-.SH "QWidget * QDragObject::target ()\fC [static]\fR"
-After the drag completes, this function will return the QWidget which received the drop, or 0 if the data was dropped on another application.
+.SH "TQWidget * QDragObject::target ()\fC [static]\fR"
+After the drag completes, this function will return the TQWidget which received the drop, or 0 if the data was dropped on another application.
 .PP
 This can be useful for detecting the case where drag and drop is
 to and from the same widget.
@@ -170,8 +170,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

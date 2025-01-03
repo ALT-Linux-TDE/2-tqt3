@@ -58,9 +58,9 @@ FindDialog::FindDialog( bool replace, TQWidget *parent, const char *name,
     TQPushButton *findNxt = new TQPushButton( tr("&Find Next"), this,
 					    "find next" );
     findNxt->setDefault( TRUE );
-    connect( findNxt, SIGNAL(clicked()), this, SLOT(emitFindNext()) );
+    connect( findNxt, TQ_SIGNAL(clicked()), this, TQ_SLOT(emitFindNext()) );
     TQPushButton *cancel = new TQPushButton( tr("Cancel"), this, "cancel find" );
-    connect( cancel, SIGNAL(clicked()), this, SLOT(reject()) );
+    connect( cancel, TQ_SIGNAL(clicked()), this, TQ_SLOT(reject()) );
 
     TQVBoxLayout *bl = new TQVBoxLayout( 6, "find button layout" );
     bl->addWidget( findNxt );
@@ -79,10 +79,10 @@ FindDialog::FindDialog( bool replace, TQWidget *parent, const char *name,
 
 	TQPushButton *replace = new TQPushButton( tr("&Replace"), this,
 						"replace" );
-	connect( replace, SIGNAL(clicked()), this, SLOT(emitReplace()) );
+	connect( replace, TQ_SIGNAL(clicked()), this, TQ_SLOT(emitReplace()) );
 	TQPushButton *replaceAll = new TQPushButton( tr("Replace &All"), this,
 						   "replace all" );
-	connect( replaceAll, SIGNAL(clicked()), this, SLOT(emitReplaceAll()) );
+	connect( replaceAll, TQ_SIGNAL(clicked()), this, TQ_SLOT(emitReplaceAll()) );
 	setTabOrder( findNxt, replace );
 	setTabOrder( replace, replaceAll );
 	setTabOrder( replaceAll, cancel );

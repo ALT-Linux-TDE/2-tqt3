@@ -61,9 +61,9 @@ int main( int argc, char **argv )
     qiconview.setCaption( "TQt Example - Iconview" );
 
     ListenDND listen_dnd( &qiconview );
-    TQObject::connect( &qiconview, SIGNAL( dropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ),
-		      &listen_dnd, SLOT( dropped( TQDropEvent * ) ) );
-    TQObject::connect( &qiconview, SIGNAL( moved() ), &listen_dnd, SLOT( moved() ) );
+    TQObject::connect( &qiconview, TQ_SIGNAL( dropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ),
+		      &listen_dnd, TQ_SLOT( dropped( TQDropEvent * ) ) );
+    TQObject::connect( &qiconview, TQ_SIGNAL( moved() ), &listen_dnd, TQ_SLOT( moved() ) );
 
     a.setMainWidget( &qiconview );
     qiconview.show();

@@ -38,13 +38,9 @@
 **
 **********************************************************************/
 
-#ifndef QT_CLEAN_NAMESPACE
-#define QT_CLEAN_NAMESPACE
-#endif
-
 #include "ntqimage.h"
 
-#ifndef QT_NO_IMAGEIO_JPEG
+#ifndef TQT_NO_IMAGEIO_JPEG
 
 #include "ntqiodevice.h"
 #include "ntqjpegio.h"

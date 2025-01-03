@@ -58,8 +58,8 @@ int main( int argc, char **argv )
 <a name="x2972"></a>    labelonoffaction-&gt;<a href="ntqaction.html#setAccel">setAccel</a>( TQt::ALT+TQt::Key_L );
 <a name="x2973"></a>    labelonoffaction-&gt;<a href="ntqaction.html#setIconSet">setIconSet</a>( (TQPixmap) labelonoff_xpm );
 
-<a name="x2976"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( labelonoffaction, SIGNAL( <a href="ntqaction.html#toggled">toggled</a>( bool ) ),
-<a name="x2979"></a>                      window, SLOT( <a href="ntqmainwindow.html#setUsesTextLabel">setUsesTextLabel</a>( bool ) ) );
+<a name="x2976"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( labelonoffaction, TQ_SIGNAL( <a href="ntqaction.html#toggled">toggled</a>( bool ) ),
+<a name="x2979"></a>                      window, TQ_SLOT( <a href="ntqmainwindow.html#setUsesTextLabel">setUsesTextLabel</a>( bool ) ) );
 
 <a name="x2971"></a>    labelonoffaction-&gt;<a href="ntqaction.html#addTo">addTo</a>( toolbar );
 

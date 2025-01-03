@@ -38,13 +38,9 @@
 **
 **********************************************************************/
 
-#ifndef QT_CLEAN_NAMESPACE
-#define QT_CLEAN_NAMESPACE
-#endif
-
 #include "ntqdatetime.h"
 
-#ifndef QT_NO_IMAGEIO_MNG
+#ifndef TQT_NO_IMAGEIO_MNG
 
 #include "ntqimage.h"
 #include "ntqasyncimageio.h"
@@ -62,7 +58,7 @@
 #include <stdlib.h>
 
 
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 
 class TQMNGFormat : public TQImageFormat {
 public:
@@ -274,7 +270,7 @@ TQImageFormat* TQMNGFormatType::decoderFor( const uchar* buffer, int length )
      && buffer[5]==10
      && buffer[6]==26
      && buffer[7]==10)
-#ifdef QT_NO_IMAGEIO_PNG // if we don't have native PNG support use libmng
+#ifdef TQT_NO_IMAGEIO_PNG // if we don't have native PNG support use libmng
      || (buffer[0]==137 // PNG signature
      && buffer[1]=='P'
      && buffer[2]=='N'
@@ -437,9 +433,9 @@ int TQMNGFormat::decode( TQImage& img, TQImageConsumer* cons,
 
 static TQMNGFormatType* globalMngFormatTypeObject = 0;
 
-#endif // QT_NO_ASYNC_IMAGE_IO
+#endif // TQT_NO_ASYNC_IMAGE_IO
 
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 void qCleanupMngIO()
 {
     if ( globalMngFormatTypeObject ) {
@@ -454,11 +450,11 @@ void qInitMngIO()
     static bool done = FALSE;
     if ( !done ) {
 	done = TRUE;
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 	globalMngFormatTypeObject = new TQMNGFormatType;
 	tqAddPostRoutine( qCleanupMngIO );
 #endif
     }
 }
 
-#endif // QT_NO_IMAGEIO_MNG
+#endif // TQT_NO_IMAGEIO_MNG

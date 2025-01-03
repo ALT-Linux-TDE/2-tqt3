@@ -48,9 +48,9 @@ class TQTimer;
 #include "ntqrangecontrol.h"
 #endif // QT_H
 
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
 
-class Q_EXPORT TQScrollBar : public TQWidget, public TQRangeControl
+class TQ_EXPORT TQScrollBar : public TQWidget, public TQRangeControl
 {
     TQ_OBJECT
     TQ_PROPERTY( int minValue READ minValue WRITE setMinValue )
@@ -107,7 +107,7 @@ signals:
     void	prevPage();
 
 protected:
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void 	wheelEvent( TQWheelEvent * );
 #endif
     void	keyPressEvent( TQKeyEvent * );
@@ -192,6 +192,6 @@ inline void TQScrollBar::setSizePolicy( TQSizePolicy::SizeType hor, TQSizePolicy
 }
 
 
-#endif // QT_NO_SCROLLBAR
+#endif // TQT_NO_SCROLLBAR
 
 #endif // TQSCROLLBAR_H

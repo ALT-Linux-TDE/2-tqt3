@@ -43,10 +43,10 @@
 
 #include "ntqglobal.h"
 
-#ifndef QT_NO_IMAGEIO_JPEG
+#ifndef TQT_NO_IMAGEIO_JPEG
 
 void qInitJpegIO();
 
-#endif // QT_NO_IMAGEIO_JPEG
+#endif // TQT_NO_IMAGEIO_JPEG
 
 #endif // TQJPEGIO_H

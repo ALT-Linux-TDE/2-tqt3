@@ -39,7 +39,7 @@
 class TQSocket;
 class TQProcess;
 
-class Q_EXPORT TQAssistantClient : public TQObject
+class TQ_EXPORT TQAssistantClient : public TQObject
 {
     TQ_OBJECT
     TQ_PROPERTY( bool open READ isOpen )

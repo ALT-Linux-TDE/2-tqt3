@@ -47,7 +47,7 @@
 #include "ntqeditorfactory.h"
 #include "ntqdatetimeedit.h"
 
-#ifndef QT_NO_SQL_EDIT_WIDGETS
+#ifndef TQT_NO_SQL_EDIT_WIDGETS
 
 /*!
     \class TQEditorFactory ntqeditorfactory.h
@@ -161,7 +161,7 @@ TQWidget * TQEditorFactory::createEditor( TQWidget * parent, const TQVariant & v
 	case TQVariant::DateTime:
 	    w = new TQDateTimeEdit( parent, "qt_editor_datetime" );
 	    break;
-#ifndef QT_NO_LABEL
+#ifndef TQT_NO_LABEL
 	case TQVariant::Pixmap:
 	    w = new TQLabel( parent, "qt_editor_pixmap" );
 	    break;
@@ -189,4 +189,4 @@ TQWidget * TQEditorFactory::createEditor( TQWidget * parent, const TQVariant & v
     }
     return w;
 }
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

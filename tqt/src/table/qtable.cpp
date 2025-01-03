@@ -46,7 +46,7 @@
 
 #include "ntqtable.h"
 
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 
 #include <ntqpainter.h>
 #include <ntqlineedit.h>
@@ -70,7 +70,7 @@
 static bool qt_update_cell_widget = TRUE;
 static bool qt_table_clipper_enabled = TRUE;
 #ifndef QT_INTERNAL_TABLE
-Q_EXPORT
+TQ_EXPORT
 #endif
 void tqt_set_table_clipper_enabled( bool enabled )
 {
@@ -1272,7 +1272,7 @@ TQWidget *TQComboTableItem::createEditor() const
     ( (TQComboTableItem*)this )->cb = new TQComboBox( edit, table()->viewport(), "qt_editor_cb" );
     cb->insertStringList( entries );
     cb->setCurrentItem( current );
-    TQObject::connect( cb, SIGNAL( activated(int) ), table(), SLOT( doValueChanged() ) );
+    TQObject::connect( cb, TQ_SIGNAL( activated(int) ), table(), TQ_SLOT( doValueChanged() ) );
     return cb;
 }
 
@@ -1538,7 +1538,7 @@ TQWidget *TQCheckTableItem::createEditor() const
     cb->setChecked( checked );
     cb->setText( text() );
     cb->setBackgroundColor( table()->viewport()->backgroundColor() );
-    TQObject::connect( cb, SIGNAL( toggled(bool) ), table(), SLOT( doValueChanged() ) );
+    TQObject::connect( cb, TQ_SIGNAL( toggled(bool) ), table(), TQ_SLOT( doValueChanged() ) );
     return cb;
 }
 
@@ -2069,14 +2069,14 @@ TQTable::TQTable( int numRows, int numCols, TQWidget *parent, const char *name )
 
 void TQTable::init( int rows, int cols )
 {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     setDragAutoScroll( FALSE );
 #endif
     d = new TQTablePrivate;
     d->geomTimer = new TQTimer( this );
     d->lastVisCol = 0;
     d->lastVisRow = 0;
-    connect( d->geomTimer, SIGNAL( timeout() ), this, SLOT( updateGeometriesSlot() ) );
+    connect( d->geomTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( updateGeometriesSlot() ) );
     shouldClearSelection = FALSE;
     dEnabled = FALSE;
     roRows.setAutoDelete( TRUE );
@@ -2130,25 +2130,25 @@ void TQTable::init( int rows, int cols )
     contents.setAutoDelete( FALSE );
 
     // Connect header, table and scrollbars
-    connect( horizontalScrollBar(), SIGNAL( valueChanged(int) ),
-	     topHeader, SLOT( setOffset(int) ) );
-    connect( verticalScrollBar(), SIGNAL( valueChanged(int) ),
-	     leftHeader, SLOT( setOffset(int) ) );
-    connect( topHeader, SIGNAL( sectionSizeChanged(int) ),
-	     this, SLOT( columnWidthChanged(int) ) );
-    connect( topHeader, SIGNAL( indexChange(int,int,int) ),
-	     this, SLOT( columnIndexChanged(int,int,int) ) );
-    connect( topHeader, SIGNAL( sectionClicked(int) ),
-	     this, SLOT( columnClicked(int) ) );
-    connect( leftHeader, SIGNAL( sectionSizeChanged(int) ),
-	     this, SLOT( rowHeightChanged(int) ) );
-    connect( leftHeader, SIGNAL( indexChange(int,int,int) ),
-	     this, SLOT( rowIndexChanged(int,int,int) ) );
+    connect( horizontalScrollBar(), TQ_SIGNAL( valueChanged(int) ),
+	     topHeader, TQ_SLOT( setOffset(int) ) );
+    connect( verticalScrollBar(), TQ_SIGNAL( valueChanged(int) ),
+	     leftHeader, TQ_SLOT( setOffset(int) ) );
+    connect( topHeader, TQ_SIGNAL( sectionSizeChanged(int) ),
+	     this, TQ_SLOT( columnWidthChanged(int) ) );
+    connect( topHeader, TQ_SIGNAL( indexChange(int,int,int) ),
+	     this, TQ_SLOT( columnIndexChanged(int,int,int) ) );
+    connect( topHeader, TQ_SIGNAL( sectionClicked(int) ),
+	     this, TQ_SLOT( columnClicked(int) ) );
+    connect( leftHeader, TQ_SIGNAL( sectionSizeChanged(int) ),
+	     this, TQ_SLOT( rowHeightChanged(int) ) );
+    connect( leftHeader, TQ_SIGNAL( indexChange(int,int,int) ),
+	     this, TQ_SLOT( rowIndexChanged(int,int,int) ) );
 
     // Initialize variables
     autoScrollTimer = new TQTimer( this );
-    connect( autoScrollTimer, SIGNAL( timeout() ),
-	     this, SLOT( doAutoScroll() ) );
+    connect( autoScrollTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( doAutoScroll() ) );
     curRow = curCol = 0;
     topHeader->setSectionState( curCol, TQTableHeader::Bold );
     leftHeader->setSectionState( curRow, TQTableHeader::Bold );
@@ -2911,7 +2911,7 @@ void TQTable::paintCell( TQPainter* p, int row, int col,
 {
     if ( cr.width() == 0 || cr.height() == 0 )
 	return;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     const TQColorGroup &cg = ( !drawActiveSelection && style().styleHint( TQStyle::SH_ItemView_ChangeHighlightOnFocus ) ? palette().inactive() : colorGroup() );
 #else
     const TQColorGroup &cg = colorGroup();
@@ -3590,7 +3590,7 @@ void TQTable::selectRow( int row )
     if ( row < 0 )
 	return;
     bool isDataTable = FALSE;
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     isDataTable = ::tqt_cast<TQDataTable*>(this) != 0;
 #endif
     if ( isDataTable || selectionMode() == SingleRow ) {
@@ -3785,7 +3785,7 @@ void TQTable::contentsMouseMoveEvent( TQMouseEvent *e )
     fixRow( tmpRow, e->pos().y() );
     fixCol( tmpCol, e->pos().x() );
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( dragEnabled() && startDragRow != -1 && startDragCol != -1 ) {
 	if (TQPoint(dragStartPos - e->pos()).manhattanLength() > TQApplication::startDragDistance())
 	    startDrag();
@@ -3948,7 +3948,7 @@ void TQTable::contentsMouseReleaseEvent( TQMouseEvent *e )
 
 void TQTable::contentsContextMenuEvent( TQContextMenuEvent *e )
 {
-    if ( !receivers( SIGNAL(contextMenuRequested(int,int,const TQPoint&)) ) ) {
+    if ( !receivers( TQ_SIGNAL(contextMenuRequested(int,int,const TQPoint&)) ) ) {
 	e->ignore();
 	return;
     }
@@ -4071,7 +4071,7 @@ bool TQTable::eventFilter( TQObject *o, TQEvent *e )
 	    }
 	}
 	break;
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     case TQEvent::Wheel:
 	if ( o == this || o == viewport() ) {
 	    TQWheelEvent* we = (TQWheelEvent*)e;
@@ -4101,11 +4101,12 @@ void TQTable::fixCell( int &row, int &col, int key )
 		row = curRow;
 	} else if ( key == Key_Up ||
 		    key == Key_Prior ||
-		    key == Key_Home )
+		    key == Key_Home ) {
 	    while ( row >= 0 && rowHeight( row ) <= 0 )
 		row--;
 	    if ( rowHeight( row ) <= 0 )
 		row = curRow;
+	}
     } else if ( columnWidth( col ) <= 0 ) {
 	if ( key == Key_Left ) {
 	    while ( col >= 0 && columnWidth( col ) <= 0 )
@@ -5359,7 +5360,7 @@ void TQTable::repaintSelections( TQTableSelection *oldSelection,
     }
 
     if ( updateHorizontal && numCols() > 0 && left >= 0 && !isRowSelection( selectionMode() ) ) {
-	register int *s = &topHeader->states.data()[left];
+	int *s = &topHeader->states.data()[left];
 	for ( i = left; i <= right; ++i ) {
 	    if ( !isColumnSelected( i ) )
 		*s = TQTableHeader::Normal;
@@ -5373,7 +5374,7 @@ void TQTable::repaintSelections( TQTableSelection *oldSelection,
     }
 
     if ( updateVertical && numRows() > 0 && top >= 0 ) {
-	register int *s = &leftHeader->states.data()[top];
+	int *s = &leftHeader->states.data()[top];
 	for ( i = top; i <= bottom; ++i ) {
 	    if ( !isRowSelected( i ) )
 		*s = TQTableHeader::Normal;
@@ -6350,7 +6351,7 @@ void TQTable::editCell( int row, int col, bool replace )
     }
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 /*!
     This event handler is called whenever a TQTable object receives a
@@ -6527,8 +6528,8 @@ TQTableHeader::TQTableHeader( int i, TQTable *t,
     states.fill( Normal, -1 );
     stretchable.fill( FALSE, -1 );
     autoScrollTimer = new TQTimer( this );
-    connect( autoScrollTimer, SIGNAL( timeout() ),
-	     this, SLOT( doAutoScroll() ) );
+    connect( autoScrollTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( doAutoScroll() ) );
 #ifndef NO_LINE_WIDGET
     line1 = new TQWidget( table->viewport(), "qt_line1" );
     line1->hide();
@@ -6542,17 +6543,17 @@ TQTableHeader::TQTableHeader( int i, TQTable *t,
     d = new TQTableHeaderPrivate;
     d->oldLinePos = -1; //outside, in contents coords
 #endif
-    connect( this, SIGNAL( sizeChange(int,int,int) ),
-	     this, SLOT( sectionWidthChanged(int,int,int) ) );
-    connect( this, SIGNAL( indexChange(int,int,int) ),
-	     this, SLOT( indexChanged(int,int,int) ) );
+    connect( this, TQ_SIGNAL( sizeChange(int,int,int) ),
+	     this, TQ_SLOT( sectionWidthChanged(int,int,int) ) );
+    connect( this, TQ_SIGNAL( indexChange(int,int,int) ),
+	     this, TQ_SLOT( indexChanged(int,int,int) ) );
 
     stretchTimer = new TQTimer( this );
     widgetStretchTimer = new TQTimer( this );
-    connect( stretchTimer, SIGNAL( timeout() ),
-	     this, SLOT( updateStretches() ) );
-    connect( widgetStretchTimer, SIGNAL( timeout() ),
-	     this, SLOT( updateWidgetStretches() ) );
+    connect( stretchTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( updateStretches() ) );
+    connect( widgetStretchTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( updateWidgetStretches() ) );
     startPos = -1;
 }
 
@@ -6641,7 +6642,7 @@ void TQTableHeader::setSectionStateToAll( SectionState state )
     if ( isRowSelection( table->selectionMode() ) && orientation() == Horizontal )
 	return;
 
-    register int *d = (int *) states.data();
+    int *d = (int *) states.data();
     int n = count();
 
     while (n >= 4) {
@@ -6770,7 +6771,7 @@ void TQTableHeader::mousePressEvent( TQMouseEvent *e )
 	startPos = -1;
     setCaching( TRUE );
     resizedSection = -1;
-#ifdef QT_NO_CURSOR
+#ifdef TQT_NO_CURSOR
     isResizing = FALSE;
 #else
     isResizing = cursor().shape() != ArrowCursor;
@@ -6785,7 +6786,7 @@ void TQTableHeader::mousePressEvent( TQMouseEvent *e )
 void TQTableHeader::mouseMoveEvent( TQMouseEvent *e )
 {
     if ( (e->state() & MouseButtonMask) != LeftButton // Using LeftButton simulates old behavior.
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
          || cursor().shape() != ArrowCursor
 #endif
          || ( ( e->state() & ControlButton ) == ControlButton &&
@@ -7053,7 +7054,7 @@ void TQTableHeader::updateSelections()
     int b = sectionAt( endPos );
     int start = TQMIN( a, b );
     int end = TQMAX( a, b );
-    register int *s = states.data();
+    int *s = states.data();
     for ( int i = 0; i < count(); ++i ) {
 	if ( i < start || i > end )
 	    *s = oldStates.data()[ i ];
@@ -7079,8 +7080,8 @@ void TQTableHeader::updateSelections()
 void TQTableHeader::saveStates()
 {
     oldStates.resize( count() );
-    register int *s = states.data();
-    register int *s2 = oldStates.data();
+    int *s = states.data();
+    int *s2 = oldStates.data();
     for ( int i = 0; i < count(); ++i ) {
 	*s2 = *s;
 	++s2;
@@ -7367,4 +7368,4 @@ void TQTableHeader::setLabels(const TQStringList & labels)
 
 #include "qtable.moc"
 
-#endif // QT_NO_TABLE
+#endif // TQT_NO_TABLE

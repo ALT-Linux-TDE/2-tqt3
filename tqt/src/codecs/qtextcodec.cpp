@@ -46,18 +46,18 @@
 #endif
 
 #include "ntqtextcodec.h"
-#ifndef QT_NO_TEXTCODEC
+#ifndef TQT_NO_TEXTCODEC
 
 #include "ntqvaluelist.h"
 #include "ntqtextcodecfactory.h"
 #include "ntqutfcodec.h"
 #include "ntqnamespace.h"
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
 #include "ntqrtlcodec.h"
 #include "ntqtsciicodec.h"
 #include "qisciicodec_p.h"
-#endif // QT_NO_CODECS
-#ifndef QT_NO_BIG_CODECS
+#endif // TQT_NO_CODECS
+#ifndef TQT_NO_BIG_CODECS
 #include "ntqbig5codec.h"
 #include "ntqeucjpcodec.h"
 #include "ntqeuckrcodec.h"
@@ -65,19 +65,19 @@
 #include "ntqjiscodec.h"
 #include "ntqjpunicode.h"
 #include "ntqsjiscodec.h"
-#endif // QT_NO_BIG_CODECS
+#endif // TQT_NO_BIG_CODECS
 #include "ntqfile.h"
 #include "ntqstrlist.h"
 #include "ntqstring.h"
 #include "../tools/qlocale_p.h"
 
-#if !defined(QT_NO_CODECS) && !defined(QT_NO_BIG_CODECS) && defined(Q_WS_X11)
+#if !defined(TQT_NO_CODECS) && !defined(TQT_NO_BIG_CODECS) && defined(TQ_WS_X11)
 #  include "qfontcodecs_p.h"
 #endif
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #  include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #include <stdlib.h>
 #include <ctype.h>
@@ -89,7 +89,7 @@
 #endif
 
 static TQValueList<TQTextCodec*> *all = 0;
-static bool destroying_is_ok; // starts out as 0
+static bool codecs_destroyed = false;
 static TQTextCodec * localeMapper = 0;
 
 class TQTextCodecCleanup {
@@ -118,17 +118,15 @@ static TQTextCodecCleanup qtextcodec_cleanup;
 
 void TQTextCodec::deleteAllCodecs()
 {
+    codecs_destroyed = true;
+
     if ( !all )
 	return;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( tqt_global_mutexpool ?
-			 tqt_global_mutexpool->get( &all ) : 0 );
-    if ( !all )
-	return;
-#endif // QT_THREAD_SUPPORT
-
-    destroying_is_ok = TRUE;
+			  tqt_global_mutexpool->get( &all ) : 0 );
+#endif // TQT_THREAD_SUPPORT
 
     TQValueList<TQTextCodec*> *ball = all;
     all = 0;
@@ -140,26 +138,10 @@ void TQTextCodec::deleteAllCodecs()
     ball->clear();
     delete ball;
 
-    destroying_is_ok = FALSE;
+    localeMapper = 0;
 }
 
-
-static void realSetup();
-
-
-static inline void setup()
-{
-    if ( all ) return;
-
-#ifdef QT_THREAD_SUPPORT
-    TQMutexLocker locker( tqt_global_mutexpool ?
-			 tqt_global_mutexpool->get( &all ) : 0 );
-    if ( all ) return;
-#endif // QT_THREAD_SUPPORT
-
-    realSetup();
-}
-
+static void setup();
 
 class TQTextStatelessEncoder: public TQTextEncoder {
     const TQTextCodec* codec;
@@ -429,8 +411,16 @@ TQString TQTextStatelessDecoder::toUnicode(const char* chars, int len)
 */
 TQTextCodec::TQTextCodec()
 {
-    setup();
-    all->insert( all->begin(), this );
+    // 'codecs_destroyed' should never be true at this point
+    if (!codecs_destroyed)
+    {
+	setup();
+#ifdef TQT_THREAD_SUPPORT
+	TQMutexLocker locker( tqt_global_mutexpool ?
+			      tqt_global_mutexpool->get( &all ) : 0 );
+#endif // TQT_THREAD_SUPPORT
+	all->insert( all->begin(), this );
+    }
 }
 
 
@@ -442,8 +432,13 @@ TQTextCodec::TQTextCodec()
 */
 TQTextCodec::~TQTextCodec()
 {
-    if ( !destroying_is_ok )
+    if ( !codecs_destroyed )
 	tqWarning("TQTextCodec::~TQTextCodec() called by application");
+
+#ifdef TQT_THREAD_SUPPORT
+    TQMutexLocker locker( tqt_global_mutexpool ?
+			  tqt_global_mutexpool->get( &all ) : 0 );
+#endif // TQT_THREAD_SUPPORT
     if ( all )
 	all->remove( this );
 }
@@ -529,6 +524,11 @@ int TQTextCodec::simpleHeuristicNameMatch(const char* name, const char* hint)
 */
 TQTextCodec* TQTextCodec::codecForIndex(int i)
 {
+    if (codecs_destroyed)
+    {
+	return nullptr;
+    }
+
     setup();
     return (uint)i >= all->count() ? 0 : *all->at(i);
 }
@@ -540,6 +540,11 @@ TQTextCodec* TQTextCodec::codecForIndex(int i)
 */
 TQTextCodec* TQTextCodec::codecForMib(int mib)
 {
+    if (codecs_destroyed)
+    {
+	return nullptr;
+    }
+
     setup();
     TQValueList<TQTextCodec*>::ConstIterator i;
     TQTextCodec* result=0;
@@ -549,13 +554,13 @@ TQTextCodec* TQTextCodec::codecForMib(int mib)
 	    return result;
     }
 
-#if !defined(QT_NO_COMPONENT) && !defined(QT_LITE_COMPONENT)
+#if !defined(TQT_NO_COMPONENT) && !defined(QT_LITE_COMPONENT)
     if ( !result || (result && result->mibEnum() != mib) ) {
 	TQTextCodec *codec = TQTextCodecFactory::createForMib(mib);
 	if (codec)
 	    result = codec;
     }
-#endif // !QT_NO_COMPONENT !QT_LITE_COMPONENT
+#endif // !TQT_NO_COMPONENT !QT_LITE_COMPONENT
 
     return result;
 }
@@ -818,10 +823,15 @@ void TQTextCodec::setCodecForLocale(TQTextCodec *c) {
 
 TQTextCodec* TQTextCodec::codecForLocale()
 {
-    if ( localeMapper )
-	return localeMapper;
+    if (codecs_destroyed)
+    {
+	return nullptr;
+    }
 
-    setup();
+    if (!localeMapper)
+    {
+	setup();
+    }
 
     return localeMapper;
 }
@@ -838,6 +848,11 @@ TQTextCodec* TQTextCodec::codecForLocale()
 
 TQTextCodec* TQTextCodec::codecForName( const char* name, int accuracy )
 {
+    if (codecs_destroyed)
+    {
+	return nullptr;
+    }
+
     if ( !name || !*name )
 	return 0;
 
@@ -855,10 +870,10 @@ TQTextCodec* TQTextCodec::codecForName( const char* name, int accuracy )
 	}
     }
 
-#if !defined(QT_NO_COMPONENT) && !defined(QT_LITE_COMPONENT)
+#if !defined(TQT_NO_COMPONENT) && !defined(QT_LITE_COMPONENT)
     if ( !result )
 	result = TQTextCodecFactory::createForName(name);
-#endif // !QT_NO_COMPONENT !QT_LITE_COMPONENT
+#endif // !TQT_NO_COMPONENT !QT_LITE_COMPONENT
 
     return result;
 }
@@ -879,6 +894,11 @@ TQTextCodec* TQTextCodec::codecForName( const char* name, int accuracy )
 */
 TQTextCodec* TQTextCodec::codecForContent(const char* chars, int len)
 {
+    if (codecs_destroyed)
+    {
+	return nullptr;
+    }
+
     setup();
     TQValueList<TQTextCodec*>::ConstIterator i;
     TQTextCodec* result = 0;
@@ -1566,7 +1586,7 @@ TQString TQTextCodecFromIODDecoder::toUnicode(const char* chars, int len)
     return result;
 }
 
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
 // Cannot use <pre> or \code
 /*!
     Reads a POSIX2 charmap definition from \a iod.
@@ -1621,7 +1641,7 @@ TQTextCodec* TQTextCodec::loadCharmapFile(TQString filename)
     return 0;
 }
 
-#endif //QT_NO_CODECS
+#endif //TQT_NO_CODECS
 
 /*!
     Returns a string representing the current language and
@@ -1633,7 +1653,7 @@ const char* TQTextCodec::locale()
     return TQLocalePrivate::systemLocaleName();
 }
 
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
 
 class TQSimpleTextCodec: public TQTextCodec
 {
@@ -1666,12 +1686,12 @@ private:
     void buildReverseMap();
 
     int forwardIndex;
-#ifndef Q_WS_QWS
+#ifndef TQ_WS_QWS
     TQMemArray<unsigned char> *reverseMap;
 #endif
 };
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 static const TQSimpleTextCodec * reverseOwner = 0;
 static TQMemArray<unsigned char> * reverseMap = 0;
 #endif
@@ -2244,7 +2264,7 @@ static const struct {
 TQSimpleTextCodec::TQSimpleTextCodec( int i )
     : TQTextCodec(), forwardIndex( i )
 {
-#ifndef Q_WS_QWS
+#ifndef TQ_WS_QWS
     reverseMap = 0;
 #endif
 }
@@ -2252,7 +2272,7 @@ TQSimpleTextCodec::TQSimpleTextCodec( int i )
 
 TQSimpleTextCodec::~TQSimpleTextCodec()
 {
-#ifndef Q_WS_QWS
+#ifndef TQ_WS_QWS
     delete reverseMap;
 #else
     if ( reverseOwner == this ) {
@@ -2265,7 +2285,7 @@ TQSimpleTextCodec::~TQSimpleTextCodec()
 
 void TQSimpleTextCodec::buildReverseMap()
 {
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     if ( reverseOwner != this ) {
 	int m = 0;
 	int i = 0;
@@ -2347,7 +2367,7 @@ TQString TQSimpleTextCodec::toUnicode(const char* chars, int len) const
 
 TQCString TQSimpleTextCodec::fromUnicode(const TQString& uc, int& len ) const
 {
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     if ( this != reverseOwner )
 #else
     if ( !reverseMap )
@@ -2377,7 +2397,7 @@ TQCString TQSimpleTextCodec::fromUnicode(const TQString& uc, int& len ) const
 
 void TQSimpleTextCodec::fromUnicode( const TQChar *in, unsigned short *out, int length ) const
 {
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     if ( this != reverseOwner )
 #else
     if ( !reverseMap )
@@ -2396,7 +2416,7 @@ void TQSimpleTextCodec::fromUnicode( const TQChar *in, unsigned short *out, int 
 
 unsigned short TQSimpleTextCodec::characterFromUnicode(const TQString &str, int pos) const
 {
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     if ( this != reverseOwner )
 #else
     if ( !reverseMap )
@@ -2411,7 +2431,7 @@ unsigned short TQSimpleTextCodec::characterFromUnicode(const TQString &str, int 
 
 bool TQSimpleTextCodec::canEncode( TQChar ch ) const
 {
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     if ( this != reverseOwner )
 #else
     if ( !reverseMap )
@@ -2777,7 +2797,7 @@ static TQTextCodec *checkForCodec(const char *name) {
     return c;
 }
 
-/* the next two functions are implicitely thread safe,
+/* the next function is implicitely thread safe,
    as they are only called by setup() which uses a mutex.
 */
 static void setupLocaleMapper()
@@ -2901,12 +2921,32 @@ static void setupLocaleMapper()
 }
 
 
-static void realSetup()
+static void setup()
 {
 #if defined(QT_CHECK_STATE)
-    if ( destroying_is_ok )
-	tqWarning( "TQTextCodec: creating new codec during codec cleanup!" );
+    if ( codecs_destroyed )
+    {
+	// If codecs have been destroyed, the application is being destroyed.
+	// Do not create new codecs since this could lead to SEGV while trying to
+	// print a message using tqWarning/tqDebug/tqFatal at this stage
+	//
+	// Note: the use of `printf` instead of `tqWarning` is intentional. We should never
+	// get to this line of code. If we do, we are in some strange exception that we
+	// didn't think of. Using `tqWarning` could potentially lead to an infinite loop with
+	// `tqWarning` trying to setup codecs and this method calling `tqWarning` again.
+	// Using `printf` makes sure this never happens, even for exceptions we didn't foresee.
+	printf("TQTextCodec: setup() called when codecs have already been destroyed\n"); fflush(stdout);
+	return;
+    }
 #endif
+
+    if ( all ) return;
+
+#ifdef TQT_THREAD_SUPPORT
+    TQMutexLocker locker( tqt_global_mutexpool ?
+			 tqt_global_mutexpool->get( &all ) : 0 );
+#endif // TQT_THREAD_SUPPORT
+
     all = new TQValueList<TQTextCodec*>;
 
     (void)new TQLatin1Codec;
@@ -2914,7 +2954,7 @@ static void realSetup()
     (void)new TQUtf8Codec;
     (void)new TQUtf16Codec;
 
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
     int i = 0;
     do {
 	(void)new TQSimpleTextCodec( i );
@@ -2925,11 +2965,11 @@ static void realSetup()
     for (i = 0; i < 9; ++i) {
 	(void)new TQIsciiCodec(i);
     }
-#endif // QT_NO_CODECS
-#ifndef QT_NO_CODEC_HEBREW
+#endif // TQT_NO_CODECS
+#ifndef TQT_NO_CODEC_HEBREW
     (void)new TQHebrewCodec;
 #endif
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
     (void)new TQBig5Codec;
     (void)new TQBig5hkscsCodec;
     (void)new TQEucJpCodec;
@@ -2939,7 +2979,7 @@ static void realSetup()
     (void)new TQGb18030Codec;
     (void)new TQJisCodec;
     (void)new TQSjisCodec;
-#endif // QT_NO_BIG_CODECS
+#endif // TQT_NO_BIG_CODECS
 
 #ifdef Q_OS_WIN32
     (void) new TQWindowsLocalCodec;
@@ -2952,7 +2992,7 @@ static void realSetup()
 void TQTextCodec::fromUnicodeInternal( const TQChar *in, unsigned short *out, int length )
 {
     switch( mibEnum() ) {
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
     case 2084:
     case 2088:
     case 5:
@@ -2982,7 +3022,7 @@ void TQTextCodec::fromUnicodeInternal( const TQChar *in, unsigned short *out, in
 	((TQSimpleTextCodec *)this)->fromUnicode( in, out, length );
 	break;
 
-#if !defined(QT_NO_BIG_CODECS) && defined(Q_WS_X11)
+#if !defined(TQT_NO_BIG_CODECS) && defined(TQ_WS_X11)
 	// the TQFont*Codecs are only used on X11
 
     case 15:
@@ -3021,7 +3061,7 @@ void TQTextCodec::fromUnicodeInternal( const TQChar *in, unsigned short *out, in
 	((TQFontLaoCodec *) this)->fromUnicode( in, out, length );
 	break;
 #endif
-#endif // QT_NO_CODECS
+#endif // TQT_NO_CODECS
 
     case 4:
 	((TQLatin1Codec *) this)->fromUnicode( in, out, length );
@@ -3118,4 +3158,4 @@ TQTextCodec *TQTextCodec::cftr = 0;
 TQTextCodec *TQTextCodec::cfcs = 0;
 
 
-#endif // QT_NO_TEXTCODEC
+#endif // TQT_NO_TEXTCODEC

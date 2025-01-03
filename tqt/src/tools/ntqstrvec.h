@@ -47,7 +47,7 @@
 #include "ntqdatastream.h"
 #endif // QT_H
 
-class Q_EXPORT TQStrVec : public TQPtrVector<char>
+class TQ_EXPORT TQStrVec : public TQPtrVector<char>
 {
 public:
     TQStrVec()  { dc = TRUE; }
@@ -59,7 +59,7 @@ private:
     int	 compareItems( Item s1, Item s2 )
 				{ return qstrcmp((const char*)s1,
 						(const char*)s2); }
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQDataStream &read( TQDataStream &s, Item &d )
 				{ s >> (char *&)d; return s; }
     TQDataStream &write( TQDataStream &s, Item d ) const
@@ -69,7 +69,7 @@ private:
 };
 
 
-class Q_EXPORT TQStrIVec : public TQStrVec	// case insensitive string vec
+class TQ_EXPORT TQStrIVec : public TQStrVec	// case insensitive string vec
 {
 public:
     TQStrIVec() {}

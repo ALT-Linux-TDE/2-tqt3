@@ -1,4 +1,4 @@
-# Qt styles module
+# TQt styles module
 
 styles {
 	STYLES_P = styles
@@ -27,7 +27,7 @@ styles {
 			styles += windows
 		}
         }
-	else:DEFINES += QT_NO_STYLE_MAC
+	else:DEFINES += TQT_NO_STYLE_MAC
 
 	#embedded|!macx-*:styles -= aqua
 	contains( styles, aqua ) {
@@ -41,7 +41,7 @@ styles {
 			styles += windows
 		}
 	}
-	else:DEFINES += QT_NO_STYLE_AQUA
+	else:DEFINES += TQT_NO_STYLE_AQUA
 
 	contains( styles, cde ) {
 		HEADERS +=$$STYLES_H/ntqcdestyle.h
@@ -52,7 +52,7 @@ styles {
 			styles += motif
 		}
 	}
-	else:DEFINES += QT_NO_STYLE_CDE
+	else:DEFINES += TQT_NO_STYLE_CDE
 
 	contains( styles, motifplus ) {
 		HEADERS +=$$STYLES_H/ntqmotifplusstyle.h
@@ -62,7 +62,7 @@ styles {
 			styles += motif
 		}
 	}
-	else:DEFINES += QT_NO_STYLE_MOTIFPLUS
+	else:DEFINES += TQT_NO_STYLE_MOTIFPLUS
 
 	contains( styles, interlace ) {
 		HEADERS +=$$STYLES_H/ntqinterlacestyle.h
@@ -72,7 +72,7 @@ styles {
 			styles += windows
 		}
 	}
-	else:DEFINES += QT_NO_STYLE_INTERLACE
+	else:DEFINES += TQT_NO_STYLE_INTERLACE
 
 	contains( styles, platinum ) {
 		HEADERS +=$$STYLES_H/ntqplatinumstyle.h
@@ -82,7 +82,7 @@ styles {
 			styles += windows
 		}
 	}
-	else:DEFINES += QT_NO_STYLE_PLATINUM
+	else:DEFINES += TQT_NO_STYLE_PLATINUM
 
 	contains( styles, windowsxp ) {
 		HEADERS +=$$STYLES_H/qwindowsxpstyle.h
@@ -92,7 +92,7 @@ styles {
 			styles += windows
 		}
         }
-        else:DEFINES += QT_NO_STYLE_WINDOWSXP
+        else:DEFINES += TQT_NO_STYLE_WINDOWSXP
 
 	contains( styles, sgi ) {
 		HEADERS +=$$STYLES_H/ntqsgistyle.h
@@ -102,7 +102,7 @@ styles {
 			styles += motif
 		}
 	}
-	else:DEFINES += QT_NO_STYLE_SGI
+	else:DEFINES += TQT_NO_STYLE_SGI
 
 	contains( styles, compact ) {
 		HEADERS +=$$STYLES_H/ntqcompactstyle.h
@@ -112,7 +112,7 @@ styles {
 			styles += windows
 		}
 	}
-	else:DEFINES += QT_NO_STYLE_COMPACT
+	else:DEFINES += TQT_NO_STYLE_COMPACT
 
         wince-*:styles += pocketpc
 	contains( styles, pocketpc ) {
@@ -124,17 +124,17 @@ styles {
 			styles += windows
 		}
 	}
-        else:DEFINES += QT_NO_STYLE_POCKETPC
+        else:DEFINES += TQT_NO_STYLE_POCKETPC
         
 	contains( styles, windows ) {
 		HEADERS +=$$STYLES_H/ntqwindowsstyle.h
 		SOURCES +=$$STYLES_CPP/qwindowsstyle.cpp
 	}
-	else:DEFINES += QT_NO_STYLE_WINDOWS
+	else:DEFINES += TQT_NO_STYLE_WINDOWS
 
 	contains( styles, motif ) {
 		HEADERS +=$$STYLES_H/ntqmotifstyle.h
 		SOURCES +=$$STYLES_CPP/qmotifstyle.cpp
 	}
-	else:DEFINES += QT_NO_STYLE_MOTIF
+	else:DEFINES += TQT_NO_STYLE_MOTIF
 }

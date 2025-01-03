@@ -203,7 +203,7 @@ public:
 protected:
     bool eventFilter( TQObject *, TQEvent * );
     void paintEvent( TQPaintEvent * );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void dragEnterEvent( TQDragEnterEvent * );
     void dragMoveEvent( TQDragMoveEvent * );
     void dragLeaveEvent( TQDragLeaveEvent * );

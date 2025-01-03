@@ -52,7 +52,7 @@
 
 #include "ntqfiledialog.h"
 
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
 
 #include "private/qapplication_p.h"
 #include "ntqapplication.h"
@@ -95,15 +95,15 @@
 #include "ntqvbox.h"
 #include "ntqwidgetstack.h"
 
-#ifdef Q_WS_X11
-#include "private/qtkdeintegration_x11_p.h"
+#ifdef TQ_WS_X11
+#include "private/tqttdeintegration_x11_p.h"
 #endif
 
-#ifdef Q_WS_WIN
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQ_WS_WIN
+#ifdef TQT_THREAD_SUPPORT
 #  include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
-#endif // Q_WS_WIN
+#endif // TQT_THREAD_SUPPORT
+#endif // TQ_WS_WIN
 
 #if !defined(Q_OS_TEMP)
 #include <time.h>
@@ -114,7 +114,7 @@
 #include <limits.h>
 #include <ctype.h>
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 #include "qt_mac.h"
 extern TQString qt_mac_precomposeFileName(const TQString &); // qglobal.cpp
 #undef check
@@ -492,6 +492,10 @@ static TQString toRootIfNotExists( const TQString &path )
     return drives->getFirst()->filePath();
 }
 
+static void tqt_do_qfd_cleanup_pixmap() {
+    qfd_cleanup_pixmap.clear();
+}
+
 static bool isDirectoryMode( int m )
 {
     return m == TQFileDialog::Directory || m == TQFileDialog::DirectoryOnly;
@@ -516,7 +520,7 @@ static void updateLastSize( TQFileDialog *that )
 // resolving the W methods manually is needed, because Windows 95 doesn't include
 // these methods in Shell32.lib (not even stubs!), so you'd get an unresolved symbol
 // when TQt calls getEsistingDirectory(), etc.
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 
 typedef UINT (WINAPI *PtrExtractIconEx)(LPCTSTR,int,HICON*,HICON*,UINT);
 static PtrExtractIconEx ptrExtractIconEx = 0;
@@ -527,7 +531,7 @@ static void resolveLibs()
     static bool triedResolve = FALSE;
 
     if ( !triedResolve ) {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	// protect initialization
 	TQMutexLocker locker( tqt_global_mutexpool ?
 			     tqt_global_mutexpool->get( &triedResolve ) : 0 );
@@ -608,13 +612,17 @@ static void makeVariables() {
 	qfd_cleanup_pixmap.add( &goBackIcon );
 	fifteenTransparentPixels = new TQPixmap( closedFolderIcon->width(), 1 );
 	qfd_cleanup_pixmap.add( &fifteenTransparentPixels );
+
+	// On X11 the pixmaps should be cleanup before we disconnect from the server
+	tqAddPostRoutine(&tqt_do_qfd_cleanup_pixmap);
+
 	TQBitmap m( fifteenTransparentPixels->width(), 1 );
 	m.fill( TQt::color0 );
 	fifteenTransparentPixels->setMask( m );
 	bShowHiddenFiles = FALSE;
 	sortFilesBy = (int)TQDir::Name;
 	detailViewMode = FALSE;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	if ( !fileIconProvider )
 	    fileIconProvider = new TQWindowsIconProvider( tqApp );
 #endif
@@ -635,7 +643,7 @@ public:
     TQRenameEdit( TQWidget *parent )
 	: TQLineEdit( parent, "qt_rename_edit" ), doRenameAlreadyEmitted(FALSE)
     {
-	connect( this, SIGNAL(returnPressed()), SLOT(slotReturnPressed()) );
+	connect( this, TQ_SIGNAL(returnPressed()), TQ_SLOT(slotReturnPressed()) );
     }
 
 protected:
@@ -669,7 +677,7 @@ private:
     void viewportMouseReleaseEvent( TQMouseEvent *e );
     void viewportMouseDoubleClickEvent( TQMouseEvent *e );
     void viewportMouseMoveEvent( TQMouseEvent *e );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void viewportDragEnterEvent( TQDragEnterEvent *e );
     void viewportDragMoveEvent( TQDragMoveEvent *e );
     void viewportDragLeaveEvent( TQDragLeaveEvent *e );
@@ -726,7 +734,7 @@ private:
     void keyPressEvent( TQKeyEvent *e );
     void viewportMouseReleaseEvent( TQMouseEvent *e );
     void viewportMouseMoveEvent( TQMouseEvent *e );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void viewportDragEnterEvent( TQDragEnterEvent *e );
     void viewportDragMoveEvent( TQDragMoveEvent *e );
     void viewportDragLeaveEvent( TQDragLeaveEvent *e );
@@ -793,8 +801,8 @@ TQFDProgressAnimation::TQFDProgressAnimation( TQWidget *parent )
     step = -1;
     next();
     timer = new TQTimer( this );
-    connect( timer, SIGNAL( timeout() ),
-	     this, SLOT( next() ) );
+    connect( timer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( next() ) );
 }
 
 void TQFDProgressAnimation::start()
@@ -865,7 +873,7 @@ private:
 TQFDProgressDialog::TQFDProgressDialog( TQWidget *parent, const TQString &fn, int steps )
     : TQDialog( parent, "", TRUE )
 {
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     setCaption( TQFileDialog::tr( "Copy or Move a File" ) );
 #endif
     TQVBoxLayout *layout = new TQVBoxLayout( this );
@@ -893,8 +901,8 @@ TQFDProgressDialog::TQFDProgressDialog( TQWidget *parent, const TQString &fn, in
 				      "qt_cancel_btn" );
     b->setFixedSize( b->sizeHint() );
     layout->addWidget( b );
-    connect( b, SIGNAL( clicked() ),
-	     this, SIGNAL( cancelled() ) );
+    connect( b, TQ_SIGNAL( clicked() ),
+	     this, TQ_SIGNAL( cancelled() ) );
 
     animation->start();
 }
@@ -1076,7 +1084,7 @@ public:
 	TQString newStr;
 	TQCString cName = fName.utf8();
 	const TQCString sChars(
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	    "#%"
 #else
 	    "<>#@\"&%$:,;?={}|^~[]\'`\\*"
@@ -1123,7 +1131,7 @@ public:
 #ifndef Q_NO_CURSOR
     bool cursorOverride; // Remember if the cursor was overridden or not.
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     int oldPermissionLookup;
 #endif
 };
@@ -1183,16 +1191,16 @@ TQFileListBox::TQFileListBox( TQWidget *parent, TQFileDialog *dlg )
     box->hide();
     box->setBackgroundMode( PaletteBase );
     renameTimer = new TQTimer( this );
-    connect( lined, SIGNAL( doRename() ),
-	     this, SLOT (rename() ) );
-    connect( lined, SIGNAL( cancelRename() ),
-	     this, SLOT( cancelRename() ) );
-    connect( renameTimer, SIGNAL( timeout() ),
-	     this, SLOT( doubleClickTimeout() ) );
-    connect( changeDirTimer, SIGNAL( timeout() ),
-	     this, SLOT( changeDirDuringDrag() ) );
-    connect( this, SIGNAL( contentsMoving(int,int) ),
-	     this, SLOT( contentsMoved(int,int) ) );
+    connect( lined, TQ_SIGNAL( doRename() ),
+	     this, TQ_SLOT (rename() ) );
+    connect( lined, TQ_SIGNAL( cancelRename() ),
+	     this, TQ_SLOT( cancelRename() ) );
+    connect( renameTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( doubleClickTimeout() ) );
+    connect( changeDirTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( changeDirDuringDrag() ) );
+    connect( this, TQ_SIGNAL( contentsMoving(int,int) ),
+	     this, TQ_SLOT( contentsMoved(int,int) ) );
     viewport()->setAcceptDrops( TRUE );
     dragItem = 0;
 }
@@ -1305,7 +1313,7 @@ void TQFileListBox::viewportMouseMoveEvent( TQMouseEvent *e )
     if ( !dragItem )
 	dragItem = itemAt( e->pos() );
     renameTimer->stop();
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if (  ( pressPos - e->pos() ).manhattanLength() > TQApplication::startDragDistance() && mousePressed ) {
 	TQListBoxItem *item = dragItem;
 	dragItem = 0;
@@ -1323,8 +1331,8 @@ void TQFileListBox::viewportMouseMoveEvent( TQMouseEvent *e )
 	    if ( lined->parentWidget()->isVisible() )
 		cancelRename();
 
-	    connect( drag, SIGNAL( destroyed() ),
-		     this, SLOT( dragObjDestroyed() ) );
+	    connect( drag, TQ_SIGNAL( destroyed() ),
+		     this, TQ_SLOT( dragObjDestroyed() ) );
 	    drag->drag();
 
 	    mousePressed = FALSE;
@@ -1339,13 +1347,13 @@ void TQFileListBox::viewportMouseMoveEvent( TQMouseEvent *e )
 
 void TQFileListBox::dragObjDestroyed()
 {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     //#######
     //filedialog->rereadDir();
 #endif
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 void TQFileListBox::viewportDragEnterEvent( TQDragEnterEvent *e )
 {
     startDragUrl = filedialog->d->url;
@@ -1483,11 +1491,11 @@ void TQFileListBox::setCurrentDropItem( const TQPoint &pnt )
 	setCurrentItem( currDropItem );
     changeDirTimer->start( 750 );
 }
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 void TQFileListBox::changeDirDuringDrag()
 {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( !currDropItem )
 	return;
     changeDirTimer->stop();
@@ -1560,7 +1568,7 @@ void TQFileListBox::cancelRename()
 void TQFileListBox::contentsMoved( int, int )
 {
     changeDirTimer->stop();
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     setCurrentDropItem( TQPoint( -1, -1 ) );
 #endif
 }
@@ -1584,21 +1592,21 @@ TQFileDialogTQFileListView::TQFileDialogTQFileListView( TQWidget *parent, TQFile
     box->hide();
     box->setBackgroundMode( PaletteBase );
     renameTimer = new TQTimer( this );
-    connect( lined, SIGNAL( doRename() ),
-	     this, SLOT (rename() ) );
-    connect( lined, SIGNAL( cancelRename() ),
-	     this, SLOT( cancelRename() ) );
+    connect( lined, TQ_SIGNAL( doRename() ),
+	     this, TQ_SLOT (rename() ) );
+    connect( lined, TQ_SIGNAL( cancelRename() ),
+	     this, TQ_SLOT( cancelRename() ) );
     header()->setMovingEnabled( FALSE );
-    connect( renameTimer, SIGNAL( timeout() ),
-	     this, SLOT( doubleClickTimeout() ) );
-    connect( changeDirTimer, SIGNAL( timeout() ),
-	     this, SLOT( changeDirDuringDrag() ) );
-    disconnect( header(), SIGNAL( sectionClicked(int) ),
-		this, SLOT( changeSortColumn(int) ) );
-    connect( header(), SIGNAL( sectionClicked(int) ),
-	     this, SLOT( changeSortColumn2(int) ) );
-    connect( this, SIGNAL( contentsMoving(int,int) ),
-	     this, SLOT( contentsMoved(int,int) ) );
+    connect( renameTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( doubleClickTimeout() ) );
+    connect( changeDirTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( changeDirDuringDrag() ) );
+    disconnect( header(), TQ_SIGNAL( sectionClicked(int) ),
+		this, TQ_SLOT( changeSortColumn(int) ) );
+    connect( header(), TQ_SIGNAL( sectionClicked(int) ),
+	     this, TQ_SLOT( changeSortColumn2(int) ) );
+    connect( this, TQ_SIGNAL( contentsMoving(int,int) ),
+	     this, TQ_SLOT( contentsMoved(int,int) ) );
 
     viewport()->setAcceptDrops( TRUE );
     sortcolumn = 0;
@@ -1735,7 +1743,7 @@ void TQFileDialogTQFileListView::viewportMouseMoveEvent( TQMouseEvent *e )
     renameTimer->stop();
     if ( !dragItem )
 	dragItem = itemAt( e->pos() );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if (  ( pressPos - e->pos() ).manhattanLength() > TQApplication::startDragDistance() && mousePressed ) {
 	TQListViewItem *item = dragItem;
 	dragItem = 0;
@@ -1751,8 +1759,8 @@ void TQFileDialogTQFileListView::viewportMouseMoveEvent( TQMouseEvent *e )
 	    if ( lined->isVisible() )
 		cancelRename();
 
-	    connect( drag, SIGNAL( destroyed() ),
-		     this, SLOT( dragObjDestroyed() ) );
+	    connect( drag, TQ_SIGNAL( destroyed() ),
+		     this, TQ_SLOT( dragObjDestroyed() ) );
 	    drag->drag();
 
 	    mousePressed = FALSE;
@@ -1763,13 +1771,13 @@ void TQFileDialogTQFileListView::viewportMouseMoveEvent( TQMouseEvent *e )
 
 void TQFileDialogTQFileListView::dragObjDestroyed()
 {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     //######
     //filedialog->rereadDir();
 #endif
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 void TQFileDialogTQFileListView::viewportDragEnterEvent( TQDragEnterEvent *e )
 {
     startDragUrl = filedialog->d->url;
@@ -1905,18 +1913,18 @@ void TQFileDialogTQFileListView::setCurrentDropItem( const TQPoint &pnt )
 
     changeDirTimer->start( 750 );
 }
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 
 void TQFileDialogTQFileListView::changeDirDuringDrag()
 {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( !currDropItem )
 	return;
     changeDirTimer->stop();
     TQUrl u( filedialog->d->url, TQFileDialogPrivate::encodeFileName(currDropItem->text( 0 ) ) );
     filedialog->setDir( u );
     currDropItem = 0;
-#endif // QT_NO_DRAGANDDROP
+#endif // TQT_NO_DRAGANDDROP
 }
 
 
@@ -1985,7 +1993,7 @@ void TQFileDialogTQFileListView::cancelRename()
 void TQFileDialogTQFileListView::contentsMoved( int, int )
 {
     changeDirTimer->stop();
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     setCurrentDropItem( TQPoint( -1, -1 ) );
 #endif
 }
@@ -2451,7 +2459,7 @@ TQFileDialog::TQFileDialog( const TQString& dirName, const TQString & filter,
 }
 
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 extern int qt_ntfs_permission_lookup;
 #endif
 
@@ -2479,35 +2487,35 @@ void TQFileDialog::init()
     d->pendingItems.setAutoDelete( FALSE );
     d->mimeTypeTimer = new TQTimer( this );
     d->cursorOverride = FALSE;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     d->oldPermissionLookup = qt_ntfs_permission_lookup;
 #endif
-    connect( d->mimeTypeTimer, SIGNAL( timeout() ),
-	     this, SLOT( doMimeTypeLookup() ) );
+    connect( d->mimeTypeTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( doMimeTypeLookup() ) );
 
     d->url = TQUrlOperator( ::toRootIfNotExists( TQDir::currentDirPath() ) );
     d->oldUrl = d->url;
     d->currListChildren = 0;
 
-    connect( &d->url, SIGNAL( start(TQNetworkOperation*) ),
-	     this, SLOT( urlStart(TQNetworkOperation*) ) );
-    connect( &d->url, SIGNAL( finished(TQNetworkOperation*) ),
-	     this, SLOT( urlFinished(TQNetworkOperation*) ) );
-    connect( &d->url, SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
-	     this, SLOT( insertEntry(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ) );
-    connect( &d->url, SIGNAL( removed(TQNetworkOperation*) ),
-	     this, SLOT( removeEntry(TQNetworkOperation*) ) );
-    connect( &d->url, SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ),
-	     this, SLOT( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ) );
-    connect( &d->url, SIGNAL( itemChanged(TQNetworkOperation*) ),
-	     this, SLOT( itemChanged(TQNetworkOperation*) ) );
-    connect( &d->url, SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
-	     this, SLOT( dataTransferProgress(int,int,TQNetworkOperation*) ) );
+    connect( &d->url, TQ_SIGNAL( start(TQNetworkOperation*) ),
+	     this, TQ_SLOT( urlStart(TQNetworkOperation*) ) );
+    connect( &d->url, TQ_SIGNAL( finished(TQNetworkOperation*) ),
+	     this, TQ_SLOT( urlFinished(TQNetworkOperation*) ) );
+    connect( &d->url, TQ_SIGNAL( newChildren(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ),
+	     this, TQ_SLOT( insertEntry(const TQValueList<TQUrlInfo>&,TQNetworkOperation*) ) );
+    connect( &d->url, TQ_SIGNAL( removed(TQNetworkOperation*) ),
+	     this, TQ_SLOT( removeEntry(TQNetworkOperation*) ) );
+    connect( &d->url, TQ_SIGNAL( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ),
+	     this, TQ_SLOT( createdDirectory(const TQUrlInfo&,TQNetworkOperation*) ) );
+    connect( &d->url, TQ_SIGNAL( itemChanged(TQNetworkOperation*) ),
+	     this, TQ_SLOT( itemChanged(TQNetworkOperation*) ) );
+    connect( &d->url, TQ_SIGNAL( dataTransferProgress(int,int,TQNetworkOperation*) ),
+	     this, TQ_SLOT( dataTransferProgress(int,int,TQNetworkOperation*) ) );
 
     nameEdit = new TQLineEdit( this, "name/filter editor" );
     nameEdit->setMaxLength( 255 ); //_POSIX_MAX_PATH
-    connect( nameEdit, SIGNAL(textChanged(const TQString&)),
-	     this,  SLOT(fileNameEditDone()) );
+    connect( nameEdit, TQ_SIGNAL(textChanged(const TQString&)),
+	     this,  TQ_SLOT(fileNameEditDone()) );
     nameEdit->installEventFilter( this );
 
     d->splitter = new TQSplitter( this, "qt_splitter" );
@@ -2528,16 +2536,16 @@ void TQFileDialog::init()
 
     files->setMinimumSize( 50, 25 + 2*fm.lineSpacing() );
 
-    connect( files, SIGNAL( selectionChanged() ),
-	     this, SLOT( detailViewSelectionChanged() ) );
-    connect( files, SIGNAL(currentChanged(TQListViewItem*)),
-	     this, SLOT(updateFileNameEdit(TQListViewItem*)) );
-    connect( files, SIGNAL(doubleClicked(TQListViewItem*)),
-	     this, SLOT(selectDirectoryOrFile(TQListViewItem*)) );
-    connect( files, SIGNAL(returnPressed(TQListViewItem*)),
-	     this, SLOT(selectDirectoryOrFile(TQListViewItem*)) );
-    connect( files, SIGNAL(rightButtonPressed(TQListViewItem*,const TQPoint&,int)),
-	     this, SLOT(popupContextMenu(TQListViewItem*,const TQPoint&,int)) );
+    connect( files, TQ_SIGNAL( selectionChanged() ),
+	     this, TQ_SLOT( detailViewSelectionChanged() ) );
+    connect( files, TQ_SIGNAL(currentChanged(TQListViewItem*)),
+	     this, TQ_SLOT(updateFileNameEdit(TQListViewItem*)) );
+    connect( files, TQ_SIGNAL(doubleClicked(TQListViewItem*)),
+	     this, TQ_SLOT(selectDirectoryOrFile(TQListViewItem*)) );
+    connect( files, TQ_SIGNAL(returnPressed(TQListViewItem*)),
+	     this, TQ_SLOT(selectDirectoryOrFile(TQListViewItem*)) );
+    connect( files, TQ_SIGNAL(rightButtonPressed(TQListViewItem*,const TQPoint&,int)),
+	     this, TQ_SLOT(popupContextMenu(TQListViewItem*,const TQPoint&,int)) );
 
     files->installEventFilter( this );
     files->viewport()->installEventFilter( this );
@@ -2546,14 +2554,14 @@ void TQFileDialog::init()
     d->moreFiles->setRowMode( TQListBox::FitToHeight );
     d->moreFiles->setVariableWidth( TRUE );
 
-    connect( d->moreFiles, SIGNAL(selected(TQListBoxItem*)),
-	     this, SLOT(selectDirectoryOrFile(TQListBoxItem*)) );
-    connect( d->moreFiles, SIGNAL( selectionChanged() ),
-	     this, SLOT( listBoxSelectionChanged() ) );
-    connect( d->moreFiles, SIGNAL(highlighted(TQListBoxItem*)),
-      this, SLOT(updateFileNameEdit(TQListBoxItem*)) );
-    connect( d->moreFiles, SIGNAL( rightButtonPressed(TQListBoxItem*,const TQPoint&) ),
-	     this, SLOT( popupContextMenu(TQListBoxItem*,const TQPoint&) ) );
+    connect( d->moreFiles, TQ_SIGNAL(selected(TQListBoxItem*)),
+	     this, TQ_SLOT(selectDirectoryOrFile(TQListBoxItem*)) );
+    connect( d->moreFiles, TQ_SIGNAL( selectionChanged() ),
+	     this, TQ_SLOT( listBoxSelectionChanged() ) );
+    connect( d->moreFiles, TQ_SIGNAL(highlighted(TQListBoxItem*)),
+      this, TQ_SLOT(updateFileNameEdit(TQListBoxItem*)) );
+    connect( d->moreFiles, TQ_SIGNAL( rightButtonPressed(TQListBoxItem*,const TQPoint&) ),
+	     this, TQ_SLOT( popupContextMenu(TQListBoxItem*,const TQPoint&) ) );
 
     d->moreFiles->installEventFilter( this );
     d->moreFiles->viewport()->installEventFilter( this );
@@ -2561,9 +2569,9 @@ void TQFileDialog::init()
     okB = new TQPushButton( tr("&OK"), this, "OK" ); //### Or "Save (see other "OK")
     okB->setDefault( TRUE );
     okB->setEnabled( FALSE );
-    connect( okB, SIGNAL(clicked()), this, SLOT(okClicked()) );
+    connect( okB, TQ_SIGNAL(clicked()), this, TQ_SLOT(okClicked()) );
     cancelB = new TQPushButton( tr("Cancel") , this, "Cancel" );
-    connect( cancelB, SIGNAL(clicked()), this, SLOT(cancelClicked()) );
+    connect( cancelB, TQ_SIGNAL(clicked()), this, TQ_SLOT(cancelClicked()) );
 
     d->paths = new TQComboBox( TRUE, this, "directory history/editor" );
     d->paths->setDuplicatesEnabled( FALSE );
@@ -2583,8 +2591,8 @@ void TQFileDialog::init()
 	    d->paths->insertItem( *openFolderIcon, TQDir::homeDirPath() );
     }
 
-    connect( d->paths, SIGNAL(activated(const TQString&)),
-	     this, SLOT(setDir(const TQString&)) );
+    connect( d->paths, TQ_SIGNAL(activated(const TQString&)),
+	     this, TQ_SLOT(setDir(const TQString&)) );
 
     d->paths->installEventFilter( this );
     TQObjectList *ol = d->paths->queryList( "TQLineEdit" );
@@ -2596,10 +2604,10 @@ void TQFileDialog::init()
     d->types = new TQComboBox( TRUE, this, "file types" );
     d->types->setDuplicatesEnabled( FALSE );
     d->types->setEditable( FALSE );
-    connect( d->types, SIGNAL(activated(const TQString&)),
-	     this, SLOT(setFilter(const TQString&)) );
-    connect( d->types, SIGNAL(activated(const TQString&)),
-	     this, SIGNAL(filterSelected(const TQString&)) );
+    connect( d->types, TQ_SIGNAL(activated(const TQString&)),
+	     this, TQ_SLOT(setFilter(const TQString&)) );
+    connect( d->types, TQ_SIGNAL(activated(const TQString&)),
+	     this, TQ_SIGNAL(filterSelected(const TQString&)) );
 
     d->pathL = new TQLabel( d->paths, tr("Look &in:"), this, "qt_looin_lbl" );
     d->fileL = new TQLabel( nameEdit, tr("File &name:"), this, "qt_filename_lbl" );
@@ -2608,42 +2616,42 @@ void TQFileDialog::init()
     d->goBack = new TQToolButton( this, "go back" );
     d->goBack->setEnabled( FALSE );
     d->goBack->setFocusPolicy( TabFocus );
-    connect( d->goBack, SIGNAL( clicked() ), this, SLOT( goBack() ) );
-#ifndef QT_NO_TOOLTIP
+    connect( d->goBack, TQ_SIGNAL( clicked() ), this, TQ_SLOT( goBack() ) );
+#ifndef TQT_NO_TOOLTIP
     TQToolTip::add( d->goBack, tr( "Back" ) );
 #endif
     d->goBack->setIconSet( *goBackIcon );
 
     d->cdToParent = new TQToolButton( this, "cd to parent" );
     d->cdToParent->setFocusPolicy( TabFocus );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTip::add( d->cdToParent, tr( "One directory up" ) );
 #endif
     d->cdToParent->setIconSet( *cdToParentIcon );
-    connect( d->cdToParent, SIGNAL(clicked()),
-	     this, SLOT(cdUpClicked()) );
+    connect( d->cdToParent, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(cdUpClicked()) );
 
     d->newFolder = new TQToolButton( this, "new folder" );
     d->newFolder->setFocusPolicy( TabFocus );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTip::add( d->newFolder, tr( "Create New Folder" ) );
 #endif
     d->newFolder->setIconSet( *newFolderIcon );
-    connect( d->newFolder, SIGNAL(clicked()),
-	     this, SLOT(newFolderClicked()) );
+    connect( d->newFolder, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(newFolderClicked()) );
 
     d->modeButtons = new TQButtonGroup( 0, "invisible group" );
-    connect( d->modeButtons, SIGNAL(destroyed()),
-	     this, SLOT(modeButtonsDestroyed()) );
+    connect( d->modeButtons, TQ_SIGNAL(destroyed()),
+	     this, TQ_SLOT(modeButtonsDestroyed()) );
     d->modeButtons->setExclusive( TRUE );
-    connect( d->modeButtons, SIGNAL(clicked(int)),
-	     d->stack, SLOT(raiseWidget(int)) );
-    connect( d->modeButtons, SIGNAL(clicked(int)),
-	     this, SLOT(changeMode(int)) );
+    connect( d->modeButtons, TQ_SIGNAL(clicked(int)),
+	     d->stack, TQ_SLOT(raiseWidget(int)) );
+    connect( d->modeButtons, TQ_SIGNAL(clicked(int)),
+	     this, TQ_SLOT(changeMode(int)) );
 
     d->mcView = new TQToolButton( this, "mclistbox view" );
     d->mcView->setFocusPolicy( TabFocus );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTip::add( d->mcView, tr( "List View" ) );
 #endif
     d->mcView->setIconSet( *multiColumnListViewIcon );
@@ -2651,7 +2659,7 @@ void TQFileDialog::init()
     d->stack->addWidget( d->moreFiles, d->modeButtons->insert( d->mcView ) );
     d->detailView = new TQToolButton( this, "list view" );
     d->detailView->setFocusPolicy( TabFocus );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTip::add( d->detailView, tr( "Detail View" ) );
 #endif
     d->detailView->setIconSet( *detailViewIcon );
@@ -2660,7 +2668,7 @@ void TQFileDialog::init()
 
     d->previewInfo = new TQToolButton( this, "preview info view" );
     d->previewInfo->setFocusPolicy( TabFocus );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTip::add( d->previewInfo, tr( "Preview File Info" ) );
 #endif
     d->previewInfo->setIconSet( *previewInfoViewIcon );
@@ -2668,7 +2676,7 @@ void TQFileDialog::init()
     d->modeButtons->insert( d->previewInfo );
 
     d->previewContents = new TQToolButton( this, "preview info view" );
-#if defined(Q_WS_WIN) && !defined(Q_OS_TEMP)
+#if defined(TQ_WS_WIN) && !defined(Q_OS_TEMP)
     if ( (qt_winver & WV_NT_based) > TQt::WV_NT )
 #else
     if ( !qstrcmp(style().className(), "TQWindowsStyle") )
@@ -2683,21 +2691,21 @@ void TQFileDialog::init()
 	d->previewContents->setAutoRaise( TRUE );
     }
     d->previewContents->setFocusPolicy( TabFocus );
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTip::add( d->previewContents, tr( "Preview File Contents" ) );
 #endif
     d->previewContents->setIconSet( *previewContentsViewIcon );
     d->previewContents->setToggleButton( TRUE );
     d->modeButtons->insert( d->previewContents );
 
-    connect( d->detailView, SIGNAL( clicked() ),
-	     d->moreFiles, SLOT( cancelRename() ) );
-    connect( d->detailView, SIGNAL( clicked() ),
-	     files, SLOT( cancelRename() ) );
-    connect( d->mcView, SIGNAL( clicked() ),
-	     d->moreFiles, SLOT( cancelRename() ) );
-    connect( d->mcView, SIGNAL( clicked() ),
-	     files, SLOT( cancelRename() ) );
+    connect( d->detailView, TQ_SIGNAL( clicked() ),
+	     d->moreFiles, TQ_SLOT( cancelRename() ) );
+    connect( d->detailView, TQ_SIGNAL( clicked() ),
+	     files, TQ_SLOT( cancelRename() ) );
+    connect( d->mcView, TQ_SIGNAL( clicked() ),
+	     d->moreFiles, TQ_SLOT( cancelRename() ) );
+    connect( d->mcView, TQ_SIGNAL( clicked() ),
+	     files, TQ_SLOT( cancelRename() ) );
 
     d->stack->raiseWidget( d->moreFiles );
     d->mcView->setOn( TRUE );
@@ -2821,8 +2829,8 @@ void TQFileDialog::init()
     d->preview->hide();
     nameEdit->setFocus();
 
-    connect( nameEdit, SIGNAL( returnPressed() ),
-	     this, SLOT( fileNameEditReturnPressed() ) );
+    connect( nameEdit, TQ_SIGNAL( returnPressed() ),
+	     this, TQ_SLOT( fileNameEditReturnPressed() ) );
 }
 
 /*!
@@ -2919,7 +2927,7 @@ TQFileDialog::~TQFileDialog()
     d->moreFiles->blockSignals( FALSE );
     files->blockSignals( FALSE );
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( d->cursorOverride )
 	TQApplication::restoreOverrideCursor();
 #endif
@@ -3203,7 +3211,7 @@ void TQFileDialog::setDir( const TQString & pathstr )
 	    i++;
 	TQCString user;
 	if ( i == 1 ) {
-#if defined(QT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+#if defined(TQT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
 
 #  ifndef _POSIX_LOGIN_NAME_MAX
 #    define _POSIX_LOGIN_NAME_MAX 9
@@ -3222,7 +3230,7 @@ void TQFileDialog::setDir( const TQString & pathstr )
 	    user = dr.mid( 1, i-1 ).local8Bit();
 	dr = dr.mid( i, dr.length() );
 	struct passwd *pw;
-#if defined(QT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_FREEBSD) && !defined(Q_OS_OPENBSD)
+#if defined(TQT_THREAD_SUPPORT) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_FREEBSD) && !defined(Q_OS_OPENBSD)
 	struct passwd mt_pw;
 	char buffer[2048];
 	if ( ::getpwnam_r( user, &mt_pw, buffer, 2048, &pw ) == 0 && pw == &mt_pw )
@@ -3343,7 +3351,7 @@ bool TQFileDialog::showHiddenFiles() const
 
 void TQFileDialog::rereadDir()
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( !d->cursorOverride ) {
 	TQApplication::setOverrideCursor( TQCursor( TQt::WaitCursor ) );
 	d->cursorOverride = TRUE;
@@ -3353,7 +3361,7 @@ void TQFileDialog::rereadDir()
     if ( d->mimeTypeTimer->isActive() )
 	d->mimeTypeTimer->stop();
     d->currListChildren = d->url.listChildren();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( d->cursorOverride ) {
 	TQApplication::restoreOverrideCursor();
 	d->cursorOverride = FALSE;
@@ -3405,7 +3413,7 @@ void TQFileDialog::rereadDir()
 */
 
 extern bool tqt_resolve_symlinks; // defined in qapplication.cpp
-bool Q_EXPORT tqt_use_native_dialogs = TRUE;
+bool TQ_EXPORT tqt_use_native_dialogs = TRUE;
 
 /*!
   This is a convenience static function that returns an existing file
@@ -3493,15 +3501,15 @@ TQString TQFileDialog::getOpenFileName( const TQString & startWith,
     if ( workingDirectory->isNull() )
 	*workingDirectory = ::toRootIfNotExists( TQDir::currentDirPath() );
 
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-	return TQKDEIntegration::getOpenFileNames( filter, workingDirectory, parent, name,
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+	return TQTDEIntegration::getOpenFileNames( filter, workingDirectory, parent, name,
 				    caption, selectedFilter, false ).first();
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
     if ( tqt_use_native_dialogs && tqApp->style().styleHint( TQStyle::SH_GUIStyle ) == WindowsStyle )
 	return winGetOpenFileName( initialSelection, filter, workingDirectory,
 				   parent, name, caption, selectedFilter );
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     if (tqt_use_native_dialogs && (tqApp->style().inherits(TQMAC_DEFAULT_STYLE)
                                   || tqApp->style().inherits("TQMacStyle")))
         return qt_mac_precomposeFileName(macGetOpenFileNames(filter,
@@ -3512,7 +3520,7 @@ TQString TQFileDialog::getOpenFileName( const TQString & startWith,
     TQFileDialog *dlg = new TQFileDialog( *workingDirectory, TQString::null, parent, name ? name : "qt_filedlg_gofn", TRUE );
 
     TQ_CHECK_PTR( dlg );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     if ( !caption.isNull() )
 	dlg->setCaption( caption );
     else
@@ -3618,15 +3626,15 @@ TQString TQFileDialog::getSaveFileName( const TQString & startWith,
     if ( workingDirectory->isNull() )
 	*workingDirectory = ::toRootIfNotExists( TQDir::currentDirPath() );
 
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-	return TQKDEIntegration::getSaveFileName( initialSelection, filter, workingDirectory,
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+	return TQTDEIntegration::getSaveFileName( initialSelection, filter, workingDirectory,
 				   parent, name, caption, selectedFilter );
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
     if ( tqt_use_native_dialogs && tqApp->style().styleHint( TQStyle::SH_GUIStyle ) == WindowsStyle )
 	return winGetSaveFileName( initialSelection, filter, workingDirectory,
 				   parent, name, caption, selectedFilter );
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     if (tqt_use_native_dialogs && (tqApp->style().inherits(TQMAC_DEFAULT_STYLE)
                                   || tqApp->style().inherits("TQMacStyle")))
         return qt_mac_precomposeFileName(macGetSaveFileName(initialSelection, filter,
@@ -3637,7 +3645,7 @@ TQString TQFileDialog::getSaveFileName( const TQString & startWith,
     TQFileDialog *dlg = new TQFileDialog( *workingDirectory, TQString::null, parent, name ? name : "qt_filedlg_gsfn", TRUE );
 
     TQ_CHECK_PTR( dlg );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     if ( !caption.isNull() )
 	dlg->setCaption( caption );
     else
@@ -3673,7 +3681,7 @@ void TQFileDialog::okClicked()
 {
     TQString fn( nameEdit->text() );
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     TQFileInfo fi( d->url.path() + fn );
     if ( fi.isSymLink() ) {
 	nameEdit->setText( fi.readLink() );
@@ -4135,7 +4143,7 @@ void TQFileDialog::selectDirectoryOrFile( TQListViewItem * newItem )
 
     if ( d->url.isLocalFile() ) {
 	TQFileInfo fi( d->url.path() + newItem->text(0) );
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	if ( fi.isSymLink() ) {
 	    nameEdit->setText( fi.readLink() );
 	    okClicked();
@@ -4512,7 +4520,7 @@ TQString TQFileDialog::getExistingDirectory( const TQString & dir,
     if ( workingDirectory )
 	wd = *workingDirectory;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     TQString initialDir;
     if ( !dir.isEmpty() ) {
 	TQUrlOperator u( dir );
@@ -4520,9 +4528,9 @@ TQString TQFileDialog::getExistingDirectory( const TQString & dir,
 	    initialDir = dir;
     } else
 	initialDir = TQString::null;
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::getExistingDirectory( initialDir, parent, name, caption );
-#elif defined(Q_WS_WIN)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::getExistingDirectory( initialDir, parent, name, caption );
+#elif defined(TQ_WS_WIN)
     TQString initialDir;
     if ( !dir.isEmpty() ) {
 	TQUrlOperator u( dir );
@@ -4533,7 +4541,7 @@ TQString TQFileDialog::getExistingDirectory( const TQString & dir,
     if ( tqt_use_native_dialogs && tqApp->style().styleHint( TQStyle::SH_GUIStyle ) == WindowsStyle && dirOnly )
         return winGetExistingDirectory( initialDir, parent, name, caption );
 #endif
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     TQString *initialDir = 0;
     if (!dir.isEmpty()) {
         TQUrlOperator u(dir);
@@ -4549,7 +4557,7 @@ TQString TQFileDialog::getExistingDirectory( const TQString & dir,
     TQFileDialog *dlg = new TQFileDialog( parent, name ? name : "qt_filedlg_ged", TRUE );
 
     TQ_CHECK_PTR( dlg );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     if ( !caption.isNull() )
 	dlg->setCaption( caption );
     else
@@ -5056,7 +5064,7 @@ TQFileIconProvider * TQFileDialog::iconProvider()
 }
 
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 
 // ### FIXME: this code is duplicated in qdns.cpp
 static TQString getWindowsRegString( HKEY key, const TQString &subKey )
@@ -5445,11 +5453,11 @@ bool TQFileDialog::eventFilter( TQObject * o, TQEvent * e )
 	return TRUE;
     } else if ( o == files && e->type() == TQEvent::FocusOut && files->currentItem() ) {
     } else if ( o == files && e->type() == TQEvent::KeyPress ) {
-	TQTimer::singleShot( 0, this, SLOT(fixupNameEdit()) );
+	TQTimer::singleShot( 0, this, TQ_SLOT(fixupNameEdit()) );
     } else if ( o == nameEdit && e->type() == TQEvent::KeyPress && d->mode != AnyFile ) {
 	if ( ( nameEdit->cursorPosition() == (int)nameEdit->text().length() || nameEdit->hasSelectedText() ) &&
 	     isprint(((TQKeyEvent *)e)->ascii()) ) {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	    TQString nt( nameEdit->text().lower() );
 #else
 	    TQString nt( nameEdit->text() );
@@ -5457,7 +5465,7 @@ bool TQFileDialog::eventFilter( TQObject * o, TQEvent * e )
 	    nt.truncate( nameEdit->cursorPosition() );
 	    nt += (char)(((TQKeyEvent *)e)->ascii());
 	    TQListViewItem * i = files->firstChild();
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	    while( i && i->text( 0 ).left(nt.length()).lower() != nt )
 #else
 	    while( i && i->text( 0 ).left(nt.length()) != nt )
@@ -5686,13 +5694,13 @@ TQStringList TQFileDialog::getOpenFileNames( const TQString & filter,
 	}
     }
 
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-	return TQKDEIntegration::getOpenFileNames( filter, workingDirectory, parent, name, caption, selectedFilter, true );
-#elif defined(Q_WS_WIN)
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+	return TQTDEIntegration::getOpenFileNames( filter, workingDirectory, parent, name, caption, selectedFilter, true );
+#elif defined(TQ_WS_WIN)
     if ( tqt_use_native_dialogs && tqApp->style().styleHint( TQStyle::SH_GUIStyle ) == WindowsStyle )
 	return winGetOpenFileNames( filter, workingDirectory, parent, name, caption, selectedFilter );
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     if (tqt_use_native_dialogs && (tqApp->style().inherits(TQMAC_DEFAULT_STYLE)
                                   || tqApp->style().inherits("TQMacStyle"))) {
         TQStringList sl = macGetOpenFileNames(filter, dir.isEmpty() ? 0 : workingDirectory, parent,
@@ -5709,7 +5717,7 @@ TQStringList TQFileDialog::getOpenFileNames( const TQString & filter,
     TQFileDialog *dlg = new TQFileDialog( *workingDirectory, TQString::null, parent, name ? name : "qt_filedlg_gofns", TRUE );
 
     TQ_CHECK_PTR( dlg );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     if ( !caption.isNull() )
 	dlg->setCaption( caption );
     else
@@ -5793,11 +5801,11 @@ void TQFileDialog::urlStart( TQNetworkOperation *op )
     if ( !op )
 	return;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     qt_ntfs_permission_lookup--;
 #endif
     if ( op->operation() == TQNetworkProtocol::OpListChildren ) {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	if ( !d->cursorOverride ) {
 	    TQApplication::setOverrideCursor( TQCursor( TQt::WaitCursor ) );
 	    d->cursorOverride = TRUE;
@@ -5819,7 +5827,7 @@ void TQFileDialog::urlStart( TQNetworkOperation *op )
 	TQString s = d->url.toString( FALSE, FALSE );
 	bool found = FALSE;
 	for ( int i = 0; i < d->paths->count(); ++i ) {
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	    if ( d->paths->text( i ).lower() == s.lower() ) {
 #else
 	    if ( d->paths->text( i ) == s ) {
@@ -5849,7 +5857,7 @@ void TQFileDialog::urlFinished( TQNetworkOperation *op )
     if ( !op )
 	return;
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( op->operation() == TQNetworkProtocol::OpListChildren &&
 	 d->cursorOverride ) {
 	TQApplication::restoreOverrideCursor();
@@ -5886,7 +5894,7 @@ void TQFileDialog::urlFinished( TQNetworkOperation *op )
 		op == d->currListChildren ) {
 	if ( !d->hadDotDot && !isRoot( d->url ) ) {
 	    bool ok = TRUE;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	    if ( d->url.path().left( 2 ) == "//" )
 		ok = FALSE;
 #endif
@@ -5914,7 +5922,7 @@ void TQFileDialog::urlFinished( TQNetworkOperation *op )
 	d->progressDia = 0;
     }
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     if (d->oldPermissionLookup != qt_ntfs_permission_lookup)
         qt_ntfs_permission_lookup++;
 #endif
@@ -5938,8 +5946,8 @@ void TQFileDialog::dataTransferProgress( int bytesDone, int bytesTotal, TQNetwor
 	if ( bytesDone < bytesTotal) {
 	    d->ignoreStop = FALSE;
 	    d->progressDia = new TQFDProgressDialog( this, label, bytesTotal );
-	    connect( d->progressDia, SIGNAL( cancelled() ),
-		     this, SLOT( stopCopy() ) );
+	    connect( d->progressDia, TQ_SIGNAL( cancelled() ),
+		     this, TQ_SLOT( stopCopy() ) );
 	    d->progressDia->show();
 	} else
 	    return;
@@ -5975,14 +5983,14 @@ void TQFileDialog::insertEntry( const TQValueList<TQUrlInfo> &lst, TQNetworkOper
 	    d->hadDotDot = TRUE;
 	    if ( isRoot( d->url ) )
 		continue;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	    if ( d->url.path().left( 2 ) == "//" )
 		continue;
 #endif
 	} else if ( inf.name() == "." )
 	    continue;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	// Workaround a Windows bug, '..' is apparantly hidden in directories
 	// that are one level away from root
 	if ( !bShowHiddenFiles && inf.name() != ".." ) {
@@ -6326,7 +6334,7 @@ void TQFileDialog::stopCopy()
     d->url.stop();
     if ( d->progressDia ) {
 	d->ignoreStop = TRUE;
-	TQTimer::singleShot( 100, this, SLOT( removeProgressDia() ) );
+	TQTimer::singleShot( 100, this, TQ_SLOT( removeProgressDia() ) );
     }
     d->url.blockSignals( FALSE );
 }

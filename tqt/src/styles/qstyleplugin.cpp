@@ -40,8 +40,8 @@
 
 #include "ntqstyleplugin.h"
 
-#ifndef QT_NO_STYLE
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_STYLE
+#ifndef TQT_NO_COMPONENT
 
 #include "qstyleinterface_p.h"
 #include "ntqobjectcleanuphandler.h"
@@ -59,7 +59,7 @@
 
     Writing a style plugin is achieved by subclassing this base class,
     reimplementing the pure virtual functions keys() and create(), and
-    exporting the class with the \c Q_EXPORT_PLUGIN macro. See the
+    exporting the class with the \c TQ_EXPORT_PLUGIN macro. See the
     \link plugins-howto.html plugins documentation\endlink for an
     example.
 */
@@ -95,7 +95,7 @@ public:
     virtual ~TQStylePluginPrivate();
 
     TQRESULT queryInterface( const TQUuid &iid, TQUnknownInterface **iface );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
     TQStyle *create( const TQString &key );
@@ -163,7 +163,7 @@ bool TQStylePluginPrivate::canUnload() const
 
 /*!
     Constructs a style plugin. This is invoked automatically by the
-    \c Q_EXPORT_PLUGIN macro.
+    \c TQ_EXPORT_PLUGIN macro.
 */
 TQStylePlugin::TQStylePlugin()
     : TQGPlugin( (TQStyleFactoryInterface*)(d = new TQStylePluginPrivate( this )) )
@@ -181,5 +181,5 @@ TQStylePlugin::~TQStylePlugin()
     // don't delete d, as this is deleted by d
 }
 
-#endif // QT_NO_COMPONENT
-#endif // QT_NO_STYLE
+#endif // TQT_NO_COMPONENT
+#endif // TQT_NO_STYLE

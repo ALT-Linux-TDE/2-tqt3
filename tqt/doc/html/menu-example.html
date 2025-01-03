@@ -227,27 +227,27 @@ private:
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *print = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( print );
 <a name="x1879"></a>    print-&gt;<a href="ntqpopupmenu.html#insertTearOffHandle">insertTearOffHandle</a>();
-<a name="x1869"></a>    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print to printer", this, SLOT(printer()) );
-    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to &amp;file", this, SLOT(file()) );
-    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to fa&amp;x", this, SLOT(fax()) );
+<a name="x1869"></a>    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print to printer", this, TQ_SLOT(printer()) );
+    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to &amp;file", this, TQ_SLOT(file()) );
+    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to fa&amp;x", this, TQ_SLOT(fax()) );
 <a name="x1870"></a>    print-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Printer &amp;Setup", this, SLOT(printerSetup()) );
+    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Printer &amp;Setup", this, TQ_SLOT(printerSetup()) );
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( file );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p1, "&amp;Open",  this, SLOT(open()), CTRL+Key_O );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p2, "&amp;New", this, SLOT(news()), CTRL+Key_N );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p3, "&amp;Save", this, SLOT(save()), CTRL+Key_S );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, SLOT(closeDoc()), CTRL+Key_W );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p1, "&amp;Open",  this, TQ_SLOT(open()), CTRL+Key_O );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p2, "&amp;New", this, TQ_SLOT(news()), CTRL+Key_N );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p3, "&amp;Save", this, TQ_SLOT(save()), CTRL+Key_S );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, TQ_SLOT(closeDoc()), CTRL+Key_W );
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
     file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print", print, CTRL+Key_P );
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "E&amp;xit",  tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()), CTRL+Key_Q );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "E&amp;xit",  tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()), CTRL+Key_Q );
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *edit = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( edit );
-    int undoID = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Undo", this, SLOT(undo()) );
-    int redoID = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Redo", this, SLOT(redo()) );
+    int undoID = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Undo", this, TQ_SLOT(undo()) );
+    int redoID = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Redo", this, TQ_SLOT(redo()) );
 <a name="x1873"></a>    edit-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( undoID, FALSE );
     edit-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( redoID, FALSE );
 
@@ -255,7 +255,7 @@ private:
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( options );
     options-&gt;<a href="ntqpopupmenu.html#insertTearOffHandle">insertTearOffHandle</a>();
     options-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>("Options");
-    options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Normal Font", this, SLOT(normal()) );
+    options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Normal Font", this, TQ_SLOT(normal()) );
     options-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
 
 <a name="x1883"></a>    options-&gt;<a href="ntqwidget.html#polish">polish</a>(); // adjust system settings
@@ -263,12 +263,12 @@ private:
 <a name="x1860"></a>    f.<a href="ntqfont.html#setBold">setBold</a>( TRUE );
     boldID = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( new MyMenuItem( "Bold", f ) );
 <a name="x1871"></a>    options-&gt;<a href="ntqmenudata.html#setAccel">setAccel</a>( CTRL+Key_B, boldID );
-<a name="x1868"></a>    options-&gt;<a href="ntqmenudata.html#connectItem">connectItem</a>( boldID, this, SLOT(bold()) );
+<a name="x1868"></a>    options-&gt;<a href="ntqmenudata.html#connectItem">connectItem</a>( boldID, this, TQ_SLOT(bold()) );
     f = <a href="ntqwidget.html#font">font</a>();
 <a name="x1861"></a>    f.<a href="ntqfont.html#setUnderline">setUnderline</a>( TRUE );
     underlineID = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( new MyMenuItem( "Underline", f ) );
     options-&gt;<a href="ntqmenudata.html#setAccel">setAccel</a>( CTRL+Key_U, underlineID );
-    options-&gt;<a href="ntqmenudata.html#connectItem">connectItem</a>( underlineID, this, SLOT(underline()) );
+    options-&gt;<a href="ntqmenudata.html#connectItem">connectItem</a>( underlineID, this, TQ_SLOT(underline()) );
 
     isBold = FALSE;
     isUnderline = FALSE;
@@ -277,8 +277,8 @@ private:
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( help );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, SLOT(about()), CTRL+Key_H );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, SLOT(aboutTQt()) );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), CTRL+Key_H );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()) );
 
     // If we used a TQMainWindow we could use its built-in menuBar().
     menu = new <a href="ntqmenubar.html">TQMenuBar</a>( this );
@@ -306,8 +306,8 @@ private:
 <a name="x1863"></a>    label-&gt;<a href="ntqframe.html#setLineWidth">setLineWidth</a>( 1 );
     label-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
 
-    <a href="ntqobject.html#connect">connect</a>( this,  SIGNAL(explain(const <a href="ntqstring.html">TQString</a>&amp;)),
-             label, SLOT(<a href="ntqlabel.html#setText">setText</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
+    <a href="ntqobject.html#connect">connect</a>( this,  TQ_SIGNAL(explain(const <a href="ntqstring.html">TQString</a>&amp;)),
+             label, TQ_SLOT(<a href="ntqlabel.html#setText">setText</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
 
     <a href="ntqwidget.html#setMinimumSize">setMinimumSize</a>( 100, 80 );
     <a href="ntqwidget.html#setFocusPolicy">setFocusPolicy</a>( TQWidget::ClickFocus );
@@ -322,14 +322,14 @@ private:
         "Context Menu&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;", this );
     caption-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( TQt::AlignCenter );
     contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( caption );
-    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New",  this, SLOT(news()), CTRL+Key_N );
-    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Open...", this, SLOT(open()), CTRL+Key_O );
-    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Save", this, SLOT(save()), CTRL+Key_S );
+    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New",  this, TQ_SLOT(news()), CTRL+Key_N );
+    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Open...", this, TQ_SLOT(open()), CTRL+Key_O );
+    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Save", this, TQ_SLOT(save()), CTRL+Key_S );
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *submenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( submenu );
-    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print to printer", this, SLOT(printer()) );
-    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to &amp;file", this, SLOT(file()) );
-    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to fa&amp;x", this, SLOT(fax()) );
+    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print to printer", this, TQ_SLOT(printer()) );
+    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to &amp;file", this, TQ_SLOT(file()) );
+    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to fa&amp;x", this, TQ_SLOT(fax()) );
     contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print", submenu );
 <a name="x1878"></a><a name="x1859"></a>    contextMenu-&gt;<a href="ntqpopupmenu.html#exec">exec</a>( TQCursor::<a href="ntqcursor.html#pos">pos</a>() );
     delete contextMenu;

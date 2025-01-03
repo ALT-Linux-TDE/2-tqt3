@@ -380,7 +380,7 @@ you change it using <a href="ntqtextcodec.html#setCodecForCStrings">TQTextCodec:
 <p> If <em>str</em> is 0, then a null string is created.
 <p> This is a cast constructor, but it is perfectly safe: converting a
 Latin-1 <tt>const char *</tt> to TQString preserves all the information. You
-can disable this constructor by defining <tt>QT_NO_CAST_ASCII</tt> when
+can disable this constructor by defining <tt>TQT_NO_CAST_ASCII</tt> when
 you compile your applications. You can also make TQString objects
 by using <a href="#setLatin1">setLatin1</a>(), <a href="#fromLatin1">fromLatin1</a>(), <a href="#fromLocal8Bit">fromLocal8Bit</a>(), and
 <a href="#fromUtf8">fromUtf8</a>(). Or whatever encoding is appropriate for the 8-bit data
@@ -928,7 +928,7 @@ it is used to convert the string from 8-bit characters to Unicode.
 Otherwise, this function does the same as <a href="#fromLatin1">fromLatin1</a>().
 <p> This is the same as the TQString(const char*) constructor, but you
 can make that constructor invisible if you compile with the define
-<tt>QT_NO_CAST_ASCII</tt>, in which case you can explicitly create a
+<tt>TQT_NO_CAST_ASCII</tt>, in which case you can explicitly create a
 TQString from 8-bit ASCII text using this function.
 <p> <pre>
         TQString str = TQString::<a href="#fromAscii">fromAscii</a>( "123456789", 5 );
@@ -1236,7 +1236,7 @@ significant digits (trailing zeroes are omitted).
 
 <p> Returns <a href="#ascii">ascii</a>(). Be sure to see the warnings documented in the
 ascii() function. Note that for new code which you wish to be
-strictly Unicode-clean, you can define the macro <tt>QT_NO_ASCII_CAST</tt> when compiling your code to hide this function so
+strictly Unicode-clean, you can define the macro <tt>TQT_NO_ASCII_CAST</tt> when compiling your code to hide this function so
 that automatic casts are not done. This has the added advantage
 that you catch the programming error described in <a href="#operator!">operator!</a>().
 
@@ -1266,7 +1266,7 @@ alternative is to call ascii() directly and construct a std::string manually.
     </pre>
  
 <p> It will call "operator const char*()", which is inefficent; you
-may wish to define the macro <tt>QT_NO_ASCII_CAST</tt> when writing code
+may wish to define the macro <tt>TQT_NO_ASCII_CAST</tt> when writing code
 which you wish to remain Unicode-clean.
 <p> When you want the above semantics, use:
 <p> <pre>

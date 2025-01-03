@@ -23,7 +23,7 @@ QMouseDriverPlugin \- Abstract base for Qt/Embedded mouse driver plugins
 .BI "virtual QStringList \fBkeys\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QWSMouseHandler * \fBcreate\fR ( const QString & driver, const QString & device ) = 0"
+.BI "virtual QWSMouseHandler * \fBcreate\fR ( const TQString & driver, const TQString & device ) = 0"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -42,8 +42,8 @@ Constructs a mouse driver plugin. This is invoked automatically by the \fCQ_EXPO
 .SH "QMouseDriverPlugin::~QMouseDriverPlugin ()"
 Destroys the mouse driver plugin.
 .PP
-You never have to call this explicitly. Qt destroys a plugin automatically when it is no longer used.
-.SH "QWSMouseHandler * QMouseDriverPlugin::create ( const QString & driver, const QString & device )\fC [pure virtual]\fR"
+You never have to call this explicitly. TQt destroys a plugin automatically when it is no longer used.
+.SH "QWSMouseHandler * QMouseDriverPlugin::create ( const TQString & driver, const TQString & device )\fC [pure virtual]\fR"
 Creates a driver matching the type specified by \fIdriver\fR and which uses device \fIdevice\fR.
 .PP
 See also keys().
@@ -66,8 +66,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

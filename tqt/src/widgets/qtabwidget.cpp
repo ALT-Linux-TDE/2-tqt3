@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqtabwidget.h"
-#ifndef QT_NO_TABWIDGET
+#ifndef TQT_NO_TABWIDGET
 #include "ntqobjectlist.h"
 #include "ntqtabbar.h"
 #include "ntqapplication.h"
@@ -636,8 +636,8 @@ void TQTabWidget::setTabBar( TQTabBar* tb)
     delete d->tabs;
     d->tabs = tb;
     setFocusProxy( d->tabs );
-    connect( d->tabs, SIGNAL(selected(int)),
-             this,    SLOT(showTab(int)) );
+    connect( d->tabs, TQ_SIGNAL(selected(int)),
+             this,    TQ_SLOT(showTab(int)) );
     setUpLayout();
 }
 

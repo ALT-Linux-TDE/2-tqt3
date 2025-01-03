@@ -6,6 +6,6 @@ int main( int argc, char ** argv )
     TQApplication a( argc, argv );
     HelpDemo help;
     help.show();
-    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
+    a.connect( &a, TQ_SIGNAL( lastWindowClosed() ), &a, TQ_SLOT( quit() ) );
     return a.exec();
 }

@@ -40,7 +40,7 @@
 
 #include "ntqwizard.h"
 
-#ifndef QT_NO_WIZARD
+#ifndef TQT_NO_WIZARD
 
 #include "ntqlayout.h"
 #include "ntqpushbutton.h"
@@ -138,7 +138,7 @@ public:
 
     TQFrame * hbar1, * hbar2;
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQAccel * accel;
     int backAccel;
     int nextAccel;
@@ -192,23 +192,23 @@ TQWizard::TQWizard( TQWidget *parent, const char *name, bool modal,
 
     d->nextButton->setDefault( TRUE );
 
-    connect( d->backButton, SIGNAL(clicked()),
-	     this, SLOT(back()) );
-    connect( d->nextButton, SIGNAL(clicked()),
-	     this, SLOT(next()) );
-    connect( d->finishButton, SIGNAL(clicked()),
-	     this, SLOT(accept()) );
-    connect( d->cancelButton, SIGNAL(clicked()),
-	     this, SLOT(reject()) );
-    connect( d->helpButton, SIGNAL(clicked()),
-	     this, SLOT(help()) );
+    connect( d->backButton, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(back()) );
+    connect( d->nextButton, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(next()) );
+    connect( d->finishButton, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(accept()) );
+    connect( d->cancelButton, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(reject()) );
+    connect( d->helpButton, TQ_SIGNAL(clicked()),
+	     this, TQ_SLOT(help()) );
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     d->accel = new TQAccel( this, "arrow-key accel" );
     d->backAccel = d->accel->insertItem( TQt::ALT + TQt::Key_Left );
-    d->accel->connectItem( d->backAccel, this, SLOT(back()) );
+    d->accel->connectItem( d->backAccel, this, TQ_SLOT(back()) );
     d->nextAccel = d->accel->insertItem( TQt::ALT + TQt::Key_Right );
-    d->accel->connectItem( d->nextAccel, this, SLOT(next()) );
+    d->accel->connectItem( d->nextAccel, this, TQ_SLOT(next()) );
 #endif
 }
 
@@ -457,7 +457,7 @@ void TQWizard::help()
 void TQWizard::setBackEnabled( bool enable )
 {
     d->backButton->setEnabled( enable );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     d->accel->setItemEnabled( d->backAccel, enable );
 #endif
 }
@@ -466,7 +466,7 @@ void TQWizard::setBackEnabled( bool enable )
 void TQWizard::setNextEnabled( bool enable )
 {
     d->nextButton->setEnabled( enable );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     d->accel->setItemEnabled( d->nextAccel, enable );
 #endif
 }
@@ -914,4 +914,4 @@ TQWidget* TQWizard::page( int index ) const
     return d->pages.at( index )->w;
 }
 
-#endif // QT_NO_WIZARD
+#endif // TQT_NO_WIZARD

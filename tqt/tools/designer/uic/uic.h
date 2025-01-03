@@ -128,7 +128,7 @@ private:
     {
 	TQString header;
 	TQString location;
-	Q_DUMMY_COMPARISON_OPERATOR(CustomInclude)
+	TQ_DUMMY_COMPARISON_OPERATOR(CustomInclude)
     };
     TQValueList<Buddy> buddies;
 

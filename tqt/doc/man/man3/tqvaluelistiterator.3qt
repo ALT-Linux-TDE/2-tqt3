@@ -9,7 +9,7 @@
 .SH NAME
 QValueListIterator \- Iterator for QValueList
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqvaluelist.h>\fR
 .PP
@@ -99,11 +99,11 @@ Example (see QValueList for the complete code):
 .PP
 QValueList is highly optimized for performance and memory usage. This means that you must be careful: QValueList does not know about all its iterators and the iterators don't know to which list they belong. This makes things very fast, but if you're not careful, you can get spectacular bugs. Always make sure iterators are valid before dereferencing them or using them as parameters to generic algorithms in the STL or the QTL.
 .PP
-Using an invalid iterator is undefined (your application will probably crash). Many Qt functions return const value lists; to iterate over these you should make a copy and iterate over the copy.
+Using an invalid iterator is undefined (your application will probably crash). Many TQt functions return const value lists; to iterate over these you should make a copy and iterate over the copy.
 .PP
 For every Iterator there is a ConstIterator. When accessing a QValueList in a const environment or if the reference or pointer to the list is itself const, then you must use the ConstIterator. Its semantics are the same as the Iterator, but it only returns const references.
 .PP
-See also QValueList, QValueListConstIterator, Qt Template Library Classes, and Non-GUI Classes.
+See also QValueList, QValueListConstIterator, TQt Template Library Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
 .SH "QValueListIterator::pointer"
 Pointer to value_type.
@@ -160,8 +160,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

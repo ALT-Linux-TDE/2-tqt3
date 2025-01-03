@@ -36,7 +36,7 @@
 #include "designerappiface.h"
 #include "../interfaces/languageinterface.h"
 #include "pixmapcollection.h"
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include "dbconnectionimpl.h"
 #endif
 #include "resource.h"
@@ -55,7 +55,7 @@
 #include "mainwindow.h"
 #include <ntqworkspace.h>
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include <ntqsqldatabase.h>
 #include <ntqsqlrecord.h>
 #include <ntqdatatable.h>
@@ -66,7 +66,7 @@
 # include <unistd.h>
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 DatabaseConnection::~DatabaseConnection()
 {
     delete iface;
@@ -74,7 +74,7 @@ DatabaseConnection::~DatabaseConnection()
 
 bool DatabaseConnection::refreshCatalog()
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( loaded )
 	return TRUE;
     if ( !open() )
@@ -96,7 +96,7 @@ bool DatabaseConnection::refreshCatalog()
 #endif
 }
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 void DatabaseConnection::remove()
 {
     if ( nm == "(default)" )
@@ -110,7 +110,7 @@ void DatabaseConnection::remove()
 
 bool DatabaseConnection::open( bool suppressDialog )
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     // register our name, if nec
     if ( nm == "(default)" ) {
 	if ( !TQSqlDatabase::contains() ) // default doesn't exists?
@@ -183,7 +183,7 @@ void DatabaseConnection::close()
 {
     if ( !loaded )
 	return;
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( conn ) {
 	conn->close();
     }
@@ -241,7 +241,7 @@ void Project::setModified( bool b )
     emit projectModified();
 }
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 DatabaseConnection *Project::databaseConnection( const TQString &name )
 {
     for ( DatabaseConnection *conn = dbConnections.first();
@@ -588,7 +588,7 @@ TQString Project::makeRelative( const TQString &f )
 	return f;
     TQString p = TQFileInfo( filename ).dirPath( TRUE );    
     TQString f2 = f;
-#if defined(Q_WS_WIN32)
+#if defined(TQ_WS_WIN32)
     if ( p.endsWith("/") )
         p = p.left( p.length() - 1 );
     if ( f2.left( p.length() ).lower() == p.lower() )
@@ -818,21 +818,21 @@ void Project::save( bool onlyProjectFile )
     }
 }
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 TQPtrList<DatabaseConnection> Project::databaseConnections() const
 {
     return dbConnections;
 }
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 void Project::setDatabaseConnections( const TQPtrList<DatabaseConnection> &lst )
 {
     dbConnections = lst;
 }
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 void Project::addDatabaseConnection( DatabaseConnection *conn )
 {
     dbConnections.append( conn );
@@ -840,7 +840,7 @@ void Project::addDatabaseConnection( DatabaseConnection *conn )
 }
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 void Project::removeDatabaseConnection( const TQString &c )
 {
     for ( DatabaseConnection *conn = dbConnections.first(); conn; conn = dbConnections.next() ) {
@@ -854,7 +854,7 @@ void Project::removeDatabaseConnection( const TQString &c )
 }
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 TQStringList Project::databaseConnectionList()
 {
     TQStringList lst;
@@ -864,7 +864,7 @@ TQStringList Project::databaseConnectionList()
 }
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 TQStringList Project::databaseTableList( const TQString &connection )
 {
     DatabaseConnection *conn = databaseConnection( connection );
@@ -875,7 +875,7 @@ TQStringList Project::databaseTableList( const TQString &connection )
 }
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 TQStringList Project::databaseFieldList( const TQString &connection, const TQString &table )
 {
     DatabaseConnection *conn = databaseConnection( connection );
@@ -885,7 +885,7 @@ TQStringList Project::databaseFieldList( const TQString &connection, const TQStr
 }
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 static TQString makeIndent( int indent )
 {
     TQString s;
@@ -894,7 +894,7 @@ static TQString makeIndent( int indent )
 }
 #endif
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 static void saveSingleProperty( TQTextStream &ts, const TQString& name, const TQString& value, int indent )
 {
     ts << makeIndent( indent ) << "<property name=\"" << name << "\">" << endl;
@@ -907,7 +907,7 @@ static void saveSingleProperty( TQTextStream &ts, const TQString& name, const TQ
 
 void Project::saveConnections()
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( dbFile.isEmpty() ) {
 	TQFileInfo fi( fileName() );
 	setDatabaseDescription( fi.baseName() + ".db" );
@@ -974,7 +974,7 @@ void Project::saveConnections()
 #endif
 }
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 static TQDomElement loadSingleProperty( TQDomElement e, const TQString& name )
 {
     TQDomElement n;
@@ -990,7 +990,7 @@ static TQDomElement loadSingleProperty( TQDomElement e, const TQString& name )
 
 void Project::loadConnections()
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( dbFile.isEmpty() || !TQFile::exists( makeAbsolute( dbFile ) ) )
 	return;
 
@@ -1061,7 +1061,7 @@ can be closed again with closeDatabase().
 
 bool Project::openDatabase( const TQString &connection, bool suppressDialog )
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     DatabaseConnection *conn = databaseConnection( connection );
     if ( connection.isEmpty() && !conn )
 	conn = databaseConnection( "(default)" );
@@ -1080,7 +1080,7 @@ bool Project::openDatabase( const TQString &connection, bool suppressDialog )
 */
 void Project::closeDatabase( const TQString &connection )
 {
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     DatabaseConnection *conn = databaseConnection( connection );
     if ( connection.isEmpty() && !conn )
 	conn = databaseConnection( "(default)" );
@@ -1351,9 +1351,9 @@ void Project::addObject( TQObject *o )
 	if ( MainWindow::self ) {
 	    TQApplication::sendPostedEvents( MainWindow::self->qWorkspace(), TQEvent::ChildInserted );
 	    connect( fw,
-		     SIGNAL( undoRedoChanged( bool, bool, const TQString &, const TQString & ) ),
+		     TQ_SIGNAL( undoRedoChanged( bool, bool, const TQString &, const TQString & ) ),
 		     MainWindow::self,
-		     SLOT( updateUndoRedo( bool, bool, const TQString &, const TQString & ) )
+		     TQ_SLOT( updateUndoRedo( bool, bool, const TQString &, const TQString & ) )
 		);
 	}
 	if ( fw->parentWidget() ) {
@@ -1527,9 +1527,9 @@ void Project::designerCreated()
 	if ( !fw || fw->mainWindow() )
 	    continue;
 	fw->setMainWindow( MainWindow::self );
-	connect( fw, SIGNAL( undoRedoChanged( bool, bool, const TQString &,
+	connect( fw, TQ_SIGNAL( undoRedoChanged( bool, bool, const TQString &,
 					      const TQString & ) ),
-		 MainWindow::self, SLOT( updateUndoRedo( bool, bool,
+		 MainWindow::self, TQ_SLOT( updateUndoRedo( bool, bool,
 					 const TQString &, const TQString & ) ) );
 	fw->reparent( MainWindow::self->qWorkspace(), TQPoint( 0, 0 ), FALSE );
 	TQApplication::sendPostedEvents( MainWindow::self->qWorkspace(),

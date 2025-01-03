@@ -11,15 +11,15 @@ QDial \- Rounded range control (like a speedometer or potentiometer)
 .SH SYNOPSIS
 \fC#include <ntqdial.h>\fR
 .PP
-Inherits QWidget and QRangeControl.
+Inherits TQWidget and QRangeControl.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDial\fR ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQDial\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fBQDial\fR ( int minValue, int maxValue, int pageStep, int value, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQDial\fR ( int minValue, int maxValue, int pageStep, int value, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QDial\fR ()"
@@ -183,9 +183,9 @@ The dial's keyboard interface is fairly simple: The left/up and right/down arrow
 .PP
 See also QScrollBar, QSpinBox, GUI Design Handbook: Slider, and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDial::QDial ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
-Constructs a dial called \fIname\fR with parent \fIparent\fR. \fIf\fR is propagated to the QWidget constructor. It has the default range of a QRangeControl.
-.SH "QDial::QDial ( int minValue, int maxValue, int pageStep, int value, QWidget * parent = 0, const char * name = 0 )"
+.SH "QDial::QDial ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+Constructs a dial called \fIname\fR with parent \fIparent\fR. \fIf\fR is propagated to the TQWidget constructor. It has the default range of a QRangeControl.
+.SH "QDial::QDial ( int minValue, int maxValue, int pageStep, int value, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a dial called \fIname\fR with parent \fIparent\fR. The dial's value can never be smaller than \fIminValue\fR or greater than \fImaxValue\fR. Its page step size is \fIpageStep\fR, and its initial value is \fIvalue\fR.
 .PP
 \fIvalue\fR is forced to be within the legal range.
@@ -353,8 +353,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

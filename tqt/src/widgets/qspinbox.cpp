@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqspinbox.h"
-#ifndef QT_NO_SPINBOX
+#ifndef TQT_NO_SPINBOX
 
 #include "ntqcursor.h"
 #include "ntqpushbutton.h"
@@ -267,8 +267,8 @@ void TQSpinBox::initSpinBox()
     d = new TQSpinBoxPrivate;
 
     d->controls = new TQSpinWidget( this, "controls" );
-    connect( d->controls, SIGNAL( stepUpPressed() ), SLOT( stepUp() ) );
-    connect( d->controls, SIGNAL( stepDownPressed() ), SLOT( stepDown() ) );
+    connect( d->controls, TQ_SIGNAL( stepUpPressed() ), TQ_SLOT( stepUp() ) );
+    connect( d->controls, TQ_SIGNAL( stepDownPressed() ), TQ_SLOT( stepDown() ) );
 
     wrap = FALSE;
     edited = FALSE;
@@ -287,7 +287,7 @@ void TQSpinBox::initSpinBox()
 
     updateDisplay();
 
-    connect( vi, SIGNAL(textChanged(const TQString&)), SLOT(textChanged()) );
+    connect( vi, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(textChanged()) );
 }
 
 /*!
@@ -710,7 +710,7 @@ void TQSpinBox::resizeEvent( TQResizeEvent* )
 /*!
     \reimp
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQSpinBox::wheelEvent( TQWheelEvent * e )
 {
     e->accept();

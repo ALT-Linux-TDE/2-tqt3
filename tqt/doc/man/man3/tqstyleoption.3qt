@@ -38,7 +38,7 @@ QStyleOption \- Optional parameters for QStyle functions
 .BI "\fBQStyleOption\fR ( QMenuItem * m, int in1, int in2 )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( const QColor & c )"
+.BI "\fBQStyleOption\fR ( const TQColor & c )"
 .br
 .ti -1c
 .BI "\fBQStyleOption\fR ( QTab * t )"
@@ -50,13 +50,13 @@ QStyleOption \- Optional parameters for QStyle functions
 .BI "\fBQStyleOption\fR ( QCheckListItem * i )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( Qt::ArrowType a )"
+.BI "\fBQStyleOption\fR ( TQt::ArrowType a )"
 .br
 .ti -1c
 .BI "\fBQStyleOption\fR ( const QRect & r )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( QWidget * w )"
+.BI "\fBQStyleOption\fR ( TQWidget * w )"
 .br
 .ti -1c
 .BI "bool \fBisDefault\fR () const"
@@ -89,7 +89,7 @@ QStyleOption \- Optional parameters for QStyle functions
 .BI "int \fBtabWidth\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBcolor\fR () const"
+.BI "const TQColor & \fBcolor\fR () const"
 .br
 .ti -1c
 .BI "QTab * \fBtab\fR () const"
@@ -101,13 +101,13 @@ QStyleOption \- Optional parameters for QStyle functions
 .BI "QListViewItem * \fBlistViewItem\fR () const"
 .br
 .ti -1c
-.BI "Qt::ArrowType \fBarrowType\fR () const"
+.BI "TQt::ArrowType \fBarrowType\fR () const"
 .br
 .ti -1c
 .BI "QRect \fBrect\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBwidget\fR () const"
+.BI "TQWidget * \fBwidget\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -115,7 +115,7 @@ The QStyleOption class specifies optional parameters for QStyle functions.
 .PP
 Some QStyle functions take an optional argument specifying extra information that is required for a paritical primitive or control. So that the QStyle class can be extended, QStyleOption is used to provide a variable-argument for these options.
 .PP
-The QStyleOption class has constructors for each type of optional argument, and this set of constructors may be extended in future Qt releases. There are also corresponding access functions that return the optional arguments: these too may be extended.
+The QStyleOption class has constructors for each type of optional argument, and this set of constructors may be extended in future TQt releases. There are also corresponding access functions that return the optional arguments: these too may be extended.
 .PP
 For each constructor, you should refer to the documentation of the QStyle functions to see the meaning of the arguments.
 .PP
@@ -146,7 +146,7 @@ Pass a menu item, \fIm\fR.
 Pass a menu item and an integer, \fIm\fR and \fIin1\fR.
 .SH "QStyleOption::QStyleOption ( QMenuItem * m, int in1, int in2 )"
 Pass a menu item and two integers, \fIm\fR, \fIin1\fR and \fIin2\fR.
-.SH "QStyleOption::QStyleOption ( const QColor & c )"
+.SH "QStyleOption::QStyleOption ( const TQColor & c )"
 Pass a color, \fIc\fR.
 .SH "QStyleOption::QStyleOption ( QTab * t )"
 Pass a QTab, \fIt\fR.
@@ -154,17 +154,17 @@ Pass a QTab, \fIt\fR.
 Pass a QListViewItem, \fIi\fR.
 .SH "QStyleOption::QStyleOption ( QCheckListItem * i )"
 Pass a QCheckListItem, \fIi\fR.
-.SH "QStyleOption::QStyleOption ( Qt::ArrowType a )"
-Pass an Qt::ArrowType, \fIa\fR.
+.SH "QStyleOption::QStyleOption ( TQt::ArrowType a )"
+Pass an TQt::ArrowType, \fIa\fR.
 .SH "QStyleOption::QStyleOption ( const QRect & r )"
 Pass a QRect, \fIr\fR.
-.SH "QStyleOption::QStyleOption ( QWidget * w )"
-Pass a QWidget, \fIw\fR.
-.SH "Qt::ArrowType QStyleOption::arrowType () const"
+.SH "QStyleOption::QStyleOption ( TQWidget * w )"
+Pass a TQWidget, \fIw\fR.
+.SH "TQt::ArrowType QStyleOption::arrowType () const"
 Returns an arrow type if the appropriate constructor was called; otherwise the return value is undefined.
 .SH "QCheckListItem * QStyleOption::checkListItem () const"
 Returns a check list item if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "const QColor & QStyleOption::color () const"
+.SH "const TQColor & QStyleOption::color () const"
 Returns a color if the appropriate constructor was called; otherwise the return value is undefined.
 .SH "int QStyleOption::day () const"
 Returns the index of the day in the month if the appropriate constructor was called; otherwise the return value is undefined.
@@ -192,7 +192,7 @@ Returns a rectangle if the appropriate constructor was called; otherwise the ret
 Returns a QTabBar tab if the appropriate constructor was called; otherwise the return value is undefined.
 .SH "int QStyleOption::tabWidth () const"
 Returns the tab indent width if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "QWidget * QStyleOption::widget () const"
+.SH "TQWidget * QStyleOption::widget () const"
 Returns a pointer to a widget if the appropriate constructor was called;
 otherwise the return value is undefined.
 
@@ -210,8 +210,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

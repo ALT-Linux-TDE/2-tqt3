@@ -42,7 +42,7 @@
 // ### could be reorganised by discarding INCLUDE_MENUITEM_DEF and put
 // the relevant declarations in a private header?
 #include "ntqmainwindow.h"
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
 #include "ntqmenubar.h"
 #include "ntqpopupmenu.h"
 #include "ntqaccel.h"
@@ -71,7 +71,7 @@ public:
 static bool inMenu = FALSE;
 #endif
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 extern int qt_xfocusout_grab_counter; // defined in qapplication_x11.cpp
 #endif
 
@@ -265,13 +265,13 @@ static const int gtkItemVMargin = 8;
 TQMenuBar::TQMenuBar( TQWidget *parent, const char *name )
     : TQFrame( parent, name, WNoAutoErase )
 {
-#if defined( Q_WS_MAC ) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined( TQ_WS_MAC ) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     mac_eaten_menubar = FALSE;
     mac_d = 0;
     macCreateNativeMenubar();
 #endif
     isMenuBar = TRUE;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     autoaccel = 0;
 #endif
     irects    = 0;
@@ -331,10 +331,10 @@ void TQMenuBar::styleChange( TQStyle& old )
 
 TQMenuBar::~TQMenuBar()
 {
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     delete autoaccel;
 #endif
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     macRemoveNativeMenubar();
 #endif
     if ( irects )		// Avoid purify complaint.
@@ -354,7 +354,7 @@ void TQMenuBar::updateItem( int id )
 	repaint( irects[i], FALSE );
 }
 
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
 static bool fromFrameChange = FALSE;
 #endif
 
@@ -375,14 +375,14 @@ void TQMenuBar::menuContentsChanged()
         return;
     pendingDelayedContentsChanges = 1;
     if( !pendingDelayedStateChanges )// if the timer hasn't been started yet
-        TQTimer::singleShot( 0, this, SLOT(performDelayedChanges()));
+        TQTimer::singleShot( 0, this, TQ_SLOT(performDelayedChanges()));
 }
 
 void TQMenuBar::performDelayedContentsChanged()
 {
     pendingDelayedContentsChanges = 0;
     // here the part the can be delayed
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     // if performDelayedStateChanged() will be called too,
     // it will call setupAccelerators() too, no need to do it twice
     if( !pendingDelayedStateChanges )
@@ -391,14 +391,14 @@ void TQMenuBar::performDelayedContentsChanged()
     calculateRects();
     if ( isVisible() ) {
 	update();
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 	TQMainWindow *mw = ::tqt_cast<TQMainWindow*>(parent());
 	if ( mw ) {
 	    mw->triggerLayout();
 	    mw->update();
 	}
 #endif
-#ifndef QT_NO_LAYOUT
+#ifndef TQT_NO_LAYOUT
 	if ( parentWidget() && parentWidget()->layout() )
 	    parentWidget()->layout()->activate();
 #endif
@@ -418,14 +418,14 @@ void TQMenuBar::menuStateChanged()
         return;
     pendingDelayedStateChanges = 1;
     if( !pendingDelayedContentsChanges ) // if the timer hasn't been started yet
-	TQTimer::singleShot( 0, this, SLOT(performDelayedChanges()));
+	TQTimer::singleShot( 0, this, TQ_SLOT(performDelayedChanges()));
 }
 
 void TQMenuBar::performDelayedStateChanged()
 {
     pendingDelayedStateChanges = 0;
     // here the part that can be delayed
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     setupAccelerators(); // ### when we have a good solution for the accel vs. focus
 			 // widget problem, remove that. That is only a workaround
                          // if you remove this, see performDelayedContentsChanged()
@@ -436,7 +436,7 @@ void TQMenuBar::performDelayedStateChanged()
 
 void TQMenuBar::performDelayedChanges()
 {
-#if defined(Q_WS_MAC) && !defined(TQMAC_MENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_MENUBAR_NO_NATIVE)
     // I must do this here as the values change in the function below.
     bool needMacUpdate = (pendingDelayedContentsChanges || pendingDelayedStateChanges);
 #endif
@@ -444,7 +444,7 @@ void TQMenuBar::performDelayedChanges()
         performDelayedContentsChanged();
     if( pendingDelayedStateChanges )
         performDelayedStateChanged();
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     if(mac_eaten_menubar && needMacUpdate) {
 	macDirtyNativeMenubar();
 
@@ -467,29 +467,29 @@ void TQMenuBar::performDelayedChanges()
 
 void TQMenuBar::menuInsPopup( TQPopupMenu *popup )
 {
-    connect( popup, SIGNAL(activatedRedirect(int)),
-	     SLOT(subActivated(int)) );
-    connect( popup, SIGNAL(highlightedRedirect(int)),
-	     SLOT(subHighlighted(int)) );
-    connect( popup, SIGNAL(destroyed(TQObject*)),
-	     this, SLOT(popupDestroyed(TQObject*)) );
+    connect( popup, TQ_SIGNAL(activatedRedirect(int)),
+	     TQ_SLOT(subActivated(int)) );
+    connect( popup, TQ_SIGNAL(highlightedRedirect(int)),
+	     TQ_SLOT(subHighlighted(int)) );
+    connect( popup, TQ_SIGNAL(destroyed(TQObject*)),
+	     this, TQ_SLOT(popupDestroyed(TQObject*)) );
 }
 
 void TQMenuBar::menuDelPopup( TQPopupMenu *popup )
 {
-    popup->disconnect( SIGNAL(activatedRedirect(int)) );
-    popup->disconnect( SIGNAL(highlightedRedirect(int)) );
-    disconnect( popup, SIGNAL(destroyed(TQObject*)),
-		this, SLOT(popupDestroyed(TQObject*)) );
+    popup->disconnect( TQ_SIGNAL(activatedRedirect(int)) );
+    popup->disconnect( TQ_SIGNAL(highlightedRedirect(int)) );
+    disconnect( popup, TQ_SIGNAL(destroyed(TQObject*)),
+		this, TQ_SLOT(popupDestroyed(TQObject*)) );
 }
 
 void TQMenuBar::frameChanged()
 {
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     fromFrameChange = TRUE;
 #endif
     menuContentsChanged();
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     fromFrameChange = FALSE;
 #endif
 }
@@ -514,7 +514,7 @@ void TQMenuBar::languageChange()
 bool TQMenuBar::eventFilter( TQObject *object, TQEvent *event )
 {
     if ( object == parent() && object
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
 	 && !::tqt_cast<TQToolBar*>(object)
 #endif
 	 && event->type() == TQEvent::Resize ) {
@@ -558,7 +558,7 @@ bool TQMenuBar::eventFilter( TQObject *object, TQEvent *event )
     }
 
     TQKeyEvent * ke = (TQKeyEvent *) event;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     // look for Alt press and Alt-anything press
     if ( event->type() == TQEvent::Accel ) {
 	TQWidget * f = ((TQWidget *)object)->focusWidget();
@@ -580,7 +580,7 @@ bool TQMenuBar::eventFilter( TQObject *object, TQEvent *event )
 	    // Start waiting for Alt release on focus widget
 	    } else if ( ke->stateAfter() == AltButton ) {
 		waitforalt = 1;
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 		TQMenuData::d->aInt = qt_xfocusout_grab_counter;
 #endif
 		if ( f && f != object )
@@ -606,7 +606,7 @@ bool TQMenuBar::eventFilter( TQObject *object, TQEvent *event )
 	 (object->parent() == 0 && ((TQWidget*)object)->focusWidget() == 0) ) {
 	if ( waitforalt && event->type() == TQEvent::KeyRelease &&
 	    ( ke->key() == Key_Alt || ke->key() == Key_Meta )
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 		&& TQMenuData::d->aInt == qt_xfocusout_grab_counter
 #endif
 	    ) {
@@ -661,10 +661,10 @@ void TQMenuBar::subHighlighted( int id )
   \internal
   Receives signals from menu accelerator.
 */
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 void TQMenuBar::accelActivated( int id )
 {
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     if(mac_eaten_menubar)
 	return;
 #endif
@@ -680,7 +680,7 @@ void TQMenuBar::accelActivated( int id )
   This slot receives signals from menu accelerator when it is about to be
   destroyed.
 */
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 void TQMenuBar::accelDestroyed()
 {
     autoaccel = 0;				// don't delete it twice!
@@ -785,7 +785,7 @@ void TQMenuBar::hidePopups()
     bool anyVisible = FALSE;
 #endif
     TQMenuItemListIt it(*mitems);
-    register TQMenuItem *mi;
+    TQMenuItem *mi;
     while ( (mi=it.current()) ) {
 	++it;
 	if ( mi->popup() && mi->popup()->isVisible() ) {
@@ -812,7 +812,7 @@ void TQMenuBar::hidePopups()
 
 void TQMenuBar::show()
 {
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     setupAccelerators();
 #endif
 
@@ -823,7 +823,7 @@ void TQMenuBar::show()
     performDelayedChanges();
     calculateRects();
 
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     if(mac_eaten_menubar) {
 	//If all elements are invisible no reason for me to be visible either
 	bool all_hidden = TRUE;
@@ -842,7 +842,7 @@ void TQMenuBar::show()
     TQWidget::show();
 #endif
 
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
     TQMainWindow *mw = ::tqt_cast<TQMainWindow*>(parent());
     if ( mw ) //### ugly workaround
 	mw->triggerLayout();
@@ -860,7 +860,7 @@ void TQMenuBar::hide()
     TQWidget::hide();
     setAltMode( FALSE );
     hidePopups();
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
     TQMainWindow *mw = ::tqt_cast<TQMainWindow*>(parent());
     if ( mw ) //### ugly workaround
 	mw->triggerLayout();
@@ -942,7 +942,7 @@ int TQMenuBar::calculateRects( int max_width )
 
 	int w=0, h=0;
 	if ( !mi->isVisible()
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
 				  ||  (mac_eaten_menubar && !mi->custom() && !mi->widget() )
 #endif
 	     ) {
@@ -978,14 +978,14 @@ int TQMenuBar::calculateRects( int max_width )
 		separator = i; //### only motif?
 	}
 	if ( !mi->isSeparator() || mi->widget() ) {
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
 	    if ( !mac_eaten_menubar ) {
 #endif
 		if ( gs == MotifStyle && mi->isVisible() ) {
 		    w += 2*motifItemFrame;
 		    h += 2*motifItemFrame;
 		}
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
 	    }
 #endif
 
@@ -1189,7 +1189,7 @@ void TQMenuBar::drawContents( TQPainter *p )
     style().drawControl(TQStyle::CE_MenuBarEmptyArea, p, this, contentsRect(), g);
     p->restore();
 
-#if defined(Q_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
+#if defined(TQ_WS_MAC) && !defined(TQMAC_QMENUBAR_NO_NATIVE)
     if ( !mac_eaten_menubar )
 #endif
     {
@@ -1337,7 +1337,7 @@ void TQMenuBar::keyPressEvent( TQKeyEvent *e )
     }
 
     if ( dx ) {					// highlight next/prev
-	register int i = actItem;
+	int i = actItem;
 	int c = mitems->count();
 	int n = c;
 	while ( n-- ) {
@@ -1362,7 +1362,7 @@ void TQMenuBar::keyPressEvent( TQKeyEvent *e )
 	TQMenuItem* currentSelected = 0;
 	TQMenuItem* firstAfterCurrent = 0;
 
-	register TQMenuItem *m;
+	TQMenuItem *m;
 	int indx = 0;
 	int clashCount = 0;
 	while ( (m=it.current()) ) {
@@ -1526,7 +1526,7 @@ void TQMenuBar::setAltMode( bool enable )
 /*!
     Sets up keyboard accelerators for the menu bar.
 */
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 void TQMenuBar::setupAccelerators()
 {
@@ -1534,7 +1534,7 @@ void TQMenuBar::setupAccelerators()
     autoaccel = 0;
 
     TQMenuItemListIt it(*mitems);
-    register TQMenuItem *mi;
+    TQMenuItem *mi;
     while ( (mi=it.current()) ) {
 	++it;
 	if ( !mi->isEnabledAndVisible() ) // ### when we have a good solution for the accel vs. focus widget problem, remove that. That is only a workaround
@@ -1547,12 +1547,12 @@ void TQMenuBar::setupAccelerators()
 		    autoaccel = new TQAccel( this );
 		    TQ_CHECK_PTR( autoaccel );
 		    autoaccel->setIgnoreWhatsThis( TRUE );
-		    connect( autoaccel, SIGNAL(activated(int)),
-			     SLOT(accelActivated(int)) );
-		    connect( autoaccel, SIGNAL(activatedAmbiguously(int)),
-			     SLOT(accelActivated(int)) );
-		    connect( autoaccel, SIGNAL(destroyed()),
-			     SLOT(accelDestroyed()) );
+		    connect( autoaccel, TQ_SIGNAL(activated(int)),
+			     TQ_SLOT(accelActivated(int)) );
+		    connect( autoaccel, TQ_SIGNAL(activatedAmbiguously(int)),
+			     TQ_SLOT(accelActivated(int)) );
+		    connect( autoaccel, TQ_SIGNAL(destroyed()),
+			     TQ_SLOT(accelDestroyed()) );
 		}
 		autoaccel->insertItem( i, mi->id() );
 	    }
@@ -1629,7 +1629,7 @@ TQSize TQMenuBar::sizeHint() const
 
 TQSize TQMenuBar::minimumSize() const
 {
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     TQToolBar *tb = ::tqt_cast<TQToolBar*>(parent());
     if ( tb )
 	return sizeHint();
@@ -1680,4 +1680,4 @@ void TQMenuBar::activateItemAt( int index )
 	goodbye( FALSE );
 }
 
-#endif // QT_NO_MENUBAR
+#endif // TQT_NO_MENUBAR

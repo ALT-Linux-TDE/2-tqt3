@@ -49,7 +49,7 @@
 class TQWidget;
 
 
-class Q_EXPORT TQDropSite {
+class TQ_EXPORT TQDropSite {
 public:
     TQDropSite( TQWidget* parent );
     virtual ~TQDropSite();

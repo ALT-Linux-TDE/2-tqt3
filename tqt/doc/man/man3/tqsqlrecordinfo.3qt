@@ -23,10 +23,10 @@ QSqlRecordInfo \- Encapsulates a set of database field meta data
 .BI "\fBQSqlRecordInfo\fR ( const QSqlRecord & other )"
 .br
 .ti -1c
-.BI "size_type \fBcontains\fR ( const QString & fieldName ) const"
+.BI "size_type \fBcontains\fR ( const TQString & fieldName ) const"
 .br
 .ti -1c
-.BI "QSqlFieldInfo \fBfind\fR ( const QString & fieldName ) const"
+.BI "QSqlFieldInfo \fBfind\fR ( const TQString & fieldName ) const"
 .br
 .ti -1c
 .BI "QSqlRecord \fBtoRecord\fR () const"
@@ -45,9 +45,9 @@ Constructs an empty record info object
 Constructs a copy of \fIother\fR.
 .SH "QSqlRecordInfo::QSqlRecordInfo ( const QSqlRecord & other )"
 Constructs a QSqlRecordInfo object based on the fields in the QSqlRecord \fIother\fR.
-.SH "size_type QSqlRecordInfo::contains ( const QString & fieldName ) const"
+.SH "size_type QSqlRecordInfo::contains ( const TQString & fieldName ) const"
 Returns the number of times a field called \fIfieldName\fR occurs in the record. Returns 0 if no field by that name could be found.
-.SH "QSqlFieldInfo QSqlRecordInfo::find ( const QString & fieldName ) const"
+.SH "QSqlFieldInfo QSqlRecordInfo::find ( const TQString & fieldName ) const"
 Returns a QSqlFieldInfo object for the first field in the record which has the field name \fIfieldName\fR. If no matching field is found then an empty QSqlFieldInfo object is returned.
 .SH "QSqlRecord QSqlRecordInfo::toRecord () const"
 Returns an empty QSqlRecord based on the field information
@@ -67,8 +67,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

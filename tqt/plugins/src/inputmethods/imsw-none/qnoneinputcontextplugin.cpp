@@ -40,7 +40,7 @@
 **
 **********************************************************************/
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "qnoneinputcontextplugin.h"
 #include <ntqinputcontextfactory.h>
 #include <ntqsettings.h>
@@ -70,8 +70,8 @@ TQInputContext *TQNoneInputContextPlugin::create( const TQString &key )
     if ( ! isIMSwitcher )
 	return 0;
 
-    if ( getenv( "QT_IM_MODULE" ) ) {
-        actuallySpecifiedKey = getenv( "QT_IM_MODULE" );
+    if ( getenv( "TQT_IM_MODULE" ) ) {
+        actuallySpecifiedKey = getenv( "TQT_IM_MODULE" );
     } else {
 	TQSettings settings;
         actuallySpecifiedKey = settings.readEntry( "/qt/DefaultInputMethod", "xim" );
@@ -96,6 +96,6 @@ TQString TQNoneInputContextPlugin::description( const TQString &key )
 }
 
 
-Q_EXPORT_PLUGIN( TQNoneInputContextPlugin )
+TQ_EXPORT_PLUGIN( TQNoneInputContextPlugin )
 
 #endif

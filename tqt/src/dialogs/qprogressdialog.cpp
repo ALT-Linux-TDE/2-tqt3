@@ -40,7 +40,7 @@
 
 #include "ntqprogressdialog.h"
 
-#ifndef QT_NO_PROGRESSDIALOG
+#ifndef TQT_NO_PROGRESSDIALOG
 
 #include "ntqaccel.h"
 #include "ntqpainter.h"
@@ -89,7 +89,7 @@ public:
     bool	  shown_once;
     bool	  cancellation_flag;
     TQTime	  starttime;
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     TQCursor	  parentCursor;
 #endif
     int		  showTime;
@@ -167,9 +167,9 @@ Operation::Operation( TQObject *parent = 0 )
     : TQObject( parent ), steps( 0 )
 {
     pd = new TQProgressDialog( "Operation in progress.", "Cancel", 100 );
-    connect( pd, SIGNAL(canceled()), this, SLOT(cancel()) );
+    connect( pd, TQ_SIGNAL(canceled()), this, TQ_SLOT(cancel()) );
     t = new TQTimer( this );
-    connect( t, SIGNAL(timeout()), this, SLOT(perform()) );
+    connect( t, TQ_SIGNAL(timeout()), this, TQ_SLOT(perform()) );
     t->start( 0 );
 }
 
@@ -298,7 +298,7 @@ TQProgressDialog::TQProgressDialog( const TQString &labelText,
 
 TQProgressDialog::~TQProgressDialog()
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( d->creator )
 	d->creator->setCursor( d->parentCursor );
 #endif
@@ -314,10 +314,10 @@ void TQProgressDialog::init( TQWidget *creator,
     d->autoReset = TRUE;
     d->forceHide = FALSE;
     setCancelButtonText( canc );
-    connect( this, SIGNAL(canceled()), this, SIGNAL(cancelled()) );
-    connect( this, SIGNAL(canceled()), this, SLOT(cancel()) );
+    connect( this, TQ_SIGNAL(canceled()), this, TQ_SIGNAL(cancelled()) );
+    connect( this, TQ_SIGNAL(canceled()), this, TQ_SLOT(cancel()) );
     forceTimer = new TQTimer( this );
-    connect( forceTimer, SIGNAL(timeout()), this, SLOT(forceShow()) );
+    connect( forceTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(forceShow()) );
     layout();
 }
 
@@ -410,11 +410,11 @@ void TQProgressDialog::setCancelButton( TQPushButton *cancelButton )
 	} else {
 	    cancelButton->reparent( this, 0, TQPoint(0,0), FALSE );
 	}
-	connect( d->cancel, SIGNAL(clicked()), this, SIGNAL(canceled()) );
-#ifndef QT_NO_ACCEL
+	connect( d->cancel, TQ_SIGNAL(clicked()), this, TQ_SIGNAL(canceled()) );
+#ifndef TQT_NO_ACCEL
 	TQAccel *accel = new TQAccel( this );
 	accel->connectItem( accel->insertItem(Key_Escape),
-			    d->cancel, SIGNAL(clicked()) );
+			    d->cancel, TQ_SIGNAL(clicked()) );
 #endif
     }
     int w = TQMAX( isVisible() ? width() : 0, sizeHint().width() );
@@ -519,7 +519,7 @@ void TQProgressDialog::setTotalSteps( int totalSteps )
 
 void TQProgressDialog::reset()
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( progress() >= 0 ) {
 	if ( d->creator )
 	    d->creator->setCursor( d->parentCursor );
@@ -583,7 +583,7 @@ void TQProgressDialog::setProgress( int progress )
 	    tqApp->processEvents();
     } else {
 	if ( progress == 0 ) {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    if ( d->creator ) {
 		d->parentCursor = d->creator->cursor();
 		d->creator->setCursor( waitCursor );
@@ -617,7 +617,7 @@ void TQProgressDialog::setProgress( int progress )
 		d->shown_once = TRUE;
 	    }
 	}
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 	TQApplication::flush();
 #endif
     }

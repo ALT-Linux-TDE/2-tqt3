@@ -58,7 +58,7 @@ RangeControls::RangeControls( TQWidget *parent, const char *name )
     TQLCDNumber *lcd2 = new TQLCDNumber( 2, cell3 );
     lcd2->display( 33 );
     lcd2->setSegmentStyle( TQLCDNumber::Filled );
-    connect( hslider, SIGNAL( valueChanged( int ) ), lcd2, SLOT( display( int ) ) );
+    connect( hslider, TQ_SIGNAL( valueChanged( int ) ), lcd2, TQ_SLOT( display( int ) ) );
 
     TQHBox *cell4 = new TQHBox( row2 );
     cell4->setFrameStyle( TQFrame::WinPanel | TQFrame::Sunken );
@@ -66,5 +66,5 @@ RangeControls::RangeControls( TQWidget *parent, const char *name )
     TQSlider *vslider = new TQSlider( 0, 64, 1, 8, TQt::Vertical, cell4 );
     TQLCDNumber *lcd3 = new TQLCDNumber( 3, cell4 );
     lcd3->display( 8 );
-    connect( vslider, SIGNAL( valueChanged( int ) ), lcd3, SLOT( display( int ) ) );
+    connect( vslider, TQ_SIGNAL( valueChanged( int ) ), lcd3, TQ_SLOT( display( int ) ) );
 }

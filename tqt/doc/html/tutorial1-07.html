@@ -110,10 +110,10 @@ signal you'll see called <i>something</i>Changed().
 
 <p> This file is mainly lifted from <a href="tutorial1-06.html#main">t6/main.cpp</a>, and
 only the changes are noted here.
-<p> <pre>    <a name="x2333"></a>    <a href="ntqobject.html#connect">connect</a>( slider, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
-    <a name="x2330"></a>             lcd, SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
-        <a href="ntqobject.html#connect">connect</a>( slider, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
-                 SIGNAL(valueChanged(int)) );
+<p> <pre>    <a name="x2333"></a>    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
+    <a name="x2330"></a>             lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
+        <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
+                 TQ_SIGNAL(valueChanged(int)) );
 </pre>
 <p> This code is from the LCDRange constructor.
 <p> The first connect is the same that you have seen in the previous chapter.
@@ -158,8 +158,8 @@ outside its legal range.
             for( int c = 0 ; c &lt; 4 ; c++ ) {
                 LCDRange* lr = new LCDRange( grid );
                 if ( previous )
-                    <a href="ntqobject.html#connect">connect</a>( lr, SIGNAL(valueChanged(int)),
-                             previous, SLOT(setValue(int)) );
+                    <a href="ntqobject.html#connect">connect</a>( lr, TQ_SIGNAL(valueChanged(int)),
+                             previous, TQ_SLOT(setValue(int)) );
                 previous = lr;
             }
         }

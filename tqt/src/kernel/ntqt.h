@@ -66,6 +66,11 @@
 #include "ntqwidget.h"
 #include "ntqjpunicode.h"
 #include "ntqtextcodec.h"
+#include "ntqpixmap.h"
+#include <ntqtabbar.h>
+#include "ntqiconset.h"
+#include "ntqbutton.h"
+#include <ntqtoolbutton.h>
 #include "ntqstyle.h"
 #include "ntqframe.h"
 #include "ntqfile.h"
@@ -82,7 +87,6 @@
 #include <ntqeuckrcodec.h>
 #include <ntqgb18030codec.h>
 #include "ntqgcache.h"
-#include "ntqpixmap.h"
 #include <ntqgif.h>
 #include <ntqglcolormap.h>
 #include <ntqcache.h>
@@ -95,7 +99,6 @@
 #include "ntqgvector.h"
 #include "ntqhbox.h"
 #include <ntqhbuttongroup.h>
-#include "ntqiconset.h"
 #include <ntqhgroupbox.h>
 #include "ntqsocketnotifier.h"
 #include <ntqeventloop.h>
@@ -134,7 +137,6 @@
 #include <ntqmovie.h>
 #include "ntqptrvector.h"
 #include "ntqmutex.h"
-#include "ntqbutton.h"
 #include <ntqnetwork.h>
 #include <ntqftp.h>
 #include "ntqguardedptr.h"
@@ -226,7 +228,6 @@
 #include <ntqstyleplugin.h>
 #include "ntqtextedit.h"
 #include <ntqsyntaxhighlighter.h>
-#include <ntqtabbar.h>
 #include <ntqtabdialog.h>
 #include "ntqsqleditorfactory.h"
 #include <ntqtabwidget.h>
@@ -242,7 +243,6 @@
 #include <ntqfontdatabase.h>
 #include <ntqmainwindow.h>
 #include <ntqtoolbox.h>
-#include <ntqtoolbutton.h>
 #include <ntqtooltip.h>
 #include "ntqdesktopwidget.h"
 #include <ntqtsciicodec.h>
@@ -313,20 +313,20 @@
 #endif // Private headers
 
 
-#ifdef Q_WS_X11
-#include "private/qtkdeintegration_x11_p.h"
+#ifdef TQ_WS_X11
+#include "private/tqttdeintegration_x11_p.h"
 #endif
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 #include <qaquastyle.h>
 #include <qmacstyle_mac.h>
-#endif // Q_WS_MAC
+#endif // TQ_WS_MAC
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #include <qwindowsxpstyle.h>
 #endif
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
 #include <private/qtextengine_p.h>
 #include "qfontmanager_qws.h"
 #include <qfontfactorybdf_qws.h>
@@ -365,11 +365,11 @@
 #include "qwsevent_qws.h"
 #include <qwindowsystem_qws.h>
 #include <qwswindowsdecoration_qws.h>
-#endif // Q_WS_QWS
+#endif // TQ_WS_QWS
 
 
-#ifdef Q_WS_WCE
+#ifdef TQ_WS_WCE
 #include <qpocketpcstyle_wce.h>
-#endif // Q_WS_WCE
+#endif // TQ_WS_WCE
 
 #endif // QT_H

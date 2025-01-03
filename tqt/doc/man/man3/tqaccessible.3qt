@@ -34,10 +34,10 @@ Inherited by QAccessibleInterface.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QRESULT \fBqueryAccessibleInterface\fR ( QObject * object, QAccessibleInterface ** iface )"
+.BI "QRESULT \fBqueryAccessibleInterface\fR ( TQObject * object, QAccessibleInterface ** iface )"
 .br
 .ti -1c
-.BI "void \fBupdateAccessibility\fR ( QObject * object, int control, Event reason )"
+.BI "void \fBupdateAccessibility\fR ( TQObject * object, int control, Event reason )"
 .br
 .ti -1c
 .BI "bool \fBisActive\fR ()"
@@ -48,7 +48,7 @@ The QAccessible class provides enums and static functions relating to accessibil
 .PP
 Accessibility clients use implementations of the QAccessibleInterface to read the information an accessible object exposes, or to call functions to manipulate the accessible object.
 .PP
-See the plugin documentation for more details about how to redistribute Qt plugins.
+See the plugin documentation for more details about how to redistribute TQt plugins.
 .PP
 See also Miscellaneous Classes.
 .SS "Member Type Documentation"
@@ -355,13 +355,13 @@ This enum specifies string information that an accessible object returns.
 Returns TRUE if an accessibility implementation has been requested, during the runtime of the application, otherwise returns FALSE.
 .PP
 Use this function to prevent potentially expensive notifications via updateAccessibility().
-.SH "QRESULT QAccessible::queryAccessibleInterface ( QObject * object, QAccessibleInterface ** iface )\fC [static]\fR"
+.SH "QRESULT QAccessible::queryAccessibleInterface ( TQObject * object, QAccessibleInterface ** iface )\fC [static]\fR"
 Sets \fIiface\fR to point to the implementation of the QAccessibleInterface for \fIobject\fR, and returns \fCQS_OK\fR if successfull, or sets \fIiface\fR to 0 and returns \fCQE_NOCOMPONENT\fR if no accessibility implementation for \fIobject\fR exists.
 .PP
 The function uses the classname of \fIobject\fR to find a suitable implementation. If no implementation for the object's class is available the function tries to find an implementation for the object's parent class.
 .PP
 This function is called to answer an accessibility client's request for object information. You should never need to call this function yourself.
-.SH "void QAccessible::updateAccessibility ( QObject * object, int control, Event reason )\fC [static]\fR"
+.SH "void QAccessible::updateAccessibility ( TQObject * object, int control, Event reason )\fC [static]\fR"
 Notifies accessibility clients about a change in \fIobject\fR's accessibility information.
 .PP
 \fIreason\fR specifies the cause of the change, for example, ValueChange when the position of a slider has been changed. \fIcontrol\fR is the ID of the child element that has changed. When \fIcontrol\fR is 0, the object itself has changed.
@@ -387,8 +387,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

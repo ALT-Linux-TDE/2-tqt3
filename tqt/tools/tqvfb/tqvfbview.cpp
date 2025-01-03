@@ -32,9 +32,9 @@
 **********************************************************************/
 
 #include "ntqglobal.h"
-#if !defined( Q_WS_QWS ) || defined( QT_NO_QWS_MULTIPROCESS )
+#if !defined( TQ_WS_QWS ) || defined( TQT_NO_QWS_MULTIPROCESS )
 #define TQLock TQWSSemaphore
-#undef QT_NO_QWS_MULTIPROCESS
+#undef TQT_NO_QWS_MULTIPROCESS
 #include "../../src/kernel/qlock.cpp"
 #else
 #include "qlock_p.h"
@@ -144,7 +144,7 @@ TQVFbView::TQVFbView( int display_id, int w, int h, int d, TQWidget *parent,
     resizeContents( w, h );
 
     timer = new TQTimer( this );
-    connect( timer, SIGNAL(timeout()), this, SLOT(timeout()) );
+    connect( timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(timeout()) );
 
     gammatable=0;
     setGamma(1.0,1.0,1.0);
@@ -269,7 +269,7 @@ void TQVFbView::setRate( int r )
     timer->start( 1000/r );
 }
 
-#ifndef Q_WS_QWS
+#ifndef TQ_WS_QWS
 // Get the name of the directory where TQt/Embedded temporary data should
 // live.
 static TQString qws_dataDir()

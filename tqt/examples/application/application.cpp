@@ -45,17 +45,17 @@ ApplicationWindow::ApplicationWindow()
     openIcon = TQPixmap( fileopen );
     TQToolButton * fileOpen
 	= new TQToolButton( openIcon, "Open File", TQString::null,
-			   this, SLOT(choose()), fileTools, "open file" );
+			   this, TQ_SLOT(choose()), fileTools, "open file" );
 
     saveIcon = TQPixmap( filesave );
     TQToolButton * fileSave
 	= new TQToolButton( saveIcon, "Save File", TQString::null,
-			   this, SLOT(save()), fileTools, "save file" );
+			   this, TQ_SLOT(save()), fileTools, "save file" );
 
     printIcon = TQPixmap( fileprint );
     TQToolButton * filePrint
 	= new TQToolButton( printIcon, "Print File", TQString::null,
-			   this, SLOT(print()), fileTools, "print file" );
+			   this, TQ_SLOT(print()), fileTools, "print file" );
 
 
     (void)TQWhatsThis::whatsThisButton( fileTools );
@@ -88,41 +88,41 @@ ApplicationWindow::ApplicationWindow()
     menuBar()->insertItem( "&File", file );
 
 
-    file->insertItem( "&New", this, SLOT(newDoc()), CTRL+Key_N );
+    file->insertItem( "&New", this, TQ_SLOT(newDoc()), CTRL+Key_N );
 
     int id;
     id = file->insertItem( openIcon, "&Open...",
-			   this, SLOT(choose()), CTRL+Key_O );
+			   this, TQ_SLOT(choose()), CTRL+Key_O );
     file->setWhatsThis( id, fileOpenText );
 
     id = file->insertItem( saveIcon, "&Save",
-			   this, SLOT(save()), CTRL+Key_S );
+			   this, TQ_SLOT(save()), CTRL+Key_S );
     file->setWhatsThis( id, fileSaveText );
 
-    id = file->insertItem( "Save &As...", this, SLOT(saveAs()) );
+    id = file->insertItem( "Save &As...", this, TQ_SLOT(saveAs()) );
     file->setWhatsThis( id, fileSaveText );
 
     file->insertSeparator();
 
     id = file->insertItem( printIcon, "&Print...",
-			   this, SLOT(print()), CTRL+Key_P );
+			   this, TQ_SLOT(print()), CTRL+Key_P );
     file->setWhatsThis( id, filePrintText );
 
     file->insertSeparator();
 
-    file->insertItem( "&Close", this, SLOT(close()), CTRL+Key_W );
+    file->insertItem( "&Close", this, TQ_SLOT(close()), CTRL+Key_W );
 
-    file->insertItem( "&Quit", tqApp, SLOT( closeAllWindows() ), CTRL+Key_Q );
+    file->insertItem( "&Quit", tqApp, TQ_SLOT( closeAllWindows() ), CTRL+Key_Q );
 
     menuBar()->insertSeparator();
 
     TQPopupMenu * help = new TQPopupMenu( this );
     menuBar()->insertItem( "&Help", help );
 
-    help->insertItem( "&About", this, SLOT(about()), Key_F1 );
-    help->insertItem( "About &TQt", this, SLOT(aboutTQt()) );
+    help->insertItem( "&About", this, TQ_SLOT(about()), Key_F1 );
+    help->insertItem( "About &TQt", this, TQ_SLOT(aboutTQt()) );
     help->insertSeparator();
-    help->insertItem( "What's &This", this, SLOT(whatsThis()), SHIFT+Key_F1 );
+    help->insertItem( "What's &This", this, TQ_SLOT(whatsThis()), SHIFT+Key_F1 );
 
     e = new TQTextEdit( this, "editor" );
     e->setFocus();

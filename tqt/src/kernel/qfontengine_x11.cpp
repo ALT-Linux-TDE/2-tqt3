@@ -1433,7 +1433,7 @@ void TQFontEngineLatinXLFD::setScale( double scale )
 // ------------------------------------------------------------------
 // #define FONTENGINE_DEBUG
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 class Q_HackPaintDevice : public TQPaintDevice
 {
 public:
@@ -2232,7 +2232,7 @@ TQFontEngine::Type TQFontEngineXft::type() const
 // Open type support
 //  --------------------------------------------------------------------------------------------------------------------
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 
 #include "qscriptengine_p.h"
 
@@ -2264,6 +2264,8 @@ struct OTScripts {
     int flags;
 };
 
+// Refer to https://learn.microsoft.com/en-us/typography/opentype/spec/scripttags
+// for OpenType language tags definition
 static const OTScripts ot_scripts [] = {
 // 	// European Alphabetic Scripts
 // 	Latin,
@@ -2351,6 +2353,7 @@ static const OTScripts ot_scripts [] = {
     { FT_MAKE_TAG( 'c', 'a', 'n', 's' ), 0 },
 // 	Mongolian,
     { FT_MAKE_TAG( 'm', 'o', 'n', 'g' ), 0 },
+
 // 	// Symbols
 // 	CurrencySymbols,
     { FT_MAKE_TAG( 'D', 'F', 'L', 'T' ), 0 },
@@ -2370,13 +2373,26 @@ static const OTScripts ot_scripts [] = {
     { FT_MAKE_TAG( 'D', 'F', 'L', 'T' ), 0 },
 // 	Braille,
     { FT_MAKE_TAG( 'b', 'r', 'a', 'i' ), 0 },
-//                Unicode, should be used
-    { FT_MAKE_TAG( 'D', 'F', 'L', 'T' ), 0 }
-    // ### where are these?
-// 	{ FT_MAKE_TAG( 'b', 'y', 'z', 'm' ), 0 },
-//     { FT_MAKE_TAG( 'D', 'F', 'L', 'T' ), 0 },
-    // ### Hangul Jamo
-//     { FT_MAKE_TAG( 'j', 'a', 'm', 'o' ), 0 },
+
+// 	Unicode
+    { FT_MAKE_TAG( 'D', 'F', 'L', 'T' ), 0 },
+
+// 	Tagalog,
+    { FT_MAKE_TAG( 't', 'g', 'l', 'g' ), 0 },
+// 	Hanunoo,
+    { FT_MAKE_TAG( 'h', 'a', 'n', 'o' ), 0 },
+// 	Buhid,
+    { FT_MAKE_TAG( 'b', 'u', 'h', 'd' ), 0 },
+// 	Tagbanwa,
+    { FT_MAKE_TAG( 't', 'a', 'g', 'b' ), 0 },
+
+// 	KatakanaHalfWidth, -- can't find it, use Katakana code
+    { FT_MAKE_TAG( 'k', 'a', 'n', 'a' ), 0 },
+
+// 	Limbu,
+    { FT_MAKE_TAG( 'l', 'i', 'm', 'b' ), 0 },
+// 	TaiLe,
+    { FT_MAKE_TAG( 't', 'a', 'l', 'e' ), 0 }
 };
 
 TQOpenType::TQOpenType(TQFontEngineXft *fe)
@@ -2435,7 +2451,10 @@ TQOpenType::~TQOpenType()
 
 bool TQOpenType::checkScript(unsigned int script)
 {
-    assert(script < TQFont::NScripts);
+    if (script >= TQFont::NScripts || script >= sizeof(ot_scripts) / sizeof(OTScripts))
+    {
+      return false;
+    }
 
     uint tag = ot_scripts[script].tag;
     int requirements = ot_scripts[script].flags;
@@ -2477,7 +2496,11 @@ void TQOpenType::selectScript(unsigned int script, const Features *features)
     if (current_script == script)
         return;
 
-    assert(script < TQFont::NScripts);
+    if (script >= TQFont::NScripts || script >= sizeof(ot_scripts) / sizeof(OTScripts))
+    {
+        return;
+    }
+
     // find script in our list of supported scripts.
     uint tag = ot_scripts[script].tag;
 
@@ -2610,14 +2633,14 @@ bool TQOpenType::shape(TQShaperItem *item, const unsigned int *properties)
 bool TQOpenType::positionAndAdd(TQShaperItem *item, bool doLogClusters)
 {
     if (gpos) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         Q_ASSERT(fontEngine->type() == TQFontEngine::Xft);
         face = lockFTFace(static_cast<TQFontEngineXft *>(fontEngine)->font());
 #endif
         memset(otl_buffer->positions, 0, otl_buffer->in_length*sizeof(OTL_PositionRec));
         // #### check that passing "FALSE,FALSE" is correct
         TT_GPOS_Apply_String(face, gpos, loadFlags, otl_buffer, FALSE, FALSE);
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         unlockFTFace(static_cast<TQFontEngineXft *>(fontEngine)->font());
 #endif
     }

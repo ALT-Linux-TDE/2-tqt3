@@ -163,7 +163,7 @@ toolbar buttons stay in sync and saves duplicating code.
 <p> <pre>        fileNewAction = new <a href="ntqaction.html">TQAction</a>(
                 "New Chart", TQPixmap( file_new ),
                 "&amp;New", CTRL+Key_N, this, "new" );
-        <a href="ntqobject.html#connect">connect</a>( fileNewAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, SLOT( fileNew() ) );
+        <a href="ntqobject.html#connect">connect</a>( fileNewAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileNew() ) );
 </pre>
 <p> When we construct an action we give it a name, an optional icon, a
 menu text, and an accelerator short-cut key (or 0 if no accelerator is
@@ -257,8 +257,8 @@ the settings. We attempt to read each possible file entry ("File1" to
 "File9"), and add each non-empty entry to the list of recently used
 files. If there are one or more recently used files we update the File
 menu by calling updateRecentFilesMenu(); (we'll review this later on).
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( chartGroup, SIGNAL( <a href="qactiongroup.html#selected">selected</a>(TQAction*) ),
-                 this, SLOT( updateChartType(TQAction*) ) );
+<p> <pre>        <a href="ntqobject.html#connect">connect</a>( chartGroup, TQ_SIGNAL( <a href="qactiongroup.html#selected">selected</a>(TQAction*) ),
+                 this, TQ_SLOT( updateChartType(TQAction*) ) );
 </pre>
 <p> Now that we have set the chart type (when we read it in as a user
 setting) it is safe to connect the chart group to our
@@ -442,7 +442,7 @@ opened files list and call fileSave() (covered in <a href="tutorial2-07.html">Fi
             if ( i &lt; int(m_recentFiles.count()) )
                 fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQString( "&amp;%1 %2" ).
                                         arg( i + 1 ).arg( m_recentFiles[i] ),
-                                      this, SLOT( fileOpenRecent(int) ),
+                                      this, TQ_SLOT( fileOpenRecent(int) ),
                                       0, i );
         }
     }

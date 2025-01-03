@@ -17,7 +17,7 @@ QSqlError \- SQL database error information
 .BI "enum \fBType\fR { None, Connection, Statement, Transaction, Unknown }"
 .br
 .ti -1c
-.BI "\fBQSqlError\fR ( const QString & driverText = QString::null, const QString & databaseText = QString::null, int type = QSqlError::None, int number = -1 )"
+.BI "\fBQSqlError\fR ( const TQString & driverText = TQString::null, const TQString & databaseText = TQString::null, int type = QSqlError::None, int number = -1 )"
 .br
 .ti -1c
 .BI "\fBQSqlError\fR ( const QSqlError & other )"
@@ -29,16 +29,16 @@ QSqlError \- SQL database error information
 .BI "virtual \fB~QSqlError\fR ()"
 .br
 .ti -1c
-.BI "QString \fBdriverText\fR () const"
+.BI "TQString \fBdriverText\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetDriverText\fR ( const QString & driverText )"
+.BI "virtual void \fBsetDriverText\fR ( const TQString & driverText )"
 .br
 .ti -1c
-.BI "QString \fBdatabaseText\fR () const"
+.BI "TQString \fBdatabaseText\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetDatabaseText\fR ( const QString & databaseText )"
+.BI "virtual void \fBsetDatabaseText\fR ( const TQString & databaseText )"
 .br
 .ti -1c
 .BI "int \fBtype\fR () const"
@@ -53,10 +53,10 @@ QSqlError \- SQL database error information
 .BI "virtual void \fBsetNumber\fR ( int number )"
 .br
 .ti -1c
-.BI "QString \fBtext\fR () const"
+.BI "TQString \fBtext\fR () const"
 .br
 .ti -1c
-.BI "void showMessage ( const QString & msg = QString::null ) const  \fI(obsolete)\fR"
+.BI "void showMessage ( const TQString & msg = TQString::null ) const  \fI(obsolete)\fR"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -79,35 +79,35 @@ This enum type describes the type of SQL error that occurred.
 .TP
 \fCQSqlError::Unknown\fR - unknown error
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlError::QSqlError ( const QString & driverText = QString::null, const QString & databaseText = QString::null, int type = QSqlError::None, int number = -1 )"
+.SH "QSqlError::QSqlError ( const TQString & driverText = TQString::null, const TQString & databaseText = TQString::null, int type = QSqlError::None, int number = -1 )"
 Constructs an error containing the driver error text \fIdriverText\fR, the database-specific error text \fIdatabaseText\fR, the type \fItype\fR and the optional error number \fInumber\fR.
 .SH "QSqlError::QSqlError ( const QSqlError & other )"
 Creates a copy of \fIother\fR.
 .SH "QSqlError::~QSqlError ()\fC [virtual]\fR"
 Destroys the object and frees any allocated resources.
-.SH "QString QSqlError::databaseText () const"
+.SH "TQString QSqlError::databaseText () const"
 Returns the text of the error as reported by the database. This may contain database-specific descriptions.
-.SH "QString QSqlError::driverText () const"
+.SH "TQString QSqlError::driverText () const"
 Returns the text of the error as reported by the driver. This may contain database-specific descriptions.
 .SH "int QSqlError::number () const"
 Returns the database-specific error number, or -1 if it cannot be determined.
 .SH "QSqlError & QSqlError::operator= ( const QSqlError & other )"
 Sets the error equal to \fIother\fR.
-.SH "void QSqlError::setDatabaseText ( const QString & databaseText )\fC [virtual]\fR"
+.SH "void QSqlError::setDatabaseText ( const TQString & databaseText )\fC [virtual]\fR"
 Sets the database error text to the value of \fIdatabaseText\fR.
-.SH "void QSqlError::setDriverText ( const QString & driverText )\fC [virtual]\fR"
+.SH "void QSqlError::setDriverText ( const TQString & driverText )\fC [virtual]\fR"
 Sets the driver error text to the value of \fIdriverText\fR.
 .SH "void QSqlError::setNumber ( int number )\fC [virtual]\fR"
 Sets the database-specific error number to \fInumber\fR.
 .SH "void QSqlError::setType ( int type )\fC [virtual]\fR"
 Sets the error type to the value of \fItype\fR.
-.SH "void QSqlError::showMessage ( const QString & msg = QString::null ) const"
+.SH "void QSqlError::showMessage ( const TQString & msg = TQString::null ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 This is a convenience function that pops up a QMessageBox containing the message returned by text(). An additional string can be passed in via the \fImsg\fR parameter, which will be concatenated with the text() message.
 .PP
 See also text(), driverText(), and databaseText().
-.SH "QString QSqlError::text () const"
+.SH "TQString QSqlError::text () const"
 This is a convenience function that returns databaseText() and driverText() concatenated into a single string.
 .PP
 See also showMessage(), driverText(), and databaseText().
@@ -130,8 +130,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

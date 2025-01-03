@@ -41,7 +41,7 @@
 #include "ntqprinter.h"
 #include "qprinter_p.h"
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
 
 /*!
     \class TQPrinter ntqprinter.h
@@ -518,7 +518,7 @@ void TQPrinter::setCreator( const TQString &creator )
 void TQPrinter::setOrientation( Orientation orientation )
 {
     orient = orientation;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     reinit();
 #endif
 }
@@ -555,7 +555,7 @@ void TQPrinter::setPageSize( PageSize newPageSize )
         return;
     }
     page_size = newPageSize;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     reinit();
 #endif
 }
@@ -577,7 +577,7 @@ void TQPrinter::setPageSize( PageSize newPageSize )
 void TQPrinter::setPageOrder( PageOrder newPageOrder )
 {
     page_order = newPageOrder;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     reinit();
 #endif
 }
@@ -608,7 +608,7 @@ TQPrinter::PageOrder TQPrinter::pageOrder() const
 void TQPrinter::setColorMode( ColorMode newColorMode )
 {
     color_mode = newColorMode;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     reinit();
 #endif
 }
@@ -818,7 +818,7 @@ void TQPrinter::setCollateCopies(bool on)
 void TQPrinter::setNumCopies( int numCopies )
 {
     ncopies = numCopies;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     reinit();
 #endif
 }
@@ -948,7 +948,7 @@ int TQPrinter::resolution() const
 void TQPrinter::setPaperSource( PaperSource source )
 {
     paper_source = source;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     reinit();
 #endif
 }
@@ -1024,5 +1024,5 @@ bool TQPrinter::isOptionEnabled( PrinterOption option )
 {
     return d->printerOptions & ( 1 << option );
 }
-#endif // QT_NO_PRINTER
+#endif // TQT_NO_PRINTER
 

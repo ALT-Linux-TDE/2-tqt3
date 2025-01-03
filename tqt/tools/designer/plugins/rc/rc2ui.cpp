@@ -814,7 +814,7 @@ bool RC2UI::makeIcon()
 
 /*!
   Writes a stringtable from the input stream to a c++ header file.
-  All strings are assigned using QT_TR_NOOP to enable easy translation.
+  All strings are assigned using TQT_TR_NOOP to enable easy translation.
 */
 
 bool RC2UI::makeStringTable()
@@ -859,7 +859,7 @@ bool RC2UI::makeStringTable()
 	    ID = parseNext(line, ' ');
 	    value = parseNext(line).stripWhiteSpace();
 
-	    *out << "static const TQString " << ID << "= QT_TR_NOOP(" << value << ");" << endl;
+	    *out << "static const TQString " << ID << "= TQT_TR_NOOP(" << value << ");" << endl;
 
 	} while ( line != "END" );
 

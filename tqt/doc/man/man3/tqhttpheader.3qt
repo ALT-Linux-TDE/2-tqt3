@@ -22,7 +22,7 @@ Inherited by QHttpResponseHeader and QHttpRequestHeader.
 .BI "\fBQHttpHeader\fR ( const QHttpHeader & header )"
 .br
 .ti -1c
-.BI "\fBQHttpHeader\fR ( const QString & str )"
+.BI "\fBQHttpHeader\fR ( const TQString & str )"
 .br
 .ti -1c
 .BI "virtual \fB~QHttpHeader\fR ()"
@@ -31,19 +31,19 @@ Inherited by QHttpResponseHeader and QHttpRequestHeader.
 .BI "QHttpHeader & \fBoperator=\fR ( const QHttpHeader & h )"
 .br
 .ti -1c
-.BI "QString \fBvalue\fR ( const QString & key ) const"
+.BI "TQString \fBvalue\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "void \fBsetValue\fR ( const QString & key, const QString & value )"
+.BI "void \fBsetValue\fR ( const TQString & key, const TQString & value )"
 .br
 .ti -1c
-.BI "void \fBremoveValue\fR ( const QString & key )"
+.BI "void \fBremoveValue\fR ( const TQString & key )"
 .br
 .ti -1c
 .BI "QStringList \fBkeys\fR () const"
 .br
 .ti -1c
-.BI "bool \fBhasKey\fR ( const QString & key ) const"
+.BI "bool \fBhasKey\fR ( const TQString & key ) const"
 .br
 .ti -1c
 .BI "bool \fBhasContentLength\fR () const"
@@ -58,13 +58,13 @@ Inherited by QHttpResponseHeader and QHttpRequestHeader.
 .BI "bool \fBhasContentType\fR () const"
 .br
 .ti -1c
-.BI "QString \fBcontentType\fR () const"
+.BI "TQString \fBcontentType\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetContentType\fR ( const QString & type )"
+.BI "void \fBsetContentType\fR ( const TQString & type )"
 .br
 .ti -1c
-.BI "virtual QString \fBtoString\fR () const"
+.BI "virtual TQString \fBtoString\fR () const"
 .br
 .ti -1c
 .BI "bool \fBisValid\fR () const"
@@ -95,7 +95,7 @@ In the API the header field name is called the "key" and the content is called t
 .br
     header.setValue( "content-type", "text/html" );
 .br
-    QString contentType = header.value( "content-type" );
+    TQString contentType = header.value( "content-type" );
 .br
 .fi
 .PP
@@ -109,7 +109,7 @@ See also QHttpRequestHeader, QHttpResponseHeader, and Input/Output and Networkin
 Constructs an empty HTTP header.
 .SH "QHttpHeader::QHttpHeader ( const QHttpHeader & header )"
 Constructs a copy of \fIheader\fR.
-.SH "QHttpHeader::QHttpHeader ( const QString & str )"
+.SH "QHttpHeader::QHttpHeader ( const TQString & str )"
 Constructs a HTTP header for \fIstr\fR.
 .PP
 This constructor parses the string \fIstr\fR for header fields and adds this information. The \fIstr\fR should consist of one or more" \\r\\n" delimited lines; each of these lines should have the format key, colon, space, value.
@@ -119,7 +119,7 @@ Destructor.
 Returns the value of the special HTTP header field \fCcontent-length\fR.
 .PP
 See also setContentLength() and hasContentLength().
-.SH "QString QHttpHeader::contentType () const"
+.SH "TQString QHttpHeader::contentType () const"
 Returns the value of the special HTTP header field \fCcontent-type\fR.
 .PP
 See also setContentType() and hasContentType().
@@ -131,7 +131,7 @@ See also contentLength() and setContentLength().
 Returns TRUE if the header has an entry for the the special HTTP header field \fCcontent-type\fR; otherwise returns FALSE.
 .PP
 See also contentType() and setContentType().
-.SH "bool QHttpHeader::hasKey ( const QString & key ) const"
+.SH "bool QHttpHeader::hasKey ( const TQString & key ) const"
 Returns TRUE if the HTTP header has an entry with the given \fIkey\fR; otherwise returns FALSE.
 .PP
 See also value(), setValue(), and keys().
@@ -153,7 +153,7 @@ Returns the minor protocol-version of the HTTP header.
 Reimplemented in QHttpResponseHeader and QHttpRequestHeader.
 .SH "QHttpHeader & QHttpHeader::operator= ( const QHttpHeader & h )"
 Assigns \fIh\fR and returns a reference to this http header.
-.SH "void QHttpHeader::removeValue ( const QString & key )"
+.SH "void QHttpHeader::removeValue ( const TQString & key )"
 Removes the entry with the key \fIkey\fR from the HTTP header.
 .PP
 See also value() and setValue().
@@ -161,13 +161,13 @@ See also value() and setValue().
 Sets the value of the special HTTP header field \fCcontent-length\fR to \fIlen\fR.
 .PP
 See also contentLength() and hasContentLength().
-.SH "void QHttpHeader::setContentType ( const QString & type )"
+.SH "void QHttpHeader::setContentType ( const TQString & type )"
 Sets the value of the special HTTP header field \fCcontent-type\fR to \fItype\fR.
 .PP
 See also contentType() and hasContentType().
 .PP
 Example: network/archivesearch/archivedialog.ui.h.
-.SH "void QHttpHeader::setValue ( const QString & key, const QString & value )"
+.SH "void QHttpHeader::setValue ( const TQString & key, const TQString & value )"
 Sets the value of the entry with the \fIkey\fR to \fIvalue\fR.
 .PP
 If no entry with \fIkey\fR exists, a new entry with the given \fIkey\fR and \fIvalue\fR is created. If an entry with the \fIkey\fR already exists, its value is discarded and replaced with the given \fIvalue\fR.
@@ -175,11 +175,11 @@ If no entry with \fIkey\fR exists, a new entry with the given \fIkey\fR and \fIv
 See also value(), hasKey(), and removeValue().
 .PP
 Example: network/archivesearch/archivedialog.ui.h.
-.SH "QString QHttpHeader::toString () const\fC [virtual]\fR"
+.SH "TQString QHttpHeader::toString () const\fC [virtual]\fR"
 Returns a string representation of the HTTP header.
 .PP
-The string is suitable for use by the constructor that takes a QString. It consists of lines with the format: key, colon, space, value, "\\r\\n".
-.SH "QString QHttpHeader::value ( const QString & key ) const"
+The string is suitable for use by the constructor that takes a TQString. It consists of lines with the format: key, colon, space, value, "\\r\\n".
+.SH "TQString QHttpHeader::value ( const TQString & key ) const"
 Returns the value for the entry with the given \fIkey\fR. If no entry has this \fIkey\fR, an empty string is returned.
 .PP
 See also setValue(), removeValue(), hasKey(), and keys().
@@ -198,8 +198,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -45,9 +45,9 @@
 #include "ntqhbox.h"
 #endif // QT_H
 
-#ifndef QT_NO_VBOX
+#ifndef TQT_NO_VBOX
 
-class Q_EXPORT TQVBox : public TQHBox
+class TQ_EXPORT TQVBox : public TQHBox
 {
     TQ_OBJECT
 public:
@@ -60,6 +60,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_VBOX
+#endif // TQT_NO_VBOX
 
 #endif // TQVBOX_H

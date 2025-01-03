@@ -55,7 +55,7 @@
 #endif // QT_H
 
 
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
 
 #if !defined( TQT_MODULE_TABLE ) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_TABLE )
 #define TQM_EXPORT_TABLE
@@ -63,7 +63,7 @@
 #   define TQM_TEMPLATE_EXTERN_TABLE
 #endif
 #else
-#define TQM_EXPORT_TABLE Q_EXPORT
+#define TQM_EXPORT_TABLE TQ_EXPORT
 #define TQM_TEMPLATE_EXTERN_TABLE Q_TEMPLATE_EXTERN
 #endif
 
@@ -423,7 +423,7 @@ protected:
     void showEvent( TQShowEvent *e );
     void paintEvent( TQPaintEvent *e );
     void setEditMode( EditMode mode, int row, int col );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual void contentsDragEnterEvent( TQDragEnterEvent *e );
     virtual void contentsDragMoveEvent( TQDragMoveEvent *e );
     virtual void contentsDragLeaveEvent( TQDragLeaveEvent *e );
@@ -464,7 +464,7 @@ signals:
     void selectionChanged();
     void valueChanged( int row, int col );
     void contextMenuRequested( int row, int col, const TQPoint &pos );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void dropped( TQDropEvent *e );
 #endif
 
@@ -560,5 +560,5 @@ private:
 
 #define Q_DEFINED_QTABLE
 #include "ntqwinexport.h"
-#endif // QT_NO_TABLE
+#endif // TQT_NO_TABLE
 #endif // TABLE_H

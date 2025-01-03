@@ -202,7 +202,7 @@ private:
     // Create a button group to contain all buttons
     bgroup = new <a href="ntqbuttongroup.html">TQButtonGroup</a>( this );
 <a name="x1088"></a>    bgroup-&gt;<a href="ntqwidget.html#resize">resize</a>( 200, 200 );
-<a name="x1062"></a>    <a href="ntqobject.html#connect">connect</a>( bgroup, SIGNAL(<a href="ntqbuttongroup.html#clicked">clicked</a>(int)), SLOT(updateIt(int)) );
+<a name="x1062"></a>    <a href="ntqobject.html#connect">connect</a>( bgroup, TQ_SIGNAL(<a href="ntqbuttongroup.html#clicked">clicked</a>(int)), TQ_SLOT(updateIt(int)) );
 
     // Calculate the size for the radio buttons
     int maxwidth = 80;
@@ -251,7 +251,7 @@ private:
 // If -- at compile time -- printer support will be disabled,
 // we won't set up printing functionality.
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
 
     printer = new <a href="ntqprinter.html">TQPrinter</a>;
 
@@ -259,7 +259,7 @@ private:
     print = new <a href="ntqpushbutton.html">TQPushButton</a>( "Print...", bgroup );
 <a name="x1081"></a>    print-&gt;<a href="ntqwidget.html#resize">resize</a>( 80, 30 );
 <a name="x1093"></a><a name="x1080"></a>    print-&gt;<a href="ntqwidget.html#move">move</a>( maxwidth/2 - print-&gt;<a href="ntqwidget.html#width">width</a>()/2, maxindex*30+20 );
-    <a href="ntqobject.html#connect">connect</a>( print, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SLOT(printIt()) );
+    <a href="ntqobject.html#connect">connect</a>( print, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(printIt()) );
 
     // Resize bgroup to its final size when printersupport is given.
 <a name="x1094"></a><a name="x1085"></a>    bgroup-&gt;<a href="ntqwidget.html#resize">resize</a>( maxwidth, print-&gt;<a href="ntqwidget.html#y">y</a>()+print-&gt;<a href="ntqwidget.html#height">height</a>()+10 );
@@ -274,7 +274,7 @@ private:
 //
 DrawView::~DrawView()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     delete printer;
 #endif
 }

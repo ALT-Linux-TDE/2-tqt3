@@ -90,7 +90,7 @@
 
     Creates a copy of the TQUuid \a orig.
 */
-#ifndef QT_NO_QUUID_STRING
+#ifndef TQT_NO_QUUID_STRING
 /*!
     Creates a TQUuid object from the string \a text. The function can
     only convert a string in the format
@@ -172,7 +172,7 @@ TQUuid::TQUuid( const char *text )
     Returns TRUE if this TQUuid and the \a other TQUuid are different;
     otherwise returns FALSE.
 */
-#ifndef QT_NO_QUUID_STRING
+#ifndef TQT_NO_QUUID_STRING
 /*!
     \fn TQUuid::operator TQString() const
 
@@ -202,7 +202,7 @@ TQString TQUuid::toString() const
 }
 #endif
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQUuid
     Writes the uuid \a id to the datastream \a s.

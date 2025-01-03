@@ -59,13 +59,13 @@ This class is part of the \fBQt Netscape Extension\fR.
 .br
 .in -1c
 .SH DESCRIPTION
-This class is defined in the \fBQt Netscape Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main Qt API.
+This class is defined in the \fBQt Netscape Extension\fR, which can be found in the \fCqt/extensions\fR directory. It is not included in the main TQt API.
 .PP
 The QNPlugin class provides the main factory for plugin objects.
 .PP
 This class is the heart of the plugin. One instance of this object is created when the plugin is \fIfirst\fR needed, by calling QNPlugin::create(), which must be implemented in your plugin code to return some derived class of QNPlugin. The one QNPlugin object creates all QNPInstance instances for a web browser running in a single process.
 .PP
-Additionally, if Qt is linked to the plugin as a dynamic library, only one instance of QApplication will exist \fIacross all plugins that have been made with Qt\fR. So, your plugin should tread lightly on global settings. Do not, for example, use QApplication::setFont() - that will change the font in every widget of every Qt-based plugin currently loaded!
+Additionally, if TQt is linked to the plugin as a dynamic library, only one instance of QApplication will exist \fIacross all plugins that have been made with Qt\fR. So, your plugin should tread lightly on global settings. Do not, for example, use QApplication::setFont() - that will change the font in every widget of every Qt-based plugin currently loaded!
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QNPlugin::QNPlugin ()\fC [protected]\fR"
 Creates a QNPlugin. This may only be used by the constructor of the class, derived from QNPlugin, that is returned by your plugin's implementation of the QNPlugin::create() function.
@@ -145,8 +145,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

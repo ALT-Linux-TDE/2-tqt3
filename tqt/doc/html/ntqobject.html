@@ -279,21 +279,21 @@ definition lacks the <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a> macro.
 Connects <em>signal</em> from the <em>sender</em> object to <em>member</em> in object
 <em>receiver</em>, and returns TRUE if the connection succeeds; otherwise
 returns FALSE.
-<p> You must use the SIGNAL() and SLOT() macros when specifying the <em>signal</em>
+<p> You must use the TQ_SIGNAL() and TQ_SLOT() macros when specifying the <em>signal</em>
 and the <em>member</em>, for example:
 <pre>
     <a href="ntqlabel.html">TQLabel</a>     *label  = new <a href="ntqlabel.html">TQLabel</a>;
     <a href="ntqscrollbar.html">TQScrollBar</a> *scroll = new <a href="ntqscrollbar.html">TQScrollBar</a>;
-    TQObject::<a href="#connect">connect</a>( scroll, SIGNAL(<a href="ntqscrollbar.html#valueChanged">valueChanged</a>(int)),
-                      label,  SLOT(<a href="ntqlabel.html#setNum">setNum</a>(int)) );
+    TQObject::<a href="#connect">connect</a>( scroll, TQ_SIGNAL(<a href="ntqscrollbar.html#valueChanged">valueChanged</a>(int)),
+                      label,  TQ_SLOT(<a href="ntqlabel.html#setNum">setNum</a>(int)) );
     </pre>
  
 <p> This example ensures that the label always displays the current
 scroll bar value. Note that the signal and slots parameters must not
 contain any variable names, only the type. E.g. the following would
 not work and return FALSE:
-<a href="#connect">TQObject::connect</a>( scroll, SIGNAL(valueChanged(int v)),
-label,  SLOT(setNum(int v)) );
+<a href="#connect">TQObject::connect</a>( scroll, TQ_SIGNAL(valueChanged(int v)),
+label,  TQ_SLOT(setNum(int v)) );
 <p> A signal can also be connected to another signal:
 <p> <pre>
     class MyWidget : public <a href="ntqwidget.html">TQWidget</a>
@@ -312,7 +312,7 @@ label,  SLOT(setNum(int v)) );
     MyWidget::MyWidget()
     {
         aButton = new <a href="ntqpushbutton.html">TQPushButton</a>( this );
-        <a href="#connect">connect</a>( aButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), SIGNAL(myUsefulSignal()) );
+        <a href="#connect">connect</a>( aButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SIGNAL(myUsefulSignal()) );
     }
     </pre>
  
@@ -408,12 +408,12 @@ equivalent to the non-static overloaded function
  
 <li> Disconnect everything connected to a specific signal:
 <pre>
-       <a href="#disconnect">disconnect</a>( myObject, SIGNAL(mySignal()), 0, 0 );
+       <a href="#disconnect">disconnect</a>( myObject, TQ_SIGNAL(mySignal()), 0, 0 );
        </pre>
  
 equivalent to the non-static overloaded function
 <pre>
-       myObject-&gt;disconnect( SIGNAL(mySignal()) );
+       myObject-&gt;disconnect( TQ_SIGNAL(mySignal()) );
        </pre>
  
 <li> Disconnect a specific receiver:

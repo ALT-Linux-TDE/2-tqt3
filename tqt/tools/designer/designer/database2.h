@@ -36,7 +36,7 @@
 
 #include "ntqfeatures.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include <ntqdataview.h>
 #include <ntqdatabrowser.h>
 #include <ntqsqlcursor.h>

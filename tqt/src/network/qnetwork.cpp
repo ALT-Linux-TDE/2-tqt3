@@ -40,7 +40,7 @@
 
 #include "ntqnetwork.h"
 
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 
 #include "ntqnetworkprotocol.h"
 
@@ -60,12 +60,12 @@
 */
 void tqInitNetworkProtocols()
 {
-#ifndef QT_NO_NETWORKPROTOCOL_FTP
+#ifndef TQT_NO_NETWORKPROTOCOL_FTP
     TQNetworkProtocol::registerNetworkProtocol( "ftp", new TQNetworkProtocolFactory< TQFtp > );
 #endif
-#ifndef QT_NO_NETWORKPROTOCOL_HTTP
+#ifndef TQT_NO_NETWORKPROTOCOL_HTTP
     TQNetworkProtocol::registerNetworkProtocol( "http", new TQNetworkProtocolFactory< TQHttp > );
 #endif
 }
 
-#endif // QT_NO_NETWORK
+#endif // TQT_NO_NETWORK

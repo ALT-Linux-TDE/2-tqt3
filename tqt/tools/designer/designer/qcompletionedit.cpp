@@ -52,8 +52,8 @@ TQCompletionEdit::TQCompletionEdit( TQWidget *parent, const char *name )
     listbox->setHScrollBarMode( TQScrollView::AlwaysOn );
     listbox->setVScrollBarMode( TQScrollView::AlwaysOn );
     listbox->setCornerWidget( new TQSizeGrip( listbox, "completion sizegrip" ) );
-    connect( this, SIGNAL( textChanged( const TQString & ) ),
-	     this, SLOT( textDidChange( const TQString & ) ) );
+    connect( this, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SLOT( textDidChange( const TQString & ) ) );
     popup->setFocusProxy( listbox );
     installEventFilter( this );
 }

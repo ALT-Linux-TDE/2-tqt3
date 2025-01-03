@@ -96,7 +96,7 @@ TQTetrix::TQTetrix( TQWidget *parent, const char *name )
 
     board       = new TQTetrixBoard(this);
     showNext    = new ShowNextPiece(this);
-#ifndef QT_NO_LCDNUMBER
+#ifndef TQT_NO_LCDNUMBER
     showScore   = new TQLCDNumber(5,this);
     showLevel   = new TQLCDNumber(2,this);
     showLines   = new TQLCDNumber(5,this);
@@ -120,35 +120,35 @@ TQTetrix::TQTetrix( TQWidget *parent, const char *name )
     startButton->setFocusPolicy( TQWidget::NoFocus );
     pauseButton->setFocusPolicy( TQWidget::NoFocus );
 
-    connect( board, SIGNAL(gameOverSignal()), SLOT(gameOver()) );
-    connect( board, SIGNAL(drawNextSquareSignal(int,int,TQColor*)), showNext,
-	     SLOT(drawNextSquare(int,int,TQColor*)) );
-    connect( showNext, SIGNAL(update()), board, SLOT(updateNext()) );
-#ifndef QT_NO_LCDNUMBER
-    connect( board, SIGNAL(updateScoreSignal(int)), showScore,
-	     SLOT(display(int)) );
-    connect( board, SIGNAL(updateLevelSignal(int)), showLevel,
-	     SLOT(display(int)));
-    connect( board, SIGNAL(updateRemovedSignal(int)), showLines,
-	     SLOT(display(int)));
+    connect( board, TQ_SIGNAL(gameOverSignal()), TQ_SLOT(gameOver()) );
+    connect( board, TQ_SIGNAL(drawNextSquareSignal(int,int,TQColor*)), showNext,
+	     TQ_SLOT(drawNextSquare(int,int,TQColor*)) );
+    connect( showNext, TQ_SIGNAL(update()), board, TQ_SLOT(updateNext()) );
+#ifndef TQT_NO_LCDNUMBER
+    connect( board, TQ_SIGNAL(updateScoreSignal(int)), showScore,
+	     TQ_SLOT(display(int)) );
+    connect( board, TQ_SIGNAL(updateLevelSignal(int)), showLevel,
+	     TQ_SLOT(display(int)));
+    connect( board, TQ_SIGNAL(updateRemovedSignal(int)), showLines,
+	     TQ_SLOT(display(int)));
 #else
-    connect( board, SIGNAL(updateScoreSignal(int)), showScore,
-	     SLOT(setNum(int)) );
-    connect( board, SIGNAL(updateLevelSignal(int)), showLevel,
-	     SLOT(setNum(int)));
-    connect( board, SIGNAL(updateRemovedSignal(int)), showLines,
-	     SLOT(setNum(int)));
+    connect( board, TQ_SIGNAL(updateScoreSignal(int)), showScore,
+	     TQ_SLOT(setNum(int)) );
+    connect( board, TQ_SIGNAL(updateLevelSignal(int)), showLevel,
+	     TQ_SLOT(setNum(int)));
+    connect( board, TQ_SIGNAL(updateRemovedSignal(int)), showLines,
+	     TQ_SLOT(setNum(int)));
 #endif
-    connect( startButton, SIGNAL(clicked()), board, SLOT(start()) );
-    connect( quitButton , SIGNAL(clicked()), SLOT(quit()));
-    connect( pauseButton, SIGNAL(clicked()), board, SLOT(pause()) );
+    connect( startButton, TQ_SIGNAL(clicked()), board, TQ_SLOT(start()) );
+    connect( quitButton , TQ_SIGNAL(clicked()), TQ_SLOT(quit()));
+    connect( pauseButton, TQ_SIGNAL(clicked()), board, TQ_SLOT(pause()) );
 
     board->setGeometry( 150, 20, 153, 333 );
     showNext->setGeometry( 50, 40, 78, 94 );
     showScore->setGeometry( 330, 40, 178, 93 );
     showLevel->setGeometry( 50, 160, 78, 93 );
     showLines->setGeometry( 330, 160, 178, 93 );
-#ifndef QT_NO_LCDNUMBER
+#ifndef TQT_NO_LCDNUMBER
     showScore->display( 0 );
     showLevel->display( 0 );
     showLines->display( 0 );

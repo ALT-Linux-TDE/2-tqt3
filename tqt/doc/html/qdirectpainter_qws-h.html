@@ -79,9 +79,9 @@ body { background: #ffffff; color: black; }
 #include "ntqpainter.h"
 #endif // QT_H
 
-#ifdef Q_WS_QWS
-#ifndef QT_NO_DIRECTPAINTER
-class Q_EXPORT TQDirectPainter : public TQPainter {
+#ifdef TQ_WS_QWS
+#ifndef TQT_NO_DIRECTPAINTER
+class TQ_EXPORT TQDirectPainter : public TQPainter {
 public:
     TQDirectPainter( const TQWidget* );
     ~TQDirectPainter();

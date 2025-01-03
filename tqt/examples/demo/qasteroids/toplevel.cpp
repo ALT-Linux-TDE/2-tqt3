@@ -80,10 +80,10 @@ KAstTopLevel::KAstTopLevel( TQWidget *parent, const char *name )
 
     view = new KAsteroidsView( mainWin );
     view->setFocusPolicy( StrongFocus );
-    connect( view, SIGNAL( shipKilled() ), SLOT( slotShipKilled() ) );
-    connect( view, SIGNAL( rockHit(int) ), SLOT( slotRockHit(int) ) );
-    connect( view, SIGNAL( rocksRemoved() ), SLOT( slotRocksRemoved() ) );
-    connect( view, SIGNAL( updateVitals() ), SLOT( slotUpdateVitals() ) );
+    connect( view, TQ_SIGNAL( shipKilled() ), TQ_SLOT( slotShipKilled() ) );
+    connect( view, TQ_SIGNAL( rockHit(int) ), TQ_SLOT( slotRockHit(int) ) );
+    connect( view, TQ_SIGNAL( rocksRemoved() ), TQ_SLOT( slotRocksRemoved() ) );
+    connect( view, TQ_SIGNAL( updateVitals() ), TQ_SLOT( slotUpdateVitals() ) );
 
     TQVBoxLayout *vb = new TQVBoxLayout( mainWin );
     TQHBoxLayout *hb = new TQHBoxLayout;

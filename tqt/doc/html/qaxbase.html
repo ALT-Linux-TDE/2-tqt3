@@ -94,7 +94,7 @@ through its IUnknown implementation. If the COM object implements
 the IDispatch interface, the properties and methods of that object
 become available as TQt properties and slots.
 <p> <pre>
-    connect( buttonBack, SIGNAL(clicked()), webBrowser, SLOT(GoBack()) );
+    connect( buttonBack, TQ_SIGNAL(clicked()), webBrowser, TQ_SLOT(GoBack()) );
     </pre>
  
 <p> Properties exposed by the object's IDispatch implementation can be
@@ -116,8 +116,8 @@ object's IDispatch implementation can be called directly using
 <p> Outgoing events supported by the COM object are emitted as
 standard TQt signals.
 <p> <pre>
-    connect( webBrowser, SIGNAL(TitleChanged(const <a href="ntqstring.html">TQString</a>&amp;)),
-             this, SLOT(setCaption(const <a href="ntqstring.html">TQString</a>&amp;)) );
+    connect( webBrowser, TQ_SIGNAL(TitleChanged(const <a href="ntqstring.html">TQString</a>&amp;)),
+             this, TQ_SLOT(setCaption(const <a href="ntqstring.html">TQString</a>&amp;)) );
     </pre>
  
 <p> TQAxBase transparently converts between COM data types and the
@@ -243,7 +243,7 @@ use the TQAxBase API like this:
     <a href="ntqstring.html">TQString</a> text = object.<a href="ntqobject.html#property">property</a>( "text" ).toString();
     object.<a href="ntqobject.html#setProperty">setProperty</a>( "font", TQFont( "Times New Roman", 12 ) );
 
-    connect( this, SIGNAL(clicked(int)), &amp;object, SLOT(showColumn(int)) );
+    connect( this, TQ_SIGNAL(clicked(int)), &amp;object, TQ_SLOT(showColumn(int)) );
     bool ok = object.<a href="#dynamicCall">dynamicCall</a>( "addColumn(const <a href="ntqstring.html">TQString</a>&amp;)", "Column 1" ).toBool();
 
     <a href="ntqvaluelist.html">TQValueList</a>&lt;TQVariant&gt; varlist;

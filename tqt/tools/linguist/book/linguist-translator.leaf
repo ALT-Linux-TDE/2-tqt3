@@ -3,10 +3,10 @@
 \img linguist.png
 \caption Linguist Main Window
 
-\section1 The One Minute Guide to Using Qt Linguist
+\section1 The One Minute Guide to Using TQt Linguist
 
 \index Linguist
-\index Qt Linguist
+\index TQt Linguist
 \index Contexts!for Translation
 
 \e {Qt Linguist} is a tool for adding translations to Qt
@@ -45,7 +45,7 @@ phrase or guess to move it into the Translation area.) At the end of
 the session choose \Menu File|Save from the menu bar and then
 \Menu File|Exit to quit.
 
-\section1 Qt Linguist's Main Window
+\section1 TQt Linguist's Main Window
 
 \section2 Context List
 
@@ -111,8 +111,8 @@ translation of the source text.
 
 \section2 Phrases and Guesses Area
 
-\index Phrases!in Qt Linguist
-\index Guesses!in Qt Linguist
+\index Phrases!in TQt Linguist
+\index Guesses!in TQt Linguist
 
 This area appears at the bottom right of the main window by default.
 When you move to a new phrase if the phrase is in one of the phrase
@@ -249,7 +249,7 @@ in the Phrases and guesses area.
 
 \section1 Creating and Using Phrase Books
 
-\index Phrases!in Qt Linguist
+\index Phrases!in TQt Linguist
 \index Phrase Books
 
 \img phrasebookdialog.png
@@ -336,7 +336,7 @@ appear in the application. Invalid phrases and phrases which are
 translated but not marked as done are kept in the translation source
 file but are not used by the application.
 
-\section1 Qt Linguist Reference
+\section1 TQt Linguist Reference
 
 \section2 File Types
 
@@ -345,9 +345,9 @@ file but are not used by the application.
 \index .ts Files
 \index Translation Source Files
 \index .qm Files
-\index Qt Message Files
+\index TQt Message Files
 \index .qph Files
-\index Qt Phrase Book Files
+\index TQt Phrase Book Files
 
 \list
 \i \c .ts \e {translation source files} \BR are human-readable XML
@@ -379,7 +379,7 @@ number of projects and applications.
     current translation source \c .ts file may be saved with a different
     name and/or put in a different location.
     \i \e {Release...} \BR pops up a save as file dialog. The
-    filename entered will be a Qt message \c .qm file of the translation
+    filename entered will be a TQt message \c .qm file of the translation
     based on the current translation source file. The release manager's
     command line tool \l lrelease performs the same function on
     \e all of an application's translation source files.

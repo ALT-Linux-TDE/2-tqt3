@@ -37,7 +37,7 @@
 **********************************************************************/
 
 #include "qgpluginmanager_p.h"
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 #include "qcomlibrary_p.h"
 #include "ntqmap.h"
 #include "ntqdir.h"
@@ -549,4 +549,4 @@ TQRESULT TQGPluginManager::queryUnknownInterface(const TQString& feature, TQUnkn
     return plugin ? plugin->queryInterface( interfaceId, (TQUnknownInterface**)iface ) : TQE_NOINTERFACE;
 }
 
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT

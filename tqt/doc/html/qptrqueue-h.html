@@ -123,7 +123,7 @@ template&lt;class type&gt; inline void TQPtrQueue&lt;type&gt;::deleteItem( TQPtr
     if ( del_item ) delete (type *)d;
 }
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 #define TQQueue TQPtrQueue
 #endif
 

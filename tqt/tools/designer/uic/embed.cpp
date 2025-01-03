@@ -43,8 +43,8 @@
 // on embedded, we do not compress image data. Rationale: by mapping
 // the ready-only data directly into memory we are both faster and
 // more memory efficient
-#if defined(Q_WS_QWS) && !defined(QT_NO_IMAGE_COLLECTION_COMPRESSION)
-#define QT_NO_IMAGE_COLLECTION_COMPRESSION
+#if defined(TQ_WS_QWS) && !defined(TQT_NO_IMAGE_COLLECTION_COMPRESSION)
+#define TQT_NO_IMAGE_COLLECTION_COMPRESSION
 #endif
 
 struct EmbedImage
@@ -56,7 +56,7 @@ struct EmbedImage
     TQString name;
     TQString cname;
     bool alpha;
-#ifndef QT_NO_IMAGE_COLLECTION_COMPRESSION
+#ifndef TQT_NO_IMAGE_COLLECTION_COMPRESSION
     ulong compressed;
 #endif
 };
@@ -77,7 +77,7 @@ static TQString convertToCIdentifier( const char *s )
 
 static ulong embedData( TQTextStream& out, const uchar* input, int nbytes )
 {
-#ifndef QT_NO_IMAGE_COLLECTION_COMPRESSION
+#ifndef TQT_NO_IMAGE_COLLECTION_COMPRESSION
     TQByteArray bazip( tqCompress( input, nbytes ) );
     ulong len = bazip.size();
 #else
@@ -92,7 +92,7 @@ static ulong embedData( TQTextStream& out, const uchar* input, int nbytes )
 	    s.truncate( 0 );
 	}
 	uint v = (uchar)
-#ifndef QT_NO_IMAGE_COLLECTION_COMPRESSION
+#ifndef TQT_NO_IMAGE_COLLECTION_COMPRESSION
 		 bazip
 #else
 		 input
@@ -137,7 +137,7 @@ void Uic::embed( TQTextStream& out, const char* project, const TQStringList& ima
     for ( it = images.begin(); it != images.end(); ++it )
 	out << "**      " << *it << "\n";
     out << "**\n";
-    out << "** Created: " << TQDateTime::currentDateTime().toString() << "\n";
+    out << "** Created by: The TQt user interface compiler (TQt " << TQT_VERSION_STR << ")\n";
     out << "**\n";
     out << "** WARNING! All changes made in this file will be lost!\n";
     out << "****************************************************************************/\n";
@@ -176,7 +176,7 @@ void Uic::embed( TQTextStream& out, const char* project, const TQStringList& ima
 	    img = img.convertBitOrder(TQImage::BigEndian);
 	out << s.sprintf( "static const unsigned char %s_data[] = {",
 			  (const char *)e->cname );
-#ifndef QT_NO_IMAGE_COLLECTION_COMPRESSION
+#ifndef TQT_NO_IMAGE_COLLECTION_COMPRESSION
 	e->compressed =
 #endif
 	    embedData( out, img.bits(), img.numBytes() );
@@ -193,7 +193,7 @@ void Uic::embed( TQTextStream& out, const char* project, const TQStringList& ima
 	out << "static struct EmbedImage {\n"
 	    "    int width, height, depth;\n"
 	    "    const unsigned char *data;\n"
-#ifndef QT_NO_IMAGE_COLLECTION_COMPRESSION
+#ifndef TQT_NO_IMAGE_COLLECTION_COMPRESSION
 	    "    ulong compressed;\n"
 #endif
 	    "    int numColors;\n"
@@ -208,7 +208,7 @@ void Uic::embed( TQTextStream& out, const char* project, const TQStringList& ima
 		<< e->height << ", "
 		<< e->depth << ", "
 		<< "(const unsigned char*)" << e->cname << "_data, "
-#ifndef QT_NO_IMAGE_COLLECTION_COMPRESSION
+#ifndef TQT_NO_IMAGE_COLLECTION_COMPRESSION
 		<< e->compressed << ", "
 #endif
 		<< e->numColors << ", ";
@@ -223,7 +223,7 @@ void Uic::embed( TQTextStream& out, const char* project, const TQStringList& ima
 	    out << "\"" << e->name << "\" },\n";
 	    e = list_image.next();
 	}
-#ifndef QT_NO_IMAGE_COLLECTION_COMPRESSION
+#ifndef TQT_NO_IMAGE_COLLECTION_COMPRESSION
 	out << "    { 0, 0, 0, 0, 0, 0, 0, 0, 0 }\n};\n";
 #else
 	out << "    { 0, 0, 0, 0, 0, 0, 0, 0 }\n};\n";
@@ -234,7 +234,7 @@ void Uic::embed( TQTextStream& out, const char* project, const TQStringList& ima
 	    "{\n"
 	    "    for ( int i=0; embed_image_vec[i].data; i++ ) {\n"
 	    "	if ( TQString::fromUtf8(embed_image_vec[i].name) == name ) {\n"
-#ifndef QT_NO_IMAGE_COLLECTION_COMPRESSION
+#ifndef TQT_NO_IMAGE_COLLECTION_COMPRESSION
 	    "	    TQByteArray baunzip;\n"
 	    "	    baunzip = tqUncompress( embed_image_vec[i].data, \n"
 	    "		embed_image_vec[i].compressed );\n"
@@ -283,7 +283,7 @@ void Uic::embed( TQTextStream& out, const char* project, const TQStringList& ima
 	out << "static TQMimeSourceFactory* factory = 0;\n";
 	out << "\n";
 
-	out << "Q_EXPORT void qInitImages_" << cProject << "()\n";
+	out << "TQ_EXPORT void qInitImages_" << cProject << "()\n";
 	out << "{\n";
 	out << "    if ( !factory ) {\n";
 	out << "\tfactory = new MimeSourceFactory_" << cProject << ";\n";

@@ -41,7 +41,7 @@
 #ifndef TQSYNTAXHIGHLIGHTER_P_H
 #define TQSYNTAXHIGHLIGHTER_P_H
 
-#ifndef QT_NO_SYNTAXHIGHLIGHTER
+#ifndef TQT_NO_SYNTAXHIGHLIGHTER
 #include "ntqsyntaxhighlighter.h"
 #include "private/qrichtext_p.h"
 
@@ -93,5 +93,5 @@ private:
     friend class TQTextEdit;
 };
 
-#endif // QT_NO_SYNTAXHIGHLIGHTER
+#endif // TQT_NO_SYNTAXHIGHLIGHTER
 #endif // TQSYNTAXHIGHLIGHTER_P_H

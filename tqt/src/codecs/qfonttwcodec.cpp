@@ -40,8 +40,8 @@
 
 #include "private/qfontcodecs_p.h"
 
-#ifndef QT_NO_CODECS
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 extern int qt_UnicodeToBig5hkscs(uint wc, uchar *r);
 
@@ -158,5 +158,5 @@ bool TQFontBig5Codec::canEncode( TQChar ch ) const
 	 c[0] >= 0xa1 && c[0] <= 0xf9 );
 }
 
-#endif // QT_NO_BIG_CODECS
-#endif // QT_NO_CODECS
+#endif // TQT_NO_BIG_CODECS
+#endif // TQT_NO_CODECS

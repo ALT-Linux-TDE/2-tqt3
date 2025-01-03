@@ -47,7 +47,7 @@
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_TEXTSTREAM
+#ifndef TQT_NO_TEXTSTREAM
 template <class T>
 class TQTextOStreamIterator
 {
@@ -69,7 +69,7 @@ public:
     TQTextOStreamIterator<T>& operator++() { return *this; }
     TQTextOStreamIterator<T>& operator++(int) { return *this; }
 };
-#endif //QT_NO_TEXTSTREAM
+#endif //TQT_NO_TEXTSTREAM
 
 template <class InputIterator, class OutputIterator>
 inline OutputIterator tqCopy( InputIterator _begin, InputIterator _end,
@@ -149,7 +149,7 @@ inline void tqSwap( T& _value1, T& _value2 )
 
 
 template <class InputIterator>
-Q_INLINE_TEMPLATES void qBubbleSort( InputIterator b, InputIterator e )
+TQ_INLINE_TEMPLATES void qBubbleSort( InputIterator b, InputIterator e )
 {
     // Goto last element;
     InputIterator last = e;
@@ -190,7 +190,7 @@ inline void qBubbleSort( Container &c )
 
 
 template <class Value>
-Q_INLINE_TEMPLATES void qHeapSortPushDown( Value* heap, int first, int last )
+TQ_INLINE_TEMPLATES void qHeapSortPushDown( Value* heap, int first, int last )
 {
     int r = first;
     while ( r <= last / 2 ) {
@@ -219,7 +219,7 @@ Q_INLINE_TEMPLATES void qHeapSortPushDown( Value* heap, int first, int last )
 
 
 template <class InputIterator, class Value>
-Q_INLINE_TEMPLATES void qHeapSortHelper( InputIterator b, InputIterator e, Value, uint n )
+TQ_INLINE_TEMPLATES void qHeapSortHelper( InputIterator b, InputIterator e, Value, uint n )
 {
     // Create the heap
     InputIterator insert = b;
@@ -250,7 +250,7 @@ Q_INLINE_TEMPLATES void qHeapSortHelper( InputIterator b, InputIterator e, Value
 
 
 template <class InputIterator>
-Q_INLINE_TEMPLATES void qHeapSort( InputIterator b, InputIterator e )
+TQ_INLINE_TEMPLATES void qHeapSort( InputIterator b, InputIterator e )
 {
     // Empty ?
     if ( b == e )
@@ -271,7 +271,7 @@ Q_INLINE_TEMPLATES void qHeapSort( InputIterator b, InputIterator e )
 
 
 template <class Container>
-Q_INLINE_TEMPLATES void qHeapSort( Container &c )
+TQ_INLINE_TEMPLATES void qHeapSort( Container &c )
 {
     if ( c.begin() == c.end() )
 	return;
@@ -291,7 +291,7 @@ public:
     }
 
     TQBackInsertIterator<Container>&
-    operator=( const Q_TYPENAME Container::value_type &value )
+    operator=( const TQ_TYPENAME Container::value_type &value )
     {
 	container->push_back( value );
 	return *this;

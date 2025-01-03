@@ -71,7 +71,7 @@ parent object is destroyed.
 <p> Example:
 <pre>
         TQTimer *timer = new TQTimer( myObject );
-        <a href="ntqobject.html#connect">connect</a>( timer, SIGNAL(<a href="#timeout">timeout</a>()), myObject, SLOT(timerDone()) );
+        <a href="ntqobject.html#connect">connect</a>( timer, TQ_SIGNAL(<a href="#timeout">timeout</a>()), myObject, TQ_SLOT(timerDone()) );
         timer-&gt;<a href="#start">start</a>( 2000, TRUE ); // 2 seconds single-shot timer
     </pre>
  
@@ -84,7 +84,7 @@ processed.
 user interface:
 <pre>
         TQTimer *t = new TQTimer( myObject );
-        <a href="ntqobject.html#connect">connect</a>( t, SIGNAL(<a href="#timeout">timeout</a>()), SLOT(processOneThing()) );
+        <a href="ntqobject.html#connect">connect</a>( t, TQ_SIGNAL(<a href="#timeout">timeout</a>()), TQ_SLOT(processOneThing()) );
         t-&gt;<a href="#start">start</a>( 0, FALSE );
     </pre>
  
@@ -147,7 +147,7 @@ to create a local TQTimer object.
         int main( int argc, char **argv )
         {
             <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
-            TQTimer::<a href="#singleShot">singleShot</a>( 10*60*1000, &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+            TQTimer::<a href="#singleShot">singleShot</a>( 10*60*1000, &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
                 ... // create and show your widgets
             return a.<a href="ntqapplication.html#exec">exec</a>();
         }

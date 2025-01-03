@@ -1,6 +1,6 @@
-# Qt codecs module
+# TQt codecs module
 
-!bigcodecs:DEFINES += QT_NO_BIG_CODECS
+!bigcodecs:DEFINES += TQT_NO_BIG_CODECS
 tools {
 	CODECS_P		= codecs
 	HEADERS += \

@@ -91,18 +91,18 @@ PhraseBookBox::PhraseBookBox( const TQString& filename,
     bl->addWidget( closeBut );
     bl->addStretch( 1 );
 
-    connect( sourceLed, SIGNAL(textChanged(const TQString&)),
-	     this, SLOT(sourceChanged(const TQString&)) );
-    connect( targetLed, SIGNAL(textChanged(const TQString&)),
-	     this, SLOT(targetChanged(const TQString&)) );
-    connect( definitionLed, SIGNAL(textChanged(const TQString&)),
-	     this, SLOT(definitionChanged(const TQString&)) );
-    connect( lv, SIGNAL(selectionChanged(TQListViewItem *)),
-	     this, SLOT(selectionChanged(TQListViewItem *)) );
-    connect( newBut, SIGNAL(clicked()), this, SLOT(newPhrase()) );
-    connect( removeBut, SIGNAL(clicked()), this, SLOT(removePhrase()) );
-    connect( saveBut, SIGNAL(clicked()), this, SLOT(save()) );
-    connect( closeBut, SIGNAL(clicked()), this, SLOT(accept()) );
+    connect( sourceLed, TQ_SIGNAL(textChanged(const TQString&)),
+	     this, TQ_SLOT(sourceChanged(const TQString&)) );
+    connect( targetLed, TQ_SIGNAL(textChanged(const TQString&)),
+	     this, TQ_SLOT(targetChanged(const TQString&)) );
+    connect( definitionLed, TQ_SIGNAL(textChanged(const TQString&)),
+	     this, TQ_SLOT(definitionChanged(const TQString&)) );
+    connect( lv, TQ_SIGNAL(selectionChanged(TQListViewItem *)),
+	     this, TQ_SLOT(selectionChanged(TQListViewItem *)) );
+    connect( newBut, TQ_SIGNAL(clicked()), this, TQ_SLOT(newPhrase()) );
+    connect( removeBut, TQ_SIGNAL(clicked()), this, TQ_SLOT(removePhrase()) );
+    connect( saveBut, TQ_SIGNAL(clicked()), this, TQ_SLOT(save()) );
+    connect( closeBut, TQ_SIGNAL(clicked()), this, TQ_SLOT(accept()) );
 
     PhraseBook::ConstIterator it;
     for ( it = phraseBook.begin(); it != phraseBook.end(); ++it )

@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQBitmap : public TQPixmap
+class TQ_EXPORT TQBitmap : public TQPixmap
 {
 public:
     TQBitmap();
@@ -57,14 +57,14 @@ public:
     TQBitmap( int w, int h,  const uchar *bits, bool isXbitmap=FALSE );
     TQBitmap( const TQSize &, const uchar *bits, bool isXbitmap=FALSE );
     TQBitmap( const TQBitmap & );
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     TQBitmap( const TQString &fileName, const char *format=0 );
 #endif
     TQBitmap &operator=( const TQBitmap & );
     TQBitmap &operator=( const TQPixmap & );
     TQBitmap &operator=( const TQImage  & );
 
-#ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_PIXMAP_TRANSFORMATION
     TQBitmap  xForm( const TQWMatrix & ) const;
 #endif
 };

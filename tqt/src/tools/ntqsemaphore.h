@@ -45,11 +45,11 @@
 #include "ntqglobal.h"
 #endif // QT_H
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
 class TQSemaphorePrivate;
 
-class Q_EXPORT TQSemaphore
+class TQ_EXPORT TQSemaphore
 {
 public:
     TQSemaphore( int );

@@ -22,13 +22,13 @@ Inherits Qt.
 .BI "virtual \fB~QSyntaxHighlighter\fR ()"
 .br
 .ti -1c
-.BI "virtual int \fBhighlightParagraph\fR ( const QString & text, int endStateOfLastPara ) = 0"
+.BI "virtual int \fBhighlightParagraph\fR ( const TQString & text, int endStateOfLastPara ) = 0"
 .br
 .ti -1c
-.BI "void \fBsetFormat\fR ( int start, int count, const QFont & font, const QColor & color )"
+.BI "void \fBsetFormat\fR ( int start, int count, const QFont & font, const TQColor & color )"
 .br
 .ti -1c
-.BI "void \fBsetFormat\fR ( int start, int count, const QColor & color )"
+.BI "void \fBsetFormat\fR ( int start, int count, const TQColor & color )"
 .br
 .ti -1c
 .BI "void \fBsetFormat\fR ( int start, int count, const QFont & font )"
@@ -64,7 +64,7 @@ Destructor. Uninstalls this syntax highlighter from the textEdit()
 Returns the id of the paragraph which is highlighted, or -1 of no paragraph is currently highlighted.
 .PP
 Usually this function is called from within highlightParagraph().
-.SH "int QSyntaxHighlighter::highlightParagraph ( const QString & text, int endStateOfLastPara )\fC [pure virtual]\fR"
+.SH "int QSyntaxHighlighter::highlightParagraph ( const TQString & text, int endStateOfLastPara )\fC [pure virtual]\fR"
 This function is called when necessary by the rich text engine, i.e. on paragraphs which have changed.
 .PP
 In your reimplementation you should parse the paragraph's \fItext\fR and call setFormat() as often as necessary to apply any font and color changes that you require. Your function must return a value which indicates the paragraph's end state: see below.
@@ -82,11 +82,11 @@ To find out which paragraph is highlighted, call currentParagraph().
 For example, if you're writing a simple C++ syntax highlighter, you might designate 1 to signify "in comment". For a paragraph that ended in the middle of a comment you'd return 1, and for other paragraphs you'd return 0. In your parsing code if \fIendStateOfLastPara\fR was 1, you would highlight the text as a C++ comment until you reached the closing \fC*\fR\fC/\fR.
 .SH "void QSyntaxHighlighter::rehighlight ()"
 Redoes the highlighting of the whole document.
-.SH "void QSyntaxHighlighter::setFormat ( int start, int count, const QFont & font, const QColor & color )"
+.SH "void QSyntaxHighlighter::setFormat ( int start, int count, const QFont & font, const TQColor & color )"
 This function is applied to the syntax highlighter's current paragraph (the text of which is passed to the highlightParagraph() function).
 .PP
 The specified \fIfont\fR and \fIcolor\fR are applied to the text from position \fIstart\fR for \fIcount\fR characters. (If \fIcount\fR is 0, nothing is done.)
-.SH "void QSyntaxHighlighter::setFormat ( int start, int count, const QColor & color )"
+.SH "void QSyntaxHighlighter::setFormat ( int start, int count, const TQColor & color )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .SH "void QSyntaxHighlighter::setFormat ( int start, int count, const QFont & font )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -108,8 +108,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

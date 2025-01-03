@@ -43,7 +43,7 @@
 
 struct TQLocalePrivate;
 
-class Q_EXPORT TQLocale
+class TQ_EXPORT TQLocale
 {
     friend class TQString;
 

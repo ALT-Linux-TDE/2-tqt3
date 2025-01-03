@@ -53,37 +53,37 @@ QFontMetrics \- Font metrics information
 .BI "int \fBmaxWidth\fR () const"
 .br
 .ti -1c
-.BI "bool \fBinFont\fR ( QChar ch ) const"
+.BI "bool \fBinFont\fR ( TQChar ch ) const"
 .br
 .ti -1c
-.BI "int \fBleftBearing\fR ( QChar ch ) const"
+.BI "int \fBleftBearing\fR ( TQChar ch ) const"
 .br
 .ti -1c
-.BI "int \fBrightBearing\fR ( QChar ch ) const"
+.BI "int \fBrightBearing\fR ( TQChar ch ) const"
 .br
 .ti -1c
-.BI "int \fBwidth\fR ( const QString & str, int len = -1 ) const"
+.BI "int \fBwidth\fR ( const TQString & str, int len = -1 ) const"
 .br
 .ti -1c
-.BI "int \fBwidth\fR ( QChar ch ) const"
+.BI "int \fBwidth\fR ( TQChar ch ) const"
 .br
 .ti -1c
 .BI "int width ( char c ) const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "int \fBcharWidth\fR ( const QString & str, int pos ) const"
+.BI "int \fBcharWidth\fR ( const TQString & str, int pos ) const"
 .br
 .ti -1c
-.BI "QRect \fBboundingRect\fR ( const QString & str, int len = -1 ) const"
+.BI "QRect \fBboundingRect\fR ( const TQString & str, int len = -1 ) const"
 .br
 .ti -1c
-.BI "QRect \fBboundingRect\fR ( QChar ch ) const"
+.BI "QRect \fBboundingRect\fR ( TQChar ch ) const"
 .br
 .ti -1c
-.BI "QRect \fBboundingRect\fR ( int x, int y, int w, int h, int flgs, const QString & str, int len = -1, int tabstops = 0, int * tabarray = 0, QTextParag ** intern = 0 ) const"
+.BI "QRect \fBboundingRect\fR ( int x, int y, int w, int h, int flgs, const TQString & str, int len = -1, int tabstops = 0, int * tabarray = 0, QTextParag ** intern = 0 ) const"
 .br
 .ti -1c
-.BI "QSize \fBsize\fR ( int flgs, const QString & str, int len = -1, int tabstops = 0, int * tabarray = 0, QTextParag ** intern = 0 ) const"
+.BI "QSize \fBsize\fR ( int flgs, const TQString & str, int len = -1, int tabstops = 0, int * tabarray = 0, QTextParag ** intern = 0 ) const"
 .br
 .ti -1c
 .BI "int \fBunderlinePos\fR () const"
@@ -107,7 +107,7 @@ QFontMetrics functions calculate the size of characters and strings for a given 
 .IP 1
 Calling the QFontMetrics constructor with a QFont creates a font metrics object for a screen-compatible font, i.e. the font cannot be a printer font<sup>*</sup>. If the font is changed later, the font metrics object is \fInot\fR updated.
 .IP 2
-QWidget::fontMetrics() returns the font metrics for a widget's font. This is equivalent to QFontMetrics(widget->font()). If the widget's font is changed later, the font metrics object is \fInot\fR updated.
+TQWidget::fontMetrics() returns the font metrics for a widget's font. This is equivalent to QFontMetrics(widget->font()). If the widget's font is changed later, the font metrics object is \fInot\fR updated.
 .IP 3
 QPainter::fontMetrics() returns the font metrics for a painter's current font. If the painter's font is changed later, the font metrics object is \fInot\fR updated.
 .PP
@@ -164,23 +164,23 @@ See also descent().
 .PP
 Examples:
 .)l drawdemo/drawdemo.cpp and scrollview/scrollview.cpp.
-.SH "QRect QFontMetrics::boundingRect ( QChar ch ) const"
+.SH "QRect QFontMetrics::boundingRect ( TQChar ch ) const"
 Returns the rectangle that is covered by ink if the character specified by \fIch\fR were to be drawn at the origin of the coordinate system.
 .PP
 Note that the bounding rectangle may extend to the left of (0, 0), e.g. for italicized fonts, and that the text output may cover \fIall\fR pixels in the bounding rectangle. For a space character the rectangle will usually be empty.
 .PP
 Note that the rectangle usually extends both above and below the base line.
 .PP
-\fBWarning:\fR The width of the returned rectangle is not the advance width of the character. Use boundingRect(const QString &) or width() instead.
+\fBWarning:\fR The width of the returned rectangle is not the advance width of the character. Use boundingRect(const TQString &) or width() instead.
 .PP
 See also width().
 .PP
 Example: xform/xform.cpp.
-.SH "QRect QFontMetrics::boundingRect ( const QString & str, int len = -1 ) const"
+.SH "QRect QFontMetrics::boundingRect ( const TQString & str, int len = -1 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the bounding rectangle that contains the first \fIlen\fR characters of string \fIstr\fR.
-.SH "QRect QFontMetrics::boundingRect ( int x, int y, int w, int h, int flgs, const QString & str, int len = -1, int tabstops = 0, int * tabarray = 0, QTextParag ** intern = 0 ) const"
+.SH "QRect QFontMetrics::boundingRect ( int x, int y, int w, int h, int flgs, const TQString & str, int len = -1, int tabstops = 0, int * tabarray = 0, QTextParag ** intern = 0 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the bounding rectangle of the first \fIlen\fR characters of \fIstr\fR, which is the set of pixels the text would cover if drawn at (0, 0). The drawing, and hence the bounding rectangle, is constrained to the rectangle (\fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR).
@@ -233,8 +233,8 @@ The bounding rectangle given by this function is somewhat larger than that calcu
 .PP
 The \fIintern\fR argument should not be used.
 .PP
-See also width(), QPainter::boundingRect(), and Qt::AlignmentFlags.
-.SH "int QFontMetrics::charWidth ( const QString & str, int pos ) const"
+See also width(), QPainter::boundingRect(), and TQt::AlignmentFlags.
+.SH "int QFontMetrics::charWidth ( const TQString & str, int pos ) const"
 Returns the width of the character at position \fIpos\fR in the string \fIstr\fR.
 .PP
 The whole string is needed, as the glyph drawn may change depending on the context (the letter before and after the current one) for some languages (e.g. Arabic).
@@ -258,7 +258,7 @@ See also leading() and lineSpacing().
 .PP
 Examples:
 .)l grapher/grapher.cpp, hello/hello.cpp, and qfd/fontdisplayer.cpp.
-.SH "bool QFontMetrics::inFont ( QChar ch ) const"
+.SH "bool QFontMetrics::inFont ( TQChar ch ) const"
 Returns TRUE if character \fIch\fR is a valid character in the font; otherwise returns FALSE.
 .PP
 Example: qfd/fontdisplayer.cpp.
@@ -268,12 +268,12 @@ Returns the leading of the font.
 This is the natural inter-line spacing.
 .PP
 See also height() and lineSpacing().
-.SH "int QFontMetrics::leftBearing ( QChar ch ) const"
+.SH "int QFontMetrics::leftBearing ( TQChar ch ) const"
 Returns the left bearing of character \fIch\fR in the font.
 .PP
 The left bearing is the right-ward distance of the left-most pixel of the character from the logical origin of the character. This value is negative if the pixels of the character extend to the left of the logical origin.
 .PP
-See width(QChar) for a graphical description of this metric.
+See width(TQChar) for a graphical description of this metric.
 .PP
 See also rightBearing(), minLeftBearing(), and width().
 .PP
@@ -321,7 +321,7 @@ Assigns the font metrics \fIfm\fR.
 Returns the distance from the base line to where an overline should be drawn.
 .PP
 See also underlinePos(), strikeOutPos(), and lineWidth().
-.SH "int QFontMetrics::rightBearing ( QChar ch ) const"
+.SH "int QFontMetrics::rightBearing ( TQChar ch ) const"
 Returns the right bearing of character \fIch\fR in the font.
 .PP
 The right bearing is the left-ward distance of the right-most pixel of the character from the logical origin of a subsequent character. This value is negative if the pixels of the character extend to the right of the width() of the character.
@@ -331,7 +331,7 @@ See width() for a graphical description of this metric.
 See also leftBearing(), minRightBearing(), and width().
 .PP
 Example: qfd/fontdisplayer.cpp.
-.SH "QSize QFontMetrics::size ( int flgs, const QString & str, int len = -1, int tabstops = 0, int * tabarray = 0, QTextParag ** intern = 0 ) const"
+.SH "QSize QFontMetrics::size ( int flgs, const TQString & str, int len = -1, int tabstops = 0, int * tabarray = 0, QTextParag ** intern = 0 ) const"
 Returns the size in pixels of the first \fIlen\fR characters of \fIstr\fR.
 .PP
 If \fIlen\fR is negative (the default), the entire string is used.
@@ -365,7 +365,7 @@ See also underlinePos(), overlinePos(), and lineWidth().
 Returns the distance from the base line to where an underscore should be drawn.
 .PP
 See also overlinePos(), strikeOutPos(), and lineWidth().
-.SH "int QFontMetrics::width ( QChar ch ) const"
+.SH "int QFontMetrics::width ( TQChar ch ) const"
 .ce 1
 .B "[Image Omitted]"
 .PP
@@ -379,7 +379,7 @@ See also boundingRect() and charWidth().
 .PP
 Examples:
 .)l drawdemo/drawdemo.cpp, hello/hello.cpp, movies/main.cpp, qfd/fontdisplayer.cpp, and scrollview/scrollview.cpp.
-.SH "int QFontMetrics::width ( const QString & str, int len = -1 ) const"
+.SH "int QFontMetrics::width ( const TQString & str, int len = -1 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the width of the first \fIlen\fR characters of string \fIstr\fR.
@@ -388,7 +388,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 .PP
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Provided to aid porting from Qt 1.x.
+Provided to aid porting from TQt 1.x.
 
 .SH "SEE ALSO"
 .BR http://doc.trolltech.com/ntqfontmetrics.html
@@ -404,8 +404,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

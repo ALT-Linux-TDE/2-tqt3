@@ -23,7 +23,7 @@ QScreen \- And its descendants manage the framebuffer and palette
 .BI "virtual bool \fBinitDevice\fR () = 0"
 .br
 .ti -1c
-.BI "virtual bool \fBconnect\fR ( const QString & displaySpec ) = 0"
+.BI "virtual bool \fBconnect\fR ( const TQString & displaySpec ) = 0"
 .br
 .ti -1c
 .BI "virtual void \fBdisconnect\fR () = 0"
@@ -113,7 +113,7 @@ QScreen \- And its descendants manage the framebuffer and palette
 .BI "int \fBtotalSize\fR () const"
 .br
 .ti -1c
-.BI "QRgb * \fBclut\fR ()"
+.BI "TQRgb * \fBclut\fR ()"
 .br
 .ti -1c
 .BI "int \fBnumCols\fR ()"
@@ -137,10 +137,10 @@ QScreen \- And its descendants manage the framebuffer and palette
 .BI "virtual QRect \fBmapFromDevice\fR ( const QRect & r, const QSize & ) const"
 .br
 .ti -1c
-.BI "virtual QImage \fBmapToDevice\fR ( const QImage & i ) const"
+.BI "virtual TQImage \fBmapToDevice\fR ( const TQImage & i ) const"
 .br
 .ti -1c
-.BI "virtual QImage \fBmapFromDevice\fR ( const QImage & i ) const"
+.BI "virtual TQImage \fBmapFromDevice\fR ( const TQImage & i ) const"
 .br
 .ti -1c
 .BI "virtual QRegion \fBmapToDevice\fR ( const QRegion & r, const QSize & ) const"
@@ -186,9 +186,9 @@ Returns a pointer to the start of the framebuffer.
 If \fIon\fR is true, blank the screen. Otherwise unblank it.
 .SH "uchar * QScreen::cache ( int, int )\fC [virtual]\fR"
 This function is used to store pixmaps in graphics memory for the use of the accelerated drivers. See QLinuxFbScreen (where the cacheing is implemented) for more information.
-.SH "QRgb * QScreen::clut ()"
+.SH "TQRgb * QScreen::clut ()"
 Returns the screen's color lookup table (color palette). This is only valid in paletted modes (8bpp and lower).
-.SH "bool QScreen::connect ( const QString & displaySpec )\fC [pure virtual]\fR"
+.SH "bool QScreen::connect ( const TQString & displaySpec )\fC [pure virtual]\fR"
 This function is called by every Qt/Embedded application on startup. It maps in the framebuffer and in the accelerated drivers the graphics card control registers. \fIdisplaySpec\fR has the following syntax:
 .PP
 \fC[gfx driver][:driver specific options][:display number]\fR
@@ -232,7 +232,7 @@ Map a framebuffer coordinate to the coordinate space used by the application. Us
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Map a framebuffer coordinate to the coordinate space used by the application. Used by the rotated driver; the QScreen implementation simply returns \fIr\fR.
-.SH "QImage QScreen::mapFromDevice ( const QImage & i ) const\fC [virtual]\fR"
+.SH "TQImage QScreen::mapFromDevice ( const TQImage & i ) const\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Transforms an image so that it matches the application coordinate space (e.g. rotating it 90 degrees counter-clockwise). The QScreen implementation simply returns \fIi\fR.
@@ -250,7 +250,7 @@ Map a user coordinate to the one to actually draw. Used by the rotated driver; t
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Map a user coordinate to the one to actually draw. Used by the rotated driver; the QScreen implementation simply returns \fIr\fR.
-.SH "QImage QScreen::mapToDevice ( const QImage & i ) const\fC [virtual]\fR"
+.SH "TQImage QScreen::mapToDevice ( const TQImage & i ) const\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Transforms an image so that it fits the device coordinate space (e.g. rotating it 90 degrees clockwise). The QScreen implementation simply returns \fIi\fR.
@@ -317,8 +317,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

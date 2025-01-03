@@ -1,4 +1,4 @@
-# Qt compatibility
+# TQt compatibility
 
 # scratch pad for internal development
 # hack these for your build like

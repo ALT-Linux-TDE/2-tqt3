@@ -444,16 +444,16 @@ TQString <a name="f477"></a>Directory::fullName()
         fileNormal = new <a href="ntqpixmap.html">TQPixmap</a>( pix_file );
     }
 
-    <a href="ntqobject.html#connect">connect</a>( this, SIGNAL( <a href="ntqlistview.html#doubleClicked">doubleClicked</a>( <a href="qlistviewitem.html">TQListViewItem</a> * ) ),
-             this, SLOT( slotFolderSelected( <a href="qlistviewitem.html">TQListViewItem</a> * ) ) );
-    <a href="ntqobject.html#connect">connect</a>( this, SIGNAL( <a href="ntqlistview.html#returnPressed">returnPressed</a>( <a href="qlistviewitem.html">TQListViewItem</a> * ) ),
-             this, SLOT( slotFolderSelected( <a href="qlistviewitem.html">TQListViewItem</a> * ) ) );
+    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqlistview.html#doubleClicked">doubleClicked</a>( <a href="qlistviewitem.html">TQListViewItem</a> * ) ),
+             this, TQ_SLOT( slotFolderSelected( <a href="qlistviewitem.html">TQListViewItem</a> * ) ) );
+    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqlistview.html#returnPressed">returnPressed</a>( <a href="qlistviewitem.html">TQListViewItem</a> * ) ),
+             this, TQ_SLOT( slotFolderSelected( <a href="qlistviewitem.html">TQListViewItem</a> * ) ) );
 
     <a href="ntqwidget.html#setAcceptDrops">setAcceptDrops</a>( TRUE );
     <a href="ntqscrollview.html#viewport">viewport</a>()-&gt;setAcceptDrops( TRUE );
 
-<a name="x1706"></a>    <a href="ntqobject.html#connect">connect</a>( autoopen_timer, SIGNAL( <a href="ntqtimer.html#timeout">timeout</a>() ),
-             this, SLOT( openFolder() ) );
+<a name="x1706"></a>    <a href="ntqobject.html#connect">connect</a>( autoopen_timer, TQ_SIGNAL( <a href="ntqtimer.html#timeout">timeout</a>() ),
+             this, TQ_SLOT( openFolder() ) );
 }
 
 void <a name="f479"></a>DirectoryView::slotFolderSelected( <a href="qlistviewitem.html">TQListViewItem</a> *i )
@@ -600,7 +600,7 @@ TQString <a name="f481"></a>DirectoryView::fullPath(TQListViewItem* item)
         else
             fullpath = item-&gt;<a href="qlistviewitem.html#text">text</a>(0) + fullpath;
     }
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 <a name="x1702"></a>        if (fullpath.<a href="ntqstring.html#length">length</a>() &gt; 2 &amp;&amp; fullpath[1] != ':') {
                 <a href="ntqdir.html">TQDir</a> dir(fullpath);
 <a name="x1665"></a>                fullpath = dir.<a href="ntqdir.html#currentDirPath">currentDirPath</a>().left(2) + fullpath;

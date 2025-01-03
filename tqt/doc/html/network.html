@@ -146,12 +146,12 @@ TQUrlOperator op;
 
 MyClass::MyClass() : <a href="ntqobject.html">TQObject</a>(), op( "ftp://ftp.trolltech.com" )
 {
-    connect( &amp;op, SIGNAL( newChildren( const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQUrlInfo&gt; &amp;, TQNetworkOperation * ) ),
-             this, SLOT( slotInsertEntries( const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQUrlInfo&gt; &amp;, TQNetworkOperation * ) ) );
-    connect( &amp;op, SIGNAL( start( <a href="qnetworkoperation.html">TQNetworkOperation</a> * ) ),
-             this, SLOT( slotStart( <a href="qnetworkoperation.html">TQNetworkOperation</a> *) ) );
-    connect( &amp;op, SIGNAL( finished( <a href="qnetworkoperation.html">TQNetworkOperation</a> * ) ),
-             this, SLOT( slotFinished( <a href="qnetworkoperation.html">TQNetworkOperation</a> *) ) );
+    connect( &amp;op, TQ_SIGNAL( newChildren( const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQUrlInfo&gt; &amp;, TQNetworkOperation * ) ),
+             this, TQ_SLOT( slotInsertEntries( const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQUrlInfo&gt; &amp;, TQNetworkOperation * ) ) );
+    connect( &amp;op, TQ_SIGNAL( start( <a href="qnetworkoperation.html">TQNetworkOperation</a> * ) ),
+             this, TQ_SLOT( slotStart( <a href="qnetworkoperation.html">TQNetworkOperation</a> *) ) );
+    connect( &amp;op, TQ_SIGNAL( finished( <a href="qnetworkoperation.html">TQNetworkOperation</a> * ) ),
+             this, TQ_SLOT( slotFinished( <a href="qnetworkoperation.html">TQNetworkOperation</a> *) ) );
 }
 
 void MyClass::slotInsertEntries( const <a href="ntqvaluelist.html">TQValueList</a>&lt;TQUrlInfo&gt; &amp;info, TQNetworkOperation * )

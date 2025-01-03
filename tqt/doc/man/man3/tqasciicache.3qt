@@ -66,7 +66,7 @@ The QAsciiCache class is a template class that provides a cache based on char* k
 .PP
 QAsciiCache is implemented as a template class. Define a template instance QAsciiCache<X> to create a cache that operates on pointers to X (X*).
 .PP
-A cache is a least recently used (LRU) list of cache items. The cache items are accessed via \fCchar*\fR keys. For Unicode keys use the QCache template instead, which uses QString keys. A QCache has the same performace as a QAsciiCache.
+A cache is a least recently used (LRU) list of cache items. The cache items are accessed via \fCchar*\fR keys. For Unicode keys use the QCache template instead, which uses TQString keys. A QCache has the same performace as a QAsciiCache.
 .PP
 Each cache item has a cost. The sum of item costs, totalCost(), will not exceed the maximum cache cost, maxCost(). If inserting a new item would cause the total cost to exceed the maximum cost, the least recently used items in the cache are removed.
 .PP
@@ -119,7 +119,7 @@ Items with duplicate keys can be inserted.
 .PP
 The parameter \fIp\fR is internal and should be left at the default value (0).
 .PP
-\fBWarning:\fR If this function returns FALSE, you must delete \fId\fR yourself. Additionally, be very careful about using \fId\fR after calling this function, because any other insertions into the cache, from anywhere in the application or within Qt itself, could cause the object to be discarded from the cache and the pointer to become invalid.
+\fBWarning:\fR If this function returns FALSE, you must delete \fId\fR yourself. Additionally, be very careful about using \fId\fR after calling this function, because any other insertions into the cache, from anywhere in the application or within TQt itself, could cause the object to be discarded from the cache and the pointer to become invalid.
 .SH "bool QAsciiCache::isEmpty () const"
 Returns TRUE if the cache is empty; otherwise returns FALSE.
 .SH "int QAsciiCache::maxCost () const"
@@ -179,8 +179,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -40,7 +40,7 @@
 
 #include "ntqdockwindow.h"
 
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 #include "ntqdesktopwidget.h"
 #include "ntqdockarea.h"
 #include "qwidgetresizehandler_p.h"
@@ -57,10 +57,10 @@
 #include "ntqcursor.h"
 #include "ntqstyle.h"
 
-#if defined(Q_WS_MAC9)
+#if defined(TQ_WS_MAC9)
 #define MAC_DRAG_HACK
 #endif
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 static bool default_opaque = TRUE;
 #else
 static bool default_opaque = FALSE;
@@ -119,12 +119,12 @@ void TQDockWindowResizeHandle::setOrientation( TQt::Orientation o )
 {
     orient = o;
     if ( o == TQDockArea::Horizontal ) {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	setCursor( splitVCursor );
 #endif
 	setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ) );
     } else {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	setCursor( splitHCursor );
 #endif
 	setSizePolicy( TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Expanding ) );
@@ -336,7 +336,7 @@ protected:
     void mouseDoubleClickEvent( TQMouseEvent *e );
     void keyPressEvent( TQKeyEvent *e );
     void keyReleaseEvent( TQKeyEvent *e );
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     void styleChange( TQStyle& );
 #endif
 
@@ -392,8 +392,8 @@ TQDockWindowHandle::TQDockWindowHandle( TQDockWindow *dw )
 {
     ctrlDown = FALSE;
     timer = new TQTimer( this );
-    connect( timer, SIGNAL( timeout() ), this, SLOT( minimize() ) );
-#ifdef Q_WS_WIN
+    connect( timer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( minimize() ) );
+#ifdef TQ_WS_WIN
     setCursor( SizeAllCursor );
 #endif
 }
@@ -476,7 +476,7 @@ void TQDockWindowHandle::mouseReleaseEvent( TQMouseEvent *e )
 	return;
     dockWindow->endRectDraw( !opaque );
     mousePressed = FALSE;
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     releaseMouse();
 #endif
     if ( !hadDblClick && offset == e->pos() ) {
@@ -507,13 +507,13 @@ void TQDockWindowHandle::updateGui()
 {
     if ( !closeButton ) {
 	closeButton = new TQToolButton( this, "qt_close_button1" );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	closeButton->setCursor( arrowCursor );
 #endif
 	closeButton->setPixmap( style().stylePixmap( TQStyle::SP_DockWindowCloseButton, closeButton ) );
 	closeButton->setFixedSize( 12, 12 );
-	connect( closeButton, SIGNAL( clicked() ),
-		 dockWindow, SLOT( hide() ) );
+	connect( closeButton, TQ_SIGNAL( clicked() ),
+		 dockWindow, TQ_SLOT( hide() ) );
     }
 
     if ( dockWindow->isCloseEnabled() && dockWindow->area() )
@@ -534,7 +534,7 @@ void TQDockWindowHandle::updateGui()
     }
 }
 
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
 void TQDockWindowHandle::styleChange( TQStyle& )
 {
     if ( closeButton )
@@ -578,7 +578,7 @@ TQDockWindowTitleBar::TQDockWindowTitleBar( TQDockWindow *dw )
     ctrlDown = FALSE;
     setMouseTracking( TRUE );
     setFixedHeight( style().pixelMetric( TQStyle::PM_TitleBarHeight, this ) );
-    connect( this, SIGNAL(doClose()), dockWindow, SLOT(hide()) );
+    connect( this, TQ_SIGNAL(doClose()), dockWindow, TQ_SLOT(hide()) );
 }
 
 void TQDockWindowTitleBar::keyPressEvent( TQKeyEvent *e )
@@ -613,7 +613,7 @@ void TQDockWindowTitleBar::mousePressEvent( TQMouseEvent *e )
     oldFocus = tqApp->focusWidget();
 // setFocus activates the window, which deactivates the main window
 // not what we want, and not required anyway on Windows
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     setFocus();
 #endif
 
@@ -631,7 +631,7 @@ void TQDockWindowTitleBar::mousePressEvent( TQMouseEvent *e )
     dockWindow->startRectDraw( mapToGlobal( e->pos() ), !opaque );
 // grabMouse resets the Windows mouse press count, so we never receive a double click on Windows
 // not required on Windows, and did work on X11, too, but no problem there in the first place
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     if(!oldPressed && dockWindow->opaqueMoving())
 	grabMouse();
 #else
@@ -1062,11 +1062,11 @@ void TQDockWindow::init()
     stretchable[ Horizontal ] = FALSE;
     stretchable[ Vertical ] = FALSE;
 
-    connect( titleBar, SIGNAL( doubleClicked() ), this, SLOT( dock() ) );
-    connect( verHandle, SIGNAL( doubleClicked() ), this, SLOT( undock() ) );
-    connect( horHandle, SIGNAL( doubleClicked() ), this, SLOT( undock() ) );
-    connect( this, SIGNAL( orientationChanged(Orientation) ),
-	     this, SLOT( setOrientation(Orientation) ) );
+    connect( titleBar, TQ_SIGNAL( doubleClicked() ), this, TQ_SLOT( dock() ) );
+    connect( verHandle, TQ_SIGNAL( doubleClicked() ), this, TQ_SLOT( undock() ) );
+    connect( horHandle, TQ_SIGNAL( doubleClicked() ), this, TQ_SLOT( undock() ) );
+    connect( this, TQ_SIGNAL( orientationChanged(Orientation) ),
+	     this, TQ_SLOT( setOrientation(Orientation) ) );
 }
 
 /*!
@@ -1271,7 +1271,7 @@ void TQDockWindow::updateGui()
 		verHandle->show();
 	    else
 		verHandle->hide();
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 	    if(horHandle->mousePressed) {
 		horHandle->mousePressed = FALSE;
 		verHandle->mousePressed = TRUE;
@@ -1285,7 +1285,7 @@ void TQDockWindow::updateGui()
 	    else
 		horHandle->hide();
 	    horHandle->updateGui();
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 	    if(verHandle->mousePressed) {
 		verHandle->mousePressed = FALSE;
 		horHandle->mousePressed = TRUE;
@@ -2012,10 +2012,10 @@ void TQDockWindow::setCaption( const TQString &s )
     titleBar->setCaption( s );
     verHandle->update();
     horHandle->update();
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     TQFrame::setCaption( s );
 #endif
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQToolTip::remove( horHandle );
     TQToolTip::remove( verHandle );
     if ( !s.isEmpty() ) {
@@ -2098,7 +2098,7 @@ bool TQDockWindow::event( TQEvent *e )
     return TQFrame::event( e );
 }
 
-#ifdef QT_NO_WIDGET_TOPEXTRA
+#ifdef TQT_NO_WIDGET_TOPEXTRA
 TQString TQDockWindow::caption() const
 {
     return titleBar->caption();
@@ -2120,4 +2120,4 @@ void TQDockWindow::contextMenuEvent( TQContextMenuEvent *e )
 
 #include "qdockwindow.moc"
 
-#endif //QT_NO_MAINWINDOW
+#endif //TQT_NO_MAINWINDOW

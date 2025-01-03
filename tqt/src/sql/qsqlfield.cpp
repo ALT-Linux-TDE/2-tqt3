@@ -40,7 +40,7 @@
 
 #include "ntqsqlfield.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 
 /*!

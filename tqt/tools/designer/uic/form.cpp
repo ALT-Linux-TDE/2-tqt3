@@ -1052,7 +1052,7 @@ void Uic::createFormImpl( const TQDomElement &e )
 		TQString label = DomTool::readAttribute( n, "title", "", comment ).toString();
 		out << indent << "addPage( " << page << ", TQString(\"\") );" << endl;
 		trout << indent << "setTitle( " << page << ", " << trcall( label, comment ) << " );" << endl;
-		TQVariant def( FALSE, 0 );
+		TQVariant def( false );
 		if ( DomTool::hasAttribute( n, "backEnabled" ) )
 		    out << indent << "setBackEnabled( " << page << ", " << mkBool( DomTool::readAttribute( n, "backEnabled", def).toBool() ) << endl;
 		if ( DomTool::hasAttribute( n, "nextEnabled" ) )
@@ -1179,8 +1179,8 @@ void Uic::createFormImpl( const TQDomElement &e )
 		if ( receiver == objName )
 		    receiver = "this";
 
-		out << indent << "connect( " << sender << ", SIGNAL( " << signal << " ), "
-		    << receiver << ", SLOT( " << slot << " ) );" << endl;
+		out << indent << "connect( " << sender << ", TQ_SIGNAL( " << signal << " ), "
+		    << receiver << ", TQ_SLOT( " << slot << " ) );" << endl;
 	    }
 	} else if ( n.tagName()  == "tabstops" ) {
 	    // setup tab order

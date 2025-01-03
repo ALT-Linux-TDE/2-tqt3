@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -38,7 +38,7 @@
 
 /*! \page tutorial.html
 
-\title Qt Tutorial #1 - The 14 Steps
+\title TQt Tutorial #1 - The 14 Steps
 
 This tutorial gives an introduction to GUI programming using the Qt
 toolkit. It doesn't cover everything: the emphasis is on teaching the
@@ -82,12 +82,12 @@ dialogs, etc.
 
 /*! \page tutorial1-01.html
 
-\title Qt Tutorial - Chapter 1: Hello, World!
+\title TQt Tutorial - Chapter 1: Hello, World!
 
 \img t1.png Screenshot of tutorial one
 
 This first program is a simple hello-world example. It contains only
-the bare minimum you need to get a Qt application up and running.
+the bare minimum you need to get a TQt application up and running.
 The picture above is a snapshot of this program.
 
 \include t1/main.cpp
@@ -111,7 +111,7 @@ mentions at the top which file needs to be included to use that class.
 
 QPushButton is a classical GUI push button that the user can press
 and release. It manages its own look and feel, like every other \l
-QWidget. A widget is a user interface object that can process user
+TQWidget. A widget is a user interface object that can process user
 input and draw graphics. The programmer can change both the overall
 \link QApplication::setStyle() look and feel\endlink and many minor
 properties of it (such as color), as well as the widget's content. A
@@ -122,24 +122,24 @@ QPushButton can show either a text or a \l QPixmap.
 
 The main() function is the entry point to the program. Almost always
 when using Qt, main() only needs to perform some kind of initialization
-before passing the control to the Qt library, which then tells the
+before passing the control to the TQt library, which then tells the
 program about the user's actions via events.
 
 \c argc is the number of command-line arguments and \c argv is the
 array of command-line arguments. This is a C/C++ feature. It is not
-specific to Qt; however, Qt needs to process these arguments (see
+specific to Qt; however, TQt needs to process these arguments (see
 following).
 
 \printline QApplication
 
 \c a is this program's QApplication. Here it is created and processes
 some of the command-line arguments (such as -display under X Window).
-Note that all command-line arguments recognized by Qt are removed from
+Note that all command-line arguments recognized by TQt are removed from
 \c argv (and \c argc is decremented accordingly). See the \l
 QApplication::argv() documentation for details.
 
 <strong>Note:</strong> It is essential that the QApplication object be
-created before any window-system parts of Qt are used.
+created before any window-system parts of TQt are used.
 
 \printline QPushButton
 
@@ -173,7 +173,7 @@ make it visible.
 This is where main() passes control to Qt, and exec() will return when
 the application exits.
 
-In exec(), Qt receives and processes user and system events and passes
+In exec(), TQt receives and processes user and system events and passes
 these on to the appropriate widgets.
 
 \printline }
@@ -184,7 +184,7 @@ You should now try to compile and run this program.
 \section1 Compiling
 
 To compile a C++ application you need to create a makefile. The
-easiest way to create a makefile for Qt is to use the \link
+easiest way to create a makefile for TQt is to use the \link
 qmake-manual.book qmake\endlink build tool supplied with Qt. If you've
 saved \c main.cpp in its own directory, all you have to do is:
 \code
@@ -196,7 +196,7 @@ The first command tells \link qmake-manual.book qmake\endlink to
 create a \c .pro (project) file. The second command tells it to create
 a (platform-specific) makefile based on the project file. You should
 now be able to type \c make (or \c nmake if you're using Visual
-Studio) and then run your first Qt application!
+Studio) and then run your first TQt application!
 
 \section1 Behavior
 
@@ -218,7 +218,7 @@ You're now ready for \link tutorial1-02.html Chapter 2.\endlink
 
 /*! \page tutorial1-02.html
 
-\title Qt Tutorial - Chapter 2: Calling it Quits
+\title TQt Tutorial - Chapter 2: Calling it Quits
 
 \img t2.png Screenshot of tutorial two
 
@@ -263,14 +263,14 @@ QApplication::setFont()) for the whole application.
 \printline connect
 
 connect() is perhaps \e the most central feature of Qt.
-Note that connect() is a static function in QObject. Do not confuse it
+Note that connect() is a static function in TQObject. Do not confuse it
 with the connect() function in the socket library.
 
-This line establishes a one-way connection between two Qt objects (objects
-that inherit QObject, directly or indirectly). Every Qt object can have
+This line establishes a one-way connection between two TQt objects (objects
+that inherit TQObject, directly or indirectly). Every TQt object can have
 both \c signals (to send messages) and \c slots (to receive messages). All
-widgets are Qt objects. They inherit QWidget which in turn inherits
-QObject.
+widgets are TQt objects. They inherit TQWidget which in turn inherits
+TQObject.
 
 Here, the \e clicked() signal of \e quit is connected to the \e
 quit() slot of \e a, so that when the button is clicked, the
@@ -305,7 +305,7 @@ You're now ready for \link tutorial1-03.html Chapter 3.\endlink
 
 /*! \page tutorial1-03.html
 
-\title Qt Tutorial - Chapter 3: Family Values
+\title TQt Tutorial - Chapter 3: Family Values
 
 \img t3.png Screenshot of tutorial three
 
@@ -328,7 +328,7 @@ We add an include of ntqvbox.h to get the layout class we'll use.
 
 Here we simply create a vertical box container. The QVBox arranges
 its child widgets in a vertical row, one above the other, handing out
-space according to each child's \l QWidget::sizePolicy().
+space according to each child's \l TQWidget::sizePolicy().
 
 \printline resize
 
@@ -350,15 +350,15 @@ the parent has.
 \printline show
 
 When a parent widget is shown, it will call show for all its children
-(except those on which you have done an explicit \l QWidget::hide()).
+(except those on which you have done an explicit \l TQWidget::hide()).
 
 \section1 Behavior
 
 The button no longer fills the entire widget. Instead, it gets a
 "natural" size. This is because there is now a new top-level widget,
 which uses the button's size hint and size change policy to set the
-button's size and position. (See \l QWidget::sizeHint() and \l
-QWidget::setSizePolicy() for more information about these functions.)
+button's size and position. (See \l TQWidget::sizeHint() and \l
+TQWidget::setSizePolicy() for more information about these functions.)
 
 (See \link tutorial1-01.html#compiling Compiling\endlink for how to create a
 makefile and build the application.)
@@ -380,7 +380,7 @@ You're now ready for \link tutorial1-04.html Chapter 4.\endlink
 
 /*! \page tutorial1-04.html
 
-\title Qt Tutorial - Chapter 4: Let There Be Widgets
+\title TQt Tutorial - Chapter 4: Let There Be Widgets
 
 \img t4.png Screenshot of tutorial four
 
@@ -395,12 +395,12 @@ minimum and maximum sizes of a widget, and introduces widget names.
 \skipto MyWidget
 \printuntil }
 
-Here we create a new class. Because this class inherits from QWidget,
+Here we create a new class. Because this class inherits from TQWidget,
 the new class is a widget and may be a top level window or a child
 widget (like the push button in Chapter 3).
 
 This class has only one member, a constructor (in addition to the
-members it inherits from QWidget). The constructor is a standard Qt
+members it inherits from TQWidget). The constructor is a standard Qt
 widget constructor; you should always include a similar constructor
 when you create widgets.
 
@@ -411,15 +411,15 @@ defaults to be a top-level window.
 The second argument is the widget's name. This is \e not the text
 that appears in the window's title bar or in the button. It is a name
 associated with a widget to make it possible to \link
-QObject::queryList() look up \endlink this widget later, and there is
-also a \link QObject::dumpObjectTree() handy debugging function
+TQObject::queryList() look up \endlink this widget later, and there is
+also a \link TQObject::dumpObjectTree() handy debugging function
 \endlink that will list a complete widget hierarchy.
 
 \printline MyWidget
-\printline QWidget
+\printline TQWidget
 
 The implementation of the constructor starts here. Like most widgets,
-it just passes on the \c parent and \c name to the QWidget
+it just passes on the \c parent and \c name to the TQWidget
 constructor.
 
 \printuntil setMaximumSize
@@ -436,10 +436,10 @@ name has nothing to do with the button text; it just happens to be
 similar in this case.
 
 Note that \c quit is a local variable in the constructor. MyWidget
-does not keep track of it, but Qt does, and will by default delete it
+does not keep track of it, but TQt does, and will by default delete it
 when MyWidget is deleted. This is why MyWidget doesn't need a
 destructor. (On the other hand, there is no harm in deleting a child
-when you choose to, the child will automatically tell Qt about its
+when you choose to, the child will automatically tell TQt about its
 imminent death.)
 
 The setGeometry() call does the same as move() and resize() did in the
@@ -456,7 +456,7 @@ about its environment in order to be as general and reusable as
 possible.
 
 Knowing the name of the application object would break this principle,
-so Qt offers an alias, tqApp, for the cases in which a component such as
+so TQt offers an alias, tqApp, for the cases in which a component such as
 MyWidget needs to talk to the application object.
 
 \printuntil }
@@ -489,7 +489,7 @@ You're now ready for \link tutorial1-05.html Chapter 5.\endlink
 
 /*! \page tutorial1-05.html
 
-\title Qt Tutorial - Chapter 5: Building Blocks
+\title TQt Tutorial - Chapter 5: Building Blocks
 
 \img t5.png Screenshot of tutorial five
 
@@ -514,7 +514,7 @@ here because we use Qt's automatic layout support.
 \target constructor
 \printuntil {
 
-MyWidget is now derived from QVBox instead of QWidget. That way we use
+MyWidget is now derived from QVBox instead of TQWidget. That way we use
 the layout of the QVBox (which places all of its children vertically
 inside itself). Resizes are now handled automatically by the QVBox and
 therefore by MyWidget, too.
@@ -582,7 +582,7 @@ You're now ready for \link tutorial1-06.html Chapter 6.\endlink
 
 /*! \page tutorial1-06.html
 
-\title Qt Tutorial - Chapter 6: Building Blocks Galore!
+\title TQt Tutorial - Chapter 6: Building Blocks Galore!
 
 \img t6.png Screenshot of tutorial six
 
@@ -672,7 +672,7 @@ You're now ready for \link tutorial1-07.html Chapter 7.\endlink
 
 /*! \page tutorial1-07.html
 
-\title Qt Tutorial - Chapter 7: One Thing Leads to Another
+\title TQt Tutorial - Chapter 7: One Thing Leads to Another
 
 \img t7.png Screenshot of tutorial seven
 
@@ -870,7 +870,7 @@ You're now ready for \link tutorial1-08.html Chapter 8.\endlink
 
 /*! \page tutorial1-08.html
 
-\title Qt Tutorial - Chapter 8: Preparing for Battle
+\title TQt Tutorial - Chapter 8: Preparing for Battle
 
 \img t8.png Screenshot of tutorial eight
 
@@ -931,7 +931,7 @@ CannonField is a new custom widget that knows how to display itself.
 \skipto class
 \printuntil parent=0
 
-CannonField inherits QWidget, and we use the same idiom as for LCDRange.
+CannonField inherits TQWidget, and we use the same idiom as for LCDRange.
 
 \printuntil angleChanged
 
@@ -941,8 +941,8 @@ provide an interface using the same idiom as for value in LCDRange.
 \printline protected
 \printline paintEvent
 
-This is the second of the many event handlers in QWidget that we
-encounter. This virtual function is called by Qt whenever a widget needs
+This is the second of the many event handlers in TQWidget that we
+encounter. This virtual function is called by TQt whenever a widget needs
 to update itself (i.e., paint the widget's surface).
 
 
@@ -977,12 +977,12 @@ important to only emit the signal angleChanged() when the angle \e
 really has changed.
 
 Then we set the new angle value and repaint our widget. The \l
-QWidget::repaint() function clears the widget (usually filling it with
+TQWidget::repaint() function clears the widget (usually filling it with
 its background color) and sends a paint event to the widget. This
 results in a call to the paint event function of the widget.
 
 Finally, we emit the angleChanged() signal to tell the outside world
-that the angle has changed. The \c emit keyword is unique to Qt and
+that the angle has changed. The \c emit keyword is unique to TQt and
 not regular C++ syntax. In fact, it is a macro.
 
 \skipto ::paintEvent
@@ -995,7 +995,7 @@ contains the region in the widget that must be updated. For the time
 being, we will be lazy and just paint everything.
 
 Our code displays the angle value in the widget at a fixed position.
-First we create a QString with some text and the angle; then we create
+First we create a TQString with some text and the angle; then we create
 a QPainter operating on this widget and use it to paint the string.
 We'll come back to QPainter later; it can do a great many things.
 
@@ -1155,7 +1155,7 @@ You're now ready for \link tutorial1-09.html Chapter 9.\endlink
 
 /*! \page tutorial1-09.html
 
-\title Qt Tutorial - Chapter 9: With Cannon You Can
+\title TQt Tutorial - Chapter 9: With Cannon You Can
 
 \img t9.png Screenshot of tutorial nine
 
@@ -1258,7 +1258,7 @@ this time.
 \printline CustomColor
 \printline QApplication
 
-We tell Qt that we want a different color-allocation strategy for this
+We tell TQt that we want a different color-allocation strategy for this
 program. There is no single correct color-allocation strategy. Because
 this program uses an unusual yellow but not many colors, \c
 CustomColor is best. There are several other allocation strategies; you can read about them in the \l QApplication::setColorSpec()
@@ -1306,7 +1306,7 @@ You're now ready for \link tutorial1-10.html Chapter 10.\endlink
 
 /*! \page tutorial1-10.html
 
-\title Qt Tutorial - Chapter 10: Smooth as Silk
+\title TQt Tutorial - Chapter 10: Smooth as Silk
 
 \img t10.png Screenshot of tutorial ten
 
@@ -1428,7 +1428,7 @@ coordinates. First we create a rectangle with the size 50x50 and then
 move it so its bottom left corner is equal to the widget's own bottom-
 left corner.
 
-The \l QWidget::rect() function returns the widget's enclosing
+The \l TQWidget::rect() function returns the widget's enclosing
 rectangle in the widget's own coordinates (where the top left corner
 is 0, 0).
 
@@ -1508,7 +1508,7 @@ You're now ready for \link tutorial1-11.html Chapter 11.\endlink
 
 /*! \page tutorial1-11.html
 
-\title Qt Tutorial - Chapter 11: Giving It a Shot
+\title TQt Tutorial - Chapter 11: Giving It a Shot
 
 \img t11.png Screenshot of tutorial eleven
 
@@ -1655,7 +1655,7 @@ point into the widget's coordinate system (see \link coordsys.html The
 Coordinate System\endlink).
 
 The tqRound() function is an inline function defined in ntqglobal.h (included
-by all other Qt header files). tqRound() rounds a double to the closest
+by all other TQt header files). tqRound() rounds a double to the closest
 integer.
 
 \section2 \l t11/main.cpp
@@ -1713,7 +1713,7 @@ You're now ready for \link tutorial1-12.html Chapter 12.\endlink
 
 /*! \page tutorial1-12.html
 
-\title Qt Tutorial - Chapter 12: Hanging in the Air the Way Bricks Don't
+\title TQt Tutorial - Chapter 12: Hanging in the Air the Way Bricks Don't
 
 \img t12.png Screenshot of tutorial twelve
 
@@ -1874,7 +1874,7 @@ We include the stdlib library because we need the rand() function.
 This line has been added to the constructor. It creates a "random"
 position for the target. In fact, the newTarget() function will try
 to paint the target. Because we are in a constructor, the CannonField
-widget is invisible. Qt guarantees that no harm is done when calling
+widget is invisible. TQt guarantees that no harm is done when calling
 repaint() on a hidden widget.
 
 \skipto ::newTarget
@@ -2011,7 +2011,7 @@ Make a moving target.
 Make sure that the target is always created entirely on-screen.
 
 Make sure that the widget cannot be resized so that the target isn't
-visible. Hint: \l QWidget::setMinimumSize() is your friend.
+visible. Hint: \l TQWidget::setMinimumSize() is your friend.
 
 Not easy; make it possible to have several shots in the air at the
 same time. Hint: make a Shot object.
@@ -2034,7 +2034,7 @@ You're now ready for \link tutorial1-13.html Chapter 13.\endlink
 
 /*! \page tutorial1-13.html
 
-\title Qt Tutorial - Chapter 13: Game Over
+\title TQt Tutorial - Chapter 13: Game Over
 
 \img t13.png Screenshot of tutorial thirteen
 
@@ -2071,9 +2071,9 @@ implementation.
 \quotefile t13/lcdrange.h
 
 \skipto include
-\printuntil QWidget
+\printuntil TQWidget
 
-We inherit QWidget rather than QVBox. QVBox is very easy to use, but
+We inherit TQWidget rather than QVBox. QVBox is very easy to use, but
 again it showed its limitations so we switch to the more powerful and
 slightly harder to use QVBoxLayout. (As you remember, QVBoxLayout is
 not a widget, it manages one.)
@@ -2089,9 +2089,9 @@ We need to include ntqlayout.h now to get the other layout management
 API.
 
 \printline LCDRange
-\printline QWidget
+\printline TQWidget
 
-We inherit QWidget in the usual way.
+We inherit TQWidget in the usual way.
 
 The other constructor has the same change. init() is unchanged,
 except that we've added some lines at the end:
@@ -2285,7 +2285,7 @@ newGame() slot in this widget.
 
 We create four new widgets. Note that we don't bother to keep the
 pointers to the QLabel widgets in the GameBoard class because there's
-nothing much we want to do with them. Qt will delete them when the
+nothing much we want to do with them. TQt will delete them when the
 GameBoard widget is destroyed, and the layout classes will resize them
 appropriately.
 
@@ -2383,7 +2383,7 @@ You're now ready for \link tutorial1-14.html Chapter 14.\endlink
 
 /*! \page tutorial1-14.html
 
-\title Qt Tutorial - Chapter 14: Facing the Wall
+\title TQt Tutorial - Chapter 14: Facing the Wall
 
 \img t14.png Screenshot of tutorial fourteen
 
@@ -2469,7 +2469,7 @@ the third, too.
 \skipto ::mousePressEvent
 \printuntil }
 
-This is a Qt event handler. It is called when the user presses a
+This is a TQt event handler. It is called when the user presses a
 mouse button when the mouse cursor is over the widget.
 
 If the event was not generated by the left mouse button, we return
@@ -2484,10 +2484,10 @@ coordinate system.
 \printuntil setAngle
 \printline }
 
-This is another Qt event handler. It is called when the user already
+This is another TQt event handler. It is called when the user already
 has pressed the mouse button inside this widget and then moves/drags
-the mouse. (You can make Qt send mouse move events even when no
-buttons are pressed. See \l QWidget::setMouseTracking().)
+the mouse. (You can make TQt send mouse move events even when no
+buttons are pressed. See \l TQWidget::setMouseTracking().)
 
 This handler repositions the cannon's barrel according to the position of
 the mouse cursor.
@@ -2506,7 +2506,7 @@ Remember that setAngle() redraws the cannon.
 \skipto ::mouseReleaseEvent
 \printuntil }
 
-This Qt event handler is called whenever the user releases a mouse
+This TQt event handler is called whenever the user releases a mouse
 button and it was pressed inside this widget.
 
 If the left button is released, we can be sure that the barrel is no
@@ -2604,8 +2604,8 @@ And then we set up Ctrl+Q to do the same thing as Alt+Q. Some
 people are more used to Ctrl+Q (and anyway it shows how do do it).
 
 CTRL, Key_Enter, Key_Return and Key_Q are all constants provided by
-Qt. They're actually Qt::Key_Enter, etc., but practically all classes
-inherit the \l Qt namespace class.
+TQt. They're actually TQt::Key_Enter, etc., but practically all classes
+inherit the \l TQt namespace class.
 
 \printline QGridLayout
 \printline addWidget

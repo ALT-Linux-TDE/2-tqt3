@@ -1,1 +1,1 @@
-../src/iconview/ntqiconview.h
+../src/widgets/ntqiconview.h

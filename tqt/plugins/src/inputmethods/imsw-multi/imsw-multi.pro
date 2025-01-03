@@ -3,7 +3,7 @@ TARGET   = qimsw-multi
 DESTDIR  = ../../../inputmethods
 
 INCLUDEPATH += .
-CONFIG      += qt warn_on debug plugin
+CONFIG      += qt warn_on plugin
 target.path += $$plugins.path/inputmethods
 INSTALLS    += target
 

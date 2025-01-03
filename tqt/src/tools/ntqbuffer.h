@@ -47,7 +47,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQBuffer : public TQIODevice
+class TQ_EXPORT TQBuffer : public TQIODevice
 {
 public:
     TQBuffer();

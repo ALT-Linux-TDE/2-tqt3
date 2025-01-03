@@ -27,7 +27,7 @@ MyWidget::MyWidget( TQWidget *parent, const char *name )
     TQPushButton *quit = new TQPushButton( "Quit", this, "quit" );
     quit->setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    connect( quit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 
     TQGrid *grid = new TQGrid( 4, this );
 
@@ -36,8 +36,8 @@ MyWidget::MyWidget( TQWidget *parent, const char *name )
 	for( int c = 0 ; c < 4 ; c++ ) {
 	    LCDRange* lr = new LCDRange( grid );
 	    if ( previous )
-		connect( lr, SIGNAL(valueChanged(int)),
-			 previous, SLOT(setValue(int)) );
+		connect( lr, TQ_SIGNAL(valueChanged(int)),
+			 previous, TQ_SLOT(setValue(int)) );
 	    previous = lr;
 	}
     }

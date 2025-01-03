@@ -6,17 +6,17 @@ Two tools are provided for the release manager, \l lupdate and \l
 lrelease. These tools depend on \e qmake project files. You don't
 have to use \e qmake, though.
 
-A third tool, \c tqm2ts, can be used for converting Qt 2.x message
+A third tool, \c tqm2ts, can be used for converting TQt 2.x message
 files to \c .ts files.
 
-\section1 Qt Project Files
+\section1 TQt Project Files
 
 \index .pro Files
 \index Project Files
 \index qmake!Project Files
 
 \l lupdate and \l lrelease depend on information in the application's
-\c .pro Qt project file. There must be an entry in the \c TRANSLATIONS
+\c .pro TQt project file. There must be an entry in the \c TRANSLATIONS
 section of the project file for each language that is additional to
 the native language. A typical entry looks like this:
 
@@ -74,9 +74,9 @@ entry in the \c .pro file as well. For example:
 
 Usage: \c {lupdate myproject.pro}
 
-  \index Qt Designer
+  \index TQt Designer
 
-This is a simple command line tool. \l lupdate reads a Qt \c .pro
+This is a simple command line tool. \l lupdate reads a TQt \c .pro
 project file, finds the translatable strings in the specified source,
 header and \e {Qt Designer} interface files, and produces or updates
 the \c .ts translation files listed in the project file. The
@@ -111,9 +111,9 @@ be used with version control systems if required.
 Usage: \c {lrelease myproject.pro}
 
 \index .qm Files
-\index Qt Message Files
+\index TQt Message Files
 
-This is another simple command line tool. It reads a Qt \c .pro
+This is another simple command line tool. It reads a TQt \c .pro
 project file and produces the \c .qm files used by the application,
 one for each \c .ts translation source file listed in the project
 file. The \c .qm file format is a compact binary format that provides

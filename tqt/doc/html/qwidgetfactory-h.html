@@ -123,7 +123,7 @@ private:
     void createListViewColumn( TQListView *lv, const TQString&amp; txt,
 			       const TQPixmap&amp; pix, bool clickable,
 			       bool resizable );
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     void createTableColumnOrRow( TQTable *table, const TQString&amp; txt,
 				 const TQPixmap&amp; pix, const TQString&amp; field,
 				 bool isRow );
@@ -187,7 +187,7 @@ private:
 	TQString name;
 	TQPixmap pix;
 	TQString field;
-	Q_DUMMY_COMPARISON_OPERATOR( Field )
+	TQ_DUMMY_COMPARISON_OPERATOR( Field )
     };
 
     struct SqlWidgetConnection
@@ -198,7 +198,7 @@ private:
 	TQString conn;
 	TQString table;
 	TQMap&lt;TQString, TQString&gt; *dbControls;
-	Q_DUMMY_COMPARISON_OPERATOR( SqlWidgetConnection )
+	TQ_DUMMY_COMPARISON_OPERATOR( SqlWidgetConnection )
     };
 
     TQValueList&lt;Image&gt; images;

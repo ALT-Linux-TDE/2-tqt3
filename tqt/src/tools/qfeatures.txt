@@ -152,7 +152,7 @@ SeeAlso: ???
 Feature: SPRINTF
 Section: Data structures
 Requires: REGEXP
-Name: QString::sprintf()
+Name: TQString::sprintf()
 SeeAlso: ???
 
 Feature: QUUID_STRING
@@ -314,13 +314,13 @@ SeeAlso: ???
 Feature: TRANSLATION
 Section: Internationalization
 Requires: DATASTREAM
-Name: Translations via QObject::tr()
+Name: Translations via TQObject::tr()
 SeeAlso: ???
 
 Feature: TRANSLATION_UTF8
 Section: Internationalization
 Requires: TRANSLATION TEXTCODEC
-Name: Translations via QObject::trUtf8()
+Name: Translations via TQObject::trUtf8()
 SeeAlso: ???
 
 Feature: TEXTCODEC
@@ -681,31 +681,31 @@ SeeAlso: ???
 Feature: IMAGE_TRUECOLOR
 Section: Images
 Requires:
-Name: TrueColor QImage
+Name: TrueColor TQImage
 SeeAlso: ???
 
 Feature: IMAGE_SMOOTHSCALE
 Section: Images
 Requires:
-Name: Smooth QImage scaling
+Name: Smooth TQImage scaling
 SeeAlso: ???
 
 Feature: IMAGE_DITHER_TO_1
 Section: Images
 Requires:
-Name: Dither QImage to 1-bit image
+Name: Dither TQImage to 1-bit image
 SeeAlso: ???
 
 Feature: IMAGE_HEURISTIC_MASK
 Section: Images
 Requires:
-Name: QImage::createHeuristicMask()
+Name: TQImage::createHeuristicMask()
 SeeAlso: ???
 
 Feature: IMAGE_MIRROR
 Section: Images
 Requires:
-Name: QImage mirroring
+Name: TQImage mirroring
 SeeAlso: ???
 
 Feature: IMAGE_TEXT
@@ -717,7 +717,7 @@ SeeAlso: ???
 Feature: IMAGE_16_BIT
 Section: Qt/Embedded-specific
 Requires: IMAGE_TRUECOLOR
-Name: 16-bit QImage
+Name: 16-bit TQImage
 SeeAlso: ???
 
 Feature: CURSOR

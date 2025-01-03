@@ -32,10 +32,10 @@ public:
 	TQSocket( parent, name )
     {
 	line = 0;
-	connect( this, SIGNAL(readyRead()),
-		SLOT(readClient()) );
-	connect( this, SIGNAL(connectionClosed()),
-		SLOT(deleteLater()) );
+	connect( this, TQ_SIGNAL(readyRead()),
+		TQ_SLOT(readClient()) );
+	connect( this, TQ_SIGNAL(connectionClosed()),
+		TQ_SLOT(deleteLater()) );
 	setSocket( sock );
     }
 
@@ -120,10 +120,10 @@ public:
 	infoText = new TQTextView( this );
 	TQPushButton *quit = new TQPushButton( tr("Quit") , this );
 
-	connect( server, SIGNAL(newConnect(ClientSocket*)),
-		SLOT(newConnect(ClientSocket*)) );
-	connect( quit, SIGNAL(clicked()), tqApp,
-		SLOT(quit()) );
+	connect( server, TQ_SIGNAL(newConnect(ClientSocket*)),
+		TQ_SLOT(newConnect(ClientSocket*)) );
+	connect( quit, TQ_SIGNAL(clicked()), tqApp,
+		TQ_SLOT(quit()) );
     }
 
     ~ServerInfo()
@@ -134,10 +134,10 @@ private slots:
     void newConnect( ClientSocket *s )
     {
 	infoText->append( tr("New connection\n") );
-	connect( s, SIGNAL(logText(const TQString&)),
-		infoText, SLOT(append(const TQString&)) );
-	connect( s, SIGNAL(connectionClosed()),
-		SLOT(connectionClosed()) );
+	connect( s, TQ_SIGNAL(logText(const TQString&)),
+		infoText, TQ_SLOT(append(const TQString&)) );
+	connect( s, TQ_SIGNAL(connectionClosed()),
+		TQ_SLOT(connectionClosed()) );
     }
 
     void connectionClosed()

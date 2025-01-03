@@ -9,7 +9,7 @@
 .SH NAME
 QTextCodec \- Conversion between text encodings
 .SH SYNOPSIS
-Almost all the functions in this class are reentrant when Qt is built with thread support. The exceptions are \fB~QTextCodec\fR(), \fBsetCodecForTr\fR(), \fBsetCodecForCStrings\fR(), and \fBQTextCodec\fR(). </p>
+Almost all the functions in this class are reentrant when TQt is built with thread support. The exceptions are \fB~QTextCodec\fR(), \fBsetCodecForTr\fR(), \fBsetCodecForCStrings\fR(), and \fBQTextCodec\fR(). </p>
 .PP
 \fC#include <ntqtextcodec.h>\fR
 .PP
@@ -36,34 +36,34 @@ Inherited by QBig5Codec, QBig5hkscsCodec, QEucJpCodec, QEucKrCodec, QGb18030Code
 .BI "virtual QTextEncoder * \fBmakeEncoder\fR () const"
 .br
 .ti -1c
-.BI "virtual QString \fBtoUnicode\fR ( const char * chars, int len ) const"
+.BI "virtual TQString \fBtoUnicode\fR ( const char * chars, int len ) const"
 .br
 .ti -1c
-.BI "virtual QCString \fBfromUnicode\fR ( const QString & uc, int & lenInOut ) const"
+.BI "virtual QCString \fBfromUnicode\fR ( const TQString & uc, int & lenInOut ) const"
 .br
 .ti -1c
-.BI "QCString \fBfromUnicode\fR ( const QString & uc ) const"
+.BI "QCString \fBfromUnicode\fR ( const TQString & uc ) const"
 .br
 .ti -1c
-.BI "QString \fBtoUnicode\fR ( const QByteArray & a, int len ) const"
+.BI "TQString \fBtoUnicode\fR ( const QByteArray & a, int len ) const"
 .br
 .ti -1c
-.BI "QString \fBtoUnicode\fR ( const QByteArray & a ) const"
+.BI "TQString \fBtoUnicode\fR ( const QByteArray & a ) const"
 .br
 .ti -1c
-.BI "QString \fBtoUnicode\fR ( const QCString & a, int len ) const"
+.BI "TQString \fBtoUnicode\fR ( const QCString & a, int len ) const"
 .br
 .ti -1c
-.BI "QString \fBtoUnicode\fR ( const QCString & a ) const"
+.BI "TQString \fBtoUnicode\fR ( const QCString & a ) const"
 .br
 .ti -1c
-.BI "QString \fBtoUnicode\fR ( const char * chars ) const"
+.BI "TQString \fBtoUnicode\fR ( const char * chars ) const"
 .br
 .ti -1c
-.BI "virtual bool \fBcanEncode\fR ( QChar ch ) const"
+.BI "virtual bool \fBcanEncode\fR ( TQChar ch ) const"
 .br
 .ti -1c
-.BI "virtual bool \fBcanEncode\fR ( const QString & s ) const"
+.BI "virtual bool \fBcanEncode\fR ( const TQString & s ) const"
 .br
 .ti -1c
 .BI "virtual int \fBheuristicContentMatch\fR ( const char * chars, int len ) const = 0"
@@ -75,10 +75,10 @@ Inherited by QBig5Codec, QBig5hkscsCodec, QEucJpCodec, QEucKrCodec, QGb18030Code
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QTextCodec * \fBloadCharmap\fR ( QIODevice * iod )"
+.BI "QTextCodec * \fBloadCharmap\fR ( TQIODevice * iod )"
 .br
 .ti -1c
-.BI "QTextCodec * \fBloadCharmapFile\fR ( QString filename )"
+.BI "QTextCodec * \fBloadCharmapFile\fR ( TQString filename )"
 .br
 .ti -1c
 .BI "QTextCodec * \fBcodecForMib\fR ( int mib )"
@@ -232,7 +232,7 @@ QTextCodecs can be used as follows to convert some locally encoded string to Uni
 .br
     QTextCodec *codec = QTextCodec::codecForName("KOI8-R"); // get the codec for KOI8-R
 .br
-    QString unicodeString = codec->toUnicode( locallyEncoded );
+    TQString unicodeString = codec->toUnicode( locallyEncoded );
 .br
 .fi
 .PP
@@ -240,7 +240,7 @@ After this, \fCunicodeString\fR holds the text converted to Unicode. Converting 
 .PP
 .nf
 .br
-    QString unicodeString = "..."; // any Unicode text
+    TQString unicodeString = "..."; // any Unicode text
 .br
     QTextCodec *codec = QTextCodec::codecForName("KOI8-R"); // get the codec for KOI8-R
 .br
@@ -259,7 +259,7 @@ The approach to use in these situations is to create a QTextDecoder object for t
     QTextDecoder *decoder = codec->makeDecoder();
 .br
 .br
-    QString unicodeString;
+    TQString unicodeString;
 .br
     while( receiving_data ) {
 .br
@@ -273,7 +273,7 @@ The approach to use in these situations is to create a QTextDecoder object for t
 .PP
 The QTextDecoder object maintains state between chunks and therefore works correctly even if a multi-byte character is split between chunks.
 .SH "Creating your own Codec class"
-Support for new text encodings can be added to Qt by creating QTextCodec subclasses.
+Support for new text encodings can be added to TQt by creating QTextCodec subclasses.
 .PP
 Built-in codecs can be overridden by custom codecs since more recently created QTextCodec objects take precedence over earlier ones.
 .PP
@@ -310,7 +310,7 @@ If the encoding does \fInot\fR require state, you should implement:
 .PP
 .nf
 .br
-    QString toUnicode(const char* chars, int len) const
+    TQString toUnicode(const char* chars, int len) const
 .br
 .fi
 Converts \fIlen\fR characters from \fIchars\fR to Unicode.
@@ -328,10 +328,10 @@ Return a QTextEncoder.
 .PP
 .nf
 .br
-    QCString fromUnicode(const QString& uc, int& lenInOut ) const
+    QCString fromUnicode(const TQString& uc, int& lenInOut ) const
 .br
 .fi
-Converts \fIlenInOut\fR characters (of type QChar) from the start of the string \fIuc\fR, returning a QCString result, and also returning the length of the result in \fIlenInOut\fR.
+Converts \fIlenInOut\fR characters (of type TQChar) from the start of the string \fIuc\fR, returning a QCString result, and also returning the length of the result in \fIlenInOut\fR.
 .PP
 Again, these are mutually recursive so only one needs to be implemented, or both if greater efficiency is possible.
 .PP
@@ -344,20 +344,20 @@ Finally, you must implement:
 .fi
 Gives a value indicating how likely it is that \fIlen\fR characters from \fIchars\fR are in the encoding.
 .PP
-A good model for this function is the QWindowsLocalCodec::heuristicContentMatch function found in the Qt sources.
+A good model for this function is the QWindowsLocalCodec::heuristicContentMatch function found in the TQt sources.
 .PP
 A QTextCodec subclass might have improved performance if you also re-implement:
 .PP
 .nf
 .br
-    bool canEncode( QChar ) const
+    bool canEncode( TQChar ) const
 .br
 .fi
 Test if a Unicode character can be encoded.
 .PP
 .nf
 .br
-    bool canEncode( const QString& ) const
+    bool canEncode( const TQString& ) const
 .br
 .fi
 Test if a string of Unicode characters can be encoded.
@@ -376,19 +376,19 @@ See also Internationalization with Qt.
 .SH "QTextCodec::QTextCodec ()\fC [protected]\fR"
 \fBWarning:\fR This function is \fInot\fR reentrant.</p>
 .PP
-Constructs a QTextCodec, and gives it the highest precedence. The QTextCodec should always be constructed on the heap (i.e. with \fCnew\fR). Qt takes ownership and will delete it when the application terminates.
+Constructs a QTextCodec, and gives it the highest precedence. The QTextCodec should always be constructed on the heap (i.e. with \fCnew\fR). TQt takes ownership and will delete it when the application terminates.
 .SH "QTextCodec::~QTextCodec ()\fC [virtual]\fR"
 \fBWarning:\fR This function is \fInot\fR reentrant.</p>
 .PP
 Destroys the QTextCodec. Note that you should not delete codecs yourself: once created they become Qt's responsibility.
-.SH "bool QTextCodec::canEncode ( QChar ch ) const\fC [virtual]\fR"
+.SH "bool QTextCodec::canEncode ( TQChar ch ) const\fC [virtual]\fR"
 Returns TRUE if the Unicode character \fIch\fR can be fully encoded with this codec; otherwise returns FALSE. The default implementation tests if the result of toUnicode(fromUnicode(ch)) is the original \fIch\fR. Subclasses may be able to improve the efficiency.
-.SH "bool QTextCodec::canEncode ( const QString & s ) const\fC [virtual]\fR"
+.SH "bool QTextCodec::canEncode ( const TQString & s ) const\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIs\fR contains the string being tested for encode-ability.
 .SH "QTextCodec * QTextCodec::codecForCStrings ()\fC [static]\fR"
-Returns the codec used by QString to convert to and from const char* and QCStrings. If this function returns 0 (the default), QString assumes Latin-1.
+Returns the codec used by TQString to convert to and from const char* and QCStrings. If this function returns 0 (the default), TQString assumes Latin-1.
 .PP
 See also setCodecForCStrings().
 .SH "QTextCodec * QTextCodec::codecForContent ( const char * chars, int len )\fC [static]\fR"
@@ -416,7 +416,7 @@ Searches all installed QTextCodec objects and returns the one which best matches
 .PP
 See also heuristicNameMatch().
 .SH "QTextCodec * QTextCodec::codecForTr ()\fC [static]\fR"
-Returns the codec used by QObject::tr() on its argument. If this function returns 0 (the default), tr() assumes Latin-1.
+Returns the codec used by TQObject::tr() on its argument. If this function returns 0 (the default), tr() assumes Latin-1.
 .PP
 See also setCodecForTr().
 .SH "void QTextCodec::deleteAllCodecs ()\fC [static]\fR"
@@ -426,8 +426,8 @@ Deletes all the created codecs.
 .PP
 QApplication calls this function just before exiting to delete any QTextCodec objects that may be lying around. Since various other classes hold pointers to QTextCodec objects, it is not safe to call this function earlier.
 .PP
-If you are using the utility classes (like QString) but not using QApplication, calling this function at the very end of your application may be helpful for chasing down memory leaks by eliminating any QTextCodec objects.
-.SH "QCString QTextCodec::fromUnicode ( const QString & uc, int & lenInOut ) const\fC [virtual]\fR"
+If you are using the utility classes (like TQString) but not using QApplication, calling this function at the very end of your application may be helpful for chasing down memory leaks by eliminating any QTextCodec objects.
+.SH "QCString QTextCodec::fromUnicode ( const TQString & uc, int & lenInOut ) const\fC [virtual]\fR"
 QTextCodec subclasses must reimplement either this function or makeEncoder(). It converts the first \fIlenInOut\fR characters of \fIuc\fR from Unicode to the encoding of the subclass. If \fIlenInOut\fR is negative or too large, the length of \fIuc\fR is used instead.
 .PP
 Converts \fIlenInOut\fR characters (not bytes) from \fIuc\fR, producing a QCString. \fIlenInOut\fR will be set to the length of the result (in bytes).
@@ -435,7 +435,7 @@ Converts \fIlenInOut\fR characters (not bytes) from \fIuc\fR, producing a QCStri
 The default implementation makes an encoder with makeEncoder() and converts the input with that. Note that the default makeEncoder() implementation makes an encoder that simply calls this function, hence subclasses \fImust\fR reimplement one function or the other to avoid infinite recursion.
 .PP
 Reimplemented in QHebrewCodec.
-.SH "QCString QTextCodec::fromUnicode ( const QString & uc ) const"
+.SH "QCString QTextCodec::fromUnicode ( const TQString & uc ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIuc\fR is the unicode source string.
@@ -451,19 +451,19 @@ Returns a value indicating how likely it is that this decoder is appropriate for
 A good match returns a positive number around the length of the string. A bad match is negative.
 .PP
 The default implementation calls simpleHeuristicNameMatch() with the name of the codec.
-.SH "QTextCodec * QTextCodec::loadCharmap ( QIODevice * iod )\fC [static]\fR"
+.SH "QTextCodec * QTextCodec::loadCharmap ( TQIODevice * iod )\fC [static]\fR"
 Reads a POSIX2 charmap definition from \fIiod\fR. The parser recognizes the following lines:
 .PP
 <font name="sans"> <code_set_name> \fIname\fR</br> <escape_char> \fIcharacter\fR</br> % alias \fIalias\fR</br> CHARMAP</br> <\fItoken\fR> /x\fIhexbyte\fR <U\fIunicode\fR> ...</br> <\fItoken\fR> /d\fIdecbyte\fR <U\fIunicode\fR> ...</br> <\fItoken\fR> /\fIoctbyte\fR <U\fIunicode\fR> ...</br> <\fItoken\fR> /\fIany\fR/\fIany\fR... <U\fIunicode\fR> ...</br> END CHARMAP</br> </font>
 .PP
 The resulting QTextCodec is returned (and also added to the global list of codecs). The name() of the result is taken from the code_set_name.
 .PP
-Note that a codec constructed in this way uses much more memory and is slower than a hand-written QTextCodec subclass, since tables in code are kept in memory shared by all Qt applications.
+Note that a codec constructed in this way uses much more memory and is slower than a hand-written QTextCodec subclass, since tables in code are kept in memory shared by all TQt applications.
 .PP
 See also loadCharmapFile().
 .PP
 Example: qwerty/qwerty.cpp.
-.SH "QTextCodec * QTextCodec::loadCharmapFile ( QString filename )\fC [static]\fR"
+.SH "QTextCodec * QTextCodec::loadCharmapFile ( TQString filename )\fC [static]\fR"
 A convenience function for loadCharmap() that loads the charmap definition from the file \fIfilename\fR.
 .SH "const char * QTextCodec::locale ()\fC [static]\fR"
 Returns a string representing the current language and sublanguage, e.g. "pt" for Portuguese, or "pt_br" for Portuguese/Brazil.
@@ -496,9 +496,9 @@ Example: qwerty/qwerty.cpp.
 .SH "void QTextCodec::setCodecForCStrings ( QTextCodec * c )\fC [static]\fR"
 \fBWarning:\fR This function is \fInot\fR reentrant.</p>
 .PP
-Sets the codec used by QString to convert to and from const char* and QCStrings. If \fIc\fR is 0 (the default), QString assumes Latin-1.
+Sets the codec used by TQString to convert to and from const char* and QCStrings. If \fIc\fR is 0 (the default), TQString assumes Latin-1.
 .PP
-\fBWarning:\fR Some codecs do not preserve the characters in the ascii range (0x00 to 0x7f). For example, the Japanese Shift-JIS encoding maps the backslash character (0x5a) to the Yen character. This leads to unexpected results when using the backslash character to escape characters in strings used in e.g. regular expressions. Use QString::fromLatin1() to preserve characters in the ascii range when needed.
+\fBWarning:\fR Some codecs do not preserve the characters in the ascii range (0x00 to 0x7f). For example, the Japanese Shift-JIS encoding maps the backslash character (0x5a) to the Yen character. This leads to unexpected results when using the backslash character to escape characters in strings used in e.g. regular expressions. Use TQString::fromLatin1() to preserve characters in the ascii range when needed.
 .PP
 See also codecForCStrings() and setCodecForTr().
 .SH "void QTextCodec::setCodecForLocale ( QTextCodec * c )\fC [static]\fR"
@@ -508,7 +508,7 @@ See also codecForLocale().
 .SH "void QTextCodec::setCodecForTr ( QTextCodec * c )\fC [static]\fR"
 \fBWarning:\fR This function is \fInot\fR reentrant.</p>
 .PP
-Sets the codec used by QObject::tr() on its argument to \fIc\fR. If \fIc\fR is 0 (the default), tr() assumes Latin-1.
+Sets the codec used by TQObject::tr() on its argument to \fIc\fR. If \fIc\fR is 0 (the default), tr() assumes Latin-1.
 .PP
 If the literal quoted text in the program is not in the Latin-1 encoding, this function can be used to set the appropriate encoding. For example, software developed by Korean programmers might use eucKR for all the text in the program, in which case the main() function might look like this:
 .PP
@@ -530,32 +530,32 @@ If the literal quoted text in the program is not in the Latin-1 encoding, this f
 .br
 .fi
 .PP
-Note that this is not the way to select the encoding that the \fIuser\fR has chosen. For example, to convert an application containing literal English strings to Korean, all that is needed is for the English strings to be passed through tr() and for translation files to be loaded. For details of internationalization, see the Qt internationalization documentation.
+Note that this is not the way to select the encoding that the \fIuser\fR has chosen. For example, to convert an application containing literal English strings to Korean, all that is needed is for the English strings to be passed through tr() and for translation files to be loaded. For details of internationalization, see the TQt internationalization documentation.
 .PP
 See also codecForTr() and setCodecForCStrings().
 .SH "int QTextCodec::simpleHeuristicNameMatch ( const char * name, const char * hint )\fC [static protected]\fR"
 A simple utility function for heuristicNameMatch(): it does some very minor character-skipping so that almost-exact matches score high. \fIname\fR is the text we're matching and \fIhint\fR is used for the comparison.
-.SH "QString QTextCodec::toUnicode ( const char * chars, int len ) const\fC [virtual]\fR"
+.SH "TQString QTextCodec::toUnicode ( const char * chars, int len ) const\fC [virtual]\fR"
 QTextCodec subclasses must reimplement this function or makeDecoder(). It converts the first \fIlen\fR characters of \fIchars\fR to Unicode.
 .PP
 The default implementation makes a decoder with makeDecoder() and converts the input with that. Note that the default makeDecoder() implementation makes a decoder that simply calls this function, hence subclasses \fImust\fR reimplement one function or the other to avoid infinite recursion.
-.SH "QString QTextCodec::toUnicode ( const QByteArray & a, int len ) const"
+.SH "TQString QTextCodec::toUnicode ( const QByteArray & a, int len ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIa\fR contains the source characters; \fIlen\fR contains the number of characters in \fIa\fR to use.
-.SH "QString QTextCodec::toUnicode ( const QByteArray & a ) const"
+.SH "TQString QTextCodec::toUnicode ( const QByteArray & a ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIa\fR contains the source characters.
-.SH "QString QTextCodec::toUnicode ( const QCString & a, int len ) const"
+.SH "TQString QTextCodec::toUnicode ( const QCString & a, int len ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIa\fR contains the source characters; \fIlen\fR contains the number of characters in \fIa\fR to use.
-.SH "QString QTextCodec::toUnicode ( const QCString & a ) const"
+.SH "TQString QTextCodec::toUnicode ( const QCString & a ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIa\fR contains the source characters.
-.SH "QString QTextCodec::toUnicode ( const char * chars ) const"
+.SH "TQString QTextCodec::toUnicode ( const char * chars ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIchars\fR contains the source characters.
@@ -574,8 +574,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -46,13 +46,13 @@
 #include "ntqrangecontrol.h"
 #endif // QT_H
 
-#ifndef QT_NO_SPINBOX
+#ifndef TQT_NO_SPINBOX
 
 class TQLineEdit;
 class TQValidator;
 class TQSpinBoxPrivate;
 
-class Q_EXPORT TQSpinBox: public TQWidget, public TQRangeControl
+class TQ_EXPORT TQSpinBox: public TQWidget, public TQRangeControl
 {
     TQ_OBJECT
     TQ_ENUMS( ButtonSymbols )
@@ -135,7 +135,7 @@ protected:
 
     bool		eventFilter( TQObject* obj, TQEvent* ev );
     void		resizeEvent( TQResizeEvent* ev );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void		wheelEvent( TQWheelEvent * );
 #endif
     void		leaveEvent( TQEvent* );
@@ -167,6 +167,6 @@ private:	// Disabled copy constructor and operator=
 
 };
 
-#endif // QT_NO_SPINBOX
+#endif // TQT_NO_SPINBOX
 
 #endif // TQSPINBOX_H

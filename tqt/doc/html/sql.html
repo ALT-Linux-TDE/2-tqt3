@@ -1104,8 +1104,8 @@ addition to <a href="ntqsqlform.html">TQSqlForm</a> it offers the slot refresh( 
 can easily be linked together with a <a href="ntqdatatable.html">TQDataTable</a> to display a detailed
 view of a record:
 <p> <pre>
-    connect( myDataTable, SIGNAL( currentChanged( <a href="ntqsqlrecord.html">TQSqlRecord</a>* ) ), 
-             myDataView, SLOT( refresh( <a href="ntqsqlrecord.html">TQSqlRecord</a>* ) ) );
+    connect( myDataTable, TQ_SIGNAL( currentChanged( <a href="ntqsqlrecord.html">TQSqlRecord</a>* ) ), 
+             myDataView, TQ_SLOT( refresh( <a href="ntqsqlrecord.html">TQSqlRecord</a>* ) ) );
 </pre>
  
 <p> <a name="Editing_a_Record"></a>
@@ -1146,7 +1146,7 @@ calling <a href="ntqlineedit.html#setAlignment">TQLineEdit::setAlignment</a>() a
 <p> <pre>        <a href="ntqlineedit.html">TQLineEdit</a>   *forenameEdit  = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
 </pre>
 <p> <pre>        <a href="ntqpushbutton.html">TQPushButton</a> *saveButton    = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Save", this );
-        <a href="ntqobject.html#connect">connect</a>( saveButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(save()) );
+        <a href="ntqobject.html#connect">connect</a>( saveButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(save()) );
 </pre>
 <p> The FormDialog constructor is similar to the one in the previous
 example. We have changed the forename and surname widgets to
@@ -1240,8 +1240,8 @@ to our FormDialog's private data.
 <pre>    CustomEdit::CustomEdit( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name ) :
         <a href="ntqlineedit.html">TQLineEdit</a>( parent, name )
     {
-        <a href="ntqobject.html#connect">connect</a>( this, SIGNAL(<a href="ntqlineedit.html#textChanged">textChanged</a>(const <a href="ntqstring.html">TQString</a> &amp;)),
-                 this, SLOT(changed(const <a href="ntqstring.html">TQString</a> &amp;)) );
+        <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL(<a href="ntqlineedit.html#textChanged">textChanged</a>(const <a href="ntqstring.html">TQString</a> &amp;)),
+                 this, TQ_SLOT(changed(const <a href="ntqstring.html">TQString</a> &amp;)) );
     }
 </pre>
 <p> In the CustomEdit constructor we use the TQLineEdit constructor and add

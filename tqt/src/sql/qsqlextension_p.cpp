@@ -40,7 +40,7 @@
 
 #include "qsqlextension_p.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 TQSqlExtension::TQSqlExtension()
     : bindm( BindByPosition ), bindCount( 0 )
 {
@@ -68,7 +68,7 @@ void TQSqlExtension::bindValue( const TQString& placeholder, const TQVariant& va
     if ( index.contains( (int)values.count() ) ) {
 	index[ (int)values.count() ] = placeholder;
     }
-    values[ placeholder ] = Param( val, tp );
+    values[ placeholder ] = TQSqlParam( val, tp );
 }
 
 void TQSqlExtension::bindValue( int pos, const TQVariant& val, TQSql::ParameterType tp )
@@ -76,7 +76,7 @@ void TQSqlExtension::bindValue( int pos, const TQVariant& val, TQSql::ParameterT
     bindm = BindByPosition;
     index[ pos ] = TQString::number( pos );
     TQString nm = TQString::number( pos );
-    values[ nm ] = Param( val, tp );
+    values[ nm ] = TQSqlParam( val, tp );
 }
 
 void TQSqlExtension::addBindValue( const TQVariant& val, TQSql::ParameterType tp )
@@ -128,10 +128,10 @@ TQVariant TQSqlExtension::boundValue( int pos ) const
     return values[ index[ pos ] ].value;
 }
 
-TQMap<TQString, TQVariant> TQSqlExtension::boundValues() const
+TQStringVariantMap TQSqlExtension::boundValues() const
 {
-    TQMap<TQString, Param>::ConstIterator it;
-    TQMap<TQString, TQVariant> m;
+    TQMap<TQString, TQSqlParam>::ConstIterator it;
+    TQStringVariantMap m;
     if ( bindm == BindByName ) {
 	for ( it = values.begin(); it != values.end(); ++it )
 	    m.insert( it.key(), it.data().value );

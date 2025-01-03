@@ -40,7 +40,7 @@
 
 #include "ntqhttp.h"
 
-#ifndef QT_NO_NETWORKPROTOCOL_HTTP
+#ifndef TQT_NO_NETWORKPROTOCOL_HTTP
 
 #include "ntqsocket.h"
 #include "ntqtextstream.h"
@@ -1225,18 +1225,18 @@ void TQHttp::init()
     d = new TQHttpPrivate;
     d->errorString = tr( "Unknown error" );
 
-    connect( &d->socket, SIGNAL( connected() ),
-	    this, SLOT( slotConnected() ) );
-    connect( &d->socket, SIGNAL( connectionClosed() ),
-	    this, SLOT( slotClosed() ) );
-    connect( &d->socket, SIGNAL( delayedCloseFinished() ),
-	    this, SLOT( slotClosed() ) );
-    connect( &d->socket, SIGNAL( readyRead() ),
-	    this, SLOT( slotReadyRead() ) );
-    connect( &d->socket, SIGNAL( error(int) ),
-	    this, SLOT( slotError(int) ) );
-    connect( &d->socket, SIGNAL( bytesWritten(int) ),
-	    this, SLOT( slotBytesWritten(int) ) );
+    connect( &d->socket, TQ_SIGNAL( connected() ),
+	    this, TQ_SLOT( slotConnected() ) );
+    connect( &d->socket, TQ_SIGNAL( connectionClosed() ),
+	    this, TQ_SLOT( slotClosed() ) );
+    connect( &d->socket, TQ_SIGNAL( delayedCloseFinished() ),
+	    this, TQ_SLOT( slotClosed() ) );
+    connect( &d->socket, TQ_SIGNAL( readyRead() ),
+	    this, TQ_SLOT( slotReadyRead() ) );
+    connect( &d->socket, TQ_SIGNAL( error(int) ),
+	    this, TQ_SLOT( slotError(int) ) );
+    connect( &d->socket, TQ_SIGNAL( bytesWritten(int) ),
+	    this, TQ_SLOT( slotBytesWritten(int) ) );
 
     d->idleTimer = startTimer( 0 );
 }
@@ -1778,7 +1778,7 @@ int TQHttp::addRequest( TQHttpRequest *req )
 
     if ( d->pending.count() == 1 )
 	// don't emit the requestStarted() signal before the id is returned
-	TQTimer::singleShot( 0, this, SLOT(startNextRequest()) );
+	TQTimer::singleShot( 0, this, TQ_SLOT(startNextRequest()) );
 
     return req->id;
 }
@@ -2231,12 +2231,12 @@ int TQHttp::supportedOperations() const
 */
 void TQHttp::operationGet( TQNetworkOperation *op )
 {
-    connect( this, SIGNAL(readyRead(const TQHttpResponseHeader&)),
-	    this, SLOT(clientReply(const TQHttpResponseHeader&)) );
-    connect( this, SIGNAL(done(bool)),
-	    this, SLOT(clientDone(bool)) );
-    connect( this, SIGNAL(stateChanged(int)),
-	    this, SLOT(clientStateChanged(int)) );
+    connect( this, TQ_SIGNAL(readyRead(const TQHttpResponseHeader&)),
+	    this, TQ_SLOT(clientReply(const TQHttpResponseHeader&)) );
+    connect( this, TQ_SIGNAL(done(bool)),
+	    this, TQ_SLOT(clientDone(bool)) );
+    connect( this, TQ_SIGNAL(stateChanged(int)),
+	    this, TQ_SLOT(clientStateChanged(int)) );
 
     bytesRead = 0;
     op->setState( StInProgress );
@@ -2251,12 +2251,12 @@ void TQHttp::operationGet( TQNetworkOperation *op )
 */
 void TQHttp::operationPut( TQNetworkOperation *op )
 {
-    connect( this, SIGNAL(readyRead(const TQHttpResponseHeader&)),
-	    this, SLOT(clientReply(const TQHttpResponseHeader&)) );
-    connect( this, SIGNAL(done(bool)),
-	    this, SLOT(clientDone(bool)) );
-    connect( this, SIGNAL(stateChanged(int)),
-	    this, SLOT(clientStateChanged(int)) );
+    connect( this, TQ_SIGNAL(readyRead(const TQHttpResponseHeader&)),
+	    this, TQ_SLOT(clientReply(const TQHttpResponseHeader&)) );
+    connect( this, TQ_SIGNAL(done(bool)),
+	    this, TQ_SLOT(clientDone(bool)) );
+    connect( this, TQ_SIGNAL(stateChanged(int)),
+	    this, TQ_SLOT(clientStateChanged(int)) );
 
     bytesRead = 0;
     op->setState( StInProgress );
@@ -2307,12 +2307,12 @@ void TQHttp::clientReply( const TQHttpResponseHeader &rep )
 
 void TQHttp::clientDone( bool err )
 {
-    disconnect( this, SIGNAL(readyRead(const TQHttpResponseHeader&)),
-	    this, SLOT(clientReply(const TQHttpResponseHeader&)) );
-    disconnect( this, SIGNAL(done(bool)),
-	    this, SLOT(clientDone(bool)) );
-    disconnect( this, SIGNAL(stateChanged(int)),
-	    this, SLOT(clientStateChanged(int)) );
+    disconnect( this, TQ_SIGNAL(readyRead(const TQHttpResponseHeader&)),
+	    this, TQ_SLOT(clientReply(const TQHttpResponseHeader&)) );
+    disconnect( this, TQ_SIGNAL(done(bool)),
+	    this, TQ_SLOT(clientDone(bool)) );
+    disconnect( this, TQ_SIGNAL(stateChanged(int)),
+	    this, TQ_SLOT(clientStateChanged(int)) );
 
     if ( err ) {
 	TQNetworkOperation *op = operationInProgress();

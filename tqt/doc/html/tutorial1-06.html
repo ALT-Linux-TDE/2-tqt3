@@ -64,7 +64,7 @@ public:
     <a href="ntqslider.html">TQSlider</a> * slider = new <a href="ntqslider.html">TQSlider</a>( Horizontal, this, "slider" );
     slider-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 0, 99 );
     slider-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
-    <a href="ntqobject.html#connect">connect</a>( slider, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), lcd, SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
+    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
 }
 
 class MyWidget : public <a href="ntqvbox.html">TQVBox</a>
@@ -80,7 +80,7 @@ public:
     <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
     quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a href="ntqobject.html#connect">connect</a>( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 
     <a href="ntqgrid.html">TQGrid</a> *grid = new <a href="ntqgrid.html">TQGrid</a>( 4, this );
 
@@ -119,7 +119,7 @@ constructor. This sort of widget is not very useful, so we'll add some API later
         <a href="ntqslider.html">TQSlider</a> * slider = new <a href="ntqslider.html">TQSlider</a>( Horizontal, this, "slider" );
     <a name="x2325"></a>    slider-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 0, 99 );
     <a name="x2326"></a>    slider-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
-    <a name="x2327"></a><a name="x2324"></a>    <a href="ntqobject.html#connect">connect</a>( slider, SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), lcd, SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
+    <a name="x2327"></a><a name="x2324"></a>    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
     }
 </pre>
 <p> This is lifted straight from the
@@ -139,7 +139,7 @@ is renamed.
         <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
     <a name="x2328"></a>    quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a name="x2321"></a>    <a href="ntqobject.html#connect">connect</a>( quit, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a name="x2321"></a>    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 </pre>
 <p> The push button that used to be in what is now LCDRange has been
 separated so that we can have one "Quit" button and many LCDRange

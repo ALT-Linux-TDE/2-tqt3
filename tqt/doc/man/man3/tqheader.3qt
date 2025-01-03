@@ -11,36 +11,36 @@ QHeader \- Header row or column, e.g. for tables and listviews
 .SH SYNOPSIS
 \fC#include <ntqheader.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQHeader\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQHeader\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQHeader\fR ( int n, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQHeader\fR ( int n, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QHeader\fR ()"
 .br
 .ti -1c
-.BI "int \fBaddLabel\fR ( const QString & s, int size = -1 )"
+.BI "int \fBaddLabel\fR ( const TQString & s, int size = -1 )"
 .br
 .ti -1c
-.BI "int \fBaddLabel\fR ( const QIconSet & iconset, const QString & s, int size = -1 )"
+.BI "int \fBaddLabel\fR ( const QIconSet & iconset, const TQString & s, int size = -1 )"
 .br
 .ti -1c
 .BI "void \fBremoveLabel\fR ( int section )"
 .br
 .ti -1c
-.BI "virtual void \fBsetLabel\fR ( int section, const QString & s, int size = -1 )"
+.BI "virtual void \fBsetLabel\fR ( int section, const TQString & s, int size = -1 )"
 .br
 .ti -1c
-.BI "virtual void \fBsetLabel\fR ( int section, const QIconSet & iconset, const QString & s, int size = -1 )"
+.BI "virtual void \fBsetLabel\fR ( int section, const QIconSet & iconset, const TQString & s, int size = -1 )"
 .br
 .ti -1c
-.BI "QString \fBlabel\fR ( int section ) const"
+.BI "TQString \fBlabel\fR ( int section ) const"
 .br
 .ti -1c
 .BI "QIconSet * \fBiconSet\fR ( int section ) const"
@@ -267,15 +267,15 @@ QHeader provides the clicked(), pressed() and released() signals. If the user ch
 .PP
 See also QListView, QTable, and Advanced Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QHeader::QHeader ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QHeader::QHeader ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a horizontal header called \fIname\fR, with parent \fIparent\fR.
-.SH "QHeader::QHeader ( int n, QWidget * parent = 0, const char * name = 0 )"
+.SH "QHeader::QHeader ( int n, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a horizontal header called \fIname\fR, with \fIn\fR sections and parent \fIparent\fR.
 .SH "QHeader::~QHeader ()"
 Destroys the header and all its sections.
-.SH "int QHeader::addLabel ( const QString & s, int size = -1 )"
+.SH "int QHeader::addLabel ( const TQString & s, int size = -1 )"
 Adds a new section with label text \fIs\fR. Returns the index position where the section was added (at the right for horizontal headers, at the bottom for vertical headers). The section's width is set to \fIsize\fR. If \fIsize\fR < 0, an appropriate size for the text \fIs\fR is chosen.
-.SH "int QHeader::addLabel ( const QIconSet & iconset, const QString & s, int size = -1 )"
+.SH "int QHeader::addLabel ( const QIconSet & iconset, const TQString & s, int size = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Adds a new section with iconset \fIiconset\fR and label text \fIs\fR. Returns the index position where the section was added (at the right for horizontal headers, at the bottom for vertical headers). The section's width is set to \fIsize\fR, unless size is negative in which case the size is calculated taking account of the size of the text.
@@ -333,8 +333,8 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns TRUE if section \fIsection\fR will resize to take up the full width (or height) of the header; otherwise returns FALSE. If at least one section has stretch enabled the sections will always take up the full width of the header.
 .PP
 See also setStretchEnabled().
-.SH "QString QHeader::label ( int section ) const"
-Returns the text for section \fIsection\fR. If the section does not exist, a QString::null is returned.
+.SH "TQString QHeader::label ( int section ) const"
+Returns the text for section \fIsection\fR. If the section does not exist, a TQString::null is returned.
 .PP
 Example: helpsystem/tooltip.cpp.
 .SH "int QHeader::mapToActual ( int l ) const"
@@ -445,14 +445,14 @@ If \fIenable\fR is TRUE, any clicks on section \fIsection\fR will result in clic
 If \fIsection\fR is -1 (the default) then the \fIenable\fR value is set for all existing sections and will be applied to any new sections that are added.
 .PP
 See also moving and setResizeEnabled().
-.SH "void QHeader::setLabel ( int section, const QString & s, int size = -1 )\fC [virtual]\fR"
+.SH "void QHeader::setLabel ( int section, const TQString & s, int size = -1 )\fC [virtual]\fR"
 Sets the text of section \fIsection\fR to \fIs\fR. The section's width is set to \fIsize\fR if \fIsize\fR >= 0; otherwise it is left unchanged. Any icon set that has been set for this section remains unchanged.
 .PP
 If the section does not exist, nothing happens.
 .PP
 Examples:
 .)l chart/setdataform.cpp and table/small-table-demo/main.cpp.
-.SH "void QHeader::setLabel ( int section, const QIconSet & iconset, const QString & s, int size = -1 )\fC [virtual]\fR"
+.SH "void QHeader::setLabel ( int section, const QIconSet & iconset, const TQString & s, int size = -1 )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the icon for section \fIsection\fR to \fIiconset\fR and the text to \fIs\fR. The section's width is set to \fIsize\fR if \fIsize\fR >= 0; otherwise it is left unchanged.
@@ -572,8 +572,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

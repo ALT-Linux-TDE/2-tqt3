@@ -9,7 +9,7 @@
 .SH NAME
 QValueVector \- Value-based template class that provides a dynamic array
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqvaluevector.h>\fR
 .PP
@@ -184,7 +184,7 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .SH DESCRIPTION
 The QValueVector class is a value-based template class that provides a dynamic array.
 .PP
-QValueVector is a Qt implementation of an STL-like vector container. It can be used in your application if the standard \fCvector\fR is not available for your target platforms. QValueVector is part of the Qt Template Library.
+QValueVector is a TQt implementation of an STL-like vector container. It can be used in your application if the standard \fCvector\fR is not available for your target platforms. QValueVector is part of the TQt Template Library.
 .PP
 QValueVector<T> defines a template instance to create a vector of values that all have the class T. QValueVector does not store pointers to the members of the vector; it holds a copy of every member. QValueVector is said to be value based; in contrast, QPtrList and QDict are pointer based.
 .PP
@@ -192,7 +192,7 @@ QValueVector contains and manages a collection of objects of type T and provides
 .PP
 QValueVector provides good performance if you append or remove elements from the end of the vector. If you insert or remove elements from anywhere but the end, performance is very bad. The reason for this is that elements must to be copied into new positions.
 .PP
-Some classes cannot be used within a QValueVector: for example, all classes derived from QObject and thus all classes that implement widgets. Only values can be used in a QValueVector. To qualify as a value the class must provide:
+Some classes cannot be used within a QValueVector: for example, all classes derived from TQObject and thus all classes that implement widgets. Only values can be used in a QValueVector. To qualify as a value the class must provide:
 .TP
 a copy constructor;
 .TP
@@ -223,14 +223,14 @@ Example:
 .br
         Employee(): s(0) {}
 .br
-        Employee( const QString& name, int salary )
+        Employee( const TQString& name, int salary )
 .br
             : n( name ), s( salary )
 .br
         { }
 .br
 .br
-        QString name()   const          { return n; }
+        TQString name()   const          { return n; }
 .br
         int     salary() const          { return s; }
 .br
@@ -238,7 +238,7 @@ Example:
 .br
     private:
 .br
-        QString n;
+        TQString n;
 .br
         int     s;
 .br
@@ -298,7 +298,7 @@ Program output:
 .PP
 As you can see, the most recent change to Joe's salary did not affect the value in the vector because the vector created a copy of Joe's entry.
 .PP
-Many Qt functions return const value vectors; to iterate over these you should make a copy and iterate over the copy.
+Many TQt functions return const value vectors; to iterate over these you should make a copy and iterate over the copy.
 .PP
 There are several ways to find items in the vector. The begin() and end() functions return iterators to the beginning and end of the vector. The advantage of getting an iterator is that you can move forward or backward from this position by incrementing/decrementing the iterator. The iterator returned by end() points to the element which is one past the last element in the container. The past-the-end iterator is still associated with the vector it belongs to, however it is \fInot\fR dereferenceable; operator*() will not return a well-defined value. If the vector is empty(), the iterator returned by begin() will equal the iterator returned by end().
 .PP
@@ -311,7 +311,7 @@ The fastest way to access an element of a vector is by using operator[]. This fu
     vec1[10] = 4;  // WARNING: undefined, probably a crash
 .br
 .br
-    QValueVector<QString> vec2(25); // initialize with 25 elements
+    QValueVector<TQString> vec2(25); // initialize with 25 elements
 .br
     vec2[10] = "Dave";  // OK
 .br
@@ -401,7 +401,7 @@ There are several ways to insert elements into the vector. The push_back() funct
 .PP
 Items can be also be removed from the vector in several ways. There are several variants of the erase() function which removes a specific element, or range of elements, from the vector.
 .PP
-Vectors can be also sorted with various STL algorithms , or it can be sorted using the Qt Template Library. For example with qHeapSort():
+Vectors can be also sorted with various STL algorithms , or it can be sorted using the TQt Template Library. For example with qHeapSort():
 .PP
 Example:
 .PP
@@ -423,7 +423,7 @@ Example:
 .PP
 QValueVector stores its elements in contiguous memory. This means that you can use a QValueVector in any situation that requires an array.
 .PP
-See also Qt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
+See also TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
 .SH "QValueVector::ConstIterator"
 The vector's const iterator type.
@@ -623,8 +623,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

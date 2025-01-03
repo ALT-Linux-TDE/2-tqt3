@@ -11,12 +11,12 @@ QNetworkOperation \- Common operations for network protocols
 .SH SYNOPSIS
 \fC#include <ntqnetworkprotocol.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQNetworkOperation\fR ( QNetworkProtocol::Operation operation, const QString & arg0, const QString & arg1, const QString & arg2 )"
+.BI "\fBQNetworkOperation\fR ( QNetworkProtocol::Operation operation, const TQString & arg0, const TQString & arg1, const TQString & arg2 )"
 .br
 .ti -1c
 .BI "\fBQNetworkOperation\fR ( QNetworkProtocol::Operation operation, const QByteArray & arg0, const QByteArray & arg1, const QByteArray & arg2 )"
@@ -28,13 +28,13 @@ Inherits QObject.
 .BI "void \fBsetState\fR ( QNetworkProtocol::State state )"
 .br
 .ti -1c
-.BI "void \fBsetProtocolDetail\fR ( const QString & detail )"
+.BI "void \fBsetProtocolDetail\fR ( const TQString & detail )"
 .br
 .ti -1c
 .BI "void \fBsetErrorCode\fR ( int ec )"
 .br
 .ti -1c
-.BI "void \fBsetArg\fR ( int num, const QString & arg )"
+.BI "void \fBsetArg\fR ( int num, const TQString & arg )"
 .br
 .ti -1c
 .BI "void \fBsetRawArg\fR ( int num, const QByteArray & arg )"
@@ -46,13 +46,13 @@ Inherits QObject.
 .BI "QNetworkProtocol::State \fBstate\fR () const"
 .br
 .ti -1c
-.BI "QString \fBarg\fR ( int num ) const"
+.BI "TQString \fBarg\fR ( int num ) const"
 .br
 .ti -1c
 .BI "QByteArray \fBrawArg\fR ( int num ) const"
 .br
 .ti -1c
-.BI "QString \fBprotocolDetail\fR () const"
+.BI "TQString \fBprotocolDetail\fR () const"
 .br
 .ti -1c
 .BI "int \fBerrorCode\fR () const"
@@ -66,11 +66,11 @@ The QNetworkOperation class provides common operations for network protocols.
 .PP
 An object is created to describe the operation and the current state for each operation that a network protocol should process.
 .PP
-For a detailed description of the Qt Network Architecture and how to implement and use network protocols in Qt, see the Qt Network Documentation.
+For a detailed description of the TQt Network Architecture and how to implement and use network protocols in Qt, see the TQt Network Documentation.
 .PP
 See also QNetworkProtocol and Input/Output and Networking.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QNetworkOperation::QNetworkOperation ( QNetworkProtocol::Operation operation, const QString & arg0, const QString & arg1, const QString & arg2 )"
+.SH "QNetworkOperation::QNetworkOperation ( QNetworkProtocol::Operation operation, const TQString & arg0, const TQString & arg1, const TQString & arg2 )"
 Constructs a network operation object. \fIoperation\fR is the type of the operation, and \fIarg0\fR, \fIarg1\fR and \fIarg2\fR are the first three arguments of the operation. The state is initialized to QNetworkProtocol::StWaiting.
 .PP
 See also QNetworkProtocol::Operation and QNetworkProtocol::State.
@@ -80,7 +80,7 @@ Constructs a network operation object. \fIoperation\fR is the type of the operat
 See also QNetworkProtocol::Operation and QNetworkProtocol::State.
 .SH "QNetworkOperation::~QNetworkOperation ()"
 Destructor.
-.SH "QString QNetworkOperation::arg ( int num ) const"
+.SH "TQString QNetworkOperation::arg ( int num ) const"
 Returns the operation's \fInum\fR-th argument. If this argument was not already set, an empty string is returned.
 .PP
 Example: network/networkprotocol/nntp.cpp.
@@ -94,11 +94,11 @@ Because QNetworkOperation pointers are passed around a lot the QNetworkProtocol 
 Note: you should never need to call the method yourself.
 .SH "QNetworkProtocol::Operation QNetworkOperation::operation () const"
 Returns the type of the operation.
-.SH "QString QNetworkOperation::protocolDetail () const"
+.SH "TQString QNetworkOperation::protocolDetail () const"
 Returns a detailed error message for the last error. This must have been set using setProtocolDetail().
 .SH "QByteArray QNetworkOperation::rawArg ( int num ) const"
 Returns the operation's \fInum\fR-th raw data argument. If this argument was not already set, an empty bytearray is returned.
-.SH "void QNetworkOperation::setArg ( int num, const QString & arg )"
+.SH "void QNetworkOperation::setArg ( int num, const TQString & arg )"
 Sets the network operation's \fInum\fR-th argument to \fIarg\fR.
 .SH "void QNetworkOperation::setErrorCode ( int ec )"
 Sets the error code to \fIec\fR.
@@ -106,7 +106,7 @@ Sets the error code to \fIec\fR.
 If the operation failed, the protocol should set an error code to describe the error in more detail. If possible, one of the error codes defined in QNetworkProtocol should be used.
 .PP
 See also setProtocolDetail() and QNetworkProtocol::Error.
-.SH "void QNetworkOperation::setProtocolDetail ( const QString & detail )"
+.SH "void QNetworkOperation::setProtocolDetail ( const TQString & detail )"
 If the operation failed, the error message can be specified as \fIdetail\fR.
 .SH "void QNetworkOperation::setRawArg ( int num, const QByteArray & arg )"
 Sets the network operation's \fInum\fR-th raw data argument to \fIarg\fR.
@@ -133,8 +133,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

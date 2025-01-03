@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqmainwindow.h"
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 
 #include "ntqtimer.h"
 #include "ntqlayout.h"
@@ -62,7 +62,7 @@
 #include "ntqdockarea.h"
 #include "ntqstringlist.h"
 #include "ntqstyle.h"
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 #  include "qt_mac.h"
 #endif
 
@@ -88,7 +88,7 @@ public:
     {
     }
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     TQMenuBar * mb;
 #else
     TQWidget * mb;
@@ -285,7 +285,7 @@ TQLayoutIterator TQMainWindowLayout::iterator()
   TQHideToolTip and TQHideDock - minimized dock
 */
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 class TQHideToolTip : public TQToolTip
 {
 public:
@@ -310,13 +310,13 @@ public:
 	pressed = FALSE;
 	setMouseTracking( TRUE );
 	win = parent;
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	tip = new TQHideToolTip( this );
 #endif
     }
     ~TQHideDock()
     {
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	delete tip;
 #endif
     }
@@ -471,13 +471,13 @@ private:
     TQMainWindow *win;
     int pressedHandle;
     bool pressed;
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQHideToolTip *tip;
     friend class TQHideToolTip;
 #endif
 };
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 void TQHideToolTip::maybeTip( const TQPoint &pos )
 {
     if ( !parentWidget() )
@@ -893,7 +893,7 @@ TQMainWindow::TQMainWindow( TQWidget * parent, const char * name, WFlags f )
     : TQWidget( parent, name, f )
 {
     d = new TQMainWindowPrivate;
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
     d->opaque = TRUE;
 #else
     d->opaque = FALSE;
@@ -921,7 +921,7 @@ TQMainWindow::~TQMainWindow()
     delete d;
 }
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
 /*!
     Sets this main window to use the menu bar \a newMenuBar.
 
@@ -970,7 +970,7 @@ TQMenuBar * TQMainWindow::menuBar() const
     ((TQMainWindow *)this)->triggerLayout();
     return b;
 }
-#endif // QT_NO_MENUBAR
+#endif // TQT_NO_MENUBAR
 
 /*!
     Sets this main window to use the status bar \a newStatusBar.
@@ -993,12 +993,12 @@ void TQMainWindow::setStatusBar( TQStatusBar * newStatusBar )
     if ( d->sb )
 	delete d->sb;
     d->sb = newStatusBar;
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     // ### this code can cause unnecessary creation of a tool tip group
-    connect( toolTipGroup(), SIGNAL(showTip(const TQString&)),
-	     d->sb, SLOT(message(const TQString&)) );
-    connect( toolTipGroup(), SIGNAL(removeTip()),
-	     d->sb, SLOT(clear()) );
+    connect( toolTipGroup(), TQ_SIGNAL(showTip(const TQString&)),
+	     d->sb, TQ_SLOT(message(const TQString&)) );
+    connect( toolTipGroup(), TQ_SIGNAL(removeTip()),
+	     d->sb, TQ_SLOT(clear()) );
 #endif
     d->sb->installEventFilter( this );
     triggerLayout();
@@ -1034,7 +1034,7 @@ TQStatusBar * TQMainWindow::statusBar() const
 }
 
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 /*!
     Sets this main window to use the tool tip group \a
     newToolTipGroup.
@@ -1054,10 +1054,10 @@ void TQMainWindow::setToolTipGroup( TQToolTipGroup * newToolTipGroup )
 	delete d->ttg;
     d->ttg = newToolTipGroup;
 
-    connect( toolTipGroup(), SIGNAL(showTip(const TQString&)),
-	     statusBar(), SLOT(message(const TQString&)) );
-    connect( toolTipGroup(), SIGNAL(removeTip()),
-	     statusBar(), SLOT(clear()) );
+    connect( toolTipGroup(), TQ_SIGNAL(showTip(const TQString&)),
+	     statusBar(), TQ_SLOT(message(const TQString&)) );
+    connect( toolTipGroup(), TQ_SIGNAL(removeTip()),
+	     statusBar(), TQ_SLOT(clear()) );
 }
 
 
@@ -1148,8 +1148,8 @@ void TQMainWindow::setDockEnabled( TQDockWindow *dw, Dock dock, bool enable )
 {
     if ( d->dockWindows.find( dw ) == -1 ) {
 	d->dockWindows.append( dw );
-	connect( dw, SIGNAL( placeChanged(TQDockWindow::Place) ),
-		 this, SLOT( slotPlaceChanged() ) );
+	connect( dw, TQ_SIGNAL( placeChanged(TQDockWindow::Place) ),
+		 this, TQ_SLOT( slotPlaceChanged() ) );
     }
     TQString s;
     s.sprintf( "%p_%d", (void*)dw, (int)dock );
@@ -1239,7 +1239,7 @@ bool TQMainWindow::isDockEnabled( TQDockWindow *tb, Dock dock ) const
 void TQMainWindow::addDockWindow( TQDockWindow *dockWindow,
 			      Dock edge, bool newLine )
 {
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     if(isTopLevel() && edge == DockTop)
 	ChangeWindowAttributes((WindowPtr)handle(), kWindowToolbarButtonAttribute, 0);
 #endif
@@ -1247,8 +1247,8 @@ void TQMainWindow::addDockWindow( TQDockWindow *dockWindow,
     dockWindow->setNewLine( newLine );
     if ( d->dockWindows.find( dockWindow ) == -1 ) {
 	d->dockWindows.append( dockWindow );
-	connect( dockWindow, SIGNAL( placeChanged(TQDockWindow::Place) ),
-		 this, SLOT( slotPlaceChanged() ) );
+	connect( dockWindow, TQ_SIGNAL( placeChanged(TQDockWindow::Place) ),
+		 this, TQ_SLOT( slotPlaceChanged() ) );
 	dockWindow->installEventFilter( this );
     }
     dockWindow->setOpaqueMoving( d->opaque );
@@ -1275,7 +1275,7 @@ void TQMainWindow::addDockWindow( TQDockWindow * dockWindow, const TQString &lab
 			      Dock edge, bool newLine )
 {
     addDockWindow( dockWindow, edge, newLine );
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     TQToolBar *tb = ::tqt_cast<TQToolBar*>(dockWindow);
     if ( tb )
 	tb->setLabel( label );
@@ -1407,15 +1407,15 @@ void TQMainWindow::moveDockWindow( TQDockWindow * dockWindow, Dock edge, bool nl
 
 void TQMainWindow::removeDockWindow( TQDockWindow * dockWindow )
 {
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     if(isTopLevel() && dockWindow->area() == topDock() && !dockWindows( DockTop ).count())
 	ChangeWindowAttributes((WindowPtr)handle(), 0, kWindowToolbarButtonAttribute);
 #endif
 
     dockWindow->hide();
     d->dockWindows.removeRef( dockWindow );
-    disconnect( dockWindow, SIGNAL( placeChanged(TQDockWindow::Place) ),
-		this, SLOT( slotPlaceChanged() ) );
+    disconnect( dockWindow, TQ_SIGNAL( placeChanged(TQDockWindow::Place) ),
+		this, TQ_SLOT( slotPlaceChanged() ) );
     dockWindow->removeEventFilter( this );
 }
 
@@ -1426,7 +1426,7 @@ void TQMainWindow::removeDockWindow( TQDockWindow * dockWindow )
 
 void TQMainWindow::setUpLayout()
 {
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( !d->mb ) {
 	// slightly evil hack here.  reconsider this
 	TQObjectList * l
@@ -1456,7 +1456,7 @@ void TQMainWindow::setUpLayout()
 	    delete item;
     }
 
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( d->mb && d->mb->isVisibleTo( this ) ) {
 	d->tll->setMenuBar( d->mb );
 	if (style().styleHint(TQStyle::SH_MainWindow_SpaceBelowMenuBar, this))
@@ -1844,14 +1844,14 @@ void TQMainWindow::triggerLayout( bool deleteLayout )
 
     \code
     TQPopupMenu * help = new TQPopupMenu( this );
-    help->insertItem( "What's &This", this , SLOT(whatsThis()), SHIFT+Key_F1);
+    help->insertItem( "What's &This", this , TQ_SLOT(whatsThis()), SHIFT+Key_F1);
     \endcode
 
     \sa TQWhatsThis::enterWhatsThisMode()
 */
 void TQMainWindow::whatsThis()
 {
-#ifndef QT_NO_WHATSTHIS
+#ifndef TQT_NO_WHATSTHIS
     TQWhatsThis::enterWhatsThisMode();
 #endif
 }
@@ -1907,7 +1907,7 @@ bool TQMainWindow::getLocation( TQDockWindow *dw, Dock &dock, int &index, bool &
     return TRUE;
 }
 
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
 /*!
     Returns a list of all the toolbars which are in the \a dock dock
     area, regardless of their state.
@@ -2164,7 +2164,7 @@ TQPopupMenu *TQMainWindow::createDockWindowMenu( DockWindows dockWindows ) const
     TQPopupMenu *menu = new TQPopupMenu( (TQMainWindow*)this, "qt_customize_menu" );
     menu->setCheckable( TRUE );
     d->dockWindowModes.replace( menu, dockWindows );
-    connect( menu, SIGNAL( aboutToShow() ), this, SLOT( menuAboutToShow() ) );
+    connect( menu, TQ_SIGNAL( aboutToShow() ), this, TQ_SLOT( menuAboutToShow() ) );
     return menu;
 }
 
@@ -2203,7 +2203,7 @@ void TQMainWindow::menuAboutToShow()
 		    continue;
 		TQString label = dw->caption();
 		if ( !label.isEmpty() ) {
-		    int id = menu->insertItem( label, dw, SLOT( toggleVisible() ) );
+		    int id = menu->insertItem( label, dw, TQ_SLOT( toggleVisible() ) );
 		    menu->setItemChecked( id, dw->isVisible() );
 		    empty = FALSE;
 		}
@@ -2214,7 +2214,7 @@ void TQMainWindow::menuAboutToShow()
 
 	empty = TRUE;
 
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
 	if ( dockWindows == AllDockWindows || dockWindows == OnlyToolBars ) {
 	    for ( o = l->first(); o; o = l->next() ) {
 		TQToolBar *tb = ::tqt_cast<TQToolBar*>(o);
@@ -2222,7 +2222,7 @@ void TQMainWindow::menuAboutToShow()
 		    continue;
 		TQString label = tb->label();
 		if ( !label.isEmpty() ) {
-		    int id = menu->insertItem( label, tb, SLOT( toggleVisible() ) );
+		    int id = menu->insertItem( label, tb, TQ_SLOT( toggleVisible() ) );
 		    menu->setItemChecked( id, tb->isVisible() );
 		    empty = FALSE;
 		}
@@ -2238,9 +2238,9 @@ void TQMainWindow::menuAboutToShow()
 	menu->insertSeparator();
 
     if ( dockWindowsMovable() )
-	menu->insertItem( tr( "Line up" ), this, SLOT( doLineUp() ) );
+	menu->insertItem( tr( "Line up" ), this, TQ_SLOT( doLineUp() ) );
     if ( isCustomizable() )
-	menu->insertItem( tr( "Customize..." ), this, SLOT( customize() ) );
+	menu->insertItem( tr( "Customize..." ), this, TQ_SLOT( customize() ) );
 }
 
 /*!
@@ -2280,7 +2280,7 @@ void TQMainWindow::slotPlaceChanged()
     TQDockWindow *dw = ::tqt_cast<TQDockWindow*>(obj);
     if ( dw )
 	emit dockWindowPositionChanged( dw );
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
     TQToolBar *tb = ::tqt_cast<TQToolBar*>(obj);
     if ( tb )
 	emit toolBarPositionChanged( tb );
@@ -2442,7 +2442,7 @@ void TQMainWindow::setAppropriate( TQDockWindow *dw, bool a )
     d->appropriate.replace( dw, a );
 }
 
-#ifndef QT_NO_TEXTSTREAM
+#ifndef TQT_NO_TEXTSTREAM
 static void saveDockArea( TQTextStream &ts, TQDockArea *a )
 {
     TQPtrList<TQDockWindow> l = a->dockWindowList();

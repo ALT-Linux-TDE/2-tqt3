@@ -40,7 +40,7 @@
 
 #include "ntqsound.h"
 
-#ifndef QT_NO_SOUND
+#ifndef TQT_NO_SOUND
 
 #include "ntqptrlist.h"
 
@@ -313,4 +313,4 @@ TQAuBucket::~TQAuBucket()
 {
 }
 
-#endif // QT_NO_SOUND
+#endif // TQT_NO_SOUND

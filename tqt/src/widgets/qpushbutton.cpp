@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqpushbutton.h"
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 #include "ntqdialog.h"
 #include "ntqfontmetrics.h"
 #include "ntqpainter.h"
@@ -260,11 +260,11 @@ public:
     {}
     ~TQPushButtonPrivate()
     {
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 	delete iconset;
 #endif
     }
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     TQGuardedPtr<TQPopupMenu> popup;
 #endif
     TQIconSet* iconset;
@@ -307,7 +307,7 @@ TQPushButton::TQPushButton( const TQString &text, TQWidget *parent,
     The \a parent and \a name arguments are sent to the TQWidget
     constructor.
 */
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 TQPushButton::TQPushButton( const TQIconSet& icon, const TQString &text,
 			  TQWidget *parent, const char *name )
 	: TQButton( parent, name )
@@ -334,7 +334,7 @@ void TQPushButton::init()
     lastEnabled = FALSE;
     hasMenuArrow = FALSE;
     flt = FALSE;
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
     autoDefButton = ::tqt_cast<TQDialog*>(topLevelWidget()) != 0;
 #else
     autoDefButton = FALSE;
@@ -388,7 +388,7 @@ void TQPushButton::setDefault( bool enable )
     if ( (bool)defButton == enable )
 	return;					// no change
     defButton = enable;
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
     if ( defButton && ::tqt_cast<TQDialog*>(topLevelWidget()) )
  	((TQDialog*)topLevelWidget())->setMainDefault( this );
 #endif
@@ -409,7 +409,7 @@ TQSize TQPushButton::sizeHint() const
     int w = 0, h = 0;
 
     // calculate contents size...
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
     if ( iconSet() && !iconSet()->isNull() ) {
 	int iw = iconSet()->pixmap( TQIconSet::Small, TQIconSet::Normal ).width() + 4;
 	int ih = iconSet()->pixmap( TQIconSet::Small, TQIconSet::Normal ).height();
@@ -614,7 +614,7 @@ void TQPushButton::focusInEvent( TQFocusEvent *e )
 {
     if (autoDefButton && !defButton) {
 	defButton = TRUE;
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
 	if ( defButton && ::tqt_cast<TQDialog*>(topLevelWidget()) )
  	    ((TQDialog*)topLevelWidget())->setDefault( this );
 #endif
@@ -627,7 +627,7 @@ void TQPushButton::focusInEvent( TQFocusEvent *e )
 */
 void TQPushButton::focusOutEvent( TQFocusEvent *e )
 {
-#ifndef QT_NO_DIALOG
+#ifndef TQT_NO_DIALOG
     if ( defButton && autoDefButton ) {
 	if ( ::tqt_cast<TQDialog*>(topLevelWidget()) )
 	    ((TQDialog*)topLevelWidget())->setDefault( 0 );
@@ -635,14 +635,14 @@ void TQPushButton::focusOutEvent( TQFocusEvent *e )
 #endif
 
     TQButton::focusOutEvent( e );
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     if ( popup() && popup()->isVisible() )	// restore pressed status
 	setDown( TRUE );
 #endif
 }
 
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 /*!
     Associates the popup menu \a popup with this push button. This
     turns the button into a menu button.
@@ -657,13 +657,13 @@ void TQPushButton::setPopup( TQPopupMenu* popup )
     if ( !d )
 	d = new TQPushButtonPrivate;
     if ( popup && !d->popup )
-	connect( this, SIGNAL( pressed() ), this, SLOT( popupPressed() ) );
+	connect( this, TQ_SIGNAL( pressed() ), this, TQ_SLOT( popupPressed() ) );
 
     d->popup = popup;
     setIsMenuButton( popup != 0 );
 }
-#endif //QT_NO_POPUPMENU
-#ifndef QT_NO_ICONSET
+#endif //TQT_NO_POPUPMENU
+#ifndef TQT_NO_ICONSET
 void TQPushButton::setIconSet( const TQIconSet& icon )
 {
     if ( !d )
@@ -687,8 +687,8 @@ TQIconSet* TQPushButton::iconSet() const
 {
     return d ? d->iconset : 0;
 }
-#endif // QT_NO_ICONSET
-#ifndef QT_NO_POPUPMENU
+#endif // TQT_NO_ICONSET
+#ifndef TQT_NO_POPUPMENU
 /*!
     Returns the button's associated popup menu or 0 if no popup menu
     has been set.
@@ -707,7 +707,7 @@ void TQPushButton::popupPressed()
     if ( isDown() && popup ) {
 	bool horizontal = TRUE;
 	bool topLeft = TRUE;			// ### always TRUE
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
 	TQToolBar *tb = ::tqt_cast<TQToolBar*>(parentWidget());
 	if ( tb && tb->orientation() == Vertical )
 	    horizontal = FALSE;

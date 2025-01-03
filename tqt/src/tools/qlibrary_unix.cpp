@@ -41,7 +41,7 @@
 #include "qplatformdefs.h"
 #include "private/qlibrary_p.h"
 
-#ifndef QT_NO_LIBRARY
+#ifndef TQT_NO_LIBRARY
 
 #if defined(QT_AOUT_UNDERSCORE)
 #include <string.h>

@@ -100,7 +100,7 @@ struct IndexKeyword {
     bool operator>( const IndexKeyword &ik ) const {
 	return keyword.lower() > ik.keyword.lower();
     }
-    Q_DUMMY_COMPARISON_OPERATOR( IndexKeyword )
+    TQ_DUMMY_COMPARISON_OPERATOR( IndexKeyword )
     TQString keyword;
     TQString link;
 };
@@ -179,48 +179,48 @@ HelpDialog::HelpDialog( TQWidget *parent, MainWindow *h )
 
 void HelpDialog::initialize()
 {
-    connect( tabWidget, SIGNAL( selected(const TQString&) ),
-	     this, SLOT( currentTabChanged(const TQString&) ) );
-    connect( listContents, SIGNAL( mouseButtonClicked(int, TQListViewItem*, const TQPoint &, int ) ),
-	     this, SLOT( showTopic(int,TQListViewItem*, const TQPoint &) ) );
-    connect( listContents, SIGNAL( currentChanged(TQListViewItem*) ),
-	     this, SLOT( currentContentsChanged(TQListViewItem*) ) );
-    connect( listContents, SIGNAL( selectionChanged(TQListViewItem*) ),
-	     this, SLOT( currentContentsChanged(TQListViewItem*) ) );
-    connect( listContents, SIGNAL( doubleClicked(TQListViewItem*) ),
-	     this, SLOT( showTopic(TQListViewItem*) ) );
-    connect( listContents, SIGNAL( returnPressed(TQListViewItem*) ),
-	     this, SLOT( showTopic(TQListViewItem*) ) );
-    connect( listContents, SIGNAL( contextMenuRequested( TQListViewItem*, const TQPoint&, int ) ),
-	     this, SLOT( showItemMenu( TQListViewItem*, const TQPoint& ) ) );
-    connect( editIndex, SIGNAL( returnPressed() ),
-	     this, SLOT( showTopic() ) );
-    connect( editIndex, SIGNAL( textChanged(const TQString&) ),
-	     this, SLOT( searchInIndex(const TQString&) ) );
+    connect( tabWidget, TQ_SIGNAL( selected(const TQString&) ),
+	     this, TQ_SLOT( currentTabChanged(const TQString&) ) );
+    connect( listContents, TQ_SIGNAL( mouseButtonClicked(int, TQListViewItem*, const TQPoint &, int ) ),
+	     this, TQ_SLOT( showTopic(int,TQListViewItem*, const TQPoint &) ) );
+    connect( listContents, TQ_SIGNAL( currentChanged(TQListViewItem*) ),
+	     this, TQ_SLOT( currentContentsChanged(TQListViewItem*) ) );
+    connect( listContents, TQ_SIGNAL( selectionChanged(TQListViewItem*) ),
+	     this, TQ_SLOT( currentContentsChanged(TQListViewItem*) ) );
+    connect( listContents, TQ_SIGNAL( doubleClicked(TQListViewItem*) ),
+	     this, TQ_SLOT( showTopic(TQListViewItem*) ) );
+    connect( listContents, TQ_SIGNAL( returnPressed(TQListViewItem*) ),
+	     this, TQ_SLOT( showTopic(TQListViewItem*) ) );
+    connect( listContents, TQ_SIGNAL( contextMenuRequested( TQListViewItem*, const TQPoint&, int ) ),
+	     this, TQ_SLOT( showItemMenu( TQListViewItem*, const TQPoint& ) ) );
+    connect( editIndex, TQ_SIGNAL( returnPressed() ),
+	     this, TQ_SLOT( showTopic() ) );
+    connect( editIndex, TQ_SIGNAL( textChanged(const TQString&) ),
+	     this, TQ_SLOT( searchInIndex(const TQString&) ) );
 
-    connect( listIndex, SIGNAL( selectionChanged(TQListBoxItem*) ),
-	     this, SLOT( currentIndexChanged(TQListBoxItem*) ) );
-    connect( listIndex, SIGNAL( returnPressed(TQListBoxItem*) ),
-	     this, SLOT( showTopic() ) );
-    connect( listIndex, SIGNAL( mouseButtonClicked(int, TQListBoxItem*, const TQPoint &) ),
-	     this, SLOT( showTopic( int, TQListBoxItem *, const TQPoint & ) ) );
-    connect( listIndex, SIGNAL( currentChanged(TQListBoxItem*) ),
-	     this, SLOT( currentIndexChanged(TQListBoxItem*) ) );
-    connect( listIndex, SIGNAL( contextMenuRequested( TQListBoxItem*, const TQPoint& ) ),
-	     this, SLOT( showItemMenu( TQListBoxItem*, const TQPoint& ) ) );
+    connect( listIndex, TQ_SIGNAL( selectionChanged(TQListBoxItem*) ),
+	     this, TQ_SLOT( currentIndexChanged(TQListBoxItem*) ) );
+    connect( listIndex, TQ_SIGNAL( returnPressed(TQListBoxItem*) ),
+	     this, TQ_SLOT( showTopic() ) );
+    connect( listIndex, TQ_SIGNAL( mouseButtonClicked(int, TQListBoxItem*, const TQPoint &) ),
+	     this, TQ_SLOT( showTopic( int, TQListBoxItem *, const TQPoint & ) ) );
+    connect( listIndex, TQ_SIGNAL( currentChanged(TQListBoxItem*) ),
+	     this, TQ_SLOT( currentIndexChanged(TQListBoxItem*) ) );
+    connect( listIndex, TQ_SIGNAL( contextMenuRequested( TQListBoxItem*, const TQPoint& ) ),
+	     this, TQ_SLOT( showItemMenu( TQListBoxItem*, const TQPoint& ) ) );
 
-    connect( listBookmarks, SIGNAL( mouseButtonClicked(int, TQListViewItem*, const TQPoint&, int ) ),
-	     this, SLOT( showTopic(int, TQListViewItem*, const TQPoint &) ) );
-    connect( listBookmarks, SIGNAL( returnPressed(TQListViewItem*) ),
-	     this, SLOT( showTopic(TQListViewItem*) ) );
-    connect( listBookmarks, SIGNAL( selectionChanged(TQListViewItem*) ),
-	     this, SLOT( currentBookmarkChanged(TQListViewItem*) ) );
-    connect( listBookmarks, SIGNAL( currentChanged(TQListViewItem*) ),
-	     this, SLOT( currentBookmarkChanged(TQListViewItem*) ) );
-    connect( listBookmarks, SIGNAL( contextMenuRequested( TQListViewItem*, const TQPoint&, int ) ),
-	     this, SLOT( showItemMenu( TQListViewItem*, const TQPoint& ) ) );
-    connect( resultBox, SIGNAL( contextMenuRequested( TQListBoxItem*, const TQPoint& ) ),
-	     this, SLOT( showItemMenu( TQListBoxItem*, const TQPoint& ) ) );
+    connect( listBookmarks, TQ_SIGNAL( mouseButtonClicked(int, TQListViewItem*, const TQPoint&, int ) ),
+	     this, TQ_SLOT( showTopic(int, TQListViewItem*, const TQPoint &) ) );
+    connect( listBookmarks, TQ_SIGNAL( returnPressed(TQListViewItem*) ),
+	     this, TQ_SLOT( showTopic(TQListViewItem*) ) );
+    connect( listBookmarks, TQ_SIGNAL( selectionChanged(TQListViewItem*) ),
+	     this, TQ_SLOT( currentBookmarkChanged(TQListViewItem*) ) );
+    connect( listBookmarks, TQ_SIGNAL( currentChanged(TQListViewItem*) ),
+	     this, TQ_SLOT( currentBookmarkChanged(TQListViewItem*) ) );
+    connect( listBookmarks, TQ_SIGNAL( contextMenuRequested( TQListViewItem*, const TQPoint&, int ) ),
+	     this, TQ_SLOT( showItemMenu( TQListViewItem*, const TQPoint& ) ) );
+    connect( resultBox, TQ_SIGNAL( contextMenuRequested( TQListBoxItem*, const TQPoint& ) ),
+	     this, TQ_SLOT( showItemMenu( TQListBoxItem*, const TQPoint& ) ) );
 
     cacheFilesPath = TQDir::homeDirPath() + "/.assistant/"; //### Find a better location for the dbs
 
@@ -230,7 +230,7 @@ void HelpDialog::initialize()
     listContents->header()->hide();
     listContents->header()->setStretchEnabled( TRUE );
     framePrepare->hide();
-    connect( tqApp, SIGNAL(lastWindowClosed()), SLOT(lastWinClosed()) );
+    connect( tqApp, TQ_SIGNAL(lastWindowClosed()), TQ_SLOT(lastWinClosed()) );
 
     termsEdit->setValidator( new SearchValidator( termsEdit ) );
 
@@ -323,7 +323,7 @@ void HelpDialog::loadIndexFile()
 	if (!indexFile.open(IO_ReadOnly)) {
 	    TQMessageBox::warning(help, tr("TQt Assistant"), tr("Failed to load keyword index file\n"
 							      "Assistant will not work!"));
-#if defined Q_WS_WIN || defined Q_WS_MACX
+#if defined TQ_WS_WIN || defined TQ_WS_MACX
 	    startTimer(50);
 #endif
 	    return;
@@ -570,13 +570,13 @@ void HelpDialog::buildContentDict()
 void HelpDialog::currentTabChanged( const TQString &s )
 {
     if ( stripAmpersand( s ).contains( tr( "Index" ) ) )
-	TQTimer::singleShot( 0, this, SLOT( loadIndexFile() ) );
+	TQTimer::singleShot( 0, this, TQ_SLOT( loadIndexFile() ) );
     else if ( stripAmpersand( s ).contains( tr( "Bookmarks" ) ) )
 	insertBookmarks();
     else if ( stripAmpersand( s ).contains( tr( "Contents" ) ) )
-	TQTimer::singleShot( 0, this, SLOT( insertContents() ) );
+	TQTimer::singleShot( 0, this, TQ_SLOT( insertContents() ) );
     else if ( stripAmpersand( s ).contains( tr( "Search" ) ) )
-	TQTimer::singleShot( 0, this, SLOT( setupFullTextIndex() ) );
+	TQTimer::singleShot( 0, this, TQ_SLOT( setupFullTextIndex() ) );
 }
 
 void HelpDialog::showInitDoneMessage()
@@ -936,8 +936,8 @@ void HelpDialog::setupFullTextIndex()
     fullTextIndex->setDocListFile( cacheFilesPath + "indexdb.doc." + pname );
     processEvents();
 
-    connect( fullTextIndex, SIGNAL( indexingProgress( int ) ),
-        this, SLOT( setIndexingProgress( int ) ) );
+    connect( fullTextIndex, TQ_SIGNAL( indexingProgress( int ) ),
+        this, TQ_SLOT( setIndexingProgress( int ) ) );
     TQFile f( cacheFilesPath + "indexdb.dict." + pname );
     if ( !f.exists() ) {
         TQMap<TQString, TQString>::ConstIterator it = titleMap.begin();

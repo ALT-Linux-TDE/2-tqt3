@@ -19,7 +19,7 @@ int main( int argc, char **argv )
     TQPushButton quit( "Quit", &box );
     quit.setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    TQObject::connect( &quit, SIGNAL(clicked()), &a, SLOT(quit()) );
+    TQObject::connect( &quit, TQ_SIGNAL(clicked()), &a, TQ_SLOT(quit()) );
 
     a.setMainWidget( &box );
     box.show();

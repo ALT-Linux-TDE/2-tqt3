@@ -34,8 +34,8 @@ I18nDemo::I18nDemo(TQWidget *parent, const char *name)
     box->setLineWidth( 1 );
 
     workspace = new TQWorkspace(box);
-    connect(workspace, SIGNAL(windowActivated(TQWidget *)),
-	    SLOT(windowActivated(TQWidget *)));
+    connect(workspace, TQ_SIGNAL(windowActivated(TQWidget *)),
+	    TQ_SLOT(windowActivated(TQWidget *)));
     workspace->setBackgroundMode(PaletteMid);
 
     setCentralWidget(box);
@@ -53,32 +53,32 @@ void I18nDemo::initActions()
 			      tr("Close"),
 			      CTRL + Key_F4,
 			      this);
-    connect(actionClose, SIGNAL(activated()), SLOT(closeSlot()));
+    connect(actionClose, TQ_SIGNAL(activated()), TQ_SLOT(closeSlot()));
 
     actionCloseAll = new TQAction(tr("Close all opened windows."),
 				 tr("Close All"),
 				 0,
 				 this);
-    connect(actionCloseAll, SIGNAL(activated()), SLOT(closeAllSlot()));
+    connect(actionCloseAll, TQ_SIGNAL(activated()), TQ_SLOT(closeAllSlot()));
 
     actionTile = new TQAction(tr("Tile opened windows."),
 			     tr("Tile"),
 			     0,
 			     this);
-    connect(actionTile, SIGNAL(activated()), SLOT(tileSlot()));
+    connect(actionTile, TQ_SIGNAL(activated()), TQ_SLOT(tileSlot()));
 
     actionCascade = new TQAction(tr("Cascade opened windows."),
 				tr("Cascade"),
 				0,
 				this);
-    connect(actionCascade, SIGNAL(activated()), SLOT(cascadeSlot()));
+    connect(actionCascade, TQ_SIGNAL(activated()), TQ_SLOT(cascadeSlot()));
 }
 
 
 void I18nDemo::initMenuBar()
 {
     newMenu = new TQPopupMenu(this);
-    connect(newMenu, SIGNAL(activated(int)), SLOT(newSlot(int)));
+    connect(newMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(newSlot(int)));
 
     newMenu->insertItem("&English", 0);
     newMenu->insertItem("&Japanese", 1);
@@ -86,7 +86,7 @@ void I18nDemo::initMenuBar()
     newMenu->insertItem("&Norwegian", 3);
 
     windowMenu = new TQPopupMenu(this);
-    connect(windowMenu, SIGNAL(activated(int)), SLOT(windowSlot(int)));
+    connect(windowMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(windowSlot(int)));
 
     windowMenu->setCheckable(TRUE);
 
@@ -123,7 +123,7 @@ void I18nDemo::newSlot(int id)
 
     tqApp->installTranslator(&wrapper->translator);
 
-    connect(wrapper, SIGNAL(destroyed()), SLOT(wrapperDead()));
+    connect(wrapper, TQ_SIGNAL(destroyed()), TQ_SLOT(wrapperDead()));
     wrapper->setCaption(tr("--language--"));
 
     TextEdit *te = new TextEdit(wrapper);

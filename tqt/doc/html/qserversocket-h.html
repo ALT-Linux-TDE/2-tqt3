@@ -82,12 +82,12 @@ body { background: #ffffff; color: black; }
 #include "ntqhostaddress.h"
 #include "ntqsocketdevice.h" // ### remove or keep for users' convenience?
 #endif // QT_H
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 
 #if !defined( TQT_MODULE_NETWORK ) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_NETWORK )
 #define TQM_EXPORT_NETWORK
 #else
-#define TQM_EXPORT_NETWORK Q_EXPORT
+#define TQM_EXPORT_NETWORK TQ_EXPORT
 #endif
 
 class TQServerSocketPrivate;
@@ -126,7 +126,7 @@ private:
     void init( const TQHostAddress &amp; address, TQ_UINT16 port, int backlog );
 };
 
-#endif // QT_NO_NETWORK
+#endif // TQT_NO_NETWORK
 #endif // TQSERVERSOCKET_H
 </pre>
 <!-- eof -->

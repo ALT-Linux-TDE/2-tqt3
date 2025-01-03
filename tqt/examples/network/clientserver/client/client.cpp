@@ -32,20 +32,20 @@ public:
 	TQPushButton *close = new TQPushButton( tr("Close connection") , this );
 	TQPushButton *quit = new TQPushButton( tr("Quit") , this );
 
-	connect( send, SIGNAL(clicked()), SLOT(sendToServer()) );
-	connect( close, SIGNAL(clicked()), SLOT(closeConnection()) );
-	connect( quit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+	connect( send, TQ_SIGNAL(clicked()), TQ_SLOT(sendToServer()) );
+	connect( close, TQ_SIGNAL(clicked()), TQ_SLOT(closeConnection()) );
+	connect( quit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 
 	// create the socket and connect various of its signals
 	socket = new TQSocket( this );
-	connect( socket, SIGNAL(connected()),
-		SLOT(socketConnected()) );
-	connect( socket, SIGNAL(connectionClosed()),
-		SLOT(socketConnectionClosed()) );
-	connect( socket, SIGNAL(readyRead()),
-		SLOT(socketReadyRead()) );
-	connect( socket, SIGNAL(error(int)),
-		SLOT(socketError(int)) );
+	connect( socket, TQ_SIGNAL(connected()),
+		TQ_SLOT(socketConnected()) );
+	connect( socket, TQ_SIGNAL(connectionClosed()),
+		TQ_SLOT(socketConnectionClosed()) );
+	connect( socket, TQ_SIGNAL(readyRead()),
+		TQ_SLOT(socketReadyRead()) );
+	connect( socket, TQ_SIGNAL(error(int)),
+		TQ_SLOT(socketError(int)) );
 
 	// connect to the server
 	infoText->append( tr("Trying to connect to the server\n") );
@@ -62,8 +62,8 @@ private slots:
 	socket->close();
 	if ( socket->state() == TQSocket::Closing ) {
 	    // We have a delayed close.
-	    connect( socket, SIGNAL(delayedCloseFinished()),
-		    SLOT(socketClosed()) );
+	    connect( socket, TQ_SIGNAL(delayedCloseFinished()),
+		    TQ_SLOT(socketClosed()) );
 	} else {
 	    // The socket is closed.
 	    socketClosed();

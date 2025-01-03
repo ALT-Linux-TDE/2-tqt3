@@ -74,7 +74,7 @@ class SourceFile;
 class FormFile;
 class TQAssistantClient;
 
-#if defined(Q_FULL_TEMPLATE_INSTANTIATION)
+#if defined(TQ_FULL_TEMPLATE_INSTANTIATION)
 #include <ntqtoolbar.h>
 #else
 class TQToolBar;
@@ -373,7 +373,7 @@ private:
 	TQString title;
 	TQObject *receiver;
 	const char *init_slot, *accept_slot;
-	Q_DUMMY_COMPARISON_OPERATOR( Tab )
+	TQ_DUMMY_COMPARISON_OPERATOR( Tab )
     };
 
 private:
@@ -405,9 +405,6 @@ private:
     TQAction* actionCurrentTool;
     TQAction *actionHelpContents, *actionHelpAbout, *actionHelpAboutTQt, *actionHelpWhatsThis;
     TQAction *actionHelpManual;
-#if defined(QT_NON_COMMERCIAL)
-    TQAction *actionHelpRegister;
-#endif
     TQAction *actionToolsCustomWidget, *actionEditPreferences;
     TQAction *actionWindowTile, *actionWindowCascade, *actionWindowClose, *actionWindowCloseAll;
     TQAction *actionWindowNext, *actionWindowPrevious;

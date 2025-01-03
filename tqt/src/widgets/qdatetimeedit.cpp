@@ -40,7 +40,7 @@
 
 #include "ntqdatetimeedit.h"
 
-#ifndef QT_NO_DATETIMEEDIT
+#ifndef TQT_NO_DATETIMEEDIT
 
 #include "../kernel/qinternal_p.h"
 #include "../kernel/qrichtext_p.h"
@@ -52,13 +52,13 @@
 #include "ntqstring.h"
 #include "ntqstyle.h"
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #include "qt_windows.h"
 #endif
 
 #define TQDATETIMEEDIT_HIDDEN_CHAR '0'
 
-class Q_EXPORT TQNumberSection
+class TQ_EXPORT TQNumberSection
 {
 public:
     TQNumberSection( int selStart = 0, int selEnd = 0, bool separat = TRUE, int actual = -1 )
@@ -71,7 +71,7 @@ public:
     int width() const { return selend - selstart; }
     int index() const { return act; }
     bool separator() const { return sep; }
-    Q_DUMMY_COMPARISON_OPERATOR( TQNumberSection )
+    TQ_DUMMY_COMPARISON_OPERATOR( TQNumberSection )
 private:
     int selstart :12;
     int selend	 :12;
@@ -111,7 +111,7 @@ static void readLocaleSettings()
     lDateSep = new TQString();
     lTimeSep = new TQString();
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     QT_WA( {
 	TCHAR data[10];
 	GetLocaleInfo( LOCALE_USER_DEFAULT, LOCALE_SDATE, data, 10 );
@@ -170,7 +170,7 @@ static void readLocaleSettings()
 
 	// this code needs to change if new formats are added
 
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
 	TQString sep = d.mid( TQMIN( dpos, mpos ) + 2, TQABS( dpos - mpos ) - 2 );
 	if ( d.contains( sep ) == 2 ) {
 	    *lDateSep = sep;
@@ -178,7 +178,7 @@ static void readLocaleSettings()
 #endif
     }
 
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
     TQString t = TQTime( 11, 22, 33 ).toString( TQt::LocalDate );
     dpos = t.find( "11" );
     mpos = t.find( "22" );
@@ -434,7 +434,7 @@ public:
     }
 
 protected:
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void wheelEvent( TQWheelEvent *e )
     {
 	TQDateTimeEditor *editor = (TQDateTimeEditor*)editWidget()->tqt_cast( "TQDateTimeEditor" );
@@ -952,10 +952,10 @@ void TQDateEdit::init()
     d->ed = new TQDateTimeEditor( this, d->controls, "date editor" );
     d->controls->setEditWidget( d->ed );
     setFocusProxy( d->ed );
-    connect( d->controls, SIGNAL( stepUpPressed() ), SLOT( stepUp() ) );
-    connect( d->controls, SIGNAL( stepDownPressed() ), SLOT( stepDown() ) );
-    connect( this, SIGNAL( valueChanged(const TQDate&) ),
-	     SLOT( updateButtons() ) );
+    connect( d->controls, TQ_SIGNAL( stepUpPressed() ), TQ_SLOT( stepUp() ) );
+    connect( d->controls, TQ_SIGNAL( stepDownPressed() ), TQ_SLOT( stepDown() ) );
+    connect( this, TQ_SIGNAL( valueChanged(const TQDate&) ),
+	     TQ_SLOT( updateButtons() ) );
     d->ed->appendSection( TQNumberSection( 0,4 ) );
     d->ed->appendSection( TQNumberSection( 5,7 ) );
     d->ed->appendSection( TQNumberSection( 8,10 ) );
@@ -1854,8 +1854,8 @@ void TQTimeEdit::init()
     d->ed = new TQDateTimeEditor( this, d->controls, "time edit base" );
     d->controls->setEditWidget( d->ed );
     setFocusProxy( d->ed );
-    connect( d->controls, SIGNAL( stepUpPressed() ), SLOT( stepUp() ) );
-    connect( d->controls, SIGNAL( stepDownPressed() ), SLOT( stepDown() ) );
+    connect( d->controls, TQ_SIGNAL( stepUpPressed() ), TQ_SLOT( stepUp() ) );
+    connect( d->controls, TQ_SIGNAL( stepDownPressed() ), TQ_SLOT( stepDown() ) );
 
     d->ed->appendSection( TQNumberSection( 0,0, TRUE, 0 ) );
     d->ed->appendSection( TQNumberSection( 0,0, TRUE, 1 ) );
@@ -2728,10 +2728,10 @@ void TQDateTimeEdit::init()
     de = new TQDateEdit( this, "qt_datetime_dateedit" );
     te = new TQTimeEdit( this, "qt_datetime_timeedit" );
     d->adv = FALSE;
-    connect( de, SIGNAL( valueChanged(const TQDate&) ),
-	     this, SLOT( newValue(const TQDate&) ) );
-    connect( te, SIGNAL( valueChanged(const TQTime&) ),
-	     this, SLOT( newValue(const TQTime&) ) );
+    connect( de, TQ_SIGNAL( valueChanged(const TQDate&) ),
+	     this, TQ_SLOT( newValue(const TQDate&) ) );
+    connect( te, TQ_SIGNAL( valueChanged(const TQTime&) ),
+	     this, TQ_SLOT( newValue(const TQTime&) ) );
     setFocusProxy( de );
     setSizePolicy( TQSizePolicy::Minimum, TQSizePolicy::Fixed );
 }

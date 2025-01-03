@@ -40,7 +40,7 @@
 
 #include "ntqplatinumstyle.h"
 
-#if !defined(QT_NO_STYLE_PLATINUM) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_PLATINUM) || defined(QT_PLUGIN)
 
 #include "ntqapplication.h"
 #include "ntqcombobox.h"
@@ -753,7 +753,7 @@ void TQPlatinumStyle::drawControl( ControlElement element,
     switch( element ) {
     case CE_PushButton:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    TQColorGroup myCg( cg );
 	    int x1, y1, x2, y2;
 	    bool useBevelButton;
@@ -861,7 +861,7 @@ void TQPlatinumStyle::drawControl( ControlElement element,
 	}
     case CE_PushButtonLabel:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    bool on;
 	    int x, y, w, h;
 	    SFlags flags;
@@ -891,7 +891,7 @@ void TQPlatinumStyle::drawControl( ControlElement element,
 			       g, flags, opt );
 		w -= dx;
 	    }
-#ifndef QT_NO_ICONSET
+#ifndef TQT_NO_ICONSET
 	    if ( !ceData.iconSet.isNull() ) {
 		TQIconSet::Mode mode = ( elementFlags & CEF_IsEnabled )
 				      ? TQIconSet::Normal : TQIconSet::Disabled;
@@ -1078,7 +1078,7 @@ void TQPlatinumStyle::drawComplexControl( ComplexControl control,
 		p->drawPoint( a[6] );
 
 	    }
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 	    if ( sub & SC_ComboBoxEditField ) {
 		// sadly this is pretty much the windows code, except
 		// for the first fillRect call...
@@ -1127,7 +1127,7 @@ void TQPlatinumStyle::drawComplexControl( ComplexControl control,
 	}
     case CC_Slider:
 	{
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 	    int thickness = pixelMetric( PM_SliderControlThickness, ceData, elementFlags, widget );
 	    int len = pixelMetric( PM_SliderLength, ceData, elementFlags, widget );
 	    int ticks = ceData.tickMarkSetting;
@@ -1327,7 +1327,7 @@ TQRect TQPlatinumStyle::querySubControlMetrics( ComplexControl control,
 					      const TQWidget *widget ) const
 {
     switch( control ) {
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
     case CC_ComboBox:
 	switch( sc ) {
 	case SC_ComboBoxArrow: {
@@ -1343,7 +1343,7 @@ TQRect TQPlatinumStyle::querySubControlMetrics( ComplexControl control,
 	}
 	break;
 #endif
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
     case CC_ScrollBar: {
 	int sliderStart = ceData.startStep;
 	int sbextent = pixelMetric( PM_ScrollBarExtent, ceData, elementFlags, widget );
@@ -1401,7 +1401,7 @@ TQRect TQPlatinumStyle::querySubControlMetrics( ComplexControl control,
 	}
 	break; }
 #endif
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     case CC_Slider: {
 	int tickOffset = pixelMetric( PM_SliderTickmarkOffset, ceData, elementFlags, widget);
 	int thickness = pixelMetric( PM_SliderControlThickness, ceData, elementFlags, widget);

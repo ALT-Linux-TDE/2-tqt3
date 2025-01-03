@@ -4981,8 +4981,3 @@ echo
 $echo "Try \`$modename --help' for more information about other modes."
 
 exit 0
-
-# Local Variables:
-# mode:shell-script
-# sh-indentation:2
-# End:

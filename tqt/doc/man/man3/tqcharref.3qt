@@ -7,20 +7,20 @@
 .ad l
 .nh
 .SH NAME
-QCharRef \- Helper class for QString
+QCharRef \- Helper class for TQString
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqstring.h>\fR
 .PP
 .SH DESCRIPTION
-The QCharRef class is a helper class for QString.
+The QCharRef class is a helper class for TQString.
 .PP
-When you get an object of type QCharRef, if you can assign to it, the assignment will apply to the character in the string from which you got the reference. That is its whole purpose in life. The QCharRef becomes invalid once modifications are made to the string: if you want to keep the character, copy it into a QChar.
+When you get an object of type QCharRef, if you can assign to it, the assignment will apply to the character in the string from which you got the reference. That is its whole purpose in life. The QCharRef becomes invalid once modifications are made to the string: if you want to keep the character, copy it into a TQChar.
 .PP
-Most of the QChar member functions also exist in QCharRef. However, they are not explicitly documented here.
+Most of the TQChar member functions also exist in QCharRef. However, they are not explicitly documented here.
 .PP
-See also QString::operator[](), QString::at(), QChar, and Text Related Classes.
+See also TQString::operator[](), TQString::at(), TQChar, and Text Related Classes.
 
 .SH "SEE ALSO"
 .BR http://doc.trolltech.com/qcharref.html
@@ -36,8 +36,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

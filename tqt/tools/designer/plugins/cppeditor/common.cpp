@@ -45,7 +45,7 @@ public:
     virtual ~CommonInterface();
 
     TQRESULT queryInterface( const TQUuid&, TQUnknownInterface** );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQString name() const { return "C++"; }
     TQString description() const { return "C++ Integration"; }

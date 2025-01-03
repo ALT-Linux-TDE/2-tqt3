@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqmenudata.h"
-#ifndef QT_NO_MENUDATA
+#ifndef TQT_NO_MENUDATA
 #include "ntqpopupmenu.h"
 #include "ntqmenubar.h"
 #include "ntqapplication.h"
@@ -260,7 +260,7 @@ int TQMenuData::insertAny( const TQString *text, const TQPixmap *pixmap,
     if ( id < 0 )				// -2, -3 etc.
 	id = get_seq_id();
 
-    register TQMenuItem *mi = new TQMenuItem;
+    TQMenuItem *mi = new TQMenuItem;
     TQ_CHECK_PTR( mi );
     mi->ident = id;
     if ( widget != 0 ) {
@@ -281,7 +281,7 @@ int TQMenuData::insertAny( const TQString *text, const TQPixmap *pixmap,
 	newText.truncate( newText.findRev( '\t' ) );
 	mi->text_data = newText.isEmpty()?TQString():newText;
 #endif
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	mi->accel_key = TQt::Key_unknown;
 #endif
 	if ( pixmap && !pixmap->isNull() )
@@ -361,8 +361,8 @@ void TQMenuData::removePopup( TQPopupMenu *popup )
     \code
 	TQMenuBar   *mainMenu = new TQMenuBar;
 	TQPopupMenu *fileMenu = new TQPopupMenu;
-	fileMenu->insertItem( "New",  myView, SLOT(newFile()), CTRL+Key_N );
-	fileMenu->insertItem( "Open", myView, SLOT(open()),    CTRL+Key_O );
+	fileMenu->insertItem( "New",  myView, TQ_SLOT(newFile()), CTRL+Key_N );
+	fileMenu->insertItem( "Open", myView, TQ_SLOT(open()),    CTRL+Key_O );
 	mainMenu->insertItem( "File", fileMenu );
     \endcode
 
@@ -373,7 +373,7 @@ void TQMenuData::removePopup( TQPopupMenu *popup )
     accelerator. (For translations use a string \link TQKeySequence key
     sequence\endlink.):
     \code
-	fileMenu->insertItem( tr("Open"), myView, SLOT(open()),
+	fileMenu->insertItem( tr("Open"), myView, TQ_SLOT(open()),
 			      tr("Ctrl+O") );
     \endcode
 
@@ -424,7 +424,7 @@ int TQMenuData::insertItem( const TQString &text,
 {
     int actualID = insertAny( &text, 0, 0, 0, id, index );
     connectItem( actualID, receiver, member );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( accel )
 	setAccel( accel, actualID );
 #endif
@@ -452,7 +452,7 @@ int TQMenuData::insertItem( const TQIconSet& icon,
 {
     int actualID = insertAny( &text, 0, 0, &icon, id, index );
     connectItem( actualID, receiver, member );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( accel )
 	setAccel( accel, actualID );
 #endif
@@ -481,7 +481,7 @@ int TQMenuData::insertItem( const TQPixmap &pixmap,
 {
     int actualID = insertAny( 0, &pixmap, 0, 0, id, index );
     connectItem( actualID, receiver, member );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( accel )
 	setAccel( accel, actualID );
 #endif
@@ -514,7 +514,7 @@ int TQMenuData::insertItem( const TQIconSet& icon,
 {
     int actualID = insertAny( 0, &pixmap, 0, &icon, id, index );
     connectItem( actualID, receiver, member );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( accel )
 	setAccel( accel, actualID );
 #endif
@@ -842,7 +842,7 @@ void TQMenuData::removeItemAt( int index )
 
 void TQMenuData::clear()
 {
-    register TQMenuItem *mi = mitems->first();
+    TQMenuItem *mi = mitems->first();
     while ( mi ) {
 	if ( mi->popup_menu )
 	    menuDelPopup( mi->popup_menu );
@@ -857,7 +857,7 @@ void TQMenuData::clear()
 	menuContentsChanged();
 }
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 
 /*!
     Returns the accelerator key that has been defined for the menu
@@ -931,7 +931,7 @@ void TQMenuData::setAccel( const TQKeySequence& key, int id )
     }
 }
 
-#endif // QT_NO_ACCEL
+#endif // TQT_NO_ACCEL
 
 /*!
     Returns the icon set that has been set for menu item \a id, or 0
@@ -1019,7 +1019,7 @@ void TQMenuData::changeItem( int id, const TQString &text )
 	    mi->pixmap_data = 0;
 	}
 	mi->text_data = text;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	if ( !mi->accel_key && text.find( '\t' ) != -1 )
 	    mi->accel_key = TQt::Key_unknown;
 #endif
@@ -1041,7 +1041,7 @@ void TQMenuData::changeItem( int id, const TQPixmap &pixmap )
     TQMenuData *parent;
     TQMenuItem *mi = findItem( id, &parent );
     if ( mi ) {					// item found
-	register TQPixmap *i = mi->pixmap_data;
+	TQPixmap *i = mi->pixmap_data;
 	bool fast_refresh = i != 0 &&
 	    i->width() == pixmap.width() &&
 	    i->height() == pixmap.height() &&
@@ -1103,7 +1103,7 @@ void TQMenuData::changeItemIconSet( int id, const TQIconSet &icon )
     TQMenuData *parent;
     TQMenuItem *mi = findItem( id, &parent );
     if ( mi ) {					// item found
-	register TQIconSet *i = mi->iconset_data;
+	TQIconSet *i = mi->iconset_data;
 	bool fast_refresh = i != 0;
 	if ( !icon.isNull() )
 	    mi->iconset_data = new TQIconSet( icon );
@@ -1144,7 +1144,7 @@ void TQMenuData::setItemEnabled( int id, bool enable )
     TQMenuItem *mi = findItem( id, &parent );
     if ( mi && (bool)mi->is_enabled != enable ) {
 	mi->is_enabled = enable;
-#if !defined(QT_NO_ACCEL) && !defined(QT_NO_POPUPMENU)
+#if !defined(TQT_NO_ACCEL) && !defined(TQT_NO_POPUPMENU)
 	if ( mi->popup() )
 	    mi->popup()->enableAccel( enable );
 #endif
@@ -1191,7 +1191,7 @@ void TQMenuData::setItemChecked( int id, bool check )
     TQMenuItem *mi = findItem( id, &parent );
     if ( mi && (bool)mi->is_checked != check ) {
 	mi->is_checked = check;
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	if ( parent->isPopupMenu && !((TQPopupMenu *)parent)->isCheckable() )
 	    ((TQPopupMenu *)parent)->setCheckable( TRUE );
 #endif
@@ -1280,7 +1280,7 @@ TQMenuItem * TQMenuData::findItem( int id, TQMenuData ** parent ) const
     it.toFirst();
     while ( (mi=it.current()) ) {		// search submenus
 	++it;
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	if ( mi->popup_menu ) {
 	    TQPopupMenu *p = mi->popup_menu;
 	    if (!p->avoid_circularity) {
@@ -1587,13 +1587,13 @@ bool TQCustomMenuItem::isSeparator() const
 */
 void TQMenuData::activateItemAt( int index )
 {
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     if ( isMenuBar )
 	( (TQMenuBar*)this )->activateItemAt( index );
     else
 #endif
     {
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     if ( isPopupMenu )
 	( (TQPopupMenu*)this )->activateItemAt( index );
 #endif

@@ -55,7 +55,7 @@ public:
 protected:
     TQDateTime lastMod;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     bool winEventFilter( MSG *msg );
     uint DESIGNER_OPENFILE;
 #endif

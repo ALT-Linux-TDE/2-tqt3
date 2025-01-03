@@ -51,14 +51,14 @@
 //
 //
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 
 #ifndef QT_H
 #include "ntqmutex.h"
 #include "ntqmemarray.h"
 #endif // QT_H
 
-class Q_EXPORT TQMutexPool
+class TQ_EXPORT TQMutexPool
 {
 public:
     TQMutexPool( bool recursive = FALSE, int size = 17 );
@@ -73,8 +73,8 @@ private:
     bool recurs;
 };
 
-extern Q_EXPORT TQMutexPool *tqt_global_mutexpool;
+extern TQ_EXPORT TQMutexPool *tqt_global_mutexpool;
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #endif // TQMUTEXPOOL_P_H

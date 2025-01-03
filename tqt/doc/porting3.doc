@@ -1,10 +1,10 @@
 /****************************************************************************
 **
-** Help with porting from Qt 2.x to Qt 3.x
+** Help with porting from TQt 2.x to TQt 3.x
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -39,28 +39,28 @@
 /*!
 \page porting.html
 
-\title Porting to Qt 3.x
+\title Porting to TQt 3.x
 
-This document describes porting applications from Qt 2.x to Qt 3.x. 
+This document describes porting applications from TQt 2.x to TQt 3.x. 
 
-The Qt 3.x series is not binary compatible with the 2.x series. This
-means programs compiled for Qt 2.x must be recompiled to work with Qt
-3.x.  Qt 3.x is also not completely \e source compatible with 2.x,
+The TQt 3.x series is not binary compatible with the 2.x series. This
+means programs compiled for TQt 2.x must be recompiled to work with Qt
+3.x.  TQt 3.x is also not completely \e source compatible with 2.x,
 however all points of incompatibility cause compiler errors or
-run-time messages (rather than mysterious results).  Qt 3.x includes
+run-time messages (rather than mysterious results).  TQt 3.x includes
 many additional features and discards obsolete functionality. Porting
-from Qt 2.x to Qt 3.x is straightforward, and once completed makes 
-the considerable additional power and flexibility of Qt 3.x available
+from TQt 2.x to TQt 3.x is straightforward, and once completed makes 
+the considerable additional power and flexibility of TQt 3.x available
 for use in your applications.
 
-To port code from Qt 2.x to Qt 3.x:
+To port code from TQt 2.x to TQt 3.x:
 
 \list 1
 
 \i Briefly read the porting notes below to get an idea of what to expect.
 \i Be sure your code compiles and runs well on all your target platforms
-   with Qt 2.x.
-\i Recompile with Qt 3.x.  For each error, search below for related
+   with TQt 2.x.
+\i Recompile with TQt 3.x.  For each error, search below for related
    identifiers (e.g. function names, class names). This document 
    mentions all relevant identifiers to help you get the information
    you need at the cost of being a little verbose.
@@ -77,13 +77,13 @@ Table of contents:
 \target Linkerrors
 \section1 Link Errors on Windows
 
-On Windows, originally in Qt 2.x, the default configuration of the Qt
+On Windows, originally in TQt 2.x, the default configuration of the Qt
 library is static. If you just use the default configuration you
-don't need to set certain preprocessor defines.  In Qt 3.0, the
-default configuration of the Qt library is to build it as a shared
+don't need to set certain preprocessor defines.  In TQt 3.0, the
+default configuration of the TQt library is to build it as a shared
 library, therefore the preprocessor define \c QT_DLL is needed.
 
-If you use tmake with Qt 2.x, and now use qmake with Qt 3.x, then the
+If you use tmake with TQt 2.x, and now use qmake with TQt 3.x, then the
 cause of the problem is with the project file. In the project file,
 there is usually line that looks like:
 
@@ -93,7 +93,7 @@ this should be changed to
 
 \c CONFIG += ...
 
-so that qmake can look at the configuration that Qt was built with and
+so that qmake can look at the configuration that TQt was built with and
 set any relevant preprocessor defines in the makefile.
 
 \target Headers
@@ -123,31 +123,31 @@ Header files that you might need to add #include directives for include:
 \section1 Namespace
 
 Qt 3.x is namespace clean.  A few global identifiers that had been
-left in Qt 2.x have been discarded.
+left in TQt 2.x have been discarded.
 
-Enumeration \l Qt::CursorShape and its values are now part of the
-special \c Qt class defined in ntqnamespace.h. If you get compilation
+Enumeration \l TQt::CursorShape and its values are now part of the
+special \c TQt class defined in ntqnamespace.h. If you get compilation
 errors about these being missing (unlikely, since most of your code will
-be in classes that inherit from the Qt namespace class), then apply
+be in classes that inherit from the TQt namespace class), then apply
 the following changes:
 
 \list
-\i \c QCursorShape becomes \c Qt::CursorShape
-\i \c ArrowCursor becomes \c Qt::ArrowCursor
-\i \c UpArrowCursor becomes \c Qt::UpArrowCursor
-\i \c CrossCursor becomes \c Qt::CrossCursor
-\i \c WaitCursor becomes \c Qt::WaitCursor
-\i \c IbeamCursor becomes \c Qt::IbeamCursor
-\i \c SizeVerCursor becomes \c Qt::SizeVerCursor
-\i \c SizeHorCursor becomes \c Qt::SizeHorCursor
-\i \c SizeBDiagCursor becomes \c Qt::SizeBDiagCursor
-\i \c SizeFDiagCursor becomes \c Qt::SizeFDiagCursor
-\i \c SizeAllCursor becomes \c Qt::SizeAllCursor
-\i \c BlankCursor becomes \c Qt::BlankCursor
-\i \c SplitVCursor becomes \c Qt::SplitVCursor
-\i \c SplitHCursor becomes \c Qt::SplitHCursor
-\i \c PointingHandCursor becomes \c Qt::PointingHandCursor
-\i \c BitmapCursor becomes \c Qt::BitmapCursor
+\i \c QCursorShape becomes \c TQt::CursorShape
+\i \c ArrowCursor becomes \c TQt::ArrowCursor
+\i \c UpArrowCursor becomes \c TQt::UpArrowCursor
+\i \c CrossCursor becomes \c TQt::CrossCursor
+\i \c WaitCursor becomes \c TQt::WaitCursor
+\i \c IbeamCursor becomes \c TQt::IbeamCursor
+\i \c SizeVerCursor becomes \c TQt::SizeVerCursor
+\i \c SizeHorCursor becomes \c TQt::SizeHorCursor
+\i \c SizeBDiagCursor becomes \c TQt::SizeBDiagCursor
+\i \c SizeFDiagCursor becomes \c TQt::SizeFDiagCursor
+\i \c SizeAllCursor becomes \c TQt::SizeAllCursor
+\i \c BlankCursor becomes \c TQt::BlankCursor
+\i \c SplitVCursor becomes \c TQt::SplitVCursor
+\i \c SplitHCursor becomes \c TQt::SplitHCursor
+\i \c PointingHandCursor becomes \c TQt::PointingHandCursor
+\i \c BitmapCursor becomes \c TQt::BitmapCursor
 \endlist
 
 The names of some debugging macro variables have been changed.  We have
@@ -157,21 +157,18 @@ previously disabled, please check these macro variables:
 
 \list
 \i \c DEBUG becomes \c QT_DEBUG
-\i \c NO_DEBUG becomes \c QT_NO_DEBUG
-\i \c NO_CHECK becomes \c QT_NO_CHECK
+\i \c NO_DEBUG becomes \c TQT_NO_DEBUG
+\i \c NO_CHECK becomes \c TQT_NO_CHECK
 \i \c CHECK_STATE becomes \c QT_CHECK_STATE
 \i \c CHECK_RANGE becomes \c QT_CHECK_RANGE
 \i \c CHECK_NULL becomes \c QT_CHECK_NULL
 \i \c CHECK_MATH becomes \c QT_CHECK_MATH
 \endlist
 
-The name of some debugging macro functions has been changed as well
-but source compatibility should not be affected if the macro variable
-\c QT_CLEAN_NAMESPACE is not defined:
+The name of some debugging macro functions has been changed:
 
 \list
 \i \c ASSERT becomes \c Q_ASSERT
-\i \c CHECK_PTR becomes \c TQ_CHECK_PTR
 \endlist
 
 For the record, undocumented macro variables that are not part of the API
@@ -179,30 +176,30 @@ have been changed:
 
 \list
 \i \c _OS_*_ becomes \c Q_OS_*
-\i \c _WS_*_ becomes \c Q_WS_*
+\i \c _WS_*_ becomes \c TQ_WS_*
 \i \c _CC_*_ becomes \c Q_CC_*
 \endlist
 
 \section1 Removed Functions
 
-All these functions have been removed in Qt 3.x:
+All these functions have been removed in TQt 3.x:
 \list
 \i QFont::charSet()
 \i QFont::setCharSet()
 \i QMenuBar::setActItem()
 \i QMenuBar::setWindowsAltMode()
-\i QObject::initMetaObject()
+\i TQObject::initMetaObject()
 \i QPainter::drawQuadBezier()
 \i QPointArray::quadBezier()
 \i QRegExp::find()
 \i QSpinBox::downButton()
 \i QSpinBox::upButton()
-\i QString::basicDirection()
-\i QString::visual()
+\i TQString::basicDirection()
+\i TQString::visual()
 \i QStyle::set...() functions
 \i QStyle::drawArrow()
-\i QWidget::setFontPropagation()
-\i QWidget::setPalettePropagation()
+\i TQWidget::setFontPropagation()
+\i TQWidget::setPalettePropagation()
 \endlist
 
 Also, to avoid conflicts with \c <iostream>, the following three
@@ -215,18 +212,18 @@ global functions have been renamed:
 
 \section1 Obsoleted Functions
 
-The following functions have been obsoleted in Qt 3.0. The
+The following functions have been obsoleted in TQt 3.0. The
 documentation of each of these functions should explain how to
-replace them in Qt 3.0.
+replace them in TQt 3.0.
 
 \warning It is best to consult \l http://doc.trolltech.com/3.0/
-rather than the documentation supplied with Qt to obtain the latest
+rather than the documentation supplied with TQt to obtain the latest
 information regarding obsolete functions and how to replace them in
 new code.
 
 \list
 \i QAccel::keyToString( QKeySequence k )
-\i QAccel::stringToKey( const QString \& s )
+\i QAccel::stringToKey( const TQString \& s )
 \i QActionGroup::insert( QAction *a )
 \i QButton::autoResize() const
 \i QButton::setAutoResize( bool )
@@ -236,12 +233,12 @@ new code.
 \i QCanvasItem::visible() const
 \i QCanvasPixmapArray::QCanvasPixmapArray( QPtrList\<QPixmap\> list, QPtrList\<QPoint\> hotspots )
 \i QCanvasPixmapArray::operator!()
-\i QColorGroup::QColorGroup( const QColor \& foreground, const QColor \& background, const QColor \& light, const QColor \& dark, const QColor \& mid, const QColor \& text, const QColor \& base )
+\i QColorGroup::QColorGroup( const TQColor \& foreground, const TQColor \& background, const TQColor \& light, const TQColor \& dark, const TQColor \& mid, const TQColor \& text, const TQColor \& base )
 \i QComboBox::autoResize() const
 \i QComboBox::setAutoResize( bool )
 \i QDate::dayName( int weekday )
 \i QDate::monthName( int month )
-\i QDir::encodedEntryList( const QString \& nameFilter, int filterSpec = DefaultFilter, int sortSpec = DefaultSort ) const
+\i QDir::encodedEntryList( const TQString \& nameFilter, int filterSpec = DefaultFilter, int sortSpec = DefaultSort ) const
 \i QDir::encodedEntryList( int filterSpec = DefaultFilter, int sortSpec = DefaultSort ) const
 \i QDockWindow::isHorizontalStretchable() const
 \i QDockWindow::isVerticalStretchable() const
@@ -250,18 +247,18 @@ new code.
 \i QFont::defaultFont()
 \i QFont::setDefaultFont( const QFont \& f )
 \i QFont::setPixelSizeFloat( float pixelSize )
-\i QFontDatabase::bold( const QString \& family, const QString \& style, const QString \& ) const
+\i QFontDatabase::bold( const TQString \& family, const TQString \& style, const TQString \& ) const
 \i QFontDatabase::families( bool ) const
-\i QFontDatabase::font( const QString \& familyName, const QString \& style, int pointSize, const QString \& )
-\i QFontDatabase::isBitmapScalable( const QString \& family, const QString \& style, const QString \& ) const
-\i QFontDatabase::isFixedPitch( const QString \& family, const QString \& style, const QString \& ) const
-\i QFontDatabase::isScalable( const QString \& family, const QString \& style, const QString \& ) const
-\i QFontDatabase::isSmoothlyScalable( const QString \& family, const QString \& style, const QString \& ) const
-\i QFontDatabase::italic( const QString \& family, const QString \& style, const QString \& ) const
-\i QFontDatabase::pointSizes( const QString \& family, const QString \& style, const QString \& )
-\i QFontDatabase::smoothSizes( const QString \& family, const QString \& style, const QString \& )
-\i QFontDatabase::styles( const QString \& family, const QString \& ) const
-\i QFontDatabase::weight( const QString \& family, const QString \& style, const QString \& ) const
+\i QFontDatabase::font( const TQString \& familyName, const TQString \& style, int pointSize, const TQString \& )
+\i QFontDatabase::isBitmapScalable( const TQString \& family, const TQString \& style, const TQString \& ) const
+\i QFontDatabase::isFixedPitch( const TQString \& family, const TQString \& style, const TQString \& ) const
+\i QFontDatabase::isScalable( const TQString \& family, const TQString \& style, const TQString \& ) const
+\i QFontDatabase::isSmoothlyScalable( const TQString \& family, const TQString \& style, const TQString \& ) const
+\i QFontDatabase::italic( const TQString \& family, const TQString \& style, const TQString \& ) const
+\i QFontDatabase::pointSizes( const TQString \& family, const TQString \& style, const TQString \& )
+\i QFontDatabase::smoothSizes( const TQString \& family, const TQString \& style, const TQString \& )
+\i QFontDatabase::styles( const TQString \& family, const TQString \& ) const
+\i QFontDatabase::weight( const TQString \& family, const TQString \& style, const TQString \& ) const
 \i QLabel::autoResize() const
 \i QLabel::setAutoResize( bool enable )
 \i QLineEdit::cursorLeft( bool mark, int steps = 1 )
@@ -274,7 +271,7 @@ new code.
 \i QListBox::cellWidth() const
 \i QListBox::findItem( int yPos ) const
 \i QListBox::inSort( const QListBoxItem *lbi )
-\i QListBox::inSort( const QString \& text )
+\i QListBox::inSort( const TQString \& text )
 \i QListBox::itemYPos( int index, int *yPos ) const
 \i QListBox::numCols() const
 \i QListBox::totalHeight() const
@@ -284,7 +281,7 @@ new code.
 \i QListView::removeItem( QListViewItem *item )
 \i QListViewItem::removeItem( QListViewItem *item )
 \i QMainWindow::addToolBar( QDockWindow *, Dock = DockTop, bool newLine = FALSE )
-\i QMainWindow::addToolBar( QDockWindow *, const QString \& label, Dock = DockTop, bool newLine = FALSE )
+\i QMainWindow::addToolBar( QDockWindow *, const TQString \& label, Dock = DockTop, bool newLine = FALSE )
 \i QMainWindow::lineUpToolBars( bool keepNewLines = FALSE )
 \i QMainWindow::moveToolBar( QDockWindow *, Dock = DockTop )
 \i QMainWindow::moveToolBar( QDockWindow *, Dock, bool nl, int index, int extraOffset = -1 )
@@ -292,30 +289,30 @@ new code.
 \i QMainWindow::setToolBarsMovable( bool )
 \i QMainWindow::toolBarPositionChanged( QToolBar *)
 \i QMainWindow::toolBarsMovable() const
-\i QMessageBox::message( const QString \& caption, const QString \& text, const QString \& buttonText = QString::null, QWidget *parent = 0, const char *= 0 )
-\i QMessageBox::query( const QString \& caption, const QString \& text, const QString \& yesButtonText = QString::null, const QString \& noButtonText = QString::null, QWidget *parent = 0, const char *= 0 )
+\i QMessageBox::message( const TQString \& caption, const TQString \& text, const TQString \& buttonText = TQString::null, TQWidget *parent = 0, const char *= 0 )
+\i QMessageBox::query( const TQString \& caption, const TQString \& text, const TQString \& yesButtonText = TQString::null, const TQString \& noButtonText = TQString::null, TQWidget *parent = 0, const char *= 0 )
 \i QMessageBox::standardIcon( Icon icon, GUIStyle style )
 \i QPalette::normal()
-\i QRegExp::match( const QString \& str, int index = 0, int *len = 0, bool indexIsStart = TRUE ) const
-\i QScrollView::childIsVisible( QWidget *child )
-\i QScrollView::showChild( QWidget *child, bool show = TRUE )
+\i QRegExp::match( const TQString \& str, int index = 0, int *len = 0, bool indexIsStart = TRUE ) const
+\i QScrollView::childIsVisible( TQWidget *child )
+\i QScrollView::showChild( TQWidget *child, bool show = TRUE )
 \i QSignal::block( bool b )
 \i QSignal::isBlocked() const
 \i QSignal::parameter() const
 \i QSignal::setParameter( int value )
 \i QSimpleRichText::draw( QPainter *p, int x, int y, const QRegion \& clipRegion, const QColorGroup \& cg, const QBrush *paper = 0 ) const
-\i QString::ascii() const
-\i QString::data() const
-\i QString::setExpand( uint index, QChar c )
+\i TQString::ascii() const
+\i TQString::data() const
+\i TQString::setExpand( uint index, TQChar c )
 \i QStyle::defaultFrameWidth() const
 \i QStyle::scrollBarExtent() const
-\i QStyle::tabbarMetrics( const QWidget *t, int \& hf, int \& vf, int \& ov ) const
+\i QStyle::tabbarMetrics( const TQWidget *t, int \& hf, int \& vf, int \& ov ) const
 \i QTabDialog::isTabEnabled( const char *name ) const
-\i QTabDialog::selected( const QString \& )
-\i QTabDialog::selected( const QString \& tabLabel )
+\i QTabDialog::selected( const TQString \& )
+\i QTabDialog::selected( const TQString \& tabLabel )
 \i QTabDialog::setTabEnabled( const char *name, bool enable )
-\i QTextStream::QTextStream( QString \& str, int filemode )
-\i QToolBar::QToolBar( const QString \& label, QMainWindow *, ToolBarDock = DockTop, bool newLine = FALSE, const char *name = 0 )
+\i QTextStream::QTextStream( TQString \& str, int filemode )
+\i QToolBar::QToolBar( const TQString \& label, QMainWindow *, ToolBarDock = DockTop, bool newLine = FALSE, const char *name = 0 )
 \i QToolButton::iconSet( bool on ) const
 \i QToolButton::offIconSet() const
 \i QToolButton::onIconSet() const
@@ -325,17 +322,17 @@ new code.
 \i QToolTip::enabled()
 \i QToolTip::setEnabled( bool enable )
 \i QTranslator::find( const char *context, const char *sourceText, const char *comment = 0 ) const
-\i QTranslator::insert( const char *context, const char *sourceText, const QString \& translation )
+\i QTranslator::insert( const char *context, const char *sourceText, const TQString \& translation )
 \i QTranslator::remove( const char *context, const char *sourceText )
 \i QUriDrag::setFilenames( const QStringList \& fnames )
-\i QWidget::backgroundColor() const
-\i QWidget::backgroundPixmap() const
-\i QWidget::iconify()
-\i QWidget::setBackgroundColor( const QColor \& c )
-\i QWidget::setBackgroundPixmap( const QPixmap \& pm )
-\i QWidget::setFont( const QFont \& f, bool )
-\i QWidget::setPalette( const QPalette \& p, bool )
-\i QWizard::setFinish( QWidget *, bool )
+\i TQWidget::backgroundColor() const
+\i TQWidget::backgroundPixmap() const
+\i TQWidget::iconify()
+\i TQWidget::setBackgroundColor( const TQColor \& c )
+\i TQWidget::setBackgroundPixmap( const QPixmap \& pm )
+\i TQWidget::setFont( const QFont \& f, bool )
+\i TQWidget::setPalette( const QPalette \& p, bool )
+\i QWizard::setFinish( TQWidget *, bool )
 \i QXmlInputSource::QXmlInputSource( QFile \& file )
 \i QXmlInputSource::QXmlInputSource( QTextStream \& stream )
 \i QXmlReader::parse( const QXmlInputSource \& input )
@@ -361,8 +358,8 @@ passed to the standard C functions in your code base.
 \section1 Collection Class Renaming
 
 The classes QArray, QCollection, QList, QListIterator, QQueue, QStack
-and QVector have been renamed. To ease porting, the old names and the
-old header-file names are still supported.
+and QVector have been renamed as per the following table. The original
+names are no longer avaialable.
 
 \table
 \header \i Old Name \i New Name \i New Header File
@@ -377,21 +374,21 @@ old header-file names are still supported.
 
 \section1 QButtonGroup
 
-In Qt 2.x, the function QButtonGroup::selected() returns the selected
-\e radio button (QRadioButton). In Qt 3.0, it returns the selected \e
+In TQt 2.x, the function QButtonGroup::selected() returns the selected
+\e radio button (QRadioButton). In TQt 3.0, it returns the selected \e
 toggle button (\l QButton::toggleButton), a more general concept.
 This might affect programs that use QButtonGroups that contain a
 mixture of radio buttons and non-radio (e.g. QCheckBox) toggle buttons.
 
 \section1 QDate
 
-Two QDate member functions that were virtual in Qt 2.0 are not virtual
-in Qt 3.0. This is only relevant if you subclassed QDate and
+Two QDate member functions that were virtual in TQt 2.0 are not virtual
+in TQt 3.0. This is only relevant if you subclassed QDate and
 reimplemented these functions:
 
 \list
-\i QString QDate::monthName( int month ) const
-\i QString QDate::dayName( int weekday ) const
+\i TQString QDate::monthName( int month ) const
+\i TQString QDate::dayName( int weekday ) const
 \endlist
 
 In addition to no longer being virtual, QDate::monthName() and
@@ -403,17 +400,17 @@ compatibility.
 \section1 QFileDialog
 
 If the mode was not set explicitly, and the user entered a
-non-existent file, the dialog would accept this. In Qt 3.x, you must
+non-existent file, the dialog would accept this. In TQt 3.x, you must
 set the mode, e.g. setMode(QFileDialog::AnyFile), to get the same
 behavior.
 
 \section1 QFont
 
-The internals of QFont have changed significantly between Qt 2.2 and
+The internals of QFont have changed significantly between TQt 2.2 and
 Qt 3.0, to give better Unicode support and to make developing
 internationalized applications easier. The original API has been
 preserved with minimal changes. The CharSet enum and its related
-functions have disappeared. This is because Qt now handles all charset
+functions have disappeared. This is because TQt now handles all charset
 related issues internally, and removes this burden from the developer.
 
 If you used the CharSet enum or its related functions, e.g
@@ -442,21 +439,21 @@ might be removed in a future version.
 
 \section1 QListViewItem
 
-The paintBranches() function in Qt 2.x had a GUIStyle parameter; this
-has been dropped for Qt 3.x since GUI style is handled by the new
+The paintBranches() function in TQt 2.x had a GUIStyle parameter; this
+has been dropped for TQt 3.x since GUI style is handled by the new
 style engine (See \l QStyle.)
 
 \section1 QMoveEvent
 
-In Qt 2.x, the function QMoveEvent::pos() returned the position of the
-widget in its parent widget, including the window frame. In Qt 3.0,
+In TQt 2.x, the function QMoveEvent::pos() returned the position of the
+widget in its parent widget, including the window frame. In TQt 3.0,
 it returns the new position of the widget, excluding window frame for
 top level widgets.
 
 \section1 QMultiLineEdit
 
-The QMultiLineEdit was a simple editor widget in previous Qt versions.
-Since Qt 3.0 includes a new richtext engine, which also supports
+The QMultiLineEdit was a simple editor widget in previous TQt versions.
+Since TQt 3.0 includes a new richtext engine, which also supports
 editing, QMultiLineEdit is obsolete. For the sake of compatibility
 QMultiLineEdit is still provided. It is now a subclass of QTextEdit
 which wraps the old QMultiLineEdit so that it is mostly source
@@ -482,7 +479,7 @@ work without problems. Applications that worked in terms of lines may
 require some porting.
 
 The source code for the old 2.x version of QMultiLineEdit can be found
-in \c $QTDIR/src/attic/qtmultilineedit.h/cpp. Note that the class has
+in \c $TQTDIR/src/attic/qtmultilineedit.h/cpp. Note that the class has
 been renamed to QtMultiLineEdit to avoid name clashes. If you really
 need to keep compatibility with the old QMultiLineEdit, simply include
 this class in your project and rename QMultiLineEdit to
@@ -495,8 +492,8 @@ to ensure it has the same runtime behaviour on both Unix and Windows. In 2.x,
 QPrinter behaved differently on Windows and Unix, when using view
 transformations on the QPainter. This has changed now, and QPrinter
 behaves consistently across all platforms. A compatibilty mode has been
-added that forces the old behaviour, to ease porting from Qt 2.x
-to Qt 3.x. This compatibilty mode can be enabled by passing the
+added that forces the old behaviour, to ease porting from TQt 2.x
+to TQt 3.x. This compatibilty mode can be enabled by passing the
 QPrinter::Compatible flag to the QPrinter constructor.
 
 On X11, QPrinter used to generate encapsulated postscript when
@@ -514,7 +511,7 @@ automatically when you include \c <ntqstringlist.h>. See
 \link #Headers above \endlink for details.
 
 \omit
-In Qt 3.0, ntqregexp.h has to
+In TQt 3.0, ntqregexp.h has to
 include ntqstringlist.h, so it's no good to have ntqstringlist.h include ntqregexp.h,
 unless one wants to achieve an Escher effect.
 \endomit
@@ -529,11 +526,11 @@ there.
 
 Example: Old code like
 \code
-    QRegExp rx( "([0-9|]*\\)" );        // works in Qt 2.x
+    QRegExp rx( "([0-9|]*\\)" );        // works in TQt 2.x
 \endcode
 should be converted into
 \code
-    QRegExp rx( "\\([0-9\\|]*\\)" );      // works in Qt 2.x and 3.x
+    QRegExp rx( "\\([0-9\\|]*\\)" );      // works in TQt 2.x and 3.x
 \endcode
 (Within character classes, the backslash is not necessary in front of certain
 characters, e.g. <tt>|</tt>, but it doesn't hurt.)
@@ -555,7 +552,7 @@ string.
 
 \section2 QRegExp::operator=()
 
-This function has been replaced by \l QRegExp::setPattern() in Qt 2.2.
+This function has been replaced by \l QRegExp::setPattern() in TQt 2.2.
 Old code such as
 \code
     QRegExp rx( "alpha" );
@@ -563,7 +560,7 @@ Old code such as
     rx.setWildcard( TRUE );
     rx = "beta";
 \endcode
-still compiles with Qt 3, but produces a different result (the case sensitivity
+still compiles with TQt 3, but produces a different result (the case sensitivity
 and wildcard options are forgotten). This way,
 \code
     rx = "beta";
@@ -579,7 +576,7 @@ which is what one expects.
 The following function is now obsolete, as it has an unwieldy
 parameter list and was poorly named:
 \list
-\i bool QRegExp::match( const QString \& str, int index = 0,
+\i bool QRegExp::match( const TQString \& str, int index = 0,
 			int * len = 0, bool indexIsStart = TRUE ) const
 \endlist
 It will be removed in a future version of Qt. Its \link
@@ -587,43 +584,43 @@ QRegExp::match() documentation \endlink explains how to replace it.
 
 \section2 QRegExp::find()
 
-This function was removed, after a brief appearance in Qt 2.2.  Its
-name clashed with QString::find().  Use \l QRegExp::search() or \l
-QString::find() instead.
+This function was removed, after a brief appearance in TQt 2.2.  Its
+name clashed with TQString::find().  Use \l QRegExp::search() or \l
+TQString::find() instead.
 
-\section2 QString::findRev() and QString::contains()
+\section2 TQString::findRev() and TQString::contains()
 
-\l QString::findRev()'s and \l QString::contains()'s semantics have changed
+\l TQString::findRev()'s and \l TQString::contains()'s semantics have changed
 between 2.0 and 3.0 to be more consistent with the other overloads.
 
 For example,
 \code
-    QString( "" ).contains( QRegExp("") )
+    TQString( "" ).contains( QRegExp("") )
 \endcode
-returns 1 in Qt 2.0; it returns 0 in Qt 3.0. Also, "^" now really means
+returns 1 in TQt 2.0; it returns 0 in TQt 3.0. Also, "^" now really means
 start of input, so
 \code
-    QString( "Heisan Hoppsan" ).contains( QRegExp("^.*$") )
+    TQString( "Heisan Hoppsan" ).contains( QRegExp("^.*$") )
 \endcode
 returns 1, not 13 or 14.
 
 This change affect very few existing programs.
 
-\section2 QString::replace()
+\section2 TQString::replace()
 
-With Qt 1.0 and 2.0, a QString is converted implicitly into a QRegExp
-as the first argument to QString::replace():
+With TQt 1.0 and 2.0, a TQString is converted implicitly into a QRegExp
+as the first argument to TQString::replace():
 \code
-    QString text = fetch_it_from_somewhere();
-    text.replace( QString("[A-Z]+"), "" );
+    TQString text = fetch_it_from_somewhere();
+    text.replace( TQString("[A-Z]+"), "" );
 \endcode
-With Qt 3.0, the compiler gives an error. The solution is to use a
+With TQt 3.0, the compiler gives an error. The solution is to use a
 QRegExp cast:
 \code
     text.replace( QRegExp("[A-Z]+"), "" );
 \endcode
 This change makes it possible to introduce a
-QString::replace(QString, QString) overload in a future version of Qt
+TQString::replace(TQString, TQString) overload in a future version of Qt
 without breaking source compatibility.
 
 \section1 QSemiModal 
@@ -642,7 +639,7 @@ The QTableView class has been obsoleted and is no longer a part of the
 Qt API. Either use the powerful QTable class or the simplistic
 QGridView in any new code you create. If you really need the old table
 view for compatibility you can find it in \c
-$QTDIR/src/attic/qttableview.{cpp,h}. Note that the class has been
+$TQTDIR/src/attic/qttableview.{cpp,h}. Note that the class has been
 renamed from QTableView to QtTableView to avoid name clashes. To use
 it, simply include it in your project and rename QTableView to
 QtTableView throughout.
@@ -656,7 +653,7 @@ icons. In 3.0, this mechanism was moved into the \l QIconSet class
 The old \l QToolButton::onIconSet and \l QToolButton::offIconSet
 properties are still provided so that old source will compile, but
 their semantics have changed: they are now synonyms for \l
-QToolButton::iconSet. If you used that distinction in Qt 2.x, you will
+QToolButton::iconSet. If you used that distinction in TQt 2.x, you will
 need to adjust your code to use the QIconSet On/Off mechanism.
 
 Likewise, the \e on parameter of these two functions is now ignored:
@@ -694,7 +691,7 @@ the new names.
 
 \section1 QTranslator
 
-The \l QTranslator class was extended in Qt 2.2, and these extensions
+The \l QTranslator class was extended in TQt 2.2, and these extensions
 lead to a new interface.  This interface is used mainly by translation
 tools (for example, \link linguist-manual.book Qt
 Linguist \endlink).  For source compatibility, no member function was
@@ -704,7 +701,7 @@ which functions are obsolete.
 This function is no longer virtual:
 
 \list
-\i QString QTranslator::find( const char * context,
+\i TQString QTranslator::find( const char * context,
 			      const char * sourceText ) const
 \endlist
 
@@ -714,18 +711,18 @@ In fact, find() is now defined in terms of findMessage().  By doing the
 conversion, you will also gain support for translator comments and for any
 future extensions.
 
-\section1 QWidget
+\section1 TQWidget
 
-QWidget::backgroundColor(), QWidget::setBackgroundColor(),
-QWidget::backgroundPixmap() and QWidget::setBackgroundPixmap() have
-often been the source of much confusion in previous releases. Qt 3.0
+TQWidget::backgroundColor(), TQWidget::setBackgroundColor(),
+TQWidget::backgroundPixmap() and TQWidget::setBackgroundPixmap() have
+often been the source of much confusion in previous releases. TQt 3.0
 addresses this by obsoleting these functions and by replacing them
-with eight new functions: QWidget::eraseColor(),
-QWidget::setEraseColor(), QWidget::erasePixmap(),
-QWidget::setErasePixmap(), QWidget::paletteBackgroundColor(),
-QWidget::setPaletteBackgroundColor(),
-QWidget::paletteBackgroundPixmap() and
-QWidget::setPaletteBackgroundPixmap(). See their documentation for
+with eight new functions: TQWidget::eraseColor(),
+TQWidget::setEraseColor(), TQWidget::erasePixmap(),
+TQWidget::setErasePixmap(), TQWidget::paletteBackgroundColor(),
+TQWidget::setPaletteBackgroundColor(),
+TQWidget::paletteBackgroundPixmap() and
+TQWidget::setPaletteBackgroundPixmap(). See their documentation for
 details.
 
 \section1 QXml Classes
@@ -776,9 +773,9 @@ They are now obsolete.
 
 \section1 Transparent widgets
 
-In Qt 2.x, the AutoMask property was used to obtain a
+In TQt 2.x, the AutoMask property was used to obtain a
 transparent-looking widget. In general, this approach is slow and
-processor hungry. Qt 3.0 uses the BackgroundOrigin which provides
+processor hungry. TQt 3.0 uses the BackgroundOrigin which provides
 vastly improved performance and more flexibility in most cases. The
 few classes for which the AutoMask property is still the best approach
 are QCheckBox, QComboBox, QPushButton, QRadioButton and QTabWidget.
@@ -799,16 +796,16 @@ respectively. Neither the arguments nor the resulting curve have changed.
 \section1 Locale-aware String Comparisons in QIconView, QListBox,
 	  QListView and QTable
 
-In Qt 2.x, QString only provided string comparisons using the Unicode
+In TQt 2.x, TQString only provided string comparisons using the Unicode
 values of the characters of a string. This is efficient and reliable,
 but it is not the appropriate order for most languages. For example,
 French users expect '&eacute;' (e acute) to be treated essentially as
 'e' and not put after 'z'.
 
-In Qt 3.0, QString::localeAwareCompare() implements locale aware
+In TQt 3.0, TQString::localeAwareCompare() implements locale aware
 string comparisions on certain platforms. The classes \l QIconView, \l
 QListBox, \l QListView and \l QTable now use
-QString::localeAwareCompare() instead of QString::compare(). If you
+TQString::localeAwareCompare() instead of TQString::compare(). If you
 want to control the behaviour yourself you can always reimplement
 QIconViewItem::compare(), QListBox::text(), QListViewItem::compare()
 or QTableItem::key() as appropriate.

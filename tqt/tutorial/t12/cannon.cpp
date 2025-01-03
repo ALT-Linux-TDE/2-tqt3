@@ -21,8 +21,8 @@ CannonField::CannonField( TQWidget *parent, const char *name )
     f = 0;
     timerCount = 0;
     autoShootTimer = new TQTimer( this, "movement handler" );
-    connect( autoShootTimer, SIGNAL(timeout()),
-	     this, SLOT(moveShot()) );
+    connect( autoShootTimer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(moveShot()) );
     shoot_ang = 0;
     shoot_f = 0;
     target = TQPoint( 0, 0 );

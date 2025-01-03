@@ -36,7 +36,7 @@
 
 
 #include "ntqgrid.h"
-#ifndef QT_NO_GRID
+#ifndef TQT_NO_GRID
 #include "ntqlayout.h"
 #include "ntqapplication.h"
 

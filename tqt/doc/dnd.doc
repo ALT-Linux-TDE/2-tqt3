@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -57,7 +57,7 @@ QTextEdit widget source code.
 
 \section1 Dragging
 
-To start a drag, for example in a \link QWidget::mouseMoveEvent()
+To start a drag, for example in a \link TQWidget::mouseMoveEvent()
 mouse motion event\endlink, create an object of the QDragObject
 subclass appropriate for your media, such as QTextDrag for text and
 QImageDrag for images. Then call the drag() method. This is all you
@@ -84,20 +84,20 @@ references.
 \section1 Dropping
 
 To be able to receive media dropped on a widget, call
-\link QWidget::setAcceptDrops() setAcceptDrops(TRUE)\endlink
+\link TQWidget::setAcceptDrops() setAcceptDrops(TRUE)\endlink
 for the widget (e.g. in its constructor), and override the
 event handler methods
-\link QWidget::dragEnterEvent() dragEnterEvent()\endlink and
-\link QWidget::dropEvent() dropEvent()\endlink.
+\link TQWidget::dragEnterEvent() dragEnterEvent()\endlink and
+\link TQWidget::dropEvent() dropEvent()\endlink.
 For more sophisticated applications overriding
-\link QWidget::dragMoveEvent() dragMoveEvent()\endlink and
-\link QWidget::dragLeaveEvent() dragLeaveEvent()\endlink will also be
+\link TQWidget::dragMoveEvent() dragMoveEvent()\endlink and
+\link TQWidget::dragLeaveEvent() dragLeaveEvent()\endlink will also be
 necessary.
 
 For example, to accept text and image drops:
 \code
 MyWidget::MyWidget(...) :
-    QWidget(...)
+    TQWidget(...)
 {
     ...
     setAcceptDrops(TRUE);
@@ -113,8 +113,8 @@ void MyWidget::dragEnterEvent(QDragEnterEvent* event)
 
 void MyWidget::dropEvent(QDropEvent* event)
 {
-    QImage image;
-    QString text;
+    TQImage image;
+    TQString text;
 
     if ( QImageDrag::decode(event, image) ) {
 	insertImageAt(image, event->pos());
@@ -146,7 +146,7 @@ void MyWidget::copy()
 
 void MyWidget::paste()
 {
-    QString text;
+    TQString text;
     if ( QTextDrag::decode(QApplication::clipboard()->data(), text) )
 	insertText( text );
 }
@@ -283,7 +283,7 @@ void MyEditor::startDrag()
 
 void MyEditor::dropEvent(QDropEvent* event)
 {
-    QString text;
+    TQString text;
 
     if ( QTextDrag::decode(event, text) ) {
 	if ( event->source() == this && event->action() == QDropEvent::Move ) {
@@ -300,7 +300,7 @@ void MyEditor::dropEvent(QDropEvent* event)
 Some widgets are more specific than just a "yes" or "no" response when
 data is dragged onto them. For example, a CAD program might only
 accept drops of text onto text objects in the view. In these cases,
-the \link QWidget::dragMoveEvent() dragMoveEvent()\endlink is used and
+the \link TQWidget::dragMoveEvent() dragMoveEvent()\endlink is used and
 an \e area is given for which the drag is accepted or ignored:
 \code
 void MyWidget::dragMoveEvent(QDragMoveEvent* event)
@@ -347,20 +347,20 @@ getters, \l{QApplication::startDragTime()} and
 
 On X11, the public <a class="r"
 href="http://www.newplanetsoftware.com/xdnd/">XDND protocol</a> is
-used, while on Windows Qt uses the OLE standard, and Qt/Mac uses the
+used, while on Windows TQt uses the OLE standard, and Qt/Mac uses the
 Carbon Drag Manager. On X11, XDND uses MIME, so no translation is
-necessary. The Qt API is the same regardless of the platform. On
+necessary. The TQt API is the same regardless of the platform. On
 Windows, MIME-aware applications can communicate by using clipboard
 format names that are MIME types. Already some Windows applications
 use MIME naming conventions for their clipboard formats. Internally,
 Qt has facilities for translating proprietary clipboard formats to and
 from MIME types. This interface will be made public at some time, but
-if you need to do such translations now, contact your Qt Technical
+if you need to do such translations now, contact your TQt Technical
 Support service.
 
-On X11, Qt also supports drops via the Motif Drag\&Drop Protocol. The
+On X11, TQt also supports drops via the Motif Drag\&Drop Protocol. The
 implementation incorporates some code that was originally written by
-Daniel Dardailler, and adapted for Qt by Matt Koss \<koss@napri.sk\>
+Daniel Dardailler, and adapted for TQt by Matt Koss \<koss@napri.sk\>
 and Trolltech. Here is the original copyright notice:
 
 \legalese

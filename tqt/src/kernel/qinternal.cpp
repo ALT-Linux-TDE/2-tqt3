@@ -55,7 +55,7 @@ static TQSharedDoubleBuffer* qdb_owner = 0;
 
 TQCleanupHandler<TQPixmap> qdb_pixmap_cleanup;
 
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 bool TQSharedDoubleBuffer::dblbufr = FALSE;
 #else
 bool TQSharedDoubleBuffer::dblbufr = TRUE;
@@ -74,7 +74,7 @@ bool TQSharedDoubleBuffer::dblbufr = TRUE;
  */
 static const int hardLimitWidth = -1;
 static const int hardLimitHeight = -1;
-#if defined( Q_WS_QWS ) || defined( Q_WS_MAC9 )
+#if defined( TQ_WS_QWS ) || defined( TQ_WS_MAC9 )
 // Small in TQt/Embedded / Mac9 - 5K on 32bpp
 static const int sharedLimitWidth = 64;
 static const int sharedLimitHeight = 20;
@@ -354,11 +354,11 @@ bool TQSharedDoubleBuffer::begin( TQPainter* painter, int x, int y, int w, int h
     rh = h;
 
     if ( ( pix = getPixmap() ) ) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	if ( painter->device()->x11Screen() != pix->x11Screen() )
 	    pix->x11SetScreen( painter->device()->x11Screen() );
 	TQPixmap::x11SetDefaultScreen( pix->x11Screen() );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 	state |= BufferActive;
 	p = new TQPainter( pix );
@@ -405,11 +405,11 @@ bool TQSharedDoubleBuffer::begin( TQWidget* widget, int x, int y, int w, int h )
     rh = h <= 0 ? wid->height() : h;
 
     if ( ( pix = getPixmap() ) ) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	if ( wid->x11Screen() != pix->x11Screen() )
 	    pix->x11SetScreen( wid->x11Screen() );
 	TQPixmap::x11SetDefaultScreen( pix->x11Screen() );
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 	state |= BufferActive;
 	if ( flags & InitBG ) {

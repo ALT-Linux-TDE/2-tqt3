@@ -40,7 +40,7 @@
 
 #include "ntqsimplerichtext.h"
 
-#ifndef QT_NO_RICHTEXT
+#ifndef TQT_NO_RICHTEXT
 #include "qrichtext_p.h"
 #include "ntqapplication.h"
 
@@ -193,7 +193,7 @@ TQSimpleRichText::TQSimpleRichText( const TQString& text, const TQFont& fnt,
     d->doc->setDefaultFormat( fnt, TQColor() );
     d->doc->flow()->setPageSize( pageBreak );
     d->doc->setPageBreakEnabled( TRUE );
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     d->doc->setMimeSourceFactory( (TQMimeSourceFactory*)factory );
 #endif
     d->doc->setUnderlineLinks( linkUnderline );
@@ -418,4 +418,4 @@ void TQSimpleRichText::setDefaultFont( const TQFont &f )
     d->doc->setText( d->doc->originalText(), d->doc->context() );
 }
 
-#endif //QT_NO_RICHTEXT
+#endif //TQT_NO_RICHTEXT

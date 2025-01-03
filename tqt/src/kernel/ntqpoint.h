@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQPoint
+class TQ_EXPORT TQPoint
 {
 public:
     TQPoint();
@@ -99,9 +99,9 @@ private:
 /*****************************************************************************
   TQPoint stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPoint & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQPoint & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQPoint & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQPoint & );
 #endif
 
 /*****************************************************************************

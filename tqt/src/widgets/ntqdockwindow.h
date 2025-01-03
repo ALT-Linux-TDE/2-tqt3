@@ -45,7 +45,7 @@
 #include "ntqframe.h"
 #endif // QT_H
 
-#ifndef QT_NO_MAINWINDOW
+#ifndef TQT_NO_MAINWINDOW
 
 class TQDockWindowHandle;
 class TQDockWindowTitleBar;
@@ -62,7 +62,7 @@ class TQDockWindowPrivate;
 class TQToolBar;
 class TQWindowsXPStyle;
 
-class Q_EXPORT TQDockWindow : public TQFrame
+class TQ_EXPORT TQDockWindow : public TQFrame
 {
     TQ_OBJECT
     TQ_ENUMS( CloseMode Place )
@@ -143,7 +143,7 @@ public:
 
     bool eventFilter( TQObject *o, TQEvent *e );
 
-#ifdef QT_NO_WIDGET_TOPEXTRA
+#ifdef TQT_NO_WIDGET_TOPEXTRA
     TQString caption() const;
 #endif
 

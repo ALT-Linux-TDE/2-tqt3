@@ -44,4 +44,4 @@ TQTextCodec *KRTextCodecs::createForName( const TQString &name )
 }
 
 
-Q_EXPORT_PLUGIN( KRTextCodecs );
+TQ_EXPORT_PLUGIN( KRTextCodecs );

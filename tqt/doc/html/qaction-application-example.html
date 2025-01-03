@@ -141,12 +141,12 @@ private:
     <a href="ntqaction.html">TQAction</a> * fileCloseAction, * fileQuitAction;
 
     fileNewAction = new <a href="ntqaction.html">TQAction</a>( "&amp;New", CTRL+Key_N, this, "new" );
-<a name="x1123"></a>    <a href="ntqobject.html#connect">connect</a>( fileNewAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this,
-             SLOT( newDoc() ) );
+<a name="x1123"></a>    <a href="ntqobject.html#connect">connect</a>( fileNewAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this,
+             TQ_SLOT( newDoc() ) );
 
     fileOpenAction = new <a href="ntqaction.html">TQAction</a>( TQPixmap( fileopen ), "&amp;Open...",
                                   CTRL+Key_O, this, "open" );
-    <a href="ntqobject.html#connect">connect</a>( fileOpenAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this, SLOT( choose() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileOpenAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this, TQ_SLOT( choose() ) );
 
     const char * fileOpenText = "&lt;p&gt;&lt;img source=\"fileopen\"&gt; "
                      "Click this button to open a &lt;em&gt;new file&lt;/em&gt;. &lt;br&gt;"
@@ -158,7 +158,7 @@ private:
 
     fileSaveAction = new <a href="ntqaction.html">TQAction</a>( TQPixmap( filesave ),
                                   "&amp;Save", CTRL+Key_S, this, "save" );
-    <a href="ntqobject.html#connect">connect</a>( fileSaveAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this, SLOT( save() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileSaveAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this, TQ_SLOT( save() ) );
 
     const char * fileSaveText = "&lt;p&gt;Click this button to save the file you "
                      "are editing. You will be prompted for a file name.\n"
@@ -168,14 +168,14 @@ private:
 
     fileSaveAsAction = new <a href="ntqaction.html">TQAction</a>( "Save File As", "Save &amp;As...", 0,  this,
                                     "save as" );
-    <a href="ntqobject.html#connect">connect</a>( fileSaveAsAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this,
-             SLOT( saveAs() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileSaveAsAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this,
+             TQ_SLOT( saveAs() ) );
     fileSaveAsAction-&gt;<a href="ntqaction.html#setWhatsThis">setWhatsThis</a>( fileSaveText );
 
     filePrintAction = new <a href="ntqaction.html">TQAction</a>( "Print File", TQPixmap( fileprint ),
                                    "&amp;Print...", CTRL+Key_P, this, "print" );
-    <a href="ntqobject.html#connect">connect</a>( filePrintAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this,
-             SLOT( print() ) );
+    <a href="ntqobject.html#connect">connect</a>( filePrintAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this,
+             TQ_SLOT( print() ) );
 
     const char * filePrintText = "Click this button to print the file you "
                      "are editing.\n You can also select the Print "
@@ -184,13 +184,13 @@ private:
 
     fileCloseAction = new <a href="ntqaction.html">TQAction</a>( "Close", "&amp;Close", CTRL+Key_W, this,
                                    "close" );
-    <a href="ntqobject.html#connect">connect</a>( fileCloseAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this,
-             SLOT( <a href="ntqwidget.html#close">close</a>() ) );
+    <a href="ntqobject.html#connect">connect</a>( fileCloseAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this,
+             TQ_SLOT( <a href="ntqwidget.html#close">close</a>() ) );
 
     fileQuitAction = new <a href="ntqaction.html">TQAction</a>( "Quit", "&amp;Quit", CTRL+Key_Q, this,
                                   "quit" );
-<a name="x1127"></a>    <a href="ntqobject.html#connect">connect</a>( fileQuitAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , tqApp,
-             SLOT( <a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>() ) );
+<a name="x1127"></a>    <a href="ntqobject.html#connect">connect</a>( fileQuitAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , tqApp,
+             TQ_SLOT( <a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>() ) );
 
     // populate a tool bar with some actions
 
@@ -223,10 +223,10 @@ private:
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a> * help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", help );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, SLOT(about()), Key_F1 );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, SLOT(aboutTQt()) );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), Key_F1 );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()) );
     help-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this, SLOT(<a href="ntqmainwindow.html#whatsThis">whatsThis</a>()),
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this, TQ_SLOT(<a href="ntqmainwindow.html#whatsThis">whatsThis</a>()),
                       SHIFT+Key_F1 );
 
 
@@ -421,7 +421,7 @@ int main( int argc, char ** argv ) {
     ApplicationWindow * mw = new ApplicationWindow();
     mw-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>( "Document 1" );
 <a name="x1178"></a>    mw-&gt;<a href="ntqwidget.html#show">show</a>();
-<a name="x1179"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<a name="x1179"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     return a.<a href="ntqapplication.html#exec">exec</a>();
 }
 </pre>

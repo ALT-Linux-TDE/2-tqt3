@@ -1,5 +1,5 @@
 '\" t
-.TH Qt 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQt 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -11,7 +11,7 @@ Qt \- Namespace for miscellaneous identifiers that need to be global-like
 .SH SYNOPSIS
 \fC#include <ntqnamespace.h>\fR
 .PP
-Inherited by QObject, QPixmap, QBrush, QCanvasItem, QCursor, QPainter, QEvent, QIconViewItem, QKeySequence, QListViewItem, QCustomMenuItem, QPen, QStyleSheetItem, QSyntaxHighlighter, QTab, QTableItem, QThread, QToolTip, and QWhatsThis.
+Inherited by TQObject, QPixmap, QBrush, QCanvasItem, QCursor, QPainter, QEvent, QIconViewItem, QKeySequence, QListViewItem, QCustomMenuItem, QPen, QStyleSheetItem, QSyntaxHighlighter, QTab, QTableItem, QThread, QToolTip, and QWhatsThis.
 .PP
 .SS "Public Members"
 .in +1c
@@ -58,7 +58,7 @@ Inherited by QObject, QPixmap, QBrush, QCanvasItem, QCursor, QPainter, QEvent, Q
 .BI "enum \fBModifier\fR { META = 0x00100000, SHIFT = 0x00200000, CTRL = 0x00400000, ALT = 0x00800000, MODIFIER_MASK = 0x00f00000, UNICODE_ACCEL = 0x10000000, ASCII_ACCEL = UNICODE_ACCEL }"
 .br
 .ti -1c
-.BI "enum \fBKey\fR { Key_Escape = 0x1000, Key_Tab = 0x1001, Key_Backtab = 0x1002, Key_BackTab = Key_Backtab, Key_Backspace = 0x1003, Key_BackSpace = Key_Backspace, Key_Return = 0x1004, Key_Enter = 0x1005, Key_Insert = 0x1006, Key_Delete = 0x1007, Key_Pause = 0x1008, Key_Print = 0x1009, Key_SysReq = 0x100a, Key_Clear = 0x100b, Key_Home = 0x1010, Key_End = 0x1011, Key_Left = 0x1012, Key_Up = 0x1013, Key_Right = 0x1014, Key_Down = 0x1015, Key_Prior = 0x1016, Key_PageUp = Key_Prior, Key_Next = 0x1017, Key_PageDown = Key_Next, Key_Shift = 0x1020, Key_Control = 0x1021, Key_Meta = 0x1022, Key_Alt = 0x1023, Key_CapsLock = 0x1024, Key_NumLock = 0x1025, Key_ScrollLock = 0x1026, Key_F1 = 0x1030, Key_F2 = 0x1031, Key_F3 = 0x1032, Key_F4 = 0x1033, Key_F5 = 0x1034, Key_F6 = 0x1035, Key_F7 = 0x1036, Key_F8 = 0x1037, Key_F9 = 0x1038, Key_F10 = 0x1039, Key_F11 = 0x103a, Key_F12 = 0x103b, Key_F13 = 0x103c, Key_F14 = 0x103d, Key_F15 = 0x103e, Key_F16 = 0x103f, Key_F17 = 0x1040, Key_F18 = 0x1041, Key_F19 = 0x1042, Key_F20 = 0x1043, Key_F21 = 0x1044, Key_F22 = 0x1045, Key_F23 = 0x1046, Key_F24 = 0x1047, Key_F25 = 0x1048, Key_F26 = 0x1049, Key_F27 = 0x104a, Key_F28 = 0x104b, Key_F29 = 0x104c, Key_F30 = 0x104d, Key_F31 = 0x104e, Key_F32 = 0x104f, Key_F33 = 0x1050, Key_F34 = 0x1051, Key_F35 = 0x1052, Key_Super_L = 0x1053, Key_Super_R = 0x1054, Key_Menu = 0x1055, Key_Hyper_L = 0x1056, Key_Hyper_R = 0x1057, Key_Help = 0x1058, Key_Direction_L = 0x1059, Key_Direction_R = 0x1060, Key_Space = 0x20, Key_Any = Key_Space, Key_Exclam = 0x21, Key_QuoteDbl = 0x22, Key_NumberSign = 0x23, Key_Dollar = 0x24, Key_Percent = 0x25, Key_Ampersand = 0x26, Key_Apostrophe = 0x27, Key_ParenLeft = 0x28, Key_ParenRight = 0x29, Key_Asterisk = 0x2a, Key_Plus = 0x2b, Key_Comma = 0x2c, Key_Minus = 0x2d, Key_Period = 0x2e, Key_Slash = 0x2f, Key_0 = 0x30, Key_1 = 0x31, Key_2 = 0x32, Key_3 = 0x33, Key_4 = 0x34, Key_5 = 0x35, Key_6 = 0x36, Key_7 = 0x37, Key_8 = 0x38, Key_9 = 0x39, Key_Colon = 0x3a, Key_Semicolon = 0x3b, Key_Less = 0x3c, Key_Equal = 0x3d, Key_Greater = 0x3e, Key_Question = 0x3f, Key_At = 0x40, Key_A = 0x41, Key_B = 0x42, Key_C = 0x43, Key_D = 0x44, Key_E = 0x45, Key_F = 0x46, Key_G = 0x47, Key_H = 0x48, Key_I = 0x49, Key_J = 0x4a, Key_K = 0x4b, Key_L = 0x4c, Key_M = 0x4d, Key_N = 0x4e, Key_O = 0x4f, Key_P = 0x50, Key_Q = 0x51, Key_R = 0x52, Key_S = 0x53, Key_T = 0x54, Key_U = 0x55, Key_V = 0x56, Key_W = 0x57, Key_X = 0x58, Key_Y = 0x59, Key_Z = 0x5a, Key_BracketLeft = 0x5b, Key_Backslash = 0x5c, Key_BracketRight = 0x5d, Key_AsciiCircum = 0x5e, Key_Underscore = 0x5f, Key_QuoteLeft = 0x60, Key_BraceLeft = 0x7b, Key_Bar = 0x7c, Key_BraceRight = 0x7d, Key_AsciiTilde = 0x7e, Key_nobreakspace = 0x0a0, Key_exclamdown = 0x0a1, Key_cent = 0x0a2, Key_sterling = 0x0a3, Key_currency = 0x0a4, Key_yen = 0x0a5, Key_brokenbar = 0x0a6, Key_section = 0x0a7, Key_diaeresis = 0x0a8, Key_copyright = 0x0a9, Key_ordfeminine = 0x0aa, Key_guillemotleft = 0x0ab, Key_notsign = 0x0ac, Key_hyphen = 0x0ad, Key_registered = 0x0ae, Key_macron = 0x0af, Key_degree = 0x0b0, Key_plusminus = 0x0b1, Key_twosuperior = 0x0b2, Key_threesuperior = 0x0b3, Key_acute = 0x0b4, Key_mu = 0x0b5, Key_paragraph = 0x0b6, Key_periodcentered = 0x0b7, Key_cedilla = 0x0b8, Key_onesuperior = 0x0b9, Key_masculine = 0x0ba, Key_guillemotright = 0x0bb, Key_onequarter = 0x0bc, Key_onehalf = 0x0bd, Key_threequarters = 0x0be, Key_questiondown = 0x0bf, Key_Agrave = 0x0c0, Key_Aacute = 0x0c1, Key_Acircumflex = 0x0c2, Key_Atilde = 0x0c3, Key_Adiaeresis = 0x0c4, Key_Aring = 0x0c5, Key_AE = 0x0c6, Key_Ccedilla = 0x0c7, Key_Egrave = 0x0c8, Key_Eacute = 0x0c9, Key_Ecircumflex = 0x0ca, Key_Ediaeresis = 0x0cb, Key_Igrave = 0x0cc, Key_Iacute = 0x0cd, Key_Icircumflex = 0x0ce, Key_Idiaeresis = 0x0cf, Key_ETH = 0x0d0, Key_Ntilde = 0x0d1, Key_Ograve = 0x0d2, Key_Oacute = 0x0d3, Key_Ocircumflex = 0x0d4, Key_Otilde = 0x0d5, Key_Odiaeresis = 0x0d6, Key_multiply = 0x0d7, Key_Ooblique = 0x0d8, Key_Ugrave = 0x0d9, Key_Uacute = 0x0da, Key_Ucircumflex = 0x0db, Key_Udiaeresis = 0x0dc, Key_Yacute = 0x0dd, Key_THORN = 0x0de, Key_ssharp = 0x0df, Key_agrave = 0x0e0, Key_aacute = 0x0e1, Key_acircumflex = 0x0e2, Key_atilde = 0x0e3, Key_adiaeresis = 0x0e4, Key_aring = 0x0e5, Key_ae = 0x0e6, Key_ccedilla = 0x0e7, Key_egrave = 0x0e8, Key_eacute = 0x0e9, Key_ecircumflex = 0x0ea, Key_ediaeresis = 0x0eb, Key_igrave = 0x0ec, Key_iacute = 0x0ed, Key_icircumflex = 0x0ee, Key_idiaeresis = 0x0ef, Key_eth = 0x0f0, Key_ntilde = 0x0f1, Key_ograve = 0x0f2, Key_oacute = 0x0f3, Key_ocircumflex = 0x0f4, Key_otilde = 0x0f5, Key_odiaeresis = 0x0f6, Key_division = 0x0f7, Key_oslash = 0x0f8, Key_ugrave = 0x0f9, Key_uacute = 0x0fa, Key_ucircumflex = 0x0fb, Key_udiaeresis = 0x0fc, Key_yacute = 0x0fd, Key_thorn = 0x0fe, Key_ydiaeresis = 0x0ff, Key_Back = 0x1061, Key_Forward = 0x1062, Key_Stop = 0x1063, Key_Refresh = 0x1064, Key_VolumeDown = 0x1070, Key_VolumeMute = 0x1071, Key_VolumeUp = 0x1072, Key_BassBoost = 0x1073, Key_BassUp = 0x1074, Key_BassDown = 0x1075, Key_TrebleUp = 0x1076, Key_TrebleDown = 0x1077, Key_MediaPlay = 0x1080, Key_MediaStop = 0x1081, Key_MediaPrev = 0x1082, Key_MediaNext = 0x1083, Key_MediaRecord = 0x1084, Key_HomePage = 0x1090, Key_Favorites = 0x1091, Key_Search = 0x1092, Key_Standby = 0x1093, Key_OpenUrl = 0x1094, Key_LaunchMail = 0x10a0, Key_LaunchMedia = 0x10a1, Key_Launch0 = 0x10a2, Key_Launch1 = 0x10a3, Key_Launch2 = 0x10a4, Key_Launch3 = 0x10a5, Key_Launch4 = 0x10a6, Key_Launch5 = 0x10a7, Key_Launch6 = 0x10a8, Key_Launch7 = 0x10a9, Key_Launch8 = 0x10aa, Key_Launch9 = 0x10ab, Key_LaunchA = 0x10ac, Key_LaunchB = 0x10ad, Key_LaunchC = 0x10ae, Key_LaunchD = 0x10af, Key_LaunchE = 0x10b0, Key_LaunchF = 0x10b1, Key_MediaLast = 0x1fff, Key_unknown = 0xffff }"
+.BI "enum \fBKey\fR { Key_Escape = 0x1000, Key_Tab = 0x1001, Key_Backtab = 0x1002, Key_BackTab = Key_Backtab, Key_Backspace = 0x1003, Key_BackSpace = Key_Backspace, Key_Return = 0x1004, Key_Enter = 0x1005, Key_Insert = 0x1006, Key_Delete = 0x1007, Key_Pause = 0x1008, Key_Print = 0x1009, Key_SysReq = 0x100a, Key_Clear = 0x100b, Key_Home = 0x1010, Key_End = 0x1011, Key_Left = 0x1012, Key_Up = 0x1013, Key_Right = 0x1014, Key_Down = 0x1015, Key_Prior = 0x1016, Key_PageUp = Key_Prior, Key_Next = 0x1017, Key_PageDown = Key_Next, Key_Shift = 0x1020, Key_Control = 0x1021, Key_Meta = 0x1022, Key_Alt = 0x1023, Key_CapsLock = 0x1024, Key_NumLock = 0x1025, Key_ScrollLock = 0x1026, Key_F1 = 0x1030, Key_F2 = 0x1031, Key_F3 = 0x1032, Key_F4 = 0x1033, Key_F5 = 0x1034, Key_F6 = 0x1035, Key_F7 = 0x1036, Key_F8 = 0x1037, Key_F9 = 0x1038, Key_F10 = 0x1039, Key_F11 = 0x103a, Key_F12 = 0x103b, Key_F13 = 0x103c, Key_F14 = 0x103d, Key_F15 = 0x103e, Key_F16 = 0x103f, Key_F17 = 0x1040, Key_F18 = 0x1041, Key_F19 = 0x1042, Key_F20 = 0x1043, Key_F21 = 0x1044, Key_F22 = 0x1045, Key_F23 = 0x1046, Key_F24 = 0x1047, Key_F25 = 0x1048, Key_F26 = 0x1049, Key_F27 = 0x104a, Key_F28 = 0x104b, Key_F29 = 0x104c, Key_F30 = 0x104d, Key_F31 = 0x104e, Key_F32 = 0x104f, Key_F33 = 0x1050, Key_F34 = 0x1051, Key_F35 = 0x1052, Key_Super_L = 0x1053, Key_Super_R = 0x1054, Key_Menu = 0x1055, Key_Hyper_L = 0x1056, Key_Hyper_R = 0x1057, Key_Help = 0x1058, Key_Direction_L = 0x1059, Key_Direction_R = 0x1060, Key_Space = 0x20, Key_Any = Key_Space, Key_Exclam = 0x21, Key_QuoteDbl = 0x22, Key_NumberSign = 0x23, Key_Dollar = 0x24, Key_Percent = 0x25, Key_Ampersand = 0x26, Key_Apostrophe = 0x27, Key_ParenLeft = 0x28, Key_ParenRight = 0x29, Key_Asterisk = 0x2a, Key_Plus = 0x2b, Key_Comma = 0x2c, Key_Minus = 0x2d, Key_Period = 0x2e, Key_Slash = 0x2f, Key_0 = 0x30, Key_1 = 0x31, Key_2 = 0x32, Key_3 = 0x33, Key_4 = 0x34, Key_5 = 0x35, Key_6 = 0x36, Key_7 = 0x37, Key_8 = 0x38, Key_9 = 0x39, Key_Colon = 0x3a, Key_Semicolon = 0x3b, Key_Less = 0x3c, Key_Equal = 0x3d, Key_Greater = 0x3e, Key_Question = 0x3f, Key_At = 0x40, Key_A = 0x41, Key_B = 0x42, Key_C = 0x43, Key_D = 0x44, Key_E = 0x45, Key_F = 0x46, Key_G = 0x47, Key_H = 0x48, Key_I = 0x49, Key_J = 0x4a, Key_K = 0x4b, Key_L = 0x4c, Key_M = 0x4d, Key_N = 0x4e, Key_O = 0x4f, Key_P = 0x50, Key_Q = 0x51, Key_R = 0x52, Key_S = 0x53, Key_T = 0x54, Key_U = 0x55, Key_V = 0x56, Key_W = 0x57, Key_X = 0x58, Key_Y = 0x59, Key_Z = 0x5a, Key_BracketLeft = 0x5b, Key_Backslash = 0x5c, Key_BracketRight = 0x5d, Key_AsciiCircum = 0x5e, Key_Underscore = 0x5f, Key_QuoteLeft = 0x60, Key_BraceLeft = 0x7b, Key_Bar = 0x7c, Key_BraceRight = 0x7d, Key_AsciiTilde = 0x7e, Key_nobreakspace = 0x0a0, Key_exclamdown = 0x0a1, Key_cent = 0x0a2, Key_sterling = 0x0a3, Key_currency = 0x0a4, Key_yen = 0x0a5, Key_brokenbar = 0x0a6, Key_section = 0x0a7, Key_diaeresis = 0x0a8, Key_copyright = 0x0a9, Key_ordfeminine = 0x0aa, Key_guillemotleft = 0x0ab, Key_notsign = 0x0ac, Key_hyphen = 0x0ad, Key_registered = 0x0ae, Key_macron = 0x0af, Key_degree = 0x0b0, Key_plusminus = 0x0b1, Key_twosuperior = 0x0b2, Key_threesuperior = 0x0b3, Key_acute = 0x0b4, Key_mu = 0x0b5, Key_paragraph = 0x0b6, Key_periodcentered = 0x0b7, Key_cedilla = 0x0b8, Key_onesuperior = 0x0b9, Key_masculine = 0x0ba, Key_guillemotright = 0x0bb, Key_onequarter = 0x0bc, Key_onehalf = 0x0bd, Key_threequarters = 0x0be, Key_questiondown = 0x0bf, Key_Agrave = 0x0c0, Key_Aacute = 0x0c1, Key_Acircumflex = 0x0c2, Key_Atilde = 0x0c3, Key_Adiaeresis = 0x0c4, Key_Aring = 0x0c5, Key_AE = 0x0c6, Key_Ccedilla = 0x0c7, Key_Egrave = 0x0c8, Key_Eacute = 0x0c9, Key_Ecircumflex = 0x0ca, Key_Ediaeresis = 0x0cb, Key_Igrave = 0x0cc, Key_Iacute = 0x0cd, Key_Icircumflex = 0x0ce, Key_Idiaeresis = 0x0cf, Key_ETH = 0x0d0, Key_Ntilde = 0x0d1, Key_Ograve = 0x0d2, Key_Oacute = 0x0d3, Key_Ocircumflex = 0x0d4, Key_Otilde = 0x0d5, Key_Odiaeresis = 0x0d6, Key_multiply = 0x0d7, Key_Ooblique = 0x0d8, Key_Ugrave = 0x0d9, Key_Uacute = 0x0da, Key_Ucircumflex = 0x0db, Key_Udiaeresis = 0x0dc, Key_Yacute = 0x0dd, Key_THORN = 0x0de, Key_ssharp = 0x0df, Key_agrave = 0x0e0, Key_aacute = 0x0e1, Key_acircumflex = 0x0e2, Key_atilde = 0x0e3, Key_adiaeresis = 0x0e4, Key_aring = 0x0e5, Key_ae = 0x0e6, Key_ccedilla = 0x0e7, Key_egrave = 0x0e8, Key_eacute = 0x0e9, Key_ecircumflex = 0x0ea, Key_ediaeresis = 0x0eb, Key_igrave = 0x0ec, Key_iacute = 0x0ed, Key_icircumflex = 0x0ee, Key_idiaeresis = 0x0ef, Key_eth = 0x0f0, Key_ntilde = 0x0f1, Key_ograve = 0x0f2, Key_oacute = 0x0f3, Key_ocircumflex = 0x0f4, Key_otilde = 0x0f5, Key_odiaeresis = 0x0f6, Key_division = 0x0f7, Key_oslash = 0x0f8, Key_ugrave = 0x0f9, Key_uacute = 0x0fa, Key_ucircumflex = 0x0fb, Key_udiaeresis = 0x0fc, Key_yacute = 0x0fd, Key_thorn = 0x0fe, Key_ydiaeresis = 0x0ff, Key_Back = 0x1061, Key_Forward = 0x1062, Key_Stop = 0x1063, Key_Refresh = 0x1064, Key_VolumeDown = 0x1070, Key_VolumeMute = 0x1071, Key_VolumeUp = 0x1072, Key_BassBoost = 0x1073, Key_BassUp = 0x1074, Key_BassDown = 0x1075, Key_TrebleUp = 0x1076, Key_TrebleDown = 0x1077, Key_MediaPlay = 0x1080, Key_MediaStop = 0x1081, Key_MediaPrev = 0x1082, Key_MediaNext = 0x1083, Key_MediaRecord = 0x1084, Key_HomePage = 0x1090, Key_Favorites = 0x1091, Key_Search = 0x1092, Key_Standby = 0x1093, Key_OpenUrl = 0x1094, Key_LaunchMail = 0x10a0, Key_LaunchMedia = 0x10a1, Key_Launch0 = 0x10a2, Key_Launch1 = 0x10a3, Key_Launch2 = 0x10a4, Key_Launch3 = 0x10a5, Key_Launch4 = 0x10a6, Key_Launch5 = 0x10a7, Key_Launch6 = 0x10a8, Key_Launch7 = 0x10a9, Key_Launch8 = 0x10aa, Key_Launch9 = 0x10ab, Key_LaunchA = 0x10ac, Key_LaunchB = 0x10ad, Key_LaunchC = 0x10ae, Key_LaunchD = 0x10af, Key_LaunchE = 0x10b0, Key_LaunchF = 0x10b1, Key_MonBrightnessUp = 0x010b2, Key_MonBrightnessDown = 0x010b3, Key_KeyboardLightOnOff = 0x010b4, Key_KeyboardBrightnessUp = 0x010b5, Key_KeyboardBrightnessDown = 0x010b6, Key_MediaLast = 0x1fff, Key_unknown = 0xffff }"
 .br
 .ti -1c
 .BI "enum \fBArrowType\fR { UpArrow, DownArrow, LeftArrow, RightArrow }"
@@ -119,15 +119,15 @@ Inherited by QObject, QPixmap, QBrush, QCanvasItem, QCursor, QPainter, QEvent, Q
 .br
 .in -1c
 .SH DESCRIPTION
-The Qt class is a namespace for miscellaneous identifiers that need to be global-like.
+The TQt class is a namespace for miscellaneous identifiers that need to be global-like.
 .PP
-Normally, you can ignore this class. QObject and a few other classes inherit it, so all the identifiers in the Qt namespace are normally usable without qualification.
+Normally, you can ignore this class. TQObject and a few other classes inherit it, so all the identifiers in the TQt namespace are normally usable without qualification.
 .PP
 However, you may occasionally need to say \fCQt::black\fR instead of just \fCblack\fR, particularly in static utility functions (such as many class factories).
 .PP
 See also Miscellaneous Classes.
 .SS "Member Type Documentation"
-.SH "Qt::AlignmentFlags"
+.SH "TQt::AlignmentFlags"
 This enum type is used to describe alignment. It contains horizontal and vertical flags.
 .PP
 The horizontal flags are:
@@ -163,13 +163,13 @@ Masks:
 \fCQt::AlignVertical_Mask\fR
 .PP
 Conflicting combinations of flags have undefined meanings.
-.SH "Qt::AnchorAttribute"
+.SH "TQt::AnchorAttribute"
 An anchor has one or more of the following attributes:
 .TP
 \fCQt::AnchorName\fR - the name attribute of the anchor. This attribute is used when scrolling to an anchor in the document.
 .TP
 \fCQt::AnchorHref\fR - the href attribute of the anchor. This attribute is used when a link is clicked to determine what content to load.
-.SH "Qt::ArrowType"
+.SH "TQt::ArrowType"
 .TP
 \fCQt::UpArrow\fR
 .TP
@@ -178,13 +178,13 @@ An anchor has one or more of the following attributes:
 \fCQt::LeftArrow\fR
 .TP
 \fCQt::RightArrow\fR
-.SH "Qt::BGMode"
+.SH "TQt::BGMode"
 Background mode
 .TP
 \fCQt::TransparentMode\fR
 .TP
 \fCQt::OpaqueMode\fR
-.SH "Qt::BackgroundMode"
+.SH "TQt::BackgroundMode"
 This enum describes how the background of a widget changes, as the widget's palette changes.
 .PP
 The background is what the widget contains when paintEvent() is called. To minimize flicker, this should be the most common color or pixmap in the widget. For PaletteBackground, use colorGroup().brush( QColorGroup::Background ), and so on.
@@ -233,8 +233,8 @@ The final three values have special meaning:
 .PP
 Although FixedColor and FixedPixmap are sometimes just right, if you use them, make sure that you test your application when the desktop color scheme has been changed. (On X11, a quick way to test this is e.g. "./myapp -bg paleblue". On Windows, you must use the control panel.)
 .PP
-See also QWidget::backgroundMode, QWidget::backgroundMode, QWidget::setBackgroundPixmap(), and QWidget::paletteBackgroundColor.
-.SH "Qt::BrushStyle"
+See also TQWidget::backgroundMode, TQWidget::backgroundMode, TQWidget::setBackgroundPixmap(), and TQWidget::paletteBackgroundColor.
+.SH "TQt::BrushStyle"
 .TP
 \fCQt::NoBrush\fR
 .TP
@@ -273,7 +273,7 @@ See also QWidget::backgroundMode, QWidget::backgroundMode, QWidget::setBackgroun
 .B "[Image Omitted]"
 .PP
 </center>
-.SH "Qt::ButtonState"
+.SH "TQt::ButtonState"
 This enum type describes the state of the mouse and the modifier buttons.
 .TP
 \fCQt::NoButton\fR - used when the button state does not refer to any button (see QMouseEvent::button()).
@@ -297,7 +297,7 @@ This enum type describes the state of the mouse and the modifier buttons.
 \fCQt::KeyButtonMask\fR - a mask for ShiftButton, ControlButton, AltButton and MetaButton.
 .TP
 \fCQt::MouseButtonMask\fR - a mask for LeftButton, RightButton and MidButton.
-.SH "Qt::Corner"
+.SH "TQt::Corner"
 This enum type specifies a corner in a rectangle:
 .TP
 \fCQt::TopLeft\fR - top left corner
@@ -307,7 +307,7 @@ This enum type specifies a corner in a rectangle:
 \fCQt::BottomLeft\fR - bottom left corner
 .TP
 \fCQt::BottomRight\fR - bottom right corner
-.SH "Qt::CursorShape"
+.SH "TQt::CursorShape"
 This enum type defines the various cursors that can be used.
 .TP
 \fCQt::ArrowCursor\fR - standard arrow cursor
@@ -353,14 +353,14 @@ ArrowCursor is the default for widgets in a normal state.
 .B "[Image Omitted]"
 .PP
 </center>
-.SH "Qt::DateFormat"
+.SH "TQt::DateFormat"
 .TP
-\fCQt::TextDate\fR - (default) Qt format
+\fCQt::TextDate\fR - (default) TQt format
 .TP
 \fCQt::ISODate\fR - ISO 8601 extended format (YYYY-MM-DD, or with time, YYYY-MM-DDTHH:MM:SS)
 .TP
 \fCQt::LocalDate\fR - locale dependent format
-.SH "Qt::Dock"
+.SH "TQt::Dock"
 Each dock window can be in one of the following positions:
 .TP
 \fCQt::DockTop\fR - above the central widget, below the menu bar.
@@ -376,7 +376,7 @@ Each dock window can be in one of the following positions:
 \fCQt::DockTornOff\fR - the dock window floats as its own top level window which always stays on top of the main window.
 .TP
 \fCQt::DockUnmanaged\fR - not managed by a QMainWindow.
-.SH "Qt::GUIStyle"
+.SH "TQt::GUIStyle"
 \fBThis type is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .TP
 \fCQt::WindowsStyle\fR
@@ -388,7 +388,7 @@ Each dock window can be in one of the following positions:
 \fCQt::Win3Style\fR
 .TP
 \fCQt::PMStyle\fR
-.SH "Qt::ImageConversionFlags"
+.SH "TQt::ImageConversionFlags"
 The conversion flag is a bitwise-OR of the following values. The options marked "(default)" are set if no other values from the list are included (since the defaults are zero):
 .PP
 Color/Mono preference (ignored for QBitmap)
@@ -436,7 +436,7 @@ The following are not values that are used directly, but masks for the above cla
 \fCQt::DitherMode_Mask\fR - Mask for the mode that determines the preference of color matching versus dithering.
 .PP
 Using 0 as the conversion flag sets all the default options.
-.SH "Qt::Key"
+.SH "TQt::Key"
 The key names used by Qt.
 .TP
 \fCQt::Key_Escape\fR
@@ -989,6 +989,16 @@ Multimedia keys
 .TP
 \fCQt::Key_LaunchF\fR
 .TP
+\fCQt::Key_MonBrightnessUp\fR
+.TP
+\fCQt::Key_MonBrightnessDown\fR
+.TP
+\fCQt::Key_KeyboardLightOnOff\fR
+.TP
+\fCQt::Key_KeyboardBrightnessUp\fR
+.TP
+\fCQt::Key_KeyboardBrightnessDown\fR
+.TP
 \fCQt::Key_MediaLast\fR
 .TP
 \fCQt::Key_unknown\fR
@@ -996,7 +1006,7 @@ Multimedia keys
 \fCQt::Key_Direction_L\fR - internal use only
 .TP
 \fCQt::Key_Direction_R\fR - internal use only
-.SH "Qt::MacintoshVersion"
+.SH "TQt::MacintoshVersion"
 .TP
 \fCQt::MV_Unknown\fR - Version cannot be detected
 .TP
@@ -1021,7 +1031,7 @@ Multimedia keys
 \fCQt::MV_PANTHER\fR - 10.3 Codename
 .TP
 \fCQt::MV_TIGER\fR - 10.4 Codename
-.SH "Qt::Modifier"
+.SH "TQt::Modifier"
 This enum type describes the keyboard modifier keys supported by Qt.
 .TP
 \fCQt::SHIFT\fR - the Shift keys provided on all standard keyboards.
@@ -1034,8 +1044,8 @@ This enum type describes the keyboard modifier keys supported by Qt.
 .TP
 \fCQt::MODIFIER_MASK\fR - is a mask of Shift, Ctrl, Alt and Meta.
 .TP
-\fCQt::UNICODE_ACCEL\fR - the accelerator is specified as a Unicode code point, not as a Qt Key.
-.SH "Qt::Orientation"
+\fCQt::UNICODE_ACCEL\fR - the accelerator is specified as a Unicode code point, not as a TQt Key.
+.SH "TQt::Orientation"
 This type is used to signify an object's orientation.
 .TP
 \fCQt::Horizontal\fR
@@ -1043,7 +1053,7 @@ This type is used to signify an object's orientation.
 \fCQt::Vertical\fR
 .PP
 Orientation is used with QScrollBar for example.
-.SH "Qt::PaintUnit"
+.SH "TQt::PaintUnit"
 .TP
 \fCQt::PixelUnit\fR
 .TP
@@ -1056,7 +1066,7 @@ Orientation is used with QScrollBar for example.
 \fCQt::HiEnglishUnit\fR - \fIobsolete\fR
 .TP
 \fCQt::TwipsUnit\fR - \fIobsolete\fR
-.SH "Qt::PenCapStyle"
+.SH "TQt::PenCapStyle"
 This enum type defines the pen cap styles supported by Qt, i.e. the line end caps that can be drawn using QPainter.
 .TP
 \fCQt::FlatCap\fR - a square line end that does not cover the end point of the line.
@@ -1072,7 +1082,7 @@ This enum type defines the pen cap styles supported by Qt, i.e. the line end cap
 .B "[Image Omitted]"
 .PP
 </center>
-.SH "Qt::PenJoinStyle"
+.SH "TQt::PenJoinStyle"
 This enum type defines the pen join styles supported by Qt, i.e. which joins between two connected lines can be drawn using QPainter.
 .TP
 \fCQt::MiterJoin\fR - The outer edges of the lines are extended to meet at an angle, and this area is filled.
@@ -1088,7 +1098,7 @@ This enum type defines the pen join styles supported by Qt, i.e. which joins bet
 .B "[Image Omitted]"
 .PP
 </center>
-.SH "Qt::PenStyle"
+.SH "TQt::PenStyle"
 This enum type defines the pen styles that can be drawn using QPainter. The styles are
 .TP
 \fCQt::NoPen\fR - no line at all. For example, QPainter::drawRect() fills but does not draw any boundary line.
@@ -1110,7 +1120,7 @@ This enum type defines the pen styles that can be drawn using QPainter. The styl
 .B "[Image Omitted]"
 .PP
 </center>
-.SH "Qt::RasterOp"
+.SH "TQt::RasterOp"
 This enum type is used to describe the way things are written to the paint device. Each bit of the \fIsrc\fR (what you write) interacts with the corresponding bit of the \fIdst\fR pixel.
 .TP
 \fCQt::CopyROP\fR - dst = src
@@ -1152,20 +1162,20 @@ This enum type is used to describe the way things are written to the paint devic
 By far the most useful ones are CopyROP and XorROP.
 .PP
 On Qt/Embedded, only CopyROP, XorROP, and NotROP are supported.
-.SH "Qt::SequenceMatch"
+.SH "TQt::SequenceMatch"
 .TP
 \fCQt::NoMatch\fR - Sequences have nothing in common
 .TP
 \fCQt::PartialMatch\fR - Sequences match partially, but are not complete
 .TP
 \fCQt::Identical\fR - Sequences do not differ
-.SH "Qt::SortOrder"
+.SH "TQt::SortOrder"
 This enum describes how the items in a widget are sorted.
 .TP
 \fCQt::Ascending\fR - The items are sorted ascending e.g. starts with 'AAA' ends with 'ZZZ' in Latin-1 locales
 .TP
 \fCQt::Descending\fR - The items are sorted descending e.g. starts with 'ZZZ' ends with 'AAA' in Latin-1 locales
-.SH "Qt::StringComparisonMode"
+.SH "TQt::StringComparisonMode"
 This enum type is used to set the string comparison mode when searching for an item. It is used by QListBox, QListView and QIconView, for example. We'll refer to the string being searched as the 'target' string.
 .TP
 \fCQt::CaseSensitive\fR - The strings must match case sensitively.
@@ -1181,7 +1191,7 @@ This enum type is used to set the string comparison mode when searching for an i
 If you OR these flags together (excluding CaseSensitive), the search criteria be applied in the following order: ExactMatch, BeginsWith, EndsWith, Contains.
 .PP
 Matching is case-insensitive unless CaseSensitive is set. CaseSensitive can be OR-ed with any combination of the other flags.
-.SH "Qt::TextFlags"
+.SH "TQt::TextFlags"
 This enum type is used to define some modifier flags. Some of these flags only make sense in the context of printing:
 .TP
 \fCQt::SingleLine\fR - Treats all whitespace as spaces and prints just one line.
@@ -1201,7 +1211,7 @@ This enum type is used to define some modifier flags. Some of these flags only m
 You can use as many modifier flags as you want, except that SingleLine and WordBreak cannot be combined.
 .PP
 Flags that are inappropriate for a given use (e.g. ShowPrefix to QGridLayout::addWidget()) are generally ignored.
-.SH "Qt::TextFormat"
+.SH "TQt::TextFormat"
 This enum is used in widgets that can display both plain text and rich text, e.g. QLabel. It is used for deciding whether a text string should be interpreted as one or the other. This is normally done by passing one of the enum values to a setTextFormat() function.
 .TP
 \fCQt::PlainText\fR - The text string is interpreted as a plain text string.
@@ -1211,12 +1221,12 @@ This enum is used in widgets that can display both plain text and rich text, e.g
 \fCQt::AutoText\fR - The text string is interpreted as for RichText if QStyleSheet::mightBeRichText() returns TRUE, otherwise as PlainText.
 .TP
 \fCQt::LogText\fR - A special, limited text format which is only used by QTextEdit in an optimized mode.
-.SH "Qt::TimeSpec"
+.SH "TQt::TimeSpec"
 .TP
 \fCQt::LocalTime\fR - Locale dependent time (Timezones and Daylight Savings Time)
 .TP
 \fCQt::UTC\fR - Coordinated Universal Time, replaces Greenwich Time
-.SH "Qt::UIEffect"
+.SH "TQt::UIEffect"
 .TP
 \fCQt::UI_General\fR
 .TP
@@ -1231,7 +1241,7 @@ This enum is used in widgets that can display both plain text and rich text, e.g
 \fCQt::UI_FadeTooltip\fR
 .TP
 \fCQt::UI_AnimateToolBox\fR - Reserved
-.SH "Qt::WidgetFlags"
+.SH "TQt::WidgetFlags"
 
 .PP
 This enum type is used to specify various window-system properties for the widget. They are fairly unusual but necessary in a few cases. Some of these flags depend on whether the underlying window manager supports them. (See the toplevel example for an explanation and example of their use.)
@@ -1280,13 +1290,13 @@ There are also a number of flags which you can use to customize the appearance o
 .PP
 Modifier flags:
 .TP
-\fCQt::WDestructiveClose\fR - makes Qt delete this widget when the widget has accepted closeEvent(), or when the widget tried to ignore closeEvent() but could not.
+\fCQt::WDestructiveClose\fR - makes TQt delete this widget when the widget has accepted closeEvent(), or when the widget tried to ignore closeEvent() but could not.
 .TP
 \fCQt::WPaintDesktop\fR - gives this widget paint events for the desktop.
 .TP
 \fCQt::WPaintUnclipped\fR - makes all painters operating on this widget unclipped. Children of this widget or other widgets in front of it do not clip the area the painter can paint on.
 .TP
-\fCQt::WPaintClever\fR - indicates that Qt should \fInot\fR try to optimize repainting for the widget, but instead pass on window system repaint events directly. (This tends to produce more events and smaller repaint regions.)
+\fCQt::WPaintClever\fR - indicates that TQt should \fInot\fR try to optimize repainting for the widget, but instead pass on window system repaint events directly. (This tends to produce more events and smaller repaint regions.)
 .TP
 \fCQt::WMouseNoMask\fR - indicates that even if the widget has a mask, it wants mouse events for its entire rectangle.
 .TP
@@ -1327,7 +1337,7 @@ Internal flags.
 \fCQt::WStyle_Mask\fR
 .TP
 \fCQt::WType_Mask\fR
-.SH "Qt::WidgetState"
+.SH "TQt::WidgetState"
 Internal flags.
 .TP
 \fCQt::WState_Created\fR
@@ -1379,7 +1389,7 @@ Internal flags.
 \fCQt::WState_OwnSizePolicy\fR
 .TP
 \fCQt::WState_FullScreen\fR
-.SH "Qt::WindowState"
+.SH "TQt::WindowState"
 
 .PP
 This enum type is used to specify the current state of a top-level window.
@@ -1395,7 +1405,7 @@ The states are
 \fCQt::WindowFullScreen\fR - The window fills the entire screen without any frame around it.
 .TP
 \fCQt::WindowActive\fR - The window is the active window, i.e. it has keyboard focus.
-.SH "Qt::WindowsVersion"
+.SH "TQt::WindowsVersion"
 .TP
 \fCQt::WV_32s\fR - Windows 3.1 with Win 32s
 .TP
@@ -1439,8 +1449,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -45,13 +45,13 @@
 #include "ntqdialog.h"
 #endif // QT_H
 
-#ifndef QT_NO_MESSAGEBOX
+#ifndef TQT_NO_MESSAGEBOX
 
 class  TQLabel;
 class  TQPushButton;
 struct TQMessageBoxData;
 
-class Q_EXPORT TQMessageBox : public TQDialog
+class TQ_EXPORT TQMessageBox : public TQDialog
 {
     TQ_OBJECT
     TQ_ENUMS( Icon )
@@ -218,6 +218,6 @@ str)).arg(TQString::fromLatin1(tqVersion()) ); TQMessageBox::critical( 0, TQAppl
 "Incompatible TQt Library Error" ), s, TQMessageBox::Abort,0 ); tqFatal(s.ascii()); }}
 
 
-#endif // QT_NO_MESSAGEBOX
+#endif // TQT_NO_MESSAGEBOX
 
 #endif // TQMESSAGEBOX_H

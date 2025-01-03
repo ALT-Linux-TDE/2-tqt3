@@ -1,4 +1,4 @@
-# Qt canvas module
+# TQt canvas module
 
 canvas {
 	HEADERS += $$CANVAS_H/ntqcanvas.h

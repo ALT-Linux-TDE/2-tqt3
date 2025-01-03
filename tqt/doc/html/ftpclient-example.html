@@ -76,18 +76,18 @@ void FtpMainWindow::init()
     statusBar()-&gt;addWidget( stateFtp, 0, TRUE );
 
     ftp = new <a href="ntqftp.html">TQFtp</a>( this );
-<a name="x748"></a>    connect( ftp, SIGNAL(<a href="ntqftp.html#commandStarted">commandStarted</a>(int)),
-            SLOT(ftp_commandStarted()) );
-<a name="x747"></a>    connect( ftp, SIGNAL(<a href="ntqftp.html#commandFinished">commandFinished</a>(int,bool)),
-            SLOT(ftp_commandFinished()) );
-<a name="x753"></a>    connect( ftp, SIGNAL(<a href="ntqftp.html#done">done</a>(bool)),
-            SLOT(ftp_done(bool)) );
-<a name="x764"></a>    connect( ftp, SIGNAL(<a href="ntqftp.html#stateChanged">stateChanged</a>(int)),
-            SLOT(ftp_stateChanged(int)) );
-<a name="x757"></a>    connect( ftp, SIGNAL(<a href="ntqftp.html#listInfo">listInfo</a>(const <a href="ntqurlinfo.html">TQUrlInfo</a> &amp;)),
-            SLOT(ftp_listInfo(const <a href="ntqurlinfo.html">TQUrlInfo</a> &amp;)) );
-<a name="x761"></a>    connect( ftp, SIGNAL(<a href="ntqftp.html#rawCommandReply">rawCommandReply</a>(int, const <a href="ntqstring.html">TQString</a> &amp;)),
-            SLOT(ftp_rawCommandReply(int, const <a href="ntqstring.html">TQString</a> &amp;)) );
+<a name="x748"></a>    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#commandStarted">commandStarted</a>(int)),
+            TQ_SLOT(ftp_commandStarted()) );
+<a name="x747"></a>    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#commandFinished">commandFinished</a>(int,bool)),
+            TQ_SLOT(ftp_commandFinished()) );
+<a name="x753"></a>    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#done">done</a>(bool)),
+            TQ_SLOT(ftp_done(bool)) );
+<a name="x764"></a>    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#stateChanged">stateChanged</a>(int)),
+            TQ_SLOT(ftp_stateChanged(int)) );
+<a name="x757"></a>    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#listInfo">listInfo</a>(const <a href="ntqurlinfo.html">TQUrlInfo</a> &amp;)),
+            TQ_SLOT(ftp_listInfo(const <a href="ntqurlinfo.html">TQUrlInfo</a> &amp;)) );
+<a name="x761"></a>    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#rawCommandReply">rawCommandReply</a>(int, const <a href="ntqstring.html">TQString</a> &amp;)),
+            TQ_SLOT(ftp_rawCommandReply(int, const <a href="ntqstring.html">TQString</a> &amp;)) );
 }
 
 void FtpMainWindow::destroy()
@@ -122,12 +122,12 @@ void FtpMainWindow::uploadFile()
             this,
             "upload progress dialog",
             TRUE );
-<a name="x752"></a>    connect( ftp, SIGNAL(<a href="ntqftp.html#dataTransferProgress">dataTransferProgress</a>(int,int)),
-<a name="x770"></a>            &amp;progress, SLOT(<a href="ntqprogressdialog.html#setProgress">setProgress</a>(int,int)) );
-    connect( ftp, SIGNAL(<a href="ntqftp.html#commandFinished">commandFinished</a>(int,bool)),
-<a name="x769"></a>            &amp;progress, SLOT(<a href="ntqprogressdialog.html#reset">reset</a>()) );
-<a name="x768"></a>    connect( &amp;progress, SIGNAL(<a href="ntqprogressdialog.html#cancelled">cancelled</a>()),
-<a name="x744"></a>            ftp, SLOT(<a href="ntqftp.html#abort">abort</a>()) );
+<a name="x752"></a>    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#dataTransferProgress">dataTransferProgress</a>(int,int)),
+<a name="x770"></a>            &amp;progress, TQ_SLOT(<a href="ntqprogressdialog.html#setProgress">setProgress</a>(int,int)) );
+    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#commandFinished">commandFinished</a>(int,bool)),
+<a name="x769"></a>            &amp;progress, TQ_SLOT(<a href="ntqprogressdialog.html#reset">reset</a>()) );
+<a name="x768"></a>    connect( &amp;progress, TQ_SIGNAL(<a href="ntqprogressdialog.html#cancelled">cancelled</a>()),
+<a name="x744"></a>            ftp, TQ_SLOT(<a href="ntqftp.html#abort">abort</a>()) );
 
     <a href="ntqfileinfo.html">TQFileInfo</a> fi( fileName );
 <a name="x759"></a><a name="x743"></a>    ftp-&gt;<a href="ntqftp.html#put">put</a>( file, fi.<a href="ntqfileinfo.html#fileName">fileName</a>() );
@@ -168,12 +168,12 @@ void FtpMainWindow::downloadFile()
             this,
             "download progress dialog",
             TRUE );
-    connect( ftp, SIGNAL(<a href="ntqftp.html#dataTransferProgress">dataTransferProgress</a>(int,int)),
-            &amp;progress, SLOT(<a href="ntqprogressdialog.html#setProgress">setProgress</a>(int,int)) );
-    connect( ftp, SIGNAL(<a href="ntqftp.html#commandFinished">commandFinished</a>(int,bool)),
-            &amp;progress, SLOT(<a href="ntqprogressdialog.html#reset">reset</a>()) );
-    connect( &amp;progress, SIGNAL(<a href="ntqprogressdialog.html#cancelled">cancelled</a>()),
-            ftp, SLOT(<a href="ntqftp.html#abort">abort</a>()) );
+    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#dataTransferProgress">dataTransferProgress</a>(int,int)),
+            &amp;progress, TQ_SLOT(<a href="ntqprogressdialog.html#setProgress">setProgress</a>(int,int)) );
+    connect( ftp, TQ_SIGNAL(<a href="ntqftp.html#commandFinished">commandFinished</a>(int,bool)),
+            &amp;progress, TQ_SLOT(<a href="ntqprogressdialog.html#reset">reset</a>()) );
+    connect( &amp;progress, TQ_SIGNAL(<a href="ntqprogressdialog.html#cancelled">cancelled</a>()),
+            ftp, TQ_SLOT(<a href="ntqftp.html#abort">abort</a>()) );
 
 <a name="x755"></a>    ftp-&gt;<a href="ntqftp.html#get">get</a>( item-&gt;<a href="qlistviewitem.html#text">text</a>(0), file );
     progress.<a href="ntqdialog.html#exec">exec</a>(); // ### takes a lot of time!!!

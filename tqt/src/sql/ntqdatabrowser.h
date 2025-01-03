@@ -51,12 +51,12 @@
 #include "ntqsqlerror.h"
 #endif // QT_H
 
-#ifndef QT_NO_SQL_VIEW_WIDGETS
+#ifndef TQT_NO_SQL_VIEW_WIDGETS
 
 class TQSqlForm;
 class TQDataBrowserPrivate;
 
-class Q_EXPORT TQDataBrowser : public TQWidget
+class TQ_EXPORT TQDataBrowser : public TQWidget
 {
     TQ_OBJECT
     TQ_PROPERTY( bool boundaryChecking READ boundaryChecking WRITE setBoundaryChecking )

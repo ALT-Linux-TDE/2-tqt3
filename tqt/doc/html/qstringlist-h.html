@@ -83,25 +83,25 @@ body { background: #ffffff; color: black; }
 #include "ntqstrlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 
 class TQRegExp;
 template &lt;class T&gt; class TQDeepCopy;
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList&lt;TQString&gt;; 
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList&lt;TQString&gt;; 
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQStringList : public TQValueList&lt;TQString&gt;
+class TQ_EXPORT TQStringList : public TQValueList&lt;TQString&gt;
 {
 public:
     TQStringList() { }
     TQStringList( const TQStringList&amp; l ) : TQValueList&lt;TQString&gt;(l) { }
     TQStringList( const TQValueList&lt;TQString&gt;&amp; l ) : TQValueList&lt;TQString&gt;(l) { }
     TQStringList( const TQString&amp; i ) { append(i); }
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQStringList( const char* i ) { append(i); }
 #endif
 
@@ -111,19 +111,19 @@ public:
 
     static TQStringList split( const TQString &amp;sep, const TQString &amp;str, bool allowEmptyEntries = FALSE );
     static TQStringList split( const TQChar &amp;sep, const TQString &amp;str, bool allowEmptyEntries = FALSE );
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     static TQStringList split( const TQRegExp &amp;sep, const TQString &amp;str, bool allowEmptyEntries = FALSE );
 #endif
     TQString join( const TQString &amp;sep ) const;
 
     TQStringList grep( const TQString &amp;str, bool cs = TRUE ) const;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     TQStringList grep( const TQRegExp &amp;expr ) const;
 #endif
 
     TQStringList&amp; gres( const TQString &amp;before, const TQString &amp;after,
 		       bool cs = TRUE );
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     TQStringList&amp; gres( const TQRegExp &amp;expr, const TQString &amp;after );
 #endif
 
@@ -132,13 +132,13 @@ protected:
     friend class TQDeepCopy&lt; TQStringList &gt;;
 };
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 class TQDataStream;
-extern Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQStringList&amp; );
-extern Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQStringList&amp; );
+extern TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQStringList&amp; );
+extern TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQStringList&amp; );
 #endif
 
-#endif // QT_NO_STRINGLIST
+#endif // TQT_NO_STRINGLIST
 #endif // TQSTRINGLIST_H
 </pre>
 <!-- eof -->

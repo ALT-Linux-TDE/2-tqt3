@@ -72,7 +72,7 @@ public:
 
 
     TQRESULT queryInterface( const TQUuid &uuid, TQUnknownInterface** iface );
-    Q_REFCOUNT
+    TQ_REFCOUNT
 
 private:
     MainWindow *mainWindow;
@@ -126,7 +126,7 @@ private:
 
 };
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 class TQSqlDatabase;
 
 class DesignerDatabaseImpl: public DesignerDatabase

@@ -30,4 +30,4 @@ TQStyle* SGIStyle::create( const TQString& s )
     return 0;
 }
 
-Q_EXPORT_PLUGIN( SGIStyle )
+TQ_EXPORT_PLUGIN( SGIStyle )

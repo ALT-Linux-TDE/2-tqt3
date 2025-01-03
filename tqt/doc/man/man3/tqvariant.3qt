@@ -7,7 +7,7 @@
 .ad l
 .nh
 .SH NAME
-QVariant \- Acts like a union for the most common Qt data types
+QVariant \- Acts like a union for the most common TQt data types
 .SH SYNOPSIS
 \fC#include <ntqvariant.h>\fR
 .PP
@@ -29,7 +29,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "\fBQVariant\fR ( QDataStream & s )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QString & val )"
+.BI "\fBQVariant\fR ( const TQString & val )"
 .br
 .ti -1c
 .BI "\fBQVariant\fR ( const QCString & val )"
@@ -47,7 +47,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "\fBQVariant\fR ( const QPixmap & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QImage & val )"
+.BI "\fBQVariant\fR ( const TQImage & val )"
 .br
 .ti -1c
 .BI "\fBQVariant\fR ( const QBrush & val )"
@@ -62,7 +62,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "\fBQVariant\fR ( const QSize & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QColor & val )"
+.BI "\fBQVariant\fR ( const TQColor & val )"
 .br
 .ti -1c
 .BI "\fBQVariant\fR ( const QPalette & val )"
@@ -110,7 +110,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "\fBQVariant\fR ( const QValueList<QVariant> & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QMap<QString, QVariant> & val )"
+.BI "\fBQVariant\fR ( const QMap<TQString, QVariant> & val )"
 .br
 .ti -1c
 .BI "\fBQVariant\fR ( int val )"
@@ -164,7 +164,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "void \fBclear\fR ()"
 .br
 .ti -1c
-.BI "const QString \fBtoString\fR () const"
+.BI "const TQString \fBtoString\fR () const"
 .br
 .ti -1c
 .BI "const QCString \fBtoCString\fR () const"
@@ -179,7 +179,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "const QPixmap \fBtoPixmap\fR () const"
 .br
 .ti -1c
-.BI "const QImage \fBtoImage\fR () const"
+.BI "const TQImage \fBtoImage\fR () const"
 .br
 .ti -1c
 .BI "const QBrush \fBtoBrush\fR () const"
@@ -194,7 +194,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "const QSize \fBtoSize\fR () const"
 .br
 .ti -1c
-.BI "const QColor \fBtoColor\fR () const"
+.BI "const TQColor \fBtoColor\fR () const"
 .br
 .ti -1c
 .BI "const QPalette \fBtoPalette\fR () const"
@@ -260,16 +260,16 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "const QValueList<QVariant> \fBtoList\fR () const"
 .br
 .ti -1c
-.BI "const QMap<QString, QVariant> \fBtoMap\fR () const"
+.BI "const QMap<TQString, QVariant> \fBtoMap\fR () const"
 .br
 .ti -1c
 .BI "QSizePolicy \fBtoSizePolicy\fR () const"
 .br
 .ti -1c
-.BI "QValueListConstIterator<QString> stringListBegin () const  \fI(obsolete)\fR"
+.BI "QValueListConstIterator<TQString> stringListBegin () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QValueListConstIterator<QString> stringListEnd () const  \fI(obsolete)\fR"
+.BI "QValueListConstIterator<TQString> stringListEnd () const  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "QValueListConstIterator<QVariant> listBegin () const  \fI(obsolete)\fR"
@@ -278,16 +278,16 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "QValueListConstIterator<QVariant> listEnd () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QMapConstIterator<QString, QVariant> mapBegin () const  \fI(obsolete)\fR"
+.BI "QMapConstIterator<TQString, QVariant> mapBegin () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QMapConstIterator<QString, QVariant> mapEnd () const  \fI(obsolete)\fR"
+.BI "QMapConstIterator<TQString, QVariant> mapEnd () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QMapConstIterator<QString, QVariant> mapFind ( const QString & key ) const  \fI(obsolete)\fR"
+.BI "QMapConstIterator<TQString, QVariant> mapFind ( const TQString & key ) const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QString & \fBasString\fR ()"
+.BI "TQString & \fBasString\fR ()"
 .br
 .ti -1c
 .BI "QCString & \fBasCString\fR ()"
@@ -302,7 +302,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "QPixmap & \fBasPixmap\fR ()"
 .br
 .ti -1c
-.BI "QImage & \fBasImage\fR ()"
+.BI "TQImage & \fBasImage\fR ()"
 .br
 .ti -1c
 .BI "QBrush & \fBasBrush\fR ()"
@@ -317,7 +317,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "QSize & \fBasSize\fR ()"
 .br
 .ti -1c
-.BI "QColor & \fBasColor\fR ()"
+.BI "TQColor & \fBasColor\fR ()"
 .br
 .ti -1c
 .BI "QPalette & \fBasPalette\fR ()"
@@ -383,7 +383,7 @@ QVariant \- Acts like a union for the most common Qt data types
 .BI "QValueList<QVariant> & \fBasList\fR ()"
 .br
 .ti -1c
-.BI "QMap<QString, QVariant> & \fBasMap\fR ()"
+.BI "QMap<TQString, QVariant> & \fBasMap\fR ()"
 .br
 .ti -1c
 .BI "QSizePolicy & \fBasSizePolicy\fR ()"
@@ -399,15 +399,15 @@ QVariant \- Acts like a union for the most common Qt data types
 .br
 .in -1c
 .SH DESCRIPTION
-The QVariant class acts like a union for the most common Qt data types.
+The QVariant class acts like a union for the most common TQt data types.
 .PP
-Because C++ forbids unions from including types that have non-default constructors or destructors, most interesting Qt classes cannot be used in unions. Without QVariant, this would be a problem for QObject::property() and for database work, etc.
+Because C++ forbids unions from including types that have non-default constructors or destructors, most interesting TQt classes cannot be used in unions. Without QVariant, this would be a problem for TQObject::property() and for database work, etc.
 .PP
 A QVariant object holds a single value of a single type() at a time. (Some type()s are multi-valued, for example a string list.) You can find out what type, T, the variant holds, convert it to a different type using one of the asT() functions, e.g. asSize(), get its value using one of the toT() functions, e.g. toSize(), and check whether the type can be converted to a particular type using canCast().
 .PP
 The methods named toT() (for any supported T, see the Type documentation for a list) are const. If you ask for the stored type, they return a copy of the stored object. If you ask for a type that can be generated from the stored type, toT() copies and converts and leaves the object itself unchanged. If you ask for a type that cannot be generated from the stored type, the result depends on the type (see the function documentation for details).
 .PP
-Note that three data types supported by QVariant are explicitly shared, namely QImage, QPointArray, and QCString, and in these cases the toT() methods return a shallow copy. In almost all cases you must make a deep copy of the returned values before modifying them.
+Note that three data types supported by QVariant are explicitly shared, namely TQImage, QPointArray, and QCString, and in these cases the toT() methods return a shallow copy. In almost all cases you must make a deep copy of the returned values before modifying them.
 .PP
 The asT() functions are not const. They do conversion like the toT() methods, set the variant to hold the converted value, and return a reference to the new contents of the variant.
 .PP
@@ -425,13 +425,13 @@ Here is some example code to demonstrate the use of QVariant:
 .br
     v = QVariant("hello");    // The variant now contains a QCString
 .br
-    v = QVariant(tr("hello"));// The variant now contains a QString
+    v = QVariant(tr("hello"));// The variant now contains a TQString
 .br
     int y = v.toInt();        // y = 0 since v cannot be converted to an int
 .br
-    QString s = v.toString(); // s = tr("hello")  (see QObject::tr())
+    TQString s = v.toString(); // s = tr("hello")  (see TQObject::tr())
 .br
-    out << v;                 // Writes a type tag and a QString to out
+    out << v;                 // Writes a type tag and a TQString to out
 .br
     ...
 .br
@@ -453,13 +453,13 @@ Here is some example code to demonstrate the use of QVariant:
 .br
 .fi
 .PP
-You can even store QValueList<QVariant>s and QMap<QString,QVariant>s in a variant, so you can easily construct arbitrarily complex data structures of arbitrary types. This is very powerful and versatile, but may prove less memory and speed efficient than storing specific types in standard data structures.
+You can even store QValueList<QVariant>s and QMap<TQString,QVariant>s in a variant, so you can easily construct arbitrarily complex data structures of arbitrary types. This is very powerful and versatile, but may prove less memory and speed efficient than storing specific types in standard data structures.
 .PP
 QVariant also supports the notion of NULL values, where you have a defined type with no value set.
 .PP
 .nf
 .br
-    QVariant x, y( QString() ), z( QString("") );
+    QVariant x, y( TQString() ), z( TQString("") );
 .br
     x.asInt();
 .br
@@ -486,7 +486,7 @@ This enum type defines the types of variable that a QVariant can contain.
 .TP
 \fCQVariant::Brush\fR - a QBrush
 .TP
-\fCQVariant::Color\fR - a QColor
+\fCQVariant::Color\fR - a TQColor
 .TP
 \fCQVariant::ColorGroup\fR - a QColorGroup
 .TP
@@ -502,7 +502,7 @@ This enum type defines the types of variable that a QVariant can contain.
 .TP
 \fCQVariant::IconSet\fR - a QIconSet
 .TP
-\fCQVariant::Image\fR - a QImage
+\fCQVariant::Image\fR - a TQImage
 .TP
 \fCQVariant::Int\fR - an int
 .TP
@@ -514,7 +514,7 @@ This enum type defines the types of variable that a QVariant can contain.
 .TP
 \fCQVariant::ULongLong\fR - an unsigned long long
 .TP
-\fCQVariant::Map\fR - a QMap<QString,QVariant>
+\fCQVariant::Map\fR - a QMap<TQString,QVariant>
 .TP
 \fCQVariant::Palette\fR - a QPalette
 .TP
@@ -534,7 +534,7 @@ This enum type defines the types of variable that a QVariant can contain.
 .TP
 \fCQVariant::SizePolicy\fR - a QSizePolicy
 .TP
-\fCQVariant::String\fR - a QString
+\fCQVariant::String\fR - a TQString
 .TP
 \fCQVariant::CString\fR - a QCString
 .TP
@@ -555,10 +555,10 @@ Constructs a new variant with a floating point value, \fIval\fR.
 .SH "QVariant::QVariant ( QSizePolicy val )"
 Constructs a new variant with a size policy value, \fIval\fR.
 .SH "QVariant::QVariant ( const QVariant & p )"
-Constructs a copy of the variant, \fIp\fR, passed as the argument to this constructor. Usually this is a deep copy, but a shallow copy is made if the stored data type is explicitly shared, as e.g. QImage is.
+Constructs a copy of the variant, \fIp\fR, passed as the argument to this constructor. Usually this is a deep copy, but a shallow copy is made if the stored data type is explicitly shared, as e.g. TQImage is.
 .SH "QVariant::QVariant ( QDataStream & s )"
 Reads the variant from the data stream, \fIs\fR.
-.SH "QVariant::QVariant ( const QString & val )"
+.SH "QVariant::QVariant ( const TQString & val )"
 Constructs a new variant with a string value, \fIval\fR.
 .SH "QVariant::QVariant ( const QCString & val )"
 Constructs a new variant with a C-string value, \fIval\fR.
@@ -574,10 +574,10 @@ Constructs a new variant with a string list value, \fIval\fR.
 Constructs a new variant with a font value, \fIval\fR.
 .SH "QVariant::QVariant ( const QPixmap & val )"
 Constructs a new variant with a pixmap value, \fIval\fR.
-.SH "QVariant::QVariant ( const QImage & val )"
+.SH "QVariant::QVariant ( const TQImage & val )"
 Constructs a new variant with an image value, \fIval\fR.
 .PP
-Because QImage is explicitly shared, you may need to pass a deep copy to the variant using QImage::copy(), e.g. if you intend changing the image you've passed later on.
+Because TQImage is explicitly shared, you may need to pass a deep copy to the variant using TQImage::copy(), e.g. if you intend changing the image you've passed later on.
 .SH "QVariant::QVariant ( const QBrush & val )"
 Constructs a new variant with a brush value, \fIval\fR.
 .SH "QVariant::QVariant ( const QPoint & val )"
@@ -586,7 +586,7 @@ Constructs a new variant with a point value, \fIval\fR.
 Constructs a new variant with a rect value, \fIval\fR.
 .SH "QVariant::QVariant ( const QSize & val )"
 Constructs a new variant with a size value, \fIval\fR.
-.SH "QVariant::QVariant ( const QColor & val )"
+.SH "QVariant::QVariant ( const TQColor & val )"
 Constructs a new variant with a color value, \fIval\fR.
 .SH "QVariant::QVariant ( const QPalette & val )"
 Constructs a new variant with a color palette value, \fIval\fR.
@@ -620,7 +620,7 @@ Constructs a new variant with a key sequence value, \fIval\fR.
 Constructs a new variant with a pen value, \fIval\fR.
 .SH "QVariant::QVariant ( const QValueList<QVariant> & val )"
 Constructs a new variant with a list value, \fIval\fR.
-.SH "QVariant::QVariant ( const QMap<QString, QVariant> & val )"
+.SH "QVariant::QVariant ( const QMap<TQString, QVariant> & val )"
 Constructs a new variant with a map of QVariants, \fIval\fR.
 .SH "QVariant::QVariant ( int val )"
 Constructs a new variant with an integer value, \fIval\fR.
@@ -666,12 +666,12 @@ Tries to convert the variant to hold a string value. If that is not possible the
 Returns a reference to the stored string.
 .PP
 See also toCString().
-.SH "QColor & QVariant::asColor ()"
-Tries to convert the variant to hold a QColor value. If that is not possible the variant is set to an invalid color.
+.SH "TQColor & QVariant::asColor ()"
+Tries to convert the variant to hold a TQColor value. If that is not possible the variant is set to an invalid color.
 .PP
 Returns a reference to the stored color.
 .PP
-See also toColor() and QColor::isValid().
+See also toColor() and TQColor::isValid().
 .SH "QColorGroup & QVariant::asColorGroup ()"
 Tries to convert the variant to hold a QColorGroup value. If that is not possible the variant is set to a color group of all black colors.
 .PP
@@ -710,7 +710,7 @@ Tries to convert the variant to hold a QIconSet value. If that is not possible t
 Returns a reference to the stored iconset.
 .PP
 See also toIconSet().
-.SH "QImage & QVariant::asImage ()"
+.SH "TQImage & QVariant::asImage ()"
 Tries to convert the variant to hold an image value. If that is not possible the variant is set to a null image.
 .PP
 Returns a reference to the stored image.
@@ -746,16 +746,16 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 .SH "TQ_LLONG & QVariant::asLongLong ()"
 Returns the variant's value as long long reference.
-.SH "QMap<QString, QVariant> & QVariant::asMap ()"
+.SH "QMap<TQString, QVariant> & QVariant::asMap ()"
 Returns the variant's value as variant map reference.
 .PP
 Note that if you want to iterate over the map, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QMap<QString, QVariant> map = myVariant.asMap();
+    QMap<TQString, QVariant> map = myVariant.asMap();
 .br
-    QMap<QString, QVariant>::Iterator it = map.begin();
+    QMap<TQString, QVariant>::Iterator it = map.begin();
 .br
     while( it != map.end() ) {
 .br
@@ -816,7 +816,7 @@ Returns a reference to the stored size.
 See also toSize() and QSize::isValid().
 .SH "QSizePolicy & QVariant::asSizePolicy ()"
 Tries to convert the variant to hold a QSizePolicy value. If that fails, the variant is set to an arbitrary (valid) size policy.
-.SH "QString & QVariant::asString ()"
+.SH "TQString & QVariant::asString ()"
 Tries to convert the variant to hold a string value. If that is not possible the variant is set to an empty string.
 .PP
 Returns a reference to the stored string.
@@ -883,15 +883,15 @@ Returns an iterator to the first item in the list if the variant's type is appro
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the end iterator for the list if the variant's type is appropriate; otherwise returns a null iterator.
-.SH "QMapConstIterator<QString, QVariant> QVariant::mapBegin () const"
+.SH "QMapConstIterator<TQString, QVariant> QVariant::mapBegin () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns an iterator to the first item in the map, if the variant's type is appropriate; otherwise returns a null iterator.
-.SH "QMapConstIterator<QString, QVariant> QVariant::mapEnd () const"
+.SH "QMapConstIterator<TQString, QVariant> QVariant::mapEnd () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the end iterator for the map, if the variant's type is appropriate; otherwise returns a null iterator.
-.SH "QMapConstIterator<QString, QVariant> QVariant::mapFind ( const QString & key ) const"
+.SH "QMapConstIterator<TQString, QVariant> QVariant::mapFind ( const TQString & key ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns an iterator to the item in the map with \fIkey\fR as key, if the variant's type is appropriate and \fIkey\fR is a valid key; otherwise returns a null iterator.
@@ -904,14 +904,14 @@ Compares this QVariant with \fIv\fR and returns TRUE if they are not equal; othe
 .SH "QVariant & QVariant::operator= ( const QVariant & variant )"
 Assigns the value of the variant \fIvariant\fR to this variant.
 .PP
-This is a deep copy of the variant, but note that if the variant holds an explicitly shared type such as QImage, a shallow copy is performed.
+This is a deep copy of the variant, but note that if the variant holds an explicitly shared type such as TQImage, a shallow copy is performed.
 .SH "bool QVariant::operator== ( const QVariant & v ) const"
 Compares this QVariant with \fIv\fR and returns TRUE if they are equal; otherwise returns FALSE.
-.SH "QValueListConstIterator<QString> QVariant::stringListBegin () const"
+.SH "QValueListConstIterator<TQString> QVariant::stringListBegin () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns an iterator to the first string in the list if the variant's type is StringList; otherwise returns a null iterator.
-.SH "QValueListConstIterator<QString> QVariant::stringListEnd () const"
+.SH "QValueListConstIterator<TQString> QVariant::stringListEnd () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the end iterator for the list if the variant's type is StringList; otherwise returns a null iterator.
@@ -941,8 +941,8 @@ See also asByteArray() and canCast().
 Returns the variant as a QCString if the variant can be cast to a CString; otherwise returns 0.
 .PP
 See also asCString() and canCast().
-.SH "const QColor QVariant::toColor () const"
-Returns the variant as a QColor if the variant can be cast to Color; otherwise returns an invalid color.
+.SH "const TQColor QVariant::toColor () const"
+Returns the variant as a TQColor if the variant can be cast to Color; otherwise returns an invalid color.
 .PP
 See also asColor() and canCast().
 .SH "const QColorGroup QVariant::toColorGroup () const"
@@ -956,13 +956,13 @@ See also asCursor().
 .SH "const QDate QVariant::toDate () const"
 Returns the variant as a QDate if the variant can be cast to Date; otherwise returns an invalid date.
 .PP
-Note that if the type() is String, CString or ByteArray an invalid date will be returned if the string cannot be parsed as a Qt::ISODate format date.
+Note that if the type() is String, CString or ByteArray an invalid date will be returned if the string cannot be parsed as a TQt::ISODate format date.
 .PP
 See also asDate() and canCast().
 .SH "const QDateTime QVariant::toDateTime () const"
 Returns the variant as a QDateTime if the variant can be cast to DateTime; otherwise returns an invalid QDateTime.
 .PP
-Note that if the type() is String, CString or ByteArray an invalid QDateTime will be returned if the string cannot be parsed as a Qt::ISODate format date/time.
+Note that if the type() is String, CString or ByteArray an invalid QDateTime will be returned if the string cannot be parsed as a TQt::ISODate format date/time.
 .PP
 See also asDateTime().
 .SH "double QVariant::toDouble ( bool * ok = 0 ) const"
@@ -979,8 +979,8 @@ See also asFont() and canCast().
 Returns the variant as a QIconSet if the variant has type() IconSet; otherwise returns an icon set of null pixmaps.
 .PP
 See also asIconSet().
-.SH "const QImage QVariant::toImage () const"
-Returns the variant as a QImage if the variant has type() Image; otherwise returns a null image.
+.SH "const TQImage QVariant::toImage () const"
+Returns the variant as a TQImage if the variant has type() Image; otherwise returns a null image.
 .PP
 See also asImage().
 .SH "int QVariant::toInt ( bool * ok = 0 ) const"
@@ -1021,16 +1021,16 @@ Returns the variant as a long long int if the variant can be cast to LongLong; o
 If \fIok\fR is non-null: \fI*ok\fR is set to TRUE if the value could be converted to an int; otherwise \fI*ok\fR is set to FALSE.
 .PP
 See also asLongLong() and canCast().
-.SH "const QMap<QString, QVariant> QVariant::toMap () const"
-Returns the variant as a QMap<QString,QVariant> if the variant has type() Map; otherwise returns an empty map.
+.SH "const QMap<TQString, QVariant> QVariant::toMap () const"
+Returns the variant as a QMap<TQString,QVariant> if the variant has type() Map; otherwise returns an empty map.
 .PP
 Note that if you want to iterate over the map, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QMap<QString, QVariant> map = myVariant.toMap();
+    QMap<TQString, QVariant> map = myVariant.toMap();
 .br
-    QMap<QString, QVariant>::Iterator it = map.begin();
+    QMap<TQString, QVariant>::Iterator it = map.begin();
 .br
     while( it != map.end() ) {
 .br
@@ -1077,12 +1077,12 @@ Returns the variant as a QSize if the variant has type() Size; otherwise returns
 See also asSize().
 .SH "QSizePolicy QVariant::toSizePolicy () const"
 Returns the variant as a QSizePolicy if the variant has type() SizePolicy; otherwise returns an undefined (but legal) size policy.
-.SH "const QString QVariant::toString () const"
-Returns the variant as a QString if the variant can be cast to String, otherwise returns QString::null.
+.SH "const TQString QVariant::toString () const"
+Returns the variant as a TQString if the variant can be cast to String, otherwise returns TQString::null.
 .PP
 See also asString() and canCast().
 .SH "const QStringList QVariant::toStringList () const"
-Returns the variant as a QStringList if the variant has type() StringList or List of a type that can be converted to QString; otherwise returns an empty list.
+Returns the variant as a QStringList if the variant has type() StringList or List of a type that can be converted to TQString; otherwise returns an empty list.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
@@ -1106,7 +1106,7 @@ See also asStringList().
 .SH "const QTime QVariant::toTime () const"
 Returns the variant as a QTime if the variant can be cast to Time; otherwise returns an invalid date.
 .PP
-Note that if the type() is String, CString or ByteArray an invalid time will be returned if the string cannot be parsed as a Qt::ISODate format time.
+Note that if the type() is String, CString or ByteArray an invalid time will be returned if the string cannot be parsed as a TQt::ISODate format time.
 .PP
 See also asTime().
 .SH "uint QVariant::toUInt ( bool * ok = 0 ) const"
@@ -1124,7 +1124,7 @@ See also asULongLong() and canCast().
 .SH "Type QVariant::type () const"
 Returns the storage type of the value stored in the variant. Usually it's best to test with canCast() whether the variant can deliver the data type you are interested in.
 .SH "const char * QVariant::typeName () const"
-Returns the name of the type stored in the variant. The returned strings describe the C++ datatype used to store the data: for example, "QFont", "QString", or "QValueList<QVariant>". An Invalid variant returns 0.
+Returns the name of the type stored in the variant. The returned strings describe the C++ datatype used to store the data: for example, "QFont", "TQString", or "QValueList<QVariant>". An Invalid variant returns 0.
 .SH "const char * QVariant::typeToName ( Type typ )\fC [static]\fR"
 Converts the enum representation of the storage type, \fItyp\fR, to
 its string representation.
@@ -1143,8 +1143,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

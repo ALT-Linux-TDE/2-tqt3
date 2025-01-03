@@ -43,7 +43,7 @@ public:
 	for (int y=0; y<2000-h; y+=h+10) {
 	    if (y == 0) {
 		TQButton* q=new TQPushButton("Quit", this);
-		connect(q, SIGNAL(clicked()), tqApp, SLOT(quit()));
+		connect(q, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()));
 	    } else {
 		TQString str;
 		if ( b > 0 ) {
@@ -207,14 +207,14 @@ public:
 	TQPopupMenu* file = new TQPopupMenu( menubar );
 	TQ_CHECK_PTR( file );
 	menubar->insertItem( "&File", file );
-	file->insertItem( "Quit", tqApp,  SLOT(quit()) );
+	file->insertItem( "Quit", tqApp,  TQ_SLOT(quit()) );
 
 	vp_options = new TQPopupMenu( menubar );
 	TQ_CHECK_PTR( vp_options );
 	vp_options->setCheckable( TRUE );
 	menubar->insertItem( "&ScrollView", vp_options );
-	connect( vp_options, SIGNAL(activated(int)),
-	    this, SLOT(doVPMenuItem(int)) );
+	connect( vp_options, TQ_SIGNAL(activated(int)),
+	    this, TQ_SLOT(doVPMenuItem(int)) );
 
 	vauto_id = vp_options->insertItem( "Vertical Auto" );
 	vaoff_id = vp_options->insertItem( "Vertical AlwaysOff" );
@@ -231,8 +231,8 @@ public:
 	    BigShrinker *bs = new BigShrinker(0);//(vp->viewport());
 	    vp->addChild(bs);
 	    bs->setAcceptDrops(TRUE);
-	    TQObject::connect(bs, SIGNAL(clicked(int,int)),
-			    vp, SLOT(center(int,int)));
+	    TQObject::connect(bs, TQ_SIGNAL(clicked(int,int)),
+			    vp, TQ_SLOT(center(int,int)));
 	} else {
 	    vp = new BigMatrix(this);
 	    if ( technique == 3 )
@@ -251,8 +251,8 @@ public:
 	TQ_CHECK_PTR( f_options );
 	f_options->setCheckable( TRUE );
 	menubar->insertItem( "F&rame", f_options );
-	connect( f_options, SIGNAL(activated(int)),
-	    this, SLOT(doFMenuItem(int)) );
+	connect( f_options, TQ_SIGNAL(activated(int)),
+	    this, TQ_SLOT(doFMenuItem(int)) );
 
 	f_options->insertItem( "No Frame", style_id );
 	f_options->insertItem( "Box", style_id|TQFrame::Box );
@@ -273,8 +273,8 @@ public:
 	    lw_options->insertItem( str, lw_id | lw );
 	}
 	f_options->insertItem( "Line Width", lw_options );
-	connect( lw_options, SIGNAL(activated(int)),
-	    this, SLOT(doFMenuItem(int)) );
+	connect( lw_options, TQ_SIGNAL(activated(int)),
+	    this, TQ_SLOT(doFMenuItem(int)) );
 	mlw_options = new TQPopupMenu( menubar );
 	TQ_CHECK_PTR( mlw_options );
 	mlw_options->setCheckable( TRUE );
@@ -284,8 +284,8 @@ public:
 	    mlw_options->insertItem( str, mlw_id | mlw );
 	}
 	f_options->insertItem( "Midline Width", mlw_options );
-	connect( mlw_options, SIGNAL(activated(int)),
-	    this, SLOT(doFMenuItem(int)) );
+	connect( mlw_options, TQ_SIGNAL(activated(int)),
+	    this, TQ_SLOT(doFMenuItem(int)) );
 	mw_options = new TQPopupMenu( menubar );
 	TQ_CHECK_PTR( mw_options );
 	mw_options->setCheckable( TRUE );
@@ -295,8 +295,8 @@ public:
 	    mw_options->insertItem( str, mw_id | mw );
 	}
 	f_options->insertItem( "Margin Width", mw_options );
-	connect( mw_options, SIGNAL(activated(int)),
-	    this, SLOT(doFMenuItem(int)) );
+	connect( mw_options, TQ_SIGNAL(activated(int)),
+	    this, TQ_SLOT(doFMenuItem(int)) );
 
 	setVPMenuItems();
 	setFMenuItems();
@@ -433,7 +433,7 @@ int main( int argc, char **argv )
     ve3.setCaption("TQt Example - Scrollviews");
     ve3.show();
 
-    TQObject::connect(tqApp, SIGNAL(lastWindowClosed()), tqApp, SLOT(quit()));
+    TQObject::connect(tqApp, TQ_SIGNAL(lastWindowClosed()), tqApp, TQ_SLOT(quit()));
 
     return a.exec();
 }

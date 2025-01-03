@@ -18,12 +18,12 @@
 
 void ArchiveDialog::init()
 {
-    connect(&articleSearcher, SIGNAL(done(bool)), this, SLOT(searchDone(bool)));
-    connect(&articleFetcher, SIGNAL(done(bool)), this, SLOT(fetchDone(bool)));
-    connect(myListView, SIGNAL(selectionChanged(TQListViewItem*)), this, SLOT(fetch(TQListViewItem*)));
-    connect(myLineEdit, SIGNAL(returnPressed()), this, SLOT(search()));
-    connect(myListView, SIGNAL(returnPressed(TQListViewItem*)), this, SLOT(fetch(TQListViewItem*)));
-    connect(myPushButton, SIGNAL(clicked()), this, SLOT(close()));
+    connect(&articleSearcher, TQ_SIGNAL(done(bool)), this, TQ_SLOT(searchDone(bool)));
+    connect(&articleFetcher, TQ_SIGNAL(done(bool)), this, TQ_SLOT(fetchDone(bool)));
+    connect(myListView, TQ_SIGNAL(selectionChanged(TQListViewItem*)), this, TQ_SLOT(fetch(TQListViewItem*)));
+    connect(myLineEdit, TQ_SIGNAL(returnPressed()), this, TQ_SLOT(search()));
+    connect(myListView, TQ_SIGNAL(returnPressed(TQListViewItem*)), this, TQ_SLOT(fetch(TQListViewItem*)));
+    connect(myPushButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(close()));
 }
 
 void ArchiveDialog::fetch( TQListViewItem *it )

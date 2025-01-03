@@ -47,25 +47,25 @@
 #include "ntqstrlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_STRINGLIST
+#ifndef TQT_NO_STRINGLIST
 
 class TQRegExp;
 template <class T> class TQDeepCopy;
 
 #if defined(Q_TEMPLATEDLL)
 // MOC_SKIP_BEGIN
-//Q_TEMPLATE_EXTERN template class Q_EXPORT TQValueList<TQString>; 
+//Q_TEMPLATE_EXTERN template class TQ_EXPORT TQValueList<TQString>; 
 // MOC_SKIP_END
 #endif
 
-class Q_EXPORT TQStringList : public TQValueList<TQString>
+class TQ_EXPORT TQStringList : public TQValueList<TQString>
 {
 public:
     TQStringList() { }
     TQStringList( const TQStringList& l ) : TQValueList<TQString>(l) { }
     TQStringList( const TQValueList<TQString>& l ) : TQValueList<TQString>(l) { }
     TQStringList( const TQString& i ) { append(i); }
-#ifndef QT_NO_CAST_ASCII
+#ifndef TQT_NO_CAST_ASCII
     TQStringList( const char* i ) { append(i); }
 #endif
 
@@ -75,19 +75,19 @@ public:
 
     static TQStringList split( const TQString &sep, const TQString &str, bool allowEmptyEntries = FALSE );
     static TQStringList split( const TQChar &sep, const TQString &str, bool allowEmptyEntries = FALSE );
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     static TQStringList split( const TQRegExp &sep, const TQString &str, bool allowEmptyEntries = FALSE );
 #endif
     TQString join( const TQString &sep ) const;
 
     TQStringList grep( const TQString &str, bool cs = TRUE ) const;
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
     TQStringList grep( const TQRegExp &expr ) const;
 #endif
 
     TQStringList& gres( const TQString &before, const TQString &after,
 		       bool cs = TRUE );
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     TQStringList& gres( const TQRegExp &expr, const TQString &after );
 #endif
 
@@ -96,11 +96,11 @@ protected:
     friend class TQDeepCopy< TQStringList >;
 };
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 class TQDataStream;
-extern Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQStringList& );
-extern Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQStringList& );
+extern TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQStringList& );
+extern TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQStringList& );
 #endif
 
-#endif // QT_NO_STRINGLIST
+#endif // TQT_NO_STRINGLIST
 #endif // TQSTRINGLIST_H

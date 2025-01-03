@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2002-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -106,7 +106,7 @@ libraries as part of your application.
 
 \section2 Combining Libraries
 
-If you want to build a new dynamic library combining the Qt 3.1 dynamic
+If you want to build a new dynamic library combining the TQt 3.1 dynamic
 libraries, you need to introduce the ld -r flag so that relocation information
 is stored in the the output file, so that this file could be the subject of 
 another ld run. This is done by setting the -r flag in the .pro file, and the
@@ -116,14 +116,14 @@ LFLAGS settings.
 
 dyld(1) will call global static initializers in the order in which
 they are linked into your application. If a library links against Qt
-and references globals in Qt (from global initializers in your own
-library) you should be sure to link against Qt before your library,
+and references globals in TQt (from global initializers in your own
+library) you should be sure to link against TQt before your library,
 otherwise the result will be undefined (as Qt's global initializers
 have not been called yet).
 
 \section2 Plugin Support
 
-Note that it is not possible to build Qt plugins using Project Builder
+Note that it is not possible to build TQt plugins using Project Builder
 or Xcode. Use \link qmake-manual.book qmake\endlink to configure and
 build plugins.
 
@@ -152,8 +152,8 @@ If a static build fails with the following error messages during the
 designer make phase:
 
 \code
-QWidget::sizeHint() const referenced from libtqui expected to be defined in @executable_path/../Frameworks/libtqt-mt.3.dylib
-non-virtual thunk [nv:-40] to QWidget::metric(int) const referenced from libtqui
+TQWidget::sizeHint() const referenced from libtqui expected to be defined in @executable_path/../Frameworks/libtqt-mt.3.dylib
+non-virtual thunk [nv:-40] to TQWidget::metric(int) const referenced from libtqui
  expected to be defined in @executable_path/../Frameworks/libtqt-mt.3.dylib
 \endcode
 
@@ -232,7 +232,7 @@ one-button mouse support.
 \section2 Menubar
 
 Qt/Mac will automatically detect your menubars for you and turn them
-into Mac native menubars. Fitting this into your existing Qt application
+into Mac native menubars. Fitting this into your existing TQt application
 will normally be automatic, however, if you have special needs the Qt/Mac
 implementation currently selects a menubar by starting at the active window
 (ie QApplication::activeWindow()), and applying:

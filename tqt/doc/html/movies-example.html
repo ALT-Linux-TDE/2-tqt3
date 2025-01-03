@@ -81,9 +81,9 @@ public:
         setBackgroundMode(NoBackground);
 
         // Get the movie to tell use when interesting things happen.
-<a name="x500"></a>        movie.<a href="ntqmovie.html#connectUpdate">connectUpdate</a>(this, SLOT(movieUpdated(const <a href="ntqrect.html">TQRect</a>&amp;)));
-<a name="x498"></a>        movie.<a href="ntqmovie.html#connectResize">connectResize</a>(this, SLOT(movieResized(const <a href="ntqsize.html">TQSize</a>&amp;)));
-<a name="x499"></a>        movie.<a href="ntqmovie.html#connectStatus">connectStatus</a>(this, SLOT(movieStatus(int)));
+<a name="x500"></a>        movie.<a href="ntqmovie.html#connectUpdate">connectUpdate</a>(this, TQ_SLOT(movieUpdated(const <a href="ntqrect.html">TQRect</a>&amp;)));
+<a name="x498"></a>        movie.<a href="ntqmovie.html#connectResize">connectResize</a>(this, TQ_SLOT(movieResized(const <a href="ntqsize.html">TQSize</a>&amp;)));
+<a name="x499"></a>        movie.<a href="ntqmovie.html#connectStatus">connectStatus</a>(this, TQ_SLOT(movieStatus(int)));
 
         setSizePolicy(TQSizePolicy(TQSizePolicy::Expanding,TQSizePolicy::Expanding));
     }
@@ -245,13 +245,13 @@ public:
         <a href="ntqhbox.html">TQHBox</a>* hb = new <a href="ntqhbox.html">TQHBox</a>(this);
         <a href="ntqpushbutton.html">TQPushButton</a>* btn;
         btn = new <a href="ntqpushbutton.html">TQPushButton</a>("&lt;&lt;", hb);
-        <a href="ntqobject.html#connect">connect</a>(btn, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), movie, SLOT(<a href="ntqmovie.html#restart">restart</a>()));
+        <a href="ntqobject.html#connect">connect</a>(btn, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), movie, TQ_SLOT(<a href="ntqmovie.html#restart">restart</a>()));
         btn = new <a href="ntqpushbutton.html">TQPushButton</a>("||", hb);
-        <a href="ntqobject.html#connect">connect</a>(btn, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), movie, SLOT(togglePause()));
+        <a href="ntqobject.html#connect">connect</a>(btn, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), movie, TQ_SLOT(togglePause()));
         btn = new <a href="ntqpushbutton.html">TQPushButton</a>("&gt;|", hb);
-        <a href="ntqobject.html#connect">connect</a>(btn, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), movie, SLOT(<a href="ntqmovie.html#step">step</a>()));
+        <a href="ntqobject.html#connect">connect</a>(btn, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), movie, TQ_SLOT(<a href="ntqmovie.html#step">step</a>()));
         btn = new <a href="ntqpushbutton.html">TQPushButton</a>("&gt;&gt;|", hb);
-        <a href="ntqobject.html#connect">connect</a>(btn, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), movie, SLOT(step10()));
+        <a href="ntqobject.html#connect">connect</a>(btn, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), movie, TQ_SLOT(step10()));
     }
 };
 
@@ -277,8 +277,8 @@ public slots:
     //behave as in getOpenFilename
     <a href="ntqfiledialog.html#setMode">setMode</a>( ExistingFile );
     // When a file is selected, show it as a movie.
-    <a href="ntqobject.html#connect">connect</a>(this, SIGNAL(<a href="ntqfiledialog.html#fileSelected">fileSelected</a>(const <a href="ntqstring.html">TQString</a>&amp;)),
-            this, SLOT(startMovie(const <a href="ntqstring.html">TQString</a>&amp;)));
+    <a href="ntqobject.html#connect">connect</a>(this, TQ_SIGNAL(<a href="ntqfiledialog.html#fileSelected">fileSelected</a>(const <a href="ntqstring.html">TQString</a>&amp;)),
+            this, TQ_SLOT(startMovie(const <a href="ntqstring.html">TQString</a>&amp;)));
 }
 
 
@@ -317,7 +317,7 @@ int main(int argc, char **argv)
                 (void)new MovieScreen(argv[arg], TQMovie(argv[arg]), 0, 0,
                                       TQt::WDestructiveClose);
         }
-        TQObject::<a href="ntqobject.html#connect">connect</a>(tqApp, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()));
+        TQObject::<a href="ntqobject.html#connect">connect</a>(tqApp, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
     } else {
         // "GUI" mode - open a chooser for movies
         //

@@ -9,7 +9,7 @@
 .SH NAME
 QLocale \- Converts between numbers and their string representations in various languages
 .SH SYNOPSIS
-Almost all the functions in this class are reentrant when Qt is built with thread support. The exception is \fBsetDefault\fR(). </p>
+Almost all the functions in this class are reentrant when TQt is built with thread support. The exception is \fBsetDefault\fR(). </p>
 .PP
 \fC#include <ntqlocale.h>\fR
 .PP
@@ -25,7 +25,7 @@ Almost all the functions in this class are reentrant when Qt is built with threa
 .BI "\fBQLocale\fR ()"
 .br
 .ti -1c
-.BI "\fBQLocale\fR ( const QString & name )"
+.BI "\fBQLocale\fR ( const TQString & name )"
 .br
 .ti -1c
 .BI "\fBQLocale\fR ( Language language, Country country = AnyCountry )"
@@ -43,76 +43,76 @@ Almost all the functions in this class are reentrant when Qt is built with threa
 .BI "Country \fBcountry\fR () const"
 .br
 .ti -1c
-.BI "QString \fBname\fR () const"
+.BI "TQString \fBname\fR () const"
 .br
 .ti -1c
-.BI "short \fBtoShort\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "short \fBtoShort\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "ushort \fBtoUShort\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "ushort \fBtoUShort\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "int \fBtoInt\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "int \fBtoInt\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "uint \fBtoUInt\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "uint \fBtoUInt\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "TQ_LONG \fBtoLong\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "TQ_LONG \fBtoLong\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "TQ_ULONG \fBtoULong\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "TQ_ULONG \fBtoULong\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "TQ_LLONG \fBtoLongLong\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "TQ_LLONG \fBtoLongLong\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "TQ_ULLONG \fBtoULongLong\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "TQ_ULLONG \fBtoULongLong\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "float \fBtoFloat\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "float \fBtoFloat\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "double \fBtoDouble\fR ( const QString & s, bool * ok = 0 ) const"
+.BI "double \fBtoDouble\fR ( const TQString & s, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( short i ) const"
+.BI "TQString \fBtoString\fR ( short i ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( ushort i ) const"
+.BI "TQString \fBtoString\fR ( ushort i ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( int i ) const"
+.BI "TQString \fBtoString\fR ( int i ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( uint i ) const"
+.BI "TQString \fBtoString\fR ( uint i ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( TQ_LONG i ) const"
+.BI "TQString \fBtoString\fR ( TQ_LONG i ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( TQ_ULONG i ) const"
+.BI "TQString \fBtoString\fR ( TQ_ULONG i ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( TQ_LLONG i ) const"
+.BI "TQString \fBtoString\fR ( TQ_LLONG i ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( TQ_ULLONG i ) const"
+.BI "TQString \fBtoString\fR ( TQ_ULLONG i ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( float i, char f = 'g', int prec = 6 ) const"
+.BI "TQString \fBtoString\fR ( float i, char f = 'g', int prec = 6 ) const"
 .br
 .ti -1c
-.BI "QString \fBtoString\fR ( double i, char f = 'g', int prec = 6 ) const"
+.BI "TQString \fBtoString\fR ( double i, char f = 'g', int prec = 6 ) const"
 .br
 .in -1c
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QString \fBlanguageToString\fR ( Language language )"
+.BI "TQString \fBlanguageToString\fR ( Language language )"
 .br
 .ti -1c
-.BI "QString \fBcountryToString\fR ( Country country )"
+.BI "TQString \fBcountryToString\fR ( Country country )"
 .br
 .ti -1c
 .BI "void \fBsetDefault\fR ( const QLocale & locale )"
@@ -127,15 +127,15 @@ Almost all the functions in this class are reentrant when Qt is built with threa
 .SH DESCRIPTION
 The QLocale class converts between numbers and their string representations in various languages.
 .PP
-It is initialized with a country/language pair in its constructor and offers number-to-string and string-to-number conversion functions simmilar to those in QString.
+It is initialized with a country/language pair in its constructor and offers number-to-string and string-to-number conversion functions simmilar to those in TQString.
 .PP
 .nf
 .br
     QLocale egyptian(QLocale::Arabic, QLocale::Egypt);
 .br
-    QString s1 = egyptian.toString(1.571429E+07, 'e');
+    TQString s1 = egyptian.toString(1.571429E+07, 'e');
 .br
-    QString s2 = egyptian.toString(10);
+    TQString s2 = egyptian.toString(10);
 .br
 .br
     double d = egyptian.toDouble(s1);
@@ -148,9 +148,9 @@ QLocale supports the concept of a default locale, which is determined from the s
 .TP
 If a QLocale object is constructed with the default constructor, it will use the default locale's settings.
 .TP
-QString::toDouble() interprets the string according to the default locale. If this fails, it falls back on the "C" locale.
+TQString::toDouble() interprets the string according to the default locale. If this fails, it falls back on the "C" locale.
 .TP
-QString::arg() uses the default locale to format a number when its position specifier in the format string contains an 'L', e.g. "%L1".
+TQString::arg() uses the default locale to format a number when its position specifier in the format string contains an 'L', e.g. "%L1".
 .PP
 .nf
 .br
@@ -158,7 +158,7 @@ QString::arg() uses the default locale to format a number when its position spec
 .br
     QLocale hebrew; // Constructs a default QLocale
 .br
-    QString s1 = hebrew.toString(15714.3, 'e');
+    TQString s1 = hebrew.toString(15714.3, 'e');
 .br
 .br
     bool ok;
@@ -168,21 +168,21 @@ QString::arg() uses the default locale to format a number when its position spec
 .br
     QLocale::setDefault(QLocale::C);
 .br
-    d = QString( "1234,56" ).toDouble(&ok); // ok == false
+    d = TQString( "1234,56" ).toDouble(&ok); // ok == false
 .br
-    d = QString( "1234.56" ).toDouble(&ok); // ok == true, d == 1234.56
+    d = TQString( "1234.56" ).toDouble(&ok); // ok == true, d == 1234.56
 .br
 .br
     QLocale::setDefault(QLocale::German);
 .br
-    d = QString( "1234,56" ).toDouble(&ok); // ok == true, d == 1234.56
+    d = TQString( "1234,56" ).toDouble(&ok); // ok == true, d == 1234.56
 .br
-    d = QString( "1234.56" ).toDouble(&ok); // ok == true, d == 1234.56
+    d = TQString( "1234.56" ).toDouble(&ok); // ok == true, d == 1234.56
 .br
 .br
     QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
 .br
-    str = QString( "%1 %L2 %L3" )
+    str = TQString( "%1 %L2 %L3" )
 .br
             .arg( 12345 )
 .br
@@ -220,7 +220,7 @@ This constructor converts the locale name to a language/country pair; it does no
 .PP
 All the methods in QLocale, with the exception of setDefault(), are reentrant.
 .PP
-See also QString::toDouble(), QString::arg(), and Text Related Classes.
+See also TQString::toDouble(), TQString::arg(), and Text Related Classes.
 .PP
 The double-to-string and string-to-double conversion functions are covered by the following licenses:
 .PP
@@ -1003,7 +1003,7 @@ This enumerated type is used to specify a language.
 Constructs a QLocale object initialized with the default locale.
 .PP
 See also setDefault().
-.SH "QLocale::QLocale ( const QString & name )"
+.SH "QLocale::QLocale ( const TQString & name )"
 Constructs a QLocale object with the specified \fIname\fR, which has the format" language[_country][.codeset][@modifier]" or "C", where:
 .TP
 language is a lowercase, two-letter, ISO 639 language code,
@@ -1041,15 +1041,15 @@ See also system().
 Returns the country of this locale.
 .PP
 See also QLocale().
-.SH "QString QLocale::countryToString ( Country country )\fC [static]\fR"
-Returns a QString containing the name of \fIcountry\fR.
+.SH "TQString QLocale::countryToString ( Country country )\fC [static]\fR"
+Returns a TQString containing the name of \fIcountry\fR.
 .SH "Language QLocale::language () const"
 Returns the language of this locale.
 .PP
 See also QLocale().
-.SH "QString QLocale::languageToString ( Language language )\fC [static]\fR"
-Returns a QString containing the name of \fIlanguage\fR.
-.SH "QString QLocale::name () const"
+.SH "TQString QLocale::languageToString ( Language language )\fC [static]\fR"
+Returns a TQString containing the name of \fIlanguage\fR.
+.SH "TQString QLocale::name () const"
 Returns the language and country of this locale as a string of the form "language_country", where language is a lowercase, two-letter ISO 639 language code, and country is an uppercase, two-letter ISO 3166 country code.
 .PP
 See also QLocale().
@@ -1065,12 +1065,12 @@ Sets the global default locale to \fIlocale\fR. These values are used when a QLo
 See also system() and c().
 .SH "QLocale QLocale::system ()\fC [static]\fR"
 Returns a QLocale object initialized to the system locale.
-.SH "double QLocale::toDouble ( const QString & s, bool * ok = 0 ) const"
+.SH "double QLocale::toDouble ( const TQString & s, bool * ok = 0 ) const"
 Returns the double represented by the localized string \fIs\fR, or 0.0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
 .PP
-Unlike QString::toDouble(), this function does not fall back to the "C" locale if the string cannot be interpreted in this locale.
+Unlike TQString::toDouble(), this function does not fall back to the "C" locale if the string cannot be interpreted in this locale.
 .PP
 .nf
 .br
@@ -1105,8 +1105,8 @@ Notice that the last conversion returns 1234.0, because '.' is the thousands gro
 .PP
 This function ignores leading and trailing whitespace.
 .PP
-See also toString() and QString::toDouble().
-.SH "float QLocale::toFloat ( const QString & s, bool * ok = 0 ) const"
+See also toString() and TQString::toDouble().
+.SH "float QLocale::toFloat ( const TQString & s, bool * ok = 0 ) const"
 Returns the float represented by the localized string \fIs\fR, or 0.0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1114,7 +1114,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "int QLocale::toInt ( const QString & s, bool * ok = 0 ) const"
+.SH "int QLocale::toInt ( const TQString & s, bool * ok = 0 ) const"
 Returns the int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1122,7 +1122,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQ_LONG QLocale::toLong ( const QString & s, bool * ok = 0 ) const"
+.SH "TQ_LONG QLocale::toLong ( const TQString & s, bool * ok = 0 ) const"
 Returns the long int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1130,7 +1130,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQ_LLONG QLocale::toLongLong ( const QString & s, bool * ok = 0 ) const"
+.SH "TQ_LLONG QLocale::toLongLong ( const TQString & s, bool * ok = 0 ) const"
 Returns the long long int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1138,7 +1138,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "short QLocale::toShort ( const QString & s, bool * ok = 0 ) const"
+.SH "short QLocale::toShort ( const TQString & s, bool * ok = 0 ) const"
 Returns the short int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1146,51 +1146,51 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "QString QLocale::toString ( TQ_LLONG i ) const"
+.SH "TQString QLocale::toString ( TQ_LLONG i ) const"
 Returns a localized string representation of \fIi\fR.
 .PP
 See also toLongLong().
-.SH "QString QLocale::toString ( short i ) const"
+.SH "TQString QLocale::toString ( short i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toShort().
-.SH "QString QLocale::toString ( ushort i ) const"
+.SH "TQString QLocale::toString ( ushort i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toUShort().
-.SH "QString QLocale::toString ( int i ) const"
+.SH "TQString QLocale::toString ( int i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toInt().
-.SH "QString QLocale::toString ( uint i ) const"
+.SH "TQString QLocale::toString ( uint i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toUInt().
-.SH "QString QLocale::toString ( TQ_LONG i ) const"
+.SH "TQString QLocale::toString ( TQ_LONG i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toLong().
-.SH "QString QLocale::toString ( TQ_ULONG i ) const"
+.SH "TQString QLocale::toString ( TQ_ULONG i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toULong().
-.SH "QString QLocale::toString ( TQ_ULLONG i ) const"
+.SH "TQString QLocale::toString ( TQ_ULLONG i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toULongLong().
-.SH "QString QLocale::toString ( float i, char f = 'g', int prec = 6 ) const"
+.SH "TQString QLocale::toString ( float i, char f = 'g', int prec = 6 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-\fIf\fR and \fIprec\fR have the same meaning as in QString::number(double, char, int).
+\fIf\fR and \fIprec\fR have the same meaning as in TQString::number(double, char, int).
 .PP
 See also toDouble().
-.SH "QString QLocale::toString ( double i, char f = 'g', int prec = 6 ) const"
+.SH "TQString QLocale::toString ( double i, char f = 'g', int prec = 6 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-\fIf\fR and \fIprec\fR have the same meaning as in QString::number(double, char, int).
+\fIf\fR and \fIprec\fR have the same meaning as in TQString::number(double, char, int).
 .PP
 See also toDouble().
-.SH "uint QLocale::toUInt ( const QString & s, bool * ok = 0 ) const"
+.SH "uint QLocale::toUInt ( const TQString & s, bool * ok = 0 ) const"
 Returns the unsigned int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1198,7 +1198,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQ_ULONG QLocale::toULong ( const QString & s, bool * ok = 0 ) const"
+.SH "TQ_ULONG QLocale::toULong ( const TQString & s, bool * ok = 0 ) const"
 Returns the unsigned long int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1206,7 +1206,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQ_ULLONG QLocale::toULongLong ( const QString & s, bool * ok = 0 ) const"
+.SH "TQ_ULLONG QLocale::toULongLong ( const TQString & s, bool * ok = 0 ) const"
 Returns the unsigned long long int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1214,7 +1214,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "ushort QLocale::toUShort ( const QString & s, bool * ok = 0 ) const"
+.SH "ushort QLocale::toUShort ( const TQString & s, bool * ok = 0 ) const"
 Returns the unsigned short int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1237,8 +1237,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

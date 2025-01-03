@@ -62,21 +62,21 @@ ApplicationWindow::ApplicationWindow()
     openIcon = TQPixmap( fileopen );
     TQToolButton * fileOpen
 	= new TQToolButton( openIcon, "Open File", TQString::null,
-			   this, SLOT(load()), fileTools, "open file" );
+			   this, TQ_SLOT(load()), fileTools, "open file" );
 
     saveIcon = TQPixmap( filesave );
     TQToolButton * fileSave
 	= new TQToolButton( saveIcon, "Save File", TQString::null,
-			   this, SLOT(save()), fileTools, "save file" );
+			   this, TQ_SLOT(save()), fileTools, "save file" );
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     printer = new TQPrinter( TQPrinter::HighResolution );
     TQPixmap printIcon;
 
     printIcon = TQPixmap( fileprint );
     TQToolButton * filePrint
 	= new TQToolButton( printIcon, "Print File", TQString::null,
-			   this, SLOT(print()), fileTools, "print file" );
+			   this, TQ_SLOT(print()), fileTools, "print file" );
     TQWhatsThis::add( filePrint, filePrintText );
 #endif
 
@@ -88,41 +88,41 @@ ApplicationWindow::ApplicationWindow()
     TQPopupMenu * file = new TQPopupMenu( this );
     menuBar()->insertItem( "&File", file );
 
-    file->insertItem( "&New", this, SLOT(newDoc()), CTRL+Key_N );
+    file->insertItem( "&New", this, TQ_SLOT(newDoc()), CTRL+Key_N );
 
     id = file->insertItem( openIcon, "&Open...",
-			   this, SLOT(load()), CTRL+Key_O );
+			   this, TQ_SLOT(load()), CTRL+Key_O );
     file->setWhatsThis( id, fileOpenText );
 
     id = file->insertItem( saveIcon, "&Save",
-			   this, SLOT(save()), CTRL+Key_S );
+			   this, TQ_SLOT(save()), CTRL+Key_S );
     file->setWhatsThis( id, fileSaveText );
-    id = file->insertItem( "Save &As...", this, SLOT(saveAs()) );
+    id = file->insertItem( "Save &As...", this, TQ_SLOT(saveAs()) );
     file->setWhatsThis( id, fileSaveText );
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     file->insertSeparator();
     id = file->insertItem( printIcon, "&Print...",
-			   this, SLOT(print()), CTRL+Key_P );
+			   this, TQ_SLOT(print()), CTRL+Key_P );
     file->setWhatsThis( id, filePrintText );
 #endif
     file->insertSeparator();
-    file->insertItem( "&Close", this, SLOT(closeWindow()), CTRL+Key_W );
-    file->insertItem( "&Quit", tqApp, SLOT( closeAllWindows() ), CTRL+Key_Q );
+    file->insertItem( "&Close", this, TQ_SLOT(closeWindow()), CTRL+Key_W );
+    file->insertItem( "&Quit", tqApp, TQ_SLOT( closeAllWindows() ), CTRL+Key_Q );
 
     windowsMenu = new TQPopupMenu( this );
     windowsMenu->setCheckable( TRUE );
-    connect( windowsMenu, SIGNAL( aboutToShow() ),
-	     this, SLOT( windowsMenuAboutToShow() ) );
+    connect( windowsMenu, TQ_SIGNAL( aboutToShow() ),
+	     this, TQ_SLOT( windowsMenuAboutToShow() ) );
     menuBar()->insertItem( "&Windows", windowsMenu );
 
     menuBar()->insertSeparator();
     TQPopupMenu * help = new TQPopupMenu( this );
     menuBar()->insertItem( "&Help", help );
 
-    help->insertItem( "&About", this, SLOT(about()), Key_F1);
-    help->insertItem( "About &TQt", this, SLOT(aboutTQt()));
+    help->insertItem( "&About", this, TQ_SLOT(about()), Key_F1);
+    help->insertItem( "About &TQt", this, TQ_SLOT(aboutTQt()));
     help->insertSeparator();
-    help->insertItem( "What's &This", this, SLOT(whatsThis()), SHIFT+Key_F1);
+    help->insertItem( "What's &This", this, TQ_SLOT(whatsThis()), SHIFT+Key_F1);
 
     TQVBox* vb = new TQVBox( this );
     vb->setFrameStyle( TQFrame::StyledPanel | TQFrame::Sunken );
@@ -136,7 +136,7 @@ ApplicationWindow::ApplicationWindow()
 
 ApplicationWindow::~ApplicationWindow()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     delete printer;
 #endif
 }
@@ -146,7 +146,7 @@ ApplicationWindow::~ApplicationWindow()
 MDIWindow* ApplicationWindow::newDoc()
 {
     MDIWindow* w = new MDIWindow( ws, 0, WDestructiveClose );
-    connect( w, SIGNAL( message(const TQString&, int) ), statusBar(), SLOT( message(const TQString&, int )) );
+    connect( w, TQ_SIGNAL( message(const TQString&, int) ), statusBar(), TQ_SLOT( message(const TQString&, int )) );
     w->setCaption("unnamed document");
     w->setIcon( TQPixmap("document.xpm") );
     // show the very first window in maximized mode
@@ -186,7 +186,7 @@ void ApplicationWindow::saveAs()
 
 void ApplicationWindow::print()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     MDIWindow* m = (MDIWindow*)ws->activeWindow();
     if ( m )
 	m->print( printer );
@@ -218,9 +218,9 @@ void ApplicationWindow::aboutTQt()
 void ApplicationWindow::windowsMenuAboutToShow()
 {
     windowsMenu->clear();
-    int cascadeId = windowsMenu->insertItem("&Cascade", ws, SLOT(cascade() ) );
-    int tileId = windowsMenu->insertItem("&Tile", ws, SLOT(tile() ) );
-    int horTileId = windowsMenu->insertItem("Tile &Horizontally", this, SLOT(tileHorizontal() ) );
+    int cascadeId = windowsMenu->insertItem("&Cascade", ws, TQ_SLOT(cascade() ) );
+    int tileId = windowsMenu->insertItem("&Tile", ws, TQ_SLOT(tile() ) );
+    int horTileId = windowsMenu->insertItem("Tile &Horizontally", this, TQ_SLOT(tileHorizontal() ) );
     if ( ws->windowList().isEmpty() ) {
 	windowsMenu->setItemEnabled( cascadeId, FALSE );
 	windowsMenu->setItemEnabled( tileId, FALSE );
@@ -230,7 +230,7 @@ void ApplicationWindow::windowsMenuAboutToShow()
     TQWidgetList windows = ws->windowList();
     for ( int i = 0; i < int(windows.count()); ++i ) {
 	int id = windowsMenu->insertItem(windows.at(i)->caption(),
-					 this, SLOT( windowsMenuActivated( int ) ) );
+					 this, TQ_SLOT( windowsMenuActivated( int ) ) );
 	windowsMenu->setItemParameter( id, i );
 	windowsMenu->setItemChecked( id, ws->activeWindow() == windows.at(i) );
     }
@@ -337,7 +337,7 @@ void MDIWindow::load( const TQString& fn )
 	medit->hide();
 	delete medit;
 	TQMovie * qm=new TQMovie(fn);
-#ifdef Q_WS_QWS // temporary speed-test hack
+#ifdef TQ_WS_QWS // temporary speed-test hack
 	qm->setDisplayWidget(tmp);
 #endif
 	tmp->setBackgroundMode(TQWidget::NoBackground);
@@ -394,7 +394,7 @@ void MDIWindow::saveAs()
 
 void MDIWindow::print( TQPrinter* printer)
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     int pageNo = 1;
 
     if ( printer->setup(this) ) {		// printer dialog

@@ -25,7 +25,7 @@ LCDRange::LCDRange( TQWidget *parent, const char *name )
     TQSlider * slider = new TQSlider( Horizontal, this, "slider" );
     slider->setRange( 0, 99 );
     slider->setValue( 0 );
-    connect( slider, SIGNAL(valueChanged(int)), lcd, SLOT(display(int)) );
+    connect( slider, TQ_SIGNAL(valueChanged(int)), lcd, TQ_SLOT(display(int)) );
 }
 
 class MyWidget : public TQVBox
@@ -41,7 +41,7 @@ MyWidget::MyWidget( TQWidget *parent, const char *name )
     TQPushButton *quit = new TQPushButton( "Quit", this, "quit" );
     quit->setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-    connect( quit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( quit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 
     TQGrid *grid = new TQGrid( 4, this );
 

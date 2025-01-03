@@ -31,5 +31,5 @@ TQStyle* CompactStyle::create( const TQString& s )
 }
 
 
-Q_EXPORT_PLUGIN( CompactStyle )
+TQ_EXPORT_PLUGIN( CompactStyle )
 

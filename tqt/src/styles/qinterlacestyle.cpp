@@ -42,7 +42,7 @@
 
 #include "ntqinterlacestyle.h"
 
-#if !defined(QT_NO_STYLE_INTERLACE) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_INTERLACE) || defined(QT_PLUGIN)
 
 #include "ntqapplication.h"
 #include "ntqpainter.h"
@@ -800,6 +800,6 @@ void TQInterlaceStyle::drawPanel( TQPainter *p, int x, int y, int w, int h,
     }
 }
 
-#endif // QT_NO_STYLE_INTERLACE
+#endif // TQT_NO_STYLE_INTERLACE
 
 #endif

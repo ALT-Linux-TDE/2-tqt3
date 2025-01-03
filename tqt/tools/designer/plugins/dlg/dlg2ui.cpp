@@ -718,7 +718,7 @@ void Dlg2Ui::emitWidgetBody( const TQDomElement& e, bool layouted )
 			if ( tagName == TQString("Style") ) {
 			    if ( getTextValue(n) == TQString("ReadWrite") )
 				emitProperty( TQString("editable"),
-					      TQVariant(TRUE, 0) );
+					      TQVariant(true) );
 			}
 		    } else if ( parentTagName == TQString("DlgWidget") ) {
 			if ( tagName == TQString("Name") ) {
@@ -891,7 +891,7 @@ TQVariant Dlg2Ui::getValue( const TQDomElement& e, const TQString& tagName,
     if ( type == TQString("integer") ) {
 	return getTextValue( e ).toInt();
     } else if ( type == TQString("boolean") ) {
-	return TQVariant( isTrue(getTextValue(e)), 0 );
+	return TQVariant( isTrue(getTextValue(e)) );
     } else if ( type == TQString("double") ) {
 	return getTextValue( e ).toDouble();
     } else if ( type == TQString("qcstring") ) {

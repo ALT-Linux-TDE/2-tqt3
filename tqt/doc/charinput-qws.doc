@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 2000-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -49,10 +49,10 @@ following fields:
 \row \i \c{unicode}
      \i Unicode value
 \row \i \c{keycode}
-     \i Qt keycode value as defined in \c ntqnamespace.h
+     \i TQt keycode value as defined in \c ntqnamespace.h
 \row \i \c{modifier}
-     \i A bitfield consisting of some of \c Qt::ShiftButton,
-	\c Qt::ControlButton, and \c Qt::AltButton.
+     \i A bitfield consisting of some of \c TQt::ShiftButton,
+	\c TQt::ControlButton, and \c TQt::AltButton.
 \row \i \c{is_press}
      \i TRUE if this is a key press, FALSE if it is a key release.
 \row \i \c{is_auto_repeat}
@@ -122,7 +122,7 @@ specify characters with the pointer device.
 server would then just send the key events back to the input widget.
 One way to make sure that the input widget never takes focus is to set
 the \c{WStyle_Customize} and \c{WStyle_Tool} widget flags in
-the QWidget constructor.
+the TQWidget constructor.
 
 The \link http://www.trolltech.com/products/qtopia/ Qtopia\endlink
 environment contains various input widgets such as

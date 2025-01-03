@@ -11,7 +11,7 @@ QNetworkProtocol \- Common API for network protocols
 .SH SYNOPSIS
 \fC#include <ntqnetworkprotocol.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 Inherited by QFtp, QHttp, and QLocalFs.
 .PP
@@ -69,7 +69,7 @@ Inherited by QFtp, QHttp, and QLocalFs.
 .BI "void \fBdata\fR ( const QByteArray & data, QNetworkOperation * op )"
 .br
 .ti -1c
-.BI "void \fBconnectionStateChanged\fR ( int state, const QString & data )"
+.BI "void \fBconnectionStateChanged\fR ( int state, const TQString & data )"
 .br
 .ti -1c
 .BI "void \fBfinished\fR ( QNetworkOperation * op )"
@@ -99,10 +99,10 @@ Inherited by QFtp, QHttp, and QLocalFs.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "void \fBregisterNetworkProtocol\fR ( const QString & protocol, QNetworkProtocolFactoryBase * protocolFactory )"
+.BI "void \fBregisterNetworkProtocol\fR ( const TQString & protocol, QNetworkProtocolFactoryBase * protocolFactory )"
 .br
 .ti -1c
-.BI "QNetworkProtocol * \fBgetNetworkProtocol\fR ( const QString & protocol )"
+.BI "QNetworkProtocol * \fBgetNetworkProtocol\fR ( const TQString & protocol )"
 .br
 .ti -1c
 .BI "bool \fBhasOnlyLocalFileSystem\fR ()"
@@ -135,13 +135,13 @@ Inherited by QFtp, QHttp, and QLocalFs.
 .SH DESCRIPTION
 The QNetworkProtocol class provides a common API for network protocols.
 .PP
-This is a base class which should be used for network protocols implementations that can then be used in Qt (e.g. in the file dialog) together with the QUrlOperator.
+This is a base class which should be used for network protocols implementations that can then be used in TQt (e.g. in the file dialog) together with the QUrlOperator.
 .PP
 The easiest way to implement a new network protocol is to reimplement the operation*() methods, e.g. operationGet(), etc. Only the supported operations should be reimplemented. To specify which operations are supported, also reimplement supportedOperations() and return an int that is OR'd together using the supported operations from the QNetworkProtocol::Operation enum.
 .PP
-When you implement a network protocol this way, it is important to emit the correct signals. Also, always emit the finished() signal when an operation is done (on success \fIand\fR on failure). Qt relies on correctly emitted finished() signals.
+When you implement a network protocol this way, it is important to emit the correct signals. Also, always emit the finished() signal when an operation is done (on success \fIand\fR on failure). TQt relies on correctly emitted finished() signals.
 .PP
-For a detailed description of the Qt Network Architecture and how to implement and use network protocols in Qt, see the Qt Network Documentation.
+For a detailed description of the TQt Network Architecture and how to implement and use network protocols in Qt, see the TQt Network Documentation.
 .PP
 See also Input/Output and Networking.
 .SS "Member Type Documentation"
@@ -235,7 +235,7 @@ If the connection can't be opened (e.g. because you already tried but the host c
 Example: network/networkprotocol/nntp.cpp.
 .SH "void QNetworkProtocol::clearOperationQueue ()\fC [virtual]\fR"
 Clears the operation queue.
-.SH "void QNetworkProtocol::connectionStateChanged ( int state, const QString & data )\fC [signal]\fR"
+.SH "void QNetworkProtocol::connectionStateChanged ( int state, const TQString & data )\fC [signal]\fR"
 This signal is emitted whenever the state of the connection of the network protocol is changed. \fIstate\fR describes the new state, which is one of, ConHostFound, ConConnected or ConClosed. \fIdata\fR is a message text.
 .SH "void QNetworkProtocol::createdDirectory ( const QUrlInfo & i, QNetworkOperation * op )\fC [signal]\fR"
 This signal is emitted when mkdir() has been succesful and the directory has been created. \fIi\fR holds the information about the new directory. \fIop\fR is the pointer to the operation object which contains all the information about the operation, including the state, etc. Using op->arg( 0 ), you can get the file name of the new directory.
@@ -253,7 +253,7 @@ When a protocol emits this signal, QNetworkProtocol is smart enough to let the Q
 This signal is emitted when an operation finishes. This signal is always emitted, for both success and failure. \fIop\fR is the pointer to the operation object which contains all the information about the operation, including the state, etc. Check the state and error code of the operation object to determine whether or not the operation was successful.
 .PP
 When a protocol emits this signal, QNetworkProtocol is smart enough to let the QUrlOperator, which is used by the network protocol, emit its corresponding signal.
-.SH "QNetworkProtocol * QNetworkProtocol::getNetworkProtocol ( const QString & protocol )\fC [static]\fR"
+.SH "QNetworkProtocol * QNetworkProtocol::getNetworkProtocol ( const TQString & protocol )\fC [static]\fR"
 Static method to get a new instance of the network protocol \fIprotocol\fR. For example, if you need to do some FTP operations, do the following:
 .PP
 .nf
@@ -285,7 +285,7 @@ When implementing your own network protocol and reading children, you usually do
 .SH "void QNetworkProtocol::operationGet ( QNetworkOperation * op )\fC [virtual protected]\fR"
 When implementing a new network protocol, this method should be reimplemented if the protocol supports getting data; this method should then process the QNetworkOperation.
 .PP
-When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the Qt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
+When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the TQt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
 .PP
 \fIop\fR is the pointer to the operation object which contains all the information on the operation that has finished, including the state, etc.
 .PP
@@ -295,7 +295,7 @@ Returns the operation, which is being processed, or 0 of no operation is being p
 .SH "void QNetworkProtocol::operationListChildren ( QNetworkOperation * op )\fC [virtual protected]\fR"
 When implementing a new network protocol, this method should be reimplemented if the protocol supports listing children (files); this method should then process this QNetworkOperation.
 .PP
-When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the Qt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
+When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the TQt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
 .PP
 \fIop\fR is the pointer to the operation object which contains all the information on the operation that has finished, including the state, etc.
 .PP
@@ -303,28 +303,28 @@ Example: network/networkprotocol/nntp.cpp.
 .SH "void QNetworkProtocol::operationMkDir ( QNetworkOperation * op )\fC [virtual protected]\fR"
 When implementing a new network protocol, this method should be reimplemented if the protocol supports making directories; this method should then process this QNetworkOperation.
 .PP
-When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the Qt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
+When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the TQt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
 .PP
 \fIop\fR is the pointer to the operation object which contains all the information on the operation that has finished, including the state, etc.
 .SH "void QNetworkProtocol::operationPut ( QNetworkOperation * op )\fC [virtual protected]\fR"
 When implementing a new network protocol, this method should be reimplemented if the protocol supports putting (uploading) data; this method should then process the QNetworkOperation.
 .PP
-When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the Qt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
+When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the TQt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
 .PP
 \fIop\fR is the pointer to the operation object which contains all the information on the operation that has finished, including the state, etc.
 .SH "void QNetworkProtocol::operationRemove ( QNetworkOperation * op )\fC [virtual protected]\fR"
 When implementing a new network protocol, this method should be reimplemented if the protocol supports removing children (files); this method should then process this QNetworkOperation.
 .PP
-When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the Qt Network Documentation which is describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
+When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the TQt Network Documentation which is describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
 .PP
 \fIop\fR is the pointer to the operation object which contains all the information on the operation that has finished, including the state, etc.
 .SH "void QNetworkProtocol::operationRename ( QNetworkOperation * op )\fC [virtual protected]\fR"
 When implementing a new newtork protocol, this method should be reimplemented if the protocol supports renaming children (files); this method should then process this QNetworkOperation.
 .PP
-When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the Qt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
+When you reimplement this method it's very important that you emit the correct signals at the correct time (especially the finished() signal after processing an operation). Take a look at the TQt Network Documentation which describes in detail how to reimplement this method. You may also want to look at the example implementation in examples/network/networkprotocol/nntp.cpp.
 .PP
 \fIop\fR is the pointer to the operation object which contains all the information on the operation that has finished, including the state, etc.
-.SH "void QNetworkProtocol::registerNetworkProtocol ( const QString & protocol, QNetworkProtocolFactoryBase * protocolFactory )\fC [static]\fR"
+.SH "void QNetworkProtocol::registerNetworkProtocol ( const TQString & protocol, QNetworkProtocolFactoryBase * protocolFactory )\fC [static]\fR"
 Static method to register a network protocol for Qt. For example, if you have an implementation of NNTP (called Nntp) which is derived from QNetworkProtocol, call:
 .PP
 .nf
@@ -374,8 +374,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

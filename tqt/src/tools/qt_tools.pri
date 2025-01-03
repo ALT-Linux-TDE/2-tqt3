@@ -1,4 +1,4 @@
-# Qt tools module
+# TQt tools module
 
 tools {
 	TOOLS_P		= tools

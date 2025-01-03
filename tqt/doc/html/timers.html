@@ -57,8 +57,8 @@ inherits <a href="ntqobject.html">TQObject</a> so that it fits well into the own
 of most GUI programs. The normal way of using it is like this:
 <pre>
     <a href="ntqtimer.html">TQTimer</a> * counter = new <a href="ntqtimer.html">TQTimer</a>( this );
-    connect( counter, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
-             this, SLOT(updateCaption()) );
+    connect( counter, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
+             this, TQ_SLOT(updateCaption()) );
     counter-&gt;<a href="ntqtimer.html#start">start</a>( 1000 );
 </pre>
  
@@ -70,7 +70,7 @@ it's started.
 to show the button being pressed down and then (0.1 seconds later) be
 released when the keyboard is used to "press" a button, for example:
 <p> <pre>
-    TQTimer::<a href="ntqtimer.html#singleShot">singleShot</a>( 100, this, SLOT(animateTimeout()) );
+    TQTimer::<a href="ntqtimer.html#singleShot">singleShot</a>( 100, this, TQ_SLOT(animateTimeout()) );
 </pre>
  
 <p> 0.1 seconds after this line of code is executed, the same button's
@@ -111,7 +111,7 @@ single-threaded application without blocking the user interface.
     Mandelbrot::Mandelbrot( <a href="ntqobject.html">TQObject</a> *parent=0, const char *name )
     : <a href="ntqobject.html">TQObject</a>( parent, name )
     {
-        <a href="ntqobject.html#connect">connect</a>( &amp;timer, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), SLOT(calculate()) );
+        <a href="ntqobject.html#connect">connect</a>( &amp;timer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), TQ_SLOT(calculate()) );
         ...
     }
 

@@ -82,14 +82,14 @@ body { background: #ffffff; color: black; }
 #include "ntqvaluelist.h"
 #endif // QT_H
 
-#ifndef QT_NO_SPLITTER
+#ifndef TQT_NO_SPLITTER
 
 class TQSplitterHandle;
 class TQSplitterPrivate;
 class TQSplitterLayoutStruct;
 class TQTextStream;
 
-class Q_EXPORT TQSplitter : public TQFrame
+class TQ_EXPORT TQSplitter : public TQFrame
 {
     TQ_OBJECT
     TQ_PROPERTY( Orientation orientation READ orientation WRITE setOrientation )
@@ -183,9 +183,9 @@ private:
     Orientation orient;
     friend class TQSplitterHandle;
 
-#ifndef QT_NO_TEXTSTREAM
-    friend Q_EXPORT TQTextStream&amp; operator&lt;&lt;( TQTextStream&amp;, const TQSplitter&amp; );
-    friend Q_EXPORT TQTextStream&amp; operator&gt;&gt;( TQTextStream&amp;, TQSplitter&amp; );
+#ifndef TQT_NO_TEXTSTREAM
+    friend TQ_EXPORT TQTextStream&amp; operator&lt;&lt;( TQTextStream&amp;, const TQSplitter&amp; );
+    friend TQ_EXPORT TQTextStream&amp; operator&gt;&gt;( TQTextStream&amp;, TQSplitter&amp; );
 #endif
 
 private:
@@ -195,12 +195,12 @@ private:
 #endif
 };
 
-#ifndef QT_NO_TEXTSTREAM
-Q_EXPORT TQTextStream&amp; operator&lt;&lt;( TQTextStream&amp;, const TQSplitter&amp; );
-Q_EXPORT TQTextStream&amp; operator&gt;&gt;( TQTextStream&amp;, TQSplitter&amp; );
+#ifndef TQT_NO_TEXTSTREAM
+TQ_EXPORT TQTextStream&amp; operator&lt;&lt;( TQTextStream&amp;, const TQSplitter&amp; );
+TQ_EXPORT TQTextStream&amp; operator&gt;&gt;( TQTextStream&amp;, TQSplitter&amp; );
 #endif
 
-#endif // QT_NO_SPLITTER
+#endif // TQT_NO_SPLITTER
 
 #endif // TQSPLITTER_H
 </pre>

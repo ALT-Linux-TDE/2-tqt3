@@ -77,7 +77,7 @@ appearing as separate menu options and toolbar buttons.
 
 
 <pre>        TQActionGroup *grp = new TQActionGroup( this );
-    <a name="x2112"></a>    <a href="ntqobject.html#connect">connect</a>( grp, SIGNAL( <a href="#selected">selected</a>( <a href="ntqaction.html">TQAction</a>* ) ), this, SLOT( textAlign( <a href="ntqaction.html">TQAction</a>* ) ) );
+    <a name="x2112"></a>    <a href="ntqobject.html#connect">connect</a>( grp, TQ_SIGNAL( <a href="#selected">selected</a>( <a href="ntqaction.html">TQAction</a>* ) ), this, TQ_SLOT( textAlign( <a href="ntqaction.html">TQAction</a>* ) ) );
 </pre>
 <p> Here we create a new action group. Since the action group is exclusive
 by default, only one of the actions in the group is ever active at any

@@ -9,14 +9,14 @@
 .SH NAME
 QLibrary \- Wrapper for handling shared libraries
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqlibrary.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQLibrary\fR ( const QString & filename )"
+.BI "\fBQLibrary\fR ( const TQString & filename )"
 .br
 .ti -1c
 .BI "virtual \fB~QLibrary\fR ()"
@@ -40,13 +40,13 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "void \fBsetAutoUnload\fR ( bool enabled )"
 .br
 .ti -1c
-.BI "QString \fBlibrary\fR () const"
+.BI "TQString \fBlibrary\fR () const"
 .br
 .in -1c
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "void * \fBresolve\fR ( const QString & filename, const char * symb )"
+.BI "void * \fBresolve\fR ( const TQString & filename, const char * symb )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -81,7 +81,7 @@ The following code snippet loads a library, resolves the symbol" mysymbol", and 
 .PP
 See also Plugins.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QLibrary::QLibrary ( const QString & filename )"
+.SH "QLibrary::QLibrary ( const TQString & filename )"
 Creates a QLibrary object for the shared library \fIfilename\fR. The library will be unloaded in the destructor.
 .PP
 Note that \fIfilename\fR does not need to include the (platform specific) file extension, so calling
@@ -124,7 +124,7 @@ See also setAutoUnload().
 Returns TRUE if the library is loaded; otherwise returns FALSE.
 .PP
 See also unload().
-.SH "QString QLibrary::library () const"
+.SH "TQString QLibrary::library () const"
 Returns the filename of the shared library this QLibrary object handles, including the platform specific file extension.
 .PP
 For example:
@@ -133,7 +133,7 @@ For example:
 .br
     QLibrary lib( "mylib" );
 .br
-    QString str = lib.library();
+    TQString str = lib.library();
 .br
 .fi
 will set \fIstr\fR to "mylib.dll" on Windows, and "libmylib.so" on Linux.
@@ -187,7 +187,7 @@ with \fCMY_EXPORT\fR defined as
 .PP
 .nf
 .br
-    #ifdef Q_WS_WIN
+    #ifdef TQ_WS_WIN
 .br
     # define MY_EXPORT __declspec(dllexport)
 .br
@@ -208,7 +208,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 .PP
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-.SH "void * QLibrary::resolve ( const QString & filename, const char * symb )\fC [static]\fR"
+.SH "void * QLibrary::resolve ( const TQString & filename, const char * symb )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Loads the library \fIfilename\fR and returns the address of the exported symbol \fIsymb\fR. Note that like the constructor, \fIfilename\fR does not need to include the (platform specific) file extension. The library remains loaded until the process exits.
@@ -268,8 +268,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

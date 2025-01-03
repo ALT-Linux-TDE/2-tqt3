@@ -22,7 +22,7 @@ FormDialog::FormDialog()
     TQLabel	*salaryLabel   = new TQLabel( "Salary:", this );
     TQLineEdit	*salaryEdit    = new TQLineEdit( this );
     TQPushButton *saveButton    = new TQPushButton( "&Save", this );
-    connect( saveButton, SIGNAL(clicked()), this, SLOT(save()) );
+    connect( saveButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(save()) );
 
     TQGridLayout *grid = new TQGridLayout( this );
     grid->addWidget( forenameLabel, 0, 0 );

@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqstatusbar.h"
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
 
 #include "ntqptrlist.h"
 #include "ntqlayout.h"
@@ -80,8 +80,8 @@
     one that has a time limit:
 
     \code
-	connect( loader, SIGNAL(progressMessage(const TQString&)),
-		 statusBar(), SLOT(message(const TQString&)) );
+	connect( loader, TQ_SIGNAL(progressMessage(const TQString&)),
+		 statusBar(), TQ_SLOT(message(const TQString&)) );
 
 	statusBar()->message("Loading...");  // Initial message
 	loader.loadStuff();                  // Emits progress messages
@@ -127,7 +127,7 @@ public:
     TQBoxLayout * box;
     TQTimer * timer;
 
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     TQSizeGrip * resizer;
 #endif
 
@@ -149,7 +149,7 @@ TQStatusBar::TQStatusBar( TQWidget * parent, const char *name )
     d->box = 0;
     d->timer = 0;
 
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     d->resizer = 0;
     setSizeGripEnabled(TRUE); // causes reformat()
 #else
@@ -260,7 +260,7 @@ void TQStatusBar::removeWidget( TQWidget* widget )
 
 bool TQStatusBar::isSizeGripEnabled() const
 {
-#ifdef QT_NO_SIZEGRIP
+#ifdef TQT_NO_SIZEGRIP
     return FALSE;
 #else
     return !!d->resizer;
@@ -269,7 +269,7 @@ bool TQStatusBar::isSizeGripEnabled() const
 
 void TQStatusBar::setSizeGripEnabled(bool enabled)
 {
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     if ( !enabled != !d->resizer ) {
 	if ( enabled ) {
 	    d->resizer = new TQSizeGrip( this, "TQStatusBar::resizer" );
@@ -328,7 +328,7 @@ void TQStatusBar::reformat()
 	item = d->items.next();
     }
     l->addSpacing( 4 );
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     if ( d->resizer ) {
 	maxH = TQMAX( maxH, d->resizer->sizeHint().height() );
 	d->box->addSpacing( 1 );
@@ -377,7 +377,7 @@ void TQStatusBar::message( const TQString &message, int ms )
 
     if ( !d->timer ) {
 	d->timer = new TQTimer( this );
-	connect( d->timer, SIGNAL(timeout()), this, SLOT(clear()) );
+	connect( d->timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(clear()) );
     }
     if ( ms > 0 ) {
 	d->timer->start( ms );
@@ -451,7 +451,7 @@ void TQStatusBar::paintEvent( TQPaintEvent * )
     TQPainter p( this );
     TQStatusBarPrivate::SBItem* item = d->items.first();
 
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
     int psx = ( d->resizer && d->resizer->isVisible() ) ? d->resizer->x() : width()-12;
 #else
     int psx = width() - 12;
@@ -502,7 +502,7 @@ bool TQStatusBar::event( TQEvent *e )
 	    item = d->items.next();
 	}
 
-#ifndef QT_NO_SIZEGRIP
+#ifndef TQT_NO_SIZEGRIP
 	if ( d->resizer )
 	    maxH = TQMAX( maxH, d->resizer->sizeHint().height() );
 #endif

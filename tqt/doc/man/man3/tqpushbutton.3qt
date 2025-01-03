@@ -16,13 +16,13 @@ Inherits QButton.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQPushButton\fR ( QWidget * parent, const char * name = 0 )"
+.BI "\fBQPushButton\fR ( TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQPushButton\fR ( const QString & text, QWidget * parent, const char * name = 0 )"
+.BI "\fBQPushButton\fR ( const TQString & text, TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQPushButton\fR ( const QIconSet & icon, const QString & text, QWidget * parent, const char * name = 0 )"
+.BI "\fBQPushButton\fR ( const QIconSet & icon, const TQString & text, TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QPushButton\fR ()"
@@ -76,10 +76,10 @@ Inherits QButton.
 .SS "Important Inherited Members"
 .in +1c
 .ti -1c
-.BI "QString \fBtext\fR () const"
+.BI "TQString \fBtext\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( const QString & )"
+.BI "virtual void \fBsetText\fR ( const TQString & )"
 .br
 .ti -1c
 .BI "const QPixmap * \fBpixmap\fR () const"
@@ -202,7 +202,7 @@ Auto-repeat or not.
 .TP
 Pressed down or not.
 .PP
-As a general rule, use a push button when the application or dialog window performs an action when the user clicks on it (such as Apply, Cancel, Close and Help) \fIand\fR when the widget is supposed to have a wide, rectangular shape with a text label. Small, typically square buttons that change the state of the window rather than performing an action (such as the buttons in the top-right corner of the QFileDialog) are not command buttons, but tool buttons. Qt provides a special class (QToolButton) for these buttons.
+As a general rule, use a push button when the application or dialog window performs an action when the user clicks on it (such as Apply, Cancel, Close and Help) \fIand\fR when the widget is supposed to have a wide, rectangular shape with a text label. Small, typically square buttons that change the state of the window rather than performing an action (such as the buttons in the top-right corner of the QFileDialog) are not command buttons, but tool buttons. TQt provides a special class (QToolButton) for these buttons.
 .PP
 If you need toggle behavior (see setToggleButton()) or a button that auto-repeats the activation signal when being pushed down like the arrows in a scroll bar (see setAutoRepeat()), a command button is probably not what you want. When in doubt, use a tool button.
 .PP
@@ -221,18 +221,18 @@ In Qt, the QButton abstract base class provides most of the modes and other API,
 .PP
 See also QToolButton, QRadioButton, QCheckBox, GUI Design Handbook: Push Button, and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPushButton::QPushButton ( QWidget * parent, const char * name = 0 )"
+.SH "QPushButton::QPushButton ( TQWidget * parent, const char * name = 0 )"
 Constructs a push button with no text.
 .PP
-The \fIparent\fR and \fIname\fR arguments are sent on to the QWidget constructor.
-.SH "QPushButton::QPushButton ( const QString & text, QWidget * parent, const char * name = 0 )"
+The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
+.SH "QPushButton::QPushButton ( const TQString & text, TQWidget * parent, const char * name = 0 )"
 Constructs a push button called \fIname\fR with the parent \fIparent\fR and the text \fItext\fR.
-.SH "QPushButton::QPushButton ( const QIconSet & icon, const QString & text, QWidget * parent, const char * name = 0 )"
+.SH "QPushButton::QPushButton ( const QIconSet & icon, const TQString & text, TQWidget * parent, const char * name = 0 )"
 Constructs a push button with an \fIicon\fR and a \fItext\fR.
 .PP
 Note that you can also pass a QPixmap object as an icon (thanks to the implicit type conversion provided by C++).
 .PP
-The \fIparent\fR and \fIname\fR arguments are sent to the QWidget constructor.
+The \fIparent\fR and \fIname\fR arguments are sent to the TQWidget constructor.
 .SH "QPushButton::~QPushButton ()"
 Destroys the push button.
 .SH "QKeySequence QButton::accel () const"
@@ -320,7 +320,7 @@ See also popup().
 .PP
 Examples:
 .)l buttongroups/buttongroups.cpp and qdir/qdir.cpp.
-.SH "void QButton::setText ( const QString & )\fC [virtual]\fR"
+.SH "void QButton::setText ( const TQString & )\fC [virtual]\fR"
 Sets the text shown on the button. See the "text" property for details.
 .SH "void QPushButton::setToggleButton ( bool )"
 Sets whether the button is a toggle button. See the "toggleButton" property for details.
@@ -332,7 +332,7 @@ This signal is emitted whenever a toggle button changes state. \fIstate\fR is On
 This may be the result of a user action, toggle() slot activation, setState(), or because setOn() was called.
 .PP
 See also clicked() and QButton::ToggleState.
-.SH "QString QButton::text () const"
+.SH "TQString QButton::text () const"
 Returns the text shown on the button. See the "text" property for details.
 .SH "void QButton::toggle ()\fC [slot]\fR"
 Toggles the state of a toggle button.
@@ -358,7 +358,7 @@ This property holds whether the push button is the auto default button.
 .PP
 If this property is set to TRUE then the push button is the auto default button in a dialog.
 .PP
-In some GUI styles a default button is drawn with an extra frame around it, up to 3 pixels or more. Qt automatically keeps this space free around auto-default buttons, i.e. auto-default buttons may have a slightly larger size hint.
+In some GUI styles a default button is drawn with an extra frame around it, up to 3 pixels or more. TQt automatically keeps this space free around auto-default buttons, i.e. auto-default buttons may have a slightly larger size hint.
 .PP
 This property's default is TRUE for buttons that have a QDialog parent; otherwise it defaults to FALSE.
 .PP
@@ -368,7 +368,7 @@ Set this property's value with setAutoDefault() and get this property's value wi
 .SH "bool autoMask"
 This property holds whether the button is automatically masked.
 .PP
-See also QWidget::autoMask.
+See also TQWidget::autoMask.
 .SH "bool autoRepeat"
 This property holds whether autoRepeat is enabled.
 .PP
@@ -425,10 +425,10 @@ If the pixmap is monochrome (i.e. it is a QBitmap or its depth is 1) and it does
 pixmap() returns 0 if no pixmap was set.
 .PP
 Set this property's value with setPixmap() and get this property's value with pixmap().
-.SH "QString text"
+.SH "TQString text"
 This property holds the text shown on the button.
 .PP
-This property will return a QString::null if the button has no text. If the text has an ampersand (&) in it, then an accelerator is automatically created for it using the character that follows the '&' as the accelerator key. Any previous accelerator will be overwritten, or cleared if no accelerator is defined by the text.
+This property will return a TQString::null if the button has no text. If the text has an ampersand (&) in it, then an accelerator is automatically created for it using the character that follows the '&' as the accelerator key. Any previous accelerator will be overwritten, or cleared if no accelerator is defined by the text.
 .PP
 There is no default text.
 .PP
@@ -456,8 +456,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

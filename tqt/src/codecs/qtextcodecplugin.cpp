@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqtextcodecplugin.h"
-#ifndef QT_NO_TEXTCODECPLUGIN
+#ifndef TQT_NO_TEXTCODECPLUGIN
 #include "qtextcodecinterface_p.h"
 
 /*!
@@ -55,7 +55,7 @@
     Writing a text codec plugin is achieved by subclassing this base
     class, reimplementing the pure virtual functions names(),
     createForName(), mibEnums() and createForMib(), and exporting the
-    class with the \c Q_EXPORT_PLUGIN macro. See the \link
+    class with the \c TQ_EXPORT_PLUGIN macro. See the \link
     plugins-howto.html TQt Plugins documentation \endlink for details.
 
     See the \link http://www.iana.org/assignments/character-sets IANA
@@ -112,7 +112,7 @@ public:
     virtual ~TQTextCodecPluginPrivate();
 
     TQRESULT queryInterface( const TQUuid &iid, TQUnknownInterface **iface );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
     TQTextCodec *createForMib( int mib );
@@ -166,7 +166,7 @@ TQTextCodec *TQTextCodecPluginPrivate::createForName( const TQString &name )
 
 /*!
     Constructs a text codec plugin. This is invoked automatically by
-    the \c Q_EXPORT_PLUGIN macro.
+    the \c TQ_EXPORT_PLUGIN macro.
 */
 TQTextCodecPlugin::TQTextCodecPlugin()
     : TQGPlugin( d = new TQTextCodecPluginPrivate( this ) )
@@ -183,4 +183,4 @@ TQTextCodecPlugin::~TQTextCodecPlugin()
 {
 }
 
-#endif // QT_NO_TEXTCODECPLUGIN
+#endif // TQT_NO_TEXTCODECPLUGIN

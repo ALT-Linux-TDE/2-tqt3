@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqapplication.h"
-#ifndef QT_NO_EFFECTS
+#ifndef TQT_NO_EFFECTS
 #include "ntqwidget.h"
 #include "qeffects_p.h"
 #include "ntqpixmap.h"
@@ -109,7 +109,7 @@ TQAlphaWidget::TQAlphaWidget( TQWidget* w, WFlags f )
     : TQWidget( TQApplication::desktop()->screen(TQApplication::desktop()->screenNumber(w)),
                "qt internal alpha effect widget", f )
 {
-#if 1 //ndef Q_WS_WIN
+#if 1 //ndef TQ_WS_WIN
     setEnabled( FALSE );
 #endif
 
@@ -166,7 +166,7 @@ void TQAlphaWidget::run( int time )
 	show();
         setEnabled(FALSE);
 
-	connect( &anim, SIGNAL(timeout()), this, SLOT(render()));
+	connect( &anim, TQ_SIGNAL(timeout()), this, TQ_SLOT(render()));
 	anim.start( 1 );
     } else {
 	duration = 0;
@@ -191,7 +191,7 @@ bool TQAlphaWidget::eventFilter( TQObject* o, TQEvent* e )
 	if ( o != widget )
 	    break;
     case TQEvent::MouseButtonPress:
-#ifndef QT_NO_SCROLLVIEW
+#ifndef TQT_NO_SCROLLVIEW
 	if ( ::tqt_cast<TQScrollView*>(o) )
 	    break;
 #endif
@@ -255,7 +255,7 @@ void TQAlphaWidget::render()
 
 	if ( widget ) {
 	    if ( !showWidget ) {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
                 setEnabled(TRUE);
                 setFocus();
 #endif
@@ -381,7 +381,7 @@ TQRollEffect::TQRollEffect( TQWidget* w, WFlags f, DirFlags orient )
     : TQWidget( TQApplication::desktop()->screen(TQApplication::desktop()->screenNumber(w)),
                "qt internal roll effect widget", f ), orientation(orient)
 {
-#if 1 //ndef Q_WS_WIN
+#if 1 //ndef TQ_WS_WIN
     setEnabled( FALSE );
 #endif
     widget = (TQAccessWidget*) w;
@@ -443,7 +443,7 @@ bool TQRollEffect::eventFilter( TQObject* o, TQEvent* e )
 	scroll();
 	break;
     case TQEvent::MouseButtonPress:
-#ifndef QT_NO_SCROLLVIEW
+#ifndef TQT_NO_SCROLLVIEW
 	if ( ::tqt_cast<TQScrollView*>(o) )
 	    break;
 #endif
@@ -509,7 +509,7 @@ void TQRollEffect::run( int time )
 	duration = TQMIN( TQMAX( dist/3, 50 ), 120 );
     }
 
-    connect( &anim, SIGNAL(timeout()), this, SLOT(scroll()));
+    connect( &anim, TQ_SIGNAL(timeout()), this, TQ_SLOT(scroll()));
 
     widget->setWState( WState_Visible );
 
@@ -584,7 +584,7 @@ void TQRollEffect::scroll()
 	tqApp->removeEventFilter( this );
 	if ( widget ) {
 	    if ( !showWidget ) {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
                 setEnabled(TRUE);
                 setFocus();
 #endif
@@ -635,7 +635,7 @@ void qScrollEffect( TQWidget* w, TQEffects::DirFlags orient, int time )
 
     tqApp->sendPostedEvents( w, TQEvent::Move );
     tqApp->sendPostedEvents( w, TQEvent::Resize );
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     uint flags = TQt::WStyle_Customize | TQt::WNoAutoErase | TQt::WStyle_StaysOnTop
 	| (w->isPopup() ? TQt::WType_Popup : (TQt::WX11BypassWM | TQt::WStyle_Tool));
 #else
@@ -660,7 +660,7 @@ void qFadeEffect( TQWidget* w, int time )
     tqApp->sendPostedEvents( w, TQEvent::Move );
     tqApp->sendPostedEvents( w, TQEvent::Resize );
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     uint flags = TQt::WStyle_Customize | TQt::WNoAutoErase | TQt::WStyle_StaysOnTop
 	| (w->isPopup() ? TQt::WType_Popup : (TQt::WX11BypassWM | TQt::WStyle_Tool));
 #else
@@ -672,4 +672,4 @@ void qFadeEffect( TQWidget* w, int time )
 
     q_blend->run( time );
 }
-#endif //QT_NO_EFFECTS
+#endif //TQT_NO_EFFECTS

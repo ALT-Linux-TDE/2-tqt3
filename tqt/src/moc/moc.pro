@@ -2,8 +2,8 @@ TEMPLATE	= app
 TARGET		= tqmoc
 
 CONFIG 		= console release qtinc yacc lex_included yacc_no_name_mangle
-DEFINES	       += QT_MOC QT_NO_CODECS QT_LITE_UNICODE QT_NO_COMPONENT \
-		  QT_NO_STL QT_NO_COMPRESS
+DEFINES	       += QT_MOC TQT_NO_CODECS QT_LITE_UNICODE TQT_NO_COMPONENT \
+		  TQT_NO_STL TQT_NO_COMPRESS
 win32:DEFINES  += QT_NODLL
 DESTDIR         = ../../bin
 

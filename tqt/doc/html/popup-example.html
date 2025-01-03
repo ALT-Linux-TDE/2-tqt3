@@ -167,9 +167,9 @@ void <a name="f469"></a>FancyPopup::popup( <a href="ntqwidget.html">TQWidget</a>
 
 <a name="f470"></a>Frame::Frame(TQWidget* parent, const char* name): <a href="ntqframe.html">TQFrame</a>(parent, name){
     button1 = new <a href="ntqpushbutton.html">TQPushButton</a>("Simple Popup", this);
-    <a href="ntqobject.html#connect">connect</a> ( button1, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), SLOT( button1Clicked() ) );
+    <a href="ntqobject.html#connect">connect</a> ( button1, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), TQ_SLOT( button1Clicked() ) );
     button2 = new <a href="ntqpushbutton.html">TQPushButton</a>("Fancy Popup", this);
-<a name="x1606"></a>    <a href="ntqobject.html#connect">connect</a> ( button2, SIGNAL( <a href="ntqbutton.html#pressed">pressed</a>() ), SLOT( button2Pressed() ) );
+<a name="x1606"></a>    <a href="ntqobject.html#connect">connect</a> ( button2, TQ_SIGNAL( <a href="ntqbutton.html#pressed">pressed</a>() ), TQ_SLOT( button2Pressed() ) );
 
     <a href="qboxlayout.html">TQBoxLayout</a> * l = new <a href="qhboxlayout.html">TQHBoxLayout</a>( this );
 <a name="x1627"></a><a name="x1614"></a>    button1-&gt;<a href="ntqwidget.html#setMaximumSize">setMaximumSize</a>(button1-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>());
@@ -189,11 +189,11 @@ void <a name="f469"></a>FancyPopup::popup( <a href="ntqwidget.html">TQWidget</a>
     popup1-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( WinPanel|Raised );
     popup1-&gt;<a href="ntqwidget.html#resize">resize</a>(150,100);
     <a href="ntqlineedit.html">TQLineEdit</a> *tmpE = new <a href="ntqlineedit.html">TQLineEdit</a>( popup1 );
-<a name="x1619"></a><a name="x1610"></a>    <a href="ntqobject.html#connect">connect</a>( tmpE, SIGNAL( <a href="ntqlineedit.html#returnPressed">returnPressed</a>() ), popup1, SLOT( <a href="ntqwidget.html#hide">hide</a>() ) );
+<a name="x1619"></a><a name="x1610"></a>    <a href="ntqobject.html#connect">connect</a>( tmpE, TQ_SIGNAL( <a href="ntqlineedit.html#returnPressed">returnPressed</a>() ), popup1, TQ_SLOT( <a href="ntqwidget.html#hide">hide</a>() ) );
 <a name="x1626"></a>    tmpE-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>(10,10, 130, 30);
 <a name="x1625"></a>    tmpE-&gt;<a href="ntqwidget.html#setFocus">setFocus</a>();
     <a href="ntqpushbutton.html">TQPushButton</a> *tmpB = new <a href="ntqpushbutton.html">TQPushButton</a>("Click me!", popup1);
-<a name="x1616"></a>    <a href="ntqobject.html#connect">connect</a>( tmpB, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), popup1, SLOT( <a href="ntqwidget.html#close">close</a>() ) );
+<a name="x1616"></a>    <a href="ntqobject.html#connect">connect</a>( tmpB, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), popup1, TQ_SLOT( <a href="ntqwidget.html#close">close</a>() ) );
     tmpB-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>(10, 50, 130, 30);
 
     // the fancier version uses its own class. It will be shown when
@@ -208,7 +208,7 @@ void <a name="f469"></a>FancyPopup::popup( <a href="ntqwidget.html">TQWidget</a>
 
 //     tmpE = new <a href="ntqlineedit.html">TQLineEdit</a>( popup2 );
 //     tmpE-&gt;<a href="ntqwidget.html#setFocus">setFocus</a>();
-//     connect( tmpE, SIGNAL( <a href="ntqlineedit.html#returnPressed">returnPressed</a>() ), popup2, SLOT( <a href="ntqwidget.html#close">close</a>() ) );
+//     connect( tmpE, TQ_SIGNAL( <a href="ntqlineedit.html#returnPressed">returnPressed</a>() ), popup2, TQ_SLOT( <a href="ntqwidget.html#close">close</a>() ) );
 //     tmpE-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>(10, 10, 130, 30);
 }
 

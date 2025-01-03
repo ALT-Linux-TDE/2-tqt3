@@ -127,14 +127,14 @@ private:
             const <a href="ntqstring.html">TQString</a> &amp;body )
 {
     socket = new <a href="ntqsocket.html">TQSocket</a>( this );
-<a name="x714"></a>    <a href="ntqobject.html#connect">connect</a> ( socket, SIGNAL( <a href="ntqsocket.html#readyRead">readyRead</a>() ),
-              this, SLOT( readyRead() ) );
-<a name="x711"></a>    <a href="ntqobject.html#connect">connect</a> ( socket, SIGNAL( <a href="ntqsocket.html#connected">connected</a>() ),
-              this, SLOT( connected() ) );
+<a name="x714"></a>    <a href="ntqobject.html#connect">connect</a> ( socket, TQ_SIGNAL( <a href="ntqsocket.html#readyRead">readyRead</a>() ),
+              this, TQ_SLOT( readyRead() ) );
+<a name="x711"></a>    <a href="ntqobject.html#connect">connect</a> ( socket, TQ_SIGNAL( <a href="ntqsocket.html#connected">connected</a>() ),
+              this, TQ_SLOT( connected() ) );
 
 <a name="x717"></a><a name="x715"></a>    mxLookup = new <a href="ntqdns.html">TQDns</a>( to.<a href="ntqstring.html#mid">mid</a>( to.<a href="ntqstring.html#find">find</a>( '@' )+1 ), TQDns::Mx );
-<a name="x707"></a>    <a href="ntqobject.html#connect">connect</a>( mxLookup, SIGNAL(<a href="ntqdns.html#resultsReady">resultsReady</a>()),
-             this, SLOT(dnsLookupHelper()) );
+<a name="x707"></a>    <a href="ntqobject.html#connect">connect</a>( mxLookup, TQ_SIGNAL(<a href="ntqdns.html#resultsReady">resultsReady</a>()),
+             this, TQ_SLOT(dnsLookupHelper()) );
 
 <a name="x716"></a>    message = TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "From: " ) + from +
               TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "\nTo: " ) + to +

@@ -181,7 +181,7 @@ passing the TQMainWindow instance as the parent instead of the <em>this</em> poi
 <pre>        <a href="ntqpopupmenu.html">TQPopupMenu</a> * help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
         <a href="#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", help );
 
-        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, SLOT(about()), Key_F1 );
+        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), Key_F1 );
 </pre>
 <p> Here we've added a new menu with one menu item. The menu has been
 inserted into the menu bar that TQMainWindow provides by default
@@ -193,7 +193,7 @@ will be called when the menu item is clicked.
         fileTools-&gt;<a href="ntqtoolbar.html#setLabel">setLabel</a>( "File Operations" );
 </pre><pre>        TQToolButton * fileOpen
             = new <a href="ntqtoolbutton.html">TQToolButton</a>( openIcon, "Open File", <a href="ntqstring.html#TQString-null">TQString::null</a>,
-                               this, SLOT(choose()), fileTools, "open file" );
+                               this, TQ_SLOT(choose()), fileTools, "open file" );
 </pre>
 <p> This extract shows the creation of a toolbar with one toolbar
 button. TQMainWindow supplies four dock areas for toolbars. When a
@@ -228,7 +228,7 @@ to the toolbar and menu.
 <pre>        <a href="ntqaction.html">TQAction</a> * fileOpenAction;
 </pre><pre>        fileOpenAction = new <a href="ntqaction.html">TQAction</a>( TQPixmap( fileopen ), "&amp;Open...",
                                       CTRL+Key_O, this, "open" );
-        <a href="ntqobject.html#connect">connect</a>( fileOpenAction, SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this, SLOT( choose() ) );
+        <a href="ntqobject.html#connect">connect</a>( fileOpenAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ) , this, TQ_SLOT( choose() ) );
 </pre>
 <p> Here we create an action with an icon which will be used in any
 menu and toolbar that the action is added to. We've also given the
@@ -853,7 +853,7 @@ implemented as a main window object's slot. This way it can easily
 be used for popup menus, for example:
 <p> <pre>
     <a href="ntqpopupmenu.html">TQPopupMenu</a> * help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this , SLOT(<a href="#whatsThis">whatsThis</a>()), SHIFT+Key_F1);
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this , TQ_SLOT(<a href="#whatsThis">whatsThis</a>()), SHIFT+Key_F1);
     </pre>
  
 <p> <p>See also <a href="ntqwhatsthis.html#enterWhatsThisMode">TQWhatsThis::enterWhatsThisMode</a>().

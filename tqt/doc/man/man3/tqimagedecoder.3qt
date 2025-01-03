@@ -20,7 +20,7 @@ QImageDecoder \- Incremental image decoder for all supported image formats
 .BI "\fB~QImageDecoder\fR ()"
 .br
 .ti -1c
-.BI "const QImage & \fBimage\fR ()"
+.BI "const TQImage & \fBimage\fR ()"
 .br
 .ti -1c
 .BI "int \fBdecode\fR ( const uchar * buffer, int length )"
@@ -75,7 +75,7 @@ Returns a QImageFormatType by name. This might be used when the user needs to fo
 Call this function to find the name of the format of the given header. The returned string is statically allocated. The function will look at the first \fIlength\fR characters in the \fIbuffer\fR.
 .PP
 Returns 0 if the format is not recognized.
-.SH "const QImage & QImageDecoder::image ()"
+.SH "const TQImage & QImageDecoder::image ()"
 Returns the image currently being decoded.
 .SH "QStrList QImageDecoder::inputFormats ()\fC [static]\fR"
 Returns a sorted list of formats for which asynchronous loading is supported.
@@ -99,8 +99,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

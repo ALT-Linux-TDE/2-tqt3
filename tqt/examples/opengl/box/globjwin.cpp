@@ -25,7 +25,7 @@ GLObjectWindow::GLObjectWindow( TQWidget* parent, const char* name )
 
     // Create a menu
     TQPopupMenu *file = new TQPopupMenu( this );
-    file->insertItem( "Exit",  tqApp, SLOT(quit()), CTRL+Key_Q );
+    file->insertItem( "Exit",  tqApp, TQ_SLOT(quit()), CTRL+Key_Q );
 
     // Create a menu bar
     TQMenuBar *m = new TQMenuBar( this );
@@ -43,15 +43,15 @@ GLObjectWindow::GLObjectWindow( TQWidget* parent, const char* name )
     // Create the three sliders; one for each rotation axis
     TQSlider* x = new TQSlider ( 0, 360, 60, 0, TQSlider::Vertical, this, "xsl" );
     x->setTickmarks( TQSlider::Left );
-    TQObject::connect( x, SIGNAL(valueChanged(int)),c,SLOT(setXRotation(int)) );
+    TQObject::connect( x, TQ_SIGNAL(valueChanged(int)),c,TQ_SLOT(setXRotation(int)) );
 
     TQSlider* y = new TQSlider ( 0, 360, 60, 0, TQSlider::Vertical, this, "ysl" );
     y->setTickmarks( TQSlider::Left );
-    TQObject::connect( y, SIGNAL(valueChanged(int)),c,SLOT(setYRotation(int)) );
+    TQObject::connect( y, TQ_SIGNAL(valueChanged(int)),c,TQ_SLOT(setYRotation(int)) );
 
     TQSlider* z = new TQSlider ( 0, 360, 60, 0, TQSlider::Vertical, this, "zsl" );
     z->setTickmarks( TQSlider::Left );
-    TQObject::connect( z, SIGNAL(valueChanged(int)),c,SLOT(setZRotation(int)) );
+    TQObject::connect( z, TQ_SIGNAL(valueChanged(int)),c,TQ_SLOT(setZRotation(int)) );
 
 
     // Now that we have all the widgets, put them into a nice layout

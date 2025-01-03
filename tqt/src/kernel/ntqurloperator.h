@@ -49,12 +49,12 @@
 #include "ntqstringlist.h" // TQString->TQStringList conversion
 #endif // QT_H
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
 
 class TQUrlInfo;
 class TQUrlOperatorPrivate;
 
-class Q_EXPORT TQUrlOperator : public TQObject, public TQUrl
+class TQ_EXPORT TQUrlOperator : public TQObject, public TQUrl
 {
     friend class TQNetworkProtocol;
 
@@ -124,6 +124,6 @@ private:
     TQUrlOperatorPrivate *d;
 };
 
-#endif // QT_NO_NETWORKPROTOCOL
+#endif // TQT_NO_NETWORKPROTOCOL
 
 #endif // TQURLOPERATOR_H

@@ -82,7 +82,7 @@ body { background: #ffffff; color: black; }
 #endif // QT_H
 
 
-class Q_EXPORT TQBitmap : public TQPixmap
+class TQ_EXPORT TQBitmap : public TQPixmap
 {
 public:
     TQBitmap();
@@ -93,14 +93,14 @@ public:
     TQBitmap( int w, int h,  const uchar *bits, bool isXbitmap=FALSE );
     TQBitmap( const TQSize &amp;, const uchar *bits, bool isXbitmap=FALSE );
     TQBitmap( const TQBitmap &amp; );
-#ifndef QT_NO_IMAGEIO
+#ifndef TQT_NO_IMAGEIO
     TQBitmap( const TQString &amp;fileName, const char *format=0 );
 #endif
     TQBitmap &amp;operator=( const TQBitmap &amp; );
     TQBitmap &amp;operator=( const TQPixmap &amp; );
     TQBitmap &amp;operator=( const TQImage  &amp; );
 
-#ifndef QT_NO_PIXMAP_TRANSFORMATION
+#ifndef TQT_NO_PIXMAP_TRANSFORMATION
     TQBitmap  xForm( const TQWMatrix &amp; ) const;
 #endif
 };

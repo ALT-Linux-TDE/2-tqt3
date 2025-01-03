@@ -38,7 +38,7 @@
 **
 **********************************************************************/
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 
 #include "qplatformdefs.h"
 
@@ -313,4 +313,4 @@ bool TQWaitCondition::wait(TQMutex *mutex, unsigned long time)
     return (ret == 0);
 }
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT

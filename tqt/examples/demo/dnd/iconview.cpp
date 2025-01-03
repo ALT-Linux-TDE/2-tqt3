@@ -7,8 +7,8 @@
 IconView::IconView( TQWidget* parent, const char* name )
     : TQIconView( parent, name )
 {
-    connect( this, SIGNAL(dropped(TQDropEvent*, const TQValueList<TQIconDragItem>&)),
-             SLOT(slotNewItem(TQDropEvent*, const TQValueList<TQIconDragItem>&)));
+    connect( this, TQ_SIGNAL(dropped(TQDropEvent*, const TQValueList<TQIconDragItem>&)),
+             TQ_SLOT(slotNewItem(TQDropEvent*, const TQValueList<TQIconDragItem>&)));
 }
 
 IconView::~IconView()

@@ -40,7 +40,7 @@
 
 #include "ntqcdestyle.h"
 
-#if !defined(QT_NO_STYLE_CDE) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_CDE) || defined(QT_PLUGIN)
 
 #include "ntqpainter.h"
 #include "ntqdrawutil.h"
@@ -153,7 +153,7 @@ void TQCDEStyle::drawPrimitive( PrimitiveElement pe,
 {
     switch( pe ) {
     case PE_Indicator: {
-#ifndef QT_NO_BUTTON
+#ifndef TQT_NO_BUTTON
 	bool down = flags & Style_Down;
 	bool on = flags & Style_On;
 	bool showUp = !( down ^ on );

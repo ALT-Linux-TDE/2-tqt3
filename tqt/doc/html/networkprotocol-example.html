@@ -116,16 +116,16 @@ protected slots:
 {
     // create the command socket and connect to its signals
     commandSocket = new <a href="ntqsocket.html">TQSocket</a>( this );
-<a name="x684"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, SIGNAL( <a href="ntqsocket.html#hostFound">hostFound</a>() ),
-             this, SLOT( hostFound() ) );
-<a name="x681"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, SIGNAL( <a href="ntqsocket.html#connected">connected</a>() ),
-             this, SLOT( connected() ) );
-<a name="x682"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, SIGNAL( <a href="ntqsocket.html#connectionClosed">connectionClosed</a>() ),
-             this, SLOT( closed() ) );
-<a name="x687"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, SIGNAL( <a href="ntqsocket.html#readyRead">readyRead</a>() ),
-             this, SLOT( readyRead() ) );
-<a name="x683"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, SIGNAL( <a href="ntqsocket.html#error">error</a>( int ) ),
-             this, SLOT( error( int ) ) );
+<a name="x684"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, TQ_SIGNAL( <a href="ntqsocket.html#hostFound">hostFound</a>() ),
+             this, TQ_SLOT( hostFound() ) );
+<a name="x681"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, TQ_SIGNAL( <a href="ntqsocket.html#connected">connected</a>() ),
+             this, TQ_SLOT( connected() ) );
+<a name="x682"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, TQ_SIGNAL( <a href="ntqsocket.html#connectionClosed">connectionClosed</a>() ),
+             this, TQ_SLOT( closed() ) );
+<a name="x687"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, TQ_SIGNAL( <a href="ntqsocket.html#readyRead">readyRead</a>() ),
+             this, TQ_SLOT( readyRead() ) );
+<a name="x683"></a>    <a href="ntqobject.html#connect">connect</a>( commandSocket, TQ_SIGNAL( <a href="ntqsocket.html#error">error</a>( int ) ),
+             this, TQ_SLOT( error( int ) ) );
 }
 
 Nntp::~Nntp()

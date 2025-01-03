@@ -47,13 +47,13 @@
 #include "ntqlineedit.h"
 #endif // QT_H
 
-#ifndef QT_NO_INPUTDIALOG
+#ifndef TQT_NO_INPUTDIALOG
 
 class TQSpinBox;
 class TQComboBox;
 class TQInputDialogPrivate;
 
-class Q_EXPORT TQInputDialog : public TQDialog
+class TQ_EXPORT TQInputDialog : public TQDialog
 {
     TQ_OBJECT
 
@@ -101,7 +101,7 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_INPUTDIALOG
+#endif // TQT_NO_INPUTDIALOG
 
 #endif // TQINPUTDIALOG_H
 

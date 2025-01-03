@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -47,7 +47,7 @@
 \title Network Module
 
 \if defined(commercial)
-This module is part of the \link commercialeditions.html Qt Enterprise Edition \endlink.
+This module is part of the \link commercialeditions.html TQt Enterprise Edition \endlink.
 \endif
 
 \tableofcontents
@@ -60,7 +60,7 @@ and portable. Essentially, there are three sets of classes, first low
 level classes like \l QSocket, \l QServerSocket, \l QDns, etc. which
 allow you to work in a portable way with TCP/IP sockets. In addition,
 there are classes like \l QNetworkProtocol, \l QNetworkOperation in
-the Qt base library, which provide an abstract layer for implementing
+the TQt base library, which provide an abstract layer for implementing
 network protocols and \c QUrlOperator which operates on such network
 protocols. Finally the third set of network classes are the passive
 ones, specifically \c QUrl and \c QUrlInfo which do URL parsing and
@@ -164,14 +164,14 @@ on a FTP server):
 \code
 QUrlOperator op;
 
-MyClass::MyClass() : QObject(), op( "ftp://ftp.trolltech.com" )
+MyClass::MyClass() : TQObject(), op( "ftp://ftp.trolltech.com" )
 {
-    connect( &op, SIGNAL( newChildren( const QValueList<QUrlInfo> &, QNetworkOperation * ) ),
-	     this, SLOT( slotInsertEntries( const QValueList<QUrlInfo> &, QNetworkOperation * ) ) );
-    connect( &op, SIGNAL( start( QNetworkOperation * ) ),
-	     this, SLOT( slotStart( QNetworkOperation *) ) );
-    connect( &op, SIGNAL( finished( QNetworkOperation * ) ),
-	     this, SLOT( slotFinished( QNetworkOperation *) ) );
+    connect( &op, TQ_SIGNAL( newChildren( const QValueList<QUrlInfo> &, QNetworkOperation * ) ),
+	     this, TQ_SLOT( slotInsertEntries( const QValueList<QUrlInfo> &, QNetworkOperation * ) ) );
+    connect( &op, TQ_SIGNAL( start( QNetworkOperation * ) ),
+	     this, TQ_SLOT( slotStart( QNetworkOperation *) ) );
+    connect( &op, TQ_SIGNAL( finished( QNetworkOperation * ) ),
+	     this, TQ_SLOT( slotFinished( QNetworkOperation *) ) );
 }
 
 void MyClass::slotInsertEntries( const QValueList<QUrlInfo> &info, QNetworkOperation * )

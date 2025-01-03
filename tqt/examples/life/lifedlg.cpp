@@ -55,14 +55,14 @@ LifeDialog::LifeDialog( int scale, TQWidget * parent, const char * name )
     life->move( SIDEBORDER, TOPBORDER );
 
 
-    connect( qb, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( qb, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
     qb->setGeometry( SIDEBORDER, SIDEBORDER, qb->sizeHint().width(), 25 );
     timer = new LifeTimer( this );
 
-    connect( timer, SIGNAL(timeout()), life, SLOT(nextGeneration()) );
+    connect( timer, TQ_SIGNAL(timeout()), life, TQ_SLOT(nextGeneration()) );
     pb = new TQPushButton( "Pause", this );
     pb->setToggleButton( TRUE );
-    connect( pb, SIGNAL(toggled(bool)), timer, SLOT(pause(bool)) );
+    connect( pb, TQ_SIGNAL(toggled(bool)), timer, TQ_SLOT(pause(bool)) );
     pb->resize( pb->sizeHint().width(), 25 );
     pb->move( width() - SIDEBORDER - pb->width(), SIDEBORDER );
 
@@ -72,8 +72,8 @@ LifeDialog::LifeDialog( int scale, TQWidget * parent, const char * name )
     scroll = new TQSlider( 0, LifeTimer::MAXSPEED, 50,
 			     LifeTimer::MAXSPEED / 2,
 			     TQSlider::Horizontal, this );
-    connect( scroll, SIGNAL(valueChanged(int)),
-	     timer,  SLOT(setSpeed(int)) );
+    connect( scroll, TQ_SIGNAL(valueChanged(int)),
+	     timer,  TQ_SLOT(setSpeed(int)) );
 
     scroll->move( sp->width() + 2 * SIDEBORDER, 45 );
     scroll->resize( 200, 15 );
@@ -118,7 +118,7 @@ LifeDialog::LifeDialog( int scale, TQWidget * parent, const char * name )
     cb->setAutoResize( FALSE );
     cb->setCurrentItem( sel );
     cb->show();
-    connect( cb, SIGNAL(activated(int)), SLOT(getPattern(int)) );
+    connect( cb, TQ_SIGNAL(activated(int)), TQ_SLOT(getPattern(int)) );
 
     TQSize s;
     s = life->minimumSize();

@@ -4,7 +4,7 @@
   \ingroup examples
   \title Helpsystem
 
-  This example demonstrates the different Qt classes
+  This example demonstrates the different TQt classes
   that can be used to provide context sensitive help
   in an application.
 
@@ -12,7 +12,7 @@
   dynamic balloon help for the widgets in the application, and 
   QToolTipGroup to display extended information for each tooltip
   in the statusbar. QAssistantClient is used to display help 
-  pages using Qt Assistant. 
+  pages using TQt Assistant. 
 
   The application has a user interface based on a 
   QMainWindow with a menubar, statusbar and a toolbar, and uses 
@@ -25,7 +25,7 @@
   QHeader and QTable by reimplementing maybeTip(). The 
   constructors differ from the QToolTip constructor in having a 
   QHeader and a QTable respectively as the first parameter for 
-  the constructor instead of a QWidget. This is because 
+  the constructor instead of a TQWidget. This is because 
   we want to ensure that only headers and tables can be 
   passed as arguments. A QToolTipGroup can be provided as the
   second argument to show tooltips in, for example a statusbar.
@@ -76,9 +76,9 @@
   \skipto WhatsThis::WhatsThis
 
 
-  The WhatsThis class is a subclass of both QObject and 
+  The WhatsThis class is a subclass of both TQObject and 
   QWhatsThis and serves as a base class for the HeaderWhatsThis
-  and TableWhatsThis classes. \footnote Note that moc requires that QObject
+  and TableWhatsThis classes. \footnote Note that moc requires that TQObject
   is the first base class. \endfootnote WhatsThis 
   reimplements clicked() which will be called when the user clicks
   inside the "What's this?" window. It also declares a signal 
@@ -91,8 +91,8 @@
   but some widgets, like QTable, are more complex and have a 
   viewport() widget which receives the events. If such a widget
   is passed to the constructor it will propagate the parameter to 
-  the QWhatsThis constructor and store the QWidget pointer itself 
-  in it's member variable to allow easier use of the QWidget API 
+  the QWhatsThis constructor and store the TQWidget pointer itself 
+  in it's member variable to allow easier use of the TQWidget API 
   later on.
   \skipto bool WhatsThis::clicked
   \printuntil }
@@ -124,7 +124,7 @@
   a string which states the header's orientation and section.
   \footnote
   Note that we have to explicitly scope the orientation
-  (QObject or QWhatsThis) since HeaderWhatsThis uses multiple 
+  (TQObject or QWhatsThis) since HeaderWhatsThis uses multiple 
   inheritance. \endfootnote 
   \printuntil }
 
@@ -148,22 +148,22 @@
   \printuntil };
 
   A QMainWindow is used to create a user interface that uses the 
-  above classes in addition to Qt Assistant to provide context
+  above classes in addition to TQt Assistant to provide context
   sensitive help in the application.
 
   The MainWindow class declares a slot called assistantSlot() 
-  which creates an instance of Qt Assistant when it is called. 
+  which creates an instance of TQt Assistant when it is called. 
   The class keeps references to the tooltip classes as members
   because they are not QObjects and need to be deleted explicitly.
   The class has a reference to QAssistantClient as a 
-  member as well, to allow easier access to Qt Assistant later on.
+  member as well, to allow easier access to TQt Assistant later on.
 
   \quotefile helpsystem/mainwindow.cpp
   \skipto MainWindow::MainWindow
   \printuntil assistant
   
   The MainWindow constructor creates an instance of 
-  QAssistantClient using QString::null as the first argument
+  QAssistantClient using TQString::null as the first argument
   so that the system path is used.
   \printto QWhatsThis::whatsThisButton
   
@@ -195,19 +195,19 @@
   \printto MainWindow::~MainWindow
    
   Signals and slots are connected, so that the relevant pages will
-  be displayed in Qt Assistant when clicking on a hyperlink or on
+  be displayed in TQt Assistant when clicking on a hyperlink or on
   the assistant button.
   \printuntil }
 
   The destructor deletes the tooltips. We need to delete the 
   tooltips explicitly since QToolTip is, as mentioned above, not 
-  a subclass of QObject and the instances of QToolTip not will be
+  a subclass of TQObject and the instances of QToolTip not will be
   deleted when the widget is deleted.
   \printuntil }  
 
   The assistantSlot() uses applicationDirPath() to find the 
   location of the documentation files and shows the specified page
-  in Qt Assistant.
+  in TQt Assistant.
   \quotefile helpsystem/main.cpp
   \skipto #include
   \printuntil }
@@ -216,6 +216,6 @@
   the application main window.
   
   To build the example go to the helpsystem directory
-  (QTDIR/examples/helpsystem) run qmake to generate the makefile, 
+  (TQTDIR/examples/helpsystem) run qmake to generate the makefile, 
   and use the make tool to build the library. 
 */

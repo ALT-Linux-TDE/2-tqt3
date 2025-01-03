@@ -46,8 +46,8 @@
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifndef QT_NO_DATASTREAM
-class Q_EXPORT TQDataStream				// data stream class
+#ifndef TQT_NO_DATASTREAM
+class TQ_EXPORT TQDataStream				// data stream class
 {
 public:
     TQDataStream();
@@ -189,5 +189,5 @@ inline TQDataStream &TQDataStream::operator<<( TQ_ULONG i )
 { return *this << (TQ_LONG)i; }
 #endif
 
-#endif // QT_NO_DATASTREAM
+#endif // TQT_NO_DATASTREAM
 #endif // TQDATASTREAM_H

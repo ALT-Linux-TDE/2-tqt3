@@ -56,11 +56,11 @@
 #ifndef QT_H
 #include "ntqobject.h"
 #endif // QT_H
-#ifndef QT_NO_RESIZEHANDLER
+#ifndef TQT_NO_RESIZEHANDLER
 class TQMouseEvent;
 class TQKeyEvent;
 
-class Q_EXPORT TQWidgetResizeHandler : public TQObject
+class TQ_EXPORT TQWidgetResizeHandler : public TQObject
 {
     TQ_OBJECT
 
@@ -133,5 +133,5 @@ private:	// Disabled copy constructor and operator=
 
 };
 
-#endif //QT_NO_RESIZEHANDLER
+#endif //TQT_NO_RESIZEHANDLER
 #endif

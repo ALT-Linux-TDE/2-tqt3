@@ -41,7 +41,7 @@
 
 #include "ntqgridview.h"
 
-#ifndef QT_NO_GRIDVIEW
+#ifndef TQT_NO_GRIDVIEW
 
 #include "ntqpainter.h"
 
@@ -366,4 +366,4 @@ void TQGridView::dimensionChange( int, int ) {}
 
 */
 
-#endif // QT_NO_GRIDVIEW
+#endif // TQT_NO_GRIDVIEW

@@ -320,7 +320,7 @@ int main( int argc, char * argv[] )
 	out << "/****************************************************************************" << endl;
 	out << "** Form "<< (impl? "implementation" : "interface") << " generated from reading ui file '" << fileName << "'" << endl;
 	out << "**" << endl;
-	out << "** Created: " << TQDateTime::currentDateTime().toString() << endl;
+	out << "** Created by: The TQt user interface compiler (TQt " << TQT_VERSION_STR << ")" << endl;
 	out << "**" << endl;
 	out << "** WARNING! All changes made in this file will be lost!" << endl;
 	out << "****************************************************************************/" << endl << endl;

@@ -165,7 +165,7 @@ int main( int argc, char **argv )
 {
     <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
     ConnectWidget connect;
-#ifndef QT_NO_WIDGET_TOPEXTRA   // for TQt/Embedded minimal build
+#ifndef TQT_NO_WIDGET_TOPEXTRA   // for TQt/Embedded minimal build
     connect.<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Draw lines");
 #endif
     a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;connect );

@@ -21,7 +21,7 @@ Inherited by QHBoxLayout and QVBoxLayout.
 .BI "enum \fBDirection\fR { LeftToRight, RightToLeft, TopToBottom, BottomToTop, Down = TopToBottom, Up = BottomToTop }"
 .br
 .ti -1c
-.BI "\fBQBoxLayout\fR ( QWidget * parent, Direction d, int margin = 0, int spacing = -1, const char * name = 0 )"
+.BI "\fBQBoxLayout\fR ( TQWidget * parent, Direction d, int margin = 0, int spacing = -1, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fBQBoxLayout\fR ( QLayout * parentLayout, Direction d, int spacing = -1, const char * name = 0 )"
@@ -48,7 +48,7 @@ Inherited by QHBoxLayout and QVBoxLayout.
 .BI "void \fBaddStretch\fR ( int stretch = 0 )"
 .br
 .ti -1c
-.BI "void \fBaddWidget\fR ( QWidget * widget, int stretch = 0, int alignment = 0 )"
+.BI "void \fBaddWidget\fR ( TQWidget * widget, int stretch = 0, int alignment = 0 )"
 .br
 .ti -1c
 .BI "void \fBaddLayout\fR ( QLayout * layout, int stretch = 0 )"
@@ -63,13 +63,13 @@ Inherited by QHBoxLayout and QVBoxLayout.
 .BI "void \fBinsertStretch\fR ( int index, int stretch = 0 )"
 .br
 .ti -1c
-.BI "void \fBinsertWidget\fR ( int index, QWidget * widget, int stretch = 0, int alignment = 0 )"
+.BI "void \fBinsertWidget\fR ( int index, TQWidget * widget, int stretch = 0, int alignment = 0 )"
 .br
 .ti -1c
 .BI "void \fBinsertLayout\fR ( int index, QLayout * layout, int stretch = 0 )"
 .br
 .ti -1c
-.BI "bool \fBsetStretchFactor\fR ( QWidget * w, int stretch )"
+.BI "bool \fBsetStretchFactor\fR ( TQWidget * w, int stretch )"
 .br
 .ti -1c
 .BI "bool \fBsetStretchFactor\fR ( QLayout * l, int stretch )"
@@ -99,7 +99,7 @@ Inherited by QHBoxLayout and QVBoxLayout.
 .BI "virtual void \fBsetGeometry\fR ( const QRect & r )"
 .br
 .ti -1c
-.BI "int \fBfindWidget\fR ( QWidget * w )"
+.BI "int \fBfindWidget\fR ( TQWidget * w )"
 .br
 .in -1c
 .SS "Protected Members"
@@ -156,7 +156,7 @@ setSpacing() sets the width between neighboring boxes. (You can use addSpacing()
 .PP
 The margin defaults to 0. The spacing defaults to the same as the margin width for a top-level layout, or to the same as the parent layout. Both are parameters to the constructor.
 .PP
-To remove a widget from a layout, call remove(). Calling QWidget::hide() on a widget also effectively removes the widget from the layout until QWidget::show() is called.
+To remove a widget from a layout, call remove(). Calling TQWidget::hide() on a widget also effectively removes the widget from the layout until TQWidget::show() is called.
 .PP
 You will almost always want to use QVBoxLayout and QHBoxLayout rather than QBoxLayout because of their convenient constructors.
 .PP
@@ -177,7 +177,7 @@ This type is used to determine the direction of a box layout.
 .TP
 \fCQBoxLayout::Up\fR - The same as BottomToTop
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QBoxLayout::QBoxLayout ( QWidget * parent, Direction d, int margin = 0, int spacing = -1, const char * name = 0 )"
+.SH "QBoxLayout::QBoxLayout ( TQWidget * parent, Direction d, int margin = 0, int spacing = -1, const char * name = 0 )"
 Constructs a new QBoxLayout with direction \fId\fR and main widget \fIparent\fR. \fIparent\fR may not be 0.
 .PP
 The \fImargin\fR is the number of pixels between the edge of the widget and its managed children. The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1 the value of \fImargin\fR is used for \fIspacing\fR.
@@ -230,16 +230,16 @@ Examples:
 .)l layout/layout.cpp, listbox/listbox.cpp, regexptester/regexptester.cpp, and t13/gamebrd.cpp.
 .SH "void QBoxLayout::addStrut ( int size )"
 Limits the perpendicular dimension of the box (e.g. height if the box is LeftToRight) to a minimum of \fIsize\fR. Other constraints may increase the limit.
-.SH "void QBoxLayout::addWidget ( QWidget * widget, int stretch = 0, int alignment = 0 )"
+.SH "void QBoxLayout::addWidget ( TQWidget * widget, int stretch = 0, int alignment = 0 )"
 Adds \fIwidget\fR to the end of this box layout, with a stretch factor of \fIstretch\fR and alignment \fIalignment\fR.
 .PP
 The stretch factor applies only in the direction of the QBoxLayout, and is relative to the other boxes and widgets in this QBoxLayout. Widgets and boxes with higher stretch factors grow more.
 .PP
-If the stretch factor is 0 and nothing else in the QBoxLayout has a stretch factor greater than zero, the space is distributed according to the QWidget:sizePolicy() of each widget that's involved.
+If the stretch factor is 0 and nothing else in the QBoxLayout has a stretch factor greater than zero, the space is distributed according to the TQWidget:sizePolicy() of each widget that's involved.
 .PP
-Alignment is specified by \fIalignment\fR which is a bitwise OR of Qt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
+Alignment is specified by \fIalignment\fR which is a bitwise OR of TQt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
 .PP
-From Qt 3.0, the \fIalignment\fR parameter is interpreted more aggressively than in previous versions of Qt. A non-default alignment now indicates that the widget should not grow to fill the available space, but should be sized according to sizeHint().
+From TQt 3.0, the \fIalignment\fR parameter is interpreted more aggressively than in previous versions of Qt. A non-default alignment now indicates that the widget should not grow to fill the available space, but should be sized according to sizeHint().
 .PP
 See also insertWidget(), setAutoAdd(), addLayout(), and addSpacing().
 .PP
@@ -253,7 +253,7 @@ See also QBoxLayout::Direction, addWidget(), and addSpacing().
 Returns whether this layout can make use of more space than sizeHint(). A value of Vertical or Horizontal means that it wants to grow in only one dimension, whereas \fCBothDirections\fR means that it wants to grow in both dimensions.
 .PP
 Reimplemented from QLayout.
-.SH "int QBoxLayout::findWidget ( QWidget * w )"
+.SH "int QBoxLayout::findWidget ( TQWidget * w )"
 Searches for widget \fIw\fR in this layout (not including child layouts).
 .PP
 Returns the index of \fIw\fR, or -1 if \fIw\fR is not found.
@@ -287,16 +287,16 @@ See also insertStretch().
 Inserts a stretchable space at position \fIindex\fR, with zero minimum size and stretch factor \fIstretch\fR. If \fIindex\fR is negative the space is added at the end.
 .PP
 See also insertSpacing().
-.SH "void QBoxLayout::insertWidget ( int index, QWidget * widget, int stretch = 0, int alignment = 0 )"
+.SH "void QBoxLayout::insertWidget ( int index, TQWidget * widget, int stretch = 0, int alignment = 0 )"
 Inserts \fIwidget\fR at position \fIindex\fR, with stretch factor \fIstretch\fR and alignment \fIalignment\fR. If \fIindex\fR is negative, the widget is added at the end.
 .PP
 The stretch factor applies only in the direction of the QBoxLayout, and is relative to the other boxes and widgets in this QBoxLayout. Widgets and boxes with higher stretch factors grow more.
 .PP
-If the stretch factor is 0 and nothing else in the QBoxLayout has a stretch factor greater than zero, the space is distributed according to the QWidget:sizePolicy() of each widget that's involved.
+If the stretch factor is 0 and nothing else in the QBoxLayout has a stretch factor greater than zero, the space is distributed according to the TQWidget:sizePolicy() of each widget that's involved.
 .PP
-Alignment is specified by \fIalignment\fR, which is a bitwise OR of Qt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
+Alignment is specified by \fIalignment\fR, which is a bitwise OR of TQt::AlignmentFlags values. The default alignment is 0, which means that the widget fills the entire cell.
 .PP
-From Qt 3.0, the \fIalignment\fR parameter is interpreted more aggressively than in previous versions of Qt. A non-default alignment now indicates that the widget should not grow to fill the available space, but should be sized according to sizeHint().
+From TQt 3.0, the \fIalignment\fR parameter is interpreted more aggressively than in previous versions of Qt. A non-default alignment now indicates that the widget should not grow to fill the available space, but should be sized according to sizeHint().
 .PP
 See also setAutoAdd(), insertLayout(), and insertSpacing().
 .SH "void QBoxLayout::invalidate ()\fC [virtual]\fR"
@@ -317,7 +317,7 @@ Sets the direction of this layout to \fIdirection\fR.
 Resizes managed widgets within the rectangle \fIr\fR.
 .PP
 Reimplemented from QLayout.
-.SH "bool QBoxLayout::setStretchFactor ( QWidget * w, int stretch )"
+.SH "bool QBoxLayout::setStretchFactor ( TQWidget * w, int stretch )"
 Sets the stretch factor for widget \fIw\fR to \fIstretch\fR and returns TRUE if \fIw\fR is found in this layout (not including child layouts); otherwise returns FALSE.
 .SH "bool QBoxLayout::setStretchFactor ( QLayout * l, int stretch )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -342,8 +342,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

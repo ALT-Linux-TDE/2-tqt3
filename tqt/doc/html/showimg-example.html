@@ -185,32 +185,32 @@ private slots:
 <a name="x1327"></a>        saveimage-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( f );
         savepixmap-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( f );
     }
-<a name="x1341"></a>    <a href="ntqobject.html#connect">connect</a>( saveimage, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, SLOT(saveImage(int)) );
-    <a href="ntqobject.html#connect">connect</a>( savepixmap, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, SLOT(savePixmap(int)) );
+<a name="x1341"></a>    <a href="ntqobject.html#connect">connect</a>( saveimage, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(saveImage(int)) );
+    <a href="ntqobject.html#connect">connect</a>( savepixmap, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(savePixmap(int)) );
 
     file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
     menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;File", file );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New window", this,  SLOT(newWindow()), CTRL+Key_N );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Open...", this,  SLOT(openFile()), CTRL+Key_O );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New window", this,  TQ_SLOT(newWindow()), CTRL+Key_N );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Open...", this,  TQ_SLOT(openFile()), CTRL+Key_O );
     si = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save image", saveimage );
     sp = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save pixmap", savepixmap );
 <a name="x1328"></a>    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "E&amp;xit", tqApp,  SLOT(<a href="ntqapplication.html#quit">quit</a>()), CTRL+Key_Q );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "E&amp;xit", tqApp,  TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()), CTRL+Key_Q );
 
     edit =  new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
     menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Edit", edit );
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Copy", this, SLOT(copy()), CTRL+Key_C);
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Paste", this, SLOT(paste()), CTRL+Key_V);
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Copy", this, TQ_SLOT(copy()), CTRL+Key_C);
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Paste", this, TQ_SLOT(paste()), CTRL+Key_V);
     edit-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Horizontal flip", this, SLOT(hFlip()), ALT+Key_H);
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Vertical flip", this, SLOT(vFlip()), ALT+Key_V);
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Rotate 180", this, SLOT(rot180()), ALT+Key_R);
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Horizontal flip", this, TQ_SLOT(hFlip()), ALT+Key_H);
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Vertical flip", this, TQ_SLOT(vFlip()), ALT+Key_V);
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Rotate 180", this, TQ_SLOT(rot180()), ALT+Key_R);
     edit-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Text...", this, SLOT(editText()));
+    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Text...", this, TQ_SLOT(editText()));
     edit-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    t1 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;1 bit", this, SLOT(to1Bit()) );
-    t8 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;8 bit", this, SLOT(to8Bit()) );
-    t32 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;32 bit", this, SLOT(to32Bit()) );
+    t1 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;1 bit", this, TQ_SLOT(to1Bit()) );
+    t8 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;8 bit", this, TQ_SLOT(to8Bit()) );
+    t32 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;32 bit", this, TQ_SLOT(to32Bit()) );
 
     options =  new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
     menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Options", options );
@@ -240,9 +240,9 @@ private slots:
 
     <a href="ntqpopupmenu.html">TQPopupMenu</a>* help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
     menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Help", help );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Help!", this, SLOT(giveHelp()), CTRL+Key_H );
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Help!", this, TQ_SLOT(giveHelp()), CTRL+Key_H );
 
-    <a href="ntqobject.html#connect">connect</a>( options, SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, SLOT(doOption(int)) );
+    <a href="ntqobject.html#connect">connect</a>( options, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(doOption(int)) );
 
     status = new <a href="ntqlabel.html">TQLabel</a>(this);
     status-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::WinPanel | TQFrame::Sunken );
@@ -735,14 +735,14 @@ void <a name="f423"></a>ImageViewer::rot180()
 
 void <a name="f424"></a>ImageViewer::copy()
 {
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
 <a name="x1308"></a>    TQApplication::<a href="ntqapplication.html#clipboard">clipboard</a>()-&gt;setImage(image); // Less information loss
 #endif
 }
 
 void <a name="f425"></a>ImageViewer::paste()
 {
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     <a href="ntqimage.html">TQImage</a> p = TQApplication::<a href="ntqapplication.html#clipboard">clipboard</a>()-&gt;image();
 <a name="x1322"></a>    if ( !p.<a href="ntqimage.html#isNull">isNull</a>() ) {
         filename = "pasted";
@@ -865,7 +865,7 @@ int main( int argc, char **argv )
         }
     }
 
-    TQObject::<a href="ntqobject.html#connect">connect</a>(tqApp, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()));
+    TQObject::<a href="ntqobject.html#connect">connect</a>(tqApp, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
 
     return a.<a href="ntqapplication.html#exec">exec</a>();
 }

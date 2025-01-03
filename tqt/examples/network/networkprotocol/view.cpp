@@ -40,15 +40,15 @@ View::View()
 		    "for downloading a news article start with an url like "
 		    "<u>nntp://news.tu-graz.ac.at</u> " ) );
     TQPushButton *b = new TQPushButton( tr( "Open a file..." ), this );
-    connect( b, SIGNAL( clicked() ),
-	     this, SLOT( downloadFile() ) );
+    connect( b, TQ_SIGNAL( clicked() ),
+	     this, TQ_SLOT( downloadFile() ) );
 
     fileView = new TQMultiLineEdit( this );
     fileView->setReadOnly( TRUE );
 
     // if new data comes in, display it
-    connect( &op, SIGNAL( data( const TQByteArray &, TQNetworkOperation * ) ),
-	     this, SLOT( newData( const TQByteArray & ) ) );
+    connect( &op, TQ_SIGNAL( data( const TQByteArray &, TQNetworkOperation * ) ),
+	     this, TQ_SLOT( newData( const TQByteArray & ) ) );
 }
 
 void View::downloadFile()

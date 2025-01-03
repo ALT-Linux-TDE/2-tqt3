@@ -38,7 +38,7 @@
 
 #include "ntqsplashscreen.h"
 
-#ifndef QT_NO_SPLASHSCREEN
+#ifndef TQT_NO_SPLASHSCREEN
 
 #include "ntqapplication.h"
 #include "ntqpainter.h"
@@ -213,7 +213,7 @@ void TQSplashScreen::clear()
 void TQSplashScreen::finish( TQWidget *mainWin )
 {
     if ( mainWin ) {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	extern void tqt_wait_for_window_manager( TQWidget *mainWin );
 	tqt_wait_for_window_manager( mainWin );
 #endif
@@ -268,4 +268,4 @@ void TQSplashScreen::drawContents( TQPainter *painter )
     painter->drawText( r, d->currAlign, d->currStatus );
 }
 
-#endif //QT_NO_SPLASHSCREEN
+#endif //TQT_NO_SPLASHSCREEN

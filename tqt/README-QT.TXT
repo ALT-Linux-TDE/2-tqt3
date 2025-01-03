@@ -1,3 +1,6 @@
+This file is for historical reference only.
+---
+
 This software was developed with the Open Source Edition of Qt, the
 cross-platform C++ graphical user interface toolkit. 
 

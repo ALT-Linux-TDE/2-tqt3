@@ -55,10 +55,10 @@
 #if !defined( TQT_MODULE_SQL ) || defined( QT_LICENSE_PROFESSIONAL )
 #define TQM_EXPORT_SQL
 #else
-#define TQM_EXPORT_SQL Q_EXPORT
+#define TQM_EXPORT_SQL TQ_EXPORT
 #endif
 
-#ifndef QT_NO_SQL_VIEW_WIDGETS
+#ifndef TQT_NO_SQL_VIEW_WIDGETS
 
 class TQPainter;
 class TQSqlField;

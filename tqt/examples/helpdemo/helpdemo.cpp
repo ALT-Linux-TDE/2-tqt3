@@ -28,11 +28,11 @@ HelpDemo::HelpDemo( TQWidget *parent, const char *name )
     TQAction *helpAction = new TQAction( "Show Help", TQKeySequence(tr("F1")), this );
     helpAction->addTo( menu );
 
-    connect( helpAction, SIGNAL(activated()), this, SLOT(showHelp()) );
-    connect( assistant, SIGNAL(assistantOpened()), this, SLOT(assistantOpened()) );
-    connect( assistant, SIGNAL(assistantClosed()), this, SLOT(assistantClosed()));
-    connect( assistant, SIGNAL(error(const TQString&)),
-	     this, SLOT(showAssistantErrors(const TQString&)) );
+    connect( helpAction, TQ_SIGNAL(activated()), this, TQ_SLOT(showHelp()) );
+    connect( assistant, TQ_SIGNAL(assistantOpened()), this, TQ_SLOT(assistantOpened()) );
+    connect( assistant, TQ_SIGNAL(assistantClosed()), this, TQ_SLOT(assistantClosed()));
+    connect( assistant, TQ_SIGNAL(error(const TQString&)),
+	     this, TQ_SLOT(showAssistantErrors(const TQString&)) );
     closeTQAButton->setEnabled(FALSE);
 }
 

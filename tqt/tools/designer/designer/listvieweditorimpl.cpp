@@ -54,7 +54,7 @@
 ListViewEditor::ListViewEditor( TQWidget *parent, TQListView *lv, FormWindow *fw )
     : ListViewEditorBase( parent, 0, TRUE ), listview( lv ), formwindow( fw )
 {
-    connect( helpButton, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( helpButton, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
     itemText->setEnabled( FALSE );
     itemChoosePixmap->setEnabled( FALSE );
     itemDeletePixmap->setEnabled( FALSE );
@@ -76,8 +76,8 @@ ListViewEditor::ListViewEditor( TQWidget *parent, TQListView *lv, FormWindow *fw
     // Clamp on drag and drop to TQListView
     ListViewDnd *itemsDnd = new ListViewDnd( itemsPreview );
     itemsDnd->setDragMode( ListViewDnd::Internal | ListViewDnd::Move );
-    TQObject::connect( itemsDnd, SIGNAL( dropped( TQListViewItem * ) ),
-		      itemsDnd, SLOT( confirmDrop( TQListViewItem * ) ) );
+    TQObject::connect( itemsDnd, TQ_SIGNAL( dropped( TQListViewItem * ) ),
+		      itemsDnd, TQ_SLOT( confirmDrop( TQListViewItem * ) ) );
 
     // Enable rename for all TQListViewItems
     TQListViewItemIterator it = ((TQListView *)itemsPreview)->firstChild();
@@ -86,9 +86,9 @@ ListViewEditor::ListViewEditor( TQWidget *parent, TQListView *lv, FormWindow *fw
 
     // Connect listview signal to signal-relay
     TQObject::connect( itemsPreview,
-		      SIGNAL( itemRenamed( TQListViewItem*, int, const TQString & ) ),
+		      TQ_SIGNAL( itemRenamed( TQListViewItem*, int, const TQString & ) ),
 		      this,
-		      SLOT( emitItemRenamed(TQListViewItem*, int, const TQString&) ) );
+		      TQ_SLOT( emitItemRenamed(TQListViewItem*, int, const TQString&) ) );
 
     // Connect signal-relay to TQLineEdit "itemText"
     TQObjectList *l = parent->queryList( "TQLineEdit", "itemText" );
@@ -97,24 +97,24 @@ ListViewEditor::ListViewEditor( TQWidget *parent, TQListView *lv, FormWindow *fw
     while ( (obj = itemsLineEditIt.current()) != 0 ) {
         ++itemsLineEditIt;
 	TQObject::connect( this,
-			  SIGNAL( itemRenamed( const TQString & ) ),
+			  TQ_SIGNAL( itemRenamed( const TQString & ) ),
 			  obj,
-			  SLOT( setText( const TQString & ) ) );
+			  TQ_SLOT( setText( const TQString & ) ) );
     }
     delete l;
 
     // Clamp on drag and drop to TQListBox
     ListBoxDnd *columnsDnd = new ListBoxDnd( colPreview );
     columnsDnd->setDragMode( ListBoxDnd::Internal | ListBoxDnd::Move );
-    TQObject::connect( columnsDnd, SIGNAL( dropped( TQListBoxItem * ) ),
-		      columnsDnd, SLOT( confirmDrop( TQListBoxItem * ) ) );
+    TQObject::connect( columnsDnd, TQ_SIGNAL( dropped( TQListBoxItem * ) ),
+		      columnsDnd, TQ_SLOT( confirmDrop( TQListBoxItem * ) ) );
 
     // Clamp on rename to TQListBox
     ListBoxRename *columnsRename = new ListBoxRename( colPreview );
     TQObject::connect( columnsRename,
-		      SIGNAL( itemTextChanged( const TQString & ) ),
+		      TQ_SIGNAL( itemTextChanged( const TQString & ) ),
 		      this,
-		      SLOT( columnTextChanged( const TQString & ) ) );
+		      TQ_SLOT( columnTextChanged( const TQString & ) ) );
 
     // Find TQLineEdit "colText" and connect
     l = parent->queryList( "TQLineEdit", "colText" );
@@ -122,9 +122,9 @@ ListViewEditor::ListViewEditor( TQWidget *parent, TQListView *lv, FormWindow *fw
     while ( (obj = columnsLineEditIt.current()) != 0 ) {
         ++columnsLineEditIt;
 	TQObject::connect( columnsRename,
-			  SIGNAL( itemTextChanged( const TQString & ) ),
+			  TQ_SIGNAL( itemTextChanged( const TQString & ) ),
 			  obj,
-			  SLOT( setText( const TQString & ) ) );
+			  TQ_SLOT( setText( const TQString & ) ) );
     }
     delete l;
 }

@@ -46,7 +46,7 @@
 #include "ntqrangecontrol.h"
 #endif // QT_H
 
-#ifndef QT_NO_THUMBWHEEL
+#ifndef TQT_NO_THUMBWHEEL
 
 class TQThumbWheel : public TQFrame, public TQRangeControl
 {
@@ -114,6 +114,6 @@ inline double TQThumbWheel::transmissionRatio() const
     return rat;
 }
 
-#endif // QT_NO_WHEEL
+#endif // TQT_NO_WHEEL
 
 #endif // TQWHEEL_H

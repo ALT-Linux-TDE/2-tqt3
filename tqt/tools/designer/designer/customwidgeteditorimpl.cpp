@@ -61,10 +61,10 @@
 CustomWidgetEditor::CustomWidgetEditor( TQWidget *parent, MainWindow *mw )
     : CustomWidgetEditorBase( parent, 0, TRUE ), mainWindow( mw )
 {
-    connect( helpButton, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( helpButton, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
     checkTimer = new TQTimer( this );
-    connect( checkTimer, SIGNAL( timeout() ),
-	     this, SLOT( checkWidgetName() ) );
+    connect( checkTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( checkWidgetName() ) );
 
     editClass->setEnabled( FALSE );
     editHeader->setEnabled( FALSE );

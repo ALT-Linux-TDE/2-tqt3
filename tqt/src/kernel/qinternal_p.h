@@ -64,7 +64,7 @@ class TQWidget;
 class TQPainter;
 class TQPixmap;
 
-class Q_EXPORT TQSharedDoubleBuffer
+class TQ_EXPORT TQSharedDoubleBuffer
 {
 public:
     enum DoubleBufferFlags {
@@ -170,7 +170,7 @@ TQAutoDeleter<T>* qAutoDeleter( T* p )
     return new TQAutoDeleter<T>( p );
 }
 
-class Q_EXPORT TQMembuf
+class TQ_EXPORT TQMembuf
 {
 public:
     TQMembuf();

@@ -46,24 +46,24 @@ ViewManager::ViewManager( TQWidget *parent, const char *name )
 {
     TQHBoxLayout *l = new TQHBoxLayout( this );
     markerWidget = new MarkerWidget( this, "editor_markerwidget" );
-    connect( markerWidget, SIGNAL( markersChanged() ),
-	     this, SIGNAL( markersChanged() ) );
-    connect( markerWidget, SIGNAL( collapseFunction( TQTextParagraph * ) ),
-	     this, SIGNAL( collapseFunction( TQTextParagraph * ) ) );
-    connect( markerWidget, SIGNAL( expandFunction( TQTextParagraph * ) ),
-	     this, SIGNAL( expandFunction( TQTextParagraph * ) ) );
-    connect( markerWidget, SIGNAL( collapse( bool ) ),
-	     this, SIGNAL( collapse( bool ) ) );
-    connect( markerWidget, SIGNAL( expand( bool ) ),
-	     this, SIGNAL( expand( bool ) ) );
-    connect( markerWidget, SIGNAL( editBreakPoints() ),
-	     this, SIGNAL( editBreakPoints() ) );
-    connect( markerWidget, SIGNAL( isBreakpointPossible( bool&, const TQString &, int ) ),
-	     this, SIGNAL( isBreakpointPossible( bool&, const TQString &, int ) ) );
-    connect( markerWidget, SIGNAL( showMessage( const TQString & ) ),
-	     this, SLOT( showMessage( const TQString & ) ) );
+    connect( markerWidget, TQ_SIGNAL( markersChanged() ),
+	     this, TQ_SIGNAL( markersChanged() ) );
+    connect( markerWidget, TQ_SIGNAL( collapseFunction( TQTextParagraph * ) ),
+	     this, TQ_SIGNAL( collapseFunction( TQTextParagraph * ) ) );
+    connect( markerWidget, TQ_SIGNAL( expandFunction( TQTextParagraph * ) ),
+	     this, TQ_SIGNAL( expandFunction( TQTextParagraph * ) ) );
+    connect( markerWidget, TQ_SIGNAL( collapse( bool ) ),
+	     this, TQ_SIGNAL( collapse( bool ) ) );
+    connect( markerWidget, TQ_SIGNAL( expand( bool ) ),
+	     this, TQ_SIGNAL( expand( bool ) ) );
+    connect( markerWidget, TQ_SIGNAL( editBreakPoints() ),
+	     this, TQ_SIGNAL( editBreakPoints() ) );
+    connect( markerWidget, TQ_SIGNAL( isBreakpointPossible( bool&, const TQString &, int ) ),
+	     this, TQ_SIGNAL( isBreakpointPossible( bool&, const TQString &, int ) ) );
+    connect( markerWidget, TQ_SIGNAL( showMessage( const TQString & ) ),
+	     this, TQ_SLOT( showMessage( const TQString & ) ) );
     messageTimer = new TQTimer( this );
-    connect( messageTimer, SIGNAL( timeout() ), this, SLOT( clearStatusBar() ) );
+    connect( messageTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( clearStatusBar() ) );
     markerWidget->setFixedWidth( fontMetrics().width( "0000" ) + 20 );
     l->addWidget( markerWidget );
     layout = new TQVBoxLayout( l );
@@ -73,12 +73,12 @@ void ViewManager::addView( TQWidget *view )
 {
     layout->addWidget( view );
     curView = view;
-    connect( ( (Editor*)curView )->verticalScrollBar(), SIGNAL( valueChanged( int ) ),
-	     markerWidget, SLOT( doRepaint() ) );
-    connect( (Editor*)curView, SIGNAL( textChanged() ),
-	     markerWidget, SLOT( doRepaint() ) );
-    connect( (Editor*)curView, SIGNAL( clearErrorMarker() ),
-	     this, SLOT( clearErrorMarker() ) );
+    connect( ( (Editor*)curView )->verticalScrollBar(), TQ_SIGNAL( valueChanged( int ) ),
+	     markerWidget, TQ_SLOT( doRepaint() ) );
+    connect( (Editor*)curView, TQ_SIGNAL( textChanged() ),
+	     markerWidget, TQ_SLOT( doRepaint() ) );
+    connect( (Editor*)curView, TQ_SIGNAL( clearErrorMarker() ),
+	     this, TQ_SLOT( clearErrorMarker() ) );
     posLabel = new TQLabel( this, "editor_poslabel" );
     posLabel->setAlignment( TQt::AlignVCenter | TQt::AlignRight );
     posLabel->setText( " Line: 1 Col: 1" );
@@ -86,8 +86,8 @@ void ViewManager::addView( TQWidget *view )
     posLabel->setLineWidth( 1 );
     posLabel->setFixedHeight( posLabel->fontMetrics().height() );
     layout->addWidget( posLabel );
-    connect( curView, SIGNAL( cursorPositionChanged( int, int ) ),
-	     this, SLOT( cursorPositionChanged( int, int ) ) );
+    connect( curView, TQ_SIGNAL( cursorPositionChanged( int, int ) ),
+	     this, TQ_SLOT( cursorPositionChanged( int, int ) ) );
 }
 
 TQWidget *ViewManager::currentView() const

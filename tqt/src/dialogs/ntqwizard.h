@@ -46,12 +46,12 @@
 #include "ntqdialog.h"
 #endif // QT_H
 
-#ifndef QT_NO_WIZARD
+#ifndef TQT_NO_WIZARD
 
 class TQHBoxLayout;
 class TQWizardPrivate;
 
-class Q_EXPORT TQWizard : public TQDialog
+class TQ_EXPORT TQWizard : public TQDialog
 {
     TQ_OBJECT
     TQ_PROPERTY( TQFont titleFont READ titleFont WRITE setTitleFont )
@@ -137,6 +137,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_WIZARD
+#endif // TQT_NO_WIZARD
 
 #endif // TQWIZARD_H

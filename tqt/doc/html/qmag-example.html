@@ -135,12 +135,12 @@ static const int timer[] = {
     zoom = new <a href="ntqcombobox.html">TQComboBox</a>( FALSE, this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>(zoom);
 <a name="x1773"></a>    zoom-&gt;<a href="ntqcombobox.html#insertStrList">insertStrList</a>( zoomfactors, 9 );
-<a name="x1772"></a>    <a href="ntqobject.html#connect">connect</a>( zoom, SIGNAL(<a href="ntqcombobox.html#activated">activated</a>(int)), SLOT(setZoom(int)) );
+<a name="x1772"></a>    <a href="ntqobject.html#connect">connect</a>( zoom, TQ_SIGNAL(<a href="ntqcombobox.html#activated">activated</a>(int)), TQ_SLOT(setZoom(int)) );
 
     refresh = new <a href="ntqcombobox.html">TQComboBox</a>( FALSE, this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>(refresh);
     refresh-&gt;<a href="ntqcombobox.html#insertStrList">insertStrList</a>( refreshrates, 9 );
-    <a href="ntqobject.html#connect">connect</a>( refresh, SIGNAL(<a href="ntqcombobox.html#activated">activated</a>(int)), SLOT(setRefresh(int)) );
+    <a href="ntqobject.html#connect">connect</a>( refresh, TQ_SIGNAL(<a href="ntqcombobox.html#activated">activated</a>(int)), TQ_SLOT(setRefresh(int)) );
 
     for( n=0; n&lt;9; n++) {
 <a name="x1797"></a>        int w2 = zoom-&gt;<a href="ntqwidget.html#fontMetrics">fontMetrics</a>().width( zoomfactors[n] );
@@ -158,7 +158,7 @@ static const int timer[] = {
 
     saveButton = new <a href="ntqpushbutton.html">TQPushButton</a>( this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>(saveButton);
-    <a href="ntqobject.html#connect">connect</a>( saveButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(save()) );
+    <a href="ntqobject.html#connect">connect</a>( saveButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(save()) );
 <a name="x1771"></a>    saveButton-&gt;<a href="ntqbutton.html#setText">setText</a>( "Save" );
 <a name="x1788"></a>    saveButton-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( x+w+30+2, 2,
                              10+saveButton-&gt;<a href="ntqwidget.html#fontMetrics">fontMetrics</a>().width("Save"), 20 );
@@ -166,14 +166,14 @@ static const int timer[] = {
     multiSaveButton = new <a href="ntqpushbutton.html">TQPushButton</a>( this );
 <a name="x1790"></a>    multiSaveButton-&gt;<a href="ntqpushbutton.html#setToggleButton">setToggleButton</a>(TRUE);
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>(multiSaveButton);
-    <a href="ntqobject.html#connect">connect</a>( multiSaveButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, SLOT(multiSave()) );
+    <a href="ntqobject.html#connect">connect</a>( multiSaveButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(multiSave()) );
     multiSaveButton-&gt;<a href="ntqbutton.html#setText">setText</a>( "MultiSave" );
 <a name="x1798"></a>    multiSaveButton-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( saveButton-&gt;<a href="ntqwidget.html#geometry">geometry</a>().right() + 2, 2,
                              10+multiSaveButton-&gt;<a href="ntqwidget.html#fontMetrics">fontMetrics</a>().width("MultiSave"), 20 );
 
     quitButton = new <a href="ntqpushbutton.html">TQPushButton</a>( this );
     <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>(quitButton);
-    <a href="ntqobject.html#connect">connect</a>( quitButton, SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="ntqobject.html#connect">connect</a>( quitButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     quitButton-&gt;<a href="ntqbutton.html#setText">setText</a>( "Quit" );
     quitButton-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( multiSaveButton-&gt;<a href="ntqwidget.html#geometry">geometry</a>().right() + 2, 2,
                              10+quitButton-&gt;<a href="ntqwidget.html#fontMetrics">fontMetrics</a>().width("Quit"), 20 );

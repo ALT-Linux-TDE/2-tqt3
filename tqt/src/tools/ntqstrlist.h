@@ -55,7 +55,7 @@ class TQStrListIterator : public TQPtrListIterator<char>
 typedef TQPtrListIterator<char> TQStrListIterator;
 #endif
 
-class Q_EXPORT TQStrList : public TQPtrList<char>
+class TQ_EXPORT TQStrList : public TQPtrList<char>
 {
 public:
     TQStrList( bool deepCopies=TRUE ) { dc = deepCopies; del_item = deepCopies; }
@@ -68,7 +68,7 @@ private:
     void deleteItem( TQPtrCollection::Item d ) { if ( del_item ) delete[] (char*)d; }
     int compareItems( TQPtrCollection::Item s1, TQPtrCollection::Item s2 ) { return qstrcmp((const char*)s1,
 							 (const char*)s2); }
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQDataStream &read( TQDataStream &s, TQPtrCollection::Item &d )
 				{ s >> (char *&)d; return s; }
     TQDataStream &write( TQDataStream &s, TQPtrCollection::Item d ) const
@@ -78,7 +78,7 @@ private:
 };
 
 
-class Q_EXPORT TQStrIList : public TQStrList	// case insensitive string list
+class TQ_EXPORT TQStrIList : public TQStrList	// case insensitive string list
 {
 public:
     TQStrIList( bool deepCopies=TRUE ) : TQStrList( deepCopies ) {}

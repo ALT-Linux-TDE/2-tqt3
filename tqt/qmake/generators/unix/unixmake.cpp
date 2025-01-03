@@ -163,10 +163,10 @@ UnixMakefileGenerator::init()
 	    configs.append("qtopiainc");
     }
     if ( project->isActiveConfig("qtopiainc") )
-	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_QTOPIA"];
+	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_TQTOPIA"];
     if ( project->isActiveConfig("qtopialib") ) {
-	if(!project->isEmpty("QMAKE_LIBDIR_QTOPIA"))
-	    project->variables()["QMAKE_LIBDIR_FLAGS"] += varGlue("QMAKE_LIBDIR_QTOPIA", "-L", " -L", "");
+	if(!project->isEmpty("QMAKE_LIBDIR_TQTOPIA"))
+	    project->variables()["QMAKE_LIBDIR_FLAGS"] += varGlue("QMAKE_LIBDIR_TQTOPIA", "-L", " -L", "");
 	project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QTOPIA"];
     }
     if ( project->isActiveConfig("qt") ) {
@@ -175,20 +175,20 @@ UnixMakefileGenerator::init()
 	if ( project->isActiveConfig("tablet") )
 	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("QT_TABLET_SUPPORT");
 	if(configs.findIndex("moc")) configs.append("moc");
-	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_QT"];
+	project->variables()["INCLUDEPATH"] += project->variables()["QMAKE_INCDIR_TQT"];
 	if ( !project->isActiveConfig("debug") )
-	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("QT_NO_DEBUG");
+	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("TQT_NO_DEBUG");
 	if ( !is_qt ) {
 	    if ( !project->isEmpty("QMAKE_RPATH") ) {
 		if ( !project->isEmpty("QMAKE_RTLDIR_QT") )
 		    project->variables()["QMAKE_LFLAGS"] += varGlue("QMAKE_RTLDIR_QT", " " + var("QMAKE_RPATH"),
 								    " " + var("QMAKE_RPATH"), "");
-		else if ( !project->isEmpty("QMAKE_LIBDIR_QT") )
-		    project->variables()["QMAKE_LFLAGS"] += varGlue("QMAKE_LIBDIR_QT", " " + var("QMAKE_RPATH"),
+		else if ( !project->isEmpty("QMAKE_LIBDIR_TQT") )
+		    project->variables()["QMAKE_LFLAGS"] += varGlue("QMAKE_LIBDIR_TQT", " " + var("QMAKE_RPATH"),
 								    " " + var("QMAKE_RPATH"), "");
 	    }
-	    if ( !project->isEmpty("QMAKE_LIBDIR_QT") )
-		project->variables()["QMAKE_LIBDIR_FLAGS"] += varGlue("QMAKE_LIBDIR_QT", "-L", " -L", "");
+	    if ( !project->isEmpty("QMAKE_LIBDIR_TQT") )
+		project->variables()["QMAKE_LIBDIR_FLAGS"] += varGlue("QMAKE_LIBDIR_TQT", "-L", " -L", "");
 	    if ( project->isActiveConfig("thread") && !project->isEmpty("QMAKE_LIBS_QT_THREAD") )
 		project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QT_THREAD"];
 	    else
@@ -229,7 +229,7 @@ UnixMakefileGenerator::init()
 	project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_DYNLOAD"];
     if ( project->isActiveConfig("thread") ) {
 	if(project->isActiveConfig("qt"))
-	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("QT_THREAD_SUPPORT");
+	    project->variables()[is_qt ? "PRL_EXPORT_DEFINES" : "DEFINES"].append("TQT_THREAD_SUPPORT");
 	if ( !project->isEmpty("QMAKE_CFLAGS_THREAD")) {
 	    project->variables()["QMAKE_CFLAGS"] += project->variables()["QMAKE_CFLAGS_THREAD"];
 	    project->variables()["PRL_EXPORT_CFLAGS"] += project->variables()["QMAKE_CFLAGS_THREAD"];
@@ -343,7 +343,7 @@ UnixMakefileGenerator::init()
 		if(libtoolify[i].startsWith("QMAKE_LINK") || libtoolify[i] == "QMAKE_AR_CMD") {
 		    libtool_flags += " --mode=link";
 		    if(project->isActiveConfig("staticlib")) {
-			libtool_flags += " -static";
+			comp_flags += " -static";
 		    } else {
 			if(!project->isEmpty("QMAKE_LIB_FLAG")) {
 			    int maj = project->first("VER_MAJ").toInt();
@@ -352,18 +352,16 @@ UnixMakefileGenerator::init()
 			    comp_flags += " -version-info " + TQString::number(10*maj + min) +
 					  ":" + TQString::number(pat) + ":0";
 			    if(libtoolify[i] != "QMAKE_AR_CMD") {
-				TQString rpath = Option::output_dir;
-				if(!project->isEmpty("DESTDIR")) {
-				    rpath = project->first("DESTDIR");
-				    if(TQDir::isRelativePath(rpath))
-					rpath.prepend(Option::output_dir + Option::dir_sep);
+				TQString rpath = project->first("target.path");
+				if(rpath.right(1) != Option::dir_sep) {
+				    rpath += Option::dir_sep;
 				}
 				comp_flags += " -rpath " + Option::fixPathToTargetOS(rpath, FALSE);
 			    }
 			}
 		    }
 		    if(project->isActiveConfig("plugin"))
-			libtool_flags += " -module";
+			comp_flags += " -module";
 		} else {
 		    libtool_flags += " --mode=compile";
 		}
@@ -763,7 +761,7 @@ UnixMakefileGenerator::defaultInstall(const TQString &t)
 	    TQString src_lt = var("QMAKE_ORIG_TARGET");
 	    int slsh = src_lt.findRev(Option::dir_sep);
 	    if(slsh != -1)
-		src_lt = src_lt.right(src_lt.length() - slsh);
+		src_lt = src_lt.right(src_lt.length() - slsh - 1);
 	    int dot = src_lt.find('.');
 	    if(dot != -1)
 		src_lt = src_lt.left(dot);
@@ -786,7 +784,7 @@ UnixMakefileGenerator::defaultInstall(const TQString &t)
 	    TQString src_pc = var("QMAKE_ORIG_TARGET");
 	    int slsh = src_pc.findRev(Option::dir_sep);
 	    if(slsh != -1)
-		src_pc = src_pc.right(src_pc.length() - slsh);
+		src_pc = src_pc.right(src_pc.length() - slsh - 1);
 	    int dot = src_pc.find('.');
 	    if(dot != -1)
 		src_pc = src_pc.left(dot);

@@ -48,7 +48,7 @@
 #include "ntqkeysequence.h"
 #endif // QT_H
 
-#ifndef QT_NO_ACTION
+#ifndef TQT_NO_ACTION
 
 class TQActionPrivate;
 class TQActionGroupPrivate;
@@ -56,7 +56,7 @@ class TQStatusBar;
 class TQPopupMenu;
 class TQToolTipGroup;
 
-class Q_EXPORT TQAction : public TQObject
+class TQ_EXPORT TQAction : public TQObject
 {
     TQ_OBJECT
     TQ_PROPERTY( bool toggleAction READ isToggleAction WRITE setToggleAction)
@@ -68,14 +68,14 @@ class Q_EXPORT TQAction : public TQObject
     TQ_PROPERTY( TQString toolTip READ toolTip WRITE setToolTip )
     TQ_PROPERTY( TQString statusTip READ statusTip WRITE setStatusTip )
     TQ_PROPERTY( TQString whatsThis READ whatsThis WRITE setWhatsThis )
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQ_PROPERTY( TQKeySequence accel READ accel WRITE setAccel )
 #endif
     TQ_PROPERTY( bool visible READ isVisible WRITE setVisible )
 
 public:
     TQAction( TQObject* parent, const char* name = 0 );
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQAction( const TQString& menuText, TQKeySequence accel,
 	     TQObject* parent, const char* name = 0 );
     TQAction( const TQIconSet& icon, const TQString& menuText, TQKeySequence accel,
@@ -101,7 +101,7 @@ public:
     TQString statusTip() const;
     virtual void setWhatsThis( const TQString& );
     TQString whatsThis() const;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     virtual void setAccel( const TQKeySequence& key );
     TQKeySequence accel() const;
 #endif
@@ -151,7 +151,7 @@ private:
 #endif
 };
 
-class Q_EXPORT TQActionGroup : public TQAction
+class TQ_EXPORT TQActionGroup : public TQAction
 {
     TQ_OBJECT
     TQ_PROPERTY( bool exclusive READ isExclusive WRITE setExclusive )
@@ -201,7 +201,7 @@ private slots:
 private:
     TQActionGroupPrivate* d;
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 public:
     void insert( TQAction* a ) { add( a ); }
 #endif

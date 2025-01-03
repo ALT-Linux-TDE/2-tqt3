@@ -75,8 +75,8 @@ ButtonsGroups::ButtonsGroups( TQWidget *parent, const char *name )
     // insert a checkbox...
     state = new TQCheckBox( "E&nable Radiobuttons", bgrp3 );
     state->setChecked( TRUE );
-    // ...and connect its SIGNAL clicked() with the SLOT slotChangeGrp3State()
-    connect( state, SIGNAL( clicked() ), this, SLOT( slotChangeGrp3State() ) );
+    // ...and connect its TQ_SIGNAL clicked() with the TQ_SLOT slotChangeGrp3State()
+    connect( state, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotChangeGrp3State() ) );
 
     // ------------ fourth group
 
@@ -107,7 +107,7 @@ ButtonsGroups::ButtonsGroups( TQWidget *parent, const char *name )
 }
 
 /*
- * SLOT slotChangeGrp3State()
+ * TQ_SLOT slotChangeGrp3State()
  *
  * enables/disables the radiobuttons of the third buttongroup
  */

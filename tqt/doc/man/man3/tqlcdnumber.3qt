@@ -16,10 +16,10 @@ Inherits QFrame.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQLCDNumber\fR ( QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQLCDNumber\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQLCDNumber\fR ( uint numDigits, QWidget * parent = 0, const char * name = 0 )"
+.BI "\fBQLCDNumber\fR ( uint numDigits, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QLCDNumber\fR ()"
@@ -67,7 +67,7 @@ Inherits QFrame.
 .SS "Public Slots"
 .in +1c
 .ti -1c
-.BI "void \fBdisplay\fR ( const QString & s )"
+.BI "void \fBdisplay\fR ( const TQString & s )"
 .br
 .ti -1c
 .BI "void \fBdisplay\fR ( int num )"
@@ -169,13 +169,13 @@ This type determines the visual appearance of the QLCDNumber widget.
 .TP
 \fCQLCDNumber::Flat\fR - gives flat segments filled with the foreground brush.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QLCDNumber::QLCDNumber ( QWidget * parent = 0, const char * name = 0 )"
+.SH "QLCDNumber::QLCDNumber ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs an LCD number, sets the number of digits to 5, the base to decimal, the decimal point mode to 'small' and the frame style to a raised box. The segmentStyle() is set to Outline.
 .PP
 The \fIparent\fR and \fIname\fR arguments are passed to the QFrame constructor.
 .PP
 See also numDigits and smallDecimalPoint.
-.SH "QLCDNumber::QLCDNumber ( uint numDigits, QWidget * parent = 0, const char * name = 0 )"
+.SH "QLCDNumber::QLCDNumber ( uint numDigits, TQWidget * parent = 0, const char * name = 0 )"
 Constructs an LCD number, sets the number of digits to \fInumDigits\fR, the base to decimal, the decimal point mode to 'small' and the frame style to a raised box. The segmentStyle() is set to Outline.
 .PP
 The \fIparent\fR and \fIname\fR arguments are passed to the QFrame constructor.
@@ -193,7 +193,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns TRUE if \fInum\fR is too big to be displayed in its entirety; otherwise returns FALSE.
 .PP
 See also display(), numDigits, and smallDecimalPoint.
-.SH "void QLCDNumber::display ( const QString & s )\fC [slot]\fR"
+.SH "void QLCDNumber::display ( const TQString & s )\fC [slot]\fR"
 Displays the number represented by the string \fIs\fR.
 .PP
 This version of the function disregards mode() and smallDecimalPoint().
@@ -323,8 +323,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

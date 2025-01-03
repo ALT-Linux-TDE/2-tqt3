@@ -78,7 +78,7 @@ void OptionsDialog::apply()
 	label->setTextFormat(RichText);
 	label->setAlignment(WordBreak);
 	TQPushButton *okButton = new TQPushButton( "Close", widget );
-	connect( okButton, SIGNAL(clicked()), widget, SLOT(close()) );
+	connect( okButton, TQ_SIGNAL(clicked()), widget, TQ_SLOT(close()) );
 	widget->move( pos() );
     } else {
 	widget->reparent( parent, f, widget->geometry().topLeft(), FALSE);

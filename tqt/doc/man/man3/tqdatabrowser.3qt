@@ -11,12 +11,12 @@ QDataBrowser \- Data manipulation and navigation for data entry forms
 .SH SYNOPSIS
 \fC#include <ntqdatabrowser.h>\fR
 .PP
-Inherits QWidget.
+Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDataBrowser\fR ( QWidget * parent = 0, const char * name = 0, WFlags fl = 0 )"
+.BI "\fBQDataBrowser\fR ( TQWidget * parent = 0, const char * name = 0, WFlags fl = 0 )"
 .br
 .ti -1c
 .BI "\fB~QDataBrowser\fR ()"
@@ -43,10 +43,10 @@ Inherits QWidget.
 .BI "QStringList \fBsort\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetFilter\fR ( const QString & filter )"
+.BI "void \fBsetFilter\fR ( const TQString & filter )"
 .br
 .ti -1c
-.BI "QString \fBfilter\fR () const"
+.BI "TQString \fBfilter\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetSqlCursor\fR ( QSqlCursor * cursor, bool autoDelete = FALSE )"
@@ -208,7 +208,7 @@ Inherits QWidget.
 .BI "bool \fBconfirmUpdate\fR - whether the browser confirms updates"
 .br
 .ti -1c
-.BI "QString \fBfilter\fR - the data browser's filter"
+.BI "TQString \fBfilter\fR - the data browser's filter"
 .br
 .ti -1c
 .BI "bool \fBreadOnly\fR - whether the browser is read-only"
@@ -283,7 +283,7 @@ This enum describes where the data browser is positioned.
 .TP
 \fCQDataBrowser::AfterEnd\fR - the browser is positioned after the last available record.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDataBrowser::QDataBrowser ( QWidget * parent = 0, const char * name = 0, WFlags fl = 0 )"
+.SH "QDataBrowser::QDataBrowser ( TQWidget * parent = 0, const char * name = 0, WFlags fl = 0 )"
 Constructs a data browser which is a child of \fIparent\fR, with the name \fIname\fR and widget flags set to \fIfl\fR.
 .SH "QDataBrowser::~QDataBrowser ()"
 Destroys the object and frees any allocated resources.
@@ -337,7 +337,7 @@ The current form's record is deleted from the database, providing that the data 
 Performs a delete on the default cursor using the values from the default form and updates the default form. If there is no default form or no default cursor, nothing happens. If the deletion was successful, the cursor is repositioned to the nearest record and TRUE is returned. The nearest record is the next record if there is one otherwise the previous record if there is one. If an error occurred during the deletion from the database, handleError() is called and FALSE is returned.
 .PP
 See also cursor, form(), and handleError().
-.SH "QString QDataBrowser::filter () const"
+.SH "TQString QDataBrowser::filter () const"
 Returns the data browser's filter. See the "filter" property for details.
 .SH "void QDataBrowser::first ()\fC [virtual slot]\fR"
 Moves the default cursor to the first record and refreshes the default form to display this record. If there is no default form or no default cursor, nothing happens. If the data browser successfully navigated to the first record, the default cursor is primed for update and the primeUpdate() signal is emitted.
@@ -427,7 +427,7 @@ Sets whether the browser confirms edits to \fIconfirm\fR. See the "confirmEdits"
 Sets whether the data browser confirms insertions to \fIconfirm\fR. See the "confirmInsert" property for details.
 .SH "void QDataBrowser::setConfirmUpdate ( bool confirm )\fC [virtual]\fR"
 Sets whether the browser confirms updates to \fIconfirm\fR. See the "confirmUpdate" property for details.
-.SH "void QDataBrowser::setFilter ( const QString & filter )"
+.SH "void QDataBrowser::setFilter ( const TQString & filter )"
 Sets the data browser's filter to \fIfilter\fR. See the "filter" property for details.
 .SH "void QDataBrowser::setForm ( QSqlForm * form )\fC [virtual]\fR"
 Sets the browser's default form to \fIform\fR. The cursor and all navigation and data manipulation functions that the browser provides become available to the \fIform\fR.
@@ -522,7 +522,7 @@ If this property is TRUE, the browser confirms updates, otherwise updates happen
 See also confirmCancels, confirmEdits, confirmInsert, confirmDelete, and confirmEdit().
 .PP
 Set this property's value with setConfirmUpdate() and get this property's value with confirmUpdate().
-.SH "QString filter"
+.SH "TQString filter"
 This property holds the data browser's filter.
 .PP
 The filter applies to the data shown in the browser. Call refresh() to apply the new filter. A filter is a string containing a SQL WHERE clause without the WHERE keyword, e.g. "id>1000"," name LIKE 'A%'", etc.
@@ -581,8 +581,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

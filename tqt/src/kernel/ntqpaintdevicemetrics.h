@@ -46,7 +46,7 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQPaintDeviceMetrics			// paint device metrics
+class TQ_EXPORT TQPaintDeviceMetrics			// paint device metrics
 {
 public:
     TQPaintDeviceMetrics( const TQPaintDevice * );

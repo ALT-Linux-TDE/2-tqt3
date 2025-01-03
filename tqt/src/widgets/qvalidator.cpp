@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqvalidator.h"
-#ifndef QT_NO_VALIDATOR
+#ifndef TQT_NO_VALIDATOR
 
 #include <limits.h>
 #include <math.h>
@@ -346,7 +346,7 @@ void TQIntValidator::setTop( int top )
 }
 
 
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 
 /*!
     \class TQDoubleValidator

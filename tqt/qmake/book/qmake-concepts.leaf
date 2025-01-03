@@ -6,8 +6,8 @@
 for development projects across different platforms.  \e qmake
 simplifies the generation of makefiles so that only a few lines of
 information are needed to create a makefile.  \e qmake can be used for
-any software project whether it is written in Qt or not, although it
-also contains additional features to support Qt development.
+any software project whether it is written in TQt or not, although it
+also contains additional features to support TQt development.
 
 \e qmake generates a makefile based on the information in a project
 file.  Project files are created by the developer. Project files are
@@ -163,7 +163,7 @@ The following options control what compiler flags are used:
 The following options define the type of library/application to be built:
 
 \list
-\i qt - The application is a Qt application and should link against the Qt library.
+\i qt - The application is a TQt application and should link against the TQt library.
 \i thread - The application is a multi-threaded application.
 \i x11 - The application is an X11 application or library.
 \i windows - 'app' template only: the application is a Windows window application.
@@ -173,7 +173,7 @@ The following options define the type of library/application to be built:
 \i plugin - 'lib' template only: The library is a plugin; this enables the dll option.
 \endlist
 
-For example, if your application uses the Qt library and you want to
+For example, if your application uses the TQt library and you want to
 build it as a debuggable multi-threaded application, your project file
 will have the following line:
 
@@ -182,6 +182,6 @@ will have the following line:
 \endcode
 
 Note, that you must use "+=", not "=", or \e qmake will not be able to
-use the settings used to build Qt as a guide as what type of Qt
+use the settings used to build TQt as a guide as what type of Qt
 library was built.
 

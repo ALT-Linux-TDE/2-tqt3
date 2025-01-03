@@ -41,6 +41,7 @@
 #include "qplatformdefs.h"
 
 #include "ntqasciidict.h"
+#include <ntqdatetime.h>
 #include <limits.h>
 #include <stdio.h>
 #include <limits.h>
@@ -464,20 +465,27 @@ static void mac_default_handler( const char *msg )
 
 #endif
 
-
-void tqDebug( const char *msg, ... )
+void handle_buffer(const char *buf, TQtMsgType msgType)
 {
-    char buf[QT_BUFFER_LENGTH];
-    va_list ap;
-    va_start( ap, msg );			// use variable arg list
-#if defined(QT_VSNPRINTF)
-    QT_VSNPRINTF( buf, QT_BUFFER_LENGTH, msg, ap );
-#else
-    vsprintf( buf, msg, ap );
-#endif
-    va_end( ap );
     if ( handler ) {
-	(*handler)( TQtDebugMsg, buf );
+	(*handler)( msgType, buf );
+    } else if (msgType == TQtFatalMsg) {
+#if defined(Q_CC_MWERKS)
+        mac_default_handler(buf);
+#else
+	fprintf( stderr, "%s\n", buf );		// add newline
+#endif
+#if defined(Q_OS_UNIX) && defined(QT_DEBUG)
+	abort();				// trap; generates core dump
+#elif defined(Q_OS_TEMP) && defined(QT_DEBUG)
+	TQString fstr;
+	fstr.sprintf( "%s:%s %s %s\n", __FILE__, __LINE__, TQT_VERSION_STR, buf );
+	OutputDebugString( fstr.ucs2() );
+#elif defined(_CRT_ERROR) && defined(_DEBUG)
+	_CrtDbgReport( _CRT_ERROR, __FILE__, __LINE__, TQT_VERSION_STR, buf );
+#else
+	exit( 1 );				// goodbye cruel world
+#endif
     } else {
 #if defined(Q_CC_MWERKS)
         mac_default_handler(buf);
@@ -490,149 +498,109 @@ void tqDebug( const char *msg, ... )
     }
 }
 
-// copied... this looks really bad.
-void debug( const char *msg, ... )
+void tqDebug( const TQString &msg )
 {
     char buf[QT_BUFFER_LENGTH];
+    strcpy( buf, TQDateTime::currentDateTime().toString("[yyyy/MM/dd hh:mm:ss.zzz] ").local8Bit() );
+    int len = strlen(buf);
+    strncpy( &buf[len], msg.local8Bit(), QT_BUFFER_LENGTH - len - 1 );
+    len += msg.length();
+    if (len >= QT_BUFFER_LENGTH) {
+        len = QT_BUFFER_LENGTH - 1;
+    }
+    buf[len] = '\0';
+    handle_buffer(buf, TQtDebugMsg);
+}
+
+void tqDebug( const char *msg, ... )
+{
+    char buf[QT_BUFFER_LENGTH];
+    strcpy( buf, TQDateTime::currentDateTime().toString("[yyyy/MM/dd hh:mm:ss.zzz] ").local8Bit() );
+    int len = strlen(buf);
     va_list ap;
     va_start( ap, msg );			// use variable arg list
 #if defined(QT_VSNPRINTF)
-    QT_VSNPRINTF( buf, QT_BUFFER_LENGTH, msg, ap );
+    QT_VSNPRINTF( &buf[len], QT_BUFFER_LENGTH-len, msg, ap );
 #else
-    vsprintf( buf, msg, ap );
+    vsprintf( &buf[len], msg, ap );
 #endif
     va_end( ap );
-    if ( handler ) {
-	(*handler)( TQtDebugMsg, buf );
-    } else {
-#if defined(Q_CC_MWERKS)
-        mac_default_handler(buf);
-#elif defined(Q_OS_TEMP)
-	TQString fstr( buf );
-	OutputDebugString( (fstr + "\n").ucs2() );
-#else
-	fprintf( stderr, "%s\n", buf );		// add newline
-#endif
+    handle_buffer(buf, TQtDebugMsg);
+}
+
+void tqDebug( const TQCString &s )
+{
+    tqDebug("%s", s.data());
+}
+
+void tqWarning( const TQString &msg )
+{
+    char buf[QT_BUFFER_LENGTH];
+    strcpy( buf, TQDateTime::currentDateTime().toString("[yyyy/MM/dd hh:mm:ss.zzz] ").local8Bit() );
+    int len = strlen(buf);
+    strncpy( &buf[len], msg.local8Bit(), QT_BUFFER_LENGTH - len - 1 );
+    len += msg.length();
+    if (len >= QT_BUFFER_LENGTH) {
+        len = QT_BUFFER_LENGTH - 1;
     }
+    buf[len] = '\0';
+    handle_buffer(buf, TQtWarningMsg);
 }
 
 void tqWarning( const char *msg, ... )
 {
     char buf[QT_BUFFER_LENGTH];
+    strcpy( buf, TQDateTime::currentDateTime().toString("[yyyy/MM/dd hh:mm:ss.zzz] ").local8Bit() );
+    int len = strlen(buf);
     va_list ap;
     va_start( ap, msg );			// use variable arg list
 #if defined(QT_VSNPRINTF)
-    QT_VSNPRINTF( buf, QT_BUFFER_LENGTH, msg, ap );
+    QT_VSNPRINTF( &buf[len], QT_BUFFER_LENGTH-len, msg, ap );
 #else
-    vsprintf( buf, msg, ap );
+    vsprintf( &buf[len], msg, ap );
 #endif
     va_end( ap );
-    if ( handler ) {
-	(*handler)( TQtWarningMsg, buf );
-    } else {
-#if defined(Q_CC_MWERKS)
-        mac_default_handler(buf);
-#elif defined(Q_OS_TEMP)
-	TQString fstr( buf );
-	OutputDebugString( (fstr + "\n").ucs2() );
-#else
-	fprintf( stderr, "%s\n", buf );		// add newline
-#endif
-    }
+    handle_buffer(buf, TQtWarningMsg);
 }
 
+void tqWarning( const TQCString &s )
+{
+    tqWarning("%s", s.data());
+}
 
-// again, copied
-void warning( const char *msg, ... )
+void tqFatal( const TQString &msg )
 {
     char buf[QT_BUFFER_LENGTH];
-    va_list ap;
-    va_start( ap, msg );			// use variable arg list
-#if defined(QT_VSNPRINTF)
-    QT_VSNPRINTF( buf, QT_BUFFER_LENGTH, msg, ap );
-#else
-    vsprintf( buf, msg, ap );
-#endif
-    va_end( ap );
-    if ( handler ) {
-	(*handler)( TQtWarningMsg, buf );
-    } else {
-#if defined(Q_CC_MWERKS)
-        mac_default_handler(buf);
-#elif defined(Q_OS_TEMP)
-	TQString fstr( buf );
-	OutputDebugString( (fstr + "\n").ucs2() );
-#else
-	fprintf( stderr, "%s\n", buf );		// add newline
-#endif
+    strcpy( buf, TQDateTime::currentDateTime().toString("[yyyy/MM/dd hh:mm:ss.zzz] ").local8Bit() );
+    int len = strlen(buf);
+    strncpy( &buf[len], msg.local8Bit(), QT_BUFFER_LENGTH - len - 1 );
+    len += msg.length();
+    if (len >= QT_BUFFER_LENGTH) {
+        len = QT_BUFFER_LENGTH - 1;
     }
+    buf[len] = '\0';
+    handle_buffer(buf, TQtFatalMsg);
 }
 
 void tqFatal( const char *msg, ... )
 {
     char buf[QT_BUFFER_LENGTH];
+    strcpy( buf, TQDateTime::currentDateTime().toString("[yyyy/MM/dd hh:mm:ss.zzz] ").local8Bit() );
+    int len = strlen(buf);
     va_list ap;
     va_start( ap, msg );			// use variable arg list
 #if defined(QT_VSNPRINTF)
-    QT_VSNPRINTF( buf, QT_BUFFER_LENGTH, msg, ap );
+    QT_VSNPRINTF( &buf[len], QT_BUFFER_LENGTH-len, msg, ap );
 #else
-    vsprintf( buf, msg, ap );
+    vsprintf( &buf[len], msg, ap );
 #endif
     va_end( ap );
-    if ( handler ) {
-	(*handler)( TQtFatalMsg, buf );
-    } else {
-#if defined(Q_CC_MWERKS)
-        mac_default_handler(buf);
-#else
-	fprintf( stderr, "%s\n", buf );		// add newline
-#endif
-#if defined(Q_OS_UNIX) && defined(QT_DEBUG)
-	abort();				// trap; generates core dump
-#elif defined(Q_OS_TEMP) && defined(QT_DEBUG)
-	TQString fstr;
-	fstr.sprintf( "%s:%s %s %s\n", __FILE__, __LINE__, TQT_VERSION_STR, buf );
-	OutputDebugString( fstr.ucs2() );
-#elif defined(_CRT_ERROR) && defined(_DEBUG)
-	_CrtDbgReport( _CRT_ERROR, __FILE__, __LINE__, TQT_VERSION_STR, buf );
-#else
-	exit( 1 );				// goodbye cruel world
-#endif
-    }
+    handle_buffer(buf, TQtFatalMsg);
 }
 
-// yet again, copied
-void fatal( const char *msg, ... )
+void tqFatal( const TQCString &s )
 {
-    char buf[QT_BUFFER_LENGTH];
-    va_list ap;
-    va_start( ap, msg );			// use variable arg list
-#if defined(QT_VSNPRINTF)
-    QT_VSNPRINTF( buf, QT_BUFFER_LENGTH, msg, ap );
-#else
-    vsprintf( buf, msg, ap );
-#endif
-    va_end( ap );
-    if ( handler ) {
-	(*handler)( TQtFatalMsg, buf );
-    } else {
-#if defined(Q_CC_MWERKS)
-        mac_default_handler(buf);
-#else
-	fprintf( stderr, "%s\n", buf );		// add newline
-#endif
-#if defined(Q_OS_UNIX) && defined(QT_DEBUG)
-	abort();				// trap; generates core dump
-#elif defined(Q_OS_TEMP) && defined(QT_DEBUG)
-	TQString fstr;
-	fstr.sprintf( "%s:%s %s %s\n", __FILE__, __LINE__, TQT_VERSION_STR, buf );
-	OutputDebugString( fstr.ucs2() );
-#elif defined(_CRT_ERROR) && defined(_DEBUG)
-	_CrtDbgReport( _CRT_ERROR, __FILE__, __LINE__, TQT_VERSION_STR, buf );
-#else
-	exit( 1 );				// goodbye cruel world
-#endif
-    }
+    tqWarning("%s", s.data());
 }
 
 /*!
@@ -643,12 +611,12 @@ void fatal( const char *msg, ... )
   error code will be used if possible. Use this method to handle
   failures in platform specific API calls.
 
-  This function does nothing when TQt is built with \c QT_NO_DEBUG
+  This function does nothing when TQt is built with \c TQT_NO_DEBUG
   defined.
 */
 void tqSystemWarning( const char* msg, int code )
 {
-#ifndef QT_NO_DEBUG
+#ifndef TQT_NO_DEBUG
 #if defined(Q_OS_WIN32)
     if ( code == -1 )
 	code = GetLastError();

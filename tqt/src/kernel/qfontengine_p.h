@@ -41,7 +41,7 @@
 #include "ntqglobal.h"
 #endif // QT_H
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 #include "qt_windows.h"
 #include "ntqptrdict.h"
 #endif
@@ -58,7 +58,7 @@ typedef int advance_t;
 class TQOpenType;
 struct TransformedFont;
 
-#if defined( Q_WS_X11 ) || defined( Q_WS_WIN) || defined( Q_WS_MAC )
+#if defined( TQ_WS_X11 ) || defined( TQ_WS_WIN) || defined( TQ_WS_MAC )
 class TQFontEngine : public TQShared
 {
 public:
@@ -87,7 +87,7 @@ public:
 
     TQFontEngine() {
 	count = 0; cache_count = 0;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	transformed_fonts = 0;
 #endif
     }
@@ -97,7 +97,7 @@ public:
     virtual Error stringToCMap( const TQChar *str, int len, glyph_t *glyphs,
 				advance_t *advances, int *nglyphs, bool mirrored ) const = 0;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     virtual int cmap() const { return -1; }
     virtual TQOpenType *openType() const { return 0; }
 #endif
@@ -133,7 +133,7 @@ public:
     uint cache_cost; // amount of mem used in kb by the font
     int cache_count;
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     HDC dc() const;
     void getGlyphIndexes( const TQChar *ch, int numChars, glyph_t *glyphs, bool mirrored ) const;
     void getCMap();
@@ -157,12 +157,12 @@ public:
     static TQPtrDict<TQFontEngine> cacheDict;
     short lbearing;
     short rbearing;
-#endif // Q_WS_WIN
-#ifdef Q_WS_X11
+#endif // TQ_WS_WIN
+#ifdef TQ_WS_X11
     TransformedFont *transformed_fonts;
 #endif
 };
-#elif defined( Q_WS_QWS )
+#elif defined( TQ_WS_QWS )
 class TQGfx;
 
 class TQFontEngine : public TQShared
@@ -248,7 +248,7 @@ enum IndicFeatures {
     HalantFeature
 };
 
-#if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
 class TQFontEngineBox : public TQFontEngine
 {
 public:
@@ -270,7 +270,7 @@ public:
     int minLeftBearing() const { return 0; }
     int minRightBearing() const { return 0; }
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     int cmap() const;
 #endif
     const char *name() const;
@@ -286,7 +286,7 @@ private:
 };
 #endif
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include "qt_x11_p.h"
 
 
@@ -298,14 +298,14 @@ struct TransformedFont
     float yy;
     union {
 	Font xlfd_font;
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	XftFont *xft_font;
 #endif
     };
     TransformedFont *next;
 };
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include "ftxopen.h"
@@ -472,7 +472,7 @@ private:
 class TQScriptItem;
 class TQTextEngine;
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 
 #include "qscriptengine_p.h"
 #include "qtextengine_p.h"
@@ -525,9 +525,9 @@ private:
     int loadFlags;
 };
 
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
-#elif defined( Q_WS_MAC )
+#elif defined( TQ_WS_MAC )
 #include "qt_mac.h"
 #include <ntqmap.h>
 #include <ntqcache.h>
@@ -584,7 +584,7 @@ public:
 		   TQPaintDevice *dev=NULL, const TQRegion *rgn=NULL) const;
 };
 
-#elif defined( Q_WS_WIN )
+#elif defined( TQ_WS_WIN )
 
 class TQFontEngineWin : public TQFontEngine
 {
@@ -627,6 +627,6 @@ public:
 };
 #endif
 
-#endif // Q_WS_WIN
+#endif // TQ_WS_WIN
 
 #endif

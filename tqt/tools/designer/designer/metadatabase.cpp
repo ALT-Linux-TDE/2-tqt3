@@ -64,7 +64,7 @@ class MetaDataBaseRecord
 public:
     TQObject *object;
     TQStringList changedProperties;
-    TQMap<TQString,TQVariant> fakeProperties;
+    TQStringVariantMap fakeProperties;
     TQMap<TQString, TQString> propertyComments;
     int spacing, margin;
     TQString resizeMode;
@@ -272,14 +272,14 @@ TQVariant MetaDataBase::fakeProperty( TQObject * o, const TQString &property)
 		  o, o->name(), o->className() );
 	return TQVariant();
     }
-    TQMap<TQString, TQVariant>::Iterator it = r->fakeProperties.find( property );
+    TQStringVariantMap::Iterator it = r->fakeProperties.find( property );
     if ( it != r->fakeProperties.end() )
 	return r->fakeProperties[property];
     return WidgetFactory::defaultValue( o, property );
 
 }
 
-TQMap<TQString,TQVariant>* MetaDataBase::fakeProperties( TQObject* o )
+TQStringVariantMap* MetaDataBase::fakeProperties( TQObject* o )
 {
     setupDataBase();
     MetaDataBaseRecord *r = db->find( (void*)o );

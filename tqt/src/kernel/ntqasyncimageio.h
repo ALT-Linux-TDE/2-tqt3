@@ -45,13 +45,13 @@
 #include "ntqimage.h"
 #endif // QT_H
 
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 
 #if __GNUC__ - 0 > 3
 #pragma GCC system_header
 #endif
 
-class Q_EXPORT TQImageConsumer {
+class TQ_EXPORT TQImageConsumer {
 public:
     virtual void end()=0;
 
@@ -67,14 +67,14 @@ public:
     virtual void setSize( int, int ) = 0;
 };
 
-class Q_EXPORT TQImageFormat {
+class TQ_EXPORT TQImageFormat {
 public:
     virtual ~TQImageFormat();
     virtual int decode( TQImage& img, TQImageConsumer* consumer,
 			const uchar* buffer, int length ) = 0;
 };
 
-class Q_EXPORT TQImageFormatType {
+class TQ_EXPORT TQImageFormatType {
 public:
     virtual ~TQImageFormatType();
     virtual TQImageFormat* decoderFor( const uchar* buffer, int length ) = 0;
@@ -84,7 +84,7 @@ protected:
 };
 
 class TQImageDecoderPrivate;
-class Q_EXPORT TQImageDecoder {
+class TQ_EXPORT TQImageDecoder {
 public:
     TQImageDecoder( TQImageConsumer* c );
     ~TQImageDecoder();
@@ -106,6 +106,6 @@ private:
     TQImageDecoderPrivate *d;
 };
 
-#endif // QT_NO_ASYNC_IMAGE_IO
+#endif // TQT_NO_ASYNC_IMAGE_IO
 
 #endif // TQASYNCIMAGEIO_H

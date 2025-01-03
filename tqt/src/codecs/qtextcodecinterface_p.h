@@ -56,8 +56,8 @@
 #include <private/qcom_p.h>
 #endif // QT_H
 
-#ifndef QT_NO_TEXTCODEC
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_TEXTCODEC
+#ifndef TQT_NO_COMPONENT
 
 class TQTextCodec;
 
@@ -68,13 +68,13 @@ class TQTextCodec;
 #endif
 
 
-struct Q_EXPORT TQTextCodecFactoryInterface : public TQFeatureListInterface
+struct TQ_EXPORT TQTextCodecFactoryInterface : public TQFeatureListInterface
 {
     virtual TQTextCodec *createForMib( int mib ) = 0;
     virtual TQTextCodec *createForName( const TQString &name ) = 0;
 };
 
-#endif // QT_NO_COMPONENT
-#endif // QT_NO_TEXTCODEC
+#endif // TQT_NO_COMPONENT
+#endif // TQT_NO_TEXTCODEC
 
 #endif // TQTEXTCODECINTERFACE_P_H

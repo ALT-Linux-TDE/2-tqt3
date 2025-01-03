@@ -45,14 +45,14 @@
 #include "ntqdockwindow.h"
 #endif // QT_H
 
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
 
 class TQMainWindow;
 class TQButton;
 class TQBoxLayout;
 class TQToolBarPrivate;
 
-class Q_EXPORT TQToolBar: public TQDockWindow
+class TQ_EXPORT TQToolBar: public TQDockWindow
 {
     TQ_OBJECT
     TQ_PROPERTY( TQString label READ label WRITE setLabel )
@@ -112,6 +112,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_TOOLBAR
+#endif // TQT_NO_TOOLBAR
 
 #endif // TQTOOLBAR_H

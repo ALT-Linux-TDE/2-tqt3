@@ -46,10 +46,10 @@
 #include "qcolor_p.h"
 #include "qt_x11_p.h"
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 #  include "ntqmutex.h"
 #  include "ntqthread.h"
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #include <errno.h>
 
@@ -226,7 +226,7 @@ void TQEventLoop::init()
 	printf("inside init(1)\n");
 #endif
 
-	g_main_loop_new (d->ctx, 1);
+	d->mainloop = g_main_loop_new (d->ctx, 1);
 	g_source_attach( (GSource*)qtGSource, d->ctx );
 	d->gSource = (GSource*)qtGSource;
 
@@ -258,10 +258,22 @@ void TQEventLoop::cleanup()
 	// cleanup the X11 parts of the event loop
 	d->xfd = -1;
 
+	// stop polling the GSource
+	g_source_remove_poll(d->gSource, &d->threadPipe_gPollFD);
+	g_source_remove_poll(d->gSource, &d->x_gPollFD);
+	g_source_destroy(d->gSource);
+
+	// unref the main loop
+	g_main_loop_unref(d->mainloop);
+	d->mainloop = nullptr;
+
+	// unref the gsource
+	g_source_unref(d->gSource);
+	d->gSource = nullptr;
+
 	// unref the main context
 	g_main_context_unref(d->ctx);
-
-	// todo: destroy gsource
+	d->ctx = nullptr;
 }
 
 bool TQEventLoop::processEvents( ProcessEventsFlags flags )
@@ -295,7 +307,7 @@ bool TQEventLoop::processX11Events()
 	XEvent event;
 	int nevents = 0;
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	TQMutexLocker locker( TQApplication::tqt_mutex );
 #endif
 
@@ -383,7 +395,7 @@ bool TQEventLoop::gsourcePrepare(GSource *gs, int * timeout)
 
 	ProcessEventsFlags flags = d->pev_flags;
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	TQMutexLocker locker( TQApplication::tqt_mutex );
 #endif
 
@@ -535,10 +547,10 @@ bool TQEventLoop::gsourceDispatch(GSource *gs) {
 	Q_UNUSED(gs);
 
 	// relock the GUI mutex before processing any pending events
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	TQMutexLocker locker( TQApplication::tqt_mutex );
 #endif
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 	if (locker.mutex()) locker.mutex()->lock();
 #endif
 
@@ -608,13 +620,13 @@ bool TQEventLoop::gsourceDispatch(GSource *gs) {
 		// color approx. optimization - only on X11
 		qt_reset_color_avail();
 
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (locker.mutex()) locker.mutex()->unlock();
 #endif
 		processX11Events();
 	}
 	else {
-#if defined(QT_THREAD_SUPPORT)
+#if defined(TQT_THREAD_SUPPORT)
 		if (locker.mutex()) locker.mutex()->unlock();
 #endif
 	}
@@ -629,9 +641,9 @@ bool TQEventLoop::gsourceDispatch(GSource *gs) {
 
 bool TQEventLoop::hasPendingEvents() const
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 	TQMutexLocker locker( TQApplication::tqt_mutex );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 	extern uint qGlobalPostedEventsCount(); // from qapplication.cpp
 	return ( qGlobalPostedEventsCount() || ( (tqt_is_gui_used && TQApplication::isGuiThread())  ? XPending( TQPaintDevice::x11AppDisplay() ) : 0));

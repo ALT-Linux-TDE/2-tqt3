@@ -2,7 +2,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>Qt Linguist</source>
+        <source>TQt Linguist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -264,7 +264,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Linguist</source>
+        <source>TQt Linguist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -301,9 +301,9 @@
     </message>
 </context>
 <context>
-    <name>QObject</name>
+    <name>TQObject</name>
     <message>
-        <source>Qt Linguist</source>
+        <source>TQt Linguist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -327,7 +327,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Linguist</source>
+        <source>TQt Linguist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -351,7 +351,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt translation source (*.ts)
+        <source>TQt translation source (*.ts)
 All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -364,7 +364,7 @@ All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt message files for released applications (*.qm)
+        <source>TQt message files for released applications (*.qm)
 All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -417,7 +417,7 @@ All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt phrase books (*.qph)
+        <source>TQt phrase books (*.qph)
 All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -446,7 +446,7 @@ All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qt Linguist by Trolltech</source>
+        <source>TQt Linguist by Trolltech</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -718,23 +718,23 @@ All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open a Qt translation source file (TS file) for editing.</source>
+        <source>Open a TQt translation source file (TS file) for editing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save changes made to this Qt translation source file.</source>
+        <source>Save changes made to this TQt translation source file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save changes made to this Qt translationsource file into a new file.</source>
+        <source>Save changes made to this TQt translationsource file into a new file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Create a Qt message file suitable for released applications from the current message file.</source>
+        <source>Create a TQt message file suitable for released applications from the current message file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Print a list of all the phrases in the current Qt translation source file.</source>
+        <source>Print a list of all the phrases in the current TQt translation source file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -814,7 +814,7 @@ All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Display information about the Qt toolkit by Trolltech.</source>
+        <source>Display information about the TQt toolkit by Trolltech.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

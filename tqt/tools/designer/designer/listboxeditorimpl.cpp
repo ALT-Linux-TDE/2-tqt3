@@ -48,7 +48,7 @@
 ListBoxEditor::ListBoxEditor( TQWidget *parent, TQWidget *editWidget, FormWindow *fw )
     : ListBoxEditorBase( parent, 0, TRUE ), formwindow( fw )
 {
-    connect( helpButton, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( helpButton, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
     listbox = (TQListBox*)editWidget;
 
     itemText->setText( "" );
@@ -70,8 +70,8 @@ ListBoxEditor::ListBoxEditor( TQWidget *parent, TQWidget *editWidget, FormWindow
 
     ListBoxDnd *editorDnd = new ListBoxDnd( preview );
     editorDnd->setDragMode( ListBoxDnd::Internal | ListBoxDnd::Move );
-    TQObject::connect( editorDnd, SIGNAL( dropped( TQListBoxItem * ) ),
-		      editorDnd, SLOT( confirmDrop( TQListBoxItem * ) ) );
+    TQObject::connect( editorDnd, TQ_SIGNAL( dropped( TQListBoxItem * ) ),
+		      editorDnd, TQ_SLOT( confirmDrop( TQListBoxItem * ) ) );
 
     ListBoxRename *editorRename = new ListBoxRename( preview );
 
@@ -81,9 +81,9 @@ ListBoxEditor::ListBoxEditor( TQWidget *parent, TQWidget *editWidget, FormWindow
     while ( (obj = it.current()) != 0 ) {
         ++it;
 	TQObject::connect( editorRename,
-			  SIGNAL( itemTextChanged( const TQString & ) ),
+			  TQ_SIGNAL( itemTextChanged( const TQString & ) ),
 			  obj,
-			  SLOT( setText( const TQString & ) ) );
+			  TQ_SLOT( setText( const TQString & ) ) );
     }
     delete l;
     

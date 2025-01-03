@@ -192,10 +192,10 @@ void translate( const TQString& filename, const TQString& qmfile )
 			TQString charset = msgstr.mid( cpos, i-cpos );
 			codec = TQTextCodec::codecForName( charset.ascii() );
 			if ( codec ) {
-			    debug( "PO file character set: %s. Codec: %s",
+			    tqDebug( "PO file character set: %s. Codec: %s",
 				   charset.ascii(), codec->name() );
 			} else {
-			    debug( "No codec for %s", charset.ascii() );
+			    tqDebug( "No codec for %s", charset.ascii() );
 			}
 		    }
 		    break;

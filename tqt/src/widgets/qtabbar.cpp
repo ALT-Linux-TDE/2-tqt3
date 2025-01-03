@@ -37,7 +37,7 @@
 **********************************************************************/
 
 #include "ntqtabbar.h"
-#ifndef QT_NO_TABBAR
+#ifndef TQT_NO_TABBAR
 #include "ntqaccel.h"
 #include "ntqbitmap.h"
 #include "ntqtoolbutton.h"
@@ -52,7 +52,7 @@
 #include "ntqaccessible.h"
 #endif
 
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 #include <qmacstyle_mac.h>
 #endif
 
@@ -237,7 +237,7 @@ class TQTabBarToolTip;
 struct TQTabPrivate {
     int id;
     int focus;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQAccel * a;
 #endif
     TQTab *pressed;
@@ -249,7 +249,7 @@ struct TQTabPrivate {
     TQTabBarToolTip * toolTips;
 };
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 /* \internal
 */
 class TQTabBarToolTip : public TQToolTip
@@ -296,7 +296,7 @@ protected:
 	if ( tb->d->scrolls && (rectL.contains( p ) || rectR.contains( p )) )
 	     return;
 
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 	// find and show the tool tip for the tab under the point p
 	TQMapIterator<TQTab *, TQString> it;
 	for ( it = tabTips.begin(); it != tabTips.end(); ++it ) {
@@ -342,18 +342,18 @@ TQTabBar::TQTabBar( TQWidget * parent, const char *name )
     d->id = 0;
     d->focus = 0;
     d->toolTips = 0;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     d->a = new TQAccel( this, "tab accelerators" );
-    connect( d->a, SIGNAL(activated(int)), this, SLOT(setCurrentTab(int)) );
-    connect( d->a, SIGNAL(activatedAmbiguously(int)), this, SLOT(setCurrentTab(int)) );
+    connect( d->a, TQ_SIGNAL(activated(int)), this, TQ_SLOT(setCurrentTab(int)) );
+    connect( d->a, TQ_SIGNAL(activatedAmbiguously(int)), this, TQ_SLOT(setCurrentTab(int)) );
 #endif
     d->s = RoundedAbove;
     d->scrolls = FALSE;
     d->leftB = new TQToolButton( LeftArrow, this, "qt_left_btn" );
-    connect( d->leftB, SIGNAL( clicked() ), this, SLOT( scrollTabs() ) );
+    connect( d->leftB, TQ_SIGNAL( clicked() ), this, TQ_SLOT( scrollTabs() ) );
     d->leftB->hide();
     d->rightB = new TQToolButton( RightArrow, this, "qt_right_btn" );
-    connect( d->rightB, SIGNAL( clicked() ), this, SLOT( scrollTabs() ) );
+    connect( d->rightB, TQ_SIGNAL( clicked() ), this, TQ_SLOT( scrollTabs() ) );
     d->rightB->hide();
     d->btnWidth = style().pixelMetric(TQStyle::PM_TabBarScrollButtonWidth, this);
     l = new TQPtrList<TQTab>;
@@ -370,7 +370,7 @@ TQTabBar::TQTabBar( TQWidget * parent, const char *name )
 
 TQTabBar::~TQTabBar()
 {
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     if ( d->toolTips )
 	delete d->toolTips;
 #endif
@@ -434,7 +434,7 @@ int TQTabBar::insertTab( TQTab * newTab, int index )
     updateArrowButtons();
     makeVisible( tab( currentTab() ) );
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     int p = TQAccel::shortcutKey( newTab->label );
     if ( p )
 	d->a->insertItem( p, newTab->id );
@@ -450,11 +450,11 @@ int TQTabBar::insertTab( TQTab * newTab, int index )
 void TQTabBar::removeTab( TQTab * t )
 {
     //#### accelerator labels??
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     if ( d->toolTips )
 	d->toolTips->remove( t );
 #endif
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     if ( d->a )
 	d->a->removeItem( t->id );
 #endif
@@ -492,7 +492,7 @@ void TQTabBar::setTabEnabled( int id, bool enabled )
 	if ( t && t->id == id ) {
 	    if ( t->enabled != enabled ) {
 		t->enabled = enabled;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 		d->a->setItemEnabled( t->id, enabled );
 #endif
 		TQRect r( t->r );
@@ -618,7 +618,7 @@ void TQTabBar::paint( TQPainter * p, TQTab * t, bool selected ) const
 	int w = iw + fw + 4;
 	int h = TQMAX(fm.height() + 4, ih );
 	int offset = 3;
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 	if (::tqt_cast<TQMacStyle *>(&style())) {
 		offset = 0;
 	}
@@ -920,7 +920,7 @@ void TQTabBar::setCurrentTab( TQTab * tab )
 	if ( tab->r.intersects( r ) ) {
 	    repaint( r.unite( tab->r ), FALSE );
 	} else {
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
             update();
 #else
 	    repaint( r, FALSE );
@@ -1334,7 +1334,7 @@ void TQTabBar::updateArrowButtons()
 */
 void TQTabBar::removeToolTip( int index )
 {
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQTab * tab = tabAt( index );
     if ( !tab || !d->toolTips )
 	return;
@@ -1348,7 +1348,7 @@ void TQTabBar::removeToolTip( int index )
 */
 void TQTabBar::setToolTip( int index, const TQString & tip )
 {
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     TQTab * tab = tabAt( index );
     if ( !tab )
 	return;
@@ -1363,7 +1363,7 @@ void TQTabBar::setToolTip( int index, const TQString & tip )
 */
 TQString TQTabBar::toolTip( int index ) const
 {
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
     if ( d->toolTips )
 	return d->toolTips->tipForTab( tabAt( index ) );
     else
@@ -1378,7 +1378,7 @@ void TQTab::setText( const TQString& text )
 {
     label = text;
     if ( tb ) {
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 	tb->d->a->removeItem( id );
 	int p = TQAccel::shortcutKey( text );
 	if ( p )

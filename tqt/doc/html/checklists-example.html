@@ -149,8 +149,8 @@ protected slots:
     <a href="ntqpushbutton.html">TQPushButton</a> *copy1 = new <a href="ntqpushbutton.html">TQPushButton</a>( "  -&gt;  ", this );
     tmp-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( copy1 );
 <a name="x437"></a><a name="x433"></a>    copy1-&gt;<a href="ntqwidget.html#setMaximumWidth">setMaximumWidth</a>( copy1-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>().width() );
-    // connect the SIGNAL clicked() of the pushbutton with the SLOT copy1to2()
-    <a href="ntqobject.html#connect">connect</a>( copy1, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( copy1to2() ) );
+    // connect the TQ_SIGNAL clicked() of the pushbutton with the TQ_SLOT copy1to2()
+    <a href="ntqobject.html#connect">connect</a>( copy1, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( copy1to2() ) );
 
     // another widget for layouting
     <a href="qvboxlayout.html">TQVBoxLayout</a> *vbox2 = new <a href="qvboxlayout.html">TQVBoxLayout</a>( lay );
@@ -173,8 +173,8 @@ protected slots:
     <a href="ntqpushbutton.html">TQPushButton</a> *copy2 = new <a href="ntqpushbutton.html">TQPushButton</a>( "  -&gt;  ", this );
     lay-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( copy2 );
     copy2-&gt;<a href="ntqwidget.html#setMaximumWidth">setMaximumWidth</a>( copy2-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>().width() );
-    // ...and connect its clicked() SIGNAL to the copy2to3() SLOT
-    <a href="ntqobject.html#connect">connect</a>( copy2, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( copy2to3() ) );
+    // ...and connect its clicked() TQ_SIGNAL to the copy2to3() TQ_SLOT
+    <a href="ntqobject.html#connect">connect</a>( copy2, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( copy2to3() ) );
 
     tmp = new <a href="qvboxlayout.html">TQVBoxLayout</a>( lay );
     tmp-&gt;<a href="ntqlayout.html#setMargin">setMargin</a>( 5 );
@@ -185,7 +185,7 @@ protected slots:
 }
 
 /*
- * SLOT copy1to2()
+ * TQ_SLOT copy1to2()
  *
  * Copies all checked ListViewItems from the first ListView to
  * the second one, and inserts them as Radio-ListViewItem.
@@ -217,7 +217,7 @@ void <a name="f249"></a>CheckLists::copy1to2()
 }
 
 /*
- * SLOT copy2to3()
+ * TQ_SLOT copy2to3()
  *
  * Copies the checked item of the second ListView into the
  * Label at the right.

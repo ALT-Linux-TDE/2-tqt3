@@ -50,13 +50,13 @@ void GLWorkspace::setupSceneActions()
     newGroup->setExclusive( FALSE );
     newGroup->setIconSet( TQPixmap( "textdrawing/filenew.png" ) );
     a = new TQAction( tr( "Wirebox" ), TQPixmap( "opengl/wirebox.xpm" ), tr( "&Wirebox" ), 0, newGroup );
-    connect( a, SIGNAL( activated() ), this, SLOT( newWirebox() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( newWirebox() ) );
     a = new TQAction( tr( "Gear" ), TQPixmap( "opengl/gear.xpm" ), tr( "&Gears" ), 0, newGroup );
-    connect( a, SIGNAL( activated() ), this, SLOT( newGear() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( newGear() ) );
     a = new TQAction( tr( "Texture" ), TQPixmap( "opengl/texture.xpm" ), tr( "&Texture" ), 0, newGroup );
-    connect( a, SIGNAL( activated() ), this, SLOT( newTexture() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( newTexture() ) );
 /*    a = new TQAction( tr( "Nurbs" ), TQPixmap( "opengl/nurbs.xpm" ), tr( "&Nurbs" ), 0, newGroup );
-    connect( a, SIGNAL( activated() ), this, SLOT( newNurbs() ) );*/
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( newNurbs() ) );*/
     newGroup->addTo( tb );
     newGroup->addTo( menu );
 
@@ -68,21 +68,21 @@ void GLWorkspace::setupSceneActions()
     printGroup->setExclusive( FALSE );
     printGroup->setIconSet( TQPixmap( "textdrawing/print.png" ) );
     TQAction *da = new TQAction( tr( "Window Size" ), TQPixmap( "textdrawing/print.png" ), tr( "&Window Size" ), CTRL + Key_P, printGroup );
-    connect( da, SIGNAL( activated() ), this, SLOT( filePrintWindowRes() ) );
+    connect( da, TQ_SIGNAL( activated() ), this, TQ_SLOT( filePrintWindowRes() ) );
     a = new TQAction( tr( "Low Resolution" ), tr( "&Low Resolution" ), 0, printGroup );
-    connect( a, SIGNAL( activated() ), this, SLOT( filePrintLowRes() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( filePrintLowRes() ) );
     a = new TQAction( tr( "Medium Resolution" ), tr( "&Medium Resolution" ), 0, printGroup );
-    connect( a, SIGNAL( activated() ), this, SLOT( filePrintMedRes() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( filePrintMedRes() ) );
     a = new TQAction( tr( "High Resolution" ), tr( "&High Resolution" ), 0, printGroup );
-    connect( a, SIGNAL( activated() ), this, SLOT( filePrintHighRes() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( filePrintHighRes() ) );
     printGroup->addSeparator();
     a = new TQAction( tr( "Setup" ), tr( "&Setup..." ), 0, printGroup );
-    connect( a, SIGNAL( activated() ), this, SLOT( filePrintSetup() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( filePrintSetup() ) );
     da->addTo( tb );
     printGroup->addTo( menu );
 
     a = new TQAction( tr( "Close" ), TQPixmap(), tr( "&Close" ), 0, this );
-    connect( a, SIGNAL( activated() ), this, SLOT( fileClose() ) );
+    connect( a, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileClose() ) );
     a->addTo( menu );
 }
 

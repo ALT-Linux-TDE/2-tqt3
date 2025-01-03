@@ -45,13 +45,13 @@
 #include "ntqwidget.h"
 #endif // QT_H
 
-#ifndef QT_NO_STATUSBAR
+#ifndef TQT_NO_STATUSBAR
 
 
 class TQStatusBarPrivate;
 
 
-class Q_EXPORT TQStatusBar: public TQWidget
+class TQ_EXPORT TQStatusBar: public TQWidget
 {
     TQ_OBJECT
     TQ_PROPERTY( bool sizeGripEnabled READ isSizeGripEnabled WRITE setSizeGripEnabled )
@@ -91,6 +91,6 @@ private:	// Disabled copy constructor and operator=
 #endif
 };
 
-#endif // QT_NO_STATUSBAR
+#endif // TQT_NO_STATUSBAR
 
 #endif // TQSTATUSBAR_H

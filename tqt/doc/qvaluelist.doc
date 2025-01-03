@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -52,10 +52,10 @@
     \mainclass
     \reentrant
 
-    QValueList is a Qt implementation of an STL-like list container.
+    QValueList is a TQt implementation of an STL-like list container.
     It can be used in your application if the standard \c list is not
     available for your target platform(s). QValueList is part of the
-    \link ntqtl.html Qt Template Library\endlink.
+    \link ntqtl.html TQt Template Library\endlink.
 
     QValueList\<T\> defines a template instance to create a list of
     values that all have the class T. Note that QValueList does not
@@ -70,7 +70,7 @@
     pointer-based containers.
 
     Some classes cannot be used within a QValueList, for example, all
-    classes derived from QObject and thus all classes that implement
+    classes derived from TQObject and thus all classes that implement
     widgets. Only values can be used in a QValueList. To qualify as a
     value the class must provide:
     \list
@@ -98,18 +98,18 @@
     {
     public:
 	Employee(): sn(0) {}
-	Employee( const QString& forename, const QString& surname, int salary )
+	Employee( const TQString& forename, const TQString& surname, int salary )
 	    : fn(forename), sn(surname), sal(salary)
 	{}
 
-	QString forename() const { return fn; }
-	QString surname() const { return sn; }
+	TQString forename() const { return fn; }
+	TQString surname() const { return sn; }
 	int salary() const { return sal; }
 	void setSalary( int salary ) { sal = salary; }
 
     private:
-	QString fn;
-	QString sn;
+	TQString fn;
+	TQString sn;
 	int sal;
     };
 
@@ -216,7 +216,7 @@
     specific item from the list. The remove() function will find and
     remove items according to a specific item value.
 
-    Lists can also be sorted using the \link ntqtl.html Qt Template
+    Lists can also be sorted using the \link ntqtl.html TQt Template
     Library\endlink. For example with qHeapSort():
 
     Example:
@@ -879,7 +879,7 @@
     generic algorithms in the STL or the \link ntqtl.html QTL\endlink.
 
     Using an invalid iterator is undefined (your application will
-    probably crash). Many Qt functions return const value lists; to
+    probably crash). Many TQt functions return const value lists; to
     iterate over these you should make a copy and iterate over the
     copy.
 

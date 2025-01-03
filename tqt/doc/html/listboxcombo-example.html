@@ -166,8 +166,8 @@ protected:
 
     // Create a pushbutton...
     <a href="ntqpushbutton.html">TQPushButton</a> *arrow1 = new <a href="ntqpushbutton.html">TQPushButton</a>( " -&gt; ", row1 );
-    // ...and connect the clicked SIGNAL with the SLOT slotLeft2Right
-    <a href="ntqobject.html#connect">connect</a>( arrow1, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( slotLeft2Right() ) );
+    // ...and connect the clicked TQ_SIGNAL with the TQ_SLOT slotLeft2Right
+    <a href="ntqobject.html#connect">connect</a>( arrow1, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotLeft2Right() ) );
 
     // create an empty single-selection ListBox
     lb2 = new <a href="ntqlistbox.html">TQListBox</a>( row1 );
@@ -212,12 +212,12 @@ protected:
     }
 
     // Connect the activated SIGNALs of the Comboboxes with SLOTs
-<a name="x1398"></a>    <a href="ntqobject.html#connect">connect</a>( cb1, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ), this, SLOT( slotCombo1Activated( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
-    <a href="ntqobject.html#connect">connect</a>( cb2, SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ), this, SLOT( slotCombo2Activated( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+<a name="x1398"></a>    <a href="ntqobject.html#connect">connect</a>( cb1, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ), this, TQ_SLOT( slotCombo1Activated( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+    <a href="ntqobject.html#connect">connect</a>( cb2, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ), this, TQ_SLOT( slotCombo2Activated( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
 }
 
 /*
- * SLOT slotLeft2Right
+ * TQ_SLOT slotLeft2Right
  *
  * Copies all selected items of the first ListBox into the
  * second ListBox
@@ -242,7 +242,7 @@ void <a name="f438"></a>ListBoxCombo::slotLeft2Right()
 }
 
 /*
- * SLOT slotCombo1Activated( const <a href="ntqstring.html">TQString</a> &amp;s )
+ * TQ_SLOT slotCombo1Activated( const <a href="ntqstring.html">TQString</a> &amp;s )
  *
  * Sets the text of the item which the user just selected
  * in the first Combobox (and is now the value of s) to
@@ -255,7 +255,7 @@ void <a name="f439"></a>ListBoxCombo::slotCombo1Activated( const <a href="ntqstr
 }
 
 /*
- * SLOT slotCombo2Activated( const <a href="ntqstring.html">TQString</a> &amp;s )
+ * TQ_SLOT slotCombo2Activated( const <a href="ntqstring.html">TQString</a> &amp;s )
  *
  * Sets the text of the item which the user just selected
  * in the second Combobox (and is now the value of s) to

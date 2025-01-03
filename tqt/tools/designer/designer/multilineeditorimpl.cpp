@@ -58,7 +58,7 @@ ToolBarItem::ToolBarItem( TQWidget *parent, TQWidget *toolBar,
     setAccel( key );
     addTo( toolBar );
     tag = tagstr;
-    connect( this, SIGNAL( activated() ), this, SLOT( wasActivated() ) );
+    connect( this, TQ_SIGNAL( activated() ), this, TQ_SLOT( wasActivated() ) );
 }
 
 ToolBarItem::~ToolBarItem()
@@ -105,26 +105,26 @@ MultiLineEditor::MultiLineEditor( bool call_static, bool richtextMode, TQWidget 
 	ToolBarItem *it = new ToolBarItem( this, basicToolBar, tr( "Italic" ),
 					   "i", TQPixmap::fromMimeSource( "designer_textitalic.png" ), CTRL+Key_I );
 	it->addTo( stylesMenu );
-	connect( it, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( it, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *b = new ToolBarItem( this, basicToolBar, tr( "Bold" ),
 					  "b", TQPixmap::fromMimeSource( "designer_textbold.png" ), CTRL+Key_B );
 	b->addTo( stylesMenu );
-	connect( b, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( b, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *ul = new ToolBarItem( this, basicToolBar, tr( "Underline" ),
 					   "u", TQPixmap::fromMimeSource( "designer_textunderline.png" ), CTRL+Key_U );
 	ul->addTo( stylesMenu );
-	connect( ul, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( ul, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *tt = new ToolBarItem( this, basicToolBar, tr( "Typewriter" ),
 					   "tt", TQPixmap::fromMimeSource( "designer_textteletext.png" ) );
 	tt->addTo( stylesMenu );
-	connect( tt, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( tt, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	basicToolBar->addSeparator();
 
@@ -136,39 +136,39 @@ MultiLineEditor::MultiLineEditor( bool call_static, bool richtextMode, TQWidget 
 	brAction->setText( tr("Break" ) );
 	brAction->addTo( basicToolBar );
 	brAction->addTo( layoutMenu );
-	connect( brAction, SIGNAL( activated() ) , this, SLOT( insertBR() ) );
+	connect( brAction, TQ_SIGNAL( activated() ) , this, TQ_SLOT( insertBR() ) );
 
 	ToolBarItem *p = new ToolBarItem( this, basicToolBar, tr( "Paragraph" ),
 					  "p", TQPixmap::fromMimeSource( "designer_textparagraph.png" ) );
 	p->addTo( layoutMenu );
-	connect( p, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( p, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 	layoutMenu->insertSeparator();
 	basicToolBar->addSeparator();
 
 	ToolBarItem *al = new ToolBarItem( this, basicToolBar, tr( "Align left" ),
 					   "p align=\"left\"", TQPixmap::fromMimeSource( "designer_textleft.png" ) );
 	al->addTo( layoutMenu );
-	connect( al, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( al, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *ac = new ToolBarItem( this, basicToolBar, tr( "Align center" ),
 					   "p align=\"center\"", TQPixmap::fromMimeSource( "designer_textcenter.png" ) );
 	ac->addTo( layoutMenu );
-	connect( ac, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( ac, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *ar = new ToolBarItem( this, basicToolBar, tr( "Align right" ),
 					   "p align=\"right\"", TQPixmap::fromMimeSource( "designer_textright.png" ) );
 	ar->addTo( layoutMenu );
-	connect( ar, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( ar, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *block = new ToolBarItem( this, basicToolBar, tr( "Blockquote" ),
 					      "blockquote", TQPixmap::fromMimeSource( "designer_textjustify.png" ) );
 	block->addTo( layoutMenu );
-	connect( block, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( block, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 
 	TQPopupMenu *fontMenu = new TQPopupMenu( this );
@@ -181,33 +181,33 @@ MultiLineEditor::MultiLineEditor( bool call_static, bool richtextMode, TQWidget 
 	fontAction->setText( tr("Font" ) );
 	fontAction->addTo( fontToolBar );
 	fontAction->addTo( fontMenu );
-	connect( fontAction, SIGNAL( activated() ) , this, SLOT( showFontDialog() ) );
+	connect( fontAction, TQ_SIGNAL( activated() ) , this, TQ_SLOT( showFontDialog() ) );
 
 
 	ToolBarItem *fp1 = new ToolBarItem( this, fontToolBar, tr( "Fontsize +1" ),
 					    "font size=\"+1\"", TQPixmap::fromMimeSource( "designer_textlarger.png" ) );
-	connect( fp1, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( fp1, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *fm1 = new ToolBarItem( this, fontToolBar, tr( "Fontsize -1" ),
 					    "font size=\"-1\"", TQPixmap::fromMimeSource( "designer_textsmaller.png" ) );
-	connect( fm1, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( fm1, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *h1 = new ToolBarItem( this, fontToolBar, tr( "Headline 1" ),
 					   "h1", TQPixmap::fromMimeSource( "designer_texth1.png" ) );
-	connect( h1, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( h1, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *h2 = new ToolBarItem( this, fontToolBar, tr( "Headline 2" ),
 					   "h2", TQPixmap::fromMimeSource( "designer_texth2.png"  ) );
-	connect( h2, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( h2, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	ToolBarItem *h3 = new ToolBarItem( this, fontToolBar, tr( "Headline 3" ),
 					   "h3", TQPixmap::fromMimeSource( "designer_texth3.png" ) );
-	connect( h3, SIGNAL( clicked( const TQString& ) ),
-		 this, SLOT( insertTags( const TQString& )));
+	connect( h3, TQ_SIGNAL( clicked( const TQString& ) ),
+		 this, TQ_SLOT( insertTags( const TQString& )));
 
 	TQPopupMenu *optionsMenu = new TQPopupMenu( this );
 	menuBar->insertItem( tr( "O&ptions" ), optionsMenu );
@@ -219,12 +219,12 @@ MultiLineEditor::MultiLineEditor( bool call_static, bool richtextMode, TQWidget 
 	wrapAction->setText( tr( "Word Wrapping" ) );
 	wrapAction->addTo( optionsToolBar );
 	wrapAction->addTo( optionsMenu );
-	connect( wrapAction, SIGNAL( toggled( bool ) ), this, SLOT( changeWrapMode( bool ) ) );
+	connect( wrapAction, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( changeWrapMode( bool ) ) );
 
 	oldDoWrap = doWrap;
 	wrapAction->setOn( doWrap );
 
-	connect( helpButton, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+	connect( helpButton, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
 	textEdit->document()->setFormatter( new TQTextFormatterBreakInWords );
 	textEdit->document()->setUseFormatCollection( FALSE );
 	textEdit->document()->setPreProcessor( new SyntaxHighlighter_HTML );

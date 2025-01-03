@@ -46,11 +46,11 @@
 #endif // QT_H
 
 
-class Q_EXPORT TQGVector : public TQPtrCollection	// generic vector
+class TQ_EXPORT TQGVector : public TQPtrCollection	// generic vector
 {
 friend class TQGList;				// needed by TQGList::toVector
 public:
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQDataStream &read( TQDataStream & );		// read vector from stream
     TQDataStream &write( TQDataStream & ) const;	// write vector to stream
 #endif
@@ -99,7 +99,7 @@ protected:
 
     void toList( TQGList * ) const;		// put items in list
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     virtual TQDataStream &read( TQDataStream &, Item & );
     virtual TQDataStream &write( TQDataStream &, Item ) const;
 #endif
@@ -116,9 +116,9 @@ private:
   TQGVector stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQGVector & );
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQGVector & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQGVector & );
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQGVector & );
 #endif
 
 #endif // TQGVECTOR_H

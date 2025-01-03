@@ -16,10 +16,10 @@ LCDRange::LCDRange( TQWidget *parent, const char *name )
     slider = new TQSlider( Horizontal, this, "slider" );
     slider->setRange( 0, 99 );
     slider->setValue( 0 );
-    connect( slider, SIGNAL(valueChanged(int)),
-	     lcd, SLOT(display(int)) );
-    connect( slider, SIGNAL(valueChanged(int)),
-	     SIGNAL(valueChanged(int)) );
+    connect( slider, TQ_SIGNAL(valueChanged(int)),
+	     lcd, TQ_SLOT(display(int)) );
+    connect( slider, TQ_SIGNAL(valueChanged(int)),
+	     TQ_SIGNAL(valueChanged(int)) );
 
     setFocusProxy( slider );
 }

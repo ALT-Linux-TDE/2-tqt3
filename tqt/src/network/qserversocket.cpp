@@ -40,7 +40,7 @@
 
 #include "ntqserversocket.h"
 
-#ifndef QT_NO_NETWORK
+#ifndef TQT_NO_NETWORK
 
 #include "ntqsocketnotifier.h"
 
@@ -173,8 +173,8 @@ void TQServerSocket::init( const TQHostAddress & address, TQ_UINT16 port, int ba
     {
 	d->n = new TQSocketNotifier( d->s->socket(), TQSocketNotifier::Read,
 				    this, "accepting new connections" );
-	connect( d->n, SIGNAL(activated(int)),
-		 this, SLOT(incomingConnection(int)) );
+	connect( d->n, TQ_SIGNAL(activated(int)),
+		 this, TQ_SLOT(incomingConnection(int)) );
     } else {
 	tqWarning( "TQServerSocket: failed to bind or listen to the socket" );
 	delete d->s;
@@ -290,8 +290,8 @@ void TQServerSocket::setSocket( int socket )
     d->s = new TQSocketDevice( socket, TQSocketDevice::Stream );
     d->n = new TQSocketNotifier( d->s->socket(), TQSocketNotifier::Read,
 	       this, "accepting new connections" );
-    connect( d->n, SIGNAL(activated(int)),
-	     this, SLOT(incomingConnection(int)) );
+    connect( d->n, TQ_SIGNAL(activated(int)),
+	     this, TQ_SLOT(incomingConnection(int)) );
 }
 
-#endif //QT_NO_NETWORK
+#endif //TQT_NO_NETWORK

@@ -40,10 +40,10 @@
 
 #include "ntqtextedit.h"
 
-#ifndef QT_NO_TEXTEDIT
+#ifndef TQT_NO_TEXTEDIT
 
 // Keep this position to avoid patch rejection
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "ntqinputcontext.h"
 #endif
 
@@ -78,7 +78,7 @@
 #include "private/qsyntaxhighlighter_p.h"
 #include <ntqguardedptr.h>
 
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
 #include <ntqkeysequence.h>
 #define ACCEL_KEY(k) "\t" + TQString(TQKeySequence( TQt::CTRL | TQt::Key_ ## k ))
 #else
@@ -100,7 +100,7 @@ public:
     TQTextEditPrivate()
 	:preeditStart(-1),preeditLength(-1),ensureCursorVisibleInShowEvent(FALSE),
 	 tabChangesFocus(FALSE),
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 	 clipboard_mode( TQClipboard::Clipboard ),
 #endif
 #ifdef QT_TEXTEDIT_OPTIMIZATION
@@ -123,7 +123,7 @@ public:
     TQString scrollToAnchor; // used to deferr scrollToAnchor() until the show event when we are resized
     TQString pressedName;
     TQString onName;
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     TQClipboard::Mode clipboard_mode;
 #endif
     TQTimer *trippleClickTimer;
@@ -137,7 +137,7 @@ public:
     uint autoFormatting;
 };
 
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 class TQRichTextDrag : public TQTextDrag
 {
 public:
@@ -953,11 +953,11 @@ void TQTextEdit::init()
     d = new TQTextEditPrivate;
     doc->formatCollection()->setPaintDevice( this );
     undoEnabled = TRUE;
-    readonly = TRUE;
+    readOnly = TRUE;
     setReadOnly( FALSE );
     setFrameStyle( LineEditPanel | Sunken );
-    connect( doc, SIGNAL( minimumWidthChanged(int) ),
-	     this, SLOT( documentWidthChanged(int) ) );
+    connect( doc, TQ_SIGNAL( minimumWidthChanged(int) ),
+	     this, TQ_SLOT( documentWidthChanged(int) ) );
 
     mousePressed = FALSE;
     inDoubleClick = FALSE;
@@ -968,6 +968,7 @@ void TQTextEdit::init()
     wrapMode = WidgetWidth;
     wrapWidth = -1;
     wPolicy = AtWhiteSpace;
+    mightStartDrag = FALSE;
     inDnD = FALSE;
     doc->setFormatter( new TQTextFormatterBreakWords );
     doc->formatCollection()->defaultFormat()->setFont( TQScrollView::font() );
@@ -983,34 +984,34 @@ void TQTextEdit::init()
 
     setKeyCompression( TRUE );
     viewport()->setMouseTracking( TRUE );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
     cursor = new TQTextCursor( doc );
 
     formatTimer = new TQTimer( this );
-    connect( formatTimer, SIGNAL( timeout() ),
-	     this, SLOT( formatMore() ) );
+    connect( formatTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( formatMore() ) );
     lastFormatted = doc->firstParagraph();
 
     scrollTimer = new TQTimer( this );
-    connect( scrollTimer, SIGNAL( timeout() ),
-	     this, SLOT( autoScrollTimerDone() ) );
+    connect( scrollTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( autoScrollTimerDone() ) );
 
     interval = 0;
     changeIntervalTimer = new TQTimer( this );
-    connect( changeIntervalTimer, SIGNAL( timeout() ),
-	     this, SLOT( doChangeInterval() ) );
+    connect( changeIntervalTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( doChangeInterval() ) );
 
     cursorVisible = TRUE;
     blinkTimer = new TQTimer( this );
-    connect( blinkTimer, SIGNAL( timeout() ),
-	     this, SLOT( blinkCursor() ) );
+    connect( blinkTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( blinkCursor() ) );
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     dragStartTimer = new TQTimer( this );
-    connect( dragStartTimer, SIGNAL( timeout() ),
-	     this, SLOT( startDrag() ) );
+    connect( dragStartTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( startDrag() ) );
 #endif
 
     d->trippleClickTimer = new TQTimer( this );
@@ -1023,8 +1024,8 @@ void TQTextEdit::init()
     viewport()->setFocusPolicy( WheelFocus );
     setInputMethodEnabled( TRUE );
     viewport()->installEventFilter( this );
-    connect( this, SIGNAL(horizontalSliderReleased()), this, SLOT(sliderReleased()) );
-    connect( this, SIGNAL(verticalSliderReleased()), this, SLOT(sliderReleased()) );
+    connect( this, TQ_SIGNAL(horizontalSliderReleased()), this, TQ_SLOT(sliderReleased()) );
+    connect( this, TQ_SIGNAL(verticalSliderReleased()), this, TQ_SLOT(sliderReleased()) );
     installEventFilter( this );
 }
 
@@ -1179,7 +1180,7 @@ bool TQTextEdit::event( TQEvent *e )
 	    case Key_Down:
 	    case Key_Home:
 	    case Key_End:
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	    case Key_Insert:
 	    case Key_Delete:
 #endif
@@ -1191,7 +1192,7 @@ bool TQTextEdit::event( TQEvent *e )
 
 	default:
 	    switch ( ke->key() ) {
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	    case Key_Insert:
 		ke->accept();
 #endif
@@ -1287,7 +1288,7 @@ void TQTextEdit::keyPressEvent( TQKeyEvent *e )
 	    // Ctrl-Enter inserts a line break in rich text mode
 	    insert( TQString( TQChar( 0x2028) ), TRUE, FALSE );
 	} else {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 	    clearUndoRedoInfo = FALSE;
@@ -1296,7 +1297,7 @@ void TQTextEdit::keyPressEvent( TQKeyEvent *e )
 	}
 	break;
     case Key_Delete:
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	if ( e->state() & ShiftButton ) {
 	    cut();
 	    break;
@@ -1314,7 +1315,7 @@ void TQTextEdit::keyPressEvent( TQKeyEvent *e )
     case Key_Insert:
 	if ( e->state() & ShiftButton )
 	    paste();
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	else if ( e->state() & ControlButton )
 	    copy();
 #endif
@@ -1322,7 +1323,7 @@ void TQTextEdit::keyPressEvent( TQKeyEvent *e )
 	    setOverwriteMode( !isOverwriteMode() );
 	break;
     case Key_Backspace:
-#if defined (Q_WS_WIN)
+#if defined (TQ_WS_WIN)
 	if ( e->state() & AltButton ) {
 	    if (e->state() & ControlButton ) {
 		break;
@@ -1450,7 +1451,7 @@ void TQTextEdit::keyPressEvent( TQKeyEvent *e )
                     clearUndoRedoInfo = FALSE;
                 }
 		TQString t = e->text();
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 		extern bool tqt_hebrew_keyboard_hack;
 		if ( tqt_hebrew_keyboard_hack ) {
 		    // the X11 keyboard layout is broken and does not reverse
@@ -1486,7 +1487,7 @@ void TQTextEdit::keyPressEvent( TQKeyEvent *e )
 			indent();
 		    break;
 		case Key_A:
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 		    moveCursor( MoveLineStart, e->state() & ShiftButton );
 #else
 		    selectAll( TRUE );
@@ -1539,7 +1540,7 @@ void TQTextEdit::keyPressEvent( TQKeyEvent *e )
 		case Key_K:
 		    doKeyboardAction( ActionKill );
 		    break;
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 		case Key_Insert:
 		    copy();
 		    break;
@@ -1573,7 +1574,7 @@ void TQTextEdit::keyPressEvent( TQKeyEvent *e )
  */
 bool TQTextEdit::sendMouseEventToInputContext( TQMouseEvent *e )
 {
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     if ( d->composeMode() ) {
 	TQTextCursor c( doc );
 	if ( c.place( e->pos(), doc->firstParagraph(), FALSE, FALSE, FALSE ) ) {
@@ -1843,7 +1844,7 @@ void TQTextEdit::doKeyboardAction( KeyboardAction action )
 
 void TQTextEdit::readFormats( TQTextCursor &c1, TQTextCursor &c2, TQTextString &text, bool fillStyles )
 {
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
     TQDataStream styleStream( undoRedoInfo.styleInformation, IO_WriteOnly );
 #endif
     c2.restoreState();
@@ -1852,7 +1853,7 @@ void TQTextEdit::readFormats( TQTextCursor &c1, TQTextCursor &c2, TQTextString &
     if ( c1.paragraph() == c2.paragraph() ) {
 	for ( int i = c1.index(); i < c2.index(); ++i )
 	    text.insert( lastIndex + i - c1.index(), c1.paragraph()->at( i ), TRUE );
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 	if ( fillStyles ) {
 	    styleStream << (int) 1;
 	    c1.paragraph()->writeStyleInformation( styleStream );
@@ -1872,7 +1873,7 @@ void TQTextEdit::readFormats( TQTextCursor &c1, TQTextCursor &c2, TQTextString &
 
 	for ( i = 0; i < c2.index(); ++i )
 	    text.insert( i + lastIndex, c2.paragraph()->at( i ), TRUE );
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 	if ( fillStyles ) {
 	    styleStream << num;
 	    for ( TQTextParagraph *p = c1.paragraph(); --num >= 0; p = p->next() )
@@ -1942,13 +1943,13 @@ void TQTextEdit::removeSelectedText( int selNum )
 	ensureCursorVisible();
 	drawCursor( TRUE );
 	clearUndoRedo();
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	// there seems to be a problem with repainting or erasing the area
 	// of the scrollview which is not the contents on windows
 	if ( contentsHeight() < visibleHeight() )
 	    viewport()->repaint( 0, contentsHeight(), visibleWidth(), visibleHeight() - contentsHeight(), TRUE );
 #endif
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 	updateMicroFocusHint();
@@ -1977,7 +1978,7 @@ void TQTextEdit::moveCursor( CursorAction action, bool select )
     if ( d->optimMode )
 	return;
 #endif
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
     TQTextCursor c1 = *cursor;
     TQTextCursor c2;
 #endif
@@ -1986,7 +1987,7 @@ void TQTextEdit::moveCursor( CursorAction action, bool select )
 	if ( !doc->hasSelection( TQTextDocument::Standard ) )
 	    doc->setSelectionStart( TQTextDocument::Standard, *cursor );
 	moveCursor( action );
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 	c2 = *cursor;
 	if (c1 == c2)
 	    if (action == MoveDown || action == MovePgDown)
@@ -2004,7 +2005,7 @@ void TQTextEdit::moveCursor( CursorAction action, bool select )
 	emit selectionChanged();
 	emit copyAvailable( doc->hasSelection( TQTextDocument::Standard ) );
     } else {
-#ifdef Q_WS_MACX
+#ifdef TQ_WS_MACX
 	TQTextCursor cStart = doc->selectionStartCursor( TQTextDocument::Standard );
 	TQTextCursor cEnd = doc->selectionEndCursor( TQTextDocument::Standard );
 	bool redraw = doc->removeSelection( TQTextDocument::Standard );
@@ -2036,7 +2037,7 @@ void TQTextEdit::moveCursor( CursorAction action, bool select )
 	    repaintChanged();
 	    ensureCursorVisible();
 	    drawCursor( TRUE );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 	}
@@ -2232,7 +2233,7 @@ enum {
 /*!
     \reimp
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQTextEdit::contentsWheelEvent( TQWheelEvent *e )
 {
     if ( isReadOnly() ) {
@@ -2303,7 +2304,7 @@ void TQTextEdit::contentsMousePressEvent( TQMouseEvent *e )
 	    }
 	}
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 	if ( doc->inSelection( TQTextDocument::Standard, e->pos() ) ) {
 	    mightStartDrag = TRUE;
 	    drawCursor( TRUE );
@@ -2337,7 +2338,7 @@ void TQTextEdit::contentsMousePressEvent( TQMouseEvent *e )
 	    drawCursor( TRUE );
 	} else {
 	    repaintChanged();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 	}
@@ -2347,7 +2348,7 @@ void TQTextEdit::contentsMousePressEvent( TQMouseEvent *e )
 	    drawCursor( TRUE );
 	} else {
 	    repaintChanged();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 	}
@@ -2372,7 +2373,7 @@ void TQTextEdit::contentsMouseMoveEvent( TQMouseEvent *e )
     if ( sendMouseEventToInputContext( e ) ) {
 	// don't return from here to avoid cursor vanishing
     } else if ( mousePressed ) {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 	if ( mightStartDrag ) {
 	    dragStartTimer->stop();
 	    if ( ( e->pos() - dragStartPos ).manhattanLength() > TQApplication::startDragDistance() ) {
@@ -2381,7 +2382,7 @@ void TQTextEdit::contentsMouseMoveEvent( TQMouseEvent *e )
 		if (guard.isNull()) // we got deleted during the dnd
                     return;
 	    }
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    if ( !isReadOnly() )
 		viewport()->setCursor( ibeamCursor );
 #endif
@@ -2393,7 +2394,7 @@ void TQTextEdit::contentsMouseMoveEvent( TQMouseEvent *e )
 	oldMousePos = mousePos;
     }
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( !isReadOnly() && !mousePressed ) {
 	if ( doc->hasSelection( TQTextDocument::Standard ) && doc->inSelection( TQTextDocument::Standard, e->pos() ) )
 	    viewport()->setCursor( arrowCursor );
@@ -2406,16 +2407,16 @@ void TQTextEdit::contentsMouseMoveEvent( TQMouseEvent *e )
 
 void TQTextEdit::copyToClipboard()
 {
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     if (TQApplication::clipboard()->supportsSelection()) {
 	d->clipboard_mode = TQClipboard::Selection;
 
 	// don't listen to selection changes
-	disconnect( TQApplication::clipboard(), SIGNAL(selectionChanged()), this, 0);
+	disconnect( TQApplication::clipboard(), TQ_SIGNAL(selectionChanged()), this, 0);
 	copy();
 	// listen to selection changes
-	connect( TQApplication::clipboard(), SIGNAL(selectionChanged()),
-		 this, SLOT(clipboardChanged()) );
+	connect( TQApplication::clipboard(), TQ_SIGNAL(selectionChanged()),
+		 this, TQ_SLOT(clipboardChanged()) );
 
 	d->clipboard_mode = TQClipboard::Clipboard;
     }
@@ -2444,7 +2445,7 @@ void TQTextEdit::contentsMouseReleaseEvent( TQMouseEvent * e )
     TQTextCursor oldCursor = *cursor;
     if ( scrollTimer->isActive() )
 	scrollTimer->stop();
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( dragStartTimer->isActive() )
 	dragStartTimer->stop();
     if ( mightStartDrag ) {
@@ -2457,7 +2458,7 @@ void TQTextEdit::contentsMouseReleaseEvent( TQMouseEvent * e )
 	mousePressed = FALSE;
 	copyToClipboard();
     }
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     else if ( e->button() == MidButton && !isReadOnly() ) {
         // only do middle-click pasting on systems that have selections (ie. X11)
         if (TQApplication::clipboard()->supportsSelection()) {
@@ -2479,7 +2480,7 @@ void TQTextEdit::contentsMouseReleaseEvent( TQMouseEvent * e )
                 drawCursor( TRUE );
             } else {
                 repaintChanged();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
                 viewport()->setCursor( ibeamCursor );
 #endif
             }
@@ -2495,7 +2496,7 @@ void TQTextEdit::contentsMouseReleaseEvent( TQMouseEvent * e )
 	updateCurrentFormat();
     inDoubleClick = FALSE;
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
     if ( (   (!onLink.isEmpty() && onLink == pressedLink)
 	  || (!d->onName.isEmpty() && d->onName == d->pressedName))
 	 && linksEnabled() && mouseWasPressed ) {
@@ -2612,7 +2613,7 @@ void TQTextEdit::contentsMouseDoubleClickEvent( TQMouseEvent * e )
     emit doubleClicked( para, index );
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 /*!
     \reimp
@@ -2707,7 +2708,7 @@ void TQTextEdit::contentsDropEvent( TQDropEvent *e )
 	    doc->removeSelection( TQTextDocument::Standard );
 	} else {
 	    doc->removeSelection( TQTextDocument::Standard );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 	}
@@ -2721,7 +2722,7 @@ void TQTextEdit::contentsDropEvent( TQDropEvent *e )
 		if ( e->provides( "application/x-qrichtext" ) )
 		    subType = "x-qrichtext";
 	    }
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 	    pasteSubType( subType.latin1(), e );
 #endif
 	    // emit appropriate signals.
@@ -2744,7 +2745,7 @@ void TQTextEdit::contentsDropEvent( TQDropEvent *e )
 void TQTextEdit::contentsContextMenuEvent( TQContextMenuEvent *e )
 {
     e->accept();
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     if ( d->composeMode() )
 	return;
 #endif
@@ -2752,7 +2753,7 @@ void TQTextEdit::contentsContextMenuEvent( TQContextMenuEvent *e )
     clearUndoRedo();
     mousePressed = FALSE;
 
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     TQGuardedPtr<TQTextEdit> that = this;
     TQGuardedPtr<TQPopupMenu> popup = createPopupMenu( e->pos() );
     if ( !popup )
@@ -2769,18 +2770,18 @@ void TQTextEdit::contentsContextMenuEvent( TQContextMenuEvent *e )
 	clear();
     else if ( r == d->id[ IdSelectAll ] ) {
 	selectAll();
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
         // if the clipboard support selections, put the newly selected text into
         // the clipboard
 	if (TQApplication::clipboard()->supportsSelection()) {
 	    d->clipboard_mode = TQClipboard::Selection;
 
             // don't listen to selection changes
-            disconnect( TQApplication::clipboard(), SIGNAL(selectionChanged()), this, 0);
+            disconnect( TQApplication::clipboard(), TQ_SIGNAL(selectionChanged()), this, 0);
 	    copy();
             // listen to selection changes
-            connect( TQApplication::clipboard(), SIGNAL(selectionChanged()),
-                     this, SLOT(clipboardChanged()) );
+            connect( TQApplication::clipboard(), TQ_SIGNAL(selectionChanged()),
+                     this, TQ_SLOT(clipboardChanged()) );
 
 	    d->clipboard_mode = TQClipboard::Clipboard;
 	}
@@ -2789,7 +2790,7 @@ void TQTextEdit::contentsContextMenuEvent( TQContextMenuEvent *e )
 	undo();
     else if ( r == d->id[ IdRedo ] )
 	redo();
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     else if ( r == d->id[ IdCut ] )
 	cut();
     else if ( r == d->id[ IdCopy ] )
@@ -2919,7 +2920,7 @@ void TQTextEdit::updateMicroFocusHint()
     
     if ( hasFocus() || viewport()->hasFocus() ) {
 	int h = c.paragraph()->lineHeightOfChar( cursor->index() );
-	if ( !readonly ) {
+	if ( !readOnly ) {
 	    TQFont f = c.paragraph()->at( c.index() )->format()->font();
 	    setMicroFocusHint( c.x() - contentsX() + frameWidth(),
 			       c.y() + cursor->paragraph()->rect().y() - contentsY() + frameWidth(), 0, h, TRUE, &f );
@@ -3287,7 +3288,7 @@ void TQTextEdit::undo()
     for ( int i = 0; i < (int)doc->numSelections(); ++i )
 	doc->removeSelection( i );
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 
@@ -3338,7 +3339,7 @@ void TQTextEdit::redo()
     for ( int i = 0; i < (int)doc->numSelections(); ++i )
 	doc->removeSelection( i );
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 
@@ -3372,7 +3373,7 @@ void TQTextEdit::redo()
 
 void TQTextEdit::paste()
 {
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     if ( isReadOnly() )
 	return;
     TQString subType = "plain";
@@ -3420,7 +3421,7 @@ void TQTextEdit::repaintChanged()
     paintDocument( FALSE, &p, contentsX(), contentsY(), visibleWidth(), visibleHeight() );
 }
 
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 TQTextDrag *TQTextEdit::dragObject( TQWidget *parent ) const
 {
     if ( !doc->hasSelection( TQTextDocument::Standard ) ||
@@ -3456,14 +3457,14 @@ void TQTextEdit::cut()
 
 void TQTextEdit::normalCopy()
 {
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     TQTextDrag *drag = dragObject();
     if ( !drag )
 	return;
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     TQApplication::clipboard()->setData( drag, d->clipboard_mode );
-#endif // QT_NO_MIMECLIPBOARD
-#endif // QT_NO_MIME
+#endif // TQT_NO_MIMECLIPBOARD
+#endif // TQT_NO_MIME
 }
 
 /*!
@@ -3474,7 +3475,7 @@ void TQTextEdit::normalCopy()
 
 void TQTextEdit::copy()
 {
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 # ifdef QT_TEXTEDIT_OPTIMIZATION
     if ( d->optimMode && optimHasSelection() )
 	TQApplication::clipboard()->setText( optimSelectedText(), d->clipboard_mode );
@@ -4051,7 +4052,7 @@ bool TQTextEdit::find( const TQString &expr, bool cs, bool wo, bool forward,
 	return optimFind( expr, cs, wo, forward, para, index );
 #endif
     drawCursor( FALSE );
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
     TQTextCursor findcur = *cursor;
@@ -4524,7 +4525,7 @@ int TQTextEdit::alignment() const
 
 void TQTextEdit::startDrag()
 {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     mousePressed = FALSE;
     inDoubleClick = FALSE;
     TQDragObject *drag = dragObject( viewport() );
@@ -4565,7 +4566,7 @@ void TQTextEdit::selectAll( bool select )
     repaintChanged();
     emit copyAvailable( doc->hasSelection( TQTextDocument::Standard ) );
     emit selectionChanged();
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 }
@@ -4730,7 +4731,7 @@ bool TQTextEdit::linkUnderline() const
     \sa mimeSourceFactory()
  */
 
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 void TQTextEdit::setMimeSourceFactory( TQMimeSourceFactory* factory )
 {
     doc->setMimeSourceFactory( factory );
@@ -4896,7 +4897,7 @@ bool TQTextEdit::handleReadOnlyKeyEvent( TQKeyEvent *e )
     case Key_F16: // Copy key on Sun keyboards
 	copy();
 	break;
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
     case Key_Return:
     case Key_Enter:
     case Key_Space: {
@@ -4920,7 +4921,7 @@ bool TQTextEdit::handleReadOnlyKeyEvent( TQKeyEvent *e )
 		    }
 		}
 	    }
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 	}
@@ -4932,7 +4933,7 @@ bool TQTextEdit::handleReadOnlyKeyEvent( TQKeyEvent *e )
 	    case Key_C: case Key_F16: // Copy key on Sun keyboards
 		copy();
 		break;
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	    case Key_Insert:
 		copy();
 		break;
@@ -5083,7 +5084,7 @@ void TQTextEdit::setDocument( TQTextDocument *dc )
     lastFormatted = 0;
 }
 
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
 
 /*!
     Pastes the text with format \a subtype from the clipboard into the
@@ -5098,7 +5099,7 @@ void TQTextEdit::setDocument( TQTextDocument *dc )
 
 void TQTextEdit::pasteSubType( const TQCString &subtype )
 {
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
     TQMimeSource *m = TQApplication::clipboard()->data( d->clipboard_mode );
     pasteSubType( subtype, m );
 #endif
@@ -5108,7 +5109,7 @@ void TQTextEdit::pasteSubType( const TQCString &subtype )
 
 void TQTextEdit::pasteSubType( const TQCString& subtype, TQMimeSource *m )
 {
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
     TQCString st = subtype;
     if ( subtype != "x-qrichtext" )
 	st.prepend( "text/" );
@@ -5213,10 +5214,10 @@ void TQTextEdit::pasteSubType( const TQCString& subtype, TQMimeSource *m )
 	if ( !t.isEmpty() )
 	    insert( t, FALSE, TRUE );
     }
-#endif //QT_NO_MIME
+#endif //TQT_NO_MIME
 }
 
-#ifndef QT_NO_MIMECLIPBOARD
+#ifndef TQT_NO_MIMECLIPBOARD
 /*!
     Prompts the user to choose a type from a list of text types
     available, then copies text from the clipboard (if there is any)
@@ -5231,11 +5232,11 @@ void TQTextEdit::pasteSpecial( const TQPoint& pt )
 	pasteSubType( st );
 }
 #endif
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 TQCString TQTextEdit::pickSpecial( TQMimeSource* ms, bool always_ask, const TQPoint& pt )
 {
     if ( ms )  {
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	TQPopupMenu popup( this, "qt_pickspecial_menu" );
 	TQString fmt;
 	int n = 0;
@@ -5273,8 +5274,8 @@ TQCString TQTextEdit::pickSpecial( TQMimeSource* ms, bool always_ask, const TQPo
     }
     return TQCString();
 }
-#endif // QT_NO_MIME
-#endif // QT_NO_CLIPBOARD
+#endif // TQT_NO_MIME
+#endif // TQT_NO_CLIPBOARD
 
 /*!
     \enum TQTextEdit::WordWrap
@@ -5641,14 +5642,14 @@ bool TQTextEdit::getParagraphFormat( int para, TQFont *font, TQColor *color,
 TQPopupMenu *TQTextEdit::createPopupMenu( const TQPoint& pos )
 {
     Q_UNUSED( pos )
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     TQPopupMenu *popup = new TQPopupMenu( this, "qt_edit_menu" );
     if ( !isReadOnly() ) {
 	d->id[ IdUndo ] = popup->insertItem( tr( "&Undo" ) + ACCEL_KEY( Z ) );
 	d->id[ IdRedo ] = popup->insertItem( tr( "&Redo" ) + ACCEL_KEY( Y ) );
 	popup->insertSeparator();
     }
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     if ( !isReadOnly() )
 	d->id[ IdCut ] = popup->insertItem( tr( "Cu&t" ) + ACCEL_KEY( X ) );
     d->id[ IdCopy ] = popup->insertItem( tr( "&Copy" ) + ACCEL_KEY( C ) );
@@ -5659,13 +5660,13 @@ TQPopupMenu *TQTextEdit::createPopupMenu( const TQPoint& pos )
 	d->id[ IdClear ] = popup->insertItem( tr( "Clear" ) );
 	popup->insertSeparator();
     }
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     d->id[ IdSelectAll ] = popup->insertItem( tr( "Select All" ) );
 #else
     d->id[ IdSelectAll ] = popup->insertItem( tr( "Select All" ) + ACCEL_KEY( A ) );
 #endif
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     TQInputContext *qic = getInputContext();
     if ( qic )
 	qic->addMenusTo( popup );
@@ -5673,7 +5674,7 @@ TQPopupMenu *TQTextEdit::createPopupMenu( const TQPoint& pos )
     
     popup->setItemEnabled( d->id[ IdUndo ], !isReadOnly() && doc->commands()->isUndoAvailable() );
     popup->setItemEnabled( d->id[ IdRedo ], !isReadOnly() && doc->commands()->isRedoAvailable() );
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     popup->setItemEnabled( d->id[ IdCut ], !isReadOnly() && doc->hasSelection( TQTextDocument::Standard, TRUE ) );
 #ifdef QT_TEXTEDIT_OPTIMIZATION
     popup->setItemEnabled( d->id[ IdCopy ], d->optimMode ? optimHasSelection() : doc->hasSelection( TQTextDocument::Standard, TRUE ) );
@@ -5894,15 +5895,15 @@ void TQTextEdit::windowActivationChange( bool oldActive )
 
 void TQTextEdit::setReadOnly( bool b )
 {
-    if ( (bool) readonly == b )
+    if ( (bool) readOnly == b )
 	return;
-    readonly = b;
-#ifndef QT_NO_CURSOR
-    if ( readonly )
+    readOnly = b;
+#ifndef TQT_NO_CURSOR
+    if ( readOnly )
 	viewport()->setCursor( arrowCursor );
     else
 	viewport()->setCursor( ibeamCursor );
-    setInputMethodEnabled( !readonly );
+    setInputMethodEnabled( !readOnly );
 #endif
 #ifdef QT_TEXTEDIT_OPTIMIZATION
     checkOptimMode();
@@ -6085,7 +6086,7 @@ void TQTextEdit::updateCursor( const TQPoint & pos )
 	TQTextCursor c = *cursor;
 	placeCursor( pos, &c, TRUE );
 
-#ifndef QT_NO_NETWORKPROTOCOL
+#ifndef TQT_NO_NETWORKPROTOCOL
 	bool insideParagRect = TRUE;
 	if (c.paragraph() == doc->lastParagraph()
 	    && c.paragraph()->rect().y() + c.paragraph()->rect().height() < pos.y())
@@ -6105,14 +6106,14 @@ void TQTextEdit::updateCursor( const TQPoint & pos )
 		d->onName = TQString::null;
 
 	    if (!c.paragraph()->at( c.index() )->anchorHref().isEmpty() ) {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 		viewport()->setCursor( onLink.isEmpty() ? arrowCursor : pointingHandCursor );
 #endif
 		TQUrl u( doc->context(), onLink, TRUE );
 		emitHighlighted( u.toString( FALSE, FALSE ) );
 	    }
 	} else {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 	    viewport()->setCursor( isReadOnly() ? arrowCursor : ibeamCursor );
 #endif
 	    onLink = TQString::null;
@@ -6137,9 +6138,9 @@ void TQTextEdit::placeCursor( const TQPoint &pos, TQTextCursor *c )
 /*! \internal */
 void TQTextEdit::clipboardChanged()
 {
-#ifndef QT_NO_CLIPBOARD
+#ifndef TQT_NO_CLIPBOARD
     // don't listen to selection changes
-    disconnect( TQApplication::clipboard(), SIGNAL(selectionChanged()), this, 0);
+    disconnect( TQApplication::clipboard(), TQ_SIGNAL(selectionChanged()), this, 0);
 #endif
     selectAll(FALSE);
 }
@@ -6190,19 +6191,19 @@ bool TQTextEdit::checkOptimMode()
     if ( oldMode != d->optimMode ) {
 	if ( d->optimMode ) {
 	    d->od = new TQTextEditOptimPrivate;
-	    connect( scrollTimer, SIGNAL( timeout() ), this, SLOT( optimDoAutoScroll() ) );
-	    disconnect( doc, SIGNAL( minimumWidthChanged(int) ), this, SLOT( documentWidthChanged(int) ) );
-	    disconnect( scrollTimer, SIGNAL( timeout() ), this, SLOT( autoScrollTimerDone() ) );
-	    disconnect( formatTimer, SIGNAL( timeout() ), this, SLOT( formatMore() ) );
+	    connect( scrollTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( optimDoAutoScroll() ) );
+	    disconnect( doc, TQ_SIGNAL( minimumWidthChanged(int) ), this, TQ_SLOT( documentWidthChanged(int) ) );
+	    disconnect( scrollTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( autoScrollTimerDone() ) );
+	    disconnect( formatTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( formatMore() ) );
 	    optimSetText( doc->originalText() );
 	    doc->clear(TRUE);
 	    delete cursor;
 	    cursor = new TQTextCursor( doc );
 	} else {
-	    disconnect( scrollTimer, SIGNAL( timeout() ), this, SLOT( optimDoAutoScroll() ) );
-	    connect( doc, SIGNAL( minimumWidthChanged(int) ), this, SLOT( documentWidthChanged(int) ) );
-	    connect( scrollTimer, SIGNAL( timeout() ), this, SLOT( autoScrollTimerDone() ) );
-	    connect( formatTimer, SIGNAL( timeout() ), this, SLOT( formatMore() ) );
+	    disconnect( scrollTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( optimDoAutoScroll() ) );
+	    connect( doc, TQ_SIGNAL( minimumWidthChanged(int) ), this, TQ_SLOT( documentWidthChanged(int) ) );
+	    connect( scrollTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( autoScrollTimerDone() ) );
+	    connect( formatTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( formatMore() ) );
 	    setText( optimText() );
 	    delete d->od;
 	    d->od = 0;
@@ -7474,4 +7475,4 @@ TQSyntaxHighlighter * TQTextEdit::syntaxHighlighter() const
 	return 0;
 }
 
-#endif //QT_NO_TEXTEDIT
+#endif //TQT_NO_TEXTEDIT

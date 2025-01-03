@@ -100,7 +100,7 @@ void ABCentralWidget::setupTabWidget()
     add = new TQPushButton( "A&dd", input );
     add->resize( add->sizeHint() );
     grid1->addWidget( add, 0, 4 );
-    connect( add, SIGNAL( clicked() ), this, SLOT( addEntry() ) );
+    connect( add, TQ_SIGNAL( clicked() ), this, TQ_SLOT( addEntry() ) );
 
     iFirstName = new TQLineEdit( input );
     iFirstName->resize( iFirstName->sizeHint() );
@@ -125,7 +125,7 @@ void ABCentralWidget::setupTabWidget()
     change = new TQPushButton( "&Change", input );
     change->resize( change->sizeHint() );
     grid1->addWidget( change, 1, 4 );
-    connect( change, SIGNAL( clicked() ), this, SLOT( changeEntry() ) );
+    connect( change, TQ_SIGNAL( clicked() ), this, TQ_SLOT( changeEntry() ) );
 
     tabWidget->addTab( input, "&Add/Change Entry" );
 
@@ -137,22 +137,22 @@ void ABCentralWidget::setupTabWidget()
     cFirstName = new TQCheckBox( "First &Name", search );
     cFirstName->resize( cFirstName->sizeHint() );
     grid2->addWidget( cFirstName, 0, 0 );
-    connect( cFirstName, SIGNAL( clicked() ), this, SLOT( toggleFirstName() ) );
+    connect( cFirstName, TQ_SIGNAL( clicked() ), this, TQ_SLOT( toggleFirstName() ) );
 
     cLastName = new TQCheckBox( "&Last Name", search );
     cLastName->resize( cLastName->sizeHint() );
     grid2->addWidget( cLastName, 0, 1 );
-    connect( cLastName, SIGNAL( clicked() ), this, SLOT( toggleLastName() ) );
+    connect( cLastName, TQ_SIGNAL( clicked() ), this, TQ_SLOT( toggleLastName() ) );
 
     cAddress = new TQCheckBox( "Add&ress", search );
     cAddress->resize( cAddress->sizeHint() );
     grid2->addWidget( cAddress, 0, 2 );
-    connect( cAddress, SIGNAL( clicked() ), this, SLOT( toggleAddress() ) );
+    connect( cAddress, TQ_SIGNAL( clicked() ), this, TQ_SLOT( toggleAddress() ) );
 
     cEMail = new TQCheckBox( "&E-Mail", search );
     cEMail->resize( cEMail->sizeHint() );
     grid2->addWidget( cEMail, 0, 3 );
-    connect( cEMail, SIGNAL( clicked() ), this, SLOT( toggleEMail() ) );
+    connect( cEMail, TQ_SIGNAL( clicked() ), this, TQ_SLOT( toggleEMail() ) );
 
     sFirstName = new TQLineEdit( search );
     sFirstName->resize( sFirstName->sizeHint() );
@@ -173,7 +173,7 @@ void ABCentralWidget::setupTabWidget()
     find = new TQPushButton( "F&ind", search );
     find->resize( find->sizeHint() );
     grid2->addWidget( find, 1, 4 );
-    connect( find, SIGNAL( clicked() ), this, SLOT( findEntries() ) );
+    connect( find, TQ_SIGNAL( clicked() ), this, TQ_SLOT( findEntries() ) );
 
     cFirstName->setChecked( TRUE );
     sFirstName->setEnabled( TRUE );
@@ -196,7 +196,7 @@ void ABCentralWidget::setupListView()
 
     listView->setSelectionMode( TQListView::Single );
 
-    connect( listView, SIGNAL( clicked( TQListViewItem* ) ), this, SLOT( itemSelected( TQListViewItem* ) ) );
+    connect( listView, TQ_SIGNAL( clicked( TQListViewItem* ) ), this, TQ_SLOT( itemSelected( TQListViewItem* ) ) );
 
     mainGrid->addWidget( listView, 1, 0 );
     listView->setAllColumnsShowFocus( TRUE );

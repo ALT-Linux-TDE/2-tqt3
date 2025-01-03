@@ -16,10 +16,10 @@ Inherits QEvent.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQChildEvent\fR ( Type type, QObject * child )"
+.BI "\fBQChildEvent\fR ( Type type, TQObject * child )"
 .br
 .ti -1c
-.BI "QObject * \fBchild\fR () const"
+.BI "TQObject * \fBchild\fR () const"
 .br
 .ti -1c
 .BI "bool \fBinserted\fR () const"
@@ -37,15 +37,15 @@ A ChildRemoved event is sent immediately, but a ChildInserted event is \fIposted
 .PP
 Note that if a child is removed immediately after it is inserted, the ChildInserted event may be suppressed, but the ChildRemoved event will always be sent. In this case there will be a ChildRemoved event without a corresponding ChildInserted event.
 .PP
-The handler for these events is QObject::childEvent().
+The handler for these events is TQObject::childEvent().
 .PP
 See also Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QChildEvent::QChildEvent ( Type type, QObject * child )"
+.SH "QChildEvent::QChildEvent ( Type type, TQObject * child )"
 Constructs a child event object. The \fIchild\fR is the object that is to be removed or inserted.
 .PP
 The \fItype\fR parameter must be either QEvent::ChildInserted or QEvent::ChildRemoved.
-.SH "QObject * QChildEvent::child () const"
+.SH "TQObject * QChildEvent::child () const"
 Returns the child widget that was inserted or removed.
 .SH "bool QChildEvent::inserted () const"
 Returns TRUE if the widget received a new child; otherwise returns FALSE.
@@ -66,8 +66,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

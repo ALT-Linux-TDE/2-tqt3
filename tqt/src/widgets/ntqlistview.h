@@ -45,7 +45,7 @@
 #include "ntqscrollview.h"
 #endif // QT_H
 
-#ifndef QT_NO_LISTVIEW
+#ifndef TQT_NO_LISTVIEW
 
 
 class TQPixmap;
@@ -63,7 +63,7 @@ class TQMimeSource;
 class TQLineEdit;
 class TQListViewToolTip;
 
-class Q_EXPORT TQListViewItem : public TQt
+class TQ_EXPORT TQListViewItem : public TQt
 {
     friend class TQListViewItemIterator;
     friend class TQListViewToolTip;
@@ -187,7 +187,7 @@ protected:
     virtual void activate();
 
     bool activatedPos( TQPoint & );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     virtual void dropped( TQDropEvent *e );
 #endif
     virtual void dragEntered();
@@ -234,7 +234,7 @@ private:
 
 class TQCheckListItem;
 
-class Q_EXPORT TQListView: public TQScrollView
+class TQ_EXPORT TQListView: public TQScrollView
 {
     friend class TQListViewItemIterator;
     friend class TQListViewItem;
@@ -393,7 +393,7 @@ signals:
 
     void expanded( TQListViewItem *item );
     void collapsed( TQListViewItem *item );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void dropped( TQDropEvent *e );
 #endif
     void itemRenamed( TQListViewItem *item, int col, const TQString & );
@@ -405,7 +405,7 @@ protected:
     void contentsMouseMoveEvent( TQMouseEvent * e );
     void contentsMouseDoubleClickEvent( TQMouseEvent * e );
     void contentsContextMenuEvent( TQContextMenuEvent * e );
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     void contentsDragEnterEvent( TQDragEnterEvent *e );
     void contentsDragMoveEvent( TQDragMoveEvent *e );
     void contentsDragLeaveEvent( TQDragLeaveEvent *e );
@@ -468,7 +468,7 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-class Q_EXPORT TQCheckListItem : public TQListViewItem
+class TQ_EXPORT TQCheckListItem : public TQListViewItem
 {
 public:
     enum Type { RadioButton,
@@ -540,7 +540,7 @@ private:
     TQCheckListItemPrivate *d;
 };
 
-class Q_EXPORT TQListViewItemIterator
+class TQ_EXPORT TQListViewItemIterator
 {
     friend struct TQListViewPrivate;
     friend class TQListView;
@@ -601,6 +601,6 @@ private:
     bool isChecked( const TQListViewItem* ) const;
 };
 
-#endif // QT_NO_LISTVIEW
+#endif // TQT_NO_LISTVIEW
 
 #endif // TQLISTVIEW_H

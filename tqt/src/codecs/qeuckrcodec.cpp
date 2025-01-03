@@ -94,7 +94,7 @@
 
 #include "ntqeuckrcodec.h"
 
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 unsigned int qt_Ksc5601ToUnicode(unsigned int code);
 

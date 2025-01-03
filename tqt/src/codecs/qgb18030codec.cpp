@@ -121,7 +121,7 @@
 #error "move obsolete header <ntqgbkcodec.h> into the src/compat directory"
 #endif
 
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 #define InRange(c, lower, upper)  (((c) >= (lower)) && ((c) <= (upper)))
 #define IsLatin(c)	((c) <= 0x7F)

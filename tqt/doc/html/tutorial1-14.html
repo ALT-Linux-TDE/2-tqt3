@@ -210,9 +210,9 @@ box, the effect is that the <a href="ntqvbox.html">TQVBox</a> will put a frame a
 CannonField.
 <p> <pre>        <a href="ntqaccel.html">TQAccel</a> *accel = new <a href="ntqaccel.html">TQAccel</a>( this );
     <a name="x2438"></a><a name="x2437"></a>    accel-&gt;<a href="ntqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="ntqaccel.html#insertItem">insertItem</a>( Key_Enter ),
-                            this, SLOT(fire()) );
+                            this, TQ_SLOT(fire()) );
         accel-&gt;<a href="ntqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="ntqaccel.html#insertItem">insertItem</a>( Key_Return ),
-                            this, SLOT(fire()) );
+                            this, TQ_SLOT(fire()) );
 </pre>
 <p> Here we create and set up an accelerator. An accelerator is an object
 that intercepts keyboard events to an application and calls slots if
@@ -226,7 +226,7 @@ key Ctrl+Q is pressed. Because Enter is sometimes Return and there
 are even keyboards with <em>both</em> keys, we make both Enter and Return
 invoke fire().
 <p> <pre>        accel-&gt;<a href="ntqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="ntqaccel.html#insertItem">insertItem</a>( CTRL+Key_Q ),
-                            tqApp, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+                            tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
 </pre>
 <p> And then we set up Ctrl+Q to do the same thing as Alt+Q. Some
 people are more used to Ctrl+Q (and anyway it shows how do do it).

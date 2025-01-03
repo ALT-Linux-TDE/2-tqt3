@@ -90,7 +90,7 @@ to make available as a plugin. The required code is straightforward:
         }
     };
 
-    Q_EXPORT_PLUGIN( MyStylePlugin )
+    TQ_EXPORT_PLUGIN( MyStylePlugin )
 </pre>
  
 <p> (Note that <a href="ntqstylefactory.html">TQStyleFactory</a> is case-insensitive, and the lower case
@@ -128,7 +128,7 @@ must be reimplemented for each type of plugin.
 because plugins are stored in the standard plugin subdirectories.
 Because of this applications don't require any code to find and load
 plugins, since TQt handles them automatically.
-<p> The default directory for plugins is <tt>QTDIR/plugins</tt><sup>*</sup>,
+<p> The default directory for plugins is <tt>TQTDIR/plugins</tt><sup>*</sup>,
 with each type of plugin in a subdirectory for that type, e.g. <tt>styles</tt>. If you want your applications to use plugins and you don't
 want to use the standard plugins path, have your installation process
 determine the path you want to use for the plugins, and save the path,
@@ -143,9 +143,9 @@ compile it in with the application, or to compile it into a <tt>DLL</tt> (or
 other library. If you want the plugin to be loadable then one approach
 is to create a subdirectory under the application, e.g. <tt>appdir/plugins/designer</tt>, and place the plugin in that directory.
 <p> For <a href="designer-manual.html">TQt Designer</a>, you may need to
-call TQApplication::addLibraryPath("QTDIR/plugins/designer") to load
+call TQApplication::addLibraryPath("TQTDIR/plugins/designer") to load
 your <a href="designer-manual.html">TQt Designer</a> plugins.
-<p> <sup>*</sup><small> All references to <tt>QTDIR</tt> refer to the path
+<p> <sup>*</sup><small> All references to <tt>TQTDIR</tt> refer to the path
 where TQt was installed. </small>
 <p> <h2> Loading and Verifying Plugins
 </h2>

@@ -17,7 +17,7 @@ QColorGroup \- Group of widget colors
 .BI "\fBQColorGroup\fR ()"
 .br
 .ti -1c
-.BI "QColorGroup ( const QColor & foreground, const QColor & background, const QColor & light, const QColor & dark, const QColor & mid, const QColor & text, const QColor & base )  \fI(obsolete)\fR"
+.BI "QColorGroup ( const TQColor & foreground, const TQColor & background, const TQColor & light, const TQColor & dark, const TQColor & mid, const TQColor & text, const TQColor & base )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "\fBQColorGroup\fR ( const QBrush & foreground, const QBrush & button, const QBrush & light, const QBrush & dark, const QBrush & mid, const QBrush & text, const QBrush & bright_text, const QBrush & base, const QBrush & background )"
@@ -35,64 +35,64 @@ QColorGroup \- Group of widget colors
 .BI "enum \fBColorRole\fR { Foreground, Button, Light, Midlight, Dark, Mid, Text, BrightText, ButtonText, Base, Background, Shadow, Highlight, HighlightedText, Link, LinkVisited, NColorRoles }"
 .br
 .ti -1c
-.BI "const QColor & \fBcolor\fR ( ColorRole r ) const"
+.BI "const TQColor & \fBcolor\fR ( ColorRole r ) const"
 .br
 .ti -1c
 .BI "const QBrush & \fBbrush\fR ( ColorRole r ) const"
 .br
 .ti -1c
-.BI "void \fBsetColor\fR ( ColorRole r, const QColor & c )"
+.BI "void \fBsetColor\fR ( ColorRole r, const TQColor & c )"
 .br
 .ti -1c
 .BI "void \fBsetBrush\fR ( ColorRole r, const QBrush & b )"
 .br
 .ti -1c
-.BI "const QColor & \fBforeground\fR () const"
+.BI "const TQColor & \fBforeground\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBbutton\fR () const"
+.BI "const TQColor & \fBbutton\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBlight\fR () const"
+.BI "const TQColor & \fBlight\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBdark\fR () const"
+.BI "const TQColor & \fBdark\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBmid\fR () const"
+.BI "const TQColor & \fBmid\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBtext\fR () const"
+.BI "const TQColor & \fBtext\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBbase\fR () const"
+.BI "const TQColor & \fBbase\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBbackground\fR () const"
+.BI "const TQColor & \fBbackground\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBmidlight\fR () const"
+.BI "const TQColor & \fBmidlight\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBbrightText\fR () const"
+.BI "const TQColor & \fBbrightText\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBbuttonText\fR () const"
+.BI "const TQColor & \fBbuttonText\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBshadow\fR () const"
+.BI "const TQColor & \fBshadow\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBhighlight\fR () const"
+.BI "const TQColor & \fBhighlight\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBhighlightedText\fR () const"
+.BI "const TQColor & \fBhighlightedText\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBlink\fR () const"
+.BI "const TQColor & \fBlink\fR () const"
 .br
 .ti -1c
-.BI "const QColor & \fBlinkVisited\fR () const"
+.BI "const TQColor & \fBlinkVisited\fR () const"
 .br
 .ti -1c
 .BI "bool \fBoperator==\fR ( const QColorGroup & g ) const"
@@ -136,7 +136,7 @@ You modify a color group by calling the access functions setColor() and setBrush
 .PP
 There are also corresponding color() and brush() getters, and a commonly used convenience function to get each ColorRole: background(), foreground(), base(), etc.
 .PP
-See also QColor, QPalette, QWidget::colorGroup, Widget Appearance and Style, Graphics Classes, and Image Processing Classes.
+See also TQColor, QPalette, TQWidget::colorGroup, Widget Appearance and Style, Graphics Classes, and Image Processing Classes.
 .SS "Member Type Documentation"
 .SH "QColorGroup::ColorRole"
 The ColorRole enum defines the different symbolic color roles used in current GUIs.
@@ -195,7 +195,7 @@ This image shows most of the color roles in use: <center>
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QColorGroup::QColorGroup ()"
 Constructs a color group with all colors set to black.
-.SH "QColorGroup::QColorGroup ( const QColor & foreground, const QColor & background, const QColor & light, const QColor & dark, const QColor & mid, const QColor & text, const QColor & base )"
+.SH "QColorGroup::QColorGroup ( const TQColor & foreground, const TQColor & background, const TQColor & light, const TQColor & dark, const TQColor & mid, const TQColor & text, const TQColor & base )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Constructs a color group with the specified colors. The button color will be set to the background color.
@@ -207,15 +207,15 @@ See also QBrush.
 Constructs a color group that is an independent copy of \fIother\fR.
 .SH "QColorGroup::~QColorGroup ()"
 Destroys the color group.
-.SH "const QColor & QColorGroup::background () const"
+.SH "const TQColor & QColorGroup::background () const"
 Returns the background color of the color group.
 .PP
 See also ColorRole.
-.SH "const QColor & QColorGroup::base () const"
+.SH "const TQColor & QColorGroup::base () const"
 Returns the base color of the color group.
 .PP
 See also ColorRole.
-.SH "const QColor & QColorGroup::brightText () const"
+.SH "const TQColor & QColorGroup::brightText () const"
 Returns the bright text foreground color of the color group.
 .PP
 See also ColorRole.
@@ -229,67 +229,67 @@ See also color(), setBrush(), and ColorRole.
 .PP
 Examples:
 .)l themes/metal.cpp and themes/wood.cpp.
-.SH "const QColor & QColorGroup::button () const"
+.SH "const TQColor & QColorGroup::button () const"
 Returns the button color of the color group.
 .PP
 See also ColorRole.
 .PP
 Examples:
 .)l themes/metal.cpp and themes/wood.cpp.
-.SH "const QColor & QColorGroup::buttonText () const"
+.SH "const TQColor & QColorGroup::buttonText () const"
 Returns the button text foreground color of the color group.
 .PP
 See also ColorRole.
 .PP
 Examples:
 .)l themes/metal.cpp and themes/wood.cpp.
-.SH "const QColor & QColorGroup::color ( ColorRole r ) const"
+.SH "const TQColor & QColorGroup::color ( ColorRole r ) const"
 Returns the color that has been set for color role \fIr\fR.
 .PP
 See also brush() and ColorRole.
-.SH "const QColor & QColorGroup::dark () const"
+.SH "const TQColor & QColorGroup::dark () const"
 Returns the dark color of the color group.
 .PP
 See also ColorRole.
 .PP
 Example: themes/wood.cpp.
-.SH "const QColor & QColorGroup::foreground () const"
+.SH "const TQColor & QColorGroup::foreground () const"
 Returns the foreground color of the color group.
 .PP
 See also ColorRole.
 .PP
 Examples:
 .)l themes/metal.cpp and themes/wood.cpp.
-.SH "const QColor & QColorGroup::highlight () const"
+.SH "const TQColor & QColorGroup::highlight () const"
 Returns the highlight color of the color group.
 .PP
 See also ColorRole.
-.SH "const QColor & QColorGroup::highlightedText () const"
+.SH "const TQColor & QColorGroup::highlightedText () const"
 Returns the highlighted text color of the color group.
 .PP
 See also ColorRole.
-.SH "const QColor & QColorGroup::light () const"
+.SH "const TQColor & QColorGroup::light () const"
 Returns the light color of the color group.
 .PP
 See also ColorRole.
 .PP
 Example: themes/wood.cpp.
-.SH "const QColor & QColorGroup::link () const"
+.SH "const TQColor & QColorGroup::link () const"
 Returns the unvisited link text color of the color group.
 .PP
 See also ColorRole.
-.SH "const QColor & QColorGroup::linkVisited () const"
+.SH "const TQColor & QColorGroup::linkVisited () const"
 Returns the visited link text color of the color group.
 .PP
 See also ColorRole.
-.SH "const QColor & QColorGroup::mid () const"
+.SH "const TQColor & QColorGroup::mid () const"
 Returns the mid color of the color group.
 .PP
 See also ColorRole.
 .PP
 Examples:
 .)l themes/metal.cpp and themes/wood.cpp.
-.SH "const QColor & QColorGroup::midlight () const"
+.SH "const TQColor & QColorGroup::midlight () const"
 Returns the midlight color of the color group.
 .PP
 See also ColorRole.
@@ -309,18 +309,18 @@ Sets the brush used for color role \fIr\fR to \fIb\fR.
 See also brush(), setColor(), and ColorRole.
 .PP
 Example: themes/wood.cpp.
-.SH "void QColorGroup::setColor ( ColorRole r, const QColor & c )"
+.SH "void QColorGroup::setColor ( ColorRole r, const TQColor & c )"
 Sets the brush used for color role \fIr\fR to a solid color \fIc\fR.
 .PP
 See also brush() and ColorRole.
 .PP
 Examples:
 .)l listviews/listviews.cpp, table/statistics/statistics.cpp, and themes/metal.cpp.
-.SH "const QColor & QColorGroup::shadow () const"
+.SH "const TQColor & QColorGroup::shadow () const"
 Returns the shadow color of the color group.
 .PP
 See also ColorRole.
-.SH "const QColor & QColorGroup::text () const"
+.SH "const TQColor & QColorGroup::text () const"
 Returns the text foreground color of the color group.
 .PP
 See also ColorRole.
@@ -346,8 +346,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

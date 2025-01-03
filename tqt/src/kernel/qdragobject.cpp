@@ -43,7 +43,7 @@
 # undef open
 #endif
 
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 
 #include "ntqdragobject.h"
 #include "ntqtextcodec.h"
@@ -109,7 +109,7 @@ public:
 static const char * const move_xpm[] = {
 "11 20 3 1",
 ".	c None",
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 "a	c #000000",
 "X	c #FFFFFF", // Windows cursor is traditionally white
 #else
@@ -143,7 +143,7 @@ static const char * const copy_xpm[] = {
 ".	c None",
 "a	c #000000",
 "X	c #FFFFFF",
-#if defined(Q_WS_WIN) // Windows cursor is traditionally white
+#if defined(TQ_WS_WIN) // Windows cursor is traditionally white
 "aa......................",
 "aXa.....................",
 "aXXa....................",
@@ -203,7 +203,7 @@ static const char * const link_xpm[] = {
 ".	c None",
 "a	c #000000",
 "X	c #FFFFFF",
-#if defined(Q_WS_WIN) // Windows cursor is traditionally white
+#if defined(TQ_WS_WIN) // Windows cursor is traditionally white
 "aa......................",
 "aXa.....................",
 "aXXa....................",
@@ -257,7 +257,7 @@ static const char * const link_xpm[] = {
 ".............aXXXXXXXXXa",
 ".............aaaaaaaaaaa"};
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 // the universe's only drag manager
 TQDragManager * qt_dnd_manager = 0;
@@ -271,7 +271,7 @@ TQDragManager::TQDragManager()
     pm_cursor[0] = TQPixmap((const char **)move_xpm);
     pm_cursor[1] = TQPixmap((const char **)copy_xpm);
     pm_cursor[2] = TQPixmap((const char **)link_xpm);
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     createCursors(); // Xcursors cache can hold only 8 bitmaps (4 cursors)
 #endif
     object = 0;
@@ -287,7 +287,7 @@ TQDragManager::TQDragManager()
 
 TQDragManager::~TQDragManager()
 {
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
     if ( restoreCursor )
 	TQApplication::restoreOverrideCursor();
 #endif
@@ -311,7 +311,7 @@ TQDragObject::TQDragObject( TQWidget * dragSource, const char * name )
 {
     d = new TQDragObjectData();
     d->pm_cursor = 0;
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( !qt_dnd_manager && tqApp )
 	(void)new TQDragManager();
 #endif
@@ -325,7 +325,7 @@ TQDragObject::TQDragObject( TQWidget * dragSource, const char * name )
 
 TQDragObject::~TQDragObject()
 {
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     if ( qt_dnd_manager && qt_dnd_manager->object == this )
 	qt_dnd_manager->cancel( FALSE );
     if ( d->pm_cursor ) {
@@ -337,7 +337,7 @@ TQDragObject::~TQDragObject()
     delete d;
 }
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 /*!
     Set the pixmap \a pm to display while dragging the object. The
     platform-specific implementation will use this where it can - so
@@ -840,7 +840,7 @@ TQByteArray TQTextDrag::encodedData(const char* mime) const
 	if ( !codec )
 	    return r;
 	TQString text( d->txt );
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	int index = text.find( TQString::fromLatin1("\r\n"), 0 );
 	while ( index != -1 ) {
 	    text.replace( index, 2, TQChar('\n') );
@@ -850,7 +850,7 @@ TQByteArray TQTextDrag::encodedData(const char* mime) const
 	r = codec->fromUnicode(text);
 	if (!codec || codec->mibEnum() != 1000) {
 	    // Don't include NUL in size (TQCString::resize() adds NUL)
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 	    // This is needed to ensure the \0 isn't lost on Windows 95
 	    if ( qWinVersion() & TQt::WV_DOS_based )
 		((TQByteArray&)r).resize(r.length()+1);
@@ -1508,7 +1508,7 @@ TQCString TQUriDrag::localFileToUri(const TQString& filename)
     if (TQDir::isRelativePath(r))
 	return TQCString();
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 
 
     bool hasHost = FALSE;
@@ -1529,7 +1529,7 @@ TQCString TQUriDrag::localFileToUri(const TQString& filename)
 	r.insert(0,'/');
 
 #endif
-#if defined ( Q_WS_X11 ) && 0
+#if defined ( TQ_WS_X11 ) && 0
     // URL without the hostname is considered to be errorneous by XDnD.
     // See: http://www.newplanetsoftware.com/xdnd/dragging_files.html
     // This feature is not active because this would break dnd between old and new qt apps.
@@ -1594,7 +1594,7 @@ TQString TQUriDrag::uriToLocalFile(const char* uri)
 	return file;
 
     bool local = uri[0] != '/' || ( uri[0] != '\0' && uri[1] == '/' );
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     // do we have a hostname?
     if ( !local && uri[0] == '/' && uri[2] != '/' ) {
 	// then move the pointer to after the 'hostname/' part of the uri
@@ -1618,7 +1618,7 @@ TQString TQUriDrag::uriToLocalFile(const char* uri)
 	} else {
 		file.insert(0,'/');
 	}
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	if ( file.length() > 2 && file[0] == '/' && file[2] == '|' ) {
 	    file[2] = ':';
 	    file.remove(0,1);
@@ -1628,7 +1628,7 @@ TQString TQUriDrag::uriToLocalFile(const char* uri)
 	// Leave slash as slashes.
 #endif
     }
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     else {
 	file = uriToUnicodeUri(uri);
 	// convert to network path
@@ -1684,7 +1684,7 @@ bool TQUriDrag::decodeToUnicodeUris( const TQMimeSource* e, TQStringList& l )
 }
 
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 /*!
     If the source of the drag operation is a widget in this
     application, this function returns that source, otherwise it
@@ -1808,4 +1808,4 @@ bool TQColorDrag::decode( TQMimeSource *e, TQColor &col )
     return TRUE;
 }
 
-#endif // QT_NO_MIME
+#endif // TQT_NO_MIME

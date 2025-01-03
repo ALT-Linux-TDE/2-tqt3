@@ -109,7 +109,7 @@ private:
 {
 <a name="x1201"></a>    time = TQTime::<a href="qtime.html#currentTime">currentTime</a>();                // get current time
     internalTimer = new <a href="ntqtimer.html">TQTimer</a>( this ); // create internal timer
-<a name="x1205"></a>    <a href="ntqobject.html#connect">connect</a>( internalTimer, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), SLOT(timeout()) );
+<a name="x1205"></a>    <a href="ntqobject.html#connect">connect</a>( internalTimer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), TQ_SLOT(timeout()) );
 <a name="x1204"></a>    internalTimer-&gt;<a href="ntqtimer.html#start">start</a>( 5000 );               // emit signal every 5 seconds
 }
 
@@ -136,7 +136,7 @@ void AnalogClock::<a href="ntqwidget.html#mousePressEvent">mousePressEvent</a>( 
 void <a name="f385"></a>AnalogClock::setTime( const <a href="qtime.html">TQTime</a> &amp; t )
 {
     time = t;
-    <a href="ntqobject.html#disconnect">disconnect</a>( internalTimer, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), this, SLOT(timeout()) );
+    <a href="ntqobject.html#disconnect">disconnect</a>( internalTimer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), this, TQ_SLOT(timeout()) );
     if (<a href="ntqwidget.html#autoMask">autoMask</a>())
         <a href="ntqwidget.html#updateMask">updateMask</a>();
     else

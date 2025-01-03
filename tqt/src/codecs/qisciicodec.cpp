@@ -1,5 +1,5 @@
 #include "qisciicodec_p.h"
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
 
 #define	TQValidChar(u)	   ((u) ? TQChar((u)) : TQChar::replacement)
 
@@ -237,4 +237,4 @@ TQString TQIsciiCodec::toUnicode( const char* chars, int len_in ) const
     }
     return result;
 }
-#endif // QT_NO_CODECS
+#endif // TQT_NO_CODECS

@@ -71,10 +71,10 @@ this status bar.
 argument to <a href="ntqtooltip.html">TQToolTip</a>'s member functions, for example like this:
 <p> <pre>
         TQToolTipGroup * grp = new TQToolTipGroup( this, "tool tip relay" );
-        <a href="ntqobject.html#connect">connect</a>( grp, SIGNAL(<a href="#showTip">showTip</a>(const <a href="ntqstring.html">TQString</a>&amp;)),
-                 myLabel, SLOT(setText(const <a href="ntqstring.html">TQString</a>&amp;)) );
-        <a href="ntqobject.html#connect">connect</a>( grp, SIGNAL(<a href="#removeTip">removeTip</a>()),
-                 myLabel, SLOT(clear()) );
+        <a href="ntqobject.html#connect">connect</a>( grp, TQ_SIGNAL(<a href="#showTip">showTip</a>(const <a href="ntqstring.html">TQString</a>&amp;)),
+                 myLabel, TQ_SLOT(setText(const <a href="ntqstring.html">TQString</a>&amp;)) );
+        <a href="ntqobject.html#connect">connect</a>( grp, TQ_SIGNAL(<a href="#removeTip">removeTip</a>()),
+                 myLabel, TQ_SLOT(clear()) );
         TQToolTip::<a href="ntqtooltip.html#add">add</a>( giraffeButton, "feed giraffe",
                        grp, "Give the giraffe a meal" );
         TQToolTip::<a href="ntqtooltip.html#add">add</a>( gorillaButton, "feed gorilla",

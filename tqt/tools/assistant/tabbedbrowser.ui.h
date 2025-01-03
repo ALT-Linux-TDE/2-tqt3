@@ -81,14 +81,14 @@ HelpWindow *TabbedBrowser::createHelpWindow(const TQString &title)
     win->setStyleSheet( tabStyleSheet );
     win->setMimeSourceFactory( mimeSourceFactory );
     tab->addTab(win, reduceLabelLength(title));
-    connect( win, SIGNAL( highlighted( const TQString & ) ),
-	     (const TQObject*) (mainWin->statusBar()), SLOT( message( const TQString & ) ) );
-    connect( win, SIGNAL( chooseWebBrowser() ), mainWin, SLOT( showWebBrowserSettings() ) );
-    connect( win, SIGNAL( backwardAvailable(bool) ),
-	     mainWin, SLOT( backwardAvailable(bool) ) );
-    connect( win, SIGNAL( forwardAvailable(bool) ),
-	     mainWin, SLOT( forwardAvailable(bool) ) );
-    connect( win, SIGNAL( sourceChanged(const TQString &) ), this, SLOT( sourceChanged() ));
+    connect( win, TQ_SIGNAL( highlighted( const TQString & ) ),
+	     (const TQObject*) (mainWin->statusBar()), TQ_SLOT( message( const TQString & ) ) );
+    connect( win, TQ_SIGNAL( chooseWebBrowser() ), mainWin, TQ_SLOT( showWebBrowserSettings() ) );
+    connect( win, TQ_SIGNAL( backwardAvailable(bool) ),
+	     mainWin, TQ_SLOT( backwardAvailable(bool) ) );
+    connect( win, TQ_SIGNAL( forwardAvailable(bool) ),
+	     mainWin, TQ_SLOT( forwardAvailable(bool) ) );
+    connect( win, TQ_SIGNAL( sourceChanged(const TQString &) ), this, TQ_SLOT( sourceChanged() ));
 
     tab->cornerWidget( TQt::TopRight )->setEnabled( tab->count() > 1 );
     return win;
@@ -141,10 +141,10 @@ void TabbedBrowser::init()
     mimeSourceFactory->setExtensionType("jpeg", "image/jpeg" );
     setMimePath( Config::configuration()->mimePaths() );
 
-    connect( tab, SIGNAL( currentChanged( TQWidget* ) ),
-	     this, SLOT( transferFocus() ) );
-    connect( tab, SIGNAL( currentChanged( TQWidget* ) ),
-        mainWindow(), SLOT( browserTabChanged() ) );
+    connect( tab, TQ_SIGNAL( currentChanged( TQWidget* ) ),
+	     this, TQ_SLOT( transferFocus() ) );
+    connect( tab, TQ_SIGNAL( currentChanged( TQWidget* ) ),
+        mainWindow(), TQ_SLOT( browserTabChanged() ) );
 
     TQTabBar *tabBar = (TQTabBar*)tab->child( 0, "TQTabBar", FALSE );
     int m = ( tabBar ? style().pixelMetric( TQStyle::PM_TabBarTabVSpace, (TQWidget*)tabBar )
@@ -164,7 +164,7 @@ void TabbedBrowser::init()
     newTabButton->setAutoRaise( TRUE );
     newTabButton->setPixmap( TQPixmap::fromMimeSource( "addtab.png" ) );
     newTabButton->setFixedSize( s, s );
-    TQObject::connect( newTabButton, SIGNAL( clicked() ), this, SLOT( newTab() ) );
+    TQObject::connect( newTabButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( newTab() ) );
     TQToolTip::add( newTabButton, tr( "Add page" ) );
 
     TQToolButton *closeTabButton = new TQToolButton( this );
@@ -177,7 +177,7 @@ void TabbedBrowser::init()
     is.setPixmap( disabledPix, TQIconSet::Small, TQIconSet::Disabled );
     closeTabButton->setIconSet( is );
     closeTabButton->setFixedSize( s, s );
-    TQObject::connect( closeTabButton, SIGNAL( clicked() ), this, SLOT( closeTab() ) );
+    TQObject::connect( closeTabButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( closeTab() ) );
     TQToolTip::add( closeTabButton, tr( "Close page" ) );
     closeTabButton->setEnabled( FALSE );
 }
@@ -304,7 +304,7 @@ void TabbedBrowser::closeTab()
 	return;
     HelpWindow *win = currentBrowser();
     tab->removePage( win );
-    TQTimer::singleShot(0, win, SLOT(deleteLater()));
+    TQTimer::singleShot(0, win, TQ_SLOT(deleteLater()));
     tab->cornerWidget( TQt::TopRight )->setEnabled( tab->count() > 1 );
 }
 

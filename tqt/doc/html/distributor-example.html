@@ -77,7 +77,7 @@ distributed with TQt.
 void Distributor::init()
 {
     timer = new <a href="ntqtimer.html">TQTimer</a>( this );
-<a name="x2672"></a>    connect( timer, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), SLOT(checkLibData()) );
+<a name="x2672"></a>    connect( timer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), TQ_SLOT(checkLibData()) );
 
     cancelButton()-&gt;setAutoDefault( FALSE );
     backButton()-&gt;setAutoDefault( FALSE );

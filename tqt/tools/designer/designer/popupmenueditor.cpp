@@ -110,7 +110,7 @@ PopupMenuEditorItem::PopupMenuEditorItem( PopupMenuEditor * menu, TQObject * par
 {
     init();
     a = new TQAction( this );
-    TQObject::connect( a, SIGNAL( destroyed() ), this, SLOT( selfDestruct() ) );
+    TQObject::connect( a, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( selfDestruct() ) );
 }
 
 
@@ -152,7 +152,7 @@ PopupMenuEditorItem::~PopupMenuEditorItem()
 void PopupMenuEditorItem::init()
 {
     if ( a ) {
-	TQObject::connect( a, SIGNAL( destroyed() ), this, SLOT( selfDestruct() ) );
+	TQObject::connect( a, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( selfDestruct() ) );
 	if ( m && !isSeparator() ) {
 	    s = new PopupMenuEditor( m->formWindow(), m );
 	    TQString n = "popupMenu";
@@ -847,7 +847,7 @@ void PopupMenuEditor::dropEvent( TQDropEvent * e )
     // Hide the sub menu of the current item, but do it later
     if ( currentIndex < (int)itemList.count() ) {
 	PopupMenuEditor *s = itemList.at( currentIndex )->s;
-	TQTimer::singleShot( 0, s, SLOT( hide() ) );
+	TQTimer::singleShot( 0, s, TQ_SLOT( hide() ) );
     }
 
     draggedItem = 0;
@@ -884,11 +884,11 @@ void PopupMenuEditor::dropEvent( TQDropEvent * e )
 
     if ( i ) {
 	dropInPlace( i, e->pos().y() );
-	TQTimer::singleShot( 0, this, SLOT( resizeToContents() ) );
+	TQTimer::singleShot( 0, this, TQ_SLOT( resizeToContents() ) );
     }
 
-    TQTimer::singleShot( 0, this, SLOT( showSubMenu() ) );
-    TQTimer::singleShot( 0, this, SLOT( setFocus() ) );
+    TQTimer::singleShot( 0, this, TQ_SLOT( showSubMenu() ) );
+    TQTimer::singleShot( 0, this, TQ_SLOT( setFocus() ) );
     dropLine->hide();
     e->accept();
 }

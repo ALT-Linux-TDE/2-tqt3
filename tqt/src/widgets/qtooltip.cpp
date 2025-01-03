@@ -37,7 +37,7 @@
 **********************************************************************/
 
 #include "ntqtooltip.h"
-#ifndef QT_NO_TOOLTIP
+#ifndef TQT_NO_TOOLTIP
 #include "ntqlabel.h"
 #include "ntqptrdict.h"
 #include "ntqapplication.h"
@@ -165,8 +165,8 @@ TQTipManager::TQTipManager()
     label = 0;
     preventAnimation = FALSE;
     isApplicationFilter = FALSE;
-    connect( &wakeUp, SIGNAL(timeout()), SLOT(showTip()) );
-    connect( &fallAsleep, SIGNAL(timeout()), SLOT(hideTip()) );
+    connect( &wakeUp, TQ_SIGNAL(timeout()), TQ_SLOT(showTip()) );
+    connect( &fallAsleep, TQ_SIGNAL(timeout()), TQ_SLOT(hideTip()) );
     removeTimer = new TQTimer( this );
 }
 
@@ -225,7 +225,7 @@ void TQTipManager::add( const TQRect &gm, TQWidget *w,
 	    delete h;
 	}
     } else
-	connect( w, SIGNAL(destroyed()), this, SLOT(clientWidgetDestroyed()) );
+	connect( w, TQ_SIGNAL(destroyed()), this, TQ_SLOT(clientWidgetDestroyed()) );
 
     tips->insert( w, t );
 
@@ -241,10 +241,10 @@ void TQTipManager::add( const TQRect &gm, TQWidget *w,
     }
 
     if ( t->group ) {
-	disconnect( removeTimer, SIGNAL( timeout() ),
-		 t->group, SIGNAL( removeTip() ) );
-	connect( removeTimer, SIGNAL( timeout() ),
-		 t->group, SIGNAL( removeTip() ) );
+	disconnect( removeTimer, TQ_SIGNAL( timeout() ),
+		 t->group, TQ_SIGNAL( removeTip() ) );
+	connect( removeTimer, TQ_SIGNAL( timeout() ),
+		 t->group, TQ_SIGNAL( removeTip() ) );
     }
 }
 
@@ -288,7 +288,7 @@ void TQTipManager::remove( TQWidget *w, const TQRect & r, bool delayhide )
     }
 
     if ( (*tips)[ w ] == 0 )
-	disconnect( w, SIGNAL(destroyed()), this, SLOT(clientWidgetDestroyed()) );
+	disconnect( w, TQ_SIGNAL(destroyed()), this, TQ_SLOT(clientWidgetDestroyed()) );
 #if 0 // not needed, leads sometimes to crashes
     if ( tips->isEmpty() ) {
 	// the manager will be recreated if needed
@@ -337,7 +337,7 @@ void TQTipManager::remove( TQWidget *w )
 	t = d;
     }
 
-    disconnect( w, SIGNAL(destroyed()), this, SLOT(clientWidgetDestroyed()) );
+    disconnect( w, TQ_SIGNAL(destroyed()), this, TQ_SLOT(clientWidgetDestroyed()) );
 #if 0
     if ( tips->isEmpty() ) {
 	delete tipManager;
@@ -356,8 +356,8 @@ void TQTipManager::removeFromGroup( TQToolTipGroup *g )
 	while ( t ) {
 	    if ( t->group == g ) {
 		if ( t->group )
-		    disconnect( removeTimer, SIGNAL( timeout() ),
-				t->group, SIGNAL( removeTip() ) );
+		    disconnect( removeTimer, TQ_SIGNAL( timeout() ),
+				t->group, TQ_SIGNAL( removeTip() ) );
 		t->group = 0;
 	    }
 	    t = t->next;
@@ -475,7 +475,7 @@ bool TQTipManager::eventFilter( TQObject *obj, TQEvent *e )
 void TQTipManager::showTip()
 {
     if ( !widget || !globally_enabled
-#ifndef Q_WS_X11
+#ifndef TQ_WS_X11
 	 || !widget->isActiveWindow()
 #endif
 	)
@@ -505,7 +505,7 @@ void TQTipManager::showTip()
 	scr = TQApplication::desktop()->screenNumber( widget );
 
     if ( label
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	 && label->x11Screen() == widget->x11Screen()
 #endif
 	 ) {
@@ -525,7 +525,7 @@ void TQTipManager::showTip()
 	if ( t->geometry != TQRect( -1, -1, -1, -1 ) )
 	    label->resize( t->geometry.size() );
 	TQ_CHECK_PTR( label );
-	connect( label, SIGNAL(destroyed()), SLOT(labelDestroyed()) );
+	connect( label, TQ_SIGNAL(destroyed()), TQ_SLOT(labelDestroyed()) );
     }
     // the above deletion and creation of a TQTipLabel causes events to be sent. We had reports that the widget
     // pointer was 0 after this. This is in principle possible if the wrong kind of events get sent through our event
@@ -533,11 +533,11 @@ void TQTipManager::showTip()
     if (!widget)
 	return;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     label->x11SetWindowTransient( widget->topLevelWidget());
 #endif
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     TQRect screen = TQApplication::desktop()->availableGeometry( scr );
 #else
     TQRect screen = TQApplication::desktop()->screenGeometry( scr );
@@ -545,7 +545,7 @@ void TQTipManager::showTip()
     TQPoint p;
     if ( t->geometry == TQRect( -1, -1, -1, -1 ) ) {
 	p = widget->mapToGlobal( pos ) +
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	    TQPoint( 2, 24 );
 #else
 	    TQPoint( 2, 16 );
@@ -570,7 +570,7 @@ void TQTipManager::showTip()
     if ( label->text().length() ) {
 	label->move( p );
 
-#ifndef QT_NO_EFFECTS
+#ifndef TQT_NO_EFFECTS
 	if ( TQApplication::isEffectEnabled( UI_AnimateTooltip ) == FALSE ||
 	     previousTip || preventAnimation )
 	    label->show();
@@ -598,7 +598,7 @@ void TQTipManager::showTip()
 
 void TQTipManager::hideTip()
 {
-    TQTimer::singleShot( 250, this, SLOT(allowAnimation()) );
+    TQTimer::singleShot( 250, this, TQ_SLOT(allowAnimation()) );
     preventAnimation = TRUE;
 
     if ( label && label->isVisible() ) {
@@ -1122,10 +1122,10 @@ void TQToolTip::clear()
 
     \code
 	TQToolTipGroup * grp = new TQToolTipGroup( this, "tool tip relay" );
-	connect( grp, SIGNAL(showTip(const TQString&)),
-		 myLabel, SLOT(setText(const TQString&)) );
-	connect( grp, SIGNAL(removeTip()),
-		 myLabel, SLOT(clear()) );
+	connect( grp, TQ_SIGNAL(showTip(const TQString&)),
+		 myLabel, TQ_SLOT(setText(const TQString&)) );
+	connect( grp, TQ_SIGNAL(removeTip()),
+		 myLabel, TQ_SLOT(clear()) );
 	TQToolTip::add( giraffeButton, "feed giraffe",
 		       grp, "Give the giraffe a meal" );
 	TQToolTip::add( gorillaButton, "feed gorilla",

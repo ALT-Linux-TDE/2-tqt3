@@ -40,7 +40,7 @@
 
 #include "ntqdial.h"
 
-#ifndef QT_NO_DIAL
+#ifndef TQT_NO_DIAL
 
 #include "ntqpainter.h"
 #include "ntqpointarray.h"
@@ -467,7 +467,7 @@ void TQDial::mouseMoveEvent( TQMouseEvent * e )
 /*!
   \reimp
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQDial::wheelEvent( TQWheelEvent *e )
 {
     setValue( value() - e->delta() / 120 );

@@ -69,8 +69,8 @@ ProjectSettingsInterface::ProjectSettings *ProjectSettingsInterfaceImpl::project
     pf->tab = settingsTab;
     pf->title = "C++";
     pf->receiver = pf->tab;
-    pf->init_slot = SLOT( reInit( TQUnknownInterface * ) );
-    pf->accept_slot = SLOT( save( TQUnknownInterface * ) );
+    pf->init_slot = TQ_SLOT( reInit( TQUnknownInterface * ) );
+    pf->accept_slot = TQ_SLOT( save( TQUnknownInterface * ) );
     return pf;
 }
 

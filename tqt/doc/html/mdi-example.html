@@ -188,21 +188,21 @@ const char * filePrintText = "Click this button to print the file you "
     openIcon = TQPixmap( fileopen );
     TQToolButton * fileOpen
         = new <a href="ntqtoolbutton.html">TQToolButton</a>( openIcon, "Open File", <a href="ntqstring.html#TQString-null">TQString::null</a>,
-                           this, SLOT(load()), fileTools, "open file" );
+                           this, TQ_SLOT(load()), fileTools, "open file" );
 
     saveIcon = TQPixmap( filesave );
     TQToolButton * fileSave
         = new <a href="ntqtoolbutton.html">TQToolButton</a>( saveIcon, "Save File", TQString::null,
-                           this, SLOT(save()), fileTools, "save file" );
+                           this, TQ_SLOT(save()), fileTools, "save file" );
 
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     printer = new <a href="ntqprinter.html">TQPrinter</a>( TQPrinter::HighResolution );
     <a href="ntqpixmap.html">TQPixmap</a> printIcon;
 
     printIcon = TQPixmap( fileprint );
     TQToolButton * filePrint
         = new <a href="ntqtoolbutton.html">TQToolButton</a>( printIcon, "Print File", TQString::null,
-                           this, SLOT(print()), fileTools, "print file" );
+                           this, TQ_SLOT(print()), fileTools, "print file" );
 <a name="x2075"></a>    TQWhatsThis::<a href="ntqwhatsthis.html#add">add</a>( filePrint, filePrintText );
 #endif
 
@@ -214,41 +214,41 @@ const char * filePrintText = "Click this button to print the file you "
     <a href="ntqpopupmenu.html">TQPopupMenu</a> * file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;File", file );
 
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New", this, SLOT(newDoc()), CTRL+Key_N );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New", this, TQ_SLOT(newDoc()), CTRL+Key_N );
 
     id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( openIcon, "&amp;Open...",
-                           this, SLOT(load()), CTRL+Key_O );
+                           this, TQ_SLOT(load()), CTRL+Key_O );
 <a name="x2035"></a>    file-&gt;<a href="ntqmenudata.html#setWhatsThis">setWhatsThis</a>( id, fileOpenText );
 
     id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( saveIcon, "&amp;Save",
-                           this, SLOT(save()), CTRL+Key_S );
+                           this, TQ_SLOT(save()), CTRL+Key_S );
     file-&gt;<a href="ntqmenudata.html#setWhatsThis">setWhatsThis</a>( id, fileSaveText );
-    id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save &amp;As...", this, SLOT(saveAs()) );
+    id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save &amp;As...", this, TQ_SLOT(saveAs()) );
     file-&gt;<a href="ntqmenudata.html#setWhatsThis">setWhatsThis</a>( id, fileSaveText );
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
     id = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( printIcon, "&amp;Print...",
-                           this, SLOT(print()), CTRL+Key_P );
+                           this, TQ_SLOT(print()), CTRL+Key_P );
     file-&gt;<a href="ntqmenudata.html#setWhatsThis">setWhatsThis</a>( id, filePrintText );
 #endif
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, SLOT(closeWindow()), CTRL+Key_W );
-<a name="x2020"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, SLOT( <a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>() ), CTRL+Key_Q );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, TQ_SLOT(closeWindow()), CTRL+Key_W );
+<a name="x2020"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, TQ_SLOT( <a href="ntqapplication.html#closeAllWindows">closeAllWindows</a>() ), CTRL+Key_Q );
 
     windowsMenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
 <a name="x2049"></a>    windowsMenu-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
-<a name="x2048"></a>    <a href="ntqobject.html#connect">connect</a>( windowsMenu, SIGNAL( <a href="ntqpopupmenu.html#aboutToShow">aboutToShow</a>() ),
-             this, SLOT( windowsMenuAboutToShow() ) );
+<a name="x2048"></a>    <a href="ntqobject.html#connect">connect</a>( windowsMenu, TQ_SIGNAL( <a href="ntqpopupmenu.html#aboutToShow">aboutToShow</a>() ),
+             this, TQ_SLOT( windowsMenuAboutToShow() ) );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Windows", windowsMenu );
 
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
     <a href="ntqpopupmenu.html">TQPopupMenu</a> * help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", help );
 
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, SLOT(about()), Key_F1);
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, SLOT(aboutTQt()));
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), Key_F1);
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()));
     help-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this, SLOT(<a href="ntqmainwindow.html#whatsThis">whatsThis</a>()), SHIFT+Key_F1);
+    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this, TQ_SLOT(<a href="ntqmainwindow.html#whatsThis">whatsThis</a>()), SHIFT+Key_F1);
 
     <a href="ntqvbox.html">TQVBox</a>* vb = new <a href="ntqvbox.html">TQVBox</a>( this );
     vb-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::StyledPanel | TQFrame::Sunken );
@@ -262,7 +262,7 @@ const char * filePrintText = "Click this button to print the file you "
 
 ApplicationWindow::~ApplicationWindow()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     delete printer;
 #endif
 }
@@ -272,7 +272,7 @@ ApplicationWindow::~ApplicationWindow()
 MDIWindow* <a name="f536"></a>ApplicationWindow::newDoc()
 {
     MDIWindow* w = new MDIWindow( ws, 0, WDestructiveClose );
-    <a href="ntqobject.html#connect">connect</a>( w, SIGNAL( message(const <a href="ntqstring.html">TQString</a>&amp;, int) ), statusBar(), SLOT( message(const <a href="ntqstring.html">TQString</a>&amp;, int )) );
+    <a href="ntqobject.html#connect">connect</a>( w, TQ_SIGNAL( message(const <a href="ntqstring.html">TQString</a>&amp;, int) ), statusBar(), TQ_SLOT( message(const <a href="ntqstring.html">TQString</a>&amp;, int )) );
     w-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>("unnamed document");
 <a name="x2085"></a>    w-&gt;<a href="ntqwidget.html#setIcon">setIcon</a>( TQPixmap("document.xpm") );
     // show the very first window in maximized mode
@@ -312,7 +312,7 @@ void <a name="f539"></a>ApplicationWindow::saveAs()
 
 void <a name="f540"></a>ApplicationWindow::print()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     MDIWindow* m = (MDIWindow*)ws-&gt;<a href="ntqworkspace.html#activeWindow">activeWindow</a>();
     if ( m )
         m-&gt;print( printer );
@@ -344,9 +344,9 @@ void <a name="f543"></a>ApplicationWindow::aboutTQt()
 void <a name="f544"></a>ApplicationWindow::windowsMenuAboutToShow()
 {
 <a name="x2029"></a>    windowsMenu-&gt;<a href="ntqmenudata.html#clear">clear</a>();
-<a name="x2091"></a>    int cascadeId = windowsMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Cascade", ws, SLOT(<a href="ntqworkspace.html#cascade">cascade</a>() ) );
-<a name="x2093"></a>    int tileId = windowsMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Tile", ws, SLOT(<a href="ntqworkspace.html#tile">tile</a>() ) );
-    int horTileId = windowsMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Tile &amp;Horizontally", this, SLOT(tileHorizontal() ) );
+<a name="x2091"></a>    int cascadeId = windowsMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Cascade", ws, TQ_SLOT(<a href="ntqworkspace.html#cascade">cascade</a>() ) );
+<a name="x2093"></a>    int tileId = windowsMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Tile", ws, TQ_SLOT(<a href="ntqworkspace.html#tile">tile</a>() ) );
+    int horTileId = windowsMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Tile &amp;Horizontally", this, TQ_SLOT(tileHorizontal() ) );
     if ( ws-&gt;<a href="ntqworkspace.html#windowList">windowList</a>().isEmpty() ) {
 <a name="x2033"></a>        windowsMenu-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( cascadeId, FALSE );
         windowsMenu-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( tileId, FALSE );
@@ -356,7 +356,7 @@ void <a name="f544"></a>ApplicationWindow::windowsMenuAboutToShow()
     TQWidgetList windows = ws-&gt;<a href="ntqworkspace.html#windowList">windowList</a>();
 <a name="x2054"></a>    for ( int i = 0; i &lt; int(windows.count()); ++i ) {
 <a name="x2053"></a>        int id = windowsMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>(windows.at(i)-&gt;caption(),
-                                         this, SLOT( windowsMenuActivated( int ) ) );
+                                         this, TQ_SLOT( windowsMenuActivated( int ) ) );
 <a name="x2034"></a>        windowsMenu-&gt;<a href="ntqmenudata.html#setItemParameter">setItemParameter</a>( id, i );
 <a name="x2032"></a>        windowsMenu-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( id, ws-&gt;<a href="ntqworkspace.html#activeWindow">activeWindow</a>() == windows.at(i) );
     }
@@ -463,7 +463,7 @@ void <a name="f548"></a>MDIWindow::load( const <a href="ntqstring.html">TQString
 <a name="x2079"></a>        medit-&gt;<a href="ntqwidget.html#hide">hide</a>();
         delete medit;
         <a href="ntqmovie.html">TQMovie</a> * qm=new <a href="ntqmovie.html">TQMovie</a>(fn);
-#ifdef Q_WS_QWS // temporary speed-test hack
+#ifdef TQ_WS_QWS // temporary speed-test hack
 <a name="x2039"></a>        qm-&gt;setDisplayWidget(tmp);
 #endif
 <a name="x2082"></a>        tmp-&gt;<a href="ntqwidget.html#setBackgroundMode">setBackgroundMode</a>(TQWidget::NoBackground);
@@ -520,7 +520,7 @@ void <a name="f550"></a>MDIWindow::saveAs()
 
 void <a name="f551"></a>MDIWindow::print( <a href="ntqprinter.html">TQPrinter</a>* printer)
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     int pageNo = 1;
 
 <a name="x2052"></a>    if ( printer-&gt;<a href="ntqprinter.html#setup">setup</a>(this) ) {               // printer dialog
@@ -582,7 +582,7 @@ int main( int argc, char ** argv ) {
     a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>(mw);
     mw-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Multiple Documents Interface (MDI)" );
     mw-&gt;<a href="ntqwidget.html#show">show</a>();
-<a name="x2097"></a><a name="x2096"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<a name="x2097"></a><a name="x2096"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
     int res = a.<a href="ntqapplication.html#exec">exec</a>();
     return res;
 }

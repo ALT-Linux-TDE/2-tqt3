@@ -23,14 +23,14 @@ Smtp::Smtp( const TQString &from, const TQString &to,
 	    const TQString &body )
 {
     socket = new TQSocket( this );
-    connect ( socket, SIGNAL( readyRead() ),
-	      this, SLOT( readyRead() ) );
-    connect ( socket, SIGNAL( connected() ),
-	      this, SLOT( connected() ) );
+    connect ( socket, TQ_SIGNAL( readyRead() ),
+	      this, TQ_SLOT( readyRead() ) );
+    connect ( socket, TQ_SIGNAL( connected() ),
+	      this, TQ_SLOT( connected() ) );
 
     mxLookup = new TQDns( to.mid( to.find( '@' )+1 ), TQDns::Mx );
-    connect( mxLookup, SIGNAL(resultsReady()),
-	     this, SLOT(dnsLookupHelper()) );
+    connect( mxLookup, TQ_SIGNAL(resultsReady()),
+	     this, TQ_SLOT(dnsLookupHelper()) );
 
     message = TQString::fromLatin1( "From: " ) + from +
 	      TQString::fromLatin1( "\nTo: " ) + to +

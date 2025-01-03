@@ -132,16 +132,16 @@ void <a name="f264"></a>ABMainWindow::setupMenuBar()
     <a href="ntqpopupmenu.html">TQPopupMenu</a> *file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
     <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;File", file );
 
-<a name="x569"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "New", this, SLOT( fileNew() ), CTRL + Key_N );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQPixmap( "fileopen.xpm" ), "Open", this, SLOT( fileOpen() ), CTRL + Key_O );
+<a name="x569"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "New", this, TQ_SLOT( fileNew() ), CTRL + Key_N );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQPixmap( "fileopen.xpm" ), "Open", this, TQ_SLOT( fileOpen() ), CTRL + Key_O );
 <a name="x570"></a>    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQPixmap( "filesave.xpm" ), "Save", this, SLOT( fileSave() ), CTRL + Key_S );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save As...", this, SLOT( fileSaveAs() ) );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQPixmap( "filesave.xpm" ), "Save", this, TQ_SLOT( fileSave() ), CTRL + Key_S );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save As...", this, TQ_SLOT( fileSaveAs() ) );
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQPixmap( "fileprint.xpm" ), "Print...", this, SLOT( filePrint() ), CTRL + Key_P );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQPixmap( "fileprint.xpm" ), "Print...", this, TQ_SLOT( filePrint() ), CTRL + Key_P );
     file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Close", this, SLOT( closeWindow() ), CTRL + Key_W );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Quit", tqApp, SLOT( <a href="ntqapplication.html#quit">quit</a>() ), CTRL + Key_Q );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Close", this, TQ_SLOT( closeWindow() ), CTRL + Key_W );
+    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Quit", tqApp, TQ_SLOT( <a href="ntqapplication.html#quit">quit</a>() ), CTRL + Key_Q );
 }
 
 void <a name="f265"></a>ABMainWindow::setupFileTools()
@@ -371,7 +371,7 @@ void <a name="f277"></a>ABCentralWidget::setupTabWidget()
     add = new <a href="ntqpushbutton.html">TQPushButton</a>( "A&amp;dd", input );
 <a name="x599"></a><a name="x598"></a>    add-&gt;<a href="ntqwidget.html#resize">resize</a>( add-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>() );
     grid1-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( add, 0, 4 );
-    <a href="ntqobject.html#connect">connect</a>( add, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( addEntry() ) );
+    <a href="ntqobject.html#connect">connect</a>( add, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( addEntry() ) );
 
     iFirstName = new <a href="ntqlineedit.html">TQLineEdit</a>( input );
 <a name="x583"></a>    iFirstName-&gt;<a href="ntqwidget.html#resize">resize</a>( iFirstName-&gt;<a href="ntqlineedit.html#sizeHint">sizeHint</a>() );
@@ -396,7 +396,7 @@ void <a name="f277"></a>ABCentralWidget::setupTabWidget()
     change = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Change", input );
     change-&gt;<a href="ntqwidget.html#resize">resize</a>( change-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>() );
     grid1-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( change, 1, 4 );
-    <a href="ntqobject.html#connect">connect</a>( change, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( changeEntry() ) );
+    <a href="ntqobject.html#connect">connect</a>( change, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( changeEntry() ) );
 
 <a name="x600"></a>    tabWidget-&gt;<a href="ntqtabwidget.html#addTab">addTab</a>( input, "&amp;Add/Change Entry" );
 
@@ -408,22 +408,22 @@ void <a name="f277"></a>ABCentralWidget::setupTabWidget()
     cFirstName = new <a href="ntqcheckbox.html">TQCheckBox</a>( "First &amp;Name", search );
 <a name="x575"></a>    cFirstName-&gt;<a href="ntqwidget.html#resize">resize</a>( cFirstName-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>() );
     grid2-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( cFirstName, 0, 0 );
-    <a href="ntqobject.html#connect">connect</a>( cFirstName, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( toggleFirstName() ) );
+    <a href="ntqobject.html#connect">connect</a>( cFirstName, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( toggleFirstName() ) );
 
     cLastName = new <a href="ntqcheckbox.html">TQCheckBox</a>( "&amp;Last Name", search );
     cLastName-&gt;<a href="ntqwidget.html#resize">resize</a>( cLastName-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>() );
     grid2-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( cLastName, 0, 1 );
-    <a href="ntqobject.html#connect">connect</a>( cLastName, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( toggleLastName() ) );
+    <a href="ntqobject.html#connect">connect</a>( cLastName, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( toggleLastName() ) );
 
     cAddress = new <a href="ntqcheckbox.html">TQCheckBox</a>( "Add&amp;ress", search );
     cAddress-&gt;<a href="ntqwidget.html#resize">resize</a>( cAddress-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>() );
     grid2-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( cAddress, 0, 2 );
-    <a href="ntqobject.html#connect">connect</a>( cAddress, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( toggleAddress() ) );
+    <a href="ntqobject.html#connect">connect</a>( cAddress, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( toggleAddress() ) );
 
     cEMail = new <a href="ntqcheckbox.html">TQCheckBox</a>( "&amp;E-Mail", search );
     cEMail-&gt;<a href="ntqwidget.html#resize">resize</a>( cEMail-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>() );
     grid2-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( cEMail, 0, 3 );
-    <a href="ntqobject.html#connect">connect</a>( cEMail, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( toggleEMail() ) );
+    <a href="ntqobject.html#connect">connect</a>( cEMail, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( toggleEMail() ) );
 
     sFirstName = new <a href="ntqlineedit.html">TQLineEdit</a>( search );
     sFirstName-&gt;<a href="ntqwidget.html#resize">resize</a>( sFirstName-&gt;<a href="ntqlineedit.html#sizeHint">sizeHint</a>() );
@@ -444,7 +444,7 @@ void <a name="f277"></a>ABCentralWidget::setupTabWidget()
     find = new <a href="ntqpushbutton.html">TQPushButton</a>( "F&amp;ind", search );
     find-&gt;<a href="ntqwidget.html#resize">resize</a>( find-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>() );
     grid2-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( find, 1, 4 );
-    <a href="ntqobject.html#connect">connect</a>( find, SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, SLOT( findEntries() ) );
+    <a href="ntqobject.html#connect">connect</a>( find, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( findEntries() ) );
 
 <a name="x574"></a>    cFirstName-&gt;<a href="ntqcheckbox.html#setChecked">setChecked</a>( TRUE );
 <a name="x605"></a>    sFirstName-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
@@ -467,7 +467,7 @@ void <a name="f278"></a>ABCentralWidget::setupListView()
 
 <a name="x592"></a>    listView-&gt;<a href="ntqlistview.html#setSelectionMode">setSelectionMode</a>( TQListView::Single );
 
-<a name="x588"></a>    <a href="ntqobject.html#connect">connect</a>( listView, SIGNAL( <a href="ntqlistview.html#clicked">clicked</a>( <a href="qlistviewitem.html">TQListViewItem</a>* ) ), this, SLOT( itemSelected( <a href="qlistviewitem.html">TQListViewItem</a>* ) ) );
+<a name="x588"></a>    <a href="ntqobject.html#connect">connect</a>( listView, TQ_SIGNAL( <a href="ntqlistview.html#clicked">clicked</a>( <a href="qlistviewitem.html">TQListViewItem</a>* ) ), this, TQ_SLOT( itemSelected( <a href="qlistviewitem.html">TQListViewItem</a>* ) ) );
 
     mainGrid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( listView, 1, 0 );
 <a name="x591"></a>    listView-&gt;<a href="ntqlistview.html#setAllColumnsShowFocus">setAllColumnsShowFocus</a>( TRUE );
@@ -647,7 +647,7 @@ int main( int argc, char ** argv )
     a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( mw );
 <a name="x611"></a>    mw-&gt;<a href="ntqwidget.html#show">show</a>();
 
-<a name="x609"></a><a name="x608"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, SIGNAL( <a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>() ), &amp;a, SLOT( <a href="ntqapplication.html#quit">quit</a>() ) );
+<a name="x609"></a><a name="x608"></a>    a.<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL( <a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>() ), &amp;a, TQ_SLOT( <a href="ntqapplication.html#quit">quit</a>() ) );
     int result = a.<a href="ntqapplication.html#exec">exec</a>();
     delete mw;
     return result;

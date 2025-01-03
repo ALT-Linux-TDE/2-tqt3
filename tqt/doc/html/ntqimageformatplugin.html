@@ -53,7 +53,7 @@ transparently by applications.
 <p> Writing an image format plugin is achieved by subclassing this
 base class, reimplementing the pure virtual functions <a href="#keys">keys</a>() and
 <a href="#installIOHandler">installIOHandler</a>(), and exporting the class with the
-Q_EXPORT_PLUGIN macro.  See the <a href="plugins-howto.html">Plugins
+TQ_EXPORT_PLUGIN macro.  See the <a href="plugins-howto.html">Plugins
     documentation</a> for details.
 <p>See also <a href="plugins.html">Plugins</a>.
 
@@ -61,7 +61,7 @@ Q_EXPORT_PLUGIN macro.  See the <a href="plugins-howto.html">Plugins
 <h3 class=fn><a name="TQImageFormatPlugin"></a>TQImageFormatPlugin::TQImageFormatPlugin ()
 </h3>
 Constructs an image format plugin. This is invoked automatically
-by the Q_EXPORT_PLUGIN macro.
+by the TQ_EXPORT_PLUGIN macro.
 
 <h3 class=fn><a name="~TQImageFormatPlugin"></a>TQImageFormatPlugin::~TQImageFormatPlugin ()
 </h3>

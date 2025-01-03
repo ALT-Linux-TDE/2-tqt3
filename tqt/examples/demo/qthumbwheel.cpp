@@ -40,7 +40,7 @@
 
 #include "qthumbwheel.h"
 
-#ifndef QT_NO_THUMBWHEEL
+#ifndef TQT_NO_THUMBWHEEL
 #include <ntqpainter.h>
 #include <ntqdrawutil.h>
 #include <ntqpixmap.h>

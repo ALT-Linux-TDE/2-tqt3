@@ -42,7 +42,7 @@
 #include <ntqvariant.h>
 
 
-#ifndef QT_NO_VARIANT
+#ifndef TQT_NO_VARIANT
 // 6dc75d58-a1d9-4417-b591-d45c63a3a4ea
 const TQUuid TID_QUType_TQVariant( 0x6dc75d58, 0xa1d9, 0x4417, 0xb5, 0x91, 0xd4, 0x5c, 0x63, 0xa3, 0xa4, 0xea );
 TQUType_TQVariant static_QUType_TQVariant;
@@ -85,7 +85,7 @@ bool TQUType_TQVariant::convertFrom( TQUObject *o, TQUType *t )
     else if ( isEqual( o->type, &static_QUType_int ) )
 	var = new TQVariant( static_QUType_int.get( o ) );
     else if ( isEqual( o->type, &static_QUType_bool ) )
-	var = new TQVariant( static_QUType_bool.get( o ), 42 );
+	var = new TQVariant( static_QUType_bool.get( o ) );
     else if ( isEqual( o->type, &static_QUType_double ) )
 	var = new TQVariant( static_QUType_double.get( o ) );
     else if ( isEqual( o->type, &static_QUType_charstar ) )

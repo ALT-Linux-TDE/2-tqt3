@@ -39,13 +39,13 @@
 **********************************************************************/
 
 #include "ntqscrollbar.h"
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
 #include "ntqpainter.h"
 #include "ntqbitmap.h"
 #include "ntqapplication.h"
 #include "ntqtimer.h"
 #include "ntqstyle.h"
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 #include <ntqcursor.h>
 #endif
 #if defined(QT_ACCESSIBILITY_SUPPORT)
@@ -452,7 +452,7 @@ void TQScrollBar::rangeChange()
 void TQScrollBar::doAutoRepeat()
 {
     bool sendRepeat = clickedAt;
-#if !defined( QT_NO_CURSOR ) && !defined( QT_NO_STYLE )
+#if !defined( TQT_NO_CURSOR ) && !defined( TQT_NO_STYLE )
     if(sendRepeat && (pressedControl == TQStyle::SC_ScrollBarAddPage ||
                       pressedControl == TQStyle::SC_ScrollBarSubPage) &&
        style().styleHint(TQStyle::SH_ScrollBar_StopMouseOverSlider, this) &&
@@ -481,8 +481,8 @@ void TQScrollBar::startAutoRepeat()
 {
     if ( !repeater ) {
 	repeater = new TQTimer( this, "auto-repeat timer" );
-	connect( repeater, SIGNAL(timeout()),
-		 this, SLOT(doAutoRepeat()) );
+	connect( repeater, TQ_SIGNAL(timeout()),
+		 this, TQ_SLOT(doAutoRepeat()) );
     }
     repeater->start( thresholdTime, FALSE );
 }
@@ -502,7 +502,7 @@ void TQScrollBar::stopAutoRepeat()
 /*!
     \reimp
 */
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
 void TQScrollBar::wheelEvent( TQWheelEvent *e )
 {
     static float offset = 0;

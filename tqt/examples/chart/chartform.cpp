@@ -57,41 +57,41 @@ ChartForm::ChartForm( const TQString& filename )
     fileNewAction = new TQAction(
 	    "New Chart", TQPixmap( file_new ),
 	    "&New", CTRL+Key_N, this, "new" );
-    connect( fileNewAction, SIGNAL( activated() ), this, SLOT( fileNew() ) );
+    connect( fileNewAction, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileNew() ) );
 
     fileOpenAction = new TQAction(
 	    "Open Chart", TQPixmap( file_open ),
 	    "&Open...", CTRL+Key_O, this, "open" );
-    connect( fileOpenAction, SIGNAL( activated() ), this, SLOT( fileOpen() ) );
+    connect( fileOpenAction, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileOpen() ) );
 
     fileSaveAction = new TQAction(
 	    "Save Chart", TQPixmap( file_save ),
 	    "&Save", CTRL+Key_S, this, "save" );
-    connect( fileSaveAction, SIGNAL( activated() ), this, SLOT( fileSave() ) );
+    connect( fileSaveAction, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileSave() ) );
 
     fileSaveAsAction = new TQAction(
 	    "Save Chart As", TQPixmap( file_save ),
 	    "Save &As...", 0, this, "save as" );
-    connect( fileSaveAsAction, SIGNAL( activated() ),
-	     this, SLOT( fileSaveAs() ) );
+    connect( fileSaveAsAction, TQ_SIGNAL( activated() ),
+	     this, TQ_SLOT( fileSaveAs() ) );
 
     fileSaveAsPixmapAction = new TQAction(
 	    "Save Chart As Bitmap", TQPixmap( file_save ),
 	    "Save As &Bitmap...", CTRL+Key_B, this, "save as bitmap" );
-    connect( fileSaveAsPixmapAction, SIGNAL( activated() ),
-	     this, SLOT( fileSaveAsPixmap() ) );
+    connect( fileSaveAsPixmapAction, TQ_SIGNAL( activated() ),
+	     this, TQ_SLOT( fileSaveAsPixmap() ) );
 
     filePrintAction = new TQAction(
 	    "Print Chart", TQPixmap( file_print ),
 	    "&Print Chart...", CTRL+Key_P, this, "print chart" );
-    connect( filePrintAction, SIGNAL( activated() ),
-	     this, SLOT( filePrint() ) );
+    connect( filePrintAction, TQ_SIGNAL( activated() ),
+	     this, TQ_SLOT( filePrint() ) );
 
     optionsSetDataAction = new TQAction(
 	    "Set Data", TQPixmap( options_setdata ),
 	    "Set &Data...", CTRL+Key_D, this, "set data" );
-    connect( optionsSetDataAction, SIGNAL( activated() ),
-	     this, SLOT( optionsSetData() ) );
+    connect( optionsSetDataAction, TQ_SIGNAL( activated() ),
+	     this, TQ_SLOT( optionsSetData() ) );
 
 
     TQActionGroup *chartGroup = new TQActionGroup( this ); // Connected later
@@ -117,17 +117,17 @@ ChartForm::ChartForm( const TQString& filename )
     optionsSetFontAction = new TQAction(
 	    "Set Font", TQPixmap( options_setfont ),
 	    "Set &Font...", CTRL+Key_F, this, "set font" );
-    connect( optionsSetFontAction, SIGNAL( activated() ),
-	     this, SLOT( optionsSetFont() ) );
+    connect( optionsSetFontAction, TQ_SIGNAL( activated() ),
+	     this, TQ_SLOT( optionsSetFont() ) );
 
     optionsSetOptionsAction = new TQAction(
 	    "Set Options", TQPixmap( options_setoptions ),
 	    "Set &Options...", 0, this, "set options" );
-    connect( optionsSetOptionsAction, SIGNAL( activated() ),
-	     this, SLOT( optionsSetOptions() ) );
+    connect( optionsSetOptionsAction, TQ_SIGNAL( activated() ),
+	     this, TQ_SLOT( optionsSetOptions() ) );
 
     fileQuitAction = new TQAction( "Quit", "&Quit", CTRL+Key_Q, this, "quit" );
-    connect( fileQuitAction, SIGNAL( activated() ), this, SLOT( fileQuit() ) );
+    connect( fileQuitAction, TQ_SIGNAL( activated() ), this, TQ_SLOT( fileQuit() ) );
 
 
     TQToolBar* fileTools = new TQToolBar( this, "file operations" );
@@ -179,9 +179,9 @@ ChartForm::ChartForm( const TQString& filename )
 
     TQPopupMenu *helpMenu = new TQPopupMenu( this );
     menuBar()->insertItem( "&Help", helpMenu );
-    helpMenu->insertItem( "&Help", this, SLOT(helpHelp()), Key_F1 );
-    helpMenu->insertItem( "&About", this, SLOT(helpAbout()) );
-    helpMenu->insertItem( "About &TQt", this, SLOT(helpAboutTQt()) );
+    helpMenu->insertItem( "&Help", this, TQ_SLOT(helpHelp()), Key_F1 );
+    helpMenu->insertItem( "&About", this, TQ_SLOT(helpAbout()) );
+    helpMenu->insertItem( "About &TQt", this, TQ_SLOT(helpAboutTQt()) );
 
 
     m_printer = 0;
@@ -213,8 +213,8 @@ ChartForm::ChartForm( const TQString& filename )
 
     // Connect *after* we've set the chart type on so we don't call
     // drawElements() prematurely.
-    connect( chartGroup, SIGNAL( selected(TQAction*) ),
-	     this, SLOT( updateChartType(TQAction*) ) );
+    connect( chartGroup, TQ_SIGNAL( selected(TQAction*) ),
+	     this, TQ_SLOT( updateChartType(TQAction*) ) );
 
     resize( windowWidth, windowHeight );
     if ( windowX != -1 || windowY != -1 )
@@ -358,7 +358,7 @@ void ChartForm::updateRecentFilesMenu()
 	if ( i < int(m_recentFiles.count()) )
 	    fileMenu->insertItem( TQString( "&%1 %2" ).
 				    arg( i + 1 ).arg( m_recentFiles[i] ),
-				  this, SLOT( fileOpenRecent(int) ),
+				  this, TQ_SLOT( fileOpenRecent(int) ),
 				  0, i );
     }
 }

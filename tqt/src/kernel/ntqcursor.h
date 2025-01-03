@@ -49,9 +49,9 @@
 /*
   ### The fake cursor has to go first with old qdoc.
 */
-#ifdef QT_NO_CURSOR
+#ifdef TQT_NO_CURSOR
 
-class Q_EXPORT TQCursor : public TQt
+class TQ_EXPORT TQCursor : public TQt
 {
 public:
     static TQPoint pos();
@@ -61,14 +61,14 @@ private:
     TQCursor();
 };
 
-#endif // QT_NO_CURSOR
+#endif // TQT_NO_CURSOR
 
-#ifndef QT_NO_CURSOR
+#ifndef TQT_NO_CURSOR
 
 struct TQCursorData;
 
 
-class Q_EXPORT TQCursor : public TQt
+class TQ_EXPORT TQCursor : public TQt
 {
 public:
     TQCursor();				// create default arrow cursor
@@ -88,15 +88,15 @@ public:
     const TQBitmap *mask()   const;
     TQPoint	  hotSpot() const;
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     HCURSOR	  handle()  const;
     TQCursor( HCURSOR );
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     HANDLE	  handle()  const;
     TQCursor( HANDLE );
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     HANDLE handle() const;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
     HANDLE	  handle()  const;
 #endif
 
@@ -107,7 +107,7 @@ public:
     static void	  initialize();
     static void	  cleanup();
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     static int 	  x11Screen();
 #endif
 private:
@@ -116,33 +116,20 @@ private:
     void	  update() const;
     TQCursorData	 *data;
     TQCursor	 *find_cur(int);
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     friend void qt_mac_set_cursor(const TQCursor *c, const Point *p);
 #endif
 };
 
 
-#if !defined(QT_CLEAN_NAMESPACE)
-// CursorShape is defined in X11/X.h
-#ifdef CursorShape
-#define X_CursorShape CursorShape
-#undef CursorShape
-#endif
-typedef TQt::CursorShape TQCursorShape;
-#ifdef X_CursorShape
-#define CursorShape X_CursorShape
-#endif
-#endif
-
-
 /*****************************************************************************
   TQCursor stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &operator<<( TQDataStream &, const TQCursor & );
-Q_EXPORT TQDataStream &operator>>( TQDataStream &, TQCursor & );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &operator<<( TQDataStream &, const TQCursor & );
+TQ_EXPORT TQDataStream &operator>>( TQDataStream &, TQCursor & );
 #endif
-#endif // QT_NO_CURSOR
+#endif // TQT_NO_CURSOR
 
 
 inline void TQCursor::setPos( const TQPoint &p )

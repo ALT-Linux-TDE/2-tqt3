@@ -108,9 +108,9 @@ body { background: #ffffff; color: black; }
 #include "ntqtextcodec.h"
 #endif // QT_H
 
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
 
-class Q_EXPORT TQTsciiCodec : public TQTextCodec {
+class TQ_EXPORT TQTsciiCodec : public TQTextCodec {
 public:
     virtual int mibEnum() const;
     const char* name() const;

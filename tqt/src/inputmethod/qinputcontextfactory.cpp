@@ -39,19 +39,19 @@
 #include "ntqinputcontextfactory.h"
 #include "ntqinputcontext.h"
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 
 #include "ntqapplication.h"
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 #include <private/qmutexpool_p.h>
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
 #include <stdlib.h>
 
 #include "ntqcleanuphandler.h"
 #include <private/qpluginmanager_p.h>
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
 
 
 static TQPluginManager<TQInputContextFactoryInterface> *manager = 0;
@@ -62,7 +62,7 @@ static void create_manager()
     if( manager ) // already created
 	return;
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     // protect manager creation
     TQMutexLocker locker( tqt_global_mutexpool ?
 			 tqt_global_mutexpool->get( &manager ) : 0);
@@ -80,7 +80,7 @@ static void create_manager()
     cleanup_manager.set( &manager );
 }
 
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
 
 /*!
@@ -92,7 +92,7 @@ TQInputContext *TQInputContextFactory::create( const TQString& key, TQWidget *wi
 {
     TQInputContext *ret = 0;
     TQString inputcontext = key;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     // make sure the manager is created
     create_manager();
 
@@ -101,7 +101,7 @@ TQInputContext *TQInputContextFactory::create( const TQString& key, TQWidget *wi
 
     if ( iface ) {
 	ret = iface->create( inputcontext );
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	if ( ret )
 	    ret->setHolderWidget( widget );
 #endif
@@ -114,17 +114,17 @@ TQInputContext *TQInputContextFactory::create( const TQString& key, TQWidget *wi
 /*!
     This function returns the list of the names input methods.
     Only input methods included in default and placed under
-    $QTDIR/plugins/inputmethods are listed.
+    $TQTDIR/plugins/inputmethods are listed.
 */
 TQStringList TQInputContextFactory::keys()
 {
     TQStringList list;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     // make sure the manager is created
     create_manager();
 
     list = manager->featureList();
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
     return list;
 }
@@ -133,7 +133,7 @@ TQStringList TQInputContextFactory::keys()
 TQStringList TQInputContextFactory::languages( const TQString &key )
 {
     TQStringList result;
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     // make sure the manager is created
     create_manager();
 
@@ -142,7 +142,7 @@ TQStringList TQInputContextFactory::languages( const TQString &key )
 
     if ( iface )
 	result = iface->languages( key );
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
     return result;
 }
@@ -151,7 +151,7 @@ TQStringList TQInputContextFactory::languages( const TQString &key )
 TQString TQInputContextFactory::displayName( const TQString &key )
 {
     TQString result( "" );
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     // make sure the manager is created
     create_manager();
 
@@ -160,7 +160,7 @@ TQString TQInputContextFactory::displayName( const TQString &key )
 
     if ( iface )
 	result = iface->displayName( key );
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
     return result;
 }
@@ -169,7 +169,7 @@ TQString TQInputContextFactory::displayName( const TQString &key )
 TQString TQInputContextFactory::description( const TQString &key )
 {
     TQString result( "" );
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_COMPONENT
     // make sure the manager is created
     create_manager();
 
@@ -178,9 +178,9 @@ TQString TQInputContextFactory::description( const TQString &key )
 
     if ( iface )
 	result = iface->description( key );
-#endif //QT_NO_COMPONENT
+#endif //TQT_NO_COMPONENT
 
     return result;
 }
 
-#endif // QT_NO_IM
+#endif // TQT_NO_IM

@@ -46,7 +46,7 @@
 #include "ntqvaluelist.h"
 #endif // QT_H
 
-#ifndef QT_NO_SPLITTER
+#ifndef TQT_NO_SPLITTER
 
 #define QT_QSPLITTER_DEFAULT 2
 
@@ -69,7 +69,7 @@ public:
     int handleWidth;
 };
 
-class Q_EXPORT TQSplitterLayoutStruct : public TQt
+class TQ_EXPORT TQSplitterLayoutStruct : public TQt
 {
 public:
     TQCOORD sizer;
@@ -83,7 +83,7 @@ public:
     TQCOORD getSizer( Orientation orient );
 };
 
-class Q_EXPORT TQSplitter : public TQFrame
+class TQ_EXPORT TQSplitter : public TQFrame
 {
     TQ_OBJECT
     TQ_PROPERTY( Orientation orientation READ orientation WRITE setOrientation )
@@ -185,12 +185,12 @@ private:
 #endif
 };
 
-#ifndef QT_NO_TEXTSTREAM
-Q_EXPORT TQTextStream& operator<<( TQTextStream&, const TQSplitter& );
-Q_EXPORT TQTextStream& operator>>( TQTextStream&, TQSplitter& );
+#ifndef TQT_NO_TEXTSTREAM
+TQ_EXPORT TQTextStream& operator<<( TQTextStream&, const TQSplitter& );
+TQ_EXPORT TQTextStream& operator>>( TQTextStream&, TQSplitter& );
 #endif
 
-class Q_EXPORT TQSplitterHandle : public TQWidget
+class TQ_EXPORT TQSplitterHandle : public TQWidget
 {
     TQ_OBJECT
 public:
@@ -220,6 +220,6 @@ public: // private:
     TQSplitter *s;
 };
 
-#endif // QT_NO_SPLITTER
+#endif // TQT_NO_SPLITTER
 
 #endif // TQSPLITTER_H

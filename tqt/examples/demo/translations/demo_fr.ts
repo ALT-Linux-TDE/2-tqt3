@@ -1,233 +1,235 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS language="fr">
 <context encoding="UTF-8">
     <name>BookForm</name>
     <message encoding="UTF-8">
         <source>Book</source>
-        <translation type="unfinished"></translation>
+        <translation>Livre</translation>
     </message>
     <message encoding="UTF-8">
         <source>Surname</source>
-        <translation type="unfinished"></translation>
+        <translation>Surnom</translation>
     </message>
     <message encoding="UTF-8">
         <source>surname</source>
-        <translation type="unfinished"></translation>
+        <translation>surnom</translation>
     </message>
     <message encoding="UTF-8">
         <source>Forename</source>
-        <translation type="unfinished"></translation>
+        <translation>Prénom</translation>
     </message>
     <message encoding="UTF-8">
         <source>forename</source>
-        <translation type="unfinished"></translation>
+        <translation>prénom</translation>
     </message>
     <message encoding="UTF-8">
         <source>surname ASC</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">surnom ASV</translation>
     </message>
     <message encoding="UTF-8">
         <source>forename ASC</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">prénom ASV</translation>
     </message>
     <message encoding="UTF-8">
         <source>(default)</source>
-        <translation type="unfinished"></translation>
+        <translation>(défaut)</translation>
     </message>
     <message encoding="UTF-8">
         <source>author</source>
-        <translation type="unfinished"></translation>
+        <translation>auteur</translation>
     </message>
     <message encoding="UTF-8">
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre</translation>
     </message>
     <message encoding="UTF-8">
         <source>title</source>
-        <translation type="unfinished"></translation>
+        <translation>titre</translation>
     </message>
     <message encoding="UTF-8">
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>Prix</translation>
     </message>
     <message encoding="UTF-8">
         <source>price</source>
-        <translation type="unfinished"></translation>
+        <translation>prix</translation>
     </message>
     <message encoding="UTF-8">
         <source>Notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Notes</translation>
     </message>
     <message encoding="UTF-8">
         <source>notes</source>
-        <translation type="unfinished"></translation>
+        <translation>notes</translation>
     </message>
     <message encoding="UTF-8">
         <source>title ASC</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">titre ASC</translation>
     </message>
     <message encoding="UTF-8">
         <source>book</source>
-        <translation type="unfinished"></translation>
+        <translation>livre</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Connect...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Connecter...</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Edit Books</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Modifier les Livres</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>ConnectDialog</name>
     <message encoding="UTF-8">
         <source>Connect...</source>
-        <translation type="unfinished"></translation>
+        <translation>Connecter...</translation>
     </message>
     <message encoding="UTF-8">
         <source>Connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres de la connexion</translation>
     </message>
     <message encoding="UTF-8">
         <source>Database Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de la base de données:</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom d&apos;&amp;Utilisateur:</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mot de &amp;Passe:</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom d&apos;&amp;Hôte:</translation>
     </message>
     <message encoding="UTF-8">
         <source>P&amp;ort:</source>
-        <translation type="unfinished"></translation>
+        <translation>P&amp;ort:</translation>
     </message>
     <message encoding="UTF-8">
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Défaut</translation>
     </message>
     <message encoding="UTF-8">
         <source>D&amp;river</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pilote</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;OK</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;OK</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annuler</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>DnDDemoBase</name>
     <message encoding="UTF-8">
         <source>Form1</source>
-        <translation type="unfinished"></translation>
+        <translation>Form1</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>EditBookForm</name>
     <message encoding="UTF-8">
         <source>Edit Books</source>
-        <translation type="unfinished"></translation>
+        <translation>Edition des Livres</translation>
     </message>
     <message encoding="UTF-8">
         <source>title ASC</source>
-        <translation type="unfinished"></translation>
+        <translation>titre ASC</translation>
     </message>
     <message encoding="UTF-8">
         <source>(default)</source>
-        <translation type="unfinished"></translation>
+        <translation>(défaut)</translation>
     </message>
     <message encoding="UTF-8">
         <source>book</source>
-        <translation type="unfinished"></translation>
+        <translation>livre</translation>
     </message>
     <message encoding="UTF-8">
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>Prix</translation>
     </message>
     <message encoding="UTF-8">
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre</translation>
     </message>
     <message encoding="UTF-8">
         <source>title</source>
-        <translation type="unfinished"></translation>
+        <translation>titre</translation>
     </message>
     <message encoding="UTF-8">
         <source>price</source>
-        <translation type="unfinished"></translation>
+        <translation>prix</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Insert</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Insérer</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Update</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mise à jour</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Supprimer</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message encoding="UTF-8">
         <source>|&lt; &amp;First</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt; &amp;Premier</translation>
     </message>
     <message encoding="UTF-8">
         <source>&lt;&lt; &amp;Prev</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;&lt; &amp;Précédent</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Next &gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Suivant &gt;&gt;</translation>
     </message>
     <message encoding="UTF-8">
         <source>&amp;Last &gt;|</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dernier &gt;|</translation>
     </message>
     <message encoding="UTF-8">
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Auteur</translation>
     </message>
     <message encoding="UTF-8">
         <source>author_view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">author_view</translation>
     </message>
     <message encoding="UTF-8">
         <source>name</source>
-        <translation type="unfinished"></translation>
+        <translation>nom</translation>
     </message>
 </context>
 <context>
     <name>Frame</name>
     <message>
-        <source>Qt Demo Collection</source>
-        <translation type="unfinished"></translation>
+        <source>TQt Demo Collection</source>
+        <translation>TQt Demo Collection</translation>
     </message>
     <message>
         <source>&amp;Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sortir</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fichier</translation>
     </message>
     <message>
         <source>St&amp;yle</source>
@@ -494,7 +496,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1, a multiplatform C++ GUI toolkit from Trolltech. Qt provides single-source portability across Windows 95/98/NT/2000, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1, a multiplatform C++ GUI toolkit from Trolltech. TQt provides single-source portability across Windows 95/98/NT/2000, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;http://www.trolltech.com/qt/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

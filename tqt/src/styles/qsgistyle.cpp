@@ -40,7 +40,7 @@
 
 #include "ntqsgistyle.h"
 
-#if !defined(QT_NO_STYLE_SGI) || defined(QT_PLUGIN)
+#if !defined(TQT_NO_STYLE_SGI) || defined(QT_PLUGIN)
 
 #include "ntqpopupmenu.h"
 #include "ntqapplication.h"
@@ -60,7 +60,7 @@
 #include "ntqmenubar.h"
 #include <limits.h>
 
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 struct SliderLastPosition
 {
     SliderLastPosition() : rect(0,-1,0,-1), slider(0) {}
@@ -69,7 +69,7 @@ struct SliderLastPosition
 };
 #endif
 
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
 struct ScrollbarLastPosition
 {
     ScrollbarLastPosition() : rect( 0,-1, 0,-1 ), scrollbar(0) {}
@@ -88,10 +88,10 @@ public:
 
     const void* hotWidget;
     TQPoint mousePos;
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
     ScrollbarLastPosition lastScrollbarRect;
 #endif
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
     SliderLastPosition lastSliderRect;
 #endif
 };
@@ -234,7 +234,7 @@ TQSGIStyle::polish( const TQStyleControlElementData &ceData, ControlElementFlags
     if ( (ceData.widgetObjectTypes.contains("TQButton")) || (ceData.widgetObjectTypes.contains("TQSlider")) || (ceData.widgetObjectTypes.contains("TQScrollBar")) ) {
         installObjectEventHandler(ceData, elementFlags, ptr, this);
         widgetActionRequest(ceData, elementFlags, ptr, WAR_EnableMouseTracking);
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
         if ( ceData.widgetObjectTypes.contains("TQScrollBar") ) {
             widgetActionRequest(ceData, elementFlags, ptr, WAR_SetBackgroundMode, TQStyleWidgetActionRequestData(TQWidget::NoBackground));
         }
@@ -244,7 +244,7 @@ TQSGIStyle::polish( const TQStyleControlElementData &ceData, ControlElementFlags
 	f.setBold( TRUE );
 	f.setItalic( TRUE );
 	widgetActionRequest(ceData, elementFlags, ptr, WAR_SetFont, TQStyleWidgetActionRequestData(f));
-#ifndef QT_NO_MENUBAR
+#ifndef TQT_NO_MENUBAR
     } else if ( ceData.widgetObjectTypes.contains("TQMenuBar") ) {
 	widgetActionRequest(ceData, elementFlags, ptr, WAR_FrameSetStyle, TQStyleWidgetActionRequestData(TQFrame::StyledPanel | TQFrame::Raised));
 	widgetActionRequest(ceData, elementFlags, ptr, WAR_SetBackgroundMode, TQStyleWidgetActionRequestData(TQWidget::PaletteBackground));
@@ -253,7 +253,7 @@ TQSGIStyle::polish( const TQStyleControlElementData &ceData, ControlElementFlags
 	f.setItalic( TRUE );
 	widgetActionRequest(ceData, elementFlags, ptr, WAR_SetFont, TQStyleWidgetActionRequestData(f));
 #endif
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     } else if ( ceData.widgetObjectTypes.contains("TQPopupMenu") ) {
 	TQStyleWidgetActionRequestData requestData;
 	widgetActionRequest(ceData, elementFlags, ptr, WAR_FrameSetLineWidth, TQStyleWidgetActionRequestData(pixelMetric( PM_DefaultFrameWidth, TQStyleControlElementData(), CEF_None ) + 1));
@@ -273,12 +273,12 @@ TQSGIStyle::unPolish( const TQStyleControlElementData &ceData, ControlElementFla
 {
     if ( (ceData.widgetObjectTypes.contains("TQButton")) || (ceData.widgetObjectTypes.contains("TQSlider")) || (ceData.widgetObjectTypes.contains("TQScrollBar")) ) {
         removeObjectEventHandler(ceData, elementFlags, ptr, this);
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
     } else if ( ceData.widgetObjectTypes.contains("TQPopupMenu") ) {
 	widgetActionRequest(ceData, elementFlags, ptr, WAR_FrameSetLineWidth, TQStyleWidgetActionRequestData(pixelMetric( PM_DefaultFrameWidth, TQStyleControlElementData(), CEF_None )));
 	widgetActionRequest(ceData, elementFlags, ptr, WAR_SetFont, TQStyleWidgetActionRequestData(TQApplication::font()));
 #endif
-#if !defined(QT_NO_MENUBAR) || !defined(QT_NO_COMBOBOX)
+#if !defined(TQT_NO_MENUBAR) || !defined(TQT_NO_COMBOBOX)
     } else if ( (ceData.widgetObjectTypes.contains("TQMenuBar")) || (ceData.widgetObjectTypes.contains("TQComboBox")) ) {
 	widgetActionRequest(ceData, elementFlags, ptr, WAR_SetFont, TQStyleWidgetActionRequestData(TQApplication::font()));
 #endif
@@ -294,7 +294,7 @@ bool TQSGIStyle::objectEventHandler( const TQStyleControlElementData &ceData, Co
     switch ( e->type() ) {
     case TQEvent::MouseButtonPress:
         {
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
 	    if (ceData.widgetObjectTypes.contains("TQScrollBar")) {
 		d->lastScrollbarRect.rect = ceData.sliderRect;
 		d->lastScrollbarRect.scrollbar = source;
@@ -302,7 +302,7 @@ bool TQSGIStyle::objectEventHandler( const TQStyleControlElementData &ceData, Co
 	    } else
 #endif
 	    {
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 		if (ceData.widgetObjectTypes.contains("TQSlider")) {
 		    d->lastSliderRect.rect = ceData.sliderRect;
 		    d->lastSliderRect.slider = source;
@@ -316,13 +316,13 @@ bool TQSGIStyle::objectEventHandler( const TQStyleControlElementData &ceData, Co
     case TQEvent::MouseButtonRelease:
         {
 	    if ( 0 ) {
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
 	    } else if (ceData.widgetObjectTypes.contains("TQScrollBar")) {
 		TQRect oldRect = d->lastScrollbarRect.rect;
 		d->lastScrollbarRect.rect = TQRect( 0, -1, 0, -1 );
 		widgetActionRequest(ceData, elementFlags, source, WAR_RepaintRect, TQStyleWidgetActionRequestData(oldRect));
 #endif
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 	    } else if (ceData.widgetObjectTypes.contains("TQSlider")) {
 		TQRect oldRect = d->lastSliderRect.rect;
 		d->lastSliderRect.rect = TQRect( 0, -1, 0, -1 );
@@ -957,7 +957,7 @@ void TQSGIStyle::drawControl( ControlElement element,
     switch ( element ) {
     case CE_PushButton:
 	{
-#ifndef QT_NO_PUSHBUTTON
+#ifndef TQT_NO_PUSHBUTTON
 	    int x1, y1, x2, y2;
 	    r.coords( &x1, &y1, &x2, &y2 );
 
@@ -1003,7 +1003,7 @@ void TQSGIStyle::drawControl( ControlElement element,
 
     case CE_PopupMenuItem:
 	{
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	    if ( ( elementFlags & CEF_UseGenericParameters ) || opt.isDefault())
 		break;
 	    TQMenuItem *mi = opt.menuItem();
@@ -1136,7 +1136,7 @@ void TQSGIStyle::drawControl( ControlElement element,
 
     case CE_MenuBarItem:
 	{
-#ifndef QT_NO_MENUDATA
+#ifndef TQT_NO_MENUDATA
 	    if (opt.isDefault())
 		break;
 
@@ -1202,7 +1202,7 @@ void TQSGIStyle::drawComplexControl( ComplexControl control,
     switch ( control ) {
     case CC_Slider:
 	{
-#ifndef QT_NO_SLIDER
+#ifndef TQT_NO_SLIDER
 	    TQRect groove = querySubControlMetrics(CC_Slider, ceData, elementFlags, SC_SliderGroove,
 						  opt, widget),
 		  handle = querySubControlMetrics(CC_Slider, ceData, elementFlags, SC_SliderHandle,
@@ -1265,7 +1265,7 @@ void TQSGIStyle::drawComplexControl( ComplexControl control,
 	}
     case CC_ComboBox:
 	{
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 	    if (sub & SC_ComboBoxFrame) {
 		TQRect fr =
 		    TQStyle::visualRect( querySubControlMetrics( CC_ComboBox, ceData, elementFlags,
@@ -1312,7 +1312,7 @@ void TQSGIStyle::drawComplexControl( ComplexControl control,
 
     case CC_ScrollBar:
 	{
-#ifndef QT_NO_SCROLLBAR
+#ifndef TQT_NO_SCROLLBAR
 	    bool maxedOut = (ceData.minSteps == ceData.maxSteps);
 	    if ( maxedOut )
 		flags &= ~Style_Enabled;
@@ -1399,7 +1399,7 @@ void TQSGIStyle::drawComplexControl( ComplexControl control,
 	break;
 
     default:
-// 	TQMotifStyle::drawComplexControl( control, p, ceData, elementFlags, r, cg, flags, sub, subActive, opt, widget );
+ 	TQMotifStyle::drawComplexControl( control, p, ceData, elementFlags, r, cg, flags, sub, subActive, opt, widget );
 	break;
     }
 }
@@ -1418,7 +1418,7 @@ TQSize TQSGIStyle::sizeFromContents( ContentsType contents,
     switch(contents) {
     case CT_PopupMenuItem:
 	{
-#ifndef QT_NO_POPUPMENU
+#ifndef TQT_NO_POPUPMENU
 	    if ((elementFlags & CEF_UseGenericParameters) || opt.isDefault())
 		break;
 
@@ -1535,4 +1535,4 @@ int TQSGIStyle::styleHint(StyleHint sh, const TQStyleControlElementData &ceData,
 	return ret;
 }
 
-#endif // QT_NO_STYLE_SGI
+#endif // TQT_NO_STYLE_SGI

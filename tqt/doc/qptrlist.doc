@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -79,19 +79,19 @@
     {
     public:
 	Employee() : sn( 0 ) { }
-	Employee( const QString& forename, const QString& surname, int salary )
+	Employee( const TQString& forename, const TQString& surname, int salary )
 	    : fn( forename ), sn( surname ), sal( salary )
 	{ }
 
 	void setSalary( int salary ) { sal = salary; }
 
-	QString forename() const { return fn; }
-	QString surname() const { return sn; }
+	TQString forename() const { return fn; }
+	TQString surname() const { return sn; }
 	int salary() const { return sal; }
 
     private:
-	QString fn;
-	QString sn;
+	TQString fn;
+	TQString sn;
 	int sal;
     };
 
@@ -1052,7 +1052,7 @@
     \ingroup tools
     \ingroup text
 
-    If you want a string list of \l{QString}s use QStringList.
+    If you want a string list of \l{TQString}s use QStringList.
 
     This class is a QPtrList\<char\> instance (a list of char*).
 

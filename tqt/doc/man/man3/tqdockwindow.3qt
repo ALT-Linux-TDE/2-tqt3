@@ -24,16 +24,16 @@ Inherited by QToolBar.
 .BI "enum \fBCloseMode\fR { Never = 0, Docked = 1, Undocked = 2, Always = Docked | Undocked }"
 .br
 .ti -1c
-.BI "\fBQDockWindow\fR ( Place p = InDock, QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQDockWindow\fR ( Place p = InDock, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fBQDockWindow\fR ( QWidget * parent, const char * name = 0, WFlags f = 0 )"
+.BI "\fBQDockWindow\fR ( TQWidget * parent, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "virtual void \fBsetWidget\fR ( QWidget * w )"
+.BI "virtual void \fBsetWidget\fR ( TQWidget * w )"
 .br
 .ti -1c
-.BI "QWidget * \fBwidget\fR () const"
+.BI "TQWidget * \fBwidget\fR () const"
 .br
 .ti -1c
 .BI "Place \fBplace\fR () const"
@@ -111,7 +111,7 @@ Inherited by QToolBar.
 .BI "bool \fBnewLine\fR () const"
 .br
 .ti -1c
-.BI "Qt::Orientation \fBorientation\fR () const"
+.BI "TQt::Orientation \fBorientation\fR () const"
 .br
 .ti -1c
 .BI "QBoxLayout * \fBboxLayout\fR ()"
@@ -215,7 +215,7 @@ In the example above we create a new QToolBar in the constructor of a QMainWindo
 .PP
 A dock window is often used to contain a single widget. In these cases the widget can be set by calling setWidget(). If you're constructing a dock window that contains multiple widgets, e.g. a toolbar, arrange the widgets within a box layout inside the dock window. To do this use the boxLayout() function to get a pointer to the dock window's box layout, then add widgets to the layout using the box layout's QBoxLayout::addWidget() function. The dock window will dynamically set the orientation of the layout to be vertical or horizontal as necessary, although you can control this yourself with setOrientation().
 .PP
-Although a common use of dock windows is for toolbars, they can be used with any widgets. (See the Qt Designer and Qt Linguist applications, for example.) When using larger widgets it may make sense for the dock window to be resizable by calling setResizeEnabled(). Resizable dock windows are given splitter-like handles to allow the user to resize them within their dock area. When resizable dock windows are undocked they become top level windows and can be resized like any other top level windows, e.g. by dragging a corner or edge.
+Although a common use of dock windows is for toolbars, they can be used with any widgets. (See the TQt Designer and TQt Linguist applications, for example.) When using larger widgets it may make sense for the dock window to be resizable by calling setResizeEnabled(). Resizable dock windows are given splitter-like handles to allow the user to resize them within their dock area. When resizable dock windows are undocked they become top level windows and can be resized like any other top level windows, e.g. by dragging a corner or edge.
 .PP
 Dock windows can be docked and undocked using dock() and undock(). A dock window's orientation can be set with setOrientation(). You can also use QDockArea::moveDockWindow(). If you're using a QMainWindow, QMainWindow::moveDockWindow() and QMainWindow::removeDockWindow() are available.
 .PP
@@ -242,7 +242,7 @@ This enum specifies the possible locations for a QDockWindow:
 .TP
 \fCQDockWindow::OutsideDock\fR - Floating as a top level window on the desktop.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDockWindow::QDockWindow ( Place p = InDock, QWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "QDockWindow::QDockWindow ( Place p = InDock, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a QDockWindow with parent \fIparent\fR, called \fIname\fR and with widget flags \fIf\fR.
 .PP
 If \fIp\fR is InDock, the dock window is docked into a dock area and \fIparent\fR \fImust\fR be a QDockArea or a QMainWindow. If the \fIparent\fR is a QMainWindow the dock window will be docked in the main window's Top dock area.
@@ -250,7 +250,7 @@ If \fIp\fR is InDock, the dock window is docked into a dock area and \fIparent\f
 If \fIp\fR is OutsideDock, the dock window is created as a floating window.
 .PP
 We recommend creating the dock area InDock with a QMainWindow as parent then calling QMainWindow::moveDockWindow() to move the dock window where you want it.
-.SH "QDockWindow::QDockWindow ( QWidget * parent, const char * name = 0, WFlags f = 0 )"
+.SH "QDockWindow::QDockWindow ( TQWidget * parent, const char * name = 0, WFlags f = 0 )"
 Constructs a QDockWindow with parent \fIparent\fR, called \fIname\fR and with widget flags \fIf\fR.
 .SH "QDockArea * QDockWindow::area () const"
 Returns the dock area in which this dock window is docked, or 0 if the dock window is floating.
@@ -298,7 +298,7 @@ Returns TRUE if the dock window prefers to start a new line in the dock area; ot
 Returns the dock window's preferred offset from the dock area's left edge (top edge for vertical dock areas). See the "offset" property for details.
 .SH "bool QDockWindow::opaqueMoving () const"
 Returns TRUE if the dock window will be shown normally whilst it is being moved; otherwise returns FALSE. See the "opaqueMoving" property for details.
-.SH "Qt::Orientation QDockWindow::orientation () const"
+.SH "TQt::Orientation QDockWindow::orientation () const"
 Returns the orientation of the dock window.
 .PP
 See also orientationChanged().
@@ -344,7 +344,7 @@ Sets whether the dock window is resizeable to \fIb\fR. See the "resizeEnabled" p
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .SH "void QDockWindow::setVerticallyStretchable ( bool b )\fC [virtual]\fR"
 Sets whether the dock window is vertically stretchable to \fIb\fR. See the "verticallyStretchable" property for details.
-.SH "void QDockWindow::setWidget ( QWidget * w )\fC [virtual]\fR"
+.SH "void QDockWindow::setWidget ( TQWidget * w )\fC [virtual]\fR"
 Sets the dock window's main widget to \fIw\fR.
 .PP
 See also boxLayout().
@@ -356,7 +356,7 @@ See also dock(), QDockArea::moveDockWindow(), QDockArea::removeDockWindow(), QMa
 This signal is emitted when the visibility of the dock window relatively to its dock area is changed. If \fIvisible\fR is TRUE, the QDockWindow is now visible to the dock area, otherwise it has been hidden.
 .PP
 A dock window can be hidden if it has a close button which the user has clicked. In the case of a QMainWindow a dock window can have its visibility changed (hidden or shown) by clicking its name in the dock window menu that lists the QMainWindow's dock windows.
-.SH "QWidget * QDockWindow::widget () const"
+.SH "TQWidget * QDockWindow::widget () const"
 Returns the dock window's main widget.
 .PP
 See also setWidget().
@@ -458,8 +458,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

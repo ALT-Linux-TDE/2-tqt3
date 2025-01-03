@@ -165,7 +165,7 @@
   Global colors
  *****************************************************************************/
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 #define COLOR0_PIX 0x00ffffff
 #define COLOR1_PIX 0
 #else
@@ -199,25 +199,25 @@ static TQColor stdcol[19] = {
     static TQColor stdcol[19];
 #endif
 
-QT_STATIC_CONST_IMPL TQColor & TQt::color0 = stdcol[0];
-QT_STATIC_CONST_IMPL TQColor & TQt::color1  = stdcol[1];
-QT_STATIC_CONST_IMPL TQColor & TQt::black  = stdcol[2];
-QT_STATIC_CONST_IMPL TQColor & TQt::white = stdcol[3];
-QT_STATIC_CONST_IMPL TQColor & TQt::darkGray = stdcol[4];
-QT_STATIC_CONST_IMPL TQColor & TQt::gray = stdcol[5];
-QT_STATIC_CONST_IMPL TQColor & TQt::lightGray = stdcol[6];
-QT_STATIC_CONST_IMPL TQColor & TQt::red = stdcol[7];
-QT_STATIC_CONST_IMPL TQColor & TQt::green = stdcol[8];
-QT_STATIC_CONST_IMPL TQColor & TQt::blue = stdcol[9];
-QT_STATIC_CONST_IMPL TQColor & TQt::cyan = stdcol[10];
-QT_STATIC_CONST_IMPL TQColor & TQt::magenta = stdcol[11];
-QT_STATIC_CONST_IMPL TQColor & TQt::yellow = stdcol[12];
-QT_STATIC_CONST_IMPL TQColor & TQt::darkRed = stdcol[13];
-QT_STATIC_CONST_IMPL TQColor & TQt::darkGreen = stdcol[14];
-QT_STATIC_CONST_IMPL TQColor & TQt::darkBlue = stdcol[15];
-QT_STATIC_CONST_IMPL TQColor & TQt::darkCyan = stdcol[16];
-QT_STATIC_CONST_IMPL TQColor & TQt::darkMagenta = stdcol[17];
-QT_STATIC_CONST_IMPL TQColor & TQt::darkYellow = stdcol[18];
+const TQColor & TQt::color0 = stdcol[0];
+const TQColor & TQt::color1  = stdcol[1];
+const TQColor & TQt::black  = stdcol[2];
+const TQColor & TQt::white = stdcol[3];
+const TQColor & TQt::darkGray = stdcol[4];
+const TQColor & TQt::gray = stdcol[5];
+const TQColor & TQt::lightGray = stdcol[6];
+const TQColor & TQt::red = stdcol[7];
+const TQColor & TQt::green = stdcol[8];
+const TQColor & TQt::blue = stdcol[9];
+const TQColor & TQt::cyan = stdcol[10];
+const TQColor & TQt::magenta = stdcol[11];
+const TQColor & TQt::yellow = stdcol[12];
+const TQColor & TQt::darkRed = stdcol[13];
+const TQColor & TQt::darkGreen = stdcol[14];
+const TQColor & TQt::darkBlue = stdcol[15];
+const TQColor & TQt::darkCyan = stdcol[16];
+const TQColor & TQt::darkMagenta = stdcol[17];
+const TQColor & TQt::darkYellow = stdcol[18];
 
 
 /*****************************************************************************
@@ -255,7 +255,7 @@ void TQColor::initGlobalColors()
 {
     globals_init = TRUE;
 
-    #ifdef Q_WS_X11
+    #ifdef TQ_WS_X11
     // HACK: we need a way to recognize color0 and color1 uniquely, so
     // that we can use color0 and color1 with fixed pixel values on
     // all screens
@@ -264,7 +264,7 @@ void TQColor::initGlobalColors()
     #else
     stdcol[ 0].d.argb = tqRgb(255,255,255);
     stdcol[ 1].d.argb = 0;
-    #endif // Q_WS_X11
+    #endif // TQ_WS_X11
     stdcol[ 0].setPixel( COLOR0_PIX );
     stdcol[ 1].setPixel( COLOR1_PIX );
 
@@ -486,7 +486,7 @@ bool TQColor::isDirty() const
 
 TQString TQColor::name() const
 {
-#ifndef QT_NO_SPRINTF
+#ifndef TQT_NO_SPRINTF
     TQString s;
     s.sprintf( "#%02x%02x%02x", red(), green(), blue() );
     return s;
@@ -901,7 +901,7 @@ uint TQColor::pixel() const
     if ( isDirty() )
 	return ((TQColor*)this)->alloc();
     else if ( colormodel == d8 )
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	// since d.d8.pix is uchar we have to use the PALETTEINDEX
 	// macro to get the respective palette entry index.
 	return (0x01000000 | (int)(short)(d.d8.pix));
@@ -920,7 +920,7 @@ uint TQColor::pixel() const
 /*****************************************************************************
   TQColor stream functions
  *****************************************************************************/
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 /*!
     \relates TQColor
     Writes a color object, \a c to the stream, \a s.

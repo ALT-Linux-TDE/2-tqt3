@@ -72,7 +72,7 @@ struct TQUnknownInterface;
 struct TQDispatchInterface;
 
 
-struct Q_EXPORT TQUBuffer
+struct TQ_EXPORT TQUBuffer
 {
     virtual long read( char *data, ulong maxlen ) = 0;
     virtual long write( const char *data, ulong len ) = 0;
@@ -80,7 +80,7 @@ struct Q_EXPORT TQUBuffer
 
 
 // A type for a TQUObject
-struct Q_EXPORT TQUType
+struct TQ_EXPORT TQUType
 {
     virtual const TQUuid *uuid() const = 0;
     virtual const char *desc() const = 0;
@@ -106,8 +106,8 @@ struct Q_EXPORT TQUType
 
 
 // {DE56510E-4E9F-4b76-A3C2-D1E2EF42F1AC}
-extern Q_EXPORT const TQUuid TID_QUType_Null;
-struct Q_EXPORT TQUType_Null : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_Null;
+struct TQ_EXPORT TQUType_Null : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -120,11 +120,11 @@ struct Q_EXPORT TQUType_Null : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_Null static_QUType_Null;
+extern TQ_EXPORT TQUType_Null static_QUType_Null;
 
 
 // The magic TQUObject
-struct Q_EXPORT TQUObject
+struct TQ_EXPORT TQUObject
 {
 public: // scary MSVC bug makes this necessary
     TQUObject() : type( &static_QUType_Null ), isLastObject(false) {}
@@ -192,7 +192,7 @@ public: // scary MSVC bug makes this necessary
 // A parameter description describes one method parameters. A
 // parameter has a name, a type and a flag describing whether it's an
 // in parameter, an out parameter, or both ways
-struct Q_EXPORT TQUParameter
+struct TQ_EXPORT TQUParameter
 {
     const char* name;
     TQUType *type;
@@ -203,7 +203,7 @@ struct Q_EXPORT TQUParameter
 
 // A method description describes one method. A method has a name and
 // an array of parameters.
-struct Q_EXPORT TQUMethod
+struct TQ_EXPORT TQUMethod
 {
     const char* name;
     int count;
@@ -211,7 +211,7 @@ struct Q_EXPORT TQUMethod
 };
 
 // A Property description. Not used yet in the example.
-struct Q_EXPORT TQUProperty
+struct TQ_EXPORT TQUProperty
 {
     const char* name;
     TQUType* type;
@@ -226,7 +226,7 @@ struct Q_EXPORT TQUProperty
 
 // An interface description describes one interface, that is all its
 // methods and properties.
-struct Q_EXPORT TQUInterfaceDescription
+struct TQ_EXPORT TQUInterfaceDescription
 {
     int methodCount;
     const TQUMethod* methods;
@@ -238,7 +238,7 @@ struct Q_EXPORT TQUInterfaceDescription
 // A component description describe one component, that is its name,
 // vendor, release, info, its component uuid and all its interface
 // uuids.
-struct Q_EXPORT TQUComponentDescription
+struct TQ_EXPORT TQUComponentDescription
 {
     const char* name;
     const char* vendor;
@@ -253,7 +253,7 @@ struct Q_EXPORT TQUComponentDescription
 // A component server description describe one component server, that
 // is its name, vendor, release, info and the descriptions of all
 // components it can instantiate.
-struct Q_EXPORT TQUComponentServerDescription
+struct TQ_EXPORT TQUComponentServerDescription
 {
     const char* name;
     const char* vendor;
@@ -265,13 +265,13 @@ struct Q_EXPORT TQUComponentServerDescription
 
 
 
-struct Q_EXPORT TQUEnumItem 				// - a name/value pair
+struct TQ_EXPORT TQUEnumItem 				// - a name/value pair
 {
     const char *key;
     int value;
 };
 
-struct Q_EXPORT TQUEnum
+struct TQ_EXPORT TQUEnum
 {
     const char *name;			// - enumerator name
     unsigned int count;			// - number of values
@@ -291,8 +291,8 @@ inline bool TQUType::check( TQUObject* o, TQUType* t ) {
 
 
 // {7EE17B08-5419-47e2-9776-8EEA112DCAEC}
-extern Q_EXPORT const TQUuid TID_QUType_enum;
-struct Q_EXPORT TQUType_enum : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_enum;
+struct TQ_EXPORT TQUType_enum : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -307,12 +307,12 @@ struct Q_EXPORT TQUType_enum : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_enum static_QUType_enum;
+extern TQ_EXPORT TQUType_enum static_QUType_enum;
 
 
 // {8AC26448-5AB4-49eb-968C-8F30AB13D732}
-extern Q_EXPORT const TQUuid TID_QUType_ptr;
-struct Q_EXPORT TQUType_ptr : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_ptr;
+struct TQ_EXPORT TQUType_ptr : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -327,11 +327,11 @@ struct Q_EXPORT TQUType_ptr : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_ptr static_QUType_ptr;
+extern TQ_EXPORT TQUType_ptr static_QUType_ptr;
 
 // {97A2594D-6496-4402-A11E-55AEF2D4D25C}
-extern Q_EXPORT const TQUuid TID_QUType_iface;
-struct Q_EXPORT TQUType_iface : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_iface;
+struct TQ_EXPORT TQUType_iface : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -346,11 +346,11 @@ struct Q_EXPORT TQUType_iface : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_iface static_QUType_iface;
+extern TQ_EXPORT TQUType_iface static_QUType_iface;
 
 // {2F358164-E28F-4bf4-9FA9-4E0CDCABA50B}
-extern Q_EXPORT const TQUuid TID_QUType_idisp;
-struct Q_EXPORT TQUType_idisp : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_idisp;
+struct TQ_EXPORT TQUType_idisp : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -365,11 +365,11 @@ struct Q_EXPORT TQUType_idisp : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_idisp static_QUType_idisp;
+extern TQ_EXPORT TQUType_idisp static_QUType_idisp;
 
 // {CA42115D-13D0-456c-82B5-FC10187F313E}
-extern Q_EXPORT const TQUuid TID_QUType_bool;
-struct Q_EXPORT TQUType_bool : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_bool;
+struct TQ_EXPORT TQUType_bool : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -384,11 +384,11 @@ struct Q_EXPORT TQUType_bool : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_bool static_QUType_bool;
+extern TQ_EXPORT TQUType_bool static_QUType_bool;
 
 // {53C1F3BE-73C3-4c7d-9E05-CCF09EB676B5}
-extern Q_EXPORT const TQUuid TID_QUType_int;
-struct Q_EXPORT TQUType_int : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_int;
+struct TQ_EXPORT TQUType_int : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -403,12 +403,12 @@ struct Q_EXPORT TQUType_int : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_int static_QUType_int;
+extern TQ_EXPORT TQUType_int static_QUType_int;
 
 
 // {2D0974E5-0BA6-4ec2-8837-C198972CB48C}
-extern Q_EXPORT const TQUuid TID_QUType_double;
-struct Q_EXPORT TQUType_double : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_double;
+struct TQ_EXPORT TQUType_double : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -423,12 +423,12 @@ struct Q_EXPORT TQUType_double : public TQUType
     int serializeTo( TQUObject *, TQUBuffer * );
     int serializeFrom( TQUObject *, TQUBuffer * );
 };
-extern Q_EXPORT TQUType_double static_QUType_double;
+extern TQ_EXPORT TQUType_double static_QUType_double;
 
 
 // {EFCDD1D4-77A3-4b8e-8D46-DC14B8D393E9}
-extern Q_EXPORT const TQUuid TID_QUType_charstar;
-struct Q_EXPORT TQUType_charstar : public TQUType
+extern TQ_EXPORT const TQUuid TID_QUType_charstar;
+struct TQ_EXPORT TQUType_charstar : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -444,12 +444,12 @@ struct Q_EXPORT TQUType_charstar : public TQUType
     int serializeFrom( TQUObject *, TQUBuffer * );
 
 };
-extern Q_EXPORT TQUType_charstar static_QUType_charstar;
+extern TQ_EXPORT TQUType_charstar static_QUType_charstar;
 
 // {44C2A547-01E7-4e56-8559-35AF9D2F42B7}
 extern const TQUuid TID_QUType_TQString;
 
-struct Q_EXPORT TQUType_TQString : public TQUType
+struct TQ_EXPORT TQUType_TQString : public TQUType
 {
     const TQUuid *uuid() const;
     const char *desc() const;
@@ -466,7 +466,7 @@ struct Q_EXPORT TQUType_TQString : public TQUType
     int serializeFrom( TQUObject *, TQUBuffer * );
 
 };
-extern Q_EXPORT TQUType_TQString static_QUType_TQString;
+extern TQ_EXPORT TQUType_TQString static_QUType_TQString;
 
 
 #endif // TQUCOM_P_H

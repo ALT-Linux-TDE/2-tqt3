@@ -11,29 +11,29 @@ QAction \- Abstract user interface action that can appear both in menus and tool
 .SH SYNOPSIS
 \fC#include <ntqaction.h>\fR
 .PP
-Inherits QObject.
+Inherits TQObject.
 .PP
 Inherited by QActionGroup.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQAction\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQAction\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQAction\fR ( const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0 )"
+.BI "\fBQAction\fR ( const TQString & menuText, QKeySequence accel, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQAction\fR ( const QIconSet & icon, const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0 )"
+.BI "\fBQAction\fR ( const QIconSet & icon, const TQString & menuText, QKeySequence accel, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "QAction ( const QString & text, const QIconSet & icon, const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0, bool toggle = FALSE )  \fI(obsolete)\fR"
+.BI "QAction ( const TQString & text, const QIconSet & icon, const TQString & menuText, QKeySequence accel, TQObject * parent, const char * name = 0, bool toggle = FALSE )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QAction ( const QString & text, const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0, bool toggle = FALSE )  \fI(obsolete)\fR"
+.BI "QAction ( const TQString & text, const TQString & menuText, QKeySequence accel, TQObject * parent, const char * name = 0, bool toggle = FALSE )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QAction ( QObject * parent, const char * name, bool toggle )  \fI(obsolete)\fR"
+.BI "QAction ( TQObject * parent, const char * name, bool toggle )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "\fB~QAction\fR ()"
@@ -45,34 +45,34 @@ Inherited by QActionGroup.
 .BI "QIconSet \fBiconSet\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( const QString & )"
+.BI "virtual void \fBsetText\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "QString \fBtext\fR () const"
+.BI "TQString \fBtext\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetMenuText\fR ( const QString & )"
+.BI "virtual void \fBsetMenuText\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "QString \fBmenuText\fR () const"
+.BI "TQString \fBmenuText\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetToolTip\fR ( const QString & )"
+.BI "virtual void \fBsetToolTip\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "QString \fBtoolTip\fR () const"
+.BI "TQString \fBtoolTip\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetStatusTip\fR ( const QString & )"
+.BI "virtual void \fBsetStatusTip\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "QString \fBstatusTip\fR () const"
+.BI "TQString \fBstatusTip\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetWhatsThis\fR ( const QString & )"
+.BI "virtual void \fBsetWhatsThis\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "QString \fBwhatsThis\fR () const"
+.BI "TQString \fBwhatsThis\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetAccel\fR ( const QKeySequence & key )"
@@ -96,10 +96,10 @@ Inherited by QActionGroup.
 .BI "bool \fBisVisible\fR () const"
 .br
 .ti -1c
-.BI "virtual bool \fBaddTo\fR ( QWidget * w )"
+.BI "virtual bool \fBaddTo\fR ( TQWidget * w )"
 .br
 .ti -1c
-.BI "virtual bool \fBremoveFrom\fR ( QWidget * w )"
+.BI "virtual bool \fBremoveFrom\fR ( TQWidget * w )"
 .br
 .in -1c
 .SS "Public Slots"
@@ -144,34 +144,34 @@ Inherited by QActionGroup.
 .BI "QIconSet \fBiconSet\fR - the action's icon"
 .br
 .ti -1c
-.BI "QString \fBmenuText\fR - the action's menu text"
+.BI "TQString \fBmenuText\fR - the action's menu text"
 .br
 .ti -1c
 .BI "bool \fBon\fR - whether a toggle action is on"
 .br
 .ti -1c
-.BI "QString \fBstatusTip\fR - the action's status tip"
+.BI "TQString \fBstatusTip\fR - the action's status tip"
 .br
 .ti -1c
-.BI "QString \fBtext\fR - the action's descriptive text"
+.BI "TQString \fBtext\fR - the action's descriptive text"
 .br
 .ti -1c
 .BI "bool \fBtoggleAction\fR - whether the action is a toggle action"
 .br
 .ti -1c
-.BI "QString \fBtoolTip\fR - the action's tool tip"
+.BI "TQString \fBtoolTip\fR - the action's tool tip"
 .br
 .ti -1c
 .BI "bool \fBvisible\fR - whether the action can be seen (e.g. in menus and " "toolbars" ")"
 .br
 .ti -1c
-.BI "QString \fBwhatsThis\fR - the action's ""What's This?"" help text"
+.BI "TQString \fBwhatsThis\fR - the action's ""What's This?"" help text"
 .br
 .in -1c
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBaddedTo\fR ( QWidget * actionWidget, QWidget * container )"
+.BI "virtual void \fBaddedTo\fR ( TQWidget * actionWidget, TQWidget * container )"
 .br
 .ti -1c
 .BI "virtual void \fBaddedTo\fR ( int index, QPopupMenu * menu )"
@@ -196,7 +196,7 @@ Once a QAction has been created it should be added to the relevant menu and tool
 .br
                                       CTRL+Key_O, this, "open" );
 .br
-        connect( fileOpenAction, SIGNAL( activated() ) , this, SLOT( choose() ) );
+        connect( fileOpenAction, TQ_SIGNAL( activated() ) , this, TQ_SLOT( choose() ) );
 .fi
 .PP
 We create a "File Save" action with a menu text of "&Save" and \fICtrl+S\fR as the keyboard accelerator. We connect the fileSaveAction's activated() signal to our own save() slot. Note that at this point there is no menu or toolbar action, we'll add them next:
@@ -231,7 +231,7 @@ To prevent recursion, don't create an action as a child of a widget that the act
 .PP
 See also Main Window and Related Classes and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QAction::QAction ( QObject * parent, const char * name = 0 )"
+.SH "QAction::QAction ( TQObject * parent, const char * name = 0 )"
 Constructs an action called \fIname\fR with parent \fIparent\fR.
 .PP
 If \fIparent\fR is a QActionGroup, the new action inserts itself into \fIparent\fR.
@@ -239,7 +239,7 @@ If \fIparent\fR is a QActionGroup, the new action inserts itself into \fIparent\
 For accelerators and status tips to work, \fIparent\fR must either be a widget, or an action group whose parent is a widget.
 .PP
 \fBWarning:\fR To prevent recursion, don't create an action as a child of a widget that the action is later added to.
-.SH "QAction::QAction ( const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0 )"
+.SH "QAction::QAction ( const TQString & menuText, QKeySequence accel, TQObject * parent, const char * name = 0 )"
 This constructor results in an icon-less action with the the menu text \fImenuText\fR and keyboard accelerator \fIaccel\fR. It is a child of \fIparent\fR and called \fIname\fR.
 .PP
 If \fIparent\fR is a QActionGroup, the action automatically becomes a member of it.
@@ -251,7 +251,7 @@ The action uses a stripped version of \fImenuText\fR (e.g. "&Menu Option..." bec
 Call setToggleAction(TRUE) to make the action a toggle action.
 .PP
 \fBWarning:\fR To prevent recursion, don't create an action as a child of a widget that the action is later added to.
-.SH "QAction::QAction ( const QIconSet & icon, const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0 )"
+.SH "QAction::QAction ( const QIconSet & icon, const TQString & menuText, QKeySequence accel, TQObject * parent, const char * name = 0 )"
 This constructor creates an action with the following properties: the icon or iconset \fIicon\fR, the menu text \fImenuText\fR and keyboard accelerator \fIaccel\fR. It is a child of \fIparent\fR and called \fIname\fR.
 .PP
 If \fIparent\fR is a QActionGroup, the action automatically becomes a member of it.
@@ -263,7 +263,7 @@ The action uses a stripped version of \fImenuText\fR (e.g. "&Menu Option..." bec
 Call setToggleAction(TRUE) to make the action a toggle action.
 .PP
 \fBWarning:\fR To prevent recursion, don't create an action as a child of a widget that the action is later added to.
-.SH "QAction::QAction ( const QString & text, const QIconSet & icon, const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0, bool toggle = FALSE )"
+.SH "QAction::QAction ( const TQString & text, const QIconSet & icon, const TQString & menuText, QKeySequence accel, TQObject * parent, const char * name = 0, bool toggle = FALSE )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 This constructor creates an action with the following properties: the description \fItext\fR, the icon or iconset \fIicon\fR, the menu text \fImenuText\fR and keyboard accelerator \fIaccel\fR. It is a child of \fIparent\fR and called \fIname\fR. If \fItoggle\fR is TRUE the action will be a toggle action, otherwise it will be a command action.
@@ -273,7 +273,7 @@ If \fIparent\fR is a QActionGroup, the action automatically becomes a member of 
 For accelerators and status tips to work, \fIparent\fR must either be a widget, or an action group whose parent is a widget.
 .PP
 The \fItext\fR and \fIaccel\fR will be used for tool tips and status tips unless you provide specific text for these using setToolTip() and setStatusTip().
-.SH "QAction::QAction ( const QString & text, const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0, bool toggle = FALSE )"
+.SH "QAction::QAction ( const TQString & text, const TQString & menuText, QKeySequence accel, TQObject * parent, const char * name = 0, bool toggle = FALSE )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 This constructor results in an icon-less action with the description \fItext\fR, the menu text \fImenuText\fR and the keyboard accelerator \fIaccel\fR. Its parent is \fIparent\fR and it is called \fIname\fR. If \fItoggle\fR is TRUE the action will be a toggle action, otherwise it will be a command action.
@@ -283,7 +283,7 @@ The action automatically becomes a member of \fIparent\fR if \fIparent\fR is a Q
 For accelerators and status tips to work, \fIparent\fR must either be a widget, or an action group whose parent is a widget.
 .PP
 The \fItext\fR and \fIaccel\fR will be used for tool tips and status tips unless you provide specific text for these using setToolTip() and setStatusTip().
-.SH "QAction::QAction ( QObject * parent, const char * name, bool toggle )"
+.SH "QAction::QAction ( TQObject * parent, const char * name, bool toggle )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Constructs an action called \fIname\fR with parent \fIparent\fR.
@@ -308,7 +308,7 @@ Connect to this signal for command actions. Connect to the toggled() signal for 
 .PP
 Examples:
 .)l action/application.cpp, chart/chartform.cpp, and themes/themes.cpp.
-.SH "bool QAction::addTo ( QWidget * w )\fC [virtual]\fR"
+.SH "bool QAction::addTo ( TQWidget * w )\fC [virtual]\fR"
 Adds this action to widget \fIw\fR.
 .PP
 Currently actions may be added to QToolBar and QPopupMenu widgets.
@@ -323,7 +323,7 @@ Examples:
 .)l action/application.cpp, action/toggleaction/toggleaction.cpp, and chart/chartform.cpp.
 .PP
 Reimplemented in QActionGroup.
-.SH "void QAction::addedTo ( QWidget * actionWidget, QWidget * container )\fC [virtual protected]\fR"
+.SH "void QAction::addedTo ( TQWidget * actionWidget, TQWidget * container )\fC [virtual protected]\fR"
 This function is called from the addTo() function when it has created a widget (\fIactionWidget\fR) for the action in the \fIcontainer\fR.
 .SH "void QAction::addedTo ( int index, QPopupMenu * menu )\fC [virtual protected]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -339,9 +339,9 @@ Returns TRUE if a toggle action is on; otherwise returns FALSE. See the "on" pro
 Returns TRUE if the action is a toggle action; otherwise returns FALSE. See the "toggleAction" property for details.
 .SH "bool QAction::isVisible () const"
 Returns TRUE if the action can be seen (e.g. in menus and toolbars); otherwise returns FALSE. See the "visible" property for details.
-.SH "QString QAction::menuText () const"
+.SH "TQString QAction::menuText () const"
 Returns the action's menu text. See the "menuText" property for details.
-.SH "bool QAction::removeFrom ( QWidget * w )\fC [virtual]\fR"
+.SH "bool QAction::removeFrom ( TQWidget * w )\fC [virtual]\fR"
 Removes the action from widget \fIw\fR.
 .PP
 Returns TRUE if the action was removed successfully; otherwise returns FALSE.
@@ -357,25 +357,25 @@ See the enabled documentation for more information.
 Sets whether the action is enabled. See the "enabled" property for details.
 .SH "void QAction::setIconSet ( const QIconSet & )\fC [virtual]\fR"
 Sets the action's icon. See the "iconSet" property for details.
-.SH "void QAction::setMenuText ( const QString & )\fC [virtual]\fR"
+.SH "void QAction::setMenuText ( const TQString & )\fC [virtual]\fR"
 Sets the action's menu text. See the "menuText" property for details.
 .SH "void QAction::setOn ( bool )\fC [virtual slot]\fR"
 Sets whether a toggle action is on. See the "on" property for details.
-.SH "void QAction::setStatusTip ( const QString & )\fC [virtual]\fR"
+.SH "void QAction::setStatusTip ( const TQString & )\fC [virtual]\fR"
 Sets the action's status tip. See the "statusTip" property for details.
-.SH "void QAction::setText ( const QString & )\fC [virtual]\fR"
+.SH "void QAction::setText ( const TQString & )\fC [virtual]\fR"
 Sets the action's descriptive text. See the "text" property for details.
 .SH "void QAction::setToggleAction ( bool )\fC [virtual]\fR"
 Sets whether the action is a toggle action. See the "toggleAction" property for details.
-.SH "void QAction::setToolTip ( const QString & )\fC [virtual]\fR"
+.SH "void QAction::setToolTip ( const TQString & )\fC [virtual]\fR"
 Sets the action's tool tip. See the "toolTip" property for details.
 .SH "void QAction::setVisible ( bool )\fC [slot]\fR"
 Sets whether the action can be seen (e.g. in menus and toolbars). See the "visible" property for details.
-.SH "void QAction::setWhatsThis ( const QString & )\fC [virtual]\fR"
+.SH "void QAction::setWhatsThis ( const TQString & )\fC [virtual]\fR"
 Sets the action's "What's This?" help text. See the "whatsThis" property for details.
-.SH "QString QAction::statusTip () const"
+.SH "TQString QAction::statusTip () const"
 Returns the action's status tip. See the "statusTip" property for details.
-.SH "QString QAction::text () const"
+.SH "TQString QAction::text () const"
 Returns the action's descriptive text. See the "text" property for details.
 .SH "void QAction::toggle ()\fC [slot]\fR"
 Toggles the state of a toggle action.
@@ -400,23 +400,23 @@ To trigger a user command depending on whether a toggle action has been switched
 .PP
 .nf
 .br
-        QObject::connect( labelonoffaction, SIGNAL( toggled( bool ) ),
+        TQObject::connect( labelonoffaction, TQ_SIGNAL( toggled( bool ) ),
 .br
-                          window, SLOT( setUsesTextLabel( bool ) ) );
+                          window, TQ_SLOT( setUsesTextLabel( bool ) ) );
 .fi
 .PP
 See also activated(), toggleAction, and on.
 .PP
 Example: action/toggleaction/toggleaction.cpp.
-.SH "QString QAction::toolTip () const"
+.SH "TQString QAction::toolTip () const"
 Returns the action's tool tip. See the "toolTip" property for details.
-.SH "QString QAction::whatsThis () const"
+.SH "TQString QAction::whatsThis () const"
 Returns the action's "What's This?" help text. See the "whatsThis" property for details.
 .SS "Property Documentation"
 .SH "QKeySequence accel"
 This property holds the action's accelerator key.
 .PP
-The keycodes can be found in Qt::Key and Qt::Modifier. There is no default accelerator key.
+The keycodes can be found in TQt::Key and TQt::Modifier. There is no default accelerator key.
 .PP
 Set this property's value with setAccel() and get this property's value with accel().
 .SH "bool enabled"
@@ -437,7 +437,7 @@ If a null icon (QIconSet::isNull() is passed into this function, the icon of the
 (See the action/toggleaction/toggleaction.cpp example.)
 .PP
 Set this property's value with setIconSet() and get this property's value with iconSet().
-.SH "QString menuText"
+.SH "TQString menuText"
 This property holds the action's menu text.
 .PP
 If the action is added to a menu the menu option will consist of the icon (if there is one), the menu text and the accelerator (if there is one). If the menu text is not explicitly set in the constructor or by using setMenuText() the action's description text will be used as the menu text. There is no default menu text.
@@ -453,7 +453,7 @@ This property is always on (TRUE) for command actions and QActionGroups; setOn()
 See also toggleAction.
 .PP
 Set this property's value with setOn() and get this property's value with isOn().
-.SH "QString statusTip"
+.SH "TQString statusTip"
 This property holds the action's status tip.
 .PP
 The statusTip is displayed on all status bars that this action's toplevel parent widget provides.
@@ -465,7 +465,7 @@ There is no default statusTip text.
 See also statusTip and toolTip.
 .PP
 Set this property's value with setStatusTip() and get this property's value with statusTip().
-.SH "QString text"
+.SH "TQString text"
 This property holds the action's descriptive text.
 .PP
 If QMainWindow::usesTextLabel is TRUE, the text appears as a label in the relevant tool button. It also serves as the default text in menus and tool tips if these have not been specifically defined. There is no default text.
@@ -481,7 +481,7 @@ A toggle action is one which has an on/off state. For example a Bold toolbar but
 In some situations, the state of one toggle action should depend on the state of others. For example, "Left Align", "Center" and" Right Align" toggle actions are mutually exclusive. To achieve exclusive toggling, add the relevant toggle actions to a QActionGroup with the QActionGroup::exclusive property set to TRUE.
 .PP
 Set this property's value with setToggleAction() and get this property's value with isToggleAction().
-.SH "QString toolTip"
+.SH "TQString toolTip"
 This property holds the action's tool tip.
 .PP
 This text is used for the tool tip. If no status tip has been set the tool tip will be used for the status tip.
@@ -501,7 +501,7 @@ If \fIvisible\fR is TRUE the action can be seen (e.g. in menus and toolbars) and
 Actions which are not visible are \fInot\fR grayed out; they do not appear at all.
 .PP
 Set this property's value with setVisible() and get this property's value with isVisible().
-.SH "QString whatsThis"
+.SH "TQString whatsThis"
 This property holds the action's "What's This?" help text.
 .PP
 The whats this text is used to provide a brief description of the action. The text may contain rich text (HTML-like tags -- see QStyleSheet for the list of supported tags). There is no default" What's This" text.
@@ -524,8 +524,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

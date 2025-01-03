@@ -16,16 +16,16 @@ Inherits QValidator.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQIntValidator\fR ( QObject * parent, const char * name = 0 )"
+.BI "\fBQIntValidator\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQIntValidator\fR ( int minimum, int maximum, QObject * parent, const char * name = 0 )"
+.BI "\fBQIntValidator\fR ( int minimum, int maximum, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QIntValidator\fR ()"
 .br
 .ti -1c
-.BI "virtual QValidator::State \fBvalidate\fR ( QString & input, int & ) const"
+.BI "virtual QValidator::State \fBvalidate\fR ( TQString & input, int & ) const"
 .br
 .ti -1c
 .BI "void \fBsetBottom\fR ( int )"
@@ -74,7 +74,7 @@ Below we present some examples of validators. In practice they would normally be
 .PP
 .nf
 .br
-    QString str;
+    TQString str;
 .br
     int pos = 0;
 .br
@@ -121,9 +121,9 @@ The minimum and maximum values are set in one call with setRange() or individual
 .PP
 See also QDoubleValidator, QRegExpValidator, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QIntValidator::QIntValidator ( QObject * parent, const char * name = 0 )"
+.SH "QIntValidator::QIntValidator ( TQObject * parent, const char * name = 0 )"
 Constructs a validator called \fIname\fR with parent \fIparent\fR, that accepts all integers.
-.SH "QIntValidator::QIntValidator ( int minimum, int maximum, QObject * parent, const char * name = 0 )"
+.SH "QIntValidator::QIntValidator ( int minimum, int maximum, TQObject * parent, const char * name = 0 )"
 Constructs a validator called \fIname\fR with parent \fIparent\fR, that accepts integers from \fIminimum\fR to \fImaximum\fR inclusive.
 .SH "QIntValidator::~QIntValidator ()"
 Destroys the validator, freeing any resources allocated.
@@ -137,7 +137,7 @@ Sets the range of the validator to only accept integers between \fIbottom\fR and
 Sets the validator's highest acceptable value. See the "top" property for details.
 .SH "int QIntValidator::top () const"
 Returns the validator's highest acceptable value. See the "top" property for details.
-.SH "QValidator::State QIntValidator::validate ( QString & input, int & ) const\fC [virtual]\fR"
+.SH "QValidator::State QIntValidator::validate ( TQString & input, int & ) const\fC [virtual]\fR"
 Returns Acceptable if the \fIinput\fR is an integer within the valid range, Intermediate if the \fIinput\fR is an integer outside the valid range and Invalid if the \fIinput\fR is not an integer.
 .PP
 Note: If the valid range consists of just positive integers (e.g. 32 - 100) and \fIinput\fR is a negative integer then Invalid is returned.
@@ -191,8 +191,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

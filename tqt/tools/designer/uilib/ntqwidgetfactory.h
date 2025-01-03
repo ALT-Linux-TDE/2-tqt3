@@ -55,7 +55,7 @@ class TQWidget;
 class TQWidgetFactoryPrivate;
 class UibStrTable;
 
-class Q_EXPORT TQWidgetFactory
+class TQ_EXPORT TQWidgetFactory
 {
 public:
     TQWidgetFactory();
@@ -88,7 +88,7 @@ private:
     void createListViewColumn( TQListView *lv, const TQString& txt,
 			       const TQPixmap& pix, bool clickable,
 			       bool resizable );
-#ifndef QT_NO_TABLE
+#ifndef TQT_NO_TABLE
     void createTableColumnOrRow( TQTable *table, const TQString& txt,
 				 const TQPixmap& pix, const TQString& field,
 				 bool isRow );
@@ -152,7 +152,7 @@ private:
 	TQString name;
 	TQPixmap pix;
 	TQString field;
-	Q_DUMMY_COMPARISON_OPERATOR( Field )
+	TQ_DUMMY_COMPARISON_OPERATOR( Field )
     };
 
     struct SqlWidgetConnection
@@ -163,7 +163,7 @@ private:
 	TQString conn;
 	TQString table;
 	TQMap<TQString, TQString> *dbControls;
-	Q_DUMMY_COMPARISON_OPERATOR( SqlWidgetConnection )
+	TQ_DUMMY_COMPARISON_OPERATOR( SqlWidgetConnection )
     };
 
     TQValueList<Image> images;

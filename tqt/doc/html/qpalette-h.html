@@ -84,11 +84,11 @@ body { background: #ffffff; color: black; }
 #include "ntqbrush.h" // TQColor-&gt;TQBrush conversion
 #endif // QT_H
 
-#ifndef QT_NO_PALETTE
+#ifndef TQT_NO_PALETTE
 
 class TQColorGroupPrivate;
 
-class Q_EXPORT TQColorGroup
+class TQ_EXPORT TQColorGroup
 {
 public:
     TQColorGroup();
@@ -146,7 +146,7 @@ private:
 };
 
 
-class Q_EXPORT TQPalette
+class TQ_EXPORT TQPalette
 {
 public:
     TQPalette();
@@ -173,14 +173,14 @@ public:
     const TQColorGroup &amp;active() const { return data-&gt;active; }
     const TQColorGroup &amp;disabled() const { return data-&gt;disabled; }
     const TQColorGroup &amp;inactive() const { return data-&gt;inactive; }
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     const TQColorGroup &amp;normal() const { return active(); }
 #endif
 
     void	setActive( const TQColorGroup &amp; );
     void	setDisabled( const TQColorGroup &amp; );
     void	setInactive( const TQColorGroup &amp; );
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     void	setNormal( const TQColorGroup &amp; cg ) { setActive(cg); }
 #endif
 
@@ -213,15 +213,15 @@ private:
   TQColorGroup/TQPalette stream functions
  *****************************************************************************/
 
-#ifndef QT_NO_DATASTREAM
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQColorGroup &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQColorGroup &amp; );
+#ifndef TQT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQColorGroup &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQColorGroup &amp; );
 
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPalette &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPalette &amp; );
-#endif // QT_NO_DATASTREAM
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQPalette &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQPalette &amp; );
+#endif // TQT_NO_DATASTREAM
 
-#endif // QT_NO_PALETTE
+#endif // TQT_NO_PALETTE
 #endif // TQPALETTE_H
 </pre>
 <!-- eof -->

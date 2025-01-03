@@ -40,13 +40,13 @@
 
 #include "ntqpngio.h"
 
-#ifndef QT_NO_IMAGEIO_PNG
+#ifndef TQT_NO_IMAGEIO_PNG
 
 #include "ntqasyncimageio.h"
 #include "ntqiodevice.h"
 
 #include <png.h>
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 #include <zlib.h>
 #endif /* LIBPNG 1.5 */
 
@@ -129,7 +129,7 @@ void setup_qt( TQImage& image, png_structp png_ptr, png_infop info_ptr, float sc
     png_get_IHDR(png_ptr, info_ptr, &width, &height, &bit_depth, &color_type,
 	0, 0, 0);
 
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
     png_colorp info_ptr_palette = NULL;
     int info_ptr_num_palette = 0;
     if (png_get_valid(png_ptr, info_ptr, PNG_INFO_PLTE)) {
@@ -147,7 +147,7 @@ void setup_qt( TQImage& image, png_structp png_ptr, png_infop info_ptr, float sc
 
     if ( color_type == PNG_COLOR_TYPE_GRAY ) {
 	// Black & White or 8-bit grayscale
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 	if ( bit_depth == 1 && png_get_channels(png_ptr, info_ptr) == 1 ) {
 #else /* LIBPNG 1.5 */
 	if ( bit_depth == 1 && info_ptr->channels == 1 ) {
@@ -185,9 +185,9 @@ void setup_qt( TQImage& image, png_structp png_ptr, png_infop info_ptr, float sc
 		image.setColor( i, tqRgba(c,c,c,0xff) );
 	    }
 	    if ( png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS) ) {
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 		const int g = info_ptr_trans_color->gray;
-#elif ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=4 )
+#elif PNG_LIBPNG_VER>=10400
 		const int g = info_ptr->trans_color.gray;
 #else
 		const int g = info_ptr->trans_values.gray;
@@ -200,7 +200,7 @@ void setup_qt( TQImage& image, png_structp png_ptr, png_infop info_ptr, float sc
 	}
     } else if ( color_type == PNG_COLOR_TYPE_PALETTE
      && png_get_valid(png_ptr, info_ptr, PNG_INFO_PLTE)
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
      && info_ptr_num_palette <= 256 )
 #else /* LIBPNG 1.5 */
      && info_ptr->num_palette <= 256 )
@@ -212,7 +212,7 @@ void setup_qt( TQImage& image, png_structp png_ptr, png_infop info_ptr, float sc
 	png_read_update_info( png_ptr, info_ptr );
 	png_get_IHDR(png_ptr, info_ptr,
 	    &width, &height, &bit_depth, &color_type, 0, 0, 0);
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 	if (!image.create(width, height, bit_depth, info_ptr_num_palette,
 #else /* LIBPNG 1.5 */
 	if (!image.create(width, height, bit_depth, info_ptr->num_palette,
@@ -223,7 +223,7 @@ void setup_qt( TQImage& image, png_structp png_ptr, png_infop info_ptr, float sc
 	if ( png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS) ) {
 	    image.setAlphaBuffer( TRUE );
 
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 	    while ( i < info_ptr_num_trans ) {
 		image.setColor(i, tqRgba(
 		    info_ptr_palette[i].red,
@@ -236,9 +236,9 @@ void setup_qt( TQImage& image, png_structp png_ptr, png_infop info_ptr, float sc
 		    info_ptr->palette[i].green,
 		    info_ptr->palette[i].blue,
 #endif /* LIBPNG 1.5 */
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 		    info_ptr_trans_alpha[i]
-#elif ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=4 )
+#elif PNG_LIBPNG_VER>=10400
 		    info_ptr->trans_alpha[i]
 #else
 		    info_ptr->trans[i]
@@ -248,7 +248,7 @@ void setup_qt( TQImage& image, png_structp png_ptr, png_infop info_ptr, float sc
 		i++;
 	    }
 	}
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 	while ( i < info_ptr_num_palette ) {
 	    image.setColor(i, tqRgba(
 		info_ptr_palette[i].red,
@@ -347,7 +347,7 @@ void read_png_image(TQImageIO* iio)
 	return;
     }
 
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
     if (setjmp(png_jmpbuf(png_ptr))) {
 #else /* LIBPNG 1.5 */
     if (setjmp(png_ptr->jmpbuf)) {
@@ -388,7 +388,7 @@ void read_png_image(TQImageIO* iio)
 png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS)
     if (image.depth()==32 && png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS)) {
 	TQRgb trans = 0xFF000000 | tqRgb(
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=4 )
+#if PNG_LIBPNG_VER>=10400
 	      (info_ptr->trans_color.red << 8 >> bit_depth)&0xff,
 	      (info_ptr->trans_color.green << 8 >> bit_depth)&0xff,
 	      (info_ptr->trans_color.blue << 8 >> bit_depth)&0xff);
@@ -411,7 +411,7 @@ png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS)
     image.setDotsPerMeterX(png_get_x_pixels_per_meter(png_ptr,info_ptr));
     image.setDotsPerMeterY(png_get_y_pixels_per_meter(png_ptr,info_ptr));
 
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     png_textp text_ptr;
     int num_text=0;
     png_get_text(png_ptr,info_ptr,&text_ptr,&num_text);
@@ -484,7 +484,7 @@ void TQPNGImageWriter::setGamma(float g)
 }
 
 
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
 static void set_text(const TQImage& image, png_structp png_ptr, png_infop info_ptr, bool short_not_long)
 {
     TQValueList<TQImageTextKeyLang> keys = image.textList();
@@ -542,7 +542,7 @@ bool TQPNGImageWriter::writeImage(const TQImage& image, int quality_in, int off_
 	return FALSE;
     }
 
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
     if (setjmp(png_jmpbuf(png_ptr))) {
 #else /* LIBPNG 1.5 */
     if (setjmp(png_ptr->jmpbuf)) {
@@ -568,19 +568,6 @@ bool TQPNGImageWriter::writeImage(const TQImage& image, int quality_in, int off_
 
     png_set_write_fn(png_ptr, (void*)this, qpiw_write_fn, qpiw_flush_fn);
 
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
-#warning XXXtnn not too sure about this
-/* 
-according to png.h, channels is only used on read, not writes, so we
-should be able to comment this out.
-*/
-#else /* LIBPNG 1.5 */
-    info_ptr->channels =
-	(image.depth() == 32)
-	    ? (image.hasAlphaBuffer() ? 4 : 3)
-	    : 1;
-#endif /* LIBPNG 1.5 */
-
     png_set_IHDR(png_ptr, info_ptr, image.width(), image.height(),
 	image.depth() == 1 ? 1 : 8 /* per channel */,
 	image.depth() == 32
@@ -589,7 +576,7 @@ should be able to comment this out.
 		: PNG_COLOR_TYPE_RGB
 	    : PNG_COLOR_TYPE_PALETTE, 0, 0, 0);
 
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
     png_color_8 sig_bit;
     sig_bit.red = 8;
     sig_bit.green = 8;
@@ -614,14 +601,14 @@ should be able to comment this out.
 	png_set_PLTE(png_ptr, info_ptr, palette, num_palette);
 	int* trans = new int[num_palette];
 	int num_trans = 0;
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 	png_colorp info_ptr_palette = NULL;
 	int tmp;
 	png_get_PLTE(png_ptr, info_ptr, &info_ptr_palette, &tmp);
 #endif /* LIBPNG 1.5 */
 	for (int i=0; i<num_palette; i++) {
 	    TQRgb rgb=image.color(i);
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 	    info_ptr_palette[i].red = tqRed(rgb);
 	    info_ptr_palette[i].green = tqGreen(rgb);
 	    info_ptr_palette[i].blue = tqBlue(rgb);
@@ -637,7 +624,7 @@ should be able to comment this out.
 		}
 	    }
 	}
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 	png_set_PLTE(png_ptr, info_ptr, info_ptr_palette, num_palette);
 #endif /* LIBPNG 1.5 */
 	if (num_trans) {
@@ -650,7 +637,7 @@ should be able to comment this out.
     }
 
     if ( image.hasAlphaBuffer() ) {
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
         png_color_8p sig_bit;
         png_get_sBIT(png_ptr, info_ptr, &sig_bit);
         sig_bit->alpha = 8;
@@ -684,14 +671,14 @@ should be able to comment this out.
 		PNG_RESOLUTION_METER);
     }
 
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     // Write short texts early.
     set_text(image,png_ptr,info_ptr,TRUE);
 #endif
 
     png_write_info(png_ptr, info_ptr);
 
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     // Write long texts later.
     set_text(image,png_ptr,info_ptr,FALSE);
 #endif
@@ -935,7 +922,7 @@ bool TQPNGImagePacker::packImage(const TQImage& img)
 }
 
 
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 
 class TQPNGFormat : public TQImageFormat {
 public:
@@ -1143,7 +1130,7 @@ int TQPNGFormat::decode(TQImage& img, TQImageConsumer* cons,
 	    return -1;
 	}
 
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
 	if (setjmp(png_jmpbuf(png_ptr))) {
 #else /* LIBPNG 1.5 */
 	if (setjmp((png_ptr)->jmpbuf)) {
@@ -1174,7 +1161,7 @@ int TQPNGFormat::decode(TQImage& img, TQImageConsumer* cons,
 
     if ( !png_ptr ) return 0;
 
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
     if (setjmp(png_jmpbuf(png_ptr))) {
 #else /* LIBPNG 1.5 */
     if (setjmp(png_ptr->jmpbuf)) {
@@ -1225,7 +1212,7 @@ void TQPNGFormat::end(png_structp png, png_infop info)
     image->setOffset(TQPoint(offx,offy));
     image->setDotsPerMeterX(png_get_x_pixels_per_meter(png,info));
     image->setDotsPerMeterY(png_get_y_pixels_per_meter(png,info));
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     png_textp text_ptr;
     int num_text=0;
     png_get_text(png,info,&text_ptr,&num_text);
@@ -1238,7 +1225,7 @@ void TQPNGFormat::end(png_structp png, png_infop info)
     consumer->frameDone(TQPoint(offx,offy),r);
     consumer->end();
     state = FrameStart;
-#if PNG_LIBPNG_VER_MAJOR>1 || ( PNG_LIBPNG_VER_MAJOR==1 && PNG_LIBPNG_VER_MINOR>=5 )
+#if PNG_LIBPNG_VER>=10500
     unused_data = png_process_data_pause(png, 0);
 #else /* LIBPNG 1.5 */
     unused_data = (int)png->buffer_size; // Since libpng doesn't tell us
@@ -1248,7 +1235,7 @@ void TQPNGFormat::end(png_structp png, png_infop info)
 #ifdef PNG_USER_CHUNKS_SUPPORTED
 
 /*
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
 static bool skip(png_uint_32& max, png_bytep& data)
 {
     while (*data) {
@@ -1292,7 +1279,7 @@ int TQPNGFormat::user_chunk(png_structp png,
     Q_UNUSED( length )
 #endif
 
-#ifndef QT_NO_IMAGE_TEXT
+#ifndef TQT_NO_IMAGE_TEXT
     /*
 
     libpng now supports this chunk.
@@ -1328,12 +1315,12 @@ int TQPNGFormat::user_chunk(png_structp png,
 
 static TQPNGFormatType* globalPngFormatTypeObject = 0;
 
-#endif // QT_NO_ASYNC_IMAGE_IO
+#endif // TQT_NO_ASYNC_IMAGE_IO
 
 static bool done = FALSE;
 void qCleanupPngIO()
 {
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
     if ( globalPngFormatTypeObject ) {
 	delete globalPngFormatTypeObject;
 	globalPngFormatTypeObject = 0;
@@ -1348,7 +1335,7 @@ void qInitPngIO()
 	done = TRUE;
 	TQImageIO::defineIOHandler( "PNG", "^.PNG\r", 0, read_png_image,
 				   write_png_image);
-#ifndef QT_NO_ASYNC_IMAGE_IO
+#ifndef TQT_NO_ASYNC_IMAGE_IO
 	globalPngFormatTypeObject = new TQPNGFormatType;
 #endif
 	tqAddPostRoutine( qCleanupPngIO );
@@ -1361,4 +1348,4 @@ void qt_zlib_compression_hack()
     uncompress(0,0,0,0);
 }
 
-#endif // QT_NO_IMAGEIO_PNG
+#endif // TQT_NO_IMAGEIO_PNG

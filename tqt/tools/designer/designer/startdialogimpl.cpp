@@ -40,13 +40,13 @@ StartDialog::StartDialog( TQWidget *parent, const TQString &templatePath )
     initFileOpen();
     showInFuture = TRUE;
 
-    connect( buttonHelp, SIGNAL( clicked() ),
-	     MainWindow::self, SLOT( showDialogHelp() ) );
-    connect( recentView, SIGNAL( doubleClicked(TQIconViewItem*) ),
-	     this, SLOT( accept() ) );
-    connect( recentView, SIGNAL( returnPressed(TQIconViewItem*) ),
-	     this, SLOT( accept() ) );
-    connect( fd, SIGNAL( fileSelected() ), this, SLOT( accept() ) );
+    connect( buttonHelp, TQ_SIGNAL( clicked() ),
+	     MainWindow::self, TQ_SLOT( showDialogHelp() ) );
+    connect( recentView, TQ_SIGNAL( doubleClicked(TQIconViewItem*) ),
+	     this, TQ_SLOT( accept() ) );
+    connect( recentView, TQ_SIGNAL( returnPressed(TQIconViewItem*) ),
+	     this, TQ_SLOT( accept() ) );
+    connect( fd, TQ_SIGNAL( fileSelected() ), this, TQ_SLOT( accept() ) );
 }
 
 void StartDialog::accept()

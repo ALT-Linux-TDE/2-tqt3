@@ -40,7 +40,7 @@
 
 #include "ntqwindowdefs.h"
 
-#ifndef QT_NO_FONTDIALOG
+#ifndef TQT_NO_FONTDIALOG
 
 #include "ntqfontdialog.h"
 
@@ -59,8 +59,8 @@
 #include <private/qfontdata_p.h>
 #include <ntqvalidator.h>
 
-#ifdef Q_WS_X11
-#include "private/qtkdeintegration_x11_p.h"
+#ifdef TQ_WS_X11
+#include "private/tqttdeintegration_x11_p.h"
 #endif
 
 /*!
@@ -215,21 +215,21 @@ TQFontDialog::TQFontDialog( TQWidget *parent, const char *name,
     d->size = 0;
     d->smoothScalable = FALSE;
 
-    connect( d->scriptCombo, SIGNAL(activated(int)),
-	     SLOT(scriptHighlighted(int)) );
-    connect( d->familyList, SIGNAL(highlighted(int)),
-	     SLOT(familyHighlighted(int)) );
-    connect( d->styleList, SIGNAL(highlighted(int)),
-	     SLOT(styleHighlighted(int)) );
-    connect( d->sizeList, SIGNAL(highlighted(const TQString&)),
-	     SLOT(sizeHighlighted(const TQString&)) );
-    connect( d->sizeEdit, SIGNAL(textChanged(const TQString&)),
-	     SLOT(sizeChanged(const TQString&)) );
+    connect( d->scriptCombo, TQ_SIGNAL(activated(int)),
+	     TQ_SLOT(scriptHighlighted(int)) );
+    connect( d->familyList, TQ_SIGNAL(highlighted(int)),
+	     TQ_SLOT(familyHighlighted(int)) );
+    connect( d->styleList, TQ_SIGNAL(highlighted(int)),
+	     TQ_SLOT(styleHighlighted(int)) );
+    connect( d->sizeList, TQ_SIGNAL(highlighted(const TQString&)),
+	     TQ_SLOT(sizeHighlighted(const TQString&)) );
+    connect( d->sizeEdit, TQ_SIGNAL(textChanged(const TQString&)),
+	     TQ_SLOT(sizeChanged(const TQString&)) );
 
-    connect( d->strikeout, SIGNAL(clicked()),
-	     SLOT(updateSample()) );
-    connect( d->underline, SIGNAL(clicked()),
-	     SLOT(updateSample()) );
+    connect( d->strikeout, TQ_SIGNAL(clicked()),
+	     TQ_SLOT(updateSample()) );
+    connect( d->underline, TQ_SIGNAL(clicked()),
+	     TQ_SLOT(updateSample()) );
 
     (void)d->familyList->sizeHint();
     (void)d->styleList->sizeHint();
@@ -288,7 +288,7 @@ TQFontDialog::TQFontDialog( TQWidget *parent, const char *name,
     d->ok = new TQPushButton( okt, this, "accept font selection" );
     buttonBox->addWidget( d->ok );
     if ( modal )
-	connect( d->ok, SIGNAL(clicked()), SLOT(accept()) );
+	connect( d->ok, TQ_SIGNAL(clicked()), TQ_SLOT(accept()) );
     d->ok->setDefault( TRUE );
 
     buttonBox->addSpacing( 12 );
@@ -296,7 +296,7 @@ TQFontDialog::TQFontDialog( TQWidget *parent, const char *name,
     TQString cancelt = modal ? tr("Cancel") : tr("Close");
     d->cancel = new TQPushButton( cancelt, this, "cancel/close" );
     buttonBox->addWidget( d->cancel );
-    connect( d->cancel, SIGNAL(clicked()), SLOT(reject()) );
+    connect( d->cancel, TQ_SIGNAL(clicked()), TQ_SLOT(reject()) );
 
     resize( 500, 360 );
 
@@ -396,9 +396,9 @@ extern bool tqt_use_native_dialogs;
 TQFont TQFontDialog::getFont( bool *ok, const TQFont *def,
 			    TQWidget *parent, const char* name)
 {
-#if defined(Q_WS_X11)
-    if ( tqt_use_native_dialogs && TQKDEIntegration::enabled())
-        return TQKDEIntegration::getFont( ok, def, parent, name );
+#if defined(TQ_WS_X11)
+    if ( tqt_use_native_dialogs && TQTDEIntegration::enabled())
+        return TQTDEIntegration::getFont( ok, def, parent, name );
 #endif
     TQFont result;
     if ( def )
@@ -407,7 +407,7 @@ TQFont TQFontDialog::getFont( bool *ok, const TQFont *def,
     TQFontDialog *dlg = new TQFontDialog( parent, name, TRUE );
 
     dlg->setFont( ( def ? *def : TQFont() ) );
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
     dlg->setCaption( tr("Select Font") );
 #endif
 
@@ -465,7 +465,7 @@ bool TQFontDialog::eventFilter( TQObject * o , TQEvent * e )
     return TQDialog::eventFilter( o, e );
 }
 
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
 // #define SHOW_FONTS_IN_FAMILIES
 #endif
 

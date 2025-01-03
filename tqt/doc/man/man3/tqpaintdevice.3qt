@@ -11,7 +11,7 @@ QPaintDevice \- The base class of objects that can be painted
 .SH SYNOPSIS
 \fC#include <ntqpaintdevice.h>\fR
 .PP
-Inherited by QWidget, QPixmap, QPicture, and QPrinter.
+Inherited by TQWidget, QPixmap, QPicture, and QPrinter.
 .PP
 .SS "Public Members"
 .in +1c
@@ -28,7 +28,7 @@ Inherited by QWidget, QPixmap, QPicture, and QPrinter.
 .BI "virtual HDC \fBhandle\fR () const"
 .br
 .ti -1c
-.BI "virtual Qt::HANDLE \fBhandle\fR () const"
+.BI "virtual TQt::HANDLE \fBhandle\fR () const"
 .br
 .ti -1c
 .BI "Display * \fBx11Display\fR () const"
@@ -43,7 +43,7 @@ Inherited by QWidget, QPixmap, QPicture, and QPrinter.
 .BI "int \fBx11Cells\fR () const"
 .br
 .ti -1c
-.BI "Qt::HANDLE \fBx11Colormap\fR () const"
+.BI "TQt::HANDLE \fBx11Colormap\fR () const"
 .br
 .ti -1c
 .BI "bool \fBx11DefaultColormap\fR () const"
@@ -82,10 +82,10 @@ Inherited by QWidget, QPixmap, QPicture, and QPrinter.
 .BI "int \fBx11AppCells\fR ()"
 .br
 .ti -1c
-.BI "Qt::HANDLE \fBx11AppRootWindow\fR ()"
+.BI "TQt::HANDLE \fBx11AppRootWindow\fR ()"
 .br
 .ti -1c
-.BI "Qt::HANDLE \fBx11AppColormap\fR ()"
+.BI "TQt::HANDLE \fBx11AppColormap\fR ()"
 .br
 .ti -1c
 .BI "bool \fBx11AppDefaultColormap\fR ()"
@@ -103,10 +103,10 @@ Inherited by QWidget, QPixmap, QPicture, and QPrinter.
 .BI "int \fBx11AppCells\fR ( int screen )"
 .br
 .ti -1c
-.BI "Qt::HANDLE \fBx11AppRootWindow\fR ( int screen )"
+.BI "TQt::HANDLE \fBx11AppRootWindow\fR ( int screen )"
 .br
 .ti -1c
-.BI "Qt::HANDLE \fBx11AppColormap\fR ( int screen )"
+.BI "TQt::HANDLE \fBx11AppColormap\fR ( int screen )"
 .br
 .ti -1c
 .BI "void * \fBx11AppVisual\fR ( int screen )"
@@ -142,7 +142,7 @@ Inherited by QWidget, QPixmap, QPicture, and QPrinter.
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "void \fBbitBlt\fR ( QPaintDevice * dst, int dx, int dy, const QPaintDevice * src, int sx, int sy, int sw, int sh, Qt::RasterOp rop, bool ignoreMask )"
+.BI "void \fBbitBlt\fR ( QPaintDevice * dst, int dx, int dy, const QPaintDevice * src, int sx, int sy, int sw, int sh, TQt::RasterOp rop, bool ignoreMask )"
 .br
 .ti -1c
 .BI "void \fBbitBlt\fR ( QPaintDevice * dst, const QPoint & dp, const QPaintDevice * src, const QRect & sr, RasterOp rop )"
@@ -151,7 +151,7 @@ Inherited by QWidget, QPixmap, QPicture, and QPrinter.
 .SH DESCRIPTION
 The QPaintDevice class is the base class of objects that can be painted.
 .PP
-A paint device is an abstraction of a two-dimensional space that can be drawn using a QPainter. The drawing capabilities are implemented by the subclasses QWidget, QPixmap, QPicture and QPrinter.
+A paint device is an abstraction of a two-dimensional space that can be drawn using a QPainter. The drawing capabilities are implemented by the subclasses TQWidget, QPixmap, QPicture and QPrinter.
 .PP
 The default coordinate system of a paint device has its origin located at the top-left position. X increases to the right and Y increases downward. The unit is one pixel. There are several ways to set up a user-defined coordinate system using the painter, for example, using QPainter::setWorldMatrix().
 .PP
@@ -189,7 +189,7 @@ Example (scroll widget contents 10 pixels to the right):
 .br
 .fi
 .PP
-\fBWarning:\fR Qt requires that a QApplication object exists before any paint devices can be created. Paint devices access window system resources, and these resources are not initialized before an application object is created.
+\fBWarning:\fR TQt requires that a QApplication object exists before any paint devices can be created. Paint devices access window system resources, and these resources are not initialized before an application object is created.
 .PP
 See also Graphics Classes and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
@@ -201,7 +201,7 @@ Destroys the paint device and frees window system resources.
 Internal virtual function that interprets drawing commands from the painter.
 .PP
 Implemented by subclasses that have no direct support for drawing graphics (external paint devices, for example, QPicture).
-.SH "Qt::HANDLE QPaintDevice::handle () const\fC [virtual]\fR"
+.SH "TQt::HANDLE QPaintDevice::handle () const\fC [virtual]\fR"
 Returns the window system handle of the paint device, for low-level access. Using this function is not portable.
 .PP
 The HANDLE type varies with platform; see ntqpaintdevice.h and ntqwindowdefs.h for details.
@@ -225,11 +225,11 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns the number of entries in the colormap for screen \fIscreen\fR of the X display global to the application (X11 only). Using this function is not portable.
 .PP
 See also x11Colormap().
-.SH "Qt::HANDLE QPaintDevice::x11AppColormap ()\fC [static]\fR"
+.SH "TQt::HANDLE QPaintDevice::x11AppColormap ()\fC [static]\fR"
 Returns the colormap for the default screen of the X display global to the application (X11 only). Using this function is not portable.
 .PP
 See also x11Cells().
-.SH "Qt::HANDLE QPaintDevice::x11AppColormap ( int screen )\fC [static]\fR"
+.SH "TQt::HANDLE QPaintDevice::x11AppColormap ( int screen )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the colormap for screen \fIscreen\fR of the X display global to the application (X11 only). Using this function is not portable.
@@ -283,9 +283,9 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns the vertical DPI of the X11 display (X11 only) for the default screen. Using this function is not portable. See QPaintDeviceMetrics for portable access to related information. Using this function is not portable.
 .PP
 See also x11AppDpiX(), x11SetAppDpiY(), and QPaintDeviceMetrics::logicalDpiY().
-.SH "Qt::HANDLE QPaintDevice::x11AppRootWindow ()\fC [static]\fR"
+.SH "TQt::HANDLE QPaintDevice::x11AppRootWindow ()\fC [static]\fR"
 Returns the root window for the default screen of the X display global to the applicatoin (X11 only). Using this function is not portable.
-.SH "Qt::HANDLE QPaintDevice::x11AppRootWindow ( int screen )\fC [static]\fR"
+.SH "TQt::HANDLE QPaintDevice::x11AppRootWindow ( int screen )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the root window for screen \fIscreen\fR of the X display global to the applicatoin (X11 only). Using this function is not portable.
@@ -301,7 +301,7 @@ Returns the Visual for screen \fIscreen\fR of the X display global to the applic
 Returns the number of entries in the colormap of the X display for the paint device (X11 only). Using this function is not portable.
 .PP
 See also x11Colormap().
-.SH "Qt::HANDLE QPaintDevice::x11Colormap () const"
+.SH "TQt::HANDLE QPaintDevice::x11Colormap () const"
 Returns the colormap of the X display for the paint device (X11 only). Using this function is not portable.
 .PP
 See also x11Cells().
@@ -340,16 +340,16 @@ Sets the value returned by x11AppDpiY() to \fIdpi\fR for the default screen. The
 .SH "void * QPaintDevice::x11Visual () const"
 Returns the Visual of the X display for the paint device (X11 only). Using this function is not portable.
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "void bitBlt ( QPaintDevice * dst, int dx, int dy, const QPaintDevice * src, int sx, int sy, int sw, int sh, Qt::RasterOp rop, bool ignoreMask )"
+.SH "void bitBlt ( QPaintDevice * dst, int dx, int dy, const QPaintDevice * src, int sx, int sy, int sw, int sh, TQt::RasterOp rop, bool ignoreMask )"
 Copies a block of pixels from \fIsrc\fR to \fIdst\fR, perhaps merging each pixel according to the raster operation \fIrop\fR. \fIsx\fR, \fIsy\fR is the top-left pixel in \fIsrc\fR (0, 0) by default, \fIdx\fR, \fIdy\fR is the top-left position in \fIdst\fR and \fIsw\fR, \fIsh\fR is the size of the copied block (all of \fIsrc\fR by default).
 .PP
-The most common values for \fIrop\fR are CopyROP and XorROP; the Qt::RasterOp documentation defines all the possible values.
+The most common values for \fIrop\fR are CopyROP and XorROP; the TQt::RasterOp documentation defines all the possible values.
 .PP
 If \fIignoreMask\fR is FALSE (the default) and \fIsrc\fR is a masked QPixmap, the entire blit is masked by \fIsrc\fR->mask().
 .PP
 If \fIsrc\fR, \fIdst\fR, \fIsw\fR or \fIsh\fR is 0, bitBlt() does nothing. If \fIsw\fR or \fIsh\fR is negative bitBlt() copies starting at \fIsx\fR (and respectively, \fIsy\fR) and ending at the right end (respectively, bottom) of \fIsrc\fR.
 .PP
-\fIsrc\fR must be a QWidget or QPixmap. You cannot blit from a QPrinter, for example. bitBlt() does nothing if you attempt to blit from an unsupported device.
+\fIsrc\fR must be a TQWidget or QPixmap. You cannot blit from a QPrinter, for example. bitBlt() does nothing if you attempt to blit from an unsupported device.
 .PP
 bitBlt() does nothing if \fIsrc\fR has a greater depth than \fIdst\fR. If you need to for example, draw a 24-bit pixmap on an 8-bit widget, you must use drawPixmap().
 .SH "void bitBlt ( QPaintDevice * dst, const QPoint & dp, const QPaintDevice * src, const QRect & sr, RasterOp rop )"
@@ -372,8 +372,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

@@ -119,8 +119,8 @@ private:
     rectangles = 0;
     <a href="ntqobject.html#startTimer">startTimer</a>( 0 );                            // run continuous timer
     <a href="ntqtimer.html">TQTimer</a> * counter = new <a href="ntqtimer.html">TQTimer</a>( this );
-<a name="x1054"></a>    <a href="ntqobject.html#connect">connect</a>( counter, SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
-             this, SLOT(updateCaption()) );
+<a name="x1054"></a>    <a href="ntqobject.html#connect">connect</a>( counter, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
+             this, TQ_SLOT(updateCaption()) );
 <a name="x1053"></a>    counter-&gt;<a href="ntqtimer.html#start">start</a>( 1000 );
 }
 

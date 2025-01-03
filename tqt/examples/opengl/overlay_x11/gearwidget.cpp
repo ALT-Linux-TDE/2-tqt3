@@ -15,7 +15,7 @@
 
 #include "gearwidget.h"
 #include <math.h>
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 #include <X11/Xlib.h>
 #endif
 

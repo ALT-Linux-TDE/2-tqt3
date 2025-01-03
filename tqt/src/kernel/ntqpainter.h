@@ -58,16 +58,16 @@ class TQTextCodec;
 class TQTextParag;
 class TQPaintDevice;
 class TQTextItem;
-#if defined( Q_WS_MAC )
+#if defined( TQ_WS_MAC )
 class TQMacSavedPortInfo;
 #endif
 class TQPainterPrivate;
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 class TQScreen;
 #endif
 
-class Q_EXPORT TQPainter : public TQt
+class TQ_EXPORT TQPainter : public TQt
 {
 public:
     enum CoordinateMode { CoordDevice, CoordPainter };
@@ -82,7 +82,7 @@ public:
     bool	end();
     TQPaintDevice *device() const;
 
-#ifdef Q_WS_QWS
+#ifdef TQ_WS_QWS
     TQGfx * internalGfx();
 #ifdef QT_QWS_EXPERIMENTAL_SCREENPAINTER
     bool begin(TQScreen *screen);
@@ -136,7 +136,7 @@ public:
     bool	hasViewXForm() const;
     bool	hasWorldXForm() const;
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     void	setViewXForm( bool );		// set xform on/off
     TQRect	window()       const;		// get window
     void	setWindow( const TQRect & );	// set window
@@ -217,7 +217,7 @@ public:
 			     int index=0, int npoints=-1 );
     void	drawConvexPolygon( const TQPointArray &,
 			     int index=0, int npoints=-1 );
-#ifndef QT_NO_BEZIER
+#ifndef TQT_NO_BEZIER
     void	drawCubicBezier( const TQPointArray &, int index=0 );
 #endif
     void	drawPixmap( int x, int y, const TQPixmap &,
@@ -239,7 +239,7 @@ public:
     void	drawTiledPixmap( const TQRect &, const TQPixmap &,
 				 const TQPoint & );
     void	drawTiledPixmap( const TQRect &, const TQPixmap & );
-#ifndef QT_NO_PICTURE
+#ifndef TQT_NO_PICTURE
     void	drawPicture( const TQPicture & );
     void	drawPicture( int x, int y, const TQPicture & );
     void	drawPicture( const TQPoint &, const TQPicture & );
@@ -286,9 +286,9 @@ public:
 
     // Other functions
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     HDC		handle() const;
-#elif defined(Q_WS_X11) || defined(Q_WS_MAC)
+#elif defined(TQ_WS_X11) || defined(TQ_WS_MAC)
     HANDLE	handle() const;
 #endif
 
@@ -302,7 +302,7 @@ private:
     void	updateFont();
     void	updatePen();
     void	updateBrush();
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     void	updateXForm();
     void	updateInvXForm();
 #endif
@@ -344,7 +344,7 @@ private:
     bool	block_ext;	// for temporary blocking of external devices
 
     // Transformations
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     TQCOORD	wx, wy, ww, wh;
     TQCOORD	vx, vy, vw, vh;
     TQWMatrix	wxmat;
@@ -388,11 +388,11 @@ protected:
     TQPoint	internalCurrentPos;
     uint	old_pix;			// ### All win platforms in 4.0
 #endif
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
     friend class TQFontEngineWin;
     friend class TQFontEngineBox;
     QT_WIN_PAINTER_MEMBERS
-#elif defined(Q_WS_X11)
+#elif defined(TQ_WS_X11)
     friend class TQFontEngineXLFD;
     friend class TQFontEngineXft;
     friend class TQFontEngineBox;
@@ -404,13 +404,13 @@ protected:
     GC		gc_brush;			// graphics contect for brush
     TQPoint	curPt;				// current point
     uint	clip_serial;			// clipping serial number
-#elif defined(Q_WS_MAC)
+#elif defined(TQ_WS_MAC)
     TQt::HANDLE	hd;				// handle to drawable
     void initPaintDevice(bool force=FALSE, TQPoint *off=NULL, TQRegion *rgn=NULL);
     friend const TQRegion &qt_mac_update_painter(TQPainter *, bool);
     friend class TQFontEngineMac;
     friend class TQMacPainter;
-#elif defined(Q_WS_QWS)
+#elif defined(TQ_WS_QWS)
     friend class TQFontEngine;
     TQGfx * gfx;
     friend void qwsUpdateActivePainters();
@@ -499,7 +499,7 @@ inline const TQPoint &TQPainter::brushOrigin() const
 
 inline bool TQPainter::hasViewXForm() const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     return testf(VxF);
 #else
     return xlatex || xlatey;
@@ -508,7 +508,7 @@ inline bool TQPainter::hasViewXForm() const
 
 inline bool TQPainter::hasWorldXForm() const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     return testf(WxF);
 #else
     return xlatex || xlatey;
@@ -517,7 +517,7 @@ inline bool TQPainter::hasWorldXForm() const
 
 inline double TQPainter::translationX() const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     return worldMatrix().dx();
 #else
     return xlatex;
@@ -526,7 +526,7 @@ inline double TQPainter::translationX() const
 
 inline double TQPainter::translationY() const
 {
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
     return worldMatrix().dy();
 #else
     return xlatey;
@@ -549,12 +549,12 @@ inline int *TQPainter::tabArray() const
     return tabarray;
 }
 
-#if defined(Q_WS_WIN)
+#if defined(TQ_WS_WIN)
 inline HDC TQPainter::handle() const
 {
     return hdc;
 }
-#elif defined(Q_WS_X11) || defined(Q_WS_MAC)
+#elif defined(TQ_WS_X11) || defined(TQ_WS_MAC)
 inline TQt::HANDLE TQPainter::handle() const
 {
     return hd;
@@ -566,7 +566,7 @@ inline void TQPainter::setBrushOrigin( const TQPoint &p )
     setBrushOrigin( p.x(), p.y() );
 }
 
-#ifndef QT_NO_TRANSFORMATIONS
+#ifndef TQT_NO_TRANSFORMATIONS
 inline void TQPainter::setWindow( const TQRect &r )
 {
     setWindow( r.x(), r.y(), r.width(), r.height() );
@@ -711,7 +711,7 @@ inline TQRect TQPainter::boundingRect( int x, int y, int w, int h, int tf,
     return boundingRect( r, tf, str, len, i );
 }
 
-#if defined(Q_WS_QWS)
+#if defined(TQ_WS_QWS)
 inline TQGfx * TQPainter::internalGfx()
 {
     return gfx;

@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqtoolbar.h"
-#ifndef QT_NO_TOOLBAR
+#ifndef TQT_NO_TOOLBAR
 
 #include "ntqmainwindow.h"
 #include "ntqtooltip.h"
@@ -165,8 +165,8 @@ TQToolBarSeparator::TQToolBarSeparator(Orientation o , TQToolBar *parent,
 				     const char* name )
     : TQWidget( parent, name )
 {
-    connect( parent, SIGNAL(orientationChanged(Orientation)),
-	     this, SLOT(setOrientation(Orientation)) );
+    connect( parent, TQ_SIGNAL(orientationChanged(Orientation)),
+	     this, TQ_SLOT(setOrientation(Orientation)) );
     setOrientation( o );
     setBackgroundMode( parent->backgroundMode() );
     setBackgroundOrigin( ParentOrigin );
@@ -602,7 +602,7 @@ void TQToolBar::createPopup()
 {
     if (!d->extensionPopup) {
 	d->extensionPopup = new TQPopupMenu( this, "qt_dockwidget_internal" );
-	connect( d->extensionPopup, SIGNAL( aboutToShow() ), this, SLOT( createPopup() ) );
+	connect( d->extensionPopup, TQ_SIGNAL( aboutToShow() ), this, TQ_SLOT( createPopup() ) );
     }
 
     if (!d->extension) {
@@ -631,7 +631,7 @@ void TQToolBar::createPopup()
 	    continue;
 	}
 	TQWidget *w = (TQWidget*)it.current();
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 	if ( ::tqt_cast<TQComboBox*>(w) )
 	    j = 1;
 #endif
@@ -654,7 +654,7 @@ void TQToolBar::createPopup()
 	        if ( b->popup() && b->popupDelay() <= 0 )
 		    id = d->extensionPopup->insertItem( b->iconSet(), s, b->popup() );
 		else
-		    id = d->extensionPopup->insertItem( b->iconSet(), s, b, SLOT( emulateClick() ) ) ;
+		    id = d->extensionPopup->insertItem( b->iconSet(), s, b, TQ_SLOT( emulateClick() ) ) ;
 	        if ( b->isToggleButton() )
 		    d->extensionPopup->setItemChecked( id, b->isOn() );
 		if ( !b->isEnabled() )
@@ -665,18 +665,18 @@ void TQToolBar::createPopup()
 		if ( s.isEmpty() )
 		    s = "";
 		if ( b->pixmap() )
-		    id = d->extensionPopup->insertItem( *b->pixmap(), s, b, SLOT( emulateClick() ) );
+		    id = d->extensionPopup->insertItem( *b->pixmap(), s, b, TQ_SLOT( emulateClick() ) );
 		else
-		    id = d->extensionPopup->insertItem( s, b, SLOT( emulateClick() ) );
+		    id = d->extensionPopup->insertItem( s, b, TQ_SLOT( emulateClick() ) );
 		if ( b->isToggleButton() )
 		    d->extensionPopup->setItemChecked( id, b->isOn() );
 		if ( !b->isEnabled() )
 		    d->extensionPopup->setItemEnabled( id, FALSE );
-#ifndef QT_NO_COMBOBOX
+#ifndef TQT_NO_COMBOBOX
 	    } else if ( ::tqt_cast<TQComboBox*>(w) ) {
 		TQComboBox *c = (TQComboBox*)w;
 		if ( c->count() != 0 ) {
-#ifndef QT_NO_WIDGET_TOPEXTRA
+#ifndef TQT_NO_WIDGET_TOPEXTRA
 		    TQString s = c->caption();
 #else
 		    TQString s;
@@ -687,7 +687,7 @@ void TQToolBar::createPopup()
 		    TQPopupMenu *cp = new TQPopupMenu(d->extensionPopup);
                     cp->setEnabled(c->isEnabled());
 		    d->extensionPopup->insertItem( s, cp );
-		    connect( cp, SIGNAL( activated(int) ), c, SLOT( internalActivate(int) ) );
+		    connect( cp, TQ_SIGNAL( activated(int) ), c, TQ_SLOT( internalActivate(int) ) );
 		    for ( int i = 0; i < c->count(); ++i ) {
 		        TQString tmp = c->text( i );
 			cp->insertItem( tmp, i );
@@ -702,11 +702,11 @@ void TQToolBar::createPopup()
 			    TQPopupMenu* sp = new TQPopupMenu(d->extensionPopup);
 			    cp->insertItem( tr( "More..." ), sp );
 			    cp = sp;
-			    connect( cp, SIGNAL( activated(int) ), c, SLOT( internalActivate(int) ) );
+			    connect( cp, TQ_SIGNAL( activated(int) ), c, TQ_SLOT( internalActivate(int) ) );
 			}
 		    }
 		}
-#endif //QT_NO_COMBOBOX
+#endif //TQT_NO_COMBOBOX
 	    }
 	}
         ++it;

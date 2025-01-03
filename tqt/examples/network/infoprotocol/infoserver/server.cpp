@@ -22,8 +22,8 @@ ServerInfo::ServerInfo( TQ_UINT16 port, TQWidget *parent, const char *name ) :
     ServerInfoBase( parent, name )
 {
     SimpleServer *server = new SimpleServer( port, this, "simple server" );
-    connect( server, SIGNAL(newConnect()), SLOT(newConnect()) );
-    connect( btnQuit, SIGNAL(clicked()), tqApp, SLOT(quit()) );
+    connect( server, TQ_SIGNAL(newConnect()), TQ_SLOT(newConnect()) );
+    connect( btnQuit, TQ_SIGNAL(clicked()), tqApp, TQ_SLOT(quit()) );
 }
 
 void ServerInfo::newConnect()
@@ -51,8 +51,8 @@ void SimpleServer::newConnection( int socket )
 ClientSocket::ClientSocket( int sock, InfoData *i, TQObject *parent, const char *name ) :
     TQSocket( parent, name ), info( i )
 {
-    connect( this, SIGNAL(readyRead()), SLOT(readClient()) );
-    connect( this, SIGNAL(connectionClosed()), SLOT(connectionClosed()) );
+    connect( this, TQ_SIGNAL(readyRead()), TQ_SLOT(readClient()) );
+    connect( this, TQ_SIGNAL(connectionClosed()), TQ_SLOT(connectionClosed()) );
     setSocket( sock );
 }
 

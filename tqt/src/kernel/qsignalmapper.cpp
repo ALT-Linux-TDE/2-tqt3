@@ -39,7 +39,7 @@
 **********************************************************************/
 
 #include "ntqsignalmapper.h"
-#ifndef QT_NO_SIGNALMAPPER
+#ifndef TQT_NO_SIGNALMAPPER
 #include "ntqptrdict.h"
 
 struct TQSignalMapperRec {
@@ -158,7 +158,7 @@ TQSignalMapperRec* TQSignalMapper::getRec( const TQObject* sender )
     if (!rec) {
 	rec = new TQSignalMapperRec;
 	d->dict.insert( (void*)sender, rec );
-	connect( sender, SIGNAL(destroyed()), this, SLOT(removeMapping()) );
+	connect( sender, TQ_SIGNAL(destroyed()), this, TQ_SLOT(removeMapping()) );
     }
     return rec;
 }
@@ -180,4 +180,4 @@ TQSignalMapperRec* TQSignalMapper::getRec( const TQObject* sender )
 
     \sa setMapping()
 */
-#endif //QT_NO_SIGNALMAPPER
+#endif //TQT_NO_SIGNALMAPPER

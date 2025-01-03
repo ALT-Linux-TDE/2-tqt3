@@ -45,9 +45,9 @@
 #include "ntqtextcodec.h"
 #endif // QT_H
 
-#ifndef QT_NO_CODEC_HEBREW
+#ifndef TQT_NO_CODEC_HEBREW
 
-class Q_EXPORT TQHebrewCodec : public TQTextCodec {
+class TQ_EXPORT TQHebrewCodec : public TQTextCodec {
 public:
     virtual int mibEnum() const;
     const char* name() const;

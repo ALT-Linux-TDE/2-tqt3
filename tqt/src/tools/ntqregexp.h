@@ -45,11 +45,11 @@
 #include "ntqstringlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_REGEXP
+#ifndef TQT_NO_REGEXP
 class TQRegExpEngine;
 struct TQRegExpPrivate;
 
-class Q_EXPORT TQRegExp
+class TQ_EXPORT TQRegExp
 {
 public:
     enum CaretMode { CaretAtZero, CaretAtOffset, CaretWontMatch };
@@ -70,7 +70,7 @@ public:
     void setPattern( const TQString& pattern );
     bool caseSensitive() const;
     void setCaseSensitive( bool sensitive );
-#ifndef QT_NO_REGEXP_WILDCARD
+#ifndef TQT_NO_REGEXP_WILDCARD
     bool wildcard() const;
     void setWildcard( bool wildcard );
 #endif
@@ -78,7 +78,7 @@ public:
     void setMinimal( bool minimal );
 
     bool exactMatch( const TQString& str ) const;
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
     int match( const TQString& str, int index = 0, int *len = 0,
 	       bool indexIsStart = TRUE ) const;
 #endif
@@ -96,7 +96,7 @@ public:
     int searchRev( const TQString& str, int offset, CaretMode caretMode ) const;
 #endif
     int matchedLength() const;
-#ifndef QT_NO_REGEXP_CAPTURE
+#ifndef TQT_NO_REGEXP_CAPTURE
     int numCaptures() const;
     TQStringList capturedTexts();
     TQString cap( int nth = 0 );
@@ -116,5 +116,5 @@ private:
     TQRegExpEngine *eng;
     TQRegExpPrivate *priv;
 };
-#endif // QT_NO_REGEXP
+#endif // TQT_NO_REGEXP
 #endif // TQREGEXP_H

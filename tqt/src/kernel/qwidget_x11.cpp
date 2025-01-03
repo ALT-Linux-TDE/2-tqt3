@@ -65,7 +65,7 @@ int  qt_sip_count( TQWidget* );
 bool qt_wstate_iconified( WId );
 void qt_updated_rootinfo();
 
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
 #include "ntqinputcontext.h"
 #include "ntqinputcontextfactory.h"
 #endif
@@ -89,7 +89,7 @@ static TQWidget *keyboardGrb = 0;
 extern Time tqt_x_time;
 extern Time tqt_x_user_time;
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 extern Atom qt_net_wm_sync_request_counter;
 extern Atom qt_net_wm_sync_request;
 extern bool qt_use_xsync;
@@ -208,7 +208,7 @@ Window qt_XCreateSimpleWindow( const TQWidget *creator,
 void qt_XDestroyWindow( const TQWidget *destroyer,
 			Display *display, Window window );
 
-Q_EXPORT void tqt_x11_enforce_cursor( TQWidget * w )
+TQ_EXPORT void tqt_x11_enforce_cursor( TQWidget * w )
 {
     if ( w->testWState( TQt::WState_OwnCursor ) ) {
 	TQCursor * oc = TQApplication::overrideCursor();
@@ -226,7 +226,7 @@ Q_EXPORT void tqt_x11_enforce_cursor( TQWidget * w )
     }
 }
 
-Q_EXPORT void tqt_wait_for_window_manager( TQWidget* w )
+TQ_EXPORT void tqt_wait_for_window_manager( TQWidget* w )
 {
     TQApplication::flushX();
     XEvent ev;
@@ -463,7 +463,7 @@ void TQWidget::create( WId window, bool initializeWindow, bool destroyOldWindow)
 	setWinId( id );				// set widget id/handle + hd
     }
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
     if (rendhd) {
 	XftDrawDestroy( (XftDraw *) rendhd );
 	rendhd = 0;
@@ -472,7 +472,7 @@ void TQWidget::create( WId window, bool initializeWindow, bool destroyOldWindow)
     if ( tqt_has_xft )
 	rendhd = (HANDLE) XftDrawCreate( dpy, id, (Visual *) x11Visual(),
 					 x11Colormap() );
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
     // NET window states
     long net_winstates[6] = { 0, 0, 0, 0, 0, 0 };
@@ -683,7 +683,7 @@ void TQWidget::create( WId window, bool initializeWindow, bool destroyOldWindow)
 	protocols[n++] = tqt_wm_delete_window;	// support del window protocol
 	protocols[n++] = tqt_wm_take_focus;	// support take focus window protocol
 	protocols[n++] = qt_net_wm_ping;	// support _NET_WM_PING protocol
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 	protocols[n++] = qt_net_wm_sync_request;// support the _NET_WM_SYNC_REQUEST protocol
 #endif
 	if ( testWFlags( WStyle_ContextHelp ) )
@@ -711,7 +711,7 @@ void TQWidget::create( WId window, bool initializeWindow, bool destroyOldWindow)
         else
             XDeleteProperty(dpy, id, qt_net_wm_action);
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
         // set _NET_WM_SYNC_COUNTER
         createSyncCounter();
         long counterVal = topData()->syncCounter;
@@ -769,7 +769,7 @@ void TQWidget::create( WId window, bool initializeWindow, bool destroyOldWindow)
     if ( destroyw )
 	qt_XDestroyWindow( this, dpy, destroyw );
 
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if !defined(TQT_NO_IM_EXTENSIONS)
     ic = 0;
 #endif
 }
@@ -794,7 +794,7 @@ void TQWidget::destroy( bool destroyWindow, bool destroySubWindows )
 	clearWState( WState_Created );
 	if ( children() ) {
 	    TQObjectListIt it(*children());
-	    register TQObject *obj;
+	    TQObject *obj;
 	    while ( (obj=it.current()) ) {	// destroy all widget children
 		++it;
 		if ( obj->isWidgetType() )
@@ -813,7 +813,7 @@ void TQWidget::destroy( bool destroyWindow, bool destroySubWindows )
 	else if ( testWFlags(WType_Popup) )
 	    tqApp->closePopup( this );
 
-#ifndef QT_NO_XFTFREETYPE
+#ifndef TQT_NO_XFTFREETYPE
 	if ( rendhd) {
 	    if ( destroyWindow )
 		XftDrawDestroy( (XftDraw *) rendhd );
@@ -821,7 +821,7 @@ void TQWidget::destroy( bool destroyWindow, bool destroySubWindows )
 		free( (void*) rendhd );
 	    rendhd = 0;
 	}
-#endif // QT_NO_XFTFREETYPE
+#endif // TQT_NO_XFTFREETYPE
 
 	if ( testWFlags(WType_Desktop) ) {
 	    if ( acceptDrops() )
@@ -830,7 +830,7 @@ void TQWidget::destroy( bool destroyWindow, bool destroySubWindows )
 	    if ( destroyWindow )
 		qt_XDestroyWindow( this, x11Display(), winid );
 	}
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
         destroySyncCounter();
 #endif
 	setWinId( 0 );
@@ -842,11 +842,13 @@ void TQWidget::destroy( bool destroyWindow, bool destroySubWindows )
 	if( this == icHolderWidget() ) {
 	    destroyInputContext();
 	} else {
+#ifndef TQT_NO_IM
 	    // release previous focus information participating with
 	    // preedit preservation of qic
 	    TQInputContext *qic = getInputContext();
 	    if ( qic )
 		qic->releaseComposingWidget( this );
+#endif // TQT_NO_IM
 	}
     }
 }
@@ -892,7 +894,7 @@ void TQWidget::reparentSys( TQWidget *parent, WFlags f, const TQPoint &p, bool s
         destroyInputContext();
     }
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
     destroySyncCounter();
 #endif
 
@@ -1117,7 +1119,7 @@ TQPoint TQWidget::mapFromGlobal( const TQPoint &pos ) const
 void TQWidget::setMicroFocusHint(int x, int y, int width, int height,
 				bool text, TQFont *f )
 {
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     if ( text ) {
 	// trigger input context creation if it hasn't happened already
 	createInputContext();
@@ -1487,28 +1489,31 @@ void TQWidget::grabMouse()
 void TQWidget::grabMouse( const TQCursor &cursor )
 {
     if ( !qt_nograb() ) {
-	if ( mouseGrb )
-	    mouseGrb->releaseMouse();
+	if ( mouseGrb != this ) {
+	    if ( mouseGrb ) {
+		mouseGrb->releaseMouse();
+	    }
 #if defined(QT_CHECK_STATE)
-	int status =
+	    int status =
 #endif
-	XGrabPointer( x11Display(), winId(), False,
-		      (uint)(ButtonPressMask | ButtonReleaseMask |
-			     PointerMotionMask | EnterWindowMask | LeaveWindowMask),
-		      GrabModeAsync, GrabModeAsync,
-		      None, cursor.handle(), tqt_x_time );
+	        XGrabPointer( x11Display(), winId(), False,
+		    (uint)(ButtonPressMask | ButtonReleaseMask |
+		    PointerMotionMask | EnterWindowMask | LeaveWindowMask),
+		    GrabModeAsync, GrabModeAsync,
+		    None, cursor.handle(), tqt_x_time );
 #if defined(QT_CHECK_STATE)
-	if ( status ) {
-	    const char *s =
-		status == GrabNotViewable ? "\"GrabNotViewable\"" :
-		status == AlreadyGrabbed  ? "\"AlreadyGrabbed\"" :
-		status == GrabFrozen      ? "\"GrabFrozen\"" :
-		status == GrabInvalidTime ? "\"GrabInvalidTime\"" :
-					    "<?>";
-	    tqWarning( "Grabbing the mouse failed with %s", s );
+	    if ( status ) {
+	        const char *s =
+		    status == GrabNotViewable ? "\"GrabNotViewable\"" :
+		    status == AlreadyGrabbed  ? "\"AlreadyGrabbed\"" :
+		    status == GrabFrozen      ? "\"GrabFrozen\"" :
+		    status == GrabInvalidTime ? "\"GrabInvalidTime\"" :
+						"<?>";
+	        tqWarning( "Grabbing the mouse failed with %s", s );
+	    }
+#endif
+	    mouseGrb = this;
 	}
-#endif
-	mouseGrb = this;
     }
 }
 
@@ -1548,11 +1553,13 @@ void TQWidget::releaseMouse()
 void TQWidget::grabKeyboard()
 {
     if ( !qt_nograb() ) {
-	if ( keyboardGrb )
-	    keyboardGrb->releaseKeyboard();
-	XGrabKeyboard( x11Display(), winid, False, GrabModeAsync, GrabModeAsync,
-		       tqt_x_time );
-	keyboardGrb = this;
+	if ( keyboardGrb != this ) {
+	    if ( keyboardGrb ) {
+		keyboardGrb->releaseKeyboard();
+	    }
+	    XGrabKeyboard( x11Display(), winid, False, GrabModeAsync, GrabModeAsync, tqt_x_time );
+	    keyboardGrb = this;
+	}
     }
 }
 
@@ -2476,7 +2483,7 @@ void TQWidget::scroll( int dx, int dy, const TQRect& r )
     if ( !valid_rect && children() ) {	// scroll children
 	TQPoint pd( dx, dy );
 	TQObjectListIt it(*children());
-	register TQObject *object;
+	TQObject *object;
 	while ( it ) {				// move all children
 	    object = it.current();
 	    if ( object->isWidgetType() ) {
@@ -2607,11 +2614,11 @@ void TQWidget::deleteSysExtra()
 
 void TQWidget::createTLSysExtra()
 {
-#if defined(QT_NO_IM_EXTENSIONS)
+#if defined(TQT_NO_IM_EXTENSIONS)
     // created lazily
     extra->topextra->xic = 0;
 #endif
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
     extra->topextra->syncCounter = 0;
     extra->topextra->syncRequestValue[0] = 0;
     extra->topextra->syncRequestValue[1] = 0;
@@ -2663,7 +2670,7 @@ void TQWidget::checkChildrenDnd()
 }
 
 
-#ifndef QT_NO_XSYNC
+#ifndef TQT_NO_XSYNC
 // create a window's XSyncCounter
 void TQWidget::createSyncCounter()
 {
@@ -2704,7 +2711,7 @@ void TQWidget::handleSyncRequest( void* ev )
     topData()->syncRequestValue[ 0 ] = xev->xclient.data.l[ 2 ];
     topData()->syncRequestValue[ 1 ] = xev->xclient.data.l[ 3 ];
 }
-#endif  // QT_NO_XSYNC
+#endif  // TQT_NO_XSYNC
 
 
 /*!
@@ -2927,9 +2934,10 @@ TQInputContext *TQWidget::getInputContext()
 {
     TQInputContext *qic = 0;
 
-// #if !defined(QT_NO_IM_EXTENSIONS)
+#ifndef TQT_NO_IM
+// #if !defined(TQT_NO_IM_EXTENSIONS)
     if ( isInputMethodEnabled() ) {
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if !defined(TQT_NO_IM_EXTENSIONS)
 	qic = icHolderWidget()->ic;
 #else
 //    {
@@ -2938,6 +2946,7 @@ TQInputContext *TQWidget::getInputContext()
 	qic = (TQInputContext *)topdata->xic;
 #endif
     }
+#endif // TQT_NO_IM
 
     return qic;
 }
@@ -2950,8 +2959,9 @@ TQInputContext *TQWidget::getInputContext()
 */
 void TQWidget::changeInputContext( const TQString& identifierName )
 {
+#ifndef TQT_NO_IM
     TQWidget *icWidget = icHolderWidget();
-#if !defined(QT_NO_IM_EXTENSIONS)
+#if !defined(TQT_NO_IM_EXTENSIONS)
     TQInputContext **qicp = &icWidget->ic;
 #else
     TQInputContext **qicp = (TQInputContext **)&icWidget->topData()->xic;
@@ -2963,11 +2973,14 @@ void TQWidget::changeInputContext( const TQString& identifierName )
     TQInputContext *qic = TQInputContextFactory::create( identifierName, icWidget );
     *qicp = qic;
     if ( qic ) {
-	TQObject::connect( qic, SIGNAL(imEventGenerated(TQObject *,TQIMEvent *)),
-			  tqApp, SLOT(postIMEvent(TQObject *,TQIMEvent *)) );
-	TQObject::connect( qic, SIGNAL(deletionRequested()),
-			  icWidget, SLOT(destroyInputContext()) );
+	TQObject::connect( qic, TQ_SIGNAL(imEventGenerated(TQObject *,TQIMEvent *)),
+			  tqApp, TQ_SLOT(postIMEvent(TQObject *,TQIMEvent *)) );
+	TQObject::connect( qic, TQ_SIGNAL(deletionRequested()),
+			  icWidget, TQ_SLOT(destroyInputContext()) );
     }
+#else
+    (void) identifierName; /* unused */
+#endif // TQT_NO_IM
 }
 
 
@@ -2978,19 +2991,19 @@ void TQWidget::changeInputContext( const TQString& identifierName )
     This function is called to generate an input context
     according to a configuration for default input method
 
-    When QT_NO_IM_EXTENSIONS is not set, input context is 
+    When TQT_NO_IM_EXTENSIONS is not set, input context is 
     generated only when isInputMethodEnabled() returns TRUE.
 */
 void TQWidget::createInputContext()
 {
-// #if !defined(QT_NO_IM_EXTENSIONS)
+// #if !defined(TQT_NO_IM_EXTENSIONS)
     if( !isInputMethodEnabled() || TQApplication::closingDown() )
 	return;
 // #endif
 
     TQWidget *icWidget = icHolderWidget();
-#ifndef QT_NO_IM
-#if !defined(QT_NO_IM_EXTENSIONS)
+#ifndef TQT_NO_IM
+#if !defined(TQT_NO_IM_EXTENSIONS)
     TQInputContext **qicp = &icWidget->ic;
 #else
     TQInputContext **qicp = (TQInputContext **)&icWidget->topData()->xic;
@@ -3002,13 +3015,13 @@ void TQWidget::createInputContext()
 
 	*qicp = qic;
 	if ( qic ) {
-	    TQObject::connect( qic, SIGNAL(imEventGenerated(TQObject *,TQIMEvent *)),
-			      tqApp, SLOT(postIMEvent(TQObject *,TQIMEvent *)) );
-	    TQObject::connect( qic, SIGNAL(deletionRequested()),
-			      icWidget, SLOT(destroyInputContext()) );
+	    TQObject::connect( qic, TQ_SIGNAL(imEventGenerated(TQObject *,TQIMEvent *)),
+			      tqApp, TQ_SLOT(postIMEvent(TQObject *,TQIMEvent *)) );
+	    TQObject::connect( qic, TQ_SIGNAL(deletionRequested()),
+			      icWidget, TQ_SLOT(destroyInputContext()) );
   	}
     }
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 }
 
 
@@ -3022,8 +3035,8 @@ void TQWidget::createInputContext()
 */
 void TQWidget::destroyInputContext()
 {
-#ifndef QT_NO_IM
-#if !defined(QT_NO_IM_EXTENSIONS)
+#ifndef TQT_NO_IM
+#if !defined(TQT_NO_IM_EXTENSIONS)
     TQInputContext **qicp = &ic;
 #else
     if ( ! extra || ! extra->topextra )
@@ -3036,7 +3049,7 @@ void TQWidget::destroyInputContext()
 	delete *qicp;
 
     *qicp = 0;
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 }
 
 
@@ -3057,14 +3070,14 @@ void TQWidget::destroyInputContext()
 */
 void TQWidget::resetInputContext()
 {
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     // trigger input context creation if it hasn't happened already
     createInputContext();
 
     TQInputContext *qic = getInputContext();
     if( qic )
 	qic->reset();
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 }
 
 
@@ -3080,7 +3093,7 @@ void TQWidget::resetInputContext()
  */
 void TQWidget::focusInputContext()
 {
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     TQWidget* tlw = topLevelWidget();
 
     if (!tlw->isPopup() || isInputMethodEnabled()) {
@@ -3095,7 +3108,7 @@ void TQWidget::focusInputContext()
 	    }
 	}
     }
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 }
 
 
@@ -3110,7 +3123,7 @@ void TQWidget::focusInputContext()
  */
 void TQWidget::unfocusInputContext()
 {
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     // trigger input context creation if it hasn't happened already
     createInputContext();
 
@@ -3120,7 +3133,7 @@ void TQWidget::unfocusInputContext()
 	qic->unsetFocus();
 	qic->setFocusWidget( 0 );
     }
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 }
   
 
@@ -3136,7 +3149,7 @@ void TQWidget::sendMouseEventToInputContext( int x, TQEvent::Type type,
 					    TQt::ButtonState button,
 					    TQt::ButtonState state )
 {
-#ifndef QT_NO_IM
+#ifndef TQT_NO_IM
     // trigger input context creation if it hasn't happened already
     createInputContext();
   
@@ -3145,7 +3158,7 @@ void TQWidget::sendMouseEventToInputContext( int x, TQEvent::Type type,
 	// may be causing reset() in some input methods
 	qic->mouseHandler( x, type, button, state );
     }
-#endif // QT_NO_IM
+#endif // TQT_NO_IM
 }
   
 

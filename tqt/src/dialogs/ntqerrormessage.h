@@ -45,7 +45,7 @@
 #include "ntqdialog.h"
 #endif // QT_H
 
-#ifndef QT_NO_ERRORMESSAGE
+#ifndef TQT_NO_ERRORMESSAGE
 class TQPushButton;
 class TQCheckBox;
 class TQLabel;
@@ -54,7 +54,7 @@ class TQStringList;
 template<class type> class TQDict;
 
 
-class Q_EXPORT TQErrorMessage: public TQDialog {
+class TQ_EXPORT TQErrorMessage: public TQDialog {
     TQ_OBJECT
 public:
     TQErrorMessage( TQWidget* parent, const char* name=0 );
@@ -84,6 +84,6 @@ private:
 #endif
 };
 
-#endif //QT_NO_ERRORMESSAGE
+#endif //TQT_NO_ERRORMESSAGE
 
 #endif

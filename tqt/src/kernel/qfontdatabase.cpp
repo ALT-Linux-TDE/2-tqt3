@@ -40,7 +40,7 @@
 
 #include "ntqfontdatabase.h"
 
-#ifndef QT_NO_FONTDATABASE
+#ifndef TQT_NO_FONTDATABASE
 
 #include <ntqtl.h>
 #include <ntqapplication.h>
@@ -50,7 +50,7 @@
 
 #include <ntqcleanuphandler.h>
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include <locale.h>
 #endif
 #include <stdlib.h>
@@ -123,7 +123,7 @@ static int getFontWeight( const TQString &weightString )
     return (int) TQFont::Normal;
 }
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 struct TQtFontEncoding
 {
     signed int encoding : 16;
@@ -134,22 +134,22 @@ struct TQtFontEncoding
     uint avgwidth : 16;
     uchar pitch   : 8;
 };
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 struct TQtFontSize
 {
     unsigned short pixelSize;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     int count;
     TQtFontEncoding *encodings;
     TQtFontEncoding *encodingID( int id, uint xpoint = 0, uint xres = 0,
 				uint yres = 0, uint avgwidth = 0, bool add = FALSE);
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 };
 
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 TQtFontEncoding *TQtFontSize::encodingID( int id, uint xpoint, uint xres,
 					uint yres, uint avgwidth, bool add )
 {
@@ -173,7 +173,7 @@ TQtFontEncoding *TQtFontSize::encodingID( int id, uint xpoint, uint xres,
     encodings[count].pitch = '*';
     return encodings + count++;
 }
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 struct TQtFontStyle
 {
@@ -208,13 +208,13 @@ struct TQtFontStyle
 	: key( k ), bitmapScalable( FALSE ), smoothScalable( FALSE ),
 	  fakeOblique( FALSE ), count( 0 ), pixelSizes( 0 )
     {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 	weightName = setwidthName = 0;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
     }
 
     ~TQtFontStyle() {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	delete [] weightName;
 	delete [] setwidthName;
 	while ( count-- )
@@ -230,10 +230,10 @@ struct TQtFontStyle
     int count           : 29;
     TQtFontSize *pixelSizes;
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     const char *weightName;
     const char *setwidthName;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
     TQtFontSize *pixelSize( unsigned short size, bool = FALSE );
 };
@@ -263,7 +263,7 @@ TQtFontSize *TQtFontStyle::pixelSize( unsigned short size, bool add )
 		     realloc( pixelSizes,
 			      (((count+8) >> 3 ) << 3) * sizeof(TQtFontSize) );
     pixelSizes[count].pixelSize = size;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     pixelSizes[count].count = 0;
     pixelSizes[count].encodings = 0;
 #endif
@@ -326,12 +326,12 @@ struct TQtFontFamily
 
     TQtFontFamily(const TQString &n )
 	:
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         fixedPitch( TRUE ), hasXft( FALSE ), xftScriptCheck( FALSE ), xlfdLoaded( FALSE ), synthetic(FALSE),
 #else
         fixedPitch( FALSE ),
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	scriptCheck( FALSE ),
 #endif
 #if defined(Q_OS_MAC) && !defined(TQWS)
@@ -348,13 +348,13 @@ struct TQtFontFamily
     }
 
     bool fixedPitch : 1;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     bool hasXft : 1;
     bool xftScriptCheck : 1;
     bool xlfdLoaded : 1;
     bool synthetic : 1;
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     bool scriptCheck : 1;
 #endif
 #if defined(Q_OS_MAC) && !defined(TQWS)
@@ -363,14 +363,14 @@ struct TQtFontFamily
     bool fullyLoaded : 1;
     TQString name;
     TQString rawName;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     TQCString fontFilename;
     int fontFileIndex;
 #endif
-#ifdef Q_WS_MAC
+#ifdef TQ_WS_MAC
     FMFontFamily macFamily;
 #endif
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     TQString english_name;
 #endif
     int count;
@@ -454,7 +454,7 @@ TQtFontFamily *TQFontDatabasePrivate::family( const TQString &f, bool create )
 
 
 
-#if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
 static const unsigned short sample_chars[TQFont::LastPrivateScript][14] =
 {
     // European Alphabetic Scripts
@@ -601,7 +601,7 @@ static const unsigned short sample_chars[TQFont::LastPrivateScript][14] =
     // Taiwan would be 0x201C, 0x3002, 0x4E00, 0x9F98, 0xFFE5
 };
 
-#if defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE)
 static inline bool requiresOpenType(TQFont::Script s)
 {
     return (s >= TQFont::Syriac && s <= TQFont::Sinhala)
@@ -631,7 +631,7 @@ static inline bool canRender( TQFontEngine *fe, TQFont::Script script )
         }
         ++i;
     }
-#if defined(Q_WS_X11) && !defined(QT_NO_XFTFREETYPE)
+#if defined(TQ_WS_X11) && !defined(TQT_NO_XFTFREETYPE)
     if (hasChar && requiresOpenType(script)) {
 	TQOpenType *ot = fe->openType();
 	if (!ot || !ot->supportsScript(script))
@@ -641,20 +641,20 @@ static inline bool canRender( TQFontEngine *fe, TQFont::Script script )
 
     return hasChar;
 }
-#endif // Q_WS_X11 || Q_WS_WIN
+#endif // TQ_WS_X11 || TQ_WS_WIN
 
 
 static TQSingleCleanupHandler<TQFontDatabasePrivate> qfontdatabase_cleanup;
 static TQFontDatabasePrivate *db=0;
 #define SMOOTH_SCALABLE 0xffff
 
-#if defined( Q_WS_X11 )
+#if defined( TQ_WS_X11 )
 #  include "qfontdatabase_x11.cpp"
-#elif defined( Q_WS_MAC )
+#elif defined( TQ_WS_MAC )
 #  include "qfontdatabase_mac.cpp"
-#elif defined( Q_WS_WIN )
+#elif defined( TQ_WS_WIN )
 #  include "qfontdatabase_win.cpp"
-#elif defined( Q_WS_QWS )
+#elif defined( TQ_WS_QWS )
 #  include "qfontdatabase_qws.cpp"
 #endif
 
@@ -696,7 +696,7 @@ static TQtFontStyle *bestStyle(TQtFontFoundry *foundry, const TQtFontStyle::Key 
     return foundry->styles[best];
 }
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 static TQtFontEncoding *findEncoding(TQFont::Script script, int styleStrategy,
                                     TQtFontSize *size, int force_encoding_id)
 {
@@ -733,17 +733,17 @@ static TQtFontEncoding *findEncoding(TQFont::Script script, int styleStrategy,
 
     return encoding;
 }
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 
-#if defined(Q_WS_X11) || defined(Q_WS_WIN)
+#if defined(TQ_WS_X11) || defined(TQ_WS_WIN)
 static
 unsigned int bestFoundry( TQFont::Script script, unsigned int score, int styleStrategy,
 			  const TQtFontFamily *family, const TQString &foundry_name,
 			  TQtFontStyle::Key styleKey, int pixelSize, char pitch,
 			  TQtFontFoundry **best_foundry, TQtFontStyle **best_style,
 			  TQtFontSize **best_size
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 			  , TQtFontEncoding **best_encoding, int force_encoding_id
 #endif
 			  )
@@ -799,7 +799,7 @@ unsigned int bestFoundry( TQFont::Script script, unsigned int score, int styleSt
             }
 	}
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         TQtFontEncoding *encoding = 0;
 #endif
 
@@ -807,7 +807,7 @@ unsigned int bestFoundry( TQFont::Script script, unsigned int score, int styleSt
 	if (! size) {
 	    unsigned int distance = ~0u;
 	    for (int x = 0; x < style->count; ++x) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
                 encoding =
                     findEncoding(script, styleStrategy, style->pixelSizes + x, force_encoding_id);
                 if (!encoding) {
@@ -841,7 +841,7 @@ unsigned int bestFoundry( TQFont::Script script, unsigned int score, int styleSt
 	    }
 	}
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         if (size) {
             encoding = findEncoding(script, styleStrategy, size, force_encoding_id);
             if (!encoding) size = 0;
@@ -850,7 +850,7 @@ unsigned int bestFoundry( TQFont::Script script, unsigned int score, int styleSt
 	    FM_DEBUG( "          foundry doesn't support the script we want" );
 	    continue;
 	}
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 	unsigned int this_score = 0x0000;
         enum {
@@ -861,7 +861,7 @@ unsigned int bestFoundry( TQFont::Script script, unsigned int score, int styleSt
             XLFDPenalty         = 0x0001
         };
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	if ( encoding->encoding != -1 ) {
 	    this_score += XLFDPenalty;
 	    if ( encoding->encoding != TQFontPrivate::defaultEncodingID )
@@ -896,9 +896,9 @@ unsigned int bestFoundry( TQFont::Script script, unsigned int score, int styleSt
 	    *best_foundry = foundry;
 	    *best_style = style;
 	    *best_size = size;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	    *best_encoding = encoding;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 	} else {
 	    FM_DEBUG( "          score %x no better than best %x", this_score, score);
 	}
@@ -914,7 +914,7 @@ TQFontEngine *
 TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 			 const TQFontDef &request, int force_encoding_id )
 {
-#ifndef Q_WS_X11
+#ifndef TQ_WS_X11
     Q_UNUSED( force_encoding_id );
 #endif
 
@@ -925,7 +925,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
     if ( fp ) {
 	if ( fp->rawMode ) {
 	    fe = loadEngine( script, fp, request, 0, 0, 0
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 			     , 0, 0, FALSE
 #endif
 		);
@@ -936,7 +936,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 	}
 
 	TQFontCache::Key key( request, script,
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 			     (int)fp->paintdevice, 
 #else
 			     fp->screen, 
@@ -947,7 +947,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 	if ( fe ) return fe;
     }
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     if (request.styleStrategy & TQFont::PreferDevice) {
         TQFontEngine *fe = loadEngine(script, fp, request, 0, 0, 0);
         if(fe)
@@ -964,7 +964,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 
     parseFontName( request.family, foundry_name, family_name );
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     if (script == TQFont::Han) {
         // modify script according to locale
         static TQFont::Script defaultHan;
@@ -1013,9 +1013,9 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 	TQtFontFoundry *best_foundry = 0;
 	TQtFontStyle *best_style = 0;
 	TQtFontSize *best_size = 0;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	TQtFontEncoding *best_encoding = 0;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 	unsigned int score = ~0;
 
@@ -1023,14 +1023,14 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 
 	for ( int x = 0; x < db->count; ++x ) {
 	    TQtFontFamily *try_family = db->families[x];
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
             if (try_family->synthetic) // skip generated fontconfig fonts
                 continue;
 #endif
 
             if ( !family_name.isEmpty() &&
 		 ucstricmp( try_family->name, family_name ) != 0
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 		 && ucstricmp( try_family->english_name, family_name ) != 0
 #endif
                 )
@@ -1044,7 +1044,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 	    if ( ! ( try_family->scripts[script] & TQtFontFamily::Supported )
 		 && script != TQFont::Unicode) {
 		// family not supported in the script we want
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 		if (script >= TQFont::Han_Japanese && script <= TQFont::Han_Korean
 		    && try_family->scripts[TQFont::Han] == TQtFontFamily::Supported) {
 		    // try with the han script instead, give it a penalty
@@ -1081,9 +1081,9 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 	    TQtFontFoundry *try_foundry = 0;
 	    TQtFontStyle *try_style = 0;
 	    TQtFontSize *try_size = 0;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	    TQtFontEncoding *try_encoding = 0;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 	    // as we know the script is supported, we can be sure
 	    // to find a matching font here.
@@ -1091,7 +1091,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 		bestFoundry( override_script, score, request.styleStrategy,
 			     try_family, foundry_name, styleKey, request.pixelSize, pitch,
 			     &try_foundry, &try_style, &try_size
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 			     , &try_encoding, force_encoding_id
 #endif
 		    );
@@ -1101,7 +1101,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 		newscore = bestFoundry( override_script, score, request.styleStrategy, try_family,
 					TQString::null, styleKey, request.pixelSize,
 					pitch, &try_foundry, &try_style, &try_size
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 					, &try_encoding, force_encoding_id
 #endif
 		    );
@@ -1114,16 +1114,16 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 		best_foundry = try_foundry;
 		best_style = try_style;
 		best_size = try_size;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 		best_encoding = try_encoding;
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 	    }
 	    if ( newscore < 10 ) // xlfd instead of xft... just accept it
 		break;
 	}
 
 	if ( best_family != 0 && best_foundry != 0 && best_style != 0
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	     && best_size != 0 && best_encoding != 0
 #endif
 	    ) {
@@ -1138,7 +1138,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 		      best_foundry->name.isEmpty() ? "-- none --" : best_foundry->name.latin1(),
 		      best_style->key.weight, best_style->key.italic, best_style->key.oblique,
 		      best_style->key.stretch, best_size ? best_size->pixelSize : 0xffff,
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 		      best_encoding->pitch, best_encoding->encoding
 #else
 		      'p', 0
@@ -1146,7 +1146,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 		);
 
 	    fe = loadEngine( script, fp, request, best_family, best_foundry, best_style
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 			     , best_size, best_encoding, ( force_encoding_id >= 0 )
 #endif
 		);
@@ -1191,7 +1191,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
                 def.family = def.family.left(def.family.find(','));
             }
 	    TQFontCache::Key key( def, script,
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 				 (int)fp->paintdevice, 
 #else
 				 fp->screen, 
@@ -1224,7 +1224,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 
         if ( fp ) {
             TQFontCache::Key key( request, script,
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
                                  (int)fp->paintdevice, 
 #else
                                  fp->screen, 
@@ -1236,10 +1236,10 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
     }
 
     if ( fp ) {
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
         fe->fontDef.pointSize =
             tqRound(10. * qt_pointSize(fe->fontDef.pixelSize, fp->paintdevice, fp->screen));
-#elif defined(Q_WS_WIN)
+#elif defined(TQ_WS_WIN)
         fe->fontDef.pointSize     = int( double( fe->fontDef.pixelSize ) * 720.0 /
                                          GetDeviceCaps(shared_dc,LOGPIXELSY) );
 #else
@@ -1252,7 +1252,7 @@ TQFontDatabase::findFont( TQFont::Script script, const TQFontPrivate *fp,
 
     return fe;
 }
-#endif // Q_WS_X11 || Q_WS_WIN
+#endif // TQ_WS_X11 || TQ_WS_WIN
 
 
 
@@ -1692,7 +1692,7 @@ bool  TQFontDatabase::isScalable( const TQString &family,
 TQValueList<int> TQFontDatabase::pointSizes( const TQString &family,
 					   const TQString &style)
 {
-#if defined(Q_WS_MAC)
+#if defined(TQ_WS_MAC)
     // windows and macosx are always smoothly scalable
     Q_UNUSED( family );
     Q_UNUSED( style );
@@ -1725,7 +1725,7 @@ TQValueList<int> TQFontDatabase::pointSizes( const TQString &family,
 		const TQtFontSize *size = style->pixelSizes + l;
 
 		if (size->pixelSize != 0 && size->pixelSize != USHRT_MAX) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 		    const uint pointSize = tqRound(qt_pointSize(size->pixelSize, 0, -1));
 #else
 		    const uint pointSize = size->pixelSize; // embedded uses 72dpi
@@ -1792,7 +1792,7 @@ TQFont TQFontDatabase::font( const TQString &family, const TQString &style,
 TQValueList<int> TQFontDatabase::smoothSizes( const TQString &family,
 					    const TQString &style)
 {
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
     Q_UNUSED( family );
     Q_UNUSED( style );
     return TQFontDatabase::standardSizes();
@@ -1826,7 +1826,7 @@ TQValueList<int> TQFontDatabase::smoothSizes( const TQString &family,
 		const TQtFontSize *size = style->pixelSizes + l;
 
 		if ( size->pixelSize != 0 && size->pixelSize != USHRT_MAX ) {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 		    const uint pointSize = tqRound(qt_pointSize(size->pixelSize, 0, -1));
 #else
 		    const uint pointSize = size->pixelSize; // embedded uses 72dpi
@@ -1975,198 +1975,198 @@ TQString TQFontDatabase::scriptName(TQFont::Script script)
 
     switch (script) {
     case TQFont::Latin:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Latin");
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Latin");
 	break;
     case TQFont::Greek:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Greek" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Greek" );
 	break;
     case TQFont::Cyrillic:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Cyrillic" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Cyrillic" );
 	break;
     case TQFont::Armenian:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Armenian" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Armenian" );
 	break;
     case TQFont::Georgian:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Georgian" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Georgian" );
 	break;
     case TQFont::Runic:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Runic" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Runic" );
 	break;
     case TQFont::Ogham:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Ogham" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Ogham" );
 	break;
     case TQFont::SpacingModifiers:
-	name = QT_TRANSLATE_NOOP("TQFont",  "SpacingModifiers" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "SpacingModifiers" );
 	break;
     case TQFont::CombiningMarks:
-	name = QT_TRANSLATE_NOOP("TQFont",  "CombiningMarks" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "CombiningMarks" );
 	break;
     case TQFont::Hebrew:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Hebrew" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Hebrew" );
 	break;
     case TQFont::Arabic:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Arabic" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Arabic" );
 	break;
     case TQFont::Syriac:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Syriac" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Syriac" );
 	break;
     case TQFont::Thaana:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Thaana" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Thaana" );
 	break;
     case TQFont::Devanagari:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Devanagari" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Devanagari" );
 	break;
     case TQFont::Bengali:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Bengali" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Bengali" );
 	break;
     case TQFont::Gurmukhi:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Gurmukhi" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Gurmukhi" );
 	break;
     case TQFont::Gujarati:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Gujarati" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Gujarati" );
 	break;
     case TQFont::Oriya:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Oriya" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Oriya" );
 	break;
     case TQFont::Tamil:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Tamil" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Tamil" );
 	break;
     case TQFont::Telugu:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Telugu" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Telugu" );
 	break;
     case TQFont::Kannada:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Kannada" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Kannada" );
 	break;
     case TQFont::Malayalam:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Malayalam" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Malayalam" );
 	break;
     case TQFont::Sinhala:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Sinhala" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Sinhala" );
 	break;
     case TQFont::Thai:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Thai" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Thai" );
 	break;
     case TQFont::Lao:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Lao" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Lao" );
 	break;
     case TQFont::Tibetan:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Tibetan" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Tibetan" );
 	break;
     case TQFont::Myanmar:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Myanmar" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Myanmar" );
 	break;
     case TQFont::Khmer:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Khmer" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Khmer" );
 	break;
     case TQFont::Han:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Han" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Han" );
 	break;
     case TQFont::Hiragana:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Hiragana" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Hiragana" );
 	break;
     case TQFont::Katakana:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Katakana" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Katakana" );
 	break;
     case TQFont::Hangul:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Hangul" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Hangul" );
 	break;
     case TQFont::Bopomofo:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Bopomofo" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Bopomofo" );
 	break;
     case TQFont::Yi:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Yi" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Yi" );
 	break;
     case TQFont::Ethiopic:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Ethiopic" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Ethiopic" );
 	break;
     case TQFont::Cherokee:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Cherokee" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Cherokee" );
 	break;
     case TQFont::CanadianAboriginal:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Canadian Aboriginal" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Canadian Aboriginal" );
 	break;
     case TQFont::Mongolian:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Mongolian" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Mongolian" );
 	break;
 
     case TQFont::CurrencySymbols:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Currency Symbols" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Currency Symbols" );
 	break;
 
     case TQFont::LetterlikeSymbols:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Letterlike Symbols" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Letterlike Symbols" );
 	break;
 
     case TQFont::NumberForms:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Number Forms" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Number Forms" );
 	break;
 
     case TQFont::MathematicalOperators:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Mathematical Operators" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Mathematical Operators" );
 	break;
 
     case TQFont::TechnicalSymbols:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Technical Symbols" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Technical Symbols" );
 	break;
 
     case TQFont::GeometricSymbols:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Geometric Symbols" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Geometric Symbols" );
 	break;
 
     case TQFont::MiscellaneousSymbols:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Miscellaneous Symbols" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Miscellaneous Symbols" );
 	break;
 
     case TQFont::EnclosedAndSquare:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Enclosed and Square" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Enclosed and Square" );
 	break;
 
     case TQFont::Braille:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Braille" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Braille" );
 	break;
 
     case TQFont::Unicode:
-	name = QT_TRANSLATE_NOOP("TQFont",  "Unicode" );
+	name = TQT_TRANSLATE_NOOP("TQFont",  "Unicode" );
 	break;
 
     case TQFont::Tagalog:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Tagalog" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Tagalog" );
 	break;
 
     case TQFont::Hanunoo:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Hanunoo" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Hanunoo" );
 	break;
 
     case TQFont::Buhid:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Buhid" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Buhid" );
     	break;
 
     case TQFont::Tagbanwa:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Tagbanwa" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Tagbanwa" );
 	break;
 
     case TQFont::KatakanaHalfWidth:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Katakana Half-Width Forms" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Katakana Half-Width Forms" );
 	break;
 
     case TQFont::Han_Japanese:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Han (Japanese)" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Han (Japanese)" );
 	break;
 
     case TQFont::Han_SimplifiedChinese:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Han (Simplified Chinese)" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Han (Simplified Chinese)" );
 	break;
 
     case TQFont::Han_TraditionalChinese:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Han (Traditional Chinese)" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Han (Traditional Chinese)" );
 	break;
 
     case TQFont::Han_Korean:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Han (Korean)" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Han (Korean)" );
 	break;
 
     default:
-	name = QT_TRANSLATE_NOOP( "TQFont", "Unknown Script" );
+	name = TQT_TRANSLATE_NOOP( "TQFont", "Unknown Script" );
 	break;
     }
 
@@ -2488,4 +2488,4 @@ void TQFontDatabase::parseFontName(const TQString &name, TQString &foundry, TQSt
     }
 }
 
-#endif // QT_NO_FONTDATABASE
+#endif // TQT_NO_FONTDATABASE

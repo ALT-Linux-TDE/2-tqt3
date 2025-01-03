@@ -44,7 +44,7 @@ public:
     RCFilter();
 
     TQRESULT queryInterface( const TQUuid&, TQUnknownInterface **iface );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
     TQStringList import( const TQString& filter, const TQString& filename );

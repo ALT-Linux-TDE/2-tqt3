@@ -50,7 +50,7 @@ public:
 	TQPixmap pix;
 	TQString name;
 	TQString absname;
-	Q_DUMMY_COMPARISON_OPERATOR( Pixmap )
+	TQ_DUMMY_COMPARISON_OPERATOR( Pixmap )
     };
 
     PixmapCollection( Project *pro );

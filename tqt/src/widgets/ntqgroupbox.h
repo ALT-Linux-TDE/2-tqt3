@@ -45,7 +45,7 @@
 #include "ntqframe.h"
 #endif // QT_H
 
-#ifndef QT_NO_GROUPBOX
+#ifndef TQT_NO_GROUPBOX
 
 
 class TQAccel;
@@ -54,7 +54,7 @@ class TQVBoxLayout;
 class TQGridLayout;
 class TQSpacerItem;
 
-class Q_EXPORT TQGroupBox : public TQFrame
+class TQ_EXPORT TQGroupBox : public TQFrame
 {
     TQ_OBJECT
     TQ_PROPERTY( TQString title READ title WRITE setTitle )
@@ -62,7 +62,7 @@ class Q_EXPORT TQGroupBox : public TQFrame
     TQ_PROPERTY( Orientation orientation READ orientation WRITE setOrientation DESIGNABLE false )
     TQ_PROPERTY( int columns READ columns WRITE setColumns DESIGNABLE false )
     TQ_PROPERTY( bool flat READ isFlat WRITE setFlat )
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     TQ_PROPERTY( bool checkable READ isCheckable WRITE setCheckable )
     TQ_PROPERTY( bool checked READ isChecked WRITE setChecked )
 #endif
@@ -101,13 +101,13 @@ public:
     bool isFlat() const;
     void setFlat( bool b );
     bool isCheckable() const;
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     void setCheckable( bool b );
 #endif
     bool isChecked() const;
     void setEnabled(bool on);
 
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
 public slots:
     void setChecked( bool b );
 
@@ -132,13 +132,13 @@ private:
     void calculateFrame();
     void insertWid( TQWidget* );
     void setTextSpacer();
-#ifndef QT_NO_CHECKBOX
+#ifndef TQT_NO_CHECKBOX
     void updateCheckBoxGeometry();
 #endif
     TQString str;
     int align;
     int lenvisible;
-#ifndef QT_NO_ACCEL
+#ifndef TQT_NO_ACCEL
     TQAccel * accel;
 #endif
     TQGroupBoxPrivate * d;
@@ -160,6 +160,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_GROUPBOX
+#endif // TQT_NO_GROUPBOX
 
 #endif // TQGROUPBOX_H

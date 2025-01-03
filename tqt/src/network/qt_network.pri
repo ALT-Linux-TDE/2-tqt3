@@ -1,4 +1,4 @@
-# Qt network module
+# TQt network module
 
 network {
 	HEADERS += $$NETWORK_H/ntqdns.h \

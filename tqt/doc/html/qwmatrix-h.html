@@ -84,10 +84,10 @@ body { background: #ffffff; color: black; }
 #include "ntqregion.h"
 #endif // QT_H
 
-#ifndef QT_NO_WMATRIX
+#ifndef TQT_NO_WMATRIX
 
 
-class Q_EXPORT TQWMatrix					// 2D transform matrix
+class TQ_EXPORT TQWMatrix					// 2D transform matrix
 {
 public:
     TQWMatrix();
@@ -149,18 +149,18 @@ private:
     double	_dx,  _dy;
 };
 
-Q_EXPORT TQWMatrix operator*( const TQWMatrix &amp;, const TQWMatrix &amp; );
+TQ_EXPORT TQWMatrix operator*( const TQWMatrix &amp;, const TQWMatrix &amp; );
 
 
 /*****************************************************************************
   TQWMatrix stream functions
  *****************************************************************************/
 
-Q_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQWMatrix &amp; );
-Q_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQWMatrix &amp; );
+TQ_EXPORT TQDataStream &amp;operator&lt;&lt;( TQDataStream &amp;, const TQWMatrix &amp; );
+TQ_EXPORT TQDataStream &amp;operator&gt;&gt;( TQDataStream &amp;, TQWMatrix &amp; );
 
 
-#endif // QT_NO_WMATRIX
+#endif // TQT_NO_WMATRIX
 
 #endif // TQWMATRIX_H
 </pre>

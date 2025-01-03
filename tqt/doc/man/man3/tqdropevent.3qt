@@ -48,7 +48,7 @@ Inherited by QDragMoveEvent.
 .BI "Action \fBaction\fR () const"
 .br
 .ti -1c
-.BI "QWidget * \fBsource\fR () const"
+.BI "TQWidget * \fBsource\fR () const"
 .br
 .ti -1c
 .BI "virtual const char * \fBformat\fR ( int n = 0 ) const"
@@ -156,7 +156,7 @@ Reimplemented from QMimeSource.
 Sets the action to \fIa\fR. This is used internally, you should not need to call this in your code: the \fIsource\fR decides the action, not the target.
 .SH "void QDropEvent::setPoint ( const QPoint & np )"
 Sets the drop to happen at point \fInp\fR. You do not normally need to use this as it will be set internally before your widget receives the drop event.
-.SH "QWidget * QDropEvent::source () const"
+.SH "TQWidget * QDropEvent::source () const"
 If the source of the drag operation is a widget in this application, this function returns that source, otherwise it returns 0. The source of the operation is the first parameter to drag object subclasses.
 .PP
 This is useful if your widget needs special behavior when dragging to itself, etc.
@@ -177,8 +177,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

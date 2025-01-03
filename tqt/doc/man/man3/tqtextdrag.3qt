@@ -16,16 +16,16 @@ Inherits QDragObject.
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTextDrag\fR ( const QString & text, QWidget * dragSource = 0, const char * name = 0 )"
+.BI "\fBQTextDrag\fR ( const TQString & text, TQWidget * dragSource = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQTextDrag\fR ( QWidget * dragSource = 0, const char * name = 0 )"
+.BI "\fBQTextDrag\fR ( TQWidget * dragSource = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "\fB~QTextDrag\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetText\fR ( const QString & text )"
+.BI "virtual void \fBsetText\fR ( const TQString & text )"
 .br
 .ti -1c
 .BI "virtual void \fBsetSubtype\fR ( const QCString & st )"
@@ -37,16 +37,16 @@ Inherits QDragObject.
 .BI "bool \fBcanDecode\fR ( const QMimeSource * e )"
 .br
 .ti -1c
-.BI "bool \fBdecode\fR ( const QMimeSource * e, QString & str )"
+.BI "bool \fBdecode\fR ( const QMimeSource * e, TQString & str )"
 .br
 .ti -1c
-.BI "bool \fBdecode\fR ( const QMimeSource * e, QString & str, QCString & subtype )"
+.BI "bool \fBdecode\fR ( const QMimeSource * e, TQString & str, QCString & subtype )"
 .br
 .in -1c
 .SH DESCRIPTION
 The QTextDrag class is a drag and drop object for transferring plain and Unicode text.
 .PP
-Plain text is passed in a QString which may contain multiple lines (i.e. may contain newline characters). The drag target will receive the newlines according to the runtime environment, e.g. LF on Unix, and CRLF on Windows.
+Plain text is passed in a TQString which may contain multiple lines (i.e. may contain newline characters). The drag target will receive the newlines according to the runtime environment, e.g. LF on Unix, and CRLF on Windows.
 .PP
 Qt provides no built-in mechanism for delivering only a single-line.
 .PP
@@ -54,25 +54,25 @@ For more information about drag and drop, see the QDragObject class and the drag
 .PP
 See also Drag And Drop Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTextDrag::QTextDrag ( const QString & text, QWidget * dragSource = 0, const char * name = 0 )"
+.SH "QTextDrag::QTextDrag ( const TQString & text, TQWidget * dragSource = 0, const char * name = 0 )"
 Constructs a text drag object and sets its data to \fItext\fR. \fIdragSource\fR must be the drag source; \fIname\fR is the object name.
-.SH "QTextDrag::QTextDrag ( QWidget * dragSource = 0, const char * name = 0 )"
+.SH "QTextDrag::QTextDrag ( TQWidget * dragSource = 0, const char * name = 0 )"
 Constructs a default text drag object. \fIdragSource\fR must be the drag source; \fIname\fR is the object name.
 .SH "QTextDrag::~QTextDrag ()"
 Destroys the text drag object and frees up all allocated resources.
 .SH "bool QTextDrag::canDecode ( const QMimeSource * e )\fC [static]\fR"
-Returns TRUE if the information in \fIe\fR can be decoded into a QString; otherwise returns FALSE.
+Returns TRUE if the information in \fIe\fR can be decoded into a TQString; otherwise returns FALSE.
 .PP
 See also decode().
 .PP
 Example: iconview/simple_dd/main.cpp.
-.SH "bool QTextDrag::decode ( const QMimeSource * e, QString & str )\fC [static]\fR"
+.SH "bool QTextDrag::decode ( const QMimeSource * e, TQString & str )\fC [static]\fR"
 Attempts to decode the dropped information in \fIe\fR into \fIstr\fR. Returns TRUE if successful; otherwise returns FALSE.
 .PP
 See also canDecode().
 .PP
 Example: iconview/simple_dd/main.cpp.
-.SH "bool QTextDrag::decode ( const QMimeSource * e, QString & str, QCString & subtype )\fC [static]\fR"
+.SH "bool QTextDrag::decode ( const QMimeSource * e, TQString & str, QCString & subtype )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Attempts to decode the dropped information in \fIe\fR into \fIstr\fR. Returns TRUE if successful; otherwise returns FALSE. If \fIsubtype\fR is null, any text subtype is accepted; otherwise only the specified \fIsubtype\fR is accepted.
@@ -80,7 +80,7 @@ Attempts to decode the dropped information in \fIe\fR into \fIstr\fR. Returns TR
 See also canDecode().
 .SH "void QTextDrag::setSubtype ( const QCString & st )\fC [virtual]\fR"
 Sets the MIME subtype of the text being dragged to \fIst\fR. The default subtype is "plain", so the default MIME type of the text is "text/plain". You might use this to declare that the text is" text/html" by calling setSubtype("html").
-.SH "void QTextDrag::setText ( const QString & text )\fC [virtual]\fR"
+.SH "void QTextDrag::setText ( const TQString & text )\fC [virtual]\fR"
 Sets the text to be dragged to \fItext\fR. You will need to call this
 if you did not pass the text during construction.
 
@@ -98,8 +98,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

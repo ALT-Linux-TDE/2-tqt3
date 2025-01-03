@@ -48,10 +48,10 @@
 #if !defined(TQT_MODULE_XML) || defined( QT_LICENSE_PROFESSIONAL ) || defined( QT_INTERNAL_XML )
 #define TQM_EXPORT_DOM
 #else
-#define TQM_EXPORT_DOM Q_EXPORT
+#define TQM_EXPORT_DOM TQ_EXPORT
 #endif
 
-#ifndef QT_NO_DOM
+#ifndef TQT_NO_DOM
 
 class TQIODevice;
 class TQTextStream;
@@ -673,5 +673,5 @@ private:
 
 TQM_EXPORT_DOM TQTextStream& operator<<( TQTextStream&, const TQDomNode& );
 
-#endif //QT_NO_DOM
+#endif //TQT_NO_DOM
 #endif // TQDOM_H

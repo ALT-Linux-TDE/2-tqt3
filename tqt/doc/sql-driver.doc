@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -65,7 +65,7 @@ The \link sql.html SQL Module\endlink uses driver \link
 plugins-howto.html plugins\endlink in order to communicate with
 different database APIs. Since the SQL Module API is
 database-independent, all database-specific code is contained within
-these drivers. Several drivers are supplied with Qt and other drivers
+these drivers. Several drivers are supplied with TQt and other drivers
 can be added. The driver source code is supplied and can be used as a
 model for \link #development writing your own drivers\endlink.
 
@@ -76,7 +76,7 @@ Most installation programs also allow you to install "development
 libraries", and these are what you need. These libraries are responsible
 for the low-level communication with the DBMS.
 
-The drivers shipped with Qt are:
+The drivers shipped with TQt are:
 \list
 \i \link #QDB2 QDB2\endlink - IBM DB2 Driver (v7.1 and higher)
 \i \link #QIBASE QIBASE\endlink - Borland Interbase Driver
@@ -88,13 +88,13 @@ The drivers shipped with Qt are:
 \i \link #QTDS7 QTDS7\endlink - Sybase Adaptive Server
 \endlist
 
-Note that not all of the plugins are shipped with the Qt Open Source Edition
+Note that not all of the plugins are shipped with the TQt Open Source Edition
 due to license incompatibilities with the GPL.
 
 \target building
 \section1 Building the drivers using configure
 
-The Qt configure script automatically detects the available client
+The TQt configure script automatically detects the available client
 libraries on your machine. Run "configure -help" to see what drivers
 can be built. You should get an output similar to this:
 
@@ -119,7 +119,7 @@ filenames, so use the 8.3 name instead, i.e. use \c{C:\progra~1\mysql}
 instead of \c{C:\program files\mysql}.
 
 Use the \c{-qt-sql-<driver>} parameter to build the database driver
-statically into your Qt library or \c{-plugin-sql-<driver>} to build
+statically into your TQt library or \c{-plugin-sql-<driver>} to build
 the driver as a plugin. Look at the sections that follow for
 additional information about required libraries.
 
@@ -159,7 +159,7 @@ header files and shared libraries (here it is assumed that MySQL is
 installed in \c{/usr/local}) and run \c{make}:
 
 \code
-cd $QTDIR/plugins/src/sqldrivers/mysql
+cd $TQTDIR/plugins/src/sqldrivers/mysql
 qmake -o Makefile "INCLUDEPATH+=/usr/local/include" "LIBS+=-L/usr/local/lib -lmysqlclient" mysql.pro
 make
 \endcode
@@ -172,7 +172,7 @@ Build the plugin as follows (here it is assumed that MySQL is
 installed in \c{C:\MYSQL}):
 
 \code
-cd %QTDIR%\plugins\src\sqldrivers\mysql
+cd %TQTDIR%\plugins\src\sqldrivers\mysql
 qmake -o Makefile "INCLUDEPATH+=C:\MYSQL\INCLUDE" "LIBS+=C:\MYSQL\LIB\OPT\LIBMYSQL.LIB" mysql.pro
 nmake
 \endcode
@@ -187,7 +187,7 @@ make in the statement above.
 
 \section3 General information
 
-The Qt OCI plugin supports Oracle 8, 9 and 10. After
+The TQt OCI plugin supports Oracle 8, 9 and 10. After
 connecting to the Oracle server, the plugin will auto-detect the
 database version and enable features accordingly.
 
@@ -207,7 +207,7 @@ columns, you have to use a forward only query to select LOB fields
 
 Inserting BLOBs should be done using either a prepared query where the
 BLOBs are bound to placeholders, or QSqlCursor which uses a prepared
-query to do this internally (see $QTDIR/examples/sql/blob).
+query to do this internally (see $TQTDIR/examples/sql/blob).
 
 \section3 Know problems 
 
@@ -233,21 +233,21 @@ the directory where Oracle is installed) and run make:
 
 If you are using Oracle 8:
 \code
-cd $QTDIR/plugins/src/sqldrivers/oci
+cd $TQTDIR/plugins/src/sqldrivers/oci
 qmake -o Makefile "INCLUDEPATH+=$ORACLE_HOME/rdbms/public $ORACLE_HOME/rdbms/demo" "LIBS+=-L$ORACLE_HOME/lib -lclntsh -lwtc8" oci.pro
 make
 \endcode
 
 For Oracle version 9:
 \code
-cd $QTDIR/plugins/src/sqldrivers/oci
+cd $TQTDIR/plugins/src/sqldrivers/oci
 qmake -o Makefile "INCLUDEPATH+=$ORACLE_HOME/rdbms/public $ORACLE_HOME/rdbms/demo" "LIBS+=-L$ORACLE_HOME/lib -lclntsh -lwtc9" oci.pro
 make
 \endcode
 
 For Oracle version 10:
 \code
-cd $QTDIR/plugins/src/sqldrivers/oci
+cd $TQTDIR/plugins/src/sqldrivers/oci
 qmake -o Makefile "INCLUDEPATH+=$ORACLE_HOME/rdbms/public $ORACLE_HOME/rdbms/demo" "LIBS+=-L$ORACLE_HOME/lib -lclntsh" oci.pro
 make
 \endcode
@@ -255,8 +255,8 @@ make
 Note that some versions of the OCI client libraries contain a bug
 that makes programs linked to these libraries segfault on exit. This
 only happens if the QOCI8 driver is compiled as a plugin. To work
-around this problem, either compile the driver into the Qt libray
-itself, or configure Qt with the option '-DQT_NO_LIBRARY_UNLOAD'.
+around this problem, either compile the driver into the TQt libray
+itself, or configure TQt with the option '-DTQT_NO_LIBRARY_UNLOAD'.
 For Oracle 9, it is possible to link to the static OCI library by
 using "LIBS+=$ORACLE_HOME/lib/libclntst9.a".
 
@@ -271,7 +271,7 @@ installed in \c{C:\oracle}):
 \code
 set INCLUDE=%INCLUDE%;c:\oracle\oci\include
 set LIB=%LIB%;c:\oracle\oci\lib\msvc
-cd %QTDIR%\plugins\src\sqldrivers\oci
+cd %TQTDIR%\plugins\src\sqldrivers\oci
 qmake -o Makefile oci.pro
 nmake
 \endcode
@@ -298,7 +298,7 @@ DBMS using a common interface. The QODBC3 driver allows you to connect
 to an ODBC driver manager and access the available data sources. Note
 that you also need to install and configure ODBC drivers for the ODBC
 driver manager that is installed on your system. The QODBC3 plugin
-then allows you to use these data sources in your Qt project.
+then allows you to use these data sources in your TQt project.
 
 On Windows systems after 95 an ODBC driver manager should be installed
 by default, for Unix systems there are some implementations which must
@@ -343,7 +343,7 @@ libraries (here it is assumed that unixODBC is installed in
 \c{/usr/local/unixODBC}) and run \c{make}:
 
 \code
-cd $QTDIR/plugins/src/sqldrivers/odbc
+cd $TQTDIR/plugins/src/sqldrivers/odbc
 qmake "INCLUDEPATH+=/usr/local/unixODBC/include" "LIBS+=-L/usr/local/unixODBC/lib -lodbc"
 make
 \endcode
@@ -354,7 +354,7 @@ The ODBC header and include files should already be installed in the
 right directories. You just have to build the plugin as follows:
 
 \code
-cd %QTDIR%\plugins\src\sqldrivers\odbc
+cd %TQTDIR%\plugins\src\sqldrivers\odbc
 qmake -o Makefile odbc.pro
 nmake
 \endcode
@@ -420,7 +420,7 @@ libraries, run \c qmake the following way (assuming that the
 PostgreSQL sources can be found in \c{/usr/src/psql}):
 
 \code
-cd $QTDIR/plugins/src/sqldrivers/psql
+cd $TQTDIR/plugins/src/sqldrivers/psql
 qmake -o Makefile "INCLUDEPATH+=/usr/src/psql/src/include /usr/src/psql/src/interfaces/libpq" "LIBS+=-L/usr/lib -lpq" psql.pro
 make
 \endcode
@@ -432,7 +432,7 @@ the PostgreSQL documentation. Assuming the PostgreSQL sources resides
 in \c{C:\psql}, build the plugin as follows:
 
 \code
-cd %QTDIR%\plugins\src\sqldrivers\psql
+cd %TQTDIR%\plugins\src\sqldrivers\psql
 qmake -o Makefile "INCLUDEPATH+=C:\psql\src\include C:\psql\src\interfaces\libpq" psql.pro
 nmake
 \endcode
@@ -466,7 +466,7 @@ point to the directory where you installed the client library and
 execute \c{qmake}:
 
 \code
-cd $QTDIR/plugins/src/sqldrivers/tds
+cd $TQTDIR/plugins/src/sqldrivers/tds
 qmake -o Makefile "INCLUDEPATH=$SYBASE/include" "LIBS=-L$SYBASE/lib -lsybdb"
 make
 \endcode
@@ -478,14 +478,14 @@ Open Client (\l{http://www.sybase.com}). You must include \c
 NTWDBLIB.LIB to build the plugin:
 
 \code
-cd %QTDIR%\plugins\src\sqldrivers\tds
+cd %TQTDIR%\plugins\src\sqldrivers\tds
 qmake -o Makefile "LIBS+=NTWDBLIB.LIB" tds.pro
 nmake
 \endcode
 
 By default the Microsoft library is used on Windows, if you want to force
 the use of the Sybase Open Client, you must define
-\c Q_USE_SYBASE in \c{%QTDIR%\src\sql\drivers\tds\qsql_tds.cpp}.
+\c Q_USE_SYBASE in \c{%TQTDIR%\src\sql\drivers\tds\qsql_tds.cpp}.
 
 \target QDB2
 \section2 QDB2 - IBM DB2 Driver (v7.1 or higher)
@@ -494,7 +494,7 @@ the use of the Sybase Open Client, you must define
 
 \section3 General information
 
-The Qt DB2 plugin makes it possible to access IBM DB2 databases. It
+The TQt DB2 plugin makes it possible to access IBM DB2 databases. It
 has been tested with IBM DB2 v7.1 and 7.2. You have to install the IBM
 DB2 development client library, which contains the header and library
 files necessary for compiling the QDB2 plugin.
@@ -508,7 +508,7 @@ in DB2 (see QSqlQuery::setForwardOnly()).
 \section3 How to build the plugin on Unix/Linux
 
 \code
-cd $QTDIR/plugins/src/sqldrivers/db2
+cd $TQTDIR/plugins/src/sqldrivers/db2
 qmake -o Makefile "INCLUDEPATH+=$DB2DIR/include" "LIBS+=-L$DB2DIR/lib -ldb2"
 make
 \endcode
@@ -519,7 +519,7 @@ The DB2 header and include files should already be installed in the
 right directories. You just have to build the plugin as follows:
 
 \code
-cd %QTDIR%\plugins\src\sqldrivers\db2
+cd %TQTDIR%\plugins\src\sqldrivers\db2
 qmake -o Makefile "INCLUDEPATH+=<DB2 home>/sqllib/include" "LIBS+=<DB2 home>/sqllib/lib/db2cli.lib"
 nmake
 \endcode
@@ -532,7 +532,7 @@ with \c make in the statement above.
 
 \keyword QSQLITE
 
-The Qt SQLite plugin makes it possible to access SQLite databases.
+The TQt SQLite plugin makes it possible to access SQLite databases.
 SQLite is an in-process database, meaning that it is not necessary
 to have a database server. SQLite operates on a single file, which has
 to be set as database name when opening a connection. If the file does
@@ -552,14 +552,14 @@ You can find information about SQLite on \l{http://www.sqlite.org}.
 SQLite is shipped as third party library within Qt. It can be built by
 passing the following parameters to the configure script:
 \c{-plugin-sql-sqlite} (as plugin) or \c{-qt-sql-sqlite} (linked
-directly into the Qt library).
+directly into the TQt library).
 
 If you don't want to use the SQLite library shipped with Qt, you can
 build it manually (replace \c $SQLITE by the directory where SQLite
 resides):
 
 \code
-cd $QTDIR/plugins/src/sqldrivers/sqlite
+cd $TQTDIR/plugins/src/sqldrivers/sqlite
 qmake -o Makefile "INCLUDEPATH+=$SQLITE/include" "LIBS+=-L$SQLITE/lib -lsqlite"
 make
 \endcode
@@ -571,7 +571,7 @@ make
 
 \section3 General information
 
-The Qt Interbase plugin makes it possible to access the Interbase and
+The TQt Interbase plugin makes it possible to access the Interbase and
 Firebird databases. Interbase can either be used as a client/server or
 without a server operating on local files. The database file must
 exist before a connection can be established.
@@ -588,7 +588,7 @@ server.
 You need the Interbase/Firebird development headers and libraries
 to build this plugin.
 
-Due to the GPL, users of the Qt Open Source Edition are not allowed to link
+Due to the GPL, users of the TQt Open Source Edition are not allowed to link
 this plugin to the commercial editions of Interbase. Please use Firebird
 or the free edition of Interbase.
 
@@ -598,7 +598,7 @@ The following assumes Interbase or Firebird is installed in
 \c{/opt/interbase}:
 
 \code
-cd $QTDIR/plugins/src/sqldrivers/ibase
+cd $TQTDIR/plugins/src/sqldrivers/ibase
 qmake -o Makefile "INCLUDEPATH+=/opt/interbase/include" "LIBS+=-L/opt/interbase/lib" ibase.pro
 make
 \endcode
@@ -609,7 +609,7 @@ The following assumes Interbase or Firebird is installed in
 \c{C:\interbase}:
 
 \code
-cd %QTDIR%\plugins\src\sqldrivers\ibase
+cd %TQTDIR%\plugins\src\sqldrivers\ibase
 qmake -o Makefile "INCLUDEPATH+=C:\interbase\include" ibase.pro
 nmake
 \endcode
@@ -635,10 +635,10 @@ If the compilation of a plugin succeeds but it cannot be loaded,
 make sure that the following requirements are met:
 
 \list
-\i Ensure that you are using a shared Qt library; you cannot use the
+\i Ensure that you are using a shared TQt library; you cannot use the
     plugins with a static build.
-\i Ensure that the environment variable \c QTDIR points to the right
-    directory. Go to the \c{$QTDIR/plugins/sqldrivers} directory and
+\i Ensure that the environment variable \c TQTDIR points to the right
+    directory. Go to the \c{$TQTDIR/plugins/sqldrivers} directory and
     make sure that the plugin exists in that directory.
 \i Ensure that the client libraries of the DBMS are available on the 
     system. On Unix, run the command \c{ldd} and pass the name of the
@@ -692,13 +692,13 @@ QSqlDriver and QSqlResult are closely connected. When implementing a
 Qt SQL driver, both of these classes must to be subclassed and the
 abstract virtual methods in each class must be implemented. 
 
-To implement a Qt SQL driver as a plugin (so that it is recognized and
-loaded by the Qt library at runtime), the driver must use the
-\c Q_EXPORT_PLUGIN macro. Read the \link plugins-howto.html Qt
+To implement a TQt SQL driver as a plugin (so that it is recognized and
+loaded by the TQt library at runtime), the driver must use the
+\c TQ_EXPORT_PLUGIN macro. Read the \link plugins-howto.html Qt
 Plugin\endlink documentation for more information on this. You can
 also check out how this is done in the SQL plugins that is provided
-with Qt in \c{QTDIR/plugins/src/sqldrivers} and
-\c{QTDIR/src/sql/drivers}.
+with TQt in \c{TQTDIR/plugins/src/sqldrivers} and
+\c{TQTDIR/src/sql/drivers}.
 
 The following code can be used as a skeleton for a SQL driver:
 
@@ -710,7 +710,7 @@ public:
     ~QNullResult() {}
 protected:
     QVariant    data( int ) { return QVariant(); }
-    bool        reset ( const QString& ) { return FALSE; }
+    bool        reset ( const TQString& ) { return FALSE; }
     bool        fetch( int ) { return FALSE; }
     bool        fetchFirst() { return FALSE; }
     bool        fetchLast() { return FALSE; }
@@ -726,10 +726,10 @@ public:
     QNullDriver(): QSqlDriver() {}
     ~QNullDriver() {}
     bool    hasFeature( DriverFeature ) const { return FALSE; }
-    bool    open( const QString&,
-                  const QString&,
-                  const QString&,
-                  const QString&,
+    bool    open( const TQString&,
+                  const TQString&,
+                  const TQString&,
+                  const TQString&,
                   int ) { return FALSE; }
     void    close() {}
     QSqlQuery createQuery() const { return QSqlQuery( new QNullResult( this ) ); }

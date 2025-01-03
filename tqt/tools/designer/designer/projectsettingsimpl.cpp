@@ -61,7 +61,7 @@
 ProjectSettings::ProjectSettings( Project *pro, TQWidget* parent,  const char* name, bool modal, WFlags fl )
     : ProjectSettingsBase( parent, name, modal, fl ), project( pro )
 {
-    connect( buttonHelp, SIGNAL( clicked() ), MainWindow::self, SLOT( showDialogHelp() ) );
+    connect( buttonHelp, TQ_SIGNAL( clicked() ), MainWindow::self, TQ_SLOT( showDialogHelp() ) );
 
     editProjectFile->setFocus();
 

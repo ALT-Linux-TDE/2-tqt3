@@ -40,7 +40,7 @@
 
 #include "ntqurl.h"
 
-#ifndef QT_NO_URL
+#ifndef TQT_NO_URL
 
 #include "ntqdir.h"
 
@@ -78,7 +78,7 @@ static void slashify( TQString& s, bool allowMultiple = TRUE )
 	}
 	if ( s[ i ] == '\\' )
 	    s[ i ] = '/';
-#if defined (Q_WS_MAC9)
+#if defined (TQ_WS_MAC9)
 	if ( s[ i ] == ':' && (i == (int)s.length()-1 || s[ i + 1 ] != '/' ) ) //mac colon's go away, unless after a protocol
 		s[ i ] = '/';
 #endif
@@ -1106,7 +1106,7 @@ bool TQUrl::isLocalFile() const
 TQString TQUrl::fileName() const
 {
     if ( d->path.isEmpty() || d->path.endsWith( "/" )
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	|| d->path.endsWith( "\\" )
 #endif
 	)
@@ -1342,4 +1342,4 @@ bool TQUrl::cdUp()
     return TRUE;
 }
 
-#endif // QT_NO_URL
+#endif // TQT_NO_URL

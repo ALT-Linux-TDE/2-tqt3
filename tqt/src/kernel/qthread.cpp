@@ -36,7 +36,7 @@
 **
 **********************************************************************/
 
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
 
 #include "qplatformdefs.h"
 
@@ -132,9 +132,9 @@
 
 TQThread::TQThread()
 {
-#ifdef QT_THREAD_SUPPORT
+#ifdef TQT_THREAD_SUPPORT
     TQMutexLocker locker( TQApplication::tqt_mutex );
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT
 
     d = new TQThreadInstance;
     d->init(0);
@@ -256,7 +256,7 @@ bool TQThread::threadPostedEventsDisabled() const
     \sa wait()
 */
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 /*! \obsolete
     Use TQApplication::postEvent() instead.
 */
@@ -282,4 +282,4 @@ void TQEventLoopThread::run()
     if (eventLoop) eventLoop->exec();
 }
 
-#endif // QT_THREAD_SUPPORT
+#endif // TQT_THREAD_SUPPORT

@@ -11,7 +11,7 @@ QSocketDevice \- Platform-independent low-level socket API
 .SH SYNOPSIS
 \fC#include <ntqsocketdevice.h>\fR
 .PP
-Inherits QIODevice.
+Inherits TQIODevice.
 .PP
 .SS "Public Members"
 .in +1c
@@ -129,7 +129,7 @@ The QSocketDevice class provides a platform-independent low-level socket API.
 .PP
 This class provides a low level API for working with sockets. Users of this class are assumed to have networking experience. For most users the QSocket class provides a much easier and high level alternative, but certain things (like UDP) can't be done with QSocket and if you need a platform-independent API for those, QSocketDevice is the right choice.
 .PP
-The essential purpose of the class is to provide a QIODevice that works on sockets, wrapped in a platform-independent API.
+The essential purpose of the class is to provide a TQIODevice that works on sockets, wrapped in a platform-independent API.
 .PP
 When calling connect() or bind(), QSocketDevice detects the protocol family (IPv4, IPv6) automatically. Passing the protocol family to QSocketDevice's constructor or to setSocket() forces creation of a socket device of a specific protocol. If not set, the protocol will be detected at the first call to connect() or bind().
 .PP
@@ -260,7 +260,7 @@ Note that for Datagram sockets, this is the source port of the last packet recei
 .SH "TQ_UINT16 QSocketDevice::port () const"
 Returns the port number of this socket device. This may be 0 for a while, but is set to something sensible as soon as a sensible value is available.
 .PP
-Note that Qt always uses native byte order, i.e. 67 is 67 in Qt; there is no need to call htons().
+Note that TQt always uses native byte order, i.e. 67 is 67 in Qt; there is no need to call htons().
 .SH "Protocol QSocketDevice::protocol () const"
 Returns the socket's protocol family, which is one of Unknown, IPv4, or IPv6.
 .PP
@@ -270,7 +270,7 @@ See also Protocol and setSocket().
 .SH "TQ_LONG QSocketDevice::readBlock ( char * data, TQ_ULONG maxlen )\fC [virtual]\fR"
 Reads \fImaxlen\fR bytes from the socket into \fIdata\fR and returns the number of bytes read. Returns -1 if an error occurred. Returning 0 is not an error. For Stream sockets, 0 is returned when the remote host closes the connection. For Datagram sockets, 0 is a valid datagram size.
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 .SH "int QSocketDevice::receiveBufferSize () const"
 Returns the size of the operating system receive buffer.
 .PP
@@ -338,7 +338,7 @@ Writes \fIlen\fR bytes to the socket from \fIdata\fR and returns the number of b
 .PP
 This is used for QSocketDevice::Stream sockets.
 .PP
-Reimplemented from QIODevice.
+Reimplemented from TQIODevice.
 .SH "TQ_LONG QSocketDevice::writeBlock ( const char * data, TQ_ULONG len, const QHostAddress & host, TQ_UINT16 port )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -361,8 +361,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

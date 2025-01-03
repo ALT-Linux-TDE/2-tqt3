@@ -59,8 +59,8 @@
 #endif // QT_H
 
 
-#ifndef QT_NO_CODECS
-#ifndef QT_NO_BIG_CODECS
+#ifndef TQT_NO_CODECS
+#ifndef TQT_NO_BIG_CODECS
 
 
 class TQJpUnicodeConv;
@@ -378,7 +378,7 @@ public:
     bool canEncode( TQChar ) const;
 };
 
-#endif // QT_NO_BIG_CODECS
-#endif // QT_NO_CODECS
+#endif // TQT_NO_BIG_CODECS
+#endif // TQT_NO_CODECS
 
 #endif // TQFONTCODECS_P_H

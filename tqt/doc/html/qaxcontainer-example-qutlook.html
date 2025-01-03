@@ -144,9 +144,9 @@ to the signals provided by the "Items" COM object. Finally, it calls the
 <pre>        // Get all items
         if ( defFolder ) {
             contactItems = defFolder-&gt;<a href="qaxbase.html#querySubObject">querySubObject</a>( "Items" );
-            <a href="ntqobject.html#connect">connect</a>( contactItems, SIGNAL(ItemAdd(IDispatch*)), this, SLOT(updateOutlook()) );
-            <a href="ntqobject.html#connect">connect</a>( contactItems, SIGNAL(ItemChange(IDispatch*)), this, SLOT(updateOutlook()) );
-            <a href="ntqobject.html#connect">connect</a>( contactItems, SIGNAL(ItemRemove()), this, SLOT(updateOutlook()) );
+            <a href="ntqobject.html#connect">connect</a>( contactItems, TQ_SIGNAL(ItemAdd(IDispatch*)), this, TQ_SLOT(updateOutlook()) );
+            <a href="ntqobject.html#connect">connect</a>( contactItems, TQ_SIGNAL(ItemChange(IDispatch*)), this, TQ_SLOT(updateOutlook()) );
+            <a href="ntqobject.html#connect">connect</a>( contactItems, TQ_SIGNAL(ItemRemove()), this, TQ_SLOT(updateOutlook()) );
         }
 
         updateOutlook();

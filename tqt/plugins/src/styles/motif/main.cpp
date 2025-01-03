@@ -30,5 +30,5 @@ TQStyle* MotifStyle::create( const TQString& s )
     return 0;
 }
 
-Q_EXPORT_PLUGIN( MotifStyle )
+TQ_EXPORT_PLUGIN( MotifStyle )
 

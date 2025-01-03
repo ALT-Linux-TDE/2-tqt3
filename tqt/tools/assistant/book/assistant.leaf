@@ -1,21 +1,21 @@
 \chapter Introduction
 
 This document introduces \QA, a tool for presenting on-line
-documentation. It also introduces the Qt Reference Documentation which
+documentation. It also introduces the TQt Reference Documentation which
 is accessible using \QA, or with a web browser. The document is
 divided into the following sections:
 
 \list
-\i Introduction to the Qt Reference Documentation
-\i The 1 Minute Guide to using Qt Assistant
-\i Qt Assistant in More Detail
+\i Introduction to the TQt Reference Documentation
+\i The 1 Minute Guide to using TQt Assistant
+\i TQt Assistant in More Detail
 \i Full Text Searching
-\i Customizing Qt Assistant 
+\i Customizing TQt Assistant 
 \endlist
 
-\chapter Introduction to the Qt Reference Documentation
+\chapter Introduction to the TQt Reference Documentation
 
-The documentation for the Qt library is written in-line in the \File
+The documentation for the TQt library is written in-line in the \File
 .cpp files by the developers themselves. The documentation team
 revises the documentation to ensure that it is accurate and usable,
 and to provide quality control. The documentation team also writes the
@@ -28,9 +28,9 @@ we make great efforts to keep our API consistent and compatible with
 each new version, but we may change the internals considerably to improve
 performance and enhance functionality.
 
-The Qt Reference Documentation consists of almost 1,500 HTML pages
+The TQt Reference Documentation consists of almost 1,500 HTML pages
 (over 2,500 printed pages). The overwhelming majority of pages
-document Qt classes. Since developers differ in the way they
+document TQt classes. Since developers differ in the way they
 think and work we provide a variety of approaches to navigating the
 documentation set: 
 
@@ -48,15 +48,15 @@ of groups, each of which leads to a list of related classes, for
 example, the \link advanced.html Advanced Widgets\endlink list.
 
 \i The \link hierarchy.html Inheritance Hierarchy\endlink page
-presents a list of classes in terms of the hierarchy of Qt classes.
+presents a list of classes in terms of the hierarchy of TQt classes.
 
 \i The \link functions.html All Functions\endlink page lists all the
-functions provided by Qt classes, each one with links to the class(es)
+functions provided by TQt classes, each one with links to the class(es)
 in which it appears.
 
 \endlist
 
-No matter where you find yourself in the Qt documentation, you will
+No matter where you find yourself in the TQt documentation, you will
 find extensive cross-referencing. Even snippets of example code
 contain clickable links, so that for example, if you come across a
 class declaration in a code example, the class name will be a
@@ -64,21 +64,21 @@ clickable link to the class's documentation.
 
 In addition to the class documentation some of Qt's modules have
 extensive descriptions, and there are many overview documents which
-describe various aspects of the Qt library; all these are linked from
+describe various aspects of the TQt library; all these are linked from
 the reference documentation home page. There are also two tutorials
 and numerous example programs in the examples subdirectory of the Qt
 distribution.
 
-\chapter The 1 Minute Guide to Using Qt Assistant
+\chapter The 1 Minute Guide to Using TQt Assistant
 
-Under Windows, \QA is available as a menu option on the Qt menu. On
+Under Windows, \QA is available as a menu option on the TQt menu. On
 Unix, run \c{assistant} from an xterm.
 
 When you start up \QA, you will be presented with a standard
 main-window style application, with a menu bar and toolbar. Below
 these, on the left hand side is a navigation window called the \e
 Sidebar, and on the right, taking up most of the space, is the
-documentation window. By default, the Qt Reference Documentation's home
+documentation window. By default, the TQt Reference Documentation's home
 page is shown in the documentation window.
 
 \QA works in a similar way to a web browser. If you click underlined
@@ -88,7 +88,7 @@ interest and you can click the \Toolbutton Previous and \Toolbutton
 Next toolbar buttons to navigate within the pages you've visited. 
 
 Although \QA can be used just like a web browser to navigate through
-the Qt documentation set, \QA offers a powerful means of navigation
+the TQt documentation set, \QA offers a powerful means of navigation
 that web browsers don't provide. \QA uses an intelligent algorithm to
 index all the pages in the documentation sets that it presents so that
 you can search for particular words and phrases.
@@ -125,10 +125,10 @@ application you will distribute. With profiles, you can select which
 documentation you want the end user of your application to be able to
 view.
 
-\chapter Qt Assistant in More Detail
+\chapter TQt Assistant in More Detail
 
 \img assistant.png
-\caption Qt Assistant
+\caption TQt Assistant
 
 \section1 The Sidebar
 
@@ -144,7 +144,7 @@ sub-items will appear. Click a sub-item to make its page appear in the
 documentation window. Click a '-' sign to the left of an item to hide
 its sub-items.
 \i The \Toolbutton Index tab is used to look up key words or phrases.
-See \l{The 1 Minute Guide to using Qt Assistant} for how to use this
+See \l{The 1 Minute Guide to using TQt Assistant} for how to use this
 tab.
 \i The \Toolbutton Bookmarks tab lists any bookmarks you've made.
 Double click a bookmark to make its page appear in the documentation
@@ -196,7 +196,7 @@ Arrow}.
 option is \Menu Go|Next and the keyboard shortcut is \Key{Alt+Right
 Arrow}.
 \i \Toolbutton Home takes you to the home page (normally the home page
-of the Qt Reference Documentation). The menu
+of the TQt Reference Documentation). The menu
 option is \Menu Go|Home and the keyboard shortcut is \Key{Ctrl+Home}.
 \i \Toolbutton Copy copies any selected text to the clipboard. The menu
 option is \Menu Edit|Copy and the keyboard shortcut is \Key{Ctrl+C}.
@@ -364,7 +364,7 @@ document in the list to display it in the document window.
 If the documentation has changed, i.e. if documents have been added or
 removed, \QA will reindex.
 
-\chapter Customizing Qt Assistant
+\chapter Customizing TQt Assistant
 
 \QA can be customized by adding and removing documentation from its
 documentation set. In addition, \QA introduces the profiles option,
@@ -374,8 +374,8 @@ startup page, and application icon.
 \section1 Modifying the Default Documentation Set
 
 When it is started without any options, \QA displays a default set of
-documentation. When Qt is installed, the default documentation set in
-\QA contains the Qt reference documentation as well as the tools that
+documentation. When TQt is installed, the default documentation set in
+\QA contains the TQt reference documentation as well as the tools that
 come with Qt, such as \QD and qmake.
 
 Documentation can be added or removed from \QA by
@@ -444,7 +444,7 @@ The paths in the \c refs attribute are always written Unix-style
 documentation content file itself.
 
 Since the introduction of the new root tag \c assistantconfig in the
-fileformat from Qt version 3.2.0, it is possible to specify multiple DCF tags in
+fileformat from TQt version 3.2.0, it is possible to specify multiple DCF tags in
 one file. Note that the old document contents file format, used up to
 Qt 3.2 is still valid.
 
@@ -454,7 +454,7 @@ Profiles enable \QA to act as a specialized help tool for displaying
 documentation for applications. With profiles, the documentation
 writer can change properties such as \QA's title, application icons, and
 'about' dialogs. In addition, profiles can be used to run specialized
-documentation sets that are separate from the Qt docs. \QA can be
+documentation sets that are separate from the TQt docs. \QA can be
 customized by changing the following properties:
 
 \list
@@ -546,11 +546,11 @@ file above, \c helpdemo.adp, we would run the command as follows:
 > assistant -profile helpdemo.adp
 \endcode
 
-See the HelpDemo example in the Qt distribution for a demonstration
+See the HelpDemo example in the TQt distribution for a demonstration
 on how to use \QA with profiles for your own applications.
 
 When distributing \QA with your application, you will also need to
-copy the icon files from the \c QTDIR/tools/assistant/images
+copy the icon files from the \c TQTDIR/tools/assistant/images
 directory so that \QA finds its icons.
 
 \omit

@@ -45,7 +45,7 @@
 #endif
 
 #include "ntqlistbox.h"
-#ifndef QT_NO_LISTBOX
+#ifndef TQT_NO_LISTBOX
 #include "ntqmemarray.h"
 #include "ntqfontmetrics.h"
 #include "ntqpainter.h"
@@ -1022,12 +1022,12 @@ TQListBox::TQListBox( TQWidget *parent, const char *name, WFlags f )
     setMouseTracking( TRUE );
     viewport()->setMouseTracking( TRUE );
 
-    connect( d->updateTimer, SIGNAL(timeout()),
-	     this, SLOT(refreshSlot()) );
-    connect( d->visibleTimer, SIGNAL(timeout()),
-	     this, SLOT(ensureCurrentVisible()) );
-    connect( d->resizeTimer, SIGNAL( timeout() ),
-	     this, SLOT( adjustItems() ) );
+    connect( d->updateTimer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(refreshSlot()) );
+    connect( d->visibleTimer, TQ_SIGNAL(timeout()),
+	     this, TQ_SLOT(ensureCurrentVisible()) );
+    connect( d->resizeTimer, TQ_SIGNAL( timeout() ),
+	     this, TQ_SLOT( adjustItems() ) );
     viewport()->setBackgroundMode( PaletteBase );
     setBackgroundMode( PaletteBackground, PaletteBase );
     viewport()->setFocusProxy( this );
@@ -2312,8 +2312,8 @@ void TQListBox::mouseMoveEvent( TQMouseEvent *e )
     if ( ( dx || dy ) && !d->scrollTimer && e->state() == LeftButton && e->button() != LeftButton ) {
 	// start autoscrolling if necessary
 	d->scrollTimer = new TQTimer( this );
-	connect( d->scrollTimer, SIGNAL(timeout()),
-		 this, SLOT(doAutoScroll()) );
+	connect( d->scrollTimer, TQ_SIGNAL(timeout()),
+		 this, TQ_SLOT(doAutoScroll()) );
 	d->scrollTimer->start( 100, FALSE );
 	doAutoScroll();
     } else if ( !d->scrollTimer ) {
@@ -2423,7 +2423,7 @@ void TQListBox::repaintSelection()
 
 void TQListBox::contentsContextMenuEvent( TQContextMenuEvent *e )
 {
-    if ( !receivers( SIGNAL(contextMenuRequested(TQListBoxItem*,const TQPoint&)) ) ) {
+    if ( !receivers( TQ_SIGNAL(contextMenuRequested(TQListBoxItem*,const TQPoint&)) ) ) {
 	e->ignore();
 	return;
     }
@@ -3958,7 +3958,7 @@ TQRect TQListBox::itemRect( TQListBoxItem *item ) const
 }
 
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
 /*!
   \obsolete
@@ -4149,7 +4149,7 @@ void TQListBox::showEvent( TQShowEvent * )
     ensureCurrentVisible();
 }
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 
 /*!
   \obsolete
@@ -4690,4 +4690,4 @@ int TQListBoxItem::rtti() const
     return RTTI;
 }
 
-#endif // QT_NO_LISTBOX
+#endif // TQT_NO_LISTBOX

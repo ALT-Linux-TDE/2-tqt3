@@ -52,8 +52,8 @@
 #include <private/qcom_p.h>
 #endif // QT_H
 
-#ifndef QT_NO_IM
-#ifndef QT_NO_COMPONENT
+#ifndef TQT_NO_IM
+#ifndef TQT_NO_COMPONENT
 
 class TQWidget;
 class TQInputContext;
@@ -73,7 +73,7 @@ class TQInputContext;
 #define IID_QInputContextFactory TQUuid(0x9ef05c7f, 0x0272, 0x11d9, 0x84, 0x6c, 0x00, 0x0d, 0x60, 0x77, 0xa7, 0x8d)
 #endif
 
-struct Q_EXPORT TQInputContextFactoryInterface : public TQFeatureListInterface
+struct TQ_EXPORT TQInputContextFactoryInterface : public TQFeatureListInterface
 {
     virtual TQInputContext *create( const TQString &key ) = 0;
     virtual TQStringList languages( const TQString &key ) = 0;
@@ -81,7 +81,7 @@ struct Q_EXPORT TQInputContextFactoryInterface : public TQFeatureListInterface
     virtual TQString description( const TQString &key ) = 0;
 };
 
-#endif //QT_NO_COMPONENT
-#endif //QT_NO_IM
+#endif //TQT_NO_COMPONENT
+#endif //TQT_NO_IM
 
 #endif //TQINPUTCONTEXTINTERFACE_P_H

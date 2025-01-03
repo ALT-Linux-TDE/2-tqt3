@@ -35,7 +35,7 @@
 #include <ntqfeatures.h>
 #include <ntqwidget.h>
 #include <templatewizardiface.h>
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 #include "sqlformwizardimpl.h"
 #endif
 #include "mainwindowwizard.h"
@@ -48,7 +48,7 @@ public:
     virtual ~StandardTemplateWizardInterface();
 
     TQRESULT queryInterface( const TQUuid&, TQUnknownInterface** );
-    Q_REFCOUNT;
+    TQ_REFCOUNT;
 
     TQStringList featureList() const;
 
@@ -88,7 +88,7 @@ bool StandardTemplateWizardInterface::canUnload() const
 TQStringList StandardTemplateWizardInterface::featureList() const
 {
     TQStringList list;
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     list << "TQDataBrowser" << "TQDesignerDataBrowser" << "TQDataView" << \
 	"TQDesignerDataView" << "TQDataTable";
 #endif
@@ -100,7 +100,7 @@ TQStringList StandardTemplateWizardInterface::featureList() const
 void StandardTemplateWizardInterface::setup( const TQString &templ, TQWidget *widget, DesignerFormWindow *fw, TQUnknownInterface *aIface )
 {
     inUse = TRUE;
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
     if ( templ == "TQDesignerDataView" ||
 	 templ == "TQDesignerDataBrowser" ||
 	 templ == "TQDataView" ||

@@ -4,7 +4,7 @@
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
-** This file is part of the Qt GUI Toolkit.
+** This file is part of the TQt GUI Toolkit.
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -13,7 +13,7 @@
 ** Alternatively you may (at your option) use any later version
 ** of the GNU General Public License if such license has been
 ** publicly approved by Trolltech ASA (or its successors, if any)
-** and the KDE Free Qt Foundation.
+** and the KDE Free TQt Foundation.
 **
 ** Please review the following information to ensure GNU General
 ** Public Licensing requirements will be met:
@@ -44,7 +44,7 @@
 /*!
     \class QDict
     \brief The QDict class is a template class that provides a
-    dictionary based on QString keys.
+    dictionary based on TQString keys.
 
     \ingroup collection
     \ingroup tools
@@ -59,7 +59,7 @@
     pointers to X (X *).
 
     A dictionary is a collection of key-value pairs. The key is a
-    QString used for insertion, removal and lookup. The value is a
+    TQString used for insertion, removal and lookup. The value is a
     pointer. Dictionaries provide very fast insertion and lookup.
 
     If you want to use non-Unicode, plain 8-bit \c char* keys, use the
@@ -112,7 +112,7 @@
 
     Example #1:
     \code
-    QDict<QLineEdit> fields; // QString keys, QLineEdit* values
+    QDict<QLineEdit> fields; // TQString keys, QLineEdit* values
     fields.insert( "forename", new QLineEdit( this ) );
     fields.insert( "surname", new QLineEdit( this ) );
 
@@ -143,8 +143,8 @@
     styleList.sort();
     QDict<int> letterDict( 17, FALSE );
     for ( QStringList::Iterator it = styleList.begin(); it != styleList.end(); ++it ) {
-	QString styleName = *it;
-	QString styleAccel = styleName;
+	TQString styleName = *it;
+	TQString styleAccel = styleName;
 	if ( letterDict[styleAccel.left(1)] ) {
 	    for ( uint i = 0; i < styleAccel.length(); i++ ) {
 		if ( ! letterDict[styleAccel.mid( i, 1 )] ) {
@@ -264,7 +264,7 @@
 */
 
 /*!
-    \fn void QDict::insert( const QString &key, const type *item )
+    \fn void QDict::insert( const TQString &key, const type *item )
 
     Inserts the key \a key with value \a item into the dictionary.
 
@@ -277,7 +277,7 @@
 */
 
 /*!
-    \fn void QDict::replace( const QString &key, const type *item )
+    \fn void QDict::replace( const TQString &key, const type *item )
 
     Replaces the value of the key, \a key with \a item.
 
@@ -301,7 +301,7 @@
 */
 
 /*!
-    \fn bool QDict::remove( const QString &key )
+    \fn bool QDict::remove( const TQString &key )
 
     Removes the item with \a key from the dictionary. Returns TRUE if
     successful, i.e. if the item is in the dictionary; otherwise
@@ -320,7 +320,7 @@
 */
 
 /*!
-    \fn type *QDict::take( const QString &key )
+    \fn type *QDict::take( const TQString &key )
 
     Takes the item with \a key out of the dictionary without deleting
     it (even if \link QPtrCollection::setAutoDelete()
@@ -352,7 +352,7 @@
 */
 
 /*!
-    \fn type *QDict::find( const QString &key ) const
+    \fn type *QDict::find( const TQString &key ) const
 
     Returns the item with key \a key, or 0 if the key does not exist
     in the dictionary.
@@ -366,7 +366,7 @@
 */
 
 /*!
-    \fn type *QDict::operator[]( const QString &key ) const
+    \fn type *QDict::operator[]( const TQString &key ) const
 
     Returns the item with key \a key, or 0 if the key does not
     exist in the dictionary.
@@ -522,7 +522,7 @@
 */
 
 /*!
-    \fn QString QDictIterator::currentKey() const
+    \fn TQString QDictIterator::currentKey() const
 
     Returns the current iterator item's key.
 */

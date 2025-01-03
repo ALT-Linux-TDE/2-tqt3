@@ -9,7 +9,7 @@
 .SH NAME
 QXmlInputSource \- The input data for the QXmlReader subclasses
 .SH SYNOPSIS
-All the functions in this class are reentrant when Qt is built with thread support.</p>
+All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
 \fC#include <ntqxml.h>\fR
 .PP
@@ -19,7 +19,7 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "\fBQXmlInputSource\fR ()"
 .br
 .ti -1c
-.BI "\fBQXmlInputSource\fR ( QIODevice * dev )"
+.BI "\fBQXmlInputSource\fR ( TQIODevice * dev )"
 .br
 .ti -1c
 .BI "QXmlInputSource ( QFile & file )  \fI(obsolete)\fR"
@@ -31,7 +31,7 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "virtual \fB~QXmlInputSource\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetData\fR ( const QString & dat )"
+.BI "virtual void \fBsetData\fR ( const TQString & dat )"
 .br
 .ti -1c
 .BI "virtual void \fBsetData\fR ( const QByteArray & dat )"
@@ -40,10 +40,10 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .BI "virtual void \fBfetchData\fR ()"
 .br
 .ti -1c
-.BI "virtual QString \fBdata\fR ()"
+.BI "virtual TQString \fBdata\fR ()"
 .br
 .ti -1c
-.BI "virtual QChar \fBnext\fR ()"
+.BI "virtual TQChar \fBnext\fR ()"
 .br
 .ti -1c
 .BI "virtual void \fBreset\fR ()"
@@ -52,7 +52,7 @@ All the functions in this class are reentrant when Qt is built with thread suppo
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual QString \fBfromRawData\fR ( const QByteArray & data, bool beginning = FALSE )"
+.BI "virtual TQString \fBfromRawData\fR ( const QByteArray & data, bool beginning = FALSE )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -62,9 +62,9 @@ All subclasses of QXmlReader read the input XML document from this class.
 .PP
 This class recognizes the encoding of the data by reading the encoding declaration in the XML file if it finds one, and reading the data using the corresponding encoding. If it does not find an encoding declaration, then it assumes that the data is either in UTF-8 or UTF-16, depending on whether it can find a byte-order mark.
 .PP
-There are two ways to populate the input source with data: you can construct it with a QIODevice* so that the input source reads the data from that device. Or you can set the data explicitly with one of the setData() functions.
+There are two ways to populate the input source with data: you can construct it with a TQIODevice* so that the input source reads the data from that device. Or you can set the data explicitly with one of the setData() functions.
 .PP
-Usually you either construct a QXmlInputSource that works on a QIODevice* or you construct an empty QXmlInputSource and set the data with setData(). There are only rare occasions where you would want to mix both methods.
+Usually you either construct a QXmlInputSource that works on a TQIODevice* or you construct an empty QXmlInputSource and set the data with setData(). There are only rare occasions where you would want to mix both methods.
 .PP
 The QXmlReader subclasses use the next() function to read the input character by character. If you want to start from the beginning again, use reset().
 .PP
@@ -76,10 +76,10 @@ See also QXmlReader, QXmlSimpleReader, and XML.
 Constructs an input source which contains no data.
 .PP
 See also setData().
-.SH "QXmlInputSource::QXmlInputSource ( QIODevice * dev )"
+.SH "QXmlInputSource::QXmlInputSource ( TQIODevice * dev )"
 Constructs an input source and gets the data from device \fIdev\fR. If \fIdev\fR is not open, it is opened in read-only mode. If \fIdev\fR is 0 or it is not possible to read from the device, the input source will contain no data.
 .PP
-See also setData(), fetchData(), and QIODevice.
+See also setData(), fetchData(), and TQIODevice.
 .SH "QXmlInputSource::QXmlInputSource ( QFile & file )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
@@ -90,8 +90,8 @@ Constructs an input source and gets the data from the file \fIfile\fR. If the fi
 Constructs an input source and gets the data from the text stream \fIstream\fR.
 .SH "QXmlInputSource::~QXmlInputSource ()\fC [virtual]\fR"
 Destructor.
-.SH "QString QXmlInputSource::data ()\fC [virtual]\fR"
-Returns the data the input source contains or QString::null if the input source does not contain any data.
+.SH "TQString QXmlInputSource::data ()\fC [virtual]\fR"
+Returns the data the input source contains or TQString::null if the input source does not contain any data.
 .PP
 See also setData(), QXmlInputSource(), and fetchData().
 .SH "void QXmlInputSource::fetchData ()\fC [virtual]\fR"
@@ -104,11 +104,11 @@ There are two occasions where a fetch is done implicitly by another function cal
 You don't normally need to use this function if you use next().
 .PP
 See also data(), next(), and QXmlInputSource().
-.SH "QString QXmlInputSource::fromRawData ( const QByteArray & data, bool beginning = FALSE )\fC [virtual protected]\fR"
-This function reads the XML file from \fIdata\fR and tries to recognize the encoding. It converts the raw data \fIdata\fR into a QString and returns it. It tries its best to get the correct encoding for the XML file.
+.SH "TQString QXmlInputSource::fromRawData ( const QByteArray & data, bool beginning = FALSE )\fC [virtual protected]\fR"
+This function reads the XML file from \fIdata\fR and tries to recognize the encoding. It converts the raw data \fIdata\fR into a TQString and returns it. It tries its best to get the correct encoding for the XML file.
 .PP
 If \fIbeginning\fR is TRUE, this function assumes that the data starts at the beginning of a new XML document and looks for an encoding declaration. If \fIbeginning\fR is FALSE, it converts the raw data using the encoding determined from prior calls.
-.SH "QChar QXmlInputSource::next ()\fC [virtual]\fR"
+.SH "TQChar QXmlInputSource::next ()\fC [virtual]\fR"
 Returns the next character of the input source. If this function reaches the end of available data, it returns QXmlInputSource::EndOfData. If you call next() after that, it tries to fetch more data by calling fetchData(). If the fetchData() call results in new data, this function returns the first character of that data; otherwise it returns QXmlInputSource::EndOfDocument.
 .PP
 See also reset(), fetchData(), QXmlSimpleReader::parse(), and QXmlSimpleReader::parseContinue().
@@ -118,7 +118,7 @@ This function sets the position used by next() to the beginning of the data retu
 See also next().
 .PP
 Example: xml/tagreader-with-features/tagreader.cpp.
-.SH "void QXmlInputSource::setData ( const QString & dat )\fC [virtual]\fR"
+.SH "void QXmlInputSource::setData ( const TQString & dat )\fC [virtual]\fR"
 Sets the data of the input source to \fIdat\fR.
 .PP
 If the input source already contains data, this function deletes that data first.
@@ -144,8 +144,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

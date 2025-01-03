@@ -42,7 +42,7 @@
 #include "ntqiodevice.h"
 #include <stdlib.h>
 
-#ifndef QT_NO_ASYNC_IO
+#ifndef TQT_NO_ASYNC_IO
 
 /*!
   \class TQAsyncIO ntqasyncio.h
@@ -320,9 +320,9 @@ void TQIODeviceSource::rewind()
 TQDataPump::TQDataPump(TQDataSource* data_source, TQDataSink* data_sink) :
     source(data_source), sink(data_sink)
 {
-    source->connect(this, SLOT(kickStart()));
-    sink->connect(this, SLOT(kickStart()));
-    connect(&timer, SIGNAL(timeout()), this, SLOT(tryToPump()));
+    source->connect(this, TQ_SLOT(kickStart()));
+    sink->connect(this, TQ_SLOT(kickStart()));
+    connect(&timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(tryToPump()));
     timer.start(0, TRUE);
 }
 
@@ -356,5 +356,5 @@ void TQDataPump::tryToPump()
     timer.start(0, TRUE);
 }
 
-#endif // QT_NO_ASYNC_IO
+#endif // TQT_NO_ASYNC_IO
 

@@ -52,8 +52,8 @@ void Wizard::setupPage1()
     key->setMaxLength( 4 );
     key->setValidator( new TQIntValidator( 1000, 9999, key ) );
 
-    connect( key, SIGNAL( textChanged( const TQString & ) ),
-	     this, SLOT( keyChanged( const TQString & ) ) );
+    connect( key, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SLOT( keyChanged( const TQString & ) ) );
 
     addPage( page1, "Personal Key" );
 
@@ -108,12 +108,12 @@ void Wizard::setupPage2()
     phone = new TQLineEdit( row4 );
     email = new TQLineEdit( row5 );
 
-    connect( firstName, SIGNAL( textChanged( const TQString & ) ),
-	     this, SLOT( dataChanged( const TQString & ) ) );
-    connect( lastName, SIGNAL( textChanged( const TQString & ) ),
-	     this, SLOT( dataChanged( const TQString & ) ) );
-    connect( email, SIGNAL( textChanged( const TQString & ) ),
-	     this, SLOT( dataChanged( const TQString & ) ) );
+    connect( firstName, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SLOT( dataChanged( const TQString & ) ) );
+    connect( lastName, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SLOT( dataChanged( const TQString & ) ) );
+    connect( email, TQ_SIGNAL( textChanged( const TQString & ) ),
+	     this, TQ_SLOT( dataChanged( const TQString & ) ) );
 
     addPage( page2, "Personal Data" );
 

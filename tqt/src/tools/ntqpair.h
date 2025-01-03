@@ -72,25 +72,25 @@ struct TQPair
 };
 
 template <class T1, class T2>
-Q_INLINE_TEMPLATES bool operator==( const TQPair<T1, T2>& x, const TQPair<T1, T2>& y )
+TQ_INLINE_TEMPLATES bool operator==( const TQPair<T1, T2>& x, const TQPair<T1, T2>& y )
 {
     return x.first == y.first && x.second == y.second;
 }
 
 template <class T1, class T2>
-Q_INLINE_TEMPLATES bool operator<( const TQPair<T1, T2>& x, const TQPair<T1, T2>& y )
+TQ_INLINE_TEMPLATES bool operator<( const TQPair<T1, T2>& x, const TQPair<T1, T2>& y )
 {
     return x.first < y.first ||
 	   ( !( y.first < x.first ) && x.second < y.second );
 }
 
 template <class T1, class T2>
-Q_INLINE_TEMPLATES TQPair<T1, T2> qMakePair( const T1& x, const T2& y )
+TQ_INLINE_TEMPLATES TQPair<T1, T2> qMakePair( const T1& x, const T2& y )
 {
     return TQPair<T1, T2>( x, y );
 }
 
-#ifndef QT_NO_DATASTREAM
+#ifndef TQT_NO_DATASTREAM
 template <class T1, class T2>
 inline TQDataStream& operator>>( TQDataStream& s, TQPair<T1, T2>& p )
 {

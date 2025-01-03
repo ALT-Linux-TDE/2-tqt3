@@ -40,7 +40,7 @@
 
 #include "ntqsqlrecord.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 #include "ntqregexp.h"
 #include "ntqvaluevector.h"
@@ -68,7 +68,7 @@ public:
 	{
 	    return !field.name().isNull();
 	}
-	Q_DUMMY_COMPARISON_OPERATOR(info)
+	TQ_DUMMY_COMPARISON_OPERATOR(info)
 	TQSqlField field;
 	bool    nogen;
     };

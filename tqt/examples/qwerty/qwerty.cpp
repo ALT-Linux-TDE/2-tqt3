@@ -37,40 +37,40 @@ Editor::Editor( TQWidget * parent , const char * name )
     TQ_CHECK_PTR( file );
     m->insertItem( "&File", file );
 
-    file->insertItem( "&New",   this, SLOT(newDoc()),   ALT+Key_N );
-    file->insertItem( "&Open...",  this, SLOT(load()),     ALT+Key_O );
-    file->insertItem( "&Save...",  this, SLOT(save()),     ALT+Key_S );
+    file->insertItem( "&New",   this, TQ_SLOT(newDoc()),   ALT+Key_N );
+    file->insertItem( "&Open...",  this, TQ_SLOT(load()),     ALT+Key_O );
+    file->insertItem( "&Save...",  this, TQ_SLOT(save()),     ALT+Key_S );
     file->insertSeparator();
     open_as = new TQPopupMenu();
     file->insertItem( "Open &As",  open_as );
     save_as = new TQPopupMenu();
     file->insertItem( "Sa&ve As",  save_as );
-    file->insertItem( "Add &Encoding", this, SLOT(addEncoding()) );    
-#ifndef QT_NO_PRINTER
+    file->insertItem( "Add &Encoding", this, TQ_SLOT(addEncoding()) );    
+#ifndef TQT_NO_PRINTER
     file->insertSeparator();
-    file->insertItem( "&Print...", this, SLOT(print()),    ALT+Key_P );
+    file->insertItem( "&Print...", this, TQ_SLOT(print()),    ALT+Key_P );
 #endif
     file->insertSeparator();
-    file->insertItem( "&Close", this, SLOT(close()),ALT+Key_W );
-    file->insertItem( "&Quit",  tqApp, SLOT(closeAllWindows()),     ALT+Key_Q );
+    file->insertItem( "&Close", this, TQ_SLOT(close()),ALT+Key_W );
+    file->insertItem( "&Quit",  tqApp, TQ_SLOT(closeAllWindows()),     ALT+Key_Q );
 
-    connect( save_as, SIGNAL(activated(int)), this, SLOT(saveAsEncoding(int)) );
-    connect( open_as, SIGNAL(activated(int)), this, SLOT(openAsEncoding(int)) );
+    connect( save_as, TQ_SIGNAL(activated(int)), this, TQ_SLOT(saveAsEncoding(int)) );
+    connect( open_as, TQ_SIGNAL(activated(int)), this, TQ_SLOT(openAsEncoding(int)) );
     rebuildCodecList();
 
     TQPopupMenu * edit = new TQPopupMenu();
     TQ_CHECK_PTR( edit );
     m->insertItem( "&Edit", edit );
 
-    edit->insertItem( "To &Uppercase",   this, SLOT(toUpper()),   ALT+Key_U );
-    edit->insertItem( "To &Lowercase",   this, SLOT(toLower()),   ALT+Key_L );
-#ifndef QT_NO_FONTDIALOG
+    edit->insertItem( "To &Uppercase",   this, TQ_SLOT(toUpper()),   ALT+Key_U );
+    edit->insertItem( "To &Lowercase",   this, TQ_SLOT(toLower()),   ALT+Key_L );
+#ifndef TQT_NO_FONTDIALOG
     edit->insertSeparator();
-    edit->insertItem( "&Select Font" ,	 this, SLOT(font()),     ALT+Key_T );
+    edit->insertItem( "&Select Font" ,	 this, TQ_SLOT(font()),     ALT+Key_T );
 #endif
     changed = FALSE;
     e = new TQMultiLineEdit( this, "editor" );
-    connect( e, SIGNAL( textChanged() ), this, SLOT( textChanged() ) );
+    connect( e, TQ_SIGNAL( textChanged() ), this, TQ_SLOT( textChanged() ) );
 
     // We use Unifont - if you have it installed you'll see all
     // Unicode character glyphs.
@@ -90,7 +90,7 @@ Editor::~Editor()
 
 void Editor::font()
 {
-#ifndef QT_NO_FONTDIALOG
+#ifndef TQT_NO_FONTDIALOG
     bool ok;
     TQFont f = TQFontDialog::getFont( &ok, e->font() );
     if ( ok ) {
@@ -142,7 +142,7 @@ void Editor::newDoc()
 
 void Editor::load()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     TQString fn = TQFileDialog::getOpenFileName( TQString::null, TQString::null, this );
     if ( !fn.isEmpty() )
 	load( fn, -1 );
@@ -190,7 +190,7 @@ void Editor::load( const TQString& fileName, int code )
 
 void Editor::openAsEncoding( int code )
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     //storing filename (proper save) is left as an exercise...
     TQString fn = TQFileDialog::getOpenFileName( TQString::null, TQString::null, this );
     if ( !fn.isEmpty() )
@@ -200,7 +200,7 @@ void Editor::openAsEncoding( int code )
 
 bool Editor::save()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     //storing filename (proper save) is left as an exercise...
     TQString fn = TQFileDialog::getSaveFileName( TQString::null, TQString::null, this );
     if ( !fn.isEmpty() )
@@ -211,7 +211,7 @@ bool Editor::save()
 
 void Editor::saveAsEncoding( int code )
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     //storing filename (proper save) is left as an exercise...
     TQString fn = TQFileDialog::getSaveFileName( TQString::null, TQString::null, this );
     if ( !fn.isEmpty() )
@@ -221,7 +221,7 @@ void Editor::saveAsEncoding( int code )
 
 void Editor::addEncoding()
 {
-#ifndef QT_NO_FILEDIALOG
+#ifndef TQT_NO_FILEDIALOG
     TQString fn = TQFileDialog::getOpenFileName( TQString::null, "*.map", this );
     if ( !fn.isEmpty() ) {
 	TQFile f(fn);
@@ -275,7 +275,7 @@ bool Editor::saveAs( const TQString& fileName, int code )
 
 void Editor::print()
 {
-#ifndef QT_NO_PRINTER
+#ifndef TQT_NO_PRINTER
     if ( printer.setup(this) ) {		// opens printer dialog
 	printer.setFullPage(TRUE);		// we'll set our own margins
 	TQPainter p;

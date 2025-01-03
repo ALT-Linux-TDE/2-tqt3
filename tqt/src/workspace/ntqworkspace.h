@@ -46,12 +46,12 @@
 #include "ntqwidgetlist.h"
 #endif // QT_H
 
-#ifndef QT_NO_WORKSPACE
+#ifndef TQT_NO_WORKSPACE
 
 #if !defined( TQT_MODULE_WORKSPACE ) || defined( QT_INTERNAL_WORKSPACE )
 #define TQM_EXPORT_WORKSPACE
 #else
-#define TQM_EXPORT_WORKSPACE Q_EXPORT
+#define TQM_EXPORT_WORKSPACE TQ_EXPORT
 #endif
 
 class TQWorkspaceChild;
@@ -108,7 +108,7 @@ public slots:
     void activatePrevWindow();
 
 protected:
-#ifndef QT_NO_STYLE
+#ifndef TQT_NO_STYLE
     void styleChange( TQStyle& );
 #endif
     void childEvent( TQChildEvent * );
@@ -116,7 +116,7 @@ protected:
     bool eventFilter( TQObject *, TQEvent * );
     void showEvent( TQShowEvent *e );
     void hideEvent( TQHideEvent *e );
-#ifndef QT_NO_WHEELEVENT
+#ifndef TQT_NO_WHEELEVENT
     void wheelEvent( TQWheelEvent *e );
 #endif
 
@@ -164,6 +164,6 @@ private:	// Disabled copy constructor and operator=
 };
 
 
-#endif // QT_NO_WORKSPACE
+#endif // TQT_NO_WORKSPACE
 
 #endif // TQWORKSPACE_H

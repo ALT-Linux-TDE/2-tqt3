@@ -17,7 +17,7 @@ QCanvasPixmapArray \- Array of QCanvasPixmaps
 .BI "\fBQCanvasPixmapArray\fR ()"
 .br
 .ti -1c
-.BI "\fBQCanvasPixmapArray\fR ( const QString & datafilenamepattern, int fc = 0 )"
+.BI "\fBQCanvasPixmapArray\fR ( const TQString & datafilenamepattern, int fc = 0 )"
 .br
 .ti -1c
 .BI "QCanvasPixmapArray ( QPtrList<QPixmap> list, QPtrList<QPoint> hotspots )  \fI(obsolete)\fR"
@@ -29,10 +29,10 @@ QCanvasPixmapArray \- Array of QCanvasPixmaps
 .BI "\fB~QCanvasPixmapArray\fR ()"
 .br
 .ti -1c
-.BI "bool \fBreadPixmaps\fR ( const QString & filenamepattern, int fc = 0 )"
+.BI "bool \fBreadPixmaps\fR ( const TQString & filenamepattern, int fc = 0 )"
 .br
 .ti -1c
-.BI "bool \fBreadCollisionMasks\fR ( const QString & filename )"
+.BI "bool \fBreadCollisionMasks\fR ( const TQString & filename )"
 .br
 .ti -1c
 .BI "bool operator! ()  \fI(obsolete)\fR"
@@ -65,7 +65,7 @@ See also Graphics Classes and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "QCanvasPixmapArray::QCanvasPixmapArray ()"
 Constructs an invalid array (i.e. isValid() will return FALSE). You must call readPixmaps() before being able to use this QCanvasPixmapArray.
-.SH "QCanvasPixmapArray::QCanvasPixmapArray ( const QString & datafilenamepattern, int fc = 0 )"
+.SH "QCanvasPixmapArray::QCanvasPixmapArray ( const TQString & datafilenamepattern, int fc = 0 )"
 Constructs a QCanvasPixmapArray from files.
 .PP
 The \fIfc\fR parameter sets the number of frames to be loaded for this image.
@@ -99,7 +99,7 @@ Returns TRUE if the pixmap array is valid; otherwise returns FALSE.
 Use isValid() instead.
 .PP
 This returns FALSE if the array is valid, and TRUE if it is not.
-.SH "bool QCanvasPixmapArray::readCollisionMasks ( const QString & filename )"
+.SH "bool QCanvasPixmapArray::readCollisionMasks ( const TQString & filename )"
 Reads new collision masks for the array.
 .PP
 By default, QCanvasSprite uses the image mask of a sprite to detect collisions. Use this function to set your own collision image masks.
@@ -111,7 +111,7 @@ All collision masks must be 1-bit images or this function call will fail.
 If the file isn't readable, contains the wrong number of images, or there is some other error, this function will return FALSE, and the array will be flagged as invalid; otherwise this function returns TRUE.
 .PP
 See also isValid().
-.SH "bool QCanvasPixmapArray::readPixmaps ( const QString & filenamepattern, int fc = 0 )"
+.SH "bool QCanvasPixmapArray::readPixmaps ( const TQString & filenamepattern, int fc = 0 )"
 Reads one or more pixmaps into the pixmap array.
 .PP
 If \fIfc\fR is not 0, \fIfilenamepattern\fR should contain "%1", e.g." foo%1.png". The actual filenames are formed by replacing the %1 with four-digit integers from 0 to (fc - 1), e.g. foo0000.png, foo0001.png, foo0002.png, etc.
@@ -144,8 +144,8 @@ If you find a bug in Qt, please report it as described in
 .BR http://doc.trolltech.com/bughowto.html .
 Good bug reports help us to help you. Thank you.
 .P
-The definitive Qt documentation is provided in HTML format; it is
-located at $QTDIR/doc/html and can be read using Qt Assistant or with
+The definitive TQt documentation is provided in HTML format; it is
+located at $TQTDIR/doc/html and can be read using TQt Assistant or with
 a web browser. This man page is provided as a convenience for those
 users who prefer man pages, although this format is not officially
 supported by Trolltech. 

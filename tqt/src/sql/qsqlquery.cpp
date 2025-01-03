@@ -40,7 +40,7 @@
 
 #include "ntqsqlquery.h"
 
-#ifndef QT_NO_SQL
+#ifndef TQT_NO_SQL
 
 //#define QT_DEBUG_SQL
 
@@ -58,7 +58,7 @@
 TQSqlResultShared::TQSqlResultShared( TQSqlResult* result ): sqlResult(result)
 {
     if ( result )
-	connect( result->driver(), SIGNAL(destroyed()), this, SLOT(slotResultDestroyed()) );
+	connect( result->driver(), TQ_SIGNAL(destroyed()), this, TQ_SLOT(slotResultDestroyed()) );
 }
 
 /*!
@@ -1173,8 +1173,8 @@ TQVariant TQSqlQuery::boundValue( int pos ) const
     TQSqlQuery query;
     ...
     // Examine the bound values - bound using named binding
-    TQMap<TQString, TQVariant>::ConstIterator it;
-    TQMap<TQString, TQVariant> vals = query.boundValues();
+    TQStringVariantMap::ConstIterator it;
+    TQStringVariantMap vals = query.boundValues();
     for ( it = vals.begin(); it != vals.end(); ++it )
         tqWarning( "Placeholder: " + it.key() + ", Value: " + (*it).toString() );
     ...
@@ -1189,10 +1189,10 @@ TQVariant TQSqlQuery::boundValue( int pos ) const
 
     \endcode
 */
-TQMap<TQString,TQVariant> TQSqlQuery::boundValues() const
+TQStringVariantMap TQSqlQuery::boundValues() const
 {
     if ( !d->sqlResult || !d->sqlResult->extension() )
-	return TQMap<TQString,TQVariant>();
+	return TQStringVariantMap();
     return d->sqlResult->extension()->boundValues();
 }
 
@@ -1212,4 +1212,4 @@ TQString TQSqlQuery::executedQuery() const
 {
     return d->executedQuery;
 }
-#endif // QT_NO_SQL
+#endif // TQT_NO_SQL

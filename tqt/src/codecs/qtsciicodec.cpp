@@ -94,7 +94,7 @@
 
 #include "ntqtsciicodec.h"
 
-#ifndef QT_NO_CODECS
+#ifndef TQT_NO_CODECS
 
 static unsigned char qt_UnicodeToTSCII(ushort u1, ushort u2, ushort u3);
 static unsigned int qt_TSCIIToUnicode(unsigned int code, uint *s);

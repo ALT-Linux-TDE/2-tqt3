@@ -81,14 +81,14 @@ body { background: #ffffff; color: black; }
 #include "ntqwindowsstyle.h"
 #endif // QT_H
 
-#if defined( Q_WS_MAC ) &amp;&amp; !defined( QT_NO_STYLE_MAC ) 
+#if defined( TQ_WS_MAC ) &amp;&amp; !defined( TQT_NO_STYLE_MAC ) 
 
 class TQPalette;
 
 #if defined(QT_PLUGIN)
 #define Q_EXPORT_STYLE_MAC
 #else
-#define Q_EXPORT_STYLE_MAC Q_EXPORT
+#define Q_EXPORT_STYLE_MAC TQ_EXPORT
 #endif
 
 class TQMacStylePrivate;
@@ -180,7 +180,7 @@ protected:
     TQMacStylePrivate *d;
 };
 
-#endif // Q_WS_MAC
+#endif // TQ_WS_MAC
 
 #endif // TQMACSTYLE_H
 </pre>

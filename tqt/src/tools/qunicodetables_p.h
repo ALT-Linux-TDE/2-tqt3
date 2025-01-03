@@ -55,14 +55,14 @@
 #include "ntqstring.h"
 #endif // QT_H
 
-#ifdef QT_NO_UNICODETABLES
+#ifdef TQT_NO_UNICODETABLES
 # include <ctype.h>
 #endif
 
 class TQUnicodeTables {
 public:
     static const TQ_UINT8 unicode_info[];
-#ifndef QT_NO_UNICODETABLES
+#ifndef TQT_NO_UNICODETABLES
     static const TQ_UINT16 decomposition_map[];
     static const TQ_UINT16 decomposition_info[];
     static const TQ_UINT16 ligature_map[];
@@ -97,23 +97,23 @@ public:
 
 inline TQChar::Category category( const TQChar &c )
 {
-#ifdef QT_NO_UNICODETABLES
+#ifdef TQT_NO_UNICODETABLES
     if ( c.unicode() > 0xff ) return TQChar::Letter_Uppercase; //########
     return (TQChar::Category)TQUnicodeTables::unicode_info[c.unicode()];
 #else
-    register int uc = ((int)TQUnicodeTables::unicode_info[c.row()]) << 8;
+    int uc = ((int)TQUnicodeTables::unicode_info[c.row()]) << 8;
     uc += c.cell();
     return (TQChar::Category)TQUnicodeTables::unicode_info[uc];
-#endif // QT_NO_UNICODETABLES
+#endif // TQT_NO_UNICODETABLES
 }
 
 inline TQChar lower( const TQChar &c )
 {
-#ifndef QT_NO_UNICODETABLES
+#ifndef TQT_NO_UNICODETABLES
     int row = c.row();
     int cell = c.cell();
-    register int ci = TQUnicodeTables::case_info[row];
-    register int uc = ((int)TQUnicodeTables::unicode_info[c.row()]) << 8;
+    int ci = TQUnicodeTables::case_info[row];
+    int uc = ((int)TQUnicodeTables::unicode_info[c.row()]) << 8;
     uc += c.cell();
     if (TQUnicodeTables::unicode_info[uc] != TQChar::Letter_Uppercase || !ci)
 	return c;
@@ -128,11 +128,11 @@ inline TQChar lower( const TQChar &c )
 
 inline TQChar upper( const TQChar &c )
 {
-#ifndef QT_NO_UNICODETABLES
+#ifndef TQT_NO_UNICODETABLES
     int row = c.row();
     int cell = c.cell();
-    register int ci = TQUnicodeTables::case_info[row];
-    register int uc = ((int)TQUnicodeTables::unicode_info[c.row()]) << 8;
+    int ci = TQUnicodeTables::case_info[row];
+    int uc = ((int)TQUnicodeTables::unicode_info[c.row()]) << 8;
     uc += c.cell();
     if (TQUnicodeTables::unicode_info[uc] != TQChar::Letter_Lowercase || !ci)
 	return c;
@@ -147,8 +147,8 @@ inline TQChar upper( const TQChar &c )
 
 inline TQChar::Direction direction( const TQChar &c )
 {
-#ifndef QT_NO_UNICODETABLES
-    register int pos = TQUnicodeTables::direction_info[c.row()];
+#ifndef TQT_NO_UNICODETABLES
+    int pos = TQUnicodeTables::direction_info[c.row()];
     return (TQChar::Direction) (TQUnicodeTables::direction_info[(pos<<8)+c.cell()] & 0x1f);
 #else
     Q_UNUSED(c);
@@ -158,8 +158,8 @@ inline TQChar::Direction direction( const TQChar &c )
 
 inline bool mirrored( const TQChar &c )
 {
-#ifndef QT_NO_UNICODETABLES
-    register int pos = TQUnicodeTables::direction_info[c.row()];
+#ifndef TQT_NO_UNICODETABLES
+    int pos = TQUnicodeTables::direction_info[c.row()];
     return TQUnicodeTables::direction_info[(pos<<8)+c.cell()] > 128;
 #else
     Q_UNUSED(c);
@@ -170,7 +170,7 @@ inline bool mirrored( const TQChar &c )
 
 inline TQChar mirroredChar( const TQChar &ch )
 {
-#ifndef QT_NO_UNICODETABLES
+#ifndef TQT_NO_UNICODETABLES
     if(!::mirrored( ch ))
 	return ch;
 
@@ -186,8 +186,8 @@ inline TQChar mirroredChar( const TQChar &ch )
 
 inline TQChar::Joining joining( const TQChar &ch )
 {
-#ifndef QT_NO_UNICODETABLES
-    register int pos = TQUnicodeTables::direction_info[ch.row()];
+#ifndef TQT_NO_UNICODETABLES
+    int pos = TQUnicodeTables::direction_info[ch.row()];
     return (TQChar::Joining) ((TQUnicodeTables::direction_info[(pos<<8)+ch.cell()] >> 5) &0x3);
 #else
     Q_UNUSED(ch);
@@ -203,7 +203,7 @@ inline bool isMark( const TQChar &ch )
 
 inline unsigned char combiningClass( const TQChar &ch )
 {
-#ifndef QT_NO_UNICODETABLES
+#ifndef TQT_NO_UNICODETABLES
     const int pos = TQUnicodeTables::combining_info[ch.row()];
     return TQUnicodeTables::combining_info[(pos<<8) + ch.cell()];
 #else
@@ -221,11 +221,11 @@ inline bool isSpace( const TQChar &ch )
 
 inline int lineBreakClass( const TQChar &ch )
 {
-#ifdef QT_NO_UNICODETABLES
+#ifdef TQT_NO_UNICODETABLES
     return ch.row() ? TQUnicodeTables::LineBreak_AL
 	: TQUnicodeTables::latin1_line_break_info[ch.cell()];
 #else
-    register int pos = ((int)TQUnicodeTables::line_break_info[ch.row()] << 8) + ch.cell();
+    int pos = ((int)TQUnicodeTables::line_break_info[ch.row()] << 8) + ch.cell();
     return TQUnicodeTables::line_break_info[pos];
 #endif
 }
@@ -248,7 +248,7 @@ inline int scriptForChar( ushort uc )
     return script;
 }
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #define SCRIPT_FOR_CHAR( script, c ) 	\
 do { 						\
     unsigned short _uc = (c).unicode(); 		\

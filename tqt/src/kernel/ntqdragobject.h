@@ -52,15 +52,15 @@ class TQImageDragData;
 #include "ntqcolor.h"
 #endif // QT_H
 
-#ifndef QT_NO_MIME
+#ifndef TQT_NO_MIME
 
-class Q_EXPORT TQDragObject: public TQObject, public TQMimeSource {
+class TQ_EXPORT TQDragObject: public TQObject, public TQMimeSource {
     TQ_OBJECT
 public:
     TQDragObject( TQWidget * dragSource = 0, const char * name = 0 );
     virtual ~TQDragObject();
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     bool drag();
     bool dragMove();
     void dragCopy();
@@ -77,7 +77,7 @@ public:
 
     static void setTarget(TQWidget*);
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
     enum DragMode { DragDefault, DragCopy, DragMove, DragLink, DragCopyOrMove };
 
 protected:
@@ -92,7 +92,7 @@ private:
 #endif
 };
 
-class Q_EXPORT TQStoredDrag: public TQDragObject {
+class TQ_EXPORT TQStoredDrag: public TQDragObject {
     TQ_OBJECT
     TQStoredDragData * d;
 
@@ -113,7 +113,7 @@ private:
 #endif
 };
 
-class Q_EXPORT TQTextDrag: public TQDragObject {
+class TQ_EXPORT TQTextDrag: public TQDragObject {
     TQ_OBJECT
     TQTextDragPrivate* d;
 public:
@@ -139,7 +139,7 @@ private:
 #endif
 };
 
-class Q_EXPORT TQImageDrag: public TQDragObject {
+class TQ_EXPORT TQImageDrag: public TQDragObject {
     TQ_OBJECT
     TQImage img;
     TQStrList ofmts;
@@ -167,7 +167,7 @@ private:
 };
 
 
-class Q_EXPORT TQUriDrag: public TQStoredDrag {
+class TQ_EXPORT TQUriDrag: public TQStoredDrag {
     TQ_OBJECT
 
 public:
@@ -196,7 +196,7 @@ private:
 #endif
 };
 
-class Q_EXPORT TQColorDrag : public TQStoredDrag
+class TQ_EXPORT TQColorDrag : public TQStoredDrag
 {
     TQ_OBJECT
     TQColor color;
@@ -216,18 +216,18 @@ private:
 #endif
 };
 
-#ifndef QT_NO_COMPAT
+#ifndef TQT_NO_COMPAT
 typedef TQUriDrag TQUrlDrag;
 #endif
 
-#ifndef QT_NO_DRAGANDDROP
+#ifndef TQT_NO_DRAGANDDROP
 
 // TQDragManager is not part of the public API.  It is defined in a
 // header file simply so different .cpp files can implement different
 // member functions.
 //
 
-class Q_EXPORT TQDragManager: public TQObject {
+class TQ_EXPORT TQDragManager: public TQObject {
     TQ_OBJECT
 
 private:
@@ -254,7 +254,7 @@ private:
     TQDragObject * object;
     bool updateMode( ButtonState newstate );
     void updateCursor();
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
     void createCursors();
 #endif
 
@@ -274,6 +274,6 @@ private:
 
 #endif
 
-#endif // QT_NO_MIME
+#endif // TQT_NO_MIME
 
 #endif // TQDRAGOBJECT_H
