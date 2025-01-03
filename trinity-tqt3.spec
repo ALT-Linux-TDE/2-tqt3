@@ -1208,7 +1208,7 @@ things that are possible with TQt3.
 %endif
 
 # Add missing sqlite3 header
-%__ln_s ../src/sql/drivers/sqlite3/qsql_sqlite3.h include/qsql_sqlite3.h
+#%__ln_s ../src/sql/drivers/sqlite3/qsql_sqlite3.h include/qsql_sqlite3.h
 
 # fix variables in 'qmake.conf'
 %__sed -i mkspecs/*/qmake.conf \
