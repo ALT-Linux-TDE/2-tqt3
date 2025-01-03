@@ -1,0 +1,23 @@
+--- qt-x11-free-3.1.0-b2/src/tools/qsettings.cpp.orig	2004-08-05 18:41:55 +0400
++++ qt-x11-free-3.1.0-b2/src/tools/qsettings.cpp	2004-08-18 21:06:35 +0400
+@@ -53,6 +53,7 @@ static inline int qt_open( const char *p
+ 
+ #ifndef QT_NO_SETTINGS
+ 
++#include <stdlib.h>
+ #include "qdir.h"
+ #include "qfile.h"
+ #include "qfileinfo.h"
+@@ -462,7 +463,11 @@ QSettingsPrivate::QSettingsPrivate( QSet
+     Q_UNUSED( format );
+ #endif
+ 
+-    QString appSettings(QDir::homeDirPath() + "/.qt/");
++    QString appSettings(QDir::homeDirPath() + "/.qt3/");
++    QString settings_dir( getenv("QT_SETTINGS_DIR") );
++    if ( !settings_dir.isEmpty() ){
++	    appSettings = settings_dir;
++    }
+     QString defPath;
+ #ifdef Q_WS_WIN
+ #ifdef Q_OS_TEMP

@@ -1,0 +1,6 @@
+#!/bin/sh
+# Support script to properly set environments for Designer to run
+ 
+export QTDIR=@QTDIR@
+export PATH=@QTDIR@/bin:$PATH
+exec @QTDIR@/bin/linguist-real "$@"

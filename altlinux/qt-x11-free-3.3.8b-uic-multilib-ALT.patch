@@ -1,0 +1,22 @@
+--- qt-x11-free-3.3.8b/tools/designer/uic/embed.cpp~	2008-01-15 22:09:14 +0300
++++ qt-x11-free-3.3.8b/tools/designer/uic/embed.cpp	2008-01-21 19:33:20 +0300
+@@ -137,7 +137,7 @@ void Uic::embed( QTextStream& out, const
+     for ( it = images.begin(); it != images.end(); ++it )
+ 	out << "**      " << *it << "\n";
+     out << "**\n";
+-    out << "** Created: " << QDateTime::currentDateTime().toString() << "\n";
++    out << "** Created: " << QDateTime::currentDateTime().toString(Qt::ISODate) << "\n";
+     out << "**\n";
+     out << "** WARNING! All changes made in this file will be lost!\n";
+     out << "****************************************************************************/\n";
+--- qt-x11-free-3.3.8b/tools/designer/uic/main.cpp~	2008-01-15 22:09:14 +0300
++++ qt-x11-free-3.3.8b/tools/designer/uic/main.cpp	2008-01-21 19:33:28 +0300
+@@ -320,7 +320,7 @@ int main( int argc, char * argv[] )
+ 	out << "/****************************************************************************" << endl;
+ 	out << "** Form "<< (impl? "implementation" : "interface") << " generated from reading ui file '" << fileName << "'" << endl;
+ 	out << "**" << endl;
+-	out << "** Created: " << QDateTime::currentDateTime().toString() << endl;
++	out << "** Created: " << QDateTime::currentDateTime().toString(Qt::ISODate) << endl;
+ 	out << "**" << endl;
+ 	out << "** WARNING! All changes made in this file will be lost!" << endl;
+ 	out << "****************************************************************************/" << endl << endl;

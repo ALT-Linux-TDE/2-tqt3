@@ -1,0 +1,10 @@
+#!/bin/sh
+# Support script to properly set environments for Designer to run
+ 
+export QTDIR=@QTDIR@
+export PATH=@QTDIR@/bin:$PATH
+
+export MOC=@QTDIR@/bin/moc
+export UIC=@QTDIR@/bin/uic
+ 
+exec @QTDIR@/bin/designer-real "$@"

@@ -1,0 +1,13 @@
+diff -uNrp qt-x11-free-3.3.1.old/src/tools/qglobal.h qt-x11-free-3.3.1/src/tools/qglobal.h
+--- qt-x11-free-3.3.1.old/src/tools/qglobal.h	2004-02-18 16:22:41 +0300
++++ qt-x11-free-3.3.1/src/tools/qglobal.h	2004-04-07 22:54:08 +0400
+@@ -703,7 +703,9 @@ typedef unsigned __int64	Q_UINT64;	// 64
+ #else
+ #  define Q_INT64_C(c) 		c ## LL		// signed 64 bit constant
+ #  define Q_UINT64_C(c)		c ## ULL	// unsigned 64 bit constant
++__extension__
+ typedef long long		Q_INT64;	// 64 bit signed
++__extension__
+ typedef unsigned long long	Q_UINT64;	// 64 bit unsigned
+ #endif
+ typedef Q_INT64			Q_LLONG;	// signed long long

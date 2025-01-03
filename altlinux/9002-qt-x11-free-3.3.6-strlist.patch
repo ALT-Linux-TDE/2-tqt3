@@ -1,0 +1,60 @@
+diff -Naur qt-x11-free-3.3.6-orig/src/tools/qstringlist.cpp qt-x11-free-3.3.6/src/tools/qstringlist.cpp
+--- qt-x11-free-3.3.6-orig/src/tools/qstringlist.cpp	2006-03-08 19:47:37 +0300
++++ qt-x11-free-3.3.6/src/tools/qstringlist.cpp	2006-04-06 10:53:22 +0400
+@@ -452,7 +452,7 @@
+     QStringList res;
+     const char * s;
+     for ( QStrListIterator it(ascii); (s=it.current()); ++it )
+-	res << s;
++	res << QString::fromLocal8Bit(s);
+     return res;
+ }
+ 
+diff -Naur qt-x11-free-3.3.6-orig/src/widgets/qcombobox.cpp qt-x11-free-3.3.6/src/widgets/qcombobox.cpp
+--- qt-x11-free-3.3.6-orig/src/widgets/qcombobox.cpp	2006-03-08 19:48:00 +0300
++++ qt-x11-free-3.3.6/src/widgets/qcombobox.cpp	2006-04-06 10:56:26 +0400
+@@ -637,9 +637,9 @@
+     while ( (tmp=it.current()) ) {
+ 	++it;
+ 	if ( d->usingListBox() )
+-	    d->listBox()->insertItem( QString::fromLatin1(tmp), index );
++	    d->listBox()->insertItem( QString::fromLocal8Bit(tmp), index );
+ 	else
+-	    d->popup()->insertItem( escapedComboString(QString::fromLatin1(tmp)), index, index );
++	    d->popup()->insertItem( escapedComboString(QString::fromLocal8Bit(tmp)), index, index );
+ 	if ( index++ == d->current && d->current < count() ) {
+ 	    if ( d->ed ) {
+ 		d->ed->setText( text( d->current ) );
+@@ -712,9 +712,9 @@
+     int i = 0;
+     while ( (numStrings<0 && strings[i]!=0) || i<numStrings ) {
+ 	if ( d->usingListBox() )
+-	    d->listBox()->insertItem( QString::fromLatin1(strings[i]), index );
++	    d->listBox()->insertItem( QString::fromLocal8Bit(strings[i]), index );
+ 	else
+-	    d->popup()->insertItem( escapedComboString(QString::fromLatin1(strings[i])), index, index );
++	    d->popup()->insertItem( escapedComboString(QString::fromLocal8Bit(strings[i])), index, index );
+ 	i++;
+ 	if ( index++ == d->current && d->current < count()  ) {
+ 	    if ( d->ed ) {
+diff -Naur qt-x11-free-3.3.6-orig/src/widgets/qlistbox.cpp qt-x11-free-3.3.6/src/widgets/qlistbox.cpp
+--- qt-x11-free-3.3.6-orig/src/widgets/qlistbox.cpp	2006-03-08 19:47:58 +0300
++++ qt-x11-free-3.3.6/src/widgets/qlistbox.cpp	2006-04-06 10:53:22 +0400
+@@ -1369,7 +1369,7 @@
+ 	index = count();
+     while ( (txt=it.current()) ) {
+ 	++it;
+-	insertItem( new QListBoxText(QString::fromLatin1(txt)),
++	insertItem( new QListBoxText(QString::fromLocal8Bit(txt)),
+ 		    index++ );
+     }
+     if ( hasFocus() && !d->current )
+@@ -1411,7 +1411,7 @@
+ 	index = count();
+     int i = 0;
+     while ( (numStrings<0 && strings[i]!=0) || i<numStrings ) {
+-	insertItem( new QListBoxText( QString::fromLatin1(strings[i])),
++	insertItem( new QListBoxText( QString::fromLocal8Bit(strings[i])),
+ 		    index + i );
+ 	i++;
+     }

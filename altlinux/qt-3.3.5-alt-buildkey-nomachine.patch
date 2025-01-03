@@ -1,0 +1,11 @@
+--- qt-x11-free-3.3.5/configure~	2006-01-26 16:30:53 +0300
++++ qt-x11-free-3.3.5/configure	2006-01-26 16:31:10 +0300
+@@ -3157,7 +3157,7 @@ fi
+ rm -f .options
+ 
+ BUILD_OPTIONS="$BUILD_CONFIG $BUILD_OPTIONS"
+-QT_BUILD_KEY="$CFG_USER_BUILD_KEY $UNAME_MACHINE $UNAME_SYSTEM $COMPILER $BUILD_OPTIONS"
++QT_BUILD_KEY="$CFG_USER_BUILD_KEY $UNAME_SYSTEM $COMPILER $BUILD_OPTIONS"
+ # strip out leading/trailing/extra whitespace
+ QT_BUILD_KEY=`echo $QT_BUILD_KEY | sed -e "s,  *, ,g" -e "s,^  *,," -e "s,  *$,,"`
+ 

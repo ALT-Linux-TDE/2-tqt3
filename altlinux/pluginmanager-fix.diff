@@ -1,0 +1,11 @@
+--- src/tools/qgpluginmanager.cpp.sav	2005-03-01 15:36:35.000000000 +0100
++++ src/tools/qgpluginmanager.cpp	2005-03-01 17:57:56.306785909 +0100
+@@ -383,6 +383,8 @@ const QLibrary* QGPluginManager::library
+ 		sameBasename << (*git).mid( (*git).find( QChar(0xfffd) ) + 1 );
+ 		++git;
+ 	    }
++	    if( !sameBasename.isEmpty())
++		sameBasename.prepend( lib );
+ 
+ 	    if ( sameBasename.isEmpty() ) {
+ 		that->addLibrary( new QComLibrary( lib ) );

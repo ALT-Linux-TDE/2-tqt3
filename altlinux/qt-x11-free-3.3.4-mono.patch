@@ -1,0 +1,11 @@
+--- qt-x11-free-3.3.4/src/kernel/qfontdatabase_x11.cpp~	2005-02-01 17:13:41 +0300
++++ qt-x11-free-3.3.4/src/kernel/qfontdatabase_x11.cpp	2005-02-01 17:13:50 +0300
+@@ -1005,6 +1003,8 @@ static void loadXft()
+ 	    style->smoothScalable = TRUE;
+ 	    QtFontSize *size = style->pixelSize( SMOOTH_SCALABLE, TRUE );
+ 	    QtFontEncoding *enc = size->encodingID( -1, 0, 0, 0, 0, TRUE );
++	    if (f->qtname == "Monospace")
++		family->fixedPitch = TRUE;
+ 	    enc->pitch = (f->fixed ? 'm' : 'p');
+ 	}
+ 	++f;

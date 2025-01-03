@@ -1,0 +1,11 @@
+--- qt-x11-free-3.3.8d/src/kernel/qapplication_x11.cpp~	2011-11-16 18:19:18.000000000 +0400
++++ qt-x11-free-3.3.8d/src/kernel/qapplication_x11.cpp	2011-11-16 18:21:15.000000000 +0400
+@@ -417,7 +417,7 @@ static bool qt_x11EventFilter( XEvent* e
+ //XIM		qt_xim			= 0;
+ Q_EXPORT XIMStyle	qt_xim_style		= 0;
+ Q_EXPORT XIMStyle	qt_xim_preferred_style	= 0;
+-Q_EXPORT static XIMStyle xim_default_style	= XIMPreeditCallbacks | XIMStatusNothing;
++Q_EXPORT static XIMStyle xim_default_style	= XIMPreeditPosition | XIMStatusNothing;
+ #endif
+ 
+ Q_EXPORT int qt_ximComposingKeycode=0;

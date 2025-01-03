@@ -1,0 +1,12 @@
+diff -Naur qt-x11-free-3.3.3.orig/src/tools/qstring.cpp qt-x11-free-3.3.3/src/tools/qstring.cpp
+--- qt-x11-free-3.3.3.orig/src/tools/qstring.cpp	2004-08-05 18:41:58 +0400
++++ qt-x11-free-3.3.3/src/tools/qstring.cpp	2004-12-30 12:34:17 +0300
+@@ -5706,6 +5706,8 @@
+         slen = int(strlen(utf8));
+     }
+     len = len < 0 ? slen : QMIN(slen, len);
++    if ( len == 0 || *utf8 == '\0' )
++	return QString::fromLatin1( "" );
+     QString result;
+     result.setLength( len*2 ); // worst case
+     QChar *qch = (QChar *)result.unicode();

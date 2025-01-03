@@ -1,0 +1,422 @@
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qbig5codec.cpp qt-x11-free-3.3.8b/src/codecs/qbig5codec.cpp
+--- qt-x11-free-3.3.8b-orig/src/codecs/qbig5codec.cpp	2008-01-15 22:09:13.000000000 +0300
++++ qt-x11-free-3.3.8b/src/codecs/qbig5codec.cpp	2008-08-17 09:36:19.000000000 +0400
+@@ -556,6 +556,11 @@
+     {
+ 	//qDebug("QBig5Decoder::toUnicode(const char* chars = \"%s\", int len = %d)", chars, len);
+ 	QString result;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
+ 	for (int i=0; i<len; i++) {
+ 	    uchar ch = chars[i];
+ 	    switch (nbuf) {
+@@ -641,6 +646,11 @@
+ {
+     //qDebug("QBig5Codec::toUnicode(const char* chars \"%s\", int len = %d)", chars, len);
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++	return result;
++    }
+     for (int i=0; i<len; i++) {
+ 	uchar ch = chars[i];
+ 	if ( IsLatin(ch) ) {
+@@ -842,6 +852,11 @@
+     {
+ 	//qDebug("QBig5hkscsDecoder::toUnicode(const char* chars = \"%s\", int len = %d)", chars, len);
+ 	QString result;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
+ 	for (int i=0; i<len; i++) {
+ 	    uchar ch = chars[i];
+ 	    switch (nbuf) {
+@@ -924,6 +939,11 @@
+ {
+     //qDebug("QBig5hkscsCodec::toUnicode(const char* chars = \"%s\", int len = %d)", chars, len);
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++        return result;
++    }
+     for (int i=0; i<len; i++) {
+ 	uchar ch = chars[i];
+ 	if ( IsLatin(ch) ) {
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qeucjpcodec.cpp qt-x11-free-3.3.8b/src/codecs/qeucjpcodec.cpp
+--- qt-x11-free-3.3.8b-orig/src/codecs/qeucjpcodec.cpp	2008-01-15 22:09:13.000000000 +0300
++++ qt-x11-free-3.3.8b/src/codecs/qeucjpcodec.cpp	2008-08-17 09:36:19.000000000 +0400
+@@ -216,6 +216,11 @@
+ QString QEucJpCodec::toUnicode(const char* chars, int len) const
+ {
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++        return result;
++    }
+     for (int i=0; i<len; i++) {
+ 	uchar ch = chars[i];
+ 	if ( ch < 0x80 ) {
+@@ -407,6 +412,11 @@
+     QString toUnicode(const char* chars, int len)
+     {
+ 	QString result;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
+ 	for (int i=0; i<len; i++) {
+ 	    uchar ch = chars[i];
+ 	    switch (nbuf) {
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qeuckrcodec.cpp qt-x11-free-3.3.8b/src/codecs/qeuckrcodec.cpp
+--- qt-x11-free-3.3.8b-orig/src/codecs/qeuckrcodec.cpp	2008-01-15 22:09:13.000000000 +0300
++++ qt-x11-free-3.3.8b/src/codecs/qeuckrcodec.cpp	2008-08-17 09:36:19.000000000 +0400
+@@ -158,6 +158,11 @@
+ QString QEucKrCodec::toUnicode(const char* chars, int len) const
+ {
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++        return result;
++    }
+     for (int i=0; i<len; i++) {
+ 	uchar ch = chars[i];
+ 	if (ch == 0)
+@@ -289,6 +294,11 @@
+     QString toUnicode(const char* chars, int len)
+     {
+ 	QString result;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
+ 	for (int i=0; i<len; i++) {
+ 	    uchar ch = chars[i];
+ 	    if (ch == 0)
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qgb18030codec.cpp qt-x11-free-3.3.8b/src/codecs/qgb18030codec.cpp
+--- qt-x11-free-3.3.8b-orig/src/codecs/qgb18030codec.cpp	2008-01-15 22:09:13.000000000 +0300
++++ qt-x11-free-3.3.8b/src/codecs/qgb18030codec.cpp	2008-08-17 09:36:19.000000000 +0400
+@@ -229,6 +229,11 @@
+ QString QGb18030Codec::toUnicode(const char* chars, int len) const
+ {
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++        return result;
++    }
+     int clen;
+ 
+     //qDebug("QGb18030Codec::toUnicode(const char* chars, int len = %d)", len);
+@@ -351,6 +356,11 @@
+     QString toUnicode(const char* chars, int len)
+     {
+ 	QString result;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
+ 	//qDebug("QGb18030Decoder::toUnicode(const char* chars, int len = %d)", len);
+ 	for (int i=0; i<len; i++) {
+ 	    uchar ch = chars[i];
+@@ -525,6 +535,11 @@
+     QString toUnicode(const char* chars, int len)
+     {
+ 	QString result;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
+ 
+ 	//qDebug("QGbkDecoder::toUnicode(const char* chars = \"%s\", int len = %d)", chars, len);
+ 	for (int i=0; i<len; i++) {
+@@ -608,6 +623,11 @@
+ QString QGbkCodec::toUnicode(const char* chars, int len) const
+ {
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++	return result;
++    }
+     int clen;
+ 
+     //qDebug("QGbkCodec::toUnicode(const char* chars, int len = %d)", len);
+@@ -725,6 +745,11 @@
+     QString toUnicode(const char* chars, int len)
+     {
+ 	QString result;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
+ 	//qDebug("QGb2312Decoder::toUnicode(const char* chars, int len = %d)", len);
+ 	for (int i=0; i<len; i++) {
+ 	    uchar ch = chars[i];
+@@ -808,6 +833,11 @@
+ QString QGb2312Codec::toUnicode(const char* chars, int len) const
+ {
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++        return result;
++    }
+     int clen;
+ 
+     //qDebug("QGb2312Codec::toUnicode(const char* chars, int len = %d)", len);
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qjiscodec.cpp qt-x11-free-3.3.8b/src/codecs/qjiscodec.cpp
+--- qt-x11-free-3.3.8b-orig/src/codecs/qjiscodec.cpp	2008-01-15 22:09:13.000000000 +0300
++++ qt-x11-free-3.3.8b/src/codecs/qjiscodec.cpp	2008-08-17 09:36:19.000000000 +0400
+@@ -264,6 +264,11 @@
+ QString QJisCodec::toUnicode(const char* chars, int len) const
+ {
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++	return result;
++    }
+     Iso2022State state = Ascii, prev = Ascii;
+     for (int i=0; i<len; i++) {
+ 	uchar ch = chars[i];
+@@ -565,6 +570,11 @@
+     QString toUnicode(const char* chars, int len)
+     {
+ 	QString result;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
+ 	for (int i=0; i<len; i++) {
+ 	    uchar ch = chars[i];
+ 	    if (esc) {
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qrtlcodec.cpp qt-x11-free-3.3.8b/src/codecs/qrtlcodec.cpp
+--- qt-x11-free-3.3.8b-orig/src/codecs/qrtlcodec.cpp	2008-01-15 22:09:13.000000000 +0300
++++ qt-x11-free-3.3.8b/src/codecs/qrtlcodec.cpp	2008-08-17 09:36:19.000000000 +0400
+@@ -508,6 +508,11 @@
+ QString QHebrewCodec::toUnicode(const char* chars, int len ) const
+ {
+     QString r;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        r.setLength(0);
++	return r;
++    }
+     const unsigned char * c = (const unsigned char *)chars;
+     QChar::Direction basicDir = QChar::DirON; // neutral, we don't know
+ 
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qsjiscodec.cpp qt-x11-free-3.3.8b/src/codecs/qsjiscodec.cpp
+--- qt-x11-free-3.3.8b-orig/src/codecs/qsjiscodec.cpp	2008-01-15 22:09:13.000000000 +0300
++++ qt-x11-free-3.3.8b/src/codecs/qsjiscodec.cpp	2008-08-17 09:40:45.000000000 +0400
+@@ -191,6 +191,11 @@
+ {
+     uint u;
+     QString result;
++    if (!chars) return QString::null;
++    if (chars && (chars[0]=='\0' || len==0)) {
++        result.setLength(0);
++        return result;
++    }
+     for (int i=0; i<len; i++) {
+ 	uchar ch = chars[i];
+ 	if ( ch < 0x80 || IsKana(ch) ) {
+@@ -328,7 +333,12 @@
+     QString toUnicode(const char* chars, int len)
+     {
+ 	QString result;
+-    uint u= 0;
++	if (!chars) return QString::null;
++	if (chars && (chars[0]=='\0' || len==0)) {
++	    result.setLength(0);
++	    return result;
++	}
++	uint u= 0;
+ 	for (int i=0; i<len; i++) {
+ 	    uchar ch = chars[i];
+ 	    switch (nbuf) {
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qtextcodec.cpp qt-x11-free-3.3.8b/src/codecs/qtextcodec.cpp
+--- qt-x11-free-3.3.8b-orig/src/codecs/qtextcodec.cpp	2008-01-15 22:09:13.000000000 +0300
++++ qt-x11-free-3.3.8b/src/codecs/qtextcodec.cpp	2008-08-17 09:36:19.000000000 +0400
+@@ -469,19 +469,19 @@
+ // returns a string containing the letters and numbers from input,
+ // with a space separating run of a character class. e.g. "iso8859-1"
+ // becomes "iso 8859 1"
+-static QString lettersAndNumbers( const char * input )
++static QCString lettersAndNumbers( const char * input )
+ {
+-    QString result;
++    QCString result;
+     QChar c;
+ 
+     while( input && *input ) {
+-	c = *input;
++	c = QChar( *input, 0 );
+  	if ( c.isLetter() || c.isNumber() )
+- 	    result += c.lower();
++ 	    result += c.lower().cell();
+ 	if ( input[1] ) {
+ 	    // add space at character class transition, except
+ 	    // transition from upper-case to lower-case letter
+-	    QChar n( input[1] );
++	    QChar n( input[1], 0 );
+ 	    if ( c.isLetter() && n.isLetter() ) {
+ 		if ( c == c.lower() && n == n.upper() )
+ 		    result += ' ';
+@@ -508,8 +508,8 @@
+ 
+     // if the letters and numbers are the same, we have an "almost"
+     // perfect match.
+-    QString h( lettersAndNumbers( hint ) );
+-    QString n( lettersAndNumbers( name ) );
++    QCString h( lettersAndNumbers( hint ) );
++    QCString n( lettersAndNumbers( name ) );
+     if ( h == n )
+ 	return qstrlen( hint )-1;
+ 
+@@ -593,6 +593,13 @@
+ 
+ QString QWindowsLocalCodec::toUnicode(const char* chars, int len) const
+ {
++    if ( !chars ) return QString::null;
++    if ( chars && (chars[0]=='\0' || len==0) ) {
++        QString blank;
++        blank.setLength(0);
++        return blank;
++    }
++
+     if ( len == 1 && chars ) {          // Optimization; avoids allocation
+ 	char c[2];
+ 	c[0] = *chars;
+@@ -1000,8 +1007,13 @@
+ */
+ QString QTextCodec::toUnicode(const char* chars, int len) const
+ {
+-    if ( chars == 0 )
+-	return QString::null;
++    if ( !chars ) return QString::null;
++    if ( chars && (chars[0]=='\0' || len==0) ) {
++        QString blank;
++        blank.setLength(0);
++        return blank;
++    }
++
+     QTextDecoder* i = makeDecoder();
+     QString result = i->toUnicode(chars,len);
+     delete i;
+@@ -1477,6 +1489,13 @@
+ 
+     QString toUnicode(const char* chars, int len) const
+     {
++        if ( !chars ) return QString::null;
++        if ( chars && (chars[0]=='\0' || len==0) ) {
++            QString blank;
++            blank.setLength(0);
++            return blank;
++        }
++
+ 	const uchar* uchars = (const uchar*)chars;
+ 	QString result;
+ 	QMultiByteUnicodeTable* multiByte=to_unicode_multiByte;
+@@ -1549,6 +1568,13 @@
+ 
+ QString QTextCodecFromIODDecoder::toUnicode(const char* chars, int len)
+ {
++    if ( !chars ) return QString::null;
++    if ( chars && (chars[0]=='\0' || len==0) ) {
++        QString blank;
++        blank.setLength(0);
++        return blank;
++    }
++
+     const uchar* uchars = (const uchar*)chars;
+     QString result;
+     while (len--) {
+@@ -2319,13 +2345,17 @@
+ 
+ QString QSimpleTextCodec::toUnicode(const char* chars, int len) const
+ {
+-    if ( len <= 0 || chars == 0 )
+-	return QString::null;
++    if ( !chars ) return QString::null;
++    if ( chars && (chars[0]=='\0' || len==0) ) {
++        QString blank;
++        blank.setLength(0);
++        return blank;
++    }
+ 
+     const unsigned char * c = (const unsigned char *)chars;
+     int i;
+ 
+-    for ( i = 0; i < len; i++ )
++    for ( i = 0; i < len || len < 0; i++ )
+ 	if ( c[i] == '\0' ) {
+ 	    len = i;
+ 	    break;
+@@ -2515,10 +2545,29 @@
+ 
+ QString QLatin1Codec::toUnicode(const char* chars, int len) const
+ {
+-    if ( chars == 0 )
+-	return QString::null;
++    if ( !chars ) return QString::null;
++    if ( chars && (chars[0]=='\0' || len==0) ) {
++        QString blank;
++        blank.setLength(0);
++        return blank;
++    }
++
++    QString r;
++ 
++    const unsigned char * c = (const unsigned char *)chars;
++    int i;
++
++    for ( i = 0; i < len; i++ ) 
++        if ( c[i] == '\0' ) len = i;
+ 
+-    return QString::fromLatin1(chars, len);
++    if( len > 0 ) {
++        r.setUnicode(0, len);
++        QChar* uc = (QChar*)r.unicode(); // const_cast
++
++        for ( i = 0; i < len; i++ )
++            uc[i] = QChar( c[i], 0 );
++    }
++    return r;
+ }
+ 
+ 
+diff -Naur qt-x11-free-3.3.8b-orig/src/codecs/qutfcodec.cpp qt-x11-free-3.3.8b/src/codecs/qutfcodec.cpp
+--- qt-x11-free-3.3.8d/src/codecs/qutfcodec.cpp~	2011-11-16 18:51:21.000000000 +0400
++++ qt-x11-free-3.3.8d/src/codecs/qutfcodec.cpp	2011-11-16 18:54:06.000000000 +0400
+@@ -303,6 +303,16 @@ public:
+     QString toUnicode(const char* chars, int len)
+     {
+ 	QString result;
++        if (!chars) return QString::null;
++        if (chars && (chars[0]=='\0' || len==0)) {
++            result.setLength(0);
++            return result;
++        }
++        if (!chars) return QString::null;
++        if (chars && (chars[0]=='\0' || len==0)) {
++            result.setLength(0);
++            return result;
++        }
+ 	result.setLength( len + 1 ); // worst case
+ 	QChar *qch = (QChar *)result.unicode();
+ 	QChar ch;

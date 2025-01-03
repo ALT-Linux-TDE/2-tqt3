@@ -1,0 +1,21 @@
+diff -uNr qtconfig.old/main.cpp qtconfig/main.cpp
+--- qt-x11-free-3.2.3/tools/qtconfig.old/main.cpp	2003-05-13 11:08:55 +0400
++++ qt-x11-free-3.2.3/tools/qtconfig/main.cpp	2003-12-25 19:27:53 +0300
+@@ -20,11 +20,17 @@
+ 
+ #include "mainwindow.h"
+ #include <qapplication.h>
++#include <qtextcodec.h>
+ 
+ 
+ int main(int argc, char **argv)
+ {
+     QApplication app(argc, argv);
++
++    QTranslator translator( 0 );
++    translator.load( QString( "qtconfig_" ) + QTextCodec::locale(), qInstallPathTranslations() );
++    app.installTranslator( &translator );
++
+     MainWindow mw;
+     app.setMainWidget(&mw);
+     mw.show();

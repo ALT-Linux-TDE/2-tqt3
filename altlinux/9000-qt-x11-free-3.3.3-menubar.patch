@@ -1,0 +1,98 @@
+diff -Naur qt-x11-free-3.3.3.orig/src/styles/qcommonstyle.cpp qt-x11-free-3.3.3/src/styles/qcommonstyle.cpp
+--- qt-x11-free-3.3.3.orig/src/styles/qcommonstyle.cpp	2004-08-05 18:42:13 +0400
++++ qt-x11-free-3.3.3/src/styles/qcommonstyle.cpp	2004-12-30 11:58:29 +0300
+@@ -2690,6 +2690,7 @@
+ 	ret = Qt::AlignCenter;
+ 	break;
+ 
++    case SH_MenuBar_AltKeyNavigation:
+     case SH_BlinkCursorWhenTextSelected:
+ 	ret = 1;
+ 	break;
+diff -Naur qt-x11-free-3.3.3.orig/src/styles/qmotifplusstyle.cpp qt-x11-free-3.3.3/src/styles/qmotifplusstyle.cpp
+--- qt-x11-free-3.3.3.orig/src/styles/qmotifplusstyle.cpp	2004-08-05 18:42:13 +0400
++++ qt-x11-free-3.3.3/src/styles/qmotifplusstyle.cpp	2004-12-30 11:58:29 +0300
+@@ -1567,6 +1567,7 @@
+ {
+     int ret;
+     switch (hint) {
++    case SH_MenuBar_AltKeyNavigation:
+     case SH_PopupMenu_MouseTracking:
+ 	ret = 1;
+ 	break;
+diff -Naur qt-x11-free-3.3.3.orig/src/styles/qmotifstyle.cpp qt-x11-free-3.3.3/src/styles/qmotifstyle.cpp
+--- qt-x11-free-3.3.3.orig/src/styles/qmotifstyle.cpp	2004-08-05 18:42:13 +0400
++++ qt-x11-free-3.3.3/src/styles/qmotifstyle.cpp	2004-12-30 11:58:29 +0300
+@@ -2324,6 +2324,7 @@
+ 	ret = QWidget::PaletteMid;
+ 	break;
+ 
++    case SH_MenuBar_AltKeyNavigation:
+     case SH_ScrollBar_MiddleClickAbsolutePosition:
+     case SH_Slider_SloppyKeyEvents:
+     case SH_ProgressDialog_CenterCancelButton:
+diff -Naur qt-x11-free-3.3.3.orig/src/widgets/qmainwindow.cpp qt-x11-free-3.3.3/src/widgets/qmainwindow.cpp
+--- qt-x11-free-3.3.3.orig/src/widgets/qmainwindow.cpp	2004-08-05 18:42:20 +0400
++++ qt-x11-free-3.3.3/src/widgets/qmainwindow.cpp	2004-12-30 11:58:29 +0300
+@@ -62,6 +62,10 @@
+ #ifdef Q_WS_MACX
+ #  include "qt_mac.h"
+ #endif
++#ifndef QT_NO_MENUBAR
++#  include "qaccel.h"
++#  include "qaction.h"
++#endif
+ 
+ class QHideDock;
+ class QMainWindowLayout;
+@@ -904,6 +908,11 @@
+     d->rightDock = new QDockArea( Vertical, QDockArea::Reverse, this, "qt_right_dock" );
+     d->rightDock->installEventFilter( this );
+     d->hideDock = new QHideDock( this );
++#ifndef QT_NO_MENUBAR
++    QAction *actMenuBarAction = new QAction( "activateMenuBar", "activateMenuBar", 
++                                             SHIFT+Key_F10, this, "activateMenuBar" );
++    connect( actMenuBarAction, SIGNAL( activated() ) , this, SLOT( activateMenuBar() ) );
++#endif
+ }
+ 
+ 
+@@ -2270,6 +2279,14 @@
+     return TRUE;
+ }
+ 
++#ifndef QT_NO_MENUBAR
++void QMainWindow::activateMenuBar()
++{
++    if ( d && d->mb )
++	d->mb->activateItemAt(0);
++}
++#endif
++
+ void QMainWindow::slotPlaceChanged()
+ {
+     QObject* obj = (QObject*)sender();
+diff -Naur qt-x11-free-3.3.3.orig/src/widgets/qmainwindow.h qt-x11-free-3.3.3/src/widgets/qmainwindow.h
+--- qt-x11-free-3.3.3.orig/src/widgets/qmainwindow.h	2004-08-05 18:42:21 +0400
++++ qt-x11-free-3.3.3/src/widgets/qmainwindow.h	2004-12-30 11:58:29 +0300
+@@ -177,6 +177,9 @@
+     void styleChange( QStyle& );
+ 
+ private slots:
++#ifndef QT_NO_MENUBAR
++    void activateMenuBar();
++#endif
+     void slotPlaceChanged();
+     void doLineUp() { lineUpDockWindows( TRUE ); }
+ 
+diff -Naur qt-x11-free-3.3.3.orig/src/widgets/qmenubar.cpp qt-x11-free-3.3.3/src/widgets/qmenubar.cpp
+--- qt-x11-free-3.3.3.orig/src/widgets/qmenubar.cpp	2004-08-05 18:42:21 +0400
++++ qt-x11-free-3.3.3/src/widgets/qmenubar.cpp	2004-12-30 11:58:29 +0300
+@@ -607,6 +607,7 @@
+ 		tlw->removeEventFilter( this );
+ 		tlw->installEventFilter( this );
+ 	    }
++	    setActiveItem(actItem);
+ 	    return TRUE;
+ 	// Cancel if next keypress is NOT Alt/Meta,
+ 	} else if ( !hasFocus() && (event->type() == QEvent::AccelOverride ) &&

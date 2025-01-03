@@ -1,0 +1,21 @@
+You should not need to set QTDIR because it should already been automatically
+configured (in '/etc/profile.d/@QT@dir.sh' and '/etc/profile.d/@QT@dir.csh').
+
+To check if it is the case, do 'echo $QTDIR'. Answer should be '@QTDIR@'.
+
+If it is not the case, do 'export QTDIR=@QTDIR@' if you use bash or
+'setenv QTDIR @QTDIR@/' if you use csh.
+
+Qt documentation is in /usr/share/doc/qt-@QtVersion@/ (you need to
+install package qt3-doc-@PackageVersion@ if it is not already
+done).
+
+Other Qt things are in @QTDIR@/ (which contains needed symlinks
+to create a fake QTDIR).
+
+Examples and tutorials are compressed to save space. If you want to use them,
+you need to uncompress them somewhere in your home directory using:
+'cd your_directory; tar xvfj /usr/share/doc/qt-@QtVersion@/tutorial.tar.bz2'.
+
+You may override placement of @QTHOME@ directory with settings files
+by exporting QT_SETTINGS_DIR variable before start Qt-based application.

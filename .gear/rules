@@ -1,0 +1,15 @@
+copy?: upstream/*.desktop
+copy?: upstream/*.sh
+copy: altlinux/*.patch
+copy: altlinux/*.diff
+copy: altlinux/*.png
+copy: altlinux/*-sh
+copy: altlinux/*.distribution
+copy: altlinux/*.cpp
+copy: altlinux/import.info
+
+tar: qsa-x11-free name=qsa-x11-free-1.1.5
+tar: qt-ru name=qt-ru-3.3.2-20040604 base=
+tar: tqt name=trinity-tqt3-14.0.4
+
+spec: trinity-tqt3.spec

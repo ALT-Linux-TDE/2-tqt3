@@ -1,0 +1,12 @@
+diff -Naur qt-x11-free-3.3.3.orig/src/tools/qtextstream.cpp qt-x11-free-3.3.3/src/tools/qtextstream.cpp
+--- qt-x11-free-3.3.3.orig/src/tools/qtextstream.cpp	2004-08-05 18:41:57 +0400
++++ qt-x11-free-3.3.3/src/tools/qtextstream.cpp	2004-12-30 12:11:56 +0300
+@@ -590,7 +590,7 @@
+     dev = new QBuffer( a );
+     ((QBuffer *)dev)->open( mode );
+     owndev = TRUE;
+-    setEncoding( Latin1 ); //### Locale???
++    setEncoding( Locale ); //### Latin1???
+     reset();
+     d->sourceType = QTextStreamPrivate::ByteArray;
+ }

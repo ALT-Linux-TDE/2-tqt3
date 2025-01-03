@@ -1,0 +1,23 @@
+--- qt-x11-free-3.3.7/src/kernel/qurloperator.cpp~	2006-10-19 18:25:13 +0400
++++ qt-x11-free-3.3.7/src/kernel/qurloperator.cpp	2007-01-17 20:04:05 +0300
+@@ -636,7 +636,7 @@ QPtrList<QNetworkOperation> QUrlOperator
+ 
+ 	    QNetworkOperation *opRm = new QNetworkOperation( QNetworkProtocol::OpRemove, frm, QString::null, QString::null );
+ 	    ops.append( opRm );
+-	    d->getOpRemoveOpMap.insert( (void*)opGet, opRm );
++	    d->getOpRemoveOpMap.insert( (void*)opPut, opRm );
+ 	} else {
+ 	    gProt->setAutoDelete( TRUE );
+ 	}
+@@ -1111,9 +1111,9 @@ void QUrlOperator::continueCopy( QNetwor
+     if ( gProt ) {
+ 	gProt->setAutoDelete( TRUE );
+     }
+-    if ( rm && gProt ) {
++    if ( rm && pProt ) {
+ 	if ( op->state() != QNetworkProtocol::StFailed ) {
+-	    gProt->addOperation( rm );
++	    pProt->addOperation( rm );
+ 	} else {
+ 	    deleteOperation( rm );
+ 	}

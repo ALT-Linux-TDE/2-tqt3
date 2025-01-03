@@ -1,0 +1,14 @@
+--- src/kernel/qpixmap_x11.cpp
++++ src/kernel/qpixmap_x11.cpp	2003/09/17 16:29:29
+@@ -284,8 +284,9 @@
+ {
+ #if defined(QT_CHECK_STATE)
+     if ( qApp->type() == QApplication::Tty ) {
+-	qWarning( "QPixmap: Cannot create a QPixmap when no GUI "
+-		  "is being used" );
++//	qWarning( "QPixmap: Cannot create a QPixmap when no GUI "
++//		  "is being used" );
++       ;
+     }
+ #endif
+ 

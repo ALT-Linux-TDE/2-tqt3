@@ -1,0 +1,8 @@
+#!/bin/sh
+# Support script to properly set environments for Designer to run
+ 
+export QTDIR=@QTDIR@
+export UIC=@QTDIR@/bin/uic
+export PATH=@QTDIR@/bin:$PATH
+ 
+exec @QTDIR@/bin/assistant-real "$@"

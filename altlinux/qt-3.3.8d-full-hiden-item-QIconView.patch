@@ -1,0 +1,207 @@
+From 660a32cfcf9bd9aee882ee3fb84045e8a49e4f97 Mon Sep 17 00:00:00 2001
+From: Timothy Pearson <kb9vqf@pearsoncomputing.net>
+Date: Tue, 31 Jan 2012 22:55:00 +0000
+Subject: Add full hidden item support to QIconView
+
+This will enable TDE to efficiently filter icon views via Konqueror
+---
+diff --git a/src/iconview/qiconview.cpp b/src/iconview/qiconview.cpp
+index c1ea8cc..dd74e29 100644
+--- a/src/iconview/qiconview.cpp
++++ b/src/iconview/qiconview.cpp
+@@ -1137,6 +1137,9 @@ void QIconViewItem::setKey( const QString &k )
+ 
+ void QIconViewItem::setPixmap( const QPixmap &icon )
+ {
++    if (isVisible() == FALSE)
++	return;
++
+     if ( itemIcon && itemIcon == unknown_icon )
+ 	itemIcon = 0;
+ 
+@@ -1235,6 +1238,9 @@ void QIconViewItem::setText( const QString &text, bool recalc, bool redraw )
+ 
+ void QIconViewItem::setPixmap( const QPixmap &icon, bool recalc, bool redraw )
+ {
++    if (isVisible() == FALSE)
++	return;
++
+     if ( itemIcon && itemIcon == unknown_icon )
+ 	itemIcon = 0;
+ 
+@@ -3008,7 +3014,7 @@ void QIconView::insertItem( QIconViewItem *item, QIconViewItem *after )
+ 	    //insertInGrid( item );
+ 
+ 	    d->cachedW = QMAX( d->cachedW, item->x() + item->width() );
+-	    d->cachedH= QMAX( d->cachedH, item->y() + item->height() );
++	    d->cachedH = QMAX( d->cachedH, item->y() + item->height() );
+ 
+ 	    d->updateTimer->start( 0, TRUE );
+ 	} else {
+@@ -3587,6 +3593,9 @@ void QIconView::arrangeItemsInGrid( bool update )
+     int w = 0, h = 0, y = d->spacing;
+ 
+     QIconViewItem *item = d->firstItem;
++    while (item && (item->isVisible() == FALSE)) {
++	item = item->next;
++    }
+     bool changedLayout = FALSE;
+     while ( item ) {
+ 	bool changed;
+@@ -3604,21 +3613,37 @@ void QIconView::arrangeItemsInGrid( bool update )
+ 	    break;
+ 
+ 	item = item->next;
++	while (item && (item->isVisible() == FALSE)) {
++	    item = item->next;
++	}
+     }
+ 
+     if ( d->lastItem && d->arrangement == TopToBottom ) {
+ 	item = d->lastItem;
+-	int x = item->x();
++	while (item && (item->isVisible() == FALSE)) {
++	    item = item->prev;
++	}
++	int x = 0;
++	if (item)
++	    x = item->x();
+ 	while ( item && item->x() >= x ) {
+ 	    w = QMAX( w, item->x() + item->width() );
+ 	    h = QMAX( h, item->y() + item->height() );
+ 	    item = item->prev;
++	    while (item && (item->isVisible() == FALSE)) {
++		item = item->prev;
++	    }
+ 	}
+     }
+     d->containerUpdateLocked = FALSE;
+ 
+-    w = QMAX( QMAX( d->cachedW, w ), d->lastItem->x() + d->lastItem->width() );
+-    h = QMAX( QMAX( d->cachedH, h ), d->lastItem->y() + d->lastItem->height() );
++    QIconViewItem *lastVisibleItem = d->lastItem;
++    while (lastVisibleItem->prev && (lastVisibleItem->isVisible() == FALSE)) {
++	lastVisibleItem = lastVisibleItem->prev;
++    }
++
++    w = QMAX( QMAX( d->cachedW, w ), lastVisibleItem->x() + lastVisibleItem->width() );
++    h = QMAX( QMAX( d->cachedH, h ), lastVisibleItem->y() + lastVisibleItem->height() );
+ 
+     if ( d->arrangement == TopToBottom )
+ 	w += d->spacing;
+@@ -3977,8 +4002,8 @@ void QIconView::ensureItemVisible( QIconViewItem *item )
+     if ( !item )
+ 	return;
+ 
+-    if ( d->updateTimer && d->updateTimer->isActive() ||
+-	 d->fullRedrawTimer && d->fullRedrawTimer->isActive() )
++    if ( (d->updateTimer && d->updateTimer->isActive()) ||
++	 (d->fullRedrawTimer && d->fullRedrawTimer->isActive()) )
+ 	slotUpdate();
+ 
+     int w = item->width();
+@@ -5793,6 +5818,15 @@ QIconViewItem *QIconView::makeRowLayout( QIconViewItem *begin, int &y, bool &cha
+ {
+     QIconViewItem *end = 0;
+ 
++    // Find the first visible item
++    while (begin->next && (begin->isVisible() == FALSE)) {
++	begin = begin->next;
++    }
++    if (!begin->next) {
++	changed = TRUE;
++	return begin;
++    }
++
+     bool reverse = QApplication::reverseLayout();
+     changed = FALSE;
+ 
+@@ -5808,12 +5842,18 @@ QIconViewItem *QIconView::makeRowLayout( QIconViewItem *begin, int &y, bool &cha
+ 		x += d->spacing + item->width();
+ 		if ( x > visibleWidth() && item != begin ) {
+ 		    item = item->prev;
++		    while (item && (item->isVisible() == FALSE)) {
++			item = item->prev;
++		    }
+ 		    break;
+ 		}
+ 		h = QMAX( h, item->height() );
+ 		ih = QMAX( ih, item->pixmapRect().height() );
+ 		QIconViewItem *old = item;
+ 		item = item->next;
++		while (item && (item->isVisible() == FALSE)) {
++		    item = item->next;
++		}
+ 		if ( !item ) {
+ 		    item = old;
+ 		    break;
+@@ -5869,12 +5909,18 @@ QIconViewItem *QIconView::makeRowLayout( QIconViewItem *begin, int &y, bool &cha
+ 		}
+ 		if ( x > visibleWidth() && item != begin ) {
+ 		    item = item->prev;
++		    while (item && (item->isVisible() == FALSE)) {
++			item = item->prev;
++		    }
+ 		    break;
+ 		}
+ 		h = QMAX( h, item->height() );
+ 		ih = QMAX( ih, item->pixmapRect().height() );
+ 		QIconViewItem *old = item;
+ 		item = item->next;
++		while (item && (item->isVisible() == FALSE)) {
++		    item = item->next;
++		}
+ 		if ( !item ) {
+ 		    item = old;
+ 		    break;
+@@ -5915,6 +5961,9 @@ QIconViewItem *QIconView::makeRowLayout( QIconViewItem *begin, int &y, bool &cha
+ 		if ( item == end )
+ 		    break;
+ 		item = item->next;
++		while (item && (item->isVisible() == FALSE)) {
++		    item = item->next;
++		}
+ 	    }
+ 	    y += h + d->spacing;
+ 	}
+@@ -5932,11 +5981,17 @@ QIconViewItem *QIconView::makeRowLayout( QIconViewItem *begin, int &y, bool &cha
+ 		y += d->spacing + item->height();
+ 		if ( y > visibleHeight() && item != begin ) {
+ 		    item = item->prev;
++		    while (item && (item->isVisible() == FALSE)) {
++			item = item->prev;
++		    }
+ 		    break;
+ 		}
+ 		w = QMAX( w, item->width() );
+ 		QIconViewItem *old = item;
+ 		item = item->next;
++		while (item && (item->isVisible() == FALSE)) {
++		    item = item->next;
++		}
+ 		if ( !item ) {
+ 		    item = old;
+ 		    break;
+@@ -5966,6 +6021,9 @@ QIconViewItem *QIconView::makeRowLayout( QIconViewItem *begin, int &y, bool &cha
+ 		if ( item == end )
+ 		    break;
+ 		item = item->next;
++		while (item && (item->isVisible() == FALSE)) {
++		    item = item->next;
++		}
+ 	    }
+ 	    x += w + d->spacing;
+ 	}
+@@ -6279,6 +6337,10 @@ void QIconView::rebuildContainers()
+ 		}
+ 	    }
+ 	}
++	else {
++	    // Skip this hidden item
++	    item = item->next;
++	}
+     }
+ }
+ 
+--
+cgit v0.9.0.2-52-g1de3

@@ -1,0 +1,11 @@
+--- qmake/generators/unix/unixmake.cpp.orig	2003-06-14 17:20:31.000000000 +0200
++++ qmake/generators/unix/unixmake.cpp	2003-06-14 17:20:40.000000000 +0200
+@@ -732,7 +732,7 @@
+ 	    ret += "\n\t";
+ 	ret += QString(resource ? "-$(COPY_DIR)" : "-$(COPY)") + " \"" +
+ 	       src_targ + "\" \"" + dst_targ + "\"";
+-	if(!project->isActiveConfig("debug") && !project->isEmpty("QMAKE_STRIP") &&
++	if(false && !project->isActiveConfig("debug") && !project->isEmpty("QMAKE_STRIP") &&
+ 	   (project->first("TEMPLATE") != "lib" || !project->isActiveConfig("staticlib"))) {
+ 	    ret += "\n\t-" + var("QMAKE_STRIP");
+ 	    if(project->first("TEMPLATE") == "lib" && !project->isEmpty("QMAKE_STRIPFLAGS_LIB"))

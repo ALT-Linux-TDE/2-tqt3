@@ -1,0 +1,31 @@
+--- qt-x11-free-3.3.8d/src/tools/qglobal.h~	2011-11-16 18:48:50.000000000 +0400
++++ qt-x11-free-3.3.8d/src/tools/qglobal.h	2011-11-16 18:50:29.000000000 +0400
+@@ -317,12 +317,16 @@
+    char, or short.  We tell gcc to pack QChars to 16 bits, to avoid
+    QString bloat. However, gcc 3.4 doesn't allow us to create references to
+    members of a packed struct. (Pointers are OK, because then you
+-   supposedly know what you are doing.) */
++   supposedly know what you are doing.)
++   For gcc 4.0.2 pointers dont seem to be ok, */
+ #  if (defined(__arm__) || defined(__ARMEL__)) && !defined(__ARM_EABI__) && !defined(QT_MOC_CPP)
+ #    define Q_PACKED __attribute__ ((packed))
+ #    if __GNUC__ == 3 && __GNUC_MINOR__ >= 4 || __GNUC__ > 3
+ #      define Q_NO_PACKED_REFERENCE
+ #    endif
++#    if __GNUC__ == 4 && __GNUC_MINOR__ >= 0
++#      define Q_NO_PACKED_POINTERS
++#    endif
+ #  endif
+ #  if !defined(__EXCEPTIONS)
+ #    define Q_NO_EXCEPTIONS
+--- qt-x11-free-3.3.8d/src/tools/qstring.h~	2011-11-16 18:44:57.000000000 +0400
++++ qt-x11-free-3.3.8d/src/tools/qstring.h	2011-11-16 18:47:20.000000000 +0400
+@@ -198,6 +198,8 @@ public:
+     ushort unicode() const { return ucs; }
+ #ifdef Q_NO_PACKED_REFERENCE
+     ushort &unicode() { return *((ushort*)&ucs); }
++#elif defined Q_NO_PACKED_POINTERS
++    ushort &unicode() { ushort& tmp = ucs; return tmp; }
+ #else
+     ushort &unicode() { return ucs; }
+ #endif

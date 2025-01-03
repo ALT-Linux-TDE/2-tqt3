@@ -1,0 +1,32 @@
+--- qt-x11-free-3.3.0/plugins/src/sqldrivers/sqlite/sqlite.pro~	2004-02-05 20:27:41 +0300
++++ qt-x11-free-3.3.0/plugins/src/sqldrivers/sqlite/sqlite.pro	2004-02-05 20:31:19 +0300
+@@ -10,6 +10,9 @@
+ 
+ unix {
+ 	OBJECTS_DIR = .obj
++	!contains( LIBS, .*sqlite.* ) {
++	    LIBS    *= -lsqlite
++	}
+ }
+ 
+ win32 {
+@@ -23,7 +26,7 @@
+ #	}
+ }
+ 
+-!contains( LIBS, .*sqlite.* ) {
++not_needed_for_shared_libsqlite {
+     INCLUDEPATH += ../../../../src/3rdparty/sqlite
+ 
+     HEADERS += ../../../../src/3rdparty/sqlite/btree.h \
+--- qt-x11-free-3.3.0/src/tools/qcstring.cpp~	2004-02-05 20:31:19 +0300
++++ qt-x11-free-3.3.0/src/tools/qcstring.cpp	2004-02-05 20:31:19 +0300
+@@ -50,7 +50,7 @@
+ #include <ctype.h>
+ #include <limits.h>
+ #ifndef QT_NO_COMPRESS
+-#include "../3rdparty/zlib/zlib.h"
++#include <zlib.h>
+ #endif
+ 
+ /*****************************************************************************

@@ -1,0 +1,10 @@
+--- qt-x11-free-3.1.0/tools/designer/editor/editor.pro.orig	2002-11-15 18:41:42.000000000 +0100
++++ qt-x11-free-3.1.0/tools/designer/editor/editor.pro	2002-11-15 18:44:13.000000000 +0100
+@@ -1,6 +1,5 @@
+ TEMPLATE	= lib
+-CONFIG		+= qt warn_on staticlib
+-CONFIG		-= dll
++CONFIG		+= qt warn_on release dll
+ HEADERS		= editor.h  \
+ 		  parenmatcher.h  \
+ 		  completion.h \

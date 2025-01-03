@@ -1,0 +1,88 @@
+diff -Naur qt-x11-free-3.3.4-orig/src/dialogs/qfiledialog.cpp qt-x11-free-3.3.4/src/dialogs/qfiledialog.cpp
+--- qt-x11-free-3.3.4-orig/src/dialogs/qfiledialog.cpp	2005-01-21 20:16:03 +0300
++++ qt-x11-free-3.3.4/src/dialogs/qfiledialog.cpp	2005-02-25 12:58:52 +0300
+@@ -1413,7 +1413,7 @@
+ 	dest = filedialog->d->url;
+     QStringList lst;
+     for ( uint i = 0; i < l.count(); ++i ) {
+-	lst << l.at( i );
++	lst << QUriDrag::uriToUnicodeUri(l.at( i ));
+     }
+ 
+     filedialog->d->url.copy( lst, dest, move );
+@@ -2911,7 +2911,7 @@
+         prot += ":";
+ 	s.remove( 0, prot.length() );
+     }
+-    QUrl u( prot + QFileDialogPrivate::encodeFileName( s ) );
++    QUrl u( prot + s );
+     if ( u.isLocalFile() ) {
+ 	QString s = u.toString();
+ 	if ( s.left( 5 ) == "file:" )
+@@ -3016,9 +3016,9 @@
+ 	for ( QStringList::Iterator it = selectedLst.begin(); it != selectedLst.end(); ++it ) {
+ 	    QUrl u;
+ 	    if ( (*it)[0] == '\"' ) {
+-		u = QUrl( d->url, QFileDialogPrivate::encodeFileName( (*it).mid(1) ) );
++		u = QUrl( d->url,  (*it).mid(1) );
+ 	    } else {
+-		u = QUrl( d->url, QFileDialogPrivate::encodeFileName( (*it) ) );
++		u = QUrl( d->url, (*it) );
+ 	    }
+ 	    if ( u.isLocalFile() ) {
+ 		QString s = u.toString();
+@@ -3946,8 +3946,7 @@
+ 	    d->moreFiles->blockSignals( FALSE );
+ 	}
+ 	// Encode the filename in case it had any special characters in it
+-	QString encFile = QFileDialogPrivate::encodeFileName( newItem->text( 0 ) );
+-	trySetSelection( i->info.isDir(), QUrlOperator( d->url, encFile ), TRUE );
++	trySetSelection( i->info.isDir(), QUrlOperator( d->url, newItem->text( 0 ) ), TRUE );
+     }
+ }
+ 
+@@ -4057,7 +4056,7 @@
+ {
+     QUrlInfo f( d->url, nameEdit->text() );
+     if ( mode() != QFileDialog::ExistingFiles ) {
+-	QUrlOperator u( d->url, QFileDialogPrivate::encodeFileName( nameEdit->text() ) );
++	QUrlOperator u( d->url, nameEdit->text() );
+ 	trySetSelection( f.isDir(), u, FALSE );
+ 	if ( d->preview && d->preview->isVisible() )
+ 	    updatePreviews( u );
+@@ -4094,7 +4093,7 @@
+ 
+     QString oldName = nameEdit->text();
+     if ( i->info.isDir() ) {
+-	setUrl( QUrlOperator( d->url, QFileDialogPrivate::encodeFileName( i->info.name() ) + "/" ) );
++	setUrl( QUrlOperator( d->url, i->info.name() + "/" ) );
+ 	if ( isDirectoryMode( mode() ) ) {
+ 	    QUrlInfo f ( d->url, QString::fromLatin1( "." ) );
+ 	    trySetSelection( f.isDir(), d->url, TRUE );
+@@ -4312,7 +4311,7 @@
+     if ( filename.isEmpty() )
+ 	return;
+ 
+-    QUrlInfo fi( d->url, QFileDialogPrivate::encodeFileName( filename ) );
++    QUrlInfo fi( d->url, filename );
+     QString t = tr( "the file" );
+     if ( fi.isDir() )
+ 	t = tr( "the directory" );
+@@ -4324,7 +4323,7 @@
+ 			       tr( "<qt>Are you sure you wish to delete %1 \"%2\"?</qt>" )
+ 			       .arg( t ).arg(filename),
+ 			       tr( "&Yes" ), tr( "&No" ), QString::null, 1 ) == 0 )
+-	d->url.remove( QFileDialogPrivate::encodeFileName( filename ) );
++	d->url.remove( filename );
+ 
+ }
+ 
+@@ -6292,7 +6291,7 @@
+     if ( item ) {
+ 	QFileInfo fi;
+ 	if ( d->url.isLocalFile() ) {
+-	    fi.setFile( QUrl( d->url.path(), QFileDialogPrivate::encodeFileName( item->info.name() ) ).path( FALSE ) );
++	    fi.setFile( QUrl( d->url.path(), item->info.name() ).path( FALSE ) );
+ 	} else
+ 	    fi.setFile( item->info.name() ); // #####
+ 	const QPixmap *p = iconProvider()->pixmap( fi );

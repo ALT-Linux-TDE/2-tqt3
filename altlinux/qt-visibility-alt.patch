@@ -1,0 +1,101 @@
+Index: src/kernel/qgplugin.h
+===================================================================
+--- qt-x11-free-3.3.4/src/kernel/qgplugin.h	(revision 423270)
++++ qt-x11-free-3.3.4/src/kernel/qgplugin.h	(working copy)
+@@ -90,35 +90,19 @@
+ 	    return i->iface(); \
+ 	}
+ 
+-#    ifdef Q_WS_WIN
+-#	ifdef Q_CC_BOR
+-#	    define Q_EXPORT_PLUGIN(PLUGIN) \
+-	        Q_PLUGIN_VERIFICATION_DATA \
+-		Q_EXTERN_C __declspec(dllexport) \
+-                const char * __stdcall qt_ucm_query_verification_data() \
+-                { return qt_ucm_verification_data; } \
+-		Q_EXTERN_C __declspec(dllexport) QUnknownInterface* \
+-                __stdcall ucm_instantiate() \
+-		Q_PLUGIN_INSTANTIATE( PLUGIN )
+-#	else
+-#	    define Q_EXPORT_PLUGIN(PLUGIN) \
+-	        Q_PLUGIN_VERIFICATION_DATA \
+-		Q_EXTERN_C __declspec(dllexport) \
+-                const char *qt_ucm_query_verification_data() \
+-                { return qt_ucm_verification_data; } \
+-		Q_EXTERN_C __declspec(dllexport) QUnknownInterface* ucm_instantiate() \
+-		Q_PLUGIN_INSTANTIATE( PLUGIN )
+-#	endif
+-#    else
+-#	define Q_EXPORT_PLUGIN(PLUGIN) \
++#if defined(Q_WS_WIN) && defined(Q_CC_BOR)
++#   define Q_STDCALL __stdcall
++#else
++#   define Q_STDCALL
++#endif
++
++#define Q_EXPORT_PLUGIN(PLUGIN) \
+ 	    Q_PLUGIN_VERIFICATION_DATA \
+-	    Q_EXTERN_C \
+-            const char *qt_ucm_query_verification_data() \
++	    Q_EXTERN_C Q_EXPORT \
++            const char * Q_STDCALL qt_ucm_query_verification_data() \
+             { return qt_ucm_verification_data; } \
+-	    Q_EXTERN_C QUnknownInterface* ucm_instantiate() \
++	    Q_EXTERN_C Q_EXPORT QUnknownInterface* Q_STDCALL ucm_instantiate() \
+             Q_PLUGIN_INSTANTIATE( PLUGIN )
+-#    endif
+-
+ #endif
+ 
+ struct QUnknownInterface;
+Index: src/tools/qglobal.h
+===================================================================
+---  qt-x11-free-3.3.4/src/tools/qglobal.h	(revision 423270)
++++  qt-x11-free-3.3.4/src/tools/qglobal.h	(working copy)
+@@ -865,6 +865,10 @@
+ #    define Q_TEMPLATE_EXTERN
+ #    undef  Q_DISABLE_COPY 	/* avoid unresolved externals */
+ #  endif
++#elif defined(Q_CC_GNU) && __GNUC__ - 0 >= 4
++#    define Q_EXPORT __attribute__((visibility("default")))
++#    undef QT_MAKEDLL		/* ignore these for other platforms */
++#    undef QT_DLL
+ #else
+ #  undef QT_MAKEDLL		/* ignore these for other platforms */
+ #  undef QT_DLL
+--- qt-x11-free-3.3.5/mkspecs/linux-g++/qmake.conf~	2005-11-01 20:42:02 +0300
++++ qt-x11-free-3.3.5/mkspecs/linux-g++/qmake.conf	2005-11-28 10:02:43 +0300
+@@ -26,6 +26,7 @@ QMAKE_CFLAGS_DEBUG	= -g
+ QMAKE_CFLAGS_SHLIB	= -fPIC
+ QMAKE_CFLAGS_YACC	= -Wno-unused -Wno-parentheses
+ QMAKE_CFLAGS_THREAD	= -D_REENTRANT
++QMAKE_CFLAGS_HIDESYMS   = -fvisibility=hidden
+ 
+ QMAKE_CXX		= g++
+ QMAKE_CXXFLAGS		= $$QMAKE_CFLAGS
+@@ -37,6 +38,7 @@ QMAKE_CXXFLAGS_DEBUG	= $$QMAKE_CFLAGS_DE
+ QMAKE_CXXFLAGS_SHLIB	= $$QMAKE_CFLAGS_SHLIB
+ QMAKE_CXXFLAGS_YACC	= $$QMAKE_CFLAGS_YACC
+ QMAKE_CXXFLAGS_THREAD	= $$QMAKE_CFLAGS_THREAD
++QMAKE_CXXFLAGS_HIDESYMS = $$QMAKE_CFLAGS_HIDESYMS -fvisibility-inlines-hidden
+ 
+ QMAKE_INCDIR		=
+ QMAKE_LIBDIR		=
+--- qt-x11-free-3.3.5/mkspecs/linux-g++-64/qmake.conf~	2005-11-01 20:42:02 +0300
++++ qt-x11-free-3.3.5/mkspecs/linux-g++-64/qmake.conf	2005-11-28 10:03:09 +0300
+@@ -29,6 +29,7 @@ QMAKE_CFLAGS_DEBUG	= -g
+ QMAKE_CFLAGS_SHLIB	= -fPIC
+ QMAKE_CFLAGS_YACC	= -Wno-unused -Wno-parentheses
+ QMAKE_CFLAGS_THREAD	= -D_REENTRANT
++QMAKE_CFLAGS_HIDESYMS   = -fvisibility=hidden
+ 
+ QMAKE_CXX		= g++
+ QMAKE_CXXFLAGS		= $$QMAKE_CFLAGS
+@@ -40,6 +41,7 @@ QMAKE_CXXFLAGS_DEBUG	= $$QMAKE_CFLAGS_DE
+ QMAKE_CXXFLAGS_SHLIB	= $$QMAKE_CFLAGS_SHLIB
+ QMAKE_CXXFLAGS_YACC	= $$QMAKE_CFLAGS_YACC
+ QMAKE_CXXFLAGS_THREAD	= $$QMAKE_CFLAGS_THREAD
++QMAKE_CXXFLAGS_HIDESYMS = $$QMAKE_CFLAGS_HIDESYMS -fvisibility-inlines-hidden
+ 
+ QMAKE_INCDIR		=
+ QMAKE_LIBDIR		=

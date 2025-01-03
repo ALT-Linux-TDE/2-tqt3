@@ -1,0 +1,12 @@
+diff -Naur qt-x11-free-3.3.3.orig/src/kernel/qpsprinter.cpp qt-x11-free-3.3.3/src/kernel/qpsprinter.cpp
+--- qt-x11-free-3.3.3.orig/src/kernel/qpsprinter.cpp	2004-08-05 18:42:05 +0400
++++ qt-x11-free-3.3.3/src/kernel/qpsprinter.cpp	2004-12-30 12:02:25 +0300
+@@ -5928,7 +5929,7 @@
+     outStream << "\n" << wrapDSC( "%%Creator: " + creator );
+     if ( !!title )
+         outStream << wrapDSC( "%%Title: " + title );
+-    outStream << "%%CreationDate: " << QDateTime::currentDateTime().toString();
++    outStream << "%%CreationDate: " << QDateTime::currentDateTime().toString(Qt::ISODate);
+     outStream << "\n%%Orientation: ";
+     if ( printer->orientation() == QPrinter::Landscape )
+         outStream << "Landscape";

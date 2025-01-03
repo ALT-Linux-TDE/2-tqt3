@@ -1,0 +1,10 @@
+--- src/widgets/qpopupmenu.cpp.sav	2005-08-24 14:22:48.000000000 +0200
++++ src/widgets/qpopupmenu.cpp	2005-08-29 11:10:28.000000000 +0200
+@@ -1353,6 +1353,7 @@ void QPopupMenu::show()
+     performDelayedChanges();
+     updateSize(TRUE);
+     QWidget::show();
++    updateSize();
+     popupActive = -1;
+     if(style().styleHint(QStyle::SH_PopupMenu_SubMenuPopupDelay, this))
+ 	d->mouseMoveBuffer = QRegion();

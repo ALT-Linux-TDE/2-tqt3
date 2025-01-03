@@ -1,0 +1,21 @@
+--- qt-x11-free-3.2.3/tools/designer/app/main.cpp~	2003-12-25 19:33:07 +0300
++++ qt-x11-free-3.2.3/tools/designer/app/main.cpp	2003-12-25 19:33:37 +0300
+@@ -36,6 +36,7 @@
+ 
+ #include "designerapp.h"
+ 
++#include <qtextcodec.h>
+ #include <qtextstream.h>
+ #include <qobjectlist.h>
+ #include <qsettings.h>
+@@ -119,6 +120,10 @@
+ 
+     DesignerApplication a( argc, argv );
+ 
++    QTranslator translator( 0 );
++    translator.load( QString( "designer_" ) + QTextCodec::locale(), qInstallPathTranslations() );
++    a.installTranslator( &translator );
++
+     DesignerApplication::setOverrideCursor( Qt::WaitCursor );
+ 
+     bool creatPid = FALSE;
