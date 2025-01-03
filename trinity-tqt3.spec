@@ -1458,10 +1458,12 @@ done
 #popd
 
 # install the man pages
-install -D -m644 "doc/man/man1/moc.1" "%{?buildroot}%_mandir/man1/moc-tqt3.1"
-install -D -m644 "doc/man/man1/uic.1" "%{?buildroot}%_mandir/man1/uic-tqt3.1"
-install -D -m644 "doc/man/man1/lrelease.1" "%{?buildroot}%_mandir/man1/lrelease-tqt3.1"
-install -D -m644 "doc/man/man1/lupdate.1" "%{?buildroot}%_mandir/man1/lupdate-tqt3.1"
+install -d "%{?buildroot}%{_mandir}/man1"
+install -m644 "doc/man/man1/"*"embed.1" "%{?buildroot}%{_mandir}/man1/"*"embed.1-tqt3.1"
+install -m644 "doc/man/man1/"*"lrelease.1" "%{?buildroot}%{_mandir}/man1/"*"lrelease.1-tqt3.1"
+install -m644 "doc/man/man1/"*"lupdate.1" "%{?buildroot}%{_mandir}/man1/"*"lupdate.1-tqt3.1"
+install -m644 "doc/man/man1/"*"moc.1" "%{?buildroot}%{_mandir}/man1/"*"moc.1-tqt3.1"
+install -m644 "doc/man/man1/"*"uic.1" "%{?buildroot}%{_mandir}/man1/"*"uic.1-tqt3.1"
 
 # Install source for the designer tools, such as tqtcreatecw.
 cp -ra tools/designer/tools %{?buildroot}%_datadir/tqt3/tools
