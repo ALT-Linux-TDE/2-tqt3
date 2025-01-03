@@ -8,7 +8,7 @@
 *****************************************************************************/
 
 #include "tpiece.h"
-#include "ntqstring.h"
+#include "tqstring.h"
 #include <stdlib.h>
 
 void TetrixPiece::rotateLeft()

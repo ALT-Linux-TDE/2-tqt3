@@ -11,8 +11,8 @@
 #define TICTAC_H
 
 
-#include <ntqpushbutton.h>
-#include <ntqptrvector.h>
+#include <tqpushbutton.h>
+#include <tqptrvector.h>
 
 class TQComboBox;
 class TQLabel;

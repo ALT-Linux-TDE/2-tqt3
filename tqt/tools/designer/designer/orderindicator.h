@@ -34,7 +34,7 @@
 #ifndef ORDERINDICATOR_H
 #define ORDERINDICATOR_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 class FormWindow;
 

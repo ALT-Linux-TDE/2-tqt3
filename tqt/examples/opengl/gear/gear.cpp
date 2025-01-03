@@ -13,8 +13,8 @@
 // distribution.
 //
 
-#include <ntqgl.h>
-#include <ntqapplication.h>
+#include <tqgl.h>
+#include <tqapplication.h>
 #include <math.h>
 
 #if defined(Q_CC_MSVC)

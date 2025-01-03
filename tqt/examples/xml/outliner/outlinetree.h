@@ -10,8 +10,8 @@
 #ifndef OUTLINETREE_H
 #define OUTLINETREE_H
 
-#include <ntqlistview.h>
-#include <ntqdom.h>
+#include <tqlistview.h>
+#include <tqdom.h>
 
 class OutlineTree : public TQListView
 {

@@ -31,7 +31,7 @@
 **
 **********************************************************************/
 
-#include <ntqvariant.h>  // HP-UX compiler needs this here
+#include <tqvariant.h>  // HP-UX compiler needs this here
 #include "workspace.h"
 #include "formwindow.h"
 #include "mainwindow.h"
@@ -43,17 +43,17 @@
 #include "sourceeditor.h"
 #include "propertyeditor.h"
 
-#include <ntqheader.h>
-#include <ntqdragobject.h>
-#include <ntqfileinfo.h>
-#include <ntqapplication.h>
-#include <ntqpainter.h>
-#include <ntqpen.h>
-#include <ntqobjectlist.h>
-#include <ntqworkspace.h>
-#include <ntqpopupmenu.h>
-#include <ntqtextstream.h>
-#include "qcompletionedit.h"
+#include <tqheader.h>
+#include <tqdragobject.h>
+#include <tqfileinfo.h>
+#include <tqapplication.h>
+#include <tqpainter.h>
+#include <tqpen.h>
+#include <tqobjectlist.h>
+#include <tqworkspace.h>
+#include <tqpopupmenu.h>
+#include <tqtextstream.h>
+#include "tqcompletionedit.h"
 
 WorkspaceItem::WorkspaceItem( TQListView *parent, Project* p )
     : TQListViewItem( parent )

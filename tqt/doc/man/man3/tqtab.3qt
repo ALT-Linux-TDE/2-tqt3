@@ -1,5 +1,5 @@
 '\" t
-.TH QTab 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQTab 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QTab \- The structures in a QTabBar
+TQTab \- The structures in a TQTabBar
 .SH SYNOPSIS
-\fC#include <ntqtabbar.h>\fR
+\fC#include <tqtabbar.h>\fR
 .PP
 Inherits Qt.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTab\fR ()"
+.BI "\fBTQTab\fR ()"
 .br
 .ti -1c
-.BI "virtual \fB~QTab\fR ()"
+.BI "virtual \fB~TQTab\fR ()"
 .br
 .ti -1c
-.BI "\fBQTab\fR ( const TQString & text )"
+.BI "\fBTQTab\fR ( const TQString & text )"
 .br
 .ti -1c
-.BI "\fBQTab\fR ( const QIconSet & icon, const TQString & text = TQString::null )"
+.BI "\fBTQTab\fR ( const TQIconSet & icon, const TQString & text = TQString::null )"
 .br
 .ti -1c
 .BI "void \fBsetText\fR ( const TQString & text )"
@@ -34,16 +34,16 @@ Inherits Qt.
 .BI "TQString \fBtext\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetIconSet\fR ( const QIconSet & icon )"
+.BI "void \fBsetIconSet\fR ( const TQIconSet & icon )"
 .br
 .ti -1c
-.BI "QIconSet * \fBiconSet\fR () const"
+.BI "TQIconSet * \fBiconSet\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetRect\fR ( const QRect & rect )"
+.BI "void \fBsetRect\fR ( const TQRect & rect )"
 .br
 .ti -1c
-.BI "QRect \fBrect\fR () const"
+.BI "TQRect \fBrect\fR () const"
 .br
 .ti -1c
 .BI "void \fBsetEnabled\fR ( bool enable )"
@@ -59,43 +59,43 @@ Inherits Qt.
 .br
 .in -1c
 .SH DESCRIPTION
-The QTab class provides the structures in a QTabBar.
+The TQTab class provides the structures in a TQTabBar.
 .PP
-This class is used for custom QTabBar tab headings.
+This class is used for custom TQTabBar tab headings.
 .PP
-See also QTabBar and Advanced Widgets.
+See also TQTabBar and Advanced Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTab::QTab ()"
+.SH "TQTab::TQTab ()"
 Constructs an empty tab. All fields are set to empty.
-.SH "QTab::QTab ( const TQString & text )"
+.SH "TQTab::TQTab ( const TQString & text )"
 Constructs a tab with the text \fItext\fR.
-.SH "QTab::QTab ( const QIconSet & icon, const TQString & text = TQString::null )"
+.SH "TQTab::TQTab ( const TQIconSet & icon, const TQString & text = TQString::null )"
 Constructs a tab with an \fIicon\fR and the text, \fItext\fR.
-.SH "QTab::~QTab ()\fC [virtual]\fR"
+.SH "TQTab::~TQTab ()\fC [virtual]\fR"
 Destroys the tab and frees up all allocated resources.
-.SH "QIconSet * QTab::iconSet () const"
-Return the QIconSet of the QTab.
-.SH "int QTab::identifier () const"
-Return the QTab's identifier.
-.SH "bool QTab::isEnabled () const"
-Returns TRUE if the QTab is enabled; otherwise returns FALSE.
-.SH "QRect QTab::rect () const"
-Return the QRect for the QTab.
-.SH "void QTab::setEnabled ( bool enable )"
-If \fIenable\fR is TRUE enable the QTab, otherwise disable it.
-.SH "void QTab::setIconSet ( const QIconSet & icon )"
+.SH "TQIconSet * TQTab::iconSet () const"
+Return the TQIconSet of the TQTab.
+.SH "int TQTab::identifier () const"
+Return the TQTab's identifier.
+.SH "bool TQTab::isEnabled () const"
+Returns TRUE if the TQTab is enabled; otherwise returns FALSE.
+.SH "TQRect TQTab::rect () const"
+Return the TQRect for the TQTab.
+.SH "void TQTab::setEnabled ( bool enable )"
+If \fIenable\fR is TRUE enable the TQTab, otherwise disable it.
+.SH "void TQTab::setIconSet ( const TQIconSet & icon )"
 Sets the tab's iconset to \fIicon\fR
-.SH "void QTab::setIdentifier ( int i )"
-Set the identifier for the QTab to \fIi\fR. Each QTab's identifier within a QTabBar must be unique.
-.SH "void QTab::setRect ( const QRect & rect )"
-Set the QTab QRect to \fIrect\fR.
-.SH "void QTab::setText ( const TQString & text )"
+.SH "void TQTab::setIdentifier ( int i )"
+Set the identifier for the TQTab to \fIi\fR. Each TQTab's identifier within a TQTabBar must be unique.
+.SH "void TQTab::setRect ( const TQRect & rect )"
+Set the TQTab TQRect to \fIrect\fR.
+.SH "void TQTab::setText ( const TQString & text )"
 Sets the text of the tab to \fItext\fR.
-.SH "TQString QTab::text () const"
-Returns the text of the QTab label.
+.SH "TQString TQTab::text () const"
+Returns the text of the TQTab label.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qtab.html
+.BR http://doc.trolltech.com/tqtab.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

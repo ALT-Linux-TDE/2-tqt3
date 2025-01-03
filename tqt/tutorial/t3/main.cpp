@@ -4,10 +4,10 @@
 **
 ****************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqfont.h>
-#include <ntqvbox.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqfont.h>
+#include <tqvbox.h>
 
 int main( int argc, char **argv )
 {

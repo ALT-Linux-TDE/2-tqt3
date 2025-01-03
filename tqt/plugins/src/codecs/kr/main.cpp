@@ -1,9 +1,9 @@
-#include <ntqtextcodecplugin.h>
-#include <ntqtextcodec.h>
-#include <ntqptrlist.h>
+#include <tqtextcodecplugin.h>
+#include <tqtextcodec.h>
+#include <tqptrlist.h>
 
-#include <ntqeuckrcodec.h>
-#include <private/qfontcodecs_p.h>
+#include <tqeuckrcodec.h>
+#include <private/tqfontcodecs_p.h>
 
 
 class KRTextCodecs : public TQTextCodecPlugin

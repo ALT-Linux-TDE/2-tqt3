@@ -9,24 +9,24 @@
 
 #include "textedit.h"
 
-#include <ntqtextedit.h>
-#include <ntqaction.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
-#include <ntqtoolbar.h>
-#include <ntqtabwidget.h>
-#include <ntqapplication.h>
-#include <ntqfontdatabase.h>
-#include <ntqcombobox.h>
-#include <ntqlineedit.h>
-#include <ntqfileinfo.h>
-#include <ntqfile.h>
-#include <ntqfiledialog.h>
-#include <ntqprinter.h>
-#include <ntqpaintdevicemetrics.h>
-#include <ntqsimplerichtext.h>
-#include <ntqcolordialog.h>
-#include <ntqpainter.h>
+#include <tqtextedit.h>
+#include <tqaction.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
+#include <tqtoolbar.h>
+#include <tqtabwidget.h>
+#include <tqapplication.h>
+#include <tqfontdatabase.h>
+#include <tqcombobox.h>
+#include <tqlineedit.h>
+#include <tqfileinfo.h>
+#include <tqfile.h>
+#include <tqfiledialog.h>
+#include <tqprinter.h>
+#include <tqpaintdevicemetrics.h>
+#include <tqsimplerichtext.h>
+#include <tqcolordialog.h>
+#include <tqpainter.h>
 
 TextEdit::TextEdit( TQWidget *parent, const char *name )
     : TQMainWindow( parent, name, 0 )

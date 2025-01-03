@@ -1,5 +1,5 @@
 '\" t
-.TH QObjectListIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQObjectListIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,38 +7,38 @@
 .ad l
 .nh
 .SH NAME
-QObjectListIterator \- Iterator for QObjectLists
+TQObjectListIterator \- Iterator for TQObjectLists
 .SH SYNOPSIS
-\fC#include <ntqobjectlist.h>\fR
+\fC#include <tqobjectlist.h>\fR
 .PP
-Inherits QPtrListIterator<TQObject>.
+Inherits TQPtrListIterator<TQObject>.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQObjectListIterator\fR ( const QObjectList & list )"
+.BI "\fBTQObjectListIterator\fR ( const TQObjectList & list )"
 .br
 .ti -1c
-.BI "QObjectListIterator & \fBoperator=\fR ( const QObjectListIterator & it )"
+.BI "TQObjectListIterator & \fBoperator=\fR ( const TQObjectListIterator & it )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QObjectListIterator class provides an iterator for QObjectLists.
+The TQObjectListIterator class provides an iterator for TQObjectLists.
 .PP
-A QObjectListIterator iterator is a QPtrListIterator<TQObject>.
+A TQObjectListIterator iterator is a TQPtrListIterator<TQObject>.
 .PP
 See TQObject::queryList() for an example of use.
 .PP
-See also QObjectList, Collection Classes, and Non-GUI Classes.
+See also TQObjectList, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QObjectListIterator::QObjectListIterator ( const QObjectList & list )"
+.SH "TQObjectListIterator::TQObjectListIterator ( const TQObjectList & list )"
 Constructs an iterator for \fIlist\fR. The current iterator item is set to point on the first item in the \fIlist\fR.
-.SH "QObjectListIterator & QObjectListIterator::operator= ( const QObjectListIterator & it )"
+.SH "TQObjectListIterator & TQObjectListIterator::operator= ( const TQObjectListIterator & it )"
 Assignment. Makes a copy of the iterator \fIit\fR and returns a
 reference to this iterator.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qobjectlistiterator.html
+.BR http://doc.trolltech.com/tqobjectlistiterator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

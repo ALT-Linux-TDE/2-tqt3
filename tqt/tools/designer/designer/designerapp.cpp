@@ -36,10 +36,10 @@
 #include "mainwindow.h"
 #include "formwindow.h"
 
-#include <ntqfile.h>
-#include <ntqdir.h>
-#include <ntqsettings.h>
-#include <ntqsplashscreen.h>
+#include <tqfile.h>
+#include <tqdir.h>
+#include <tqsettings.h>
+#include <tqsplashscreen.h>
 
 #ifdef TQ_WS_WIN
 #include <qt_windows.h>

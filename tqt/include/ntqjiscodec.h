@@ -1,1 +1,0 @@
-../src/codecs/ntqjiscodec.h

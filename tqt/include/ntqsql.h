@@ -1,1 +1,0 @@
-../src/sql/ntqsql.h

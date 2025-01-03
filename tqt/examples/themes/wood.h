@@ -15,11 +15,11 @@
 #define WOOD_H
 
 
-#include <ntqpalette.h>
+#include <tqpalette.h>
 
 #ifndef TQT_NO_STYLE_WINDOWS
 
-#include <ntqwindowsstyle.h>
+#include <tqwindowsstyle.h>
 
 
 class NorwegianWoodStyle : public TQWindowsStyle

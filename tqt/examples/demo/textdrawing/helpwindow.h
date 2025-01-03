@@ -10,11 +10,11 @@
 #ifndef HELPWINDOW_H
 #define HELPWINDOW_H
 
-#include <ntqmainwindow.h>
-#include <ntqtextbrowser.h>
-#include <ntqstringlist.h>
-#include <ntqmap.h>
-#include <ntqdir.h>
+#include <tqmainwindow.h>
+#include <tqtextbrowser.h>
+#include <tqstringlist.h>
+#include <tqmap.h>
+#include <tqdir.h>
 
 class TQComboBox;
 class TQPopupMenu;

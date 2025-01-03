@@ -68,10 +68,10 @@ languages.
 
 Many new classes have been added to the TQt Library. Amongst them are
 classes that provide a docking architecture
-(\l{QDockArea}/\l{QDockWindow}), a powerful rich text editor
-(QTextEdit), a class to store and access application settings
-(QSettings) and a class to create and communicate with processes
-(QProcess).
+(\l{TQDockArea}/\l{TQDockWindow}), a powerful rich text editor
+(TQTextEdit), a class to store and access application settings
+(TQSettings) and a class to create and communicate with processes
+(TQProcess).
 
 Apart from the changes in the library itself a lot has been done to
 make the development of TQt applications with TQt 3.0 even easier than
@@ -126,27 +126,27 @@ terms of Qt's signals/slots mechanism directly in TQt Designer.
 \omit
 \section2 Component model - plugins
 
-The QLibrary class provides a platform independent wrapper for runtime
+The TQLibrary class provides a platform independent wrapper for runtime
 loading of shared libraries. Access to the shared libraries uses a
-COM-like interface. QPluginManager makes it trivial to implement
+COM-like interface. TQPluginManager makes it trivial to implement
 plugin support in applications. The TQt library is able to load
 additional styles, database drivers and text codecs from plugins which
-implement the relevant interfaces, e.g. QStyleFactoryInterface,
-QSqlDriverInterface or QTextCodecInterface. It is possible to remove
+implement the relevant interfaces, e.g. TQStyleFactoryInterface,
+TQSqlDriverInterface or TQTextCodecInterface. It is possible to remove
 unused components from the TQt library, and easy to extend any
 application with 3rd party styles, database drivers or text codecs.
 
 Qt Designer supports custom widgets in plugins, and will use the
 widgets both when designing and previewing forms.
 
-QComponentFactory makes it easy to register any kind of component in a
+TQComponentFactory makes it easy to register any kind of component in a
 global database (e.g. the Windows Registry) and to use any registered
 component.
 \endomit
 \section2 Plugins
 
-The QLibrary class provides a platform independent wrapper for runtime
-loading of shared libraries. QPluginManager makes it trivial to implement
+The TQLibrary class provides a platform independent wrapper for runtime
+loading of shared libraries. TQPluginManager makes it trivial to implement
 plugin support in applications. The TQt library is able to load
 additional styles, database drivers and text codecs from plugins. 
 
@@ -163,7 +163,7 @@ optimized and extended to support editing. It allows editing formatted
 text with different fonts, colors, paragraph styles, tables and
 images. The editor supports different word wrap modes, command-based
 undo/redo, multiple selections, drag and drop, and many other
-features.  The new QTextEdit engine is highly optimized for proccesing
+features.  The new TQTextEdit engine is highly optimized for proccesing
 and displaying large documents quickly and efficiently. 
 
 
@@ -192,15 +192,15 @@ Qt 3.0 introduces the concept of Dock Windows and Dock Areas. Dock
 windows are widgets, that can be attached to, and detached from, dock
 areas. The commonest kind of dock window is a tool bar. Any number of
 dock windows may be placed in a dock area. A main window can have dock
-areas, for example, QMainWindow provides four dock areas (top, left,
+areas, for example, TQMainWindow provides four dock areas (top, left,
 bottom, right) by default. The user can freely move dock windows and
 place them at a convenient place in a dock area, or drag them out of
 the application and have them float freely as top level windows in
 their own right. Dock windows can also be minimized or hidden.
 
-For developers, dock windows behave just like ordinary widgets. QToolbar
+For developers, dock windows behave just like ordinary widgets. TQToolbar
 for example is now a specialized subclass of a dock window.  The API
-of QMainWindow and QToolBar is source compatible with TQt 2.x, so
+of TQMainWindow and TQToolBar is source compatible with TQt 2.x, so
 existing code which uses these classes will continue to work.
 
 
@@ -209,7 +209,7 @@ existing code which uses these classes will continue to work.
 Qt has always provided regular expression support, but that support
 was pretty much limited to what was required in common GUI control
 elements such as file dialogs. TQt 3.0 introduces a new regular
-expression engine, QRegExp, that supports most of Perl's regex
+expression engine, TQRegExp, that supports most of Perl's regex
 features and is Unicode based. The most useful additions are support
 for parentheses (capturing and non-capturing) and backreferences.
 
@@ -218,7 +218,7 @@ for parentheses (capturing and non-capturing) and backreferences.
 
 Most programs will need to store some settings between runs, for
 example, user selected fonts, colors and other preferences, or a list
-of recently used files.  The new QSettings class provides a platform
+of recently used files.  The new TQSettings class provides a platform
 independent way to achieve this goal. The API makes it easy to store
 and retrieve most of the basic data types used in TQt (such as basic
 C++ types, strings, lists, colors, etc). The class uses the registry
@@ -227,7 +227,7 @@ on the Windows platform and traditional resource files on Unix.
 
 \section2 Creating and controlling other processes
 
-QProcess is a class that allows you to start other programs from
+TQProcess is a class that allows you to start other programs from
 within a TQt application in a platform independent manner. It gives you
 full control over the started program, for example you can redirect
 the input and output of console applications.
@@ -240,7 +240,7 @@ range of users, including those with disabilities. In TQt 3.0, most
 widgets provide accessibility information for assistive tools that can
 be used by a wide range of disabled users. TQt standard widgets like
 buttons or range controls are fully supported. Support for complex
-widgets, like e.g. QListView, is in development. Existing applications
+widgets, like e.g. TQListView, is in development. Existing applications
 that make use of standard widgets will become accessible just by using
 Qt 3.0.
 
@@ -269,15 +269,15 @@ stage.
 \section2 SVG support
 
 SVG is a W3C standard for "Scalable Vector Graphics". TQt 3.0's XML
-support means that QPicture can optionally generate and import static
+support means that TQPicture can optionally generate and import static
 SVG documents. All the SVG features that have an equivalent in
-QPainter are supported.
+TQPainter are supported.
 
 
 \section2 Multihead support
 
 Many professional applications, such as DTP and CAD software, are able
-to display data on two or more monitors. In TQt 3.0 the QDesktopWidget
+to display data on two or more monitors. In TQt 3.0 the TQDesktopWidget
 class provides the application with runtime information about the
 number and geometry of the desktops on the different monitors and such
 allows applications to efficiently use a multi-monitor setup.
@@ -293,8 +293,8 @@ Qt 3.0 now complies with the NET WM Specification, recently adopted
 by KDE 2.0.  This allows easy integration and proper execution with
 desktop environments that support the NET WM specification.
 
-The font handling on X11 has undergone major changes.  QFont no longer
-has a one-to-one relation with window system fonts.  QFont is now a
+The font handling on X11 has undergone major changes.  TQFont no longer
+has a one-to-one relation with window system fonts.  TQFont is now a
 logical font that can load multiple window system fonts to simplify
 Unicode text display.  This completely removes the burden of
 changing/setting fonts for a specific locale/language from the
@@ -310,7 +310,7 @@ rendering extension (at the moment XFree 4.0.3 and later).
 
 \section2 Printing
 
-Printing support has been enhanced on all platforms. The QPrinter
+Printing support has been enhanced on all platforms. The TQPrinter
 class now supports setting a virtual resolution for the painting
 process. This makes WYSIWYG printing trivial, and also allows you to
 take full advantage of the high resolution of a printer when painting
@@ -323,7 +323,7 @@ Support for fonts built into the printer has been enhanced and TQt now
 knows about the most common printer fonts used for Asian languages.
 
 
-\section2 QHttp
+\section2 TQHttp
 
 This class provides a simple interface for HTTP downloads and uploads.
 
@@ -331,10 +331,10 @@ This class provides a simple interface for HTTP downloads and uploads.
 \section2 Compatibility with the Standard Template Library (STL)
 
 Support for the C++ Standard Template Library has been added to the
-\link qt-template-lib.html TQt Template Library (QTL)\endlink.  The QTL
+\link qt-template-lib.html TQt Template Library (TQTL)\endlink.  The TQTL
 classes now contain appropriate copy constructors and typedefs so that
 they can be freely mixed with other STL containers and algorithms.  In
-addition, new member functions have been added to QTL template classes
+addition, new member functions have been added to TQTL template classes
 which correspond to STL-style naming conventions (e.g., push_back()).
 
 
@@ -370,12 +370,12 @@ and do some global operations on the project. You can now open the
 project file and have one-click access to all the *.ui forms in the
 project.
 
-In addition to generating code via uic, TQt Designer now supports the
+In addition to generating code via tquic, TQt Designer now supports the
 dynamic creation of widgets directly from XML user interface
 description files (*.ui files) at runtime. This eliminates the need of
 recompiling your application when the GUI changes, and could be used
 to enable your customers to do their own customizations. Technically,
-the feature is provided by a new class, QWidgetFactory in the
+the feature is provided by a new class, TQWidgetFactory in the
 QResource library.
 
 

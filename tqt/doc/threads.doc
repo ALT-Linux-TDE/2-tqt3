@@ -71,28 +71,28 @@ library.
 On both platforms, you should compile with the macro \c
 TQT_THREAD_SUPPORT defined (e.g. compile with
 \c{-DTQT_THREAD_SUPPORT}). On Windows, this is usually done by an
-entry in \c{ntqconfig.h}.
+entry in \c{tqconfig.h}.
 
 \section1 The Thread Classes
 
 These classes are built into the TQt library when thread support is enabled:
 
 \list
-\i QThread - Provides the means to start a new thread, which begins
-execution in your reimplementation of QThread::run().  This is similar
+\i TQThread - Provides the means to start a new thread, which begins
+execution in your reimplementation of TQThread::run().  This is similar
 to the Java thread class.
 
-\i QThreadStorage - Provides per-thread data storage. This class can
-only be used with threads started with QThread; it cannot be used with
+\i TQThreadStorage - Provides per-thread data storage. This class can
+only be used with threads started with TQThread; it cannot be used with
 threads started with platform-specific APIs.
 
-\i QMutex - Provides a mutual exclusion lock (also know as a mutex).
-\i QMutexLocker - A convenience class which automatically locks and
-unlocks a QMutex.  QMutexLocker is useful in complicated code, or in
+\i TQMutex - Provides a mutual exclusion lock (also know as a mutex).
+\i TQMutexLocker - A convenience class which automatically locks and
+unlocks a TQMutex.  TQMutexLocker is useful in complicated code, or in
 code which uses exceptions.  See the documentation for more details.
-\i QWaitCondition - Provides a way for threads to go to sleep until
+\i TQWaitCondition - Provides a way for threads to go to sleep until
 woken up by another thread.
-\i QSemaphore - Provides a simple integer semaphore.
+\i TQSemaphore - Provides a simple integer semaphore.
 \endlist
 
 \section1 Important Definitions
@@ -147,7 +147,7 @@ a time can call member functions on each instance of \c Number.
 However, multiple threads can call member functions on separate
 instances of \c Number.
 
-Thread-safe functions usually use a mutex (e.g a QMutex) to serialize
+Thread-safe functions usually use a mutex (e.g a TQMutex) to serialize
 access to shared data.  Because of this, thread-safe functions are
 usually slower than reentrant functions, because of the extra overhead
 of locking and unlocking the mutex.  For example, given the class \c
@@ -182,7 +182,7 @@ mutex must be used:
 
         ...
     private:
-        static QMutex mutex;
+        static TQMutex mutex;
         static int instances;
     };
 \endcode
@@ -190,36 +190,36 @@ mutex must be used:
 \section1 Thread-safe Event Posting
 
 In Qt, one thread is always the GUI or event thread.  This is the
-thread that creates a QApplication object and calls
-QApplication::exec().  This is also the initial thread that calls
+thread that creates a TQApplication object and calls
+TQApplication::exec().  This is also the initial thread that calls
 main() at program start.  This thread is the only thread that is
 allowed to perform GUI operations, including generating and receiving
 events from the window system.  TQt does not support creating
-QApplication and running the event loop (with QApplication::exec()) in
-a secondary thread.  You must create the QApplication object and call
-QApplication::exec() from the main() function in your program.
+TQApplication and running the event loop (with TQApplication::exec()) in
+a secondary thread.  You must create the TQApplication object and call
+TQApplication::exec() from the main() function in your program.
 
 Threads that wish to display data in a widget cannot modify the widget
 directly, so they must post an event to the widget using
-QApplication::postEvent().  The event will be delivered later on by
+TQApplication::postEvent().  The event will be delivered later on by
 the GUI thread.
 
 Normally, the programmer would like to include some information in the
-event sent to the widget.  See the documentation for QCustomEvent for
+event sent to the widget.  See the documentation for TQCustomEvent for
 more information on user-defined events.
 
 \section1 Threads and TQObject subclasses
 
 The TQObject class itself is \e reentrant.  However, certain rules
-apply when creating and using QObjects in a thread that is not the GUI
+apply when creating and using TQObjects in a thread that is not the GUI
 thread.
 
 \list 1
 
 \i \e None of the TQObject based classes included in the TQt library are
 \e reentrant.  This includes all widgets (e.g. TQWidget and
-subclasses), OS kernel classes (e.g. QProcess, QAccel, QTimer), and
-all networking classes (e.g. QSocket, QDns).
+subclasses), OS kernel classes (e.g. TQProcess, TQAccel, TQTimer), and
+all networking classes (e.g. TQSocket, TQDns).
 
 \i TQObject and all of its subclasses are \e not \e thread-safe.  This
 includes the entire event delivery system.  It is important to
@@ -241,23 +241,23 @@ delivered to the object.
 
 \section1 The TQt Library Mutex
 
-QApplication includes a mutex that is used to protect access to window
+TQApplication includes a mutex that is used to protect access to window
 system functions.  This mutex is locked while the event loop is
 running (e.g. during event delivery) and unlocked when the eventloop
 goes to sleep.  Note: The TQt event loop is recursive, and the library
 mutex is \e not unlocked when re-entering the event loop (e.g. when
-executing a modal dialog with QDialog::exec()).
+executing a modal dialog with TQDialog::exec()).
 
 If another thread locks the TQt library mutex, then the event loop will
 stop processing events, and the locking thread may do simple GUI
-operations.  Operations such as creating a QPainter and drawing a line
+operations.  Operations such as creating a TQPainter and drawing a line
 are examples of simple GUI operations:
 
 \code
     ...
     tqApp->lock();
 
-    QPainter p;
+    TQPainter p;
     p.begin( mywidget );
     p.setPen( TQColor( "red" ) );
     p.drawLine( 0,0,100,100 );
@@ -271,11 +271,11 @@ Any operations that generate events must not be called by any thread
 other than the GUI thread.  Examples of such operations are:
 
 \list
-\i creating a TQWidget, QTimer, QSocketNotifier, QSocket or other network class.
+\i creating a TQWidget, TQTimer, TQSocketNotifier, TQSocket or other network class.
 \i moving, resizing, showing or hiding a TQWidget.
-\i starting or stoping a QTimer.
-\i enabling or disabling a QSocketNotifier.
-\i using a QSocket or other network class.
+\i starting or stoping a TQTimer.
+\i enabling or disabling a TQSocketNotifier.
+\i using a TQSocket or other network class.
 \endlist
 
 Events generated by these operations will be lost on some platforms.
@@ -299,7 +299,7 @@ above for more details.
 Qt provides many implicitly shared and explicitly shared classes.  In
 a multithreaded program, multiple instances of a shared class can
 reference shared data, which is dangerous if one or more threads
-attempt to modify the data.  TQt provides the QDeepCopy class, which
+attempt to modify the data.  TQt provides the TQDeepCopy class, which
 ensures that shared classes reference unique data.
 
 See the description of \link shclass.html implicit sharing\endlink for more
@@ -312,7 +312,7 @@ A connection can only be used from within the thread that created it.
 Moving connections between threads or creating queries from a different
 thread is not supported.
 
-In addition, the third party libraries used by the QSqlDrivers can impose
+In addition, the third party libraries used by the TQSqlDrivers can impose
 further restrictions on using the SQL Module in a multithreaded program.
 Consult the manual of your database client for more information.
 
@@ -324,11 +324,11 @@ Some things to watch out for when programming with threads:
 
 \i As mentioned above, TQObject based classes are neither thread-safe
 nor reentrant.  This includes all widgets (e.g. TQWidget and
-subclasses), OS kernel classes (e.g. QProcess, QAccel), and all
-networking classes (e.g. QSocket, QDns).
+subclasses), OS kernel classes (e.g. TQProcess, TQAccel), and all
+networking classes (e.g. TQSocket, TQDns).
 
 \i Deleting a TQObject while pending events are waiting to be delivered
-will cause a crash.  If you are creating QObjects in a thread that is
+will cause a crash.  If you are creating TQObjects in a thread that is
 not the GUI thread and posting events to these objects, you should not
 delete the TQObject directly.  Use the TQObject::deleteLater() method
 instead, which will cause the event loop to delete the object after
@@ -337,7 +337,7 @@ all pending events have been delivered to the object.
 \i Don't do any blocking operations while holding the TQt library
 mutex.  This will freeze up the event loop.
 
-\i Make sure you unlock a recursive QMutex as many times as you lock
+\i Make sure you unlock a recursive TQMutex as many times as you lock
 it, no more and no less.
 
 \i Don't mix the normal TQt library and the threaded TQt library in your
@@ -347,9 +347,9 @@ load the normal TQt library or dynamically load another library or
 plugin that depends on the normal TQt library.  On some systems, doing
 this can corrupt the static data used in the TQt library.
 
-\i TQt does not support creating QApplication and running the event
-loop (with QApplication::exec()) in a secondary thread.  You must
-create the QApplication object and call QApplication::exec() from the
+\i TQt does not support creating TQApplication and running the event
+loop (with TQApplication::exec()) in a secondary thread.  You must
+create the TQApplication object and call TQApplication::exec() from the
 main() function in your program.
 
 \endlist

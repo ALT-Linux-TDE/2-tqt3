@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:2381 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -62,20 +61,20 @@ wall.
 <p> 
 
 <p> <pre>    protected:
-        void  paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
-        void  mousePressEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-        void  mouseMoveEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-        void  mouseReleaseEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
+        void  paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
+        void  mousePressEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+        void  mouseMoveEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+        void  mouseReleaseEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
 </pre>
 <p> In addition to the familiar event handlers, CannonField implements
 three mouse event handlers. The names say it all.
-<p> <pre>        void  paintBarrier( <a href="ntqpainter.html">TQPainter</a> * );
+<p> <pre>        void  paintBarrier( <a href="tqpainter.html">TQPainter</a> * );
 </pre>
 <p> This private function paints the barrier wall.
-<p> <pre>        <a href="ntqrect.html">TQRect</a> barrierRect() const;
+<p> <pre>        <a href="tqrect.html">TQRect</a> barrierRect() const;
 </pre>
 <p> This private function returns the enclosing rectangle of the barrier.
-<p> <pre>        bool  barrelHit( const <a href="ntqpoint.html">TQPoint</a> &amp; ) const;
+<p> <pre>        bool  barrelHit( const <a href="tqpoint.html">TQPoint</a> &amp; ) const;
 </pre>
 <p> This private function checks if a point is inside the barrel of the cannon.
 <p> <pre>        bool barrelPressed;
@@ -90,16 +89,16 @@ barrel and not released it.
 </pre>
 <p> This line has been added to the constructor. Initially, the mouse is
 not pressed on the barrel.
-<p> <pre>    <a name="x2429"></a>    } else if ( shotR.<a href="ntqrect.html#x">x</a>() &gt; width() || shotR.<a href="ntqrect.html#y">y</a>() &gt; height() ||
-                    shotR.<a href="ntqrect.html#intersects">intersects</a>(barrierRect()) ) {
+<p> <pre>    <a name="x2429"></a>    } else if ( shotR.<a href="tqrect.html#x">x</a>() &gt; width() || shotR.<a href="tqrect.html#y">y</a>() &gt; height() ||
+                    shotR.<a href="tqrect.html#intersects">intersects</a>(barrierRect()) ) {
 </pre>
 <p> Now that we have a barrier, there are three ways to miss. We test for
 the third, too.
-<p> <pre>    void CannonField::<a href="ntqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+<p> <pre>    void CannonField::<a href="tqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
     {
-        if ( e-&gt;<a href="qmouseevent.html#button">button</a>() != LeftButton )
+        if ( e-&gt;<a href="tqmouseevent.html#button">button</a>() != LeftButton )
             return;
-    <a name="x2418"></a>    if ( barrelHit( e-&gt;<a href="qmouseevent.html#pos">pos</a>() ) )
+    <a name="x2418"></a>    if ( barrelHit( e-&gt;<a href="tqmouseevent.html#pos">pos</a>() ) )
             barrelPressed = TRUE;
     }
 </pre>
@@ -111,23 +110,23 @@ is within the cannon's barrel. If it is, we set <tt>barrelPressed</tt> to
 TRUE.
 <p> Notice that the pos() function returns a point in the widget's
 coordinate system.
-<p> <pre>    void CannonField::<a href="ntqwidget.html#mouseMoveEvent">mouseMoveEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+<p> <pre>    void CannonField::<a href="tqwidget.html#mouseMoveEvent">mouseMoveEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
     {
         if ( !barrelPressed )
             return;
-        <a href="ntqpoint.html">TQPoint</a> pnt = e-&gt;<a href="qmouseevent.html#pos">pos</a>();
-    <a name="x2424"></a>    if ( pnt.<a href="ntqpoint.html#x">x</a>() &lt;= 0 )
-    <a name="x2422"></a>        pnt.<a href="ntqpoint.html#setX">setX</a>( 1 );
-    <a name="x2425"></a>    if ( pnt.<a href="ntqpoint.html#y">y</a>() &gt;= <a href="ntqwidget.html#height">height</a>() )
-    <a name="x2423"></a>        pnt.<a href="ntqpoint.html#setY">setY</a>( <a href="ntqwidget.html#height">height</a>() - 1 );
-        double rad = atan(((double)<a href="ntqwidget.html#rect">rect</a>().bottom()-pnt.<a href="ntqpoint.html#y">y</a>())/pnt.<a href="ntqpoint.html#x">x</a>());
+        <a href="tqpoint.html">TQPoint</a> pnt = e-&gt;<a href="tqmouseevent.html#pos">pos</a>();
+    <a name="x2424"></a>    if ( pnt.<a href="tqpoint.html#x">x</a>() &lt;= 0 )
+    <a name="x2422"></a>        pnt.<a href="tqpoint.html#setX">setX</a>( 1 );
+    <a name="x2425"></a>    if ( pnt.<a href="tqpoint.html#y">y</a>() &gt;= <a href="tqwidget.html#height">height</a>() )
+    <a name="x2423"></a>        pnt.<a href="tqpoint.html#setY">setY</a>( <a href="tqwidget.html#height">height</a>() - 1 );
+        double rad = atan(((double)<a href="tqwidget.html#rect">rect</a>().bottom()-pnt.<a href="tqpoint.html#y">y</a>())/pnt.<a href="tqpoint.html#x">x</a>());
         setAngle( tqRound ( rad*180/3.14159265 ) );
     }
 </pre>
 <p> This is another TQt event handler. It is called when the user already
 has pressed the mouse button inside this widget and then moves/drags
 the mouse. (You can make TQt send mouse move events even when no
-buttons are pressed. See <a href="ntqwidget.html#setMouseTracking">TQWidget::setMouseTracking</a>().)
+buttons are pressed. See <a href="tqwidget.html#setMouseTracking">TQWidget::setMouseTracking</a>().)
 <p> This handler repositions the cannon's barrel according to the position of
 the mouse cursor.
 <p> First, if the barrel is not pressed, we return. Next, we fetch the
@@ -138,9 +137,9 @@ the imaginary line between the bottom-left corner of the widget and
 the cursor position. Finally we set the cannon's angle to the new
 value converted to degrees.
 <p> Remember that setAngle() redraws the cannon.
-<p> <pre>    <a name="x2432"></a>void CannonField::<a href="ntqwidget.html#mouseReleaseEvent">mouseReleaseEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+<p> <pre>    <a name="x2432"></a>void CannonField::<a href="tqwidget.html#mouseReleaseEvent">mouseReleaseEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
     {
-    <a name="x2417"></a>    if ( e-&gt;<a href="qmouseevent.html#button">button</a>() == LeftButton )
+    <a name="x2417"></a>    if ( e-&gt;<a href="tqmouseevent.html#button">button</a>() == LeftButton )
             barrelPressed = FALSE;
     }
 </pre>
@@ -149,16 +148,16 @@ button and it was pressed inside this widget.
 <p> If the left button is released, we can be sure that the barrel is no
 longer pressed.
 <p> The paint event has two extra lines:
-<p> <pre>    <a name="x2427"></a>    if ( updateR.<a href="ntqrect.html#intersects">intersects</a>( barrierRect() ) )
+<p> <pre>    <a name="x2427"></a>    if ( updateR.<a href="tqrect.html#intersects">intersects</a>( barrierRect() ) )
             paintBarrier( &amp;p );
 </pre>
 <p> paintBarrier() does the same sort of thing as paintShot(),
 paintTarget(), and paintCannon().
-<p> <pre>    void CannonField::paintBarrier( <a href="ntqpainter.html">TQPainter</a> *p )
+<p> <pre>    void CannonField::paintBarrier( <a href="tqpainter.html">TQPainter</a> *p )
     {
-        p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( yellow );
-        p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( black );
-        p-&gt;<a href="ntqpainter.html#drawRect">drawRect</a>( barrierRect() );
+        p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( yellow );
+        p-&gt;<a href="tqpainter.html#setPen">setPen</a>( black );
+        p-&gt;<a href="tqpainter.html#drawRect">drawRect</a>( barrierRect() );
     }
 </pre>
 <p> This private function paints the barrier as a rectangle filled with
@@ -170,26 +169,26 @@ yellow and with a black outline.
 </pre>
 <p> This private function returns the rectangle of the barrier. We fix
 the bottom edge of the barrier to the bottom edge of the widget.
-<p> <pre>    bool CannonField::barrelHit( const <a href="ntqpoint.html">TQPoint</a> &amp;p ) const
+<p> <pre>    bool CannonField::barrelHit( const <a href="tqpoint.html">TQPoint</a> &amp;p ) const
     {
-        <a href="ntqwmatrix.html">TQWMatrix</a> mtx;
-    <a name="x2436"></a>    mtx.<a href="ntqwmatrix.html#translate">translate</a>( 0, height() - 1 );
-    <a name="x2435"></a>    mtx.<a href="ntqwmatrix.html#rotate">rotate</a>( -ang );
-    <a name="x2433"></a>    mtx = mtx.<a href="ntqwmatrix.html#invert">invert</a>();
-    <a name="x2434"></a><a name="x2426"></a>    return barrelRect.<a href="ntqrect.html#contains">contains</a>( mtx.<a href="ntqwmatrix.html#map">map</a>(p) );
+        <a href="tqwmatrix.html">TQWMatrix</a> mtx;
+    <a name="x2436"></a>    mtx.<a href="tqwmatrix.html#translate">translate</a>( 0, height() - 1 );
+    <a name="x2435"></a>    mtx.<a href="tqwmatrix.html#rotate">rotate</a>( -ang );
+    <a name="x2433"></a>    mtx = mtx.<a href="tqwmatrix.html#invert">invert</a>();
+    <a name="x2434"></a><a name="x2426"></a>    return barrelRect.<a href="tqrect.html#contains">contains</a>( mtx.<a href="tqwmatrix.html#map">map</a>(p) );
     }
 </pre>
 <p> This function returns TRUE if the point is in the barrel; otherwise it returns
 FALSE.
-<p> Here we use the class <a href="ntqwmatrix.html">TQWMatrix</a>. It is defined in the header file
-ntqwmatrix.h, which is included by ntqpainter.h.
-<p> <a href="ntqwmatrix.html">TQWMatrix</a> defines a coordinate system mapping. It can perform the same
-transformations as the <a href="ntqpainter.html">TQPainter</a>.
+<p> Here we use the class <a href="tqwmatrix.html">TQWMatrix</a>. It is defined in the header file
+tqwmatrix.h, which is included by tqpainter.h.
+<p> <a href="tqwmatrix.html">TQWMatrix</a> defines a coordinate system mapping. It can perform the same
+transformations as the <a href="tqpainter.html">TQPainter</a>.
 <p> Here we perform the same transformation steps as we do when drawing
 the barrel in the paintCannon() function. First we translate the
 coordinate system and then we rotate it.
 <p> Now we need to check whether the point <tt>p</tt> (in widget coordinates) lies
-inside the barrel. To do this, we invert the <a href="ntqwmatrix.html#TransformationMode">transformation matrix</a>.
+inside the barrel. To do this, we invert the <a href="tqwmatrix.html#TransformationMode">transformation matrix</a>.
 The inverted matrix performs the inverse transformation that we used
 when drawing the barrel. We map the point <tt>p</tt> using the inverted
 matrix and return TRUE if it is inside the original barrel rectangle.
@@ -197,48 +196,48 @@ matrix and return TRUE if it is inside the original barrel rectangle.
 </h3>
 <a name="1-3"></a><p> 
 
-<p> <pre>    #include &lt;<a href="qaccel-h.html">ntqaccel.h</a>&gt;
+<p> <pre>    #include &lt;<a href="tqaccel-h.html">tqaccel.h</a>&gt;
 </pre>
-<p> We include the class definition of <a href="ntqaccel.html">TQAccel</a>.
-<p> <pre>        <a href="ntqvbox.html">TQVBox</a> *box = new <a href="ntqvbox.html">TQVBox</a>( this, "cannonFrame" );
-        box-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::WinPanel | TQFrame::Sunken );
+<p> We include the class definition of <a href="tqaccel.html">TQAccel</a>.
+<p> <pre>        <a href="tqvbox.html">TQVBox</a> *box = new <a href="tqvbox.html">TQVBox</a>( this, "cannonFrame" );
+        box-&gt;<a href="tqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::WinPanel | TQFrame::Sunken );
         cannonField = new CannonField( box, "cannonField" );
 </pre>
-<p> We create and set up a <a href="ntqvbox.html">TQVBox</a>, set its frame style, and then create
+<p> We create and set up a <a href="tqvbox.html">TQVBox</a>, set its frame style, and then create
 <tt>CannonField</tt> as a child of that box. Because nothing else is in the
-box, the effect is that the <a href="ntqvbox.html">TQVBox</a> will put a frame around the
+box, the effect is that the <a href="tqvbox.html">TQVBox</a> will put a frame around the
 CannonField.
-<p> <pre>        <a href="ntqaccel.html">TQAccel</a> *accel = new <a href="ntqaccel.html">TQAccel</a>( this );
-    <a name="x2438"></a><a name="x2437"></a>    accel-&gt;<a href="ntqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="ntqaccel.html#insertItem">insertItem</a>( Key_Enter ),
+<p> <pre>        <a href="tqaccel.html">TQAccel</a> *accel = new <a href="tqaccel.html">TQAccel</a>( this );
+    <a name="x2438"></a><a name="x2437"></a>    accel-&gt;<a href="tqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="tqaccel.html#insertItem">insertItem</a>( Key_Enter ),
                             this, TQ_SLOT(fire()) );
-        accel-&gt;<a href="ntqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="ntqaccel.html#insertItem">insertItem</a>( Key_Return ),
+        accel-&gt;<a href="tqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="tqaccel.html#insertItem">insertItem</a>( Key_Return ),
                             this, TQ_SLOT(fire()) );
 </pre>
 <p> Here we create and set up an accelerator. An accelerator is an object
 that intercepts keyboard events to an application and calls slots if
 certain keys are pressed. This mechanism is also called shortcut
 keys. Note that an accelerator is a child of a widget and will be
-destroyed when that widget is destroyed. <a href="ntqaccel.html">TQAccel</a> is <em>not</em> a widget
+destroyed when that widget is destroyed. <a href="tqaccel.html">TQAccel</a> is <em>not</em> a widget
 and has no visible effect on its parent.
 <p> We define two shortcut keys. We want the slot fire() to be called
 when the user presses Enter, and we want the application to quit when
 key Ctrl+Q is pressed. Because Enter is sometimes Return and there
 are even keyboards with <em>both</em> keys, we make both Enter and Return
 invoke fire().
-<p> <pre>        accel-&gt;<a href="ntqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="ntqaccel.html#insertItem">insertItem</a>( CTRL+Key_Q ),
-                            tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<p> <pre>        accel-&gt;<a href="tqaccel.html#connectItem">connectItem</a>( accel-&gt;<a href="tqaccel.html#insertItem">insertItem</a>( CTRL+Key_Q ),
+                            tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
 </pre>
 <p> And then we set up Ctrl+Q to do the same thing as Alt+Q. Some
 people are more used to Ctrl+Q (and anyway it shows how do do it).
 <p> CTRL, Key_Enter, Key_Return and Key_Q are all constants provided by
 TQt. They're actually TQt::Key_Enter, etc., but practically all classes
-inherit the <a href="ntqt.html">TQt</a> namespace class.
-<p> <pre>        <a href="qgridlayout.html">TQGridLayout</a> *grid = new <a href="qgridlayout.html">TQGridLayout</a>( this, 2, 2, 10 );
-    <a name="x2441"></a>    grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( quit, 0, 0 );
-        grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( box, 1, 1 );
-    <a name="x2442"></a>    grid-&gt;<a href="qgridlayout.html#setColStretch">setColStretch</a>( 1, 10 );
+inherit the <a href="tqt.html">TQt</a> namespace class.
+<p> <pre>        <a href="tqgridlayout.html">TQGridLayout</a> *grid = new <a href="tqgridlayout.html">TQGridLayout</a>( this, 2, 2, 10 );
+    <a name="x2441"></a>    grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( quit, 0, 0 );
+        grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( box, 1, 1 );
+    <a name="x2442"></a>    grid-&gt;<a href="tqgridlayout.html#setColStretch">setColStretch</a>( 1, 10 );
 </pre>
-<p> We put <tt>box</tt> (the <a href="ntqvbox.html">TQVBox</a>), not the CannonField, in the lower-right
+<p> We put <tt>box</tt> (the <a href="tqvbox.html">TQVBox</a>), not the CannonField, in the lower-right
 cell.
 <p> <h2> Behavior
 </h2>

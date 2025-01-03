@@ -36,10 +36,10 @@
 
 #include "profile.h"
 
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqpixmap.h>
-#include <ntqmap.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqpixmap.h>
+#include <tqmap.h>
 
 class Profile;
 

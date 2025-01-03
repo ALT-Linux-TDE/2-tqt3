@@ -14,9 +14,9 @@
 //
 
 #include "sound.h"
-#include <ntqapplication.h>
-#include <ntqmessagebox.h>
-#include <ntqmenubar.h>
+#include <tqapplication.h>
+#include <tqmessagebox.h>
+#include <tqmenubar.h>
 
 SoundPlayer::SoundPlayer() :
     TQMainWindow(),

@@ -10,8 +10,8 @@
 #ifndef FTPVIEWITEM_H
 #define FTPVIEWITEM_H
 
-#include <ntqlistview.h>
-#include <ntqdatetime.h>
+#include <tqlistview.h>
+#include <tqdatetime.h>
 
 class FtpViewItem : public TQListViewItem
 {

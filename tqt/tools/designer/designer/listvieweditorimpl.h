@@ -36,9 +36,9 @@
 
 #include "listvieweditor.h"
 
-#include <ntqmap.h>
-#include <ntqpixmap.h>
-#include <ntqvaluelist.h>
+#include <tqmap.h>
+#include <tqpixmap.h>
+#include <tqvaluelist.h>
 
 class FormWindow;
 

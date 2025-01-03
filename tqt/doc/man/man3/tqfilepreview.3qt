@@ -1,5 +1,5 @@
 '\" t
-.TH QFilePreview 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQFilePreview 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,41 +7,41 @@
 .ad l
 .nh
 .SH NAME
-QFilePreview \- File previewing in QFileDialog
+TQFilePreview \- File previewing in TQFileDialog
 .SH SYNOPSIS
-\fC#include <ntqfiledialog.h>\fR
+\fC#include <tqfiledialog.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQFilePreview\fR ()"
+.BI "\fBTQFilePreview\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBpreviewUrl\fR ( const QUrl & url ) = 0"
+.BI "virtual void \fBpreviewUrl\fR ( const TQUrl & url ) = 0"
 .br
 .in -1c
 .SH DESCRIPTION
-The QFilePreview class provides file previewing in QFileDialog.
+The TQFilePreview class provides file previewing in TQFileDialog.
 .PP
-This class is an abstract base class which is used to implement widgets that can display a preview of a file in a QFileDialog.
+This class is an abstract base class which is used to implement widgets that can display a preview of a file in a TQFileDialog.
 .PP
 You must derive the preview widget from both TQWidget and from this class. Then you must reimplement this class's previewUrl() function, which is called by the file dialog if the preview of a file (specified as a URL) should be shown.
 .PP
-See also QFileDialog::setPreviewMode(), QFileDialog::setContentsPreview(), QFileDialog::setInfoPreview(), QFileDialog::setInfoPreviewEnabled(), QFileDialog::setContentsPreviewEnabled().
+See also TQFileDialog::setPreviewMode(), TQFileDialog::setContentsPreview(), TQFileDialog::setInfoPreview(), TQFileDialog::setInfoPreviewEnabled(), TQFileDialog::setContentsPreviewEnabled().
 .PP
-For an example of a preview widget see qt/examples/qdir/qdir.cpp.
+For an example of a preview widget see qt/examples/tqdir/tqdir.cpp.
 .PP
 See also Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QFilePreview::QFilePreview ()"
-Constructs the QFilePreview.
-.SH "void QFilePreview::previewUrl ( const QUrl & url )\fC [pure virtual]\fR"
-This function is called by QFileDialog if a preview
+.SH "TQFilePreview::TQFilePreview ()"
+Constructs the TQFilePreview.
+.SH "void TQFilePreview::previewUrl ( const TQUrl & url )\fC [pure virtual]\fR"
+This function is called by TQFileDialog if a preview
 for the \fIurl\fR should be shown. Reimplement this
 function to provide file previewing.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qfilepreview.html
+.BR http://doc.trolltech.com/tqfilepreview.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

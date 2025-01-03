@@ -3,8 +3,8 @@
 
 #include "structureparser.h"
 
-#include <ntqstring.h>
-#include <ntqlistview.h>
+#include <tqstring.h>
+#include <tqlistview.h>
 
 StructureParser::StructureParser( TQListView * t )
                 : TQXmlDefaultHandler()

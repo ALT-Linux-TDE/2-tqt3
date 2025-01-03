@@ -10,8 +10,8 @@
 #ifndef THEMES_H
 #define THEMES_H
 
-#include <ntqmainwindow.h>
-#include <ntqfont.h>
+#include <tqmainwindow.h>
+#include <tqfont.h>
 
 class TQTabWidget;
 

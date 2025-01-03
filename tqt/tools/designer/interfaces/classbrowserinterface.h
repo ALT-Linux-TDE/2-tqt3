@@ -47,8 +47,8 @@
 //
 //
 
-#include <private/qcom_p.h>
-#include <ntqobject.h>
+#include <private/tqcom_p.h>
+#include <tqobject.h>
 class TQListView;
 
 // {4ede3c32-ae96-4b7a-9e38-9f1d93592391}

@@ -1,4 +1,4 @@
-#include <ntqdragobject.h>
+#include <tqdragobject.h>
 
 #include "dnd.h"
 #include "iconview.h"

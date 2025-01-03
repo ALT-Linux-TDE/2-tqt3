@@ -1,13 +1,13 @@
 # TQt opengl module
 
 opengl {
-	HEADERS += $$OPENGL_H/ntqgl.h \
-		   $$OPENGL_H/ntqglcolormap.h
-	SOURCES	+= $$OPENGL_CPP/qgl.cpp \
-		   $$OPENGL_CPP/qglcolormap.cpp
+	HEADERS += $$OPENGL_H/tqgl.h \
+		   $$OPENGL_H/tqglcolormap.h
+	SOURCES	+= $$OPENGL_CPP/tqgl.cpp \
+		   $$OPENGL_CPP/tqglcolormap.cpp
 	x11 {
-		HEADERS += $$OPENGL_H/qgl_x11_p.h
-		SOURCES += $$OPENGL_CPP/qgl_x11.cpp
+		HEADERS += $$OPENGL_H/tqgl_x11_p.h
+		SOURCES += $$OPENGL_CPP/tqgl_x11.cpp
 	}
 	else:mac:SOURCES += $$OPENGL_CPP/qgl_mac.cpp
 	else:win32:SOURCES += $$OPENGL_CPP/qgl_win.cpp

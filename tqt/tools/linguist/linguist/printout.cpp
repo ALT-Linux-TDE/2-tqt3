@@ -33,8 +33,8 @@
 
 #include "printout.h"
 
-#include <ntqprinter.h>
-#include <ntqfontmetrics.h>
+#include <tqprinter.h>
+#include <tqfontmetrics.h>
 
 PrintOut::PrintOut( TQPrinter *printer )
     : pr( printer ), pdmetrics( printer ), nextRule( NoRule ), page( 0 )

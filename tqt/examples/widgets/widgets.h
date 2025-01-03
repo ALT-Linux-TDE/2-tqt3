@@ -14,9 +14,9 @@
 #ifndef WIDGETS_H
 #define WIDGETS_H
 
-#include <ntqmainwindow.h>
-#include <ntqmovie.h>
-#include <ntqlistview.h>
+#include <tqmainwindow.h>
+#include <tqmovie.h>
+#include <tqlistview.h>
 class TQLabel;
 class TQCheckBox;
 class TQProgressBar;

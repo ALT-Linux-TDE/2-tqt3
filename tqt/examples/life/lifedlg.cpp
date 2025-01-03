@@ -8,12 +8,12 @@
 *****************************************************************************/
 
 #include "lifedlg.h"
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqlabel.h>
-#include <ntqslider.h>
-#include <ntqcombobox.h>
-#include <ntqdatetime.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqlabel.h>
+#include <tqslider.h>
+#include <tqcombobox.h>
+#include <tqdatetime.h>
 #include <stdlib.h>
 
 #include "patterns.cpp"

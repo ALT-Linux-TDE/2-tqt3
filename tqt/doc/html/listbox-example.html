@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/listbox/listbox.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -34,7 +33,7 @@ body { background: #ffffff; color: black; }
    
 <p> 
 This example shows how to use the different modes (single columns, multiple columns,
-fixed number of rows, etc.) of <a href="ntqlistbox.html">TQListBox</a>.
+fixed number of rows, etc.) of <a href="tqlistbox.html">TQListBox</a>.
 <p> <hr>
 <p> Header file:
 <p> <pre>/****************************************************************************
@@ -55,10 +54,10 @@ class TQSpinBox;
 class TQListBox;
 class TQButtonGroup;
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
 
 
-class ListBoxDemo: public <a href="ntqwidget.html">TQWidget</a>
+class ListBoxDemo: public <a href="tqwidget.html">TQWidget</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 public:
@@ -77,10 +76,10 @@ private slots:
     void sortDescending();
 
 private:
-    <a href="ntqlistbox.html">TQListBox</a> * l;
-    <a href="ntqspinbox.html">TQSpinBox</a> * columns;
-    <a href="ntqspinbox.html">TQSpinBox</a> * rows;
-    <a href="ntqbuttongroup.html">TQButtonGroup</a> * bg;
+    <a href="tqlistbox.html">TQListBox</a> * l;
+    <a href="tqspinbox.html">TQSpinBox</a> * columns;
+    <a href="tqspinbox.html">TQSpinBox</a> * rows;
+    <a href="tqbuttongroup.html">TQButtonGroup</a> * bg;
 };
 
 
@@ -101,121 +100,121 @@ private:
 
 #include "listbox.h"
 
-#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
-#include &lt;<a href="qradiobutton-h.html">ntqradiobutton.h</a>&gt;
-#include &lt;<a href="qcheckbox-h.html">ntqcheckbox.h</a>&gt;
-#include &lt;<a href="qspinbox-h.html">ntqspinbox.h</a>&gt;
-#include &lt;<a href="qlistbox-h.html">ntqlistbox.h</a>&gt;
-#include &lt;<a href="qbuttongroup-h.html">ntqbuttongroup.h</a>&gt;
-#include &lt;<a href="qlayout-h.html">ntqlayout.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
+#include &lt;<a href="tqradiobutton-h.html">tqradiobutton.h</a>&gt;
+#include &lt;<a href="tqcheckbox-h.html">tqcheckbox.h</a>&gt;
+#include &lt;<a href="tqspinbox-h.html">tqspinbox.h</a>&gt;
+#include &lt;<a href="tqlistbox-h.html">tqlistbox.h</a>&gt;
+#include &lt;<a href="tqbuttongroup-h.html">tqbuttongroup.h</a>&gt;
+#include &lt;<a href="tqlayout-h.html">tqlayout.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
 
 
 <a name="f441"></a>ListBoxDemo::ListBoxDemo()
-    : <a href="ntqwidget.html">TQWidget</a>( 0, 0 )
+    : <a href="tqwidget.html">TQWidget</a>( 0, 0 )
 {
-    <a href="qgridlayout.html">TQGridLayout</a> * g = new <a href="qgridlayout.html">TQGridLayout</a>( this, 2, 2, 6 );
+    <a href="tqgridlayout.html">TQGridLayout</a> * g = new <a href="tqgridlayout.html">TQGridLayout</a>( this, 2, 2, 6 );
 
-    g-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( new <a href="ntqlabel.html">TQLabel</a>( "&lt;b&gt;Configuration:&lt;/b&gt;", this ), 0, 0 );
-    g-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( new <a href="ntqlabel.html">TQLabel</a>( "&lt;b&gt;Result:&lt;/b&gt;", this ), 0, 1 );
+    g-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( new <a href="tqlabel.html">TQLabel</a>( "&lt;b&gt;Configuration:&lt;/b&gt;", this ), 0, 0 );
+    g-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( new <a href="tqlabel.html">TQLabel</a>( "&lt;b&gt;Result:&lt;/b&gt;", this ), 0, 1 );
 
-    l = new <a href="ntqlistbox.html">TQListBox</a>( this );
-    g-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( l, 1, 1 );
-<a name="x1447"></a>    l-&gt;<a href="ntqwidget.html#setFocusPolicy">setFocusPolicy</a>( TQWidget::StrongFocus );
+    l = new <a href="tqlistbox.html">TQListBox</a>( this );
+    g-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( l, 1, 1 );
+<a name="x1447"></a>    l-&gt;<a href="tqwidget.html#setFocusPolicy">setFocusPolicy</a>( TQWidget::StrongFocus );
 
-    <a href="qvboxlayout.html">TQVBoxLayout</a> * v = new <a href="qvboxlayout.html">TQVBoxLayout</a>;
-<a name="x1430"></a>    g-&gt;<a href="qgridlayout.html#addLayout">addLayout</a>( v, 1, 0 );
+    <a href="tqvboxlayout.html">TQVBoxLayout</a> * v = new <a href="tqvboxlayout.html">TQVBoxLayout</a>;
+<a name="x1430"></a>    g-&gt;<a href="tqgridlayout.html#addLayout">addLayout</a>( v, 1, 0 );
 
-    <a href="ntqradiobutton.html">TQRadioButton</a> * b;
-    bg = new <a href="ntqbuttongroup.html">TQButtonGroup</a>( 0 );
+    <a href="tqradiobutton.html">TQRadioButton</a> * b;
+    bg = new <a href="tqbuttongroup.html">TQButtonGroup</a>( 0 );
 
-    b = new <a href="ntqradiobutton.html">TQRadioButton</a>( "Fixed number of columns,\n"
+    b = new <a href="tqradiobutton.html">TQRadioButton</a>( "Fixed number of columns,\n"
                           "as many rows as needed.",
                           this );
-<a name="x1428"></a>    bg-&gt;<a href="ntqbuttongroup.html#insert">insert</a>( b );
-<a name="x1425"></a>    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( b );
-<a name="x1440"></a>    b-&gt;<a href="ntqradiobutton.html#setChecked">setChecked</a>( TRUE );
-<a name="x1426"></a>    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setNumCols()) );
-    <a href="qhboxlayout.html">TQHBoxLayout</a> * h = new <a href="qhboxlayout.html">TQHBoxLayout</a>;
-<a name="x1422"></a>    v-&gt;<a href="qboxlayout.html#addLayout">addLayout</a>( h );
-<a name="x1423"></a>    h-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 30 );
-    h-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 100 );
-    h-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( new <a href="ntqlabel.html">TQLabel</a>( "Columns:", this ) );
-    columns = new <a href="ntqspinbox.html">TQSpinBox</a>( this );
-    h-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( columns );
+<a name="x1428"></a>    bg-&gt;<a href="tqbuttongroup.html#insert">insert</a>( b );
+<a name="x1425"></a>    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( b );
+<a name="x1440"></a>    b-&gt;<a href="tqradiobutton.html#setChecked">setChecked</a>( TRUE );
+<a name="x1426"></a>    <a href="tqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setNumCols()) );
+    <a href="tqhboxlayout.html">TQHBoxLayout</a> * h = new <a href="tqhboxlayout.html">TQHBoxLayout</a>;
+<a name="x1422"></a>    v-&gt;<a href="tqboxlayout.html#addLayout">addLayout</a>( h );
+<a name="x1423"></a>    h-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 30 );
+    h-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 100 );
+    h-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( new <a href="tqlabel.html">TQLabel</a>( "Columns:", this ) );
+    columns = new <a href="tqspinbox.html">TQSpinBox</a>( this );
+    h-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( columns );
 
-    v-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 12 );
+    v-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 12 );
 
-    b = new <a href="ntqradiobutton.html">TQRadioButton</a>( "As many columns as fit on-screen,\n"
+    b = new <a href="tqradiobutton.html">TQRadioButton</a>( "As many columns as fit on-screen,\n"
                           "as many rows as needed.",
                           this );
-    bg-&gt;<a href="ntqbuttongroup.html#insert">insert</a>( b );
-    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( b );
-    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setColsByWidth()) );
+    bg-&gt;<a href="tqbuttongroup.html#insert">insert</a>( b );
+    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( b );
+    <a href="tqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setColsByWidth()) );
 
-    v-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 12 );
+    v-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 12 );
 
-    b = new <a href="ntqradiobutton.html">TQRadioButton</a>( "Fixed number of rows,\n"
+    b = new <a href="tqradiobutton.html">TQRadioButton</a>( "Fixed number of rows,\n"
                           "as many columns as needed.",
                           this );
-    bg-&gt;<a href="ntqbuttongroup.html#insert">insert</a>( b );
-    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( b );
-    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setNumRows()) );
-    h = new <a href="qhboxlayout.html">TQHBoxLayout</a>;
-    v-&gt;<a href="qboxlayout.html#addLayout">addLayout</a>( h );
-    h-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 30 );
-    h-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 100 );
-    h-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( new <a href="ntqlabel.html">TQLabel</a>( "Rows:", this ) );
-    rows = new <a href="ntqspinbox.html">TQSpinBox</a>( this );
-<a name="x1442"></a>    rows-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    h-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( rows );
+    bg-&gt;<a href="tqbuttongroup.html#insert">insert</a>( b );
+    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( b );
+    <a href="tqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setNumRows()) );
+    h = new <a href="tqhboxlayout.html">TQHBoxLayout</a>;
+    v-&gt;<a href="tqboxlayout.html#addLayout">addLayout</a>( h );
+    h-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 30 );
+    h-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 100 );
+    h-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( new <a href="tqlabel.html">TQLabel</a>( "Rows:", this ) );
+    rows = new <a href="tqspinbox.html">TQSpinBox</a>( this );
+<a name="x1442"></a>    rows-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+    h-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( rows );
 
-    v-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 12 );
+    v-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 12 );
 
-    b = new <a href="ntqradiobutton.html">TQRadioButton</a>( "As many rows as fit on-screen,\n"
+    b = new <a href="tqradiobutton.html">TQRadioButton</a>( "As many rows as fit on-screen,\n"
                           "as many columns as needed.",
                           this );
-    bg-&gt;<a href="ntqbuttongroup.html#insert">insert</a>( b );
-    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( b );
-    <a href="ntqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setRowsByHeight()) );
+    bg-&gt;<a href="tqbuttongroup.html#insert">insert</a>( b );
+    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( b );
+    <a href="tqobject.html#connect">connect</a>( b, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), this, TQ_SLOT(setRowsByHeight()) );
 
-    v-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 12 );
+    v-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 12 );
 
-    <a href="ntqcheckbox.html">TQCheckBox</a> * cb = new <a href="ntqcheckbox.html">TQCheckBox</a>( "Variable-height rows", this );
-<a name="x1429"></a>    cb-&gt;<a href="ntqcheckbox.html#setChecked">setChecked</a>( TRUE );
-<a name="x1427"></a>    <a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setVariableHeight(bool)) );
-    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( cb );
-    v-&gt;<a href="qboxlayout.html#addSpacing">addSpacing</a>( 6 );
+    <a href="tqcheckbox.html">TQCheckBox</a> * cb = new <a href="tqcheckbox.html">TQCheckBox</a>( "Variable-height rows", this );
+<a name="x1429"></a>    cb-&gt;<a href="tqcheckbox.html#setChecked">setChecked</a>( TRUE );
+<a name="x1427"></a>    <a href="tqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="tqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setVariableHeight(bool)) );
+    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( cb );
+    v-&gt;<a href="tqboxlayout.html#addSpacing">addSpacing</a>( 6 );
 
-    cb = new <a href="ntqcheckbox.html">TQCheckBox</a>( "Variable-width columns", this );
-    <a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setVariableWidth(bool)) );
-    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( cb );
+    cb = new <a href="tqcheckbox.html">TQCheckBox</a>( "Variable-width columns", this );
+    <a href="tqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="tqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setVariableWidth(bool)) );
+    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( cb );
 
-    cb = new <a href="ntqcheckbox.html">TQCheckBox</a>( "Extended-Selection", this );
-    <a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="ntqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setMultiSelection(bool)) );
-    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( cb );
+    cb = new <a href="tqcheckbox.html">TQCheckBox</a>( "Extended-Selection", this );
+    <a href="tqobject.html#connect">connect</a>( cb, TQ_SIGNAL(<a href="tqbutton.html#toggled">toggled</a>(bool)), this, TQ_SLOT(setMultiSelection(bool)) );
+    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( cb );
 
-    <a href="ntqpushbutton.html">TQPushButton</a> *pb = new <a href="ntqpushbutton.html">TQPushButton</a>( "Sort ascending", this );
-    <a href="ntqobject.html#connect">connect</a>( pb, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( sortAscending() ) );
-    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( pb );
+    <a href="tqpushbutton.html">TQPushButton</a> *pb = new <a href="tqpushbutton.html">TQPushButton</a>( "Sort ascending", this );
+    <a href="tqobject.html#connect">connect</a>( pb, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( sortAscending() ) );
+    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( pb );
 
-    pb = new <a href="ntqpushbutton.html">TQPushButton</a>( "Sort descending", this );
-    <a href="ntqobject.html#connect">connect</a>( pb, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( sortDescending() ) );
-    v-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( pb );
+    pb = new <a href="tqpushbutton.html">TQPushButton</a>( "Sort descending", this );
+    <a href="tqobject.html#connect">connect</a>( pb, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( sortDescending() ) );
+    v-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( pb );
 
-<a name="x1424"></a>    v-&gt;<a href="qboxlayout.html#addStretch">addStretch</a>( 100 );
+<a name="x1424"></a>    v-&gt;<a href="tqboxlayout.html#addStretch">addStretch</a>( 100 );
 
     int i = 0;
     while( ++i &lt;= 2560 )
-<a name="x1446"></a><a name="x1433"></a>        l-&gt;<a href="ntqlistbox.html#insertItem">insertItem</a>( TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "Item " ) + TQString::number( i ),
+<a name="x1446"></a><a name="x1433"></a>        l-&gt;<a href="tqlistbox.html#insertItem">insertItem</a>( TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "Item " ) + TQString::number( i ),
                        i );
-<a name="x1441"></a>    columns-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 1, 256 );
-<a name="x1443"></a>    columns-&gt;<a href="ntqspinbox.html#setValue">setValue</a>( 1 );
-    rows-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 1, 256 );
-    rows-&gt;<a href="ntqspinbox.html#setValue">setValue</a>( 256 );
+<a name="x1441"></a>    columns-&gt;<a href="tqrangecontrol.html#setRange">setRange</a>( 1, 256 );
+<a name="x1443"></a>    columns-&gt;<a href="tqspinbox.html#setValue">setValue</a>( 1 );
+    rows-&gt;<a href="tqrangecontrol.html#setRange">setRange</a>( 1, 256 );
+    rows-&gt;<a href="tqspinbox.html#setValue">setValue</a>( 256 );
 
-<a name="x1445"></a>    <a href="ntqobject.html#connect">connect</a>( columns, TQ_SIGNAL(<a href="ntqspinbox.html#valueChanged">valueChanged</a>(int)), this, TQ_SLOT(setNumCols()) );
-    <a href="ntqobject.html#connect">connect</a>( rows, TQ_SIGNAL(<a href="ntqspinbox.html#valueChanged">valueChanged</a>(int)), this, TQ_SLOT(setNumRows()) );
+<a name="x1445"></a>    <a href="tqobject.html#connect">connect</a>( columns, TQ_SIGNAL(<a href="tqspinbox.html#valueChanged">valueChanged</a>(int)), this, TQ_SLOT(setNumCols()) );
+    <a href="tqobject.html#connect">connect</a>( rows, TQ_SIGNAL(<a href="tqspinbox.html#valueChanged">valueChanged</a>(int)), this, TQ_SLOT(setNumRows()) );
 }
 
 
@@ -227,61 +226,61 @@ ListBoxDemo::~ListBoxDemo()
 
 void <a name="f442"></a>ListBoxDemo::setNumRows()
 {
-    columns-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    rows-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
-<a name="x1444"></a><a name="x1435"></a>    l-&gt;<a href="ntqlistbox.html#setRowMode">setRowMode</a>( rows-&gt;<a href="ntqspinbox.html#value">value</a>() );
+    columns-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+    rows-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( TRUE );
+<a name="x1444"></a><a name="x1435"></a>    l-&gt;<a href="tqlistbox.html#setRowMode">setRowMode</a>( rows-&gt;<a href="tqspinbox.html#value">value</a>() );
 }
 
 
 void <a name="f443"></a>ListBoxDemo::setNumCols()
 {
-    columns-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
-    rows-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-<a name="x1434"></a>    l-&gt;<a href="ntqlistbox.html#setColumnMode">setColumnMode</a>( columns-&gt;<a href="ntqspinbox.html#value">value</a>() );
+    columns-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( TRUE );
+    rows-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+<a name="x1434"></a>    l-&gt;<a href="tqlistbox.html#setColumnMode">setColumnMode</a>( columns-&gt;<a href="tqspinbox.html#value">value</a>() );
 }
 
 
 void <a name="f444"></a>ListBoxDemo::setRowsByHeight()
 {
-    columns-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    rows-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    l-&gt;<a href="ntqlistbox.html#setRowMode">setRowMode</a>( TQListBox::FitToHeight );
+    columns-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+    rows-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+    l-&gt;<a href="tqlistbox.html#setRowMode">setRowMode</a>( TQListBox::FitToHeight );
 }
 
 
 void <a name="f445"></a>ListBoxDemo::setColsByWidth()
 {
-    columns-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    rows-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    l-&gt;<a href="ntqlistbox.html#setColumnMode">setColumnMode</a>( TQListBox::FitToWidth );
+    columns-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+    rows-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+    l-&gt;<a href="tqlistbox.html#setColumnMode">setColumnMode</a>( TQListBox::FitToWidth );
 }
 
 
 void <a name="f446"></a>ListBoxDemo::setVariableWidth( bool b )
 {
-<a name="x1438"></a>    l-&gt;<a href="ntqlistbox.html#setVariableWidth">setVariableWidth</a>( b );
+<a name="x1438"></a>    l-&gt;<a href="tqlistbox.html#setVariableWidth">setVariableWidth</a>( b );
 }
 
 
 void <a name="f447"></a>ListBoxDemo::setVariableHeight( bool b )
 {
-<a name="x1437"></a>    l-&gt;<a href="ntqlistbox.html#setVariableHeight">setVariableHeight</a>( b );
+<a name="x1437"></a>    l-&gt;<a href="tqlistbox.html#setVariableHeight">setVariableHeight</a>( b );
 }
 
 void <a name="f448"></a>ListBoxDemo::setMultiSelection( bool b )
 {
-<a name="x1432"></a>    l-&gt;<a href="ntqlistbox.html#clearSelection">clearSelection</a>();
-<a name="x1436"></a>    l-&gt;<a href="ntqlistbox.html#setSelectionMode">setSelectionMode</a>( b ? TQListBox::Extended : <a href="ntqlistbox.html">TQListBox</a>::Single );
+<a name="x1432"></a>    l-&gt;<a href="tqlistbox.html#clearSelection">clearSelection</a>();
+<a name="x1436"></a>    l-&gt;<a href="tqlistbox.html#setSelectionMode">setSelectionMode</a>( b ? TQListBox::Extended : <a href="tqlistbox.html">TQListBox</a>::Single );
 }
 
 void <a name="f449"></a>ListBoxDemo::sortAscending()
 {
-<a name="x1439"></a>    l-&gt;<a href="ntqlistbox.html#sort">sort</a>( TRUE );
+<a name="x1439"></a>    l-&gt;<a href="tqlistbox.html#sort">sort</a>( TRUE );
 }
 
 void <a name="f450"></a>ListBoxDemo::sortDescending()
 {
-    l-&gt;<a href="ntqlistbox.html#sort">sort</a>( FALSE );
+    l-&gt;<a href="tqlistbox.html#sort">sort</a>( FALSE );
 }
 </pre>
 
@@ -298,18 +297,18 @@ void <a name="f450"></a>ListBoxDemo::sortDescending()
 *****************************************************************************/
 
 #include "listbox.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     ListBoxDemo t;
-    t.<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Listbox" );
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;t );
-    t.<a href="ntqwidget.html#show">show</a>();
+    t.<a href="tqwidget.html#setCaption">setCaption</a>( "TQt Example - Listbox" );
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;t );
+    t.<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

@@ -1,5 +1,5 @@
 '\" t
-.TH QCharRef 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQCharRef 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,23 +7,23 @@
 .ad l
 .nh
 .SH NAME
-QCharRef \- Helper class for TQString
+TQCharRef \- Helper class for TQString
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqstring.h>\fR
+\fC#include <tqstring.h>\fR
 .PP
 .SH DESCRIPTION
-The QCharRef class is a helper class for TQString.
+The TQCharRef class is a helper class for TQString.
 .PP
-When you get an object of type QCharRef, if you can assign to it, the assignment will apply to the character in the string from which you got the reference. That is its whole purpose in life. The QCharRef becomes invalid once modifications are made to the string: if you want to keep the character, copy it into a TQChar.
+When you get an object of type TQCharRef, if you can assign to it, the assignment will apply to the character in the string from which you got the reference. That is its whole purpose in life. The TQCharRef becomes invalid once modifications are made to the string: if you want to keep the character, copy it into a TQChar.
 .PP
-Most of the TQChar member functions also exist in QCharRef. However, they are not explicitly documented here.
+Most of the TQChar member functions also exist in TQCharRef. However, they are not explicitly documented here.
 .PP
 See also TQString::operator[](), TQString::at(), TQChar, and Text Related Classes.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcharref.html
+.BR http://doc.trolltech.com/tqcharref.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -7,9 +7,9 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqsqldatabase.h>
-#include <ntqsqlcursor.h>
+#include <tqapplication.h>
+#include <tqsqldatabase.h>
+#include <tqsqlcursor.h>
 #include "../connection.h"
 
 int main( int argc, char *argv[] )

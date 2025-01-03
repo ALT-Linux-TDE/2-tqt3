@@ -31,11 +31,11 @@
 **
 **********************************************************************/
 
-#include <ntqlistview.h>
-#include <ntqgroupbox.h>
-#include <ntqlineedit.h>
-#include <ntqcombobox.h>
-#include <ntqmessagebox.h>
+#include <tqlistview.h>
+#include <tqgroupbox.h>
+#include <tqlineedit.h>
+#include <tqcombobox.h>
+#include <tqmessagebox.h>
 
 #include "metadatabase.h"
 #include "formwindow.h"

@@ -1,5 +1,5 @@
 '\" t
-.TH QValueStack 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQValueStack 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,21 +7,21 @@
 .ad l
 .nh
 .SH NAME
-QValueStack \- Value-based template class that provides a stack
+TQValueStack \- Value-based template class that provides a stack
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqvaluestack.h>\fR
+\fC#include <tqvaluestack.h>\fR
 .PP
-Inherits QValueList<T>.
+Inherits TQValueList<T>.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQValueStack\fR ()"
+.BI "\fBTQValueStack\fR ()"
 .br
 .ti -1c
-.BI "\fB~QValueStack\fR ()"
+.BI "\fB~TQValueStack\fR ()"
 .br
 .ti -1c
 .BI "void \fBpush\fR ( const T & d )"
@@ -37,11 +37,11 @@ Inherits QValueList<T>.
 .br
 .in -1c
 .SH DESCRIPTION
-The QValueStack class is a value-based template class that provides a stack.
+The TQValueStack class is a value-based template class that provides a stack.
 .PP
-Define a template instance QValueStack<X> to create a stack of values that all have the class X. QValueStack is part of the TQt Template Library.
+Define a template instance TQValueStack<X> to create a stack of values that all have the class X. TQValueStack is part of the TQt Template Library.
 .PP
-Note that QValueStack does not store pointers to the members of the stack; it holds a copy of every member. That is why these kinds of classes are called "value based"; QPtrStack, QPtrList, QDict, etc., are "pointer based".
+Note that TQValueStack does not store pointers to the members of the stack; it holds a copy of every member. That is why these kinds of classes are called "value based"; TQPtrStack, TQPtrList, TQDict, etc., are "pointer based".
 .PP
 A stack is a last in, first out (LIFO) structure. Items are added to the top of the stack with push() and retrieved from the top with pop(). The top() function provides access to the topmost item without removing it.
 .PP
@@ -49,7 +49,7 @@ Example:
 .PP
 .nf
 .br
-        QValueStack<int> stack;
+        TQValueStack<int> stack;
 .br
         stack.push( 1 );
 .br
@@ -72,9 +72,9 @@ Example:
 .br
 .fi
 .PP
-QValueStack is a specialized QValueList provided for convenience. All of QValueList's functionality also applies to QPtrStack, for example the facility to iterate over all elements using QValueStack<T>::Iterator. See QValueListIterator for further details.
+TQValueStack is a specialized TQValueList provided for convenience. All of TQValueList's functionality also applies to TQPtrStack, for example the facility to iterate over all elements using TQValueStack<T>::Iterator. See TQValueListIterator for further details.
 .PP
-Some classes cannot be used within a QValueStack, for example everything derived from TQObject and thus all classes that implement widgets. Only values can be used in a QValueStack. To qualify as a value, the class must provide
+Some classes cannot be used within a TQValueStack, for example everything derived from TQObject and thus all classes that implement widgets. Only values can be used in a TQValueStack. To qualify as a value, the class must provide
 .TP
 a copy constructor;
 .TP
@@ -86,37 +86,37 @@ Note that C++ defaults to field-by-field assignment operators and copy construct
 .PP
 See also TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QValueStack::QValueStack ()"
+.SH "TQValueStack::TQValueStack ()"
 Constructs an empty stack.
-.SH "QValueStack::~QValueStack ()"
-Destroys the stack. References to the values in the stack and all iterators of this stack become invalidated. Because QValueStack is highly tuned for performance, you won't see warnings if you use invalid iterators because it is impossible for an iterator to check whether or not it is valid.
-.SH "T QValueStack::pop ()"
+.SH "TQValueStack::~TQValueStack ()"
+Destroys the stack. References to the values in the stack and all iterators of this stack become invalidated. Because TQValueStack is highly tuned for performance, you won't see warnings if you use invalid iterators because it is impossible for an iterator to check whether or not it is valid.
+.SH "T TQValueStack::pop ()"
 Removes the top item from the stack and returns it.
 .PP
 See also top() and push().
-.SH "void QValueStack::push ( const T & d )"
+.SH "void TQValueStack::push ( const T & d )"
 Adds element, \fId\fR, to the top of the stack. Last in, first out.
 .PP
 This function is equivalent to append().
 .PP
 See also pop() and top().
-.SH "T & QValueStack::top ()"
+.SH "T & TQValueStack::top ()"
 Returns a reference to the top item of the stack or the item referenced by end() if no such item exists. Note that you must not change the value the end() iterator points to.
 .PP
 This function is equivalent to last().
 .PP
-See also pop(), push(), and QValueList::fromLast().
-.SH "const T & QValueStack::top () const"
+See also pop(), push(), and TQValueList::fromLast().
+.SH "const T & TQValueStack::top () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a reference to the top item of the stack or the item referenced by end() if no such item exists.
 .PP
 This function is equivalent to last().
 .PP
-See also pop(), push(), and QValueList::fromLast().
+See also pop(), push(), and TQValueList::fromLast().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqvaluestack.html
+.BR http://doc.trolltech.com/tqvaluestack.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

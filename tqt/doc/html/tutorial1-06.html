@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:580 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -43,46 +42,46 @@ widget as a child widget.
 **
 ****************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qslider-h.html">ntqslider.h</a>&gt;
-#include &lt;<a href="qlcdnumber-h.html">ntqlcdnumber.h</a>&gt;
-#include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
-#include &lt;<a href="qvbox-h.html">ntqvbox.h</a>&gt;
-#include &lt;<a href="qgrid-h.html">ntqgrid.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqslider-h.html">tqslider.h</a>&gt;
+#include &lt;<a href="tqlcdnumber-h.html">tqlcdnumber.h</a>&gt;
+#include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
+#include &lt;<a href="tqvbox-h.html">tqvbox.h</a>&gt;
+#include &lt;<a href="tqgrid-h.html">tqgrid.h</a>&gt;
 
-class LCDRange : public <a href="ntqvbox.html">TQVBox</a>
+class LCDRange : public <a href="tqvbox.html">TQVBox</a>
 {
 public:
-    LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    LCDRange( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 };
 
-<a name="f554"></a>LCDRange::LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-        : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+<a name="f554"></a>LCDRange::LCDRange( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+        : <a href="tqvbox.html">TQVBox</a>( parent, name )
 {
-    <a href="ntqlcdnumber.html">TQLCDNumber</a> *lcd  = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, this, "lcd"  );
-    <a href="ntqslider.html">TQSlider</a> * slider = new <a href="ntqslider.html">TQSlider</a>( Horizontal, this, "slider" );
-    slider-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 0, 99 );
-    slider-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
-    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
+    <a href="tqlcdnumber.html">TQLCDNumber</a> *lcd  = new <a href="tqlcdnumber.html">TQLCDNumber</a>( 2, this, "lcd"  );
+    <a href="tqslider.html">TQSlider</a> * slider = new <a href="tqslider.html">TQSlider</a>( Horizontal, this, "slider" );
+    slider-&gt;<a href="tqrangecontrol.html#setRange">setRange</a>( 0, 99 );
+    slider-&gt;<a href="tqslider.html#setValue">setValue</a>( 0 );
+    <a href="tqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="tqslider.html#valueChanged">valueChanged</a>(int)), lcd, TQ_SLOT(<a href="tqlcdnumber.html#display">display</a>(int)) );
 }
 
-class MyWidget : public <a href="ntqvbox.html">TQVBox</a>
+class MyWidget : public <a href="tqvbox.html">TQVBox</a>
 {
 public:
-    MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    MyWidget( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 };
 
 
-<a name="f555"></a>MyWidget::MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-        : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+<a name="f555"></a>MyWidget::MyWidget( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+        : <a href="tqvbox.html">TQVBox</a>( parent, name )
 {
-    <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
-    quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
+    <a href="tqpushbutton.html">TQPushButton</a> *quit = new <a href="tqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
+    quit-&gt;<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="tqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
 
-    <a href="ntqgrid.html">TQGrid</a> *grid = new <a href="ntqgrid.html">TQGrid</a>( 4, this );
+    <a href="tqgrid.html">TQGrid</a> *grid = new <a href="tqgrid.html">TQGrid</a>( 4, this );
 
     for( int r = 0 ; r &lt; 4 ; r++ )
         for( int c = 0 ; c &lt; 4 ; c++ )
@@ -91,12 +90,12 @@ public:
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     MyWidget w;
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;w );
-    w.<a href="ntqwidget.html#show">show</a>();
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;w );
+    w.<a href="tqwidget.html#show">show</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 
@@ -104,49 +103,49 @@ int main( int argc, char **argv )
 
 <p> <h2> Line-by-line Walkthrough
 </h2>
-<a name="1"></a><p> <pre>    class LCDRange : public <a href="ntqvbox.html">TQVBox</a>
+<a name="1"></a><p> <pre>    class LCDRange : public <a href="tqvbox.html">TQVBox</a>
     {
     public:
-        LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+        LCDRange( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
     };
 </pre>
 <p> The LCDRange widget is a widget without any API. It just has a
 constructor. This sort of widget is not very useful, so we'll add some API later.
-<p> <pre>    LCDRange::LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-            : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+<p> <pre>    LCDRange::LCDRange( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+            : <a href="tqvbox.html">TQVBox</a>( parent, name )
     {
-        <a href="ntqlcdnumber.html">TQLCDNumber</a> *lcd  = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, this, "lcd"  );
-        <a href="ntqslider.html">TQSlider</a> * slider = new <a href="ntqslider.html">TQSlider</a>( Horizontal, this, "slider" );
-    <a name="x2325"></a>    slider-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 0, 99 );
-    <a name="x2326"></a>    slider-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
-    <a name="x2327"></a><a name="x2324"></a>    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)), lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
+        <a href="tqlcdnumber.html">TQLCDNumber</a> *lcd  = new <a href="tqlcdnumber.html">TQLCDNumber</a>( 2, this, "lcd"  );
+        <a href="tqslider.html">TQSlider</a> * slider = new <a href="tqslider.html">TQSlider</a>( Horizontal, this, "slider" );
+    <a name="x2325"></a>    slider-&gt;<a href="tqrangecontrol.html#setRange">setRange</a>( 0, 99 );
+    <a name="x2326"></a>    slider-&gt;<a href="tqslider.html#setValue">setValue</a>( 0 );
+    <a name="x2327"></a><a name="x2324"></a>    <a href="tqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="tqslider.html#valueChanged">valueChanged</a>(int)), lcd, TQ_SLOT(<a href="tqlcdnumber.html#display">display</a>(int)) );
     }
 </pre>
 <p> This is lifted straight from the
 <a href="tutorial1-05.html#constructor">MyWidget constructor</a> in Chapter 5.
 The only differences are that the button is left out and the class
 is renamed.
-<p> <pre>    class MyWidget : public <a href="ntqvbox.html">TQVBox</a>
+<p> <pre>    class MyWidget : public <a href="tqvbox.html">TQVBox</a>
     {
     public:
-        MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+        MyWidget( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
     };
 </pre>
 <p> MyWidget, too, contains no API except a constructor.
-<p> <pre>    MyWidget::MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-            : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+<p> <pre>    MyWidget::MyWidget( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+            : <a href="tqvbox.html">TQVBox</a>( parent, name )
     {
-        <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
-    <a name="x2328"></a>    quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
+        <a href="tqpushbutton.html">TQPushButton</a> *quit = new <a href="tqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
+    <a name="x2328"></a>    quit-&gt;<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a name="x2321"></a>    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a name="x2321"></a>    <a href="tqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
 </pre>
 <p> The push button that used to be in what is now LCDRange has been
 separated so that we can have one "Quit" button and many LCDRange
 objects.
-<p> <pre>        <a href="ntqgrid.html">TQGrid</a> *grid = new <a href="ntqgrid.html">TQGrid</a>( 4, this );
+<p> <pre>        <a href="tqgrid.html">TQGrid</a> *grid = new <a href="tqgrid.html">TQGrid</a>( 4, this );
 </pre>
-<p> We create a <a href="ntqgrid.html">TQGrid</a> object with four columns. The TQGRid widget
+<p> We create a <a href="tqgrid.html">TQGrid</a> object with four columns. The TQGrid widget
 automatically arranges its children in rows and columns; you can
 specify the number of rows or of columns, and TQGrid will discover its
 new children and fit them into the grid.
@@ -171,7 +170,7 @@ makefile and build the application.)
 </h2>
 <a name="3"></a><p> Initialize each slider with a different/random value on startup.
 <p> The source contains three occurrences of "4". What happens if you
-change the one in the <a href="ntqgrid.html">TQGrid</a> constructor call?  What about the other
+change the one in the <a href="tqgrid.html">TQGrid</a> constructor call?  What about the other
 two?  Why is this?
 <p> You're now ready for <a href="tutorial1-07.html">Chapter 7.</a>
 <p> [<a href="tutorial1-05.html">Previous tutorial</a>]

@@ -8,8 +8,8 @@ VERSION  = 1.0.0
 REQUIRES += accessibility
 
 SOURCES  += main.cpp \
-	    qaccessiblewidget.cpp \
-	    qaccessiblemenu.cpp
+	    tqaccessiblewidget.cpp \
+	    tqaccessiblemenu.cpp
 
-HEADERS  += qaccessiblewidget.h \
-	    qaccessiblemenu.h
+HEADERS  += tqaccessiblewidget.h \
+	    tqaccessiblemenu.h

@@ -15,7 +15,7 @@ class TQSpinBox;
 class TQListBox;
 class TQButtonGroup;
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 
 class ListBoxDemo: public TQWidget

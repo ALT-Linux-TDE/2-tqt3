@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/src/table/qtable.cpp:1656 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -42,46 +41,46 @@ body { background: #ffffff; color: black; }
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qtable-h.html">ntqtable.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqtable-h.html">tqtable.h</a>&gt;
 
 // Table size
 
 const int numRows = 1000000;
 const int numCols = 1000000;
 
-class MyTable : public <a href="ntqtable.html">TQTable</a>
+class MyTable : public <a href="tqtable.html">TQTable</a>
 {
 public:
-    MyTable( int r, int c ) : <a href="ntqtable.html">TQTable</a>( r, c ) {
-<a name="x1291"></a>        items.<a href="ntqptrcollection.html#setAutoDelete">setAutoDelete</a>( TRUE );
-        widgets.<a href="ntqptrcollection.html#setAutoDelete">setAutoDelete</a>( TRUE );
+    MyTable( int r, int c ) : <a href="tqtable.html">TQTable</a>( r, c ) {
+<a name="x1291"></a>        items.<a href="tqptrcollection.html#setAutoDelete">setAutoDelete</a>( TRUE );
+        widgets.<a href="tqptrcollection.html#setAutoDelete">setAutoDelete</a>( TRUE );
         setCaption( tr( "A 1 Million x 1 Million Cell Table" ) );
         setLeftMargin( fontMetrics().width( "W999999W" ) );
     }
 
     void resizeData( int ) {}
-<a name="x1286"></a>    <a href="qtableitem.html">TQTableItem</a> *item( int r, int c ) const { return items.<a href="ntqintdict.html#find">find</a>( indexOf( r, c ) ); }
-<a name="x1288"></a>    void setItem( int r, int c, TQTableItem *i ) { items.<a href="ntqintdict.html#replace">replace</a>( indexOf( r, c ), i ); }
-<a name="x1287"></a>    void clearCell( int r, int c ) { items.<a href="ntqintdict.html#remove">remove</a>( indexOf( r, c ) ); }
-    void takeItem( <a href="qtableitem.html">TQTableItem</a> *item )
+<a name="x1286"></a>    <a href="tqtableitem.html">TQTableItem</a> *item( int r, int c ) const { return items.<a href="tqintdict.html#find">find</a>( indexOf( r, c ) ); }
+<a name="x1288"></a>    void setItem( int r, int c, TQTableItem *i ) { items.<a href="tqintdict.html#replace">replace</a>( indexOf( r, c ), i ); }
+<a name="x1287"></a>    void clearCell( int r, int c ) { items.<a href="tqintdict.html#remove">remove</a>( indexOf( r, c ) ); }
+    void takeItem( <a href="tqtableitem.html">TQTableItem</a> *item )
     {
-        items.<a href="ntqptrcollection.html#setAutoDelete">setAutoDelete</a>( FALSE );
-<a name="x1294"></a><a name="x1293"></a>        items.<a href="ntqintdict.html#remove">remove</a>( indexOf( item-&gt;<a href="qtableitem.html#row">row</a>(), item-&gt;<a href="qtableitem.html#col">col</a>() ) );
-        items.<a href="ntqptrcollection.html#setAutoDelete">setAutoDelete</a>( TRUE );
+        items.<a href="tqptrcollection.html#setAutoDelete">setAutoDelete</a>( FALSE );
+<a name="x1294"></a><a name="x1293"></a>        items.<a href="tqintdict.html#remove">remove</a>( indexOf( item-&gt;<a href="tqtableitem.html#row">row</a>(), item-&gt;<a href="tqtableitem.html#col">col</a>() ) );
+        items.<a href="tqptrcollection.html#setAutoDelete">setAutoDelete</a>( TRUE );
     }
-    void insertWidget( int r, int c, TQWidget *w ) { widgets.<a href="ntqintdict.html#replace">replace</a>( indexOf( r, c ), w );  }
-    <a href="ntqwidget.html">TQWidget</a> *cellWidget( int r, int c ) const { return widgets.<a href="ntqintdict.html#find">find</a>( indexOf( r, c ) ); }
+    void insertWidget( int r, int c, TQWidget *w ) { widgets.<a href="tqintdict.html#replace">replace</a>( indexOf( r, c ), w );  }
+    <a href="tqwidget.html">TQWidget</a> *cellWidget( int r, int c ) const { return widgets.<a href="tqintdict.html#find">find</a>( indexOf( r, c ) ); }
     void clearCellWidget( int r, int c )
     {
-<a name="x1289"></a>        <a href="ntqwidget.html">TQWidget</a> *w = widgets.<a href="ntqintdict.html#take">take</a>( indexOf( r, c ) );
+<a name="x1289"></a>        <a href="tqwidget.html">TQWidget</a> *w = widgets.<a href="tqintdict.html#take">take</a>( indexOf( r, c ) );
         if ( w )
-<a name="x1290"></a>            w-&gt;<a href="ntqobject.html#deleteLater">deleteLater</a>();
+<a name="x1290"></a>            w-&gt;<a href="tqobject.html#deleteLater">deleteLater</a>();
     }
 
 private:
-    <a href="ntqintdict.html">TQIntDict</a>&lt;TQTableItem&gt; items;
-    <a href="ntqintdict.html">TQIntDict</a>&lt;TQWidget&gt; widgets;
+    <a href="tqintdict.html">TQIntDict</a>&lt;TQTableItem&gt; items;
+    <a href="tqintdict.html">TQIntDict</a>&lt;TQWidget&gt; widgets;
 
 };
 
@@ -89,12 +88,12 @@ private:
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv );
 
     MyTable table( numRows, numCols );
-    app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;table );
-<a name="x1292"></a>    table.<a href="ntqwidget.html#show">show</a>();
-    return app.<a href="ntqapplication.html#exec">exec</a>();
+    app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;table );
+<a name="x1292"></a>    table.<a href="tqwidget.html#show">show</a>();
+    return app.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre><!-- eof -->
 <p><address><hr><div align=center>

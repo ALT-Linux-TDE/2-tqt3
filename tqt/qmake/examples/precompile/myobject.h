@@ -1,4 +1,4 @@
-#include <ntqobject.h>
+#include <tqobject.h>
 
 class MyObject : public TQObject
 {

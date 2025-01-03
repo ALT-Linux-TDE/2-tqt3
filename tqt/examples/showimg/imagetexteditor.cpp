@@ -8,17 +8,17 @@
 *****************************************************************************/
 
 #include "imagetexteditor.h"
-#include <ntqimage.h>
-#include <ntqlayout.h>
-#include <ntqgrid.h>
-#include <ntqvbox.h>
-#include <ntqhbox.h>
-#include <ntqcombobox.h>
-#include <ntqmultilineedit.h>
-#include <ntqlabel.h>
-#include <ntqlineedit.h>
-#include <ntqlistbox.h>
-#include <ntqpushbutton.h>
+#include <tqimage.h>
+#include <tqlayout.h>
+#include <tqgrid.h>
+#include <tqvbox.h>
+#include <tqhbox.h>
+#include <tqcombobox.h>
+#include <tqmultilineedit.h>
+#include <tqlabel.h>
+#include <tqlineedit.h>
+#include <tqlistbox.h>
+#include <tqpushbutton.h>
 
 
 ImageTextEditor::ImageTextEditor( TQImage& i, TQWidget *parent, const char *name, WFlags f ) :

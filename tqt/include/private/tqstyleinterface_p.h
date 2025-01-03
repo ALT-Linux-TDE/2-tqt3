@@ -1,0 +1,1 @@
+../../src/styles/tqstyleinterface_p.h

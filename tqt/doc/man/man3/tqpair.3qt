@@ -9,7 +9,7 @@
 .SH NAME
 TQPair \- Value-based template class that provides a pair of elements
 .SH SYNOPSIS
-\fC#include <ntqpair.h>\fR
+\fC#include <tqpair.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -20,10 +20,10 @@ TQPair \- Value-based template class that provides a pair of elements
 .BI "typedef T2 \fBsecond_type\fR"
 .br
 .ti -1c
-.BI "\fBQPair\fR ()"
+.BI "\fBTQPair\fR ()"
 .br
 .ti -1c
-.BI "\fBQPair\fR ( const T1 & t1, const T2 & t2 )"
+.BI "\fBTQPair\fR ( const T1 & t1, const T2 & t2 )"
 .br
 .ti -1c
 .BI "TQPair<T1, T2> & \fBoperator=\fR ( const TQPair<T1, T2> & other )"
@@ -40,9 +40,9 @@ The TQPair class is a value-based template class that provides a pair of element
 .PP
 TQPair is a TQt implementation of an STL-like pair. It can be used in your application if the standard pair<> is not available on your target platforms.
 .PP
-TQPair<T1, T2> defines a template instance to create a pair of values that contains two values of type T1 and T2. Please note that TQPair does not store pointers to the two elements; it holds a copy of every member. This is why these kinds of classes are called \fIvalue based\fR. If you're interested in \fIpointer based\fR classes see, for example, QPtrList and QDict.
+TQPair<T1, T2> defines a template instance to create a pair of values that contains two values of type T1 and T2. Please note that TQPair does not store pointers to the two elements; it holds a copy of every member. This is why these kinds of classes are called \fIvalue based\fR. If you're interested in \fIpointer based\fR classes see, for example, TQPtrList and TQDict.
 .PP
-TQPair holds one copy of type T1 and one copy of type T2, but does not provide iterators to access these elements. Instead, the two elements (\fCfirst\fR and \fCsecond\fR) are public member variables of the pair. TQPair owns the contained elements. For more relaxed ownership semantics, see QPtrCollection and friends which are pointer-based containers.
+TQPair holds one copy of type T1 and one copy of type T2, but does not provide iterators to access these elements. Instead, the two elements (\fCfirst\fR and \fCsecond\fR) are public member variables of the pair. TQPair owns the contained elements. For more relaxed ownership semantics, see TQPtrCollection and friends which are pointer-based containers.
 .PP
 Some classes cannot be used within a TQPair: for example, all classes derived from TQObject and thus all classes that implement widgets. Only "values" can be used in a TQPair. To qualify as a value the class must provide:
 .TP
@@ -54,7 +54,7 @@ A constructor that takes no arguments
 .PP
 Note that C++ defaults to field-by-field assignment operators and copy constructors if no explicit version is supplied. In many cases this is sufficient.
 .PP
-TQPair uses an STL-like syntax to manipulate and address the objects it contains. See the QTL documentation for more information.
+TQPair uses an STL-like syntax to manipulate and address the objects it contains. See the TQTL documentation for more information.
 .PP
 Functions that need to return two values can use a TQPair.
 .PP
@@ -75,7 +75,7 @@ This is a template convenience function. It is used to create a
 TQPair<> object that contains \fIt1\fR and \fIt2\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqpair.html
+.BR http://doc.trolltech.com/tqpair.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

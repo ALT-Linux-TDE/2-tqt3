@@ -1,7 +1,7 @@
 #ifndef IPCSERVER_H
 #define IPCSERVER_H
 
-#include <ntqserversocket.h>
+#include <tqserversocket.h>
 
 class IpcServer : public TQServerSocket
 {

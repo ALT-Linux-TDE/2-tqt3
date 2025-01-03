@@ -22,7 +22,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include "qt_x11_p.h"
+#include "tqt_x11_p.h"
 
 #if !defined(TQT_NO_XFTFREETYPE) && !defined(QT_XFT2)
 
@@ -32,7 +32,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-extern bool tqt_use_xrender; // defined in qapplication_x11.cpp
+extern bool tqt_use_xrender; // defined in tqapplication_x11.cpp
 
 extern "C" {
 

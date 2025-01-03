@@ -34,8 +34,8 @@
 #ifndef LISTBOXDND_H
 #define LISTBOXDND_H
 
-#include <ntqptrlist.h>
-#include <ntqlistbox.h>
+#include <tqptrlist.h>
+#include <tqlistbox.h>
 #include "listdnd.h"
 
 typedef TQPtrList<TQListBoxItem> ListBoxItemList;

@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqtooltip.h>
-#include <ntqtable.h>
+#include <tqtooltip.h>
+#include <tqtable.h>
 
 #include "tooltip.h"
 

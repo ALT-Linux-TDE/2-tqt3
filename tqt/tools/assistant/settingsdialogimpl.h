@@ -36,9 +36,9 @@
 
 #include "settingsdialog.h"
 
-#include <ntqstringlist.h>
-#include <ntqptrlist.h>
-#include <ntqlistview.h>
+#include <tqstringlist.h>
+#include <tqptrlist.h>
+#include <tqlistview.h>
 
 class SettingsDialog : public SettingsDialogBase
 {

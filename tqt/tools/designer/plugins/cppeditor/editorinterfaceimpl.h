@@ -36,8 +36,8 @@
 #define EDITORINTERFACEIMPL_H
 
 #include <editorinterface.h>
-#include <ntqobject.h>
-#include <ntqguardedptr.h>
+#include <tqobject.h>
+#include <tqguardedptr.h>
 
 class TQTimer;
 class ViewManager;

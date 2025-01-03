@@ -34,25 +34,25 @@
 #include "mainwindow.h"
 
 #include <stdlib.h>
-#include <ntqaction.h>
-#include <ntqwhatsthis.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqlineedit.h>
-#include <ntqtooltip.h>
-#include <ntqapplication.h>
-#include <ntqsignalmapper.h>
-#include <ntqstylefactory.h>
-#include <ntqworkspace.h>
-#include <ntqmessagebox.h>
-#include <ntqstatusbar.h>
-#include <ntqlistbox.h>
-#include <ntqclipboard.h>
-#include <ntqcombobox.h>
-#include <ntqspinbox.h>
-#include <ntqinputdialog.h>
-#include <ntqdatetimeedit.h>
-#include <ntqtextedit.h>
+#include <tqaction.h>
+#include <tqwhatsthis.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqlineedit.h>
+#include <tqtooltip.h>
+#include <tqapplication.h>
+#include <tqsignalmapper.h>
+#include <tqstylefactory.h>
+#include <tqworkspace.h>
+#include <tqmessagebox.h>
+#include <tqstatusbar.h>
+#include <tqlistbox.h>
+#include <tqclipboard.h>
+#include <tqcombobox.h>
+#include <tqspinbox.h>
+#include <tqinputdialog.h>
+#include <tqdatetimeedit.h>
+#include <tqtextedit.h>
 
 #include "defs.h"
 #include "project.h"
@@ -79,7 +79,7 @@
 #include "dbconnectionimpl.h"
 #endif
 #include "widgetaction.h"
-#include <ntqtoolbox.h>
+#include <tqtoolbox.h>
 #include "startdialogimpl.h"
 #include "designerappiface.h"
 #include "connectiondialog.h"

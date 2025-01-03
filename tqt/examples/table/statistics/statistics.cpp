@@ -9,10 +9,10 @@
 
 #include "statistics.h"
 
-#include <ntqdir.h>
-#include <ntqstringlist.h>
-#include <ntqheader.h>
-#include <ntqcombobox.h>
+#include <tqdir.h>
+#include <tqstringlist.h>
+#include <tqheader.h>
+#include <tqcombobox.h>
 #include <stdlib.h>
 
 const char* dirs[] = {

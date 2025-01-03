@@ -10,9 +10,9 @@
 #ifndef IMAGEFIP_H
 #define IMAGEFIP_H
 
-#include <ntqfiledialog.h>
-#include <ntqstrlist.h>
-#include <ntqpixmap.h>
+#include <tqfiledialog.h>
+#include <tqstrlist.h>
+#include <tqpixmap.h>
 
 class ImageIconProvider : public TQFileIconProvider
 {

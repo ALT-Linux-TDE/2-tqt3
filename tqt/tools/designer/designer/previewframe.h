@@ -34,8 +34,8 @@
 #ifndef PREVIEWFRAME_H
 #define PREVIEWFRAME_H
 
-#include <ntqvbox.h>
-#include <ntqworkspace.h>
+#include <tqvbox.h>
+#include <tqworkspace.h>
 
 #include "previewwidgetimpl.h"
 

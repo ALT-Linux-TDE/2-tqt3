@@ -34,7 +34,7 @@
 #ifndef ACTIONINTERFACE_H
 #define ACTIONINTERFACE_H
 
-#include <private/qcom_p.h>
+#include <private/tqcom_p.h>
 
 class TQAction;
 class TQObject;

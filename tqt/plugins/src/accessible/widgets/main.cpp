@@ -1,9 +1,9 @@
-#include "qaccessiblewidget.h"
-#include "qaccessiblemenu.h"
+#include "tqaccessiblewidget.h"
+#include "tqaccessiblemenu.h"
 
-#include <ntqtoolbutton.h>
-#include <ntqtoolbar.h>
-#include <ntqvariant.h>
+#include <tqtoolbutton.h>
+#include <tqtoolbar.h>
+#include <tqvariant.h>
 
 class AccessibleFactory : public TQAccessibleFactoryInterface, public TQLibraryInterface
 {
@@ -220,7 +220,7 @@ bool AccessibleFactory::canUnload() const
     return (TQAccessibleWidget::objects == 0);
 }
 
-Q_EXPORT_COMPONENT()
+TQ_EXPORT_COMPONENT()
 {
     Q_CREATE_INSTANCE( AccessibleFactory )
 }

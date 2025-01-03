@@ -7,13 +7,13 @@
 **
 *****************************************************************************/
 
-#include <ntqwidget.h>
-#include <ntqpainter.h>
-#include <ntqprinter.h>
-#include <ntqpushbutton.h>
-#include <ntqradiobutton.h>
-#include <ntqbuttongroup.h>
-#include <ntqapplication.h>
+#include <tqwidget.h>
+#include <tqpainter.h>
+#include <tqprinter.h>
+#include <tqpushbutton.h>
+#include <tqradiobutton.h>
+#include <tqbuttongroup.h>
+#include <tqapplication.h>
 #include <math.h>
 
 //
@@ -176,7 +176,7 @@ DrawView::DrawView()
     // ourDrawFunctions-array.
     for ( i=0; (n=ourDrawFunctions[i].name) != 0; i++ ) {
         int w = fm.width( n );
-        maxwidth = TQMAX(w,maxwidth); // TQMAX is a macro defined in ntqglobal.h
+        maxwidth = TQMAX(w,maxwidth); // TQMAX is a macro defined in tqglobal.h
                                      // and returns the biggest of to values.
 	// Due to its macro nature one should use it with care and with
 	// constant parameters only. 

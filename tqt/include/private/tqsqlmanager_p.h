@@ -1,0 +1,1 @@
+../../src/sql/tqsqlmanager_p.h

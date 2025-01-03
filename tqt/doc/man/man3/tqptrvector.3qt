@@ -1,5 +1,5 @@
 '\" t
-.TH QPtrVector 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPtrVector 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,31 +7,31 @@
 .ad l
 .nh
 .SH NAME
-QPtrVector \- Template collection class that provides a vector (array)
+TQPtrVector \- Template collection class that provides a vector (array)
 .SH SYNOPSIS
-\fC#include <ntqptrvector.h>\fR
+\fC#include <tqptrvector.h>\fR
 .PP
-Inherits QPtrCollection.
+Inherits TQPtrCollection.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQPtrVector\fR ()"
+.BI "\fBTQPtrVector\fR ()"
 .br
 .ti -1c
-.BI "\fBQPtrVector\fR ( uint size )"
+.BI "\fBTQPtrVector\fR ( uint size )"
 .br
 .ti -1c
-.BI "\fBQPtrVector\fR ( const QPtrVector<type> & v )"
+.BI "\fBTQPtrVector\fR ( const TQPtrVector<type> & v )"
 .br
 .ti -1c
-.BI "\fB~QPtrVector\fR ()"
+.BI "\fB~TQPtrVector\fR ()"
 .br
 .ti -1c
-.BI "QPtrVector<type> & \fBoperator=\fR ( const QPtrVector<type> & v )"
+.BI "TQPtrVector<type> & \fBoperator=\fR ( const TQPtrVector<type> & v )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QPtrVector<type> & v ) const"
+.BI "bool \fBoperator==\fR ( const TQPtrVector<type> & v ) const"
 .br
 .ti -1c
 .BI "type ** \fBdata\fR () const"
@@ -103,23 +103,23 @@ Inherits QPtrCollection.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual int \fBcompareItems\fR ( QPtrCollection::Item d1, QPtrCollection::Item d2 )"
+.BI "virtual int \fBcompareItems\fR ( TQPtrCollection::Item d1, TQPtrCollection::Item d2 )"
 .br
 .ti -1c
-.BI "virtual QDataStream & \fBread\fR ( QDataStream & s, QPtrCollection::Item & item )"
+.BI "virtual TQDataStream & \fBread\fR ( TQDataStream & s, TQPtrCollection::Item & item )"
 .br
 .ti -1c
-.BI "virtual QDataStream & \fBwrite\fR ( QDataStream & s, QPtrCollection::Item item ) const"
+.BI "virtual TQDataStream & \fBwrite\fR ( TQDataStream & s, TQPtrCollection::Item item ) const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QPtrVector class is a template collection class that provides a vector (array).
+The TQPtrVector class is a template collection class that provides a vector (array).
 .PP
-QValueVector is an STL-compatible alternative to this class.
+TQValueVector is an STL-compatible alternative to this class.
 .PP
-QPtrVector is implemented as a template class. Defines a template instance QPtrVector<X> to create a vector that contains pointers to X (X*).
+TQPtrVector is implemented as a template class. Defines a template instance TQPtrVector<X> to create a vector that contains pointers to X (X*).
 .PP
-A vector is the same as an array. The main difference between QPtrVector and QMemArray is that QPtrVector stores pointers to the elements, whereas QMemArray stores the elements themselves (i.e. QMemArray is value-based and QPtrVector is pointer-based).
+A vector is the same as an array. The main difference between TQPtrVector and TQMemArray is that TQPtrVector stores pointers to the elements, whereas TQMemArray stores the elements themselves (i.e. TQMemArray is value-based and TQPtrVector is pointer-based).
 .PP
 Items are added to the vector using insert() or fill(). Items are removed with remove(). You can get a pointer to an item at a particular index position using at().
 .PP
@@ -127,31 +127,31 @@ Unless otherwise stated, all functions that remove items from the vector will al
 .PP
 Functions that compare items (find() and sort() for example) will do so using the virtual function compareItems(). The default implementation of this function only compares the pointer values. Reimplement compareItems() in a subclass to get searching and sorting based on the item contents. You can perform a linear search for a pointer in the vector using findRef(), or a binary search (of a sorted vector) using bsearch(). You can count the number of times an item appears in the vector with contains() or containsRef().
 .PP
-See also QMemArray and Non-GUI Classes.
+See also TQMemArray and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPtrVector::QPtrVector ()"
+.SH "TQPtrVector::TQPtrVector ()"
 Constructs a null vector.
 .PP
 See also isNull().
-.SH "QPtrVector::QPtrVector ( uint size )"
+.SH "TQPtrVector::TQPtrVector ( uint size )"
 Constructs an vector with room for \fIsize\fR items. Makes a null vector if \fIsize\fR == 0.
 .PP
 All \fIsize\fR positions in the vector are initialized to 0.
 .PP
 See also size(), resize(), and isNull().
-.SH "QPtrVector::QPtrVector ( const QPtrVector<type> & v )"
+.SH "TQPtrVector::TQPtrVector ( const TQPtrVector<type> & v )"
 Constructs a copy of \fIv\fR. Only the pointers are copied (i.e. shallow copy).
-.SH "QPtrVector::~QPtrVector ()"
+.SH "TQPtrVector::~TQPtrVector ()"
 Removes all items from the vector, and destroys the vector itself.
 .PP
 See also clear().
-.SH "type * QPtrVector::at ( uint i ) const"
+.SH "type * TQPtrVector::at ( uint i ) const"
 Returns the item at position \fIi\fR, or 0 if there is no item at that position. \fIi\fR must be less than size().
-.SH "bool QPtrCollection::autoDelete () const"
+.SH "bool TQPtrCollection::autoDelete () const"
 Returns the setting of the auto-delete option. The default is FALSE.
 .PP
 See also setAutoDelete().
-.SH "int QPtrVector::bsearch ( const type * d ) const"
+.SH "int TQPtrVector::bsearch ( const type * d ) const"
 In a sorted array, finds the first occurrence of \fId\fR using a binary search. For a sorted array, this is generally much faster than find(), which performs a linear search.
 .PP
 Returns the position of \fId\fR, or -1 if \fId\fR could not be found. \fId\fR must not be 0.
@@ -159,15 +159,15 @@ Returns the position of \fId\fR, or -1 if \fId\fR could not be found. \fId\fR mu
 Compares items using the virtual function compareItems().
 .PP
 See also sort() and find().
-.SH "void QPtrVector::clear ()\fC [virtual]\fR"
+.SH "void TQPtrVector::clear ()\fC [virtual]\fR"
 Removes all items from the vector, and destroys the vector itself.
 .PP
 The vector becomes a null vector.
 .PP
 See also isNull().
 .PP
-Reimplemented from QPtrCollection.
-.SH "int QPtrVector::compareItems ( QPtrCollection::Item d1, QPtrCollection::Item d2 )\fC [virtual protected]\fR"
+Reimplemented from TQPtrCollection.
+.SH "int TQPtrVector::compareItems ( TQPtrCollection::Item d1, TQPtrCollection::Item d2 )\fC [virtual protected]\fR"
 This virtual function compares two list items.
 .PP
 Returns:
@@ -187,31 +187,31 @@ This function returns \fIint\fR rather than \fIbool\fR so that reimplementations
 The sort() and bsearch() functions require compareItems() to be implemented as described here.
 .PP
 This function should not modify the vector because some const functions call compareItems().
-.SH "uint QPtrVector::contains ( const type * d ) const"
+.SH "uint TQPtrVector::contains ( const type * d ) const"
 Returns the number of occurrences of item \fId\fR in the vector.
 .PP
 Compares items using the virtual function compareItems().
 .PP
 See also containsRef().
-.SH "uint QPtrVector::containsRef ( const type * d ) const"
+.SH "uint TQPtrVector::containsRef ( const type * d ) const"
 Returns the number of occurrences of the item pointer \fId\fR in the vector.
 .PP
 This function does \fInot\fR use compareItems() to compare items.
 .PP
 See also findRef().
-.SH "uint QPtrVector::count () const\fC [virtual]\fR"
+.SH "uint TQPtrVector::count () const\fC [virtual]\fR"
 Returns the number of items in the vector. The vector is empty if count() == 0.
 .PP
 See also isEmpty(), size(), and isNull().
 .PP
-Reimplemented from QPtrCollection.
-.SH "type ** QPtrVector::data () const"
+Reimplemented from TQPtrCollection.
+.SH "type ** TQPtrVector::data () const"
 Returns a pointer to the actual vector data, which is an array of type*.
 .PP
 The vector is a null vector if data() == 0 (null pointer).
 .PP
 See also isNull().
-.SH "bool QPtrVector::fill ( const type * d, int size = -1 )"
+.SH "bool TQPtrVector::fill ( const type * d, int size = -1 )"
 Inserts item \fId\fR in all positions in the vector. Any existing items are removed. If \fId\fR is 0, the vector becomes empty.
 .PP
 If \fIsize\fR >= 0, the vector is first resized to \fIsize\fR. By default, \fIsize\fR is -1.
@@ -219,7 +219,7 @@ If \fIsize\fR >= 0, the vector is first resized to \fIsize\fR. By default, \fIsi
 Returns TRUE if successful, i.e. \fIsize\fR is the same as the current size, or \fIsize\fR is larger and the memory has successfully been allocated; otherwise returns FALSE.
 .PP
 See also resize(), insert(), and isEmpty().
-.SH "int QPtrVector::find ( const type * d, uint i = 0 ) const"
+.SH "int TQPtrVector::find ( const type * d, uint i = 0 ) const"
 Finds the first occurrence of item \fId\fR in the vector using a linear search. The search starts at position \fIi\fR, which must be less than size(). \fIi\fR is by default 0; i.e. the search starts at the start of the vector.
 .PP
 Returns the position of \fId\fR, or -1 if \fId\fR could not be found.
@@ -229,7 +229,7 @@ Compares items using the virtual function compareItems().
 Use the much faster bsearch() to search a sorted vector.
 .PP
 See also findRef() and bsearch().
-.SH "int QPtrVector::findRef ( const type * d, uint i = 0 ) const"
+.SH "int TQPtrVector::findRef ( const type * d, uint i = 0 ) const"
 Finds the first occurrence of the item pointer \fId\fR in the vector using a linear search. The search starts at position \fIi\fR, which must be less than size(). \fIi\fR is by default 0; i.e. the search starts at the start of the vector.
 .PP
 Returns the position of \fId\fR, or -1 if \fId\fR could not be found.
@@ -239,47 +239,47 @@ This function does \fInot\fR use compareItems() to compare items.
 Use the much faster bsearch() to search a sorted vector.
 .PP
 See also find() and bsearch().
-.SH "bool QPtrVector::insert ( uint i, const type * d )"
+.SH "bool TQPtrVector::insert ( uint i, const type * d )"
 Sets position \fIi\fR in the vector to contain the item \fId\fR. \fIi\fR must be less than size(). Any previous element in position \fIi\fR is removed.
 .PP
 See also at().
-.SH "bool QPtrVector::isEmpty () const"
+.SH "bool TQPtrVector::isEmpty () const"
 Returns TRUE if the vector is empty; otherwise returns FALSE.
 .PP
 See also count().
-.SH "bool QPtrVector::isNull () const"
+.SH "bool TQPtrVector::isNull () const"
 Returns TRUE if the vector is null; otherwise returns FALSE.
 .PP
 A null vector has size() == 0 and data() == 0.
 .PP
 See also size().
-.SH "QPtrVector<type> & QPtrVector::operator= ( const QPtrVector<type> & v )"
+.SH "TQPtrVector<type> & TQPtrVector::operator= ( const TQPtrVector<type> & v )"
 Assigns \fIv\fR to this vector and returns a reference to this vector.
 .PP
 This vector is first cleared and then all the items from \fIv\fR are copied into the vector. Only the pointers are copied (i.e. shallow copy).
 .PP
 See also clear().
-.SH "bool QPtrVector::operator== ( const QPtrVector<type> & v ) const"
+.SH "bool TQPtrVector::operator== ( const TQPtrVector<type> & v ) const"
 Returns TRUE if this vector and \fIv\fR are equal; otherwise returns FALSE.
-.SH "type * QPtrVector::operator[] ( int i ) const"
+.SH "type * TQPtrVector::operator[] ( int i ) const"
 Returns the item at position \fIi\fR, or 0 if there is no item at that position. \fIi\fR must be less than size().
 .PP
 Equivalent to at( \fIi\fR ).
 .PP
 See also at().
-.SH "QDataStream & QPtrVector::read ( QDataStream & s, QPtrCollection::Item & item )\fC [virtual protected]\fR"
+.SH "TQDataStream & TQPtrVector::read ( TQDataStream & s, TQPtrCollection::Item & item )\fC [virtual protected]\fR"
 Reads a vector item, \fIitem\fR, from the stream \fIs\fR and returns a reference to the stream.
 .PP
 The default implementation sets \fIitem\fR to 0.
 .PP
 See also write().
-.SH "bool QPtrVector::remove ( uint i )"
+.SH "bool TQPtrVector::remove ( uint i )"
 Removes the item at position \fIi\fR in the vector, if there is one. \fIi\fR must be less than size().
 .PP
 Returns TRUE if \fIi\fR is within range; otherwise returns FALSE.
 .PP
 See also take() and at().
-.SH "bool QPtrVector::resize ( uint size )"
+.SH "bool TQPtrVector::resize ( uint size )"
 Resizes (expands or shrinks) the vector to \fIsize\fR elements. The vector becomes a null vector if \fIsize\fR == 0.
 .PP
 Any items at position \fIsize\fR or beyond in the vector are removed. New positions are initialized to 0.
@@ -287,7 +287,7 @@ Any items at position \fIsize\fR or beyond in the vector are removed. New positi
 Returns TRUE if successful, i.e. if the memory was successfully allocated; otherwise returns FALSE.
 .PP
 See also size() and isNull().
-.SH "void QPtrCollection::setAutoDelete ( bool enable )"
+.SH "void TQPtrCollection::setAutoDelete ( bool enable )"
 Sets the collection to auto-delete its contents if \fIenable\fR is TRUE and to never delete them if \fIenable\fR is FALSE.
 .PP
 If auto-deleting is turned on, all the items in a collection are deleted when the collection itself is deleted. This is convenient if the collection has the only pointer to the items.
@@ -299,26 +299,26 @@ Note that the auto-delete setting may also affect other functions in subclasses.
 See also autoDelete().
 .PP
 Examples:
-.)l grapher/grapher.cpp, scribble/scribble.cpp, and table/bigtable/main.cpp.
-.SH "uint QPtrVector::size () const"
+.)l scribble/scribble.cpp and table/bigtable/main.cpp.
+.SH "uint TQPtrVector::size () const"
 Returns the size of the vector, i.e. the number of vector positions. This is also the maximum number of items the vector can hold.
 .PP
 The vector is a null vector if size() == 0.
 .PP
 See also isNull(), resize(), and count().
-.SH "void QPtrVector::sort ()"
+.SH "void TQPtrVector::sort ()"
 Sorts the items in ascending order. Any empty positions will be put last.
 .PP
 Compares items using the virtual function compareItems().
 .PP
 See also bsearch().
-.SH "type * QPtrVector::take ( uint i )"
+.SH "type * TQPtrVector::take ( uint i )"
 Returns the item at position \fIi\fR in the vector, and removes that item from the vector. \fIi\fR must be less than size(). If there is no item at position \fIi\fR, 0 is returned.
 .PP
 Unlike remove(), this function does \fInot\fR call deleteItem() for the removed item.
 .PP
 See also remove() and at().
-.SH "QDataStream & QPtrVector::write ( QDataStream & s, QPtrCollection::Item item ) const\fC [virtual protected]\fR"
+.SH "TQDataStream & TQPtrVector::write ( TQDataStream & s, TQPtrCollection::Item item ) const\fC [virtual protected]\fR"
 Writes a vector item, \fIitem\fR, to the stream \fIs\fR and returns a reference to the stream.
 .PP
 The default implementation does nothing.
@@ -326,7 +326,7 @@ The default implementation does nothing.
 See also read().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqptrvector.html
+.BR http://doc.trolltech.com/tqptrvector.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

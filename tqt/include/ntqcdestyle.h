@@ -1,1 +1,0 @@
-../src/styles/ntqcdestyle.h

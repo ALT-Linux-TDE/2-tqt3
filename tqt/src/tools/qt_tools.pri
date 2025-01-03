@@ -2,149 +2,145 @@
 
 tools {
 	TOOLS_P		= tools
-	HEADERS +=  $$TOOLS_H/ntqmemarray.h \
-		  $$TOOLS_H/ntqasciicache.h \
-		  $$TOOLS_H/ntqasciidict.h \
-		  $$TOOLS_H/ntqbitarray.h \
-		  $$TOOLS_H/ntqbuffer.h \
-		  $$TOOLS_H/ntqcache.h \
-		  $$TOOLS_H/ntqcleanuphandler.h \
-		  $$TOOLS_P/qcomponentfactory_p.h \
-		  $$TOOLS_P/qcomlibrary_p.h \
-		  $$TOOLS_H/ntqcstring.h \
-		  $$TOOLS_H/ntqdatastream.h \
-		  $$TOOLS_H/ntqdatetime.h \
-		  $$TOOLS_H/ntqdeepcopy.h \
-		  $$TOOLS_H/ntqdict.h \
-		  $$TOOLS_H/ntqdir.h \
-		  $$TOOLS_P/qdir_p.h \
-		  $$TOOLS_H/ntqfile.h \
-		  $$TOOLS_P/qfiledefs_p.h \
-		  $$TOOLS_H/ntqfileinfo.h \
-		  $$TOOLS_H/ntqgarray.h \
-		  $$TOOLS_H/ntqgcache.h \
-		  $$TOOLS_H/ntqgdict.h \
-		  $$TOOLS_H/ntqgeneric.h \
-		  $$TOOLS_H/ntqglist.h \
-		  $$TOOLS_H/ntqglobal.h \
-		  $$TOOLS_P/qgpluginmanager_p.h \
-		  $$TOOLS_H/ntqgvector.h \
-		  $$TOOLS_H/ntqintcache.h \
-		  $$TOOLS_H/ntqintdict.h \
-		  $$TOOLS_H/ntqiodevice.h \
-		  $$TOOLS_H/ntqlibrary.h \
-		  $$TOOLS_P/qlibrary_p.h \
-		  $$TOOLS_H/ntqlocale.h \
-		  $$TOOLS_P/qlocale_p.h \
-		  $$TOOLS_H/ntqptrlist.h \
-		  $$TOOLS_H/ntqmap.h \
-		  $$TOOLS_H/ntqmutex.h \
-		  $$TOOLS_P/qmutex_p.h \
-		  $$TOOLS_P/qmutexpool_p.h \
-		  $$TOOLS_P/qpluginmanager_p.h \
-		  $$TOOLS_H/ntqptrcollection.h \
-		  $$TOOLS_H/ntqptrdict.h \
-		  $$TOOLS_H/ntqptrqueue.h \
-		  $$TOOLS_H/ntqregexp.h \
-		  $$TOOLS_H/ntqsemaphore.h \
-		  $$TOOLS_H/ntqsettings.h \
-		  $$TOOLS_P/qsettings_p.h \
-		  $$TOOLS_H/ntqshared.h \
-		  $$TOOLS_H/ntqsortedlist.h \
-		  $$TOOLS_H/ntqptrstack.h \
-		  $$TOOLS_H/ntqstring.h \
-		  $$TOOLS_H/ntqstringlist.h \
-		  $$TOOLS_H/ntqstrlist.h \
-		  $$TOOLS_H/ntqstrvec.h \
-		  $$TOOLS_H/ntqtextstream.h \
-		  $$TOOLS_P/qthreadinstance_p.h \
-		  $$TOOLS_H/ntqthreadstorage.h\
-		  $$TOOLS_P/qunicodetables_p.h \
-		  $$TOOLS_H/ntqptrvector.h \
-	          $$TOOLS_H/ntqvaluelist.h \
-		  $$TOOLS_H/ntqvaluestack.h \
-		  $$TOOLS_H/ntqvaluevector.h \
-		  $$TOOLS_H/ntqwaitcondition.h \
-		  $$TOOLS_P/qcom_p.h \
-		  $$TOOLS_P/qucom_p.h \
-		  $$TOOLS_H/ntquuid.h
+	HEADERS +=  $$TOOLS_H/tqmemarray.h \
+		  $$TOOLS_H/tqasciicache.h \
+		  $$TOOLS_H/tqasciidict.h \
+		  $$TOOLS_H/tqbitarray.h \
+		  $$TOOLS_H/tqbuffer.h \
+		  $$TOOLS_H/tqcache.h \
+		  $$TOOLS_H/tqcleanuphandler.h \
+		  $$TOOLS_P/tqcomponentfactory_p.h \
+		  $$TOOLS_P/tqcomlibrary_p.h \
+		  $$TOOLS_H/tqcstring.h \
+		  $$TOOLS_H/tqdatastream.h \
+		  $$TOOLS_H/tqdatetime.h \
+		  $$TOOLS_H/tqdeepcopy.h \
+		  $$TOOLS_H/tqdict.h \
+		  $$TOOLS_H/tqdir.h \
+		  $$TOOLS_P/tqdir_p.h \
+		  $$TOOLS_H/tqfile.h \
+		  $$TOOLS_P/tqfiledefs_p.h \
+		  $$TOOLS_H/tqfileinfo.h \
+		  $$TOOLS_H/tqgarray.h \
+		  $$TOOLS_H/tqgcache.h \
+		  $$TOOLS_H/tqgdict.h \
+		  $$TOOLS_H/tqglist.h \
+		  $$TOOLS_H/tqglobal.h \
+		  $$TOOLS_P/tqgpluginmanager_p.h \
+		  $$TOOLS_H/tqgvector.h \
+		  $$TOOLS_H/tqintcache.h \
+		  $$TOOLS_H/tqintdict.h \
+		  $$TOOLS_H/tqiodevice.h \
+		  $$TOOLS_H/tqlibrary.h \
+		  $$TOOLS_P/tqlibrary_p.h \
+		  $$TOOLS_H/tqlocale.h \
+		  $$TOOLS_P/tqlocale_p.h \
+		  $$TOOLS_H/tqptrlist.h \
+		  $$TOOLS_H/tqmap.h \
+		  $$TOOLS_H/tqmutex.h \
+		  $$TOOLS_P/tqmutex_p.h \
+		  $$TOOLS_P/tqmutexpool_p.h \
+		  $$TOOLS_P/tqpluginmanager_p.h \
+		  $$TOOLS_H/tqptrcollection.h \
+		  $$TOOLS_H/tqptrdict.h \
+		  $$TOOLS_H/tqptrqueue.h \
+		  $$TOOLS_H/tqregexp.h \
+		  $$TOOLS_H/tqsemaphore.h \
+		  $$TOOLS_H/tqsettings.h \
+		  $$TOOLS_P/tqsettings_p.h \
+		  $$TOOLS_H/tqshared.h \
+		  $$TOOLS_H/tqptrstack.h \
+		  $$TOOLS_H/tqstring.h \
+		  $$TOOLS_H/tqstringlist.h \
+		  $$TOOLS_H/tqstrlist.h \
+		  $$TOOLS_H/tqstrvec.h \
+		  $$TOOLS_H/tqtextstream.h \
+		  $$TOOLS_P/tqthreadinstance_p.h \
+		  $$TOOLS_H/tqthreadstorage.h\
+		  $$TOOLS_P/tqunicodetables_p.h \
+		  $$TOOLS_H/tqptrvector.h \
+	          $$TOOLS_H/tqvaluelist.h \
+		  $$TOOLS_H/tqvaluestack.h \
+		  $$TOOLS_H/tqvaluevector.h \
+		  $$TOOLS_H/tqwaitcondition.h \
+		  $$TOOLS_P/tqcom_p.h \
+		  $$TOOLS_P/tqucom_p.h \
+		  $$TOOLS_H/tquuid.h
 
-	win32:SOURCES += $$TOOLS_CPP/qdir_win.cpp \
-	 	  $$TOOLS_CPP/qfile_win.cpp \
-		  $$TOOLS_CPP/qfileinfo_win.cpp \
-		  $$TOOLS_CPP/qlibrary_win.cpp \
-		  $$TOOLS_CPP/qsettings_win.cpp \
-		  $$TOOLS_CPP/qmutex_win.cpp \
-		  $$TOOLS_CPP/qwaitcondition_win.cpp \
-		  $$TOOLS_CPP/qthreadstorage_win.cpp \
-		  $$TOOLS_CPP/qcriticalsection_p.cpp
-
-	win32-borland:SOURCES += $$TOOLS_CPP/qwinexport.cpp
+	win32:SOURCES += $$TOOLS_CPP/tqdir_win.cpp \
+	 	  $$TOOLS_CPP/tqfile_win.cpp \
+		  $$TOOLS_CPP/tqfileinfo_win.cpp \
+		  $$TOOLS_CPP/tqlibrary_win.cpp \
+		  $$TOOLS_CPP/tqsettings_win.cpp \
+		  $$TOOLS_CPP/tqmutex_win.cpp \
+		  $$TOOLS_CPP/tqwaitcondition_win.cpp \
+		  $$TOOLS_CPP/tqthreadstorage_win.cpp \
+		  $$TOOLS_CPP/tqcriticalsection_p.cpp
 
 	wince-* {
-		SOURCES -= $$TOOLS_CPP/qdir_win.cpp \
-			   $$TOOLS_CPP/qfile_win.cpp \
-			   $$TOOLS_CPP/qfileinfo_win.cpp
-		SOURCES += $$TOOLS_CPP/qdir_wce.cpp \
-			   $$TOOLS_CPP/qfile_wce.cpp \
-			   $$TOOLS_CPP/qfileinfo_wce.cpp
+		SOURCES -= $$TOOLS_CPP/tqdir_win.cpp \
+			   $$TOOLS_CPP/tqfile_win.cpp \
+			   $$TOOLS_CPP/tqfileinfo_win.cpp
+		SOURCES += $$TOOLS_CPP/tqdir_wce.cpp \
+			   $$TOOLS_CPP/tqfile_wce.cpp \
+			   $$TOOLS_CPP/tqfileinfo_wce.cpp
 	}
 
-        offmac:SOURCES += $$TOOLS_CPP/qdir_mac.cpp \
-		  $$TOOLS_CPP/qfile_mac.cpp \
-		  $$TOOLS_CPP/qfileinfo_mac.cpp
-	else:unix:SOURCES += $$TOOLS_CPP/qdir_unix.cpp \
-		  $$TOOLS_CPP/qfile_unix.cpp \
-		  $$TOOLS_CPP/qfileinfo_unix.cpp \
-		  $$TOOLS_CPP/qmutex_unix.cpp \
-		  $$TOOLS_CPP/qthreadstorage_unix.cpp \
-		  $$TOOLS_CPP/qwaitcondition_unix.cpp
+        offmac:SOURCES += $$TOOLS_CPP/tqdir_mac.cpp \
+		  $$TOOLS_CPP/tqfile_mac.cpp \
+		  $$TOOLS_CPP/tqfileinfo_mac.cpp
+	else:unix:SOURCES += $$TOOLS_CPP/tqdir_unix.cpp \
+		  $$TOOLS_CPP/tqfile_unix.cpp \
+		  $$TOOLS_CPP/tqfileinfo_unix.cpp \
+		  $$TOOLS_CPP/tqmutex_unix.cpp \
+		  $$TOOLS_CPP/tqthreadstorage_unix.cpp \
+		  $$TOOLS_CPP/tqwaitcondition_unix.cpp
 
-        mac:!x11:!embedded:SOURCES += $$TOOLS_CPP/qsettings_mac.cpp
+        mac:!x11:!embedded:SOURCES += $$TOOLS_CPP/tqsettings_mac.cpp
 	mac {
 		SOURCES+=3rdparty/dlcompat/dlfcn.c
 		INCLUDEPATH+=3rdparty/dlcompat
 	    }
-	unix:SOURCES += $$TOOLS_CPP/qlibrary_unix.cpp
+	unix:SOURCES += $$TOOLS_CPP/tqlibrary_unix.cpp
 
-	SOURCES += $$TOOLS_CPP/qbitarray.cpp \
-		  $$TOOLS_CPP/qbuffer.cpp \
-		  $$TOOLS_CPP/qcomponentfactory.cpp \
-		  $$TOOLS_CPP/qcomlibrary.cpp \
-		  $$TOOLS_CPP/qcstring.cpp \
-		  $$TOOLS_CPP/qdatastream.cpp \
-		  $$TOOLS_CPP/qdatetime.cpp \
-		  $$TOOLS_CPP/qdeepcopy.cpp \
-		  $$TOOLS_CPP/qdir.cpp \
-		  $$TOOLS_CPP/qfile.cpp \
-		  $$TOOLS_CPP/qfileinfo.cpp \
-		  $$TOOLS_CPP/qgarray.cpp \
-		  $$TOOLS_CPP/qgcache.cpp \
-		  $$TOOLS_CPP/qgdict.cpp \
-		  $$TOOLS_CPP/qglist.cpp \
-		  $$TOOLS_CPP/qglobal.cpp \
-		  $$TOOLS_CPP/qgpluginmanager.cpp \
-		  $$TOOLS_CPP/qgvector.cpp \
-		  $$TOOLS_CPP/qiodevice.cpp \
-		  $$TOOLS_CPP/qlibrary.cpp \
-		  $$TOOLS_CPP/qlocale.cpp \
-		  $$TOOLS_CPP/qmap.cpp \
-		  $$TOOLS_CPP/qmutexpool.cpp \
-		  $$TOOLS_CPP/qptrcollection.cpp \
-		  $$TOOLS_CPP/qregexp.cpp \
-		  $$TOOLS_CPP/qstring.cpp \
-		  $$TOOLS_CPP/qsemaphore.cpp \
-		  $$TOOLS_CPP/qsettings.cpp \
-		  $$TOOLS_CPP/qstringlist.cpp \
-		  $$TOOLS_CPP/qtextstream.cpp \
-		  $$TOOLS_CPP/qunicodetables.cpp \
-		  $$TOOLS_CPP/qucom.cpp \
-		  $$TOOLS_CPP/quuid.cpp
+	SOURCES += $$TOOLS_CPP/tqbitarray.cpp \
+		  $$TOOLS_CPP/tqbuffer.cpp \
+		  $$TOOLS_CPP/tqcomponentfactory.cpp \
+		  $$TOOLS_CPP/tqcomlibrary.cpp \
+		  $$TOOLS_CPP/tqcstring.cpp \
+		  $$TOOLS_CPP/tqdatastream.cpp \
+		  $$TOOLS_CPP/tqdatetime.cpp \
+		  $$TOOLS_CPP/tqdeepcopy.cpp \
+		  $$TOOLS_CPP/tqdir.cpp \
+		  $$TOOLS_CPP/tqfile.cpp \
+		  $$TOOLS_CPP/tqfileinfo.cpp \
+		  $$TOOLS_CPP/tqgarray.cpp \
+		  $$TOOLS_CPP/tqgcache.cpp \
+		  $$TOOLS_CPP/tqgdict.cpp \
+		  $$TOOLS_CPP/tqglist.cpp \
+		  $$TOOLS_CPP/tqglobal.cpp \
+		  $$TOOLS_CPP/tqgpluginmanager.cpp \
+		  $$TOOLS_CPP/tqgvector.cpp \
+		  $$TOOLS_CPP/tqiodevice.cpp \
+		  $$TOOLS_CPP/tqlibrary.cpp \
+		  $$TOOLS_CPP/tqlocale.cpp \
+		  $$TOOLS_CPP/tqmap.cpp \
+		  $$TOOLS_CPP/tqmutexpool.cpp \
+		  $$TOOLS_CPP/tqptrcollection.cpp \
+		  $$TOOLS_CPP/tqregexp.cpp \
+		  $$TOOLS_CPP/tqstring.cpp \
+		  $$TOOLS_CPP/tqsemaphore.cpp \
+		  $$TOOLS_CPP/tqsettings.cpp \
+		  $$TOOLS_CPP/tqstringlist.cpp \
+		  $$TOOLS_CPP/tqtextstream.cpp \
+		  $$TOOLS_CPP/tqunicodetables.cpp \
+		  $$TOOLS_CPP/tqucom.cpp \
+		  $$TOOLS_CPP/tquuid.cpp
 
         irix-cc* {
                 CXXFLAGS_PRELINK = $$QMAKE_CXXFLAGS
                 CXXFLAGS_PRELINK -= -O2
-                QMAKE_PRE_LINK          = $(CXX) -c $$CXXFLAGS_PRELINK -O1 $(INCPATH) -o $(OBJECTS_DIR)/qlocale.o tools/qlocale.cpp
+                QMAKE_PRE_LINK          = $(CXX) -c $$CXXFLAGS_PRELINK -O1 $(INCPATH) -o $(OBJECTS_DIR)/tqlocale.o tools/tqlocale.cpp
         }
 }
 

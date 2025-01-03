@@ -1,5 +1,5 @@
 '\" t
-.TH QPtrQueue 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPtrQueue 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,23 +7,23 @@
 .ad l
 .nh
 .SH NAME
-QPtrQueue \- Template class that provides a queue
+TQPtrQueue \- Template class that provides a queue
 .SH SYNOPSIS
-\fC#include <ntqptrqueue.h>\fR
+\fC#include <tqptrqueue.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQPtrQueue\fR ()"
+.BI "\fBTQPtrQueue\fR ()"
 .br
 .ti -1c
-.BI "\fBQPtrQueue\fR ( const QPtrQueue<type> & queue )"
+.BI "\fBTQPtrQueue\fR ( const TQPtrQueue<type> & queue )"
 .br
 .ti -1c
-.BI "\fB~QPtrQueue\fR ()"
+.BI "\fB~TQPtrQueue\fR ()"
 .br
 .ti -1c
-.BI "QPtrQueue<type> & \fBoperator=\fR ( const QPtrQueue<type> & queue )"
+.BI "TQPtrQueue<type> & \fBoperator=\fR ( const TQPtrQueue<type> & queue )"
 .br
 .ti -1c
 .BI "bool \fBautoDelete\fR () const"
@@ -62,90 +62,90 @@ QPtrQueue \- Template class that provides a queue
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual QDataStream & \fBread\fR ( QDataStream & s, QPtrCollection::Item & item )"
+.BI "virtual TQDataStream & \fBread\fR ( TQDataStream & s, TQPtrCollection::Item & item )"
 .br
 .ti -1c
-.BI "virtual QDataStream & \fBwrite\fR ( QDataStream & s, QPtrCollection::Item item ) const"
+.BI "virtual TQDataStream & \fBwrite\fR ( TQDataStream & s, TQPtrCollection::Item item ) const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QPtrQueue class is a template class that provides a queue.
+The TQPtrQueue class is a template class that provides a queue.
 .PP
-QValueVector can be used as an STL-compatible alternative to this class.
+TQValueVector can be used as an STL-compatible alternative to this class.
 .PP
-A template instance QPtrQueue<X> is a queue that operates on pointers to X (X*).
+A template instance TQPtrQueue<X> is a queue that operates on pointers to X (X*).
 .PP
 A queue is a first in, first out structure. Items are added to the tail of the queue with enqueue() and retrieved from the head with dequeue(). You can peek at the head item without dequeing it using head().
 .PP
 You can control the queue's deletion policy with setAutoDelete().
 .PP
-For compatibility with the QPtrCollection classes, current() and remove() are provided; both operate on the head().
+For compatibility with the TQPtrCollection classes, current() and remove() are provided; both operate on the head().
 .PP
-See also QPtrList, QPtrStack, Collection Classes, and Non-GUI Classes.
+See also TQPtrList, TQPtrStack, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPtrQueue::QPtrQueue ()"
+.SH "TQPtrQueue::TQPtrQueue ()"
 Creates an empty queue with autoDelete() set to FALSE.
-.SH "QPtrQueue::QPtrQueue ( const QPtrQueue<type> & queue )"
+.SH "TQPtrQueue::TQPtrQueue ( const TQPtrQueue<type> & queue )"
 Creates a queue from \fIqueue\fR.
 .PP
 Only the pointers are copied; the items are not. The autoDelete() flag is set to FALSE.
-.SH "QPtrQueue::~QPtrQueue ()"
+.SH "TQPtrQueue::~TQPtrQueue ()"
 Destroys the queue. Items in the queue are deleted if autoDelete() is TRUE.
-.SH "bool QPtrQueue::autoDelete () const"
+.SH "bool TQPtrQueue::autoDelete () const"
 Returns the setting of the auto-delete option. The default is FALSE.
 .PP
 See also setAutoDelete().
-.SH "void QPtrQueue::clear ()"
+.SH "void TQPtrQueue::clear ()"
 Removes all items from the queue, and deletes them if autoDelete() is TRUE.
 .PP
 See also remove().
-.SH "uint QPtrQueue::count () const"
+.SH "uint TQPtrQueue::count () const"
 Returns the number of items in the queue.
 .PP
 See also isEmpty().
-.SH "type * QPtrQueue::current () const"
+.SH "type * TQPtrQueue::current () const"
 Returns a pointer to the head item in the queue. The queue is not changed. Returns 0 if the queue is empty.
 .PP
 See also dequeue() and isEmpty().
-.SH "type * QPtrQueue::dequeue ()"
+.SH "type * TQPtrQueue::dequeue ()"
 Takes the head item from the queue and returns a pointer to it. Returns 0 if the queue is empty.
 .PP
 See also enqueue() and count().
-.SH "void QPtrQueue::enqueue ( const type * d )"
+.SH "void TQPtrQueue::enqueue ( const type * d )"
 Adds item \fId\fR to the tail of the queue.
 .PP
 See also count() and dequeue().
-.SH "type * QPtrQueue::head () const"
+.SH "type * TQPtrQueue::head () const"
 Returns a pointer to the head item in the queue. The queue is not changed. Returns 0 if the queue is empty.
 .PP
 See also dequeue() and isEmpty().
-.SH "bool QPtrQueue::isEmpty () const"
+.SH "bool TQPtrQueue::isEmpty () const"
 Returns TRUE if the queue is empty; otherwise returns FALSE.
 .PP
 See also count(), dequeue(), and head().
-.SH "QPtrQueue::operator type * () const"
+.SH "TQPtrQueue::operator type * () const"
 Returns a pointer to the head item in the queue. The queue is not changed. Returns 0 if the queue is empty.
 .PP
 See also dequeue() and isEmpty().
-.SH "QPtrQueue<type> & QPtrQueue::operator= ( const QPtrQueue<type> & queue )"
+.SH "TQPtrQueue<type> & TQPtrQueue::operator= ( const TQPtrQueue<type> & queue )"
 Assigns \fIqueue\fR to this queue and returns a reference to this queue.
 .PP
 This queue is first cleared and then each item in \fIqueue\fR is enqueued to this queue. Only the pointers are copied.
 .PP
 \fBWarning:\fR The autoDelete() flag is not modified. If it it TRUE for both \fIqueue\fR and this queue, deleting the two lists will cause \fIdouble-deletion\fR of the items.
-.SH "QDataStream & QPtrQueue::read ( QDataStream & s, QPtrCollection::Item & item )\fC [virtual protected]\fR"
+.SH "TQDataStream & TQPtrQueue::read ( TQDataStream & s, TQPtrCollection::Item & item )\fC [virtual protected]\fR"
 Reads a queue item, \fIitem\fR, from the stream \fIs\fR and returns a reference to the stream.
 .PP
 The default implementation sets \fIitem\fR to 0.
 .PP
 See also write().
-.SH "bool QPtrQueue::remove ()"
+.SH "bool TQPtrQueue::remove ()"
 Removes the head item from the queue, and returns TRUE if there was an item, i.e. the queue wasn't empty; otherwise returns FALSE.
 .PP
 The item is deleted if autoDelete() is TRUE.
 .PP
 See also head(), isEmpty(), and dequeue().
-.SH "void QPtrQueue::setAutoDelete ( bool enable )"
+.SH "void TQPtrQueue::setAutoDelete ( bool enable )"
 Sets the queue to auto-delete its contents if \fIenable\fR is TRUE and not to delete them if \fIenable\fR is FALSE.
 .PP
 If auto-deleting is turned on, all the items in a queue are deleted when the queue itself is deleted. This can be quite convenient if the queue has the only pointer to the items.
@@ -153,7 +153,7 @@ If auto-deleting is turned on, all the items in a queue are deleted when the que
 The default setting is FALSE, for safety. If you turn it on, be careful about copying the queue: you might find yourself with two queues deleting the same items.
 .PP
 See also autoDelete().
-.SH "QDataStream & QPtrQueue::write ( QDataStream & s, QPtrCollection::Item item ) const\fC [virtual protected]\fR"
+.SH "TQDataStream & TQPtrQueue::write ( TQDataStream & s, TQPtrCollection::Item item ) const\fC [virtual protected]\fR"
 Writes a queue item, \fIitem\fR, to the stream \fIs\fR and returns a reference to the stream.
 .PP
 The default implementation does nothing.
@@ -161,7 +161,7 @@ The default implementation does nothing.
 See also read().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqptrqueue.html
+.BR http://doc.trolltech.com/tqptrqueue.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

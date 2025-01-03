@@ -103,10 +103,6 @@ static int verbose = 0;
 
 int test_one_file PNGARG((PNG_CONST char *inname, PNG_CONST char *outname));
 
-#ifdef __TURBOC__
-#include <mem.h>
-#endif
-
 /* defined so I can write to a file on gui/windowing platforms */
 /*  #define STDERR stderr  */
 #define STDERR stdout   /* for DOS */

@@ -1,8 +1,8 @@
-#include <ntqstatusbar.h>
-#include <ntqmessagebox.h>
-#include <ntqmenubar.h>
-#include <ntqapplication.h>
-#include <ntqimage.h>
+#include <tqstatusbar.h>
+#include <tqmessagebox.h>
+#include <tqmenubar.h>
+#include <tqapplication.h>
+#include <tqimage.h>
 
 #include "canvas.h"
 

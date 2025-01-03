@@ -1,5 +1,5 @@
 '\" t
-.TH QImageConsumer 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQImageConsumer 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QImageConsumer \- Abstraction used by QImageDecoder
+TQImageConsumer \- Abstraction used by TQImageDecoder
 .SH SYNOPSIS
-\fC#include <ntqasyncimageio.h>\fR
+\fC#include <tqasyncimageio.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -17,13 +17,13 @@ QImageConsumer \- Abstraction used by QImageDecoder
 .BI "virtual void \fBend\fR () = 0"
 .br
 .ti -1c
-.BI "virtual void \fBchanged\fR ( const QRect & ) = 0"
+.BI "virtual void \fBchanged\fR ( const TQRect & ) = 0"
 .br
 .ti -1c
 .BI "virtual void \fBframeDone\fR () = 0"
 .br
 .ti -1c
-.BI "virtual void \fBframeDone\fR ( const QPoint & offset, const QRect & rect ) = 0"
+.BI "virtual void \fBframeDone\fR ( const TQPoint & offset, const TQRect & rect ) = 0"
 .br
 .ti -1c
 .BI "virtual void \fBsetLooping\fR ( int n ) = 0"
@@ -36,37 +36,37 @@ QImageConsumer \- Abstraction used by QImageDecoder
 .br
 .in -1c
 .SH DESCRIPTION
-The QImageConsumer class is an abstraction used by QImageDecoder.
+The TQImageConsumer class is an abstraction used by TQImageDecoder.
 .PP
-The QMovie class, or QLabel::setMovie(), are easy to use and for most situations do what you want with regards animated images.
+The TQMovie class, or TQLabel::setMovie(), are easy to use and for most situations do what you want with regards animated images.
 .PP
-A QImageConsumer consumes information about changes to the TQImage maintained by a QImageDecoder. Think of the TQImage as the model or source of the image data, with the QImageConsumer as a view of that data and the QImageDecoder being the controller that orchestrates the relationship between the model and the view.
+A TQImageConsumer consumes information about changes to the TQImage maintained by a TQImageDecoder. Think of the TQImage as the model or source of the image data, with the TQImageConsumer as a view of that data and the TQImageDecoder being the controller that orchestrates the relationship between the model and the view.
 .PP
-You'd use the QImageConsumer class, for example, if you were implementing a web browser with your own image loaders.
+You'd use the TQImageConsumer class, for example, if you were implementing a web browser with your own image loaders.
 .PP
-See also QImageDecoder, Graphics Classes, Image Processing Classes, and Multimedia Classes.
+See also TQImageDecoder, Graphics Classes, Image Processing Classes, and Multimedia Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "void QImageConsumer::changed ( const QRect & )\fC [pure virtual]\fR"
+.SH "void TQImageConsumer::changed ( const TQRect & )\fC [pure virtual]\fR"
 Called when the given area of the image has changed.
-.SH "void QImageConsumer::end ()\fC [pure virtual]\fR"
+.SH "void TQImageConsumer::end ()\fC [pure virtual]\fR"
 Called when all the data from all the frames has been decoded and revealed as changed().
-.SH "void QImageConsumer::frameDone ()\fC [pure virtual]\fR"
+.SH "void TQImageConsumer::frameDone ()\fC [pure virtual]\fR"
 One of the two frameDone() functions will be called when a frame of an animated image has ended and been revealed as changed().
 .PP
 When this function is called, the current image should be displayed.
 .PP
-The decoder will not make any further changes to the image until the next call to QImageFormat::decode().
-.SH "void QImageConsumer::frameDone ( const QPoint & offset, const QRect & rect )\fC [pure virtual]\fR"
+The decoder will not make any further changes to the image until the next call to TQImageFormat::decode().
+.SH "void TQImageConsumer::frameDone ( const TQPoint & offset, const TQRect & rect )\fC [pure virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 One of the two frameDone() functions will be called when a frame of an animated image has ended and been revealed as changed().
 .PP
 When this function is called, the area \fIrect\fR in the current image should be moved by \fIoffset\fR and displayed.
 .PP
-The decoder will not make any further changes to the image until the next call to QImageFormat::decode().
-.SH "void QImageConsumer::setFramePeriod ( int milliseconds )\fC [pure virtual]\fR"
+The decoder will not make any further changes to the image until the next call to TQImageFormat::decode().
+.SH "void TQImageConsumer::setFramePeriod ( int milliseconds )\fC [pure virtual]\fR"
 Notes that the frame about to be decoded should not be displayed until the given number of \fImilliseconds\fR after the time that this function is called. Of course, the image may not have been decoded by then, in which case the frame should not be displayed until it is complete. A value of -1 (the assumed default) indicates that the image should be displayed even while it is only partially loaded.
-.SH "void QImageConsumer::setLooping ( int n )\fC [pure virtual]\fR"
+.SH "void TQImageConsumer::setLooping ( int n )\fC [pure virtual]\fR"
 Called to indicate that the sequence of frames in the image should be repeated \fIn\fR times, including the sequence during decoding.
 .TP
 0 = Forever
@@ -77,13 +77,13 @@ Called to indicate that the sequence of frames in the image should be repeated \
 .TP
 etc.
 .PP
-To make the QImageDecoder do this, just delete it and pass the information to it again for decoding (setLooping() will be called again, of course, but that can be ignored), or keep copies of the changed areas at the ends of frames.
-.SH "void QImageConsumer::setSize ( int, int )\fC [pure virtual]\fR"
+To make the TQImageDecoder do this, just delete it and pass the information to it again for decoding (setLooping() will be called again, of course, but that can be ignored), or keep copies of the changed areas at the ends of frames.
+.SH "void TQImageConsumer::setSize ( int, int )\fC [pure virtual]\fR"
 This function is called as soon as the size of the image has been
 determined.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qimageconsumer.html
+.BR http://doc.trolltech.com/tqimageconsumer.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

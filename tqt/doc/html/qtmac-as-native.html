@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/qtmac-as-native.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -46,7 +45,7 @@ first class citizens, just like Cocoa, Java, and Carbon applications.
 it can interact with specific components of the Mac OS X experience:
 <p> <ul>
 <li> <b>The global menubar</b><br>
-<p> TQt/Mac does this via the <a href="ntqmenubar.html">TQMenuBar</a> abstraction. Mac users expect to
+<p> TQt/Mac does this via the <a href="tqmenubar.html">TQMenuBar</a> abstraction. Mac users expect to
 have a menubar at the top of the screen and TQt/Mac honors this.
 <p> Additionally, users expect certain conventions to be respected, for
 example the application menu should contain About, Preferences,
@@ -96,7 +95,7 @@ your audience.
 <p> <li> <b>Dock</b><br>
 <p> Interaction with the dock is limited, but at the very least the icon
 should be able to be interacted with. This can be achieved with
-<a href="ntqwidget.html#setIcon">TQWidget::setIcon</a>(). The setIcon() call can be made as often as
+<a href="tqwidget.html#setIcon">TQWidget::setIcon</a>(). The setIcon() call can be made as often as
 necessary, so can be used to provide a constantly updating pixmap
 that works as expected.
 <p> <li> <b>Accessiblity</b><br>
@@ -118,8 +117,8 @@ the qmake tool. For example:
    </pre>
  
 <p> will generate an Xcode project file from project.pro. With qmake
-you do not have to worry about rules for TQt's preprocessors (moc
-and uic) since qmake automatically handles them and ensures that
+you do not have to worry about rules for TQt's preprocessors (tqmoc
+and tquic) since qmake automatically handles them and ensures that
 everything necessary is linked into your application.
 <p> TQt does not entirely interact with the development environment (for
 example plugins to set a file to 'mocable' from within the Xcode

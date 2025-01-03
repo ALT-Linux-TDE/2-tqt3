@@ -1,9 +1,9 @@
-#include <ntqapplication.h>
-#include <ntqwidget.h>
-#include <ntqimage.h>
-#include <ntqpixmap.h>
-#include <ntqbitmap.h>
-#include <ntqfile.h>
+#include <tqapplication.h>
+#include <tqwidget.h>
+#include <tqimage.h>
+#include <tqpixmap.h>
+#include <tqbitmap.h>
+#include <tqfile.h>
 
 #include <stdlib.h>
 

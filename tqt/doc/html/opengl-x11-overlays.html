@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/opengl-x11-overlays.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -68,23 +67,23 @@ See <a href="#x11visuals">About X11 Visuals</a>, below for more
 information.
 <p> <h2> How it works
 </h2>
-<a name="1"></a><p> Given the above, a <a href="qglwidget.html">TQGLWidget</a> will by default use the main plane
+<a name="1"></a><p> Given the above, a <a href="tqglwidget.html">TQGLWidget</a> will by default use the main plane
 visual, while all other widgets will use the overlay visual. Thus, we
 can place a normal widget on top of the TQGLWidget, and do drawing on
 it, without destroying the image in the OpenGL window. In other words,
-we can use all the drawing capabilities of <a href="ntqpainter.html">TQPainter</a> to draw the
+we can use all the drawing capabilities of <a href="tqpainter.html">TQPainter</a> to draw the
 annotations, rubberbands, etc. For the typical use of overlays,
 this is much easier than using OpenGL for rendering the annotations.
 <p> An overlay plane has a specific color called the transparent
 color. Pixels drawn in this color will not be visible; instead the
 underlying OpenGL image will show through. In the example program
 <a href="opengl-overlay-example.html">X11 overlay</a>, the file
-<tt>main.cpp</tt> contains a routine that returns a <a href="ntqcolor.html">TQColor</a> containing the
+<tt>main.cpp</tt> contains a routine that returns a <a href="tqcolor.html">TQColor</a> containing the
 transparent color. For the overlay widget, you will typically want to
 set the background color to the transparent color, so that the OpenGL
 image shows through except where explicitly overpainted.
 <p> Note: to use this technique, you must not use the "ManyColor" or
-"TrueColor" ColorSpec for <a href="ntqapplication.html">TQApplication</a>, because this will force
+"TrueColor" ColorSpec for <a href="tqapplication.html">TQApplication</a>, because this will force
 the normal TQt widgets to use a TrueColor visual, which will typically
 be in the main plane, not in the overlay plane as desired.
 <p> <a name="x11visuals"></a>
@@ -103,7 +102,7 @@ means the visual is in an overlay plane.
 transparency information for overlay visuals.
 <p> The <a href="opengl-overlay-example.html">X11 overlay</a> example
 program will output what visual is used for the normal TQt widgets, and
-what visual is used by the <a href="qglwidget.html">TQGLWidget</a>.
+what visual is used by the <a href="tqglwidget.html">TQGLWidget</a>.
 <p> 
 <!-- eof -->
 <p><address><hr><div align=center>

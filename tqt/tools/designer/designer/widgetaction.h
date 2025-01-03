@@ -34,7 +34,7 @@
 #ifndef WIDGETACTION_H
 #define WIDGETACTION_H
 
-#include <ntqaction.h>
+#include <tqaction.h>
 
 class WidgetAction : public TQAction
 {

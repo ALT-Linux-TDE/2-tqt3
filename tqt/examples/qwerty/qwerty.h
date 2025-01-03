@@ -10,10 +10,10 @@
 #ifndef TQWERTY_H
 #define TQWERTY_H
 
-#include <ntqwidget.h>
-#include <ntqmenubar.h>
-#include <ntqmultilineedit.h>
-#include <ntqprinter.h>
+#include <tqwidget.h>
+#include <tqmenubar.h>
+#include <tqmultilineedit.h>
+#include <tqprinter.h>
 
 class Editor : public TQWidget
 {

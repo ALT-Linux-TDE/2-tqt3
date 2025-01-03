@@ -37,15 +37,15 @@
 #include "metadatabase.h"
 #include "layout.h"
 
-#include <ntqstring.h>
-#include <ntqrect.h>
-#include <ntqvaluelist.h>
-#include <ntqvariant.h>
-#include <ntqobject.h>
-#include <ntqlistview.h>
-#include <ntqptrlist.h>
-#include <ntqmap.h>
-#include <ntqiconset.h>
+#include <tqstring.h>
+#include <tqrect.h>
+#include <tqvaluelist.h>
+#include <tqvariant.h>
+#include <tqobject.h>
+#include <tqlistview.h>
+#include <tqptrlist.h>
+#include <tqmap.h>
+#include <tqiconset.h>
 
 class TQWizard;
 class TQTabWidget;

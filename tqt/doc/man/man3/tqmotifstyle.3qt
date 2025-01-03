@@ -1,5 +1,5 @@
 '\" t
-.TH QMotifStyle 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMotifStyle 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,18 +7,18 @@
 .ad l
 .nh
 .SH NAME
-QMotifStyle \- Motif look and feel
+TQMotifStyle \- Motif look and feel
 .SH SYNOPSIS
-\fC#include <ntqmotifstyle.h>\fR
+\fC#include <tqmotifstyle.h>\fR
 .PP
-Inherits QCommonStyle.
+Inherits TQCommonStyle.
 .PP
-Inherited by QCDEStyle, QMotifPlusStyle, and QSGIStyle.
+Inherited by TQCDEStyle, TQMotifPlusStyle, and TQSGIStyle.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQMotifStyle\fR ( bool useHighlightCols = FALSE )"
+.BI "\fBTQMotifStyle\fR ( bool useHighlightCols = FALSE )"
 .br
 .ti -1c
 .BI "void \fBsetUseHighlightColors\fR ( bool arg )"
@@ -28,30 +28,30 @@ Inherited by QCDEStyle, QMotifPlusStyle, and QSGIStyle.
 .br
 .in -1c
 .SH DESCRIPTION
-The QMotifStyle class provides Motif look and feel.
+The TQMotifStyle class provides Motif look and feel.
 .PP
 This class implements the Motif look and feel. It closely resembles the original Motif look as defined by the Open Group, but with some minor improvements. The Motif style is Qt's default GUI style on UNIX platforms.
 .PP
 See also Widget Appearance and Style.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMotifStyle::QMotifStyle ( bool useHighlightCols = FALSE )"
-Constructs a QMotifStyle.
+.SH "TQMotifStyle::TQMotifStyle ( bool useHighlightCols = FALSE )"
+Constructs a TQMotifStyle.
 .PP
 If \fIuseHighlightCols\fR is FALSE (the default), the style will polish the application's color palette to emulate the Motif way of highlighting, which is a simple inversion between the base and the text color.
-.SH "void QMotifStyle::setUseHighlightColors ( bool arg )"
+.SH "void TQMotifStyle::setUseHighlightColors ( bool arg )"
 If \fIarg\fR is FALSE, the style will polish the application's color palette to emulate the Motif way of highlighting, which is a simple inversion between the base and the text color.
 .PP
-The effect will show up the next time an application palette is set via QApplication::setPalette(). The current color palette of the application remains unchanged.
+The effect will show up the next time an application palette is set via TQApplication::setPalette(). The current color palette of the application remains unchanged.
 .PP
-See also QStyle::polish().
-.SH "bool QMotifStyle::useHighlightColors () const"
+See also TQStyle::polish().
+.SH "bool TQMotifStyle::useHighlightColors () const"
 Returns TRUE if the style treats the highlight colors of the
 palette in a Motif-like manner, which is a simple inversion
 between the base and the text color; otherwise returns FALSE. The
 default is FALSE.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqmotifstyle.html
+.BR http://doc.trolltech.com/tqmotifstyle.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

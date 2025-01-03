@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/toplevel/toplevel.doc:1 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -38,8 +37,8 @@ This example demonstrates the use of TQt's widget flags to provide
 toplevel widgets with customized window decorations.
 <p> It provides a graphical user interface for selecting different
 options for widget decoration and behavior, and passes the
-appropriate widget flags to the <a href="ntqwidget.html">TQWidget</a> constructor.
-<a href="ntqwidget.html#reparent">TQWidget::reparent</a>() is used to change the widget flags at runtime.
+appropriate widget flags to the <a href="tqwidget.html">TQWidget</a> constructor.
+<a href="tqwidget.html#reparent">TQWidget::reparent</a>() is used to change the widget flags at runtime.
 <p> <b>Warning:</b> Note that the interpretation and functionality of the
 widget flags depends on the window manager used when running the
 application. Many window managers do not support every possible flag
@@ -51,12 +50,12 @@ tooltips and What's This help. Load the <tt>options.ui</tt> file into
 <a href="designer-manual.html">TQt Designer</a> for more details.
 <p> 
 
-<pre>    #include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+<pre>    #include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
     #include "options.h"
 
     int main( int argc, char ** argv )
     {
-        <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+        <a href="tqapplication.html">TQApplication</a> a( argc, argv );
         OptionsDialog dlg;
         return dlg.exec();
     }
@@ -69,11 +68,11 @@ file.
 
 <pre>    void OptionsDialog::apply()
     {
-        <a href="ntqstringlist.html">TQStringList</a> flagList;
+        <a href="tqstringlist.html">TQStringList</a> flagList;
         bool wstyle = false;
         WFlags f = WDestructiveClose | WType_TopLevel | WStyle_Customize;
 </pre>
-<p> The <tt>apply()</tt> slot declares the <a href="ntqt.html#WidgetFlags">widget flag</a> variable <tt>f</tt>
+<p> The <tt>apply()</tt> slot declares the <a href="tqt.html#WidgetFlags">widget flag</a> variable <tt>f</tt>
 and initializes it with the values
 <ul>
 <li> <tt>WDestructiveClose</tt> - the widget will be automatically 
@@ -128,7 +127,7 @@ have been checked.
 </pre>If the window should not have a border it cannot have a titlebar.
 Widgets that provide their own (e.g. themed) window decoration
 should use this flag.
-<p> <pre>        <a href="ntqwidget.html">TQWidget</a> *parent = this;
+<p> <pre>        <a href="tqwidget.html">TQWidget</a> *parent = this;
         if ( cbBehaviorTaskbar-&gt;isChecked() ) {
             parent = 0;
             f |= WGroupLeader;
@@ -166,7 +165,7 @@ automatically. Popup menus are a typical example for such widgets.
         }
 </pre>A modal widget blocks input to other toplevel widgets, unless 
 those are in a different modal group (see <tt>WGroupLeader</tt>).
-Dialogs are often modal, and the <a href="ntqdialog.html">TQDialog</a> class provides an easy API
+Dialogs are often modal, and the <a href="tqdialog.html">TQDialog</a> class provides an easy API
 to create and display them without the need to explicitly use this
 flag.
 <p> <pre>        if ( cbBehaviorTool-&gt;isChecked() ) {
@@ -176,35 +175,35 @@ flag.
         }
 
         if (wstyle)
-    <a name="x2534"></a>        flagList.<a href="ntqvaluelist.html#push_front">push_front</a>("WStyle_Customize");
+    <a name="x2534"></a>        flagList.<a href="tqvaluelist.html#push_front">push_front</a>("WStyle_Customize");
 </pre>A tool window will never have a task bar entry (even if it
 has no parent widget), and often has a smaller window 
 decoration. Tool windows are frequently used instead of 
 modeless dialogs.
 <p> <pre>        if ( !widget ) {
-            widget = new <a href="ntqvbox.html">TQVBox</a>( parent, 0, f );
-    <a name="x2530"></a>        widget-&gt;<a href="ntqframe.html#setMargin">setMargin</a>( 20 );
-    <a name="x2533"></a>        <a href="ntqlabel.html">TQLabel</a> *label = new <a href="ntqlabel.html">TQLabel</a>(flagList.<a href="ntqstringlist.html#join">join</a>("&amp;nbsp;| "), widget);
-    <a name="x2532"></a>        label-&gt;<a href="ntqlabel.html#setTextFormat">setTextFormat</a>(RichText);
-    <a name="x2531"></a>        label-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>(WordBreak);
-            <a href="ntqpushbutton.html">TQPushButton</a> *okButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Close", widget );
-    <a name="x2535"></a>        connect( okButton, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), widget, TQ_SLOT(<a href="ntqwidget.html#close">close</a>()) );
-    <a name="x2537"></a>        widget-&gt;<a href="ntqwidget.html#move">move</a>( pos() );
+            widget = new <a href="tqvbox.html">TQVBox</a>( parent, 0, f );
+    <a name="x2530"></a>        widget-&gt;<a href="tqframe.html#setMargin">setMargin</a>( 20 );
+    <a name="x2533"></a>        <a href="tqlabel.html">TQLabel</a> *label = new <a href="tqlabel.html">TQLabel</a>(flagList.<a href="tqstringlist.html#join">join</a>("&amp;nbsp;| "), widget);
+    <a name="x2532"></a>        label-&gt;<a href="tqlabel.html#setTextFormat">setTextFormat</a>(RichText);
+    <a name="x2531"></a>        label-&gt;<a href="tqlabel.html#setAlignment">setAlignment</a>(WordBreak);
+            <a href="tqpushbutton.html">TQPushButton</a> *okButton = new <a href="tqpushbutton.html">TQPushButton</a>( "Close", widget );
+    <a name="x2535"></a>        connect( okButton, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), widget, TQ_SLOT(<a href="tqwidget.html#close">close</a>()) );
+    <a name="x2537"></a>        widget-&gt;<a href="tqwidget.html#move">move</a>( pos() );
 </pre>The widget is created if it has not been created yet, or if it was
 closed (since we use the <tt>WDestructiveClose</tt> flag). Note that the
 window is not visible yet.
 <a href="#footnote2"><sup>(2)</sup></a><a name="footnote-call2"></a> 
 <p> <pre>        } else {
-    <a name="x2538"></a><a name="x2536"></a>        widget-&gt;<a href="ntqwidget.html#reparent">reparent</a>( parent, f, widget-&gt;<a href="ntqwidget.html#geometry">geometry</a>().topLeft(), FALSE);
+    <a name="x2538"></a><a name="x2536"></a>        widget-&gt;<a href="tqwidget.html#reparent">reparent</a>( parent, f, widget-&gt;<a href="tqwidget.html#geometry">geometry</a>().topLeft(), FALSE);
         }
 </pre>If the widget has already been created the reparent() function is
 used to modify the widget's flags. The widget's geometry is not
 changed, and the window is not shown again.
-<p> <pre>    <a name="x2539"></a>    widget-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>( leCaption-&gt;text() );
-    <a name="x2540"></a>    widget-&gt;<a href="ntqwidget.html#setIcon">setIcon</a>( leIcon-&gt;text() );
-    <a name="x2541"></a>    widget-&gt;<a href="ntqwidget.html#setWindowOpacity">setWindowOpacity</a>(double(slTransparency-&gt;maxValue() - slTransparency-&gt;value()) / 100);
+<p> <pre>    <a name="x2539"></a>    widget-&gt;<a href="tqwidget.html#setCaption">setCaption</a>( leCaption-&gt;text() );
+    <a name="x2540"></a>    widget-&gt;<a href="tqwidget.html#setIcon">setIcon</a>( leIcon-&gt;text() );
+    <a name="x2541"></a>    widget-&gt;<a href="tqwidget.html#setWindowOpacity">setWindowOpacity</a>(double(slTransparency-&gt;maxValue() - slTransparency-&gt;value()) / 100);
 
-    <a name="x2542"></a>    widget-&gt;<a href="ntqwidget.html#show">show</a>();
+    <a name="x2542"></a>    widget-&gt;<a href="tqwidget.html#show">show</a>();
 </pre>Finally the higher level properties such as the window's caption and
 icon are set. The window transparency is set according to the slider
 value. Note that this will only have effect on systems that support
@@ -221,7 +220,7 @@ build the library.
 <ol> <li><a name="footnote1"></a>
 Unfortunately some X11 window managers also require the <tt>WX11BypassWM</tt> flag to be set in addition; but some other X11 window
 managers will have problems if this flag is set.  <a href="#footnote-call1">Back...</a> <li><a name="footnote2"></a>
-The example uses <a href="ntqguardedptr.html">TQGuardedPtr</a> to make sure that the 
+The example uses <a href="tqguardedptr.html">TQGuardedPtr</a> to make sure that the 
 pointer is reset to zero when the widget object is destroyed 
 due to the <tt>WDestructiveClose</tt> flag.  <a href="#footnote-call2">Back...</a> <li><a name="footnote3"></a>
 

@@ -1,5 +1,5 @@
 '\" t
-.TH QAsciiDict 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQAsciiDict 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QAsciiDict \- Template class that provides a dictionary based on char* keys
+TQAsciiDict \- Template class that provides a dictionary based on char* keys
 .SH SYNOPSIS
-\fC#include <ntqasciidict.h>\fR
+\fC#include <tqasciidict.h>\fR
 .PP
-Inherits QPtrCollection.
+Inherits TQPtrCollection.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQAsciiDict\fR ( int size = 17, bool caseSensitive = TRUE, bool copyKeys = TRUE )"
+.BI "\fBTQAsciiDict\fR ( int size = 17, bool caseSensitive = TRUE, bool copyKeys = TRUE )"
 .br
 .ti -1c
-.BI "\fBQAsciiDict\fR ( const QAsciiDict<type> & dict )"
+.BI "\fBTQAsciiDict\fR ( const TQAsciiDict<type> & dict )"
 .br
 .ti -1c
-.BI "\fB~QAsciiDict\fR ()"
+.BI "\fB~TQAsciiDict\fR ()"
 .br
 .ti -1c
-.BI "QAsciiDict<type> & \fBoperator=\fR ( const QAsciiDict<type> & dict )"
+.BI "TQAsciiDict<type> & \fBoperator=\fR ( const TQAsciiDict<type> & dict )"
 .br
 .ti -1c
 .BI "virtual uint \fBcount\fR () const"
@@ -76,30 +76,30 @@ Inherits QPtrCollection.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual QDataStream & \fBread\fR ( QDataStream & s, QPtrCollection::Item & item )"
+.BI "virtual TQDataStream & \fBread\fR ( TQDataStream & s, TQPtrCollection::Item & item )"
 .br
 .ti -1c
-.BI "virtual QDataStream & \fBwrite\fR ( QDataStream & s, QPtrCollection::Item ) const"
+.BI "virtual TQDataStream & \fBwrite\fR ( TQDataStream & s, TQPtrCollection::Item ) const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QAsciiDict class is a template class that provides a dictionary based on char* keys.
+The TQAsciiDict class is a template class that provides a dictionary based on char* keys.
 .PP
-QAsciiDict is implemented as a template class. Define a template instance QAsciiDict<X> to create a dictionary that operates on pointers to X (X*).
+TQAsciiDict is implemented as a template class. Define a template instance TQAsciiDict<X> to create a dictionary that operates on pointers to X (X*).
 .PP
 A dictionary is a collection of key-value pairs. The key is a char* used for insertion, removal and lookup. The value is a pointer. Dictionaries provide very fast insertion and lookup.
 .PP
-QAsciiDict cannot handle Unicode keys; use the QDict template instead, which uses TQString keys. A QDict has the same performace as a QAsciiDict.
+TQAsciiDict cannot handle Unicode keys; use the TQDict template instead, which uses TQString keys. A TQDict has the same performace as a TQAsciiDict.
 .PP
 Example:
 .PP
 .nf
 .br
-    QAsciiDict<QLineEdit> fields; // char* keys, QLineEdit* values
+    TQAsciiDict<TQLineEdit> fields; // char* keys, TQLineEdit* values
 .br
-    fields.insert( "forename", new QLineEdit( this ) );
+    fields.insert( "forename", new TQLineEdit( this ) );
 .br
-    fields.insert( "surname", new QLineEdit( this ) );
+    fields.insert( "surname", new TQLineEdit( this ) );
 .br
 .br
     fields["forename"]->setText( "Homer" );
@@ -107,7 +107,7 @@ Example:
     fields["surname"]->setText( "Simpson" );
 .br
 .br
-    QAsciiDictIterator<QLineEdit> it( fields ); // See QAsciiDictIterator
+    TQAsciiDictIterator<TQLineEdit> it( fields ); // See TQAsciiDictIterator
 .br
     for( ; it.current(); ++it )
 .br
@@ -131,25 +131,25 @@ Example:
         cout << "forename is not in the dictionary" << endl;
 .br
 .fi
-In this example we use a dictionary to keep track of the line edits we're using. We insert each line edit into the dictionary with a unique name and then access the line edits via the dictionary. See QPtrDict, QIntDict and QDict.
+In this example we use a dictionary to keep track of the line edits we're using. We insert each line edit into the dictionary with a unique name and then access the line edits via the dictionary. See TQPtrDict, TQIntDict and TQDict.
 .PP
-See QDict for full details, including the choice of dictionary size, and how deletions are handled.
+See TQDict for full details, including the choice of dictionary size, and how deletions are handled.
 .PP
-See also QAsciiDictIterator, QDict, QIntDict, QPtrDict, Collection Classes, Collection Classes, and Non-GUI Classes.
+See also TQAsciiDictIterator, TQDict, TQIntDict, TQPtrDict, Collection Classes, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QAsciiDict::QAsciiDict ( int size = 17, bool caseSensitive = TRUE, bool copyKeys = TRUE )"
+.SH "TQAsciiDict::TQAsciiDict ( int size = 17, bool caseSensitive = TRUE, bool copyKeys = TRUE )"
 Constructs a dictionary optimized for less than \fIsize\fR entries.
 .PP
 We recommend setting \fIsize\fR to a suitably large prime number (a bit larger than the expected number of entries). This makes the hash distribution better and will improve lookup performance.
 .PP
-When \fIcaseSensitive\fR is TRUE (the default) QAsciiDict treats" abc" and "Abc" as different keys; when it is FALSE "abc" and" Abc" are the same. Case-insensitive comparison only considers the 26 letters in US-ASCII.
+When \fIcaseSensitive\fR is TRUE (the default) TQAsciiDict treats" abc" and "Abc" as different keys; when it is FALSE "abc" and" Abc" are the same. Case-insensitive comparison only considers the 26 letters in US-ASCII.
 .PP
 If \fIcopyKeys\fR is TRUE (the default), the dictionary copies keys using strcpy(); if it is FALSE, the dictionary just copies the pointers.
-.SH "QAsciiDict::QAsciiDict ( const QAsciiDict<type> & dict )"
+.SH "TQAsciiDict::TQAsciiDict ( const TQAsciiDict<type> & dict )"
 Constructs a copy of \fIdict\fR.
 .PP
 Each item in \fIdict\fR is inserted into this dictionary. Only the pointers are copied (shallow copy).
-.SH "QAsciiDict::~QAsciiDict ()"
+.SH "TQAsciiDict::~TQAsciiDict ()"
 Removes all items from the dictionary and destroys it.
 .PP
 The items are deleted if auto-delete is enabled.
@@ -157,11 +157,11 @@ The items are deleted if auto-delete is enabled.
 All iterators that access this dictionary will be reset.
 .PP
 See also setAutoDelete().
-.SH "bool QPtrCollection::autoDelete () const"
+.SH "bool TQPtrCollection::autoDelete () const"
 Returns the setting of the auto-delete option. The default is FALSE.
 .PP
 See also setAutoDelete().
-.SH "void QAsciiDict::clear ()\fC [virtual]\fR"
+.SH "void TQAsciiDict::clear ()\fC [virtual]\fR"
 Removes all items from the dictionary.
 .PP
 The removed items are deleted if auto-deletion is enabled.
@@ -170,14 +170,14 @@ All dictionary iterators that operate on dictionary are reset.
 .PP
 See also remove(), take(), and setAutoDelete().
 .PP
-Reimplemented from QPtrCollection.
-.SH "uint QAsciiDict::count () const\fC [virtual]\fR"
+Reimplemented from TQPtrCollection.
+.SH "uint TQAsciiDict::count () const\fC [virtual]\fR"
 Returns the number of items in the dictionary.
 .PP
 See also isEmpty().
 .PP
-Reimplemented from QPtrCollection.
-.SH "type * QAsciiDict::find ( const char * key ) const"
+Reimplemented from TQPtrCollection.
+.SH "type * TQAsciiDict::find ( const char * key ) const"
 Returns the item associated with \fIkey\fR, or 0 if the key does not exist in the dictionary.
 .PP
 This function uses an internal hashing algorithm to optimize lookup.
@@ -187,7 +187,7 @@ If there are two or more items with equal keys, then the item that was most rece
 Equivalent to the [] operator.
 .PP
 See also operator[]().
-.SH "void QAsciiDict::insert ( const char * key, const type * item )"
+.SH "void TQAsciiDict::insert ( const char * key, const type * item )"
 Inserts the \fIkey\fR with the \fIitem\fR into the dictionary.
 .PP
 Multiple items can have the same key, in which case only the last item will be accessible using operator[]().
@@ -195,15 +195,15 @@ Multiple items can have the same key, in which case only the last item will be a
 \fIitem\fR may not be 0.
 .PP
 See also replace().
-.SH "bool QAsciiDict::isEmpty () const"
+.SH "bool TQAsciiDict::isEmpty () const"
 Returns TRUE if the dictionary is empty, i.e. count() == 0; otherwise it returns FALSE.
 .PP
 See also count().
-.SH "QAsciiDict<type> & QAsciiDict::operator= ( const QAsciiDict<type> & dict )"
+.SH "TQAsciiDict<type> & TQAsciiDict::operator= ( const TQAsciiDict<type> & dict )"
 Assigns \fIdict\fR to this dictionary and returns a reference to this dictionary.
 .PP
 This dictionary is first cleared and then each item in \fIdict\fR is inserted into this dictionary. Only the pointers are copied (shallow copy) unless newItem() has been reimplemented().
-.SH "type * QAsciiDict::operator[] ( const char * key ) const"
+.SH "type * TQAsciiDict::operator[] ( const char * key ) const"
 Returns the item associated with \fIkey\fR, or 0 if the key does not exist in the dictionary.
 .PP
 This function uses an internal hashing algorithm to optimize lookup.
@@ -213,13 +213,13 @@ If there are two or more items with equal keys, then the item that was most rece
 Equivalent to the find() function.
 .PP
 See also find().
-.SH "QDataStream & QAsciiDict::read ( QDataStream & s, QPtrCollection::Item & item )\fC [virtual protected]\fR"
+.SH "TQDataStream & TQAsciiDict::read ( TQDataStream & s, TQPtrCollection::Item & item )\fC [virtual protected]\fR"
 Reads a dictionary item from the stream \fIs\fR and returns a reference to the stream.
 .PP
 The default implementation sets \fIitem\fR to 0.
 .PP
 See also write().
-.SH "bool QAsciiDict::remove ( const char * key )"
+.SH "bool TQAsciiDict::remove ( const char * key )"
 Removes the item associated with \fIkey\fR from the dictionary. Returns TRUE if successful, i.e. if the key existed in the dictionary; otherwise returns FALSE.
 .PP
 If there are two or more items with equal keys, then the most recently inserted item will be removed.
@@ -229,7 +229,7 @@ The removed item is deleted if auto-deletion is enabled.
 All dictionary iterators that refer to the removed item will be set to point to the next item in the dictionary traversal order.
 .PP
 See also take(), clear(), and setAutoDelete().
-.SH "void QAsciiDict::replace ( const char * key, const type * item )"
+.SH "void TQAsciiDict::replace ( const char * key, const type * item )"
 Replaces an item that has a key equal to \fIkey\fR with \fIitem\fR.
 .PP
 If the item does not already exist, it will be inserted.
@@ -240,7 +240,7 @@ Equivalent to:
 .PP
 .nf
 .br
-        QAsciiDict<char> dict;
+        TQAsciiDict<char> dict;
 .br
             ...
 .br
@@ -255,9 +255,9 @@ Equivalent to:
 If there are two or more items with equal keys, then the most recently inserted item will be replaced.
 .PP
 See also insert().
-.SH "void QAsciiDict::resize ( uint newsize )"
+.SH "void TQAsciiDict::resize ( uint newsize )"
 Changes the size of the hashtable to \fInewsize\fR. The contents of the dictionary are preserved but all iterators on the dictionary become invalid.
-.SH "void QPtrCollection::setAutoDelete ( bool enable )"
+.SH "void TQPtrCollection::setAutoDelete ( bool enable )"
 Sets the collection to auto-delete its contents if \fIenable\fR is TRUE and to never delete them if \fIenable\fR is FALSE.
 .PP
 If auto-deleting is turned on, all the items in a collection are deleted when the collection itself is deleted. This is convenient if the collection has the only pointer to the items.
@@ -269,14 +269,14 @@ Note that the auto-delete setting may also affect other functions in subclasses.
 See also autoDelete().
 .PP
 Examples:
-.)l grapher/grapher.cpp, scribble/scribble.cpp, and table/bigtable/main.cpp.
-.SH "uint QAsciiDict::size () const"
+.)l scribble/scribble.cpp, and table/bigtable/main.cpp.
+.SH "uint TQAsciiDict::size () const"
 Returns the size of the internal hash array (as specified in the constructor).
 .PP
 See also count().
-.SH "void QAsciiDict::statistics () const"
+.SH "void TQAsciiDict::statistics () const"
 Debugging-only function that prints out the dictionary distribution using tqDebug().
-.SH "type * QAsciiDict::take ( const char * key )"
+.SH "type * TQAsciiDict::take ( const char * key )"
 Takes the item associated with \fIkey\fR out of the dictionary without deleting it (even if auto-deletion is enabled).
 .PP
 If there are two or more items with equal keys, then the most recently inserted item will be taken.
@@ -286,13 +286,13 @@ Returns a pointer to the item taken out, or 0 if the key does not exist in the d
 All dictionary iterators that refer to the taken item will be set to point to the next item in the dictionary traversal order.
 .PP
 See also remove(), clear(), and setAutoDelete().
-.SH "QDataStream & QAsciiDict::write ( QDataStream & s, QPtrCollection::Item ) const\fC [virtual protected]\fR"
+.SH "TQDataStream & TQAsciiDict::write ( TQDataStream & s, TQPtrCollection::Item ) const\fC [virtual protected]\fR"
 Writes a dictionary item to the stream \fIs\fR and returns a reference to the stream.
 .PP
 See also read().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqasciidict.html
+.BR http://doc.trolltech.com/tqasciidict.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

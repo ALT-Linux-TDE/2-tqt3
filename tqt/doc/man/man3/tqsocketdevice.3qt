@@ -1,5 +1,5 @@
 '\" t
-.TH QSocketDevice 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSocketDevice 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QSocketDevice \- Platform-independent low-level socket API
+TQSocketDevice \- Platform-independent low-level socket API
 .SH SYNOPSIS
-\fC#include <ntqsocketdevice.h>\fR
+\fC#include <tqsocketdevice.h>\fR
 .PP
 Inherits TQIODevice.
 .PP
@@ -22,16 +22,16 @@ Inherits TQIODevice.
 .BI "enum \fBProtocol\fR { IPv4, IPv6, Unknown }"
 .br
 .ti -1c
-.BI "\fBQSocketDevice\fR ( Type type = Stream )"
+.BI "\fBTQSocketDevice\fR ( Type type = Stream )"
 .br
 .ti -1c
-.BI "\fBQSocketDevice\fR ( Type type, Protocol protocol, int dummy )"
+.BI "\fBTQSocketDevice\fR ( Type type, Protocol protocol, int dummy )"
 .br
 .ti -1c
-.BI "\fBQSocketDevice\fR ( int socket, Type type )"
+.BI "\fBTQSocketDevice\fR ( int socket, Type type )"
 .br
 .ti -1c
-.BI "virtual \fB~QSocketDevice\fR ()"
+.BI "virtual \fB~TQSocketDevice\fR ()"
 .br
 .ti -1c
 .BI "bool \fBisValid\fR () const"
@@ -73,10 +73,10 @@ Inherits TQIODevice.
 .BI "virtual void \fBsetSendBufferSize\fR ( uint size )"
 .br
 .ti -1c
-.BI "virtual bool \fBconnect\fR ( const QHostAddress & addr, TQ_UINT16 port )"
+.BI "virtual bool \fBconnect\fR ( const TQHostAddress & addr, TQ_UINT16 port )"
 .br
 .ti -1c
-.BI "virtual bool \fBbind\fR ( const QHostAddress & address, TQ_UINT16 port )"
+.BI "virtual bool \fBbind\fR ( const TQHostAddress & address, TQ_UINT16 port )"
 .br
 .ti -1c
 .BI "virtual bool \fBlisten\fR ( int backlog )"
@@ -97,7 +97,7 @@ Inherits TQIODevice.
 .BI "virtual TQ_LONG \fBwriteBlock\fR ( const char * data, TQ_ULONG len )"
 .br
 .ti -1c
-.BI "virtual TQ_LONG \fBwriteBlock\fR ( const char * data, TQ_ULONG len, const QHostAddress & host, TQ_UINT16 port )"
+.BI "virtual TQ_LONG \fBwriteBlock\fR ( const char * data, TQ_ULONG len, const TQHostAddress & host, TQ_UINT16 port )"
 .br
 .ti -1c
 .BI "TQ_UINT16 \fBport\fR () const"
@@ -106,10 +106,10 @@ Inherits TQIODevice.
 .BI "TQ_UINT16 \fBpeerPort\fR () const"
 .br
 .ti -1c
-.BI "QHostAddress \fBaddress\fR () const"
+.BI "TQHostAddress \fBaddress\fR () const"
 .br
 .ti -1c
-.BI "QHostAddress \fBpeerAddress\fR () const"
+.BI "TQHostAddress \fBpeerAddress\fR () const"
 .br
 .ti -1c
 .BI "enum \fBError\fR { NoError, AlreadyBound, Inaccessible, NoResources, InternalError, Bug = InternalError, Impossible, NoFiles, ConnectionRefused, NetworkFailure, UnknownError }"
@@ -125,30 +125,30 @@ Inherits TQIODevice.
 .br
 .in -1c
 .SH DESCRIPTION
-The QSocketDevice class provides a platform-independent low-level socket API.
+The TQSocketDevice class provides a platform-independent low-level socket API.
 .PP
-This class provides a low level API for working with sockets. Users of this class are assumed to have networking experience. For most users the QSocket class provides a much easier and high level alternative, but certain things (like UDP) can't be done with QSocket and if you need a platform-independent API for those, QSocketDevice is the right choice.
+This class provides a low level API for working with sockets. Users of this class are assumed to have networking experience. For most users the TQSocket class provides a much easier and high level alternative, but certain things (like UDP) can't be done with TQSocket and if you need a platform-independent API for those, TQSocketDevice is the right choice.
 .PP
 The essential purpose of the class is to provide a TQIODevice that works on sockets, wrapped in a platform-independent API.
 .PP
-When calling connect() or bind(), QSocketDevice detects the protocol family (IPv4, IPv6) automatically. Passing the protocol family to QSocketDevice's constructor or to setSocket() forces creation of a socket device of a specific protocol. If not set, the protocol will be detected at the first call to connect() or bind().
+When calling connect() or bind(), TQSocketDevice detects the protocol family (IPv4, IPv6) automatically. Passing the protocol family to TQSocketDevice's constructor or to setSocket() forces creation of a socket device of a specific protocol. If not set, the protocol will be detected at the first call to connect() or bind().
 .PP
-See also QSocket, QSocketNotifier, QHostAddress, and Input/Output and Networking.
+See also TQSocket, TQSocketNotifier, TQHostAddress, and Input/Output and Networking.
 .SS "Member Type Documentation"
-.SH "QSocketDevice::Error"
-This enum type describes the error states of QSocketDevice.
+.SH "TQSocketDevice::Error"
+This enum type describes the error states of TQSocketDevice.
 .TP
-\fCQSocketDevice::NoError\fR - No error has occurred.
+\fCTQSocketDevice::NoError\fR - No error has occurred.
 .TP
-\fCQSocketDevice::AlreadyBound\fR - The device is already bound, according to bind().
+\fCTQSocketDevice::AlreadyBound\fR - The device is already bound, according to bind().
 .TP
-\fCQSocketDevice::Inaccessible\fR - The operating system or firewall prohibited the action.
+\fCTQSocketDevice::Inaccessible\fR - The operating system or firewall prohibited the action.
 .TP
-\fCQSocketDevice::NoResources\fR - The operating system ran out of a resource.
+\fCTQSocketDevice::NoResources\fR - The operating system ran out of a resource.
 .TP
-\fCQSocketDevice::InternalError\fR - An internal error occurred in QSocketDevice.
+\fCTQSocketDevice::InternalError\fR - An internal error occurred in TQSocketDevice.
 .TP
-\fCQSocketDevice::Impossible\fR - An attempt was made to do something which makes no sense. For example:
+\fCTQSocketDevice::Impossible\fR - An attempt was made to do something which makes no sense. For example:
 .IP
 .nf
 .br
@@ -157,71 +157,71 @@ This enum type describes the error states of QSocketDevice.
     sd->writeBlock( someData, 42 );
 .br
 .fi
-The libc ::close() closes the socket, but QSocketDevice is not aware of this. So when you call writeBlock(), the impossible happens.
+The libc ::close() closes the socket, but TQSocketDevice is not aware of this. So when you call writeBlock(), the impossible happens.
 .TP
-\fCQSocketDevice::NoFiles\fR - The operating system will not let QSocketDevice open another file.
+\fCTQSocketDevice::NoFiles\fR - The operating system will not let TQSocketDevice open another file.
 .TP
-\fCQSocketDevice::ConnectionRefused\fR - A connection attempt was rejected by the peer.
+\fCTQSocketDevice::ConnectionRefused\fR - A connection attempt was rejected by the peer.
 .TP
-\fCQSocketDevice::NetworkFailure\fR - There is a network failure.
+\fCTQSocketDevice::NetworkFailure\fR - There is a network failure.
 .TP
-\fCQSocketDevice::UnknownError\fR - The operating system did something unexpected.
-.SH "QSocketDevice::Protocol"
+\fCTQSocketDevice::UnknownError\fR - The operating system did something unexpected.
+.SH "TQSocketDevice::Protocol"
 This enum type describes the protocol family of the socket. Possible values are:
 .TP
-\fCQSocketDevice::IPv4\fR - The socket is an IPv4 socket.
+\fCTQSocketDevice::IPv4\fR - The socket is an IPv4 socket.
 .TP
-\fCQSocketDevice::IPv6\fR - The socket is an IPv6 socket.
+\fCTQSocketDevice::IPv6\fR - The socket is an IPv6 socket.
 .TP
-\fCQSocketDevice::Unknown\fR - The protocol family of the socket is not known. This can happen if you use QSocketDevice with an already existing socket; it tries to determine the protocol family, but this can fail if the protocol family is not known to QSocketDevice.
+\fCTQSocketDevice::Unknown\fR - The protocol family of the socket is not known. This can happen if you use TQSocketDevice with an already existing socket; it tries to determine the protocol family, but this can fail if the protocol family is not known to TQSocketDevice.
 .PP
 See also protocol() and setSocket().
-.SH "QSocketDevice::Type"
+.SH "TQSocketDevice::Type"
 This enum type describes the type of the socket:
 .TP
-\fCQSocketDevice::Stream\fR - a stream socket (TCP, usually)
+\fCTQSocketDevice::Stream\fR - a stream socket (TCP, usually)
 .TP
-\fCQSocketDevice::Datagram\fR - a datagram socket (UDP, usually)
+\fCTQSocketDevice::Datagram\fR - a datagram socket (UDP, usually)
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSocketDevice::QSocketDevice ( Type type = Stream )"
-Creates a QSocketDevice object for a stream or datagram socket.
+.SH "TQSocketDevice::TQSocketDevice ( Type type = Stream )"
+Creates a TQSocketDevice object for a stream or datagram socket.
 .PP
-The \fItype\fR argument must be either QSocketDevice::Stream for a reliable, connection-oriented TCP socket, or QSocketDevice::Datagram for an unreliable UDP socket.
+The \fItype\fR argument must be either TQSocketDevice::Stream for a reliable, connection-oriented TCP socket, or TQSocketDevice::Datagram for an unreliable UDP socket.
 .PP
 The socket is created as an IPv4 socket.
 .PP
 See also blocking() and protocol().
-.SH "QSocketDevice::QSocketDevice ( Type type, Protocol protocol, int dummy )"
-Creates a QSocketDevice object for a stream or datagram socket.
+.SH "TQSocketDevice::TQSocketDevice ( Type type, Protocol protocol, int dummy )"
+Creates a TQSocketDevice object for a stream or datagram socket.
 .PP
-The \fItype\fR argument must be either QSocketDevice::Stream for a reliable, connection-oriented TCP socket, or QSocketDevice::Datagram for an unreliable UDP socket.
+The \fItype\fR argument must be either TQSocketDevice::Stream for a reliable, connection-oriented TCP socket, or TQSocketDevice::Datagram for an unreliable UDP socket.
 .PP
 The \fIprotocol\fR indicates whether the socket should be of type IPv4 or IPv6. Passing Unknown is not meaningful in this context and you should avoid using (it creates an IPv4 socket, but your code is not easily readable).
 .PP
 The argument \fIdummy\fR is necessary for compatibility with some compilers.
 .PP
 See also blocking() and protocol().
-.SH "QSocketDevice::QSocketDevice ( int socket, Type type )"
-Creates a QSocketDevice object for the existing socket \fIsocket\fR.
+.SH "TQSocketDevice::TQSocketDevice ( int socket, Type type )"
+Creates a TQSocketDevice object for the existing socket \fIsocket\fR.
 .PP
-The \fItype\fR argument must match the actual socket type; use QSocketDevice::Stream for a reliable, connection-oriented TCP socket, or QSocketDevice::Datagram for an unreliable, connectionless UDP socket.
-.SH "QSocketDevice::~QSocketDevice ()\fC [virtual]\fR"
+The \fItype\fR argument must match the actual socket type; use TQSocketDevice::Stream for a reliable, connection-oriented TCP socket, or TQSocketDevice::Datagram for an unreliable, connectionless UDP socket.
+.SH "TQSocketDevice::~TQSocketDevice ()\fC [virtual]\fR"
 Destroys the socket device and closes the socket if it is open.
-.SH "int QSocketDevice::accept ()\fC [virtual]\fR"
+.SH "int TQSocketDevice::accept ()\fC [virtual]\fR"
 Extracts the first connection from the queue of pending connections for this socket and returns a new socket identifier. Returns -1 if the operation failed.
 .PP
 See also bind() and listen().
-.SH "QHostAddress QSocketDevice::address () const"
+.SH "TQHostAddress TQSocketDevice::address () const"
 Returns the address of this socket device. This may be 0.0.0.0 for a while, but is set to something sensible as soon as a sensible value is available.
-.SH "bool QSocketDevice::addressReusable () const"
+.SH "bool TQSocketDevice::addressReusable () const"
 Returns TRUE if the address of this socket can be used by other sockets at the same time, and FALSE if this socket claims exclusive ownership.
 .PP
 See also setAddressReusable().
-.SH "bool QSocketDevice::bind ( const QHostAddress & address, TQ_UINT16 port )\fC [virtual]\fR"
+.SH "bool TQSocketDevice::bind ( const TQHostAddress & address, TQ_UINT16 port )\fC [virtual]\fR"
 Assigns a name to an unnamed socket. The name is the host address \fIaddress\fR and the port number \fIport\fR. If the operation succeeds, bind() returns TRUE; otherwise it returns FALSE without changing what port() and address() return.
 .PP
 bind() is used by servers for setting up incoming connections. Call bind() before listen().
-.SH "bool QSocketDevice::blocking () const"
+.SH "bool TQSocketDevice::blocking () const"
 Returns TRUE if the socket is valid and in blocking mode; otherwise returns FALSE.
 .PP
 Note that this function does not set error().
@@ -229,101 +229,101 @@ Note that this function does not set error().
 \fBWarning:\fR On Windows, this function always returns TRUE since the ioctlsocket() function is broken.
 .PP
 See also setBlocking() and isValid().
-.SH "TQ_LONG QSocketDevice::bytesAvailable () const"
+.SH "TQ_LONG TQSocketDevice::bytesAvailable () const"
 Returns the number of bytes available for reading, or -1 if an error occurred.
 .PP
-\fBWarning:\fR On Microsoft Windows, we use the ioctlsocket() function to determine the number of bytes queued on the socket. According to Microsoft (KB Q125486), ioctlsocket() sometimes returns an incorrect number. The only safe way to determine the amount of data on the socket is to read it using readBlock(). QSocket has workarounds to deal with this problem.
-.SH "bool QSocketDevice::connect ( const QHostAddress & addr, TQ_UINT16 port )\fC [virtual]\fR"
+\fBWarning:\fR On Microsoft Windows, we use the ioctlsocket() function to determine the number of bytes queued on the socket. According to Microsoft (KB Q125486), ioctlsocket() sometimes returns an incorrect number. The only safe way to determine the amount of data on the socket is to read it using readBlock(). TQSocket has workarounds to deal with this problem.
+.SH "bool TQSocketDevice::connect ( const TQHostAddress & addr, TQ_UINT16 port )\fC [virtual]\fR"
 Connects to the IP address and port specified by \fIaddr\fR and \fIport\fR. Returns TRUE if it establishes a connection; otherwise returns FALSE. If it returns FALSE, error() explains why.
 .PP
 Note that error() commonly returns NoError for non-blocking sockets; this just means that you can call connect() again in a little while and it'll probably succeed.
-.SH "Error QSocketDevice::error () const"
+.SH "Error TQSocketDevice::error () const"
 Returns the first error seen.
-.SH "bool QSocketDevice::isValid () const"
+.SH "bool TQSocketDevice::isValid () const"
 Returns TRUE if this is a valid socket; otherwise returns FALSE.
 .PP
 See also socket().
-.SH "bool QSocketDevice::listen ( int backlog )\fC [virtual]\fR"
+.SH "bool TQSocketDevice::listen ( int backlog )\fC [virtual]\fR"
 Specifies how many pending connections a server socket can have. Returns TRUE if the operation was successful; otherwise returns FALSE. A \fIbacklog\fR value of 50 is quite common.
 .PP
 The listen() call only applies to sockets where type() is Stream, i.e. not to Datagram sockets. listen() must not be called before bind() or after accept().
 .PP
 See also bind() and accept().
-.SH "QHostAddress QSocketDevice::peerAddress () const"
+.SH "TQHostAddress TQSocketDevice::peerAddress () const"
 Returns the address of the port this socket device is connected to. This may be 0.0.0.0 for a while, but is set to something sensible as soon as a sensible value is available.
 .PP
 Note that for Datagram sockets, this is the source port of the last packet received.
-.SH "TQ_UINT16 QSocketDevice::peerPort () const"
+.SH "TQ_UINT16 TQSocketDevice::peerPort () const"
 Returns the port number of the port this socket device is connected to. This may be 0 for a while, but is set to something sensible as soon as a sensible value is available.
 .PP
 Note that for Datagram sockets, this is the source port of the last packet received, and that it is in native byte order.
-.SH "TQ_UINT16 QSocketDevice::port () const"
+.SH "TQ_UINT16 TQSocketDevice::port () const"
 Returns the port number of this socket device. This may be 0 for a while, but is set to something sensible as soon as a sensible value is available.
 .PP
 Note that TQt always uses native byte order, i.e. 67 is 67 in Qt; there is no need to call htons().
-.SH "Protocol QSocketDevice::protocol () const"
+.SH "Protocol TQSocketDevice::protocol () const"
 Returns the socket's protocol family, which is one of Unknown, IPv4, or IPv6.
 .PP
-QSocketDevice either creates a socket with a well known protocol family or it uses an already existing socket. In the first case, this function returns the protocol family it was constructed with. In the second case, it tries to determine the protocol family of the socket; if this fails, it returns Unknown.
+TQSocketDevice either creates a socket with a well known protocol family or it uses an already existing socket. In the first case, this function returns the protocol family it was constructed with. In the second case, it tries to determine the protocol family of the socket; if this fails, it returns Unknown.
 .PP
 See also Protocol and setSocket().
-.SH "TQ_LONG QSocketDevice::readBlock ( char * data, TQ_ULONG maxlen )\fC [virtual]\fR"
+.SH "TQ_LONG TQSocketDevice::readBlock ( char * data, TQ_ULONG maxlen )\fC [virtual]\fR"
 Reads \fImaxlen\fR bytes from the socket into \fIdata\fR and returns the number of bytes read. Returns -1 if an error occurred. Returning 0 is not an error. For Stream sockets, 0 is returned when the remote host closes the connection. For Datagram sockets, 0 is a valid datagram size.
 .PP
 Reimplemented from TQIODevice.
-.SH "int QSocketDevice::receiveBufferSize () const"
+.SH "int TQSocketDevice::receiveBufferSize () const"
 Returns the size of the operating system receive buffer.
 .PP
 See also setReceiveBufferSize().
-.SH "int QSocketDevice::sendBufferSize () const"
+.SH "int TQSocketDevice::sendBufferSize () const"
 Returns the size of the operating system send buffer.
 .PP
 See also setSendBufferSize().
-.SH "void QSocketDevice::setAddressReusable ( bool enable )\fC [virtual]\fR"
+.SH "void TQSocketDevice::setAddressReusable ( bool enable )\fC [virtual]\fR"
 Sets the address of this socket to be usable by other sockets too if \fIenable\fR is TRUE, and to be used exclusively by this socket if \fIenable\fR is FALSE.
 .PP
 When a socket is reusable, other sockets can use the same port number (and IP address), which is generally useful. Of course other sockets cannot use the same (address,port,peer-address,peer-port) 4-tuple as this socket, so there is no risk of confusing the two TCP connections.
 .PP
 See also addressReusable().
-.SH "void QSocketDevice::setBlocking ( bool enable )\fC [virtual]\fR"
+.SH "void TQSocketDevice::setBlocking ( bool enable )\fC [virtual]\fR"
 Makes the socket blocking if \fIenable\fR is TRUE or nonblocking if \fIenable\fR is FALSE.
 .PP
 Sockets are blocking by default, but we recommend using nonblocking socket operations, especially for GUI programs that need to be responsive.
 .PP
-\fBWarning:\fR On Windows, this function should be used with care since whenever you use a QSocketNotifier on Windows, the socket is immediately made nonblocking.
+\fBWarning:\fR On Windows, this function should be used with care since whenever you use a TQSocketNotifier on Windows, the socket is immediately made nonblocking.
 .PP
 See also blocking() and isValid().
-.SH "void QSocketDevice::setError ( Error err )\fC [protected]\fR"
+.SH "void TQSocketDevice::setError ( Error err )\fC [protected]\fR"
 Allows subclasses to set the error state to \fIerr\fR.
-.SH "void QSocketDevice::setReceiveBufferSize ( uint size )\fC [virtual]\fR"
+.SH "void TQSocketDevice::setReceiveBufferSize ( uint size )\fC [virtual]\fR"
 Sets the size of the operating system receive buffer to \fIsize\fR.
 .PP
 The operating system receive buffer size effectively limits two things: how much data can be in transit at any one moment, and how much data can be received in one iteration of the main event loop.
 .PP
 The default is operating system-dependent. A socket that receives large amounts of data is probably best with a buffer size of 49152.
-.SH "void QSocketDevice::setSendBufferSize ( uint size )\fC [virtual]\fR"
+.SH "void TQSocketDevice::setSendBufferSize ( uint size )\fC [virtual]\fR"
 Sets the size of the operating system send buffer to \fIsize\fR.
 .PP
 The operating system send buffer size effectively limits how much data can be in transit at any one moment.
 .PP
 The default is operating system-dependent. A socket that sends large amounts of data is probably best with a buffer size of 49152.
-.SH "void QSocketDevice::setSocket ( int socket, Type type )\fC [virtual]\fR"
+.SH "void TQSocketDevice::setSocket ( int socket, Type type )\fC [virtual]\fR"
 Sets the socket device to operate on the existing socket \fIsocket\fR.
 .PP
-The \fItype\fR argument must match the actual socket type; use QSocketDevice::Stream for a reliable, connection-oriented TCP socket, or QSocketDevice::Datagram for an unreliable, connectionless UDP socket.
+The \fItype\fR argument must match the actual socket type; use TQSocketDevice::Stream for a reliable, connection-oriented TCP socket, or TQSocketDevice::Datagram for an unreliable, connectionless UDP socket.
 .PP
 Any existing socket is closed.
 .PP
 See also isValid() and close().
-.SH "int QSocketDevice::socket () const"
+.SH "int TQSocketDevice::socket () const"
 Returns the socket number, or -1 if it is an invalid socket.
 .PP
 See also isValid() and type().
-.SH "Type QSocketDevice::type () const"
-Returns the socket type which is either QSocketDevice::Stream or QSocketDevice::Datagram.
+.SH "Type TQSocketDevice::type () const"
+Returns the socket type which is either TQSocketDevice::Stream or TQSocketDevice::Datagram.
 .PP
 See also socket().
-.SH "TQ_LONG QSocketDevice::waitForMore ( int msecs, bool * timeout = 0 ) const"
+.SH "TQ_LONG TQSocketDevice::waitForMore ( int msecs, bool * timeout = 0 ) const"
 Wait up to \fImsecs\fR milliseconds for more data to be available. If \fImsecs\fR is -1 the call will block indefinitely.
 .PP
 Returns the number of bytes available for reading, or -1 if an error occurred.
@@ -333,22 +333,22 @@ If \fItimeout\fR is non-null and no error occurred (i.e. it does not return -1):
 \fBWarning:\fR This is a blocking call and should be avoided in event driven applications.
 .PP
 See also bytesAvailable().
-.SH "TQ_LONG QSocketDevice::writeBlock ( const char * data, TQ_ULONG len )\fC [virtual]\fR"
+.SH "TQ_LONG TQSocketDevice::writeBlock ( const char * data, TQ_ULONG len )\fC [virtual]\fR"
 Writes \fIlen\fR bytes to the socket from \fIdata\fR and returns the number of bytes written. Returns -1 if an error occurred.
 .PP
-This is used for QSocketDevice::Stream sockets.
+This is used for TQSocketDevice::Stream sockets.
 .PP
 Reimplemented from TQIODevice.
-.SH "TQ_LONG QSocketDevice::writeBlock ( const char * data, TQ_ULONG len, const QHostAddress & host, TQ_UINT16 port )\fC [virtual]\fR"
+.SH "TQ_LONG TQSocketDevice::writeBlock ( const char * data, TQ_ULONG len, const TQHostAddress & host, TQ_UINT16 port )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Writes \fIlen\fR bytes to the socket from \fIdata\fR and returns the number of bytes written. Returns -1 if an error occurred.
 .PP
-This is used for QSocketDevice::Datagram sockets. You must
+This is used for TQSocketDevice::Datagram sockets. You must
 specify the \fIhost\fR and \fIport\fR of the destination of the data.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsocketdevice.html
+.BR http://doc.trolltech.com/tqsocketdevice.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

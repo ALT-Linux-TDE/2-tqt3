@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqstringlist.h>
-#include <ntqgl.h>
+#include <tqstringlist.h>
+#include <tqgl.h>
 #include "glinfo.h"
 
 #include <GL/glx.h>

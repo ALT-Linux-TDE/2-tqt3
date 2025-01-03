@@ -34,7 +34,7 @@
 #ifndef EDITOR_H
 #define EDITOR_H
 
-#include <ntqtextedit.h>
+#include <tqtextedit.h>
 
 struct Config;
 class ParenMatcher;

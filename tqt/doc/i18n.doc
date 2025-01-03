@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Explanation of moc and the meta object system
+** Explanation of tqmoc and the meta object system
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
@@ -121,8 +121,8 @@ the fl and fi ligatures used in typesetting US and European books.
 
 Qt tries to take care of all the special features listed above. You
 usually don't have to worry about these features so long as you use
-Qt's input widgets (e.g. QLineEdit, QTextEdit, and derived classes)
-and Qt's display widgets (e.g. QLabel).
+Qt's input widgets (e.g. TQLineEdit, TQTextEdit, and derived classes)
+and Qt's display widgets (e.g. TQLabel).
 
 Support for these writing systems is transparent to the programmer
 and completely encapsulated in Qt's text engine. This means that you
@@ -130,20 +130,20 @@ don't need to have any knowledge about the writing system used in a
 particular language, except for the following small points:
 \list
 
-\i QPainter::drawText( int x, int y, const TQString &str ) will always
+\i TQPainter::drawText( int x, int y, const TQString &str ) will always
 draw the string with it's left edge at the position specified with
 the x, y parameters. This will usually give you left aligned strings.
 Arabic and Hebrew application strings are usually right
 aligned, so for these languages use the version of drawText() that
-takes a QRect since this will align in accordance with the language.
+takes a TQRect since this will align in accordance with the language.
 
 \i When you write your own text input controls, use \l
-QFontMetrics::charWidth() to determine the width of a character in a
+TQFontMetrics::charWidth() to determine the width of a character in a
 string. In some languages (e.g. Arabic or languages from the Indian
 subcontinent), the width and shape of a glyph changes depending on the
 surrounding characters. Writing input controls usually requires a
 certain knowledge of the scripts it is going to be used in. Usually
-the easiest way is to subclass QLineEdit or QTextEdit.
+the easiest way is to subclass TQLineEdit or TQTextEdit.
 
 \endlist
 
@@ -168,7 +168,7 @@ parameter, there is no char* to TQString conversion overhead.
 
 Strings that are in "programmer space" (such as TQObject names
 and file format texts) need not use TQString; the traditional
-char* or the QCString class will suffice.
+char* or the TQCString class will suffice.
 
 You're unlikely to notice that you are using Unicode;
 TQString, and TQChar are just like easier versions of the crude
@@ -178,14 +178,14 @@ const char* and char from traditional C.
 
 Wherever your program uses \c{"quoted text"} for text that will
 be presented to the user, ensure that it is processed by the \l
-QApplication::translate() function. Essentially all that is necessary
+TQApplication::translate() function. Essentially all that is necessary
 to achieve this is to use \l TQObject::tr(). For example, assuming the
 \c LoginWidget is a subclass of TQWidget:
 
 \code
     LoginWidget::LoginWidget()
     {
-        QLabel *label = new QLabel( tr("Password:"), this );
+        TQLabel *label = new TQLabel( tr("Password:"), this );
         ...
     }
 \endcode
@@ -195,19 +195,19 @@ write.
 
 If the quoted text is not in a member function of a
 TQObject subclass, use either the tr() function of an
-appropriate class, or the QApplication::translate() function
+appropriate class, or the TQApplication::translate() function
 directly:
 
 \code
     void some_global_function( LoginWidget *logwid )
     {
-        QLabel *label = new QLabel(
+        TQLabel *label = new TQLabel(
                 LoginWidget::tr("Password:"), logwid );
     }
 
     void same_global_function( LoginWidget *logwid )
     {
-        QLabel *label = new QLabel(
+        TQLabel *label = new TQLabel(
                 tqApp->translate("LoginWidget", "Password:"),
                 logwid );
     }
@@ -259,10 +259,10 @@ Disabling the conversion can make programming a bit cumbersome.
 If your source language uses characters outside Latin-1, you
 might find TQObject::trUtf8() more convenient than
 TQObject::tr(), as tr() depends on the
-QApplication::defaultCodec(), which makes it more fragile than
+TQApplication::defaultCodec(), which makes it more fragile than
 TQObject::trUtf8().
 
-\section2 Use QKeySequence() for Accelerator Values
+\section2 Use TQKeySequence() for Accelerator Values
 
 Accelerator values such as Ctrl+Q or Alt+F need to be
 translated too. If you hardcode \c CTRL+Key_Q for "Quit" in
@@ -270,9 +270,9 @@ your application, translators won't be able to override
 it. The correct idiom is
 
 \code
-    QPopupMenu *file = new QPopupMenu( this );
+    TQPopupMenu *file = new TQPopupMenu( this );
     file->insertItem( tr("&Quit"), this, TQ_SLOT(quit()),
-                      QKeySequence(tr("Ctrl+Q", "File|Quit")) );
+                      TQKeySequence(tr("Ctrl+Q", "File|Quit")) );
 \endcode
 
 \section2 Use TQString::arg() for Dynamic Text
@@ -368,9 +368,9 @@ qmake\endlink, you usually don't need an extra project
 file for \e lupdate; your \c qmake project file will work fine once
 you add the \c TRANSLATIONS entry.
 
-In your application, you must \l QTranslator::load() the translation
+In your application, you must \l TQTranslator::load() the translation
 files appropriate for the user's language, and install them using \l
-QApplication::installTranslator().
+TQApplication::installTranslator().
 
 If you have been using the old TQt tools (\c tqtfindtr, \c msg2tqm and \c
 tqtmergetr), you can use \e tqm2ts to convert your old \c .qm files.
@@ -382,9 +382,9 @@ to get you started.
 
 While these utilities offer a convenient way to create \c .qm files,
 any system that writes \c .qm files is sufficient. You could make an
-application that adds translations to a QTranslator with
-QTranslator::insert() and then writes a \c .qm file with
-QTranslator::save(). This way the translations can come from any
+application that adds translations to a TQTranslator with
+TQTranslator::insert() and then writes a \c .qm file with
+TQTranslator::save(). This way the translations can come from any
 source you choose.
 
 \target qt-itself
@@ -399,16 +399,16 @@ Typically, your application's main() function will look like this:
 \code
     int main( int argc, char **argv )
     {
-        QApplication app( argc, argv );
+        TQApplication app( argc, argv );
 
         // translation file for Qt
-        QTranslator qt( 0 );
-        qt.load( TQString( "qt_" ) + QTextCodec::locale(), "." );
+        TQTranslator qt( 0 );
+        qt.load( TQString( "qt_" ) + TQTextCodec::locale(), "." );
         app.installTranslator( &qt );
 
         // translation file for application strings
-        QTranslator myapp( 0 );
-        myapp.load( TQString( "myapp_" ) + QTextCodec::locale(), "." );
+        TQTranslator myapp( 0 );
+        myapp.load( TQString( "myapp_" ) + TQTextCodec::locale(), "." );
         app.installTranslator( &myapp );
 
         ...
@@ -419,7 +419,7 @@ Typically, your application's main() function will look like this:
 
 \section2 Support for Encodings
 
-The QTextCodec class and the facilities in QTextStream make it easy to
+The TQTextCodec class and the facilities in TQTextStream make it easy to
 support many input and output encodings for your users' data. When an
 application starts, the locale of the machine will determine the 8-bit
 encoding used when dealing with 8-bit data: such as for font
@@ -434,8 +434,8 @@ would be:
 \code
     TQString string = ...; // some Unicode text
 
-    QTextCodec* codec = QTextCodec::codecForName( "ISO 8859-5" );
-    QCString encoded_string = codec->fromUnicode( string );
+    TQTextCodec* codec = TQTextCodec::codecForName( "ISO 8859-5" );
+    TQCString encoded_string = codec->fromUnicode( string );
 
     ...; // use encoded_string in 8-bit operations
 \endcode
@@ -453,9 +453,9 @@ demonstrated by this conversion from ISO 8859-5 Cyrillic to Unicode
 conversion:
 
 \code
-    QCString encoded_string = ...; // Some ISO 8859-5 encoded text.
+    TQCString encoded_string = ...; // Some ISO 8859-5 encoded text.
 
-    QTextCodec* codec = QTextCodec::codecForName("ISO 8859-5");
+    TQTextCodec* codec = TQTextCodec::codecForName("ISO 8859-5");
     TQString string = codec->toUnicode(encoded_string);
 
     ...; // Use string in all of Qt's TQString operations.
@@ -468,23 +468,23 @@ need to process existing documents. In general, Unicode (UTF-16 or
 UTF-8) is best for information transferred between arbitrary people,
 while within a language or national group, a local standard is often
 more appropriate. The most important encoding to support is the one
-returned by QTextCodec::codecForLocale(), as this is the one the user
+returned by TQTextCodec::codecForLocale(), as this is the one the user
 is most likely to need for communicating with other people and
 applications (this is the codec used by local8Bit()).
 
 Qt supports most of the more frequently used encodings natively. For a
-complete list of supported encodings see the \l QTextCodec
+complete list of supported encodings see the \l TQTextCodec
 documentation.
 
 In some cases and for less frequently used encodings it may be
-necessary to write your own QTextCodec subclass. Depending on the
+necessary to write your own TQTextCodec subclass. Depending on the
 urgency, it may be useful to contact Trolltech technical support or
 ask on the \c qt-interest mailing list to see if someone else is
 already working on supporting the encoding. A useful interim measure
-can be to use the QTextCodec::loadCharmapFile() function to build a
+can be to use the TQTextCodec::loadCharmapFile() function to build a
 data-driven codec, although this approach has a memory and speed
 penalty, especially with dynamically loaded libraries. For details of
-writing your own QTextCodec, see the main QTextCodec class
+writing your own TQTextCodec, see the main TQTextCodec class
 documentation.
 
 \keyword localization
@@ -497,7 +497,7 @@ formats. Such localizations can be accomplished using appropriate tr()
 strings.
 
 \code
-    void Clock::setTime(const QTime& t)
+    void Clock::setTime(const TQTime& t)
     {
         if ( tr("AMPM") == "AMPM" ) {
             // 12-hour clock
@@ -535,7 +535,7 @@ void MyWidget::languageChange()
 \endcode
 
 The default event handler for TQWidget subclasses responds to the
-\link QEvent::Type LanguageChange\endlink event, and will call this slot
+\link TQEvent::Type LanguageChange\endlink event, and will call this slot
 when necessary; other application components can also connect signals
 to this slot to force widgets to update themselves.
 
@@ -558,10 +558,10 @@ not be too concerned with platform-specific limitations.
     in some Unix variants. All TQt file functions allow Unicode,
     but convert filenames to the local 8-bit encoding, as
     this is the Unix convention
-    (see QFile::setEncodingFunction()
+    (see TQFile::setEncodingFunction()
         to explore alternative encodings).
 \i File I/O defaults to the local 8-bit encoding,
-    with Unicode options in QTextStream.
+    with Unicode options in TQTextStream.
 \endlist
 
 \section2 Windows
@@ -569,7 +569,7 @@ not be too concerned with platform-specific limitations.
 \list
 \i TQt provides full Unicode support, including input methods, fonts,
     clipboard, drag-and-drop and file names.
-\i File I/O defaults to Latin-1, with Unicode options in QTextStream.
+\i File I/O defaults to Latin-1, with Unicode options in TQTextStream.
     Note that some Windows programs do not understand big-endian
     Unicode text files even though that is the order prescribed by
     the Unicode Standard in the absence of higher-level protocols.

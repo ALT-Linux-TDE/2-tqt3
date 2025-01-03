@@ -4,12 +4,12 @@
 **
 ****************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqlcdnumber.h>
-#include <ntqfont.h>
-#include <ntqvbox.h>
-#include <ntqgrid.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqlcdnumber.h>
+#include <tqfont.h>
+#include <tqvbox.h>
+#include <tqgrid.h>
 
 #include "lcdrange.h"
 

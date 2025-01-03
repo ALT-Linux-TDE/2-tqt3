@@ -34,9 +34,9 @@
 #ifndef SIZEHANDLE_H
 #define SIZEHANDLE_H
 
-#include <ntqwidget.h>
-#include <ntqintdict.h>
-#include <ntqptrdict.h>
+#include <tqwidget.h>
+#include <tqintdict.h>
+#include <tqptrdict.h>
 
 class TQMouseEvent;
 class FormWindow;

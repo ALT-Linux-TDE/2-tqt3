@@ -36,7 +36,7 @@
 
 #include "topicchooser.h"
 
-#include <ntqstringlist.h>
+#include <tqstringlist.h>
 
 class TopicChooser : public TopicChooserBase
 {

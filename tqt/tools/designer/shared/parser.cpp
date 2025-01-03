@@ -32,8 +32,8 @@
 **********************************************************************/
 
 #include "parser.h"
-#include <ntqobject.h>
-#include <ntqstringlist.h>
+#include <tqobject.h>
+#include <tqstringlist.h>
 
 class NormalizeObject : public TQObject
 {

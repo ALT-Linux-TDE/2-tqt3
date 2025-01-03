@@ -1,7 +1,7 @@
 #ifndef STARTUP_H
 #define STARTUP_H
 
-#include <ntqobject.h>
+#include <tqobject.h>
 
 class TQSocket;
 class RemoteCtrlImpl;

@@ -1,0 +1,1 @@
+../../src/tools/tqcomponentfactory_p.h

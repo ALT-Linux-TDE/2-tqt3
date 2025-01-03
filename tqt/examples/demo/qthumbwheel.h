@@ -42,8 +42,8 @@
 #define TQTHUMBWHEEL_H
 
 #ifndef QT_H
-#include "ntqframe.h"
-#include "ntqrangecontrol.h"
+#include "tqframe.h"
+#include "tqrangecontrol.h"
 #endif // QT_H
 
 #ifndef TQT_NO_THUMBWHEEL

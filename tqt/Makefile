@@ -11,7 +11,7 @@ uninstall: FORCE
 install: FORCE
 	@$(MAKE) qt.install
 
-all: symlinks src-qmake src-moc sub-src sub-tools sub-tutorial sub-examples
+all: symlinks src-qmake src-tqmoc sub-src sub-tools sub-tutorial sub-examples
 	@echo
 	@echo "The TQt library is now built in ./lib"
 	@echo "The TQt examples are built in the directories in ./examples"
@@ -20,23 +20,23 @@ all: symlinks src-qmake src-moc sub-src sub-tools sub-tutorial sub-examples
 	@echo "Enjoy!   - the Trolltech team"
 	@echo
 
-qt.install: qmake-install moc-install src-install tools-install plugins-install
-qt.uninstall: qmake-uninstall moc-uninstall src-uninstall tools-uninstall plugins-uninstall
+qt.install: qmake-install tqmoc-install src-install tools-install plugins-install
+qt.uninstall: qmake-uninstall tqmoc-uninstall src-uninstall tools-uninstall plugins-uninstall
 
-#moc
-moc-uninstall: .qmake.cache
-	cd src/moc && $(MAKE) uninstall
-moc-install: src-moc
-	cd src/moc && $(MAKE) install
-src-moc: src-qmake FORCE
-	cd src/moc && $(MAKE)
+#tqmoc
+tqmoc-uninstall: .qmake.cache
+	cd src/tqmoc && $(MAKE) uninstall
+tqmoc-install: src-tqmoc
+	cd src/tqmoc && $(MAKE) install
+src-tqmoc: src-qmake FORCE
+	cd src/tqmoc && $(MAKE)
 
 #Qt
 src-uninstall: .qmake.cache
 	cd src && $(MAKE) uninstall
 src-install: sub-src
 	cd src && $(MAKE) install
-sub-src: src-moc .qmake.cache FORCE
+sub-src: src-tqmoc .qmake.cache FORCE
 	cd src && $(MAKE)
 
 #qmake
@@ -80,7 +80,7 @@ symlinks: .qmake.cache
 
 distclean clean uiclean mocclean:
 	cd tools && $(MAKE) $@
-	cd src/moc && $(MAKE) $@
+	cd src/tqmoc && $(MAKE) $@
 	cd src && $(MAKE) $@
 	cd tutorial && $(MAKE) $@
 	cd plugins/src && $(MAKE) $@
@@ -93,7 +93,7 @@ distclean clean uiclean mocclean:
 	[ ! -f config.tests/x11/notype/Makefile ] || cd config.tests/x11/notype && $(MAKE) $@
 	cd qmake && $(MAKE) $@
 
-#confclean is actually the same as distclean, except qmake and moc
+#confclean is actually the same as distclean, except qmake and tqmoc
 #are not cleaned.
 confclean:
 	cd tools && $(MAKE) distclean

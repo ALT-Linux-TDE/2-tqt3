@@ -1,5 +1,5 @@
 '\" t
-.TH QDragEnterEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQDragEnterEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,33 +7,33 @@
 .ad l
 .nh
 .SH NAME
-QDragEnterEvent \- Event which is sent to the widget when a drag and drop first drags onto the widget
+TQDragEnterEvent \- Event which is sent to the widget when a drag and drop first drags onto the widget
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QDragMoveEvent.
+Inherits TQDragMoveEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDragEnterEvent\fR ( const QPoint & pos )"
+.BI "\fBTQDragEnterEvent\fR ( const TQPoint & pos )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QDragEnterEvent class provides an event which is sent to the widget when a drag and drop first drags onto the widget.
+The TQDragEnterEvent class provides an event which is sent to the widget when a drag and drop first drags onto the widget.
 .PP
-This event is always immediately followed by a QDragMoveEvent, so you only need to respond to one or the other event. This class inherits most of its functionality from QDragMoveEvent, which in turn inherits most of its functionality from QDropEvent.
+This event is always immediately followed by a TQDragMoveEvent, so you only need to respond to one or the other event. This class inherits most of its functionality from TQDragMoveEvent, which in turn inherits most of its functionality from TQDropEvent.
 .PP
-See also QDragLeaveEvent, QDragMoveEvent, QDropEvent, Drag And Drop Classes, and Event Classes.
+See also TQDragLeaveEvent, TQDragMoveEvent, TQDropEvent, Drag And Drop Classes, and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDragEnterEvent::QDragEnterEvent ( const QPoint & pos )"
-Constructs a QDragEnterEvent entering at the given point, \fIpos\fR.
+.SH "TQDragEnterEvent::TQDragEnterEvent ( const TQPoint & pos )"
+Constructs a TQDragEnterEvent entering at the given point, \fIpos\fR.
 .PP
-\fBWarning:\fR Do not create a QDragEnterEvent yourself since these
+\fBWarning:\fR Do not create a TQDragEnterEvent yourself since these
 objects rely on Qt's internal state.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qdragenterevent.html
+.BR http://doc.trolltech.com/tqdragenterevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

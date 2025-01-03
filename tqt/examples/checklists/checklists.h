@@ -10,7 +10,7 @@
 #ifndef CHECKLISTS_H
 #define CHECKLISTS_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 class TQListView;
 class TQLabel;

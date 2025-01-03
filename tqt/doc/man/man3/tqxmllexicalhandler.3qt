@@ -1,5 +1,5 @@
 '\" t
-.TH QXmlLexicalHandler 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQXmlLexicalHandler 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,13 +7,13 @@
 .ad l
 .nh
 .SH NAME
-QXmlLexicalHandler \- Interface to report the lexical content of XML data
+TQXmlLexicalHandler \- Interface to report the lexical content of XML data
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqxml.h>\fR
+\fC#include <tqxml.h>\fR
 .PP
-Inherited by QXmlDefaultHandler.
+Inherited by TQXmlDefaultHandler.
 .PP
 .SS "Public Members"
 .in +1c
@@ -43,11 +43,11 @@ Inherited by QXmlDefaultHandler.
 .br
 .in -1c
 .SH DESCRIPTION
-The QXmlLexicalHandler class provides an interface to report the lexical content of XML data.
+The TQXmlLexicalHandler class provides an interface to report the lexical content of XML data.
 .PP
 The events in the lexical handler apply to the entire document, not just to the document element, and all lexical handler events appear between the content handler's startDocument and endDocument events.
 .PP
-You can set the lexical handler with QXmlReader::setLexicalHandler().
+You can set the lexical handler with TQXmlReader::setLexicalHandler().
 .PP
 This interface's design is based on the the SAX2 extension LexicalHandler.
 .PP
@@ -55,61 +55,61 @@ The interface provides the startDTD(), endDTD(), startEntity(), endEntity(), sta
 .PP
 See also the Introduction to SAX2.
 .PP
-See also QXmlDTDHandler, QXmlDeclHandler, QXmlContentHandler, QXmlEntityResolver, QXmlErrorHandler, and XML.
+See also TQXmlDTDHandler, TQXmlDeclHandler, TQXmlContentHandler, TQXmlEntityResolver, TQXmlErrorHandler, and XML.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "bool QXmlLexicalHandler::comment ( const TQString & ch )\fC [pure virtual]\fR"
+.SH "bool TQXmlLexicalHandler::comment ( const TQString & ch )\fC [pure virtual]\fR"
 The reader calls this function to report an XML comment anywhere in the document. It reports the text of the comment in \fIch\fR.
 .PP
 If this function returns FALSE the reader stops parsing and reports an error. The reader uses the function errorString() to get the error message.
-.SH "bool QXmlLexicalHandler::endCDATA ()\fC [pure virtual]\fR"
+.SH "bool TQXmlLexicalHandler::endCDATA ()\fC [pure virtual]\fR"
 The reader calls this function to report the end of a CDATA section.
 .PP
 If this function returns FALSE the reader stops parsing and reports an error. The reader uses the function errorString() to get the error message.
 .PP
-See also startCDATA() and QXmlContentHandler::characters().
-.SH "bool QXmlLexicalHandler::endDTD ()\fC [pure virtual]\fR"
+See also startCDATA() and TQXmlContentHandler::characters().
+.SH "bool TQXmlLexicalHandler::endDTD ()\fC [pure virtual]\fR"
 The reader calls this function to report the end of a DTD declaration, if any.
 .PP
 If this function returns FALSE the reader stops parsing and reports an error. The reader uses the function errorString() to get the error message.
 .PP
 See also startDTD().
-.SH "bool QXmlLexicalHandler::endEntity ( const TQString & name )\fC [pure virtual]\fR"
+.SH "bool TQXmlLexicalHandler::endEntity ( const TQString & name )\fC [pure virtual]\fR"
 The reader calls this function to report the end of an entity called \fIname\fR.
 .PP
 For every startEntity() call, there is a corresponding endEntity() call. The calls to startEntity() and endEntity() are properly nested.
 .PP
 If this function returns FALSE the reader stops parsing and reports an error. The reader uses the function errorString() to get the error message.
 .PP
-See also startEntity(), QXmlContentHandler::skippedEntity(), and QXmlSimpleReader::setFeature().
-.SH "TQString QXmlLexicalHandler::errorString ()\fC [pure virtual]\fR"
+See also startEntity(), TQXmlContentHandler::skippedEntity(), and TQXmlSimpleReader::setFeature().
+.SH "TQString TQXmlLexicalHandler::errorString ()\fC [pure virtual]\fR"
 The reader calls this function to get an error string if any of the handler functions returns FALSE.
-.SH "bool QXmlLexicalHandler::startCDATA ()\fC [pure virtual]\fR"
-The reader calls this function to report the start of a CDATA section. The content of the CDATA section is reported through the QXmlContentHandler::characters() function. This function is intended only to report the boundary.
+.SH "bool TQXmlLexicalHandler::startCDATA ()\fC [pure virtual]\fR"
+The reader calls this function to report the start of a CDATA section. The content of the CDATA section is reported through the TQXmlContentHandler::characters() function. This function is intended only to report the boundary.
 .PP
 If this function returns FALSE the reader stops parsing and reports an error. The reader uses the function errorString() to get the error message.
 .PP
 See also endCDATA().
-.SH "bool QXmlLexicalHandler::startDTD ( const TQString & name, const TQString & publicId, const TQString & systemId )\fC [pure virtual]\fR"
+.SH "bool TQXmlLexicalHandler::startDTD ( const TQString & name, const TQString & publicId, const TQString & systemId )\fC [pure virtual]\fR"
 The reader calls this function to report the start of a DTD declaration, if any. It reports the name of the document type in \fIname\fR, the public identifier in \fIpublicId\fR and the system identifier in \fIsystemId\fR.
 .PP
 If the public identifier is missing, \fIpublicId\fR is set to TQString::null. If the system identifier is missing, \fIsystemId\fR is set to TQString::null. Note that it is not valid XML to have a public identifier but no system identifier; in such cases a parse error will occur.
 .PP
-All declarations reported through QXmlDTDHandler or QXmlDeclHandler appear between the startDTD() and endDTD() calls.
+All declarations reported through TQXmlDTDHandler or TQXmlDeclHandler appear between the startDTD() and endDTD() calls.
 .PP
 If this function returns FALSE the reader stops parsing and reports an error. The reader uses the function errorString() to get the error message.
 .PP
 See also endDTD().
-.SH "bool QXmlLexicalHandler::startEntity ( const TQString & name )\fC [pure virtual]\fR"
+.SH "bool TQXmlLexicalHandler::startEntity ( const TQString & name )\fC [pure virtual]\fR"
 The reader calls this function to report the start of an entity called \fIname\fR.
 .PP
-Note that if the entity is unknown, the reader reports it through QXmlContentHandler::skippedEntity() and not through this function.
+Note that if the entity is unknown, the reader reports it through TQXmlContentHandler::skippedEntity() and not through this function.
 .PP
 If this function returns FALSE the reader stops parsing and reports an error. The reader uses the function errorString() to get the error message.
 .PP
-See also endEntity() and QXmlSimpleReader::setFeature().
+See also endEntity() and TQXmlSimpleReader::setFeature().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qxmllexicalhandler.html
+.BR http://doc.trolltech.com/tqxmllexicalhandler.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

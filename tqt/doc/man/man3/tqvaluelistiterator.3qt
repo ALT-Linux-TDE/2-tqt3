@@ -1,5 +1,5 @@
 '\" t
-.TH QValueListIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQValueListIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QValueListIterator \- Iterator for QValueList
+TQValueListIterator \- Iterator for TQValueList
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqvaluelist.h>\fR
+\fC#include <tqvaluelist.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -25,16 +25,16 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "typedef T & \fBreference\fR"
 .br
 .ti -1c
-.BI "\fBQValueListIterator\fR ()"
+.BI "\fBTQValueListIterator\fR ()"
 .br
 .ti -1c
-.BI "\fBQValueListIterator\fR ( const QValueListIterator<T> & it )"
+.BI "\fBTQValueListIterator\fR ( const TQValueListIterator<T> & it )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QValueListIterator<T> & it ) const"
+.BI "bool \fBoperator==\fR ( const TQValueListIterator<T> & it ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator!=\fR ( const QValueListIterator<T> & it ) const"
+.BI "bool \fBoperator!=\fR ( const TQValueListIterator<T> & it ) const"
 .br
 .ti -1c
 .BI "const T & \fBoperator*\fR () const"
@@ -43,34 +43,34 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "T & \fBoperator*\fR ()"
 .br
 .ti -1c
-.BI "QValueListIterator<T> & \fBoperator++\fR ()"
+.BI "TQValueListIterator<T> & \fBoperator++\fR ()"
 .br
 .ti -1c
-.BI "QValueListIterator<T> \fBoperator++\fR ( int )"
+.BI "TQValueListIterator<T> \fBoperator++\fR ( int )"
 .br
 .ti -1c
-.BI "QValueListIterator<T> & \fBoperator--\fR ()"
+.BI "TQValueListIterator<T> & \fBoperator--\fR ()"
 .br
 .ti -1c
-.BI "QValueListIterator<T> \fBoperator--\fR ( int )"
+.BI "TQValueListIterator<T> \fBoperator--\fR ( int )"
 .br
 .ti -1c
-.BI "QValueListIterator<T> & \fBoperator+=\fR ( int j )"
+.BI "TQValueListIterator<T> & \fBoperator+=\fR ( int j )"
 .br
 .ti -1c
-.BI "QValueListIterator<T> & \fBoperator-=\fR ( int j )"
+.BI "TQValueListIterator<T> & \fBoperator-=\fR ( int j )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QValueListIterator class provides an iterator for QValueList.
+The TQValueListIterator class provides an iterator for TQValueList.
 .PP
 An iterator is a class for accessing the items of a container class: a generalization of the index in an array. A pointer into a "const char *" and an index into an "int[]" are both iterators, and the general idea is to provide that functionality for any data structure.
 .PP
-The QValueListIterator class is an iterator for QValueList instantiations. You can create the appropriate iterator type by using the \fCiterator\fR typedef provided by QValueList.
+The TQValueListIterator class is an iterator for TQValueList instantiations. You can create the appropriate iterator type by using the \fCiterator\fR typedef provided by TQValueList.
 .PP
-The only way to access the items in a QValueList is to use an iterator.
+The only way to access the items in a TQValueList is to use an iterator.
 .PP
-Example (see QValueList for the complete code):
+Example (see TQValueList for the complete code):
 .PP
 .nf
 .br
@@ -97,57 +97,57 @@ Example (see QValueList for the complete code):
 .br
 .fi
 .PP
-QValueList is highly optimized for performance and memory usage. This means that you must be careful: QValueList does not know about all its iterators and the iterators don't know to which list they belong. This makes things very fast, but if you're not careful, you can get spectacular bugs. Always make sure iterators are valid before dereferencing them or using them as parameters to generic algorithms in the STL or the QTL.
+TQValueList is highly optimized for performance and memory usage. This means that you must be careful: TQValueList does not know about all its iterators and the iterators don't know to which list they belong. This makes things very fast, but if you're not careful, you can get spectacular bugs. Always make sure iterators are valid before dereferencing them or using them as parameters to generic algorithms in the STL or the TQTL.
 .PP
 Using an invalid iterator is undefined (your application will probably crash). Many TQt functions return const value lists; to iterate over these you should make a copy and iterate over the copy.
 .PP
-For every Iterator there is a ConstIterator. When accessing a QValueList in a const environment or if the reference or pointer to the list is itself const, then you must use the ConstIterator. Its semantics are the same as the Iterator, but it only returns const references.
+For every Iterator there is a ConstIterator. When accessing a TQValueList in a const environment or if the reference or pointer to the list is itself const, then you must use the ConstIterator. Its semantics are the same as the Iterator, but it only returns const references.
 .PP
-See also QValueList, QValueListConstIterator, TQt Template Library Classes, and Non-GUI Classes.
+See also TQValueList, TQValueListConstIterator, TQt Template Library Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
-.SH "QValueListIterator::pointer"
+.SH "TQValueListIterator::pointer"
 Pointer to value_type.
-.SH "QValueListIterator::reference"
+.SH "TQValueListIterator::reference"
 Reference to value_type.
-.SH "QValueListIterator::value_type"
+.SH "TQValueListIterator::value_type"
 The type of value, T.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QValueListIterator::QValueListIterator ()"
+.SH "TQValueListIterator::TQValueListIterator ()"
 Creates un uninitialized iterator.
-.SH "QValueListIterator::QValueListIterator ( const QValueListIterator<T> & it )"
+.SH "TQValueListIterator::TQValueListIterator ( const TQValueListIterator<T> & it )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Constructs a copy of the iterator \fIit\fR.
-.SH "bool QValueListIterator::operator!= ( const QValueListIterator<T> & it ) const"
+.SH "bool TQValueListIterator::operator!= ( const TQValueListIterator<T> & it ) const"
 Compares this iterator and \fIit\fR and returns TRUE if they point to different items; otherwise returns FALSE.
-.SH "T & QValueListIterator::operator* ()"
+.SH "T & TQValueListIterator::operator* ()"
 Asterisk operator. Returns a reference to the current iterator item.
-.SH "const T & QValueListIterator::operator* () const"
+.SH "const T & TQValueListIterator::operator* () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Asterisk operator. Returns a reference to the current iterator item.
-.SH "QValueListIterator<T> & QValueListIterator::operator++ ()"
+.SH "TQValueListIterator<T> & TQValueListIterator::operator++ ()"
 Prefix ++ makes the succeeding item current and returns an iterator pointing to the new current item. The iterator cannot check whether it reached the end of the list. Incrementing the iterator returned by end() causes undefined results.
-.SH "QValueListIterator<T> QValueListIterator::operator++ ( int )"
+.SH "TQValueListIterator<T> TQValueListIterator::operator++ ( int )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Postfix ++ makes the succeeding item current and returns an iterator pointing to the new current item. The iterator cannot check whether it reached the end of the list. Incrementing the iterator returned by end() causes undefined results.
-.SH "QValueListIterator<T> & QValueListIterator::operator+= ( int j )"
+.SH "TQValueListIterator<T> & TQValueListIterator::operator+= ( int j )"
 Postfix -- jumps \fIj\fR steps forward in the list. The iterator cannot check whether it reached the end of the list. Jumping past the end() causes undefined results.
-.SH "QValueListIterator<T> & QValueListIterator::operator-- ()"
+.SH "TQValueListIterator<T> & TQValueListIterator::operator-- ()"
 Prefix -- makes the previous item current and returns an iterator pointing to the new current item. The iterator cannot check whether it reached the beginning of the list. Decrementing the iterator returned by begin() causes undefined results.
-.SH "QValueListIterator<T> QValueListIterator::operator-- ( int )"
+.SH "TQValueListIterator<T> TQValueListIterator::operator-- ( int )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Postfix -- makes the previous item current and returns an iterator pointing to the new current item. The iterator cannot check whether it reached the beginning of the list. Decrementing the iterator returned by begin() causes undefined results.
-.SH "QValueListIterator<T> & QValueListIterator::operator-= ( int j )"
+.SH "TQValueListIterator<T> & TQValueListIterator::operator-= ( int j )"
 Postfix -- jumps \fIj\fR steps backward in the list. The iterator cannot check whether it reached the beginning of the list. Jumping past begin() causes undefined results.
-.SH "bool QValueListIterator::operator== ( const QValueListIterator<T> & it ) const"
+.SH "bool TQValueListIterator::operator== ( const TQValueListIterator<T> & it ) const"
 Compares this iterator and \fIit\fR and returns TRUE if they point to
 the same item; otherwise returns FALSE.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qvaluelistiterator.html
+.BR http://doc.trolltech.com/tqvaluelistiterator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

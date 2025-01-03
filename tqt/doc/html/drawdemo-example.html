@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/drawdemo/drawdemo.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -47,13 +46,13 @@ You can easily add you own drawing functions.
 **
 *****************************************************************************/
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
-#include &lt;<a href="qpainter-h.html">ntqpainter.h</a>&gt;
-#include &lt;<a href="qprinter-h.html">ntqprinter.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qradiobutton-h.html">ntqradiobutton.h</a>&gt;
-#include &lt;<a href="qbuttongroup-h.html">ntqbuttongroup.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
+#include &lt;<a href="tqprinter-h.html">tqprinter.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqradiobutton-h.html">tqradiobutton.h</a>&gt;
+#include &lt;<a href="tqbuttongroup-h.html">tqbuttongroup.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 #include &lt;math.h&gt;
 
 //
@@ -66,29 +65,29 @@ You can easily add you own drawing functions.
 // The coordinate system x=(0..500), y=(0..500) spans the paint device.
 //
 
-void drawColorWheel( <a href="ntqpainter.html">TQPainter</a> *p )
+void drawColorWheel( <a href="tqpainter.html">TQPainter</a> *p )
 {
-    <a href="ntqfont.html">TQFont</a> f( "times", 18, TQFont::Bold );
-<a name="x1075"></a>    p-&gt;<a href="ntqpainter.html#setFont">setFont</a>( f );
-<a name="x1076"></a>    p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( TQt::black );
-<a name="x1077"></a>    p-&gt;<a href="ntqpainter.html#setWindow">setWindow</a>( 0, 0, 500, 500 );             // defines coordinate system
+    <a href="tqfont.html">TQFont</a> f( "times", 18, TQFont::Bold );
+<a name="x1075"></a>    p-&gt;<a href="tqpainter.html#setFont">setFont</a>( f );
+<a name="x1076"></a>    p-&gt;<a href="tqpainter.html#setPen">setPen</a>( TQt::black );
+<a name="x1077"></a>    p-&gt;<a href="tqpainter.html#setWindow">setWindow</a>( 0, 0, 500, 500 );             // defines coordinate system
 
     for ( int i=0; i&lt;36; i++ ) {                // draws 36 rotated rectangles
 
-        <a href="ntqwmatrix.html">TQWMatrix</a> matrix;
-<a name="x1097"></a>        matrix.<a href="ntqwmatrix.html#translate">translate</a>( 250.0F, 250.0F );     // move to center
-<a name="x1096"></a>        matrix.<a href="ntqwmatrix.html#shear">shear</a>( 0.0F, 0.3F );             // twist it
-<a name="x1095"></a>        matrix.<a href="ntqwmatrix.html#rotate">rotate</a>( (float)i*10 );           // rotate 0,10,20,.. degrees
-<a name="x1078"></a>        p-&gt;<a href="ntqpainter.html#setWorldMatrix">setWorldMatrix</a>( matrix );            // use this world matrix
+        <a href="tqwmatrix.html">TQWMatrix</a> matrix;
+<a name="x1097"></a>        matrix.<a href="tqwmatrix.html#translate">translate</a>( 250.0F, 250.0F );     // move to center
+<a name="x1096"></a>        matrix.<a href="tqwmatrix.html#shear">shear</a>( 0.0F, 0.3F );             // twist it
+<a name="x1095"></a>        matrix.<a href="tqwmatrix.html#rotate">rotate</a>( (float)i*10 );           // rotate 0,10,20,.. degrees
+<a name="x1078"></a>        p-&gt;<a href="tqpainter.html#setWorldMatrix">setWorldMatrix</a>( matrix );            // use this world matrix
 
-        <a href="ntqcolor.html">TQColor</a> c;
-<a name="x1063"></a>        c.<a href="ntqcolor.html#setHsv">setHsv</a>( i*10, 255, 255 );             // rainbow effect
-<a name="x1074"></a>        p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( c );                       // solid fill with color c
-<a name="x1070"></a>        p-&gt;<a href="ntqpainter.html#drawRect">drawRect</a>( 70, -10, 80, 10 );         // draw the rectangle
+        <a href="tqcolor.html">TQColor</a> c;
+<a name="x1063"></a>        c.<a href="tqcolor.html#setHsv">setHsv</a>( i*10, 255, 255 );             // rainbow effect
+<a name="x1074"></a>        p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( c );                       // solid fill with color c
+<a name="x1070"></a>        p-&gt;<a href="tqpainter.html#drawRect">drawRect</a>( 70, -10, 80, 10 );         // draw the rectangle
 
-        <a href="ntqstring.html">TQString</a> n;
-        n.<a href="ntqstring.html#sprintf">sprintf</a>( "H=%d", i*10 );
-<a name="x1072"></a>        p-&gt;<a href="ntqpainter.html#drawText">drawText</a>( 80+70+5, 0, n );           // draw the hue number
+        <a href="tqstring.html">TQString</a> n;
+        n.<a href="tqstring.html#sprintf">sprintf</a>( "H=%d", i*10 );
+<a name="x1072"></a>        p-&gt;<a href="tqpainter.html#drawText">drawText</a>( 80+70+5, 0, n );           // draw the hue number
     }
 }
 
@@ -97,7 +96,7 @@ void drawColorWheel( <a href="ntqpainter.html">TQPainter</a> *p )
 // This function draws a few lines of text using different fonts.
 //
 
-void drawFonts( <a href="ntqpainter.html">TQPainter</a> *p )
+void drawFonts( <a href="tqpainter.html">TQPainter</a> *p )
 {
     static const char *fonts[] = { "Helvetica", "Courier", "Times", 0 };
     static int   sizes[] = { 10, 12, 18, 24, 36, 0 };
@@ -106,12 +105,12 @@ void drawFonts( <a href="ntqpainter.html">TQPainter</a> *p )
     while ( fonts[f] ) {
         int s = 0;
         while ( sizes[s] ) {
-            <a href="ntqfont.html">TQFont</a> font( fonts[f], sizes[s] );
-            p-&gt;<a href="ntqpainter.html#setFont">setFont</a>( font );
-<a name="x1073"></a>            <a href="ntqfontmetrics.html">TQFontMetrics</a> fm = p-&gt;<a href="ntqpainter.html#fontMetrics">fontMetrics</a>();
-<a name="x1064"></a>            y += fm.<a href="ntqfontmetrics.html#ascent">ascent</a>();
-            p-&gt;<a href="ntqpainter.html#drawText">drawText</a>( 10, y, "Quartz Glyph Job Vex'd Cwm Finks" );
-<a name="x1065"></a>            y += fm.<a href="ntqfontmetrics.html#descent">descent</a>();
+            <a href="tqfont.html">TQFont</a> font( fonts[f], sizes[s] );
+            p-&gt;<a href="tqpainter.html#setFont">setFont</a>( font );
+<a name="x1073"></a>            <a href="tqfontmetrics.html">TQFontMetrics</a> fm = p-&gt;<a href="tqpainter.html#fontMetrics">fontMetrics</a>();
+<a name="x1064"></a>            y += fm.<a href="tqfontmetrics.html#ascent">ascent</a>();
+            p-&gt;<a href="tqpainter.html#drawText">drawText</a>( 10, y, "Quartz Glyph Job Vex'd Cwm Finks" );
+<a name="x1065"></a>            y += fm.<a href="tqfontmetrics.html#descent">descent</a>();
             s++;
         }
         f++;
@@ -123,22 +122,22 @@ void drawFonts( <a href="ntqpainter.html">TQPainter</a> *p )
 // This function draws some shapes
 //
 
-void drawShapes( <a href="ntqpainter.html">TQPainter</a> *p )
+void drawShapes( <a href="tqpainter.html">TQPainter</a> *p )
 {
-    <a href="ntqbrush.html">TQBrush</a> b1( TQt::blue );
-    <a href="ntqbrush.html">TQBrush</a> b2( TQt::green, TQt::Dense6Pattern );          // green 12% fill
-    <a href="ntqbrush.html">TQBrush</a> b3( TQt::NoBrush );                           // void brush
-    <a href="ntqbrush.html">TQBrush</a> b4( TQt::CrossPattern );                      // black cross pattern
+    <a href="tqbrush.html">TQBrush</a> b1( TQt::blue );
+    <a href="tqbrush.html">TQBrush</a> b2( TQt::green, TQt::Dense6Pattern );          // green 12% fill
+    <a href="tqbrush.html">TQBrush</a> b3( TQt::NoBrush );                           // void brush
+    <a href="tqbrush.html">TQBrush</a> b4( TQt::CrossPattern );                      // black cross pattern
 
-    p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( TQt::red );
-    p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( b1 );
-    p-&gt;<a href="ntqpainter.html#drawRect">drawRect</a>( 10, 10, 200, 100 );
-    p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( b2 );
-<a name="x1071"></a>    p-&gt;<a href="ntqpainter.html#drawRoundRect">drawRoundRect</a>( 10, 150, 200, 100, 20, 20 );
-    p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( b3 );
-<a name="x1068"></a>    p-&gt;<a href="ntqpainter.html#drawEllipse">drawEllipse</a>( 250, 10, 200, 100 );
-    p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( b4 );
-<a name="x1069"></a>    p-&gt;<a href="ntqpainter.html#drawPie">drawPie</a>( 250, 150, 200, 100, 45*16, 90*16 );
+    p-&gt;<a href="tqpainter.html#setPen">setPen</a>( TQt::red );
+    p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( b1 );
+    p-&gt;<a href="tqpainter.html#drawRect">drawRect</a>( 10, 10, 200, 100 );
+    p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( b2 );
+<a name="x1071"></a>    p-&gt;<a href="tqpainter.html#drawRoundRect">drawRoundRect</a>( 10, 150, 200, 100, 20, 20 );
+    p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( b3 );
+<a name="x1068"></a>    p-&gt;<a href="tqpainter.html#drawEllipse">drawEllipse</a>( 250, 10, 200, 100 );
+    p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( b4 );
+<a name="x1069"></a>    p-&gt;<a href="tqpainter.html#drawPie">drawPie</a>( 250, 150, 200, 100, 45*16, 90*16 );
 }
 
 
@@ -168,7 +167,7 @@ DrawThing ourDrawFunctions[] = {
 
 
 
-class DrawView : public <a href="ntqwidget.html">TQWidget</a>
+class DrawView : public <a href="tqwidget.html">TQWidget</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 public:
@@ -178,13 +177,13 @@ public slots:
     void   updateIt( int );
     void   printIt();
 protected:
-    void   drawIt( <a href="ntqpainter.html">TQPainter</a> * );
-    void   paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
-    void   resizeEvent( <a href="qresizeevent.html">TQResizeEvent</a> * );
+    void   drawIt( <a href="tqpainter.html">TQPainter</a> * );
+    void   paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
+    void   resizeEvent( <a href="tqresizeevent.html">TQResizeEvent</a> * );
 private:
-    <a href="ntqprinter.html">TQPrinter</a>     *printer;
-    <a href="ntqbuttongroup.html">TQButtonGroup</a> *bgroup;
-    <a href="ntqpushbutton.html">TQPushButton</a>  *print;
+    <a href="tqprinter.html">TQPrinter</a>     *printer;
+    <a href="tqbuttongroup.html">TQButtonGroup</a> *bgroup;
+    <a href="tqpushbutton.html">TQPushButton</a>  *print;
     int           drawindex;
     int           maxindex;
 };
@@ -196,27 +195,27 @@ private:
 
 <a name="f367"></a>DrawView::DrawView()
 {
-    <a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Draw Demo Application" );
-    <a href="ntqwidget.html#setBackgroundMode">setBackgroundMode</a>(PaletteBase);
+    <a href="tqwidget.html#setCaption">setCaption</a>( "TQt Draw Demo Application" );
+    <a href="tqwidget.html#setBackgroundMode">setBackgroundMode</a>(PaletteBase);
 
     // Create a button group to contain all buttons
-    bgroup = new <a href="ntqbuttongroup.html">TQButtonGroup</a>( this );
-<a name="x1088"></a>    bgroup-&gt;<a href="ntqwidget.html#resize">resize</a>( 200, 200 );
-<a name="x1062"></a>    <a href="ntqobject.html#connect">connect</a>( bgroup, TQ_SIGNAL(<a href="ntqbuttongroup.html#clicked">clicked</a>(int)), TQ_SLOT(updateIt(int)) );
+    bgroup = new <a href="tqbuttongroup.html">TQButtonGroup</a>( this );
+<a name="x1088"></a>    bgroup-&gt;<a href="tqwidget.html#resize">resize</a>( 200, 200 );
+<a name="x1062"></a>    <a href="tqobject.html#connect">connect</a>( bgroup, TQ_SIGNAL(<a href="tqbuttongroup.html#clicked">clicked</a>(int)), TQ_SLOT(updateIt(int)) );
 
     // Calculate the size for the radio buttons
     int maxwidth = 80;
     int maxheight = 10;
     int i;
     const char *n;
-<a name="x1084"></a>    <a href="ntqfontmetrics.html">TQFontMetrics</a> fm = bgroup-&gt;<a href="ntqwidget.html#fontMetrics">fontMetrics</a>();
+<a name="x1084"></a>    <a href="tqfontmetrics.html">TQFontMetrics</a> fm = bgroup-&gt;<a href="tqwidget.html#fontMetrics">fontMetrics</a>();
 
     // Find out the longest function description.
     // Here we make use of the last "0,0"-entry in the
     // ourDrawFunctions-array.
     for ( i=0; (n=ourDrawFunctions[i].name) != 0; i++ ) {
-<a name="x1066"></a>        int w = fm.<a href="ntqfontmetrics.html#width">width</a>( n );
-        maxwidth = TQMAX(w,maxwidth); // TQMAX is a macro defined in ntqglobal.h
+<a name="x1066"></a>        int w = fm.<a href="tqfontmetrics.html#width">width</a>( n );
+        maxwidth = TQMAX(w,maxwidth); // TQMAX is a macro defined in tqglobal.h
                                      // and returns the biggest of to values.
         // Due to its macro nature one should use it with care and with
         // constant parameters only.
@@ -225,13 +224,13 @@ private:
     maxwidth = maxwidth + 30;                   // allow 30 pixels for radiobuttons
 
     for ( i=0; (n=ourDrawFunctions[i].name) != 0; i++ ) {
-        <a href="ntqradiobutton.html">TQRadioButton</a> *rb = new <a href="ntqradiobutton.html">TQRadioButton</a>( n, bgroup );
-<a name="x1091"></a>        rb-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( 10, i*30+10, maxwidth, 30 );
+        <a href="tqradiobutton.html">TQRadioButton</a> *rb = new <a href="tqradiobutton.html">TQRadioButton</a>( n, bgroup );
+<a name="x1091"></a>        rb-&gt;<a href="tqwidget.html#setGeometry">setGeometry</a>( 10, i*30+10, maxwidth, 30 );
 
         maxheight += 30;
 
         if ( i == 0 )
-<a name="x1082"></a>            rb-&gt;<a href="ntqradiobutton.html#setChecked">setChecked</a>( TRUE );
+<a name="x1082"></a>            rb-&gt;<a href="tqradiobutton.html#setChecked">setChecked</a>( TRUE );
     }
 
     maxheight += 10;                            // maxheight is now 10 pixels upper margin
@@ -244,7 +243,7 @@ private:
     maxwidth += 20;                             // add some margin, this results in the
                                                 // final width of bgroup
 
-    bgroup-&gt;<a href="ntqwidget.html#resize">resize</a>( maxwidth, maxheight );      // resize bgroup to its final size
+    bgroup-&gt;<a href="tqwidget.html#resize">resize</a>( maxwidth, maxheight );      // resize bgroup to its final size
                                                 // when no printersupport is provided
 
 
@@ -253,20 +252,20 @@ private:
 
 #ifndef TQT_NO_PRINTER
 
-    printer = new <a href="ntqprinter.html">TQPrinter</a>;
+    printer = new <a href="tqprinter.html">TQPrinter</a>;
 
     // Create and setup the print button
-    print = new <a href="ntqpushbutton.html">TQPushButton</a>( "Print...", bgroup );
-<a name="x1081"></a>    print-&gt;<a href="ntqwidget.html#resize">resize</a>( 80, 30 );
-<a name="x1093"></a><a name="x1080"></a>    print-&gt;<a href="ntqwidget.html#move">move</a>( maxwidth/2 - print-&gt;<a href="ntqwidget.html#width">width</a>()/2, maxindex*30+20 );
-    <a href="ntqobject.html#connect">connect</a>( print, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(printIt()) );
+    print = new <a href="tqpushbutton.html">TQPushButton</a>( "Print...", bgroup );
+<a name="x1081"></a>    print-&gt;<a href="tqwidget.html#resize">resize</a>( 80, 30 );
+<a name="x1093"></a><a name="x1080"></a>    print-&gt;<a href="tqwidget.html#move">move</a>( maxwidth/2 - print-&gt;<a href="tqwidget.html#width">width</a>()/2, maxindex*30+20 );
+    <a href="tqobject.html#connect">connect</a>( print, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), TQ_SLOT(printIt()) );
 
     // Resize bgroup to its final size when printersupport is given.
-<a name="x1094"></a><a name="x1085"></a>    bgroup-&gt;<a href="ntqwidget.html#resize">resize</a>( maxwidth, print-&gt;<a href="ntqwidget.html#y">y</a>()+print-&gt;<a href="ntqwidget.html#height">height</a>()+10 );
+<a name="x1094"></a><a name="x1085"></a>    bgroup-&gt;<a href="tqwidget.html#resize">resize</a>( maxwidth, print-&gt;<a href="tqwidget.html#y">y</a>()+print-&gt;<a href="tqwidget.html#height">height</a>()+10 );
 
 #endif
 
-    <a href="ntqwidget.html#resize">resize</a>( 640,300 );
+    <a href="tqwidget.html#resize">resize</a>( 640,300 );
 }
 
 //
@@ -287,7 +286,7 @@ void <a name="f368"></a>DrawView::updateIt( int index )
 {
     if ( index &lt; maxindex ) {
         drawindex = index;
-        <a href="ntqwidget.html#update">update</a>();
+        <a href="tqwidget.html#update">update</a>();
     }
 }
 
@@ -295,7 +294,7 @@ void <a name="f368"></a>DrawView::updateIt( int index )
 // Calls the drawing function as specified by the radio buttons.
 //
 
-void <a name="f369"></a>DrawView::drawIt( <a href="ntqpainter.html">TQPainter</a> *p )
+void <a name="f369"></a>DrawView::drawIt( <a href="tqpainter.html">TQPainter</a> *p )
 {
     (*ourDrawFunctions[drawindex].f)(p);
 }
@@ -306,9 +305,9 @@ void <a name="f369"></a>DrawView::drawIt( <a href="ntqpainter.html">TQPainter</a
 
 void <a name="f370"></a>DrawView::printIt()
 {
-<a name="x1079"></a>    if ( printer-&gt;<a href="ntqprinter.html#setup">setup</a>( this ) ) {
-        <a href="ntqpainter.html">TQPainter</a> paint;
-<a name="x1067"></a>        if( !paint.<a href="ntqpainter.html#begin">begin</a>( printer ) )
+<a name="x1079"></a>    if ( printer-&gt;<a href="tqprinter.html#setup">setup</a>( this ) ) {
+        <a href="tqpainter.html">TQPainter</a> paint;
+<a name="x1067"></a>        if( !paint.<a href="tqpainter.html#begin">begin</a>( printer ) )
             return;
         drawIt( &amp;paint );
     }
@@ -318,9 +317,9 @@ void <a name="f370"></a>DrawView::printIt()
 // Called when the widget needs to be updated.
 //
 
-void DrawView::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaintevent.html">TQPaintEvent</a> * )
+void DrawView::<a href="tqwidget.html#paintEvent">paintEvent</a>( <a href="tqpaintevent.html">TQPaintEvent</a> * )
 {
-    <a href="ntqpainter.html">TQPainter</a> paint( this );
+    <a href="tqpainter.html">TQPainter</a> paint( this );
     drawIt( &amp;paint );
 }
 
@@ -329,9 +328,9 @@ void DrawView::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpai
 // Moves the button group to the upper right corner
 // of the widget.
 
-<a name="x1089"></a>void DrawView::<a href="ntqwidget.html#resizeEvent">resizeEvent</a>( <a href="qresizeevent.html">TQResizeEvent</a> * )
+<a name="x1089"></a>void DrawView::<a href="tqwidget.html#resizeEvent">resizeEvent</a>( <a href="tqresizeevent.html">TQResizeEvent</a> * )
 {
-<a name="x1086"></a>    bgroup-&gt;<a href="ntqwidget.html#move">move</a>( <a href="ntqwidget.html#width">width</a>()-bgroup-&gt;<a href="ntqwidget.html#width">width</a>(), 0 );
+<a name="x1086"></a>    bgroup-&gt;<a href="tqwidget.html#move">move</a>( <a href="tqwidget.html#width">width</a>()-bgroup-&gt;<a href="tqwidget.html#width">width</a>(), 0 );
 }
 
 
@@ -343,12 +342,12 @@ void DrawView::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpai
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv );
     DrawView   draw;
-    app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;draw );
-    draw.<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - Drawdemo");
-    draw.<a href="ntqwidget.html#show">show</a>();
-    return app.<a href="ntqapplication.html#exec">exec</a>();
+    app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;draw );
+    draw.<a href="tqwidget.html#setCaption">setCaption</a>("TQt Example - Drawdemo");
+    draw.<a href="tqwidget.html#show">show</a>();
+    return app.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

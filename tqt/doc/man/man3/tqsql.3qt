@@ -1,5 +1,5 @@
 '\" t
-.TH QSql 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSql 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,14 +7,14 @@
 .ad l
 .nh
 .SH NAME
-QSql \- Namespace for TQt SQL identifiers that need to be global-like
+TQSql \- Namespace for TQt SQL identifiers that need to be global-like
 .SH SYNOPSIS
-\fC#include <ntqsql.h>\fR
+\fC#include <tqsql.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSql\fR ()"
+.BI "\fBTQSql\fR ()"
 .br
 .ti -1c
 .BI "enum \fBOp\fR { None = -1, Insert = 0, Update = 1, Delete = 2 }"
@@ -33,60 +33,60 @@ QSql \- Namespace for TQt SQL identifiers that need to be global-like
 .br
 .in -1c
 .SH DESCRIPTION
-The QSql class is a namespace for TQt SQL identifiers that need to be global-like.
+The TQSql class is a namespace for TQt SQL identifiers that need to be global-like.
 .PP
 Normally, you can ignore this class. Several TQt SQL classes inherit it, so all the identifiers in the TQt SQL namespace are visible without qualification.
 .PP
 See also Database Classes.
 .SS "Member Type Documentation"
-.SH "QSql::Confirm"
+.SH "TQSql::Confirm"
 This enum type describes edit confirmations.
 .TP
-\fCQSql::Yes\fR
+\fCTQSql::Yes\fR
 .TP
-\fCQSql::No\fR
+\fCTQSql::No\fR
 .TP
-\fCQSql::Cancel\fR
-.SH "QSql::Location"
+\fCTQSql::Cancel\fR
+.SH "TQSql::Location"
 This enum type describes SQL navigation locations.
 .TP
-\fCQSql::BeforeFirst\fR
+\fCTQSql::BeforeFirst\fR
 .TP
-\fCQSql::AfterLast\fR
-.SH "QSql::Op"
+\fCTQSql::AfterLast\fR
+.SH "TQSql::Op"
 This enum type describes edit operations.
 .TP
-\fCQSql::None\fR
+\fCTQSql::None\fR
 .TP
-\fCQSql::Insert\fR
+\fCTQSql::Insert\fR
 .TP
-\fCQSql::Update\fR
+\fCTQSql::Update\fR
 .TP
-\fCQSql::Delete\fR
-.SH "QSql::ParameterType"
+\fCTQSql::Delete\fR
+.SH "TQSql::ParameterType"
 This enum is used to set the type of a bind parameter
 .TP
-\fCQSql::In\fR - the bind parameter is used to put data into the database
+\fCTQSql::In\fR - the bind parameter is used to put data into the database
 .TP
-\fCQSql::Out\fR - the bind parameter is used to receive data from the database
+\fCTQSql::Out\fR - the bind parameter is used to receive data from the database
 .TP
-\fCQSql::InOut\fR - the bind parameter is used to put data into the database; it will be overwritten with output data on executing a query.
-.SH "QSql::TableType"
+\fCTQSql::InOut\fR - the bind parameter is used to put data into the database; it will be overwritten with output data on executing a query.
+.SH "TQSql::TableType"
 This enum type describes types of tables
 .TP
-\fCQSql::Tables\fR - All the tables visible to the user
+\fCTQSql::Tables\fR - All the tables visible to the user
 .TP
-\fCQSql::SystemTables\fR - Internal tables used by the DBMS
+\fCTQSql::SystemTables\fR - Internal tables used by the DBMS
 .TP
-\fCQSql::Views\fR - All the views visible to the user
+\fCTQSql::Views\fR - All the views visible to the user
 .TP
-\fCQSql::AllTables\fR - All of the above
+\fCTQSql::AllTables\fR - All of the above
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSql::QSql ()"
+.SH "TQSql::TQSql ()"
 Constructs a TQt SQL namespace class
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsql.html
+.BR http://doc.trolltech.com/tqsql.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

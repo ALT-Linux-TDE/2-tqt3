@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqtable.h>
+#include <tqapplication.h>
+#include <tqtable.h>
 
 // Table size
 

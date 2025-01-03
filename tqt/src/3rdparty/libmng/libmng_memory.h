@@ -28,10 +28,6 @@
 /* *                                                                        * */
 /* ************************************************************************** */
 
-#if defined(__BORLANDC__) && defined(MNG_STRICT_ANSI)
-#pragma option -A                      /* force ANSI-C */
-#endif
-
 #ifndef _libmng_memory_h_
 #define _libmng_memory_h_
 

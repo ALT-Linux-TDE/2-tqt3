@@ -33,7 +33,7 @@
 **********************************************************************/
 
 #include <filterinterface.h>
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 #include "dlg2ui.h"
 
@@ -102,7 +102,7 @@ bool DlgFilter::canUnload() const
     return TRUE;
 }
 
-Q_EXPORT_COMPONENT()
+TQ_EXPORT_COMPONENT()
 {
     Q_CREATE_INSTANCE( DlgFilter )
 }

@@ -7,7 +7,7 @@
 #ifndef GAMEBRD_H
 #define GAMEBRD_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 class TQPushButton;
 class LCDRange;

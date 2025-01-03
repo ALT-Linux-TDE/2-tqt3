@@ -34,9 +34,9 @@
 #ifndef POPUPMENUEDITOR_H
 #define POPUPMENUEDITOR_H
 
-#include <ntqwidget.h>
-#include <ntqptrlist.h>
-#include <ntqaction.h>
+#include <tqwidget.h>
+#include <tqptrlist.h>
+#include <tqaction.h>
 
 class PopupMenuEditor;
 class TQMenuItem;
@@ -102,7 +102,7 @@ class FormWindow;
 class MainWindow;
 class TQLineEdit;
 
-#include <ntqpopupmenu.h>
+#include <tqpopupmenu.h>
 
 class PopupMenuEditor : public TQWidget
 {

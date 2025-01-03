@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/biff/biff.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -50,27 +49,27 @@ mail; it looks exactly like xbiff but is much shorter.
 #ifndef BIFF_H
 #define BIFF_H
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
-#include &lt;<a href="qdatetime-h.html">ntqdatetime.h</a>&gt;
-#include &lt;<a href="qpixmap-h.html">ntqpixmap.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
+#include &lt;<a href="tqdatetime-h.html">tqdatetime.h</a>&gt;
+#include &lt;<a href="tqpixmap-h.html">tqpixmap.h</a>&gt;
 
 
-class Biff : public <a href="ntqwidget.html">TQWidget</a>
+class Biff : public <a href="tqwidget.html">TQWidget</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 public:
-    Biff( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    Biff( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 
 protected:
-    void        timerEvent( <a href="qtimerevent.html">TQTimerEvent</a> * );
-    void        paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
-    void        mousePressEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
+    void        timerEvent( <a href="tqtimerevent.html">TQTimerEvent</a> * );
+    void        paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
+    void        mousePressEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
 
 private:
-    <a href="ntqdatetime.html">TQDateTime</a>   lastModified;
-    <a href="ntqpixmap.html">TQPixmap</a>     hasNewMail;
-    <a href="ntqpixmap.html">TQPixmap</a>     noNewMail;
-    <a href="ntqstring.html">TQString</a>     mailbox;
+    <a href="tqdatetime.html">TQDateTime</a>   lastModified;
+    <a href="tqpixmap.html">TQPixmap</a>     hasNewMail;
+    <a href="tqpixmap.html">TQPixmap</a>     noNewMail;
+    <a href="tqstring.html">TQString</a>     mailbox;
     bool        gotMail;
 };
 
@@ -93,9 +92,9 @@ how two images (<em>hasmail_bmp_data</em> and <em>nomail_bmp_data</em>, both fro
 *****************************************************************************/
 
 #include "biff.h"
-#include &lt;<a href="qstring-h.html">ntqstring.h</a>&gt;
-#include &lt;<a href="qfileinfo-h.html">ntqfileinfo.h</a>&gt;
-#include &lt;<a href="qpainter-h.html">ntqpainter.h</a>&gt;
+#include &lt;<a href="tqstring-h.html">tqstring.h</a>&gt;
+#include &lt;<a href="tqfileinfo-h.html">tqfileinfo.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
 
 #include &lt;unistd.h&gt;
 #include &lt;stdlib.h&gt;
@@ -103,60 +102,60 @@ how two images (<em>hasmail_bmp_data</em> and <em>nomail_bmp_data</em>, both fro
 #include "bmp.cpp"
 
 
-<a name="f527"></a>Biff::Biff( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-    : <a href="ntqwidget.html">TQWidget</a>( parent, name, WShowModal | WType_Dialog )
+<a name="f527"></a>Biff::Biff( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+    : <a href="tqwidget.html">TQWidget</a>( parent, name, WShowModal | WType_Dialog )
 {
-    <a href="ntqfileinfo.html">TQFileInfo</a> fi = TQString(getenv( "MAIL" ));
-<a name="x1955"></a>    if ( !fi.<a href="ntqfileinfo.html#exists">exists</a>() ) {
-        <a href="ntqstring.html">TQString</a> s( "/var/spool/mail/" );
+    <a href="tqfileinfo.html">TQFileInfo</a> fi = TQString(getenv( "MAIL" ));
+<a name="x1955"></a>    if ( !fi.<a href="tqfileinfo.html#exists">exists</a>() ) {
+        <a href="tqstring.html">TQString</a> s( "/var/spool/mail/" );
         s += getlogin();
-<a name="x1958"></a>        fi.<a href="ntqfileinfo.html#setFile">setFile</a>( s );
+<a name="x1958"></a>        fi.<a href="tqfileinfo.html#setFile">setFile</a>( s );
     }
 
-    if ( fi.<a href="ntqfileinfo.html#exists">exists</a>() ) {
-<a name="x1954"></a>        mailbox = fi.<a href="ntqfileinfo.html#absFilePath">absFilePath</a>();
-        <a href="ntqobject.html#startTimer">startTimer</a>( 1000 );
+    if ( fi.<a href="tqfileinfo.html#exists">exists</a>() ) {
+<a name="x1954"></a>        mailbox = fi.<a href="tqfileinfo.html#absFilePath">absFilePath</a>();
+        <a href="tqobject.html#startTimer">startTimer</a>( 1000 );
     }
 
-    <a href="ntqwidget.html#setMinimumSize">setMinimumSize</a>( 48, 48 );
-    <a href="ntqwidget.html#setMaximumSize">setMaximumSize</a>( 48, 48 );
-    <a href="ntqwidget.html#resize">resize</a>( 48, 48 );
+    <a href="tqwidget.html#setMinimumSize">setMinimumSize</a>( 48, 48 );
+    <a href="tqwidget.html#setMaximumSize">setMaximumSize</a>( 48, 48 );
+    <a href="tqwidget.html#resize">resize</a>( 48, 48 );
 
     hasNewMail.loadFromData( hasmail_bmp_data, hasmail_bmp_len );
     noNewMail.loadFromData( nomail_bmp_data, nomail_bmp_len );
 
     gotMail = FALSE;
-<a name="x1956"></a>    lastModified = fi.<a href="ntqfileinfo.html#lastModified">lastModified</a>();
+<a name="x1956"></a>    lastModified = fi.<a href="tqfileinfo.html#lastModified">lastModified</a>();
 }
 
 
-<a name="x1959"></a>void Biff::<a href="ntqobject.html#timerEvent">timerEvent</a>( <a href="qtimerevent.html">TQTimerEvent</a> * )
+<a name="x1959"></a>void Biff::<a href="tqobject.html#timerEvent">timerEvent</a>( <a href="tqtimerevent.html">TQTimerEvent</a> * )
 {
-    <a href="ntqfileinfo.html">TQFileInfo</a> fi( mailbox );
-    bool newState = ( fi.<a href="ntqfileinfo.html#lastModified">lastModified</a>() != lastModified &amp;&amp;
-<a name="x1957"></a>                      fi.<a href="ntqfileinfo.html#lastModified">lastModified</a>() &gt; fi.<a href="ntqfileinfo.html#lastRead">lastRead</a>() );
+    <a href="tqfileinfo.html">TQFileInfo</a> fi( mailbox );
+    bool newState = ( fi.<a href="tqfileinfo.html#lastModified">lastModified</a>() != lastModified &amp;&amp;
+<a name="x1957"></a>                      fi.<a href="tqfileinfo.html#lastModified">lastModified</a>() &gt; fi.<a href="tqfileinfo.html#lastRead">lastRead</a>() );
     if ( newState != gotMail ) {
         if ( gotMail )
-            lastModified = fi.<a href="ntqfileinfo.html#lastModified">lastModified</a>();
+            lastModified = fi.<a href="tqfileinfo.html#lastModified">lastModified</a>();
         gotMail = newState;
-        <a href="ntqwidget.html#repaint">repaint</a>( FALSE );
+        <a href="tqwidget.html#repaint">repaint</a>( FALSE );
     }
 }
 
 
-void Biff::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaintevent.html">TQPaintEvent</a> * )
+void Biff::<a href="tqwidget.html#paintEvent">paintEvent</a>( <a href="tqpaintevent.html">TQPaintEvent</a> * )
 {
     if ( gotMail )
-        <a href="ntqimage.html#bitBlt">bitBlt</a>( this, 0, 0, &amp;hasNewMail );
+        <a href="tqimage.html#bitBlt">bitBlt</a>( this, 0, 0, &amp;hasNewMail );
     else
-        <a href="ntqimage.html#bitBlt">bitBlt</a>( this, 0, 0, &amp;noNewMail );
+        <a href="tqimage.html#bitBlt">bitBlt</a>( this, 0, 0, &amp;noNewMail );
 }
 
 
-<a name="x1960"></a>void Biff::<a href="ntqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> * )
+<a name="x1960"></a>void Biff::<a href="tqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> * )
 {
-    <a href="ntqfileinfo.html">TQFileInfo</a> fi( mailbox );
-    lastModified = fi.<a href="ntqfileinfo.html#lastModified">lastModified</a>();
+    <a href="tqfileinfo.html">TQFileInfo</a> fi( mailbox );
+    lastModified = fi.<a href="tqfileinfo.html#lastModified">lastModified</a>();
 }
 </pre>
 
@@ -172,17 +171,17 @@ void Biff::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaintev
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 #include "biff.h"
 
 
 int main( int argc, char ** argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
     Biff b;
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;b );
-    b.<a href="ntqwidget.html#show">show</a>();
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;b );
+    b.<a href="tqwidget.html#show">show</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

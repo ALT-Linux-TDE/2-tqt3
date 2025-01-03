@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/shclass.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -72,7 +71,7 @@ very fast, because it only involves setting a pointer and incrementing
 the reference count.
 <p> Object assignment (with operator=()) for implicitly and explicitly
 shared objects is implemented using shallow copies. A deep copy can be
-made by calling a copy() function or by using <a href="ntqdeepcopy.html">TQDeepCopy</a>.
+made by calling a copy() function or by using <a href="tqdeepcopy.html">TQDeepCopy</a>.
 <p> The benefit of sharing is that a program does not need to duplicate
 data unnecessarily, which results in lower memory use and less copying
 of data. Objects can easily be assigned, sent as function arguments,
@@ -82,20 +81,20 @@ Explicit sharing means that the programmer must be aware of the fact
 that objects share common data. Implicit sharing means that the
 sharing mechanism takes place behind the scenes and the programmer
 does not need to worry about it.
-<p> <h2> A <a href="qbytearray.html">TQByteArray</a> Example
+<p> <h2> A <a href="tqbytearray.html">TQByteArray</a> Example
 </h2>
 <a name="2"></a><p> TQByteArray is an example of a shared class that uses explicit sharing.
 Example:
 <pre>
                           //Line    a=         b=         c=
-    <a href="qbytearray.html">TQByteArray</a> a(3),b(2)  // 1:     {?,?,?}    {?,?}
+    <a href="tqbytearray.html">TQByteArray</a> a(3),b(2)  // 1:     {?,?,?}    {?,?}
     b[0] = 12; b[1] = 34; // 2:     {?,?,?}    {12,34}
     a = b;                // 3:     {12,34}    {12,34}
     a[1] = 56;            // 4:     {12,56}    {12,56}
-    <a href="qbytearray.html">TQByteArray</a> c = a;     // 5:     {12,56}    {12,56}    {12,56}
-    a.<a href="ntqmemarray.html#detach">detach</a>();           // 6:     {12,56}    {12,56}    {12,56}
+    <a href="tqbytearray.html">TQByteArray</a> c = a;     // 5:     {12,56}    {12,56}    {12,56}
+    a.<a href="tqmemarray.html#detach">detach</a>();           // 6:     {12,56}    {12,56}    {12,56}
     a[1] = 78;            // 7:     {12,78}    {12,56}    {12,56}
-    b = a.<a href="ntqmemarray.html#copy">copy</a>();         // 8:     {12,78}    {12,78}    {12,56}
+    b = a.<a href="tqmemarray.html#copy">copy</a>();         // 8:     {12,78}    {12,78}    {12,56}
     a[1] = 90;            // 9:     {12,90}    {12,78}    {12,56}
 </pre>
  
@@ -122,13 +121,13 @@ refer to the same data.
 <p> Implicit sharing optimizes memory use and copying of data without
 this side effect. So why didn't we implement implicit sharing for all
 shared classes? The answer is that a class that allows direct access
-to its internal data (for efficiency reasons), like <a href="qbytearray.html">TQByteArray</a>, cannot
+to its internal data (for efficiency reasons), like <a href="tqbytearray.html">TQByteArray</a>, cannot
 be implicitly shared, because it can be changed without letting
 TQByteArray know.
 <p> An implicitly shared class has total control of its internal data. In
 any member functions that modify its data, it automatically detaches
 before modifying the data.
-<p> The <a href="ntqpen.html">TQPen</a> class, which uses implicit sharing, detaches from the shared
+<p> The <a href="tqpen.html">TQPen</a> class, which uses implicit sharing, detaches from the shared
 data in all member functions that change the internal data.
 <p> Code fragment:
 <pre>
@@ -148,51 +147,51 @@ data in all member functions that change the internal data.
 <p> This is clearly not possible for TQByteArray, because the programmer
 can do the following:
 <p> <pre>
-    <a href="qbytearray.html">TQByteArray</a> array( 10 );
-    array.<a href="ntqmemarray.html#fill">fill</a>( 'a' );
+    <a href="tqbytearray.html">TQByteArray</a> array( 10 );
+    array.<a href="tqmemarray.html#fill">fill</a>( 'a' );
     array[0] = 'f';        // will modify array
-    array.<a href="ntqmemarray.html#data">data</a>()[1] = 'i'; // will modify array
+    array.<a href="tqmemarray.html#data">data</a>()[1] = 'i'; // will modify array
 </pre>
  
-<p> If we monitor changes in a <a href="qbytearray.html">TQByteArray</a>, the TQByteArray class would
+<p> If we monitor changes in a <a href="tqbytearray.html">TQByteArray</a>, the TQByteArray class would
 become unacceptably slow.
 <p> <h2> Explicitly Shared Classes
 </h2>
-<a name="4"></a><p> All classes that are instances of the <a href="ntqmemarray.html">TQMemArray</a> template class are
+<a name="4"></a><p> All classes that are instances of the <a href="tqmemarray.html">TQMemArray</a> template class are
 explicitly shared:
 <p> <ul>
-<li> <a href="ntqbitarray.html">TQBitArray</a>
-<li> <a href="ntqpointarray.html">TQPointArray</a>
-<li> <a href="qbytearray.html">TQByteArray</a>
-<li> Any other instantiation of <a href="ntqmemarray.html">TQMemArray&lt;type&gt;</a>
+<li> <a href="tqbitarray.html">TQBitArray</a>
+<li> <a href="tqpointarray.html">TQPointArray</a>
+<li> <a href="tqbytearray.html">TQByteArray</a>
+<li> Any other instantiation of <a href="tqmemarray.html">TQMemArray&lt;type&gt;</a>
 </ul>
 <p> These classes have a detach() function that can be called if you want
 your object to get a private copy of the shared data. They also have a
 copy() function that returns a deep copy with a reference count of 1.
-<p> The same is true for <a href="ntqimage.html">TQImage</a>, which does not inherit TQMemArray. <a href="ntqmovie.html">TQMovie</a> is also explicitly shared, but it does not support detach() or
+<p> The same is true for <a href="tqimage.html">TQImage</a>, which does not inherit TQMemArray. <a href="tqmovie.html">TQMovie</a> is also explicitly shared, but it does not support detach() or
 copy().
 <p> <h2> Implicitly Shared Classes
 </h2>
 <a name="5"></a><p> The TQt classes that are implicitly shared are:
 <ul>
-<li> <a href="ntqbitmap.html">TQBitmap</a>
-<li> <a href="ntqbrush.html">TQBrush</a>
-<li> <a href="ntqcursor.html">TQCursor</a>
-<li> <a href="ntqfont.html">TQFont</a>
-<li> <a href="ntqfontinfo.html">TQFontInfo</a>
-<li> <a href="ntqfontmetrics.html">TQFontMetrics</a>
-<li> <a href="ntqiconset.html">TQIconSet</a>
-<li> <a href="ntqmap.html">TQMap</a>
-<li> <a href="ntqpalette.html">TQPalette</a>
-<li> <a href="ntqpen.html">TQPen</a>
-<li> <a href="ntqpicture.html">TQPicture</a>
-<li> <a href="ntqpixmap.html">TQPixmap</a>
-<li> <a href="ntqregion.html">TQRegion</a>
-<li> <a href="ntqregexp.html">TQRegExp</a>
-<li> <a href="ntqstring.html">TQString</a>
-<li> <a href="ntqstringlist.html">TQStringList</a>
-<li> <a href="ntqvaluelist.html">TQValueList</a>
-<li> <a href="ntqvaluestack.html">TQValueStack</a>
+<li> <a href="tqbitmap.html">TQBitmap</a>
+<li> <a href="tqbrush.html">TQBrush</a>
+<li> <a href="tqcursor.html">TQCursor</a>
+<li> <a href="tqfont.html">TQFont</a>
+<li> <a href="tqfontinfo.html">TQFontInfo</a>
+<li> <a href="tqfontmetrics.html">TQFontMetrics</a>
+<li> <a href="tqiconset.html">TQIconSet</a>
+<li> <a href="tqmap.html">TQMap</a>
+<li> <a href="tqpalette.html">TQPalette</a>
+<li> <a href="tqpen.html">TQPen</a>
+<li> <a href="tqpicture.html">TQPicture</a>
+<li> <a href="tqpixmap.html">TQPixmap</a>
+<li> <a href="tqregion.html">TQRegion</a>
+<li> <a href="tqregexp.html">TQRegExp</a>
+<li> <a href="tqstring.html">TQString</a>
+<li> <a href="tqstringlist.html">TQStringList</a>
+<li> <a href="tqvaluelist.html">TQValueList</a>
+<li> <a href="tqvaluestack.html">TQValueStack</a>
 </ul>
 <p> These classes automatically detach from common data if an object is
 about to be changed. The programmer will not even notice that the
@@ -203,28 +202,28 @@ reason, you can pass instances of these classes as arguments to
 functions by value without concern for the copying overhead.
 <p> Example:
 <pre>
-    <a href="ntqpixmap.html">TQPixmap</a> p1, p2;
-    p1.<a href="ntqpixmap.html#load">load</a>( "image.bmp" );
+    <a href="tqpixmap.html">TQPixmap</a> p1, p2;
+    p1.<a href="tqpixmap.html#load">load</a>( "image.bmp" );
     p2 = p1;                    // p1 and p2 share data
-    <a href="ntqpainter.html">TQPainter</a> paint;
-    paint.<a href="ntqpainter.html#begin">begin</a>( &amp;p2 );         // cuts p2 loose from p1
-    paint.<a href="ntqpainter.html#drawText">drawText</a>( 0,50, "Hi" );
-    paint.<a href="ntqpainter.html#end">end</a>();
+    <a href="tqpainter.html">TQPainter</a> paint;
+    paint.<a href="tqpainter.html#begin">begin</a>( &amp;p2 );         // cuts p2 loose from p1
+    paint.<a href="tqpainter.html#drawText">drawText</a>( 0,50, "Hi" );
+    paint.<a href="tqpainter.html#end">end</a>();
 </pre>
  
-<p> In this example, <tt>p1</tt> and <tt>p2</tt> share data until <a href="ntqpainter.html#begin">TQPainter::begin</a>() is
+<p> In this example, <tt>p1</tt> and <tt>p2</tt> share data until <a href="tqpainter.html#begin">TQPainter::begin</a>() is
 called for <tt>p2</tt>, because painting a pixmap will modify it. The same
-also happens if anything is <a href="ntqimage.html#bitBlt">bitBlt()</a>'ed into
+also happens if anything is <a href="tqimage.html#bitBlt">bitBlt()</a>'ed into
 <tt>p2</tt>.
-<p> <b>Warning:</b> Do not copy an implicitly shared container (<a href="ntqmap.html">TQMap</a>,
-<a href="ntqvaluevector.html">TQValueVector</a>, etc.) while you are iterating over it.
+<p> <b>Warning:</b> Do not copy an implicitly shared container (<a href="tqmap.html">TQMap</a>,
+<a href="tqvaluevector.html">TQValueVector</a>, etc.) while you are iterating over it.
 <p> <h2> TQCString: implicit or explicit?
 </h2>
-<a name="6"></a><p> <a href="ntqcstring.html">TQCString</a> uses a mixture of implicit and explicit sharing. Functions
-inherited from <a href="qbytearray.html">TQByteArray</a>, such as data(), employ explicit sharing, while
-those only in <a href="ntqcstring.html">TQCString</a> detach automatically. Thus, TQCString is rather an
+<a name="6"></a><p> <a href="tqcstring.html">TQCString</a> uses a mixture of implicit and explicit sharing. Functions
+inherited from <a href="tqbytearray.html">TQByteArray</a>, such as data(), employ explicit sharing, while
+those only in <a href="tqcstring.html">TQCString</a> detach automatically. Thus, TQCString is rather an
 "experts only" class, provided mainly to ease porting from TQt 1.x to TQt 2.0.
-We recommend that you use <a href="ntqstring.html">TQString</a>, a purely implicitly shared class.
+We recommend that you use <a href="tqstring.html">TQString</a>, a purely implicitly shared class.
 <p> 
 <!-- eof -->
 <p><address><hr><div align=center>

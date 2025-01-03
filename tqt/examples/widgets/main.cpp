@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqstylefactory.h>
+#include <tqapplication.h>
+#include <tqstylefactory.h>
 #include "widgets.h"
 
 class MyWidgetView : public WidgetView

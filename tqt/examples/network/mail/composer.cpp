@@ -10,11 +10,11 @@
 #include "composer.h"
 #include "smtp.h"
 
-#include <ntqlineedit.h>
-#include <ntqmultilineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
+#include <tqlineedit.h>
+#include <tqmultilineedit.h>
+#include <tqpushbutton.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
 
 Composer::Composer( TQWidget *parent )
     : TQWidget( parent )

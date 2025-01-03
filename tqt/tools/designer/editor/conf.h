@@ -34,9 +34,9 @@
 #ifndef CONF_H
 #define CONF_H
 
-#include <ntqfont.h>
-#include <ntqcolor.h>
-#include <ntqmap.h>
+#include <tqfont.h>
+#include <tqcolor.h>
+#include <tqmap.h>
 
 struct ConfigStyle
 {

@@ -10,7 +10,7 @@
 #ifndef DCLOCK_H
 #define DCLOCK_H
 
-#include <ntqlcdnumber.h>
+#include <tqlcdnumber.h>
 
 
 class DigitalClock : public TQLCDNumber		// digital clock widget

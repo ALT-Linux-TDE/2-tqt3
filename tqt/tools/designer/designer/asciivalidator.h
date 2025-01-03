@@ -35,7 +35,7 @@
 #define ASCIIVALIDATOR_H
 
 
-#include <ntqvalidator.h>
+#include <tqvalidator.h>
 
 
 class AsciiValidator: public TQValidator

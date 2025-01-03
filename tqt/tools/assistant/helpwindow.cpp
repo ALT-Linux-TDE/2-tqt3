@@ -37,19 +37,19 @@
 #include "helpdialogimpl.h"
 #include "config.h"
 
-#include <ntqapplication.h>
-#include <ntqclipboard.h>
-#include <ntqurl.h>
-#include <ntqmessagebox.h>
-#include <ntqdir.h>
-#include <ntqfile.h>
-#include <ntqprocess.h>
-#include <ntqpopupmenu.h>
-#include <ntqaction.h>
-#include <ntqfileinfo.h>
-#include <ntqevent.h>
-#include <ntqtextstream.h>
-#include <ntqtextcodec.h>
+#include <tqapplication.h>
+#include <tqclipboard.h>
+#include <tqurl.h>
+#include <tqmessagebox.h>
+#include <tqdir.h>
+#include <tqfile.h>
+#include <tqprocess.h>
+#include <tqpopupmenu.h>
+#include <tqaction.h>
+#include <tqfileinfo.h>
+#include <tqevent.h>
+#include <tqtextstream.h>
+#include <tqtextcodec.h>
 
 #if defined(Q_OS_WIN32)
 #include <windows.h>

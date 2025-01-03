@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/object.doc:433 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -33,41 +32,41 @@ body { background: #ffffff; color: black; }
 
 
 
-<p> In TQt, an event is an object that inherits <a href="ntqevent.html">TQEvent</a>. Events are
-delivered to objects that inherit <a href="ntqobject.html">TQObject</a> through calling <a href="ntqobject.html#event">TQObject::event</a>(). Event delivery means that an event has occurred, the
-<a href="ntqevent.html">TQEvent</a> indicates precisely what, and the <a href="ntqobject.html">TQObject</a> needs to respond. Most
-events are specific to <a href="ntqwidget.html">TQWidget</a> and its subclasses, but there are
+<p> In TQt, an event is an object that inherits <a href="tqevent.html">TQEvent</a>. Events are
+delivered to objects that inherit <a href="tqobject.html">TQObject</a> through calling <a href="tqobject.html#event">TQObject::event</a>(). Event delivery means that an event has occurred, the
+<a href="tqevent.html">TQEvent</a> indicates precisely what, and the <a href="tqobject.html">TQObject</a> needs to respond. Most
+events are specific to <a href="tqwidget.html">TQWidget</a> and its subclasses, but there are
 important events that aren't related to graphics, for example, socket
-activation, which is the event used by <a href="ntqsocketnotifier.html">TQSocketNotifier</a> for its
+activation, which is the event used by <a href="tqsocketnotifier.html">TQSocketNotifier</a> for its
 work.
-<p> Some events come from the window system, e.g. <a href="qmouseevent.html">TQMouseEvent</a>, some
-from other sources, e.g. <a href="qtimerevent.html">TQTimerEvent</a>, and some come from the
+<p> Some events come from the window system, e.g. <a href="tqmouseevent.html">TQMouseEvent</a>, some
+from other sources, e.g. <a href="tqtimerevent.html">TQTimerEvent</a>, and some come from the
 application program. TQt is symmetric, as usual, so you can send
 events in exactly the same ways as TQt's own event loop does.
-<p> Most events types have special classes, most commonly <a href="qresizeevent.html">TQResizeEvent</a>,
-<a href="qpaintevent.html">TQPaintEvent</a>, <a href="qmouseevent.html">TQMouseEvent</a>, <a href="qkeyevent.html">TQKeyEvent</a> and <a href="qcloseevent.html">TQCloseEvent</a>.
+<p> Most events types have special classes, most commonly <a href="tqresizeevent.html">TQResizeEvent</a>,
+<a href="tqpaintevent.html">TQPaintEvent</a>, <a href="tqmouseevent.html">TQMouseEvent</a>, <a href="tqkeyevent.html">TQKeyEvent</a> and <a href="tqcloseevent.html">TQCloseEvent</a>.
 There are many others, perhaps forty or so, but most are rather odd.
-<p> Each class subclasses <a href="ntqevent.html">TQEvent</a> and adds event-specific functions; see,
-for example, <a href="qresizeevent.html">TQResizeEvent</a>. In the case of <a href="qresizeevent.html">TQResizeEvent</a>, <a href="qresizeevent.html#size">TQResizeEvent::size</a>() and <a href="qresizeevent.html#oldSize">TQResizeEvent::oldSize</a>() are added.
-<p> Some classes support more than one event type. <a href="qmouseevent.html">TQMouseEvent</a>
+<p> Each class subclasses <a href="tqevent.html">TQEvent</a> and adds event-specific functions; see,
+for example, <a href="tqresizeevent.html">TQResizeEvent</a>. In the case of <a href="tqresizeevent.html">TQResizeEvent</a>, <a href="tqresizeevent.html#size">TQResizeEvent::size</a>() and <a href="tqresizeevent.html#oldSize">TQResizeEvent::oldSize</a>() are added.
+<p> Some classes support more than one event type. <a href="tqmouseevent.html">TQMouseEvent</a>
 supports mouse moves, presses, shift-presses, drags, clicks,
 right-presses, etc.
 <p> Since programs need to react in varied and complex ways, TQt's
 event delivery mechanisms are flexible. The documentation for
-<a href="ntqapplication.html#notify">TQApplication::notify</a>() concisely tells the whole story, here we
+<a href="tqapplication.html#notify">TQApplication::notify</a>() concisely tells the whole story, here we
 will explain enough for 99% of applications.
 <p> The normal way for an event to be delivered is by calling a virtual
-function. For example, <a href="qpaintevent.html">TQPaintEvent</a> is delivered by calling <a href="ntqwidget.html#paintEvent">TQWidget::paintEvent</a>(). This virtual function is responsible for
+function. For example, <a href="tqpaintevent.html">TQPaintEvent</a> is delivered by calling <a href="tqwidget.html#paintEvent">TQWidget::paintEvent</a>(). This virtual function is responsible for
 reacting appropriately, normally by repainting the widget. If you
 do not perform all the necessary work in your implementation of the
 virtual function, you may need to call the base class's
 implementation; for example:
 <pre>
-    MyTable::contentsMouseMoveEvent( <a href="qmouseevent.html">TQMouseEvent</a> *me )
+    MyTable::contentsMouseMoveEvent( <a href="tqmouseevent.html">TQMouseEvent</a> *me )
     {
         // my implementation
 
-        TQTable::<a href="ntqscrollview.html#contentsMouseMoveEvent">contentsMouseMoveEvent</a>( me ); // hand it on
+        TQTable::<a href="tqscrollview.html#contentsMouseMoveEvent">contentsMouseMoveEvent</a>( me ); // hand it on
     }
 </pre>
  
@@ -77,24 +76,24 @@ class's functionality, then you implement what you want and then call
 the base class.
 <p> Occasionally there isn't such an event-specific function, or the
 event-specific function isn't sufficient. The most common example is
-tab key presses. Normally, those are interpreted by <a href="ntqwidget.html">TQWidget</a> to move
+tab key presses. Normally, those are interpreted by <a href="tqwidget.html">TQWidget</a> to move
 the <a href="focus.html#keyboard-focus">keyboard focus</a>, but a few widgets need the tab key for themselves.
-<p> These objects can reimplement <a href="ntqobject.html#event">TQObject::event</a>(), the general event
+<p> These objects can reimplement <a href="tqobject.html#event">TQObject::event</a>(), the general event
 handler, and either do their event handling before or after the usual
 handling, or replace it completely. A very unusual widget that both
 interprets tab and has an application-specific custom event might
 contain:
 <p> <pre>
-  bool MyClass:event( <a href="ntqevent.html">TQEvent</a> *evt ) {
-      if ( evt-&gt;<a href="ntqevent.html#type">type</a>() == TQEvent::KeyPress ) {
-          <a href="qkeyevent.html">TQKeyEvent</a> *ke = (TQKeyEvent *)evt;
-          if ( ke-&gt;<a href="qkeyevent.html#key">key</a>() == Key_Tab ) {
+  bool MyClass:event( <a href="tqevent.html">TQEvent</a> *evt ) {
+      if ( evt-&gt;<a href="tqevent.html#type">type</a>() == TQEvent::KeyPress ) {
+          <a href="tqkeyevent.html">TQKeyEvent</a> *ke = (TQKeyEvent *)evt;
+          if ( ke-&gt;<a href="tqkeyevent.html#key">key</a>() == Key_Tab ) {
               // special tab handling here
-              ke-&gt;<a href="qkeyevent.html#accept">accept</a>();
+              ke-&gt;<a href="tqkeyevent.html#accept">accept</a>();
               return TRUE;
           }
-      } else if ( evt-&gt;<a href="ntqevent.html#type">type</a>() &gt;= TQEvent::User ) {
-          <a href="qcustomevent.html">TQCustomEvent</a> *ce = (TQCustomEvent*) evt;
+      } else if ( evt-&gt;<a href="tqevent.html#type">type</a>() &gt;= TQEvent::User ) {
+          <a href="tqcustomevent.html">TQCustomEvent</a> *ce = (TQCustomEvent*) evt;
           // custom event handling here
           return TRUE;
       }
@@ -103,25 +102,25 @@ contain:
 </pre>
  
 <p> More commonly, an object needs to look at another's events. TQt
-supports this using <a href="ntqobject.html#installEventFilter">TQObject::installEventFilter</a>() (and the
+supports this using <a href="tqobject.html#installEventFilter">TQObject::installEventFilter</a>() (and the
 corresponding remove). For example, dialogs commonly want to filter
 key presses for some widgets, e.g. to modify Return-key handling.
 <p> An event filter gets to process events before the target object does.
-The filter's <a href="ntqobject.html#eventFilter">TQObject::eventFilter</a>() implementation is called, and
+The filter's <a href="tqobject.html#eventFilter">TQObject::eventFilter</a>() implementation is called, and
 can accept or reject the filter, and allow or deny further processing
 of the event. If all the event filters allow further processing of an
 event, the event is sent to the target object itself. If one of them
 stops processing, the target and any later event filters don't get to
 see the event at all.
 <p> It's also possible to filter <em>all</em> events for the entire application,
-by installing an event filter on <a href="ntqapplication.html">TQApplication</a>. This is what <a href="ntqtooltip.html">TQToolTip</a> does in order to see <em>all</em> the mouse and keyboard activity.
+by installing an event filter on <a href="tqapplication.html">TQApplication</a>. This is what <a href="tqtooltip.html">TQToolTip</a> does in order to see <em>all</em> the mouse and keyboard activity.
 This is very powerful, but it also slows down event delivery of every
 single event in the entire application, so it's best avoided.
 <p> The global event filters are called before the object-specific
 filters.
 <p> Finally, many applications want to create and send their own events.
 <p> Creating an event of a built-in type is very simple: create an object
-of the relevant type, and then call <a href="ntqapplication.html#sendEvent">TQApplication::sendEvent</a>() or <a href="ntqapplication.html#postEvent">TQApplication::postEvent</a>().
+of the relevant type, and then call <a href="tqapplication.html#sendEvent">TQApplication::sendEvent</a>() or <a href="tqapplication.html#postEvent">TQApplication::postEvent</a>().
 <p> sendEvent() processes the event immediately - when sendEvent()
 returns, (the event filters and) the object have already processed the
 event. For many event classes there is a function called isAccepted()
@@ -130,15 +129,15 @@ handler that was called.
 <p> postEvent() posts the event on a queue for later dispatch. The next
 time TQt's main event loop runs, it dispatches all posted events, with
 some optimization. For example, if there are several resize events,
-they are are compacted into one. The same applies to paint events: <a href="ntqwidget.html#update">TQWidget::update</a>() calls postEvent(), which minimizes flickering and
+they are are compacted into one. The same applies to paint events: <a href="tqwidget.html#update">TQWidget::update</a>() calls postEvent(), which minimizes flickering and
 increases speed by avoiding multiple repaints.
 <p> postEvent() is also often used during object initialization, since the
 posted event will typically be dispatched very soon after the
 initialization of the object is complete.
 <p> To create events of a custom type, you need to define an event number,
-which must be greater than <a href="ntqevent.html#Type-enum">TQEvent::User</a>, and probably you also need
-to subclass <a href="qcustomevent.html">TQCustomEvent</a> in order to pass characteristics about
-your custom event. See the documentation to <a href="qcustomevent.html">TQCustomEvent</a> for
+which must be greater than <a href="tqevent.html#Type-enum">TQEvent::User</a>, and probably you also need
+to subclass <a href="tqcustomevent.html">TQCustomEvent</a> in order to pass characteristics about
+your custom event. See the documentation to <a href="tqcustomevent.html">TQCustomEvent</a> for
 details.
 <p> 
 <!-- eof -->

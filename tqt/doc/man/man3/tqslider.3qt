@@ -1,5 +1,5 @@
 '\" t
-.TH QSlider 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSlider 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QSlider \- Vertical or horizontal slider
+TQSlider \- Vertical or horizontal slider
 .SH SYNOPSIS
-\fC#include <ntqslider.h>\fR
+\fC#include <tqslider.h>\fR
 .PP
-Inherits TQWidget and QRangeControl.
+Inherits TQWidget and TQRangeControl.
 .PP
 .SS "Public Members"
 .in +1c
@@ -28,7 +28,7 @@ Inherits TQWidget and QRangeControl.
 .BI "\fBQSlider\fR ( int minValue, int maxValue, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QSlider\fR ()"
+.BI "\fB~TQSlider\fR ()"
 .br
 .ti -1c
 .BI "virtual void \fBsetOrientation\fR ( Orientation )"
@@ -43,13 +43,13 @@ Inherits TQWidget and QRangeControl.
 .BI "bool \fBtracking\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetPalette\fR ( const QPalette & p )"
+.BI "virtual void \fBsetPalette\fR ( const TQPalette & p )"
 .br
 .ti -1c
 .BI "int \fBsliderStart\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBsliderRect\fR () const"
+.BI "TQRect \fBsliderRect\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetTickmarks\fR ( TickSetting )"
@@ -164,11 +164,11 @@ Inherits TQWidget and QRangeControl.
 .br
 .in -1c
 .SH DESCRIPTION
-The QSlider widget provides a vertical or horizontal slider.
+The TQSlider widget provides a vertical or horizontal slider.
 .PP
 The slider is the classic widget for controlling a bounded value. It lets the user move a slider along a horizontal or vertical groove and translates the slider's position into an integer value within the legal range.
 .PP
-QSlider inherits QRangeControl, which provides the "integer" side of the slider. setRange() and value() are likely to be used by practically all slider users; see the QRangeControl documentation for information about the many other functions that class provides.
+TQSlider inherits TQRangeControl, which provides the "integer" side of the slider. setRange() and value() are likely to be used by practically all slider users; see the TQRangeControl documentation for information about the many other functions that class provides.
 .PP
 The main functions offered by the slider itself are tickmark and orientation control; you can use setTickmarks() to indicate where you want the tickmarks to be, setTickInterval() to indicate how many of them you want and setOrientation() to indicate whether the slider is to be horizontal or vertical.
 .PP
@@ -181,9 +181,9 @@ A slider accepts focus on Tab and uses the mouse wheel and a suitable keyboard i
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QScrollBar, QSpinBox, GUI Design Handbook: Slider, and Basic Widgets.
+See also TQScrollBar, TQSpinBox, GUI Design Handbook: Slider, and Basic Widgets.
 .SS "Member Type Documentation"
-.SH "QSlider::TickSetting"
+.SH "TQSlider::TickSetting"
 This enum specifies where the tickmarks are to be drawn relative to the slider's groove and the handle the user moves.
 .TP
 \fCQSlider::NoMarks\fR - do not draw any tickmarks.
@@ -198,57 +198,57 @@ This enum specifies where the tickmarks are to be drawn relative to the slider's
 .TP
 \fCQSlider::Right\fR - draw tickmarks to the right of the (vertical) slider
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSlider::QSlider ( TQWidget * parent, const char * name = 0 )"
+.SH "TQSlider::TQSlider ( TQWidget * parent, const char * name = 0 )"
 Constructs a vertical slider.
 .PP
 The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
-.SH "QSlider::QSlider ( Orientation orientation, TQWidget * parent, const char * name = 0 )"
+.SH "TQSlider::TQSlider ( Orientation orientation, TQWidget * parent, const char * name = 0 )"
 Constructs a slider.
 .PP
 The \fIorientation\fR must be TQt::Vertical or TQt::Horizontal.
 .PP
 The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
-.SH "QSlider::QSlider ( int minValue, int maxValue, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
+.SH "TQSlider::TQSlider ( int minValue, int maxValue, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
 Constructs a slider whose value can never be smaller than \fIminValue\fR or greater than \fImaxValue\fR, whose page step size is \fIpageStep\fR and whose value is initially \fIvalue\fR (which is guaranteed to be in range using bound()).
 .PP
 If \fIorientation\fR is TQt::Vertical the slider is vertical and if it is TQt::Horizontal the slider is horizontal.
 .PP
 The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
-.SH "QSlider::~QSlider ()"
+.SH "TQSlider::~TQSlider ()"
 Destructor.
-.SH "void QSlider::addStep ()\fC [slot]\fR"
+.SH "void TQSlider::addStep ()\fC [slot]\fR"
 Moves the slider one pageStep() up or right.
-.SH "int QSlider::lineStep () const"
+.SH "int TQSlider::lineStep () const"
 Returns the current line step. See the "lineStep" property for details.
-.SH "int QSlider::maxValue () const"
+.SH "int TQSlider::maxValue () const"
 Returns the current maximum value of the slider. See the "maxValue" property for details.
-.SH "int QSlider::minValue () const"
+.SH "int TQSlider::minValue () const"
 Returns the current minimum value of the slider. See the "minValue" property for details.
-.SH "Orientation QSlider::orientation () const"
+.SH "Orientation TQSlider::orientation () const"
 Returns the slider's orientation. See the "orientation" property for details.
-.SH "int QSlider::pageStep () const"
+.SH "int TQSlider::pageStep () const"
 Returns the current page step. See the "pageStep" property for details.
-.SH "void QSlider::rangeChange ()\fC [virtual protected]\fR"
-Implements the virtual QRangeControl function.
+.SH "void TQSlider::rangeChange ()\fC [virtual protected]\fR"
+Implements the virtual TQRangeControl function.
 .PP
-Reimplemented from QRangeControl.
-.SH "void QSlider::setLineStep ( int )"
+Reimplemented from TQRangeControl.
+.SH "void TQSlider::setLineStep ( int )"
 Sets the current line step. See the "lineStep" property for details.
-.SH "void QSlider::setMaxValue ( int )"
+.SH "void TQSlider::setMaxValue ( int )"
 Sets the current maximum value of the slider. See the "maxValue" property for details.
-.SH "void QSlider::setMinValue ( int )"
+.SH "void TQSlider::setMinValue ( int )"
 Sets the current minimum value of the slider. See the "minValue" property for details.
-.SH "void QSlider::setOrientation ( Orientation )\fC [virtual]\fR"
+.SH "void TQSlider::setOrientation ( Orientation )\fC [virtual]\fR"
 Sets the slider's orientation. See the "orientation" property for details.
-.SH "void QSlider::setPageStep ( int )"
+.SH "void TQSlider::setPageStep ( int )"
 Sets the current page step. See the "pageStep" property for details.
-.SH "void QSlider::setPalette ( const QPalette & p )\fC [virtual]\fR"
+.SH "void TQSlider::setPalette ( const TQPalette & p )\fC [virtual]\fR"
 Reimplements the virtual function TQWidget::setPalette().
 .PP
 Sets the background color to the mid color for Motif style sliders using palette \fIp\fR.
 .PP
 Reimplemented from TQWidget.
-.SH "void QRangeControl::setRange ( int minValue, int maxValue )"
+.SH "void TQRangeControl::setRange ( int minValue, int maxValue )"
 Sets the range control's minimum value to \fIminValue\fR and its maximum value to \fImaxValue\fR.
 .PP
 Calls the virtual rangeChange() function if one or both of the new minimum and maximum values are different from the previous setting. Calls the virtual valueChange() function if the current value is adjusted because it was outside the new range.
@@ -259,39 +259,39 @@ See also minValue and maxValue.
 .PP
 Examples:
 .)l listbox/listbox.cpp, t12/lcdrange.cpp, t5/main.cpp, t6/main.cpp, t8/lcdrange.cpp, and xform/xform.cpp.
-.SH "void QSlider::setTickInterval ( int )\fC [virtual]\fR"
+.SH "void TQSlider::setTickInterval ( int )\fC [virtual]\fR"
 Sets the interval between tickmarks. See the "tickInterval" property for details.
-.SH "void QSlider::setTickmarks ( TickSetting )\fC [virtual]\fR"
+.SH "void TQSlider::setTickmarks ( TickSetting )\fC [virtual]\fR"
 Sets the tickmark settings for this slider. See the "tickmarks" property for details.
-.SH "void QSlider::setTracking ( bool enable )\fC [virtual]\fR"
+.SH "void TQSlider::setTracking ( bool enable )\fC [virtual]\fR"
 Sets whether slider tracking is enabled to \fIenable\fR. See the "tracking" property for details.
-.SH "void QSlider::setValue ( int )\fC [virtual slot]\fR"
+.SH "void TQSlider::setValue ( int )\fC [virtual slot]\fR"
 Sets the current slider value. See the "value" property for details.
-.SH "void QSlider::sliderMoved ( int value )\fC [signal]\fR"
+.SH "void TQSlider::sliderMoved ( int value )\fC [signal]\fR"
 This signal is emitted when the slider is dragged, with the new slider \fIvalue\fR as its argument.
-.SH "void QSlider::sliderPressed ()\fC [signal]\fR"
+.SH "void TQSlider::sliderPressed ()\fC [signal]\fR"
 This signal is emitted when the user presses the slider with the mouse.
-.SH "QRect QSlider::sliderRect () const"
+.SH "TQRect TQSlider::sliderRect () const"
 Returns the slider handle rectangle. (This is the visual marker that the user can move.)
-.SH "void QSlider::sliderReleased ()\fC [signal]\fR"
+.SH "void TQSlider::sliderReleased ()\fC [signal]\fR"
 This signal is emitted when the user releases the slider with the mouse.
-.SH "int QSlider::sliderStart () const"
+.SH "int TQSlider::sliderStart () const"
 Returns the start position of the slider.
-.SH "void QSlider::subtractStep ()\fC [slot]\fR"
+.SH "void TQSlider::subtractStep ()\fC [slot]\fR"
 Moves the slider one pageStep() down or left.
-.SH "int QSlider::tickInterval () const"
+.SH "int TQSlider::tickInterval () const"
 Returns the interval between tickmarks. See the "tickInterval" property for details.
-.SH "TickSetting QSlider::tickmarks () const"
+.SH "TickSetting TQSlider::tickmarks () const"
 Returns the tickmark settings for this slider. See the "tickmarks" property for details.
-.SH "bool QSlider::tracking () const"
+.SH "bool TQSlider::tracking () const"
 Returns TRUE if slider tracking is enabled; otherwise returns FALSE. See the "tracking" property for details.
-.SH "int QSlider::value () const"
+.SH "int TQSlider::value () const"
 Returns the current slider value. See the "value" property for details.
-.SH "void QSlider::valueChange ()\fC [virtual protected]\fR"
-Implements the virtual QRangeControl function.
+.SH "void TQSlider::valueChange ()\fC [virtual protected]\fR"
+Implements the virtual TQRangeControl function.
 .PP
-Reimplemented from QRangeControl.
-.SH "void QSlider::valueChanged ( int value )\fC [signal]\fR"
+Reimplemented from TQRangeControl.
+.SH "void TQSlider::valueChanged ( int value )\fC [signal]\fR"
 This signal is emitted when the slider value is changed, with the new slider \fIvalue\fR as its argument.
 .PP
 Examples:
@@ -302,13 +302,13 @@ This property holds the current line step.
 .PP
 When setting lineStep, the virtual stepChange() function will be called if the new line step is different from the previous setting.
 .PP
-See also setSteps(), QRangeControl::pageStep(), and setRange().
+See also setSteps(), TQRangeControl::pageStep(), and setRange().
 .PP
 Set this property's value with setLineStep() and get this property's value with lineStep().
 .SH "int maxValue"
 This property holds the current maximum value of the slider.
 .PP
-When setting this property, the QSlider::minValue is adjusted, if necessary, to ensure that the range remains valid.
+When setting this property, the TQSlider::minValue is adjusted, if necessary, to ensure that the range remains valid.
 .PP
 See also setRange().
 .PP
@@ -316,7 +316,7 @@ Set this property's value with setMaxValue() and get this property's value with 
 .SH "int minValue"
 This property holds the current minimum value of the slider.
 .PP
-When setting this property, the QSlider::maxValue is adjusted, if necessary, to ensure that the range remains valid.
+When setting this property, the TQSlider::maxValue is adjusted, if necessary, to ensure that the range remains valid.
 .PP
 See also setRange().
 .PP
@@ -332,7 +332,7 @@ This property holds the current page step.
 .PP
 When setting pageStep, the virtual stepChange() function will be called if the new page step is different from the previous setting.
 .PP
-See also QRangeControl::setSteps(), lineStep, and setRange().
+See also TQRangeControl::setSteps(), lineStep, and setRange().
 .PP
 Set this property's value with setPageStep() and get this property's value with pageStep().
 .SH "int tickInterval"
@@ -340,13 +340,13 @@ This property holds the interval between tickmarks.
 .PP
 This is a value interval, not a pixel interval. If it is 0, the slider will choose between lineStep() and pageStep(). The initial value of tickInterval is 0.
 .PP
-See also QRangeControl::lineStep() and QRangeControl::pageStep().
+See also TQRangeControl::lineStep() and TQRangeControl::pageStep().
 .PP
 Set this property's value with setTickInterval() and get this property's value with tickInterval().
 .SH "TickSetting tickmarks"
 This property holds the tickmark settings for this slider.
 .PP
-The valid values are in QSlider::TickSetting. The default is NoMarks.
+The valid values are in TQSlider::TickSetting. The default is NoMarks.
 .PP
 See also tickInterval.
 .PP
@@ -362,10 +362,10 @@ This property holds the current slider value.
 .PP
 Set this property's value with setValue() and get this property's value with value().
 .PP
-See also QRangeControl::value() and prevValue().
+See also TQRangeControl::value() and prevValue().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqslider.html
+.BR http://doc.trolltech.com/tqslider.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

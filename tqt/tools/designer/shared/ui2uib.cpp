@@ -36,15 +36,15 @@
 
 #include <domtool.h>
 
-#include <ntqcolor.h>
-#include <ntqcursor.h>
-#include <ntqdatetime.h>
-#include <ntqdom.h>
-#include <ntqfile.h>
-#include <ntqfont.h>
-#include <ntqobject.h>
-#include <ntqrect.h>
-#include <ntqsizepolicy.h>
+#include <tqcolor.h>
+#include <tqcursor.h>
+#include <tqdatetime.h>
+#include <tqdom.h>
+#include <tqfile.h>
+#include <tqfont.h>
+#include <tqobject.h>
+#include <tqrect.h>
+#include <tqsizepolicy.h>
 
 /*
     The .uib file format is the binary counterpart of the .ui file
@@ -126,7 +126,7 @@
 	specified.
 
     6.  Some of the information stored in a .ui file is useful only
-	by uic, not to TQLayoutFactory. That information is, for now,
+	by tquic, not to TQLayoutFactory. That information is, for now,
 	not taken along in the .uib file. Likewise, needless
 	TQLayoutWidget objects are not taken along.
 

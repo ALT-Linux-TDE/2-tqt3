@@ -33,12 +33,12 @@
 
 #include <metatranslator.h>
 
-#include <ntqfile.h>
-#include <ntqregexp.h>
-#include <ntqstring.h>
-#include <ntqtextstream.h>
-#include <ntqvaluestack.h>
-#include <ntqxml.h>
+#include <tqfile.h>
+#include <tqregexp.h>
+#include <tqstring.h>
+#include <tqtextstream.h>
+#include <tqvaluestack.h>
+#include <tqxml.h>
 
 #include <ctype.h>
 #include <errno.h>

@@ -31,9 +31,9 @@
 **
 **********************************************************************/
 
-#include <ntqheader.h>
-#include <ntqlineedit.h>
-#include <ntqtimer.h>
+#include <tqheader.h>
+#include <tqlineedit.h>
+#include <tqtimer.h>
 #include "listboxrename.h"
 
 class EditableListBoxItem : public TQListBoxItem

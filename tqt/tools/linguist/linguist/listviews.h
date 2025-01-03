@@ -36,10 +36,10 @@
 
 #include "msgedit.h"
 
-#include <ntqstring.h>
-#include <ntqptrlist.h>
-#include <ntqregexp.h>
-#include <ntqlistview.h>
+#include <tqstring.h>
+#include <tqptrlist.h>
+#include <tqregexp.h>
+#include <tqlistview.h>
 
 class LVI : public TQListViewItem
 {

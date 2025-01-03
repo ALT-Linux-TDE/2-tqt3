@@ -1,9 +1,9 @@
 #ifndef PROPERTYOBJECT_H
 #define PROPERTYOBJECT_H
 
-#include <ntqobject.h>
-#include <ntqwidgetlist.h>
-#include <ntqcursor.h>
+#include <tqobject.h>
+#include <tqwidgetlist.h>
+#include <tqcursor.h>
 
 class PropertyObject : public TQObject
 {

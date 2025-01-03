@@ -63,7 +63,7 @@ Qt adds these features to C++:
   event-driven GUI;
 \i hierarchical and queryable \link objecttrees.html object
   trees \endlink that organize object ownership in a natural way;
-\i guarded pointers, \l QGuardedPtr, that are automatically
+\i guarded pointers, \l TQGuardedPtr, that are automatically
   set to 0 when the referenced object is destroyed, unlike normal C++
   pointers which become "dangling pointers" when their objects are destroyed.
 \endlist
@@ -72,7 +72,7 @@ Many of these TQt features are implemented with standard C++
 techniques, based on inheritance from \l TQObject. Others, like the
 object communication mechanism and the dynamic property system,
 require the \link metaobjects.html Meta Object System \endlink provided
-by Qt's own \link moc.html Meta Object Compiler (moc) \endlink. 
+by TQt's own \link tqmoc.html Meta Object Compiler (tqmoc) \endlink. 
 
 The Meta Object System is a C++ extension that makes the language
 better suited to true component GUI programming. Although templates can
@@ -99,8 +99,8 @@ milliseconds, until you explicitly call \l TQObject::killTimer() with
 the timer id.
 
 For this mechanism to work, the application must run in an event
-loop. You start an event loop with \l QApplication::exec(). When a
-timer fires, the application sends a QTimerEvent, and the flow of
+loop. You start an event loop with \l TQApplication::exec(). When a
+timer fires, the application sends a TQTimerEvent, and the flow of
 control leaves the event loop until the timer event is processed. This
 implies that a timer cannot fire while your application is busy doing
 something else. In other words: the accuracy of timers depends on the
@@ -112,12 +112,12 @@ system. Windows 95/98 has 55 millisecond (18.2 times per second)
 accuracy; other systems that we have tested (UNIX X11 and Windows NT)
 can handle 1 millisecond intervals.
 
-The main API for the timer functionality is \l QTimer. That class
+The main API for the timer functionality is \l TQTimer. That class
 provides regular timers that emit a signal when the timer fires, and
 inherits \l TQObject so that it fits well into the ownership structure
 of most GUI programs. The normal way of using it is like this:
 \code
-    QTimer * counter = new QTimer( this );
+    TQTimer * counter = new TQTimer( this );
     connect( counter, TQ_SIGNAL(timeout()),
 	     this, TQ_SLOT(updateCaption()) );
     counter->start( 1000 );
@@ -128,24 +128,24 @@ this widget is deleted, the timer is deleted too. Next, its timeout
 signal is connected to the slot that will do the work, and finally
 it's started.
 
-QTimer also provides a simple one-shot timer API. \l QButton uses this
+TQTimer also provides a simple one-shot timer API. \l TQButton uses this
 to show the button being pressed down and then (0.1 seconds later) be
 released when the keyboard is used to "press" a button, for example:
 
 \code
-    QTimer::singleShot( 100, this, TQ_SLOT(animateTimeout()) );
+    TQTimer::singleShot( 100, this, TQ_SLOT(animateTimeout()) );
 \endcode
 
 0.1 seconds after this line of code is executed, the same button's
 animateTimeout() slot is called.
 
 Here is an outline of a slightly longer example that combines object
-communication via signals and slots with a QTimer object. It
+communication via signals and slots with a TQTimer object. It
 demonstrates how to use timers to perform intensive calculations in a
 single-threaded application without blocking the user interface.
 
   \code
-    // The Mandelbrot class uses a QTimer to calculate the mandelbrot
+    // The Mandelbrot class uses a TQTimer to calculate the mandelbrot
     // set one scanline at a time without blocking the CPU. It
     // inherits TQObject to use signals and slots. Calling start()
     // starts the calculation. The done() signal is emitted when it
@@ -165,7 +165,7 @@ single-threaded application without blocking the user interface.
     private slots:
 	void calculate();
 	private:
-	QTimer timer;
+	TQTimer timer;
 	...
     };
 
@@ -252,7 +252,7 @@ the context specific font'.
 \i An attribute "designable" that indicates whether it makes sense to
 make the property available in a GUI builder (e.g. \link
 designer-manual.book TQt Designer\endlink). For most properties this 
-makes sense, but not for all, e.g. \l QButton::isDown(). The user can
+makes sense, but not for all, e.g. \l TQButton::isDown(). The user can
 press buttons, and the application programmer can make the program
 press its own buttons, but a GUI design tool can't press buttons.
 
@@ -266,7 +266,7 @@ TQObject without knowing anything about the class in use. These two
 function calls are equivalent:
 
 \code
-    // QButton *b and TQObject *o point to the same button
+    // TQButton *b and TQObject *o point to the same button
     b->setDown( TRUE );
     o->setProperty( "down", TRUE );
 \endcode
@@ -274,14 +274,14 @@ function calls are equivalent:
 Equivalent, that is, except that the first is faster, and provides
 much better diagnostics at compile time. When practical, the first is
 better. However, since you can get a list of all available properties
-for any TQObject through its \l QMetaObject, \l TQObject::setProperty()
+for any TQObject through its \l TQMetaObject, \l TQObject::setProperty()
 can give you control over classes that weren't available at compile
 time.
 
 As well as TQObject::setProperty(), there is a corresponding \l
-TQObject::property() function. \l QMetaObject::propertyNames() returns
-the names of all available properties. \l QMetaObject::property()
-returns the property data for a named property: a \l QMetaProperty
+TQObject::property() function. \l TQMetaObject::propertyNames() returns
+the names of all available properties. \l TQMetaObject::property()
+returns the property data for a named property: a \l TQMetaProperty
 object.
 
 Here's a simple example that shows the most important property
@@ -317,23 +317,23 @@ it. The optional write function must return void and must take exactly
 one argument, either the type itself, a pointer or a const reference
 to it. The meta object compiler enforces this.
 
-The type of a property can be any \l QVariant supported type or an
+The type of a property can be any \l TQVariant supported type or an
 enumeration type declared in the class itself. Since \c MyClass uses
 the enumeration type \c Priority for the property, this type must be
 registered with the property system as well.
 
 There are two exceptions to the above: The type of a property can also
-be either \link QValueList QValueList\<QVariant\>\endlink or \link
-QMap QMap\<TQString,QVariant\>\endlink. In
-these cases the type must be specified as \c QValueList or as \c QMap
+be either \link TQValueList TQValueList\<TQVariant\>\endlink or \link
+TQMap TQMap\<TQString,TQVariant\>\endlink. In
+these cases the type must be specified as \c TQValueList or as \c TQMap
 (i.e. without their template parameters).
 
 It is possible to set a value by name, like this:
 \code
     obj->setProperty( "priority", "VeryHigh" );
 \endcode
-In the case of \c QValueList and \c QMap properties the value passes
-is a QVariant whose value is the entire list or map.
+In the case of \c TQValueList and \c TQMap properties the value passes
+is a TQVariant whose value is the entire list or map.
 
 Enumeration types are registered with the \c TQ_ENUMS macro. Here's the
 final class declaration including the property related declarations:
@@ -379,7 +379,7 @@ you can specify a boolean member function.
 \c STORED declares whether the property's value must be remembered
 when storing an object's state. Stored makes only sense for writable
 properties. The default value is \c TRUE. Technically superfluous
-properties (like QPoint pos if QRect geometry is already a property)
+properties (like TQPoint pos if TQRect geometry is already a property)
 define this to be \c FALSE.
 
 
@@ -392,7 +392,7 @@ meta object, for example:
 \endcode
 
 Like other meta data, class information is accessible at runtime
-through the meta object, see \l QMetaObject::classInfo() for details.
+through the meta object, see \l TQMetaObject::classInfo() for details.
 
 \target override
 \section1 TQ_OVERRIDE
@@ -409,20 +409,20 @@ this:
 But we need to make the auto mask property designable in some TQWidget
 subclasses. Similarly some classes will need this property to be
 scriptable (e.g. for QSA). This is achieved by overriding these
-features of the property in a subclass. In QCheckBox, for example, we
+features of the property in a subclass. In TQCheckBox, for example, we
 achieve this using the following code:
 \code
     TQ_OVERRIDE( bool autoMask DESIGNABLE true SCRIPTABLE true )
 \endcode
 
-Another example is QToolButton. By default QToolButton has a read-only
-"toggleButton" property, because that's what it inherits from QButton:
+Another example is TQToolButton. By default TQToolButton has a read-only
+"toggleButton" property, because that's what it inherits from TQButton:
 \code
     TQ_PROPERTY( bool toggleButton READ isToggleButton )
 \endcode
 
 But we want to make our tool buttons able to be toggled, so we write a
-WRITE function in QToolButton, and use the following property override
+WRITE function in TQToolButton, and use the following property override
 to make it acessible:
 \code
     TQ_OVERRIDE( bool toggleButton WRITE setToggleButton )
@@ -438,50 +438,50 @@ buttons.
 
 \title Events and Event Filters
 
-In Qt, an event is an object that inherits \l QEvent. Events are
+In Qt, an event is an object that inherits \l TQEvent. Events are
 delivered to objects that inherit \l TQObject through calling \l
 TQObject::event(). Event delivery means that an event has occurred, the
-QEvent indicates precisely what, and the TQObject needs to respond. Most
+TQEvent indicates precisely what, and the TQObject needs to respond. Most
 events are specific to \l TQWidget and its subclasses, but there are
 important events that aren't related to graphics, for example, socket
-activation, which is the event used by \l QSocketNotifier for its
+activation, which is the event used by \l TQSocketNotifier for its
 work.
 
-Some events come from the window system, e.g. \l QMouseEvent, some
-from other sources, e.g. \l QTimerEvent, and some come from the
+Some events come from the window system, e.g. \l TQMouseEvent, some
+from other sources, e.g. \l TQTimerEvent, and some come from the
 application program. TQt is symmetric, as usual, so you can send
 events in exactly the same ways as Qt's own event loop does.
 
-Most events types have special classes, most commonly \l QResizeEvent,
-\l QPaintEvent, \l QMouseEvent, \l QKeyEvent and \l QCloseEvent.
+Most events types have special classes, most commonly \l TQResizeEvent,
+\l TQPaintEvent, \l TQMouseEvent, \l TQKeyEvent and \l TQCloseEvent.
 There are many others, perhaps forty or so, but most are rather odd.
 
-Each class subclasses QEvent and adds event-specific functions; see,
-for example, \l QResizeEvent. In the case of QResizeEvent, \l
-QResizeEvent::size() and \l QResizeEvent::oldSize() are added.
+Each class subclasses TQEvent and adds event-specific functions; see,
+for example, \l TQResizeEvent. In the case of TQResizeEvent, \l
+TQResizeEvent::size() and \l TQResizeEvent::oldSize() are added.
 
-Some classes support more than one event type. \l QMouseEvent
+Some classes support more than one event type. \l TQMouseEvent
 supports mouse moves, presses, shift-presses, drags, clicks,
 right-presses, etc.
 
 Since programs need to react in varied and complex ways, Qt's
 event delivery mechanisms are flexible. The documentation for
-\l QApplication::notify() concisely tells the whole story, here we
+\l TQApplication::notify() concisely tells the whole story, here we
 will explain enough for 99% of applications.
 
 The normal way for an event to be delivered is by calling a virtual
-function. For example, \l QPaintEvent is delivered by calling \l
+function. For example, \l TQPaintEvent is delivered by calling \l
 TQWidget::paintEvent(). This virtual function is responsible for
 reacting appropriately, normally by repainting the widget. If you
 do not perform all the necessary work in your implementation of the
 virtual function, you may need to call the base class's
 implementation; for example:
 \code
-    MyTable::contentsMouseMoveEvent( QMouseEvent *me )
+    MyTable::contentsMouseMoveEvent( TQMouseEvent *me )
     {
 	// my implementation
 
-	QTable::contentsMouseMoveEvent( me ); // hand it on
+	TQTable::contentsMouseMoveEvent( me ); // hand it on
     }
 \endcode
 If you want to replace the base class's function then you must
@@ -501,16 +501,16 @@ interprets tab and has an application-specific custom event might
 contain:
 
 \code
-  bool MyClass:event( QEvent *evt ) {
-      if ( evt->type() == QEvent::KeyPress ) {
-	  QKeyEvent *ke = (QKeyEvent *)evt;
+  bool MyClass:event( TQEvent *evt ) {
+      if ( evt->type() == TQEvent::KeyPress ) {
+	  TQKeyEvent *ke = (TQKeyEvent *)evt;
 	  if ( ke->key() == Key_Tab ) {
 	      // special tab handling here
 	      ke->accept();
 	      return TRUE;
 	  }
-      } else if ( evt->type() >= QEvent::User ) {
-	  QCustomEvent *ce = (QCustomEvent*) evt;
+      } else if ( evt->type() >= TQEvent::User ) {
+	  TQCustomEvent *ce = (TQCustomEvent*) evt;
 	  // custom event handling here
 	  return TRUE;
       }
@@ -532,8 +532,8 @@ stops processing, the target and any later event filters don't get to
 see the event at all.
 
 It's also possible to filter \e all events for the entire application,
-by installing an event filter on \l QApplication. This is what \l
-QToolTip does in order to see \e all the mouse and keyboard activity.
+by installing an event filter on \l TQApplication. This is what \l
+TQToolTip does in order to see \e all the mouse and keyboard activity.
 This is very powerful, but it also slows down event delivery of every
 single event in the entire application, so it's best avoided.
 
@@ -543,8 +543,8 @@ filters.
 Finally, many applications want to create and send their own events.
 
 Creating an event of a built-in type is very simple: create an object
-of the relevant type, and then call \l QApplication::sendEvent() or \l
-QApplication::postEvent().
+of the relevant type, and then call \l TQApplication::sendEvent() or \l
+TQApplication::postEvent().
 
 sendEvent() processes the event immediately - when sendEvent()
 returns, (the event filters and) the object have already processed the
@@ -564,9 +564,9 @@ posted event will typically be dispatched very soon after the
 initialization of the object is complete.
 
 To create events of a custom type, you need to define an event number,
-which must be greater than \c QEvent::User, and probably you also need
-to subclass \l QCustomEvent in order to pass characteristics about
-your custom event. See the documentation to \l QCustomEvent for
+which must be greater than \c TQEvent::User, and probably you also need
+to subclass \l TQCustomEvent in order to pass characteristics about
+your custom event. See the documentation to \l TQCustomEvent for
 details.
 
 */
@@ -577,11 +577,11 @@ details.
 
 \title Object Trees and Object Ownership
 
-\link TQObject QObjects\endlink organize themselves in object trees.
+\link TQObject TQObjects\endlink organize themselves in object trees.
 When you create a TQObject with another object as parent, it's added to
 the parent's \link TQObject::children() children() \endlink list, and
 is deleted when the parent is. It turns out that this approach fits
-the needs of GUI objects very well. For example, a \l QAccel (keyboard
+the needs of GUI objects very well. For example, a \l TQAccel (keyboard
 accelerator) is a child of the relevant window, so when the user closes
 that window, the accelerator is deleted too.
 
@@ -599,8 +599,8 @@ box.
 
 You can also delete child objects yourself, and they will remove
 themselves from their parents. For example, when the user removes a
-toolbar it may lead to the application deleting one of its \l QToolBar
-objects, in which case the tool bar's \l QMainWindow parent would
+toolbar it may lead to the application deleting one of its \l TQToolBar
+objects, in which case the tool bar's \l TQMainWindow parent would
 detect the change and reconfigure its screen space accordingly.
 
 The debugging functions \l TQObject::dumpObjectTree() and \l
@@ -646,15 +646,15 @@ beginning, without even having to think about design patterns.
 
 <h3>2. Precompilers are good</h3>
 
-Qt's <tt>moc</tt> (Meta Object Compiler) provides a clean way to go
+TQt's <tt>tqmoc</tt> (Meta Object Compiler) provides a clean way to go
 beyond the compiled language's facilities. It does so by generating
 additional C++ code which can be compiled by any standard C++ compiler.
-The <tt>moc</tt> reads C++ source files. If it finds one or more class
+<tt>TQMoc</tt> reads C++ source files. If it finds one or more class
 declarations that contain the "TQ_OBJECT" macro, it produces another C++
 source file which contains the meta object code for those classes. The
-C++ source file generated by the <tt>moc</tt> must be compiled and
+C++ source file generated by <tt>tqmoc</tt> must be compiled and
 linked with the implementation of the class (or it can be
-<tt>#included</tt> into the class's source file). Typically <tt>moc</tt>
+<tt>#included</tt> into the class's source file). Typically <tt>tqmoc</tt>
 is not called manually, but automatically by the build system, so it
 requires no additional effort by the programmer.
 
@@ -686,7 +686,7 @@ object model is a clear disadvantage over the dynamic messaging approach
 of Objective C when it comes to component-based graphical user interface
 programming. What's good for a high end database server or an operating
 system isn't necessarily the right design choice for a GUI frontend.
-With <tt>moc</tt>, we have turned this disadvantage into an advantage,
+With <tt>tqmoc</tt>, we have turned this disadvantage into an advantage,
 and added the flexibility required to meet the challenge of safe and
 efficient graphical user interface programming.
 
@@ -746,7 +746,7 @@ listener interface rather than signals and slots.
 
 <h3>5. No limits</h3>
 
-Because we had the <tt>moc</tt> for signals and slots, we could add
+Because we had <tt>tqmoc</tt> for signals and slots, we could add
 other useful things to it that could not not be done with templates.
 Among these are scoped translations via a generated <tt>tr()</tt>
 function, and an advanced property system with introspection and
@@ -755,7 +755,7 @@ advantage: a powerful and generic user interface design tool like Qt
 Designer would be a lot harder to write - if not impossible - without a
 powerful and introspective property system.
 
-C++ with the <tt>moc</tt> preprocessor essentially gives us the
+C++ with <tt>tqmoc</tt> preprocessor essentially gives us the
 flexibility of Objective-C or of a Java Runtime Environment, while
 maintaining C++'s unique performance and scalability advantages. It is
 what makes TQt the flexible and comfortable tool we have today.

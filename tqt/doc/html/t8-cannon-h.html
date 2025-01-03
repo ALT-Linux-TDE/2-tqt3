@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:864 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,17 +40,17 @@ body { background: #ffffff; color: black; }
 #ifndef CANNON_H
 #define CANNON_H
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
 
 
-class CannonField : public <a href="ntqwidget.html">TQWidget</a>
+class CannonField : public <a href="tqwidget.html">TQWidget</a>
 {
     TQ_OBJECT
 public:
-    CannonField( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    CannonField( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 
     int angle() const { return ang; }
-    <a href="ntqsizepolicy.html">TQSizePolicy</a> sizePolicy() const;
+    <a href="tqsizepolicy.html">TQSizePolicy</a> sizePolicy() const;
 
 public slots:
     void setAngle( int degrees );
@@ -60,7 +59,7 @@ signals:
     void angleChanged( int );
 
 protected:
-    void paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
+    void paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
 
 private:
     int ang;

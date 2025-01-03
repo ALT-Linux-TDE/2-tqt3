@@ -7,11 +7,11 @@
 #ifndef __AST_VIEW_H__
 #define __AST_VIEW_H__
 
-#include <ntqwidget.h>
-#include <ntqptrlist.h>
-#include <ntqintdict.h>
-#include <ntqtimer.h>
-#include <ntqcanvas.h>
+#include <tqwidget.h>
+#include <tqptrlist.h>
+#include <tqintdict.h>
+#include <tqtimer.h>
+#include <tqcanvas.h>
 #include "sprites.h"
 
 #define MAX_POWER_LEVEL          1000

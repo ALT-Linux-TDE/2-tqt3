@@ -140,7 +140,7 @@ modified servers.
 
 If you have a recent client library and connect to a
 transaction-enabled MySQL server, a call to the
-QSqlDriver::hasFeature( QSqlDriver::Transactions ) function returns
+TQSqlDriver::hasFeature( TQSqlDriver::Transactions ) function returns
 TRUE and SQL transactions can be used.
 
 If the plugin is compiled against MySQL 4.x client libraries,
@@ -203,17 +203,17 @@ that this process may require a lot of memory.
 
 Note that Oracle 9 doesn't support scrollable result sets with LOB
 columns, you have to use a forward only query to select LOB fields
-(see QSqlQuery::setForwardOnly()).
+(see TQSqlQuery::setForwardOnly()).
 
 Inserting BLOBs should be done using either a prepared query where the
-BLOBs are bound to placeholders, or QSqlCursor which uses a prepared
+BLOBs are bound to placeholders, or TQSqlCursor which uses a prepared
 query to do this internally (see $TQTDIR/examples/sql/blob).
 
 \section3 Know problems 
 
-When a query is in forward only mode a call to QSqlQuery::last() will
+When a query is in forward only mode a call to TQSqlQuery::last() will
 position the query on the last record and return TRUE, but subsequent 
-calls to QSqlQuery::value() will only return NULLs.
+calls to TQSqlQuery::value() will only return NULLs.
 
 \section3 How to build the plugin on Unix/Linux
 
@@ -307,7 +307,7 @@ is required to have an ODBC driver manager installed, otherwise the
 QODBC3 plugin will not work.
 
 Be aware that when connecting to an ODBC datasource you must pass in
-the name of the ODBC datasource to the QSqlDatabase::setDatabaseName()
+the name of the ODBC datasource to the TQSqlDatabase::setDatabaseName()
 function: not the actual database name.
 
 The QODBC3 Plugin needs an ODBC compliant driver manager version 2.0 or
@@ -316,7 +316,7 @@ but do not offer all the necessary functionality. The QODBC3 plugin
 therefore checks whether the data source can be used after a
 connection has been established and refuses to work if the check
 fails. If you don't like this behaviour, you can remove the \c{#define
-ODBC_CHECK_DRIVER} line from the file \c{qsql_odbc.cpp}. Do this at
+ODBC_CHECK_DRIVER} line from the file \c{tqsql_odbc.cpp}. Do this at
 your own risk!
 
 If you experience very slow access of the ODBC datasource, make sure
@@ -485,7 +485,7 @@ nmake
 
 By default the Microsoft library is used on Windows, if you want to force
 the use of the Sybase Open Client, you must define
-\c Q_USE_SYBASE in \c{%TQTDIR%\src\sql\drivers\tds\qsql_tds.cpp}.
+\c Q_USE_SYBASE in \c{%TQTDIR%\src\sql\drivers\tds\tqsql_tds.cpp}.
 
 \target QDB2
 \section2 QDB2 - IBM DB2 Driver (v7.1 or higher)
@@ -503,7 +503,7 @@ The QDB2 driver supports prepared queries, reading/writing of Unicode
 strings and reading/writing of BLOBs.
 
 We suggest using a forward-only query when calling stored procedures
-in DB2 (see QSqlQuery::setForwardOnly()).
+in DB2 (see TQSqlQuery::setForwardOnly()).
 
 \section3 How to build the plugin on Unix/Linux
 
@@ -651,8 +651,8 @@ If you are experiencing problems with loading plugins, and see output
 like this
 
 \code
-QSqlDatabase warning: QMYSQL3 driver not loaded
-QSqlDatabase: available drivers: QMYSQL3
+TQSqlDatabase warning: QMYSQL3 driver not loaded
+TQSqlDatabase: available drivers: QMYSQL3
 \endcode
 
 the problem is probably that the plugin had the wrong build key. For
@@ -665,30 +665,30 @@ error message.
 \target development
 \section1 How to write your own database driver
 
-QSqlDatabase is responsible for loading and managing database driver
-plugins. When a database is added (see QSqlDatabase::addDatabase()),
-the appropriate driver plugin is loaded (using QSqlDriverPlugin).
-QSqlDatabase relies on the driver plugin to provide interfaces for
-QSqlDriver and QSqlResult.
+TQSqlDatabase is responsible for loading and managing database driver
+plugins. When a database is added (see TQSqlDatabase::addDatabase()),
+the appropriate driver plugin is loaded (using TQSqlDriverPlugin).
+TQSqlDatabase relies on the driver plugin to provide interfaces for
+TQSqlDriver and TQSqlResult.
 
-QSqlDriver is an abstract base class which defines the functionality
+TQSqlDriver is an abstract base class which defines the functionality
 of a SQL database driver. This includes functions such as
-QSqlDriver::open() and QSqlDriver::close(). QSqlDriver is responsible
+TQSqlDriver::open() and TQSqlDriver::close(). TQSqlDriver is responsible
 for connecting to a database, establish the proper environment, etc.
-In addition, QSqlDriver can create QSqlQuery objects appropriate for
-the particular database API. QSqlDatabase forwards many of its
-function calls directly to QSqlDriver which provides the concrete
+In addition, TQSqlDriver can create TQSqlQuery objects appropriate for
+the particular database API. TQSqlDatabase forwards many of its
+function calls directly to TQSqlDriver which provides the concrete
 implementation.
 
-QSqlResult is an abstract base class which defines the functionality
+TQSqlResult is an abstract base class which defines the functionality
 of a SQL database query. This includes statements such as \c{SELECT},
-\c{UPDATE}, and \c{ALTER TABLE}. QSqlResult contains functions such as
-QSqlResult::next() and QSqlResult::value(). QSqlResult is responsible
+\c{UPDATE}, and \c{ALTER TABLE}. TQSqlResult contains functions such as
+TQSqlResult::next() and TQSqlResult::value(). TQSqlResult is responsible
 for sending queries to the database, returning result data, etc.
-QSqlQuery forwards many of its function calls directly to QSqlResult
+TQSqlQuery forwards many of its function calls directly to TQSqlResult
 which provides the concrete implementation.
 
-QSqlDriver and QSqlResult are closely connected. When implementing a
+TQSqlDriver and TQSqlResult are closely connected. When implementing a
 Qt SQL driver, both of these classes must to be subclassed and the
 abstract virtual methods in each class must be implemented. 
 
@@ -703,27 +703,27 @@ with TQt in \c{TQTDIR/plugins/src/sqldrivers} and
 The following code can be used as a skeleton for a SQL driver:
 
 \code
-class QNullResult : public QSqlResult
+class QNullResult : public TQSqlResult
 {
 public:
-    QNullResult( const QSqlDriver* d ): QSqlResult( d ) {}
+    QNullResult( const TQSqlDriver* d ): TQSqlResult( d ) {}
     ~QNullResult() {}
 protected:
-    QVariant    data( int ) { return QVariant(); }
+    TQVariant    data( int ) { return TQVariant(); }
     bool        reset ( const TQString& ) { return FALSE; }
     bool        fetch( int ) { return FALSE; }
     bool        fetchFirst() { return FALSE; }
     bool        fetchLast() { return FALSE; }
     bool        isNull( int ) { return FALSE; }
-    QSqlRecord  record() { return QSqlRecord(); }
+    TQSqlRecord  record() { return TQSqlRecord(); }
     int         size()  { return 0; }
     int         numRowsAffected() { return 0; }
 };
 
-class QNullDriver : public QSqlDriver
+class QNullDriver : public TQSqlDriver
 {
 public:
-    QNullDriver(): QSqlDriver() {}
+    QNullDriver(): TQSqlDriver() {}
     ~QNullDriver() {}
     bool    hasFeature( DriverFeature ) const { return FALSE; }
     bool    open( const TQString&,
@@ -732,7 +732,7 @@ public:
                   const TQString&,
                   int ) { return FALSE; }
     void    close() {}
-    QSqlQuery createQuery() const { return QSqlQuery( new QNullResult( this ) ); }
+    TQSqlQuery createQuery() const { return TQSqlQuery( new QNullResult( this ) ); }
 };
 \endcode
 

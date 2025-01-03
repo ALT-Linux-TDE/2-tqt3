@@ -1,5 +1,5 @@
-#include <ntqiconview.h>
-#include <ntqstring.h>
+#include <tqiconview.h>
+#include <tqstring.h>
 
 #include "dnd.h"
 

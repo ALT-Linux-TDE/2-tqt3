@@ -7,11 +7,11 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqtable.h>
-#include <ntqimage.h>
-#include <ntqpixmap.h>
-#include <ntqstringlist.h>
+#include <tqapplication.h>
+#include <tqtable.h>
+#include <tqimage.h>
+#include <tqpixmap.h>
+#include <tqstringlist.h>
 
 // TQt logo: static const char *qtlogo_xpm[]
 #include "qtlogo.xpm"

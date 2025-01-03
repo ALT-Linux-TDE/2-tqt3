@@ -31,8 +31,8 @@
 **
 **********************************************************************/
 
-#include <ntqapplication.h>
-#include "../ntqwidgetfactory.h"
+#include <tqapplication.h>
+#include "../tqwidgetfactory.h"
 
 int main( int argc, char ** argv )
 {

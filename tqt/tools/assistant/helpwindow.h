@@ -34,7 +34,7 @@
 #ifndef HELPWINDOW_H
 #define HELPWINDOW_H
 
-#include <ntqtextbrowser.h>
+#include <tqtextbrowser.h>
 
 class MainWindow;
 class TQKeyEvent;

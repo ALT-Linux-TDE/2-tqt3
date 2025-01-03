@@ -11,20 +11,20 @@
 
 #ifndef TQT_NO_STYLE_WINDOWS
 
-#include "ntqapplication.h"
-#include "ntqcombobox.h"
-#include "ntqpainter.h"
-#include "ntqdrawutil.h" // for now
-#include "ntqpixmap.h" // for now
-#include "ntqpalette.h" // for now
-#include "ntqwidget.h"
-#include "ntqlabel.h"
-#include "ntqimage.h"
-#include "ntqpushbutton.h"
-#include "ntqwidget.h"
-#include "ntqrangecontrol.h"
-#include "ntqscrollbar.h"
-#include "ntqslider.h"
+#include "tqapplication.h"
+#include "tqcombobox.h"
+#include "tqpainter.h"
+#include "tqdrawutil.h" // for now
+#include "tqpixmap.h" // for now
+#include "tqpalette.h" // for now
+#include "tqwidget.h"
+#include "tqlabel.h"
+#include "tqimage.h"
+#include "tqpushbutton.h"
+#include "tqwidget.h"
+#include "tqrangecontrol.h"
+#include "tqscrollbar.h"
+#include "tqslider.h"
 #include <limits.h>
 
 

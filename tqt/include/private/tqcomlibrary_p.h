@@ -1,0 +1,1 @@
+../../src/tools/tqcomlibrary_p.h

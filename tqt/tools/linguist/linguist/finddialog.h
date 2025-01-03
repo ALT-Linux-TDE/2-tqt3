@@ -34,7 +34,7 @@
 #ifndef FINDDIALOG_H
 #define FINDDIALOG_H
 
-#include <ntqdialog.h>
+#include <tqdialog.h>
 
 class TQCheckBox;
 class TQLineEdit;

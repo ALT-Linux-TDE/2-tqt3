@@ -38,8 +38,8 @@
 **
 **********************************************************************/
 
-#include <ntqsqldriverplugin.h>
-#include "../../../../src/sql/drivers/odbc/qsql_odbc.h"
+#include <tqsqldriverplugin.h>
+#include "../../../../src/sql/drivers/odbc/tqsql_odbc.h"
 
 class TQODBCDriverPlugin : public TQSqlDriverPlugin
 {

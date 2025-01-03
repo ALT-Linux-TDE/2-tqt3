@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqnetwork.h>
+#include <tqapplication.h>
+#include <tqnetwork.h>
 
 #include "nntp.h"
 #include "view.h"

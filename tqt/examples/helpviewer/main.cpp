@@ -8,8 +8,8 @@
 *****************************************************************************/
 
 #include "helpwindow.h"
-#include <ntqapplication.h>
-#include <ntqdir.h>
+#include <tqapplication.h>
+#include <tqdir.h>
 #include <stdlib.h>
 
 

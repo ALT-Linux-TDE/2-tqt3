@@ -17,7 +17,7 @@
 #ifndef GLOBJWIN_H
 #define GLOBJWIN_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 class GLBox;
 
 class GLObjectWindow : public TQWidget

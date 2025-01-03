@@ -34,7 +34,7 @@
 #ifndef ACTIONLISTVIEW_H
 #define ACTIONLISTVIEW_H
 
-#include <ntqlistview.h>
+#include <tqlistview.h>
 #include "actiondnd.h"
 
 class ActionItem : public TQListViewItem

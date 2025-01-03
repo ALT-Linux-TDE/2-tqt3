@@ -35,8 +35,8 @@
 #include "sourcetemplateinterfaceimpl.h"
 #include <designerinterface.h>
 #include "mainfilesettings.h"
-#include <ntqlineedit.h>
-#include <ntqlistbox.h>
+#include <tqlineedit.h>
+#include <tqlistbox.h>
 
 SourceTemplateInterfaceImpl::SourceTemplateInterfaceImpl()
 {
@@ -68,7 +68,7 @@ TQStringList SourceTemplateInterfaceImpl::featureList() const
 static TQString generateMainCppCode( const TQString &formname, const TQString &include )
 {
     TQString code;
-    code += "#include <ntqapplication.h>\n";
+    code += "#include <tqapplication.h>\n";
     code += "#include \"" + include + "\"\n";
     code += "\n";
     code += "int main( int argc, char ** argv )\n";

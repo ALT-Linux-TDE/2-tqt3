@@ -34,12 +34,12 @@
 #include <metatranslator.h>
 #include <proparser.h>
 
-#include <ntqdir.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqtextstream.h>
+#include <tqdir.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqtextstream.h>
 
 #include <errno.h>
 #include <string.h>

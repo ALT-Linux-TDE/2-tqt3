@@ -31,9 +31,9 @@
 **
 **********************************************************************/
 
-#include <ntqfile.h>
-#include <ntqbuffer.h>
-#include <ntqtextstream.h>
+#include <tqfile.h>
+#include <tqbuffer.h>
+#include <tqtextstream.h>
 
 #include <stdio.h>
 #include <stdlib.h>

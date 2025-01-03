@@ -40,7 +40,7 @@
 #define __MSVC_DSP_H__
 
 #include "winmakefile.h"
-#include <ntqvaluestack.h>
+#include <tqvaluestack.h>
 
 class DspMakefileGenerator : public Win32MakefileGenerator
 {

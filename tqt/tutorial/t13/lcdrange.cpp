@@ -6,10 +6,10 @@
 
 #include "lcdrange.h"
 
-#include <ntqslider.h>
-#include <ntqlcdnumber.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
+#include <tqslider.h>
+#include <tqlcdnumber.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
 
 
 LCDRange::LCDRange( TQWidget *parent, const char *name )

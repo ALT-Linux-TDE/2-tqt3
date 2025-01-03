@@ -32,8 +32,8 @@
 **********************************************************************/
 
 #include "listdnd.h"
-#include <ntqwidget.h>
-#include <ntqpainter.h>
+#include <tqwidget.h>
+#include <tqpainter.h>
 
 ListDnd::ListDnd( TQScrollView * eventSource, const char * name )
     : TQObject( eventSource, name ),

@@ -1,1 +1,0 @@
-../src/sql/ntqsqldriver.h

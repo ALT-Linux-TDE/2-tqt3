@@ -8,31 +8,31 @@
 
 #if defined __cplusplus
 
-#include <private/qucomextra_p.h>
-#include <ntqaction.h>
-#include <ntqapplication.h>
-#include <ntqcheckbox.h>
-#include <ntqcombobox.h>
-#include <ntqdialog.h>
-#include <ntqheader.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqlineedit.h>
-#include <ntqlistbox.h>
-#include <ntqlistview.h>
-#include <ntqmap.h>
-#include <ntqmessagebox.h>
-#include <ntqmetaobject.h>
-#include <ntqobjectlist.h>
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
-#include <ntqpushbutton.h>
-#include <ntqspinbox.h>
-#include <ntqstring.h>
-#include <ntqtooltip.h>
-#include <ntqvariant.h>
-#include <ntqwhatsthis.h>
-#include <ntqwidget.h>
+#include <private/tqucomextra_p.h>
+#include <tqaction.h>
+#include <tqapplication.h>
+#include <tqcheckbox.h>
+#include <tqcombobox.h>
+#include <tqdialog.h>
+#include <tqheader.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqlineedit.h>
+#include <tqlistbox.h>
+#include <tqlistview.h>
+#include <tqmap.h>
+#include <tqmessagebox.h>
+#include <tqmetaobject.h>
+#include <tqobjectlist.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
+#include <tqpushbutton.h>
+#include <tqspinbox.h>
+#include <tqstring.h>
+#include <tqtooltip.h>
+#include <tqvariant.h>
+#include <tqwhatsthis.h>
+#include <tqwidget.h>
 
 #include "command.h"
 #include "formwindow.h"

@@ -34,8 +34,8 @@
 #ifndef LISTBOXRENAME_H
 #define LISTBOXRENAME_H
 
-#include <ntqobject.h>
-#include <ntqlistbox.h>
+#include <tqobject.h>
+#include <tqlistbox.h>
 
 class TQLineEdit;
 

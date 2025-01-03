@@ -10,8 +10,8 @@
 #ifndef SMTP_H
 #define SMTP_H
 
-#include <ntqobject.h>
-#include <ntqstring.h>
+#include <tqobject.h>
+#include <tqstring.h>
 
 class TQSocket;
 class TQTextStream;

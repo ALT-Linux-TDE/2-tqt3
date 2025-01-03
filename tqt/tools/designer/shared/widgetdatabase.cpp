@@ -34,15 +34,15 @@
 #include "widgetdatabase.h"
 #include "../interfaces/widgetinterface.h"
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 #define NO_STATIC_COLORS
 #include <globaldefs.h>
-#include <ntqstrlist.h>
-#include <ntqdict.h>
-#include <ntqfile.h>
-#include <ntqtextstream.h>
-#include <ntqcleanuphandler.h>
-#include <ntqfeatures.h>
+#include <tqstrlist.h>
+#include <tqdict.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
+#include <tqcleanuphandler.h>
+#include <tqfeatures.h>
 
 #include <stdlib.h>
 
@@ -109,7 +109,7 @@ WidgetDatabase::WidgetDatabase()
 void WidgetDatabase::setupDataBase( int id )
 {
     was_in_setup = TRUE;
-#ifndef UIC
+#ifndef TQUIC
     Q_UNUSED( id )
     if ( dbcount )
 	return;
@@ -240,7 +240,7 @@ void WidgetDatabase::setupDataBase( int id )
 
     append( r );
 
-#if !defined(TQT_NO_ICONVIEW) || defined(UIC)
+#if !defined(TQT_NO_ICONVIEW) || defined(TQUIC)
     r = new WidgetDatabaseRecord;
     r->iconSet = "designer_iconview.png";
     r->name = "TQIconView";
@@ -263,7 +263,7 @@ void WidgetDatabase::setupDataBase( int id )
 #if !defined(TQT_NO_SQL)
     r = new WidgetDatabaseRecord;
     r->iconSet = "designer_datatable.png";
-    r->includeFile = "ntqdatatable.h";
+    r->includeFile = "tqdatatable.h";
     r->name = "TQDataTable";
     r->group = widgetGroup( "Database" );
     r->toolTip = "Data Table";
@@ -294,7 +294,7 @@ void WidgetDatabase::setupDataBase( int id )
     r->name = "TQDateEdit";
     r->group = widgetGroup( "Input" );
     r->toolTip = "Date Edit";
-    r->includeFile = "ntqdatetimeedit.h";
+    r->includeFile = "tqdatetimeedit.h";
 
     append( r );
 
@@ -303,7 +303,7 @@ void WidgetDatabase::setupDataBase( int id )
     r->name = "TQTimeEdit";
     r->group = widgetGroup( "Input" );
     r->toolTip = "Time Edit";
-    r->includeFile = "ntqdatetimeedit.h";
+    r->includeFile = "tqdatetimeedit.h";
 
     append( r );
 
@@ -312,7 +312,7 @@ void WidgetDatabase::setupDataBase( int id )
     r->name = "TQDateTimeEdit";
     r->group = widgetGroup( "Input" );
     r->toolTip = "Date-Time Edit";
-    r->includeFile = "ntqdatetimeedit.h";
+    r->includeFile = "tqdatetimeedit.h";
 
     append( r );
 
@@ -406,7 +406,7 @@ void WidgetDatabase::setupDataBase( int id )
     r->name = "Line";
     r->group = widgetGroup( "Display" );
     r->toolTip = "Line";
-    r->includeFile = "ntqframe.h";
+    r->includeFile = "tqframe.h";
     r->whatsThis = "The Line widget provides horizontal and vertical lines.";
 
     append( r );
@@ -483,7 +483,7 @@ void WidgetDatabase::setupDataBase( int id )
     r = new WidgetDatabaseRecord;
     r->name = "TQSplitter";
     r->group = widgetGroup( "Temp" );
-    r->includeFile = "ntqsplitter.h";
+    r->includeFile = "tqsplitter.h";
     r->isContainer = TRUE;
 
     append( r );
@@ -515,7 +515,7 @@ void WidgetDatabase::setupDataBase( int id )
     r = new WidgetDatabaseRecord;
     r->iconSet = "";
     r->name = "TQMainWindow";
-    r->includeFile = "ntqmainwindow.h";
+    r->includeFile = "tqmainwindow.h";
     r->group = widgetGroup( "Temp" );
     r->isContainer = TRUE;
 
@@ -524,7 +524,7 @@ void WidgetDatabase::setupDataBase( int id )
     r = new WidgetDatabaseRecord;
     r->iconSet = "";
     r->name = "TQDesignerAction";
-    r->includeFile = "ntqaction.h";
+    r->includeFile = "tqaction.h";
     r->group = widgetGroup( "Temp" );
     r->isContainer = FALSE;
 
@@ -533,7 +533,7 @@ void WidgetDatabase::setupDataBase( int id )
     r = new WidgetDatabaseRecord;
     r->iconSet = "";
     r->name = "TQDesignerActionGroup";
-    r->includeFile = "ntqaction.h";
+    r->includeFile = "tqaction.h";
     r->group = widgetGroup( "Temp" );
     r->isContainer = FALSE;
 
@@ -542,7 +542,7 @@ void WidgetDatabase::setupDataBase( int id )
     r = new WidgetDatabaseRecord;
     r->iconSet = "";
     r->name = "TQScrollView";
-    r->includeFile = "ntqscrollview.h";
+    r->includeFile = "tqscrollview.h";
     r->group = widgetGroup( "Temp" );
     r->isContainer = TRUE;
 
@@ -552,7 +552,7 @@ void WidgetDatabase::setupDataBase( int id )
     r = new WidgetDatabaseRecord;
     r->iconSet = "";
     r->name = "TQDataBrowser";
-    r->includeFile = "ntqdatabrowser.h";
+    r->includeFile = "tqdatabrowser.h";
     r->group = widgetGroup( "Database" );
     r->toolTip = "Data Browser";
     r->iconSet = "designer_databrowser.png";
@@ -563,7 +563,7 @@ void WidgetDatabase::setupDataBase( int id )
     r = new WidgetDatabaseRecord;
     r->iconSet = "";
     r->name = "TQDataView";
-    r->includeFile = "ntqdataview.h";
+    r->includeFile = "tqdataview.h";
     r->group = widgetGroup( "Database" );
     r->toolTip = "Data View";
     r->iconSet = "designer_dataview.png";
@@ -572,7 +572,7 @@ void WidgetDatabase::setupDataBase( int id )
     append( r );
 #endif
 
-#ifndef UIC
+#ifndef TQUIC
     setupPlugins();
 #endif
 }
@@ -592,7 +592,7 @@ void WidgetDatabase::setupPlugins()
 	if ( !iface )
 	    continue;
 
-#ifndef UIC
+#ifndef TQUIC
 	TQIconSet icon = iface->iconSet( *it );
 	if ( !icon.pixmap().isNull() )
 	    r->icon = new TQIconSet( icon );
@@ -642,7 +642,7 @@ TQIconSet WidgetDatabase::iconSet( int id )
     WidgetDatabaseRecord *r = at( id );
     if ( !r )
 	return TQIconSet();
-#if !defined(UIC) && !defined(RESOURCE)
+#if !defined(TQUIC) && !defined(RESOURCE)
     if ( !r->icon ) {
 	if ( r->iconSet.isEmpty() )
 	    return TQIconSet();
@@ -719,11 +719,11 @@ TQString WidgetDatabase::includeFile( int id )
     WidgetDatabaseRecord *r = at( id );
     if ( !r )
 	return TQString::null;
-    if ( r->includeFile.isNull() ) {
-	TQString rq = r->name;
-	if ( rq[ 0 ] == 'T' && rq[ 1 ] == 'Q')
-	    rq = rq.mid(1);
-	return "nt" + rq.lower() + ".h";
+    // Must use 'isNull()' and not 'isEmpty()' here, otherwise the code
+    // will FTBFS due to the 'TQLayoutWidget' class
+    if ( r->includeFile.isNull() ) 
+    {
+	return r->name.lower() + ".h";
     }
     return r->includeFile;
 }
@@ -792,7 +792,7 @@ int WidgetDatabase::idFromClassName( const TQString &name )
 	return *i;
     if ( name == "FormWindow" )
 	return idFromClassName( "TQLayoutWidget" );
-#ifdef UIC
+#ifdef TQUIC
     setupDataBase( -2 );
     i = className2Id->find( name );
     if ( i )
@@ -932,7 +932,7 @@ void WidgetDatabase::loadWhatsThis( const TQString &docPath )
 
 
 // ### TQt 3.1: make these publically accessible via TQWidgetDatabase API
-#if defined(UIC)
+#if defined(TQUIC)
 bool dbnounload = FALSE;
 TQStringList *dbpaths = 0;
 #else
@@ -944,13 +944,13 @@ TQPluginManager<WidgetInterface> *widgetManager()
 {
     if ( !widgetPluginManager ) {
 	TQString pluginDir = "/designer";
-#if !defined(UIC)
+#if !defined(TQUIC)
 	if ( qwf_plugin_dir )
 	    pluginDir = *qwf_plugin_dir;
 #endif
 	widgetPluginManager = new TQPluginManager<WidgetInterface>( IID_Widget, TQApplication::libraryPaths(), pluginDir );
 	cleanup_manager.add( &widgetPluginManager );
-#if defined(UIC)
+#if defined(TQUIC)
 	if ( dbnounload )
 	    widgetPluginManager->setAutoUnload( FALSE );
 	if ( dbpaths ) {

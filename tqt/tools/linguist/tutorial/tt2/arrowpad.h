@@ -7,7 +7,7 @@
 #ifndef ARROWPAD_H
 #define ARROWPAD_H
 
-#include <ntqgrid.h>
+#include <tqgrid.h>
 
 class ArrowPad : public TQGrid
 {

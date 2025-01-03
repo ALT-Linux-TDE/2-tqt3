@@ -9,25 +9,25 @@
 
 #include "application.h"
 
-#include <ntqimage.h>
-#include <ntqpixmap.h>
-#include <ntqtoolbar.h>
-#include <ntqtoolbutton.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqtextedit.h>
-#include <ntqfile.h>
-#include <ntqfiledialog.h>
-#include <ntqstatusbar.h>
-#include <ntqmessagebox.h>
-#include <ntqprinter.h>
-#include <ntqapplication.h>
-#include <ntqaccel.h>
-#include <ntqtextstream.h>
-#include <ntqpainter.h>
-#include <ntqpaintdevicemetrics.h>
-#include <ntqwhatsthis.h>
-#include <ntqsimplerichtext.h>
+#include <tqimage.h>
+#include <tqpixmap.h>
+#include <tqtoolbar.h>
+#include <tqtoolbutton.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqtextedit.h>
+#include <tqfile.h>
+#include <tqfiledialog.h>
+#include <tqstatusbar.h>
+#include <tqmessagebox.h>
+#include <tqprinter.h>
+#include <tqapplication.h>
+#include <tqaccel.h>
+#include <tqtextstream.h>
+#include <tqpainter.h>
+#include <tqpaintdevicemetrics.h>
+#include <tqwhatsthis.h>
+#include <tqsimplerichtext.h>
 
 #include "filesave.xpm"
 #include "fileopen.xpm"

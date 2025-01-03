@@ -57,7 +57,7 @@
     </message>
 </context>
 <context encoding="UTF-8">
-    <name>QAccel</name>
+    <name>TQAccel</name>
     <message encoding="UTF-8">
         <source>Ctrl</source>
         <translation type="obsolete">Strg</translation>

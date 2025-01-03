@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/plugins-howto.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -46,44 +45,44 @@ by default in the standard plugin directory.
 <th valign="top">Base Class
 <th valign="top">Default Path
 <tr bgcolor="#f0f0f0">
-<td valign="top"><a href="ntqimageformatplugin.html">TQImageFormatPlugin</a>
+<td valign="top"><a href="tqimageformatplugin.html">TQImageFormatPlugin</a>
 <td valign="top"><tt>pluginsbase/imageformats</tt> <sup>*</sup>
 <tr bgcolor="#d0d0d0">
-<td valign="top"><a href="ntqsqldriverplugin.html">TQSqlDriverPlugin</a>
+<td valign="top"><a href="tqsqldriverplugin.html">TQSqlDriverPlugin</a>
 <td valign="top"><tt>pluginsbase/sqldrivers</tt> <sup>*</sup>
 <tr bgcolor="#f0f0f0">
-<td valign="top"><a href="ntqstyleplugin.html">TQStylePlugin</a>
+<td valign="top"><a href="tqstyleplugin.html">TQStylePlugin</a>
 <td valign="top"><tt>pluginsbase/styles</tt> <sup>*</sup>
 <tr bgcolor="#d0d0d0">
-<td valign="top"><a href="ntqtextcodecplugin.html">TQTextCodecPlugin</a>
+<td valign="top"><a href="tqtextcodecplugin.html">TQTextCodecPlugin</a>
 <td valign="top"><tt>pluginsbase/codecs</tt> <sup>*</sup>
 <tr bgcolor="#f0f0f0">
-<td valign="top"><a href="ntqwidgetplugin.html">TQWidgetPlugin</a>
+<td valign="top"><a href="tqwidgetplugin.html">TQWidgetPlugin</a>
 <td valign="top"><tt>pluginsbase/designer</tt> <sup>*</sup>
 </table></center>
 <p> But where is the <tt>pluginsbase</tt> directory? When the application is
 run, TQt will first treat the application's executable directory as the
-<tt>pluginsbase</tt>. For example if the application is in <tt>C:&#92;Program Files&#92;MyApp</tt> and has a style plugin, TQt will look in <tt>C:&#92;Program Files&#92;MyApp&#92;styles</tt>. (See <a href="ntqapplication.html#applicationDirPath">TQApplication::applicationDirPath</a>() for
+<tt>pluginsbase</tt>. For example if the application is in <tt>C:&#92;Program Files&#92;MyApp</tt> and has a style plugin, TQt will look in <tt>C:&#92;Program Files&#92;MyApp&#92;styles</tt>. (See <a href="tqapplication.html#applicationDirPath">TQApplication::applicationDirPath</a>() for
 how to find out where the application's executable is.) TQt will also
 look in the directory given by <tt>tqInstallPathPlugins()</tt>. If you want
 TQt to look in additional places you can add as many paths as you need
-with calls to <a href="ntqapplication.html#addLibraryPath">TQApplication::addLibraryPath</a>(). And if you want to
+with calls to <a href="tqapplication.html#addLibraryPath">TQApplication::addLibraryPath</a>(). And if you want to
 set your own path or paths you can use
-<a href="ntqapplication.html#setLibraryPaths">TQApplication::setLibraryPaths</a>().
+<a href="tqapplication.html#setLibraryPaths">TQApplication::setLibraryPaths</a>().
 <p> Suppose that you have a new style class called 'MyStyle' that you want
 to make available as a plugin. The required code is straightforward:
 <pre>
-    class MyStylePlugin : public <a href="ntqstyleplugin.html">TQStylePlugin</a>
+    class MyStylePlugin : public <a href="tqstyleplugin.html">TQStylePlugin</a>
     {
     public:
         MyStylePlugin() {}
         ~MyStylePlugin() {}
 
-        <a href="ntqstringlist.html">TQStringList</a> keys() const { 
+        <a href="tqstringlist.html">TQStringList</a> keys() const { 
             return TQStringList() &lt;&lt; "mystyle"; 
         }
 
-        <a href="ntqstyle.html">TQStyle</a>* create( const <a href="ntqstring.html">TQString</a>&amp; key ) { 
+        <a href="tqstyle.html">TQStyle</a>* create( const <a href="tqstring.html">TQString</a>&amp; key ) { 
             if ( key == "mystyle" ) 
                 return new MyStyle;
             return 0;
@@ -93,8 +92,8 @@ to make available as a plugin. The required code is straightforward:
     TQ_EXPORT_PLUGIN( MyStylePlugin )
 </pre>
  
-<p> (Note that <a href="ntqstylefactory.html">TQStyleFactory</a> is case-insensitive, and the lower case
-version of the key is used; other factories, e.g. <a href="ntqwidgetfactory.html">TQWidgetFactory</a>, are
+<p> (Note that <a href="tqstylefactory.html">TQStyleFactory</a> is case-insensitive, and the lower case
+version of the key is used; other factories, e.g. <a href="tqwidgetfactory.html">TQWidgetFactory</a>, are
 case sensitive.)
 <p> The constructor and destructor do not need to do anything, so are left
 empty. There are only two virtual functions that must be implemented.
@@ -102,7 +101,7 @@ The first is keys() which returns a string list of the classes
 implemented in the plugin. (We've just implemented one class in the
 example above.) The second is a function that returns an object of the
 required class (or 0 if the plugin is asked to create an object of a
-class that it doesn't implement). For <a href="ntqstyleplugin.html">TQStylePlugin</a>, this second
+class that it doesn't implement). For <a href="tqstyleplugin.html">TQStylePlugin</a>, this second
 function is called create(). 
 <p> It is possible to implement any number of plugin subclasses in a
 single plugin, providing they are all derived from the same base
@@ -112,15 +111,15 @@ no explicit object creation is required. TQt will find and create them
 as required. Styles are an exception, since you might want to set a
 style explicitly in code. To apply a style, use code like this:
 <pre>
-    TQApplication::<a href="ntqapplication.html#setStyle">setStyle</a>( TQStyleFactory::<a href="ntqstylefactory.html#create">create</a>( "MyStyle" ) );
+    TQApplication::<a href="tqapplication.html#setStyle">setStyle</a>( TQStyleFactory::<a href="tqstylefactory.html#create">create</a>( "MyStyle" ) );
 </pre>
  
 <p> Some plugin classes require additional functions to be implemented.
 See the <a href="designer-manual.html">TQt Designer manual's</a>,
 'Creating Custom Widgets' section in the 'Creating Custom Widgets'
-chapter, for a complete example of a <a href="ntqwidgetplugin.html">TQWidgetPlugin</a>, which implements
+chapter, for a complete example of a <a href="tqwidgetplugin.html">TQWidgetPlugin</a>, which implements
 extra functions to integrate the plugin into <em>TQt Designer</em>. The
-<a href="ntqwidgetfactory.html">TQWidgetFactory</a> class provides additional information on
+<a href="tqwidgetfactory.html">TQWidgetFactory</a> class provides additional information on
 TQWidgetPlugins.
 <p> See the class documentation for details of the virtual functions that
 must be reimplemented for each type of plugin.
@@ -132,8 +131,8 @@ plugins, since TQt handles them automatically.
 with each type of plugin in a subdirectory for that type, e.g. <tt>styles</tt>. If you want your applications to use plugins and you don't
 want to use the standard plugins path, have your installation process
 determine the path you want to use for the plugins, and save the path,
-e.g. using <a href="ntqsettings.html">TQSettings</a>, for the application to read when it runs. The
-application can then call <a href="ntqapplication.html#addLibraryPath">TQApplication::addLibraryPath</a>() with this
+e.g. using <a href="tqsettings.html">TQSettings</a>, for the application to read when it runs. The
+application can then call <a href="tqapplication.html#addLibraryPath">TQApplication::addLibraryPath</a>() with this
 path and your plugins will be available to the application. Note that
 the final part of the path, i.e. <tt>styles</tt>, <tt>widgets</tt>, etc., cannot
 be changed.

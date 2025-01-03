@@ -33,9 +33,9 @@
 **********************************************************************/
 
 #include "kdevdlg2ui.h"
-#include <ntqdir.h>
-#include <ntqstring.h>
-#include <ntqptrstack.h>
+#include <tqdir.h>
+#include <tqstring.h>
+#include <tqptrstack.h>
 
 /// some little helpers ///
 

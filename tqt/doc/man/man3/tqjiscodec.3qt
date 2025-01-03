@@ -1,5 +1,5 @@
 '\" t
-.TH QJisCodec 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQJisCodec 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,13 +7,13 @@
 .ad l
 .nh
 .SH NAME
-QJisCodec \- Conversion to and from JIS character sets
+TQJisCodec \- Conversion to and from JIS character sets
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqjiscodec.h>\fR
+\fC#include <tqjiscodec.h>\fR
 .PP
-Inherits QTextCodec.
+Inherits TQTextCodec.
 .PP
 .SS "Public Members"
 .in +1c
@@ -22,11 +22,11 @@ Inherits QTextCodec.
 .br
 .in -1c
 .SH DESCRIPTION
-The QJisCodec class provides conversion to and from JIS character sets.
+The TQJisCodec class provides conversion to and from JIS character sets.
 .PP
-More precisely, the QJisCodec class subclasses QTextCodec to provide support for JIS X 0201 Latin, JIS X 0201 Kana, JIS X 0208 and JIS X 0212.
+More precisely, the TQJisCodec class subclasses TQTextCodec to provide support for JIS X 0201 Latin, JIS X 0201 Kana, JIS X 0208 and JIS X 0212.
 .PP
-The environment variable UNICODEMAP_JP can be used to fine-tune QJisCodec, QSjisCodec and QEucJpCodec. The mapping names are as for the Japanese XML working group's XML Japanese Profile, because it names and explains all the widely used mappings. Here are brief descriptions, written by Serika Kurusugawa:
+The environment variable UNICODEMAP_JP can be used to fine-tune TQJisCodec, TQSjisCodec and TQEucJpCodec. The mapping names are as for the Japanese XML working group's XML Japanese Profile, because it names and explains all the widely used mappings. Here are brief descriptions, written by Serika Kurusugawa:
 .IP
 .TP
 "unicode-0.9" or "unicode-0201" for Unicode style. This assumes JISX0201 for 0x00-0x7f. (0.9 is a table version of jisx02xx mapping used for Uniocde spec version 1.1.)
@@ -65,13 +65,13 @@ THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS "AS IS". ANY EXPRESS OR
 .PP
 See also Internationalization with Qt.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "const char * QJisCodec::mimeName () const\fC [virtual]\fR"
+.SH "const char * TQJisCodec::mimeName () const\fC [virtual]\fR"
 Returns the codec's mime name.
 .PP
-Reimplemented from QTextCodec.
+Reimplemented from TQTextCodec.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqjiscodec.html
+.BR http://doc.trolltech.com/tqjiscodec.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

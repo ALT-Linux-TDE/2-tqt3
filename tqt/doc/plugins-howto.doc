@@ -61,19 +61,19 @@ by default in the standard plugin directory.
 \i Base Class
 \i Default Path
 \row
-\i \l QImageFormatPlugin
+\i \l TQImageFormatPlugin
 \i \c{pluginsbase/imageformats} <sup>*</sup>
 \row
-\i \l QSqlDriverPlugin
+\i \l TQSqlDriverPlugin
 \i \c{pluginsbase/sqldrivers} <sup>*</sup>
 \row
-\i \l QStylePlugin
+\i \l TQStylePlugin
 \i \c{pluginsbase/styles} <sup>*</sup>
 \row
-\i \l QTextCodecPlugin
+\i \l TQTextCodecPlugin
 \i \c{pluginsbase/codecs} <sup>*</sup>
 \row
-\i \l QWidgetPlugin
+\i \l TQWidgetPlugin
 \i \c{pluginsbase/designer} <sup>*</sup>
 \endtable
 
@@ -81,28 +81,28 @@ But where is the \c{pluginsbase} directory? When the application is
 run, TQt will first treat the application's executable directory as the
 \c{pluginsbase}. For example if the application is in \c{C:\Program
 Files\MyApp} and has a style plugin, TQt will look in \c{C:\Program
-Files\MyApp\styles}. (See \l{QApplication::applicationDirPath()} for
+Files\MyApp\styles}. (See \l{TQApplication::applicationDirPath()} for
 how to find out where the application's executable is.) TQt will also
 look in the directory given by \c{tqInstallPathPlugins()}. If you want
 Qt to look in additional places you can add as many paths as you need
-with calls to \c{QApplication::addLibraryPath()}. And if you want to
+with calls to \c{TQApplication::addLibraryPath()}. And if you want to
 set your own path or paths you can use
-\c{QApplication::setLibraryPaths()}.
+\c{TQApplication::setLibraryPaths()}.
 
 Suppose that you have a new style class called 'MyStyle' that you want
 to make available as a plugin. The required code is straightforward:
 \code
-    class MyStylePlugin : public QStylePlugin
+    class MyStylePlugin : public TQStylePlugin
     {
     public:
 	MyStylePlugin() {}
 	~MyStylePlugin() {}
 
-	QStringList keys() const { 
-	    return QStringList() << "mystyle"; 
+	TQStringList keys() const { 
+	    return TQStringList() << "mystyle"; 
 	}
 
-	QStyle* create( const TQString& key ) { 
+	TQStyle* create( const TQString& key ) { 
 	    if ( key == "mystyle" ) 
 		return new MyStyle;
 	    return 0;
@@ -112,8 +112,8 @@ to make available as a plugin. The required code is straightforward:
     TQ_EXPORT_PLUGIN( MyStylePlugin )
 \endcode
 
-(Note that QStyleFactory is case-insensitive, and the lower case
-version of the key is used; other factories, e.g. QWidgetFactory, are
+(Note that TQStyleFactory is case-insensitive, and the lower case
+version of the key is used; other factories, e.g. TQWidgetFactory, are
 case sensitive.)
 
 The constructor and destructor do not need to do anything, so are left
@@ -122,28 +122,28 @@ The first is keys() which returns a string list of the classes
 implemented in the plugin. (We've just implemented one class in the
 example above.) The second is a function that returns an object of the
 required class (or 0 if the plugin is asked to create an object of a
-class that it doesn't implement). For QStylePlugin, this second
+class that it doesn't implement). For TQStylePlugin, this second
 function is called create(). 
 
 It is possible to implement any number of plugin subclasses in a
 single plugin, providing they are all derived from the same base
-class, e.g. QStylePlugin.
+class, e.g. TQStylePlugin.
 
 For database drivers, image formats, custom widgets and text codecs,
 no explicit object creation is required. TQt will find and create them
 as required. Styles are an exception, since you might want to set a
 style explicitly in code. To apply a style, use code like this:
 \code
-    QApplication::setStyle( QStyleFactory::create( "MyStyle" ) );
+    TQApplication::setStyle( TQStyleFactory::create( "MyStyle" ) );
 \endcode
 
 Some plugin classes require additional functions to be implemented.
 See the \link designer-manual.book TQt Designer manual's\endlink,
 'Creating Custom Widgets' section in the 'Creating Custom Widgets'
-chapter, for a complete example of a QWidgetPlugin, which implements
+chapter, for a complete example of a TQWidgetPlugin, which implements
 extra functions to integrate the plugin into \e{Qt Designer}. The
-\l QWidgetFactory class provides additional information on
-QWidgetPlugins.
+\l TQWidgetFactory class provides additional information on
+TQWidgetPlugins.
 
 See the class documentation for details of the virtual functions that
 must be reimplemented for each type of plugin.
@@ -158,8 +158,8 @@ with each type of plugin in a subdirectory for that type, e.g. \c
 styles. If you want your applications to use plugins and you don't
 want to use the standard plugins path, have your installation process
 determine the path you want to use for the plugins, and save the path,
-e.g. using QSettings, for the application to read when it runs. The
-application can then call QApplication::addLibraryPath() with this
+e.g. using TQSettings, for the application to read when it runs. The
+application can then call TQApplication::addLibraryPath() with this
 path and your plugins will be available to the application. Note that
 the final part of the path, i.e. \c styles, \c widgets, etc., cannot
 be changed.
@@ -172,7 +172,7 @@ is to create a subdirectory under the application, e.g. \c
 appdir/plugins/designer, and place the plugin in that directory.
 
 For \link designer-manual.book TQt Designer\endlink, you may need to
-call QApplication::addLibraryPath("TQTDIR/plugins/designer") to load
+call TQApplication::addLibraryPath("TQTDIR/plugins/designer") to load
 your \link designer-manual.book TQt Designer\endlink plugins.
 
 <sup>*</sup><small> All references to \c{TQTDIR} refer to the path

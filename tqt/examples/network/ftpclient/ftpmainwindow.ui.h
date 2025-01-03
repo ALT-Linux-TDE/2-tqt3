@@ -9,7 +9,7 @@
 
 /****************************************************************************
 **
-** ui.h extension file, included from the uic-generated form implementation.
+** ui.h extension file, included from the tquic-generated form implementation.
 **
 ** The init() function is used in place of a constructor.
 ** The destroy() function is used in place of a destructor.
@@ -18,14 +18,14 @@
 **
 *****************************************************************************/
 
-#include <ntqftp.h>
-#include <ntqlineedit.h>
-#include <ntqspinbox.h>
-#include <ntqstatusbar.h>
-#include <ntqmessagebox.h>
-#include <ntqfiledialog.h>
-#include <ntqprogressdialog.h>
-#include <ntqapplication.h>
+#include <tqftp.h>
+#include <tqlineedit.h>
+#include <tqspinbox.h>
+#include <tqstatusbar.h>
+#include <tqmessagebox.h>
+#include <tqfiledialog.h>
+#include <tqprogressdialog.h>
+#include <tqapplication.h>
 
 #include "connectdialog.h"
 #include "ftpviewitem.h"

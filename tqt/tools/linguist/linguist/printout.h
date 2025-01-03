@@ -34,12 +34,12 @@
 #ifndef PRINTOUT_H
 #define PRINTOUT_H
 
-#include <ntqfont.h>
-#include <ntqpaintdevicemetrics.h>
-#include <ntqpainter.h>
-#include <ntqrect.h>
-#include <ntqvaluelist.h>
-#include <ntqdatetime.h>
+#include <tqfont.h>
+#include <tqpaintdevicemetrics.h>
+#include <tqpainter.h>
+#include <tqrect.h>
+#include <tqvaluelist.h>
+#include <tqdatetime.h>
 
 class TQPrinter;
 class TQFontMetrics;

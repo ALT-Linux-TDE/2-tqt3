@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/sql.doc:63 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -43,24 +42,24 @@ body { background: #ffffff; color: black; }
 *****************************************************************************/
 
 #include "main.h"
-#include &lt;<a href="qdatatable-h.html">ntqdatatable.h</a>&gt;
+#include &lt;<a href="tqdatatable-h.html">tqdatatable.h</a>&gt;
 
 <a name="f23"></a>InvoiceItemCursor::InvoiceItemCursor() :
-    <a href="ntqsqlcursor.html">TQSqlCursor</a>( "invoiceitem" )
+    <a href="tqsqlcursor.html">TQSqlCursor</a>( "invoiceitem" )
 {
-    <a href="qsqlfieldinfo.html">TQSqlFieldInfo</a> productName( "productname", TQVariant::String );
-    <a href="ntqsqlcursor.html#append">append</a>( productName );
-    <a href="ntqsqlcursor.html#setCalculated">setCalculated</a>( productName.<a href="qsqlfieldinfo.html#name">name</a>(), TRUE );
+    <a href="tqsqlfieldinfo.html">TQSqlFieldInfo</a> productName( "productname", TQVariant::String );
+    <a href="tqsqlcursor.html#append">append</a>( productName );
+    <a href="tqsqlcursor.html#setCalculated">setCalculated</a>( productName.<a href="tqsqlfieldinfo.html#name">name</a>(), TRUE );
 }
 
 
-TQVariant InvoiceItemCursor::<a href="ntqsqlcursor.html#calculateField">calculateField</a>( const <a href="ntqstring.html">TQString</a> &amp; name )
+TQVariant InvoiceItemCursor::<a href="tqsqlcursor.html#calculateField">calculateField</a>( const <a href="tqstring.html">TQString</a> &amp; name )
 {
     if ( name == "productname" ) {
-        <a href="ntqsqlquery.html">TQSqlQuery</a> query( "SELECT name FROM prices WHERE id=" +
-                     <a href="ntqsqlrecord.html#field">field</a>( "pricesid" )-&gt;value().toString() );
-        if ( query.<a href="ntqsqlquery.html#next">next</a>() )
-            return query.<a href="ntqsqlquery.html#value">value</a>( 0 );
+        <a href="tqsqlquery.html">TQSqlQuery</a> query( "SELECT name FROM prices WHERE id=" +
+                     <a href="tqsqlrecord.html#field">field</a>( "pricesid" )-&gt;value().toString() );
+        if ( query.<a href="tqsqlquery.html#next">next</a>() )
+            return query.<a href="tqsqlquery.html#value">value</a>( 0 );
     }
 
     return TQVariant( TQString::null );
@@ -69,23 +68,23 @@ TQVariant InvoiceItemCursor::<a href="ntqsqlcursor.html#calculateField">calculat
 
 int main( int argc, char *argv[] )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv );
 
     if ( createConnections() ) {
         InvoiceItemCursor invoiceItemCursor;
 
-        <a href="ntqdatatable.html">TQDataTable</a> *invoiceItemTable = new <a href="ntqdatatable.html">TQDataTable</a>( &amp;invoiceItemCursor );
+        <a href="tqdatatable.html">TQDataTable</a> *invoiceItemTable = new <a href="tqdatatable.html">TQDataTable</a>( &amp;invoiceItemCursor );
 
-        app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( invoiceItemTable );
+        app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( invoiceItemTable );
 
-        invoiceItemTable-&gt;<a href="ntqdatatable.html#addColumn">addColumn</a>( "productname", "Product" );
-        invoiceItemTable-&gt;<a href="ntqdatatable.html#addColumn">addColumn</a>( "quantity",    "Quantity" );
-        invoiceItemTable-&gt;<a href="ntqdatatable.html#addColumn">addColumn</a>( "paiddate",    "Paid" );
+        invoiceItemTable-&gt;<a href="tqdatatable.html#addColumn">addColumn</a>( "productname", "Product" );
+        invoiceItemTable-&gt;<a href="tqdatatable.html#addColumn">addColumn</a>( "quantity",    "Quantity" );
+        invoiceItemTable-&gt;<a href="tqdatatable.html#addColumn">addColumn</a>( "paiddate",    "Paid" );
 
-        invoiceItemTable-&gt;<a href="ntqdatatable.html#refresh">refresh</a>();
-        invoiceItemTable-&gt;<a href="ntqwidget.html#show">show</a>();
+        invoiceItemTable-&gt;<a href="tqdatatable.html#refresh">refresh</a>();
+        invoiceItemTable-&gt;<a href="tqwidget.html#show">show</a>();
 
-        return app.<a href="ntqapplication.html#exec">exec</a>();
+        return app.<a href="tqapplication.html#exec">exec</a>();
     }
 
     return 1;

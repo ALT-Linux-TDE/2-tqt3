@@ -1,5 +1,5 @@
 '\" t
-.TH QSqlFieldInfo 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSqlFieldInfo 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,38 +7,38 @@
 .ad l
 .nh
 .SH NAME
-QSqlFieldInfo \- Stores meta data associated with a SQL field
+TQSqlFieldInfo \- Stores meta data associated with a SQL field
 .SH SYNOPSIS
-\fC#include <ntqsqlfield.h>\fR
+\fC#include <tqsqlfield.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlFieldInfo\fR ( const TQString & name = TQString::null, QVariant::Type typ = QVariant::Invalid, int required = -1, int len = -1, int prec = -1, const QVariant & defValue = QVariant ( ), int typeID = 0, bool generated = TRUE, bool trim = FALSE, bool calculated = FALSE )"
+.BI "\fBTQSqlFieldInfo\fR ( const TQString & name = TQString::null, TQVariant::Type typ = TQVariant::Invalid, int required = -1, int len = -1, int prec = -1, const TQVariant & defValue = TQVariant ( ), int typeID = 0, bool generated = TRUE, bool trim = FALSE, bool calculated = FALSE )"
 .br
 .ti -1c
-.BI "\fBQSqlFieldInfo\fR ( const QSqlFieldInfo & other )"
+.BI "\fBTQSqlFieldInfo\fR ( const TQSqlFieldInfo & other )"
 .br
 .ti -1c
-.BI "\fBQSqlFieldInfo\fR ( const QSqlField & other, bool generated = TRUE )"
+.BI "\fBTQSqlFieldInfo\fR ( const TQSqlField & other, bool generated = TRUE )"
 .br
 .ti -1c
-.BI "virtual \fB~QSqlFieldInfo\fR ()"
+.BI "virtual \fB~TQSqlFieldInfo\fR ()"
 .br
 .ti -1c
-.BI "QSqlFieldInfo & \fBoperator=\fR ( const QSqlFieldInfo & other )"
+.BI "TQSqlFieldInfo & \fBoperator=\fR ( const TQSqlFieldInfo & other )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QSqlFieldInfo & f ) const"
+.BI "bool \fBoperator==\fR ( const TQSqlFieldInfo & f ) const"
 .br
 .ti -1c
-.BI "QSqlField \fBtoField\fR () const"
+.BI "TQSqlField \fBtoField\fR () const"
 .br
 .ti -1c
 .BI "int \fBisRequired\fR () const"
 .br
 .ti -1c
-.BI "QVariant::Type \fBtype\fR () const"
+.BI "TQVariant::Type \fBtype\fR () const"
 .br
 .ti -1c
 .BI "int \fBlength\fR () const"
@@ -47,7 +47,7 @@ QSqlFieldInfo \- Stores meta data associated with a SQL field
 .BI "int \fBprecision\fR () const"
 .br
 .ti -1c
-.BI "QVariant \fBdefaultValue\fR () const"
+.BI "TQVariant \fBdefaultValue\fR () const"
 .br
 .ti -1c
 .BI "TQString \fBname\fR () const"
@@ -75,82 +75,82 @@ QSqlFieldInfo \- Stores meta data associated with a SQL field
 .br
 .in -1c
 .SH DESCRIPTION
-The QSqlFieldInfo class stores meta data associated with a SQL field.
+The TQSqlFieldInfo class stores meta data associated with a SQL field.
 .PP
-QSqlFieldInfo objects only store meta data; field values are stored in QSqlField objects.
+TQSqlFieldInfo objects only store meta data; field values are stored in TQSqlField objects.
 .PP
 All values must be set in the constructor, and may be retrieved using isRequired(), type(), length(), precision(), defaultValue(), name(), isGenerated() and typeID().
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlFieldInfo::QSqlFieldInfo ( const TQString & name = TQString::null, QVariant::Type typ = QVariant::Invalid, int required = -1, int len = -1, int prec = -1, const QVariant & defValue = QVariant ( ), int typeID = 0, bool generated = TRUE, bool trim = FALSE, bool calculated = FALSE )"
-Constructs a QSqlFieldInfo with the following parameters: <center>.nf
+.SH "TQSqlFieldInfo::TQSqlFieldInfo ( const TQString & name = TQString::null, TQVariant::Type typ = TQVariant::Invalid, int required = -1, int len = -1, int prec = -1, const TQVariant & defValue = TQVariant ( ), int typeID = 0, bool generated = TRUE, bool trim = FALSE, bool calculated = FALSE )"
+Constructs a TQSqlFieldInfo with the following parameters: <center>.nf
 .TS
-l - l. \fIname\fR the name of the field. \fItyp\fR the field's type in a QVariant. \fIrequired\fR greater than 0 if the field is required, 0 if its value can be NULL and less than 0 if it cannot be determined whether the field is required or not. \fIlen\fR the length of the field. Note that for non-character types some databases return either the length in bytes or the number of digits. -1 signifies that the length cannot be determined. \fIprec\fR the precision of the field, or -1 if the field has no precision or it cannot be determined. \fIdefValue\fR the default value that is inserted into the table if none is specified by the user. QVariant() if there is no default value or it cannot be determined. \fItypeID\fR the internal typeID of the database system (only useful for low-level programming). 0 if unknown. \fIgenerated\fR TRUE indicates that this field should be included in auto-generated SQL statments, e.g. in QSqlCursor. \fItrim\fR TRUE indicates that widgets should remove trailing whitespace from character fields. This does not affect the field value but only its representation inside widgets. \fIcalculated\fR
+l - l. \fIname\fR the name of the field. \fItyp\fR the field's type in a TQVariant. \fIrequired\fR greater than 0 if the field is required, 0 if its value can be NULL and less than 0 if it cannot be determined whether the field is required or not. \fIlen\fR the length of the field. Note that for non-character types some databases return either the length in bytes or the number of digits. -1 signifies that the length cannot be determined. \fIprec\fR the precision of the field, or -1 if the field has no precision or it cannot be determined. \fIdefValue\fR the default value that is inserted into the table if none is specified by the user. TQVariant() if there is no default value or it cannot be determined. \fItypeID\fR the internal typeID of the database system (only useful for low-level programming). 0 if unknown. \fIgenerated\fR TRUE indicates that this field should be included in auto-generated SQL statments, e.g. in TQSqlCursor. \fItrim\fR TRUE indicates that widgets should remove trailing whitespace from character fields. This does not affect the field value but only its representation inside widgets. \fIcalculated\fR
 .TE
 .fi
 </center>
-.SH "QSqlFieldInfo::QSqlFieldInfo ( const QSqlFieldInfo & other )"
+.SH "TQSqlFieldInfo::TQSqlFieldInfo ( const TQSqlFieldInfo & other )"
 Constructs a copy of \fIother\fR.
-.SH "QSqlFieldInfo::QSqlFieldInfo ( const QSqlField & other, bool generated = TRUE )"
-Creates a QSqlFieldInfo object with the type and the name of the QSqlField \fIother\fR. If \fIgenerated\fR is TRUE this field will be included in auto-generated SQL statments, e.g. in QSqlCursor.
-.SH "QSqlFieldInfo::~QSqlFieldInfo ()\fC [virtual]\fR"
+.SH "TQSqlFieldInfo::TQSqlFieldInfo ( const TQSqlField & other, bool generated = TRUE )"
+Creates a TQSqlFieldInfo object with the type and the name of the TQSqlField \fIother\fR. If \fIgenerated\fR is TRUE this field will be included in auto-generated SQL statments, e.g. in TQSqlCursor.
+.SH "TQSqlFieldInfo::~TQSqlFieldInfo ()\fC [virtual]\fR"
 Destroys the object and frees any allocated resources.
-.SH "QVariant QSqlFieldInfo::defaultValue () const"
-Returns the field's default value or an empty QVariant if the field has no default value or the value couldn't be determined. The default value is the value inserted in the database when it is not explicitly specified by the user.
-.SH "bool QSqlFieldInfo::isCalculated () const"
+.SH "TQVariant TQSqlFieldInfo::defaultValue () const"
+Returns the field's default value or an empty TQVariant if the field has no default value or the value couldn't be determined. The default value is the value inserted in the database when it is not explicitly specified by the user.
+.SH "bool TQSqlFieldInfo::isCalculated () const"
 Returns TRUE if the field is calculated; otherwise returns FALSE.
 .PP
 See also setCalculated().
-.SH "bool QSqlFieldInfo::isGenerated () const"
-Returns TRUE if the field should be included in auto-generated SQL statments, e.g. in QSqlCursor; otherwise returns FALSE.
+.SH "bool TQSqlFieldInfo::isGenerated () const"
+Returns TRUE if the field should be included in auto-generated SQL statments, e.g. in TQSqlCursor; otherwise returns FALSE.
 .PP
 See also setGenerated().
-.SH "int QSqlFieldInfo::isRequired () const"
+.SH "int TQSqlFieldInfo::isRequired () const"
 Returns a value greater than 0 if the field is required (NULL values are not allowed), 0 if it isn't required (NULL values are allowed) or less than 0 if it cannot be determined whether the field is required or not.
-.SH "bool QSqlFieldInfo::isTrim () const"
+.SH "bool TQSqlFieldInfo::isTrim () const"
 Returns TRUE if trailing whitespace should be removed from character fields; otherwise returns FALSE.
 .PP
 See also setTrim().
-.SH "int QSqlFieldInfo::length () const"
+.SH "int TQSqlFieldInfo::length () const"
 Returns the field's length. For fields storing text the return value is the maximum number of characters the field can hold. For non-character fields some database systems return the number of bytes needed or the number of digits allowed. If the length cannot be determined -1 is returned.
-.SH "TQString QSqlFieldInfo::name () const"
+.SH "TQString TQSqlFieldInfo::name () const"
 Returns the name of the field in the SQL table.
 .PP
 Examples:
 .)l sql/overview/subclass3/main.cpp and sql/overview/subclass4/main.cpp.
-.SH "QSqlFieldInfo & QSqlFieldInfo::operator= ( const QSqlFieldInfo & other )"
+.SH "TQSqlFieldInfo & TQSqlFieldInfo::operator= ( const TQSqlFieldInfo & other )"
 Assigns \fIother\fR to this field info and returns a reference to it.
-.SH "bool QSqlFieldInfo::operator== ( const QSqlFieldInfo & f ) const"
+.SH "bool TQSqlFieldInfo::operator== ( const TQSqlFieldInfo & f ) const"
 Returns TRUE if this fieldinfo is equal to \fIf\fR; otherwise returns FALSE.
 .PP
 Two field infos are considered equal if all their attributes match.
-.SH "int QSqlFieldInfo::precision () const"
+.SH "int TQSqlFieldInfo::precision () const"
 Returns the field's precision or -1 if the field has no precision or it cannot be determined.
-.SH "void QSqlFieldInfo::setCalculated ( bool calc )\fC [virtual]\fR"
-\fIcalc\fR set to TRUE indicates that this field is a calculated field. The value of calculated fields can by modified by subclassing QSqlCursor and overriding QSqlCursor::calculateField().
+.SH "void TQSqlFieldInfo::setCalculated ( bool calc )\fC [virtual]\fR"
+\fIcalc\fR set to TRUE indicates that this field is a calculated field. The value of calculated fields can by modified by subclassing TQSqlCursor and overriding TQSqlCursor::calculateField().
 .PP
 See also isCalculated().
-.SH "void QSqlFieldInfo::setGenerated ( bool gen )\fC [virtual]\fR"
-\fIgen\fR set to FALSE indicates that this field should not appear in auto-generated SQL statements (for example in QSqlCursor).
+.SH "void TQSqlFieldInfo::setGenerated ( bool gen )\fC [virtual]\fR"
+\fIgen\fR set to FALSE indicates that this field should not appear in auto-generated SQL statements (for example in TQSqlCursor).
 .PP
 See also isGenerated().
-.SH "void QSqlFieldInfo::setTrim ( bool trim )\fC [virtual]\fR"
+.SH "void TQSqlFieldInfo::setTrim ( bool trim )\fC [virtual]\fR"
 If \fItrim\fR is TRUE widgets should remove trailing whitespace from character fields. This does not affect the field value but only its representation inside widgets.
 .PP
 See also isTrim().
-.SH "QSqlField QSqlFieldInfo::toField () const"
-Returns an empty QSqlField based on the information in this QSqlFieldInfo.
-.SH "QVariant::Type QSqlFieldInfo::type () const"
-Returns the field's type or QVariant::Invalid if the type is unknown.
-.SH "int QSqlFieldInfo::typeID () const"
+.SH "TQSqlField TQSqlFieldInfo::toField () const"
+Returns an empty TQSqlField based on the information in this TQSqlFieldInfo.
+.SH "TQVariant::Type TQSqlFieldInfo::type () const"
+Returns the field's type or TQVariant::Invalid if the type is unknown.
+.SH "int TQSqlFieldInfo::typeID () const"
 Returns the internal type identifier as returned from the database system. The return value is 0 if the type is unknown.
 .PP
 \fBWarning:\fR This information is only useful for low-level database
 programming and is \fInot\fR database independent.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qsqlfieldinfo.html
+.BR http://doc.trolltech.com/tqsqlfieldinfo.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

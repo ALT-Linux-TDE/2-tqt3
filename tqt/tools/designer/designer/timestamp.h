@@ -34,9 +34,9 @@
 #ifndef TIMESTAMP_H
 #define TIMESTAMP_H
 
-#include <ntqobject.h>
-#include <ntqdatetime.h>
-#include <ntqtimer.h>
+#include <tqobject.h>
+#include <tqdatetime.h>
+#include <tqtimer.h>
 
 class TimeStamp : public TQObject
 {

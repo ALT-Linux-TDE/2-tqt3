@@ -7,10 +7,10 @@
 #include "arrowpad.h"
 #include "mainwindow.h"
 
-#include <ntqaccel.h>
-#include <ntqapplication.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
+#include <tqaccel.h>
+#include <tqapplication.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
 
 MainWindow::MainWindow( TQWidget *parent, const char *name )
     : TQMainWindow( parent, name )

@@ -1,4 +1,4 @@
-#include <ntqimage.h>
+#include <tqimage.h>
 #include "gllandscape.h"
 
 

@@ -7,9 +7,9 @@
 **
 *****************************************************************************/
 
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqpainter.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqpainter.h>
 #include <math.h>
 
 #include "tabletstats.h"

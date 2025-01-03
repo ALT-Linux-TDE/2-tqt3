@@ -534,12 +534,12 @@
 <context>
     <name>KAsteroidsView</name>
     <message>
-        <source>QCanvas demo</source>
+        <source>TQCanvas demo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This game has been implemented using the QCanvas class.
-The QCanvas class is not part of the Professional Edition. Please 
+        <source>This game has been implemented using the TQCanvas class.
+The TQCanvas class is not part of the Professional Edition. Please 
 contact Trolltech if you want to upgrade to the Enterprise Edition.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -1,6 +1,6 @@
 #include "vcr.h"
-#include <ntqpushbutton.h>
-#include <ntqlayout.h>
+#include <tqpushbutton.h>
+#include <tqlayout.h>
 
 static const char * rewind_xpm[] = {
 "16 16 3 1",

@@ -1,8 +1,8 @@
 #include "canvastext.h"
 #include "chartform.h"
 
-#include <ntqbrush.h>
-#include <ntqcanvas.h>
+#include <tqbrush.h>
+#include <tqcanvas.h>
 
 #include <math.h> // sin, cos
 

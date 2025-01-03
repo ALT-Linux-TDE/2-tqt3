@@ -33,10 +33,10 @@
 
 #include <metatranslator.h>
 
-#include <ntqmemarray.h>
-#include <ntqcstring.h>
-#include <ntqmap.h>
-#include <ntqstringlist.h>
+#include <tqmemarray.h>
+#include <tqcstring.h>
+#include <tqmap.h>
+#include <tqstringlist.h>
 
 #include <ctype.h>
 

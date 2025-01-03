@@ -1,5 +1,5 @@
 '\" t
-.TH QMap 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMap 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QMap \- Value-based template class that provides a dictionary
+TQMap \- Value-based template class that provides a dictionary
 .SH SYNOPSIS
-\fC#include <ntqmap.h>\fR
+\fC#include <tqmap.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -38,40 +38,40 @@ QMap \- Value-based template class that provides a dictionary
 .BI "typedef size_t \fBsize_type\fR"
 .br
 .ti -1c
-.BI "typedef QMapIterator<Key, T> \fBiterator\fR"
+.BI "typedef TQMapIterator<Key, T> \fBiterator\fR"
 .br
 .ti -1c
-.BI "typedef QMapConstIterator<Key, T> \fBconst_iterator\fR"
+.BI "typedef TQMapConstIterator<Key, T> \fBconst_iterator\fR"
 .br
 .ti -1c
 .BI "typedef TQPair<iterator, bool> \fBinsert_pair\fR"
 .br
 .ti -1c
-.BI "typedef QMapIterator<Key, T> \fBIterator\fR"
+.BI "typedef TQMapIterator<Key, T> \fBIterator\fR"
 .br
 .ti -1c
-.BI "typedef QMapConstIterator<Key, T> \fBConstIterator\fR"
+.BI "typedef TQMapConstIterator<Key, T> \fBConstIterator\fR"
 .br
 .ti -1c
 .BI "typedef T \fBValueType\fR"
 .br
 .ti -1c
-.BI "\fBQMap\fR ()"
+.BI "\fBTQMap\fR ()"
 .br
 .ti -1c
-.BI "\fBQMap\fR ( const QMap<Key, T> & m )"
+.BI "\fBTQMap\fR ( const TQMap<Key, T> & m )"
 .br
 .ti -1c
-.BI "\fBQMap\fR ( const std::map<Key, T> & m )"
+.BI "\fBTQMap\fR ( const std::map<Key, T> & m )"
 .br
 .ti -1c
-.BI "\fB~QMap\fR ()"
+.BI "\fB~TQMap\fR ()"
 .br
 .ti -1c
-.BI "QMap<Key, T> & \fBoperator=\fR ( const QMap<Key, T> & m )"
+.BI "TQMap<Key, T> & \fBoperator=\fR ( const TQMap<Key, T> & m )"
 .br
 .ti -1c
-.BI "QMap<Key, T> & \fBoperator=\fR ( const std::map<Key, T> & m )"
+.BI "TQMap<Key, T> & \fBoperator=\fR ( const std::map<Key, T> & m )"
 .br
 .ti -1c
 .BI "iterator \fBbegin\fR ()"
@@ -134,10 +134,10 @@ QMap \- Value-based template class that provides a dictionary
 .BI "size_type \fBcount\fR () const"
 .br
 .ti -1c
-.BI "QValueList<Key> \fBkeys\fR () const"
+.BI "TQValueList<Key> \fBkeys\fR () const"
 .br
 .ti -1c
-.BI "QValueList<T> \fBvalues\fR () const"
+.BI "TQValueList<T> \fBvalues\fR () const"
 .br
 .ti -1c
 .BI "bool \fBisEmpty\fR () const"
@@ -161,22 +161,22 @@ QMap \- Value-based template class that provides a dictionary
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, QMap<Key, T> & m )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQMap<Key, T> & m )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const QMap<Key, T> & m )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQMap<Key, T> & m )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QMap class is a value-based template class that provides a dictionary.
+The TQMap class is a value-based template class that provides a dictionary.
 .PP
-QMap is a TQt implementation of an STL-like map container. It can be used in your application if the standard \fCmap\fR is not available on all your target platforms. QMap is part of the TQt Template Library.
+TQMap is a TQt implementation of an STL-like map container. It can be used in your application if the standard \fCmap\fR is not available on all your target platforms. TQMap is part of the TQt Template Library.
 .PP
-QMap<Key, Data> defines a template instance to create a dictionary with keys of type Key and values of type Data. QMap does not store pointers to the members of the map; instead, it holds a copy of every member. For this reason, QMap is value-based, whereas QPtrList and QDict are pointer-based.
+TQMap<Key, Data> defines a template instance to create a dictionary with keys of type Key and values of type Data. TQMap does not store pointers to the members of the map; instead, it holds a copy of every member. For this reason, TQMap is value-based, whereas TQPtrList and TQDict are pointer-based.
 .PP
-QMap contains and manages a collection of objects of type Data with associated key values of type Key and provides iterators that allow the contained objects to be addressed. QMap owns the contained items.
+TQMap contains and manages a collection of objects of type Data with associated key values of type Key and provides iterators that allow the contained objects to be addressed. TQMap owns the contained items.
 .PP
-Some classes cannot be used within a QMap. For example everything derived from TQObject and thus all classes that implement widgets. Only values can be used in a QMap. To qualify as a value, the class must provide
+Some classes cannot be used within a TQMap. For example everything derived from TQObject and thus all classes that implement widgets. Only values can be used in a TQMap. To qualify as a value, the class must provide
 .TP
 A copy constructor
 .TP
@@ -188,17 +188,17 @@ Note that C++ defaults to field-by-field assignment operators and copy construct
 .PP
 The class used for the key requires that the \fCoperator<\fR is implemented to define ordering of the keys.
 .PP
-QMap's function naming is consistent with the other TQt classes (e.g., count(), isEmpty()). QMap also provides extra functions for compatibility with STL algorithms, such as size() and empty(). Programmers already familiar with the STL \fCmap\fR can use these the STL-like functions if preferred.
+TQMap's function naming is consistent with the other TQt classes (e.g., count(), isEmpty()). TQMap also provides extra functions for compatibility with STL algorithms, such as size() and empty(). Programmers already familiar with the STL \fCmap\fR can use these the STL-like functions if preferred.
 .PP
 Example:
 .PP
 .nf
 .br
-    #include <ntqstring.h>
+    #include <tqstring.h>
 .br
-    #include <ntqmap.h>
+    #include <tqmap.h>
 .br
-    #include <ntqstring.h>
+    #include <tqstring.h>
 .br
 .br
     class Employee
@@ -240,10 +240,10 @@ Example:
 .br
     {
 .br
-        QApplication app( argc, argv );
+        TQApplication app( argc, argv );
 .br
 .br
-        typedef QMap<TQString, Employee> EmployeeMap;
+        typedef TQMap<TQString, Employee> EmployeeMap;
 .br
         EmployeeMap map;
 .br
@@ -308,7 +308,7 @@ Another approach uses the operator[]. But be warned: if the map does not contain
 .PP
 .nf
 .br
-        QMap<TQString,TQString> map;
+        TQMap<TQString,TQString> map;
 .br
         map["Clinton"] = "Bill";
 .br
@@ -322,15 +322,15 @@ If you just want to know whether a certain key is contained in the map, use the 
 .PP
 It is safe to have multiple iterators at the same time. If some member of the map is removed, only iterators pointing to the removed member become invalid; inserting in the map does not invalidate any iterators.
 .PP
-Since QMap is value-based, there is no need to be concerned about deleting items in the map. The map holds its own copies and will free them if the corresponding member or the map itself is deleted.
+Since TQMap is value-based, there is no need to be concerned about deleting items in the map. The map holds its own copies and will free them if the corresponding member or the map itself is deleted.
 .PP
-QMap is implicitly shared. This means you can just make copies of the map in time O(1). If multiple QMap instances share the same data and one is modifying the map's data, this modifying instance makes a copy and modifies its private copy: so it does not affect other instances. If a QMap is being used in a multi-threaded program, you must protect all access to the map. See QMutex.
+TQMap is implicitly shared. This means you can just make copies of the map in time O(1). If multiple TQMap instances share the same data and one is modifying the map's data, this modifying instance makes a copy and modifies its private copy: so it does not affect other instances. If a TQMap is being used in a multi-threaded program, you must protect all access to the map. See TQMutex.
 .PP
 There are a couple of ways of inserting new items into the map. One uses the insert() method; the other uses operator[]:
 .PP
 .nf
 .br
-    QMap<TQString, TQString> map;
+    TQMap<TQString, TQString> map;
 .br
     map["Clinton"] = "Bill";
 .br
@@ -340,196 +340,196 @@ There are a couple of ways of inserting new items into the map. One uses the ins
 .PP
 Items can also be removed from the map in several ways. One way is to pass an iterator to remove(). Another way is to pass a key value to remove(), which will delete the entry with the requested key. In addition you can clear the entire map using the clear() method.
 .PP
-See also QMapIterator, TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
+See also TQMapIterator, TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
-.SH "QMap::ConstIterator"
+.SH "TQMap::ConstIterator"
 The map's const iterator type, TQt style.
-.SH "QMap::Iterator"
+.SH "TQMap::Iterator"
 The map's iterator type, TQt style.
-.SH "QMap::ValueType"
+.SH "TQMap::ValueType"
 Corresponds to TQPair<key_type, mapped_type>, TQt style.
-.SH "QMap::const_iterator"
+.SH "TQMap::const_iterator"
 The map's const iterator type.
-.SH "QMap::const_pointer"
+.SH "TQMap::const_pointer"
 Const pointer to value_type.
-.SH "QMap::const_reference"
+.SH "TQMap::const_reference"
 Const reference to value_type.
-.SH "QMap::iterator"
+.SH "TQMap::iterator"
 The map's iterator type.
-.SH "QMap::key_type"
+.SH "TQMap::key_type"
 The map's key type.
-.SH "QMap::mapped_type"
+.SH "TQMap::mapped_type"
 The map's data type.
-.SH "QMap::pointer"
+.SH "TQMap::pointer"
 Pointer to value_type.
-.SH "QMap::reference"
+.SH "TQMap::reference"
 Reference to value_type.
-.SH "QMap::size_type"
+.SH "TQMap::size_type"
 An unsigned integral type, used to represent various sizes.
-.SH "QMap::value_type"
+.SH "TQMap::value_type"
 Corresponds to TQPair<key_type, mapped_type>.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMap::QMap ()"
+.SH "TQMap::TQMap ()"
 Constructs an empty map.
-.SH "QMap::QMap ( const QMap<Key, T> & m )"
+.SH "TQMap::TQMap ( const TQMap<Key, T> & m )"
 Constructs a copy of \fIm\fR.
 .PP
-This operation costs O(1) time because QMap is implicitly shared. This makes returning a QMap from a function very fast. If a shared instance is modified, it will be copied (copy-on-write), and this takes O(n) time.
-.SH "QMap::QMap ( const std::map<Key, T> & m )"
+This operation costs O(1) time because TQMap is implicitly shared. This makes returning a TQMap from a function very fast. If a shared instance is modified, it will be copied (copy-on-write), and this takes O(n) time.
+.SH "TQMap::TQMap ( const std::map<Key, T> & m )"
 Constructs a copy of \fIm\fR.
-.SH "QMap::~QMap ()"
-Destroys the map. References to the values in the map and all iterators of this map become invalidated. Since QMap is highly tuned for performance you won't see warnings if you use invalid iterators, because it is not possible for an iterator to check whether it is valid or not.
-.SH "iterator QMap::begin ()"
+.SH "TQMap::~TQMap ()"
+Destroys the map. References to the values in the map and all iterators of this map become invalidated. Since TQMap is highly tuned for performance you won't see warnings if you use invalid iterators, because it is not possible for an iterator to check whether it is valid or not.
+.SH "iterator TQMap::begin ()"
 Returns an iterator pointing to the first element in the map. This iterator equals end() if the map is empty.
 .PP
 The items in the map are traversed in the order defined by operator<(Key, Key).
 .PP
-See also end() and QMapIterator.
-.SH "const_iterator QMap::begin () const"
+See also end() and TQMapIterator.
+.SH "const_iterator TQMap::begin () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-See also end() and QMapConstIterator.
-.SH "void QMap::clear ()"
+See also end() and TQMapConstIterator.
+.SH "void TQMap::clear ()"
 Removes all items from the map.
 .PP
 See also remove().
-.SH "const_iterator QMap::constBegin () const"
+.SH "const_iterator TQMap::constBegin () const"
 Returns an iterator pointing to the first element in the map. This iterator equals end() if the map is empty.
 .PP
 The items in the map are traversed in the order defined by operator<(Key, Key).
 .PP
-See also constEnd() and QMapConstIterator.
-.SH "const_iterator QMap::constEnd () const"
+See also constEnd() and TQMapConstIterator.
+.SH "const_iterator TQMap::constEnd () const"
 The iterator returned by end() points to the element which is one past the last element in the container. The past-the-end iterator is still associated with the map it belongs to, but it is \fInot\fR dereferenceable; operator*() will not return a well-defined value.
 .PP
 This iterator equals constBegin() if the map is empty.
 .PP
-See also constBegin() and QMapConstIterator.
-.SH "bool QMap::contains ( const Key & k ) const"
+See also constBegin() and TQMapConstIterator.
+.SH "bool TQMap::contains ( const Key & k ) const"
 Returns TRUE if the map contains an item with key \fIk\fR; otherwise returns FALSE.
-.SH "size_type QMap::count ( const key_type & k ) const"
-Returns the number of items whose key is \fIk\fR. Since QMap does not allow duplicate keys, the return value is always 0 or 1.
+.SH "size_type TQMap::count ( const key_type & k ) const"
+Returns the number of items whose key is \fIk\fR. Since TQMap does not allow duplicate keys, the return value is always 0 or 1.
 .PP
 This function is provided for STL compatibility.
-.SH "size_type QMap::count () const"
+.SH "size_type TQMap::count () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the number of items in the map.
 .PP
 See also isEmpty().
-.SH "void QMap::detach ()\fC [protected]\fR"
-If the map does not share its data with another QMap instance, nothing happens; otherwise the function creates a new copy of this map and detaches from the shared one. This function is called whenever the map is modified. The implicit sharing mechanism is implemented this way.
-.SH "bool QMap::empty () const"
+.SH "void TQMap::detach ()\fC [protected]\fR"
+If the map does not share its data with another TQMap instance, nothing happens; otherwise the function creates a new copy of this map and detaches from the shared one. This function is called whenever the map is modified. The implicit sharing mechanism is implemented this way.
+.SH "bool TQMap::empty () const"
 Returns TRUE if the map contains no items; otherwise returns FALSE.
 .PP
 This function is provided for STL compatibility. It is equivalent to isEmpty().
 .PP
 See also size().
-.SH "iterator QMap::end ()"
+.SH "iterator TQMap::end ()"
 The iterator returned by end() points to the element which is one past the last element in the container. The past-the-end iterator is still associated with the map it belongs to, but it is \fInot\fR dereferenceable; operator*() will not return a well-defined value.
 .PP
 This iterator equals begin() if the map is empty.
 .PP
-See also begin() and QMapIterator.
-.SH "const_iterator QMap::end () const"
+See also begin() and TQMapIterator.
+.SH "const_iterator TQMap::end () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
-.SH "void QMap::erase ( iterator it )"
+.SH "void TQMap::erase ( iterator it )"
 Removes the item associated with the iterator \fIit\fR from the map.
 .PP
 This function is provided for STL compatibility. It is equivalent to remove().
 .PP
 See also clear().
-.SH "void QMap::erase ( const key_type & k )"
+.SH "void TQMap::erase ( const key_type & k )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Removes the item with the key \fIk\fR from the map.
-.SH "iterator QMap::find ( const Key & k )"
+.SH "iterator TQMap::find ( const Key & k )"
 Returns an iterator pointing to the element with key \fIk\fR in the map.
 .PP
 Returns end() if no key matched.
 .PP
-See also QMapIterator.
-.SH "const_iterator QMap::find ( const Key & k ) const"
+See also TQMapIterator.
+.SH "const_iterator TQMap::find ( const Key & k ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns an iterator pointing to the element with key \fIk\fR in the map.
 .PP
 Returns end() if no key matched.
 .PP
-See also QMapConstIterator.
-.SH "iterator QMap::insert ( const Key & key, const T & value, bool overwrite = TRUE )"
+See also TQMapConstIterator.
+.SH "iterator TQMap::insert ( const Key & key, const T & value, bool overwrite = TRUE )"
 Inserts a new item with the key, \fIkey\fR, and a value of \fIvalue\fR. If there is already an item whose key is \fIkey\fR, that item's value is replaced with \fIvalue\fR, unless \fIoverwrite\fR is FALSE (it is TRUE by default). In this case an iterator to this item is returned, else an iterator to the new item is returned.
-.SH "TQPair<iterator, bool> QMap::insert ( const value_type & x )"
+.SH "TQPair<iterator, bool> TQMap::insert ( const value_type & x )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts the (key, value) pair \fIx\fR into the map. \fIx\fR is a TQPair whose \fCfirst\fR element is a key to be inserted and whose \fCsecond\fR element is the associated value to be inserted. Returns a pair whose \fCfirst\fR element is an iterator pointing to the inserted item and whose \fCsecond\fR element is a bool indicating TRUE if \fIx\fR was inserted and FALSE if it was not inserted, e.g. because it was already present.
 .PP
 See also replace().
-.SH "bool QMap::isEmpty () const"
+.SH "bool TQMap::isEmpty () const"
 Returns TRUE if the map contains no items; otherwise returns FALSE.
 .PP
 See also count().
-.SH "QValueList<Key> QMap::keys () const"
+.SH "TQValueList<Key> TQMap::keys () const"
 Returns a list of all the keys in the map, in order.
-.SH "QMap<Key, T> & QMap::operator= ( const QMap<Key, T> & m )"
+.SH "TQMap<Key, T> & TQMap::operator= ( const TQMap<Key, T> & m )"
 Assigns \fIm\fR to this map and returns a reference to this map.
 .PP
-All iterators of the current map become invalidated by this operation. The cost of such an assignment is O(1), because QMap is implicitly shared.
-.SH "QMap<Key, T> & QMap::operator= ( const std::map<Key, T> & m )"
+All iterators of the current map become invalidated by this operation. The cost of such an assignment is O(1), because TQMap is implicitly shared.
+.SH "TQMap<Key, T> & TQMap::operator= ( const std::map<Key, T> & m )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Assigns \fIm\fR to this map and returns a reference to this map.
 .PP
 All iterators of the current map become invalidated by this operation.
-.SH "T & QMap::operator[] ( const Key & k )"
+.SH "T & TQMap::operator[] ( const Key & k )"
 Returns the value associated with the key \fIk\fR. If no such key is present, an empty item is inserted with this key and a reference to the empty item is returned.
 .PP
 You can use this operator both for reading and writing:
 .PP
 .nf
 .br
-    QMap<TQString, TQString> map;
+    TQMap<TQString, TQString> map;
 .br
     map["Clinton"] = "Bill";
 .br
     stream << map["Clinton"];
 .br
 .fi
-.SH "const T & QMap::operator[] ( const Key & k ) const"
+.SH "const T & TQMap::operator[] ( const Key & k ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fBWarning:\fR This function differs from the non-const version of the same function. It will \fInot\fR insert an empty value if the key \fIk\fR does not exist. This may lead to logic errors in your program. You should check if the element exists before calling this function.
 .PP
 Returns the value associated with the key \fIk\fR. If no such key is present, a reference to an empty item is returned.
-.SH "void QMap::remove ( iterator it )"
+.SH "void TQMap::remove ( iterator it )"
 Removes the item associated with the iterator \fIit\fR from the map.
 .PP
 See also clear().
-.SH "void QMap::remove ( const Key & k )"
+.SH "void TQMap::remove ( const Key & k )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Removes the item with the key \fIk\fR from the map.
-.SH "iterator QMap::replace ( const Key & k, const T & v )"
+.SH "iterator TQMap::replace ( const Key & k, const T & v )"
 Replaces the value of the element with key \fIk\fR, with the value \fIv\fR.
 .PP
 See also insert() and remove().
-.SH "size_type QMap::size () const"
+.SH "size_type TQMap::size () const"
 Returns the number of items in the map.
 .PP
 This function is provided for STL compatibility. It is equivalent to count().
 .PP
 See also empty().
-.SH "QValueList<T> QMap::values () const"
+.SH "TQValueList<T> TQMap::values () const"
 Returns a list of all the values in the map, in key order.
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "QDataStream & operator<< ( QDataStream & s, const QMap<Key, T> & m )"
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQMap<Key, T> & m )"
 Writes the map \fIm\fR to the stream \fIs\fR. The types \fIKey\fR and \fIT\fR must implement the streaming operator as well.
-.SH "QDataStream & operator>> ( QDataStream & s, QMap<Key, T> & m )"
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQMap<Key, T> & m )"
 Reads the map \fIm\fR from the stream \fIs\fR. The types \fIKey\fR and \fIT\fR
 must implement the streaming operator as well.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqmap.html
+.BR http://doc.trolltech.com/tqmap.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

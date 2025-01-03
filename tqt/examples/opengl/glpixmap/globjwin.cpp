@@ -14,18 +14,18 @@
 ****************************************************************************/
 
 
-#include <ntqpushbutton.h>
-#include <ntqslider.h>
-#include <ntqlayout.h>
-#include <ntqframe.h>
-#include <ntqlabel.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
-#include <ntqapplication.h>
-#include <ntqkeycode.h>
-#include <ntqpixmap.h>
-#include <ntqimage.h>
-#include <ntqpainter.h>
+#include <tqpushbutton.h>
+#include <tqslider.h>
+#include <tqlayout.h>
+#include <tqframe.h>
+#include <tqlabel.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
+#include <tqapplication.h>
+#include <tqkeycode.h>
+#include <tqpixmap.h>
+#include <tqimage.h>
+#include <tqpainter.h>
 #include "globjwin.h"
 #include "glbox.h"
 

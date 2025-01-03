@@ -7,12 +7,12 @@ DEPENDPATH	= ../../include
 REQUIRES	= small-config
 
 HEADERS		= gtetrix.h \
-		  qdragapp.h \
+		  tqdragapp.h \
 		  qtetrix.h \
 		  qtetrixb.h \
 		  tpiece.h
 SOURCES		= gtetrix.cpp \
-		  qdragapp.cpp \
+		  tqdragapp.cpp \
 		  qtetrix.cpp \
 		  qtetrixb.cpp \
 		  tetrix.cpp \

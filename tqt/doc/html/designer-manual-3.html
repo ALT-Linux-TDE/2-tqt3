@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/tools/designer/book/chap-main-windows.leaf:3 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -36,7 +35,7 @@ body { background: #ffffff; color: black; }
 <p align="center"><img align="middle" src="mw-colortool1.png" alt="The Color Tool application" width="605" height="501">
 </p>
 <p>The <tt>colortool</tt> application is a multiplatform application that allows users to create, edit and save lists of colors. Each color has a user defined name and an RGB (Red, Green, Blue) value.</p>
-<p>This application presents the user with a view of a set of colors and their names. We will provide two views (using a <a href="ntqwidgetstack.html">TQWidgetStack</a>) which the user can switch between. The tabular view will show each color as a small square followed by its name and hex value. It will also provide the option of an indicator to show whether or not the color is one of the 216 standard web colors. The iconic view will show each color as a circular color swatch with the name of the color beneath.</p>
+<p>This application presents the user with a view of a set of colors and their names. We will provide two views (using a <a href="tqwidgetstack.html">TQWidgetStack</a>) which the user can switch between. The tabular view will show each color as a small square followed by its name and hex value. It will also provide the option of an indicator to show whether or not the color is one of the 216 standard web colors. The iconic view will show each color as a circular color swatch with the name of the color beneath.</p>
 <p>The application will read and write files in the format used by the X Consortium for the <tt>rgb.txt</tt> file. This will allow users to create their own color files and to load, edit and save <tt>rgb.txt</tt> format files.</p>
 <p>We will provide a simple search option so that users can quickly locate a color; this is particularly useful when hundreds or thousands of colors are shown. The search will be provided in a modeless dialog so that the user can conduct a search but still interact with the main form. We will also enable the user to add and delete colors, and to set some user options. To provide these facilities, we must create some modal dialogs.</p>
 <p>Finally, we must ensure that the application loads user options at start up and saves user options at termination. We will also include the view and the size and position of the main window with these options, so that the application will always start with the size, position and view it had when the user last used it.</p>
@@ -69,18 +68,18 @@ body { background: #ffffff; color: black; }
 </ol><p align="center"><img align="middle" src="mw-newfile.png" width="565" height="330">
 </p>
 <p>The <em>New File</em> dialog is used to create all the files that can be used in a <em>TQt Designer</em> project. This includes C++ source files, an automatically generated <tt>main.cpp</tt> file (if you are in a project), and a variety of forms based on pre-defined templates. (You can create your own templates too.)</p>
-<p>For the <tt>colortool</tt> application we want to start with a main window form. When we create this form, <em>TQt Designer</em> will present a wizard which we can use to automatically create menu and toolbar options and automatically create the relevant signal/slot connections. For every menu option or toolbar button, <em>TQt Designer</em> will create a single <a href="ntqaction.html">TQAction</a> (see the <a href="designer-manual-3.html#actions-and-action-groups-sidebar">Actions and Action Groups</a> sidebar).</p>
+<p>For the <tt>colortool</tt> application we want to start with a main window form. When we create this form, <em>TQt Designer</em> will present a wizard which we can use to automatically create menu and toolbar options and automatically create the relevant signal/slot connections. For every menu option or toolbar button, <em>TQt Designer</em> will create a single <a href="tqaction.html">TQAction</a> (see the <a href="designer-manual-3.html#actions-and-action-groups-sidebar">Actions and Action Groups</a> sidebar).</p>
 <blockquote>
 <p align="center"><b> Actions and Action Groups</b></p>
 <a name="actions-and-action-groups-sidebar"></a><p>An <em>action</em> is an operation that the user initiates through the user interface, for example, saving a file or changing some text's font weight to bold.</p>
-<p>We often want the user to be able to perform an action using a variety of means. For example, to save a file we might want the user to be able to press <b>Ctrl+S</b>, or to click the <b>Save</b> toolbar button or to click the <b>File|Save</b> menu option. Although the means of invoking the action are all different, the underlying operation is the same and we don't want to duplicate the code that performs the operation. In TQt we can create an action (a <a href="ntqaction.html">TQAction</a> object) which will call the appropriate function when the action is invoked. We can assign an accelerator, (e.g. <b>Ctrl+S</b>), to an action. We can also add an action to a menu and to a toolbar.</p>
+<p>We often want the user to be able to perform an action using a variety of means. For example, to save a file we might want the user to be able to press <b>Ctrl+S</b>, or to click the <b>Save</b> toolbar button or to click the <b>File|Save</b> menu option. Although the means of invoking the action are all different, the underlying operation is the same and we don't want to duplicate the code that performs the operation. In TQt we can create an action (a <a href="tqaction.html">TQAction</a> object) which will call the appropriate function when the action is invoked. We can assign an accelerator, (e.g. <b>Ctrl+S</b>), to an action. We can also add an action to a menu and to a toolbar.</p>
 <p>If the action has an on/off state, e.g. bold is on or off, when the user changes the state, for example by clicking a toolbar button, the state of everything associated with the action, e.g. menu items and toolbar buttons, is updated.</p>
-<p>Some actions should operate together like radio buttons. For example, if we have left align, center align and right align actions, only one should be 'on' at any one time. An <em>action group</em> (a <a href="qactiongroup.html">TQActionGroup</a> object) is used to group a set of actions together. If the action group's <tt>exclusive</tt> property is TRUE then only one of the actions in the group can be on at any one time. If the user changes the state of an action in an action group where <tt>exclusive</tt> is TRUE, everything associated with the actions in the action group, e.g. menu items and toolbar buttons, is updated.</p>
+<p>Some actions should operate together like radio buttons. For example, if we have left align, center align and right align actions, only one should be 'on' at any one time. An <em>action group</em> (a <a href="tqactiongroup.html">TQActionGroup</a> object) is used to group a set of actions together. If the action group's <tt>exclusive</tt> property is TRUE then only one of the actions in the group can be on at any one time. If the user changes the state of an action in an action group where <tt>exclusive</tt> is TRUE, everything associated with the actions in the action group, e.g. menu items and toolbar buttons, is updated.</p>
 <!-- index Actions and Action Groups --><p><em>TQt Designer</em> can create actions and action groups visually, assign accelerators to them, and associate them with menu items and toolbar buttons.</p>
 </blockquote>
 <h3><a name="4"></a>Creating the Main Window</h3>
 <!-- index Main Window!Creating --><!-- index Creating Main Windows --><!-- index Main Window!Wizard --><!-- index Wizards!Main Window --><!-- index Creating Menus --><!-- index Menus!Adding --><!-- index Adding!Menus --><!-- index Creating Toolbars --><!-- index Toolbars, Creating --><!-- index Toolbar Buttons!Adding --><!-- index Adding!Toolbars --><!-- index Adding!Actions and Action Groups --><!-- index Adding!Toolbar Buttons --><p>We will use the Main Window Wizard to build a main window. The wizard allows us to create actions as well as a menu bar and a toolbar through which the user can invoke the actions. We will also create our own actions, menus and toolbar buttons, and add a main widget to the main window.</p>
-<p>Click <b>File|New</b> to invoke the <em>New File</em> dialog, click "Main Window" to create a main window form, then click <b>OK</b>. A new <a href="ntqmainwindow.html">TQMainWindow</a> form will be created and the <em>Main Window Wizard</em> will pop up.</p>
+<p>Click <b>File|New</b> to invoke the <em>New File</em> dialog, click "Main Window" to create a main window form, then click <b>OK</b>. A new <a href="tqmainwindow.html">TQMainWindow</a> form will be created and the <em>Main Window Wizard</em> will pop up.</p>
 <h4><a name="4-1"></a>Using the Main Window Wizard</h4>
 <ol type=1><li><p>The <em>Choose available menus and toolbars</em> page appears first. It presents three categories of default actions, File Actions, Edit Actions and Help Actions. For each category you can choose to have <em>TQt Designer</em> create menu items, toolbar buttons, and signal/slots connections for the relevant actions. You can always add or delete actions, menu items, toolbar buttons, and connections later.</p>
 <!-- index Creating Menus --><!-- index Menus!Adding --><!-- index Creating Toolbars --><!-- index Toolbars, Creating --><!-- index Toolbar Buttons!Adding --><!-- index Adding!Menus --><!-- index Adding!Toolbars --><!-- index Adding!Actions and Action Groups --><!-- index Adding!Toolbar Buttons --><!-- index Signals and Slots!Connecting Actions --><p>We will accept the defaults for File Actions and for the Edit Actions, i.e. have menu items, toolbar buttons and the relevant connections created. In fact we'll be changing the Edit actions considerably later on, but it is still convenient to create them now. We won't have any Help Actions on the toolbar so uncheck the Help Action's Toolbar checkbox. Click <b>Next</b> to move on to the next wizard page.</p>
@@ -160,7 +159,7 @@ body { background: #ffffff; color: black; }
 <p>All the actions in an action group are added to a toolbar in one go, simply by dragging the action group from the Action Editor and dropping it on the toolbar.</p>
 <p>Since toolbar buttons normally only show an image, all actions that are to be used in toolbars should have their <em>iconSet</em> property set to a suitable image.</p>
 <!-- index Separator!Toolbar button --><!-- index Deleting!Toolbar Separators --><!-- index Deleting!Toolbars --><p>Toolbar buttons and separators (usually represented as indented vertical gray lines), can be dragged and dropped into new positions in the toolbar at any time. Separators can be inserted by right clicking a toolbar button and clicking <b>Insert Separator</b>. Toolbar buttons and separators can be deleted by right clicking them and then clicking Delete Item. Toolbars can be deleted by right clicking their toolbar handle and then clicking Delete Toolbar.</p>
-<!-- index Previewing!Toolbars --><p>If you preview an application you'll find that all the toolbars can be dragged to different docking points (top, left, right and bottom of a <a href="ntqmainwindow.html">TQMainWindow</a> or subclass), or dragged out of the application as independent tool windows.</p>
+<!-- index Previewing!Toolbars --><p>If you preview an application you'll find that all the toolbars can be dragged to different docking points (top, left, right and bottom of a <a href="tqmainwindow.html">TQMainWindow</a> or subclass), or dragged out of the application as independent tool windows.</p>
 </blockquote>
 <blockquote>
 <p align="center"><b> Adding Widgets to the Toolbar</b></p>
@@ -205,7 +204,7 @@ body { background: #ffffff; color: black; }
 <p>Click the viewActionGroup action group in the Action Editor, and drag it to the View menu; drop it on this menu (when the horizontal red line appears beneath the View menu). Because we dragged the action group, <em>all</em> its actions (in our case the viewTableAction and viewIconsAction) are added to the relevant menu. We'll also make the view actions available on the toolbar. Click the viewActionGroup once again, and drag it to the toolbar; drop it the right of the separator at the far right of the toolbar, and drop it on the toolbar's edge. (Again, a vertical red line will indicate the position.)</p>
 <p>Don't forget that you can preview to see things in action with <b>Ctrl+T</b>, and to click <b>File|Save</b> (or press <b>Ctrl+S</b>) regularly! If you preview now you will find that if you click the view toolbar buttons and menu options that both the toolbar buttons and the menu items automatically stay in sync.</p>
 <h3><a name="5"></a>Creating the Main Widget</h3>
-<p>Most main-window style applications consist of a menu bar, a toolbar, a status bar and a central widget. We've already created a menu bar and toolbar, and since we've created a <a href="ntqmainwindow.html">TQMainWindow</a> (via the main window wizard), we also have a status bar. Widgets commonly used as an application's main widget are <a href="ntqlistview.html">TQListView</a> (which provides a tree view), <a href="ntqtable.html">TQTable</a> and <a href="ntqtextedit.html">TQTextEdit</a>. Since we want to provide our users with two different views of the same data, we'll use a <a href="ntqwidgetstack.html">TQWidgetStack</a> as our main widget. The <a href="ntqwidgetstack.html">TQWidgetStack</a> has no visual representation of its own; you place one or more widgets on each <a href="ntqwidgetstack.html">TQWidgetStack</a> "page", as if each page was a form in its own right, and then provide the user with some mechanism for switching between pages. (This is similar in principle to using a <a href="ntqtabwidget.html">TQTabWidget</a>.) We want to provide our users with two views: a tabular view that lists colors and their names, and an icon-based view that shows color swatches. In our example we only place a single widget on each <a href="ntqwidgetstack.html">TQWidgetStack</a> page; but this merely reflects the application's design -- we could have placed any number of widgets on each page.</p>
+<p>Most main-window style applications consist of a menu bar, a toolbar, a status bar and a central widget. We've already created a menu bar and toolbar, and since we've created a <a href="tqmainwindow.html">TQMainWindow</a> (via the main window wizard), we also have a status bar. Widgets commonly used as an application's main widget are <a href="tqlistview.html">TQListView</a> (which provides a tree view), <a href="tqtable.html">TQTable</a> and <a href="tqtextedit.html">TQTextEdit</a>. Since we want to provide our users with two different views of the same data, we'll use a <a href="tqwidgetstack.html">TQWidgetStack</a> as our main widget. The <a href="tqwidgetstack.html">TQWidgetStack</a> has no visual representation of its own; you place one or more widgets on each <a href="tqwidgetstack.html">TQWidgetStack</a> "page", as if each page was a form in its own right, and then provide the user with some mechanism for switching between pages. (This is similar in principle to using a <a href="tqtabwidget.html">TQTabWidget</a>.) We want to provide our users with two views: a tabular view that lists colors and their names, and an icon-based view that shows color swatches. In our example we only place a single widget on each <a href="tqwidgetstack.html">TQWidgetStack</a> page; but this merely reflects the application's design -- we could have placed any number of widgets on each page.</p>
 <p>Click the Toolbox's Containers button, then click WidgetStack. Click approximately in the middle of the form to place the widget stack. Change the widget stack's <em>name</em> property to "colorWidgetStack".</p>
 <p align="center"><img align="middle" src="mw-addmainwidg.png" width="641" height="394">
 </p>
@@ -263,16 +262,16 @@ body { background: #ffffff; color: black; }
 <ul><li><p>class TQString;</p>
 <li><p>class TQColor;</p>
 </ul><h4><a name="6-3"></a>Adding Includes</h4>
-<p>Our form will also need some included files. Includes may be added in the declaration, or (for preference) in the implementation. Right click "Includes (in Implementation)", then click <b>Edit</b>. Use the dialog that pops up to enter "ntqcolor.h" and "ntqstring.h". Since we're going to use the clipboard we'll need access to the global clipboard object via <a href="ntqapplication.html">TQApplication</a>, so also add "ntqapplication.h" and "ntqclipboard.h". We'll also be doing some drawing (e.g. the color swatches), so add "ntqpainter.h" too, then close the dialog.</p>
+<p>Our form will also need some included files. Includes may be added in the declaration, or (for preference) in the implementation. Right click "Includes (in Implementation)", then click <b>Edit</b>. Use the dialog that pops up to enter "tqcolor.h" and "tqstring.h". Since we're going to use the clipboard we'll need access to the global clipboard object via <a href="tqapplication.html">TQApplication</a>, so also add "tqapplication.h" and "tqclipboard.h". We'll also be doing some drawing (e.g. the color swatches), so add "tqpainter.h" too, then close the dialog.</p>
 <p align="center"><img align="middle" src="mw-editincimp.png" width="339" height="327">
 </p>
 <p>When entering include files you can include double quotes or angle brackets if you wish; if you don't use either <em>TQt Designer</em> will put in double quotes automatically.</p>
 <p>You should now have added the following includes (in implementation):</p>
-<ul><li><p>"ntqcolor.h"</p>
-<li><p>"ntqstring.h"</p>
-<li><p>"ntqapplication.h"</p>
-<li><p>"ntqclipboard.h"</p>
-<li><p>"ntqpainter.h"</p>
+<ul><li><p>"tqcolor.h"</p>
+<li><p>"tqstring.h"</p>
+<li><p>"tqapplication.h"</p>
+<li><p>"tqclipboard.h"</p>
+<li><p>"tqpainter.h"</p>
 </ul><h4><a name="6-4"></a>Signals and Slots Connections</h4>
 <p>Most of the signals and slots connections were created automatically by the main window wizard when we created the main form. We have added some new actions since then, and we need to ensure that they are connected to slots so that we can code their behavior.</p>
 <p align="center"><img align="middle" src="mw-conn1.png" width="608" height="341">
@@ -315,15 +314,15 @@ body { background: #ffffff; color: black; }
     const int COL_NAME = 0;
     const int COL_HEX = 1;
     const int COL_WEB = 2;
-    const <a href="ntqstring.html">TQString</a> WINDOWS_REGISTRY = "/TQtExamples";
-    const <a href="ntqstring.html">TQString</a> APP_KEY = "/ColorTool/";
+    const <a href="tqstring.html">TQString</a> WINDOWS_REGISTRY = "/TQtExamples";
+    const <a href="tqstring.html">TQString</a> APP_KEY = "/ColorTool/";
 </pre>
- <p>We define some useful constants for our form since it's easier to remember "CLIP_AS_RGB" than "2". The two <a href="ntqstring.html">TQString</a>s are used by <a href="ntqsettings.html">TQSettings</a> when we come to load and save user preferences; they're explained when we cover <tt>loadOptions()</tt> and <tt>saveOptions()</tt>. Note that we can insert any valid C++ into a <tt>.ui.h</tt> file including constant declarations as we've done here and <tt>#include</tt>s, etc.</p>
+ <p>We define some useful constants for our form since it's easier to remember "CLIP_AS_RGB" than "2". The two <a href="tqstring.html">TQString</a>s are used by <a href="tqsettings.html">TQSettings</a> when we come to load and save user preferences; they're explained when we cover <tt>loadOptions()</tt> and <tt>saveOptions()</tt>. Note that we can insert any valid C++ into a <tt>.ui.h</tt> file including constant declarations as we've done here and <tt>#include</tt>s, etc.</p>
 <p>Since we're not subclassing if we want to have code executed during construction we must create an <tt>init()</tt> function; this will be called at the end of the form's constructor.</p>
 <h4><a name="6-7"></a>init()</h4>
 <pre>    void MainForm::init()
     {
-        clipboard = TQApplication::<a href="ntqapplication.html#clipboard">clipboard</a>();
+        clipboard = TQApplication::<a href="tqapplication.html#clipboard">clipboard</a>();
         if ( clipboard-&gt;supportsSelection() )
             clipboard-&gt;setSelectionMode( TRUE );
 
@@ -340,7 +339,7 @@ body { background: #ffffff; color: black; }
 <h4><a name="6-8"></a>clearData()</h4>
 <pre>    void MainForm::clearData( bool fillWithDefaults )
     {
-        <a href="ntqwidget.html#setCaption">setCaption</a>( "Color Tool" );
+        <a href="tqwidget.html#setCaption">setCaption</a>( "Color Tool" );
 
         m_colors.clear();
         m_comments.clear();
@@ -381,18 +380,18 @@ body { background: #ffffff; color: black; }
 
             colorTable-&gt;setNumRows( m_colors.count() );
             if ( ! m_colors.isEmpty() ) {
-                <a href="ntqpixmap.html">TQPixmap</a> pixmap( 22, 22 );
+                <a href="tqpixmap.html">TQPixmap</a> pixmap( 22, 22 );
                 int row = 0;
                 TQMap&lt;TQString,TQColor&gt;::ConstIterator it;
                 for ( it = m_colors.constBegin(); it != m_colors.constEnd(); ++it ) {
-                    <a href="ntqcolor.html">TQColor</a> color = it.data();
-                    pixmap.<a href="ntqpixmap.html#fill">fill</a>( color );
+                    <a href="tqcolor.html">TQColor</a> color = it.data();
+                    pixmap.<a href="tqpixmap.html#fill">fill</a>( color );
                     colorTable-&gt;setText( row, COL_NAME, it.key() );
                     colorTable-&gt;setPixmap( row, COL_NAME, pixmap );
-                    colorTable-&gt;setText( row, COL_HEX, color.<a href="ntqcolor.html#name">name</a>().upper() );
+                    colorTable-&gt;setText( row, COL_HEX, color.<a href="tqcolor.html#name">name</a>().upper() );
                     if ( m_show_web ) {
-                        <a href="qchecktableitem.html">TQCheckTableItem</a> *item = new <a href="qchecktableitem.html">TQCheckTableItem</a>( colorTable, "" );
-                        item-&gt;<a href="qchecktableitem.html#setChecked">setChecked</a>( isWebColor( color ) );
+                        <a href="tqchecktableitem.html">TQCheckTableItem</a> *item = new <a href="tqchecktableitem.html">TQCheckTableItem</a>( colorTable, "" );
+                        item-&gt;<a href="tqchecktableitem.html#setChecked">setChecked</a>( isWebColor( color ) );
                         colorTable-&gt;setItem( row, COL_WEB, item );
                     }
                     row++;
@@ -415,24 +414,24 @@ body { background: #ffffff; color: black; }
 
             TQMap&lt;TQString,TQColor&gt;::ConstIterator it;
             for ( it = m_colors.constBegin(); it != m_colors.constEnd(); ++it )
-                (void) new <a href="qiconviewitem.html">TQIconViewItem</a>( colorIconView, it.key(),
+                (void) new <a href="tqiconviewitem.html">TQIconViewItem</a>( colorIconView, it.key(),
                                           colorSwatch( it.data() ) );
             m_icons_dirty = FALSE;
         }
     }
 </pre>
  <p>This function is at the heart of the application. It visually presents the data to the user. If the table is "dirty" (e.g. if the user has added or deleted colors in the icon view, or has opened a color file) we will populate the table. We start by deleting the contents of every cell. Next we change the number of rows to equal the number of colors in the colors map. For each color we want to display a little square that shows the color, so we create a pixmap of the required size.</p>
-<p>We now create an iterator for our colors map, and iterate over every color. The colors map has the user's color names as its keys, and <a href="ntqcolor.html">TQColor</a> instances as values. We retrieve the color and fill our pixmap with that color. We then set the "Name" column (column <tt>COL_NAME</tt>), to have the color's name (<tt>it.key()</tt>) and the pixmap we've just filled with that color. <a href="ntqcolor.html">TQColor</a>'s <tt>name()</tt> function returns a string that is the hex representation of a color, e.g. "#12AB2F"; we retrieve this and set the second ("Hex") column to this value.</p>
-<p>If the user wants to see if which colors are web colors we create a <a href="qchecktableitem.html">TQCheckTableItem</a>, and check it if it is a web color. (We'll cover <tt>isWebColor()</tt> shortly.) We then insert this <a href="qchecktableitem.html">TQCheckTableItem</a> into the "Web" column.</p>
+<p>We now create an iterator for our colors map, and iterate over every color. The colors map has the user's color names as its keys, and <a href="tqcolor.html">TQColor</a> instances as values. We retrieve the color and fill our pixmap with that color. We then set the "Name" column (column <tt>COL_NAME</tt>), to have the color's name (<tt>it.key()</tt>) and the pixmap we've just filled with that color. <a href="tqcolor.html">TQColor</a>'s <tt>name()</tt> function returns a string that is the hex representation of a color, e.g. "#12AB2F"; we retrieve this and set the second ("Hex") column to this value.</p>
+<p>If the user wants to see if which colors are web colors we create a <a href="tqchecktableitem.html">TQCheckTableItem</a>, and check it if it is a web color. (We'll cover <tt>isWebColor()</tt> shortly.) We then insert this <a href="tqchecktableitem.html">TQCheckTableItem</a> into the "Web" column.</p>
 <p>Having populated the table we call <tt>adjustColumn()</tt> to ensure that each column is just wide enough to show its widest entry, and show or hide the "Web" column depending on the user's preference.</p>
 <p>Finally we set <tt>m_table_dirty</tt> to FALSE, since it is now up-to-date.</p>
-<p>If the icon view is "dirty" we <tt>clear()</tt> it of any existing data. We then iterate over each color in our colors map. For each color we create a new <a href="qiconviewitem.html">TQIconViewItem</a>; we label the item with the user's color name and provide a pixmap (generated by <tt>colorSwatch()</tt>, covered shortly) in the relevant color. Finally we set <tt>m_icons_dirty</tt> to "FALSE", since it is now up-to-date.</p>
+<p>If the icon view is "dirty" we <tt>clear()</tt> it of any existing data. We then iterate over each color in our colors map. For each color we create a new <a href="tqiconviewitem.html">TQIconViewItem</a>; we label the item with the user's color name and provide a pixmap (generated by <tt>colorSwatch()</tt>, covered shortly) in the relevant color. Finally we set <tt>m_icons_dirty</tt> to "FALSE", since it is now up-to-date.</p>
 <h4><a name="6-10"></a>isWebColor()</h4>
-<pre>    bool MainForm::isWebColor( <a href="ntqcolor.html">TQColor</a> color )
+<pre>    bool MainForm::isWebColor( <a href="tqcolor.html">TQColor</a> color )
     {
-        int r = color.<a href="ntqcolor.html#red">red</a>();
-        int g = color.<a href="ntqcolor.html#green">green</a>();
-        int b = color.<a href="ntqcolor.html#blue">blue</a>();
+        int r = color.<a href="tqcolor.html#red">red</a>();
+        int g = color.<a href="tqcolor.html#green">green</a>();
+        int b = color.<a href="tqcolor.html#blue">blue</a>();
 
         return ( ( r ==   0 || r ==  51 || r == 102 ||
                    r == 153 || r == 204 || r == 255 ) &amp;&amp;
@@ -444,32 +443,32 @@ body { background: #ffffff; color: black; }
 </pre>
  <p>The 216 web colors are those colors whose RGB (Red, Green, Blue) values are all in the set (0, 51, 102, 153, 204, 255).</p>
 <h4><a name="6-11"></a>colorSwatch()</h4>
-<pre>    TQPixmap MainForm::colorSwatch( const <a href="ntqcolor.html">TQColor</a> color )
+<pre>    TQPixmap MainForm::colorSwatch( const <a href="tqcolor.html">TQColor</a> color )
     {
-        <a href="ntqpixmap.html">TQPixmap</a> pixmap( 80, 80 );
-        pixmap.<a href="ntqpixmap.html#fill">fill</a>( white );
-        <a href="ntqpainter.html">TQPainter</a> painter;
-        painter.<a href="ntqpainter.html#begin">begin</a>( &amp;pixmap );
-        painter.<a href="ntqpainter.html#setPen">setPen</a>( <a href="ntqt.html#PenStyle-enum">NoPen</a> );
-        painter.<a href="ntqpainter.html#setBrush">setBrush</a>( color );
-        painter.<a href="ntqpainter.html#drawEllipse">drawEllipse</a>( 0, 0, 80, 80 );
-        painter.<a href="ntqpainter.html#end">end</a>();
+        <a href="tqpixmap.html">TQPixmap</a> pixmap( 80, 80 );
+        pixmap.<a href="tqpixmap.html#fill">fill</a>( white );
+        <a href="tqpainter.html">TQPainter</a> painter;
+        painter.<a href="tqpainter.html#begin">begin</a>( &amp;pixmap );
+        painter.<a href="tqpainter.html#setPen">setPen</a>( <a href="tqt.html#PenStyle-enum">NoPen</a> );
+        painter.<a href="tqpainter.html#setBrush">setBrush</a>( color );
+        painter.<a href="tqpainter.html#drawEllipse">drawEllipse</a>( 0, 0, 80, 80 );
+        painter.<a href="tqpainter.html#end">end</a>();
         return pixmap;
     }
 </pre>
- <p>We create a pixmap of a suitable size and fill it with white. We then create a <a href="ntqpainter.html">TQPainter</a> which we'll use to paint on the pixmap. We don't want a pen because we don't want an outline around the shape we draw. We draw an ellipse (which will be circular since we draw in an 80 x 80 pixel square). We return the resultant pixmap.</p>
+ <p>We create a pixmap of a suitable size and fill it with white. We then create a <a href="tqpainter.html">TQPainter</a> which we'll use to paint on the pixmap. We don't want a pen because we don't want an outline around the shape we draw. We draw an ellipse (which will be circular since we draw in an 80 x 80 pixel square). We return the resultant pixmap.</p>
 <h4><a name="6-12"></a>Creating main.cpp</h4>
 <p>Now that we've entered some of the code it would be nice to build and run the application to get a feel for the progress we've made. To do this we need to create a <tt>main()</tt> function. In TQt we typically create a small <tt>main.cpp</tt> file for the <tt>main()</tt> function. We can ask <em>TQt Designer</em> to create this file for us.</p>
 <p>Click <b>File|New</b> to invoke the <em>New File</em> dialog. Click "C++ Main-File", then click OK. The <em>Configure Main-File</em> dialog appears, listing the all the forms in the project. We've only got one form, "MainForm", so it is already highlighted. Click <b>OK</b> to create a <tt>main.cpp</tt> file that loads our MainForm.</p>
-<pre>    #include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+<pre>    #include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
     #include "mainform.h"
 
     int main( int argc, char ** argv )
     {
-        <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+        <a href="tqapplication.html">TQApplication</a> a( argc, argv );
         MainForm *w = new MainForm;
         w-&gt;show();
-        return a.<a href="ntqapplication.html#exec">exec</a>();
+        return a.<a href="tqapplication.html#exec">exec</a>();
     }
 </pre>
  <p>When <em>TQt Designer</em> generates a <tt>main.cpp</tt> file it includes this line:</p>
@@ -479,7 +478,7 @@ body { background: #ffffff; color: black; }
 <p>If we left this code as-is, the user could by-pass our own termination code by clicking the main window's close (X) button. Since we want to give the user the option to save any unsaved changes we need to ensure that we intercept any attempt to close the application. To achieve this we delete the connection and add a new slot, <tt>closeEvent()</tt> which will intercept attempts to close the application and call our <tt>fileExit()</tt> function.</p>
 <p>Click <tt>main.cpp</tt> in the Project Overview window. The file will appear in an editing window. Delete the connect line.</p>
 <p>Click <tt>mainform.ui.h</tt> in the Project Overview window; (you may need to click <tt>mainform.ui</tt> first to reveal <tt>mainform.ui.h</tt>). Right click "fileExit()" in Object Explorer's Members list (under Slots, public), then click <b>Goto Implementation</b>. Add the following slot above the <tt>fileExit()</tt> slot:</p>
-<pre>    void MainForm::closeEvent( <a href="qcloseevent.html">TQCloseEvent</a> * )
+<pre>    void MainForm::closeEvent( <a href="tqcloseevent.html">TQCloseEvent</a> * )
     {
         fileExit();
     }
@@ -487,7 +486,7 @@ body { background: #ffffff; color: black; }
  <p>Now, whatever the user clicks to close the application, our <tt>fileExit()</tt> slot will be called. We'll code the <tt>fileExit()</tt> slot right now:</p>
 <pre>    void MainForm::fileExit()
     {
-            TQApplication::<a href="ntqapplication.html#exit">exit</a>( 0 );
+            TQApplication::<a href="tqapplication.html#exit">exit</a>( 0 );
     }
 </pre>
  <p>This ensures that our application will cleanly terminate. Later we'll revise this function to give the user the opportunity to save any unsaved data.</p>
@@ -516,24 +515,24 @@ body { background: #ffffff; color: black; }
 </pre>
  <p>We connected to this slot so that we'd know whenever the user moved or clicked in the table view. We call the <tt>changedColor()</tt> function (which we'll see in a moment) with the name of the current color. Note that we don't care about the column argument, so we could have left it out. Don't forget to name the changedTableColor parameter to "int row".</p>
 <h4><a name="6-17"></a>changedIconColor()</h4>
-<pre>    void MainForm::changedIconColor( <a href="qiconviewitem.html">TQIconViewItem</a> *item )
+<pre>    void MainForm::changedIconColor( <a href="tqiconviewitem.html">TQIconViewItem</a> *item )
     {
-        changedColor( item-&gt;<a href="qtableitem.html#text">text</a>() );
+        changedColor( item-&gt;<a href="tqtableitem.html#text">text</a>() );
     }
 </pre>
- <p>This slot is connected for the same purpose as <tt>changedTableColor()</tt>, above. It also calls <tt>changedColor()</tt> with the name of the current color. (If you're cutting and pasting the code don't forget to name the <a href="qiconviewitem.html">TQIconViewItem</a> parameter "item".)</p>
+ <p>This slot is connected for the same purpose as <tt>changedTableColor()</tt>, above. It also calls <tt>changedColor()</tt> with the name of the current color. (If you're cutting and pasting the code don't forget to name the <a href="tqiconviewitem.html">TQIconViewItem</a> parameter "item".)</p>
 <h4><a name="6-18"></a>changedColor()</h4>
 <p>This is a function that we need to write from scratch. Simply enter its code into <em>TQt Designer</em>'s code editor and it will automatically appear in Object Explorer's Members tab (under Functions, public).</p>
 <p>By default any function that it typed directly into the code editor becomes a public function. To change this, right click the function's name in Object Explorer's Members list, and click <b>Properties</b> to invoke the <em>Edit Functions</em> dialog. This dialog can be used to change various attributes of the function, including changing it into a slot.</p>
-<pre>    void MainForm::changedColor( const <a href="ntqstring.html">TQString</a>&amp; name )
+<pre>    void MainForm::changedColor( const <a href="tqstring.html">TQString</a>&amp; name )
     {
-        <a href="ntqcolor.html">TQColor</a> color = m_colors[name];
-        int r = color.<a href="ntqcolor.html#red">red</a>();
-        int g = color.<a href="ntqcolor.html#green">green</a>();
-        int b = color.<a href="ntqcolor.html#blue">blue</a>();
+        <a href="tqcolor.html">TQColor</a> color = m_colors[name];
+        int r = color.<a href="tqcolor.html#red">red</a>();
+        int g = color.<a href="tqcolor.html#green">green</a>();
+        int b = color.<a href="tqcolor.html#blue">blue</a>();
         statusBar()-&gt;message( TQString( "%1 \"%2\" (%3,%4,%5)%6 {%7 %8 %9}" ).
-                              arg( <a href="ntqobject.html#name-prop">name</a> ).
-                              arg( color.<a href="ntqcolor.html#name">name</a>().upper() ).
+                              arg( <a href="tqobject.html#name-prop">name</a> ).
+                              arg( color.<a href="tqcolor.html#name">name</a>().upper() ).
                               arg( r ).arg( g ).arg( b ).
                               arg( isWebColor( color ) ? " web" : "" ).
                               arg( r / 255.0, 1, 'f', 3 ).
@@ -543,9 +542,9 @@ body { background: #ffffff; color: black; }
     }
 </pre>
  <p>This function looks up the color name in the colors map and retrieves the color the name refers to. It then displays the name, hex value and whether the color is a web color in the status bar.</p>
-<p>Note that <a href="ntqmainwindow.html">TQMainWindow</a> only creates a status bar if you actually use one. Since we haven't used one up until now we've had no problem, but if we were to try compiling we'd get an error because we're now using a status bar but haven't declared the relevant header. Click Object Explorer's Members tab and add a "ntqstatusbar.h" to the "Includes (In Implementation)" section. (Right click "Includes (In Implementation)", click <b>New</b>, enter "ntqstatusbar.h" then press <b>Enter</b>.)</p>
+<p>Note that <a href="tqmainwindow.html">TQMainWindow</a> only creates a status bar if you actually use one. Since we haven't used one up until now we've had no problem, but if we were to try compiling we'd get an error because we're now using a status bar but haven't declared the relevant header. Click Object Explorer's Members tab and add a "tqstatusbar.h" to the "Includes (In Implementation)" section. (Right click "Includes (In Implementation)", click <b>New</b>, enter "tqstatusbar.h" then press <b>Enter</b>.)</p>
 <p>You should now have added the following declaration to your includes (in implementation):</p>
-<ul><li><p>"ntqstatusbar.h"</p>
+<ul><li><p>"tqstatusbar.h"</p>
 </ul><p>Try saving (press <b>Ctrl+S</b>), making and running the application. Move to different colors and see the status bar indicating the color you are on. (If it doesn't build see the <a href="designer-manual-4.html#6">Troubleshooting</a> section.)</p>
 <h4><a name="6-19"></a>Changing Views</h4>
 <p>Up to now we have not yet been able to see the icon view in action because there's been no code in place to switch views. We'll address this issue now.</p>
@@ -558,7 +557,7 @@ body { background: #ffffff; color: black; }
             colorWidgetStack-&gt;raiseWidget( iconsPage );
     }
 </pre>
- <p>(If you're cutting and pasting the code don't forget to name the <a href="ntqaction.html">TQAction</a> parameter "action".)</p>
+ <p>(If you're cutting and pasting the code don't forget to name the <a href="tqaction.html">TQAction</a> parameter "action".)</p>
 <h4><a name="6-20"></a>Editing the Code: File Handling</h4>
 <p>Since the X Consortium has already defined a file format for relating colors to color names we will use their format rather than creating one specially for the application. This has the advantage that we will be able to read and write <tt>rgb.txt</tt>, and that our format will be familiar to many users.</p>
 <h4><a name="6-21"></a>fileNew()</h4>
@@ -579,13 +578,13 @@ body { background: #ffffff; color: black; }
 <pre>    bool MainForm::okToClear()
     {
         if ( m_changed ) {
-            <a href="ntqstring.html">TQString</a> msg;
+            <a href="tqstring.html">TQString</a> msg;
             if ( m_filename.isEmpty() )
                 msg = "Unnamed colors ";
             else
                 msg = TQString( "Colors '%1'\n" ).arg( m_filename );
             msg += TQString( "has been changed." );
-            int ans = TQMessageBox::<a href="ntqmessagebox.html#information">information</a>(
+            int ans = TQMessageBox::<a href="tqmessagebox.html#information">information</a>(
                             this,
                             "Color Tool -- Unsaved Changes",
                             msg, "&amp;Save", "Cancel", "&amp;Abandon",
@@ -600,57 +599,57 @@ body { background: #ffffff; color: black; }
     }
 </pre>
  <p>If the data has changed (<tt>m_changed</tt> is TRUE), we present the user with a message box offering the option of saving their data, or cancelling the current operation (e.g. not loading a new file, or not creating a new set of colors), or abandoning their changes and continuing. We make the <b>Save</b> button the default button (pressed by <b>Enter</b>) and the <b>Cancel</b> button the escape button (pressed by <b>Esc</b>).</p>
-<p>Since we're using a <a href="ntqmessagebox.html">TQMessageBox</a> we need to include the relevant header. (Right click "Includes (in Implementation)", then click <b>New</b>. Type "ntqmessagebox.h" and press <b>Enter</b>.)</p>
+<p>Since we're using a <a href="tqmessagebox.html">TQMessageBox</a> we need to include the relevant header. (Right click "Includes (in Implementation)", then click <b>New</b>. Type "tqmessagebox.h" and press <b>Enter</b>.)</p>
 <p>You should now have added the following declaration to your includes (in implementation):</p>
-<ul><li><p>"ntqmessagebox.h"</p>
+<ul><li><p>"tqmessagebox.h"</p>
 </ul><h4><a name="6-23"></a>fileOpen()</h4>
 <pre>    void MainForm::fileOpen()
     {
         if ( ! okToClear() )
             return;
 
-        <a href="ntqstring.html">TQString</a> filename = TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>(
+        <a href="tqstring.html">TQString</a> filename = TQFileDialog::<a href="tqfiledialog.html#getOpenFileName">getOpenFileName</a>(
                                 TQString::null, "Colors (*.txt)", this,
                                 "file open", "Color Tool -- File Open" );
-        if ( ! filename.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
+        if ( ! filename.<a href="tqstring.html#isEmpty">isEmpty</a>() )
             load( filename );
         else
             statusBar()-&gt;message( "File Open abandoned", 2000 );
     }
 </pre>
- <p>If it isn't okay to clear the data (i.e. the user has unsaved changes and clicked <b>Cancel</b> in the message box popped up by <tt>okToClear()</tt>), we simply return. Otherwise we ask the user for a filename using one of <a href="ntqfiledialog.html">TQFileDialog</a>'s static functions, and if we got the filename we attempt to load the file.</p>
-<p>Since we're using a <a href="ntqfiledialog.html">TQFileDialog</a> we need to include the relevant header. (Right click "Includes (in Implementation)", then click <b>New</b>. Type "ntqfiledialog.h" and press <b>Enter</b>.)</p>
+ <p>If it isn't okay to clear the data (i.e. the user has unsaved changes and clicked <b>Cancel</b> in the message box popped up by <tt>okToClear()</tt>), we simply return. Otherwise we ask the user for a filename using one of <a href="tqfiledialog.html">TQFileDialog</a>'s static functions, and if we got the filename we attempt to load the file.</p>
+<p>Since we're using a <a href="tqfiledialog.html">TQFileDialog</a> we need to include the relevant header. (Right click "Includes (in Implementation)", then click <b>New</b>. Type "tqfiledialog.h" and press <b>Enter</b>.)</p>
 <p>You should now have added the following declaration to your includes (in implementation):</p>
-<ul><li><p>"ntqfiledialog.h"</p>
+<ul><li><p>"tqfiledialog.h"</p>
 </ul><h4><a name="6-24"></a>load()</h4>
-<pre>    void MainForm::load( const <a href="ntqstring.html">TQString</a>&amp; filename )
+<pre>    void MainForm::load( const <a href="tqstring.html">TQString</a>&amp; filename )
     {
         clearData( FALSE );
         m_filename = filename;
-        <a href="ntqregexp.html">TQRegExp</a> regex( "^\\s*(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\S+.*)$" );
-        <a href="ntqfile.html">TQFile</a> file( filename );
-        if ( file.<a href="ntqfile.html#open">open</a>( IO_ReadOnly ) ) {
+        <a href="tqregexp.html">TQRegExp</a> regex( "^\\s*(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\S+.*)$" );
+        <a href="tqfile.html">TQFile</a> file( filename );
+        if ( file.<a href="tqfile.html#open">open</a>( IO_ReadOnly ) ) {
             statusBar()-&gt;message( TQString( "Loading '%1'..." ).
                                   arg( filename ) );
-            <a href="ntqtextstream.html">TQTextStream</a> stream( &amp;file );
-            <a href="ntqstring.html">TQString</a> line;
-            while ( ! stream.<a href="ntqtextstream.html#eof">eof</a>() ) {
-                line = stream.<a href="ntqtextstream.html#readLine">readLine</a>();
-                if ( regex.<a href="ntqregexp.html#search">search</a>( line ) == -1 )
+            <a href="tqtextstream.html">TQTextStream</a> stream( &amp;file );
+            <a href="tqstring.html">TQString</a> line;
+            while ( ! stream.<a href="tqtextstream.html#eof">eof</a>() ) {
+                line = stream.<a href="tqtextstream.html#readLine">readLine</a>();
+                if ( regex.<a href="tqregexp.html#search">search</a>( line ) == -1 )
                     m_comments += line;
                 else
-                    m_colors[regex.<a href="ntqregexp.html#cap">cap</a>( 4 )] = TQColor(
-                                                regex.<a href="ntqregexp.html#cap">cap</a>( 1 ).toInt(),
-                                                regex.<a href="ntqregexp.html#cap">cap</a>( 2 ).toInt(),
-                                                regex.<a href="ntqregexp.html#cap">cap</a>( 3 ).toInt() );
+                    m_colors[regex.<a href="tqregexp.html#cap">cap</a>( 4 )] = TQColor(
+                                                regex.<a href="tqregexp.html#cap">cap</a>( 1 ).toInt(),
+                                                regex.<a href="tqregexp.html#cap">cap</a>( 2 ).toInt(),
+                                                regex.<a href="tqregexp.html#cap">cap</a>( 3 ).toInt() );
             }
-            file.<a href="ntqfile.html#close">close</a>();
+            file.<a href="tqfile.html#close">close</a>();
             m_filename = filename;
-            <a href="ntqwidget.html#setCaption">setCaption</a>( TQString( "Color Tool -- %1" ).arg( m_filename ) );
+            <a href="tqwidget.html#setCaption">setCaption</a>( TQString( "Color Tool -- %1" ).arg( m_filename ) );
             statusBar()-&gt;message( TQString( "Loaded '%1'" ).
                                     arg( m_filename ), 3000 );
-            <a href="ntqwidget.html">TQWidget</a> *visible = colorWidgetStack-&gt;visibleWidget();
-            m_icons_dirty = ! ( m_table_dirty = ( <a href="ntqwidget.html#visible-prop">visible</a> == tablePage ) );
+            <a href="tqwidget.html">TQWidget</a> *visible = colorWidgetStack-&gt;visibleWidget();
+            m_icons_dirty = ! ( m_table_dirty = ( <a href="tqwidget.html#visible-prop">visible</a> == tablePage ) );
             populate();
             m_icons_dirty = ! ( m_table_dirty = ( visible != tablePage ) );
             m_changed = FALSE;
@@ -672,12 +671,12 @@ RED WHITESPACE GREEN WHITESPACE BLUE WHITESPACE NAME
 </pre>
 <p>The file may also include comment lines; these begin with '!' for example.</p>
 <p>There are numerous approaches we could have taken to parsing these files, but we've opted for a simple regular expression (regex). The regex is more "liberal" regarding the whitespace in the input than the format demands.</p>
-<p>If a line matches the regex we create a new entry in the <tt>m_colors</tt> <a href="ntqmap.html">TQMap</a>, setting its text to be the name of the color (<tt>regex.cap( 4 )</tt>), and its value to be a new <a href="ntqcolor.html">TQColor</a> created from the red, green and blue values. Lines that don't match the regex are treated as comments and are stored in the <tt>m_comments</tt> string list. (When we save the file we write all the comments out first even if they appeared in the middle of the file.)</p>
+<p>If a line matches the regex we create a new entry in the <tt>m_colors</tt> <a href="tqmap.html">TQMap</a>, setting its text to be the name of the color (<tt>regex.cap( 4 )</tt>), and its value to be a new <a href="tqcolor.html">TQColor</a> created from the red, green and blue values. Lines that don't match the regex are treated as comments and are stored in the <tt>m_comments</tt> string list. (When we save the file we write all the comments out first even if they appeared in the middle of the file.)</p>
 <p>Once we've populated the <tt>m_colors</tt> map we mark the visible view as "dirty" and call <tt>populate()</tt> to update it. We then mark the visible view as not dirty and the non-visible view as dirty. This ensures that when user changes the view, the view they switch to will be updated. We could have simply marked both views as dirty and updated them both, but it is more efficient to update "lazily", after all the user may only ever use one view, so why waste their time updating the other one.</p>
-<p>Since we're using <a href="ntqfile.html">TQFile</a> and <a href="ntqregexp.html">TQRegExp</a> we need to include the relevant headers. (Right click "Includes (in Implementation)", then click <b>New</b>. Type "ntqfile.h" and press <b>Enter</b>. Repeat this process to add "ntqregexp.h".)</p>
+<p>Since we're using <a href="tqfile.html">TQFile</a> and <a href="tqregexp.html">TQRegExp</a> we need to include the relevant headers. (Right click "Includes (in Implementation)", then click <b>New</b>. Type "tqfile.h" and press <b>Enter</b>. Repeat this process to add "tqregexp.h".)</p>
 <p>You should now have added the following declarations to your includes (in implementation):</p>
-<ul><li><p>"ntqfile.h"</p>
-<li><p>"ntqregexp.h"</p>
+<ul><li><p>"tqfile.h"</p>
+<li><p>"tqregexp.h"</p>
 </ul><blockquote>
 <p align="center"><b> The Regular Expression</b></p>
 <p>The regex we've used can be broken up into the following pieces:</p>
@@ -688,18 +687,18 @@ Captures:        cap(1)      cap(2)      cap(3)      cap(4)
 </pre>
 <p>Piece A says the regex must match from the beginning of the string, and piece F says the regex must match to the end of the string: so the regex must match the whole string or not match at all. The 'B' piece matches zero or more whitespaces (i.e. any leading whitespace), and the D pieces match one or more whitespaces (i.e. the gaps between each number). The 'C' pieces match one or more digits, i.e. the numbers. Piece E matches one or more non-whitespace followed by anything else, i.e. the name of the color.</p>
 <p>The parentheses are used to <em>capture</em> the parts of the match that they enclose. The captured parts are numbered from 1.</p>
-<p>For more information on regexes see the <a href="ntqregexp.html">TQRegExp</a> documentation.</p>
+<p>For more information on regexes see the <a href="tqregexp.html">TQRegExp</a> documentation.</p>
 </blockquote>
 <h4><a name="6-25"></a>fileSaveAs()</h4>
 <pre>    void MainForm::fileSaveAs()
     {
-        <a href="ntqstring.html">TQString</a> filename = TQFileDialog::<a href="ntqfiledialog.html#getSaveFileName">getSaveFileName</a>(
+        <a href="tqstring.html">TQString</a> filename = TQFileDialog::<a href="tqfiledialog.html#getSaveFileName">getSaveFileName</a>(
                                 TQString::null, "Colors (*.txt)", this,
                                 "file save as", "Color Tool -- File Save As" );
-        if ( ! filename.<a href="ntqstring.html#isEmpty">isEmpty</a>() ) {
+        if ( ! filename.<a href="tqstring.html#isEmpty">isEmpty</a>() ) {
             int ans = 0;
-            if ( TQFile::<a href="ntqfile.html#exists">exists</a>( filename ) )
-                ans = TQMessageBox::<a href="ntqmessagebox.html#warning">warning</a>(
+            if ( TQFile::<a href="tqfile.html#exists">exists</a>( filename ) )
+                ans = TQMessageBox::<a href="tqmessagebox.html#warning">warning</a>(
                                 this, "Color Tool -- Overwrite File",
                                 TQString( "Overwrite\n'%1'?" ).
                                     arg( filename ),
@@ -722,22 +721,22 @@ Captures:        cap(1)      cap(2)      cap(3)      cap(4)
             return;
         }
 
-        <a href="ntqfile.html">TQFile</a> file( m_filename );
-        if ( file.<a href="ntqfile.html#open">open</a>( IO_WriteOnly ) ) {
-            <a href="ntqtextstream.html">TQTextStream</a> stream( &amp;file );
+        <a href="tqfile.html">TQFile</a> file( m_filename );
+        if ( file.<a href="tqfile.html#open">open</a>( IO_WriteOnly ) ) {
+            <a href="tqtextstream.html">TQTextStream</a> stream( &amp;file );
             if ( ! m_comments.isEmpty() )
                 stream &lt;&lt; m_comments.join( "\n" ) &lt;&lt; "\n";
             TQMap&lt;TQString,TQColor&gt;::ConstIterator it;
             for ( it = m_colors.constBegin(); it != m_colors.constEnd(); ++it ) {
-                <a href="ntqcolor.html">TQColor</a> color = it.data();
+                <a href="tqcolor.html">TQColor</a> color = it.data();
                 stream &lt;&lt; TQString( "%1 %2 %3\t\t%4" ).
-                            arg( color.<a href="ntqcolor.html#red">red</a>(), 3 ).
-                            arg( color.<a href="ntqcolor.html#green">green</a>(), 3 ).
-                            arg( color.<a href="ntqcolor.html#blue">blue</a>(), 3 ).
+                            arg( color.<a href="tqcolor.html#red">red</a>(), 3 ).
+                            arg( color.<a href="tqcolor.html#green">green</a>(), 3 ).
+                            arg( color.<a href="tqcolor.html#blue">blue</a>(), 3 ).
                             arg( it.key() ) &lt;&lt; "\n";
             }
-            file.<a href="ntqfile.html#close">close</a>();
-            <a href="ntqwidget.html#setCaption">setCaption</a>( TQString( "Color Tool -- %1" ).arg( m_filename ) );
+            file.<a href="tqfile.html#close">close</a>();
+            <a href="tqwidget.html#setCaption">setCaption</a>( TQString( "Color Tool -- %1" ).arg( m_filename ) );
             statusBar()-&gt;message( TQString( "Saved %1 colors to '%2'" ).
                                     arg( m_colors.count() ).
                                     arg( m_filename ), 3000 );
@@ -755,7 +754,7 @@ Captures:        cap(1)      cap(2)      cap(3)      cap(4)
 <pre>    void MainForm::fileExit()
     {
         if ( okToClear() ) {
-            TQApplication::<a href="ntqapplication.html#exit">exit</a>( 0 );
+            TQApplication::<a href="tqapplication.html#exit">exit</a>( 0 );
         }
     }
 </pre>
@@ -766,13 +765,13 @@ Captures:        cap(1)      cap(2)      cap(3)      cap(4)
 <h4><a name="6-29"></a>editCut()</h4>
 <pre>    void MainForm::editCut()
     {
-        <a href="ntqstring.html">TQString</a> name;
-        <a href="ntqwidget.html">TQWidget</a> *visible = colorWidgetStack-&gt;visibleWidget();
-        statusBar()-&gt;message( TQString( "Deleting '%1'" ).arg( <a href="ntqobject.html#name-prop">name</a> ) );
+        <a href="tqstring.html">TQString</a> name;
+        <a href="tqwidget.html">TQWidget</a> *visible = colorWidgetStack-&gt;visibleWidget();
+        statusBar()-&gt;message( TQString( "Deleting '%1'" ).arg( <a href="tqobject.html#name-prop">name</a> ) );
 
-        if ( <a href="ntqwidget.html#visible-prop">visible</a> == tablePage &amp;&amp; colorTable-&gt;numRows() ) {
+        if ( <a href="tqwidget.html#visible-prop">visible</a> == tablePage &amp;&amp; colorTable-&gt;numRows() ) {
             int row = colorTable-&gt;currentRow();
-            <a href="ntqobject.html#name-prop">name</a> = colorTable-&gt;text( row, 0 );
+            <a href="tqobject.html#name-prop">name</a> = colorTable-&gt;text( row, 0 );
             colorTable-&gt;removeRow( colorTable-&gt;currentRow() );
             if ( row &lt; colorTable-&gt;numRows() )
                 colorTable-&gt;setCurrentCell( row, 0 );
@@ -780,15 +779,15 @@ Captures:        cap(1)      cap(2)      cap(3)      cap(4)
                 colorTable-&gt;setCurrentCell( colorTable-&gt;numRows() - 1, 0 );
             m_icons_dirty = TRUE;
         }
-        else if ( <a href="ntqwidget.html#visible-prop">visible</a> == iconsPage &amp;&amp; colorIconView-&gt;currentItem() ) {
-            <a href="qiconviewitem.html">TQIconViewItem</a> *item = colorIconView-&gt;currentItem();
-            <a href="ntqobject.html#name-prop">name</a> = item-&gt;<a href="qtableitem.html#text">text</a>();
+        else if ( <a href="tqwidget.html#visible-prop">visible</a> == iconsPage &amp;&amp; colorIconView-&gt;currentItem() ) {
+            <a href="tqiconviewitem.html">TQIconViewItem</a> *item = colorIconView-&gt;currentItem();
+            <a href="tqobject.html#name-prop">name</a> = item-&gt;<a href="tqtableitem.html#text">text</a>();
             if ( colorIconView-&gt;count() == 1 )
                 colorIconView-&gt;clear();
             else {
-                <a href="qiconviewitem.html">TQIconViewItem</a> *current = item-&gt;<a href="qiconviewitem.html#nextItem">nextItem</a>();
+                <a href="tqiconviewitem.html">TQIconViewItem</a> *current = item-&gt;<a href="tqiconviewitem.html#nextItem">nextItem</a>();
                 if ( ! current )
-                    current = item-&gt;<a href="qiconviewitem.html#prevItem">prevItem</a>();
+                    current = item-&gt;<a href="tqiconviewitem.html#prevItem">prevItem</a>();
                 delete item;
                 if ( current )
                     colorIconView-&gt;setCurrentItem( current );
@@ -797,40 +796,40 @@ Captures:        cap(1)      cap(2)      cap(3)      cap(4)
             m_table_dirty = TRUE;
         }
 
-        if ( ! name.<a href="ntqstring.html#isNull">isNull</a>() ) {
-            m_colors.remove( <a href="ntqobject.html#name-prop">name</a> );
+        if ( ! name.<a href="tqstring.html#isNull">isNull</a>() ) {
+            m_colors.remove( <a href="tqobject.html#name-prop">name</a> );
             m_changed = TRUE;
-            statusBar()-&gt;message( TQString( "Deleted '%1'" ).arg( <a href="ntqobject.html#name-prop">name</a> ), 5000 );
+            statusBar()-&gt;message( TQString( "Deleted '%1'" ).arg( <a href="tqobject.html#name-prop">name</a> ), 5000 );
         }
         else
-            statusBar()-&gt;message( TQString( "Failed to delete '%1'" ).arg( <a href="ntqobject.html#name-prop">name</a> ), 5000 );
+            statusBar()-&gt;message( TQString( "Failed to delete '%1'" ).arg( <a href="tqobject.html#name-prop">name</a> ), 5000 );
     }
 </pre>
  <p>If the user is viewing the table view we delete the current row. We set the new current cell to be the one following the deleted row, or if the one we deleted was last, its predecessor. We mark the <em>other</em> view (the icon view) as dirty, to make sure that it is updated if the user switches views. Similarly, if the user is viewing the icon view, we make the next (or previous if there is no next) item current and delete the one they were on. We then mark the table view as dirty. If we deleted a color (i.e. there was a current color in one of the views), we remove it from the <tt>m_colors</tt> map and mark the data as changed.</p>
 <h4><a name="6-30"></a>editCopy()</h4>
 <pre>    void MainForm::editCopy()
     {
-        <a href="ntqstring.html">TQString</a> text;
-        <a href="ntqwidget.html">TQWidget</a> *visible = colorWidgetStack-&gt;visibleWidget();
+        <a href="tqstring.html">TQString</a> text;
+        <a href="tqwidget.html">TQWidget</a> *visible = colorWidgetStack-&gt;visibleWidget();
 
-        if ( <a href="ntqwidget.html#visible-prop">visible</a> == tablePage &amp;&amp; colorTable-&gt;numRows() ) {
+        if ( <a href="tqwidget.html#visible-prop">visible</a> == tablePage &amp;&amp; colorTable-&gt;numRows() ) {
             int row = colorTable-&gt;currentRow();
             text = colorTable-&gt;text( row, 0 );
         }
-        else if ( <a href="ntqwidget.html#visible-prop">visible</a> == iconsPage &amp;&amp; colorIconView-&gt;currentItem() ) {
-            <a href="qiconviewitem.html">TQIconViewItem</a> *item = colorIconView-&gt;currentItem();
-            text = item-&gt;<a href="qtableitem.html#text">text</a>();
+        else if ( <a href="tqwidget.html#visible-prop">visible</a> == iconsPage &amp;&amp; colorIconView-&gt;currentItem() ) {
+            <a href="tqiconviewitem.html">TQIconViewItem</a> *item = colorIconView-&gt;currentItem();
+            text = item-&gt;<a href="tqtableitem.html#text">text</a>();
         }
-        if ( ! text.<a href="ntqstring.html#isNull">isNull</a>() ) {
-            <a href="ntqcolor.html">TQColor</a> color = m_colors[text];
+        if ( ! text.<a href="tqstring.html#isNull">isNull</a>() ) {
+            <a href="tqcolor.html">TQColor</a> color = m_colors[text];
             switch ( m_clip_as ) {
-                case CLIP_AS_HEX: text = color.<a href="ntqcolor.html#name">name</a>(); break;
+                case CLIP_AS_HEX: text = color.<a href="tqcolor.html#name">name</a>(); break;
                 case CLIP_AS_NAME: break;
                 case CLIP_AS_RGB:
                         text = TQString( "%1,%2,%3" ).
-                            arg( color.<a href="ntqcolor.html#red">red</a>() ).
-                            arg( color.<a href="ntqcolor.html#green">green</a>() ).
-                            arg( color.<a href="ntqcolor.html#blue">blue</a>() );
+                            arg( color.<a href="tqcolor.html#red">red</a>() ).
+                            arg( color.<a href="tqcolor.html#green">green</a>() ).
+                            arg( color.<a href="tqcolor.html#blue">blue</a>() );
                         break;
             }
             clipboard-&gt;setText( text );
@@ -838,7 +837,7 @@ Captures:        cap(1)      cap(2)      cap(3)      cap(4)
         }
     }
 </pre>
- <p>In this function we retrieve the name of the color from the current table row (or current icon, depending on the view). We then set a <a href="ntqstring.html">TQString</a> to the text we want to copy into the clipboard and copy it.</p>
+ <p>In this function we retrieve the name of the color from the current table row (or current icon, depending on the view). We then set a <a href="tqstring.html">TQString</a> to the text we want to copy into the clipboard and copy it.</p>
 <h3><a name="7"></a>Summary</h3>
 <p>In this chapter we have created a standard main-window style application. We have implemented menus, a toolbar and a main widget (a TQWidgetStack). We've also created signal and slot connections and implemented many custom slots. In the following chapter we will complete the application by implementing custom dialogs, and by making use of common dialogs where appropriate.</p>
 <!-- eof -->

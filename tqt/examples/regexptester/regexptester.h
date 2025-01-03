@@ -1,7 +1,7 @@
 #ifndef REGEXPTESTER_H
 #define REGEXPTESTER_H
 
-#include <ntqdialog.h>
+#include <tqdialog.h>
 
 class TQCheckBox;
 class TQComboBox;

@@ -1,5 +1,5 @@
 '\" t
-.TH QHttpRequestHeader 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQHttpRequestHeader 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QHttpRequestHeader \- Request header information for HTTP
+TQHttpRequestHeader \- Request header information for HTTP
 .SH SYNOPSIS
-\fC#include <ntqhttp.h>\fR
+\fC#include <tqhttp.h>\fR
 .PP
-Inherits QHttpHeader.
+Inherits TQHttpHeader.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQHttpRequestHeader\fR ()"
+.BI "\fBTQHttpRequestHeader\fR ()"
 .br
 .ti -1c
-.BI "\fBQHttpRequestHeader\fR ( const TQString & method, const TQString & path, int majorVer = 1, int minorVer = 1 )"
+.BI "\fBTQHttpRequestHeader\fR ( const TQString & method, const TQString & path, int majorVer = 1, int minorVer = 1 )"
 .br
 .ti -1c
-.BI "\fBQHttpRequestHeader\fR ( const QHttpRequestHeader & header )"
+.BI "\fBTQHttpRequestHeader\fR ( const TQHttpRequestHeader & header )"
 .br
 .ti -1c
-.BI "\fBQHttpRequestHeader\fR ( const TQString & str )"
+.BI "\fBTQHttpRequestHeader\fR ( const TQString & str )"
 .br
 .ti -1c
 .BI "void \fBsetRequest\fR ( const TQString & method, const TQString & path, int majorVer = 1, int minorVer = 1 )"
@@ -53,52 +53,52 @@ Inherits QHttpHeader.
 .br
 .in -1c
 .SH DESCRIPTION
-The QHttpRequestHeader class contains request header information for HTTP.
+The TQHttpRequestHeader class contains request header information for HTTP.
 .PP
-This class is used in the QHttp class to report the header information if the client requests something from the server.
+This class is used in the TQHttp class to report the header information if the client requests something from the server.
 .PP
 HTTP requests have a method which describes the request's action. The most common requests are "GET" and "POST". In addition to the request method the header also includes a request-URI to specify the location for the method to use.
 .PP
 The method, request-URI and protocol-version can be set using a constructor or later using setRequest(). The values can be obtained using method(), path(), majorVersion() and minorVersion().
 .PP
-This class is a QHttpHeader subclass so that class's functions, e.g. setValue(), value(), etc. are also available.
+This class is a TQHttpHeader subclass so that class's functions, e.g. setValue(), value(), etc. are also available.
 .PP
-See also QHttpResponseHeader, QHttp, and Input/Output and Networking.
+See also TQHttpResponseHeader, TQHttp, and Input/Output and Networking.
 .PP
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QHttpRequestHeader::QHttpRequestHeader ()"
+.SH "TQHttpRequestHeader::TQHttpRequestHeader ()"
 Constructs an empty HTTP request header.
-.SH "QHttpRequestHeader::QHttpRequestHeader ( const TQString & method, const TQString & path, int majorVer = 1, int minorVer = 1 )"
+.SH "TQHttpRequestHeader::TQHttpRequestHeader ( const TQString & method, const TQString & path, int majorVer = 1, int minorVer = 1 )"
 Constructs a HTTP request header for the method \fImethod\fR, the request-URI \fIpath\fR and the protocol-version \fImajorVer\fR and \fIminorVer\fR.
-.SH "QHttpRequestHeader::QHttpRequestHeader ( const QHttpRequestHeader & header )"
+.SH "TQHttpRequestHeader::TQHttpRequestHeader ( const TQHttpRequestHeader & header )"
 Constructs a copy of \fIheader\fR.
-.SH "QHttpRequestHeader::QHttpRequestHeader ( const TQString & str )"
+.SH "TQHttpRequestHeader::TQHttpRequestHeader ( const TQString & str )"
 Constructs a HTTP request header from the string \fIstr\fR. The \fIstr\fR should consist of one or more "\\r\\n" delimited lines; the first line should be the request-line (format: method, space, request-URI, space HTTP-version); each of the remaining lines should have the format key, colon, space, value.
-.SH "int QHttpRequestHeader::majorVersion () const\fC [virtual]\fR"
+.SH "int TQHttpRequestHeader::majorVersion () const\fC [virtual]\fR"
 Returns the major protocol-version of the HTTP request header.
 .PP
 See also minorVersion(), method(), path(), and setRequest().
 .PP
-Reimplemented from QHttpHeader.
-.SH "TQString QHttpRequestHeader::method () const"
+Reimplemented from TQHttpHeader.
+.SH "TQString TQHttpRequestHeader::method () const"
 Returns the method of the HTTP request header.
 .PP
 See also path(), majorVersion(), minorVersion(), and setRequest().
-.SH "int QHttpRequestHeader::minorVersion () const\fC [virtual]\fR"
+.SH "int TQHttpRequestHeader::minorVersion () const\fC [virtual]\fR"
 Returns the minor protocol-version of the HTTP request header.
 .PP
 See also majorVersion(), method(), path(), and setRequest().
 .PP
-Reimplemented from QHttpHeader.
-.SH "TQString QHttpRequestHeader::path () const"
+Reimplemented from TQHttpHeader.
+.SH "TQString TQHttpRequestHeader::path () const"
 Returns the request-URI of the HTTP request header.
 .PP
 See also method(), majorVersion(), minorVersion(), and setRequest().
-.SH "void QHttpRequestHeader::setRequest ( const TQString & method, const TQString & path, int majorVer = 1, int minorVer = 1 )"
+.SH "void TQHttpRequestHeader::setRequest ( const TQString & method, const TQString & path, int majorVer = 1, int minorVer = 1 )"
 This function sets the request method to \fImethod\fR, the request-URI to \fIpath\fR and the protocol-version to \fImajorVer\fR and \fIminorVer\fR.
 .PP
 See also method(), path(), majorVersion(), and minorVersion().
-.SH "void QHttpHeader::setValue ( const TQString & key, const TQString & value )"
+.SH "void TQHttpHeader::setValue ( const TQString & key, const TQString & value )"
 Sets the value of the entry with the \fIkey\fR to \fIvalue\fR.
 .PP
 If no entry with \fIkey\fR exists, a new entry with the given \fIkey\fR and \fIvalue\fR is created. If an entry with the \fIkey\fR already exists, its value is discarded and replaced with the given \fIvalue\fR.
@@ -106,13 +106,13 @@ If no entry with \fIkey\fR exists, a new entry with the given \fIkey\fR and \fIv
 See also value(), hasKey(), and removeValue().
 .PP
 Example: network/archivesearch/archivedialog.ui.h.
-.SH "TQString QHttpHeader::value ( const TQString & key ) const"
+.SH "TQString TQHttpHeader::value ( const TQString & key ) const"
 Returns the value for the entry with the given \fIkey\fR. If no entry has this \fIkey\fR, an empty string is returned.
 .PP
 See also setValue(), removeValue(), hasKey(), and keys().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qhttprequestheader.html
+.BR http://doc.trolltech.com/tqhttprequestheader.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

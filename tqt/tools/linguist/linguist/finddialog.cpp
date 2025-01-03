@@ -39,12 +39,12 @@
 
 #include "finddialog.h"
 
-#include <ntqcheckbox.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqlineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqwhatsthis.h>
+#include <tqcheckbox.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqlineedit.h>
+#include <tqpushbutton.h>
+#include <tqwhatsthis.h>
 
 FindDialog::FindDialog( bool replace, TQWidget *parent, const char *name,
 			bool modal )

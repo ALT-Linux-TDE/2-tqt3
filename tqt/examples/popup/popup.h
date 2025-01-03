@@ -13,9 +13,9 @@
 
 #ifndef POPUP_H
 #define POPUP_H
-#include <ntqlabel.h>
-#include <ntqpushbutton.h>
-#include <ntqlineedit.h>
+#include <tqlabel.h>
+#include <tqpushbutton.h>
+#include <tqlineedit.h>
 
 class FancyPopup : public TQLabel
 {

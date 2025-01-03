@@ -9,7 +9,7 @@
 .SH NAME
 TQColor \- Colors based on RGB or HSV values
 .SH SYNOPSIS
-\fC#include <ntqcolor.h>\fR
+\fC#include <tqcolor.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -17,25 +17,25 @@ TQColor \- Colors based on RGB or HSV values
 .BI "enum \fBSpec\fR { Rgb, Hsv }"
 .br
 .ti -1c
-.BI "\fBQColor\fR ()"
+.BI "\fBTQColor\fR ()"
 .br
 .ti -1c
-.BI "\fBQColor\fR ( int r, int g, int b )"
+.BI "\fBTQColor\fR ( int r, int g, int b )"
 .br
 .ti -1c
-.BI "\fBQColor\fR ( int x, int y, int z, Spec colorSpec )"
+.BI "\fBTQColor\fR ( int x, int y, int z, Spec colorSpec )"
 .br
 .ti -1c
-.BI "\fBQColor\fR ( TQRgb rgb, uint pixel = 0xffffffff )"
+.BI "\fBTQColor\fR ( TQRgb rgb, uint pixel = 0xffffffff )"
 .br
 .ti -1c
-.BI "\fBQColor\fR ( const TQString & name )"
+.BI "\fBTQColor\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "\fBQColor\fR ( const char * name )"
+.BI "\fBTQColor\fR ( const char * name )"
 .br
 .ti -1c
-.BI "\fBQColor\fR ( const TQColor & c )"
+.BI "\fBTQColor\fR ( const TQColor & c )"
 .br
 .ti -1c
 .BI "TQColor & \fBoperator=\fR ( const TQColor & c )"
@@ -134,16 +134,16 @@ TQColor \- Colors based on RGB or HSV values
 .BI "void \fBcleanup\fR ()"
 .br
 .ti -1c
-.BI "QStringList \fBcolorNames\fR ()"
+.BI "TQStringList \fBcolorNames\fR ()"
 .br
 .in -1c
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const TQColor & c )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQColor & c )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, TQColor & c )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQColor & c )"
 .br
 .ti -1c
 .BI "int \fBqRed\fR ( TQRgb rgb )"
@@ -227,14 +227,14 @@ Here are some examples: Pure red is H=0, S=255, V=255. A dark red, moving slight
 .PP
 Qt returns a hue value of -1 for achromatic colors. If you pass a too-big hue value, TQt forces it into range. Hue 360 or 720 is treated as 0; hue 540 is treated as 180.
 .PP
-See also QPalette, QColorGroup, QApplication::setColorSpec(), Color FAQ, Widget Appearance and Style, Graphics Classes, and Image Processing Classes.
+See also TQPalette, TQColorGroup, TQApplication::setColorSpec(), Color FAQ, Widget Appearance and Style, Graphics Classes, and Image Processing Classes.
 .SS "Member Type Documentation"
 .SH "TQColor::Spec"
-The type of color specified, either RGB or HSV, e.g. in the \fCQColor::TQColor( x, y, z, colorSpec)\fR constructor.
+The type of color specified, either RGB or HSV, e.g. in the \fCTQColor::TQColor( x, y, z, colorSpec)\fR constructor.
 .TP
-\fCQColor::Rgb\fR
+\fCTQColor::Rgb\fR
 .TP
-\fCQColor::Hsv\fR
+\fCTQColor::Hsv\fR
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "TQColor::TQColor ()"
 Constructs an invalid color with the RGB value (0, 0, 0). An invalid color is a color that is not properly set up for the underlying window system.
@@ -285,11 +285,11 @@ See also enterAllocContext().
 .SH "int TQColor::blue () const"
 Returns the B (blue) component of the RGB value.
 .SH "void TQColor::cleanup ()\fC [static]\fR"
-Internal clean up required for TQColor. This function is called from the QApplication destructor.
+Internal clean up required for TQColor. This function is called from the TQApplication destructor.
 .PP
 See also initialize().
-.SH "QStringList TQColor::colorNames ()\fC [static]\fR"
-Returns a QStringList containing the color names TQt knows about.
+.SH "TQStringList TQColor::colorNames ()\fC [static]\fR"
+Returns a TQStringList containing the color names TQt knows about.
 .SH "int TQColor::currentAllocContext ()\fC [static]\fR"
 Returns the current color allocation context.
 .PP
@@ -328,7 +328,7 @@ Example:
 .PP
 .nf
 .br
-    QPixmap loadPixmap( TQString fileName )
+    TQPixmap loadPixmap( TQString fileName )
 .br
     {
 .br
@@ -340,7 +340,7 @@ Example:
 .br
         alloc_context = TQColor::enterAllocContext();
 .br
-        QPixmap pm( fileName );
+        TQPixmap pm( fileName );
 .br
         TQColor::leaveAllocContext();
 .br
@@ -382,9 +382,9 @@ Calling enterAllocContext() enters an allocation context. The allocation context
 .br
 .fi
 .PP
-You may also want to set the application's color specification. See QApplication::setColorSpec() for more information.
+You may also want to set the application's color specification. See TQApplication::setColorSpec() for more information.
 .PP
-See also leaveAllocContext(), currentAllocContext(), destroyAllocContext(), and QApplication::setColorSpec().
+See also leaveAllocContext(), currentAllocContext(), destroyAllocContext(), and TQApplication::setColorSpec().
 .PP
 Example: showimg/showimg.cpp.
 .SH "void TQColor::getHsv ( int * h, int * s, int * v ) const"
@@ -408,7 +408,7 @@ Returns the G (green) component of the RGB value.
 .PP
 Example: themes/metal.cpp.
 .SH "void TQColor::initialize ()\fC [static]\fR"
-Internal initialization required for TQColor. This function is called from the QApplication constructor.
+Internal initialization required for TQColor. This function is called from the TQApplication constructor.
 .PP
 See also cleanup().
 .SH "bool TQColor::isValid () const"
@@ -452,7 +452,7 @@ Returns the number of color bit planes for the underlying window system.
 .PP
 The returned value is equal to the default pixmap depth.
 .PP
-See also QPixmap::defaultDepth().
+See also TQPixmap::defaultDepth().
 .SH "bool TQColor::operator!= ( const TQColor & c ) const"
 Returns TRUE if this color has a different RGB value from \fIc\fR; otherwise returns FALSE.
 .SH "TQColor & TQColor::operator= ( const TQColor & c )"
@@ -495,7 +495,7 @@ If \fIs\fR or \fIv\fR are not in the range 0-255, or \fIh\fR is < -1, the color 
 See also hsv() and setRgb().
 .PP
 Examples:
-.)l drawdemo/drawdemo.cpp, grapher/grapher.cpp, and progress/progress.cpp.
+.)l drawdemo/drawdemo.cpp] and progress/progress.cpp.
 .SH "void TQColor::setNamedColor ( const TQString & name )"
 Sets the RGB value to \fIname\fR, which may be in one of these formats:
 .TP
@@ -523,14 +523,14 @@ The type \fIQRgb\fR is equivalent to \fCunsigned\fR \fCint\fR.
 .PP
 See also rgb() and setHsv().
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "QDataStream & operator<< ( QDataStream & s, const TQColor & c )"
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQColor & c )"
 Writes a color object, \fIc\fR to the stream, \fIs\fR.
 .PP
-See also Format of the QDataStream operators.
-.SH "QDataStream & operator>> ( QDataStream & s, TQColor & c )"
+See also Format of the TQDataStream operators.
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQColor & c )"
 Reads a color object, \fIc\fR, from the stream, \fIs\fR.
 .PP
-See also Format of the QDataStream operators.
+See also Format of the TQDataStream operators.
 .SH "int tqAlpha ( TQRgb rgba )"
 Returns the alpha component of the RGBA quadruplet \fIrgba\fR.
 .SH "int tqBlue ( TQRgb rgb )"
@@ -567,7 +567,7 @@ The return type QRgba is equivalent to \fCunsigned\fR \fCint\fR.
 See also tqRgb(), tqRed(), tqGreen(), and tqBlue().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqcolor.html
+.BR http://doc.trolltech.com/tqcolor.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

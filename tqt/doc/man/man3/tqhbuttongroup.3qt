@@ -1,5 +1,5 @@
 '\" t
-.TH QHButtonGroup 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQHButtonGroup 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,28 +7,28 @@
 .ad l
 .nh
 .SH NAME
-QHButtonGroup \- Organizes QButton widgets in a group with one horizontal row
+TQHButtonGroup \- Organizes TQButton widgets in a group with one horizontal row
 .SH SYNOPSIS
-\fC#include <ntqhbuttongroup.h>\fR
+\fC#include <tqhbuttongroup.h>\fR
 .PP
-Inherits QButtonGroup.
+Inherits TQButtonGroup.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQHButtonGroup\fR ( TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQHButtonGroup\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQHButtonGroup\fR ( const TQString & title, TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQHButtonGroup\fR ( const TQString & title, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QHButtonGroup\fR ()"
+.BI "\fB~TQHButtonGroup\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QHButtonGroup widget organizes QButton widgets in a group with one horizontal row.
+The TQHButtonGroup widget organizes TQButton widgets in a group with one horizontal row.
 .PP
-QHButtonGroup is a convenience class that offers a thin layer on top of QButtonGroup. From a layout point of view it is effectively a QHBox that offers a frame with a title and is specifically designed for buttons. From a functionality point of view it is a QButtonGroup.
+TQHButtonGroup is a convenience class that offers a thin layer on top of TQButtonGroup. From a layout point of view it is effectively a TQHBox that offers a frame with a title and is specifically designed for buttons. From a functionality point of view it is a TQButtonGroup.
 .PP
 <center>
 .ce 1
@@ -36,21 +36,21 @@ QHButtonGroup is a convenience class that offers a thin layer on top of QButtonG
 .PP
 </center>
 .PP
-See also QVButtonGroup, Widget Appearance and Style, Layout Management, and Organizers.
+See also TQVButtonGroup, Widget Appearance and Style, Layout Management, and Organizers.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QHButtonGroup::QHButtonGroup ( TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQHButtonGroup::TQHButtonGroup ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a horizontal button group with no title.
 .PP
 The \fIparent\fR and \fIname\fR arguments are passed to the TQWidget constructor.
-.SH "QHButtonGroup::QHButtonGroup ( const TQString & title, TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQHButtonGroup::TQHButtonGroup ( const TQString & title, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a horizontal button group with the title \fItitle\fR.
 .PP
 The \fIparent\fR and \fIname\fR arguments are passed to the TQWidget constructor.
-.SH "QHButtonGroup::~QHButtonGroup ()"
+.SH "TQHButtonGroup::~TQHButtonGroup ()"
 Destroys the horizontal button group, deleting its child widgets.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqhbuttongroup.html
+.BR http://doc.trolltech.com/tqhbuttongroup.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

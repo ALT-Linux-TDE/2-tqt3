@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/sql.doc:48 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -42,21 +41,21 @@ body { background: #ffffff; color: black; }
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qsqldatabase-h.html">ntqsqldatabase.h</a>&gt;
-#include &lt;<a href="qsqlcursor-h.html">ntqsqlcursor.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqsqldatabase-h.html">tqsqldatabase.h</a>&gt;
+#include &lt;<a href="tqsqlcursor-h.html">tqsqlcursor.h</a>&gt;
 #include "../connection.h"
 
 int main( int argc, char *argv[] )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv, FALSE );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv, FALSE );
 
     if ( createConnections() ) {
-        <a href="ntqsqlcursor.html">TQSqlCursor</a> cur( "prices" );
-        cur.<a href="ntqsqlcursor.html#select">select</a>( "id=999" );
-        if ( cur.<a href="ntqsqlquery.html#next">next</a>() ) {
-            cur.<a href="ntqsqlcursor.html#primeDelete">primeDelete</a>();
-            cur.<a href="ntqsqlcursor.html#del">del</a>();
+        <a href="tqsqlcursor.html">TQSqlCursor</a> cur( "prices" );
+        cur.<a href="tqsqlcursor.html#select">select</a>( "id=999" );
+        if ( cur.<a href="tqsqlquery.html#next">next</a>() ) {
+            cur.<a href="tqsqlcursor.html#primeDelete">primeDelete</a>();
+            cur.<a href="tqsqlcursor.html#del">del</a>();
         }
     }
 

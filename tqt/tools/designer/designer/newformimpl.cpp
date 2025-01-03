@@ -44,15 +44,15 @@
 #include "projectsettingsimpl.h"
 #include "sourcefile.h"
 
-#include <ntqiconview.h>
-#include <ntqlabel.h>
-#include <ntqfileinfo.h>
-#include <ntqdir.h>
-#include <ntqpushbutton.h>
+#include <tqiconview.h>
+#include <tqlabel.h>
+#include <tqfileinfo.h>
+#include <tqdir.h>
+#include <tqpushbutton.h>
 #include <stdlib.h>
-#include <ntqcombobox.h>
-#include <ntqworkspace.h>
-#include <ntqmessagebox.h>
+#include <tqcombobox.h>
+#include <tqworkspace.h>
+#include <tqmessagebox.h>
 
 static int forms = 0;
 

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:303 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,27 +40,27 @@ body { background: #ffffff; color: black; }
 **
 ****************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
-#include &lt;<a href="qvbox-h.html">ntqvbox.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
+#include &lt;<a href="tqvbox-h.html">tqvbox.h</a>&gt;
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
-    <a href="ntqvbox.html">TQVBox</a> box;
-    box.<a href="ntqwidget.html#resize">resize</a>( 200, 120 );
+    <a href="tqvbox.html">TQVBox</a> box;
+    box.<a href="tqwidget.html#resize">resize</a>( 200, 120 );
 
-    <a href="ntqpushbutton.html">TQPushButton</a> quit( "Quit", &amp;box );
-    quit.<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
+    <a href="tqpushbutton.html">TQPushButton</a> quit( "Quit", &amp;box );
+    quit.<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    TQObject::<a href="tqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
 
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;box );
-    box.<a href="ntqwidget.html#show">show</a>();
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;box );
+    box.<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 
@@ -69,36 +68,36 @@ int main( int argc, char **argv )
 
 <p> <h2> Line-by-line Walkthrough
 </h2>
-<a name="1"></a><p> <pre>    #include &lt;<a href="qvbox-h.html">ntqvbox.h</a>&gt;
+<a name="1"></a><p> <pre>    #include &lt;<a href="tqvbox-h.html">tqvbox.h</a>&gt;
 </pre>
-<p> We add an include of ntqvbox.h to get the layout class we'll use.
-<p> <pre>        <a href="ntqvbox.html">TQVBox</a> box;
+<p> We add an include of tqvbox.h to get the layout class we'll use.
+<p> <pre>        <a href="tqvbox.html">TQVBox</a> box;
 </pre>
-<p> Here we simply create a vertical box container. The <a href="ntqvbox.html">TQVBox</a> arranges
+<p> Here we simply create a vertical box container. The <a href="tqvbox.html">TQVBox</a> arranges
 its child widgets in a vertical row, one above the other, handing out
-space according to each child's <a href="ntqwidget.html#sizePolicy">TQWidget::sizePolicy</a>().
-<p> <pre>    <a name="x2300"></a>    box.<a href="ntqwidget.html#resize">resize</a>( 200, 120 );
+space according to each child's <a href="tqwidget.html#sizePolicy">TQWidget::sizePolicy</a>().
+<p> <pre>    <a name="x2300"></a>    box.<a href="tqwidget.html#resize">resize</a>( 200, 120 );
 </pre>
 <p> We set its width to 200 pixels and the height to 120 pixels.
-<p> <pre>        <a href="ntqpushbutton.html">TQPushButton</a> quit( "Quit", &amp;box );
+<p> <pre>        <a href="tqpushbutton.html">TQPushButton</a> quit( "Quit", &amp;box );
 </pre>
 <p> A child is born.
-<p> This <a href="ntqpushbutton.html">TQPushButton</a> is created with both a text ("Quit") and a parent
+<p> This <a href="tqpushbutton.html">TQPushButton</a> is created with both a text ("Quit") and a parent
 (box). A child widget is always on top of its parent. When
 displayed, it is clipped by its parent's bounds.
 <p> The parent widget, the TQVBox, automatically adds the child centered in
 its box. Because nothing else is added, the button gets all the space
 the parent has.
-<p> <pre>    <a name="x2302"></a>    box.<a href="ntqwidget.html#show">show</a>();
+<p> <pre>    <a name="x2302"></a>    box.<a href="tqwidget.html#show">show</a>();
 </pre>
 <p> When a parent widget is shown, it will call show for all its children
-(except those on which you have done an explicit <a href="ntqwidget.html#hide">TQWidget::hide</a>()).
+(except those on which you have done an explicit <a href="tqwidget.html#hide">TQWidget::hide</a>()).
 <p> <h2> Behavior
 </h2>
 <a name="2"></a><p> The button no longer fills the entire widget. Instead, it gets a
 "natural" size. This is because there is now a new top-level widget,
 which uses the button's size hint and size change policy to set the
-button's size and position. (See <a href="ntqwidget.html#sizeHint">TQWidget::sizeHint</a>() and <a href="ntqwidget.html#setSizePolicy">TQWidget::setSizePolicy</a>() for more information about these functions.)
+button's size and position. (See <a href="tqwidget.html#sizeHint">TQWidget::sizeHint</a>() and <a href="tqwidget.html#setSizePolicy">TQWidget::setSizePolicy</a>() for more information about these functions.)
 <p> (See <a href="tutorial1-01.html#compiling">Compiling</a> for how to create a
 makefile and build the application.)
 <p> <h2> Exercises

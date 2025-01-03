@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:2375 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -44,21 +43,21 @@ body { background: #ffffff; color: black; }
 class TQTimer;
 
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
 
 
-class CannonField : public <a href="ntqwidget.html">TQWidget</a>
+class CannonField : public <a href="tqwidget.html">TQWidget</a>
 {
     TQ_OBJECT
 public:
-    CannonField( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    CannonField( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 
     int   angle() const { return ang; }
     int   force() const { return f; }
     bool  gameOver() const { return gameEnded; }
     bool  isShooting() const;
-    <a href="ntqsize.html">TQSize</a> sizeHint() const;
-    <a href="ntqsizepolicy.html">TQSizePolicy</a> sizePolicy() const;
+    <a href="tqsize.html">TQSize</a> sizeHint() const;
+    <a href="tqsizepolicy.html">TQSizePolicy</a> sizePolicy() const;
 
 public slots:
     void  setAngle( int degrees );
@@ -79,31 +78,31 @@ signals:
     void  canShoot( bool );
 
 protected:
-    void  paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
-    void  mousePressEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-    void  mouseMoveEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-    void  mouseReleaseEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
+    void  paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
+    void  mousePressEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+    void  mouseMoveEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+    void  mouseReleaseEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
 
 private:
-    void  paintShot( <a href="ntqpainter.html">TQPainter</a> * );
-    void  paintTarget( <a href="ntqpainter.html">TQPainter</a> * );
-    void  paintBarrier( <a href="ntqpainter.html">TQPainter</a> * );
-    void  paintCannon( <a href="ntqpainter.html">TQPainter</a> * );
-    <a href="ntqrect.html">TQRect</a> cannonRect() const;
-    <a href="ntqrect.html">TQRect</a> shotRect() const;
-    <a href="ntqrect.html">TQRect</a> targetRect() const;
-    <a href="ntqrect.html">TQRect</a> barrierRect() const;
-    bool  barrelHit( const <a href="ntqpoint.html">TQPoint</a> &amp; ) const;
+    void  paintShot( <a href="tqpainter.html">TQPainter</a> * );
+    void  paintTarget( <a href="tqpainter.html">TQPainter</a> * );
+    void  paintBarrier( <a href="tqpainter.html">TQPainter</a> * );
+    void  paintCannon( <a href="tqpainter.html">TQPainter</a> * );
+    <a href="tqrect.html">TQRect</a> cannonRect() const;
+    <a href="tqrect.html">TQRect</a> shotRect() const;
+    <a href="tqrect.html">TQRect</a> targetRect() const;
+    <a href="tqrect.html">TQRect</a> barrierRect() const;
+    bool  barrelHit( const <a href="tqpoint.html">TQPoint</a> &amp; ) const;
 
     int ang;
     int f;
 
     int timerCount;
-    <a href="ntqtimer.html">TQTimer</a> * autoShootTimer;
+    <a href="tqtimer.html">TQTimer</a> * autoShootTimer;
     float shoot_ang;
     float shoot_f;
 
-    <a href="ntqpoint.html">TQPoint</a> target;
+    <a href="tqpoint.html">TQPoint</a> target;
 
     bool gameEnded;
     bool barrelPressed;

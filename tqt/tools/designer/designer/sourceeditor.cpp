@@ -38,12 +38,12 @@
 #include "project.h"
 #include "mainwindow.h"
 #include "../interfaces/languageinterface.h"
-#include <ntqregexp.h>
+#include <tqregexp.h>
 #include "project.h"
 #include "sourcefile.h"
 #include "hierarchyview.h"
-#include <ntqmessagebox.h>
-#include <ntqtextstream.h>
+#include <tqmessagebox.h>
+#include <tqtextstream.h>
 
 SourceEditor::SourceEditor( TQWidget *parent, EditorInterface *iface, LanguageInterface *liface )
     : TQVBox( parent, 0, WDestructiveClose ), iFace( iface ), lIface( liface ), obj( 0 ), pro( 0 )

@@ -43,15 +43,15 @@
 
 \title Walkthrough: A Simple Application
 
-This walkthrough shows simple use of \l QMainWindow, \l QMenuBar, \l
-QPopupMenu, \l QToolBar and \l QStatusBar - classes that every
+This walkthrough shows simple use of \l TQMainWindow, \l TQMenuBar, \l
+TQPopupMenu, \l TQToolBar and \l TQStatusBar - classes that every
 modern application window tends to use. (See also \link tutorial2.html
 Tutorial #2\endlink.)
 
-It also illustrates some aspects of \l QWhatsThis (for simple help) and a
-typical \c main() using \l QApplication.
+It also illustrates some aspects of \l TQWhatsThis (for simple help) and a
+typical \c main() using \l TQApplication.
 
-Finally, it shows a typical print function based on \l QPrinter.
+Finally, it shows a typical print function based on \l TQPrinter.
 
 \section1 The declaration of ApplicationWindow
 
@@ -59,11 +59,11 @@ Here's the header file in full:
 
 \include application/application.h
 
-It declares a class that inherits \l QMainWindow, with slots and private
-variables. The class pre-declaration of \l QTextEdit at the beginning
+It declares a class that inherits \l TQMainWindow, with slots and private
+variables. The class pre-declaration of \l TQTextEdit at the beginning
 (instead of an include) helps to speed up compilation. With this
 trick, \c{make depend} won't insist on recompiling every \c .cpp file that
-includes \c application.h when \c ntqtextedit.h changes.
+includes \c application.h when \c tqtextedit.h changes.
 
 \target simplemain
 \section1 A simple main()
@@ -77,11 +77,11 @@ Now we'll look at \c main.cpp in detail.
 \quotefile application/main.cpp
 \skipto argc
 \printline argc
-\printline QApplication
+\printline TQApplication
 
-With the above line, we create a QApplication object with the usual 
+With the above line, we create a TQApplication object with the usual 
 constructor and let it
-parse \e argc and \e argv. QApplication itself takes care of X11-specific
+parse \e argc and \e argv. TQApplication itself takes care of X11-specific
 command-line options like \e -geometry, so the program will automatically
 behave the way X clients are expected to.
 
@@ -96,13 +96,13 @@ system caption to "Document 1", and \e show() it.
 \printline connect
 
 When the application's last window is closed, it should quit. Both
-the signal and the slot are predefined members of QApplication.
+the signal and the slot are predefined members of TQApplication.
 
 \printline exec
 
 Having completed the application's initialization, we start the main
 event loop (the GUI), and eventually return the error code
-that QApplication returns when it leaves the event loop.
+that TQApplication returns when it leaves the event loop.
 
 \printline }
 
@@ -129,22 +129,22 @@ compile them into the binary. This is what we are doing here.
 \printline ApplicationWindow::ApplicationWindow
 \printuntil {
 
-\e ApplicationWindow inherits QMainWindow, the TQt class that provides
+\e ApplicationWindow inherits TQMainWindow, the TQt class that provides
 typical application main windows, with menu bars, toolbars, etc.
 
-\printuntil QPrinter
+\printuntil TQPrinter
 
 The application example can print things, and we chose to have a
-QPrinter object lying around so that when the user changes a setting
+TQPrinter object lying around so that when the user changes a setting
 during one printing, the new setting will be the default next time.
 
-\printline QPixmap
+\printline TQPixmap
 
 For the sake of simplicity, our example only has a few commands in the
 toolbar. The above variables are used to hold an icon for each of
 them.
 
-\printline QToolBar
+\printline TQToolBar
 
 We create a toolbar in \e this window ...
 
@@ -199,7 +199,7 @@ this is not necessary.
 
 \printuntil &File
 
-Next we create a \l QPopupMenu for the \e File menu and 
+Next we create a \l TQPopupMenu for the \e File menu and 
 add it to the menu bar. With the ampersand in front of the letter F,
 we allow the user to use the shortcut \e Alt+F to pop up this menu.
 
@@ -218,7 +218,7 @@ letter N as marked by the ampersand) or uses the
 We populate the \e File menu with three more commands (\e Open, \e Save and
 \e{Save As}), and set "What's This?" help for them. Note in particular
 that "What's This?" help and pixmaps are used in both the toolbar (above)
-and the menu bar (here). (See QAction and the \c examples/action
+and the menu bar (here). (See TQAction and the \c examples/action
 example for a shorter and easier approach.)
 
 \printline insertSeparator(
@@ -253,14 +253,14 @@ We create a \e Help menu, add it to the menu bar, and insert a few
 commands. Depending on the style it will appear on the right hand 
 side of the menu bar or not.
 
-\printline QTextEdit
+\printline TQTextEdit
 \printline setFocus
 \printline setCentralWidget
 
 Now we create a simple text-editor, set the initial focus to it,
 and make it the window's central widget.
 
-\l QMainWindow::centralWidget() is the heart of the entire application:
+\l TQMainWindow::centralWidget() is the heart of the entire application:
 It's what menu bar, statusbar and toolbars are all arranged around. Since
 the central widget is a text editing widget, we can now reveal that
 our simple application is a text editor. :)
@@ -303,7 +303,7 @@ new \e ApplicationWindow and shows it.
 \printuntil }
 
 The \e choose() slot is connected to the \e Open menu item and
-tool button. With a little help from \l QFileDialog::getOpenFileName(), it
+tool button. With a little help from \l TQFileDialog::getOpenFileName(), it
 asks the user for a file name and then either loads that file or gives an
 error message in the statusbar.
 
@@ -368,10 +368,10 @@ tool button.
 We present the user with the print setup dialog, and abandon printing
 if they cancel. 
 
-We create a QSimpleRichText object and give it the text. This object
+We create a TQSimpleRichText object and give it the text. This object
 is able to format the text nicely as one long page. We achieve
 pagination by printing one paper page's worth of text from the
-QSimpleRichText page at a time.
+TQSimpleRichText page at a time.
 
 
 Now let's see what happens when a user wishes to \e close()
@@ -395,7 +395,7 @@ will be closed, and because we used the \e WDestructiveClose widget
 flag in the \link #ApplicationWindow <i>ApplicationWindow()</i> constructor\endlink, 
 the widget will be deleted.
 
-\printline QMessageBox
+\printline TQMessageBox
 \printuntil {
 
 Otherwise we ask the user: What do you want to do?  

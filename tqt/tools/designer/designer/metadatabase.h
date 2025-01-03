@@ -34,15 +34,15 @@
 #ifndef METADATABASE_H
 #define METADATABASE_H
 
-#include <ntqvariant.h>
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqmap.h>
-#include <ntqptrlist.h>
-#include <ntqsizepolicy.h>
-#include <ntqsize.h>
-#include <ntqwidgetlist.h>
-#include <ntqcursor.h>
+#include <tqvariant.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqmap.h>
+#include <tqptrlist.h>
+#include <tqsizepolicy.h>
+#include <tqsize.h>
+#include <tqwidgetlist.h>
+#include <tqcursor.h>
 
 #include "pixmapchooser.h"
 #include "../interfaces/languageinterface.h"

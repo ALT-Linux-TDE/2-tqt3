@@ -1,36 +1,36 @@
 #tqmake code
 OBJS=project.o property.o main.o makefile.o unixmake2.o unixmake.o msvc_nmake.o \
-     borland_bmake.o mingw_make.o msvc_dsp.o msvc_vcproj.o option.o \
-     winmakefile.o projectgenerator.o metrowerks_xml.o  pbuilder_pbx.o \
+     mingw_make.o msvc_dsp.o msvc_vcproj.o option.o \
+     winmakefile.o projectgenerator.o pbuilder_pbx.o \
      msvc_objectmodel.o meta.o qtmd5.o
 
 #qt code
-QOBJS=qstring.o qtextstream.o qiodevice.o qglobal.o qgdict.o qcstring.o \
-      qdatastream.o qgarray.o qbuffer.o qglist.o qptrcollection.o qfile.o \
-      qfile_unix.o qregexp.o qgvector.o qgcache.o qbitarray.o qdir.o quuid.o \
-      qfileinfo_unix.o qdir_unix.o qfileinfo.o qdatetime.o qstringlist.o qmap.o \
-      qconfig.o qunicodetables.o qsettings.o qlocale.o @QMAKE_QTOBJS@
+QOBJS=tqstring.o tqtextstream.o tqiodevice.o tqglobal.o tqgdict.o tqcstring.o \
+      tqdatastream.o tqgarray.o tqbuffer.o tqglist.o tqptrcollection.o tqfile.o \
+      tqfile_unix.o tqregexp.o tqgvector.o tqgcache.o tqbitarray.o tqdir.o tquuid.o \
+      tqfileinfo_unix.o tqdir_unix.o tqfileinfo.o tqdatetime.o tqstringlist.o tqmap.o \
+      tqconfig.o tqunicodetables.o tqsettings.o tqlocale.o @QMAKE_QTOBJS@
 
 #all sources, used for the depend target
 DEPEND_SRC=project.cpp property.cpp meta.cpp main.cpp qtmd5.cpp generators/makefile.cpp generators/unix/unixmake2.cpp \
-           generators/unix/unixmake.cpp generators/win32/msvc_nmake.cpp generators/win32/borland_bmake.cpp \
-	   generators/win32/winmakefile.cpp generators/projectgenerator.cpp generators/mac/metrowerks_xml.cpp \
+           generators/unix/unixmake.cpp generators/win32/msvc_nmake.cpp \
+	   generators/win32/winmakefile.cpp generators/projectgenerator.cpp \
 	   generators/mac/pbuilder_pbx.cpp generators/win32/msvc_objectmodel.cpp \
-	   @SOURCE_PATH@/src/tools/qstring.cpp @SOURCE_PATH@/src/tools/qtextstream.cpp \
-	   @SOURCE_PATH@/src/tools/qiodevice.cpp @SOURCE_PATH@/src/tools/qglobal.cpp \
-	   @SOURCE_PATH@/src/tools/qgdict.cpp @SOURCE_PATH@/src/tools/qcstring.cpp \
-	   @SOURCE_PATH@/src/tools/qdatastream.cpp @SOURCE_PATH@/src/tools/qgarray.cpp \
-	   @SOURCE_PATH@/src/tools/qbuffer.cpp @SOURCE_PATH@/src/tools/qglist.cpp \
-	   @SOURCE_PATH@/src/tools/qptrcollection.cpp @SOURCE_PATH@/src/tools/qfile.cpp \
-	   @SOURCE_PATH@/src/tools/qfile_unix.cpp @SOURCE_PATH@/src/tools/qregexp.cpp \
-	   @SOURCE_PATH@/src/tools/qgvector.cpp @SOURCE_PATH@/src/tools/qgcache.cpp \
-	   @SOURCE_PATH@/src/tools/qbitarray.cpp @SOURCE_PATH@/src/tools/qdir.cpp \
-	   @SOURCE_PATH@/src/tools/quuid.cpp @SOURCE_PATH@/src/tools/qfileinfo_unix.cpp \
-	   @SOURCE_PATH@/src/tools/qdir_unix.cpp @SOURCE_PATH@/src/tools/qfileinfo.cpp \
-	   @SOURCE_PATH@/src/tools/qdatetime.cpp @SOURCE_PATH@/src/tools/qstringlist.cpp \
-	   @SOURCE_PATH@/src/tools/qmap.cpp @SOURCE_PATH@/src/tools/qconfig.cpp \
-	   @SOURCE_PATH@/src/tools/qsettings.cpp @SOURCE_PATH@/src/tools/qurl.cpp \
-	   @SOURCE_PATH@/src/tools/qsettings_mac.cpp @SOURCE_PATH@/src/tools/qlocale.cpp
+	   @SOURCE_PATH@/src/tools/tqstring.cpp @SOURCE_PATH@/src/tools/tqtextstream.cpp \
+	   @SOURCE_PATH@/src/tools/tqiodevice.cpp @SOURCE_PATH@/src/tools/tqglobal.cpp \
+	   @SOURCE_PATH@/src/tools/tqgdict.cpp @SOURCE_PATH@/src/tools/tqcstring.cpp \
+	   @SOURCE_PATH@/src/tools/tqdatastream.cpp @SOURCE_PATH@/src/tools/tqgarray.cpp \
+	   @SOURCE_PATH@/src/tools/tqbuffer.cpp @SOURCE_PATH@/src/tools/tqglist.cpp \
+	   @SOURCE_PATH@/src/tools/tqptrcollection.cpp @SOURCE_PATH@/src/tools/tqfile.cpp \
+	   @SOURCE_PATH@/src/tools/tqfile_unix.cpp @SOURCE_PATH@/src/tools/tqregexp.cpp \
+	   @SOURCE_PATH@/src/tools/tqgvector.cpp @SOURCE_PATH@/src/tools/tqgcache.cpp \
+	   @SOURCE_PATH@/src/tools/tqbitarray.cpp @SOURCE_PATH@/src/tools/tqdir.cpp \
+	   @SOURCE_PATH@/src/tools/tquuid.cpp @SOURCE_PATH@/src/tools/tqfileinfo_unix.cpp \
+	   @SOURCE_PATH@/src/tools/tqdir_unix.cpp @SOURCE_PATH@/src/tools/tqfileinfo.cpp \
+	   @SOURCE_PATH@/src/tools/tqdatetime.cpp @SOURCE_PATH@/src/tools/tqstringlist.cpp \
+	   @SOURCE_PATH@/src/tools/tqmap.cpp @SOURCE_PATH@/src/tools/tqconfig.cpp \
+	   @SOURCE_PATH@/src/tools/tqsettings.cpp @SOURCE_PATH@/src/tools/tqurl.cpp \
+	   @SOURCE_PATH@/src/tools/tqsettings_mac.cpp @SOURCE_PATH@/src/tools/tqlocale.cpp
 
 CXXFLAGS= @QMAKE_CXXFLAGS@ \
 	-I. -Igenerators -Igenerators/unix -Igenerators/win32 -Igenerators/mac \
@@ -60,98 +60,98 @@ depend:
 	makedepend $(CXXFLAGS) -D__MAKEDEPEND__ $(DEPEND_SRC)
 
 # don't use optimization for these
-qtextstream.o: @SOURCE_PATH@/src/tools/qtextstream.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qtextstream.cpp
+tqtextstream.o: @SOURCE_PATH@/src/tools/tqtextstream.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqtextstream.cpp
 
-qiodevice.o: @SOURCE_PATH@/src/tools/qiodevice.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qiodevice.cpp
+tqiodevice.o: @SOURCE_PATH@/src/tools/tqiodevice.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqiodevice.cpp
 
-qglobal.o: @SOURCE_PATH@/src/tools/qglobal.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qglobal.cpp
+tqglobal.o: @SOURCE_PATH@/src/tools/tqglobal.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqglobal.cpp
 
-qgdict.o: @SOURCE_PATH@/src/tools/qgdict.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qgdict.cpp
+tqgdict.o: @SOURCE_PATH@/src/tools/tqgdict.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqgdict.cpp
 
-qcstring.o: @SOURCE_PATH@/src/tools/qcstring.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qcstring.cpp
+tqcstring.o: @SOURCE_PATH@/src/tools/tqcstring.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqcstring.cpp
 
-qsettings.o: @SOURCE_PATH@/src/tools/qsettings.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qsettings.cpp
+tqsettings.o: @SOURCE_PATH@/src/tools/tqsettings.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqsettings.cpp
 
-qsettings_mac.o: @SOURCE_PATH@/src/tools/qsettings_mac.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qsettings_mac.cpp
+tqsettings_mac.o: @SOURCE_PATH@/src/tools/tqsettings_mac.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqsettings_mac.cpp
 
-qurl.o: @SOURCE_PATH@/src/kernel/qurl.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/kernel/qurl.cpp
+tqurl.o: @SOURCE_PATH@/src/kernel/tqurl.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/kernel/tqurl.cpp
 
-qstring.o: @SOURCE_PATH@/src/tools/qstring.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qstring.cpp
+tqstring.o: @SOURCE_PATH@/src/tools/tqstring.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqstring.cpp
 
-qlocale.o: @SOURCE_PATH@/src/tools/qlocale.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qlocale.cpp
+tqlocale.o: @SOURCE_PATH@/src/tools/tqlocale.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqlocale.cpp
 
-qdatastream.o: @SOURCE_PATH@/src/tools/qdatastream.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qdatastream.cpp
+tqdatastream.o: @SOURCE_PATH@/src/tools/tqdatastream.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqdatastream.cpp
 
-qunicodetables.o: @SOURCE_PATH@/src/tools/qunicodetables.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qunicodetables.cpp
+tqunicodetables.o: @SOURCE_PATH@/src/tools/tqunicodetables.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqunicodetables.cpp
 
-qgarray.o: @SOURCE_PATH@/src/tools/qgarray.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qgarray.cpp
+tqgarray.o: @SOURCE_PATH@/src/tools/tqgarray.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqgarray.cpp
 
-qbuffer.o: @SOURCE_PATH@/src/tools/qbuffer.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qbuffer.cpp
+tqbuffer.o: @SOURCE_PATH@/src/tools/tqbuffer.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqbuffer.cpp
 
-qglist.o: @SOURCE_PATH@/src/tools/qglist.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qglist.cpp
+tqglist.o: @SOURCE_PATH@/src/tools/tqglist.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqglist.cpp
 
-qptrcollection.o: @SOURCE_PATH@/src/tools/qptrcollection.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qptrcollection.cpp
+tqptrcollection.o: @SOURCE_PATH@/src/tools/tqptrcollection.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqptrcollection.cpp
 
-qfile.o: @SOURCE_PATH@/src/tools/qfile.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qfile.cpp
+tqfile.o: @SOURCE_PATH@/src/tools/tqfile.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqfile.cpp
 
-qfile_unix.o: @SOURCE_PATH@/src/tools/qfile_unix.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qfile_unix.cpp
+tqfile_unix.o: @SOURCE_PATH@/src/tools/tqfile_unix.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqfile_unix.cpp
 
-qregexp.o: @SOURCE_PATH@/src/tools/qregexp.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qregexp.cpp
+tqregexp.o: @SOURCE_PATH@/src/tools/tqregexp.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqregexp.cpp
 
-qgvector.o: @SOURCE_PATH@/src/tools/qgvector.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qgvector.cpp
+tqgvector.o: @SOURCE_PATH@/src/tools/tqgvector.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqgvector.cpp
 
-qgcache.o: @SOURCE_PATH@/src/tools/qgcache.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qgcache.cpp
+tqgcache.o: @SOURCE_PATH@/src/tools/tqgcache.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqgcache.cpp
 
-qbitarray.o: @SOURCE_PATH@/src/tools/qbitarray.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qbitarray.cpp
+tqbitarray.o: @SOURCE_PATH@/src/tools/tqbitarray.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqbitarray.cpp
 
-qdir.o: @SOURCE_PATH@/src/tools/qdir.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qdir.cpp
+tqdir.o: @SOURCE_PATH@/src/tools/tqdir.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqdir.cpp
 
-quuid.o: @SOURCE_PATH@/src/tools/quuid.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/quuid.cpp
+tquuid.o: @SOURCE_PATH@/src/tools/tquuid.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tquuid.cpp
 
-qfileinfo_unix.o: @SOURCE_PATH@/src/tools/qfileinfo_unix.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qfileinfo_unix.cpp
+tqfileinfo_unix.o: @SOURCE_PATH@/src/tools/tqfileinfo_unix.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqfileinfo_unix.cpp
 
-qdir_unix.o: @SOURCE_PATH@/src/tools/qdir_unix.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qdir_unix.cpp
+tqdir_unix.o: @SOURCE_PATH@/src/tools/tqdir_unix.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqdir_unix.cpp
 
-qfileinfo.o: @SOURCE_PATH@/src/tools/qfileinfo.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qfileinfo.cpp
+tqfileinfo.o: @SOURCE_PATH@/src/tools/tqfileinfo.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqfileinfo.cpp
 
-qdatetime.o: @SOURCE_PATH@/src/tools/qdatetime.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qdatetime.cpp
+tqdatetime.o: @SOURCE_PATH@/src/tools/tqdatetime.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqdatetime.cpp
 
-qstringlist.o: @SOURCE_PATH@/src/tools/qstringlist.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qstringlist.cpp
+tqstringlist.o: @SOURCE_PATH@/src/tools/tqstringlist.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqstringlist.cpp
 
-qmap.o: @SOURCE_PATH@/src/tools/qmap.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/qmap.cpp
+tqmap.o: @SOURCE_PATH@/src/tools/tqmap.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @SOURCE_PATH@/src/tools/tqmap.cpp
 
-qconfig.o: @BUILD_PATH@/src/tools/qconfig.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) @BUILD_PATH@/src/tools/qconfig.cpp
+tqconfig.o: @BUILD_PATH@/src/tools/tqconfig.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) @BUILD_PATH@/src/tools/tqconfig.cpp
 
 winmakefile.o: generators/win32/winmakefile.cpp
 	$(CXX) -c -o $@ $(CXXFLAGS) generators/win32/winmakefile.cpp
@@ -183,9 +183,6 @@ unixmake.o: generators/unix/unixmake.cpp
 unixmake2.o: generators/unix/unixmake2.cpp
 	$(CXX) -c -o $@ $(CXXFLAGS) generators/unix/unixmake2.cpp
 
-borland_bmake.o: generators/win32/borland_bmake.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) generators/win32/borland_bmake.cpp
-
 mingw_make.o: generators/win32/mingw_make.cpp
 	$(CXX) -c -o $@ $(CXXFLAGS) generators/win32/mingw_make.cpp
 
@@ -197,9 +194,6 @@ msvc_vcproj.o: generators/win32/msvc_vcproj.cpp
 
 msvc_nmake.o: generators/win32/msvc_nmake.cpp
 	$(CXX) -c -o $@ $(CXXFLAGS) generators/win32/msvc_nmake.cpp
-
-metrowerks_xml.o: generators/mac/metrowerks_xml.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) generators/mac/metrowerks_xml.cpp
 
 pbuilder_pbx.o: generators/mac/pbuilder_pbx.cpp
 	$(CXX) -c -o $@ $(CXXFLAGS) generators/mac/pbuilder_pbx.cpp

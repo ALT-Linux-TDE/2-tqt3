@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:1706 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -40,13 +39,13 @@ body { background: #ffffff; color: black; }
 
 #include "lcdrange.h"
 
-#include &lt;<a href="qslider-h.html">ntqslider.h</a>&gt;
-#include &lt;<a href="qlcdnumber-h.html">ntqlcdnumber.h</a>&gt;
-#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
+#include &lt;<a href="tqslider-h.html">tqslider.h</a>&gt;
+#include &lt;<a href="tqlcdnumber-h.html">tqlcdnumber.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
 
 
-<a name="f67"></a>LCDRange::LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-        : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+<a name="f67"></a>LCDRange::LCDRange( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+        : <a href="tqvbox.html">TQVBox</a>( parent, name )
 {
     init();
 }
@@ -54,7 +53,7 @@ body { background: #ffffff; color: black; }
 
 LCDRange::LCDRange( const char *s, TQWidget *parent,
                     const char *name )
-        : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+        : <a href="tqvbox.html">TQVBox</a>( parent, name )
 {
     init();
     setText( s );
@@ -63,57 +62,57 @@ LCDRange::LCDRange( const char *s, TQWidget *parent,
 
 void <a name="f68"></a>LCDRange::init()
 {
-    <a href="ntqlcdnumber.html">TQLCDNumber</a> *lcd  = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, this, "lcd"  );
-    slider = new <a href="ntqslider.html">TQSlider</a>( Horizontal, this, "slider" );
-    slider-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 0, 99 );
-    slider-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
+    <a href="tqlcdnumber.html">TQLCDNumber</a> *lcd  = new <a href="tqlcdnumber.html">TQLCDNumber</a>( 2, this, "lcd"  );
+    slider = new <a href="tqslider.html">TQSlider</a>( Horizontal, this, "slider" );
+    slider-&gt;<a href="tqrangecontrol.html#setRange">setRange</a>( 0, 99 );
+    slider-&gt;<a href="tqslider.html#setValue">setValue</a>( 0 );
 
-    label = new <a href="ntqlabel.html">TQLabel</a>( " ", this, "label"  );
-    label-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
+    label = new <a href="tqlabel.html">TQLabel</a>( " ", this, "label"  );
+    label-&gt;<a href="tqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
 
-    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
-             lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
-    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
+    <a href="tqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="tqslider.html#valueChanged">valueChanged</a>(int)),
+             lcd, TQ_SLOT(<a href="tqlcdnumber.html#display">display</a>(int)) );
+    <a href="tqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="tqslider.html#valueChanged">valueChanged</a>(int)),
              TQ_SIGNAL(valueChanged(int)) );
 
-    <a href="ntqwidget.html#setFocusProxy">setFocusProxy</a>( slider );
+    <a href="tqwidget.html#setFocusProxy">setFocusProxy</a>( slider );
 }
 
 
 int <a name="f69"></a>LCDRange::value() const
 {
-    return slider-&gt;<a href="ntqslider.html#value">value</a>();
+    return slider-&gt;<a href="tqslider.html#value">value</a>();
 }
 
 
 const char *<a name="f70"></a>LCDRange::text() const
 {
-    return label-&gt;<a href="ntqlabel.html#text">text</a>();
+    return label-&gt;<a href="tqlabel.html#text">text</a>();
 }
 
 
 void <a name="f71"></a>LCDRange::setValue( int value )
 {
-    slider-&gt;<a href="ntqslider.html#setValue">setValue</a>( value );
+    slider-&gt;<a href="tqslider.html#setValue">setValue</a>( value );
 }
 
 
 void <a name="f72"></a>LCDRange::setRange( int minVal, int maxVal )
 {
     if ( minVal &lt; 0 || maxVal &gt; 99 || minVal &gt; maxVal ) {
-        <a href="ntqapplication.html#qWarning">tqWarning</a>( "LCDRange::setRange(%d,%d)\n"
+        <a href="tqapplication.html#qWarning">tqWarning</a>( "LCDRange::setRange(%d,%d)\n"
                   "\tRange must be 0..99\n"
                   "\tand minVal must not be greater than maxVal",
                   minVal, maxVal );
         return;
     }
-    slider-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( minVal, maxVal );
+    slider-&gt;<a href="tqrangecontrol.html#setRange">setRange</a>( minVal, maxVal );
 }
 
 
 void <a name="f73"></a>LCDRange::setText( const char *s )
 {
-    label-&gt;<a href="ntqlabel.html#setText">setText</a>( s );
+    label-&gt;<a href="tqlabel.html#setText">setText</a>( s );
 }
 </pre><!-- eof -->
 <p><address><hr><div align=center>

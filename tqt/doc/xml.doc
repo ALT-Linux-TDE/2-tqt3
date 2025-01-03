@@ -78,67 +78,67 @@ Qt provides the following XML related classes:
 
 \table
 \header \i Class \i Short description
-\row \i \l QDomAttr
-     \i Represents one attribute of a QDomElement
-\row \i \l QDomCDATASection
+\row \i \l TQDomAttr
+     \i Represents one attribute of a TQDomElement
+\row \i \l TQDomCDATASection
      \i Represents an XML CDATA section
-\row \i \l QDomCharacterData
+\row \i \l TQDomCharacterData
      \i Represents a generic string in the DOM
-\row \i \l QDomComment
+\row \i \l TQDomComment
      \i Represents an XML comment
-\row \i \l QDomDocument
+\row \i \l TQDomDocument
      \i The representation of an XML document
-\row \i \l QDomDocumentFragment
-     \i Tree of QDomNodes which is usually not a complete QDomDocument
-\row \i \l QDomDocumentType
+\row \i \l TQDomDocumentFragment
+     \i Tree of TQDomNodes which is usually not a complete TQDomDocument
+\row \i \l TQDomDocumentType
      \i The representation of the DTD in the document tree
-\row \i \l QDomElement
+\row \i \l TQDomElement
      \i Represents one element in the DOM tree
-\row \i \l QDomEntity
+\row \i \l TQDomEntity
      \i Represents an XML entity
-\row \i \l QDomEntityReference
+\row \i \l TQDomEntityReference
      \i Represents an XML entity reference
-\row \i \l QDomImplementation
+\row \i \l TQDomImplementation
      \i Information about the features of the DOM implementation
-\row \i \l QDomNamedNodeMap
+\row \i \l TQDomNamedNodeMap
      \i Collection of nodes that can be accessed by name
-\row \i \l QDomNode
+\row \i \l TQDomNode
      \i The base class for all nodes of the DOM tree
-\row \i \l QDomNodeList
-     \i List of QDomNode objects
-\row \i \l QDomNotation
+\row \i \l TQDomNodeList
+     \i List of TQDomNode objects
+\row \i \l TQDomNotation
      \i Represents an XML notation
-\row \i \l QDomProcessingInstruction
+\row \i \l TQDomProcessingInstruction
      \i Represents an XML processing instruction
-\row \i \l QDomText
+\row \i \l TQDomText
      \i Represents textual data in the parsed XML document
-\row \i \l QXmlAttributes
+\row \i \l TQXmlAttributes
      \i XML attributes
-\row \i \l QXmlContentHandler
+\row \i \l TQXmlContentHandler
      \i Interface to report logical content of XML data
-\row \i \l QXmlDeclHandler
+\row \i \l TQXmlDeclHandler
      \i Interface to report declaration content of XML data
-\row \i \l QXmlDefaultHandler
+\row \i \l TQXmlDefaultHandler
      \i Default implementation of all XML handler classes
-\row \i \l QXmlDTDHandler
+\row \i \l TQXmlDTDHandler
      \i Interface to report DTD content of XML data
-\row \i \l QXmlEntityResolver
+\row \i \l TQXmlEntityResolver
      \i Interface to resolve extern entities contained in XML data
-\row \i \l QXmlErrorHandler
+\row \i \l TQXmlErrorHandler
      \i Interface to report errors in XML data
-\row \i \l QXmlInputSource
-     \i The input data for the QXmlReader subclasses
-\row \i \l QXmlLexicalHandler
+\row \i \l TQXmlInputSource
+     \i The input data for the TQXmlReader subclasses
+\row \i \l TQXmlLexicalHandler
      \i Interface to report lexical content of XML data
-\row \i \l QXmlLocator
+\row \i \l TQXmlLocator
      \i The XML handler classes with information about the actual parsing position
-\row \i \l QXmlNamespaceSupport
+\row \i \l TQXmlNamespaceSupport
      \i Helper class for XML readers which want to include namespace support
-\row \i \l QXmlParseException
-     \i Used to report errors with the QXmlErrorHandler interface
-\row \i \l QXmlReader
+\row \i \l TQXmlParseException
+     \i Used to report errors with the TQXmlErrorHandler interface
+\row \i \l TQXmlReader
      \i Interface for XML readers (i.e. for SAX2 parsers)
-\row \i \l QXmlSimpleReader
+\row \i \l TQXmlSimpleReader
      \i Implementation of a simple XML reader (a SAX2 parser)
 \endtable
 
@@ -176,47 +176,47 @@ and discarded serially. The \link #dom DOM interface
 this takes more memory, but makes it easier to manipulate the
 document's structure..
 
-The TQt XML module provides an abstract class, \l QXmlReader, that
+The TQt XML module provides an abstract class, \l TQXmlReader, that
 defines the interface for potential SAX2 readers. TQt includes a reader
-implementation, \l QXmlSimpleReader, that is easy to adapt through
+implementation, \l TQXmlSimpleReader, that is easy to adapt through
 subclassing.
 
 The reader reports parsing events through special handler classes:
 \table
 \header \i Handler class \i Description
-\row \i \l QXmlContentHandler
+\row \i \l TQXmlContentHandler
      \i Reports events related to the content of a document (e.g. the start tag
 	or characters).
-\row \i \l QXmlDTDHandler
+\row \i \l TQXmlDTDHandler
      \i Reports events related to the DTD (e.g. notation declarations).
-\row \i \l QXmlErrorHandler
+\row \i \l TQXmlErrorHandler
      \i Reports errors or warnings that occurred during parsing.
-\row \i \l QXmlEntityResolver
+\row \i \l TQXmlEntityResolver
      \i Reports external entities during parsing and allows users to resolve
 	external entities themselves instead of leaving it to the reader.
-\row \i \l QXmlDeclHandler
+\row \i \l TQXmlDeclHandler
      \i Reports further DTD related events (e.g. attribute declarations).
-\row \i \l QXmlLexicalHandler
+\row \i \l TQXmlLexicalHandler
      \i Reports events related to the lexical structure of the
 	document (the beginning of the DTD, comments etc.).
 \endtable
 
 These classes are abstract classes describing the interface. The \l
-QXmlDefaultHandler class provides a "do nothing" default
+TQXmlDefaultHandler class provides a "do nothing" default
 implementation for all of them. Therefore users only need to overload
-the QXmlDefaultHandler functions they are interested in. 
+the TQXmlDefaultHandler functions they are interested in. 
 
-To read input XML data a special class \l QXmlInputSource is used.
+To read input XML data a special class \l TQXmlInputSource is used.
 
 Apart from those already mentioned, the following SAX2 support classes 
 provide additional useful functionality:
 \table
 \header \i Class \i Description
-\row \i \l QXmlAttributes
+\row \i \l TQXmlAttributes
      \i Used to pass attributes in a start element event.
-\row \i \l QXmlLocator
+\row \i \l TQXmlLocator
      \i Used to obtain the actual parsing position of an event.
-\row \i \l QXmlNamespaceSupport
+\row \i \l TQXmlNamespaceSupport
      \i Used to implement \link xml.html#namespaces namespace\endlink
 	support for a reader. Note that namespaces do not change the
 	parsing behavior. They are only reported through the handler.
@@ -234,9 +234,9 @@ every other feature this has a unique name represented by a URI: it is
 called \e http://xml.org/sax/features/namespace-prefixes.
 
 The TQt SAX2 implementation can report whether the reader has
-particular functionality using the \l QXmlReader::hasFeature()
-function. Available features can be tested with QXmlReader::feature(),
-and switched on or off using \l QXmlReader::setFeature(). 
+particular functionality using the \l TQXmlReader::hasFeature()
+function. Available features can be tested with TQXmlReader::feature(),
+and switched on or off using \l TQXmlReader::setFeature(). 
 
 Consider the example 
 \code 
@@ -248,7 +248,7 @@ http://xml.org/sax/features/namespace-prefixes feature would report
 the element name \e document but not its attributes \e xmlns:book and
 \e xmlns with their values. A reader with the feature \e
 http://xml.org/sax/features/namespace-prefixes reports the namespace
-attributes if the \link QXmlReader::feature() feature\endlink is
+attributes if the \link TQXmlReader::feature() feature\endlink is
 switched on.
 
 Other features include \e http://xml.org/sax/features/namespace
@@ -261,10 +261,10 @@ Whilst SAX2 leaves it to the user to define and implement whatever
 features are required, support for \e
 http://xml.org/sax/features/namespace (and thus \e
 http://xml.org/sax/features/namespace-prefixes) is mandantory.
-The \l QXmlSimpleReader implementation of \l QXmlReader,
+The \l TQXmlSimpleReader implementation of \l TQXmlReader,
 supports them, and can do namespace processing.
 
-\l QXmlSimpleReader is not validating, so it
+\l TQXmlSimpleReader is not validating, so it
 does not support \e http://xml.org/sax/features/validation.
 
 
@@ -282,8 +282,8 @@ They influence the reporting behavior in the following way:
 \i Namespace prefixes and local parts of elements and attributes can
 be reported.
 \i The qualified names of elements and attributes are reported.
-\i \l QXmlContentHandler::startPrefixMapping() and \l
-QXmlContentHandler::endPrefixMapping() are called by the reader.
+\i \l TQXmlContentHandler::startPrefixMapping() and \l
+TQXmlContentHandler::endPrefixMapping() are called by the reader.
 \i Attributes that declare namespaces (i.e. the attribute \e xmlns and
 attributes starting with \e{xmlns:}) are reported.
 \endlist
@@ -323,10 +323,10 @@ This might be changed in the future following the W3C suggestion
 to associate \e xmlns with the namespace \e http://www.w3.org/2000/xmlns. 
 
 
-As the SAX2 standard suggests, \l QXmlSimpleReader defaults to having
+As the SAX2 standard suggests, \l TQXmlSimpleReader defaults to having
 \e http://xml.org/sax/features/namespaces set to TRUE and
 \e http://xml.org/sax/features/namespace-prefixes set to FALSE.
-When changing this behavior using \l QXmlSimpleReader::setFeature() 
+When changing this behavior using \l TQXmlSimpleReader::setFeature() 
 note that the combination of both features set to
 FALSE is illegal.
 
@@ -337,7 +337,7 @@ tagreader with features example. \endlink
 \target sax2NamespacesSummary
 \section3 Summary
 
-\l QXmlSimpleReader implements the following behavior:
+\l TQXmlSimpleReader implements the following behavior:
 
 \table
 \header \i (namespaces, namespace-prefixes)
@@ -372,8 +372,8 @@ Anyone can define and use new SAX2 properties for their readers.
 Property support is not mandatory.
  
 To set or query properties the following functions are provided: \l
-QXmlReader::setProperty(), \l QXmlReader::property() and \l
-QXmlReader::hasProperty().                     
+TQXmlReader::setProperty(), \l TQXmlReader::property() and \l
+TQXmlReader::hasProperty().                     
 
 
 \target sax2Reading
@@ -396,79 +396,79 @@ structure of an XML file. It makes a hierarchical view of the document
 model of the document is resident in memory after parsing which makes
 manipulation easy. 
 
-All DOM nodes in the document tree are subclasses of \l QDomNode. The
-document itself is represented as a \l QDomDocument object.
+All DOM nodes in the document tree are subclasses of \l TQDomNode. The
+document itself is represented as a \l TQDomDocument object.
 
 Here are the available node classes and their potential child classes:
 
 \list
-\i \l QDomDocument: Possible children are
+\i \l TQDomDocument: Possible children are
 	\list
-	\i \l QDomElement (at most one)
-	\i \l QDomProcessingInstruction
-	\i \l QDomComment
-	\i \l QDomDocumentType
+	\i \l TQDomElement (at most one)
+	\i \l TQDomProcessingInstruction
+	\i \l TQDomComment
+	\i \l TQDomDocumentType
 	\endlist
-\i \l QDomDocumentFragment: Possible children are
+\i \l TQDomDocumentFragment: Possible children are
 	\list
-	\i \l QDomElement
-	\i \l QDomProcessingInstruction
-	\i \l QDomComment
-	\i \l QDomText
-	\i \l QDomCDATASection
-	\i \l QDomEntityReference
+	\i \l TQDomElement
+	\i \l TQDomProcessingInstruction
+	\i \l TQDomComment
+	\i \l TQDomText
+	\i \l TQDomCDATASection
+	\i \l TQDomEntityReference
 	\endlist
-\i \l QDomDocumentType: No children
-\i \l QDomEntityReference: Possible children are
+\i \l TQDomDocumentType: No children
+\i \l TQDomEntityReference: Possible children are
 	\list
-	\i \l QDomElement
-	\i \l QDomProcessingInstruction
-	\i \l QDomComment
-	\i \l QDomText
-	\i \l QDomCDATASection
-	\i \l QDomEntityReference
+	\i \l TQDomElement
+	\i \l TQDomProcessingInstruction
+	\i \l TQDomComment
+	\i \l TQDomText
+	\i \l TQDomCDATASection
+	\i \l TQDomEntityReference
 	\endlist
-\i \l QDomElement: Possible children are
+\i \l TQDomElement: Possible children are
 	\list
-	\i \l QDomElement
-	\i \l QDomText
-	\i \l QDomComment
-	\i \l QDomProcessingInstruction
-	\i \l QDomCDATASection
-	\i \l QDomEntityReference
+	\i \l TQDomElement
+	\i \l TQDomText
+	\i \l TQDomComment
+	\i \l TQDomProcessingInstruction
+	\i \l TQDomCDATASection
+	\i \l TQDomEntityReference
 	\endlist
-\i \l QDomAttr: Possible children are
+\i \l TQDomAttr: Possible children are
 	\list
-	\i \l QDomText
-	\i \l QDomEntityReference
+	\i \l TQDomText
+	\i \l TQDomEntityReference
 	\endlist
-\i \l QDomProcessingInstruction: No children
-\i \l QDomComment: No children
-\i \l QDomText: No children
-\i \l QDomCDATASection: No children
-\i \l QDomEntity: Possible children are
+\i \l TQDomProcessingInstruction: No children
+\i \l TQDomComment: No children
+\i \l TQDomText: No children
+\i \l TQDomCDATASection: No children
+\i \l TQDomEntity: Possible children are
 	\list
-	\i \l QDomElement
-	\i \l QDomProcessingInstruction
-	\i \l QDomComment
-	\i \l QDomText
-	\i \l QDomCDATASection
-	\i \l QDomEntityReference
+	\i \l TQDomElement
+	\i \l TQDomProcessingInstruction
+	\i \l TQDomComment
+	\i \l TQDomText
+	\i \l TQDomCDATASection
+	\i \l TQDomEntityReference
 	\endlist
-\i \l QDomNotation: No children
+\i \l TQDomNotation: No children
 \endlist
 
-With \l QDomNodeList and \l QDomNamedNodeMap two collection classes 
-are provided: \l QDomNodeList is a list of nodes,
-and \l QDomNamedNodeMap is used to handle unordered sets of nodes
+With \l TQDomNodeList and \l TQDomNamedNodeMap two collection classes 
+are provided: \l TQDomNodeList is a list of nodes,
+and \l TQDomNamedNodeMap is used to handle unordered sets of nodes
 (often used for attributes).
 
-The \l QDomImplementation class allows the user to query features of the
+The \l TQDomImplementation class allows the user to query features of the
 DOM implementation.
 
 \section2 Further reading
 
-To get started please refer to the \l QDomDocument documentation.
+To get started please refer to the \l TQDomDocument documentation.
 
 \target namespaces
 \section1 An introduction to namespaces

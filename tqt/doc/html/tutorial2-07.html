@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:969 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -38,28 +37,28 @@ body { background: #ffffff; color: black; }
 </h2>
 <a name="1"></a><p> 
 
-<pre>    void ChartForm::load( const <a href="ntqstring.html">TQString</a>&amp; filename )
+<pre>    void ChartForm::load( const <a href="tqstring.html">TQString</a>&amp; filename )
     {
-        <a href="ntqfile.html">TQFile</a> file( filename );
-        if ( !file.<a href="ntqfile.html#open">open</a>( <a href="ntqfile.html#open">IO_ReadOnly</a> ) ) {
-            <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;message( TQString( "Failed to load \'%1\'" ).
+        <a href="tqfile.html">TQFile</a> file( filename );
+        if ( !file.<a href="tqfile.html#open">open</a>( <a href="tqfile.html#open">IO_ReadOnly</a> ) ) {
+            <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( TQString( "Failed to load \'%1\'" ).
                                     arg( filename ), 2000 );
             return;
         }
 
         init(); // Make sure we have colours
         m_filename = filename;
-        <a href="ntqtextstream.html">TQTextStream</a> ts( &amp;file );
+        <a href="tqtextstream.html">TQTextStream</a> ts( &amp;file );
         Element element;
         int errors = 0;
         int i = 0;
-    <a name="x2592"></a>    while ( !ts.<a href="ntqtextstream.html#eof">eof</a>() ) {
+    <a name="x2592"></a>    while ( !ts.<a href="tqtextstream.html#eof">eof</a>() ) {
             ts &gt;&gt; element;
             if ( element.isValid() )
                 m_elements[i++] = element;
-</pre><pre>    <a name="x2590"></a>    file.<a href="ntqfile.html#close">close</a>();
+</pre><pre>    <a name="x2590"></a>    file.<a href="tqfile.html#close">close</a>();
 </pre>
-<p> <pre>        <a href="ntqwidget.html#setCaption">setCaption</a>( TQString( "Chart -- %1" ).arg( filename ) );
+<p> <pre>        <a href="tqwidget.html#setCaption">setCaption</a>( TQString( "Chart -- %1" ).arg( filename ) );
         updateRecentFiles( filename );
 
         drawElements();
@@ -75,21 +74,21 @@ draw the chart and mark it as unchanged.
 </h2>
 <a name="2"></a><p> <pre>    void ChartForm::fileSave()
     {
-</pre><pre>        <a href="ntqfile.html">TQFile</a> file( m_filename );
-    <a name="x2591"></a>    if ( !file.<a href="ntqfile.html#open">open</a>( <a href="ntqfile.html#open">IO_WriteOnly</a> ) ) {
-            <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;message( TQString( "Failed to save \'%1\'" ).
+</pre><pre>        <a href="tqfile.html">TQFile</a> file( m_filename );
+    <a name="x2591"></a>    if ( !file.<a href="tqfile.html#open">open</a>( <a href="tqfile.html#open">IO_WriteOnly</a> ) ) {
+            <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( TQString( "Failed to save \'%1\'" ).
                                     arg( m_filename ), 2000 );
             return;
         }
-        <a href="ntqtextstream.html">TQTextStream</a> ts( &amp;file );
+        <a href="tqtextstream.html">TQTextStream</a> ts( &amp;file );
         for ( int i = 0; i &lt; MAX_ELEMENTS; ++i )
             if ( m_elements[i].isValid() )
                 ts &lt;&lt; m_elements[i];
 
-        file.<a href="ntqfile.html#close">close</a>();
+        file.<a href="tqfile.html#close">close</a>();
 
-        <a href="ntqwidget.html#setCaption">setCaption</a>( TQString( "Chart -- %1" ).arg( m_filename ) );
-        <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;message( TQString( "Saved \'%1\'" ).arg( m_filename ), 2000 );
+        <a href="tqwidget.html#setCaption">setCaption</a>( TQString( "Chart -- %1" ).arg( m_filename ) );
+        <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( TQString( "Saved \'%1\'" ).arg( m_filename ), 2000 );
         m_changed = FALSE;
     }
 </pre>

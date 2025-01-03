@@ -36,8 +36,8 @@
 
 #include "previewwidget.h"
 
-#include <ntqvbox.h>
-#include <ntqworkspace.h>
+#include <tqvbox.h>
+#include <tqworkspace.h>
 
 class Workspace : public TQWorkspace
 {

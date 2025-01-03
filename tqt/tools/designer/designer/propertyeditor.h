@@ -34,17 +34,17 @@
 #ifndef PROPERTYEDITOR_H
 #define PROPERTYEDITOR_H
 
-#include <ntqfeatures.h>
-#include <ntqvariant.h>
-#include <ntqlistview.h>
-#include <ntqptrlist.h>
-#include <ntqguardedptr.h>
-#include <ntqtabwidget.h>
-#include <ntqmodules.h>
-#include <ntqptrlist.h>
-#include <ntqlayout.h>
-#include <ntqcheckbox.h>
-#include <ntqcombobox.h>
+#include <tqfeatures.h>
+#include <tqvariant.h>
+#include <tqlistview.h>
+#include <tqptrlist.h>
+#include <tqguardedptr.h>
+#include <tqtabwidget.h>
+#include <tqmodules.h>
+#include <tqptrlist.h>
+#include <tqlayout.h>
+#include <tqcheckbox.h>
+#include <tqcombobox.h>
 #include "hierarchyview.h"
 #include "metadatabase.h"
 

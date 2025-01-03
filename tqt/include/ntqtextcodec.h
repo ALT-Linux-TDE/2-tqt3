@@ -1,1 +1,0 @@
-../src/codecs/ntqtextcodec.h

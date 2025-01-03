@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:7 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -35,45 +34,45 @@ body { background: #ffffff; color: black; }
 <pre>#include "canvasview.h"
 #include "chartform.h"
 
-#include &lt;<a href="qcursor-h.html">ntqcursor.h</a>&gt;
-#include &lt;<a href="qpoint-h.html">ntqpoint.h</a>&gt;
-#include &lt;<a href="qpopupmenu-h.html">ntqpopupmenu.h</a>&gt;
-#include &lt;<a href="qstatusbar-h.html">ntqstatusbar.h</a>&gt;
+#include &lt;<a href="tqcursor-h.html">tqcursor.h</a>&gt;
+#include &lt;<a href="tqpoint-h.html">tqpoint.h</a>&gt;
+#include &lt;<a href="tqpopupmenu-h.html">tqpopupmenu.h</a>&gt;
+#include &lt;<a href="tqstatusbar-h.html">tqstatusbar.h</a>&gt;
 
 
-void CanvasView::<a href="ntqscrollview.html#contentsContextMenuEvent">contentsContextMenuEvent</a>( <a href="qcontextmenuevent.html">TQContextMenuEvent</a> * )
+void CanvasView::<a href="tqscrollview.html#contentsContextMenuEvent">contentsContextMenuEvent</a>( <a href="tqcontextmenuevent.html">TQContextMenuEvent</a> * )
 {
-    ((ChartForm*)<a href="ntqobject.html#parent">parent</a>())-&gt;optionsMenu-&gt;exec( TQCursor::<a href="ntqcursor.html#pos">pos</a>() );
+    ((ChartForm*)<a href="tqobject.html#parent">parent</a>())-&gt;optionsMenu-&gt;exec( TQCursor::<a href="tqcursor.html#pos">pos</a>() );
 }
 
 
-void CanvasView::<a href="ntqscrollview.html#viewportResizeEvent">viewportResizeEvent</a>( <a href="qresizeevent.html">TQResizeEvent</a> *e )
+void CanvasView::<a href="tqscrollview.html#viewportResizeEvent">viewportResizeEvent</a>( <a href="tqresizeevent.html">TQResizeEvent</a> *e )
 {
-    <a href="qcanvasview.html#canvas">canvas</a>()-&gt;resize( e-&gt;<a href="qresizeevent.html#size">size</a>().width(), e-&gt;<a href="qresizeevent.html#size">size</a>().height() );
-    ((ChartForm*)<a href="ntqobject.html#parent">parent</a>())-&gt;drawElements();
+    <a href="tqcanvasview.html#canvas">canvas</a>()-&gt;resize( e-&gt;<a href="tqresizeevent.html#size">size</a>().width(), e-&gt;<a href="tqresizeevent.html#size">size</a>().height() );
+    ((ChartForm*)<a href="tqobject.html#parent">parent</a>())-&gt;drawElements();
 }
 
 
-void CanvasView::<a href="ntqscrollview.html#contentsMousePressEvent">contentsMousePressEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+void CanvasView::<a href="tqscrollview.html#contentsMousePressEvent">contentsMousePressEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
 {
-    <a href="qcanvasitemlist.html">TQCanvasItemList</a> list = <a href="qcanvasview.html#canvas">canvas</a>()-&gt;collisions( e-&gt;<a href="qmouseevent.html#pos">pos</a>() );
-    for ( TQCanvasItemList::iterator it = list.<a href="ntqvaluelist.html#begin">begin</a>(); it != list.<a href="ntqvaluelist.html#end">end</a>(); ++it )
+    <a href="tqcanvasitemlist.html">TQCanvasItemList</a> list = <a href="tqcanvasview.html#canvas">canvas</a>()-&gt;collisions( e-&gt;<a href="tqmouseevent.html#pos">pos</a>() );
+    for ( TQCanvasItemList::iterator it = list.<a href="tqvaluelist.html#begin">begin</a>(); it != list.<a href="tqvaluelist.html#end">end</a>(); ++it )
         if ( (*it)-&gt;rtti() == CanvasText::CANVAS_TEXT ) {
             m_movingItem = *it;
-            m_pos = e-&gt;<a href="qmouseevent.html#pos">pos</a>();
+            m_pos = e-&gt;<a href="tqmouseevent.html#pos">pos</a>();
             return;
         }
     m_movingItem = 0;
 }
 
 
-void CanvasView::<a href="ntqscrollview.html#contentsMouseMoveEvent">contentsMouseMoveEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+void CanvasView::<a href="tqscrollview.html#contentsMouseMoveEvent">contentsMouseMoveEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
 {
     if ( m_movingItem ) {
-        <a href="ntqpoint.html">TQPoint</a> offset = e-&gt;<a href="qmouseevent.html#pos">pos</a>() - m_pos;
-        m_movingItem-&gt;moveBy( offset.<a href="ntqpoint.html#x">x</a>(), offset.<a href="ntqpoint.html#y">y</a>() );
-        m_pos = e-&gt;<a href="qmouseevent.html#pos">pos</a>();
-        ChartForm *form = (ChartForm*)<a href="ntqobject.html#parent">parent</a>();
+        <a href="tqpoint.html">TQPoint</a> offset = e-&gt;<a href="tqmouseevent.html#pos">pos</a>() - m_pos;
+        m_movingItem-&gt;moveBy( offset.<a href="tqpoint.html#x">x</a>(), offset.<a href="tqpoint.html#y">y</a>() );
+        m_pos = e-&gt;<a href="tqmouseevent.html#pos">pos</a>();
+        ChartForm *form = (ChartForm*)<a href="tqobject.html#parent">parent</a>();
         form-&gt;setChanged( TRUE );
         int chartType = form-&gt;chartType();
         CanvasText *item = (CanvasText*)m_movingItem;
@@ -82,7 +81,7 @@ void CanvasView::<a href="ntqscrollview.html#contentsMouseMoveEvent">contentsMou
         (*m_elements)[i].setProX( chartType, item-&gt;x() / canvas()-&gt;width() );
         (*m_elements)[i].setProY( chartType, item-&gt;y() / canvas()-&gt;height() );
 
-        <a href="qcanvasview.html#canvas">canvas</a>()-&gt;update();
+        <a href="tqcanvasview.html#canvas">canvas</a>()-&gt;update();
     }
 }
 

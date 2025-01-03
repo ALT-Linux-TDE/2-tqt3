@@ -9,15 +9,15 @@
 
 #include "display.h"
 
-#include <ntqpainter.h>
-#include <ntqlayout.h>
-#include <ntqtimer.h>
-#include <ntqpushbutton.h>
-#include <ntqframe.h>
-#include <ntqdial.h>
-#include <ntqlcdnumber.h>
-#include <ntqprogressbar.h>
-#include <ntqspinbox.h>
+#include <tqpainter.h>
+#include <tqlayout.h>
+#include <tqtimer.h>
+#include <tqpushbutton.h>
+#include <tqframe.h>
+#include <tqdial.h>
+#include <tqlcdnumber.h>
+#include <tqprogressbar.h>
+#include <tqspinbox.h>
 
 #include <math.h>
 

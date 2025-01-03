@@ -1,5 +1,5 @@
 '\" t
-.TH QTextEncoder 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQTextEncoder 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,32 +7,32 @@
 .ad l
 .nh
 .SH NAME
-QTextEncoder \- State-based encoder
+TQTextEncoder \- State-based encoder
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqtextcodec.h>\fR
+\fC#include <tqtextcodec.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "virtual \fB~QTextEncoder\fR ()"
+.BI "virtual \fB~TQTextEncoder\fR ()"
 .br
 .ti -1c
-.BI "virtual QCString \fBfromUnicode\fR ( const TQString & uc, int & lenInOut ) = 0"
+.BI "virtual TQCString \fBfromUnicode\fR ( const TQString & uc, int & lenInOut ) = 0"
 .br
 .in -1c
 .SH DESCRIPTION
-The QTextEncoder class provides a state-based encoder.
+The TQTextEncoder class provides a state-based encoder.
 .PP
 The encoder converts Unicode into another format, remembering any state that is required between calls.
 .PP
-See also QTextCodec::makeEncoder() and Internationalization with Qt.
+See also TQTextCodec::makeEncoder() and Internationalization with Qt.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTextEncoder::~QTextEncoder ()\fC [virtual]\fR"
+.SH "TQTextEncoder::~TQTextEncoder ()\fC [virtual]\fR"
 Destroys the encoder.
-.SH "QCString QTextEncoder::fromUnicode ( const TQString & uc, int & lenInOut )\fC [pure virtual]\fR"
-Converts \fIlenInOut\fR characters (not bytes) from \fIuc\fR, producing a QCString. \fIlenInOut\fR will be set to the length of the result (in bytes).
+.SH "TQCString TQTextEncoder::fromUnicode ( const TQString & uc, int & lenInOut )\fC [pure virtual]\fR"
+Converts \fIlenInOut\fR characters (not bytes) from \fIuc\fR, producing a TQCString. \fIlenInOut\fR will be set to the length of the result (in bytes).
 .PP
 The encoder is free to record state to use when subsequent calls
 are made to this function (for example, it might change modes with
@@ -40,7 +40,7 @@ escape sequences if needed during the encoding of one string, then
 assume that mode applies when a subsequent call begins).
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qtextencoder.html
+.BR http://doc.trolltech.com/tqtextencoder.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

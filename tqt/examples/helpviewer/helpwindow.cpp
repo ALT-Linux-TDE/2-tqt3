@@ -8,30 +8,30 @@
 *****************************************************************************/
 
 #include "helpwindow.h"
-#include <ntqstatusbar.h>
-#include <ntqpixmap.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqtoolbar.h>
-#include <ntqtoolbutton.h>
-#include <ntqiconset.h>
-#include <ntqfile.h>
-#include <ntqtextstream.h>
-#include <ntqstylesheet.h>
-#include <ntqmessagebox.h>
-#include <ntqfiledialog.h>
-#include <ntqapplication.h>
-#include <ntqcombobox.h>
-#include <ntqevent.h>
-#include <ntqlineedit.h>
-#include <ntqobjectlist.h>
-#include <ntqfileinfo.h>
-#include <ntqfile.h>
-#include <ntqdatastream.h>
-#include <ntqprinter.h>
-#include <ntqsimplerichtext.h>
-#include <ntqpainter.h>
-#include <ntqpaintdevicemetrics.h>
+#include <tqstatusbar.h>
+#include <tqpixmap.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqtoolbar.h>
+#include <tqtoolbutton.h>
+#include <tqiconset.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
+#include <tqstylesheet.h>
+#include <tqmessagebox.h>
+#include <tqfiledialog.h>
+#include <tqapplication.h>
+#include <tqcombobox.h>
+#include <tqevent.h>
+#include <tqlineedit.h>
+#include <tqobjectlist.h>
+#include <tqfileinfo.h>
+#include <tqfile.h>
+#include <tqdatastream.h>
+#include <tqprinter.h>
+#include <tqsimplerichtext.h>
+#include <tqpainter.h>
+#include <tqpaintdevicemetrics.h>
 
 #include <ctype.h>
 

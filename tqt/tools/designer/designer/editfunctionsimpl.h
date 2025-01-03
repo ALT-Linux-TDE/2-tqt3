@@ -37,7 +37,7 @@
 #include "editfunctions.h"
 #include "hierarchyview.h"
 #include "metadatabase.h"
-#include <ntqmap.h>
+#include <tqmap.h>
 
 class FormWindow;
 class TQListViewItem;

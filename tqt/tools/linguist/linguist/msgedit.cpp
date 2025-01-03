@@ -42,27 +42,27 @@
 #include "phraselv.h"
 #include "simtexth.h"
 
-#include <ntqapplication.h>
-#include <ntqcheckbox.h>
-#include <ntqclipboard.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqtextedit.h>
-#include <ntqpalette.h>
-#include <ntqpushbutton.h>
-#include <ntqstring.h>
-#include <ntqtextview.h>
-#include <ntqwhatsthis.h>
-#include <ntqvbox.h>
-#include <ntqmainwindow.h>
-#include <ntqheader.h>
-#include <ntqregexp.h>
-#include <ntqdockarea.h>
-#include <ntqdockwindow.h>
-#include <ntqscrollview.h>
-#include <ntqfont.h>
-#include <ntqaccel.h>
-#include <private/qrichtext_p.h>
+#include <tqapplication.h>
+#include <tqcheckbox.h>
+#include <tqclipboard.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqtextedit.h>
+#include <tqpalette.h>
+#include <tqpushbutton.h>
+#include <tqstring.h>
+#include <tqtextview.h>
+#include <tqwhatsthis.h>
+#include <tqvbox.h>
+#include <tqmainwindow.h>
+#include <tqheader.h>
+#include <tqregexp.h>
+#include <tqdockarea.h>
+#include <tqdockwindow.h>
+#include <tqscrollview.h>
+#include <tqfont.h>
+#include <tqaccel.h>
+#include <private/tqrichtext_p.h>
 
 static const int MaxCandidates = 5;
 

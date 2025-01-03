@@ -1,5 +1,5 @@
 '\" t
-.TH QStyleOption 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQStyleOption 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QStyleOption \- Optional parameters for QStyle functions
+TQStyleOption \- Optional parameters for TQStyle functions
 .SH SYNOPSIS
-\fC#include <ntqstyle.h>\fR
+\fC#include <tqstyle.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -17,46 +17,46 @@ QStyleOption \- Optional parameters for QStyle functions
 .BI "enum \fBStyleOptionDefault\fR { Default }"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( StyleOptionDefault = Default )"
+.BI "\fBTQStyleOption\fR ( StyleOptionDefault = Default )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( int in1 )"
+.BI "\fBTQStyleOption\fR ( int in1 )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( int in1, int in2 )"
+.BI "\fBTQStyleOption\fR ( int in1, int in2 )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( int in1, int in2, int in3, int in4 )"
+.BI "\fBTQStyleOption\fR ( int in1, int in2, int in3, int in4 )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( QMenuItem * m )"
+.BI "\fBTQStyleOption\fR ( TQMenuItem * m )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( QMenuItem * m, int in1 )"
+.BI "\fBTQStyleOption\fR ( TQMenuItem * m, int in1 )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( QMenuItem * m, int in1, int in2 )"
+.BI "\fBTQStyleOption\fR ( TQMenuItem * m, int in1, int in2 )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( const TQColor & c )"
+.BI "\fBTQStyleOption\fR ( const TQColor & c )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( QTab * t )"
+.BI "\fBTQStyleOption\fR ( TQTab * t )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( QListViewItem * i )"
+.BI "\fBTQStyleOption\fR ( TQListViewItem * i )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( QCheckListItem * i )"
+.BI "\fBTQStyleOption\fR ( TQCheckListItem * i )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( TQt::ArrowType a )"
+.BI "\fBTQStyleOption\fR ( TQt::ArrowType a )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( const QRect & r )"
+.BI "\fBTQStyleOption\fR ( const TQRect & r )"
 .br
 .ti -1c
-.BI "\fBQStyleOption\fR ( TQWidget * w )"
+.BI "\fBTQStyleOption\fR ( TQWidget * w )"
 .br
 .ti -1c
 .BI "bool \fBisDefault\fR () const"
@@ -80,7 +80,7 @@ QStyleOption \- Optional parameters for QStyle functions
 .BI "int \fBheaderSection\fR () const"
 .br
 .ti -1c
-.BI "QMenuItem * \fBmenuItem\fR () const"
+.BI "TQMenuItem * \fBmenuItem\fR () const"
 .br
 .ti -1c
 .BI "int \fBmaxIconWidth\fR () const"
@@ -92,112 +92,112 @@ QStyleOption \- Optional parameters for QStyle functions
 .BI "const TQColor & \fBcolor\fR () const"
 .br
 .ti -1c
-.BI "QTab * \fBtab\fR () const"
+.BI "TQTab * \fBtab\fR () const"
 .br
 .ti -1c
-.BI "QCheckListItem * \fBcheckListItem\fR () const"
+.BI "TQCheckListItem * \fBcheckListItem\fR () const"
 .br
 .ti -1c
-.BI "QListViewItem * \fBlistViewItem\fR () const"
+.BI "TQListViewItem * \fBlistViewItem\fR () const"
 .br
 .ti -1c
 .BI "TQt::ArrowType \fBarrowType\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBrect\fR () const"
+.BI "TQRect \fBrect\fR () const"
 .br
 .ti -1c
 .BI "TQWidget * \fBwidget\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QStyleOption class specifies optional parameters for QStyle functions.
+The TQStyleOption class specifies optional parameters for TQStyle functions.
 .PP
-Some QStyle functions take an optional argument specifying extra information that is required for a paritical primitive or control. So that the QStyle class can be extended, QStyleOption is used to provide a variable-argument for these options.
+Some TQStyle functions take an optional argument specifying extra information that is required for a paritical primitive or control. So that the TQStyle class can be extended, TQStyleOption is used to provide a variable-argument for these options.
 .PP
-The QStyleOption class has constructors for each type of optional argument, and this set of constructors may be extended in future TQt releases. There are also corresponding access functions that return the optional arguments: these too may be extended.
+The TQStyleOption class has constructors for each type of optional argument, and this set of constructors may be extended in future TQt releases. There are also corresponding access functions that return the optional arguments: these too may be extended.
 .PP
-For each constructor, you should refer to the documentation of the QStyle functions to see the meaning of the arguments.
+For each constructor, you should refer to the documentation of the TQStyle functions to see the meaning of the arguments.
 .PP
-When calling QStyle functions from your own widgets, you must only pass the default QStyleOption or the argument that QStyle is documented to accept. For example, if the function expects QStyleOption(QMenuItem *, int), passing QStyleOption(QMenuItem *) leaves the optional integer argument uninitialized.
+When calling TQStyle functions from your own widgets, you must only pass the default TQStyleOption or the argument that TQStyle is documented to accept. For example, if the function expects TQStyleOption(TQMenuItem *, int), passing TQStyleOption(TQMenuItem *) leaves the optional integer argument uninitialized.
 .PP
-When subclassing QStyle, you must similarly only expect the default or documented arguments. The other arguments will have uninitialized values.
+When subclassing TQStyle, you must similarly only expect the default or documented arguments. The other arguments will have uninitialized values.
 .PP
-If you make your own QStyle subclasses and your own widgets, you can make a subclass of QStyleOption to pass additional arguments to your QStyle subclass. You will need to cast the "const QStyleOption&" argument to your subclass, so be sure your style has been called from your widget.
+If you make your own TQStyle subclasses and your own widgets, you can make a subclass of TQStyleOption to pass additional arguments to your TQStyle subclass. You will need to cast the "const TQStyleOption&" argument to your subclass, so be sure your style has been called from your widget.
 .PP
 See also Widget Appearance and Style.
 .SS "Member Type Documentation"
-.SH "QStyleOption::StyleOptionDefault"
-This enum value can be passed as the optional argument to any QStyle function.
+.SH "TQStyleOption::StyleOptionDefault"
+This enum value can be passed as the optional argument to any TQStyle function.
 .TP
-\fCQStyleOption::Default\fR
+\fCTQStyleOption::Default\fR
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStyleOption::QStyleOption ( StyleOptionDefault = Default )"
-The default option. This can always be passed as the optional argument to QStyle functions.
-.SH "QStyleOption::QStyleOption ( int in1 )"
+.SH "TQStyleOption::TQStyleOption ( StyleOptionDefault = Default )"
+The default option. This can always be passed as the optional argument to TQStyle functions.
+.SH "TQStyleOption::TQStyleOption ( int in1 )"
 Pass one integer, \fIin1\fR. For example, headerSection.
-.SH "QStyleOption::QStyleOption ( int in1, int in2 )"
+.SH "TQStyleOption::TQStyleOption ( int in1, int in2 )"
 Pass two integers, \fIin1\fR and \fIin2\fR. For example, linewidth and midlinewidth.
-.SH "QStyleOption::QStyleOption ( int in1, int in2, int in3, int in4 )"
+.SH "TQStyleOption::TQStyleOption ( int in1, int in2, int in3, int in4 )"
 Pass four integers, \fIin1\fR, \fIin2\fR, \fIin3\fR and \fIin4\fR.
-.SH "QStyleOption::QStyleOption ( QMenuItem * m )"
+.SH "TQStyleOption::TQStyleOption ( TQMenuItem * m )"
 Pass a menu item, \fIm\fR.
-.SH "QStyleOption::QStyleOption ( QMenuItem * m, int in1 )"
+.SH "TQStyleOption::TQStyleOption ( TQMenuItem * m, int in1 )"
 Pass a menu item and an integer, \fIm\fR and \fIin1\fR.
-.SH "QStyleOption::QStyleOption ( QMenuItem * m, int in1, int in2 )"
+.SH "TQStyleOption::TQStyleOption ( TQMenuItem * m, int in1, int in2 )"
 Pass a menu item and two integers, \fIm\fR, \fIin1\fR and \fIin2\fR.
-.SH "QStyleOption::QStyleOption ( const TQColor & c )"
+.SH "TQStyleOption::TQStyleOption ( const TQColor & c )"
 Pass a color, \fIc\fR.
-.SH "QStyleOption::QStyleOption ( QTab * t )"
-Pass a QTab, \fIt\fR.
-.SH "QStyleOption::QStyleOption ( QListViewItem * i )"
-Pass a QListViewItem, \fIi\fR.
-.SH "QStyleOption::QStyleOption ( QCheckListItem * i )"
-Pass a QCheckListItem, \fIi\fR.
-.SH "QStyleOption::QStyleOption ( TQt::ArrowType a )"
+.SH "TQStyleOption::TQStyleOption ( TQTab * t )"
+Pass a TQTab, \fIt\fR.
+.SH "TQStyleOption::TQStyleOption ( TQListViewItem * i )"
+Pass a TQListViewItem, \fIi\fR.
+.SH "TQStyleOption::TQStyleOption ( TQCheckListItem * i )"
+Pass a TQCheckListItem, \fIi\fR.
+.SH "TQStyleOption::TQStyleOption ( TQt::ArrowType a )"
 Pass an TQt::ArrowType, \fIa\fR.
-.SH "QStyleOption::QStyleOption ( const QRect & r )"
-Pass a QRect, \fIr\fR.
-.SH "QStyleOption::QStyleOption ( TQWidget * w )"
+.SH "TQStyleOption::TQStyleOption ( const TQRect & r )"
+Pass a TQRect, \fIr\fR.
+.SH "TQStyleOption::TQStyleOption ( TQWidget * w )"
 Pass a TQWidget, \fIw\fR.
-.SH "TQt::ArrowType QStyleOption::arrowType () const"
+.SH "TQt::ArrowType TQStyleOption::arrowType () const"
 Returns an arrow type if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "QCheckListItem * QStyleOption::checkListItem () const"
+.SH "TQCheckListItem * TQStyleOption::checkListItem () const"
 Returns a check list item if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "const TQColor & QStyleOption::color () const"
+.SH "const TQColor & TQStyleOption::color () const"
 Returns a color if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "int QStyleOption::day () const"
+.SH "int TQStyleOption::day () const"
 Returns the index of the day in the month if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "int QStyleOption::frameShadow () const"
-Returns a QFrame::Shadow value if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "int QStyleOption::frameShape () const"
-Returns a QFrame::Shape value if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "int QStyleOption::headerSection () const"
+.SH "int TQStyleOption::frameShadow () const"
+Returns a TQFrame::Shadow value if the appropriate constructor was called; otherwise the return value is undefined.
+.SH "int TQStyleOption::frameShape () const"
+Returns a TQFrame::Shape value if the appropriate constructor was called; otherwise the return value is undefined.
+.SH "int TQStyleOption::headerSection () const"
 Returns the header section if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "bool QStyleOption::isDefault () const"
+.SH "bool TQStyleOption::isDefault () const"
 Returns TRUE if the option was constructed with the default constructor; otherwise returns FALSE.
-.SH "int QStyleOption::lineWidth () const"
+.SH "int TQStyleOption::lineWidth () const"
 Returns the line width if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "QListViewItem * QStyleOption::listViewItem () const"
-Returns a QListView item if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "int QStyleOption::maxIconWidth () const"
+.SH "TQListViewItem * TQStyleOption::listViewItem () const"
+Returns a TQListView item if the appropriate constructor was called; otherwise the return value is undefined.
+.SH "int TQStyleOption::maxIconWidth () const"
 Returns the maximum width of the menu item check area if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "QMenuItem * QStyleOption::menuItem () const"
+.SH "TQMenuItem * TQStyleOption::menuItem () const"
 Returns a menu item if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "int QStyleOption::midLineWidth () const"
+.SH "int TQStyleOption::midLineWidth () const"
 Returns the mid-line width if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "QRect QStyleOption::rect () const"
+.SH "TQRect TQStyleOption::rect () const"
 Returns a rectangle if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "QTab * QStyleOption::tab () const"
-Returns a QTabBar tab if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "int QStyleOption::tabWidth () const"
+.SH "TQTab * TQStyleOption::tab () const"
+Returns a TQTabBar tab if the appropriate constructor was called; otherwise the return value is undefined.
+.SH "int TQStyleOption::tabWidth () const"
 Returns the tab indent width if the appropriate constructor was called; otherwise the return value is undefined.
-.SH "TQWidget * QStyleOption::widget () const"
+.SH "TQWidget * TQStyleOption::widget () const"
 Returns a pointer to a widget if the appropriate constructor was called;
 otherwise the return value is undefined.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qstyleoption.html
+.BR http://doc.trolltech.com/tqstyleoption.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -33,11 +33,11 @@
 
 #include "index.h"
 
-#include <ntqfile.h>
-#include <ntqdir.h>
-#include <ntqstringlist.h>
-#include <ntqdict.h>
-#include <ntqapplication.h>
+#include <tqfile.h>
+#include <tqdir.h>
+#include <tqstringlist.h>
+#include <tqdict.h>
+#include <tqapplication.h>
 
 #include <ctype.h>
 

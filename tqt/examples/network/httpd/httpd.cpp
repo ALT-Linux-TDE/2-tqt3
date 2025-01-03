@@ -7,16 +7,16 @@
 **
 *****************************************************************************/
 #include <stdlib.h>
-#include <ntqsocket.h>
-#include <ntqregexp.h>
-#include <ntqserversocket.h>
-#include <ntqapplication.h>
-#include <ntqmainwindow.h>
-#include <ntqtextstream.h>
-#include <ntqvbox.h>
-#include <ntqlabel.h>
-#include <ntqtextview.h>
-#include <ntqpushbutton.h>
+#include <tqsocket.h>
+#include <tqregexp.h>
+#include <tqserversocket.h>
+#include <tqapplication.h>
+#include <tqmainwindow.h>
+#include <tqtextstream.h>
+#include <tqvbox.h>
+#include <tqlabel.h>
+#include <tqtextview.h>
+#include <tqpushbutton.h>
 
 // HttpDaemon is the the class that implements the simple HTTP server.
 class HttpDaemon : public TQServerSocket

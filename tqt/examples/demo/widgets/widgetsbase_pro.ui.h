@@ -1,4 +1,4 @@
-#include <ntqobjectlist.h>
+#include <tqobjectlist.h>
 
 void WidgetsBase::init()
 {

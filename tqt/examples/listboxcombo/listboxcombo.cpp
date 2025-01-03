@@ -9,16 +9,16 @@
 
 #include "listboxcombo.h"
 
-#include <ntqcombobox.h>
-#include <ntqlistbox.h>
-#include <ntqhbox.h>
-#include <ntqpushbutton.h>
-#include <ntqstring.h>
-#include <ntqpixmap.h>
-#include <ntqlabel.h>
-#include <ntqimage.h>
-#include <ntqpainter.h>
-#include <ntqstyle.h>
+#include <tqcombobox.h>
+#include <tqlistbox.h>
+#include <tqhbox.h>
+#include <tqpushbutton.h>
+#include <tqstring.h>
+#include <tqpixmap.h>
+#include <tqlabel.h>
+#include <tqimage.h>
+#include <tqpainter.h>
+#include <tqstyle.h>
 
 
 class MyListBoxItem : public TQListBoxItem

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/xml/tagreader/tagreader.doc:5 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -54,20 +53,20 @@ indented corresponding to their nesting
 #ifndef STRUCTUREPARSER_H
 #define STRUCTUREPARSER_H
 
-#include &lt;<a href="qxml-h.html">ntqxml.h</a>&gt;
+#include &lt;<a href="tqxml-h.html">tqxml.h</a>&gt;
 
 class TQString;
 
-class StructureParser : public <a href="qxmldefaulthandler.html">TQXmlDefaultHandler</a>
+class StructureParser : public <a href="tqxmldefaulthandler.html">TQXmlDefaultHandler</a>
 {
 public:
     bool startDocument();
-    bool startElement( const <a href="ntqstring.html">TQString</a>&amp;, const <a href="ntqstring.html">TQString</a>&amp;, const <a href="ntqstring.html">TQString</a>&amp; ,
-                       const <a href="qxmlattributes.html">TQXmlAttributes</a>&amp; );
-    bool endElement( const <a href="ntqstring.html">TQString</a>&amp;, const <a href="ntqstring.html">TQString</a>&amp;, const <a href="ntqstring.html">TQString</a>&amp; );
+    bool startElement( const <a href="tqstring.html">TQString</a>&amp;, const <a href="tqstring.html">TQString</a>&amp;, const <a href="tqstring.html">TQString</a>&amp; ,
+                       const <a href="tqxmlattributes.html">TQXmlAttributes</a>&amp; );
+    bool endElement( const <a href="tqstring.html">TQString</a>&amp;, const <a href="tqstring.html">TQString</a>&amp;, const <a href="tqstring.html">TQString</a>&amp; );
 
 private:
-    <a href="ntqstring.html">TQString</a> indent;
+    <a href="tqstring.html">TQString</a> indent;
 };
 
 #endif
@@ -88,24 +87,24 @@ private:
 #include "structureparser.h"
 
 #include &lt;stdio.h&gt;
-#include &lt;<a href="qstring-h.html">ntqstring.h</a>&gt;
+#include &lt;<a href="tqstring-h.html">tqstring.h</a>&gt;
 
-<a name="x1903"></a>bool StructureParser::<a href="qxmlcontenthandler.html#startDocument">startDocument</a>()
+<a name="x1903"></a>bool StructureParser::<a href="tqxmlcontenthandler.html#startDocument">startDocument</a>()
 {
     indent = "";
     return TRUE;
 }
 
-<a name="x1904"></a>bool StructureParser::<a href="qxmlcontenthandler.html#startElement">startElement</a>( const <a href="ntqstring.html">TQString</a>&amp;, const <a href="ntqstring.html">TQString</a>&amp;,
-                                    const <a href="ntqstring.html">TQString</a>&amp; qName,
-                                    const <a href="qxmlattributes.html">TQXmlAttributes</a>&amp; )
+<a name="x1904"></a>bool StructureParser::<a href="tqxmlcontenthandler.html#startElement">startElement</a>( const <a href="tqstring.html">TQString</a>&amp;, const <a href="tqstring.html">TQString</a>&amp;,
+                                    const <a href="tqstring.html">TQString</a>&amp; qName,
+                                    const <a href="tqxmlattributes.html">TQXmlAttributes</a>&amp; )
 {
     printf( "%s%s\n", (const char*)indent, (const char*)qName );
     indent += "    ";
     return TRUE;
 }
 
-<a name="x1902"></a>bool StructureParser::<a href="qxmlcontenthandler.html#endElement">endElement</a>( const <a href="ntqstring.html">TQString</a>&amp;, const <a href="ntqstring.html">TQString</a>&amp;, const <a href="ntqstring.html">TQString</a>&amp; )
+<a name="x1902"></a>bool StructureParser::<a href="tqxmlcontenthandler.html#endElement">endElement</a>( const <a href="tqstring.html">TQString</a>&amp;, const <a href="tqstring.html">TQString</a>&amp;, const <a href="tqstring.html">TQString</a>&amp; )
 {
     indent.remove( (uint)0, 4 );
     return TRUE;
@@ -125,9 +124,9 @@ private:
 *****************************************************************************/
 
 #include "structureparser.h"
-#include &lt;<a href="qfile-h.html">ntqfile.h</a>&gt;
-#include &lt;<a href="qxml-h.html">ntqxml.h</a>&gt;
-#include &lt;<a href="qwindowdefs-h.html">ntqwindowdefs.h</a>&gt;
+#include &lt;<a href="tqfile-h.html">tqfile.h</a>&gt;
+#include &lt;<a href="tqxml-h.html">tqxml.h</a>&gt;
+#include &lt;<a href="tqwindowdefs-h.html">tqwindowdefs.h</a>&gt;
 
 int main( int argc, char **argv )
 {
@@ -136,12 +135,12 @@ int main( int argc, char **argv )
         return 1;
     }
     StructureParser handler;
-    <a href="qxmlsimplereader.html">TQXmlSimpleReader</a> reader;
-<a name="x1906"></a>    reader.<a href="qxmlreader.html#setContentHandler">setContentHandler</a>( &amp;handler );
+    <a href="tqxmlsimplereader.html">TQXmlSimpleReader</a> reader;
+<a name="x1906"></a>    reader.<a href="tqxmlreader.html#setContentHandler">setContentHandler</a>( &amp;handler );
     for ( int i=1; i &lt; argc; i++ ) {
-        <a href="ntqfile.html">TQFile</a> xmlFile( argv[i] );
-        <a href="qxmlinputsource.html">TQXmlInputSource</a> source( &amp;xmlFile );
-<a name="x1905"></a>        reader.<a href="qxmlsimplereader.html#parse">parse</a>( source );
+        <a href="tqfile.html">TQFile</a> xmlFile( argv[i] );
+        <a href="tqxmlinputsource.html">TQXmlInputSource</a> source( &amp;xmlFile );
+<a name="x1905"></a>        reader.<a href="tqxmlsimplereader.html#parse">parse</a>( source );
     }
     return 0;
 }

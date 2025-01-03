@@ -1,5 +1,5 @@
 '\" t
-.TH QLayoutItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQLayoutItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,37 +7,37 @@
 .ad l
 .nh
 .SH NAME
-QLayoutItem \- Abstract item that a QLayout manipulates
+TQLayoutItem \- Abstract item that a TQLayout manipulates
 .SH SYNOPSIS
-\fC#include <ntqlayout.h>\fR
+\fC#include <tqlayout.h>\fR
 .PP
-Inherited by QLayout, QSpacerItem, and QWidgetItem.
+Inherited by TQLayout, TQSpacerItem, and TQWidgetItem.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQLayoutItem\fR ( int alignment = 0 )"
+.BI "\fBTQLayoutItem\fR ( int alignment = 0 )"
 .br
 .ti -1c
-.BI "virtual \fB~QLayoutItem\fR ()"
+.BI "virtual \fB~TQLayoutItem\fR ()"
 .br
 .ti -1c
-.BI "virtual QSize \fBsizeHint\fR () const = 0"
+.BI "virtual TQSize \fBsizeHint\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QSize \fBminimumSize\fR () const = 0"
+.BI "virtual TQSize \fBminimumSize\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QSize \fBmaximumSize\fR () const = 0"
+.BI "virtual TQSize \fBmaximumSize\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QSizePolicy::ExpandData \fBexpanding\fR () const = 0"
+.BI "virtual TQSizePolicy::ExpandData \fBexpanding\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual void \fBsetGeometry\fR ( const QRect & r ) = 0"
+.BI "virtual void \fBsetGeometry\fR ( const TQRect & r ) = 0"
 .br
 .ti -1c
-.BI "virtual QRect \fBgeometry\fR () const = 0"
+.BI "virtual TQRect \fBgeometry\fR () const = 0"
 .br
 .ti -1c
 .BI "virtual bool \fBisEmpty\fR () const = 0"
@@ -55,13 +55,13 @@ Inherited by QLayout, QSpacerItem, and QWidgetItem.
 .BI "virtual TQWidget * \fBwidget\fR ()"
 .br
 .ti -1c
-.BI "virtual QLayoutIterator \fBiterator\fR ()"
+.BI "virtual TQLayoutIterator \fBiterator\fR ()"
 .br
 .ti -1c
-.BI "virtual QLayout * \fBlayout\fR ()"
+.BI "virtual TQLayout * \fBlayout\fR ()"
 .br
 .ti -1c
-.BI "virtual QSpacerItem * \fBspacerItem\fR ()"
+.BI "virtual TQSpacerItem * \fBspacerItem\fR ()"
 .br
 .ti -1c
 .BI "int \fBalignment\fR () const"
@@ -71,7 +71,7 @@ Inherited by QLayout, QSpacerItem, and QWidgetItem.
 .br
 .in -1c
 .SH DESCRIPTION
-The QLayoutItem class provides an abstract item that a QLayout manipulates.
+The TQLayoutItem class provides an abstract item that a TQLayout manipulates.
 .PP
 This is used by custom layouts.
 .PP
@@ -81,23 +81,23 @@ The layout's geometry can be set and retrieved with setGeometry() and geometry()
 .PP
 isEmpty() returns whether the layout is empty. iterator() returns an iterator for the layout's children. If the concrete item is a TQWidget, it can be retrieved using widget(). Similarly for layout() and spacerItem().
 .PP
-See also QLayout, Widget Appearance and Style, and Layout Management.
+See also TQLayout, Widget Appearance and Style, and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QLayoutItem::QLayoutItem ( int alignment = 0 )"
+.SH "TQLayoutItem::TQLayoutItem ( int alignment = 0 )"
 Constructs a layout item with an \fIalignment\fR that is a bitwise OR of the TQt::AlignmentFlags. Not all subclasses support alignment.
-.SH "QLayoutItem::~QLayoutItem ()\fC [virtual]\fR"
-Destroys the QLayoutItem.
-.SH "int QLayoutItem::alignment () const"
+.SH "TQLayoutItem::~TQLayoutItem ()\fC [virtual]\fR"
+Destroys the TQLayoutItem.
+.SH "int TQLayoutItem::alignment () const"
 Returns the alignment of this item.
-.SH "QSizePolicy::ExpandData QLayoutItem::expanding () const\fC [pure virtual]\fR"
+.SH "TQSizePolicy::ExpandData TQLayoutItem::expanding () const\fC [pure virtual]\fR"
 Implemented in subclasses to return the direction(s) this item" wants" to expand in (if any).
 .PP
-Reimplemented in QLayout, QSpacerItem, and QWidgetItem.
-.SH "QRect QLayoutItem::geometry () const\fC [pure virtual]\fR"
+Reimplemented in TQLayout, TQSpacerItem, and TQWidgetItem.
+.SH "TQRect TQLayoutItem::geometry () const\fC [pure virtual]\fR"
 Returns the rectangle covered by this layout item.
 .PP
 Example: customlayout/border.cpp.
-.SH "bool QLayoutItem::hasHeightForWidth () const\fC [virtual]\fR"
+.SH "bool TQLayoutItem::hasHeightForWidth () const\fC [virtual]\fR"
 Returns TRUE if this layout's preferred height depends on its width; otherwise returns FALSE. The default implementation returns FALSE.
 .PP
 Reimplement this function in layout managers that support height for width.
@@ -107,8 +107,8 @@ See also heightForWidth() and TQWidget::heightForWidth().
 Examples:
 .)l customlayout/border.cpp and customlayout/flow.cpp.
 .PP
-Reimplemented in QGridLayout and QBoxLayout.
-.SH "int QLayoutItem::heightForWidth ( int w ) const\fC [virtual]\fR"
+Reimplemented in TQGridLayout and TQBoxLayout.
+.SH "int TQLayoutItem::heightForWidth ( int w ) const\fC [virtual]\fR"
 Returns the preferred height for this layout item, given the width \fIw\fR.
 .PP
 The default implementation returns -1, indicating that the preferred height is independent of the width of the item. Using the function hasHeightForWidth() will typically be much faster than calling this function and testing for -1.
@@ -147,61 +147,61 @@ See also hasHeightForWidth().
 .PP
 Example: customlayout/flow.cpp.
 .PP
-Reimplemented in QGridLayout and QBoxLayout.
-.SH "void QLayoutItem::invalidate ()\fC [virtual]\fR"
+Reimplemented in TQGridLayout and TQBoxLayout.
+.SH "void TQLayoutItem::invalidate ()\fC [virtual]\fR"
 Invalidates any cached information in this layout item.
 .PP
-Reimplemented in QLayout.
-.SH "bool QLayoutItem::isEmpty () const\fC [pure virtual]\fR"
+Reimplemented in TQLayout.
+.SH "bool TQLayoutItem::isEmpty () const\fC [pure virtual]\fR"
 Implemented in subclasses to return whether this item is empty, i.e. whether it contains any widgets.
 .PP
-Reimplemented in QLayout, QSpacerItem, and QWidgetItem.
-.SH "QLayoutIterator QLayoutItem::iterator ()\fC [virtual]\fR"
-Returns an iterator over this item's QLayoutItem children. The default implementation returns an empty iterator.
+Reimplemented in TQLayout, TQSpacerItem, and TQWidgetItem.
+.SH "TQLayoutIterator TQLayoutItem::iterator ()\fC [virtual]\fR"
+Returns an iterator over this item's TQLayoutItem children. The default implementation returns an empty iterator.
 .PP
 Reimplement this function in subclasses that can have children.
 .PP
-Reimplemented in QLayout.
-.SH "QLayout * QLayoutItem::layout ()\fC [virtual]\fR"
-If this item is a QLayout, it is returned as a QLayout; otherwise 0 is returned. This function provides type-safe casting.
-.SH "QSize QLayoutItem::maximumSize () const\fC [pure virtual]\fR"
+Reimplemented in TQLayout.
+.SH "TQLayout * TQLayoutItem::layout ()\fC [virtual]\fR"
+If this item is a TQLayout, it is returned as a TQLayout; otherwise 0 is returned. This function provides type-safe casting.
+.SH "TQSize TQLayoutItem::maximumSize () const\fC [pure virtual]\fR"
 Implemented in subclasses to return the maximum size of this item.
 .PP
-Reimplemented in QLayout, QSpacerItem, and QWidgetItem.
-.SH "QSize QLayoutItem::minimumSize () const\fC [pure virtual]\fR"
+Reimplemented in TQLayout, TQSpacerItem, and TQWidgetItem.
+.SH "TQSize TQLayoutItem::minimumSize () const\fC [pure virtual]\fR"
 Implemented in subclasses to return the minimum size of this item.
 .PP
 Examples:
 .)l customlayout/border.cpp, customlayout/card.cpp, and customlayout/flow.cpp.
 .PP
-Reimplemented in QLayout, QSpacerItem, and QWidgetItem.
-.SH "void QLayoutItem::setAlignment ( int a )\fC [virtual]\fR"
+Reimplemented in TQLayout, TQSpacerItem, and TQWidgetItem.
+.SH "void TQLayoutItem::setAlignment ( int a )\fC [virtual]\fR"
 Sets the alignment of this item to \fIa\fR, which is a bitwise OR of the TQt::AlignmentFlags. Not all subclasses support alignment.
 .PP
 Example: chart/optionsform.cpp.
-.SH "void QLayoutItem::setGeometry ( const QRect & r )\fC [pure virtual]\fR"
+.SH "void TQLayoutItem::setGeometry ( const TQRect & r )\fC [pure virtual]\fR"
 Implemented in subclasses to set this item's geometry to \fIr\fR.
 .PP
 Examples:
 .)l customlayout/border.cpp, customlayout/card.cpp, and customlayout/flow.cpp.
 .PP
-Reimplemented in QLayout, QSpacerItem, and QWidgetItem.
-.SH "QSize QLayoutItem::sizeHint () const\fC [pure virtual]\fR"
+Reimplemented in TQLayout, TQSpacerItem, and TQWidgetItem.
+.SH "TQSize TQLayoutItem::sizeHint () const\fC [pure virtual]\fR"
 Implemented in subclasses to return the preferred size of this item.
 .PP
 Examples:
 .)l customlayout/border.cpp, customlayout/card.cpp, and customlayout/flow.cpp.
 .PP
-Reimplemented in QSpacerItem, QWidgetItem, QGridLayout, and QBoxLayout.
-.SH "QSpacerItem * QLayoutItem::spacerItem ()\fC [virtual]\fR"
-If this item is a QSpacerItem, it is returned as a QSpacerItem; otherwise 0 is returned. This function provides type-safe casting.
-.SH "TQWidget * QLayoutItem::widget ()\fC [virtual]\fR"
+Reimplemented in TQSpacerItem, TQWidgetItem, TQGridLayout, and TQBoxLayout.
+.SH "TQSpacerItem * TQLayoutItem::spacerItem ()\fC [virtual]\fR"
+If this item is a TQSpacerItem, it is returned as a TQSpacerItem; otherwise 0 is returned. This function provides type-safe casting.
+.SH "TQWidget * TQLayoutItem::widget ()\fC [virtual]\fR"
 If this item is a TQWidget, it is returned as a TQWidget; otherwise 0 is returned. This function provides type-safe casting.
 .PP
-Reimplemented in QWidgetItem.
+Reimplemented in TQWidgetItem.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qlayoutitem.html
+.BR http://doc.trolltech.com/tqlayoutitem.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

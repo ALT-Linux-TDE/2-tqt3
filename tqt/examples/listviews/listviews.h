@@ -10,12 +10,12 @@
 #ifndef LISTVIEWS_H
 #define LISTVIEWS_H
 
-#include <ntqsplitter.h>
-#include <ntqstring.h>
-#include <ntqobject.h>
-#include <ntqdatetime.h>
-#include <ntqptrlist.h>
-#include <ntqlistview.h>
+#include <tqsplitter.h>
+#include <tqstring.h>
+#include <tqobject.h>
+#include <tqdatetime.h>
+#include <tqptrlist.h>
+#include <tqlistview.h>
 
 class TQListView;
 class TQLabel;

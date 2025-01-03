@@ -33,7 +33,7 @@
 
 #include "asciivalidator.h"
 
-#include <ntqstring.h>
+#include <tqstring.h>
 
 AsciiValidator::AsciiValidator( TQObject * parent, const char *name )
     : TQValidator( parent, name ), functionName( FALSE )

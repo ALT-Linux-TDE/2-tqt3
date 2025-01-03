@@ -7,12 +7,12 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqlabel.h>
-#include <ntqsplitter.h>
-#include <ntqmultilineedit.h>
+#include <tqapplication.h>
+#include <tqlabel.h>
+#include <tqsplitter.h>
+#include <tqmultilineedit.h>
 
-#include <ntqpainter.h>
+#include <tqpainter.h>
 
 
 class Test : public TQWidget {
@@ -83,10 +83,6 @@ int main( int argc, char ** argv )
     t5->setMinimumSize( 80, 50 );
     t5->setBackgroundColor( TQt::yellow );
 
-#ifdef TQ_WS_QWS
-    // TQt/Embedded XOR drawing not yet implemented.
-    s1->setOpaqueResize( TRUE );
-#endif
     s2->setOpaqueResize( TRUE );
     s3->setOpaqueResize( TRUE );
 

@@ -2,7 +2,7 @@
 ** Copyright (C) 1998-2008 Trolltech ASA.  All rights reserved.
 **
 ** This is a utility program for converting tqtfindtr msgfiles to
-** qtranslator message files
+** tqtranslator message files
 **
 ** This file may be used under the terms of the GNU General
 ** Public License versions 2.0 or 3.0 as published by the Free
@@ -32,10 +32,10 @@
 **
 **********************************************************************/
 
-#include <ntqfile.h>
-#include <ntqtextstream.h>
-#include <ntqtextcodec.h>
-#include <ntqtranslator.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
+#include <tqtextcodec.h>
+#include <tqtranslator.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -210,7 +210,7 @@ void translate( const TQString& filename, const TQString& qmfile )
 }
 
 
-// workaround for BCC problem, ntqtranslator.h includes ntqwindowdefs.h via ntqobject.h, see NEEDS_QMAIN
+// workaround for BCC problem, tqtranslator.h includes tqwindowdefs.h via tqobject.h, see NEEDS_QMAIN
 #if defined(main)
 #undef main
 #endif

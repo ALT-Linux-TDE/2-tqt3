@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/dnd.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -59,19 +58,19 @@ mechanism.
 
 <p> For drag and drop examples see (in increasing order of
 sophistication): <tt>qt/examples/iconview/simple_dd</tt>, <tt>qt/examples/dragdrop</tt> and <tt>qt/examples/fileiconview</tt>. See also the
-<a href="ntqtextedit.html">TQTextEdit</a> widget source code.
+<a href="tqtextedit.html">TQTextEdit</a> widget source code.
 <p> <h2> Dragging
 </h2>
-<a name="1"></a><p> To start a drag, for example in a <a href="ntqwidget.html#mouseMoveEvent">mouse motion event</a>, create an object of the <a href="ntqdragobject.html">TQDragObject</a>
-subclass appropriate for your media, such as <a href="qtextdrag.html">TQTextDrag</a> for text and
-<a href="qimagedrag.html">TQImageDrag</a> for images. Then call the drag() method. This is all you
+<a name="1"></a><p> To start a drag, for example in a <a href="tqwidget.html#mouseMoveEvent">mouse motion event</a>, create an object of the <a href="tqdragobject.html">TQDragObject</a>
+subclass appropriate for your media, such as <a href="tqtextdrag.html">TQTextDrag</a> for text and
+<a href="tqimagedrag.html">TQImageDrag</a> for images. Then call the drag() method. This is all you
 need for simple dragging of existing types.
 <p> For example, to start dragging some text from a widget:
 <pre>
 void MyWidget::startDrag()
 {
-    <a href="ntqdragobject.html">TQDragObject</a> *d = new <a href="qtextdrag.html">TQTextDrag</a>( myHighlightedText(), this );
-    d-&gt;<a href="ntqdragobject.html#dragCopy">dragCopy</a>();
+    <a href="tqdragobject.html">TQDragObject</a> *d = new <a href="tqtextdrag.html">TQTextDrag</a>( myHighlightedText(), this );
+    d-&gt;<a href="tqdragobject.html#dragCopy">dragCopy</a>();
     // do NOT delete d.
 }
 </pre>
@@ -86,19 +85,19 @@ references.
 <p> <h2> Dropping
 </h2>
 <a name="2"></a><p> To be able to receive media dropped on a widget, call
-<a href="ntqwidget.html#setAcceptDrops">setAcceptDrops(TRUE)</a>
+<a href="tqwidget.html#setAcceptDrops">setAcceptDrops(TRUE)</a>
 for the widget (e.g. in its constructor), and override the
 event handler methods
-<a href="ntqwidget.html#dragEnterEvent">dragEnterEvent()</a> and
-<a href="ntqwidget.html#dropEvent">dropEvent()</a>.
+<a href="tqwidget.html#dragEnterEvent">dragEnterEvent()</a> and
+<a href="tqwidget.html#dropEvent">dropEvent()</a>.
 For more sophisticated applications overriding
-<a href="ntqwidget.html#dragMoveEvent">dragMoveEvent()</a> and
-<a href="ntqwidget.html#dragLeaveEvent">dragLeaveEvent()</a> will also be
+<a href="tqwidget.html#dragMoveEvent">dragMoveEvent()</a> and
+<a href="tqwidget.html#dragLeaveEvent">dragLeaveEvent()</a> will also be
 necessary.
 <p> For example, to accept text and image drops:
 <pre>
 MyWidget::MyWidget(...) :
-    <a href="ntqwidget.html">TQWidget</a>(...)
+    <a href="tqwidget.html">TQWidget</a>(...)
 {
     ...
     setAcceptDrops(TRUE);
@@ -107,19 +106,19 @@ MyWidget::MyWidget(...) :
 void MyWidget::dragEnterEvent(TQDragEnterEvent* event)
 {
     event-&gt;accept(
-        TQTextDrag::<a href="qtextdrag.html#canDecode">canDecode</a>(event) ||
-        TQImageDrag::<a href="qimagedrag.html#canDecode">canDecode</a>(event)
+        TQTextDrag::<a href="tqtextdrag.html#canDecode">canDecode</a>(event) ||
+        TQImageDrag::<a href="tqimagedrag.html#canDecode">canDecode</a>(event)
     );
 }
 
 void MyWidget::dropEvent(TQDropEvent* event)
 {
-    <a href="ntqimage.html">TQImage</a> image;
-    <a href="ntqstring.html">TQString</a> text;
+    <a href="tqimage.html">TQImage</a> image;
+    <a href="tqstring.html">TQString</a> text;
 
-    if ( TQImageDrag::<a href="qimagedrag.html#decode">decode</a>(event, image) ) {
+    if ( TQImageDrag::<a href="tqimagedrag.html#decode">decode</a>(event, image) ) {
         insertImageAt(image, event-&gt;pos());
-    } else if ( TQTextDrag::<a href="qtextdrag.html#decode">decode</a>(event, text) ) {
+    } else if ( TQTextDrag::<a href="tqtextdrag.html#decode">decode</a>(event, text) ) {
         insertTextAt(text, event-&gt;pos());
     }
 }
@@ -127,14 +126,14 @@ void MyWidget::dropEvent(TQDropEvent* event)
  
 <p> <h2> The Clipboard
 </h2>
-<a name="3"></a><p> The <a href="ntqdragobject.html">TQDragObject</a>, <a href="qdragenterevent.html">TQDragEnterEvent</a>, <a href="qdragmoveevent.html">TQDragMoveEvent</a>, and <a href="qdropevent.html">TQDropEvent</a>
+<a name="3"></a><p> The <a href="tqdragobject.html">TQDragObject</a>, <a href="tqdragenterevent.html">TQDragEnterEvent</a>, <a href="tqdragmoveevent.html">TQDragMoveEvent</a>, and <a href="tqdropevent.html">TQDropEvent</a>
 classes are all subclasses of TQMimeSource: the class of objects which
 provide typed information. If you base your data transfers on
 TQDragObject, you not only get drag-and-drop, but you also get
-traditional cut-and-paste for free. The <a href="ntqclipboard.html">TQClipboard</a> has two functions:
+traditional cut-and-paste for free. The <a href="tqclipboard.html">TQClipboard</a> has two functions:
 <pre>
     setData(TQMimeSource*)
-    <a href="qmimesource.html">TQMimeSource</a>* data()const
+    <a href="tqmimesource.html">TQMimeSource</a>* data()const
 </pre>
  
 With these functions you can trivially put your drag-and-drop oriented
@@ -142,38 +141,38 @@ information on the clipboard:
 <pre>
 void MyWidget::copy()
 {
-    TQApplication::<a href="ntqapplication.html#clipboard">clipboard</a>()-&gt;setData(
-        new <a href="qtextdrag.html">TQTextDrag</a>(myHighlightedText()) );
+    TQApplication::<a href="tqapplication.html#clipboard">clipboard</a>()-&gt;setData(
+        new <a href="tqtextdrag.html">TQTextDrag</a>(myHighlightedText()) );
 }
 
 void MyWidget::paste()
 {
-    <a href="ntqstring.html">TQString</a> text;
-    if ( TQTextDrag::<a href="qtextdrag.html#decode">decode</a>(TQApplication::<a href="ntqapplication.html#clipboard">clipboard</a>()-&gt;data(), text) )
+    <a href="tqstring.html">TQString</a> text;
+    if ( TQTextDrag::<a href="tqtextdrag.html#decode">decode</a>(TQApplication::<a href="tqapplication.html#clipboard">clipboard</a>()-&gt;data(), text) )
         insertText( text );
 }
 </pre>
  
-You can even use <a href="ntqdragobject.html">TQDragObject</a> subclasses as part of file IO. For
+You can even use <a href="tqdragobject.html">TQDragObject</a> subclasses as part of file IO. For
 example, if your application has a subclass of TQDragObject that
 encodes CAD designs in DXF format, your saving and loading code might
 be:
 <pre>
 void MyWidget::save()
 {
-    <a href="ntqfile.html">TQFile</a> out(current_file_name);
-    if ( out.<a href="ntqfile.html#open">open</a>(IO_WriteOnly) ) {
+    <a href="tqfile.html">TQFile</a> out(current_file_name);
+    if ( out.<a href="tqfile.html#open">open</a>(IO_WriteOnly) ) {
         MyCadDrag tmp(current_design);
-        out.<a href="ntqiodevice.html#writeBlock">writeBlock</a>( tmp-&gt;encodedData( "image/x-dxf" ) );
+        out.<a href="tqiodevice.html#writeBlock">writeBlock</a>( tmp-&gt;encodedData( "image/x-dxf" ) );
     }
 }
 
 void MyWidget::load()
 {
-    <a href="ntqfile.html">TQFile</a> in(current_file_name);
-    if ( in.<a href="ntqfile.html#open">open</a>(IO_ReadOnly) ) {
-        if ( !MyCadDrag::decode(in.<a href="ntqiodevice.html#readAll">readAll</a>(), current_design) ) {
-            TQMessageBox::<a href="ntqmessagebox.html#warning">warning</a>( this, "Format error",
+    <a href="tqfile.html">TQFile</a> in(current_file_name);
+    if ( in.<a href="tqfile.html#open">open</a>(IO_ReadOnly) ) {
+        if ( !MyCadDrag::decode(in.<a href="tqiodevice.html#readAll">readAll</a>(), current_design) ) {
+            TQMessageBox::<a href="tqmessagebox.html#warning">warning</a>( this, "Format error",
                 tr("The file \"%1\" is not in any supported format")
                     .arg(current_file_name)
             );
@@ -182,14 +181,14 @@ void MyWidget::load()
 }
 </pre>
  
-Note how the <a href="ntqdragobject.html">TQDragObject</a> subclass is called "MyCadDrag", not
+Note how the <a href="tqdragobject.html">TQDragObject</a> subclass is called "MyCadDrag", not
 "MyDxfDrag": because in the future you might extend it to provide
-DXF, DWG, SVF, WMF, or even <a href="ntqpicture.html">TQPicture</a> data to other applications.
+DXF, DWG, SVF, WMF, or even <a href="tqpicture.html">TQPicture</a> data to other applications.
 <p> <h2> Drag and Drop Actions
 </h2>
 <a name="4"></a><p> In the simpler cases, the target of a drag-and-drop receives a copy of
 the data being dragged and the source decides whether to delete the
-original. This is the "Copy" action in <a href="qdropevent.html">TQDropEvent</a>. The target may also
+original. This is the "Copy" action in <a href="tqdropevent.html">TQDropEvent</a>. The target may also
 choose to understand other actions, specifically the Move and Link
 actions. If the target understands the Move action, <em>the target</em> is responsible for both the copy and delete operations and
 the source will not attempt to delete the data itself. If the target
@@ -210,15 +209,15 @@ indicate to each other which data formats they can accept and which
 they can produce. This is achieved using <a href="http://www.rfc-editor.org/rfc/rfc1341.txt">MIME types</a>: the drag
 source provides a list of MIME types that it can produce (ordered from
 most appropriate to least appropriate), and the drop target chooses
-which of those it can accept. For example, <a href="qtextdrag.html">TQTextDrag</a> provides support
+which of those it can accept. For example, <a href="tqtextdrag.html">TQTextDrag</a> provides support
 for the "<tt>text/plain</tt>" MIME type (ordinary unformatted text), and
-the Unicode formats "<tt>text/utf16</tt>" and "<tt>text/utf8</tt>"; <a href="qimagedrag.html">TQImageDrag</a>
+the Unicode formats "<tt>text/utf16</tt>" and "<tt>text/utf8</tt>"; <a href="tqimagedrag.html">TQImageDrag</a>
 provides for "<tt>image/*</tt>", where <tt>*</tt> is any image format that
-<a href="qimageio.html">TQImageIO</a> supports; and the <a href="quridrag.html">TQUriDrag</a> subclass provides
+<a href="tqimageio.html">TQImageIO</a> supports; and the <a href="tquridrag.html">TQUriDrag</a> subclass provides
 "<tt>text/uri-list</tt>", a standard format for transferring a list of
 filenames (or URLs).
 <p> To implement drag-and-drop of some type of information for which there
-is no available <a href="ntqdragobject.html">TQDragObject</a> subclass, the first and most important
+is no available <a href="tqdragobject.html">TQDragObject</a> subclass, the first and most important
 step is to look for existing formats that are appropriate: the
 Internet Assigned Numbers Authority (<a href="http://www.iana.org">IANA</a>) provides a <a href="http://www.isi.edu/in-notes/iana/assignments/media-types/">hierarchical
 list of MIME media types</a> at the Information Sciences Institute
@@ -226,17 +225,17 @@ list of MIME media types</a> at the Information Sciences Institute
 maximizes the inter-operability of your application with other
 software now and in the future.
 <p> To support an additional media type, subclass either TQDragObject or
-<a href="qstoreddrag.html">TQStoredDrag</a>. Subclass TQDragObject when you need to provide support for
+<a href="tqstoreddrag.html">TQStoredDrag</a>. Subclass TQDragObject when you need to provide support for
 multiple media types. Subclass the simpler TQStoredDrag when one type
 is sufficient.
 <p> Subclasses of TQDragObject will override the
-<a href="qmimesource.html#format">const char* format(int i) const</a> and
-<a href="qmimesource.html#encodedData">TQByteArray encodedData(const char* mimetype) const</a>
+<a href="tqmimesource.html#format">const char* format(int i) const</a> and
+<a href="tqmimesource.html#encodedData">TQByteArray encodedData(const char* mimetype) const</a>
 members, and provide a set-method to encode the media data and static
 members canDecode() and decode() to decode incoming data, similar to
-<a href="qimagedrag.html#canDecode">bool canDecode(TQMimeSource*) const</a> and
-<a href="qimagedrag.html#decode">TQByteArray decode(TQMimeSource*) const</a>
-of <a href="qimagedrag.html">TQImageDrag</a>.
+<a href="tqimagedrag.html#canDecode">bool canDecode(TQMimeSource*) const</a> and
+<a href="tqimagedrag.html#decode">TQByteArray decode(TQMimeSource*) const</a>
+of <a href="tqimagedrag.html">TQImageDrag</a>.
 Of course, you can provide drag-only or drop-only support for a media
 type by omitting some of these methods.
 <p> Subclasses of TQStoredDrag provide a set-method to encode the media
@@ -259,16 +258,16 @@ the drag start point and the drop event might look like this:
 <p> <pre>
 void MyEditor::startDrag()
 {
-    <a href="ntqdragobject.html">TQDragObject</a> *d = new <a href="qtextdrag.html">TQTextDrag</a>(myHighlightedText(), this);
-    if ( d-&gt;<a href="ntqdragobject.html#drag">drag</a>() &amp;&amp; d-&gt;<a href="ntqdragobject.html#target">target</a>() != this )
+    <a href="tqdragobject.html">TQDragObject</a> *d = new <a href="tqtextdrag.html">TQTextDrag</a>(myHighlightedText(), this);
+    if ( d-&gt;<a href="tqdragobject.html#drag">drag</a>() &amp;&amp; d-&gt;<a href="tqdragobject.html#target">target</a>() != this )
         cutMyHighlightedText();
 }
 
 void MyEditor::dropEvent(TQDropEvent* event)
 {
-    <a href="ntqstring.html">TQString</a> text;
+    <a href="tqstring.html">TQString</a> text;
 
-    if ( TQTextDrag::<a href="qtextdrag.html#decode">decode</a>(event, text) ) {
+    if ( TQTextDrag::<a href="tqtextdrag.html#decode">decode</a>(event, text) ) {
         if ( event-&gt;source() == this &amp;&amp; event-&gt;action() == TQDropEvent::Move ) {
             // Careful not to tread on my own feet
             event-&gt;acceptAction();
@@ -283,12 +282,12 @@ void MyEditor::dropEvent(TQDropEvent* event)
 <p> Some widgets are more specific than just a "yes" or "no" response when
 data is dragged onto them. For example, a CAD program might only
 accept drops of text onto text objects in the view. In these cases,
-the <a href="ntqwidget.html#dragMoveEvent">dragMoveEvent()</a> is used and
+the <a href="tqwidget.html#dragMoveEvent">dragMoveEvent()</a> is used and
 an <em>area</em> is given for which the drag is accepted or ignored:
 <pre>
 void MyWidget::dragMoveEvent(TQDragMoveEvent* event)
 {
-    if ( TQTextDrag::<a href="qtextdrag.html#canDecode">canDecode</a>(event) ) {
+    if ( TQTextDrag::<a href="tqtextdrag.html#canDecode">canDecode</a>(event) ) {
         MyCadItem* item = findMyItemAt(event-&gt;pos());
         if ( item )
             event-&gt;accept();
@@ -302,10 +301,10 @@ you promise the acceptance persists:
 <pre>
 void MyWidget::dragMoveEvent(TQDragMoveEvent* event)
 {
-    if ( TQTextDrag::<a href="qtextdrag.html#canDecode">canDecode</a>(event) ) {
+    if ( TQTextDrag::<a href="tqtextdrag.html#canDecode">canDecode</a>(event) ) {
         MyCadItem* item = findMyItemAt(event-&gt;pos());
         if ( item ) {
-            <a href="ntqrect.html">TQRect</a> r = item-&gt;areaRelativeToMeClippedByAnythingInTheWay();
+            <a href="tqrect.html">TQRect</a> r = item-&gt;areaRelativeToMeClippedByAnythingInTheWay();
             if ( item-&gt;type() == MyTextType )
                 event-&gt;accept( r );
             else
@@ -319,12 +318,12 @@ void MyWidget::dragMoveEvent(TQDragMoveEvent* event)
 feedback as the drag progresses, to start timers, to scroll the
 window, or whatever is appropriate (don't forget to stop the scrolling
 and timers in a dragLeaveEvent() though).
-<p> The <a href="ntqapplication.html">TQApplication</a> object (available as the <tt>tqApp</tt> global) also
+<p> The <a href="tqapplication.html">TQApplication</a> object (available as the <tt>tqApp</tt> global) also
 provides some drag and drop related functions:
-<a href="ntqapplication.html#setStartDragTime">TQApplication::setStartDragTime</a>(),
-<a href="ntqapplication.html#setStartDragDistance">TQApplication::setStartDragDistance</a>(), and their corresponding
-getters, <a href="ntqapplication.html#startDragTime">TQApplication::startDragTime</a>() and
-<a href="ntqapplication.html#startDragDistance">TQApplication::startDragDistance</a>().
+<a href="tqapplication.html#setStartDragTime">TQApplication::setStartDragTime</a>(),
+<a href="tqapplication.html#setStartDragDistance">TQApplication::setStartDragDistance</a>(), and their corresponding
+getters, <a href="tqapplication.html#startDragTime">TQApplication::startDragTime</a>() and
+<a href="tqapplication.html#startDragDistance">TQApplication::startDragDistance</a>().
 <p> <h2> Inter-operating with Other Applications
 </h2>
 <a name="7"></a><p> On X11, the public <a class="r"
@@ -339,7 +338,7 @@ TQt has facilities for translating proprietary clipboard formats to and
 from MIME types. This interface will be made public at some time, but
 if you need to do such translations now, contact your TQt Technical
 Support service.
-<p> On X11, TQt also supports drops via the <a href="motif-extension.html#Motif">Motif</a> Drag&amp;Drop Protocol. The
+<p> On X11, TQt also supports drops via the Motif Drag&amp;Drop Protocol. The
 implementation incorporates some code that was originally written by
 Daniel Dardailler, and adapted for TQt by Matt Koss &lt;koss@napri.sk&gt;
 and Trolltech. Here is the original copyright notice:

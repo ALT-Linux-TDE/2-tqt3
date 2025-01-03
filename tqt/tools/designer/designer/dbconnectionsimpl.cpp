@@ -32,18 +32,18 @@
 **********************************************************************/
 
 #include "dbconnectionsimpl.h"
-#include <ntqptrlist.h>
-#include <ntqgroupbox.h>
-#include <ntqlayout.h>
+#include <tqptrlist.h>
+#include <tqgroupbox.h>
+#include <tqlayout.h>
 #include "project.h"
-#include <ntqlistbox.h>
-#include <ntqcombobox.h>
-#include <ntqspinbox.h>
-#include <ntqlineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqsqldatabase.h>
-#include <ntqmessagebox.h>
-#include <ntqapplication.h>
+#include <tqlistbox.h>
+#include <tqcombobox.h>
+#include <tqspinbox.h>
+#include <tqlineedit.h>
+#include <tqpushbutton.h>
+#include <tqsqldatabase.h>
+#include <tqmessagebox.h>
+#include <tqapplication.h>
 #include "mainwindow.h"
 #include "asciivalidator.h"
 

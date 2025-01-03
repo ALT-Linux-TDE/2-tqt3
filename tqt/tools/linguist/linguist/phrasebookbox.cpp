@@ -40,13 +40,13 @@
 #include "phrasebookbox.h"
 #include "phraselv.h"
 
-#include <ntqapplication.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqlineedit.h>
-#include <ntqmessagebox.h>
-#include <ntqpushbutton.h>
-#include <ntqwhatsthis.h>
+#include <tqapplication.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqlineedit.h>
+#include <tqmessagebox.h>
+#include <tqpushbutton.h>
+#include <tqwhatsthis.h>
 
 PhraseBookBox::PhraseBookBox( const TQString& filename,
 			      const PhraseBook& phraseBook, TQWidget *parent,

@@ -8,9 +8,9 @@
 *****************************************************************************/
 
 #include "qtetrix.h"
-#include <ntqapplication.h>
-#include <ntqlabel.h>
-#include <ntqdatetime.h>
+#include <tqapplication.h>
+#include <tqlabel.h>
+#include <tqdatetime.h>
 
 
 void drawTetrixButton( TQPainter *p, int x, int y, int w, int h,

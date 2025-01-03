@@ -1,5 +1,5 @@
 '\" t
-.TH QListBoxPixmap 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQListBoxPixmap 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,95 +7,95 @@
 .ad l
 .nh
 .SH NAME
-QListBoxPixmap \- List box items with a pixmap and optional text
+TQListBoxPixmap \- List box items with a pixmap and optional text
 .SH SYNOPSIS
-\fC#include <ntqlistbox.h>\fR
+\fC#include <tqlistbox.h>\fR
 .PP
-Inherits QListBoxItem.
+Inherits TQListBoxItem.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQListBoxPixmap\fR ( QListBox * listbox, const QPixmap & pixmap )"
+.BI "\fBTQListBoxPixmap\fR ( TQListBox * listbox, const TQPixmap & pixmap )"
 .br
 .ti -1c
-.BI "\fBQListBoxPixmap\fR ( const QPixmap & pixmap )"
+.BI "\fBTQListBoxPixmap\fR ( const TQPixmap & pixmap )"
 .br
 .ti -1c
-.BI "\fBQListBoxPixmap\fR ( QListBox * listbox, const QPixmap & pixmap, QListBoxItem * after )"
+.BI "\fBTQListBoxPixmap\fR ( TQListBox * listbox, const TQPixmap & pixmap, TQListBoxItem * after )"
 .br
 .ti -1c
-.BI "\fBQListBoxPixmap\fR ( QListBox * listbox, const QPixmap & pix, const TQString & text )"
+.BI "\fBTQListBoxPixmap\fR ( TQListBox * listbox, const TQPixmap & pix, const TQString & text )"
 .br
 .ti -1c
-.BI "\fBQListBoxPixmap\fR ( const QPixmap & pix, const TQString & text )"
+.BI "\fBTQListBoxPixmap\fR ( const TQPixmap & pix, const TQString & text )"
 .br
 .ti -1c
-.BI "\fBQListBoxPixmap\fR ( QListBox * listbox, const QPixmap & pix, const TQString & text, QListBoxItem * after )"
+.BI "\fBTQListBoxPixmap\fR ( TQListBox * listbox, const TQPixmap & pix, const TQString & text, TQListBoxItem * after )"
 .br
 .ti -1c
-.BI "\fB~QListBoxPixmap\fR ()"
+.BI "\fB~TQListBoxPixmap\fR ()"
 .br
 .ti -1c
-.BI "virtual const QPixmap * \fBpixmap\fR () const"
+.BI "virtual const TQPixmap * \fBpixmap\fR () const"
 .br
 .ti -1c
-.BI "virtual int \fBheight\fR ( const QListBox * lb ) const"
+.BI "virtual int \fBheight\fR ( const TQListBox * lb ) const"
 .br
 .ti -1c
-.BI "virtual int \fBwidth\fR ( const QListBox * lb ) const"
+.BI "virtual int \fBwidth\fR ( const TQListBox * lb ) const"
 .br
 .in -1c
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBpaint\fR ( QPainter * painter )"
+.BI "virtual void \fBpaint\fR ( TQPainter * painter )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QListBoxPixmap class provides list box items with a pixmap and optional text.
+The TQListBoxPixmap class provides list box items with a pixmap and optional text.
 .PP
 Items of this class are drawn with the pixmap on the left with the optional text to the right of the pixmap.
 .PP
-See also QListBox, QListBoxItem, and Advanced Widgets.
+See also TQListBox, TQListBoxItem, and Advanced Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QListBoxPixmap::QListBoxPixmap ( QListBox * listbox, const QPixmap & pixmap )"
+.SH "TQListBoxPixmap::TQListBoxPixmap ( TQListBox * listbox, const TQPixmap & pixmap )"
 Constructs a new list box item in list box \fIlistbox\fR showing the pixmap \fIpixmap\fR.
-.SH "QListBoxPixmap::QListBoxPixmap ( const QPixmap & pixmap )"
+.SH "TQListBoxPixmap::TQListBoxPixmap ( const TQPixmap & pixmap )"
 Constructs a new list box item showing the pixmap \fIpixmap\fR.
-.SH "QListBoxPixmap::QListBoxPixmap ( QListBox * listbox, const QPixmap & pixmap, QListBoxItem * after )"
+.SH "TQListBoxPixmap::TQListBoxPixmap ( TQListBox * listbox, const TQPixmap & pixmap, TQListBoxItem * after )"
 Constructs a new list box item in list box \fIlistbox\fR showing the pixmap \fIpixmap\fR. The item gets inserted after the item \fIafter\fR, or at the beginning if \fIafter\fR is 0.
-.SH "QListBoxPixmap::QListBoxPixmap ( QListBox * listbox, const QPixmap & pix, const TQString & text )"
+.SH "TQListBoxPixmap::TQListBoxPixmap ( TQListBox * listbox, const TQPixmap & pix, const TQString & text )"
 Constructs a new list box item in list box \fIlistbox\fR showing the pixmap \fIpix\fR and the text \fItext\fR.
-.SH "QListBoxPixmap::QListBoxPixmap ( const QPixmap & pix, const TQString & text )"
+.SH "TQListBoxPixmap::TQListBoxPixmap ( const TQPixmap & pix, const TQString & text )"
 Constructs a new list box item showing the pixmap \fIpix\fR and the text to \fItext\fR.
-.SH "QListBoxPixmap::QListBoxPixmap ( QListBox * listbox, const QPixmap & pix, const TQString & text, QListBoxItem * after )"
+.SH "TQListBoxPixmap::TQListBoxPixmap ( TQListBox * listbox, const TQPixmap & pix, const TQString & text, TQListBoxItem * after )"
 Constructs a new list box item in list box \fIlistbox\fR showing the pixmap \fIpix\fR and the string \fItext\fR. The item gets inserted after the item \fIafter\fR, or at the beginning if \fIafter\fR is 0.
-.SH "QListBoxPixmap::~QListBoxPixmap ()"
+.SH "TQListBoxPixmap::~TQListBoxPixmap ()"
 Destroys the item.
-.SH "int QListBoxPixmap::height ( const QListBox * lb ) const\fC [virtual]\fR"
+.SH "int TQListBoxPixmap::height ( const TQListBox * lb ) const\fC [virtual]\fR"
 Returns the height of the pixmap in list box \fIlb\fR.
 .PP
 See also paint() and width().
 .PP
-Reimplemented from QListBoxItem.
-.SH "void QListBoxPixmap::paint ( QPainter * painter )\fC [virtual protected]\fR"
+Reimplemented from TQListBoxItem.
+.SH "void TQListBoxPixmap::paint ( TQPainter * painter )\fC [virtual protected]\fR"
 Draws the pixmap using \fIpainter\fR.
 .PP
-Reimplemented from QListBoxItem.
-.SH "const QPixmap * QListBoxPixmap::pixmap () const\fC [virtual]\fR"
+Reimplemented from TQListBoxItem.
+.SH "const TQPixmap * TQListBoxPixmap::pixmap () const\fC [virtual]\fR"
 Returns the pixmap associated with the item.
 .PP
-Reimplemented from QListBoxItem.
-.SH "int QListBoxPixmap::width ( const QListBox * lb ) const\fC [virtual]\fR"
+Reimplemented from TQListBoxItem.
+.SH "int TQListBoxPixmap::width ( const TQListBox * lb ) const\fC [virtual]\fR"
 Returns the width of the pixmap plus some margin in list box \fIlb\fR.
 .PP
 See also paint() and height().
 .PP
-Reimplemented from QListBoxItem.
+Reimplemented from TQListBoxItem.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qlistboxpixmap.html
+.BR http://doc.trolltech.com/tqlistboxpixmap.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

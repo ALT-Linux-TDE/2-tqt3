@@ -7,10 +7,10 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqdir.h>
-#include <ntqheader.h>
-#include <ntqtable.h>
+#include <tqapplication.h>
+#include <tqdir.h>
+#include <tqheader.h>
+#include <tqtable.h>
 
 #include "whatsthis.h"
 
@@ -53,7 +53,7 @@ TQString HeaderWhatsThis::text( const TQPoint &p )
     if( section == -1 )
 	return "This is empty space.";
     TQString docsPath = TQDir("../../doc").absPath();
-    return TQString("This is section number %1 in the %2 <a href=%2/html/ntqheader.html>header</a>.").
+    return TQString("This is section number %1 in the %2 <a href=%2/html/tqheader.html>header</a>.").
 	arg(section + 1).
 	arg(orient).
 	arg(docsPath);
@@ -83,15 +83,15 @@ TQString TableWhatsThis::text( const TQPoint &p )
     TQString docsPath = TQDir("../../doc").absPath();
 
     if ( TQTableItem::RTTI == i->rtti() ) {
-	return TQString("This is a <a href=%1/html/qtableitem.html>TQTableItem</a>.").
+	return TQString("This is a <a href=%1/html/tqtableitem.html>TQTableItem</a>.").
 		       arg(docsPath);
     } else if ( TQComboTableItem::RTTI == i->rtti() ) {
-	return TQString("This is a <a href=%1/html/qcombotableitem.html>TQComboTableItem</a>."
+	return TQString("This is a <a href=%1/html/tqcombotableitem.html>TQComboTableItem</a>."
 		       "<br>It can be used to provide multiple-choice items in a table.").
 		       arg(docsPath);
     } else if ( TQCheckTableItem::RTTI == i->rtti() ) {
-	return TQString("This is a <a href=%1/html/qchecktableitem.html>TQCheckTableItem</a>."
-		       "<br>It provide <a href=%1/html/ntqcheckbox.html>checkboxes</a> in tables.").
+	return TQString("This is a <a href=%1/html/tqchecktableitem.html>TQCheckTableItem</a>."
+		       "<br>It provide <a href=%1/html/tqcheckbox.html>checkboxes</a> in tables.").
 		       arg(docsPath).arg(docsPath);
     }
 

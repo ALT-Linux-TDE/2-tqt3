@@ -32,11 +32,11 @@
 **********************************************************************/
 
 #include "listviewdnd.h"
-#include <ntqwidget.h>
-#include <ntqheader.h>
-#include <ntqpainter.h>
-#include <ntqdragobject.h>
-#include <ntqvaluelist.h>
+#include <tqwidget.h>
+#include <tqheader.h>
+#include <tqpainter.h>
+#include <tqdragobject.h>
+#include <tqvaluelist.h>
 
 // The Dragobject Declaration ---------------------------------------
 class ListViewItemDrag : public TQStoredDrag

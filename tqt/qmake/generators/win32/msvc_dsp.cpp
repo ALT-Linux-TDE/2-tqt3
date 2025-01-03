@@ -38,8 +38,8 @@
 
 #include "msvc_dsp.h"
 #include "option.h"
-#include <ntqdir.h>
-#include <ntqregexp.h>
+#include <tqdir.h>
+#include <tqregexp.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -227,7 +227,7 @@ DspMakefileGenerator::writeDspParts(TQTextStream &t)
 			mocpath = mocpath.replace( TQRegExp( "\\..*$" ), "" ) + " ";
 			buildCmds += "\t" + mocpath + (*it)  + " -o " + findMocDestination((*it)) + " \\\n";
 			createMOC  = "\"" + findMocDestination((*it)) +	"\" : $(SOURCE) \"$(INTDIR)\" \"$(OUTDIR)\"\n   $(BuildCmds)\n\n";
-			customDependencies += "\"$(TQTDIR)\\bin\\moc.exe\"";
+			customDependencies += "\"$(TQTDIR)\\bin\\tqmoc.exe\"";
 		    }
 		    if (!createMOC.isEmpty() || !compilePCH.isEmpty()) {
 			bool doMOC = !createMOC.isEmpty();
@@ -365,7 +365,7 @@ DspMakefileGenerator::writeDspParts(TQTextStream &t)
 		    list.sort();
 		TQStringList::Iterator it;
 
-		// dump the image list to a file UIC can read.
+		// dump the image list to a file TQUIC can read.
 		TQFile f( "images.tmp" );
 		f.open( IO_WriteOnly );
 		TQTextStream ts( &f );
@@ -462,9 +462,9 @@ DspMakefileGenerator::writeDspParts(TQTextStream &t)
 			    uiHeadersDir = fpath;
 		    }
 
-		    t << "USERDEP_" << base << "=\"$(TQTDIR)\\bin\\moc.exe\" \"$(TQTDIR)\\bin\\uic.exe\"" << endl << endl;
+		    t << "USERDEP_" << base << "=\"$(TQTDIR)\\bin\\tqmoc.exe\" \"$(TQTDIR)\\bin\\tquic.exe\"" << endl << endl;
 
-		    TQString build = "\n\n# Begin Custom Build - Uic'ing " + base + "...\n"
+		    TQString build = "\n\n# Begin Custom Build - TQUic'ing " + base + "...\n"
 			"InputPath=.\\" + base + "\n\n" "BuildCmds= \\\n\t" + uicpath + base +
 				    " -o " + uiHeadersDir + fname + ".h \\\n" "\t" + uicpath  + base +
 				    " -i " + fname + ".h -o " + uiSourcesDir + fname + ".cpp \\\n"
@@ -705,12 +705,6 @@ DspMakefileGenerator::init()
 			(*libit).replace(TQRegExp("qt(-mt)?\\.lib"), ver);
 		}
 	    }
-	    if ( project->isActiveConfig( "activeqt" ) ) {
-		project->variables().remove("QMAKE_LIBS_QT_ENTRY");
-		project->variables()["QMAKE_LIBS_QT_ENTRY"] = "qaxserver.lib";
-		if ( project->isActiveConfig( "dll" ) )
-		    project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QT_ENTRY"];
-	    }
 	    if ( !project->isActiveConfig("dll") && !project->isActiveConfig("plugin") ) {
 		project->variables()["QMAKE_LIBS"] +=project->variables()["QMAKE_LIBS_QT_ENTRY"];
 	    }
@@ -824,7 +818,7 @@ DspMakefileGenerator::init()
     TQString targetfilename = project->variables()["TARGET"].first();
     project->variables()["TARGET"].first() += project->first("TARGET_EXT");
     if ( project->isActiveConfig("moc") )
-	setMocAware(TRUE);
+	setTQMocAware(TRUE);
 
     project->variables()["QMAKE_LIBS"] += project->variables()["LIBS"];
     project->variables()["QMAKE_FILETAGS"] += TQStringList::split(' ',
@@ -926,12 +920,6 @@ DspMakefileGenerator::init()
     TQString dest;
     TQString postLinkStep;
     TQString copyDllStep;
-    TQString activeTQtStepPreCopyDll;
-    TQString activeTQtStepPostCopyDll;
-    TQString activeTQtStepPreCopyDllDebug;
-    TQString activeTQtStepPostCopyDllDebug;
-    TQString activeTQtStepPreCopyDllRelease;
-    TQString activeTQtStepPostCopyDllRelease;
 
     if ( !project->variables()["QMAKE_POST_LINK"].isEmpty() )
 	postLinkStep += var("QMAKE_POST_LINK");
@@ -959,59 +947,18 @@ DspMakefileGenerator::init()
 	}
     }
 
-    if ( project->isActiveConfig("activeqt") ) {
-	TQString idl = project->variables()["QMAKE_IDL"].first();
-	TQString idc = project->variables()["QMAKE_IDC"].first();
-	TQString version = project->variables()["VERSION"].first();
-	if ( version.isEmpty() )
-	    version = "1.0";
-	project->variables()["MSVCDSP_IDLSOURCES"].append( var("OBJECTS_DIR") + targetfilename + ".idl" );
-	if ( project->isActiveConfig( "dll" ) ) {
-	    activeTQtStepPreCopyDll += 
-			     "\t" + idc + " %1 -idl " + var("OBJECTS_DIR") + targetfilename + ".idl -version " + version +
-			     "\t" + idl + " /nologo " + var("OBJECTS_DIR") + targetfilename + ".idl /tlb " + var("OBJECTS_DIR") + targetfilename + ".tlb" +
-			     "\t" + idc + " %2 /tlb " + var("OBJECTS_DIR") + targetfilename + ".tlb";
-	    activeTQtStepPostCopyDll +=
-			     "\t" + idc + " %1 /regserver\n";
-
-	    TQString executable = project->variables()["MSVCDSP_TARGETDIRREL"].first() + "\\" + targetfilename + ".dll";
-	    activeTQtStepPreCopyDllRelease = activeTQtStepPreCopyDll.arg(executable).arg(executable);
-	    activeTQtStepPostCopyDllRelease = activeTQtStepPostCopyDll.arg(executable);
-
-	    executable = project->variables()["MSVCDSP_TARGETDIRDEB"].first() + "\\" + targetfilename + ".dll";
-	    activeTQtStepPreCopyDllDebug = activeTQtStepPreCopyDll.arg(executable).arg(executable);
-	    activeTQtStepPostCopyDllDebug = activeTQtStepPostCopyDll.arg(executable);
-	} else {
-	    activeTQtStepPreCopyDll += 
-			     "\t%1 -dumpidl " + var("OBJECTS_DIR") + targetfilename + ".idl -version " + version +
-			     "\t" + idl + " /nologo " + var("OBJECTS_DIR") + targetfilename + ".idl /tlb " + var("OBJECTS_DIR") + targetfilename + ".tlb" +
-			     "\t" + idc + " %2 /tlb " + var("OBJECTS_DIR") + targetfilename + ".tlb";
-	    activeTQtStepPostCopyDll +=
-			     "\t%1 -regserver\n";
-	    TQString executable = project->variables()["MSVCDSP_TARGETDIRREL"].first() + "\\" + targetfilename + ".exe";
-	    activeTQtStepPreCopyDllRelease = activeTQtStepPreCopyDll.arg(executable).arg(executable);
-	    activeTQtStepPostCopyDllRelease = activeTQtStepPostCopyDll.arg(executable);
-
-	    executable = project->variables()["MSVCDSP_TARGETDIRDEB"].first() + "\\" + targetfilename + ".exe";
-	    activeTQtStepPreCopyDllDebug = activeTQtStepPreCopyDll.arg(executable).arg(executable);
-	    activeTQtStepPostCopyDllDebug = activeTQtStepPostCopyDll.arg(executable);
-	}
-
-    }
-
-    
-    if ( !postLinkStep.isEmpty() || !copyDllStep.isEmpty() || !activeTQtStepPreCopyDllDebug.isEmpty() || !activeTQtStepPreCopyDllRelease.isEmpty() ) {
+    if ( !postLinkStep.isEmpty() || !copyDllStep.isEmpty() ) {
 	project->variables()["MSVCDSP_POST_LINK_DBG"].append(
 	    "# Begin Special Build Tool\n"
 	    "SOURCE=$(InputPath)\n"
 	    "PostBuild_Desc=Post Build Step\n"
-	    "PostBuild_Cmds=" + postLinkStep + activeTQtStepPreCopyDllDebug + copyDllStep + activeTQtStepPostCopyDllDebug + "\n"
+	    "PostBuild_Cmds=" + postLinkStep + copyDllStep + "\n"
 	    "# End Special Build Tool\n" );
 	project->variables()["MSVCDSP_POST_LINK_REL"].append(
 	    "# Begin Special Build Tool\n"
 	    "SOURCE=$(InputPath)\n"
 	    "PostBuild_Desc=Post Build Step\n"
-	    "PostBuild_Cmds=" + postLinkStep + activeTQtStepPreCopyDllRelease + copyDllStep + activeTQtStepPostCopyDllRelease + "\n"
+	    "PostBuild_Cmds=" + postLinkStep + copyDllStep + "\n"
 	    "# End Special Build Tool\n" );
     }
 

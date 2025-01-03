@@ -14,8 +14,8 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include <ntqlayout.h>
-#include <ntqptrlist.h>
+#include <tqlayout.h>
+#include <tqptrlist.h>
 
 class CardLayout : public TQLayout
 {

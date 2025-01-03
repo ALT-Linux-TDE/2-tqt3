@@ -1,5 +1,5 @@
 '\" t
-.TH QCanvasView 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQCanvasView 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,68 +7,68 @@
 .ad l
 .nh
 .SH NAME
-QCanvasView \- On-screen view of a QCanvas
+TQCanvasView \- On-screen view of a TQCanvas
 .SH SYNOPSIS
-\fC#include <ntqcanvas.h>\fR
+\fC#include <tqcanvas.h>\fR
 .PP
-Inherits QScrollView.
+Inherits TQScrollView.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCanvasView\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBTQCanvasView\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fBQCanvasView\fR ( QCanvas * canvas, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBTQCanvasView\fR ( TQCanvas * canvas, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fB~QCanvasView\fR ()"
+.BI "\fB~TQCanvasView\fR ()"
 .br
 .ti -1c
-.BI "QCanvas * \fBcanvas\fR () const"
+.BI "TQCanvas * \fBcanvas\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetCanvas\fR ( QCanvas * canvas )"
+.BI "void \fBsetCanvas\fR ( TQCanvas * canvas )"
 .br
 .ti -1c
-.BI "const QWMatrix & \fBworldMatrix\fR () const"
+.BI "const TQWMatrix & \fBworldMatrix\fR () const"
 .br
 .ti -1c
-.BI "const QWMatrix & \fBinverseWorldMatrix\fR () const"
+.BI "const TQWMatrix & \fBinverseWorldMatrix\fR () const"
 .br
 .ti -1c
-.BI "bool \fBsetWorldMatrix\fR ( const QWMatrix & wm )"
+.BI "bool \fBsetWorldMatrix\fR ( const TQWMatrix & wm )"
 .br
 .in -1c
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBdrawContents\fR ( QPainter * p, int cx, int cy, int cw, int ch )"
+.BI "virtual void \fBdrawContents\fR ( TQPainter * p, int cx, int cy, int cw, int ch )"
 .br
 .ti -1c
-.BI "virtual QSize \fBsizeHint\fR () const"
+.BI "virtual TQSize \fBsizeHint\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QCanvasView class provides an on-screen view of a QCanvas.
+The TQCanvasView class provides an on-screen view of a TQCanvas.
 .PP
-A QCanvasView is widget which provides a view of a QCanvas.
+A TQCanvasView is widget which provides a view of a TQCanvas.
 .PP
-If you want users to be able to interact with a canvas view, subclass QCanvasView. You might then reimplement QScrollView::contentsMousePressEvent(). For example, assuming no transformation matrix is set:
+If you want users to be able to interact with a canvas view, subclass TQCanvasView. You might then reimplement TQScrollView::contentsMousePressEvent(). For example, assuming no transformation matrix is set:
 .PP
 .nf
 .br
-    void MyCanvasView::contentsMousePressEvent( QMouseEvent* e )
+    void MyCanvasView::contentsMousePressEvent( TQMouseEvent* e )
 .br
     {
 .br
-        QCanvasItemList l = canvas()->collisions(e->pos());
+        TQCanvasItemList l = canvas()->collisions(e->pos());
 .br
-        for (QCanvasItemList::Iterator it=l.begin(); it!=l.end(); ++it) {
+        for (TQCanvasItemList::Iterator it=l.begin(); it!=l.end(); ++it) {
 .br
-            if ( (*it)->rtti() == QCanvasRectangle::RTTI )
+            if ( (*it)->rtti() == TQCanvasRectangle::RTTI )
 .br
-                tqDebug("A QCanvasRectangle lies somewhere at this point");
+                tqDebug("A TQCanvasRectangle lies somewhere at this point");
 .br
         }
 .br
@@ -82,7 +82,7 @@ A transformation matrix can be used to transform the view of the canvas in vario
 .PP
 .nf
 .br
-    QWMatrix wm;
+    TQWMatrix wm;
 .br
     wm.scale( 2, 2 );   // Zooms in by 2 times
 .br
@@ -108,54 +108,54 @@ The following code finds the part of the canvas that is visible in this view, i.
 .PP
 .nf
 .br
-    QRect rc = QRect( myCanvasView->contentsX(), myCanvasView->contentsY(),
+    TQRect rc = TQRect( myCanvasView->contentsX(), myCanvasView->contentsY(),
 .br
                         myCanvasView->visibleWidth(), myCanvasView->visibleHeight() );
 .br
-    QRect canvasRect = myCanvasView->inverseWorldMatrix().mapRect(rc);
+    TQRect canvasRect = myCanvasView->inverseWorldMatrix().mapRect(rc);
 .br
 .fi
 .PP
-See also QWMatrix, QPainter::setWorldMatrix(), Graphics Classes, and Image Processing Classes.
+See also TQWMatrix, TQPainter::setWorldMatrix(), Graphics Classes, and Image Processing Classes.
 .PP
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCanvasView::QCanvasView ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
-Constructs a QCanvasView with parent \fIparent\fR, and name \fIname\fR, using the widget flags \fIf\fR. The canvas view is not associated with a canvas, so you must to call setCanvas() to view a canvas.
-.SH "QCanvasView::QCanvasView ( QCanvas * canvas, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "TQCanvasView::TQCanvasView ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+Constructs a TQCanvasView with parent \fIparent\fR, and name \fIname\fR, using the widget flags \fIf\fR. The canvas view is not associated with a canvas, so you must to call setCanvas() to view a canvas.
+.SH "TQCanvasView::TQCanvasView ( TQCanvas * canvas, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Constructs a QCanvasView which views canvas \fIcanvas\fR, with parent \fIparent\fR, and name \fIname\fR, using the widget flags \fIf\fR.
-.SH "QCanvasView::~QCanvasView ()"
+Constructs a TQCanvasView which views canvas \fIcanvas\fR, with parent \fIparent\fR, and name \fIname\fR, using the widget flags \fIf\fR.
+.SH "TQCanvasView::~TQCanvasView ()"
 Destroys the canvas view. The associated canvas is \fInot\fR deleted.
-.SH "QCanvas * QCanvasView::canvas () const"
-Returns a pointer to the canvas which the QCanvasView is currently showing.
-.SH "void QCanvasView::drawContents ( QPainter * p, int cx, int cy, int cw, int ch )\fC [virtual protected]\fR"
-Repaints part of the QCanvas that the canvas view is showing starting at \fIcx\fR by \fIcy\fR, with a width of \fIcw\fR and a height of \fIch\fR using the painter \fIp\fR.
+.SH "TQCanvas * TQCanvasView::canvas () const"
+Returns a pointer to the canvas which the TQCanvasView is currently showing.
+.SH "void TQCanvasView::drawContents ( TQPainter * p, int cx, int cy, int cw, int ch )\fC [virtual protected]\fR"
+Repaints part of the TQCanvas that the canvas view is showing starting at \fIcx\fR by \fIcy\fR, with a width of \fIcw\fR and a height of \fIch\fR using the painter \fIp\fR.
 .PP
-\fBWarning:\fR When double buffering is enabled, drawContents() will not respect the current settings of the painter when setting up the painter for the double buffer (e.g., viewport() and window()). Also, be aware that QCanvas::update() bypasses drawContents(), which means any reimplementation of drawContents() is not called.
+\fBWarning:\fR When double buffering is enabled, drawContents() will not respect the current settings of the painter when setting up the painter for the double buffer (e.g., viewport() and window()). Also, be aware that TQCanvas::update() bypasses drawContents(), which means any reimplementation of drawContents() is not called.
 .PP
-See also QCanvas::setDoubleBuffering().
+See also TQCanvas::setDoubleBuffering().
 .PP
-Reimplemented from QScrollView.
-.SH "const QWMatrix & QCanvasView::inverseWorldMatrix () const"
+Reimplemented from TQScrollView.
+.SH "const TQWMatrix & TQCanvasView::inverseWorldMatrix () const"
 Returns a reference to the inverse of the canvas view's current transformation matrix.
 .PP
 See also setWorldMatrix() and worldMatrix().
-.SH "void QCanvasView::setCanvas ( QCanvas * canvas )"
-Sets the canvas that the QCanvasView is showing to the canvas \fIcanvas\fR.
-.SH "bool QCanvasView::setWorldMatrix ( const QWMatrix & wm )"
-Sets the transformation matrix of the QCanvasView to \fIwm\fR. The matrix must be invertible (i.e. if you create a world matrix that zooms out by 2 times, then the inverse of this matrix is one that will zoom in by 2 times).
+.SH "void TQCanvasView::setCanvas ( TQCanvas * canvas )"
+Sets the canvas that the TQCanvasView is showing to the canvas \fIcanvas\fR.
+.SH "bool TQCanvasView::setWorldMatrix ( const TQWMatrix & wm )"
+Sets the transformation matrix of the TQCanvasView to \fIwm\fR. The matrix must be invertible (i.e. if you create a world matrix that zooms out by 2 times, then the inverse of this matrix is one that will zoom in by 2 times).
 .PP
-When you use this, you should note that the performance of the QCanvasView will decrease considerably.
+When you use this, you should note that the performance of the TQCanvasView will decrease considerably.
 .PP
 Returns FALSE if \fIwm\fR is not invertable; otherwise returns TRUE.
 .PP
-See also worldMatrix(), inverseWorldMatrix(), and QWMatrix::isInvertible().
+See also worldMatrix(), inverseWorldMatrix(), and TQWMatrix::isInvertible().
 .PP
 Example: canvas/canvas.cpp.
-.SH "QSize QCanvasView::sizeHint () const\fC [virtual protected]\fR"
+.SH "TQSize TQCanvasView::sizeHint () const\fC [virtual protected]\fR"
 Suggests a size sufficient to view the entire canvas.
-.SH "const QWMatrix & QCanvasView::worldMatrix () const"
+.SH "const TQWMatrix & TQCanvasView::worldMatrix () const"
 Returns a reference to the canvas view's current transformation matrix.
 .PP
 See also setWorldMatrix() and inverseWorldMatrix().
@@ -163,7 +163,7 @@ See also setWorldMatrix() and inverseWorldMatrix().
 Example: canvas/canvas.cpp.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcanvasview.html
+.BR http://doc.trolltech.com/tqcanvasview.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

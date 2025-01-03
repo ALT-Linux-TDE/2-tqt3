@@ -31,7 +31,7 @@
 **
 **********************************************************************/
 
-#include <ntqvariant.h> // HP-UX compiler need this here
+#include <tqvariant.h> // HP-UX compiler need this here
 #include "widgetfactory.h"
 #include <widgetdatabase.h>
 #include "metadatabase.h"
@@ -52,56 +52,56 @@
 #include "menubareditor.h"
 #include "popupmenueditor.h"
 
-#include <ntqfeatures.h>
+#include <tqfeatures.h>
 
-#include <ntqpixmap.h>
-#include <ntqgroupbox.h>
-#include <ntqiconview.h>
+#include <tqpixmap.h>
+#include <tqgroupbox.h>
+#include <tqiconview.h>
 #ifndef TQT_NO_TABLE
-#include <ntqtable.h>
+#include <tqtable.h>
 #endif
 #ifndef TQT_NO_SQL
-#include <ntqdatatable.h>
+#include <tqdatatable.h>
 #endif
-#include <ntqdatetimeedit.h>
-#include <ntqlineedit.h>
-#include <ntqspinbox.h>
-#include <ntqmultilineedit.h>
-#include <ntqtextedit.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqwidgetstack.h>
-#include <ntqcombobox.h>
-#include <ntqtabbar.h>
-#include <ntqlistbox.h>
-#include <ntqlistview.h>
-#include <ntqobjectlist.h>
-#include <ntqlcdnumber.h>
-#include <ntqslider.h>
-#include <ntqdial.h>
-#include <ntqprogressbar.h>
-#include <ntqtextview.h>
-#include <ntqtextbrowser.h>
-#include <ntqframe.h>
-#include <ntqmetaobject.h>
-#include <ntqwidgetstack.h>
-#include <ntqwizard.h>
-#include <ntqvaluelist.h>
-#include <ntqtimer.h>
-#include <ntqscrollbar.h>
-#include <ntqmainwindow.h>
-#include <ntqmenubar.h>
-#include <ntqapplication.h>
-#include <ntqsplitter.h>
-#include <ntqtoolbox.h>
-#include <ntqsizegrip.h>
+#include <tqdatetimeedit.h>
+#include <tqlineedit.h>
+#include <tqspinbox.h>
+#include <tqmultilineedit.h>
+#include <tqtextedit.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqwidgetstack.h>
+#include <tqcombobox.h>
+#include <tqtabbar.h>
+#include <tqlistbox.h>
+#include <tqlistview.h>
+#include <tqobjectlist.h>
+#include <tqlcdnumber.h>
+#include <tqslider.h>
+#include <tqdial.h>
+#include <tqprogressbar.h>
+#include <tqtextview.h>
+#include <tqtextbrowser.h>
+#include <tqframe.h>
+#include <tqmetaobject.h>
+#include <tqwidgetstack.h>
+#include <tqwizard.h>
+#include <tqvaluelist.h>
+#include <tqtimer.h>
+#include <tqscrollbar.h>
+#include <tqmainwindow.h>
+#include <tqmenubar.h>
+#include <tqapplication.h>
+#include <tqsplitter.h>
+#include <tqtoolbox.h>
+#include <tqsizegrip.h>
 #ifndef TQT_NO_SQL
 #include "database.h"
 #endif
 
 #define NO_STATIC_COLORS
 #include <globaldefs.h>
-#include <ntqobject.h>
+#include <tqobject.h>
 
 FormWindow *find_formwindow( TQWidget *w )
 {

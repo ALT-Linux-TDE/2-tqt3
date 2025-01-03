@@ -1,5 +1,5 @@
 '\" t
-.TH QDateTime 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQDateTime 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,22 +7,22 @@
 .ad l
 .nh
 .SH NAME
-QDateTime \- Date and time functions
+TQDateTime \- Date and time functions
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqdatetime.h>\fR
+\fC#include <tqdatetime.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDateTime\fR ()"
+.BI "\fBTQDateTime\fR ()"
 .br
 .ti -1c
-.BI "\fBQDateTime\fR ( const QDate & date )"
+.BI "\fBTQDateTime\fR ( const TQDate & date )"
 .br
 .ti -1c
-.BI "\fBQDateTime\fR ( const QDate & date, const QTime & time )"
+.BI "\fBTQDateTime\fR ( const TQDate & date, const TQTime & time )"
 .br
 .ti -1c
 .BI "bool \fBisNull\fR () const"
@@ -31,19 +31,19 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "bool \fBisValid\fR () const"
 .br
 .ti -1c
-.BI "QDate \fBdate\fR () const"
+.BI "TQDate \fBdate\fR () const"
 .br
 .ti -1c
-.BI "QTime \fBtime\fR () const"
+.BI "TQTime \fBtime\fR () const"
 .br
 .ti -1c
 .BI "uint \fBtoTime_t\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetDate\fR ( const QDate & date )"
+.BI "void \fBsetDate\fR ( const TQDate & date )"
 .br
 .ti -1c
-.BI "void \fBsetTime\fR ( const QTime & time )"
+.BI "void \fBsetTime\fR ( const TQTime & time )"
 .br
 .ti -1c
 .BI "void \fBsetTime_t\fR ( uint secsSince1Jan1970UTC )"
@@ -58,202 +58,202 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString \fBtoString\fR ( const TQString & format ) const"
 .br
 .ti -1c
-.BI "QDateTime \fBaddDays\fR ( int ndays ) const"
+.BI "TQDateTime \fBaddDays\fR ( int ndays ) const"
 .br
 .ti -1c
-.BI "QDateTime \fBaddMonths\fR ( int nmonths ) const"
+.BI "TQDateTime \fBaddMonths\fR ( int nmonths ) const"
 .br
 .ti -1c
-.BI "QDateTime \fBaddYears\fR ( int nyears ) const"
+.BI "TQDateTime \fBaddYears\fR ( int nyears ) const"
 .br
 .ti -1c
-.BI "QDateTime \fBaddSecs\fR ( int nsecs ) const"
+.BI "TQDateTime \fBaddSecs\fR ( int nsecs ) const"
 .br
 .ti -1c
-.BI "int \fBdaysTo\fR ( const QDateTime & dt ) const"
+.BI "int \fBdaysTo\fR ( const TQDateTime & dt ) const"
 .br
 .ti -1c
-.BI "int \fBsecsTo\fR ( const QDateTime & dt ) const"
+.BI "int \fBsecsTo\fR ( const TQDateTime & dt ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QDateTime & dt ) const"
+.BI "bool \fBoperator==\fR ( const TQDateTime & dt ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator!=\fR ( const QDateTime & dt ) const"
+.BI "bool \fBoperator!=\fR ( const TQDateTime & dt ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator<\fR ( const QDateTime & dt ) const"
+.BI "bool \fBoperator<\fR ( const TQDateTime & dt ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator<=\fR ( const QDateTime & dt ) const"
+.BI "bool \fBoperator<=\fR ( const TQDateTime & dt ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator>\fR ( const QDateTime & dt ) const"
+.BI "bool \fBoperator>\fR ( const TQDateTime & dt ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator>=\fR ( const QDateTime & dt ) const"
+.BI "bool \fBoperator>=\fR ( const TQDateTime & dt ) const"
 .br
 .in -1c
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QDateTime \fBcurrentDateTime\fR ()"
+.BI "TQDateTime \fBcurrentDateTime\fR ()"
 .br
 .ti -1c
-.BI "QDateTime \fBcurrentDateTime\fR ( TQt::TimeSpec ts )"
+.BI "TQDateTime \fBcurrentDateTime\fR ( TQt::TimeSpec ts )"
 .br
 .ti -1c
-.BI "QDateTime \fBfromString\fR ( const TQString & s, TQt::DateFormat f = TQt::TextDate )"
+.BI "TQDateTime \fBfromString\fR ( const TQString & s, TQt::DateFormat f = TQt::TextDate )"
 .br
 .in -1c
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const QDateTime & dt )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQDateTime & dt )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, QDateTime & dt )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQDateTime & dt )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QDateTime class provides date and time functions.
+The TQDateTime class provides date and time functions.
 .PP
-A QDateTime object contains a calendar date and a clock time (a" datetime"). It is a combination of the QDate and QTime classes. It can read the current datetime from the system clock. It provides functions for comparing datetimes and for manipulating a datetime by adding a number of seconds, days, months or years.
+A TQDateTime object contains a calendar date and a clock time (a" datetime"). It is a combination of the TQDate and TQTime classes. It can read the current datetime from the system clock. It provides functions for comparing datetimes and for manipulating a datetime by adding a number of seconds, days, months or years.
 .PP
-A QDateTime object is typically created either by giving a date and time explicitly in the constructor, or by using the static function currentDateTime(), which returns a QDateTime object set to the system clock's time. The date and time can be changed with setDate() and setTime(). A datetime can also be set using the setTime_t() function, which takes a POSIX-standard "number of seconds since 00:00:00 on January 1, 1970" value. The fromString() function returns a QDateTime given a string and a date format which is used to interpret the date within the string.
+A TQDateTime object is typically created either by giving a date and time explicitly in the constructor, or by using the static function currentDateTime(), which returns a TQDateTime object set to the system clock's time. The date and time can be changed with setDate() and setTime(). A datetime can also be set using the setTime_t() function, which takes a POSIX-standard "number of seconds since 00:00:00 on January 1, 1970" value. The fromString() function returns a TQDateTime given a string and a date format which is used to interpret the date within the string.
 .PP
 The date() and time() functions provide access to the date and time parts of the datetime. The same information is provided in textual format by the toString() function.
 .PP
-QDateTime provides a full set of operators to compare two QDateTime objects where smaller means earlier and larger means later.
+TQDateTime provides a full set of operators to compare two TQDateTime objects where smaller means earlier and larger means later.
 .PP
 You can increment (or decrement) a datetime by a given number of seconds using addSecs() or days using addDays(). Similarly you can use addMonths() and addYears(). The daysTo() function returns the number of days between two datetimes, and secsTo() returns the number of seconds between two datetimes.
 .PP
-The range of a datetime object is constrained to the ranges of the QDate and QTime objects which it embodies.
+The range of a datetime object is constrained to the ranges of the TQDate and TQTime objects which it embodies.
 .PP
-See also QDate, QTime, QDateTimeEdit, and Time and Date.
+See also TQDate, TQTime, TQDateTimeEdit, and Time and Date.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDateTime::QDateTime ()"
+.SH "TQDateTime::TQDateTime ()"
 Constructs a null datetime (i.e. null date and null time). A null datetime is invalid, since the date is invalid.
 .PP
 See also isValid().
-.SH "QDateTime::QDateTime ( const QDate & date )"
+.SH "TQDateTime::TQDateTime ( const TQDate & date )"
 Constructs a datetime with date \fIdate\fR and null (but valid) time (00:00:00.000).
-.SH "QDateTime::QDateTime ( const QDate & date, const QTime & time )"
+.SH "TQDateTime::TQDateTime ( const TQDate & date, const TQTime & time )"
 Constructs a datetime with date \fIdate\fR and time \fItime\fR.
-.SH "QDateTime QDateTime::addDays ( int ndays ) const"
-Returns a QDateTime object containing a datetime \fIndays\fR days later than the datetime of this object (or earlier if \fIndays\fR is negative).
+.SH "TQDateTime TQDateTime::addDays ( int ndays ) const"
+Returns a TQDateTime object containing a datetime \fIndays\fR days later than the datetime of this object (or earlier if \fIndays\fR is negative).
 .PP
 See also daysTo(), addMonths(), addYears(), and addSecs().
-.SH "QDateTime QDateTime::addMonths ( int nmonths ) const"
-Returns a QDateTime object containing a datetime \fInmonths\fR months later than the datetime of this object (or earlier if \fInmonths\fR is negative).
+.SH "TQDateTime TQDateTime::addMonths ( int nmonths ) const"
+Returns a TQDateTime object containing a datetime \fInmonths\fR months later than the datetime of this object (or earlier if \fInmonths\fR is negative).
 .PP
 See also daysTo(), addDays(), addYears(), and addSecs().
-.SH "QDateTime QDateTime::addSecs ( int nsecs ) const"
-Returns a QDateTime object containing a datetime \fInsecs\fR seconds later than the datetime of this object (or earlier if \fInsecs\fR is negative).
+.SH "TQDateTime TQDateTime::addSecs ( int nsecs ) const"
+Returns a TQDateTime object containing a datetime \fInsecs\fR seconds later than the datetime of this object (or earlier if \fInsecs\fR is negative).
 .PP
 See also secsTo(), addDays(), addMonths(), and addYears().
 .PP
 Example: listviews/listviews.cpp.
-.SH "QDateTime QDateTime::addYears ( int nyears ) const"
-Returns a QDateTime object containing a datetime \fInyears\fR years later than the datetime of this object (or earlier if \fInyears\fR is negative).
+.SH "TQDateTime TQDateTime::addYears ( int nyears ) const"
+Returns a TQDateTime object containing a datetime \fInyears\fR years later than the datetime of this object (or earlier if \fInyears\fR is negative).
 .PP
 See also daysTo(), addDays(), addMonths(), and addSecs().
-.SH "QDateTime QDateTime::currentDateTime ( TQt::TimeSpec ts )\fC [static]\fR"
+.SH "TQDateTime TQDateTime::currentDateTime ( TQt::TimeSpec ts )\fC [static]\fR"
 Returns the current datetime, as reported by the system clock, for the TimeSpec \fIts\fR. The default TimeSpec is LocalTime.
 .PP
-See also QDate::currentDate(), QTime::currentTime(), and TQt::TimeSpec.
+See also TQDate::currentDate(), TQTime::currentTime(), and TQt::TimeSpec.
 .PP
 Example: listviews/listviews.cpp.
-.SH "QDateTime QDateTime::currentDateTime ()\fC [static]\fR"
+.SH "TQDateTime TQDateTime::currentDateTime ()\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the current datetime, as reported by the system clock.
 .PP
-See also QDate::currentDate() and QTime::currentTime().
-.SH "QDate QDateTime::date () const"
+See also TQDate::currentDate() and TQTime::currentTime().
+.SH "TQDate TQDateTime::date () const"
 Returns the date part of the datetime.
 .PP
 See also setDate() and time().
-.SH "int QDateTime::daysTo ( const QDateTime & dt ) const"
+.SH "int TQDateTime::daysTo ( const TQDateTime & dt ) const"
 Returns the number of days from this datetime to \fIdt\fR (which is negative if \fIdt\fR is earlier than this datetime).
 .PP
 See also addDays() and secsTo().
-.SH "QDateTime QDateTime::fromString ( const TQString & s, TQt::DateFormat f = TQt::TextDate )\fC [static]\fR"
-Returns the QDateTime represented by the string \fIs\fR, using the format \fIf\fR, or an invalid datetime if this is not possible.
+.SH "TQDateTime TQDateTime::fromString ( const TQString & s, TQt::DateFormat f = TQt::TextDate )\fC [static]\fR"
+Returns the TQDateTime represented by the string \fIs\fR, using the format \fIf\fR, or an invalid datetime if this is not possible.
 .PP
 Note for TQt::TextDate: It is recommended that you use the English short month names (e.g. "Jan"). Although localized month names can also be used, they depend on the user's locale settings.
 .PP
 \fBWarning:\fR Note that TQt::LocalDate cannot be used here.
-.SH "bool QDateTime::isNull () const"
+.SH "bool TQDateTime::isNull () const"
 Returns TRUE if both the date and the time are null; otherwise returns FALSE. A null datetime is invalid.
 .PP
-See also QDate::isNull() and QTime::isNull().
-.SH "bool QDateTime::isValid () const"
+See also TQDate::isNull() and TQTime::isNull().
+.SH "bool TQDateTime::isValid () const"
 Returns TRUE if both the date and the time are valid; otherwise returns FALSE.
 .PP
-See also QDate::isValid() and QTime::isValid().
-.SH "bool QDateTime::operator!= ( const QDateTime & dt ) const"
+See also TQDate::isValid() and TQTime::isValid().
+.SH "bool TQDateTime::operator!= ( const TQDateTime & dt ) const"
 Returns TRUE if this datetime is different from \fIdt\fR; otherwise returns FALSE.
 .PP
 See also operator==().
-.SH "bool QDateTime::operator< ( const QDateTime & dt ) const"
+.SH "bool TQDateTime::operator< ( const TQDateTime & dt ) const"
 Returns TRUE if this datetime is earlier than \fIdt\fR; otherwise returns FALSE.
-.SH "bool QDateTime::operator<= ( const QDateTime & dt ) const"
+.SH "bool TQDateTime::operator<= ( const TQDateTime & dt ) const"
 Returns TRUE if this datetime is earlier than or equal to \fIdt\fR; otherwise returns FALSE.
-.SH "bool QDateTime::operator== ( const QDateTime & dt ) const"
+.SH "bool TQDateTime::operator== ( const TQDateTime & dt ) const"
 Returns TRUE if this datetime is equal to \fIdt\fR; otherwise returns FALSE.
 .PP
 See also operator!=().
-.SH "bool QDateTime::operator> ( const QDateTime & dt ) const"
+.SH "bool TQDateTime::operator> ( const TQDateTime & dt ) const"
 Returns TRUE if this datetime is later than \fIdt\fR; otherwise returns FALSE.
-.SH "bool QDateTime::operator>= ( const QDateTime & dt ) const"
+.SH "bool TQDateTime::operator>= ( const TQDateTime & dt ) const"
 Returns TRUE if this datetime is later than or equal to \fIdt\fR; otherwise returns FALSE.
-.SH "int QDateTime::secsTo ( const QDateTime & dt ) const"
+.SH "int TQDateTime::secsTo ( const TQDateTime & dt ) const"
 Returns the number of seconds from this datetime to \fIdt\fR (which is negative if \fIdt\fR is earlier than this datetime).
 .PP
 Example:
 .PP
 .nf
 .br
-    QDateTime dt = QDateTime::currentDateTime();
+    TQDateTime dt = TQDateTime::currentDateTime();
 .br
-    QDateTime xmas( QDate(dt.date().year(),12,24), QTime(17,00) );
+    TQDateTime xmas( TQDate(dt.date().year(),12,24), TQTime(17,00) );
 .br
     tqDebug( "There are %d seconds to Christmas", dt.secsTo(xmas) );
 .br
 .fi
 .PP
-See also addSecs(), daysTo(), and QTime::secsTo().
-.SH "void QDateTime::setDate ( const QDate & date )"
+See also addSecs(), daysTo(), and TQTime::secsTo().
+.SH "void TQDateTime::setDate ( const TQDate & date )"
 Sets the date part of this datetime to \fIdate\fR.
 .PP
 See also date() and setTime().
-.SH "void QDateTime::setTime ( const QTime & time )"
+.SH "void TQDateTime::setTime ( const TQTime & time )"
 Sets the time part of this datetime to \fItime\fR.
 .PP
 See also time() and setDate().
-.SH "void QDateTime::setTime_t ( uint secsSince1Jan1970UTC, TQt::TimeSpec ts )"
+.SH "void TQDateTime::setTime_t ( uint secsSince1Jan1970UTC, TQt::TimeSpec ts )"
 Sets the date and time to \fIts\fR time (TQt::LocalTime or TQt::UTC) given the number of seconds that have passed since 1970-01-01T00:00:00, Coordinated Universal Time (UTC). On systems that do not support timezones this function will behave as if local time were UTC.
 .PP
 On Windows, only a subset of \fIsecsSince1Jan1970UTC\fR values are supported, as Windows starts counting from 1980.
 .PP
 See also toTime_t().
-.SH "void QDateTime::setTime_t ( uint secsSince1Jan1970UTC )"
+.SH "void TQDateTime::setTime_t ( uint secsSince1Jan1970UTC )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Convenience function that sets the date and time to local time based on the given UTC time.
-.SH "QTime QDateTime::time () const"
+.SH "TQTime TQDateTime::time () const"
 Returns the time part of the datetime.
 .PP
 See also setTime() and date().
-.SH "TQString QDateTime::toString ( const TQString & format ) const"
+.SH "TQString TQDateTime::toString ( const TQString & format ) const"
 Returns the datetime as a string. The \fIformat\fR parameter determines the format of the result string.
 .PP
 These expressions may be used for the date:
 .PP
 <center>.nf
 .TS
-l - l. Expression Output d the day as number without a leading zero (1-31) dd the day as number with a leading zero (01-31) ddd the abbreviated localized day name (e.g. 'Mon'..'Sun'). Uses QDate::shortDayName(). dddd the long localized day name (e.g. 'Monday'..'Sunday'). Uses QDate::longDayName(). M the month as number without a leading zero (1-12) MM the month as number with a leading zero (01-12) MMM the abbreviated localized month name (e.g. 'Jan'..'Dec'). Uses QDate::shortMonthName(). MMMM the long localized month name (e.g. 'January'..'December'). Uses QDate::longMonthName(). yy the year as two digit number (00-99) yyyy
+l - l. Expression Output d the day as number without a leading zero (1-31) dd the day as number with a leading zero (01-31) ddd the abbreviated localized day name (e.g. 'Mon'..'Sun'). Uses TQDate::shortDayName(). dddd the long localized day name (e.g. 'Monday'..'Sunday'). Uses TQDate::longDayName(). M the month as number without a leading zero (1-12) MM the month as number with a leading zero (01-12) MMM the abbreviated localized month name (e.g. 'Jan'..'Dec'). Uses TQDate::shortMonthName(). MMMM the long localized month name (e.g. 'January'..'December'). Uses TQDate::longMonthName(). yy the year as two digit number (00-99) yyyy
 .TE
 .fi
 </center>
@@ -269,7 +269,7 @@ l - l. Expression Output h the hour without a leading zero (0..23 or 1..12 if AM
 .PP
 All other input characters will be ignored.
 .PP
-Example format strings (assumed that the QDateTime is 21<small><sup>st</sup></small> May 2001 14:13:09)
+Example format strings (assumed that the TQDateTime is 21<small><sup>st</sup></small> May 2001 14:13:09)
 .PP
 <center>.nf
 .TS
@@ -280,13 +280,13 @@ l - l. Format Result dd.MM.yyyy 21.05.2001 ddd MMMM d yy Tue May 21 01 hh:mm:ss.
 .PP
 If the datetime is an invalid datetime, then TQString::null will be returned.
 .PP
-See also QDate::toString() and QTime::toString().
-.SH "TQString QDateTime::toString ( TQt::DateFormat f = TQt::TextDate ) const"
+See also TQDate::toString() and TQTime::toString().
+.SH "TQString TQDateTime::toString ( TQt::DateFormat f = TQt::TextDate ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the datetime as a string. The \fIf\fR parameter determines the format of the string.
 .PP
-If \fIf\fR is TQt::TextDate, the string format is "Wed May 20 03:40:13 1998" (using QDate::shortDayName(), QDate::shortMonthName(), and QTime::toString() to generate the string, so the day and month names will have localized names).
+If \fIf\fR is TQt::TextDate, the string format is "Wed May 20 03:40:13 1998" (using TQDate::shortDayName(), TQDate::shortMonthName(), and TQTime::toString() to generate the string, so the day and month names will have localized names).
 .PP
 If \fIf\fR is TQt::ISODate, the string format corresponds to the ISO 8601 extended specification for representations of dates and times, which is YYYY-MM-DDTHH:MM:SS.
 .PP
@@ -294,25 +294,25 @@ If \fIf\fR is TQt::LocalDate, the string format depends on the locale settings o
 .PP
 If the format \fIf\fR is invalid or the datetime is invalid, toString() returns a null string.
 .PP
-See also QDate::toString() and QTime::toString().
-.SH "uint QDateTime::toTime_t () const"
+See also TQDate::toString() and TQTime::toString().
+.SH "uint TQDateTime::toTime_t () const"
 Returns the datetime as the number of seconds that have passed since 1970-01-01T00:00:00, Coordinated Universal Time (UTC).
 .PP
 On systems that do not support timezones, this function will behave as if local time were UTC.
 .PP
 See also setTime_t().
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "QDataStream & operator<< ( QDataStream & s, const QDateTime & dt )"
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQDateTime & dt )"
 Writes the datetime \fIdt\fR to the stream \fIs\fR.
 .PP
-See also Format of the QDataStream operators.
-.SH "QDataStream & operator>> ( QDataStream & s, QDateTime & dt )"
+See also Format of the TQDataStream operators.
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQDateTime & dt )"
 Reads a datetime from the stream \fIs\fR into \fIdt\fR.
 .PP
-See also Format of the QDataStream operators.
+See also Format of the TQDataStream operators.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqdatetime.html
+.BR http://doc.trolltech.com/tqdatetime.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -1,5 +1,5 @@
 '\" t
-.TH QIconDrag 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQIconDrag 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,71 +7,71 @@
 .ad l
 .nh
 .SH NAME
-QIconDrag \- Supports drag and drop operations within a QIconView
+TQIconDrag \- Supports drag and drop operations within a TQIconView
 .SH SYNOPSIS
-\fC#include <ntqiconview.h>\fR
+\fC#include <tqiconview.h>\fR
 .PP
-Inherits QDragObject.
+Inherits TQDragObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQIconDrag\fR ( TQWidget * dragSource, const char * name = 0 )"
+.BI "\fBTQIconDrag\fR ( TQWidget * dragSource, const char * name = 0 )"
 .br
 .ti -1c
-.BI "virtual \fB~QIconDrag\fR ()"
+.BI "virtual \fB~TQIconDrag\fR ()"
 .br
 .ti -1c
-.BI "void \fBappend\fR ( const QIconDragItem & i, const QRect & pr, const QRect & tr )"
+.BI "void \fBappend\fR ( const TQIconDragItem & i, const TQRect & pr, const TQRect & tr )"
 .br
 .ti -1c
-.BI "virtual QByteArray \fBencodedData\fR ( const char * mime ) const"
+.BI "virtual TQByteArray \fBencodedData\fR ( const char * mime ) const"
 .br
 .in -1c
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "bool \fBcanDecode\fR ( QMimeSource * e )"
+.BI "bool \fBcanDecode\fR ( TQMimeSource * e )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QIconDrag class supports drag and drop operations within a QIconView.
+The TQIconDrag class supports drag and drop operations within a TQIconView.
 .PP
-A QIconDrag object is used to maintain information about the positions of dragged items and the data associated with the dragged items. QIconViews are able to use this information to paint the dragged items in the correct positions. Internally QIconDrag stores the data associated with drag items in QIconDragItem objects.
+A TQIconDrag object is used to maintain information about the positions of dragged items and the data associated with the dragged items. TQIconViews are able to use this information to paint the dragged items in the correct positions. Internally TQIconDrag stores the data associated with drag items in TQIconDragItem objects.
 .PP
-If you want to use the extended drag-and-drop functionality of QIconView, create a QIconDrag object in a reimplementation of QIconView::dragObject(). Then create a QIconDragItem for each item which should be dragged, set the data it represents with QIconDragItem::setData(), and add each QIconDragItem to the drag object using append().
+If you want to use the extended drag-and-drop functionality of TQIconView, create a TQIconDrag object in a reimplementation of TQIconView::dragObject(). Then create a TQIconDragItem for each item which should be dragged, set the data it represents with TQIconDragItem::setData(), and add each TQIconDragItem to the drag object using append().
 .PP
-The data in QIconDragItems is stored in a QByteArray and is mime-typed (see QMimeSource and the Drag and Drop overview). If you want to use your own mime-types derive a class from QIconDrag and reimplement format(), encodedData() and canDecode().
+The data in TQIconDragItems is stored in a TQByteArray and is mime-typed (see TQMimeSource and the Drag and Drop overview). If you want to use your own mime-types derive a class from TQIconDrag and reimplement format(), encodedData() and canDecode().
 .PP
-The fileiconview example program demonstrates the use of the QIconDrag class including subclassing and reimplementing dragObject(), format(), encodedData() and canDecode(). See the files \fCqt/examples/fileiconview/qfileiconview.h\fR and \fCqt/examples/fileiconview/qfileiconview.cpp\fR.
+The fileiconview example program demonstrates the use of the TQIconDrag class including subclassing and reimplementing dragObject(), format(), encodedData() and canDecode(). See the files \fCqt/examples/fileiconview/tqfileiconview.h\fR and \fCqt/examples/fileiconview/tqfileiconview.cpp\fR.
 .PP
-See also QMimeSource::format() and Drag And Drop Classes.
+See also TQMimeSource::format() and Drag And Drop Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QIconDrag::QIconDrag ( TQWidget * dragSource, const char * name = 0 )"
+.SH "TQIconDrag::TQIconDrag ( TQWidget * dragSource, const char * name = 0 )"
 Constructs a drag object called \fIname\fR, which is a child of \fIdragSource\fR.
 .PP
 Note that the drag object will be deleted when \fIdragSource\fR is deleted.
-.SH "QIconDrag::~QIconDrag ()\fC [virtual]\fR"
+.SH "TQIconDrag::~TQIconDrag ()\fC [virtual]\fR"
 Destructor.
-.SH "void QIconDrag::append ( const QIconDragItem & i, const QRect & pr, const QRect & tr )"
-Append the QIconDragItem, \fIi\fR, to the QIconDrag object's list of items. You must also supply the geometry of the pixmap, \fIpr\fR, and the textual caption, \fItr\fR.
+.SH "void TQIconDrag::append ( const TQIconDragItem & i, const TQRect & pr, const TQRect & tr )"
+Append the TQIconDragItem, \fIi\fR, to the TQIconDrag object's list of items. You must also supply the geometry of the pixmap, \fIpr\fR, and the textual caption, \fItr\fR.
 .PP
-See also QIconDragItem.
+See also TQIconDragItem.
 .PP
-Example: fileiconview/qfileiconview.cpp.
-.SH "bool QIconDrag::canDecode ( QMimeSource * e )\fC [static]\fR"
-Returns TRUE if \fIe\fR can be decoded by the QIconDrag, otherwise return FALSE.
+Example: fileiconview/tqfileiconview.cpp.
+.SH "bool TQIconDrag::canDecode ( TQMimeSource * e )\fC [static]\fR"
+Returns TRUE if \fIe\fR can be decoded by the TQIconDrag, otherwise return FALSE.
 .PP
-Example: fileiconview/qfileiconview.cpp.
-.SH "QByteArray QIconDrag::encodedData ( const char * mime ) const\fC [virtual]\fR"
+Example: fileiconview/tqfileiconview.cpp.
+.SH "TQByteArray TQIconDrag::encodedData ( const char * mime ) const\fC [virtual]\fR"
 Returns the encoded data of the drag object if \fImime\fR is application/x-qiconlist.
 .PP
-Example: fileiconview/qfileiconview.cpp.
+Example: fileiconview/tqfileiconview.cpp.
 .PP
-Reimplemented from QMimeSource.
+Reimplemented from TQMimeSource.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qicondrag.html
+.BR http://doc.trolltech.com/tqicondrag.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

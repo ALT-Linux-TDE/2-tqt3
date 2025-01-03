@@ -34,7 +34,7 @@
 #ifndef COLORBUTTON_H
 #define COLORBUTTON_H
 
-#include <ntqbutton.h>
+#include <tqbutton.h>
 
 
 class ColorButton : public TQButton

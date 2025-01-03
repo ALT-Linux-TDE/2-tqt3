@@ -3,17 +3,17 @@
 #include "glgear.h"
 #include "gltexobj.h"
 
-#include <ntqworkspace.h>
-#include <ntqdialog.h>
-#include <ntqtoolbar.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqaction.h>
-#include <ntqprinter.h>
-#include <ntqpainter.h>
-#include <ntqcheckbox.h>
-#include <ntqvbox.h>
-#include <ntqimage.h>
+#include <tqworkspace.h>
+#include <tqdialog.h>
+#include <tqtoolbar.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqaction.h>
+#include <tqprinter.h>
+#include <tqpainter.h>
+#include <tqcheckbox.h>
+#include <tqvbox.h>
+#include <tqimage.h>
 #include "printpreview.h"
 
 

@@ -40,12 +40,12 @@
 #include "option.h"
 #include "project.h"
 #include "meta.h"
-#include <ntqtextstream.h>
-#include <ntqstring.h>
-#include <ntqdict.h>
-#include <ntqregexp.h>
-#include <ntqstringlist.h>
-#include <ntqdir.h>
+#include <tqtextstream.h>
+#include <tqstring.h>
+#include <tqdict.h>
+#include <tqregexp.h>
+#include <tqstringlist.h>
+#include <tqdir.h>
 
 
 Win32MakefileGenerator::Win32MakefileGenerator(TQMakeProject *p) : MakefileGenerator(p)

@@ -7,11 +7,11 @@
 **
 *****************************************************************************/
 
-#include <ntqpen.h>
-#include <ntqpixmap.h>
-#include <ntqpoint.h>
-#include <ntqpointarray.h>
-#include <ntqwidget.h>
+#include <tqpen.h>
+#include <tqpixmap.h>
+#include <tqpoint.h>
+#include <tqpointarray.h>
+#include <tqwidget.h>
 
 
 #ifndef _MY_CANVAS_

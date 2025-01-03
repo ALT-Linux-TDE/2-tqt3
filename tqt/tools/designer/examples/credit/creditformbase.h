@@ -2,15 +2,15 @@
 ** Form interface generated from reading ui file 'creditformbase.ui'
 **
 ** Created: Fri Aug 10 09:48:10 2001
-**      by:  The User Interface Compiler (uic)
+**      by:  The User Interface Compiler (tquic)
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
 #ifndef CREDITFORMBASE_H
 #define CREDITFORMBASE_H
 
-#include <ntqvariant.h>
-#include <ntqdialog.h>
+#include <tqvariant.h>
+#include <tqdialog.h>
 class TQVBoxLayout; 
 class TQHBoxLayout; 
 class TQGridLayout; 

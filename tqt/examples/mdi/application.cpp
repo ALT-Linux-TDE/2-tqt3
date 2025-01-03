@@ -8,31 +8,31 @@
 *****************************************************************************/
 
 #include "application.h"
-#include <ntqworkspace.h>
-#include <ntqimage.h>
-#include <ntqpixmap.h>
-#include <ntqtoolbar.h>
-#include <ntqtoolbutton.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqmovie.h>
-#include <ntqfile.h>
-#include <ntqfiledialog.h>
-#include <ntqlabel.h>
-#include <ntqstatusbar.h>
-#include <ntqmessagebox.h>
-#include <ntqprinter.h>
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqaccel.h>
-#include <ntqtextstream.h>
-#include <ntqtextedit.h>
-#include <ntqpainter.h>
-#include <ntqpaintdevicemetrics.h>
-#include <ntqwhatsthis.h>
-#include <ntqobjectlist.h>
-#include <ntqvbox.h>
-#include <ntqsimplerichtext.h>
+#include <tqworkspace.h>
+#include <tqimage.h>
+#include <tqpixmap.h>
+#include <tqtoolbar.h>
+#include <tqtoolbutton.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqmovie.h>
+#include <tqfile.h>
+#include <tqfiledialog.h>
+#include <tqlabel.h>
+#include <tqstatusbar.h>
+#include <tqmessagebox.h>
+#include <tqprinter.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqaccel.h>
+#include <tqtextstream.h>
+#include <tqtextedit.h>
+#include <tqpainter.h>
+#include <tqpaintdevicemetrics.h>
+#include <tqwhatsthis.h>
+#include <tqobjectlist.h>
+#include <tqvbox.h>
+#include <tqsimplerichtext.h>
 
 #include "filesave.xpm"
 #include "fileopen.xpm"
@@ -337,9 +337,6 @@ void MDIWindow::load( const TQString& fn )
 	medit->hide();
 	delete medit;
 	TQMovie * qm=new TQMovie(fn);
-#ifdef TQ_WS_QWS // temporary speed-test hack
-	qm->setDisplayWidget(tmp);
-#endif
 	tmp->setBackgroundMode(TQWidget::NoBackground);
 	tmp->show();
 	mmovie=qm;

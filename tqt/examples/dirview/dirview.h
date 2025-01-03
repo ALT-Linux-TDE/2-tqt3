@@ -10,11 +10,11 @@
 #ifndef DIRVIEW_H
 #define DIRVIEW_H
 
-#include <ntqlistview.h>
-#include <ntqstring.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqtimer.h>
+#include <tqlistview.h>
+#include <tqstring.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqtimer.h>
 
 class TQWidget;
 class TQDragEnterEvent;

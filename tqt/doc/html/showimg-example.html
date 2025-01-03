@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/showimg/showimg.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -50,27 +49,27 @@ format (GIF, BMP, PPM, XMP, etc.).
 #ifndef SHOWIMG_H
 #define SHOWIMG_H
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
-#include &lt;<a href="qimage-h.html">ntqimage.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
+#include &lt;<a href="tqimage-h.html">tqimage.h</a>&gt;
 
 
 class TQLabel;
 class TQMenuBar;
 class TQPopupMenu;
 
-class ImageViewer : public <a href="ntqwidget.html">TQWidget</a>
+class ImageViewer : public <a href="tqwidget.html">TQWidget</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 public:
-    ImageViewer( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0, int wFlags=0 );
+    ImageViewer( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0, int wFlags=0 );
     ~ImageViewer();
-    bool        loadImage( const <a href="ntqstring.html">TQString</a>&amp; );
+    bool        loadImage( const <a href="tqstring.html">TQString</a>&amp; );
 protected:
-    void        paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
-    void        resizeEvent( <a href="qresizeevent.html">TQResizeEvent</a> * );
-    void        mousePressEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-    void        mouseReleaseEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-    void        mouseMoveEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
+    void        paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
+    void        resizeEvent( <a href="tqresizeevent.html">TQResizeEvent</a> * );
+    void        mousePressEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+    void        mouseReleaseEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+    void        mouseMoveEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
 
 private:
     void        scale();
@@ -78,21 +77,21 @@ private:
     bool        smooth() const;
     bool        useColorContext() const;
     int         alloc_context;
-    bool        convertEvent( <a href="qmouseevent.html">TQMouseEvent</a>* e, int&amp; x, int&amp; y );
-    <a href="ntqstring.html">TQString</a>     filename;
-    <a href="ntqimage.html">TQImage</a>      image;                  // the loaded image
-    <a href="ntqpixmap.html">TQPixmap</a>     pm;                     // the converted pixmap
-    <a href="ntqpixmap.html">TQPixmap</a>     pmScaled;               // the scaled pixmap
+    bool        convertEvent( <a href="tqmouseevent.html">TQMouseEvent</a>* e, int&amp; x, int&amp; y );
+    <a href="tqstring.html">TQString</a>     filename;
+    <a href="tqimage.html">TQImage</a>      image;                  // the loaded image
+    <a href="tqpixmap.html">TQPixmap</a>     pm;                     // the converted pixmap
+    <a href="tqpixmap.html">TQPixmap</a>     pmScaled;               // the scaled pixmap
 
-    <a href="ntqmenubar.html">TQMenuBar</a>   *menubar;
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>  *file;
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>   *saveimage;
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>   *savepixmap;
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>  *edit;
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>  *options;
+    <a href="tqmenubar.html">TQMenuBar</a>   *menubar;
+    <a href="tqpopupmenu.html">TQPopupMenu</a>  *file;
+    <a href="tqpopupmenu.html">TQPopupMenu</a>   *saveimage;
+    <a href="tqpopupmenu.html">TQPopupMenu</a>   *savepixmap;
+    <a href="tqpopupmenu.html">TQPopupMenu</a>  *edit;
+    <a href="tqpopupmenu.html">TQPopupMenu</a>  *options;
 
-    <a href="ntqwidget.html">TQWidget</a>    *helpmsg;
-    <a href="ntqlabel.html">TQLabel</a>     *status;
+    <a href="tqwidget.html">TQWidget</a>    *helpmsg;
+    <a href="tqlabel.html">TQLabel</a>     *status;
     int         si, sp, ac, co, mo, fd, bd, // Menu item ids
                 td, ta, ba, fa, au, ad, dd,
                 ss, cc, t1, t8, t32;
@@ -103,7 +102,7 @@ private:
     int         clickx, clicky;
     bool        may_be_other;
     static ImageViewer* other;
-    void        setImage(const <a href="ntqimage.html">TQImage</a>&amp; newimage);
+    void        setImage(const <a href="tqimage.html">TQImage</a>&amp; newimage);
 
 private slots:
     void        to1Bit();
@@ -147,14 +146,14 @@ private slots:
 
 #include "showimg.h"
 #include "imagetexteditor.h"
-#include &lt;<a href="qmenubar-h.html">ntqmenubar.h</a>&gt;
-#include &lt;<a href="qfiledialog-h.html">ntqfiledialog.h</a>&gt;
-#include &lt;<a href="qmessagebox-h.html">ntqmessagebox.h</a>&gt;
-#include &lt;<a href="qpopupmenu-h.html">ntqpopupmenu.h</a>&gt;
-#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
-#include &lt;<a href="qpainter-h.html">ntqpainter.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qclipboard-h.html">ntqclipboard.h</a>&gt;
+#include &lt;<a href="tqmenubar-h.html">tqmenubar.h</a>&gt;
+#include &lt;<a href="tqfiledialog-h.html">tqfiledialog.h</a>&gt;
+#include &lt;<a href="tqmessagebox-h.html">tqmessagebox.h</a>&gt;
+#include &lt;<a href="tqpopupmenu-h.html">tqpopupmenu.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqclipboard-h.html">tqclipboard.h</a>&gt;
 
 
 /*
@@ -164,8 +163,8 @@ private slots:
   The menu uses a single slot to simplify the process of adding
   more items to the options menu.
 */
-<a name="f405"></a>ImageViewer::ImageViewer( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name, int wFlags )
-    : <a href="ntqwidget.html">TQWidget</a>( parent, name, wFlags ),
+<a name="f405"></a>ImageViewer::ImageViewer( <a href="tqwidget.html">TQWidget</a> *parent, const char *name, int wFlags )
+    : <a href="tqwidget.html">TQWidget</a>( parent, name, wFlags ),
       conversion_flags( PreferDither ),
       helpmsg( 0 )
 {
@@ -175,86 +174,86 @@ private slots:
     clicky = -1;
     alloc_context = 0;
 
-    menubar = new <a href="ntqmenubar.html">TQMenuBar</a>(this);
-<a name="x1326"></a>    menubar-&gt;<a href="ntqmenubar.html#setSeparator">setSeparator</a>( TQMenuBar::InWindowsStyle );
+    menubar = new <a href="tqmenubar.html">TQMenuBar</a>(this);
+<a name="x1326"></a>    menubar-&gt;<a href="tqmenubar.html#setSeparator">setSeparator</a>( TQMenuBar::InWindowsStyle );
 
-<a name="x1323"></a>    <a href="ntqstrlist.html">TQStrList</a> fmt = TQImage::<a href="ntqimage.html#outputFormats">outputFormats</a>();
-    saveimage = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
-    savepixmap = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
-<a name="x1344"></a><a name="x1343"></a>    for (const char* f = fmt.<a href="ntqptrlist.html#first">first</a>(); f; f = fmt.<a href="ntqptrlist.html#next">next</a>()) {
-<a name="x1327"></a>        saveimage-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( f );
-        savepixmap-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( f );
+<a name="x1323"></a>    <a href="tqstrlist.html">TQStrList</a> fmt = TQImage::<a href="tqimage.html#outputFormats">outputFormats</a>();
+    saveimage = new <a href="tqpopupmenu.html">TQPopupMenu</a>( menubar );
+    savepixmap = new <a href="tqpopupmenu.html">TQPopupMenu</a>( menubar );
+<a name="x1344"></a><a name="x1343"></a>    for (const char* f = fmt.<a href="tqptrlist.html#first">first</a>(); f; f = fmt.<a href="tqptrlist.html#next">next</a>()) {
+<a name="x1327"></a>        saveimage-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( f );
+        savepixmap-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( f );
     }
-<a name="x1341"></a>    <a href="ntqobject.html#connect">connect</a>( saveimage, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(saveImage(int)) );
-    <a href="ntqobject.html#connect">connect</a>( savepixmap, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(savePixmap(int)) );
+<a name="x1341"></a>    <a href="tqobject.html#connect">connect</a>( saveimage, TQ_SIGNAL(<a href="tqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(saveImage(int)) );
+    <a href="tqobject.html#connect">connect</a>( savepixmap, TQ_SIGNAL(<a href="tqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(savePixmap(int)) );
 
-    file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
-    menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;File", file );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New window", this,  TQ_SLOT(newWindow()), CTRL+Key_N );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Open...", this,  TQ_SLOT(openFile()), CTRL+Key_O );
-    si = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save image", saveimage );
-    sp = file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Save pixmap", savepixmap );
-<a name="x1328"></a>    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "E&amp;xit", tqApp,  TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()), CTRL+Key_Q );
+    file = new <a href="tqpopupmenu.html">TQPopupMenu</a>( menubar );
+    menubar-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;File", file );
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;New window", this,  TQ_SLOT(newWindow()), CTRL+Key_N );
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Open...", this,  TQ_SLOT(openFile()), CTRL+Key_O );
+    si = file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Save image", saveimage );
+    sp = file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Save pixmap", savepixmap );
+<a name="x1328"></a>    file-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "E&amp;xit", tqApp,  TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()), CTRL+Key_Q );
 
-    edit =  new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
-    menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Edit", edit );
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Copy", this, TQ_SLOT(copy()), CTRL+Key_C);
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Paste", this, TQ_SLOT(paste()), CTRL+Key_V);
-    edit-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Horizontal flip", this, TQ_SLOT(hFlip()), ALT+Key_H);
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Vertical flip", this, TQ_SLOT(vFlip()), ALT+Key_V);
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Rotate 180", this, TQ_SLOT(rot180()), ALT+Key_R);
-    edit-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Text...", this, TQ_SLOT(editText()));
-    edit-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    t1 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;1 bit", this, TQ_SLOT(to1Bit()) );
-    t8 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;8 bit", this, TQ_SLOT(to8Bit()) );
-    t32 = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;32 bit", this, TQ_SLOT(to32Bit()) );
+    edit =  new <a href="tqpopupmenu.html">TQPopupMenu</a>( menubar );
+    menubar-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Edit", edit );
+    edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("&amp;Copy", this, TQ_SLOT(copy()), CTRL+Key_C);
+    edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("&amp;Paste", this, TQ_SLOT(paste()), CTRL+Key_V);
+    edit-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("&amp;Horizontal flip", this, TQ_SLOT(hFlip()), ALT+Key_H);
+    edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("&amp;Vertical flip", this, TQ_SLOT(vFlip()), ALT+Key_V);
+    edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("&amp;Rotate 180", this, TQ_SLOT(rot180()), ALT+Key_R);
+    edit-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("&amp;Text...", this, TQ_SLOT(editText()));
+    edit-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    t1 = edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;1 bit", this, TQ_SLOT(to1Bit()) );
+    t8 = edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;8 bit", this, TQ_SLOT(to8Bit()) );
+    t32 = edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Convert to &amp;32 bit", this, TQ_SLOT(to32Bit()) );
 
-    options =  new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
-    menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Options", options );
-    ac = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "AutoColor" );
-    co = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "ColorOnly" );
-    mo = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "MonoOnly" );
-    options-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    fd = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "DiffuseDither" );
-    bd = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "OrderedDither" );
-    td = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "ThresholdDither" );
-    options-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    ta = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "ThresholdAlphaDither" );
-    ba = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "OrderedAlphaDither" );
-    fa = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "DiffuseAlphaDither" );
-    options-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    ad = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "PreferDither" );
-    dd = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "AvoidDither" );
-    options-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    ss = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Smooth scaling" );
-    cc = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Use color context" );
-<a name="x1309"></a>    if ( TQApplication::<a href="ntqapplication.html#colorSpec">colorSpec</a>() == TQApplication::ManyColor )
-<a name="x1331"></a>        options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( cc, FALSE );
-<a name="x1342"></a>    options-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
+    options =  new <a href="tqpopupmenu.html">TQPopupMenu</a>( menubar );
+    menubar-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Options", options );
+    ac = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "AutoColor" );
+    co = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "ColorOnly" );
+    mo = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "MonoOnly" );
+    options-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    fd = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "DiffuseDither" );
+    bd = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "OrderedDither" );
+    td = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "ThresholdDither" );
+    options-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    ta = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "ThresholdAlphaDither" );
+    ba = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "OrderedAlphaDither" );
+    fa = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "DiffuseAlphaDither" );
+    options-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    ad = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "PreferDither" );
+    dd = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "AvoidDither" );
+    options-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    ss = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Smooth scaling" );
+    cc = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Use color context" );
+<a name="x1309"></a>    if ( TQApplication::<a href="tqapplication.html#colorSpec">colorSpec</a>() == TQApplication::ManyColor )
+<a name="x1331"></a>        options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( cc, FALSE );
+<a name="x1342"></a>    options-&gt;<a href="tqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
     setMenuItemFlags();
 
-    menubar-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
+    menubar-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>* help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( menubar );
-    menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Help", help );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Help!", this, TQ_SLOT(giveHelp()), CTRL+Key_H );
+    <a href="tqpopupmenu.html">TQPopupMenu</a>* help = new <a href="tqpopupmenu.html">TQPopupMenu</a>( menubar );
+    menubar-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Help", help );
+    help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Help!", this, TQ_SLOT(giveHelp()), CTRL+Key_H );
 
-    <a href="ntqobject.html#connect">connect</a>( options, TQ_SIGNAL(<a href="ntqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(doOption(int)) );
+    <a href="tqobject.html#connect">connect</a>( options, TQ_SIGNAL(<a href="tqpopupmenu.html#activated">activated</a>(int)), this, TQ_SLOT(doOption(int)) );
 
-    status = new <a href="ntqlabel.html">TQLabel</a>(this);
-    status-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::WinPanel | TQFrame::Sunken );
-<a name="x1354"></a>    status-&gt;<a href="ntqwidget.html#setFixedHeight">setFixedHeight</a>( <a href="ntqwidget.html#fontMetrics">fontMetrics</a>().height() + 4 );
+    status = new <a href="tqlabel.html">TQLabel</a>(this);
+    status-&gt;<a href="tqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::WinPanel | TQFrame::Sunken );
+<a name="x1354"></a>    status-&gt;<a href="tqwidget.html#setFixedHeight">setFixedHeight</a>( <a href="tqwidget.html#fontMetrics">fontMetrics</a>().height() + 4 );
 
-    <a href="ntqwidget.html#setMouseTracking">setMouseTracking</a>( TRUE );
+    <a href="tqwidget.html#setMouseTracking">setMouseTracking</a>( TRUE );
 }
 
 ImageViewer::~ImageViewer()
 {
     if ( alloc_context )
-<a name="x1313"></a>        TQColor::<a href="ntqcolor.html#destroyAllocContext">destroyAllocContext</a>( alloc_context );
+<a name="x1313"></a>        TQColor::<a href="tqcolor.html#destroyAllocContext">destroyAllocContext</a>( alloc_context );
     if ( other == this )
         other = 0;
 }
@@ -268,15 +267,15 @@ void <a name="f406"></a>ImageViewer::doOption(int item)
 {
     if ( item == ss || item == cc ) {
         // Toggle
-<a name="x1329"></a>        bool newbool = !options-&gt;<a href="ntqmenudata.html#isItemChecked">isItemChecked</a>(item);
-<a name="x1330"></a>        options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>(item, newbool);
+<a name="x1329"></a>        bool newbool = !options-&gt;<a href="tqmenudata.html#isItemChecked">isItemChecked</a>(item);
+<a name="x1330"></a>        options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>(item, newbool);
         // And reconvert...
         reconvertImage();
-        <a href="ntqwidget.html#repaint">repaint</a>(image.hasAlphaBuffer());        // show image in widget
+        <a href="tqwidget.html#repaint">repaint</a>(image.hasAlphaBuffer());        // show image in widget
         return;
     }
 
-    if ( options-&gt;<a href="ntqmenudata.html#isItemChecked">isItemChecked</a>( item ) ) return; // They are all radio buttons
+    if ( options-&gt;<a href="tqmenudata.html#isItemChecked">isItemChecked</a>( item ) ) return; // They are all radio buttons
 
     int ocf = conversion_flags;
 
@@ -308,7 +307,7 @@ void <a name="f406"></a>ImageViewer::doOption(int item)
         setMenuItemFlags();
         // And reconvert...
         reconvertImage();
-        <a href="ntqwidget.html#repaint">repaint</a>(image.hasAlphaBuffer());        // show image in widget
+        <a href="tqwidget.html#repaint">repaint</a>(image.hasAlphaBuffer());        // show image in widget
     }
 }
 
@@ -319,57 +318,57 @@ void <a name="f407"></a>ImageViewer::setMenuItemFlags()
 {
     // File
     bool valid_image = pm.size() != TQSize( 0, 0 );
-    file-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( si, valid_image );
-    file-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( sp, valid_image );
+    file-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( si, valid_image );
+    file-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( sp, valid_image );
 
     // Edit
-    edit-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( t1, image.depth() != 1 );
-    edit-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( t8, image.depth() != 8 );
-    edit-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( t32, image.depth() != 32 );
+    edit-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( t1, image.depth() != 1 );
+    edit-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( t8, image.depth() != 8 );
+    edit-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( t32, image.depth() != 32 );
 
     // Options
     bool may_need_color_dithering =
             !valid_image
-        || image.depth() == 32 &amp;&amp; TQPixmap::<a href="ntqpixmap.html#defaultDepth">defaultDepth</a>() &lt; 24;
+        || image.depth() == 32 &amp;&amp; TQPixmap::<a href="tqpixmap.html#defaultDepth">defaultDepth</a>() &lt; 24;
     bool may_need_dithering = may_need_color_dithering
-         || image.depth() &gt; 1 &amp;&amp; options-&gt;<a href="ntqmenudata.html#isItemChecked">isItemChecked</a>(mo)
-         || image.depth() &gt; 1 &amp;&amp; TQPixmap::<a href="ntqpixmap.html#defaultDepth">defaultDepth</a>() == 1;
+         || image.depth() &gt; 1 &amp;&amp; options-&gt;<a href="tqmenudata.html#isItemChecked">isItemChecked</a>(mo)
+         || image.depth() &gt; 1 &amp;&amp; TQPixmap::<a href="tqpixmap.html#defaultDepth">defaultDepth</a>() == 1;
     bool has_alpha_mask = !valid_image || image.hasAlphaBuffer();
 
-    options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( fd, may_need_dithering );
-    options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( bd, may_need_dithering );
-    options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( td, may_need_dithering );
+    options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( fd, may_need_dithering );
+    options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( bd, may_need_dithering );
+    options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( td, may_need_dithering );
 
-    options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( ta, has_alpha_mask );
-    options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( fa, has_alpha_mask );
-    options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( ba, has_alpha_mask );
+    options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( ta, has_alpha_mask );
+    options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( fa, has_alpha_mask );
+    options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( ba, has_alpha_mask );
 
-    options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( ad, may_need_color_dithering );
-    options-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( dd, may_need_color_dithering );
+    options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( ad, may_need_color_dithering );
+    options-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( dd, may_need_color_dithering );
 
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( ac, (conversion_flags &amp; ColorMode_Mask) == AutoColor );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( co, (conversion_flags &amp; ColorMode_Mask) == ColorOnly );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( mo, (conversion_flags &amp; ColorMode_Mask) == MonoOnly );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( fd, (conversion_flags &amp; Dither_Mask) == DiffuseDither );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( bd, (conversion_flags &amp; Dither_Mask) == OrderedDither );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( td, (conversion_flags &amp; Dither_Mask) == ThresholdDither );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( ta, (conversion_flags &amp; AlphaDither_Mask) == ThresholdAlphaDither );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( fa, (conversion_flags &amp; AlphaDither_Mask) == DiffuseAlphaDither );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( ba, (conversion_flags &amp; AlphaDither_Mask) == OrderedAlphaDither );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( ad, (conversion_flags &amp; DitherMode_Mask) == PreferDither );
-    options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( dd, (conversion_flags &amp; DitherMode_Mask) == AvoidDither );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( ac, (conversion_flags &amp; ColorMode_Mask) == AutoColor );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( co, (conversion_flags &amp; ColorMode_Mask) == ColorOnly );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( mo, (conversion_flags &amp; ColorMode_Mask) == MonoOnly );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( fd, (conversion_flags &amp; Dither_Mask) == DiffuseDither );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( bd, (conversion_flags &amp; Dither_Mask) == OrderedDither );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( td, (conversion_flags &amp; Dither_Mask) == ThresholdDither );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( ta, (conversion_flags &amp; AlphaDither_Mask) == ThresholdAlphaDither );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( fa, (conversion_flags &amp; AlphaDither_Mask) == DiffuseAlphaDither );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( ba, (conversion_flags &amp; AlphaDither_Mask) == OrderedAlphaDither );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( ad, (conversion_flags &amp; DitherMode_Mask) == PreferDither );
+    options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( dd, (conversion_flags &amp; DitherMode_Mask) == AvoidDither );
 }
 
 void <a name="f408"></a>ImageViewer::updateStatus()
 {
     if ( pm.size() == TQSize( 0, 0 ) ) {
         if ( !filename.isEmpty() )
-            status-&gt;<a href="ntqlabel.html#setText">setText</a>("Could not load image");
+            status-&gt;<a href="tqlabel.html#setText">setText</a>("Could not load image");
         else
-            status-&gt;<a href="ntqlabel.html#setText">setText</a>("No image - select Open from File menu.");
+            status-&gt;<a href="tqlabel.html#setText">setText</a>("No image - select Open from File menu.");
     } else {
-        <a href="ntqstring.html">TQString</a> message, moremsg;
-        message.<a href="ntqstring.html#sprintf">sprintf</a>("%dx%d", image.width(), image.height());
+        <a href="tqstring.html">TQString</a> message, moremsg;
+        message.<a href="tqstring.html#sprintf">sprintf</a>("%dx%d", image.width(), image.height());
         if ( pm.size() != pmScaled.size() ) {
             moremsg.sprintf(" [%dx%d]", pmScaled.width(),
                 pmScaled.height());
@@ -416,7 +415,7 @@ void <a name="f408"></a>ImageViewer::updateStatus()
             }
             message += moremsg;
         }
-        status-&gt;<a href="ntqlabel.html#setText">setText</a>(message);
+        status-&gt;<a href="tqlabel.html#setText">setText</a>(message);
     }
 }
 
@@ -425,12 +424,12 @@ void <a name="f408"></a>ImageViewer::updateStatus()
 */
 void <a name="f409"></a>ImageViewer::saveImage( int item )
 {
-<a name="x1332"></a>    const char* fmt = saveimage-&gt;<a href="ntqmenudata.html#text">text</a>(item);
-<a name="x1319"></a>    <a href="ntqstring.html">TQString</a> savefilename = TQFileDialog::<a href="ntqfiledialog.html#getSaveFileName">getSaveFileName</a>(TQString::null, <a href="ntqstring.html#TQString-null">TQString::null</a>,
+<a name="x1332"></a>    const char* fmt = saveimage-&gt;<a href="tqmenudata.html#text">text</a>(item);
+<a name="x1319"></a>    <a href="tqstring.html">TQString</a> savefilename = TQFileDialog::<a href="tqfiledialog.html#getSaveFileName">getSaveFileName</a>(TQString::null, <a href="tqstring.html#TQString-null">TQString::null</a>,
                                         this, filename);
-    if ( !savefilename.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
+    if ( !savefilename.<a href="tqstring.html#isEmpty">isEmpty</a>() )
         if ( !image.save( savefilename, fmt ) )
-<a name="x1333"></a>            TQMessageBox::<a href="ntqmessagebox.html#warning">warning</a>( this, "Save failed", "Error saving file" );
+<a name="x1333"></a>            TQMessageBox::<a href="tqmessagebox.html#warning">warning</a>( this, "Save failed", "Error saving file" );
 }
 
 /*
@@ -438,20 +437,20 @@ void <a name="f409"></a>ImageViewer::saveImage( int item )
 */
 void <a name="f410"></a>ImageViewer::savePixmap( int item )
 {
-    const char* fmt = savepixmap-&gt;<a href="ntqmenudata.html#text">text</a>(item);
-    <a href="ntqstring.html">TQString</a> savefilename = TQFileDialog::<a href="ntqfiledialog.html#getSaveFileName">getSaveFileName</a>(TQString::null,
+    const char* fmt = savepixmap-&gt;<a href="tqmenudata.html#text">text</a>(item);
+    <a href="tqstring.html">TQString</a> savefilename = TQFileDialog::<a href="tqfiledialog.html#getSaveFileName">getSaveFileName</a>(TQString::null,
                                         TQString::null, this, filename);
-    if ( !savefilename.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
+    if ( !savefilename.<a href="tqstring.html#isEmpty">isEmpty</a>() )
         if ( !pmScaled.save( savefilename, fmt ) )
-            TQMessageBox::<a href="ntqmessagebox.html#warning">warning</a>( this, "Save failed", "Error saving file" );
+            TQMessageBox::<a href="tqmessagebox.html#warning">warning</a>( this, "Save failed", "Error saving file" );
 }
 
 
 void <a name="f411"></a>ImageViewer::newWindow()
 {
     ImageViewer* that = new ImageViewer(0, "new window", WDestructiveClose);
-    that-&gt;options-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( that-&gt;cc, useColorContext() );
-    that-&gt;<a href="ntqwidget.html#show">show</a>();
+    that-&gt;options-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( that-&gt;cc, useColorContext() );
+    that-&gt;<a href="tqwidget.html#show">show</a>();
 }
 
 /*
@@ -459,12 +458,12 @@ void <a name="f411"></a>ImageViewer::newWindow()
 */
 void <a name="f412"></a>ImageViewer::openFile()
 {
-<a name="x1318"></a>    <a href="ntqstring.html">TQString</a> newfilename = TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>( TQString::null,
+<a name="x1318"></a>    <a href="tqstring.html">TQString</a> newfilename = TQFileDialog::<a href="tqfiledialog.html#getOpenFileName">getOpenFileName</a>( TQString::null,
                                                         TQString::null,
                                                         this );
-    if ( !newfilename.<a href="ntqstring.html#isEmpty">isEmpty</a>() ) {
+    if ( !newfilename.<a href="tqstring.html#isEmpty">isEmpty</a>() ) {
         loadImage( newfilename ) ;
-        <a href="ntqwidget.html#repaint">repaint</a>();                      // show image in widget
+        <a href="tqwidget.html#repaint">repaint</a>();                      // show image in widget
     }
 }
 
@@ -477,19 +476,19 @@ void <a name="f412"></a>ImageViewer::openFile()
   Returns TRUE if the image was successfully loaded.
 */
 
-bool <a name="f413"></a>ImageViewer::loadImage( const <a href="ntqstring.html">TQString</a>&amp; fileName )
+bool <a name="f413"></a>ImageViewer::loadImage( const <a href="tqstring.html">TQString</a>&amp; fileName )
 {
     filename = fileName;
     bool ok = FALSE;
     if ( !filename.isEmpty() ) {
-<a name="x1312"></a>        TQApplication::<a href="ntqapplication.html#setOverrideCursor">setOverrideCursor</a>( waitCursor ); // this might take time
+<a name="x1312"></a>        TQApplication::<a href="tqapplication.html#setOverrideCursor">setOverrideCursor</a>( waitCursor ); // this might take time
         ok = image.load(filename, 0);
         pickx = -1;
         clickx = -1;
         if ( ok )
             ok = reconvertImage();
         if ( ok ) {
-            <a href="ntqwidget.html#setCaption">setCaption</a>( filename );                     // set window caption
+            <a href="tqwidget.html#setCaption">setCaption</a>( filename );                     // set window caption
             int w = pm.width();
             int h = pm.height();
 
@@ -501,13 +500,13 @@ bool <a name="f413"></a>ImageViewer::loadImage( const <a href="ntqstring.html">T
                 h *= multiply;
             }
 
-<a name="x1347"></a><a name="x1325"></a>            h += menubar-&gt;<a href="ntqmenubar.html#heightForWidth">heightForWidth</a>(w) + status-&gt;<a href="ntqwidget.html#height">height</a>();
-            <a href="ntqwidget.html#resize">resize</a>( w, h );                             // we resize to fit image
+<a name="x1347"></a><a name="x1325"></a>            h += menubar-&gt;<a href="tqmenubar.html#heightForWidth">heightForWidth</a>(w) + status-&gt;<a href="tqwidget.html#height">height</a>();
+            <a href="tqwidget.html#resize">resize</a>( w, h );                             // we resize to fit image
         } else {
             pm.resize(0,0);                             // couldn't load image
-            <a href="ntqwidget.html#update">update</a>();
+            <a href="tqwidget.html#update">update</a>();
         }
-<a name="x1311"></a>        TQApplication::<a href="ntqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();  // restore original cursor
+<a name="x1311"></a>        TQApplication::<a href="tqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();  // restore original cursor
     }
     updateStatus();
     setMenuItemFlags();
@@ -521,44 +520,44 @@ bool <a name="f414"></a>ImageViewer::reconvertImage()
     if ( image.isNull() ) return FALSE;
 
     if ( alloc_context ) {
-        TQColor::<a href="ntqcolor.html#destroyAllocContext">destroyAllocContext</a>( alloc_context );
+        TQColor::<a href="tqcolor.html#destroyAllocContext">destroyAllocContext</a>( alloc_context );
         alloc_context = 0;
     }
     if ( useColorContext() ) {
-<a name="x1314"></a>        alloc_context = TQColor::<a href="ntqcolor.html#enterAllocContext">enterAllocContext</a>();
+<a name="x1314"></a>        alloc_context = TQColor::<a href="tqcolor.html#enterAllocContext">enterAllocContext</a>();
         // Clear the image to hide flickering palette
-        <a href="ntqpainter.html">TQPainter</a> painter(this);
-<a name="x1338"></a>        painter.<a href="ntqpainter.html#eraseRect">eraseRect</a>(0, menubar-&gt;<a href="ntqmenubar.html#heightForWidth">heightForWidth</a>( <a href="ntqwidget.html#width">width</a>() ), width(), height());
+        <a href="tqpainter.html">TQPainter</a> painter(this);
+<a name="x1338"></a>        painter.<a href="tqpainter.html#eraseRect">eraseRect</a>(0, menubar-&gt;<a href="tqmenubar.html#heightForWidth">heightForWidth</a>( <a href="tqwidget.html#width">width</a>() ), width(), height());
     }
 
-    TQApplication::<a href="ntqapplication.html#setOverrideCursor">setOverrideCursor</a>( waitCursor ); // this might take time
+    TQApplication::<a href="tqapplication.html#setOverrideCursor">setOverrideCursor</a>( waitCursor ); // this might take time
     if ( pm.convertFromImage(image, conversion_flags) )
     {
         pmScaled = TQPixmap();
         scale();
-        <a href="ntqwidget.html#resize">resize</a>( <a href="ntqwidget.html#width">width</a>(), height() );
+        <a href="tqwidget.html#resize">resize</a>( <a href="tqwidget.html#width">width</a>(), height() );
         success = TRUE;                         // load successful
     } else {
         pm.resize(0,0);                         // couldn't load image
     }
     updateStatus();
     setMenuItemFlags();
-    TQApplication::<a href="ntqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();      // restore original cursor
+    TQApplication::<a href="tqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();      // restore original cursor
 
     if ( useColorContext() )
-<a name="x1315"></a>        TQColor::<a href="ntqcolor.html#leaveAllocContext">leaveAllocContext</a>();
+<a name="x1315"></a>        TQColor::<a href="tqcolor.html#leaveAllocContext">leaveAllocContext</a>();
 
     return success;                             // TRUE if loaded OK
 }
 
 bool <a name="f415"></a>ImageViewer::smooth() const
 {
-    return options-&gt;<a href="ntqmenudata.html#isItemChecked">isItemChecked</a>(ss);
+    return options-&gt;<a href="tqmenudata.html#isItemChecked">isItemChecked</a>(ss);
 }
 
 bool <a name="f416"></a>ImageViewer::useColorContext() const
 {
-    return options-&gt;<a href="ntqmenudata.html#isItemChecked">isItemChecked</a>(cc);
+    return options-&gt;<a href="tqmenudata.html#isItemChecked">isItemChecked</a>(cc);
 }
 
 /*
@@ -568,26 +567,26 @@ bool <a name="f416"></a>ImageViewer::useColorContext() const
 
 void <a name="f417"></a>ImageViewer::scale()
 {
-    int h = <a href="ntqwidget.html#height">height</a>() - menubar-&gt;<a href="ntqmenubar.html#heightForWidth">heightForWidth</a>( <a href="ntqwidget.html#width">width</a>() ) - status-&gt;<a href="ntqwidget.html#height">height</a>();
+    int h = <a href="tqwidget.html#height">height</a>() - menubar-&gt;<a href="tqmenubar.html#heightForWidth">heightForWidth</a>( <a href="tqwidget.html#width">width</a>() ) - status-&gt;<a href="tqwidget.html#height">height</a>();
 
     if ( image.isNull() ) return;
 
-    TQApplication::<a href="ntqapplication.html#setOverrideCursor">setOverrideCursor</a>( waitCursor ); // this might take time
-    if ( <a href="ntqwidget.html#width">width</a>() == pm.width() &amp;&amp; h == pm.height() )
+    TQApplication::<a href="tqapplication.html#setOverrideCursor">setOverrideCursor</a>( waitCursor ); // this might take time
+    if ( <a href="tqwidget.html#width">width</a>() == pm.width() &amp;&amp; h == pm.height() )
     {                                           // no need to scale if widget
         pmScaled = pm;                          // size equals pixmap size
     } else {
         if (smooth()) {
-            pmScaled.convertFromImage(image.smoothScale(<a href="ntqwidget.html#width">width</a>(), h),
+            pmScaled.convertFromImage(image.smoothScale(<a href="tqwidget.html#width">width</a>(), h),
                 conversion_flags);
         } else {
-            <a href="ntqwmatrix.html">TQWMatrix</a> m;                         // <a href="ntqwmatrix.html#TransformationMode">transformation matrix</a>
-<a name="x1357"></a>            m.<a href="ntqwmatrix.html#scale">scale</a>(((double)<a href="ntqwidget.html#width">width</a>())/pm.width(),// define scale factors
+            <a href="tqwmatrix.html">TQWMatrix</a> m;                         // <a href="tqwmatrix.html#TransformationMode">transformation matrix</a>
+<a name="x1357"></a>            m.<a href="tqwmatrix.html#scale">scale</a>(((double)<a href="tqwidget.html#width">width</a>())/pm.width(),// define scale factors
                     ((double)h)/pm.height());
             pmScaled = pm.xForm( m );           // create scaled pixmap
         }
     }
-    TQApplication::<a href="ntqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();      // restore original cursor
+    TQApplication::<a href="tqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();      // restore original cursor
 }
 
 /*
@@ -595,30 +594,30 @@ void <a name="f417"></a>ImageViewer::scale()
   scale() to fit the pixmap to the new widget size.
 */
 
-<a name="x1353"></a>void ImageViewer::<a href="ntqwidget.html#resizeEvent">resizeEvent</a>( <a href="qresizeevent.html">TQResizeEvent</a> * )
+<a name="x1353"></a>void ImageViewer::<a href="tqwidget.html#resizeEvent">resizeEvent</a>( <a href="tqresizeevent.html">TQResizeEvent</a> * )
 {
-<a name="x1355"></a>    status-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>(0, height() - status-&gt;<a href="ntqwidget.html#height">height</a>(),
-                        <a href="ntqwidget.html#width">width</a>(), status-&gt;<a href="ntqwidget.html#height">height</a>());
+<a name="x1355"></a>    status-&gt;<a href="tqwidget.html#setGeometry">setGeometry</a>(0, height() - status-&gt;<a href="tqwidget.html#height">height</a>(),
+                        <a href="tqwidget.html#width">width</a>(), status-&gt;<a href="tqwidget.html#height">height</a>());
 
     if ( pm.size() == TQSize( 0, 0 ) )           // we couldn't load the image
         return;
 
-    int h = <a href="ntqwidget.html#height">height</a>() - menubar-&gt;<a href="ntqmenubar.html#heightForWidth">heightForWidth</a>( <a href="ntqwidget.html#width">width</a>() ) - status-&gt;<a href="ntqwidget.html#height">height</a>();
-    if ( <a href="ntqwidget.html#width">width</a>() != pmScaled.width() || h != pmScaled.height())
+    int h = <a href="tqwidget.html#height">height</a>() - menubar-&gt;<a href="tqmenubar.html#heightForWidth">heightForWidth</a>( <a href="tqwidget.html#width">width</a>() ) - status-&gt;<a href="tqwidget.html#height">height</a>();
+    if ( <a href="tqwidget.html#width">width</a>() != pmScaled.width() || h != pmScaled.height())
     {                                           // if new size,
         scale();                                // scale pmScaled to window
         updateStatus();
     }
     if ( image.hasAlphaBuffer() )
-        <a href="ntqwidget.html#erase">erase</a>();
+        <a href="tqwidget.html#erase">erase</a>();
 }
 
-bool <a name="f418"></a>ImageViewer::convertEvent( <a href="qmouseevent.html">TQMouseEvent</a>* e, int&amp; x, int&amp; y)
+bool <a name="f418"></a>ImageViewer::convertEvent( <a href="tqmouseevent.html">TQMouseEvent</a>* e, int&amp; x, int&amp; y)
 {
     if ( pm.size() != TQSize( 0, 0 ) ) {
-        int h = <a href="ntqwidget.html#height">height</a>() - menubar-&gt;<a href="ntqmenubar.html#heightForWidth">heightForWidth</a>( <a href="ntqwidget.html#width">width</a>() ) - status-&gt;<a href="ntqwidget.html#height">height</a>();
-<a name="x1335"></a>        int nx = e-&gt;<a href="qmouseevent.html#x">x</a>() * image.width() / width();
-<a name="x1336"></a>        int ny = (e-&gt;<a href="qmouseevent.html#y">y</a>()-menubar-&gt;<a href="ntqmenubar.html#heightForWidth">heightForWidth</a>( <a href="ntqwidget.html#width">width</a>() )) * image.height() / h;
+        int h = <a href="tqwidget.html#height">height</a>() - menubar-&gt;<a href="tqmenubar.html#heightForWidth">heightForWidth</a>( <a href="tqwidget.html#width">width</a>() ) - status-&gt;<a href="tqwidget.html#height">height</a>();
+<a name="x1335"></a>        int nx = e-&gt;<a href="tqmouseevent.html#x">x</a>() * image.width() / width();
+<a name="x1336"></a>        int ny = (e-&gt;<a href="tqmouseevent.html#y">y</a>()-menubar-&gt;<a href="tqmenubar.html#heightForWidth">heightForWidth</a>( <a href="tqwidget.html#width">width</a>() )) * image.height() / h;
         if (nx != x || ny != y ) {
             x = nx;
             y = ny;
@@ -629,12 +628,12 @@ bool <a name="f418"></a>ImageViewer::convertEvent( <a href="qmouseevent.html">TQ
     return FALSE;
 }
 
-void ImageViewer::<a href="ntqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+void ImageViewer::<a href="tqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
 {
     may_be_other = convertEvent(e, clickx, clicky);
 }
 
-<a name="x1350"></a>void ImageViewer::<a href="ntqwidget.html#mouseReleaseEvent">mouseReleaseEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> * )
+<a name="x1350"></a>void ImageViewer::<a href="tqwidget.html#mouseReleaseEvent">mouseReleaseEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> * )
 {
     if ( may_be_other )
         other = this;
@@ -643,11 +642,11 @@ void ImageViewer::<a href="ntqwidget.html#mousePressEvent">mousePressEvent</a>( 
 /*
   Record the pixel position of interest.
 */
-void ImageViewer::<a href="ntqwidget.html#mouseMoveEvent">mouseMoveEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+void ImageViewer::<a href="tqwidget.html#mouseMoveEvent">mouseMoveEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
 {
     if (convertEvent(e,pickx,picky)) {
         updateStatus();
-<a name="x1334"></a>        if ((e-&gt;<a href="qmouseevent.html#state">state</a>()&amp;LeftButton)) {
+<a name="x1334"></a>        if ((e-&gt;<a href="tqmouseevent.html#state">state</a>()&amp;LeftButton)) {
             may_be_other = FALSE;
             if ( clickx &gt;= 0 &amp;&amp; other) {
                 copyFrom(other);
@@ -661,12 +660,12 @@ void ImageViewer::<a href="ntqwidget.html#mouseMoveEvent">mouseMoveEvent</a>( <a
   an error message if no legal pixmap has been loaded.
 */
 
-void ImageViewer::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaintevent.html">TQPaintEvent</a> *e )
+void ImageViewer::<a href="tqwidget.html#paintEvent">paintEvent</a>( <a href="tqpaintevent.html">TQPaintEvent</a> *e )
 {
     if ( pm.size() != TQSize( 0, 0 ) ) {         // is an image loaded?
-        <a href="ntqpainter.html">TQPainter</a> painter(this);
-<a name="x1340"></a><a name="x1339"></a>        painter.<a href="ntqpainter.html#setClipRect">setClipRect</a>(e-&gt;<a href="qpaintevent.html#rect">rect</a>());
-<a name="x1337"></a>        painter.<a href="ntqpainter.html#drawPixmap">drawPixmap</a>(0, menubar-&gt;<a href="ntqmenubar.html#heightForWidth">heightForWidth</a>( <a href="ntqwidget.html#width">width</a>() ), pmScaled);
+        <a href="tqpainter.html">TQPainter</a> painter(this);
+<a name="x1340"></a><a name="x1339"></a>        painter.<a href="tqpainter.html#setClipRect">setClipRect</a>(e-&gt;<a href="tqpaintevent.html#rect">rect</a>());
+<a name="x1337"></a>        painter.<a href="tqpainter.html#drawPixmap">drawPixmap</a>(0, menubar-&gt;<a href="tqmenubar.html#heightForWidth">heightForWidth</a>( <a href="tqwidget.html#width">width</a>() ), pmScaled);
     }
 }
 
@@ -677,21 +676,21 @@ void ImageViewer::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="q
 void <a name="f419"></a>ImageViewer::giveHelp()
 {
     if (!helpmsg) {
-        <a href="ntqstring.html">TQString</a> helptext =
+        <a href="tqstring.html">TQString</a> helptext =
             "&lt;b&gt;Usage:&lt;/b&gt; &lt;tt&gt;showimg [-m] &lt;i&gt;filename ...&lt;/i&gt;&lt;/tt&gt;"
             "&lt;blockquote&gt;"
                 "&lt;tt&gt;-m&lt;/tt&gt; - use &lt;i&gt;ManyColor&lt;/i&gt; color spec"
             "&lt;/blockquote&gt;"
             "&lt;p&gt;Supported input formats:"
             "&lt;blockquote&gt;";
-<a name="x1321"></a>        helptext += TQImage::<a href="ntqimage.html#inputFormatList">inputFormatList</a>().join(", ");
+<a name="x1321"></a>        helptext += TQImage::<a href="tqimage.html#inputFormatList">inputFormatList</a>().join(", ");
         helptext += "&lt;/blockquote&gt;";
 
-        helpmsg = new <a href="ntqmessagebox.html">TQMessageBox</a>( "Help", helptext,
+        helpmsg = new <a href="tqmessagebox.html">TQMessageBox</a>( "Help", helptext,
             TQMessageBox::Information, TQMessageBox::Ok, 0, 0, 0, 0, FALSE );
     }
-<a name="x1317"></a>    helpmsg-&gt;<a href="ntqdialog.html#show">show</a>();
-<a name="x1352"></a>    helpmsg-&gt;<a href="ntqwidget.html#raise">raise</a>();
+<a name="x1317"></a>    helpmsg-&gt;<a href="tqdialog.html#show">show</a>();
+<a name="x1352"></a>    helpmsg-&gt;<a href="tqwidget.html#raise">raise</a>();
 }
 
 void <a name="f420"></a>ImageViewer::copyFrom(ImageViewer* s)
@@ -711,9 +710,9 @@ void <a name="f420"></a>ImageViewer::copyFrom(ImageViewer* s)
             dy = picky;
             sy -= sh-1;
         }
-        <a href="ntqimage.html#bitBlt">bitBlt</a>( &amp;image, dx, dy, &amp;s-&gt;image, sx, sy, sw, sh );
+        <a href="tqimage.html#bitBlt">bitBlt</a>( &amp;image, dx, dy, &amp;s-&gt;image, sx, sy, sw, sh );
         reconvertImage();
-        <a href="ntqwidget.html#repaint">repaint</a>( image.hasAlphaBuffer() );
+        <a href="tqwidget.html#repaint">repaint</a>( image.hasAlphaBuffer() );
     }
 }
 ImageViewer* ImageViewer::other = 0;
@@ -736,28 +735,28 @@ void <a name="f423"></a>ImageViewer::rot180()
 void <a name="f424"></a>ImageViewer::copy()
 {
 #ifndef TQT_NO_MIMECLIPBOARD
-<a name="x1308"></a>    TQApplication::<a href="ntqapplication.html#clipboard">clipboard</a>()-&gt;setImage(image); // Less information loss
+<a name="x1308"></a>    TQApplication::<a href="tqapplication.html#clipboard">clipboard</a>()-&gt;setImage(image); // Less information loss
 #endif
 }
 
 void <a name="f425"></a>ImageViewer::paste()
 {
 #ifndef TQT_NO_MIMECLIPBOARD
-    <a href="ntqimage.html">TQImage</a> p = TQApplication::<a href="ntqapplication.html#clipboard">clipboard</a>()-&gt;image();
-<a name="x1322"></a>    if ( !p.<a href="ntqimage.html#isNull">isNull</a>() ) {
+    <a href="tqimage.html">TQImage</a> p = TQApplication::<a href="tqapplication.html#clipboard">clipboard</a>()-&gt;image();
+<a name="x1322"></a>    if ( !p.<a href="tqimage.html#isNull">isNull</a>() ) {
         filename = "pasted";
         setImage(p);
     }
 #endif
 }
 
-void <a name="f426"></a>ImageViewer::setImage(const <a href="ntqimage.html">TQImage</a>&amp; newimage)
+void <a name="f426"></a>ImageViewer::setImage(const <a href="tqimage.html">TQImage</a>&amp; newimage)
 {
     image = newimage;
 
     pickx = -1;
     clickx = -1;
-    <a href="ntqwidget.html#setCaption">setCaption</a>( filename );                     // set window caption
+    <a href="tqwidget.html#setCaption">setCaption</a>( filename );                     // set window caption
     int w = image.width();
     int h = image.height();
     if ( !w )
@@ -771,11 +770,11 @@ void <a name="f426"></a>ImageViewer::setImage(const <a href="ntqimage.html">TQIm
         h *= multiply;
     }
 
-    h += menubar-&gt;<a href="ntqmenubar.html#heightForWidth">heightForWidth</a>(w) + status-&gt;<a href="ntqwidget.html#height">height</a>();
-    <a href="ntqwidget.html#resize">resize</a>( w, h );                             // we resize to fit image
+    h += menubar-&gt;<a href="tqmenubar.html#heightForWidth">heightForWidth</a>(w) + status-&gt;<a href="tqwidget.html#height">height</a>();
+    <a href="tqwidget.html#resize">resize</a>( w, h );                             // we resize to fit image
 
     reconvertImage();
-    <a href="ntqwidget.html#repaint">repaint</a>( image.hasAlphaBuffer() );
+    <a href="tqwidget.html#repaint">repaint</a>( image.hasAlphaBuffer() );
 
     updateStatus();
     setMenuItemFlags();
@@ -784,7 +783,7 @@ void <a name="f426"></a>ImageViewer::setImage(const <a href="ntqimage.html">TQIm
 void <a name="f427"></a>ImageViewer::editText()
 {
     ImageTextEditor editor(image,this);
-    editor.<a href="ntqdialog.html#exec">exec</a>();
+    editor.<a href="tqdialog.html#exec">exec</a>();
 }
 
 void <a name="f428"></a>ImageViewer::to1Bit()
@@ -806,7 +805,7 @@ void <a name="f431"></a>ImageViewer::toBitDepth(int d)
 {
     image = image.convertDepth(d);
     reconvertImage();
-    <a href="ntqwidget.html#repaint">repaint</a>( image.hasAlphaBuffer() );
+    <a href="tqwidget.html#repaint">repaint</a>( image.hasAlphaBuffer() );
 }
 </pre>
 
@@ -824,50 +823,50 @@ void <a name="f431"></a>ImageViewer::toBitDepth(int d)
 
 #include "showimg.h"
 #include "imagefip.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qimage-h.html">ntqimage.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqimage-h.html">tqimage.h</a>&gt;
 
 int main( int argc, char **argv )
 {
     if ( argc &gt; 1 &amp;&amp; TQString(argv[1]) == "-m" ) {
-<a name="x1361"></a>        TQApplication::<a href="ntqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::ManyColor );
+<a name="x1361"></a>        TQApplication::<a href="tqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::ManyColor );
         argc--;
         argv++;
     }
     else if ( argc &gt; 1 &amp;&amp; TQString(argv[1]) == "-n" ) {
-        TQApplication::<a href="ntqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::NormalColor );
+        TQApplication::<a href="tqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::NormalColor );
         argc--;
         argv++;
     }
     else {
-        TQApplication::<a href="ntqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::CustomColor );
+        TQApplication::<a href="tqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::CustomColor );
     }
 
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     ImageIconProvider iip;
-<a name="x1362"></a>    TQFileDialog::<a href="ntqfiledialog.html#setIconProvider">setIconProvider</a>( &amp;iip );
+<a name="x1362"></a>    TQFileDialog::<a href="tqfiledialog.html#setIconProvider">setIconProvider</a>( &amp;iip );
 
     if ( argc &lt;= 1 ) {
         // Create a window which looks after its own existence.
         ImageViewer *w =
             new ImageViewer(0, "new window", TQt::WDestructiveClose | TQt::WResizeNoErase );
-<a name="x1364"></a>        w-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - Image Viewer");
-        w-&gt;<a href="ntqwidget.html#show">show</a>();
+<a name="x1364"></a>        w-&gt;<a href="tqwidget.html#setCaption">setCaption</a>("TQt Example - Image Viewer");
+        w-&gt;<a href="tqwidget.html#show">show</a>();
     } else {
         for ( int i=1; i&lt;argc; i++ ) {
             // Create a window which looks after its own existence.
             ImageViewer *w =
                 new ImageViewer(0, argv[i], TQt::WDestructiveClose | TQt::WResizeNoErase );
-            w-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - Image Viewer");
+            w-&gt;<a href="tqwidget.html#setCaption">setCaption</a>("TQt Example - Image Viewer");
             w-&gt;loadImage( argv[i] );
-            w-&gt;<a href="ntqwidget.html#show">show</a>();
+            w-&gt;<a href="tqwidget.html#show">show</a>();
         }
     }
 
-    TQObject::<a href="ntqobject.html#connect">connect</a>(tqApp, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
+    TQObject::<a href="tqobject.html#connect">connect</a>(tqApp, TQ_SIGNAL(<a href="tqapplication.html#lastWindowClosed">lastWindowClosed</a>()), tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()));
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

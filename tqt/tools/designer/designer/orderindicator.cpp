@@ -31,14 +31,14 @@
 **
 **********************************************************************/
 
-#include <ntqvariant.h> // HP-UX compiler need this here
+#include <tqvariant.h> // HP-UX compiler need this here
 
 #include "orderindicator.h"
 #include "formwindow.h"
 
-#include <ntqpainter.h>
-#include <ntqbitmap.h>
-#include <ntqapplication.h>
+#include <tqpainter.h>
+#include <tqbitmap.h>
+#include <tqapplication.h>
 
 OrderIndicator::OrderIndicator( int i, TQWidget* w, FormWindow *fw )
     : TQWidget( fw, "order_indicator", WMouseNoMask ), formWindow( fw )

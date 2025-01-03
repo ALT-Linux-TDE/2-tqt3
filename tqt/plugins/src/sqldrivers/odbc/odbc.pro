@@ -4,9 +4,9 @@ TARGET	 = qsqlodbc
 CONFIG  += qt plugin
 DESTDIR	 = ../../../sqldrivers
 
-HEADERS		= ../../../../src/sql/drivers/odbc/qsql_odbc.h
+HEADERS		= ../../../../src/sql/drivers/odbc/tqsql_odbc.h
 SOURCES		= main.cpp \
-		  ../../../../src/sql/drivers/odbc/qsql_odbc.cpp
+		  ../../../../src/sql/drivers/odbc/tqsql_odbc.cpp
 
 mac {
         !contains( LIBS, .*odbc.* ) {
@@ -23,8 +23,7 @@ unix {
 
 win32 {
 	OBJECTS_DIR		= obj
-	!win32-borland:LIBS	*= -lodbc32
-    	win32-borland:LIBS	*= $(BCB)/lib/PSDK/odbc32.lib
+	LIBS	*= -lodbc32
 }
 
 REQUIRES	= sql

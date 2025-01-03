@@ -1,5 +1,5 @@
 '\" t
-.TH QMenuBar 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMenuBar 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QMenuBar \- Horizontal menu bar
+TQMenuBar \- Horizontal menu bar
 .SH SYNOPSIS
-\fC#include <ntqmenubar.h>\fR
+\fC#include <tqmenubar.h>\fR
 .PP
-Inherits QFrame and QMenuData.
+Inherits TQFrame and TQMenuData.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQMenuBar\fR ( TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQMenuBar\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QMenuBar\fR ()"
+.BI "\fB~TQMenuBar\fR ()"
 .br
 .ti -1c
 .BI "virtual void \fBshow\fR ()"
@@ -58,49 +58,49 @@ Inherits QFrame and QMenuData.
 .SS "Important Inherited Members"
 .in +1c
 .ti -1c
-.BI "int \fBinsertItem\fR ( const TQString & text, const TQObject * receiver, const char * member, const QKeySequence & accel = 0, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQString & text, const TQObject * receiver, const char * member, const TQKeySequence & accel = 0, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QIconSet & icon, const TQString & text, const TQObject * receiver, const char * member, const QKeySequence & accel = 0, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQIconSet & icon, const TQString & text, const TQObject * receiver, const char * member, const TQKeySequence & accel = 0, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QPixmap & pixmap, const TQObject * receiver, const char * member, const QKeySequence & accel = 0, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQPixmap & pixmap, const TQObject * receiver, const char * member, const TQKeySequence & accel = 0, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QIconSet & icon, const QPixmap & pixmap, const TQObject * receiver, const char * member, const QKeySequence & accel = 0, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQIconSet & icon, const TQPixmap & pixmap, const TQObject * receiver, const char * member, const TQKeySequence & accel = 0, int id = -1, int index = -1 )"
 .br
 .ti -1c
 .BI "int \fBinsertItem\fR ( const TQString & text, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QIconSet & icon, const TQString & text, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQIconSet & icon, const TQString & text, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const TQString & text, QPopupMenu * popup, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQString & text, TQPopupMenu * popup, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QIconSet & icon, const TQString & text, QPopupMenu * popup, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQIconSet & icon, const TQString & text, TQPopupMenu * popup, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QPixmap & pixmap, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQPixmap & pixmap, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QIconSet & icon, const QPixmap & pixmap, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQIconSet & icon, const TQPixmap & pixmap, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QPixmap & pixmap, QPopupMenu * popup, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQPixmap & pixmap, TQPopupMenu * popup, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QIconSet & icon, const QPixmap & pixmap, QPopupMenu * popup, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQIconSet & icon, const TQPixmap & pixmap, TQPopupMenu * popup, int id = -1, int index = -1 )"
 .br
 .ti -1c
 .BI "int \fBinsertItem\fR ( TQWidget * widget, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( const QIconSet & icon, QCustomMenuItem * custom, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( const TQIconSet & icon, TQCustomMenuItem * custom, int id = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "int \fBinsertItem\fR ( QCustomMenuItem * custom, int id = -1, int index = -1 )"
+.BI "int \fBinsertItem\fR ( TQCustomMenuItem * custom, int id = -1, int index = -1 )"
 .br
 .ti -1c
 .BI "int \fBinsertSeparator\fR ( int index = -1 )"
@@ -136,7 +136,7 @@ Inherits QFrame and QMenuData.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBdrawContents\fR ( QPainter * p )"
+.BI "virtual void \fBdrawContents\fR ( TQPainter * p )"
 .br
 .ti -1c
 .BI "virtual void \fBmenuContentsChanged\fR ()"
@@ -146,9 +146,9 @@ Inherits QFrame and QMenuData.
 .br
 .in -1c
 .SH DESCRIPTION
-The QMenuBar class provides a horizontal menu bar.
+The TQMenuBar class provides a horizontal menu bar.
 .PP
-A menu bar consists of a list of pull-down menu items. You add menu items with insertItem(). For example, asuming that \fCmenubar\fR is a pointer to a QMenuBar and \fCfilemenu\fR is a pointer to a QPopupMenu, the following statement inserts the menu into the menu bar:
+A menu bar consists of a list of pull-down menu items. You add menu items with insertItem(). For example, asuming that \fCmenubar\fR is a pointer to a TQMenuBar and \fCfilemenu\fR is a pointer to a TQPopupMenu, the following statement inserts the menu into the menu bar:
 .PP
 .nf
 .br
@@ -165,7 +165,7 @@ Example of creating a menu bar with menu items (from menu/menu.cpp):
 .PP
 .nf
 .br
-        QPopupMenu *file = new QPopupMenu( this );
+        TQPopupMenu *file = new TQPopupMenu( this );
 .fi
 .PP
 .nf
@@ -177,7 +177,7 @@ Example of creating a menu bar with menu items (from menu/menu.cpp):
 .PP
 .nf
 .br
-        menu = new QMenuBar( this );
+        menu = new TQMenuBar( this );
 .fi
 .PP
 .nf
@@ -185,20 +185,20 @@ Example of creating a menu bar with menu items (from menu/menu.cpp):
         menu->insertItem( "&File", file );
 .fi
 .PP
-In most main window style applications you would use the menuBar() provided in QMainWindow, adding QPopupMenus to the menu bar and adding QActions to the popup menus.
+In most main window style applications you would use the menuBar() provided in TQMainWindow, adding TQPopupMenus to the menu bar and adding TQActions to the popup menus.
 .PP
 Example (from action/application.cpp):
 .PP
 .nf
 .br
-        QPopupMenu * file = new QPopupMenu( this );
+        TQPopupMenu * file = new TQPopupMenu( this );
 .br
         menuBar()->insertItem( "&File", file );
 .br
         fileNewAction->addTo( file );
 .fi
 .PP
-Menu items can have text and pixmaps (or iconsets), see the various insertItem() overloads, as well as separators, see insertSeparator(). You can also add custom menu items that are derived from QCustomMenuItem.
+Menu items can have text and pixmaps (or iconsets), see the various insertItem() overloads, as well as separators, see insertSeparator(). You can also add custom menu items that are derived from TQCustomMenuItem.
 .PP
 Menu items may be removed with removeItem() and enabled or disabled with setItemEnabled().
 .PP
@@ -209,12 +209,12 @@ Menu items may be removed with removeItem() and enabled or disabled with setItem
 .ce 1
 .B "[Image Omitted]"
 .PP
-.SH "QMenuBar on Qt/Mac"
-QMenuBar on Qt/Mac is a wrapper for using the system-wide menubar. If you have multiple menubars in one dialog the outermost menubar (normally inside a widget with widget flag WType_TopLevel) will be used for the system-wide menubar.
+.SH "TQMenuBar on Qt/Mac"
+TQMenuBar on Qt/Mac is a wrapper for using the system-wide menubar. If you have multiple menubars in one dialog the outermost menubar (normally inside a widget with widget flag WType_TopLevel) will be used for the system-wide menubar.
 .PP
-Note that arbitrary TQt widgets \fIcannot\fR be inserted into a QMenuBar on the Mac because TQt uses Mac's native menus which don't support this functionality. This limitation does not apply to stand-alone QPopupMenus.
+Note that arbitrary TQt widgets \fIcannot\fR be inserted into a TQMenuBar on the Mac because TQt uses Mac's native menus which don't support this functionality. This limitation does not apply to stand-alone TQPopupMenus.
 .PP
-Qt/Mac also provides a menubar merging feature to make QMenuBar conform more closely to accepted Mac OS X menubar layout. The merging functionality is based on string matching the title of a QPopupMenu entry. These strings are translated (using TQObject::tr()) in the "QMenuBar" context. If an entry is moved its slots will still fire as if it was in the original place. The table below outlines the strings looked for and where the entry is placed if matched:
+Qt/Mac also provides a menubar merging feature to make TQMenuBar conform more closely to accepted Mac OS X menubar layout. The merging functionality is based on string matching the title of a TQPopupMenu entry. These strings are translated (using TQObject::tr()) in the "TQMenuBar" context. If an entry is moved its slots will still fire as if it was in the original place. The table below outlines the strings looked for and where the entry is placed if matched:
 .PP
 <center>.nf
 .TS
@@ -223,62 +223,60 @@ l - l. String matches Placement Notes about.* Application Menu | About If this e
 .fi
 </center>
 .PP
-menu/menu.cpp is an example of QMenuBar and QPopupMenu use.
+menu/menu.cpp is an example of TQMenuBar and TQPopupMenu use.
 .PP
-See also QPopupMenu, QAccel, QAction, Aqua Style Guidelines, GUI Design Handbook: Menu Bar, and Main Window and Related Classes.
+See also TQPopupMenu, TQAccel, TQAction, Aqua Style Guidelines, GUI Design Handbook: Menu Bar, and Main Window and Related Classes.
 .SS "Member Type Documentation"
-.SH "QMenuBar::Separator"
-This enum type is used to decide whether QMenuBar should draw a separator line at its bottom.
+.SH "TQMenuBar::Separator"
+This enum type is used to decide whether TQMenuBar should draw a separator line at its bottom.
 .TP
-\fCQMenuBar::Never\fR - In many applications there is already a separator, and having two looks wrong.
+\fCTQMenuBar::Never\fR - In many applications there is already a separator, and having two looks wrong.
 .TP
-\fCQMenuBar::InWindowsStyle\fR - In some other applications a separator looks good in Windows style, but nowhere else.
+\fCTQMenuBar::InWindowsStyle\fR - In some other applications a separator looks good in Windows style, but nowhere else.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMenuBar::QMenuBar ( TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQMenuBar::TQMenuBar ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a menu bar called \fIname\fR with parent \fIparent\fR.
-.SH "QMenuBar::~QMenuBar ()"
+.SH "TQMenuBar::~TQMenuBar ()"
 Destroys the menu bar.
-.SH "void QMenuBar::activated ( int id )\fC [signal]\fR"
+.SH "void TQMenuBar::activated ( int id )\fC [signal]\fR"
 This signal is emitted when a menu item is selected; \fIid\fR is the id of the selected item.
 .PP
-Normally you will connect each menu item to a single slot using QMenuData::insertItem(), but sometimes you will want to connect several items to a single slot (most often if the user selects from an array). This signal is useful in such cases.
+Normally you will connect each menu item to a single slot using TQMenuData::insertItem(), but sometimes you will want to connect several items to a single slot (most often if the user selects from an array). This signal is useful in such cases.
 .PP
-See also highlighted() and QMenuData::insertItem().
+See also highlighted() and TQMenuData::insertItem().
 .PP
 Example: progress/progress.cpp.
-.SH "void QMenuData::clear ()"
+.SH "void TQMenuData::clear ()"
 Removes all menu items.
 .PP
 See also removeItem() and removeItemAt().
 .PP
 Examples:
 .)l mdi/application.cpp and qwerty/qwerty.cpp.
-.SH "void QMenuBar::drawContents ( QPainter * p )\fC [virtual protected]\fR"
-Called from QFrame::paintEvent(). Draws the menu bar contents using painter \fIp\fR.
+.SH "void TQMenuBar::drawContents ( TQPainter * p )\fC [virtual protected]\fR"
+Called from TQFrame::paintEvent(). Draws the menu bar contents using painter \fIp\fR.
 .PP
-Reimplemented from QFrame.
-.SH "int QMenuBar::heightForWidth ( int max_width ) const\fC [virtual]\fR"
+Reimplemented from TQFrame.
+.SH "int TQMenuBar::heightForWidth ( int max_width ) const\fC [virtual]\fR"
 Returns the height that the menu would resize itself to if its parent (and hence itself) resized to the given \fImax_width\fR. This can be useful for simple layout tasks in which the height of the menu bar is needed after items have been inserted. See showimg/showimg.cpp for an example of the usage.
 .PP
 Example: showimg/showimg.cpp.
 .PP
 Reimplemented from TQWidget.
-.SH "void QMenuBar::hide ()\fC [virtual]\fR"
+.SH "void TQMenuBar::hide ()\fC [virtual]\fR"
 Reimplements TQWidget::hide() in order to deselect any selected item, and calls setUpLayout() for the main window.
 .PP
-Example: grapher/grapher.cpp.
-.PP
 Reimplemented from TQWidget.
-.SH "void QMenuBar::highlighted ( int id )\fC [signal]\fR"
+.SH "void TQMenuBar::highlighted ( int id )\fC [signal]\fR"
 This signal is emitted when a menu item is highlighted; \fIid\fR is the id of the highlighted item.
 .PP
-Normally, you will connect each menu item to a single slot using QMenuData::insertItem(), but sometimes you will want to connect several items to a single slot (most often if the user selects from an array). This signal is useful in such cases.
+Normally, you will connect each menu item to a single slot using TQMenuData::insertItem(), but sometimes you will want to connect several items to a single slot (most often if the user selects from an array). This signal is useful in such cases.
 .PP
-See also activated() and QMenuData::insertItem().
-.SH "int QMenuData::insertItem ( const TQString & text, const TQObject * receiver, const char * member, const QKeySequence & accel = 0, int id = -1, int index = -1 )"
+See also activated() and TQMenuData::insertItem().
+.SH "int TQMenuData::insertItem ( const TQString & text, const TQObject * receiver, const char * member, const TQKeySequence & accel = 0, int id = -1, int index = -1 )"
 The family of insertItem() functions inserts menu items into a popup menu or a menu bar.
 .PP
-A menu item is usually either a text string or a pixmap, both with an optional icon or keyboard accelerator. For special cases it is also possible to insert custom items (see QCustomMenuItem) or even widgets into popup menus.
+A menu item is usually either a text string or a pixmap, both with an optional icon or keyboard accelerator. For special cases it is also possible to insert custom items (see TQCustomMenuItem) or even widgets into popup menus.
 .PP
 Some insertItem() members take a popup menu as an additional argument. Use this to insert submenus into existing menus or pulldown menus into a menu bar.
 .PP
@@ -290,9 +288,9 @@ Example:
 .PP
 .nf
 .br
-        QMenuBar   *mainMenu = new QMenuBar;
+        TQMenuBar   *mainMenu = new TQMenuBar;
 .br
-        QPopupMenu *fileMenu = new QPopupMenu;
+        TQPopupMenu *fileMenu = new TQPopupMenu;
 .br
         fileMenu->insertItem( "New",  myView, TQ_SLOT(newFile()), CTRL+Key_N );
 .br
@@ -316,13 +314,13 @@ If you need to translate accelerators, use tr() with the text and accelerator. (
 .PP
 In the example above, pressing Ctrl+O or selecting "Open" from the menu activates the myView->open() function.
 .PP
-Some insert functions take a QIconSet parameter to specify the little menu item icon. Note that you can always pass a QPixmap object instead.
+Some insert functions take a TQIconSet parameter to specify the little menu item icon. Note that you can always pass a TQPixmap object instead.
 .PP
 The \fIid\fR specifies the identification number associated with the menu item. Note that only positive values are valid, as a negative value will make TQt select a unique id for the item.
 .PP
 The \fIindex\fR specifies the position in the menu. The menu item is appended at the end of the list if \fIindex\fR is negative.
 .PP
-Note that keyboard accelerators in TQt are not application-global, instead they are bound to a certain top-level window. For example, accelerators in QPopupMenu items only work for menus that are associated with a certain window. This is true for popup menus that live in a menu bar since their accelerators will then be installed in the menu bar itself. This also applies to stand-alone popup menus that have a top-level widget in their parentWidget() chain. The menu will then install its accelerator object on that top-level widget. For all other cases use an independent QAccel object.
+Note that keyboard accelerators in TQt are not application-global, instead they are bound to a certain top-level window. For example, accelerators in TQPopupMenu items only work for menus that are associated with a certain window. This is true for popup menus that live in a menu bar since their accelerators will then be installed in the menu bar itself. This also applies to stand-alone popup menus that have a top-level widget in their parentWidget() chain. The menu will then install its accelerator object on that top-level widget. For all other cases use an independent TQAccel object.
 .PP
 \fBWarning:\fR Be careful when passing a literal 0 to insertItem() because some C++ compilers choose the wrong overloaded function. Cast the 0 to what you mean, e.g. \fC(TQObject*)0\fR.
 .PP
@@ -330,39 +328,39 @@ Note that keyboard accelerators in TQt are not application-global, instead they 
 .PP
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
-See also removeItem(), changeItem(), setAccel(), connectItem(), QAccel, and ntqnamespace.h.
+See also removeItem(), changeItem(), setAccel(), connectItem(), TQAccel, and tqnamespace.h.
 .PP
 Examples:
 .)l addressbook/mainwindow.cpp, canvas/canvas.cpp, menu/menu.cpp, qwerty/qwerty.cpp, scrollview/scrollview.cpp, showimg/showimg.cpp, and sound/sound.cpp.
-.SH "int QMenuData::insertItem ( const QIconSet & icon, const TQString & text, const TQObject * receiver, const char * member, const QKeySequence & accel = 0, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQIconSet & icon, const TQString & text, const TQObject * receiver, const char * member, const TQKeySequence & accel = 0, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with icon \fIicon\fR, text \fItext\fR, accelerator \fIaccel\fR, optional id \fIid\fR, and optional \fIindex\fR position. The menu item is connected it to the \fIreceiver\fR's \fImember\fR slot. The icon will be displayed to the left of the text in the item.
 .PP
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
-See also removeItem(), changeItem(), setAccel(), connectItem(), QAccel, and ntqnamespace.h.
-.SH "int QMenuData::insertItem ( const QPixmap & pixmap, const TQObject * receiver, const char * member, const QKeySequence & accel = 0, int id = -1, int index = -1 )"
+See also removeItem(), changeItem(), setAccel(), connectItem(), TQAccel, and tqnamespace.h.
+.SH "int TQMenuData::insertItem ( const TQPixmap & pixmap, const TQObject * receiver, const char * member, const TQKeySequence & accel = 0, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with pixmap \fIpixmap\fR, accelerator \fIaccel\fR, optional id \fIid\fR, and optional \fIindex\fR position. The menu item is connected it to the \fIreceiver\fR's \fImember\fR slot. The icon will be displayed to the left of the text in the item.
 .PP
-To look best when being highlighted as a menu item, the pixmap should provide a mask (see QPixmap::mask()).
+To look best when being highlighted as a menu item, the pixmap should provide a mask (see TQPixmap::mask()).
 .PP
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( const QIconSet & icon, const QPixmap & pixmap, const TQObject * receiver, const char * member, const QKeySequence & accel = 0, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQIconSet & icon, const TQPixmap & pixmap, const TQObject * receiver, const char * member, const TQKeySequence & accel = 0, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with icon \fIicon\fR, pixmap \fIpixmap\fR, accelerator \fIaccel\fR, optional id \fIid\fR, and optional \fIindex\fR position. The icon will be displayed to the left of the pixmap in the item. The item is connected to the \fImember\fR slot in the \fIreceiver\fR object.
 .PP
-To look best when being highlighted as a menu item, the pixmap should provide a mask (see QPixmap::mask()).
+To look best when being highlighted as a menu item, the pixmap should provide a mask (see TQPixmap::mask()).
 .PP
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
-See also removeItem(), changeItem(), setAccel(), connectItem(), QAccel, and ntqnamespace.h.
-.SH "int QMenuData::insertItem ( const TQString & text, int id = -1, int index = -1 )"
+See also removeItem(), changeItem(), setAccel(), connectItem(), TQAccel, and tqnamespace.h.
+.SH "int TQMenuData::insertItem ( const TQString & text, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with text \fItext\fR, optional id \fIid\fR, and optional \fIindex\fR position.
@@ -370,7 +368,7 @@ Inserts a menu item with text \fItext\fR, optional id \fIid\fR, and optional \fI
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( const QIconSet & icon, const TQString & text, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQIconSet & icon, const TQString & text, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with icon \fIicon\fR, text \fItext\fR, optional id \fIid\fR, and optional \fIindex\fR position. The icon will be displayed to the left of the text in the item.
@@ -378,7 +376,7 @@ Inserts a menu item with icon \fIicon\fR, text \fItext\fR, optional id \fIid\fR,
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( const TQString & text, QPopupMenu * popup, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQString & text, TQPopupMenu * popup, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with text \fItext\fR, submenu \fIpopup\fR, optional id \fIid\fR, and optional \fIindex\fR position.
@@ -388,7 +386,7 @@ The \fIpopup\fR must be deleted by the programmer or by its parent widget. It is
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( const QIconSet & icon, const TQString & text, QPopupMenu * popup, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQIconSet & icon, const TQString & text, TQPopupMenu * popup, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with icon \fIicon\fR, text \fItext\fR, submenu \fIpopup\fR, optional id \fIid\fR, and optional \fIindex\fR position. The icon will be displayed to the left of the text in the item.
@@ -398,17 +396,17 @@ The \fIpopup\fR must be deleted by the programmer or by its parent widget. It is
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( const QPixmap & pixmap, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQPixmap & pixmap, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with pixmap \fIpixmap\fR, optional id \fIid\fR, and optional \fIindex\fR position.
 .PP
-To look best when being highlighted as a menu item, the pixmap should provide a mask (see QPixmap::mask()).
+To look best when being highlighted as a menu item, the pixmap should provide a mask (see TQPixmap::mask()).
 .PP
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( const QIconSet & icon, const QPixmap & pixmap, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQIconSet & icon, const TQPixmap & pixmap, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with icon \fIicon\fR, pixmap \fIpixmap\fR, optional id \fIid\fR, and optional \fIindex\fR position. The icon will be displayed to the left of the pixmap in the item.
@@ -416,7 +414,7 @@ Inserts a menu item with icon \fIicon\fR, pixmap \fIpixmap\fR, optional id \fIid
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( const QPixmap & pixmap, QPopupMenu * popup, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQPixmap & pixmap, TQPopupMenu * popup, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with pixmap \fIpixmap\fR, submenu \fIpopup\fR, optional id \fIid\fR, and optional \fIindex\fR position.
@@ -426,7 +424,7 @@ The \fIpopup\fR must be deleted by the programmer or by its parent widget. It is
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( const QIconSet & icon, const QPixmap & pixmap, QPopupMenu * popup, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQIconSet & icon, const TQPixmap & pixmap, TQPopupMenu * popup, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item with icon \fIicon\fR, pixmap \fIpixmap\fR submenu \fIpopup\fR, optional id \fIid\fR, and optional \fIindex\fR position. The icon will be displayed to the left of the pixmap in the item.
@@ -436,7 +434,7 @@ The \fIpopup\fR must be deleted by the programmer or by its parent widget. It is
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem(), changeItem(), setAccel(), and connectItem().
-.SH "int QMenuData::insertItem ( TQWidget * widget, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( TQWidget * widget, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a menu item that consists of the widget \fIwidget\fR with optional id \fIid\fR, and optional \fIindex\fR position.
@@ -445,9 +443,9 @@ Ownership of \fIwidget\fR is transferred to the popup menu or to the menu bar.
 .PP
 Theoretically, any widget can be inserted into a popup menu. In practice, this only makes sense with certain widgets.
 .PP
-If a widget is not focus-enabled (see TQWidget::isFocusEnabled()), the menu treats it as a separator; this means that the item is not selectable and will never get focus. In this way you can, for example, simply insert a QLabel if you need a popup menu with a title.
+If a widget is not focus-enabled (see TQWidget::isFocusEnabled()), the menu treats it as a separator; this means that the item is not selectable and will never get focus. In this way you can, for example, simply insert a TQLabel if you need a popup menu with a title.
 .PP
-If the widget is focus-enabled it will get focus when the user traverses the popup menu with the arrow keys. If the widget does not accept \fCArrowUp\fR and \fCArrowDown\fR in its key event handler, the focus will move back to the menu when the respective arrow key is hit one more time. This works with a QLineEdit, for example. If the widget accepts the arrow key itself, it must also provide the possibility to put the focus back on the menu again by calling TQWidget::focusNextPrevChild(). Futhermore, if the embedded widget closes the menu when the user made a selection, this can be done safely by calling:
+If the widget is focus-enabled it will get focus when the user traverses the popup menu with the arrow keys. If the widget does not accept \fCArrowUp\fR and \fCArrowDown\fR in its key event handler, the focus will move back to the menu when the respective arrow key is hit one more time. This works with a TQLineEdit, for example. If the widget accepts the arrow key itself, it must also provide the possibility to put the focus back on the menu again by calling TQWidget::focusNextPrevChild(). Futhermore, if the embedded widget closes the menu when the user made a selection, this can be done safely by calling:
 .PP
 .nf
 .br
@@ -455,7 +453,7 @@ If the widget is focus-enabled it will get focus when the user traverses the pop
 .br
              parentWidget() &&
 .br
-             parentWidget()->inherits("QPopupMenu") )
+             parentWidget()->inherits("TQPopupMenu") )
 .br
             parentWidget()->close();
 .br
@@ -464,7 +462,7 @@ If the widget is focus-enabled it will get focus when the user traverses the pop
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
 See also removeItem().
-.SH "int QMenuData::insertItem ( const QIconSet & icon, QCustomMenuItem * custom, int id = -1, int index = -1 )"
+.SH "int TQMenuData::insertItem ( const TQIconSet & icon, TQCustomMenuItem * custom, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a custom menu item \fIcustom\fR with an \fIicon\fR and with optional id \fIid\fR, and optional \fIindex\fR position.
@@ -475,8 +473,8 @@ If you want to connect a custom item to a slot, use connectItem().
 .PP
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
-See also connectItem(), removeItem(), and QCustomMenuItem.
-.SH "int QMenuData::insertItem ( QCustomMenuItem * custom, int id = -1, int index = -1 )"
+See also connectItem(), removeItem(), and TQCustomMenuItem.
+.SH "int TQMenuData::insertItem ( TQCustomMenuItem * custom, int id = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a custom menu item \fIcustom\fR with optional id \fIid\fR, and optional \fIindex\fR position.
@@ -487,63 +485,61 @@ If you want to connect a custom item to a slot, use connectItem().
 .PP
 Returns the allocated menu identifier number (\fIid\fR if \fIid\fR >= 0).
 .PP
-See also connectItem(), removeItem(), and QCustomMenuItem.
-.SH "int QMenuData::insertSeparator ( int index = -1 )"
+See also connectItem(), removeItem(), and TQCustomMenuItem.
+.SH "int TQMenuData::insertSeparator ( int index = -1 )"
 Inserts a separator at position \fIindex\fR, and returns the menu identifier number allocated to it. The separator becomes the last menu item if \fIindex\fR is negative.
 .PP
 In a popup menu a separator is rendered as a horizontal line. In a Motif menu bar a separator is spacing, so the rest of the items (normally just "Help") are drawn right-justified. In a Windows menu bar separators are ignored (to comply with the Windows style guidelines).
 .PP
 Examples:
 .)l addressbook/mainwindow.cpp, menu/menu.cpp, progress/progress.cpp, qwerty/qwerty.cpp, scrollview/scrollview.cpp, showimg/showimg.cpp, and sound/sound.cpp.
-.SH "bool QMenuBar::isDefaultUp () const"
+.SH "bool TQMenuBar::isDefaultUp () const"
 Returns the popup orientation. See the "defaultUp" property for details.
-.SH "bool QMenuData::isItemEnabled ( int id ) const"
+.SH "bool TQMenuData::isItemEnabled ( int id ) const"
 Returns TRUE if the item with identifier \fIid\fR is enabled; otherwise returns FALSE
 .PP
 See also setItemEnabled() and isItemVisible().
-.SH "bool QMenuData::isItemVisible ( int id ) const"
+.SH "bool TQMenuData::isItemVisible ( int id ) const"
 Returns TRUE if the menu item with the id \fIid\fR is visible; otherwise returns FALSE.
 .PP
 See also setItemVisible().
-.SH "void QMenuBar::menuContentsChanged ()\fC [virtual protected]\fR"
+.SH "void TQMenuBar::menuContentsChanged ()\fC [virtual protected]\fR"
 Recomputes the menu bar's display data according to the new contents.
 .PP
-You should never need to call this; it is called automatically by QMenuData whenever it needs to be called.
+You should never need to call this; it is called automatically by TQMenuData whenever it needs to be called.
 .PP
-Reimplemented from QMenuData.
-.SH "void QMenuBar::menuStateChanged ()\fC [virtual protected]\fR"
+Reimplemented from TQMenuData.
+.SH "void TQMenuBar::menuStateChanged ()\fC [virtual protected]\fR"
 Recomputes the menu bar's display data according to the new state.
 .PP
-You should never need to call this; it is called automatically by QMenuData whenever it needs to be called.
+You should never need to call this; it is called automatically by TQMenuData whenever it needs to be called.
 .PP
-Reimplemented from QMenuData.
-.SH "void QMenuData::removeItem ( int id )"
+Reimplemented from TQMenuData.
+.SH "void TQMenuData::removeItem ( int id )"
 Removes the menu item that has the identifier \fIid\fR.
 .PP
 See also removeItemAt() and clear().
 .PP
 Example: chart/chartform.cpp.
-.SH "Separator QMenuBar::separator () const"
+.SH "Separator TQMenuBar::separator () const"
 Returns in which cases a menubar sparator is drawn. See the "separator" property for details.
-.SH "void QMenuBar::setDefaultUp ( bool )"
+.SH "void TQMenuBar::setDefaultUp ( bool )"
 Sets the popup orientation. See the "defaultUp" property for details.
-.SH "void QMenuData::setItemEnabled ( int id, bool enable )"
+.SH "void TQMenuData::setItemEnabled ( int id, bool enable )"
 If \fIenable\fR is TRUE, enables the menu item with identifier \fIid\fR; otherwise disables the menu item with identifier \fIid\fR.
 .PP
 See also isItemEnabled().
 .PP
 Examples:
 .)l mdi/application.cpp, menu/menu.cpp, progress/progress.cpp, and showimg/showimg.cpp.
-.SH "void QMenuData::setItemVisible ( int id, bool visible )"
+.SH "void TQMenuData::setItemVisible ( int id, bool visible )"
 If \fIvisible\fR is TRUE, shows the menu item with id \fIid\fR; otherwise hides the menu item with id \fIid\fR.
 .PP
 See also isItemVisible() and isItemEnabled().
-.SH "void QMenuBar::setSeparator ( Separator when )\fC [virtual]\fR"
+.SH "void TQMenuBar::setSeparator ( Separator when )\fC [virtual]\fR"
 Sets in which cases a menubar sparator is drawn to \fIwhen\fR. See the "separator" property for details.
-.SH "void QMenuBar::show ()\fC [virtual]\fR"
+.SH "void TQMenuBar::show ()\fC [virtual]\fR"
 Reimplements TQWidget::show() in order to set up the correct keyboard accelerators and to raise itself to the top of the widget stack.
-.PP
-Example: grapher/grapher.cpp.
 .PP
 Reimplemented from TQWidget.
 .SS "Property Documentation"
@@ -563,7 +559,7 @@ This property holds in which cases a menubar sparator is drawn.
 Set this property's value with setSeparator() and get this property's value with separator().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqmenubar.html
+.BR http://doc.trolltech.com/tqmenubar.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

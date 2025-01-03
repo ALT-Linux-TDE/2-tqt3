@@ -38,8 +38,8 @@
 
 #include "mingw_make.h"
 #include "option.h"
-#include <ntqregexp.h>
-#include <ntqdir.h>
+#include <tqregexp.h>
+#include <tqdir.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -137,7 +137,7 @@ MingwMakefileGenerator::writeMingwParts(TQTextStream &t)
     }
     t << "MOC		=	" << (project->isEmpty("QMAKE_MOC") ? TQString("moc") :
 			      Option::fixPathToTargetOS(var("QMAKE_MOC"), FALSE)) << endl;
-    t << "UIC		=	" << (project->isEmpty("QMAKE_UIC") ? TQString("uic") :
+    t << "TQUIC		=	" << (project->isEmpty("QMAKE_UIC") ? TQString("tquic") :
 			      Option::fixPathToTargetOS(var("QMAKE_UIC"), FALSE)) << endl;
     t << "QMAKE		=	" << (project->isEmpty("QMAKE_QMAKE") ? TQString("qmake") :
 			      Option::fixPathToTargetOS(var("QMAKE_QMAKE"), FALSE)) << endl;
@@ -243,23 +243,6 @@ MingwMakefileGenerator::writeMingwParts(TQTextStream &t)
 	}
     }
     TQString targetfilename = project->variables()["TARGET"].first();
-    if(project->isActiveConfig("activeqt")) {
-	TQString version = project->variables()["VERSION"].first();
-	if ( version.isEmpty() )
-	    version = "1.0";
-
-	if ( project->isActiveConfig("dll")) {
-	    t << "\n\t" << ("-$(IDC) $(TARGET) /idl " + var("OBJECTS_DIR") + targetfilename + ".idl -version " + version);
-	    t << "\n\t" << ("-$(IDL) /nologo " + var("OBJECTS_DIR") + targetfilename + ".idl /tlb " + var("OBJECTS_DIR") + targetfilename + ".tlb");
-	    t << "\n\t" << ("-$(IDC) $(TARGET) /tlb " + var("OBJECTS_DIR") + targetfilename + ".tlb");
-	    t << "\n\t" << ("-$(IDC) $(TARGET) /regserver" );
-	} else {
-	    t << "\n\t" << ("-$(TARGET) -dumpidl " + var("OBJECTS_DIR") + targetfilename + ".idl -version " + version);
-	    t << "\n\t" << ("-$(IDL) /nologo " + var("OBJECTS_DIR") + targetfilename + ".idl /tlb " + var("OBJECTS_DIR") + targetfilename + ".tlb");
-	    t << "\n\t" << ("-$(IDC) $(TARGET) /tlb " + var("OBJECTS_DIR") + targetfilename + ".tlb");
-	    t << "\n\t" << "-$(TARGET) -regserver";
-	}
-    }
     t << endl << endl;
 
     if(!project->variables()["RC_FILE"].isEmpty()) {
@@ -291,10 +274,6 @@ MingwMakefileGenerator::writeMingwParts(TQTextStream &t)
       << "\n\t-$(DEL_FILE) $(TARGET)"
       << varGlue("QMAKE_CLEAN","\n\t-$(DEL_FILE) ","\n\t-$(DEL_FILE) ","")
       << varGlue("CLEAN_FILES","\n\t-$(DEL_FILE) ","\n\t-$(DEL_FILE) ","");
-    if ( project->isActiveConfig("activeqt")) {
-	t << ("\n\t-$(DEL_FILE) " + var("OBJECTS_DIR") + targetfilename + ".idl");
-	t << ("\n\t-$(DEL_FILE) " + var("OBJECTS_DIR") + targetfilename + ".tlb");
-    }
     if(!project->isEmpty("IMAGES"))
 	t << varGlue("QMAKE_IMAGE_COLLECTION", "\n\t-$(DEL_FILE) ", "\n\t-$(DEL_FILE) ", "");
 
@@ -519,13 +498,6 @@ MingwMakefileGenerator::init()
 			(*libit).replace(TQRegExp("-lqt(-mt)?"), ver);
 		}
 	    }
-	    if ( project->isActiveConfig( "activeqt" ) ) {
-		project->variables().remove("QMAKE_LIBS_QT_ENTRY");
-		project->variables()["QMAKE_LIBS_QT_ENTRY"] = "-lqaxserver";
-		if ( project->isActiveConfig( "dll" ) ) {
-		   project->variables()["QMAKE_LIBS"]  += project->variables()["QMAKE_LIBS_QT_ENTRY"];
-		}
-	    }
 	    if ( !project->isActiveConfig("dll") && !project->isActiveConfig("plugin") ) {
 		project->variables()["QMAKE_LIBS"] +=project->variables()["QMAKE_LIBS_QT_ENTRY"];
 	    }
@@ -602,7 +574,7 @@ MingwMakefileGenerator::init()
     }
 
     if ( project->isActiveConfig("moc") )
-	setMocAware(TRUE);
+	setTQMocAware(TRUE);
 
     // add -L libs to libdir
     TQStringList &libs = project->variables()["QMAKE_LIBS"];

@@ -34,9 +34,9 @@
 
 #include <filterinterface.h>
 
-#include <ntqapplication.h>
-#include <ntqstring.h>
-#include <ntqdir.h>
+#include <tqapplication.h>
+#include <tqstring.h>
+#include <tqdir.h>
 
 #include "kdevdlg2ui.h"
 
@@ -89,7 +89,7 @@ TQStringList KDevDlgFilter::import( const TQString &, const TQString& filename )
 {
     TQFile file( filename );
     if ( !file.open( IO_ReadOnly ) )
-	tqWarning( "uic: Could not open file '%s' ", filename.latin1() );
+	tqWarning( "tquic: Could not open file '%s' ", filename.latin1() );
     TQTextStream in;
     in.setDevice( &file );
 
@@ -114,7 +114,7 @@ bool KDevDlgFilter::canUnload() const
     return TRUE;
 }
 
-Q_EXPORT_COMPONENT()
+TQ_EXPORT_COMPONENT()
 {
     Q_CREATE_INSTANCE( KDevDlgFilter )
 }

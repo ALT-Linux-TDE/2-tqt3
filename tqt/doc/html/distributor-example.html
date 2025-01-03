@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/distributor/distributor.doc:1 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -54,7 +53,7 @@ distributed with TQt.
 <p> <hr>
 <p> Implementation:
 <p> <pre>/****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
+** ui.h extension file, included from the tquic-generated form implementation.
 **
 ** If you wish to add, delete or rename functions or slots use
 ** TQt Designer which will update this file, preserving your code. Create an
@@ -62,22 +61,22 @@ distributed with TQt.
 ** place of a destructor.
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qcursor-h.html">ntqcursor.h</a>&gt;
-#include &lt;<a href="qeventloop-h.html">ntqeventloop.h</a>&gt;
-#include &lt;<a href="qfile-h.html">ntqfile.h</a>&gt;
-#include &lt;<a href="qfiledialog-h.html">ntqfiledialog.h</a>&gt;
-#include &lt;<a href="qfileinfo-h.html">ntqfileinfo.h</a>&gt;
-#include &lt;<a href="qlineedit-h.html">ntqlineedit.h</a>&gt;
-#include &lt;<a href="qmessagebox-h.html">ntqmessagebox.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qtimer-h.html">ntqtimer.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqcursor-h.html">tqcursor.h</a>&gt;
+#include &lt;<a href="tqeventloop-h.html">tqeventloop.h</a>&gt;
+#include &lt;<a href="tqfile-h.html">tqfile.h</a>&gt;
+#include &lt;<a href="tqfiledialog-h.html">tqfiledialog.h</a>&gt;
+#include &lt;<a href="tqfileinfo-h.html">tqfileinfo.h</a>&gt;
+#include &lt;<a href="tqlineedit-h.html">tqlineedit.h</a>&gt;
+#include &lt;<a href="tqmessagebox-h.html">tqmessagebox.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqtimer-h.html">tqtimer.h</a>&gt;
 
 
 void Distributor::init()
 {
-    timer = new <a href="ntqtimer.html">TQTimer</a>( this );
-<a name="x2672"></a>    connect( timer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()), TQ_SLOT(checkLibData()) );
+    timer = new <a href="tqtimer.html">TQTimer</a>( this );
+<a name="x2672"></a>    connect( timer, TQ_SIGNAL(<a href="tqtimer.html#timeout">timeout</a>()), TQ_SLOT(checkLibData()) );
 
     cancelButton()-&gt;setAutoDefault( FALSE );
     backButton()-&gt;setAutoDefault( FALSE );
@@ -91,7 +90,7 @@ void Distributor::init()
     setFinishEnabled( verifyMods, TRUE );
 }
 
-void Distributor::showPage( <a href="ntqwidget.html">TQWidget</a> *page )
+void Distributor::showPage( <a href="tqwidget.html">TQWidget</a> *page )
 {
     if ( page == selectLibrary ) {
         nextButton()-&gt;setDefault( TRUE );
@@ -104,7 +103,7 @@ void Distributor::showPage( <a href="ntqwidget.html">TQWidget</a> *page )
         finishButton()-&gt;setDefault( TRUE );
         finishButton()-&gt;setFocus();
 
-        <a href="ntqstring.html">TQString</a> labeltext =
+        <a href="tqstring.html">TQString</a> labeltext =
             tr("&lt;p&gt;&lt;b&gt;Current Library File:&lt;/b&gt; %1&lt;/p&gt;"
                "&lt;table border=0&gt;"
                "&lt;tr&gt;&lt;td&gt;&lt;b&gt;New Installation Prefix:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%2&lt;/td&gt;&lt;/tr&gt;"
@@ -131,24 +130,24 @@ void Distributor::showPage( <a href="ntqwidget.html">TQWidget</a> *page )
         textLabel4-&gt;setText( labeltext );
     }
 
-<a name="x2673"></a>    TQWizard::<a href="ntqwizard.html#showPage">showPage</a>( page );
+<a name="x2673"></a>    TQWizard::<a href="tqwizard.html#showPage">showPage</a>( page );
 }
 
-void Distributor::checkLibFilename( const <a href="ntqstring.html">TQString</a> &amp;filename )
+void Distributor::checkLibFilename( const <a href="tqstring.html">TQString</a> &amp;filename )
 {
     setNextEnabled( selectLibrary, FALSE );
 
-    <a href="ntqfileinfo.html">TQFileInfo</a> fileinfo( filename );
-<a name="x2661"></a>    if ( ! filename.<a href="ntqstring.html#isEmpty">isEmpty</a>() &amp;&amp; fileinfo.<a href="ntqfileinfo.html#exists">exists</a>() &amp;&amp;
-<a name="x2665"></a><a name="x2663"></a>         fileinfo.<a href="ntqfileinfo.html#isReadable">isReadable</a>() &amp;&amp; fileinfo.<a href="ntqfileinfo.html#isWritable">isWritable</a>() &amp;&amp;
-<a name="x2664"></a><a name="x2662"></a>         fileinfo.<a href="ntqfileinfo.html#isFile">isFile</a>() &amp;&amp; !fileinfo.<a href="ntqfileinfo.html#isSymLink">isSymLink</a>() )
-<a name="x2671"></a>        timer-&gt;<a href="ntqtimer.html#start">start</a>( 500, TRUE );
+    <a href="tqfileinfo.html">TQFileInfo</a> fileinfo( filename );
+<a name="x2661"></a>    if ( ! filename.<a href="tqstring.html#isEmpty">isEmpty</a>() &amp;&amp; fileinfo.<a href="tqfileinfo.html#exists">exists</a>() &amp;&amp;
+<a name="x2665"></a><a name="x2663"></a>         fileinfo.<a href="tqfileinfo.html#isReadable">isReadable</a>() &amp;&amp; fileinfo.<a href="tqfileinfo.html#isWritable">isWritable</a>() &amp;&amp;
+<a name="x2664"></a><a name="x2662"></a>         fileinfo.<a href="tqfileinfo.html#isFile">isFile</a>() &amp;&amp; !fileinfo.<a href="tqfileinfo.html#isSymLink">isSymLink</a>() )
+<a name="x2671"></a>        timer-&gt;<a href="tqtimer.html#start">start</a>( 500, TRUE );
 }
 
 void Distributor::browseLibFilename()
 {
-    <a href="ntqstring.html">TQString</a> filename =
-<a name="x2660"></a>        TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>( <a href="ntqstring.html#TQString-null">TQString::null</a>, TQString::null, this );
+    <a href="tqstring.html">TQString</a> filename =
+<a name="x2660"></a>        TQFileDialog::<a href="tqfiledialog.html#getOpenFileName">getOpenFileName</a>( <a href="tqstring.html#TQString-null">TQString::null</a>, TQString::null, this );
     libFilename-&gt;setText( filename );
 }
 
@@ -176,7 +175,7 @@ static char *find_pattern( char *h, const char *n, ulong hlen )
 
         if ( nlen &gt; hlen )
             return 0;
-    } while ( <a href="ntqcstring.html#qstrncmp">tqstrncmp</a>( h, n, nlen ) != 0 );
+    } while ( <a href="tqcstring.html#qstrncmp">tqstrncmp</a>( h, n, nlen ) != 0 );
     return h + nlen;
 }
 
@@ -184,7 +183,7 @@ void Distributor::checkLibData()
 {
     struct step {
         const char *key;
-        <a href="ntqcstring.html">TQCString</a> value;
+        <a href="tqcstring.html">TQCString</a> value;
         bool done;
     } steps[7];
 
@@ -212,18 +211,18 @@ void Distributor::checkLibData()
     uint completed = 0;
     uint total_steps = sizeof(steps) / sizeof(step);
 
-    <a href="ntqfile.html">TQFile</a> file( libFilename-&gt;text() );
-<a name="x2659"></a>    if ( file.<a href="ntqfile.html#open">open</a>( <a href="ntqfile.html#open">IO_ReadOnly</a> ) ) {
-<a name="x2653"></a>        TQApplication::<a href="ntqapplication.html#setOverrideCursor">setOverrideCursor</a>( WaitCursor );
+    <a href="tqfile.html">TQFile</a> file( libFilename-&gt;text() );
+<a name="x2659"></a>    if ( file.<a href="tqfile.html#open">open</a>( <a href="tqfile.html#open">IO_ReadOnly</a> ) ) {
+<a name="x2653"></a>        TQApplication::<a href="tqapplication.html#setOverrideCursor">setOverrideCursor</a>( WaitCursor );
 
         // instead of reading in the entire file, do the search in chunks
         char data[60000];
         ulong offset = 0;
 
-<a name="x2655"></a>        while ( ! file.<a href="ntqfile.html#atEnd">atEnd</a>() &amp;&amp; completed &lt; total_steps ) {
-<a name="x2651"></a>            TQApplication::<a href="ntqapplication.html#eventLoop">eventLoop</a>()-&gt;processEvents( TQEventLoop::ExcludeUserInput );
+<a name="x2655"></a>        while ( ! file.<a href="tqfile.html#atEnd">atEnd</a>() &amp;&amp; completed &lt; total_steps ) {
+<a name="x2651"></a>            TQApplication::<a href="tqapplication.html#eventLoop">eventLoop</a>()-&gt;processEvents( TQEventLoop::ExcludeUserInput );
 
-<a name="x2667"></a>            ulong len = file.<a href="ntqiodevice.html#readBlock">readBlock</a>( data, sizeof(data) );
+<a name="x2667"></a>            ulong len = file.<a href="tqiodevice.html#readBlock">readBlock</a>( data, sizeof(data) );
             if ( len &lt; 267 ) {
                 // not enough room to make any modifications... stop
                 break;
@@ -240,8 +239,8 @@ void Distributor::checkLibData()
                         // path... move the file pointer back to just
                         // before the pattern and continue
                         offset += where - 11;
-<a name="x2666"></a>                        file.<a href="ntqiodevice.html#at">at</a>( offset );
-                        len = file.<a href="ntqiodevice.html#readBlock">readBlock</a>( data, sizeof(data) );
+<a name="x2666"></a>                        file.<a href="tqiodevice.html#at">at</a>( offset );
+                        len = file.<a href="tqiodevice.html#readBlock">readBlock</a>( data, sizeof(data) );
                         --x; // retry the current step
                         continue;
                     }
@@ -255,33 +254,33 @@ void Distributor::checkLibData()
 
             // move to the new read position
             offset += len - 11;
-            file.<a href="ntqiodevice.html#at">at</a>( offset );
+            file.<a href="tqiodevice.html#at">at</a>( offset );
         }
 
-<a name="x2656"></a>        file.<a href="ntqfile.html#close">close</a>();
+<a name="x2656"></a>        file.<a href="tqfile.html#close">close</a>();
 
-<a name="x2652"></a>        TQApplication::<a href="ntqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();
+<a name="x2652"></a>        TQApplication::<a href="tqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();
     }
 
     if ( completed == total_steps ) {
         setNextEnabled( selectLibrary, TRUE );
 
-<a name="x2657"></a>        <a href="ntqstring.html">TQString</a> prefix = TQFile::<a href="ntqfile.html#decodeName">decodeName</a>( steps[0].value );
+<a name="x2657"></a>        <a href="tqstring.html">TQString</a> prefix = TQFile::<a href="tqfile.html#decodeName">decodeName</a>( steps[0].value );
         prefixPath-&gt;setText( prefix );
 
-        <a href="ntqstring.html">TQString</a> def_bin = prefix + TQString::fromLatin1( "/bin" );
-        <a href="ntqstring.html">TQString</a> def_doc = prefix + TQString::fromLatin1( "/doc" );
-        <a href="ntqstring.html">TQString</a> def_hdr = prefix + TQString::fromLatin1( "/include" );
-        <a href="ntqstring.html">TQString</a> def_lib = prefix + TQString::fromLatin1( "/lib" );
-        <a href="ntqstring.html">TQString</a> def_plg = prefix + TQString::fromLatin1( "/plugins" );
-        <a href="ntqstring.html">TQString</a> def_dat = prefix;
+        <a href="tqstring.html">TQString</a> def_bin = prefix + TQString::fromLatin1( "/bin" );
+        <a href="tqstring.html">TQString</a> def_doc = prefix + TQString::fromLatin1( "/doc" );
+        <a href="tqstring.html">TQString</a> def_hdr = prefix + TQString::fromLatin1( "/include" );
+        <a href="tqstring.html">TQString</a> def_lib = prefix + TQString::fromLatin1( "/lib" );
+        <a href="tqstring.html">TQString</a> def_plg = prefix + TQString::fromLatin1( "/plugins" );
+        <a href="tqstring.html">TQString</a> def_dat = prefix;
 
-        <a href="ntqstring.html">TQString</a> bin = TQFile::<a href="ntqfile.html#decodeName">decodeName</a>( steps[1].value );
-        <a href="ntqstring.html">TQString</a> doc = TQFile::<a href="ntqfile.html#decodeName">decodeName</a>( steps[2].value );
-        <a href="ntqstring.html">TQString</a> hdr = TQFile::<a href="ntqfile.html#decodeName">decodeName</a>( steps[3].value );
-        <a href="ntqstring.html">TQString</a> lib = TQFile::<a href="ntqfile.html#decodeName">decodeName</a>( steps[4].value );
-        <a href="ntqstring.html">TQString</a> plg = TQFile::<a href="ntqfile.html#decodeName">decodeName</a>( steps[5].value );
-        <a href="ntqstring.html">TQString</a> dat = TQFile::<a href="ntqfile.html#decodeName">decodeName</a>( steps[6].value );
+        <a href="tqstring.html">TQString</a> bin = TQFile::<a href="tqfile.html#decodeName">decodeName</a>( steps[1].value );
+        <a href="tqstring.html">TQString</a> doc = TQFile::<a href="tqfile.html#decodeName">decodeName</a>( steps[2].value );
+        <a href="tqstring.html">TQString</a> hdr = TQFile::<a href="tqfile.html#decodeName">decodeName</a>( steps[3].value );
+        <a href="tqstring.html">TQString</a> lib = TQFile::<a href="tqfile.html#decodeName">decodeName</a>( steps[4].value );
+        <a href="tqstring.html">TQString</a> plg = TQFile::<a href="tqfile.html#decodeName">decodeName</a>( steps[5].value );
+        <a href="tqstring.html">TQString</a> dat = TQFile::<a href="tqfile.html#decodeName">decodeName</a>( steps[6].value );
 
         autoSet-&gt;setChecked( def_bin == bin &amp;&amp;
                              def_doc == doc &amp;&amp;
@@ -301,7 +300,7 @@ void Distributor::checkLibData()
     }
 }
 
-void Distributor::checkInstallationPrefix( const <a href="ntqstring.html">TQString</a> &amp;prefix )
+void Distributor::checkInstallationPrefix( const <a href="tqstring.html">TQString</a> &amp;prefix )
 {
     if ( autoSet-&gt;isChecked() ) {
         binPath-&gt;setText( prefix + TQString::fromLatin1( "/bin" ) );
@@ -315,8 +314,8 @@ void Distributor::checkInstallationPrefix( const <a href="ntqstring.html">TQStri
 
 void Distributor::browseInstallationPrefix()
 {
-    <a href="ntqstring.html">TQString</a> prefix =
-        TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>( TQString::null, TQString::null, this );
+    <a href="tqstring.html">TQString</a> prefix =
+        TQFileDialog::<a href="tqfiledialog.html#getOpenFileName">getOpenFileName</a>( TQString::null, TQString::null, this );
     prefixPath-&gt;setText( prefix );
 }
 
@@ -330,53 +329,53 @@ void Distributor::accept()
 {
     struct step {
         const char *key;
-        <a href="ntqcstring.html">TQCString</a> value;
+        <a href="tqcstring.html">TQCString</a> value;
         bool done;
     } steps[7];
 
     steps[0].key = "qt_nstpath=";
-<a name="x2658"></a>    steps[0].value = TQFile::<a href="ntqfile.html#encodeName">encodeName</a>( prefixPath-&gt;text() );
+<a name="x2658"></a>    steps[0].value = TQFile::<a href="tqfile.html#encodeName">encodeName</a>( prefixPath-&gt;text() );
     steps[0].done = FALSE;
 
     steps[1].key = "qt_binpath=";
-    steps[1].value = TQFile::<a href="ntqfile.html#encodeName">encodeName</a>( binPath-&gt;text() );
+    steps[1].value = TQFile::<a href="tqfile.html#encodeName">encodeName</a>( binPath-&gt;text() );
     steps[1].done = FALSE;
 
     steps[2].key = "qt_docpath=";
-    steps[2].value = TQFile::<a href="ntqfile.html#encodeName">encodeName</a>( docPath-&gt;text() );
+    steps[2].value = TQFile::<a href="tqfile.html#encodeName">encodeName</a>( docPath-&gt;text() );
     steps[2].done = FALSE;
 
     steps[3].key = "qt_hdrpath=";
-    steps[3].value = TQFile::<a href="ntqfile.html#encodeName">encodeName</a>( hdrPath-&gt;text() );
+    steps[3].value = TQFile::<a href="tqfile.html#encodeName">encodeName</a>( hdrPath-&gt;text() );
     steps[3].done = FALSE;
 
     steps[4].key = "qt_libpath=";
-    steps[4].value = TQFile::<a href="ntqfile.html#encodeName">encodeName</a>( libPath-&gt;text() );
+    steps[4].value = TQFile::<a href="tqfile.html#encodeName">encodeName</a>( libPath-&gt;text() );
     steps[4].done = FALSE;
 
     steps[5].key = "qt_plgpath=";
-    steps[5].value = TQFile::<a href="ntqfile.html#encodeName">encodeName</a>( plgPath-&gt;text() );
+    steps[5].value = TQFile::<a href="tqfile.html#encodeName">encodeName</a>( plgPath-&gt;text() );
     steps[5].done = FALSE;
 
     steps[6].key = "qt_datpath=";
-    steps[6].value = TQFile::<a href="ntqfile.html#encodeName">encodeName</a>( datPath-&gt;text() );
+    steps[6].value = TQFile::<a href="tqfile.html#encodeName">encodeName</a>( datPath-&gt;text() );
     steps[6].done = FALSE;
 
     uint completed = 0;
     uint total_steps = sizeof(steps) / sizeof(step);
 
-    <a href="ntqfile.html">TQFile</a> file( libFilename-&gt;text() );
-    if ( file.<a href="ntqfile.html#open">open</a>( <a href="ntqfile.html#open">IO_ReadWrite</a> ) ) {
-        TQApplication::<a href="ntqapplication.html#setOverrideCursor">setOverrideCursor</a>( WaitCursor );
+    <a href="tqfile.html">TQFile</a> file( libFilename-&gt;text() );
+    if ( file.<a href="tqfile.html#open">open</a>( <a href="tqfile.html#open">IO_ReadWrite</a> ) ) {
+        TQApplication::<a href="tqapplication.html#setOverrideCursor">setOverrideCursor</a>( WaitCursor );
 
         // instead of reading in the entire file, do the search in chunks
         char data[60000];
         ulong offset = 0;
 
-        while ( ! file.<a href="ntqfile.html#atEnd">atEnd</a>() &amp;&amp; completed &lt; total_steps ) {
-            TQApplication::<a href="ntqapplication.html#eventLoop">eventLoop</a>()-&gt;processEvents( TQEventLoop::ExcludeUserInput );
+        while ( ! file.<a href="tqfile.html#atEnd">atEnd</a>() &amp;&amp; completed &lt; total_steps ) {
+            TQApplication::<a href="tqapplication.html#eventLoop">eventLoop</a>()-&gt;processEvents( TQEventLoop::ExcludeUserInput );
 
-            ulong len = file.<a href="ntqiodevice.html#readBlock">readBlock</a>( data, sizeof(data) );
+            ulong len = file.<a href="tqiodevice.html#readBlock">readBlock</a>( data, sizeof(data) );
             if ( len &lt; 267 ) {
                 // not enough room to make any modifications... stop
                 break;
@@ -394,13 +393,13 @@ void Distributor::accept()
                         // path... move the file pointer back to just
                         // before the pattern and continue
                         offset += where - 11;
-                        file.<a href="ntqiodevice.html#at">at</a>( offset );
-                        len = file.<a href="ntqiodevice.html#readBlock">readBlock</a>( data, sizeof(data) );
+                        file.<a href="tqiodevice.html#at">at</a>( offset );
+                        len = file.<a href="tqiodevice.html#readBlock">readBlock</a>( data, sizeof(data) );
                         --x; // retry the current step
                         continue;
                     }
 
-                    <a href="ntqcstring.html#qstrcpy">qstrcpy</a>( s, steps[x].value );
+                    <a href="tqcstring.html#qstrcpy">qstrcpy</a>( s, steps[x].value );
                     steps[x].done = TRUE;
 
                     ++completed;
@@ -410,22 +409,22 @@ void Distributor::accept()
             if ( completed != completed_save ) {
                 // something changed...  move file pointer back to
                 // where the data was read and write the new data
-                file.<a href="ntqiodevice.html#at">at</a>( offset );
-<a name="x2668"></a>                file.<a href="ntqiodevice.html#writeBlock">writeBlock</a>( data, len );
+                file.<a href="tqiodevice.html#at">at</a>( offset );
+<a name="x2668"></a>                file.<a href="tqiodevice.html#writeBlock">writeBlock</a>( data, len );
             }
 
             // move to the new read position
             offset += len - 11;
-            file.<a href="ntqiodevice.html#at">at</a>( offset );
+            file.<a href="tqiodevice.html#at">at</a>( offset );
         }
 
-        file.<a href="ntqfile.html#close">close</a>();
+        file.<a href="tqfile.html#close">close</a>();
 
-        TQApplication::<a href="ntqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();
+        TQApplication::<a href="tqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();
     }
 
     if ( completed != total_steps ) {
-        TQMessageBox::<a href="ntqmessagebox.html#information">information</a>( this,
+        TQMessageBox::<a href="tqmessagebox.html#information">information</a>( this,
                                   tr("TQt Distribution Wizard"),
                                   tr("&lt;p&gt;&lt;h3&gt;Modifications failed.&lt;/h3&gt;&lt;/p&gt;"
                                      "&lt;p&gt;Please make sure that you have permission "
@@ -434,7 +433,7 @@ void Distributor::accept()
         return;
     }
 
-<a name="x2654"></a>    TQWizard::<a href="ntqdialog.html#accept">accept</a>();
+<a name="x2654"></a>    TQWizard::<a href="tqdialog.html#accept">accept</a>();
 }
 </pre>
 

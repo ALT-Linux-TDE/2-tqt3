@@ -1,7 +1,7 @@
 #ifndef GLLANDSCAPE_H
 #define GLLANDSCAPE_H
 
-#include <ntqgl.h>
+#include <tqgl.h>
 
 class GLLandscape : public TQGLWidget
 {

@@ -57,9 +57,9 @@ or using the open(1) command. Mac OS X needs this to dispatch events correctly,
 as well as gaining access to the menubar. If using GDB you must run with the 
 full path to the executable.
 
-\section1 QCursor
+\section1 TQCursor
 
-Due to Mac OS X having only 16x16 custom cursors QCursor is limited by this
+Due to Mac OS X having only 16x16 custom cursors TQCursor is limited by this
 as well. For now the only workaround to this problem is to use a small
 cursor (16x16).
 
@@ -224,7 +224,7 @@ you should see menu items like "Avslutt" instead of "Quit"
 \section2 Right-Mouse Clicks
 
 If you want to provide right-mouse click support for Mac OS X, use the
-QContextMenuEvent class. This will map to a context menu event, in other
+TQContextMenuEvent class. This will map to a context menu event, in other
 words a menu that will display a popup selection. This is the most common
 use of right-mouse clicks, and maps to a control-click with the Mac OS X
 one-button mouse support.
@@ -235,9 +235,9 @@ Qt/Mac will automatically detect your menubars for you and turn them
 into Mac native menubars. Fitting this into your existing TQt application
 will normally be automatic, however, if you have special needs the Qt/Mac
 implementation currently selects a menubar by starting at the active window
-(ie QApplication::activeWindow()), and applying:
+(ie TQApplication::activeWindow()), and applying:
 
-1) If the window has a QMenuBar then it is used.
+1) If the window has a TQMenuBar then it is used.
 2) If the window is a modal then its menubar is used. If no menubar is
    specified then a default menubar is used (as documented below)
 3) If the window has no parent then the default menubar is used (as documented below).
@@ -245,7 +245,7 @@ implementation currently selects a menubar by starting at the active window
 The above 3 steps are applied all the way up the parent window chain until
 one of the above are satisifed. If all else fails a default menubar will be
 created, the default menubar on Qt/Mac is an empty menubar, however you can
-create a different default menubar by creating a parentless QMenuBar, the
+create a different default menubar by creating a parentless TQMenuBar, the
 first one created will thus be designated the default menubar, and will be
 used whenever a default menubar is needed.
 
@@ -255,11 +255,11 @@ used whenever a default menubar is needed.
 
 \list
 
-\i QCustomMenuItems are not supported in Mac native menubars, they are supported
+\i TQCustomMenuItems are not supported in Mac native menubars, they are supported
 in popupmenus that are not in the Mac native menubar.
 
 \i Items with accelerators that have more than one keystroke
-(QKeySequence) will not be honored, and the first key will be used.
+(TQKeySequence) will not be honored, and the first key will be used.
 
 \endlist
 

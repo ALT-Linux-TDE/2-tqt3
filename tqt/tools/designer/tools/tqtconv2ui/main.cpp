@@ -31,13 +31,13 @@
 **
 **********************************************************************/
 
-#include <ntqapplication.h>
-#include <private/qpluginmanager_p.h>
-#include <ntqstringlist.h>
-#include <ntqdir.h>
+#include <tqapplication.h>
+#include <private/tqpluginmanager_p.h>
+#include <tqstringlist.h>
+#include <tqdir.h>
 #include <stdio.h>
 #include "filterinterface.h"
-#include <ntqfileinfo.h>
+#include <tqfileinfo.h>
 
 class Conv2ui {
 public:

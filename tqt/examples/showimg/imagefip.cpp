@@ -8,7 +8,7 @@
 *****************************************************************************/
 
 #include "imagefip.h"
-#include <ntqimage.h>
+#include <tqimage.h>
 
 /* XPM */
 static const char *image_xpm[] = {

@@ -37,7 +37,7 @@
 class TQWizard;
 class FormWindow;
 
-#include <ntqptrlist.h>
+#include <tqptrlist.h>
 
 #include "wizardeditor.h"
 #include "command.h"

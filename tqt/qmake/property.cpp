@@ -38,10 +38,10 @@
 
 #include "property.h"
 #include "option.h"
-#include <ntqsettings.h>
-#include <ntqdir.h>
-#include <ntqmap.h>
-#include <ntqstringlist.h>
+#include <tqsettings.h>
+#include <tqdir.h>
+#include <tqmap.h>
+#include <tqstringlist.h>
 #include <stdio.h>
 
 TQStringList qmake_mkspec_paths(); //project.cpp

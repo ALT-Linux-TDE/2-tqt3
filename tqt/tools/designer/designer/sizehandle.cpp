@@ -31,15 +31,15 @@
 **
 **********************************************************************/
 
-#include <ntqvariant.h>  // HP-UX compiler needs this here
+#include <tqvariant.h>  // HP-UX compiler needs this here
 
 #include "sizehandle.h"
 #include "formwindow.h"
 #include "widgetfactory.h"
 
-#include <ntqwidget.h>
-#include <ntqapplication.h>
-#include <ntqlabel.h>
+#include <tqwidget.h>
+#include <tqapplication.h>
+#include <tqlabel.h>
 
 SizeHandle::SizeHandle( FormWindow *parent, Direction d, WidgetSelection *s )
     : TQWidget( parent )

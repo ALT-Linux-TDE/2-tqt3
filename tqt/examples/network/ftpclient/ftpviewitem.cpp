@@ -7,7 +7,7 @@
 **
 *****************************************************************************/
 
-#include <ntqpixmap.h>
+#include <tqpixmap.h>
 
 #include "ftpviewitem.h"
 

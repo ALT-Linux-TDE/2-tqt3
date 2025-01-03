@@ -14,8 +14,8 @@
 #ifndef FLOW_H
 #define FLOW_H
 
-#include <ntqlayout.h>
-#include <ntqptrlist.h>
+#include <tqlayout.h>
+#include <tqptrlist.h>
 
 class SimpleFlow : public TQLayout
 {

@@ -10,7 +10,7 @@
 #ifndef COMPOSER_H
 #define COMPOSER_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 
 class TQLineEdit;

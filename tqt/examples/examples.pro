@@ -39,10 +39,10 @@ SUBDIRS	 =	aclock \
 		process \
 		progress \
 		progressbar \
-		qdir \
+		tqdir \
 		qfd \
 		qmag \
-		qtl \
+		tqtl \
 		qwerty \
 		rangecontrols \
 		richtext \

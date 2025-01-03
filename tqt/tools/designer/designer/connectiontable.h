@@ -34,7 +34,7 @@
 #ifndef CONNECTIONTABLE_H
 #define CONNECTIONTABLE_H
 
-#include <ntqtable.h>
+#include <tqtable.h>
 
 class ConnectionTable : public TQTable
 {

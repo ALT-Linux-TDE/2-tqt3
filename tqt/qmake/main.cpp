@@ -40,9 +40,9 @@
 #include "property.h"
 #include "option.h"
 #include "makefile.h"
-#include <ntqnamespace.h>
-#include <ntqregexp.h>
-#include <ntqdir.h>
+#include <tqnamespace.h>
+#include <tqregexp.h>
+#include <tqdir.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -50,10 +50,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-// for Borland, main is defined to qMain which breaks qmake
-#undef main
 #ifdef Q_OS_MAC
-// for qurl
+// for tqurl
 bool tqt_resolve_symlinks = FALSE;
 #endif
 

@@ -10,7 +10,7 @@
 ******************************************************************/
 
 #if defined (_MSC_VER)
-#include <ntqglobal.h>
+#include <tqglobal.h>
 #endif
 
 #include <time.h>

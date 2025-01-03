@@ -9,17 +9,17 @@
 
 #include "centralwidget.h"
 
-#include <ntqtabwidget.h>
-#include <ntqlistview.h>
-#include <ntqlayout.h>
-#include <ntqwidget.h>
-#include <ntqlabel.h>
-#include <ntqpushbutton.h>
-#include <ntqlineedit.h>
-#include <ntqlabel.h>
-#include <ntqcheckbox.h>
-#include <ntqfile.h>
-#include <ntqtextstream.h>
+#include <tqtabwidget.h>
+#include <tqlistview.h>
+#include <tqlayout.h>
+#include <tqwidget.h>
+#include <tqlabel.h>
+#include <tqpushbutton.h>
+#include <tqlineedit.h>
+#include <tqlabel.h>
+#include <tqcheckbox.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
 
 ABCentralWidget::ABCentralWidget( TQWidget *parent, const char *name )
     : TQWidget( parent, name )

@@ -10,7 +10,7 @@
 class TQTimer;
 
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 
 class CannonField : public TQWidget

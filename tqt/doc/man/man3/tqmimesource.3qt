@@ -1,5 +1,5 @@
 '\" t
-.TH QMimeSource 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMimeSource 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QMimeSource \- Abstraction of objects which provide formatted data of a certain MIME type
+TQMimeSource \- Abstraction of objects which provide formatted data of a certain MIME type
 .SH SYNOPSIS
-\fC#include <ntqmime.h>\fR
+\fC#include <tqmime.h>\fR
 .PP
-Inherited by QDragObject and QDropEvent.
+Inherited by TQDragObject and TQDropEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQMimeSource\fR ()"
+.BI "\fBTQMimeSource\fR ()"
 .br
 .ti -1c
-.BI "virtual \fB~QMimeSource\fR ()"
+.BI "virtual \fB~TQMimeSource\fR ()"
 .br
 .ti -1c
 .BI "virtual const char * \fBformat\fR ( int i = 0 ) const = 0"
@@ -28,48 +28,48 @@ Inherited by QDragObject and QDropEvent.
 .BI "virtual bool \fBprovides\fR ( const char * mimeType ) const"
 .br
 .ti -1c
-.BI "virtual QByteArray \fBencodedData\fR ( const char * ) const = 0"
+.BI "virtual TQByteArray \fBencodedData\fR ( const char * ) const = 0"
 .br
 .ti -1c
 .BI "int \fBserialNumber\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QMimeSource class is an abstraction of objects which provide formatted data of a certain MIME type.
+The TQMimeSource class is an abstraction of objects which provide formatted data of a certain MIME type.
 .PP
 Drag-and-drop and clipboard use this abstraction.
 .PP
 See also IANA list of MIME media types, Drag And Drop Classes, Input/Output and Networking, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMimeSource::QMimeSource ()"
+.SH "TQMimeSource::TQMimeSource ()"
 Constructs a mime source and assigns a globally unique serial number to it.
 .PP
 See also serialNumber().
-.SH "QMimeSource::~QMimeSource ()\fC [virtual]\fR"
+.SH "TQMimeSource::~TQMimeSource ()\fC [virtual]\fR"
 Provided to ensure that subclasses destroy themselves correctly.
-.SH "QByteArray QMimeSource::encodedData ( const char * ) const\fC [pure virtual]\fR"
+.SH "TQByteArray TQMimeSource::encodedData ( const char * ) const\fC [pure virtual]\fR"
 Returns the encoded data of this object in the specified MIME format.
 .PP
 Subclasses must reimplement this function.
 .PP
-Reimplemented in QStoredDrag, QDropEvent, and QIconDrag.
-.SH "const char * QMimeSource::format ( int i = 0 ) const\fC [pure virtual]\fR"
+Reimplemented in TQStoredDrag, TQDropEvent, and TQIconDrag.
+.SH "const char * TQMimeSource::format ( int i = 0 ) const\fC [pure virtual]\fR"
 Returns the \fIi\fR-th supported MIME format, or 0.
 .PP
-Reimplemented in QDropEvent.
-.SH "bool QMimeSource::provides ( const char * mimeType ) const\fC [virtual]\fR"
+Reimplemented in TQDropEvent.
+.SH "bool TQMimeSource::provides ( const char * mimeType ) const\fC [virtual]\fR"
 Returns TRUE if the object can provide the data in format \fImimeType\fR; otherwise returns FALSE.
 .PP
-If you inherit from QMimeSource, for consistency reasons it is better to implement the more abstract canDecode() functions such as QTextDrag::canDecode() and QImageDrag::canDecode().
+If you inherit from TQMimeSource, for consistency reasons it is better to implement the more abstract canDecode() functions such as TQTextDrag::canDecode() and TQImageDrag::canDecode().
 .PP
 Example: iconview/simple_dd/main.cpp.
 .PP
-Reimplemented in QDropEvent.
-.SH "int QMimeSource::serialNumber () const"
+Reimplemented in TQDropEvent.
+.SH "int TQMimeSource::serialNumber () const"
 Returns the mime source's globally unique serial number.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qmimesource.html
+.BR http://doc.trolltech.com/tqmimesource.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

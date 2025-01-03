@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:10 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -35,8 +34,8 @@ body { background: #ffffff; color: black; }
 <pre>#include "canvastext.h"
 #include "chartform.h"
 
-#include &lt;<a href="qbrush-h.html">ntqbrush.h</a>&gt;
-#include &lt;<a href="qcanvas-h.html">ntqcanvas.h</a>&gt;
+#include &lt;<a href="tqbrush-h.html">tqbrush.h</a>&gt;
+#include &lt;<a href="tqcanvas-h.html">tqcanvas.h</a>&gt;
 
 #include &lt;math.h&gt; // sin, cos
 
@@ -46,8 +45,8 @@ body { background: #ffffff; color: black; }
 
 void <a name="f167"></a>ChartForm::drawElements()
 {
-    <a href="qcanvasitemlist.html">TQCanvasItemList</a> list = m_canvas-&gt;allItems();
-    for ( TQCanvasItemList::iterator it = list.<a href="ntqvaluelist.html#begin">begin</a>(); it != list.<a href="ntqvaluelist.html#end">end</a>(); ++it )
+    <a href="tqcanvasitemlist.html">TQCanvasItemList</a> list = m_canvas-&gt;allItems();
+    for ( TQCanvasItemList::iterator it = list.<a href="tqvaluelist.html#begin">begin</a>(); it != list.<a href="tqvaluelist.html#end">end</a>(); ++it )
         delete *it;
 
         // 360 * 16 for pies; TQt works with 16ths of degrees
@@ -108,39 +107,39 @@ void <a name="f168"></a>ChartForm::drawPieChart( const double scales[], double t
     for ( int i = 0; i &lt; MAX_ELEMENTS; ++i ) {
         if ( m_elements[i].isValid() ) {
             int extent = int(scales[i]);
-            <a href="qcanvasellipse.html">TQCanvasEllipse</a> *arc = new <a href="qcanvasellipse.html">TQCanvasEllipse</a>(
+            <a href="tqcanvasellipse.html">TQCanvasEllipse</a> *arc = new <a href="tqcanvasellipse.html">TQCanvasEllipse</a>(
                                             size, size, angle, extent, m_canvas );
-            arc-&gt;<a href="qcanvasitem.html#setX">setX</a>( x );
-            arc-&gt;<a href="qcanvasitem.html#setY">setY</a>( y );
-            arc-&gt;<a href="qcanvasitem.html#setZ">setZ</a>( 0 );
-            arc-&gt;<a href="qcanvaspolygonalitem.html#setBrush">setBrush</a>( TQBrush( m_elements[i].valueColor(),
+            arc-&gt;<a href="tqcanvasitem.html#setX">setX</a>( x );
+            arc-&gt;<a href="tqcanvasitem.html#setY">setY</a>( y );
+            arc-&gt;<a href="tqcanvasitem.html#setZ">setZ</a>( 0 );
+            arc-&gt;<a href="tqcanvaspolygonalitem.html#setBrush">setBrush</a>( TQBrush( m_elements[i].valueColor(),
                                    BrushStyle(m_elements[i].valuePattern()) ) );
-            arc-&gt;<a href="qcanvasitem.html#show">show</a>();
+            arc-&gt;<a href="tqcanvasitem.html#show">show</a>();
             angle += extent;
-            <a href="ntqstring.html">TQString</a> label = m_elements[i].label();
-            if ( !label.<a href="ntqstring.html#isEmpty">isEmpty</a>() || m_addValues != NO ) {
+            <a href="tqstring.html">TQString</a> label = m_elements[i].label();
+            if ( !label.<a href="tqstring.html#isEmpty">isEmpty</a>() || m_addValues != NO ) {
                 label = valueLabel( label, m_elements[i].value(), total );
                 CanvasText *text = new CanvasText( i, label, m_font, m_canvas );
                 double proX = m_elements[i].proX( PIE );
                 double proY = m_elements[i].proY( PIE );
                 if ( proX &lt; 0 || proY &lt; 0 ) {
                     // Find the centre of the pie segment
-                    <a href="ntqrect.html">TQRect</a> rect = arc-&gt;<a href="qcanvaspolygonalitem.html#boundingRect">boundingRect</a>();
-                    proX = ( rect.<a href="qcanvasrectangle.html#width">width</a>() / 2 ) + rect.<a href="qcanvasitem.html#x">x</a>();
-                    proY = ( rect.<a href="qcanvasrectangle.html#height">height</a>() / 2 ) + rect.<a href="qcanvasitem.html#y">y</a>();
+                    <a href="tqrect.html">TQRect</a> rect = arc-&gt;<a href="tqcanvaspolygonalitem.html#boundingRect">boundingRect</a>();
+                    proX = ( rect.<a href="tqcanvasrectangle.html#width">width</a>() / 2 ) + rect.<a href="tqcanvasitem.html#x">x</a>();
+                    proY = ( rect.<a href="tqcanvasrectangle.html#height">height</a>() / 2 ) + rect.<a href="tqcanvasitem.html#y">y</a>();
                     // Centre text over the centre of the pie segment
-                    rect = text-&gt;<a href="qcanvastext.html#boundingRect">boundingRect</a>();
-                    proX -= ( rect.<a href="qcanvasrectangle.html#width">width</a>() / 2 );
-                    proY -= ( rect.<a href="qcanvasrectangle.html#height">height</a>() / 2 );
+                    rect = text-&gt;<a href="tqcanvastext.html#boundingRect">boundingRect</a>();
+                    proX -= ( rect.<a href="tqcanvasrectangle.html#width">width</a>() / 2 );
+                    proY -= ( rect.<a href="tqcanvasrectangle.html#height">height</a>() / 2 );
                     // Make proportional
                     proX /= width;
                     proY /= height;
                 }
-                text-&gt;<a href="qcanvastext.html#setColor">setColor</a>( m_elements[i].labelColor() );
-                text-&gt;<a href="qcanvasitem.html#setX">setX</a>( proX * width );
-                text-&gt;<a href="qcanvasitem.html#setY">setY</a>( proY * height );
-                text-&gt;<a href="qcanvasitem.html#setZ">setZ</a>( 1 );
-                text-&gt;<a href="qcanvasitem.html#show">show</a>();
+                text-&gt;<a href="tqcanvastext.html#setColor">setColor</a>( m_elements[i].labelColor() );
+                text-&gt;<a href="tqcanvasitem.html#setX">setX</a>( proX * width );
+                text-&gt;<a href="tqcanvasitem.html#setY">setY</a>( proY * height );
+                text-&gt;<a href="tqcanvasitem.html#setZ">setZ</a>( 1 );
+                text-&gt;<a href="tqcanvasitem.html#show">show</a>();
                 m_elements[i].setProX( PIE, proX );
                 m_elements[i].setProY( PIE, proY );
             }
@@ -156,22 +155,22 @@ void <a name="f169"></a>ChartForm::drawVerticalBarChart(
     double height = m_canvas-&gt;height();
     int prowidth = int(width / count);
     int x = 0;
-    <a href="ntqpen.html">TQPen</a> pen;
-    pen.<a href="ntqpen.html#setStyle">setStyle</a>( NoPen );
+    <a href="tqpen.html">TQPen</a> pen;
+    pen.<a href="tqpen.html#setStyle">setStyle</a>( NoPen );
 
     for ( int i = 0; i &lt; MAX_ELEMENTS; ++i ) {
         if ( m_elements[i].isValid() ) {
             int extent = int(scales[i]);
             int y = int(height - extent);
-            <a href="qcanvasrectangle.html">TQCanvasRectangle</a> *rect = new <a href="qcanvasrectangle.html">TQCanvasRectangle</a>(
+            <a href="tqcanvasrectangle.html">TQCanvasRectangle</a> *rect = new <a href="tqcanvasrectangle.html">TQCanvasRectangle</a>(
                                             x, y, prowidth, extent, m_canvas );
-            rect-&gt;<a href="qcanvaspolygonalitem.html#setBrush">setBrush</a>( TQBrush( m_elements[i].valueColor(),
+            rect-&gt;<a href="tqcanvaspolygonalitem.html#setBrush">setBrush</a>( TQBrush( m_elements[i].valueColor(),
                                     BrushStyle(m_elements[i].valuePattern()) ) );
-            rect-&gt;<a href="qcanvaspolygonalitem.html#setPen">setPen</a>( pen );
-            rect-&gt;<a href="qcanvasitem.html#setZ">setZ</a>( 0 );
-            rect-&gt;<a href="qcanvasitem.html#show">show</a>();
-            <a href="ntqstring.html">TQString</a> label = m_elements[i].label();
-            if ( !label.<a href="ntqstring.html#isEmpty">isEmpty</a>() || m_addValues != NO ) {
+            rect-&gt;<a href="tqcanvaspolygonalitem.html#setPen">setPen</a>( pen );
+            rect-&gt;<a href="tqcanvasitem.html#setZ">setZ</a>( 0 );
+            rect-&gt;<a href="tqcanvasitem.html#show">show</a>();
+            <a href="tqstring.html">TQString</a> label = m_elements[i].label();
+            if ( !label.<a href="tqstring.html#isEmpty">isEmpty</a>() || m_addValues != NO ) {
                 double proX = m_elements[i].proX( VERTICAL_BAR );
                 double proY = m_elements[i].proY( VERTICAL_BAR );
                 if ( proX &lt; 0 || proY &lt; 0 ) {
@@ -180,11 +179,11 @@ void <a name="f169"></a>ChartForm::drawVerticalBarChart(
                 }
                 label = valueLabel( label, m_elements[i].value(), total );
                 CanvasText *text = new CanvasText( i, label, m_font, m_canvas );
-                text-&gt;<a href="qcanvastext.html#setColor">setColor</a>( m_elements[i].labelColor() );
-                text-&gt;<a href="qcanvasitem.html#setX">setX</a>( proX * width );
-                text-&gt;<a href="qcanvasitem.html#setY">setY</a>( proY * height );
-                text-&gt;<a href="qcanvasitem.html#setZ">setZ</a>( 1 );
-                text-&gt;<a href="qcanvasitem.html#show">show</a>();
+                text-&gt;<a href="tqcanvastext.html#setColor">setColor</a>( m_elements[i].labelColor() );
+                text-&gt;<a href="tqcanvasitem.html#setX">setX</a>( proX * width );
+                text-&gt;<a href="tqcanvasitem.html#setY">setY</a>( proY * height );
+                text-&gt;<a href="tqcanvasitem.html#setZ">setZ</a>( 1 );
+                text-&gt;<a href="tqcanvasitem.html#show">show</a>();
                 m_elements[i].setProX( VERTICAL_BAR, proX );
                 m_elements[i].setProY( VERTICAL_BAR, proY );
             }
@@ -201,21 +200,21 @@ void <a name="f170"></a>ChartForm::drawHorizontalBarChart(
     double height = m_canvas-&gt;height();
     int proheight = int(height / count);
     int y = 0;
-    <a href="ntqpen.html">TQPen</a> pen;
-    pen.<a href="ntqpen.html#setStyle">setStyle</a>( NoPen );
+    <a href="tqpen.html">TQPen</a> pen;
+    pen.<a href="tqpen.html#setStyle">setStyle</a>( NoPen );
 
     for ( int i = 0; i &lt; MAX_ELEMENTS; ++i ) {
         if ( m_elements[i].isValid() ) {
             int extent = int(scales[i]);
-            <a href="qcanvasrectangle.html">TQCanvasRectangle</a> *rect = new <a href="qcanvasrectangle.html">TQCanvasRectangle</a>(
+            <a href="tqcanvasrectangle.html">TQCanvasRectangle</a> *rect = new <a href="tqcanvasrectangle.html">TQCanvasRectangle</a>(
                                             0, y, extent, proheight, m_canvas );
-            rect-&gt;<a href="qcanvaspolygonalitem.html#setBrush">setBrush</a>( TQBrush( m_elements[i].valueColor(),
+            rect-&gt;<a href="tqcanvaspolygonalitem.html#setBrush">setBrush</a>( TQBrush( m_elements[i].valueColor(),
                                     BrushStyle(m_elements[i].valuePattern()) ) );
-            rect-&gt;<a href="qcanvaspolygonalitem.html#setPen">setPen</a>( pen );
-            rect-&gt;<a href="qcanvasitem.html#setZ">setZ</a>( 0 );
-            rect-&gt;<a href="qcanvasitem.html#show">show</a>();
-            <a href="ntqstring.html">TQString</a> label = m_elements[i].label();
-            if ( !label.<a href="ntqstring.html#isEmpty">isEmpty</a>() || m_addValues != NO ) {
+            rect-&gt;<a href="tqcanvaspolygonalitem.html#setPen">setPen</a>( pen );
+            rect-&gt;<a href="tqcanvasitem.html#setZ">setZ</a>( 0 );
+            rect-&gt;<a href="tqcanvasitem.html#show">show</a>();
+            <a href="tqstring.html">TQString</a> label = m_elements[i].label();
+            if ( !label.<a href="tqstring.html#isEmpty">isEmpty</a>() || m_addValues != NO ) {
                 double proX = m_elements[i].proX( HORIZONTAL_BAR );
                 double proY = m_elements[i].proY( HORIZONTAL_BAR );
                 if ( proX &lt; 0 || proY &lt; 0 ) {
@@ -224,11 +223,11 @@ void <a name="f170"></a>ChartForm::drawHorizontalBarChart(
                 }
                 label = valueLabel( label, m_elements[i].value(), total );
                 CanvasText *text = new CanvasText( i, label, m_font, m_canvas );
-                text-&gt;<a href="qcanvastext.html#setColor">setColor</a>( m_elements[i].labelColor() );
-                text-&gt;<a href="qcanvasitem.html#setX">setX</a>( proX * width );
-                text-&gt;<a href="qcanvasitem.html#setY">setY</a>( proY * height );
-                text-&gt;<a href="qcanvasitem.html#setZ">setZ</a>( 1 );
-                text-&gt;<a href="qcanvasitem.html#show">show</a>();
+                text-&gt;<a href="tqcanvastext.html#setColor">setColor</a>( m_elements[i].labelColor() );
+                text-&gt;<a href="tqcanvasitem.html#setX">setX</a>( proX * width );
+                text-&gt;<a href="tqcanvasitem.html#setY">setY</a>( proY * height );
+                text-&gt;<a href="tqcanvasitem.html#setZ">setZ</a>( 1 );
+                text-&gt;<a href="tqcanvasitem.html#show">show</a>();
                 m_elements[i].setProX( HORIZONTAL_BAR, proX );
                 m_elements[i].setProY( HORIZONTAL_BAR, proY );
             }
@@ -239,21 +238,21 @@ void <a name="f170"></a>ChartForm::drawHorizontalBarChart(
 
 
 TQString <a name="f171"></a>ChartForm::valueLabel(
-            const <a href="ntqstring.html">TQString</a>&amp; label, double value, double total )
+            const <a href="tqstring.html">TQString</a>&amp; label, double value, double total )
 {
     if ( m_addValues == NO )
         return label;
 
-    <a href="ntqstring.html">TQString</a> newLabel = label;
-    if ( !label.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
+    <a href="tqstring.html">TQString</a> newLabel = label;
+    if ( !label.<a href="tqstring.html#isEmpty">isEmpty</a>() )
         if ( m_chartType == VERTICAL_BAR )
             newLabel += '\n';
         else
             newLabel += ' ';
     if ( m_addValues == YES )
-        newLabel += TQString::<a href="ntqstring.html#number">number</a>( value, 'f', m_decimalPlaces );
+        newLabel += TQString::<a href="tqstring.html#number">number</a>( value, 'f', m_decimalPlaces );
     else if ( m_addValues == AS_PERCENTAGE )
-        newLabel += TQString::<a href="ntqstring.html#number">number</a>( (value / total) * 100, 'f', m_decimalPlaces )
+        newLabel += TQString::<a href="tqstring.html#number">number</a>( (value / total) * 100, 'f', m_decimalPlaces )
                     + '%';
     return newLabel;
 }

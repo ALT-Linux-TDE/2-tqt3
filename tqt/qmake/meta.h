@@ -39,9 +39,9 @@
 #ifndef __META_H__
 #define __META_H__
 
-#include <ntqmap.h>
-#include <ntqstringlist.h>
-#include <ntqstring.h>
+#include <tqmap.h>
+#include <tqstringlist.h>
+#include <tqstring.h>
 
 class TQMakeMetaInfo 
 {

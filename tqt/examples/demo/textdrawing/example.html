@@ -11,10 +11,10 @@ a:visited { color: #672967; text-decoration: none }body { background: white; col
 The TQLabel widget provides a static information display
 <a href="#details">More...</a>
 <p>
-<code>#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;</code>
+<code>#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;</code>
 <p>
-Inherits <a href="ntqframe.html">TQFrame</a>.
-<p><a href="qlabel-members.html">List of all member functions.</a>
+Inherits <a href="tqframe.html">TQFrame</a>.
+<p><a href="tqlabel-members.html">List of all member functions.</a>
 <h2>Public Members</h2>
 <ul>
 <li><div class="fn"><a href="#39107d"><b>TQLabel</b></a> ( TQWidget * parent, const char * name=0, WFlags f=0 ) </div>
@@ -48,8 +48,8 @@ Inherits <a href="ntqframe.html">TQFrame</a>.
 </ul>
 <h2>Protected Members</h2>
 <ul>
-<li><div class="fn">virtual void <a href="#fac264"><b>drawContents</b></a> ( QPainter * ) </div>
-<li><div class="fn">virtual void <a href="#479dd2"><b>drawContentsMask</b></a> ( QPainter * ) </div>
+<li><div class="fn">virtual void <a href="#fac264"><b>drawContents</b></a> ( TQPainter * ) </div>
+<li><div class="fn">virtual void <a href="#479dd2"><b>drawContentsMask</b></a> ( TQPainter * ) </div>
 </ul>
 <h2>Properties</h2>
 <table border=1 cellpadding=3 cellspacing=0>
@@ -72,38 +72,38 @@ various ways, and it can be used for specifying a focus accelerator
 key for another widget.
 <p>A TQLabel can contain any of the following content types:
 <ul>
-<li> A plain text: set by passing a <a href="ntqstring.html">TQString</a> to <a href="#dffb43">setText</a>().
+<li> A plain text: set by passing a <a href="tqstring.html">TQString</a> to <a href="#dffb43">setText</a>().
 <li> A rich text: set by passing a TQString that contains a rich text to setText().
-<li> A pixmap: set by passing a <a href="ntqpixmap.html">TQPixmap</a> to <a href="#f3f301">setPixmap</a>().
-<li> A movie: set by passing a <a href="ntqmovie.html">TQMovie</a> to <a href="#60de9f">setMovie</a>().
+<li> A pixmap: set by passing a <a href="tqpixmap.html">TQPixmap</a> to <a href="#f3f301">setPixmap</a>().
+<li> A movie: set by passing a <a href="tqmovie.html">TQMovie</a> to <a href="#60de9f">setMovie</a>().
 <li> A number: set by passing an <em>int</em> or a <em>double</em> to <a href="#1a8f6a">setNum</a>(), which converts the number to plain text.
 <li> Nothing: The same as an empty plain text. This is the default. Set by <a href="#be73f3">clear</a>().
 </ul>
 <p>When the content is changed using any of these functions, any
 previous content is cleared.
 <p>The look of a TQLabel can be tuned in several ways. All the settings
-of <a href="ntqframe.html">TQFrame</a> are available for specifying a widget frame. The
+of <a href="tqframe.html">TQFrame</a> are available for specifying a widget frame. The
 positioning of the content within the TQLabel widget area can be
 tuned with <a href="#1f406e">setAlignment</a>() and <a href="#ed9b8b">setIndent</a>().  For example, this code
 sets up a sunken panel with a two-line text in the bottom right
 corner (both lines being flush with the right side of the label):
-<p><pre>    <a href="ntqlabel.html">TQLabel</a> *label = new <a href="ntqlabel.html">TQLabel</a>;
-    label-&gt;<a href="ntqframe.html#c0d758">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
+<p><pre>    <a href="tqlabel.html">TQLabel</a> *label = new <a href="tqlabel.html">TQLabel</a>;
+    label-&gt;<a href="tqframe.html#c0d758">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
     label-&gt;<a href="#dffb43">setText</a>( "first line\nsecond line" );
     label-&gt;<a href="#1f406e">setAlignment</a>( AlignBottom | AlignRight );
 </pre>
 <p>A TQLabel is often used as a label for another, interactive
 widget. For this use, TQLabel provides a handy mechanism for adding
-an accelerator key (see <a href="ntqaccel.html">TQAccel</a>) that will set the keyboard focus to
+an accelerator key (see <a href="tqaccel.html">TQAccel</a>) that will set the keyboard focus to
 the other widget (called the TQLabel's "buddy"). Example:
-<p><pre>     <a href="ntqlineedit.html">TQLineEdit</a>* phoneEdit = new <a href="ntqlineedit.html">TQLineEdit</a>( this, "phoneEdit" );
-     <a href="ntqlabel.html">TQLabel</a>* phoneLabel = new <a href="ntqlabel.html">TQLabel</a>( phoneEdit, "&amp;Phone:", this, "phoneLabel" );
+<p><pre>     <a href="tqlineedit.html">TQLineEdit</a>* phoneEdit = new <a href="tqlineedit.html">TQLineEdit</a>( this, "phoneEdit" );
+     <a href="tqlabel.html">TQLabel</a>* phoneLabel = new <a href="tqlabel.html">TQLabel</a>( phoneEdit, "&amp;Phone:", this, "phoneLabel" );
 </pre>
 <p>In this example, keyboard focus is transferred to the label's buddy
-(the <a href="ntqlineedit.html">TQLineEdit</a>) when the user presses <dfn>Alt-P.</dfn> You can also
+(the <a href="tqlineedit.html">TQLineEdit</a>) when the user presses <dfn>Alt-P.</dfn> You can also
 use the <a href="#191701">setBuddy</a>() function to accomplish the same.
 <p>
-<p>See also  <a href="ntqlineedit.html">TQLineEdit</a>, <a href="ntqtextview.html">TQTextView</a>, <a href="ntqpixmap.html">TQPixmap</a>, <a href="ntqmovie.html">TQMovie</a> and <a href="guibooks.html#fowler">GUI Design Handbook: Label</a>
+<p>See also  <a href="tqlineedit.html">TQLineEdit</a>, <a href="tqtextview.html">TQTextView</a>, <a href="tqpixmap.html">TQPixmap</a>, <a href="tqmovie.html">TQMovie</a> and <a href="guibooks.html#fowler">GUI Design Handbook: Label</a>
 <p>Examples:
  <a href="cursor-cursor-cpp.html#TQLabel">cursor/cursor.cpp</a>
  <a href="layout-layout-cpp.html#TQLabel">layout/layout.cpp</a>
@@ -115,22 +115,22 @@ use the <a href="#191701">setBuddy</a>() function to accomplish the same.
  <a href="customlayout-main-cpp.html#TQLabel">customlayout/main.cpp</a>
 
 <hr><h2>Member Function Documentation</h2>
-<h3 class="fn"><a name="5514c7"></a>TQLabel::TQLabel ( <a href="ntqwidget.html">TQWidget</a> * buddy, const <a href="ntqstring.html">TQString</a> &amp; text, <a href="ntqwidget.html">TQWidget</a> * parent, const char * name=0, WFlags f=0 )</h3>
+<h3 class="fn"><a name="5514c7"></a>TQLabel::TQLabel ( <a href="tqwidget.html">TQWidget</a> * buddy, const <a href="tqstring.html">TQString</a> &amp; text, <a href="tqwidget.html">TQWidget</a> * parent, const char * name=0, WFlags f=0 )</h3>
 <p>Constructs a label with a text and a buddy.
 <p>The <em>text</em> is set with <a href="#dffb43">setText</a>(). The <em>buddy</em> is set with <a href="#191701">setBuddy</a>().
-<p>The <em>parent, name</em> and <em>f</em> arguments are passed to the <a href="ntqframe.html">TQFrame</a>
+<p>The <em>parent, name</em> and <em>f</em> arguments are passed to the <a href="tqframe.html">TQFrame</a>
 constructor.
-<p>See also  <a href="#dffb43">setText</a>(), <a href="#191701">setBuddy</a>(), <a href="#1f406e">setAlignment</a>(), <a href="ntqframe.html#c0d758">setFrameStyle</a>() and <a href="#ed9b8b">setIndent</a>().
-<h3 class="fn"><a name="39107d"></a>TQLabel::TQLabel ( <a href="ntqwidget.html">TQWidget</a> * parent, const char * name=0, WFlags f=0 )</h3>
+<p>See also  <a href="#dffb43">setText</a>(), <a href="#191701">setBuddy</a>(), <a href="#1f406e">setAlignment</a>(), <a href="tqframe.html#c0d758">setFrameStyle</a>() and <a href="#ed9b8b">setIndent</a>().
+<h3 class="fn"><a name="39107d"></a>TQLabel::TQLabel ( <a href="tqwidget.html">TQWidget</a> * parent, const char * name=0, WFlags f=0 )</h3>
 <p>Constructs an empty label.
-<p>The <em>parent, name</em> and <em>f</em> arguments are passed to the <a href="ntqframe.html">TQFrame</a>
+<p>The <em>parent, name</em> and <em>f</em> arguments are passed to the <a href="tqframe.html">TQFrame</a>
 constructor.
-<p>See also  <a href="#1f406e">setAlignment</a>(), <a href="ntqframe.html#c0d758">setFrameStyle</a>() and <a href="#ed9b8b">setIndent</a>().
-<h3 class="fn"><a name="2bafbb"></a>TQLabel::TQLabel ( const <a href="ntqstring.html">TQString</a> &amp; text, <a href="ntqwidget.html">TQWidget</a> * parent, const char * name=0, WFlags f=0 )</h3>
+<p>See also  <a href="#1f406e">setAlignment</a>(), <a href="tqframe.html#c0d758">setFrameStyle</a>() and <a href="#ed9b8b">setIndent</a>().
+<h3 class="fn"><a name="2bafbb"></a>TQLabel::TQLabel ( const <a href="tqstring.html">TQString</a> &amp; text, <a href="tqwidget.html">TQWidget</a> * parent, const char * name=0, WFlags f=0 )</h3>
 <p>Constructs a label with a text. The <em>text</em> is set with <a href="#dffb43">setText</a>().
-<p>The <em>parent, name</em> and <em>f</em> arguments are passed to the <a href="ntqframe.html">TQFrame</a>
+<p>The <em>parent, name</em> and <em>f</em> arguments are passed to the <a href="tqframe.html">TQFrame</a>
 constructor.
-<p>See also  <a href="#dffb43">setText</a>(), <a href="#1f406e">setAlignment</a>(), <a href="ntqframe.html#c0d758">setFrameStyle</a>() and <a href="#ed9b8b">setIndent</a>().
+<p>See also  <a href="#dffb43">setText</a>(), <a href="#1f406e">setAlignment</a>(), <a href="tqframe.html#c0d758">setFrameStyle</a>() and <a href="#ed9b8b">setIndent</a>().
 <h3 class="fn"><a name="9958af"></a>TQLabel::~TQLabel ()</h3>
 <p>Destructs the label.
 <h3 class="fn">int <a name="2fcaa3"></a>TQLabel::alignment () const</h3>
@@ -142,49 +142,49 @@ constructor.
 is disabled.
 <p>Auto-resizing is disabled by default.
 <p>See also  <a href="#c0e104">setAutoResize</a>().
-<h3 class="fn"><a href="ntqwidget.html">TQWidget</a> * <a name="123954"></a>TQLabel::buddy () const</h3>
+<h3 class="fn"><a href="tqwidget.html">TQWidget</a> * <a name="123954"></a>TQLabel::buddy () const</h3>
 <p>Returns the buddy of this label, or 0 if no buddy is currently set.
 <p>See also  <a href="#191701">setBuddy</a>().
 <h3 class="fn">void <a name="be73f3"></a>TQLabel::clear () <code>[slot]</code></h3>
 <p>Clears any label contents. Equivalent with <a href="#dffb43">setText</a>( "" ).
-<h3 class="fn">void <a name="fac264"></a>TQLabel::drawContents ( <a href="ntqpainter.html">TQPainter</a> * p ) <code>[virtual protected]</code></h3>
+<h3 class="fn">void <a name="fac264"></a>TQLabel::drawContents ( <a href="tqpainter.html">TQPainter</a> * p ) <code>[virtual protected]</code></h3>
 <p>Draws the label contents using the painter <em>p.</em>
-<p>Reimplemented from <a href="ntqframe.html#99e687">TQFrame.</a>
-<h3 class="fn">void <a name="479dd2"></a>TQLabel::drawContentsMask ( <a href="ntqpainter.html">TQPainter</a> * p ) <code>[virtual protected]</code></h3>
+<p>Reimplemented from <a href="tqframe.html#99e687">TQFrame.</a>
+<h3 class="fn">void <a name="479dd2"></a>TQLabel::drawContentsMask ( <a href="tqpainter.html">TQPainter</a> * p ) <code>[virtual protected]</code></h3>
 <p>Draws the label contents mask using the painter <em>p.</em>
 Used only in transparent mode.
-<p>See also  <a href="ntqwidget.html#c7a335">TQWidget::setAutoMask</a>();.
-<p>Reimplemented from <a href="ntqframe.html#4cbf11">TQFrame.</a>
-<h3 class="fn">void <a name="0435a2"></a>TQLabel::fontChange ( const <a href="ntqfont.html">TQFont</a> &amp; ) <code>[virtual protected]</code></h3>
+<p>See also  <a href="tqwidget.html#c7a335">TQWidget::setAutoMask</a>();.
+<p>Reimplemented from <a href="tqframe.html#4cbf11">TQFrame.</a>
+<h3 class="fn">void <a name="0435a2"></a>TQLabel::fontChange ( const <a href="tqfont.html">TQFont</a> &amp; ) <code>[virtual protected]</code></h3>
 <p>Reimplemented for internal reasons; the API is not affected.
-<p>Reimplemented from <a href="ntqwidget.html#570a8f">TQWidget.</a>
+<p>Reimplemented from <a href="tqwidget.html#570a8f">TQWidget.</a>
 <h3 class="fn">bool <a name="7e1f73"></a>TQLabel::hasScaledContents () const</h3>
 <p>Returns whether the label will scale its contents to fill all
 available space.
 <p>See also  <a href="#e9e3cf">setScaledContents</a>().
 <h3 class="fn">int <a name="dae451"></a>TQLabel::heightForWidth ( int w ) const <code>[virtual]</code></h3>
 <p>Reimplemented for internal reasons; the API is not affected.
-<p>Reimplemented from <a href="ntqwidget.html#2e8476">TQWidget.</a>
+<p>Reimplemented from <a href="tqwidget.html#2e8476">TQWidget.</a>
 <h3 class="fn">int <a name="e3c907"></a>TQLabel::indent () const</h3>
 <p>Returns the indent of the label.
 <p>See also  <a href="#ed9b8b">setIndent</a>().
-<h3 class="fn"><a href="ntqsize.html">TQSize</a> <a name="53c8c7"></a>TQLabel::minimumSizeHint () const <code>[virtual]</code></h3>
+<h3 class="fn"><a href="tqsize.html">TQSize</a> <a name="53c8c7"></a>TQLabel::minimumSizeHint () const <code>[virtual]</code></h3>
 <p>Reimplemented for internal reasons; the API is not affected.
-<p>Reimplemented from <a href="ntqwidget.html#3f0fc2">TQWidget.</a>
-<h3 class="fn"><a href="ntqmovie.html">TQMovie</a>* <a name="7dcdfe"></a>TQLabel::movie () const</h3>
+<p>Reimplemented from <a href="tqwidget.html#3f0fc2">TQWidget.</a>
+<h3 class="fn"><a href="tqmovie.html">TQMovie</a>* <a name="7dcdfe"></a>TQLabel::movie () const</h3>
 <p>If the label contains a movie, returns a pointer to it. Otherwise,
 returns 0.
 <p>See also  <a href="#60de9f">setMovie</a>().
-<h3 class="fn"><a href="ntqpixmap.html">TQPixmap</a> * <a name="101ecb"></a>TQLabel::pixmap () const</h3>
+<h3 class="fn"><a href="tqpixmap.html">TQPixmap</a> * <a name="101ecb"></a>TQLabel::pixmap () const</h3>
 <p>If the label contains a pixmap, returns a pointer to it. Otherwise,
 returns 0.
 <p>See also  <a href="#f3f301">setPixmap</a>().
-<h3 class="fn">void <a name="3cb6e7"></a>TQLabel::resizeEvent ( <a href="qresizeevent.html">TQResizeEvent</a> * e ) <code>[virtual protected]</code></h3>
+<h3 class="fn">void <a name="3cb6e7"></a>TQLabel::resizeEvent ( <a href="tqresizeevent.html">TQResizeEvent</a> * e ) <code>[virtual protected]</code></h3>
 <p>Reimplemented for internal reasons; the API is not affected.
-<p>Reimplemented from <a href="ntqwidget.html#28c156">TQWidget.</a>
+<p>Reimplemented from <a href="tqwidget.html#28c156">TQWidget.</a>
 <h3 class="fn">void <a name="1f406e"></a>TQLabel::setAlignment ( int alignment ) <code>[virtual]</code></h3>
 <p>Sets the alignment of the label contents.
-<p>The <em>alignment</em> must be a bitwise OR of <a href="ntqt.html#AlignmentFlags">TQt::AlignmentFlags</a>
+<p>The <em>alignment</em> must be a bitwise OR of <a href="tqt.html#AlignmentFlags">TQt::AlignmentFlags</a>
 values. The <code>WordBreak, ExpandTabs, SingleLine</code> and <code>ShowPrefix</code> flags apply only if the label contains a plain text, and
 are otherwise ignored. The <code>DontClip</code> flag is always ignored.
 <p>If the label has a buddy, the <code>ShowPrefix</code> flag is forced to TRUE.
@@ -192,7 +192,7 @@ are otherwise ignored. The <code>DontClip</code> flag is always ignored.
 ExpandTabs</code> if the label doesn't have a buddy and
 <code>AlignLeft | AlignVCenter | ExpandTabs | ShowPrefix </code> if
 the label has a buddy.
-<p>See also  <a href="ntqt.html#AlignmentFlags">TQt::AlignmentFlags</a>, <a href="#2fcaa3">alignment</a>(), <a href="#191701">setBuddy</a>() and <a href="#dffb43">setText</a>().
+<p>See also  <a href="tqt.html#AlignmentFlags">TQt::AlignmentFlags</a>, <a href="#2fcaa3">alignment</a>(), <a href="#191701">setBuddy</a>() and <a href="#dffb43">setText</a>().
 <p>Examples:
  <a href="cursor-cursor-cpp.html#setAlignment">cursor/cursor.cpp</a>
  <a href="layout-layout-cpp.html#setAlignment">layout/layout.cpp</a>
@@ -201,17 +201,17 @@ the label has a buddy.
  <a href="customlayout-main-cpp.html#setAlignment">customlayout/main.cpp</a>
 <h3 class="fn">void <a name="1b6d73"></a>TQLabel::setAutoMask ( bool b ) <code>[virtual]</code></h3>
 <p>Reimplemented for internal reasons; the API is not affected.
-<p>Reimplemented from <a href="ntqwidget.html#c7a335">TQWidget.</a>
+<p>Reimplemented from <a href="tqwidget.html#c7a335">TQWidget.</a>
 <h3 class="fn">void <a name="c0e104"></a>TQLabel::setAutoResize ( bool enable ) <code>[virtual]</code></h3>
 <p><b>This function is obsolete.</b> It is provided to keep old source working, and will probably be removed in a future version of TQt.  We strongly advise against using it in new code.<p>
 Enables auto-resizing if <em>enable</em> is TRUE, or disables it if <em>enable</em> is FALSE.
 <p>When auto-resizing is enabled, the label will resize itself to fit
 the contents whenever the contents change. The top left corner is
 not moved. This is useful for TQLabel widgets that are not managed by
-a <a href="ntqlayout.html">TQLayout</a> (e.g. top-level widgets).
+a <a href="tqlayout.html">TQLayout</a> (e.g. top-level widgets).
 <p>Auto-resizing is disabled by default.
-<p>See also  <a href="#75b2a1">autoResize</a>(), <a href="ntqwidget.html#ab3108">adjustSize</a>() and <a href="#614dd5">sizeHint</a>().
-<h3 class="fn">void <a name="191701"></a>TQLabel::setBuddy ( <a href="ntqwidget.html">TQWidget</a> * buddy ) <code>[virtual]</code></h3>
+<p>See also  <a href="#75b2a1">autoResize</a>(), <a href="tqwidget.html#ab3108">adjustSize</a>() and <a href="#614dd5">sizeHint</a>().
+<h3 class="fn">void <a name="191701"></a>TQLabel::setBuddy ( <a href="tqwidget.html">TQWidget</a> * buddy ) <code>[virtual]</code></h3>
 <p>Sets the buddy of this label to <em>buddy.</em>
 <p>When the user presses the accelerator key indicated by this label,
 the keyboard focus is transferred to the label's buddy widget.
@@ -223,11 +223,11 @@ alignment flag is turned on; see <a href="#1f406e">setAlignment</a>()).
 <p>In a dialog, you might create two data entry widgets and a label for
 each, and set up the geometry layout so each label is just to the
 left of its data entry widget (its "buddy"), somewhat like this:
-<p><pre>    <a href="ntqlineedit.html">TQLineEdit</a> *nameEd  = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
-    <a href="ntqlabel.html">TQLabel</a>    *nameLb  = new <a href="ntqlabel.html">TQLabel</a>( "&amp;Name:", this );
+<p><pre>    <a href="tqlineedit.html">TQLineEdit</a> *nameEd  = new <a href="tqlineedit.html">TQLineEdit</a>( this );
+    <a href="tqlabel.html">TQLabel</a>    *nameLb  = new <a href="tqlabel.html">TQLabel</a>( "&amp;Name:", this );
     nameLb-&gt;<a href="#191701">setBuddy</a>( nameEd );
-    <a href="ntqlineedit.html">TQLineEdit</a> *phoneEd = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
-    <a href="ntqlabel.html">TQLabel</a>    *phoneLb = new <a href="ntqlabel.html">TQLabel</a>( "&amp;Phone:", this );
+    <a href="tqlineedit.html">TQLineEdit</a> *phoneEd = new <a href="tqlineedit.html">TQLineEdit</a>( this );
+    <a href="tqlabel.html">TQLabel</a>    *phoneLb = new <a href="tqlabel.html">TQLabel</a>( "&amp;Phone:", this );
     phoneLb-&gt;<a href="#191701">setBuddy</a>( phoneEd );
     // ( layout setup not shown )
 </pre>
@@ -235,7 +235,7 @@ left of its data entry widget (its "buddy"), somewhat like this:
 presses Alt-N, and to the Phone field when the user presses Alt-P.
 <p>To unset a previously set buddy, call this function with <em>buddy</em>
 set to 0.
-<p>See also  <a href="#123954">buddy</a>(), <a href="#dffb43">setText</a>(), <a href="ntqaccel.html">TQAccel</a> and <a href="#1f406e">setAlignment</a>().
+<p>See also  <a href="#123954">buddy</a>(), <a href="#dffb43">setText</a>(), <a href="tqaccel.html">TQAccel</a> and <a href="#1f406e">setAlignment</a>().
 <p>Examples:
  <a href="layout-layout-cpp.html#setBuddy">layout/layout.cpp</a>
 <h3 class="fn">void <a name="ed9b8b"></a>TQLabel::setIndent ( int indent )</h3>
@@ -245,16 +245,16 @@ to the right edge if alignment() is <code>AlignRight,</code> to the top edge
 if alignment() is <code>AlignTop,</code> and to to the bottom edge if
 alignment() is <code>AlignBottom.</code>
 <p>If <em>indent</em> is negative, or if no indent has been set, the label
-computes the effective indent as follows: If <a href="ntqframe.html#e0ccef">frameWidth</a>() is 0, the
+computes the effective indent as follows: If <a href="tqframe.html#e0ccef">frameWidth</a>() is 0, the
 effective indent becomes 0. If frameWidth() is greater than 0, the
 effective indent becomes half the width of the "x" character of the
-widget's current <a href="ntqwidget.html#3a7237">font</a>().
+widget's current <a href="tqwidget.html#3a7237">font</a>().
 <p>If <em>indent</em> is non-negative, the effective indent is <em>indent</em>
 pixels.
-<p>See also  <a href="#e3c907">indent</a>(), <a href="#1f406e">setAlignment</a>(), <a href="ntqframe.html#e0ccef">frameWidth</a>() and <a href="ntqwidget.html#3a7237">font</a>().
+<p>See also  <a href="#e3c907">indent</a>(), <a href="#1f406e">setAlignment</a>(), <a href="tqframe.html#e0ccef">frameWidth</a>() and <a href="tqwidget.html#3a7237">font</a>().
 <p>Examples:
  <a href="movies-main-cpp.html#setIndent">movies/main.cpp</a>
-<h3 class="fn">void <a name="60de9f"></a>TQLabel::setMovie ( const <a href="ntqmovie.html">TQMovie</a> &amp; movie ) <code>[virtual slot]</code></h3>
+<h3 class="fn">void <a name="60de9f"></a>TQLabel::setMovie ( const <a href="tqmovie.html">TQMovie</a> &amp; movie ) <code>[virtual slot]</code></h3>
 <p>Sets the label contents to <em>movie.</em> Any previous content is cleared.
 <p>The buddy accelerator, if any, is disabled.
 <p>The label resizes itself if auto-resizing is enabled.
@@ -265,15 +265,15 @@ of <em>num.</em>  Does nothing if this is equal to the current contents of
 the label. Any previous content is cleared.
 <p>The buddy accelerator, if any, is disabled.
 <p>The label resizes itself if auto-resizing is enabled.
-<p>See also  <a href="#dffb43">setText</a>(), <a href="ntqstring.html#01d80b">TQString::setNum</a>() and <a href="#191701">setBuddy</a>().
+<p>See also  <a href="#dffb43">setText</a>(), <a href="tqstring.html#01d80b">TQString::setNum</a>() and <a href="#191701">setBuddy</a>().
 <h3 class="fn">void <a name="301e3c"></a>TQLabel::setNum ( int num ) <code>[virtual slot]</code></h3>
 <p>Sets the label contents to a plain text containing the printed value
 of <em>num.</em> Does nothing if this is equal to the current contents of
 the label. Any previous content is cleared.
 <p>The buddy accelerator, if any, is disabled.
 <p>The label resizes itself if auto-resizing is enabled.
-<p>See also  <a href="#dffb43">setText</a>(), <a href="ntqstring.html#01d80b">TQString::setNum</a>() and <a href="#191701">setBuddy</a>().
-<h3 class="fn">void <a name="f3f301"></a>TQLabel::setPixmap ( const <a href="ntqpixmap.html">TQPixmap</a> &amp; pixmap ) <code>[virtual slot]</code></h3>
+<p>See also  <a href="#dffb43">setText</a>(), <a href="tqstring.html#01d80b">TQString::setNum</a>() and <a href="#191701">setBuddy</a>().
+<h3 class="fn">void <a name="f3f301"></a>TQLabel::setPixmap ( const <a href="tqpixmap.html">TQPixmap</a> &amp; pixmap ) <code>[virtual slot]</code></h3>
 <p>Sets the label contents to <em>pixmap.</em> Any previous content is cleared.
 <p>The buddy accelerator, if any, is disabled.
 <p>The label resizes itself if auto-resizing is enabled.
@@ -282,7 +282,7 @@ the label. Any previous content is cleared.
 <p>When called with <em>enable</em> == TRUE, and the label shows a pixmap,
 it will scale the pixmap to fill available space.
 <p>See also  <a href="#7e1f73">hasScaledContents</a>().
-<h3 class="fn">void <a name="dffb43"></a>TQLabel::setText ( const <a href="ntqstring.html">TQString</a> &amp; text ) <code>[virtual slot]</code></h3>
+<h3 class="fn">void <a name="dffb43"></a>TQLabel::setText ( const <a href="tqstring.html">TQString</a> &amp; text ) <code>[virtual slot]</code></h3>
 <p>Sets the label contents to <em>text,</em> or does nothing if <em>text</em> is
 equal to the current contents of the label. Any previous content is
 cleared.
@@ -293,8 +293,8 @@ the format of <em>text.</em>
 <p>If <em>text</em> is interpreted as a plain text, and a buddy has been set,
 the buddy accelerator key is updated from the new text.
 <p>The label resizes itself if auto-resizing is enabled.
-<p>Note that Qlabel is well suited to display small rich text documents
-only. For large documents, use <a href="ntqtextview.html">TQTextView</a> instead. It will flicker
+<p>Note that TQLabel is well suited to display small rich text documents
+only. For large documents, use <a href="tqtextview.html">TQTextView</a> instead. It will flicker
 less on resize and can also provide a scrollbar if necessary.
 <p>See also  <a href="#72cf09">text</a>(), <a href="#5de3f9">setTextFormat</a>(), <a href="#191701">setBuddy</a>() and <a href="#1f406e">setAlignment</a>().
 <p>Examples:
@@ -303,20 +303,20 @@ less on resize and can also provide a scrollbar if necessary.
  <a href="popup-popup-cpp.html#setText">popup/popup.cpp</a>
  <a href="qmag-qmag-cpp.html#setText">qmag/qmag.cpp</a>
  <a href="customlayout-main-cpp.html#setText">customlayout/main.cpp</a>
-<h3 class="fn">void <a name="5de3f9"></a>TQLabel::setTextFormat ( <a href="ntqt.html#TextFormat">TQt::TextFormat</a> format )</h3>
-<p>Sets the text format to <em>format.</em> See the <a href="ntqt.html#TextFormat">TQt::TextFormat</a> enum for
+<h3 class="fn">void <a name="5de3f9"></a>TQLabel::setTextFormat ( <a href="tqt.html#TextFormat">TQt::TextFormat</a> format )</h3>
+<p>Sets the text format to <em>format.</em> See the <a href="tqt.html#TextFormat">TQt::TextFormat</a> enum for
 an explanation of the possible options.
 <p>The default format is <code>AutoText.</code>
 <p>See also  <a href="#0b92ed">textFormat</a>() and <a href="#dffb43">setText</a>().
-<h3 class="fn"><a href="ntqsize.html">TQSize</a> <a name="614dd5"></a>TQLabel::sizeHint () const <code>[virtual]</code></h3>
+<h3 class="fn"><a href="tqsize.html">TQSize</a> <a name="614dd5"></a>TQLabel::sizeHint () const <code>[virtual]</code></h3>
 <p>Reimplemented for internal reasons; the API is not affected.
 <p>Examples:
  <a href="layout-layout-cpp.html#sizeHint">layout/layout.cpp</a>
-<p>Reimplemented from <a href="ntqwidget.html#290bcd">TQWidget.</a>
-<h3 class="fn"><a href="ntqsizepolicy.html">TQSizePolicy</a> <a name="26e1d9"></a>TQLabel::sizePolicy () const <code>[virtual]</code></h3>
+<p>Reimplemented from <a href="tqwidget.html#290bcd">TQWidget.</a>
+<h3 class="fn"><a href="tqsizepolicy.html">TQSizePolicy</a> <a name="26e1d9"></a>TQLabel::sizePolicy () const <code>[virtual]</code></h3>
 <p>Reimplemented for internal reasons; the API is not affected.
-<p>Reimplemented from <a href="ntqwidget.html#2d5d13">TQWidget.</a>
-<h3 class="fn"><a href="ntqstring.html">TQString</a> <a name="72cf09"></a>TQLabel::text () const</h3>
+<p>Reimplemented from <a href="tqwidget.html#2d5d13">TQWidget.</a>
+<h3 class="fn"><a href="tqstring.html">TQString</a> <a name="72cf09"></a>TQLabel::text () const</h3>
 <p>Returns the label text. If the content is a plain or a rich text,
 this is the string that was passed to <a href="#dffb43">setText</a>(). Otherwise, it is an
 empty/null string.

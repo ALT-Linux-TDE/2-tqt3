@@ -1,5 +1,5 @@
-#include <ntqpixmap.h>
-#include <ntqmap.h>
+#include <tqpixmap.h>
+#include <tqmap.h>
 #include "dndbase.h"
 
 #ifndef DNDDEMO_H

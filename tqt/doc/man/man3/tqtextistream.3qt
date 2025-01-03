@@ -1,5 +1,5 @@
 '\" t
-.TH QTextIStream 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQTextIStream 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,30 +7,30 @@
 .ad l
 .nh
 .SH NAME
-QTextIStream \- Convenience class for input streams
+TQTextIStream \- Convenience class for input streams
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqtextstream.h>\fR
+\fC#include <tqtextstream.h>\fR
 .PP
-Inherits QTextStream.
+Inherits TQTextStream.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTextIStream\fR ( const TQString * s )"
+.BI "\fBTQTextIStream\fR ( const TQString * s )"
 .br
 .ti -1c
-.BI "\fBQTextIStream\fR ( QByteArray ba )"
+.BI "\fBTQTextIStream\fR ( TQByteArray ba )"
 .br
 .ti -1c
-.BI "\fBQTextIStream\fR ( FILE * f )"
+.BI "\fBTQTextIStream\fR ( FILE * f )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QTextIStream class is a convenience class for input streams.
+The TQTextIStream class is a convenience class for input streams.
 .PP
-This class provides a shorthand for creating simple input QTextStreams without having to pass a \fImode\fR argument to the constructor.
+This class provides a shorthand for creating simple input TQTextStreams without having to pass a \fImode\fR argument to the constructor.
 .PP
 This class makes it easy, for example, to write things like this:
 .PP
@@ -40,21 +40,21 @@ This class makes it easy, for example, to write things like this:
 .br
     int a, b;
 .br
-    QTextIStream(&data) >> a >> b;
+    TQTextIStream(&data) >> a >> b;
 .br
 .fi
 .PP
-See also QTextOStream, Input/Output and Networking, and Text Related Classes.
+See also TQTextOStream, Input/Output and Networking, and Text Related Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTextIStream::QTextIStream ( const TQString * s )"
+.SH "TQTextIStream::TQTextIStream ( const TQString * s )"
 Constructs a stream to read from the string \fIs\fR.
-.SH "QTextIStream::QTextIStream ( QByteArray ba )"
+.SH "TQTextIStream::TQTextIStream ( TQByteArray ba )"
 Constructs a stream to read from the array \fIba\fR.
-.SH "QTextIStream::QTextIStream ( FILE * f )"
+.SH "TQTextIStream::TQTextIStream ( FILE * f )"
 Constructs a stream to read from the file \fIf\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qtextistream.html
+.BR http://doc.trolltech.com/tqtextistream.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

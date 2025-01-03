@@ -9,7 +9,7 @@
 .SH NAME
 TQImage \- Hardware-independent pixmap representation with direct access to the pixel data
 .SH SYNOPSIS
-\fC#include <ntqimage.h>\fR
+\fC#include <tqimage.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -17,31 +17,31 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "enum \fBEndian\fR { IgnoreEndian, BigEndian, LittleEndian }"
 .br
 .ti -1c
-.BI "\fBQImage\fR ()"
+.BI "\fBTQImage\fR ()"
 .br
 .ti -1c
-.BI "\fBQImage\fR ( int w, int h, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
+.BI "\fBTQImage\fR ( int w, int h, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
 .br
 .ti -1c
-.BI "\fBQImage\fR ( const QSize & size, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
+.BI "\fBTQImage\fR ( const TQSize & size, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
 .br
 .ti -1c
-.BI "\fBQImage\fR ( const TQString & fileName, const char * format = 0 )"
+.BI "\fBTQImage\fR ( const TQString & fileName, const char * format = 0 )"
 .br
 .ti -1c
-.BI "\fBQImage\fR ( const char * const xpm[] )"
+.BI "\fBTQImage\fR ( const char * const xpm[] )"
 .br
 .ti -1c
-.BI "\fBQImage\fR ( const QByteArray & array )"
+.BI "\fBTQImage\fR ( const TQByteArray & array )"
 .br
 .ti -1c
-.BI "\fBQImage\fR ( uchar * yourdata, int w, int h, int depth, TQRgb * colortable, int numColors, Endian bitOrder )"
+.BI "\fBTQImage\fR ( uchar * yourdata, int w, int h, int depth, TQRgb * colortable, int numColors, Endian bitOrder )"
 .br
 .ti -1c
-.BI "\fBQImage\fR ( uchar * yourdata, int w, int h, int depth, int bpl, TQRgb * colortable, int numColors, Endian bitOrder )"
+.BI "\fBTQImage\fR ( uchar * yourdata, int w, int h, int depth, int bpl, TQRgb * colortable, int numColors, Endian bitOrder )"
 .br
 .ti -1c
-.BI "\fBQImage\fR ( const TQImage & image )"
+.BI "\fBTQImage\fR ( const TQImage & image )"
 .br
 .ti -1c
 .BI "\fB~TQImage\fR ()"
@@ -50,7 +50,7 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "TQImage & \fBoperator=\fR ( const TQImage & image )"
 .br
 .ti -1c
-.BI "TQImage & \fBoperator=\fR ( const QPixmap & pixmap )"
+.BI "TQImage & \fBoperator=\fR ( const TQPixmap & pixmap )"
 .br
 .ti -1c
 .BI "bool \fBoperator==\fR ( const TQImage & i ) const"
@@ -68,7 +68,7 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "TQImage \fBcopy\fR ( int x, int y, int w, int h, int conversion_flags = 0 ) const"
 .br
 .ti -1c
-.BI "TQImage \fBcopy\fR ( const QRect & r ) const"
+.BI "TQImage \fBcopy\fR ( const TQRect & r ) const"
 .br
 .ti -1c
 .BI "bool \fBisNull\fR () const"
@@ -80,10 +80,10 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "int \fBheight\fR () const"
 .br
 .ti -1c
-.BI "QSize \fBsize\fR () const"
+.BI "TQSize \fBsize\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBrect\fR () const"
+.BI "TQRect \fBrect\fR () const"
 .br
 .ti -1c
 .BI "int \fBdepth\fR () const"
@@ -137,7 +137,7 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "bool \fBcreate\fR ( int width, int height, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
 .br
 .ti -1c
-.BI "bool \fBcreate\fR ( const QSize &, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
+.BI "bool \fBcreate\fR ( const TQSize &, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
 .br
 .ti -1c
 .BI "void \fBreset\fR ()"
@@ -167,13 +167,13 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "TQImage \fBsmoothScale\fR ( int w, int h, ScaleMode mode = ScaleFree ) const"
 .br
 .ti -1c
-.BI "TQImage \fBsmoothScale\fR ( const QSize & s, ScaleMode mode = ScaleFree ) const"
+.BI "TQImage \fBsmoothScale\fR ( const TQSize & s, ScaleMode mode = ScaleFree ) const"
 .br
 .ti -1c
 .BI "TQImage \fBscale\fR ( int w, int h, ScaleMode mode = ScaleFree ) const"
 .br
 .ti -1c
-.BI "TQImage \fBscale\fR ( const QSize & s, ScaleMode mode = ScaleFree ) const"
+.BI "TQImage \fBscale\fR ( const TQSize & s, ScaleMode mode = ScaleFree ) const"
 .br
 .ti -1c
 .BI "TQImage \fBscaleWidth\fR ( int w ) const"
@@ -182,7 +182,7 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "TQImage \fBscaleHeight\fR ( int h ) const"
 .br
 .ti -1c
-.BI "TQImage \fBxForm\fR ( const QWMatrix & matrix ) const"
+.BI "TQImage \fBxForm\fR ( const TQWMatrix & matrix ) const"
 .br
 .ti -1c
 .BI "TQImage \fBcreateAlphaMask\fR ( int conversion_flags = 0 ) const"
@@ -206,7 +206,7 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "bool \fBloadFromData\fR ( const uchar * buf, uint len, const char * format = 0 )"
 .br
 .ti -1c
-.BI "bool \fBloadFromData\fR ( QByteArray buf, const char * format = 0 )"
+.BI "bool \fBloadFromData\fR ( TQByteArray buf, const char * format = 0 )"
 .br
 .ti -1c
 .BI "bool \fBsave\fR ( const TQString & fileName, const char * format, int quality = -1 ) const"
@@ -239,25 +239,25 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "void \fBsetDotsPerMeterY\fR ( int y )"
 .br
 .ti -1c
-.BI "QPoint \fBoffset\fR () const"
+.BI "TQPoint \fBoffset\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetOffset\fR ( const QPoint & p )"
+.BI "void \fBsetOffset\fR ( const TQPoint & p )"
 .br
 .ti -1c
-.BI "QValueList<QImageTextKeyLang> \fBtextList\fR () const"
+.BI "TQValueList<TQImageTextKeyLang> \fBtextList\fR () const"
 .br
 .ti -1c
-.BI "QStringList \fBtextLanguages\fR () const"
+.BI "TQStringList \fBtextLanguages\fR () const"
 .br
 .ti -1c
-.BI "QStringList \fBtextKeys\fR () const"
+.BI "TQStringList \fBtextKeys\fR () const"
 .br
 .ti -1c
 .BI "TQString \fBtext\fR ( const char * key, const char * lang = 0 ) const"
 .br
 .ti -1c
-.BI "TQString \fBtext\fR ( const QImageTextKeyLang & kl ) const"
+.BI "TQString \fBtext\fR ( const TQImageTextKeyLang & kl ) const"
 .br
 .ti -1c
 .BI "void \fBsetText\fR ( const char * key, const char * lang, const TQString & s )"
@@ -278,25 +278,25 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .BI "const char * \fBimageFormat\fR ( const TQString & fileName )"
 .br
 .ti -1c
-.BI "QStrList \fBinputFormats\fR ()"
+.BI "TQStrList \fBinputFormats\fR ()"
 .br
 .ti -1c
-.BI "QStrList \fBoutputFormats\fR ()"
+.BI "TQStrList \fBoutputFormats\fR ()"
 .br
 .ti -1c
-.BI "QStringList \fBinputFormatList\fR ()"
+.BI "TQStringList \fBinputFormatList\fR ()"
 .br
 .ti -1c
-.BI "QStringList \fBoutputFormatList\fR ()"
+.BI "TQStringList \fBoutputFormatList\fR ()"
 .br
 .in -1c
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const TQImage & image )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQImage & image )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, TQImage & image )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQImage & image )"
 .br
 .ti -1c
 .BI "void \fBbitBlt\fR ( TQImage * dst, int dx, int dy, const TQImage * src, int sx, int sy, int sw, int sh, int conversion_flags )"
@@ -305,13 +305,13 @@ TQImage \- Hardware-independent pixmap representation with direct access to the 
 .SH DESCRIPTION
 The TQImage class provides a hardware-independent pixmap representation with direct access to the pixel data.
 .PP
-It is one of the two classes TQt provides for dealing with images, the other being QPixmap. TQImage is designed and optimized for I/O and for direct pixel access/manipulation. QPixmap is designed and optimized for drawing. There are (slow) functions to convert between TQImage and QPixmap: QPixmap::convertToImage() and QPixmap::convertFromImage().
+It is one of the two classes TQt provides for dealing with images, the other being TQPixmap. TQImage is designed and optimized for I/O and for direct pixel access/manipulation. TQPixmap is designed and optimized for drawing. There are (slow) functions to convert between TQImage and TQPixmap: TQPixmap::convertToImage() and TQPixmap::convertFromImage().
 .PP
 An image has the parameters width, height and depth (bits per pixel, bpp), a color table and the actual pixels. TQImage supports 1-bpp, 8-bpp and 32-bpp image data. 1-bpp and 8-bpp images use a color lookup table; the pixel value is a color table index.
 .PP
 32-bpp images encode an RGB value in 24 bits and ignore the color table. The most significant byte is used for the alpha buffer.
 .PP
-An entry in the color table is an RGB triplet encoded as a \fCuint\fR. Use the tqRed(), tqGreen() and tqBlue() functions (ntqcolor.h) to access the components, and tqRgb to make an RGB triplet (see the TQColor class documentation).
+An entry in the color table is an RGB triplet encoded as a \fCuint\fR. Use the tqRed(), tqGreen() and tqBlue() functions (tqcolor.h) to access the components, and tqRgb to make an RGB triplet (see the TQColor class documentation).
 .PP
 1-bpp (monochrome) images have a color table with a most two colors. There are two different formats: big endian (MSB first) or little endian (LSB first) bit order. To access a single bit you will must do some bit shifts:
 .PP
@@ -363,8 +363,6 @@ If this looks complicated, it might be a good idea to convert the 1-bpp image to
 .br
 .fi
 .PP
-On Qt/Embedded, scanlines are aligned to the pixel depth and may be padded to any degree, while on all other platforms, the scanlines are 32-bit aligned for all depths. The constructor taking a \fCuchar*\fR argument always expects 32-bit aligned data. On Qt/Embedded, an additional constructor allows the number of bytes-per-line to be specified.
-.PP
 TQImage supports a variety of methods for getting information about the image, for example, colorTable(), allGray(), isGrayscale(), bitOrder(), bytesPerLine(), depth(), dotsPerMeterX() and dotsPerMeterY(), hasAlphaBuffer(), numBytes(), numColors(), and width() and height().
 .PP
 Pixel colors are retrieved with pixel() and set with setPixel().
@@ -375,20 +373,20 @@ Images can be loaded and saved in the supported formats. Images are saved to a f
 .PP
 Strings of text may be added to images using setText().
 .PP
-The TQImage class uses explicit sharing, similar to that used by QMemArray.
+The TQImage class uses explicit sharing, similar to that used by TQMemArray.
 .PP
 New image formats can be added as plugins.
 .PP
-See also QImageIO, QPixmap, Shared Classes, Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
+See also TQImageIO, TQPixmap, Shared Classes, Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
 .SS "Member Type Documentation"
 .SH "TQImage::Endian"
 This enum type is used to describe the endianness of the CPU and graphics hardware.
 .TP
-\fCQImage::IgnoreEndian\fR - Endianness does not matter. Useful for some operations that are independent of endianness.
+\fCTQImage::IgnoreEndian\fR - Endianness does not matter. Useful for some operations that are independent of endianness.
 .TP
-\fCQImage::BigEndian\fR - Network byte order, as on SPARC and Motorola CPUs.
+\fCTQImage::BigEndian\fR - Network byte order, as on SPARC and Motorola CPUs.
 .TP
-\fCQImage::LittleEndian\fR - PC/Alpha byte order.
+\fCTQImage::LittleEndian\fR - PC/Alpha byte order.
 .SH "TQImage::ScaleMode"
 The functions scale() and smoothScale() use different modes for scaling the image. The purpose of these modes is to retain the ratio of the image if this is required.
 .PP
@@ -398,11 +396,11 @@ The functions scale() and smoothScale() use different modes for scaling the imag
 .PP
 </center> 
 .TP
-\fCQImage::ScaleFree\fR - The image is scaled freely: the resulting image fits exactly into the specified size; the ratio will not necessarily be preserved.
+\fCTQImage::ScaleFree\fR - The image is scaled freely: the resulting image fits exactly into the specified size; the ratio will not necessarily be preserved.
 .TP
-\fCQImage::ScaleMin\fR - The ratio of the image is preserved and the resulting image is guaranteed to fit into the specified size (it is as large as possible within these constraints) - the image might be smaller than the requested size.
+\fCTQImage::ScaleMin\fR - The ratio of the image is preserved and the resulting image is guaranteed to fit into the specified size (it is as large as possible within these constraints) - the image might be smaller than the requested size.
 .TP
-\fCQImage::ScaleMax\fR - The ratio of the image is preserved and the resulting image fills the whole specified rectangle (it is as small as possible within these constraints) - the image might be larger than the requested size.
+\fCTQImage::ScaleMax\fR - The ratio of the image is preserved and the resulting image fills the whole specified rectangle (it is as small as possible within these constraints) - the image might be larger than the requested size.
 .SH MEMBER FUNCTION DOCUMENTATION
 .SH "TQImage::TQImage ()"
 Constructs a null image.
@@ -414,7 +412,7 @@ Constructs an image with \fIw\fR width, \fIh\fR height, \fIdepth\fR bits per pix
 Using this constructor is the same as first constructing a null image and then calling the create() function.
 .PP
 See also create().
-.SH "TQImage::TQImage ( const QSize & size, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
+.SH "TQImage::TQImage ( const TQSize & size, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
 Constructs an image with size \fIsize\fR pixels, depth \fIdepth\fR bits, \fInumColors\fR and \fIbitOrder\fR endianness.
 .PP
 Using this constructor is the same as first constructing a null image and then calling the create() function.
@@ -427,9 +425,9 @@ If \fIformat\fR is specified, the loader attempts to read the image using the sp
 .PP
 If the loading of the image failed, this object is a null image.
 .PP
-The QImageIO documentation lists the supported image formats and explains how to add extra formats.
+The TQImageIO documentation lists the supported image formats and explains how to add extra formats.
 .PP
-See also load(), isNull(), and QImageIO.
+See also load(), isNull(), and TQImageIO.
 .SH "TQImage::TQImage ( const char * const xpm[] )"
 Constructs an image from \fIxpm\fR, which must be a valid XPM image.
 .PP
@@ -450,7 +448,7 @@ Note that it's possible to squeeze the XPM variable a little bit by using an unu
 .fi
 .PP
 The extra \fCconst\fR makes the entire definition read-only, which is slightly more efficient (e.g. when the code is in a shared library) and ROMable when the application is to be stored in ROM.
-.SH "TQImage::TQImage ( const QByteArray & array )"
+.SH "TQImage::TQImage ( const TQByteArray & array )"
 Constructs an image from the binary data \fIarray\fR. It tries to guess the file format.
 .PP
 If the loading of the image failed, this object is a null image.
@@ -464,14 +462,6 @@ If \fIcolortable\fR is 0, a color table sufficient for \fInumColors\fR will be a
 Note that \fIyourdata\fR must be 32-bit aligned.
 .PP
 The endianness is given in \fIbitOrder\fR.
-.SH "TQImage::TQImage ( uchar * yourdata, int w, int h, int depth, int bpl, TQRgb * colortable, int numColors, Endian bitOrder )"
-Constructs an image that uses an existing memory buffer. The buffer must remain valid for the life of the TQImage. The image does not delete the buffer at destruction. The buffer is passed as \fIyourdata\fR. The image's width is \fIw\fR and its height is \fIh\fR. The color depth is \fIdepth\fR. \fIbpl\fR specifies the number of bytes per line.
-.PP
-If \fIcolortable\fR is 0, a color table sufficient for \fInumColors\fR will be allocated (and destructed later).
-.PP
-The endianness is specified by \fIbitOrder\fR.
-.PP
-\fBWarning:\fR This constructor is only available on Qt/Embedded.
 .SH "TQImage::TQImage ( const TQImage & image )"
 Constructs a shallow copy of \fIimage\fR.
 .SH "TQImage::~TQImage ()"
@@ -479,7 +469,7 @@ Destroys the image and cleans up.
 .SH "bool TQImage::allGray () const"
 Returns TRUE if all the colors in the image are shades of gray (i.e. their red, green and blue components are equal); otherwise returns FALSE.
 .PP
-This function is slow for large 16-bit (Qt/Embedded only) and 32-bit images.
+This function is slow for 32-bit images.
 .PP
 See also isGrayscale().
 .SH "Endian TQImage::bitOrder () const"
@@ -503,7 +493,7 @@ See also numBytes() and scanLine().
 .SH "TQRgb TQImage::color ( int i ) const"
 Returns the color in the color table at index \fIi\fR. The first color is at index 0.
 .PP
-A color value is an RGB triplet. Use the tqRed(), tqGreen() and tqBlue() functions (defined in ntqcolor.h) to get the color value components.
+A color value is an RGB triplet. Use the tqRed(), tqGreen() and tqBlue() functions (defined in tqcolor.h) to get the color value components.
 .PP
 See also setColor(), numColors(), and TQColor.
 .PP
@@ -521,7 +511,7 @@ See also bitOrder(), systemBitOrder(), and isNull().
 .SH "TQImage TQImage::convertDepth ( int depth, int conversion_flags ) const"
 Converts the depth (bpp) of the image to \fIdepth\fR and returns the converted image. The original image is not changed.
 .PP
-The \fIdepth\fR argument must be 1, 8, 16 (Qt/Embedded only) or 32.
+The \fIdepth\fR argument must be 1, 8 or 32.
 .PP
 Returns \fC*this\fR if \fIdepth\fR is equal to the image depth, or a null image if this image cannot be converted.
 .PP
@@ -554,7 +544,7 @@ The returned image is always \fIw\fR by \fIh\fR pixels in size, and is copied fr
 If the image needs to be modified to fit in a lower-resolution result (e.g. converting from 32-bit to 8-bit), use the \fIconversion_flags\fR to specify how you'd prefer this to happen.
 .PP
 See also bitBlt() and TQt::ImageConversionFlags.
-.SH "TQImage TQImage::copy ( const QRect & r ) const"
+.SH "TQImage TQImage::copy ( const TQRect & r ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a deep copy of a sub-area of the image.
@@ -570,12 +560,12 @@ This function allocates a color table and a buffer for the image data. The image
 The image buffer is allocated as a single block that consists of a table of scanline pointers (jumpTable()) and the image data (bits()).
 .PP
 See also fill(), width(), height(), depth(), numColors(), bitOrder(), jumpTable(), scanLine(), bits(), bytesPerLine(), and numBytes().
-.SH "bool TQImage::create ( const QSize &, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
+.SH "bool TQImage::create ( const TQSize &, int depth, int numColors = 0, Endian bitOrder = IgnoreEndian )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .SH "TQImage TQImage::createAlphaMask ( int conversion_flags = 0 ) const"
 Builds and returns a 1-bpp mask from the alpha buffer in this image. Returns a null image if alpha buffer mode is disabled.
 .PP
-See QPixmap::convertFromImage() for a description of the \fIconversion_flags\fR argument.
+See TQPixmap::convertFromImage() for a description of the \fIconversion_flags\fR argument.
 .PP
 The returned image has little-endian bit order, which you can convert to big-endianness using convertBitOrder().
 .PP
@@ -597,7 +587,7 @@ Returns the depth of the image.
 .PP
 The image depth is the number of bits used to encode a single pixel, also called bits per pixel (bpp) or bit planes of an image.
 .PP
-The supported depths are 1, 8, 16 (Qt/Embedded only) and 32.
+The supported depths are 1, 8 and 32.
 .PP
 See also convertDepth().
 .SH "void TQImage::detach ()"
@@ -629,7 +619,7 @@ See also invertPixels(), depth(), hasAlphaBuffer(), and create().
 .SH "TQImage TQImage::fromMimeSource ( const TQString & abs_name )\fC [static]\fR"
 Convenience function. Gets the data associated with the absolute name \fIabs_name\fR from the default mime source factory and decodes it to an image.
 .PP
-See also QMimeSourceFactory, TQImage::fromMimeSource(), and QImageDrag::decode().
+See also TQMimeSourceFactory, TQImage::fromMimeSource(), and TQImageDrag::decode().
 .SH "bool TQImage::hasAlphaBuffer () const"
 Returns TRUE if alpha buffer mode is enabled; otherwise returns FALSE.
 .PP
@@ -644,19 +634,19 @@ Examples:
 .SH "const char * TQImage::imageFormat ( const TQString & fileName )\fC [static]\fR"
 Returns a string that specifies the image format of the file \fIfileName\fR, or 0 if the file cannot be read or if the format is not recognized.
 .PP
-The QImageIO documentation lists the guaranteed supported image formats, or use TQImage::inputFormats() and TQImage::outputFormats() to get lists that include the installed formats.
+The TQImageIO documentation lists the guaranteed supported image formats, or use TQImage::inputFormats() and TQImage::outputFormats() to get lists that include the installed formats.
 .PP
 See also load() and save().
-.SH "QStringList TQImage::inputFormatList ()\fC [static]\fR"
+.SH "TQStringList TQImage::inputFormatList ()\fC [static]\fR"
 Returns a list of image formats that are supported for image input.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myImage.inputFormatList();
+    TQStringList list = myImage.inputFormatList();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -668,13 +658,13 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .br
 .fi
 .PP
-See also outputFormatList(), inputFormats(), and QImageIO.
+See also outputFormatList(), inputFormats(), and TQImageIO.
 .PP
 Example: showimg/showimg.cpp.
-.SH "QStrList TQImage::inputFormats ()\fC [static]\fR"
+.SH "TQStrList TQImage::inputFormats ()\fC [static]\fR"
 Returns a list of image formats that are supported for image input.
 .PP
-See also outputFormats(), inputFormatList(), and QImageIO.
+See also outputFormats(), inputFormatList(), and TQImageIO.
 .SH "void TQImage::invertPixels ( bool invertAlpha = TRUE )"
 Inverts all pixel values in the image.
 .PP
@@ -686,7 +676,7 @@ Note that inverting an 8-bit image means to replace all pixels using color index
 .PP
 See also fill(), depth(), and hasAlphaBuffer().
 .SH "bool TQImage::isGrayscale () const"
-For 16-bit (Qt/Embedded only) and 32-bit images, this function is equivalent to allGray().
+For 32-bit images, this function is equivalent to allGray().
 .PP
 For 8-bpp images, this function returns TRUE if color(i) is TQRgb(i,i,i) for all indices of the color table; otherwise returns FALSE.
 .PP
@@ -708,21 +698,21 @@ Loads an image from the file \fIfileName\fR. Returns TRUE if the image was succe
 .PP
 If \fIformat\fR is specified, the loader attempts to read the image using the specified format. If \fIformat\fR is not specified (which is the default), the loader reads a few bytes from the header to guess the file format.
 .PP
-The QImageIO documentation lists the supported image formats and explains how to add extra formats.
+The TQImageIO documentation lists the supported image formats and explains how to add extra formats.
 .PP
-See also loadFromData(), save(), imageFormat(), QPixmap::load(), and QImageIO.
+See also loadFromData(), save(), imageFormat(), TQPixmap::load(), and TQImageIO.
 .SH "bool TQImage::loadFromData ( const uchar * buf, uint len, const char * format = 0 )"
 Loads an image from the first \fIlen\fR bytes of binary data in \fIbuf\fR. Returns TRUE if the image was successfully loaded; otherwise returns FALSE.
 .PP
 If \fIformat\fR is specified, the loader attempts to read the image using the specified format. If \fIformat\fR is not specified (which is the default), the loader reads a few bytes from the header to guess the file format.
 .PP
-The QImageIO documentation lists the supported image formats and explains how to add extra formats.
+The TQImageIO documentation lists the supported image formats and explains how to add extra formats.
 .PP
-See also load(), save(), imageFormat(), QPixmap::loadFromData(), and QImageIO.
-.SH "bool TQImage::loadFromData ( QByteArray buf, const char * format = 0 )"
+See also load(), save(), imageFormat(), TQPixmap::loadFromData(), and TQImageIO.
+.SH "bool TQImage::loadFromData ( TQByteArray buf, const char * format = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Loads an image from the QByteArray \fIbuf\fR.
+Loads an image from the TQByteArray \fIbuf\fR.
 .SH "TQImage TQImage::mirror () const"
 Returns a TQImage which is a vertically mirrored copy of this image. The original TQImage is not changed.
 .SH "TQImage TQImage::mirror ( bool horizontal, bool vertical ) const"
@@ -738,12 +728,12 @@ See also bytesPerLine() and bits().
 .SH "int TQImage::numColors () const"
 Returns the size of the color table for the image.
 .PP
-Notice that numColors() returns 0 for 16-bpp (Qt/Embedded only) and 32-bpp images because these images do not use color tables, but instead encode pixel values as RGB triplets.
+Notice that numColors() returns 0 for 32-bpp images because these images do not use color tables, but instead encode pixel values as RGB triplets.
 .PP
 See also setNumColors() and colorTable().
 .PP
 Example: themes/wood.cpp.
-.SH "QPoint TQImage::offset () const"
+.SH "TQPoint TQImage::offset () const"
 Returns the number of pixels by which the image is intended to be offset by when positioning relative to other images.
 .SH "bool TQImage::operator!= ( const TQImage & i ) const"
 Returns TRUE if this image and image \fIi\fR have different contents; otherwise returns FALSE. The comparison can be slow, unless there is some obvious difference, such as different widths, in which case the function will return quickly.
@@ -753,28 +743,28 @@ See also operator=().
 Assigns a shallow copy of \fIimage\fR to this image and returns a reference to this image.
 .PP
 See also copy().
-.SH "TQImage & TQImage::operator= ( const QPixmap & pixmap )"
+.SH "TQImage & TQImage::operator= ( const TQPixmap & pixmap )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the image bits to the \fIpixmap\fR contents and returns a reference to the image.
 .PP
 If the image shares data with other images, it will first dereference the shared data.
 .PP
-Makes a call to QPixmap::convertToImage().
+Makes a call to TQPixmap::convertToImage().
 .SH "bool TQImage::operator== ( const TQImage & i ) const"
 Returns TRUE if this image and image \fIi\fR have the same contents; otherwise returns FALSE. The comparison can be slow, unless there is some obvious difference, such as different widths, in which case the function will return quickly.
 .PP
 See also operator=().
-.SH "QStringList TQImage::outputFormatList ()\fC [static]\fR"
+.SH "TQStringList TQImage::outputFormatList ()\fC [static]\fR"
 Returns a list of image formats that are supported for image output.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myImage.outputFormatList();
+    TQStringList list = myImage.outputFormatList();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -786,11 +776,11 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .br
 .fi
 .PP
-See also inputFormatList(), outputFormats(), and QImageIO.
-.SH "QStrList TQImage::outputFormats ()\fC [static]\fR"
+See also inputFormatList(), outputFormats(), and TQImageIO.
+.SH "TQStrList TQImage::outputFormats ()\fC [static]\fR"
 Returns a list of image formats that are supported for image output.
 .PP
-See also inputFormats(), outputFormatList(), and QImageIO.
+See also inputFormats(), outputFormatList(), and TQImageIO.
 .PP
 Example: showimg/showimg.cpp.
 .SH "TQRgb TQImage::pixel ( int x, int y ) const"
@@ -808,7 +798,7 @@ Returns the pixel index at the given coordinates.
 If (\fIx\fR, \fIy\fR) is not valid, or if the image is not a paletted image (depth() > 8), the results are undefined.
 .PP
 See also valid() and depth().
-.SH "QRect TQImage::rect () const"
+.SH "TQRect TQImage::rect () const"
 Returns the enclosing rectangle (0, 0, width(), height()) of the image.
 .PP
 See also width(), height(), and size().
@@ -819,19 +809,19 @@ Saves the image to the file \fIfileName\fR, using the image file format \fIforma
 .PP
 Returns TRUE if the image was successfully saved; otherwise returns FALSE.
 .PP
-See also load(), loadFromData(), imageFormat(), QPixmap::save(), and QImageIO.
+See also load(), loadFromData(), imageFormat(), TQPixmap::save(), and TQImageIO.
 .SH "bool TQImage::save ( TQIODevice * device, const char * format, int quality = -1 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-This function writes a TQImage to the TQIODevice, \fIdevice\fR. This can be used, for example, to save an image directly into a QByteArray:
+This function writes a TQImage to the TQIODevice, \fIdevice\fR. This can be used, for example, to save an image directly into a TQByteArray:
 .PP
 .nf
 .br
     TQImage image;
 .br
-    QByteArray ba;
+    TQByteArray ba;
 .br
-    QBuffer buffer( ba );
+    TQBuffer buffer( ba );
 .br
     buffer.open( IO_WriteOnly );
 .br
@@ -852,7 +842,7 @@ If either the width \fIw\fR or the height \fIh\fR is 0 or negative, this functio
 This function uses a simple, fast algorithm. If you need better quality, use smoothScale() instead.
 .PP
 See also scaleWidth(), scaleHeight(), smoothScale(), and xForm().
-.SH "TQImage TQImage::scale ( const QSize & s, ScaleMode mode = ScaleFree ) const"
+.SH "TQImage TQImage::scale ( const TQSize & s, ScaleMode mode = ScaleFree ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 The requested size of the image is \fIs\fR.
@@ -875,9 +865,7 @@ Returns a pointer to the pixel data at the scanline with index \fIi\fR. The firs
 .PP
 The scanline data is aligned on a 32-bit boundary.
 .PP
-\fBWarning:\fR If you are accessing 32-bpp image data, cast the returned pointer to \fCQRgb*\fR (TQRgb has a 32-bit size) and use it to read/write the pixel value. You cannot use the \fCuchar*\fR pointer directly, because the pixel format depends on the byte order on the underlying platform. Hint: use tqRed(), tqGreen() and tqBlue(), etc. (ntqcolor.h) to access the pixels.
-.PP
-\fBWarning:\fR If you are accessing 16-bpp image data, you must handle endianness yourself. (Qt/Embedded only)
+\fBWarning:\fR If you are accessing 32-bpp image data, cast the returned pointer to \fCQRgb*\fR (TQRgb has a 32-bit size) and use it to read/write the pixel value. You cannot use the \fCuchar*\fR pointer directly, because the pixel format depends on the byte order on the underlying platform. Hint: use tqRed(), tqGreen() and tqBlue(), etc. (tqcolor.h) to access the pixels.
 .PP
 See also bytesPerLine(), bits(), and jumpTable().
 .PP
@@ -891,13 +879,13 @@ This 32-bit value is encoded as follows: The lower 24 bits are used for the red,
 .PP
 The alpha component specifies the transparency of a pixel. 0 means completely transparent and 255 means opaque. The alpha component is ignored if you do not enable alpha buffer mode.
 .PP
-The alpha buffer is used to set a mask when a TQImage is translated to a QPixmap.
+The alpha buffer is used to set a mask when a TQImage is translated to a TQPixmap.
 .PP
 See also hasAlphaBuffer() and createAlphaMask().
 .SH "void TQImage::setColor ( int i, TQRgb c )"
 Sets a color in the color table at index \fIi\fR to \fIc\fR.
 .PP
-A color value is an RGB triplet. Use the tqRgb() function (defined in ntqcolor.h) to make RGB triplets.
+A color value is an RGB triplet. Use the tqRgb() function (defined in tqcolor.h) to make RGB triplets.
 .PP
 See also color(), setNumColors(), and numColors().
 .PP
@@ -913,7 +901,7 @@ Resizes the color table to \fInumColors\fR colors.
 If the color table is expanded all the extra colors will be set to black (RGB 0,0,0).
 .PP
 See also numColors(), color(), setColor(), and colorTable().
-.SH "void TQImage::setOffset ( const QPoint & p )"
+.SH "void TQImage::setOffset ( const TQPoint & p )"
 Sets the value returned by offset() to \fIp\fR.
 .SH "void TQImage::setPixel ( int x, int y, uint index_or_rgb )"
 Sets the pixel index or color at the coordinates (\fIx\fR, \fIy\fR) to \fIindex_or_rgb\fR.
@@ -925,7 +913,7 @@ If the image is a paletted image (depth() <= 8) and \fIindex_or_rgb\fR >= numCol
 See also pixelIndex(), pixel(), tqRgb(), tqRgba(), and valid().
 .SH "void TQImage::setText ( const char * key, const char * lang, const TQString & s )"
 Records string \fIs\fR for the keyword \fIkey\fR. The \fIkey\fR should be a portable keyword recognizable by other software - some suggested values can be found in the PNG specification. \fIs\fR can be any text. \fIlang\fR should specify the language code (see RFC 1766) or 0.
-.SH "QSize TQImage::size () const"
+.SH "TQSize TQImage::size () const"
 Returns the size of the image, i.e. its width and height.
 .PP
 See also width(), height(), and rect().
@@ -943,7 +931,7 @@ Copyright (C) 1989, 1991 by Jef Poskanzer.
 Permission to use, copy, modify, and distribute this software and its documentation for any purpose and without fee is hereby granted, provided that the above copyright notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation. This software is provided "as is" without express or implied warranty.
 .PP
 See also scale() and mirror().
-.SH "TQImage TQImage::smoothScale ( const QSize & s, ScaleMode mode = ScaleFree ) const"
+.SH "TQImage TQImage::smoothScale ( const TQSize & s, ScaleMode mode = ScaleFree ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 The requested size of the image is \fIs\fR.
@@ -959,20 +947,20 @@ Determines the host computer byte order. Returns TQImage::LittleEndian (LSB firs
 See also systemBitOrder().
 .SH "TQString TQImage::text ( const char * key, const char * lang = 0 ) const"
 Returns the string recorded for the keyword \fIkey\fR in language \fIlang\fR, or in a default language if \fIlang\fR is 0.
-.SH "TQString TQImage::text ( const QImageTextKeyLang & kl ) const"
+.SH "TQString TQImage::text ( const TQImageTextKeyLang & kl ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the string recorded for the keyword and language \fIkl\fR.
-.SH "QStringList TQImage::textKeys () const"
+.SH "TQStringList TQImage::textKeys () const"
 Returns the keywords for which some texts are recorded.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myImage.textKeys();
+    TQStringList list = myImage.textKeys();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -985,16 +973,16 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 .PP
 See also textList(), text(), setText(), and textLanguages().
-.SH "QStringList TQImage::textLanguages () const"
+.SH "TQStringList TQImage::textLanguages () const"
 Returns the language identifiers for which some texts are recorded.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myImage.textLanguages();
+    TQStringList list = myImage.textLanguages();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -1007,16 +995,16 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 .PP
 See also textList(), text(), setText(), and textKeys().
-.SH "QValueList<QImageTextKeyLang> TQImage::textList () const"
-Returns a list of QImageTextKeyLang objects that enumerate all the texts key/language pairs set by setText() for this image.
+.SH "TQValueList<TQImageTextKeyLang> TQImage::textList () const"
+Returns a list of TQImageTextKeyLang objects that enumerate all the texts key/language pairs set by setText() for this image.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QValueList<QImageTextKeyLang> list = myImage.textList();
+    TQValueList<TQImageTextKeyLang> list = myImage.textList();
 .br
-    QValueList<QImageTextKeyLang>::Iterator it = list.begin();
+    TQValueList<TQImageTextKeyLang>::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -1041,12 +1029,12 @@ See also height(), size(), and rect().
 .PP
 Examples:
 .)l canvas/canvas.cpp and opengl/texture/gltexobj.cpp.
-.SH "TQImage TQImage::xForm ( const QWMatrix & matrix ) const"
+.SH "TQImage TQImage::xForm ( const TQWMatrix & matrix ) const"
 Returns a copy of the image that is transformed using the transformation matrix, \fImatrix\fR.
 .PP
 The transformation \fImatrix\fR is internally adjusted to compensate for unwanted translation, i.e. xForm() returns the smallest image that contains all the transformed points of the original image.
 .PP
-See also scale(), QPixmap::xForm(), QPixmap::trueMatrix(), and QWMatrix.
+See also scale(), TQPixmap::xForm(), TQPixmap::trueMatrix(), and TQWMatrix.
 .SH RELATED FUNCTION DOCUMENTATION
 .SH "void bitBlt ( TQImage * dst, int dx, int dy, const TQImage * src, int sx, int sy, int sw, int sh, int conversion_flags )"
 Copies a block of pixels from \fIsrc\fR to \fIdst\fR. The pixels copied from source (src) are converted according to \fIconversion_flags\fR if it is incompatible with the destination (\fIdst\fR).
@@ -1058,19 +1046,19 @@ The copying is clipped if areas outside \fIsrc\fR or \fIdst\fR are specified.
 If \fIsw\fR is -1, it is adjusted to src->width(). Similarly, if \fIsh\fR is -1, it is adjusted to src->height().
 .PP
 Currently inefficient for non 32-bit images.
-.SH "QDataStream & operator<< ( QDataStream & s, const TQImage & image )"
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQImage & image )"
 Writes the image \fIimage\fR to the stream \fIs\fR as a PNG image, or as a BMP image if the stream's version is 1.
 .PP
 Note that writing the stream to a file will not produce a valid image file.
 .PP
-See also TQImage::save() and Format of the QDataStream operators.
-.SH "QDataStream & operator>> ( QDataStream & s, TQImage & image )"
+See also TQImage::save() and Format of the TQDataStream operators.
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQImage & image )"
 Reads an image from the stream \fIs\fR and stores it in \fIimage\fR.
 .PP
-See also TQImage::load() and Format of the QDataStream operators.
+See also TQImage::load() and Format of the TQDataStream operators.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqimage.html
+.BR http://doc.trolltech.com/tqimage.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

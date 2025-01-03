@@ -1,5 +1,5 @@
 '\" t
-.TH QImageFormatPlugin 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQImageFormatPlugin 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,27 +7,27 @@
 .ad l
 .nh
 .SH NAME
-QImageFormatPlugin \- Abstract base for custom image format plugins
+TQImageFormatPlugin \- Abstract base for custom image format plugins
 .SH SYNOPSIS
-\fC#include <ntqimageformatplugin.h>\fR
+\fC#include <tqimageformatplugin.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQImageFormatPlugin\fR ()"
+.BI "\fBTQImageFormatPlugin\fR ()"
 .br
 .ti -1c
-.BI "\fB~QImageFormatPlugin\fR ()"
+.BI "\fB~TQImageFormatPlugin\fR ()"
 .br
 .ti -1c
-.BI "virtual QStringList \fBkeys\fR () const = 0"
+.BI "virtual TQStringList \fBkeys\fR () const = 0"
 .br
 .ti -1c
 .BI "virtual bool \fBinstallIOHandler\fR ( const TQString & format ) = 0"
 .br
 .in -1c
 .SH DESCRIPTION
-The QImageFormatPlugin class provides an abstract base for custom image format plugins.
+The TQImageFormatPlugin class provides an abstract base for custom image format plugins.
 .PP
 The image format plugin is a simple plugin interface that makes it easy to create custom image formats that can be used transparently by applications.
 .PP
@@ -35,23 +35,23 @@ Writing an image format plugin is achieved by subclassing this base class, reimp
 .PP
 See also Plugins.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QImageFormatPlugin::QImageFormatPlugin ()"
+.SH "TQImageFormatPlugin::TQImageFormatPlugin ()"
 Constructs an image format plugin. This is invoked automatically by the TQ_EXPORT_PLUGIN macro.
-.SH "QImageFormatPlugin::~QImageFormatPlugin ()"
+.SH "TQImageFormatPlugin::~TQImageFormatPlugin ()"
 Destroys the image format plugin.
 .PP
 You never have to call this explicitly. TQt destroys a plugin automatically when it is no longer used.
-.SH "bool QImageFormatPlugin::installIOHandler ( const TQString & format )\fC [pure virtual]\fR"
-Installs a QImageIO image I/O handler for the image format \fIformat\fR.
+.SH "bool TQImageFormatPlugin::installIOHandler ( const TQString & format )\fC [pure virtual]\fR"
+Installs a TQImageIO image I/O handler for the image format \fIformat\fR.
 .PP
 See also keys().
-.SH "QStringList QImageFormatPlugin::keys () const\fC [pure virtual]\fR"
+.SH "TQStringList TQImageFormatPlugin::keys () const\fC [pure virtual]\fR"
 Returns the list of image formats this plugin supports.
 .PP
 See also installIOHandler().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqimageformatplugin.html
+.BR http://doc.trolltech.com/tqimageformatplugin.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

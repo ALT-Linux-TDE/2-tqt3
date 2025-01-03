@@ -1,5 +1,5 @@
-#include <ntqimage.h>
-#include <ntqcolor.h>
+#include <tqimage.h>
+#include <tqcolor.h>
 
 static inline int blendComponent( int v, int av, int s, int as )
 {

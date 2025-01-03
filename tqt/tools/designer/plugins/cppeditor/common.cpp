@@ -105,7 +105,7 @@ TQRESULT CommonInterface::queryInterface( const TQUuid &uuid, TQUnknownInterface
 }
 
 
-Q_EXPORT_COMPONENT()
+TQ_EXPORT_COMPONENT()
 {
      Q_CREATE_INSTANCE( CommonInterface )
 }

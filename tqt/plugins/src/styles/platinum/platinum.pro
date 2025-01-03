@@ -1,16 +1,16 @@
 TEMPLATE = lib
-TARGET	 = qplatinumstyle
+TARGET	 = tqplatinumstyle
 
 CONFIG  += qt warn_off release plugin
 DESTDIR  = ../../../styles
 
-HEADERS		= ../../../../include/ntqplatinumstyle.h
+HEADERS		= ../../../../include/tqplatinumstyle.h
 SOURCES		= main.cpp \
-		  ../../../../src/styles/qplatinumstyle.cpp
+		  ../../../../src/styles/tqplatinumstyle.cpp
 
 !contains(styles, windows) {
-	HEADERS += ../../../../include/ntqwindowsstyle.h
-	SOURCES += ../../../../src/styles/qwindowsstyle.cpp
+	HEADERS += ../../../../include/tqwindowsstyle.h
+	SOURCES += ../../../../src/styles/tqwindowsstyle.cpp
 }
 
 unix:OBJECTS_DIR	= .obj

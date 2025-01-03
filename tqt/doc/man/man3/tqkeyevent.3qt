@@ -1,5 +1,5 @@
 '\" t
-.TH QKeyEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQKeyEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,16 +7,16 @@
 .ad l
 .nh
 .SH NAME
-QKeyEvent \- Describes a key event
+TQKeyEvent \- Describes a key event
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQKeyEvent\fR ( Type type, int key, int ascii, int state, const TQString & text = TQString::null, bool autorep = FALSE, ushort count = 1 )"
+.BI "\fBTQKeyEvent\fR ( Type type, int key, int ascii, int state, const TQString & text = TQString::null, bool autorep = FALSE, ushort count = 1 )"
 .br
 .ti -1c
 .BI "int \fBkey\fR () const"
@@ -50,25 +50,25 @@ Inherits QEvent.
 .br
 .in -1c
 .SH DESCRIPTION
-The QKeyEvent class contains describes a key event.
+The TQKeyEvent class contains describes a key event.
 .PP
 Key events occur when a key is pressed or released when a widget has keyboard input focus.
 .PP
-A key event contains a special accept flag that indicates whether the receiver wants the key event. You should call QKeyEvent::ignore() if the key press or release event is not handled by your widget. A key event is propagated up the parent widget chain until a widget accepts it with QKeyEvent::accept() or an event filter consumes it. Key events for multi media keys are ignored by default. You should call QKeyEvent::accept() if your widget handles those events.
+A key event contains a special accept flag that indicates whether the receiver wants the key event. You should call TQKeyEvent::ignore() if the key press or release event is not handled by your widget. A key event is propagated up the parent widget chain until a widget accepts it with TQKeyEvent::accept() or an event filter consumes it. Key events for multi media keys are ignored by default. You should call TQKeyEvent::accept() if your widget handles those events.
 .PP
 The TQWidget::setEnable() function can be used to enable or disable mouse and keyboard events for a widget.
 .PP
 The event handlers TQWidget::keyPressEvent() and TQWidget::keyReleaseEvent() receive key events.
 .PP
-See also QFocusEvent, TQWidget::grabKeyboard(), and Event Classes.
+See also TQFocusEvent, TQWidget::grabKeyboard(), and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QKeyEvent::QKeyEvent ( Type type, int key, int ascii, int state, const TQString & text = TQString::null, bool autorep = FALSE, ushort count = 1 )"
+.SH "TQKeyEvent::TQKeyEvent ( Type type, int key, int ascii, int state, const TQString & text = TQString::null, bool autorep = FALSE, ushort count = 1 )"
 Constructs a key event object.
 .PP
-The \fItype\fR parameter must be QEvent::KeyPress or QEvent::KeyRelease. If \fIkey\fR is 0 the event is not a result of a known key (e.g. it may be the result of a compose sequence or keyboard macro). \fIascii\fR is the ASCII code of the key that was pressed or released. \fIstate\fR holds the keyboard modifiers. \fItext\fR is the Unicode text that the key generated. If \fIautorep\fR is TRUE, isAutoRepeat() will be TRUE. \fIcount\fR is the number of single keys.
+The \fItype\fR parameter must be TQEvent::KeyPress or TQEvent::KeyRelease. If \fIkey\fR is 0 the event is not a result of a known key (e.g. it may be the result of a compose sequence or keyboard macro). \fIascii\fR is the ASCII code of the key that was pressed or released. \fIstate\fR holds the keyboard modifiers. \fItext\fR is the Unicode text that the key generated. If \fIautorep\fR is TRUE, isAutoRepeat() will be TRUE. \fIcount\fR is the number of single keys.
 .PP
 The accept flag is set to TRUE.
-.SH "void QKeyEvent::accept ()"
+.SH "void TQKeyEvent::accept ()"
 Sets the accept flag of the key event object.
 .PP
 Setting the accept parameter indicates that the receiver of the event wants the key event. Unwanted key events are sent to the parent widget.
@@ -76,17 +76,17 @@ Setting the accept parameter indicates that the receiver of the event wants the 
 The accept flag is set by default.
 .PP
 See also ignore().
-.SH "int QKeyEvent::ascii () const"
+.SH "int TQKeyEvent::ascii () const"
 Returns the ASCII code of the key that was pressed or released. We recommend using text() instead.
 .PP
 See also text().
 .PP
 Example: picture/picture.cpp.
-.SH "int QKeyEvent::count () const"
+.SH "int TQKeyEvent::count () const"
 Returns the number of single keys for this event. If text() is not empty, this is simply the length of the string.
 .PP
 See also TQWidget::setKeyCompression().
-.SH "void QKeyEvent::ignore ()"
+.SH "void TQKeyEvent::ignore ()"
 Clears the accept flag parameter of the key event object.
 .PP
 Clearing the accept parameter indicates that the event receiver does not want the key event. Unwanted key events are sent to the parent widget.
@@ -94,13 +94,13 @@ Clearing the accept parameter indicates that the event receiver does not want th
 The accept flag is set by default.
 .PP
 See also accept().
-.SH "bool QKeyEvent::isAccepted () const"
+.SH "bool TQKeyEvent::isAccepted () const"
 Returns TRUE if the receiver of the event wants to keep the key; otherwise returns FALSE
-.SH "bool QKeyEvent::isAutoRepeat () const"
+.SH "bool TQKeyEvent::isAutoRepeat () const"
 Returns TRUE if this event comes from an auto-repeating key and FALSE if it comes from an initial key press.
 .PP
 Note that if the event is a multiple-key compressed event that is partly due to auto-repeat, this function could return either TRUE or FALSE indeterminately.
-.SH "int QKeyEvent::key () const"
+.SH "int TQKeyEvent::key () const"
 Returns the code of the key that was pressed or released.
 .PP
 See TQt::Key for the list of keyboard codes. These codes are independent of the underlying window system.
@@ -109,28 +109,28 @@ A value of either 0 or Key_unknown means that the event is not the result of a k
 .PP
 See also TQWidget::setKeyCompression().
 .PP
-Example: fileiconview/qfileiconview.cpp.
-.SH "ButtonState QKeyEvent::state () const"
+Example: fileiconview/tqfileiconview.cpp.
+.SH "ButtonState TQKeyEvent::state () const"
 Returns the keyboard modifier flags that existed immediately before the event occurred.
 .PP
 The returned value is ShiftButton, ControlButton, AltButton and MetaButton OR'ed together.
 .PP
 See also stateAfter().
 .PP
-Example: fileiconview/qfileiconview.cpp.
-.SH "ButtonState QKeyEvent::stateAfter () const"
+Example: fileiconview/tqfileiconview.cpp.
+.SH "ButtonState TQKeyEvent::stateAfter () const"
 Returns the keyboard modifier flags that existed immediately after the event occurred.
 .PP
 \fBWarning:\fR This function cannot be trusted.
 .PP
 See also state().
-.SH "TQString QKeyEvent::text () const"
+.SH "TQString TQKeyEvent::text () const"
 Returns the Unicode text that this key generated. The text returned migth be empty, which is the case when pressing or releasing modifying keys as Shift, Control, Alt and Meta. In these cases key() will contain a valid value.
 .PP
 See also TQWidget::setKeyCompression().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qkeyevent.html
+.BR http://doc.trolltech.com/tqkeyevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

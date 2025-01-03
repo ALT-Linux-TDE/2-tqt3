@@ -6,7 +6,7 @@
 
 #include "arrowpad.h"
 
-#include <ntqpushbutton.h>
+#include <tqpushbutton.h>
 
 ArrowPad::ArrowPad( TQWidget *parent, const char *name )
     : TQGrid( 3, Horizontal, parent, name )

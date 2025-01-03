@@ -7,11 +7,11 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqsqldatabase.h>
-#include <ntqsqlquery.h>
-#include <ntqsqlcursor.h>
-#include <ntqfile.h>
+#include <tqapplication.h>
+#include <tqsqldatabase.h>
+#include <tqsqlquery.h>
+#include <tqsqlcursor.h>
+#include <tqfile.h>
 
 #define DRIVER       "TQPSQL7" /* see the TQt SQL documentation for a list of available drivers */
 #define DATABASE     "" /* the name of your database */

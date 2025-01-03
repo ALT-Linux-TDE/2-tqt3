@@ -1,5 +1,5 @@
 '\" t
-.TH QValueList 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQValueList 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,21 +7,21 @@
 .ad l
 .nh
 .SH NAME
-QValueList \- Value-based template class that provides lists
+TQValueList \- Value-based template class that provides lists
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqvaluelist.h>\fR
+\fC#include <tqvaluelist.h>\fR
 .PP
-Inherited by QCanvasItemList, QStringList, and QValueStack.
+Inherited by TQCanvasItemList, TQStringList, and TQValueStack.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "typedef QValueListIterator<T> \fBiterator\fR"
+.BI "typedef TQValueListIterator<T> \fBiterator\fR"
 .br
 .ti -1c
-.BI "typedef QValueListConstIterator<T> \fBconst_iterator\fR"
+.BI "typedef TQValueListConstIterator<T> \fBconst_iterator\fR"
 .br
 .ti -1c
 .BI "typedef T \fBvalue_type\fR"
@@ -42,31 +42,31 @@ Inherited by QCanvasItemList, QStringList, and QValueStack.
 .BI "typedef size_t \fBsize_type\fR"
 .br
 .ti -1c
-.BI "\fBQValueList\fR ()"
+.BI "\fBTQValueList\fR ()"
 .br
 .ti -1c
-.BI "\fBQValueList\fR ( const QValueList<T> & l )"
+.BI "\fBTQValueList\fR ( const TQValueList<T> & l )"
 .br
 .ti -1c
-.BI "\fBQValueList\fR ( const std::list<T> & l )"
+.BI "\fBTQValueList\fR ( const std::list<T> & l )"
 .br
 .ti -1c
-.BI "\fB~QValueList\fR ()"
+.BI "\fB~TQValueList\fR ()"
 .br
 .ti -1c
-.BI "QValueList<T> & \fBoperator=\fR ( const QValueList<T> & l )"
+.BI "TQValueList<T> & \fBoperator=\fR ( const TQValueList<T> & l )"
 .br
 .ti -1c
-.BI "QValueList<T> & \fBoperator=\fR ( const std::list<T> & l )"
+.BI "TQValueList<T> & \fBoperator=\fR ( const std::list<T> & l )"
 .br
 .ti -1c
 .BI "bool \fBoperator==\fR ( const std::list<T> & l ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QValueList<T> & l ) const"
+.BI "bool \fBoperator==\fR ( const TQValueList<T> & l ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator!=\fR ( const QValueList<T> & l ) const"
+.BI "bool \fBoperator!=\fR ( const TQValueList<T> & l ) const"
 .br
 .ti -1c
 .BI "iterator \fBbegin\fR ()"
@@ -96,7 +96,7 @@ Inherited by QCanvasItemList, QStringList, and QValueStack.
 .BI "void \fBclear\fR ()"
 .br
 .ti -1c
-.BI "QValueList<T> & \fBoperator<<\fR ( const T & x )"
+.BI "TQValueList<T> & \fBoperator<<\fR ( const T & x )"
 .br
 .ti -1c
 .BI "size_type \fBsize\fR () const"
@@ -138,10 +138,10 @@ Inherited by QCanvasItemList, QStringList, and QValueStack.
 .BI "void \fBinsert\fR ( iterator pos, size_type n, const T & x )"
 .br
 .ti -1c
-.BI "QValueList<T> \fBoperator+\fR ( const QValueList<T> & l ) const"
+.BI "TQValueList<T> \fBoperator+\fR ( const TQValueList<T> & l ) const"
 .br
 .ti -1c
-.BI "QValueList<T> & \fBoperator+=\fR ( const QValueList<T> & l )"
+.BI "TQValueList<T> & \fBoperator+=\fR ( const TQValueList<T> & l )"
 .br
 .ti -1c
 .BI "iterator \fBfromLast\fR ()"
@@ -207,34 +207,34 @@ Inherited by QCanvasItemList, QStringList, and QValueStack.
 .BI "size_type \fBcount\fR () const"
 .br
 .ti -1c
-.BI "QValueList<T> & \fBoperator+=\fR ( const T & x )"
+.BI "TQValueList<T> & \fBoperator+=\fR ( const T & x )"
 .br
 .ti -1c
-.BI "typedef QValueListIterator<T> \fBIterator\fR"
+.BI "typedef TQValueListIterator<T> \fBIterator\fR"
 .br
 .ti -1c
-.BI "typedef QValueListConstIterator<T> \fBConstIterator\fR"
+.BI "typedef TQValueListConstIterator<T> \fBConstIterator\fR"
 .br
 .in -1c
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, QValueList<T> & l )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQValueList<T> & l )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const QValueList<T> & l )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQValueList<T> & l )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QValueList class is a value-based template class that provides lists.
+The TQValueList class is a value-based template class that provides lists.
 .PP
-QValueList is a TQt implementation of an STL-like list container. It can be used in your application if the standard \fClist\fR is not available for your target platform(s). QValueList is part of the TQt Template Library.
+TQValueList is a TQt implementation of an STL-like list container. It can be used in your application if the standard \fClist\fR is not available for your target platform(s). TQValueList is part of the TQt Template Library.
 .PP
-QValueList<T> defines a template instance to create a list of values that all have the class T. Note that QValueList does not store pointers to the members of the list; it holds a copy of every member. This is why these kinds of classes are called "value based"; QPtrList and QDict are "pointer based".
+TQValueList<T> defines a template instance to create a list of values that all have the class T. Note that TQValueList does not store pointers to the members of the list; it holds a copy of every member. This is why these kinds of classes are called "value based"; TQPtrList and TQDict are "pointer based".
 .PP
-QValueList contains and manages a collection of objects of type T and provides iterators that allow the contained objects to be addressed. QValueList owns the contained items. For more relaxed ownership semantics, see QPtrCollection and friends which are pointer-based containers.
+TQValueList contains and manages a collection of objects of type T and provides iterators that allow the contained objects to be addressed. TQValueList owns the contained items. For more relaxed ownership semantics, see TQPtrCollection and friends which are pointer-based containers.
 .PP
-Some classes cannot be used within a QValueList, for example, all classes derived from TQObject and thus all classes that implement widgets. Only values can be used in a QValueList. To qualify as a value the class must provide:
+Some classes cannot be used within a TQValueList, for example, all classes derived from TQObject and thus all classes that implement widgets. Only values can be used in a TQValueList. To qualify as a value the class must provide:
 .TP
 a copy constructor;
 .TP
@@ -246,7 +246,7 @@ Note that C++ defaults to field-by-field assignment operators and copy construct
 .PP
 In addition, some compilers (e.g. Sun CC) might require that the class provides an equality operator (operator==()).
 .PP
-QValueList's function naming is consistent with the other TQt classes (e.g. count(), isEmpty()). QValueList also provides extra functions for compatibility with STL algorithms, such as size() and empty(). Programmers already familiar with the STL \fClist\fR may prefer to use the STL-compatible functions.
+TQValueList's function naming is consistent with the other TQt classes (e.g. count(), isEmpty()). TQValueList also provides extra functions for compatibility with STL algorithms, such as size() and empty(). Programmers already familiar with the STL \fClist\fR may prefer to use the STL-compatible functions.
 .PP
 Example:
 .PP
@@ -287,7 +287,7 @@ Example:
     };
 .br
 .br
-    typedef QValueList<Employee> EmployeeList;
+    typedef TQValueList<Employee> EmployeeList;
 .br
     EmployeeList list;
 .br
@@ -337,11 +337,11 @@ Another way to find an item in the list is by using the tqFind() algorithm. For 
 .PP
 .nf
 .br
-    QValueList<int> list;
+    TQValueList<int> list;
 .br
     ...
 .br
-    QValueList<int>::iterator it = tqFind( list.begin(), list.end(), 3 );
+    TQValueList<int>::iterator it = tqFind( list.begin(), list.end(), 3 );
 .br
     if ( it != list.end() )
 .br
@@ -353,7 +353,7 @@ It is safe to have multiple iterators a the list at the same time. If some membe
 .PP
 .nf
 .br
-    QValueList<int> list;
+    TQValueList<int> list;
 .br
     list.append( 1 );
 .br
@@ -375,15 +375,15 @@ It is safe to have multiple iterators a the list at the same time. If some membe
 .br
     ...
 .br
-    QValueList<double> dlist;
+    TQValueList<double> dlist;
 .br
     double d = dlist.last(); // undefined
 .br
 .fi
 .PP
-Because QValueList is value-based there is no need to be careful about deleting items in the list. The list holds its own copies and will free them if the corresponding member or the list itself is deleted. You can force the list to free all of its items with clear().
+Because TQValueList is value-based there is no need to be careful about deleting items in the list. The list holds its own copies and will free them if the corresponding member or the list itself is deleted. You can force the list to free all of its items with clear().
 .PP
-QValueList is shared implicitly, which means it can be copied in constant time, i.e. O(1). If multiple QValueList instances share the same data and one needs to modify its contents, this modifying instance makes a copy and modifies its private copy; therefore it does not affect the other instances; this takes O(n) time. This is often called "copy on write". If a QValueList is being used in a multi-threaded program, you must protect all access to the list. See QMutex.
+TQValueList is shared implicitly, which means it can be copied in constant time, i.e. O(1). If multiple TQValueList instances share the same data and one needs to modify its contents, this modifying instance makes a copy and modifies its private copy; therefore it does not affect the other instances; this takes O(n) time. This is often called "copy on write". If a TQValueList is being used in a multi-threaded program, you must protect all access to the list. See TQMutex.
 .PP
 There are several ways to insert items into the list. The prepend() and append() functions insert items at the beginning and the end of the list respectively. The insert() function comes in several flavors and can be used to add one or more items at specific positions within the list.
 .PP
@@ -395,7 +395,7 @@ Example:
 .PP
 .nf
 .br
-    QValueList<int> list;
+    TQValueList<int> list;
 .br
     list.append( 5 );
 .br
@@ -409,177 +409,177 @@ Example:
 .br
 .fi
 .PP
-See also QValueListIterator, TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
+See also TQValueListIterator, TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
-.SH "QValueList::ConstIterator"
-This iterator is an instantiation of QValueListConstIterator for the same type as this QValueList. In other words, if you instantiate QValueList<int>, ConstIterator is a QValueListConstIterator<int>. Several member function use it, such as QValueList::begin(), which returns an iterator pointing to the first item in the list.
+.SH "TQValueList::ConstIterator"
+This iterator is an instantiation of TQValueListConstIterator for the same type as this TQValueList. In other words, if you instantiate TQValueList<int>, ConstIterator is a TQValueListConstIterator<int>. Several member function use it, such as TQValueList::begin(), which returns an iterator pointing to the first item in the list.
 .PP
 Functionally, this is almost the same as Iterator. The only difference is you cannot use ConstIterator for non-const operations, and that the compiler can often generate better code if you use ConstIterator.
 .PP
-See also QValueListIterator and Iterator.
-.SH "QValueList::Iterator"
-This iterator is an instantiation of QValueListIterator for the same type as this QValueList. In other words, if you instantiate QValueList<int>, Iterator is a QValueListIterator<int>. Several member function use it, such as QValueList::begin(), which returns an iterator pointing to the first item in the list.
+See also TQValueListIterator and Iterator.
+.SH "TQValueList::Iterator"
+This iterator is an instantiation of TQValueListIterator for the same type as this TQValueList. In other words, if you instantiate TQValueList<int>, Iterator is a TQValueListIterator<int>. Several member function use it, such as TQValueList::begin(), which returns an iterator pointing to the first item in the list.
 .PP
 Functionally, this is almost the same as ConstIterator. The only difference is that you cannot use ConstIterator for non-const operations, and that the compiler can often generate better code if you use ConstIterator.
 .PP
-See also QValueListIterator and ConstIterator.
-.SH "QValueList::const_iterator"
-The list's const iterator type, QValueListConstIterator.
-.SH "QValueList::const_pointer"
+See also TQValueListIterator and ConstIterator.
+.SH "TQValueList::const_iterator"
+The list's const iterator type, TQValueListConstIterator.
+.SH "TQValueList::const_pointer"
 The const pointer to T type.
-.SH "QValueList::const_reference"
+.SH "TQValueList::const_reference"
 The const reference to T type.
-.SH "QValueList::iterator"
-The list's iterator type, QValueListIterator.
-.SH "QValueList::pointer"
+.SH "TQValueList::iterator"
+The list's iterator type, TQValueListIterator.
+.SH "TQValueList::pointer"
 The pointer to T type.
-.SH "QValueList::reference"
+.SH "TQValueList::reference"
 The reference to T type.
-.SH "QValueList::size_type"
+.SH "TQValueList::size_type"
 An unsigned integral type, used to represent various sizes.
-.SH "QValueList::value_type"
+.SH "TQValueList::value_type"
 The type of the object stored in the list, T.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QValueList::QValueList ()"
+.SH "TQValueList::TQValueList ()"
 Constructs an empty list.
-.SH "QValueList::QValueList ( const QValueList<T> & l )"
+.SH "TQValueList::TQValueList ( const TQValueList<T> & l )"
 Constructs a copy of \fIl\fR.
 .PP
-This operation takes O(1) time because QValueList is implicitly shared.
+This operation takes O(1) time because TQValueList is implicitly shared.
 .PP
 The first modification to a list will take O(n) time.
-.SH "QValueList::QValueList ( const std::list<T> & l )"
+.SH "TQValueList::TQValueList ( const std::list<T> & l )"
 Contructs a copy of \fIl\fR.
 .PP
 This constructor is provided for compatibility with STL containers.
-.SH "QValueList::~QValueList ()"
-Destroys the list. References to the values in the list and all iterators of this list become invalidated. Note that it is impossible for an iterator to check whether or not it is valid: QValueList is highly tuned for performance, not for error checking.
-.SH "iterator QValueList::append ( const T & x )"
+.SH "TQValueList::~TQValueList ()"
+Destroys the list. References to the values in the list and all iterators of this list become invalidated. Note that it is impossible for an iterator to check whether or not it is valid: TQValueList is highly tuned for performance, not for error checking.
+.SH "iterator TQValueList::append ( const T & x )"
 Inserts \fIx\fR at the end of the list.
 .PP
 See also insert() and prepend().
 .PP
 Examples:
-.)l checklists/checklists.cpp and fonts/simple-qfont-demo/viewer.cpp.
-.SH "const_iterator QValueList::at ( size_type i ) const"
+.)l checklists/checklists.cpp and fonts/simple-tqfont-demo/viewer.cpp.
+.SH "const_iterator TQValueList::at ( size_type i ) const"
 Returns an iterator pointing to the item at position \fIi\fR in the list, or an undefined value if the index is out of range.
 .PP
-\fBWarning:\fR This function uses a linear search and can be extremely slow for large lists. QValueList is not optimized for random item access. If you need random access use a different container, such as QValueVector.
-.SH "iterator QValueList::at ( size_type i )"
+\fBWarning:\fR This function uses a linear search and can be extremely slow for large lists. TQValueList is not optimized for random item access. If you need random access use a different container, such as TQValueVector.
+.SH "iterator TQValueList::at ( size_type i )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns an iterator pointing to the item at position \fIi\fR in the list, or an undefined value if the index is out of range.
-.SH "reference QValueList::back ()"
+.SH "reference TQValueList::back ()"
 Returns a reference to the last item. If the list contains no last item (i.e. empty() returns TRUE), the return value is undefined.
 .PP
 This function is provided for STL compatibility. It is equivalent to last().
 .PP
 See also front().
-.SH "const_reference QValueList::back () const"
+.SH "const_reference TQValueList::back () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
-.SH "const_iterator QValueList::begin () const"
+.SH "const_iterator TQValueList::begin () const"
 Returns an iterator pointing to the first item in the list. This iterator equals end() if the list is empty.
 .PP
 See also first(), end(), and constBegin().
 .PP
 Examples:
 .)l canvas/canvas.cpp, chart/canvasview.cpp, chart/element.cpp, checklists/checklists.cpp, sql/overview/insert/main.cpp, table/statistics/statistics.cpp, and themes/themes.cpp.
-.SH "iterator QValueList::begin ()"
+.SH "iterator TQValueList::begin ()"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns an iterator pointing to the first item in the list. This iterator equals end() if the list is empty.
 .PP
 See also first() and end().
-.SH "void QValueList::clear ()"
+.SH "void TQValueList::clear ()"
 Removes all items from the list.
 .PP
 See also remove().
-.SH "const_iterator QValueList::constBegin () const"
+.SH "const_iterator TQValueList::constBegin () const"
 Returns an iterator pointing to the first item in the list. This iterator equals constEnd() if the list is empty.
 .PP
 See also begin().
-.SH "const_iterator QValueList::constEnd () const"
+.SH "const_iterator TQValueList::constEnd () const"
 Returns an iterator pointing \fIpast\fR the last item in the list. This iterator equals constBegin() if the list is empty.
 .PP
 See also end().
-.SH "size_type QValueList::contains ( const T & x ) const"
+.SH "size_type TQValueList::contains ( const T & x ) const"
 Returns the number of occurrences of the value \fIx\fR in the list.
-.SH "size_type QValueList::count () const"
+.SH "size_type TQValueList::count () const"
 Returns the number of items in the list.
 .PP
 See also isEmpty().
 .PP
 Examples:
-.)l chart/element.cpp, fileiconview/qfileiconview.cpp, and table/statistics/statistics.cpp.
-.SH "bool QValueList::empty () const"
+.)l chart/element.cpp, fileiconview/tqfileiconview.cpp, and table/statistics/statistics.cpp.
+.SH "bool TQValueList::empty () const"
 Returns TRUE if the list contains no items; otherwise returns FALSE.
 .PP
 See also size().
-.SH "iterator QValueList::end ()"
+.SH "iterator TQValueList::end ()"
 Returns an iterator pointing \fIpast\fR the last item in the list. This iterator equals begin() if the list is empty.
 .PP
 See also last(), begin(), and constEnd().
 .PP
 Examples:
 .)l canvas/canvas.cpp, chart/canvasview.cpp, chart/element.cpp, checklists/checklists.cpp, sql/overview/insert/main.cpp, table/statistics/statistics.cpp, and themes/themes.cpp.
-.SH "const_iterator QValueList::end () const"
+.SH "const_iterator TQValueList::end () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns an iterator pointing \fIpast\fR the last item in the list. This iterator equals begin() if the list is empty.
 .PP
 See also last() and begin().
-.SH "iterator QValueList::erase ( iterator it )"
+.SH "iterator TQValueList::erase ( iterator it )"
 Removes the item pointed to by \fIit\fR from the list. No iterators other than \fIit\fR or other iterators pointing at the same item as \fIit\fR are invalidated. Returns an iterator to the next item after \fIit\fR, or end() if there is no such item.
 .PP
 This function is provided for STL compatibility. It is equivalent to remove().
-.SH "iterator QValueList::erase ( iterator first, iterator last )"
+.SH "iterator TQValueList::erase ( iterator first, iterator last )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Deletes all items from \fIfirst\fR to \fIlast\fR (not including \fIlast\fR). No iterators are invalidated, except those pointing to the removed items themselves. Returns \fIlast\fR.
-.SH "iterator QValueList::find ( const T & x )"
+.SH "iterator TQValueList::find ( const T & x )"
 Returns an iterator pointing to the first occurrence of \fIx\fR in the list.
 .PP
 Returns end() is no item matched.
-.SH "const_iterator QValueList::find ( const T & x ) const"
+.SH "const_iterator TQValueList::find ( const T & x ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns an iterator pointing to the first occurrence of \fIx\fR in the list.
 .PP
 Returns end() if no item matched.
-.SH "iterator QValueList::find ( iterator it, const T & x )"
+.SH "iterator TQValueList::find ( iterator it, const T & x )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Finds the first occurrence of \fIx\fR in the list starting at the position given by \fIit\fR.
 .PP
 Returns end() if no item matched.
-.SH "const_iterator QValueList::find ( const_iterator it, const T & x ) const"
+.SH "const_iterator TQValueList::find ( const_iterator it, const T & x ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Finds the first occurrence of \fIx\fR in the list starting at the position given by \fIit\fR.
 .PP
 Returns end() if no item matched.
-.SH "int QValueList::findIndex ( const T & x ) const"
+.SH "int TQValueList::findIndex ( const T & x ) const"
 Returns the index of the first occurrence of the value \fIx\fR. Returns -1 if no item matched.
-.SH "T & QValueList::first ()"
+.SH "T & TQValueList::first ()"
 Returns a reference to the first item. If the list contains no first item (i.e. isEmpty() returns TRUE), the return value is undefined.
 .PP
 See also last().
 .PP
 Example: network/mail/smtp.cpp.
-.SH "const T & QValueList::first () const"
+.SH "const T & TQValueList::first () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
-.SH "const_iterator QValueList::fromLast () const"
+.SH "const_iterator TQValueList::fromLast () const"
 Returns an iterator to the last item in the list, or end() if there is no last item.
 .PP
 Use the end() function instead. For example:
 .PP
 .nf
 .br
-    QValueList<int> l;
+    TQValueList<int> l;
 .br
     ...
 .br
-    QValueList<int>::iterator it = l.end();
+    TQValueList<int>::iterator it = l.end();
 .br
     --it;
 .br
@@ -588,7 +588,7 @@ Use the end() function instead. For example:
         // ...
 .br
 .fi
-.SH "iterator QValueList::fromLast ()"
+.SH "iterator TQValueList::fromLast ()"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns an iterator to the last item in the list, or end() if there is no last item.
@@ -597,11 +597,11 @@ Use the end() function instead. For example:
 .PP
 .nf
 .br
-    QValueList<int> l;
+    TQValueList<int> l;
 .br
     ...
 .br
-    QValueList<int>::iterator it = l.end();
+    TQValueList<int>::iterator it = l.end();
 .br
     --it;
 .br
@@ -610,15 +610,15 @@ Use the end() function instead. For example:
         // ...
 .br
 .fi
-.SH "reference QValueList::front ()"
+.SH "reference TQValueList::front ()"
 Returns a reference to the first item. If the list contains no first item (i.e. empty() returns TRUE), the return value is undefined.
 .PP
 This function is provided for STL compatibility. It is equivalent to first().
 .PP
 See also back().
-.SH "const_reference QValueList::front () const"
+.SH "const_reference TQValueList::front () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
-.SH "iterator QValueList::insert ( iterator it, const T & x )"
+.SH "iterator TQValueList::insert ( iterator it, const T & x )"
 Inserts the value \fIx\fR in front of the item pointed to by the iterator, \fIit\fR.
 .PP
 Returns an iterator pointing at the inserted item.
@@ -626,112 +626,112 @@ Returns an iterator pointing at the inserted item.
 See also append() and prepend().
 .PP
 Example: themes/themes.cpp.
-.SH "void QValueList::insert ( iterator pos, size_type n, const T & x )"
+.SH "void TQValueList::insert ( iterator pos, size_type n, const T & x )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts \fIn\fR copies of \fIx\fR before position \fIpos\fR.
-.SH "bool QValueList::isEmpty () const"
+.SH "bool TQValueList::isEmpty () const"
 Returns TRUE if the list contains no items; otherwise returns FALSE.
 .PP
 See also count().
 .PP
 Examples:
-.)l fonts/simple-qfont-demo/viewer.cpp and network/mail/smtp.cpp.
-.SH "T & QValueList::last ()"
+.)l fonts/simple-tqfont-demo/viewer.cpp and network/mail/smtp.cpp.
+.SH "T & TQValueList::last ()"
 Returns a reference to the last item. If the list contains no last item (i.e. empty() returns TRUE), the return value is undefined.
-.SH "const T & QValueList::last () const"
+.SH "const T & TQValueList::last () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
-.SH "bool QValueList::operator!= ( const QValueList<T> & l ) const"
+.SH "bool TQValueList::operator!= ( const TQValueList<T> & l ) const"
 Compares both lists.
 .PP
 Returns TRUE if this list and \fIl\fR are unequal; otherwise returns FALSE.
-.SH "QValueList<T> QValueList::operator+ ( const QValueList<T> & l ) const"
+.SH "TQValueList<T> TQValueList::operator+ ( const TQValueList<T> & l ) const"
 Creates a new list and fills it with the items of this list. Then the items of \fIl\fR are appended. Returns the new list.
-.SH "QValueList<T> & QValueList::operator+= ( const QValueList<T> & l )"
+.SH "TQValueList<T> & TQValueList::operator+= ( const TQValueList<T> & l )"
 Appends the items of \fIl\fR to this list. Returns a reference to this list.
-.SH "QValueList<T> & QValueList::operator+= ( const T & x )"
+.SH "TQValueList<T> & TQValueList::operator+= ( const T & x )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Appends the value \fIx\fR to the list. Returns a reference to the list.
-.SH "QValueList<T> & QValueList::operator<< ( const T & x )"
+.SH "TQValueList<T> & TQValueList::operator<< ( const T & x )"
 Adds the value \fIx\fR to the end of the list.
 .PP
 Returns a reference to the list.
-.SH "QValueList<T> & QValueList::operator= ( const QValueList<T> & l )"
+.SH "TQValueList<T> & TQValueList::operator= ( const TQValueList<T> & l )"
 Assigns \fIl\fR to this list and returns a reference to this list.
 .PP
-All iterators of the current list become invalidated by this operation. The cost of such an assignment is O(1) since QValueList is implicitly shared.
-.SH "QValueList<T> & QValueList::operator= ( const std::list<T> & l )"
+All iterators of the current list become invalidated by this operation. The cost of such an assignment is O(1) since TQValueList is implicitly shared.
+.SH "TQValueList<T> & TQValueList::operator= ( const std::list<T> & l )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Assigns the contents of \fIl\fR to the list.
 .PP
 All iterators of the current list become invalidated by this operation.
-.SH "bool QValueList::operator== ( const QValueList<T> & l ) const"
+.SH "bool TQValueList::operator== ( const TQValueList<T> & l ) const"
 Compares both lists.
 .PP
 Returns TRUE if this list and \fIl\fR are equal; otherwise returns FALSE.
-.SH "bool QValueList::operator== ( const std::list<T> & l ) const"
+.SH "bool TQValueList::operator== ( const std::list<T> & l ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns TRUE if this list and \fIl\fR are equal; otherwise returns FALSE.
 .PP
 This operator is provided for compatibility with STL containers.
-.SH "const T & QValueList::operator[] ( size_type i ) const"
+.SH "const T & TQValueList::operator[] ( size_type i ) const"
 Returns a const reference to the item with index \fIi\fR in the list. It is up to you to check whether this item really exists. You can do that easily with the count() function. However this operator does not check whether \fIi\fR is in range and will deliver undefined results if it does not exist.
 .PP
-\fBWarning:\fR This function uses a linear search and can be extremely slow for large lists. QValueList is not optimized for random item access. If you need random access use a different container, such as QValueVector.
-.SH "T & QValueList::operator[] ( size_type i )"
+\fBWarning:\fR This function uses a linear search and can be extremely slow for large lists. TQValueList is not optimized for random item access. If you need random access use a different container, such as TQValueVector.
+.SH "T & TQValueList::operator[] ( size_type i )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a non-const reference to the item with index \fIi\fR.
-.SH "void QValueList::pop_back ()"
+.SH "void TQValueList::pop_back ()"
 Removes the last item. If there is no last item, this operation is undefined.
 .PP
 This function is provided for STL compatibility.
-.SH "void QValueList::pop_front ()"
+.SH "void TQValueList::pop_front ()"
 Removes the first item. If there is no first item, this operation is undefined.
 .PP
 This function is provided for STL compatibility.
-.SH "iterator QValueList::prepend ( const T & x )"
+.SH "iterator TQValueList::prepend ( const T & x )"
 Inserts \fIx\fR at the beginning of the list.
 .PP
 See also insert() and append().
-.SH "void QValueList::push_back ( const T & x )"
+.SH "void TQValueList::push_back ( const T & x )"
 Inserts \fIx\fR at the end of the list.
 .PP
 This function is provided for STL compatibility. It is equivalent to append().
-.SH "void QValueList::push_front ( const T & x )"
+.SH "void TQValueList::push_front ( const T & x )"
 Inserts \fIx\fR at the beginning of the list.
 .PP
 This function is provided for STL compatibility. It is equivalent to prepend().
 .PP
 Example: toplevel/options.ui.h.
-.SH "iterator QValueList::remove ( iterator it )"
+.SH "iterator TQValueList::remove ( iterator it )"
 Removes the item pointed to by \fIit\fR from the list. No iterators other than \fIit\fR or other iterators pointing at the same item as \fIit\fR are invalidated. Returns an iterator to the next item after \fIit\fR, or end() if there is no such item.
 .PP
 See also clear().
-.SH "uint QValueList::remove ( const T & x )"
+.SH "uint TQValueList::remove ( const T & x )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Removes all items that have value \fIx\fR and returns the number of removed items.
-.SH "size_type QValueList::size () const"
+.SH "size_type TQValueList::size () const"
 Returns the number of items in the list.
 .PP
 This function is provided for STL compatibility. It is equivalent to count().
 .PP
 See also empty().
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "QDataStream & operator<< ( QDataStream & s, const QValueList<T> & l )"
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQValueList<T> & l )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Writes a list, \fIl\fR, to the stream \fIs\fR. The type T stored in the list must implement the streaming operator.
-.SH "QDataStream & operator>> ( QDataStream & s, QValueList<T> & l )"
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQValueList<T> & l )"
 Reads a list, \fIl\fR, from the stream \fIs\fR. The type T stored in the
 list must implement the streaming operator.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqvaluelist.html
+.BR http://doc.trolltech.com/tqvaluelist.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

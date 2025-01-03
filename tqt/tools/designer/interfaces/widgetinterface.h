@@ -34,7 +34,7 @@
 #ifndef WIDGETINTERFACE_H
 #define WIDGETINTERFACE_H
 
-#include <private/qwidgetinterface_p.h>
+#include <private/tqwidgetinterface_p.h>
 
 #define WidgetInterface TQWidgetFactoryInterface
 #define IID_Widget IID_QWidgetFactory

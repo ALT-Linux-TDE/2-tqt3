@@ -31,8 +31,8 @@
 **
 **********************************************************************/
 
-#include <ntqvbox.h>
-#include <ntqpainter.h>
+#include <tqvbox.h>
+#include <tqpainter.h>
 
 #include "previewframe.h"
 

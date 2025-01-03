@@ -7,9 +7,9 @@
 **
 *****************************************************************************/
 
-#include <ntqtimer.h>
-#include <ntqpainter.h>
-#include <ntqapplication.h>
+#include <tqtimer.h>
+#include <tqpainter.h>
+#include <tqapplication.h>
 #include <stdlib.h>				// defines rand() function
 
 #include "forever.h"

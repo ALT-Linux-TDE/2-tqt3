@@ -1,1 +1,0 @@
-../src/styles/ntqmotifplusstyle.h

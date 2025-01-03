@@ -1,6 +1,6 @@
 #ifndef VCR_H
 #define VCR_H
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 class Vcr : public TQWidget
 {

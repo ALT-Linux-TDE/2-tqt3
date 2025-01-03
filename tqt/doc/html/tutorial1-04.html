@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:378 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,41 +40,41 @@ minimum and maximum sizes of a widget, and introduces widget names.
 **
 ****************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
 
 
-class MyWidget : public <a href="ntqwidget.html">TQWidget</a>
+class MyWidget : public <a href="tqwidget.html">TQWidget</a>
 {
 public:
-    MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    MyWidget( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 };
 
 
-<a name="f552"></a>MyWidget::MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-        : <a href="ntqwidget.html">TQWidget</a>( parent, name )
+<a name="f552"></a>MyWidget::MyWidget( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+        : <a href="tqwidget.html">TQWidget</a>( parent, name )
 {
-    <a href="ntqwidget.html#setMinimumSize">setMinimumSize</a>( 200, 120 );
-    <a href="ntqwidget.html#setMaximumSize">setMaximumSize</a>( 200, 120 );
+    <a href="tqwidget.html#setMinimumSize">setMinimumSize</a>( 200, 120 );
+    <a href="tqwidget.html#setMaximumSize">setMaximumSize</a>( 200, 120 );
 
-    <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
-    quit-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( 62, 40, 75, 30 );
-    quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
+    <a href="tqpushbutton.html">TQPushButton</a> *quit = new <a href="tqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
+    quit-&gt;<a href="tqwidget.html#setGeometry">setGeometry</a>( 62, 40, 75, 30 );
+    quit-&gt;<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    <a href="tqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
 }
 
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     MyWidget w;
-    w.<a href="ntqwidget.html#setGeometry">setGeometry</a>( 100, 100, 200, 120 );
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;w );
-    w.<a href="ntqwidget.html#show">show</a>();
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    w.<a href="tqwidget.html#setGeometry">setGeometry</a>( 100, 100, 200, 120 );
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;w );
+    w.<a href="tqwidget.html#show">show</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 
@@ -83,13 +82,13 @@ int main( int argc, char **argv )
 
 <p> <h2> Line-by-line Walkthrough
 </h2>
-<a name="1"></a><p> <pre>    class MyWidget : public <a href="ntqwidget.html">TQWidget</a>
+<a name="1"></a><p> <pre>    class MyWidget : public <a href="tqwidget.html">TQWidget</a>
     {
     public:
-        MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+        MyWidget( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
     };
 </pre>
-<p> Here we create a new class. Because this class inherits from <a href="ntqwidget.html">TQWidget</a>,
+<p> Here we create a new class. Because this class inherits from <a href="tqwidget.html">TQWidget</a>,
 the new class is a widget and may be a top level window or a child
 widget (like the push button in Chapter 3).
 <p> This class has only one member, a constructor (in addition to the
@@ -101,24 +100,24 @@ you specify a null pointer as the parent. As you can see, this widget
 defaults to be a top-level window.
 <p> The second argument is the widget's name. This is <em>not</em> the text
 that appears in the window's title bar or in the button. It is a name
-associated with a widget to make it possible to <a href="ntqobject.html#queryList">look up</a> this widget later, and there is
-also a <a href="ntqobject.html#dumpObjectTree">handy debugging function</a> that will list a complete widget hierarchy.
-<p> <pre>    MyWidget::MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-            : <a href="ntqwidget.html">TQWidget</a>( parent, name )
+associated with a widget to make it possible to <a href="tqobject.html#queryList">look up</a> this widget later, and there is
+also a <a href="tqobject.html#dumpObjectTree">handy debugging function</a> that will list a complete widget hierarchy.
+<p> <pre>    MyWidget::MyWidget( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+            : <a href="tqwidget.html">TQWidget</a>( parent, name )
 </pre>
 <p> The implementation of the constructor starts here. Like most widgets,
-it just passes on the <tt>parent</tt> and <tt>name</tt> to the <a href="ntqwidget.html">TQWidget</a>
+it just passes on the <tt>parent</tt> and <tt>name</tt> to the <a href="tqwidget.html">TQWidget</a>
 constructor.
 <p> <pre>    {
-        <a href="ntqwidget.html#setMinimumSize">setMinimumSize</a>( 200, 120 );
-        <a href="ntqwidget.html#setMaximumSize">setMaximumSize</a>( 200, 120 );
+        <a href="tqwidget.html#setMinimumSize">setMinimumSize</a>( 200, 120 );
+        <a href="tqwidget.html#setMaximumSize">setMaximumSize</a>( 200, 120 );
 </pre>
 <p> Because this widget doesn't know how to handle resizing, we fix its size
 by setting the minimum and maximum to be equal. In the next chapter
 we will show how a widget can respond to resize event from the user.
-<p> <pre>        <a href="ntqpushbutton.html">TQPushButton</a> *quit = new <a href="ntqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
-    <a name="x2308"></a>    quit-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( 62, 40, 75, 30 );
-    <a name="x2307"></a>    quit-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
+<p> <pre>        <a href="tqpushbutton.html">TQPushButton</a> *quit = new <a href="tqpushbutton.html">TQPushButton</a>( "Quit", this, "quit" );
+    <a name="x2308"></a>    quit-&gt;<a href="tqwidget.html#setGeometry">setGeometry</a>( 62, 40, 75, 30 );
+    <a name="x2307"></a>    quit-&gt;<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 </pre>
 <p> Here we create and set up a child widget of this widget (the new widget's
 parent is <tt>this</tt>) which has the widget name "quit". The widget
@@ -132,7 +131,7 @@ when you choose to, the child will automatically tell TQt about its
 imminent death.)
 <p> The setGeometry() call does the same as move() and resize() did in the
 previous chapters.
-<p> <pre>    <a name="x2306"></a><a name="x2304"></a>    <a href="ntqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<p> <pre>    <a name="x2306"></a><a name="x2304"></a>    <a href="tqobject.html#connect">connect</a>( quit, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
     }
 </pre>
 <p> Because the MyWidget class doesn't know about the application object, it
@@ -145,13 +144,13 @@ so TQt offers an alias, tqApp, for the cases in which a component such as
 MyWidget needs to talk to the application object.
 <p> <pre>    int main( int argc, char **argv )
     {
-        <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+        <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
         MyWidget w;
-        w.<a href="ntqwidget.html#setGeometry">setGeometry</a>( 100, 100, 200, 120 );
-    <a name="x2305"></a>    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;w );
-    <a name="x2309"></a>    w.<a href="ntqwidget.html#show">show</a>();
-    <a name="x2303"></a>    return a.<a href="ntqapplication.html#exec">exec</a>();
+        w.<a href="tqwidget.html#setGeometry">setGeometry</a>( 100, 100, 200, 120 );
+    <a name="x2305"></a>    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;w );
+    <a name="x2309"></a>    w.<a href="tqwidget.html#show">show</a>();
+    <a name="x2303"></a>    return a.<a href="tqapplication.html#exec">exec</a>();
     }
 </pre>
 <p> Here we instantiate our new child, set it to be the main widget, and
@@ -166,7 +165,7 @@ makefile and build the application.)
 <p> <h2> Exercises
 </h2>
 <a name="3"></a><p> Try to create another MyWidget object in main(). What happens?
-<p> Try to add more buttons or put in widgets other than <a href="ntqpushbutton.html">TQPushButton</a>.
+<p> Try to add more buttons or put in widgets other than <a href="tqpushbutton.html">TQPushButton</a>.
 <p> You're now ready for <a href="tutorial1-05.html">Chapter 5.</a>
 <p> [<a href="tutorial1-03.html">Previous tutorial</a>]
 [<a href="tutorial1-05.html">Next tutorial</a>]

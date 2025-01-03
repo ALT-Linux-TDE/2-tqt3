@@ -47,9 +47,9 @@
 //
 //
 
-#include <private/qcom_p.h>
-#include <ntqwidgetlist.h>
-#include <ntqcstring.h>
+#include <private/tqcom_p.h>
+#include <tqwidgetlist.h>
+#include <tqcstring.h>
 
 // {d332785d-17fb-4894-84fe-50dbd0ad9512}
 #ifndef IID_ProjectSettings

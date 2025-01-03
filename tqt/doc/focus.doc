@@ -89,8 +89,8 @@ moves focus along the circular list in one direction, Shift+Tab in the
 other. The order in which Tab presses move from widget to widget is
 called the tab order.
 
-In Qt, this list is kept in the \l QFocusData class. There is one
-QFocusData object per window, and widgets automatically append
+In Qt, this list is kept in the \l TQFocusData class. There is one
+TQFocusData object per window, and widgets automatically append
 themselves to the end of it when \l TQWidget::setFocusPolicy() is
 called with an appropriate \l TQWidget::FocusPolicy. You can customize
 the tab order using \l TQWidget::setTabOrder(). (If you don't, Tab
@@ -154,7 +154,7 @@ it move to the 'B' button?
 We advise supporting click-to-focus for widgets that support text
 entry, and to avoid it for most widgets where a mouse click has a
 different effect. (For buttons, we also recommend adding a keyboard
-shortcut: \l QButton and its subclasses make this very easy.)
+shortcut: \l TQButton and its subclasses make this very easy.)
 
 In Qt, only the \l TQWidget::setFocusPolicy() function affects
 click-to-focus.
@@ -163,8 +163,8 @@ click-to-focus.
 
 It's not unusual for keyboard shortcuts to move the focus. This can
 happen implicitly by opening modal dialogs, but also explicitly using
-focus accelerators such as those provided by \l QLabel::setBuddy(), \l
-QGroupBox and \l QTabBar.
+focus accelerators such as those provided by \l TQLabel::setBuddy(), \l
+TQGroupBox and \l TQTabBar.
 
 We advise supporting shortcut focus for all widgets that the user may
 want to jump to. For example, a tab dialog can have keyboard shortcuts

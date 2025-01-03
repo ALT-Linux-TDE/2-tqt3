@@ -40,22 +40,22 @@
 
 #include "qplatformdefs.h"
 
-#include "ntqapplication.h"
+#include "tqapplication.h"
 
 #ifndef TQT_NO_DRAGANDDROP
 
-#include "ntqwidget.h"
-#include "ntqintdict.h"
-#include "ntqdatetime.h"
-#include "ntqdict.h"
-#include "ntqguardedptr.h"
-#include "ntqdragobject.h"
-#include "ntqobjectlist.h"
-#include "ntqcursor.h"
-#include "ntqbitmap.h"
-#include "ntqpainter.h"
+#include "tqwidget.h"
+#include "tqintdict.h"
+#include "tqdatetime.h"
+#include "tqdict.h"
+#include "tqguardedptr.h"
+#include "tqdragobject.h"
+#include "tqobjectlist.h"
+#include "tqcursor.h"
+#include "tqbitmap.h"
+#include "tqpainter.h"
 
-#include "qt_x11_p.h"
+#include "tqt_x11_p.h"
 
 // conflict resolution
 
@@ -1484,7 +1484,7 @@ bool qt_xdnd_handle_badwindow()
 
 
 /*!
-    \class TQDragMoveEvent ntqevent.h
+    \class TQDragMoveEvent tqevent.h
     \ingroup events
     \ingroup draganddrop
     \brief The TQDragMoveEvent class provides an event which is sent while a drag and drop is in progress.
@@ -1658,7 +1658,7 @@ bool qt_dnd_enable( TQWidget* w, bool on )
 
 
 /*!
-    \class TQDropEvent ntqevent.h
+    \class TQDropEvent tqevent.h
     \ingroup events
     \ingroup draganddrop
 

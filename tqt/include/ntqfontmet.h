@@ -1,1 +1,0 @@
-../src/compat/ntqfontmet.h

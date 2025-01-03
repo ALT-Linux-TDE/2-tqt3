@@ -33,14 +33,14 @@
 
 #include "trwindow.h"
 
-#include <ntqapplication.h>
-#include <ntqlabel.h>
-#include <ntqpixmap.h>
-#include <ntqtimer.h>
-#include <ntqtextcodec.h>
-#include <ntqtranslator.h>
-#include <ntqsettings.h>
-#include <ntqsplashscreen.h>
+#include <tqapplication.h>
+#include <tqlabel.h>
+#include <tqpixmap.h>
+#include <tqtimer.h>
+#include <tqtextcodec.h>
+#include <tqtranslator.h>
+#include <tqsettings.h>
+#include <tqsplashscreen.h>
 
 int main( int argc, char **argv )
 {

@@ -8,13 +8,13 @@
 *****************************************************************************/
 
 #include "structureparser.h"
-#include <ntqapplication.h>
-#include <ntqfile.h>
-#include <ntqxml.h>
-#include <ntqlistview.h>
-#include <ntqgrid.h>
-#include <ntqmainwindow.h>
-#include <ntqlabel.h>
+#include <tqapplication.h>
+#include <tqfile.h>
+#include <tqxml.h>
+#include <tqlistview.h>
+#include <tqgrid.h>
+#include <tqmainwindow.h>
+#include <tqlabel.h>
 
 int main( int argc, char **argv )
 {

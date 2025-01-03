@@ -35,10 +35,10 @@
 #ifndef DLG2UI_H
 #define DLG2UI_H
 
-#include <ntqdom.h>
-#include <ntqmap.h>
-#include <ntqstring.h>
-#include <ntqvariant.h>
+#include <tqdom.h>
+#include <tqmap.h>
+#include <tqstring.h>
+#include <tqvariant.h>
 
 typedef TQMap<TQString, TQString> AttributeMap;
 
@@ -69,7 +69,7 @@ private:
     void syntaxError();
     TQString getTextValue( const TQDomNode& node );
     TQVariant getValue( const TQDomNodeList& children, const TQString& tagName,
-		       const TQString& type = "qstring" );
+		       const TQString& type = "tqstring" );
     void emitHeader();
     void emitFooter();
     void emitSimpleValue( const TQString& tag, const TQString& value,
@@ -99,7 +99,7 @@ private:
     bool checkTagName( const TQDomElement& e, const TQString& tagName );
     TQString normalizeType( const TQString& type );
     TQVariant getValue( const TQDomElement& e, const TQString& tagName,
-		       const TQString& type = "qstring" );
+		       const TQString& type = "tqstring" );
     void matchDialogCommon( const TQDomElement& dialogCommon );
     bool needsTQLayoutWidget( const TQDomElement& e );
     void matchBoxLayout( const TQDomElement& boxLayout );

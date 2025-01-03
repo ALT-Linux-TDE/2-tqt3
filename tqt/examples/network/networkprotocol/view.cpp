@@ -9,10 +9,10 @@
 
 #include "view.h"
 
-#include <ntqlabel.h>
-#include <ntqpushbutton.h>
-#include <ntqmultilineedit.h>
-#include <ntqfiledialog.h>
+#include <tqlabel.h>
+#include <tqpushbutton.h>
+#include <tqmultilineedit.h>
+#include <tqfiledialog.h>
 
 View::View()
     : TQVBox()

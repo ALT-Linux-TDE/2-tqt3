@@ -1,5 +1,5 @@
 '\" t
-.TH QGridView 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQGridView 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QGridView \- Abstract base for fixed-size grids
+TQGridView \- Abstract base for fixed-size grids
 .SH SYNOPSIS
-\fC#include <ntqgridview.h>\fR
+\fC#include <tqgridview.h>\fR
 .PP
-Inherits QScrollView.
+Inherits TQScrollView.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQGridView\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBTQGridView\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fB~QGridView\fR ()"
+.BI "\fB~TQGridView\fR ()"
 .br
 .ti -1c
 .BI "int \fBnumRows\fR () const"
@@ -46,13 +46,13 @@ Inherits QScrollView.
 .BI "virtual void \fBsetCellHeight\fR ( int )"
 .br
 .ti -1c
-.BI "QRect \fBcellRect\fR () const"
+.BI "TQRect \fBcellRect\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBcellGeometry\fR ( int row, int column )"
+.BI "TQRect \fBcellGeometry\fR ( int row, int column )"
 .br
 .ti -1c
-.BI "QSize \fBgridSize\fR () const"
+.BI "TQSize \fBgridSize\fR () const"
 .br
 .ti -1c
 .BI "int \fBrowAt\fR ( int y ) const"
@@ -88,17 +88,17 @@ Inherits QScrollView.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBpaintCell\fR ( QPainter * p, int row, int col ) = 0"
+.BI "virtual void \fBpaintCell\fR ( TQPainter * p, int row, int col ) = 0"
 .br
 .ti -1c
-.BI "virtual void \fBpaintEmptyArea\fR ( QPainter * p, int cx, int cy, int cw, int ch )"
+.BI "virtual void \fBpaintEmptyArea\fR ( TQPainter * p, int cx, int cy, int cw, int ch )"
 .br
 .ti -1c
 .BI "virtual void \fBdimensionChange\fR ( int oldNumRows, int oldNumCols )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QGridView class provides an abstract base for fixed-size grids.
+The TQGridView class provides an abstract base for fixed-size grids.
 .PP
 A grid view consists of a number of abstract cells organized in rows and columns. The cells have a fixed size and are identified with a row index and a column index. The top-left cell is in row 0, column 0. The bottom-right cell is in row numRows()-1, column numCols()-1.
 .PP
@@ -110,43 +110,43 @@ If you need to monitor changes to the grid's dimensions (i.e. when numRows or nu
 .PP
 Note: the row and column indices are always given in the order, row (vertical offset) then column (horizontal offset). This order is the opposite of all pixel operations, which are given in the order x (horizontal offset), y (vertical offset).
 .PP
-QGridView is a very simple abstract class based on QScrollView. It is designed to simplify the task of drawing many cells of the same size in a potentially scrollable canvas. If you need rows and columns with different sizes, use a QTable instead. If you need a simple list of items, use a QListBox. If you need to present hierachical data use a QListView, and if you need random objects at random positions, consider using either a QIconView or a QCanvas.
+TQGridView is a very simple abstract class based on TQScrollView. It is designed to simplify the task of drawing many cells of the same size in a potentially scrollable canvas. If you need rows and columns with different sizes, use a TQTable instead. If you need a simple list of items, use a TQListBox. If you need to present hierachical data use a TQListView, and if you need random objects at random positions, consider using either a TQIconView or a TQCanvas.
 .PP
 See also Abstract Widget Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QGridView::QGridView ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "TQGridView::TQGridView ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a grid view.
 .PP
-The \fIparent\fR, \fIname\fR and widget flag, \fIf\fR, arguments are passed to the QScrollView constructor.
-.SH "QGridView::~QGridView ()"
+The \fIparent\fR, \fIname\fR and widget flag, \fIf\fR, arguments are passed to the TQScrollView constructor.
+.SH "TQGridView::~TQGridView ()"
 Destroys the grid view.
-.SH "QRect QGridView::cellGeometry ( int row, int column )"
+.SH "TQRect TQGridView::cellGeometry ( int row, int column )"
 Returns the geometry of cell (\fIrow\fR, \fIcolumn\fR) in the content coordinate system.
 .PP
 See also cellRect().
-.SH "int QGridView::cellHeight () const"
+.SH "int TQGridView::cellHeight () const"
 Returns the height of a grid row. See the "cellHeight" property for details.
-.SH "QRect QGridView::cellRect () const"
-Returns the geometry of a cell in a cell's coordinate system. This is a convenience function useful in paintCell(). It is equivalent to QRect( 0, 0, cellWidth(), cellHeight() ).
+.SH "TQRect TQGridView::cellRect () const"
+Returns the geometry of a cell in a cell's coordinate system. This is a convenience function useful in paintCell(). It is equivalent to TQRect( 0, 0, cellWidth(), cellHeight() ).
 .PP
 See also cellGeometry().
-.SH "int QGridView::cellWidth () const"
+.SH "int TQGridView::cellWidth () const"
 Returns the width of a grid column. See the "cellWidth" property for details.
-.SH "int QGridView::columnAt ( int x ) const"
+.SH "int TQGridView::columnAt ( int x ) const"
 Returns the number of the column at position \fIx\fR. \fIx\fR must be given in content coordinates.
 .PP
 See also rowAt().
-.SH "void QGridView::dimensionChange ( int oldNumRows, int oldNumCols )\fC [virtual protected]\fR"
+.SH "void TQGridView::dimensionChange ( int oldNumRows, int oldNumCols )\fC [virtual protected]\fR"
 This change handler is called whenever any of the grid's dimensions change. \fIoldNumRows\fR and \fIoldNumCols\fR contain the old dimensions, numRows() and numCols() contain the new dimensions.
-.SH "void QGridView::ensureCellVisible ( int row, int column )"
+.SH "void TQGridView::ensureCellVisible ( int row, int column )"
 Ensures cell (\fIrow\fR, \fIcolumn\fR) is visible, scrolling the grid view if necessary.
-.SH "QSize QGridView::gridSize () const"
+.SH "TQSize TQGridView::gridSize () const"
 Returns the size of the grid in pixels.
-.SH "int QGridView::numCols () const"
+.SH "int TQGridView::numCols () const"
 Returns the number of columns in the grid. See the "numCols" property for details.
-.SH "int QGridView::numRows () const"
+.SH "int TQGridView::numRows () const"
 Returns the number of rows in the grid. See the "numRows" property for details.
-.SH "void QGridView::paintCell ( QPainter * p, int row, int col )\fC [pure virtual protected]\fR"
+.SH "void TQGridView::paintCell ( TQPainter * p, int row, int col )\fC [pure virtual protected]\fR"
 This pure virtual function is called to paint the single cell at (\fIrow\fR, \fIcol\fR) using painter \fIp\fR. The painter must be open when paintCell() is called and must remain open.
 .PP
 The coordinate system is translated so that the origin is at the top-left corner of the cell to be painted, i.e. \fIcell\fR coordinates. Do not scale or shear the coordinate system (or if you do, restore the transformation matrix before you return).
@@ -155,7 +155,7 @@ The painter is not clipped by default in order to get maximum efficiency. If you
 .PP
 .nf
 .br
-    p->setClipRect( cellRect(), QPainter::CoordPainter );
+    p->setClipRect( cellRect(), TQPainter::CoordPainter );
 .br
     //... your drawing code
 .br
@@ -163,29 +163,29 @@ The painter is not clipped by default in order to get maximum efficiency. If you
 .br
 .br
 .fi
-.SH "void QGridView::paintEmptyArea ( QPainter * p, int cx, int cy, int cw, int ch )\fC [virtual protected]\fR"
+.SH "void TQGridView::paintEmptyArea ( TQPainter * p, int cx, int cy, int cw, int ch )\fC [virtual protected]\fR"
 This function fills the \fIcw\fR pixels wide and \fIch\fR pixels high rectangle starting at position (\fIcx\fR, \fIcy\fR) with the background color using the painter \fIp\fR.
 .PP
 paintEmptyArea() is invoked by drawContents() to erase or fill unused areas.
-.SH "void QGridView::repaintCell ( int row, int column, bool erase = TRUE )"
+.SH "void TQGridView::repaintCell ( int row, int column, bool erase = TRUE )"
 Repaints cell (\fIrow\fR, \fIcolumn\fR).
 .PP
 If \fIerase\fR is TRUE, TQt erases the area of the cell before the paintCell() call; otherwise no erasing takes place.
 .PP
 See also TQWidget::repaint().
-.SH "int QGridView::rowAt ( int y ) const"
+.SH "int TQGridView::rowAt ( int y ) const"
 Returns the number of the row at position \fIy\fR. \fIy\fR must be given in content coordinates.
 .PP
 See also columnAt().
-.SH "void QGridView::setCellHeight ( int )\fC [virtual]\fR"
+.SH "void TQGridView::setCellHeight ( int )\fC [virtual]\fR"
 Sets the height of a grid row. See the "cellHeight" property for details.
-.SH "void QGridView::setCellWidth ( int )\fC [virtual]\fR"
+.SH "void TQGridView::setCellWidth ( int )\fC [virtual]\fR"
 Sets the width of a grid column. See the "cellWidth" property for details.
-.SH "void QGridView::setNumCols ( int )\fC [virtual]\fR"
+.SH "void TQGridView::setNumCols ( int )\fC [virtual]\fR"
 Sets the number of columns in the grid. See the "numCols" property for details.
-.SH "void QGridView::setNumRows ( int )\fC [virtual]\fR"
+.SH "void TQGridView::setNumRows ( int )\fC [virtual]\fR"
 Sets the number of rows in the grid. See the "numRows" property for details.
-.SH "void QGridView::updateCell ( int row, int column )"
+.SH "void TQGridView::updateCell ( int row, int column )"
 Updates cell (\fIrow\fR, \fIcolumn\fR).
 .PP
 See also TQWidget::update().
@@ -220,7 +220,7 @@ Set this property's value with setNumRows() and get this property's value with n
 See also numCols.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqgridview.html
+.BR http://doc.trolltech.com/tqgridview.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

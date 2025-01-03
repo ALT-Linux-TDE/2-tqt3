@@ -34,8 +34,8 @@
 #ifndef VIEWMANAGER_H
 #define VIEWMANAGER_H
 
-#include <ntqwidget.h>
-#include <ntqvaluelist.h>
+#include <tqwidget.h>
+#include <tqvaluelist.h>
 
 class TQChildEvent;
 class MarkerWidget;

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/richtext/richtext.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -51,21 +50,21 @@ Unix "fortune" are displayed nicely formatted.
 #ifndef RICHTEXT_H
 #define RICHTEXT_H
 
-#include &lt;<a href="qvbox-h.html">ntqvbox.h</a>&gt;
+#include &lt;<a href="tqvbox-h.html">tqvbox.h</a>&gt;
 
 class TQTextView;
 class TQPushButton;
 
-class MyRichText : public <a href="ntqvbox.html">TQVBox</a>
+class MyRichText : public <a href="tqvbox.html">TQVBox</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 
 public:
-    MyRichText( <a href="ntqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
+    MyRichText( <a href="tqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
 
 protected:
-    <a href="ntqtextview.html">TQTextView</a> *view;
-    <a href="ntqpushbutton.html">TQPushButton</a> *bClose, *bNext, *bPrev;
+    <a href="tqtextview.html">TQTextView</a> *view;
+    <a href="tqpushbutton.html">TQPushButton</a> *bClose, *bNext, *bPrev;
     int num;
 
 protected slots:
@@ -91,12 +90,12 @@ protected slots:
 
 #include "richtext.h"
 
-#include &lt;<a href="qhbox-h.html">ntqhbox.h</a>&gt;
-#include &lt;<a href="qhbox-h.html">ntqhbox.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qtextview-h.html">ntqtextview.h</a>&gt;
-#include &lt;<a href="qbrush-h.html">ntqbrush.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqhbox-h.html">tqhbox.h</a>&gt;
+#include &lt;<a href="tqhbox-h.html">tqhbox.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqtextview-h.html">tqtextview.h</a>&gt;
+#include &lt;<a href="tqbrush-h.html">tqbrush.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 static const char* sayings[] = {
     "&lt;b&gt;Saying 1:&lt;/b&gt;&lt;br&gt;"
@@ -156,35 +155,35 @@ static const char* sayings[] = {
 };
 
 
-<a name="f255"></a>MyRichText::MyRichText( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-    : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+<a name="f255"></a>MyRichText::MyRichText( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+    : <a href="tqvbox.html">TQVBox</a>( parent, name )
 {
-    <a href="ntqframe.html#setMargin">setMargin</a>( 5 );
+    <a href="tqframe.html#setMargin">setMargin</a>( 5 );
 
-    view = new <a href="ntqtextview.html">TQTextView</a>( this );
-<a name="x465"></a>    view-&gt;<a href="ntqtextedit.html#setText">setText</a>( "This is a &lt;b&gt;Test&lt;/b&gt; with &lt;i&gt;italic&lt;/i&gt; &lt;u&gt;stuff&lt;/u&gt;" );
-    <a href="ntqbrush.html">TQBrush</a> paper;
-<a name="x461"></a>    paper.<a href="ntqbrush.html#setPixmap">setPixmap</a>( TQPixmap( "../richtext/marble.png" ) );
-<a name="x460"></a>    if ( paper.<a href="ntqbrush.html#pixmap">pixmap</a>() != 0 )
-<a name="x464"></a>        view-&gt;<a href="ntqtextedit.html#setPaper">setPaper</a>( paper );
+    view = new <a href="tqtextview.html">TQTextView</a>( this );
+<a name="x465"></a>    view-&gt;<a href="tqtextedit.html#setText">setText</a>( "This is a &lt;b&gt;Test&lt;/b&gt; with &lt;i&gt;italic&lt;/i&gt; &lt;u&gt;stuff&lt;/u&gt;" );
+    <a href="tqbrush.html">TQBrush</a> paper;
+<a name="x461"></a>    paper.<a href="tqbrush.html#setPixmap">setPixmap</a>( TQPixmap( "../richtext/marble.png" ) );
+<a name="x460"></a>    if ( paper.<a href="tqbrush.html#pixmap">pixmap</a>() != 0 )
+<a name="x464"></a>        view-&gt;<a href="tqtextedit.html#setPaper">setPaper</a>( paper );
     else
-        view-&gt;<a href="ntqtextedit.html#setPaper">setPaper</a>( white );
+        view-&gt;<a href="tqtextedit.html#setPaper">setPaper</a>( white );
 
-    view-&gt;<a href="ntqtextedit.html#setText">setText</a>( sayings[0] );
-<a name="x467"></a>    view-&gt;<a href="ntqwidget.html#setMinimumSize">setMinimumSize</a>( 450, 250 );
+    view-&gt;<a href="tqtextedit.html#setText">setText</a>( sayings[0] );
+<a name="x467"></a>    view-&gt;<a href="tqwidget.html#setMinimumSize">setMinimumSize</a>( 450, 250 );
 
-    <a href="ntqhbox.html">TQHBox</a> *buttons = new <a href="ntqhbox.html">TQHBox</a>( this );
-    buttons-&gt;<a href="ntqframe.html#setMargin">setMargin</a>( 5 );
+    <a href="tqhbox.html">TQHBox</a> *buttons = new <a href="tqhbox.html">TQHBox</a>( this );
+    buttons-&gt;<a href="tqframe.html#setMargin">setMargin</a>( 5 );
 
-    bClose = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Close", buttons );
-    bPrev = new <a href="ntqpushbutton.html">TQPushButton</a>( "&lt;&lt; &amp;Prev", buttons );
-    bNext = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Next &gt;&gt;", buttons );
+    bClose = new <a href="tqpushbutton.html">TQPushButton</a>( "&amp;Close", buttons );
+    bPrev = new <a href="tqpushbutton.html">TQPushButton</a>( "&lt;&lt; &amp;Prev", buttons );
+    bNext = new <a href="tqpushbutton.html">TQPushButton</a>( "&amp;Next &gt;&gt;", buttons );
 
-<a name="x466"></a>    bPrev-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
+<a name="x466"></a>    bPrev-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
 
-<a name="x462"></a>    <a href="ntqobject.html#connect">connect</a>( bClose, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), tqApp, TQ_SLOT( <a href="ntqapplication.html#quit">quit</a>() ) );
-    <a href="ntqobject.html#connect">connect</a>( bPrev, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( prev() ) );
-    <a href="ntqobject.html#connect">connect</a>( bNext, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( next() ) );
+<a name="x462"></a>    <a href="tqobject.html#connect">connect</a>( bClose, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), tqApp, TQ_SLOT( <a href="tqapplication.html#quit">quit</a>() ) );
+    <a href="tqobject.html#connect">connect</a>( bPrev, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( prev() ) );
+    <a href="tqobject.html#connect">connect</a>( bNext, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( next() ) );
 
     num = 0;
 }
@@ -196,12 +195,12 @@ void <a name="f256"></a>MyRichText::prev()
 
     num--;
 
-    view-&gt;<a href="ntqtextedit.html#setText">setText</a>( sayings[num] );
+    view-&gt;<a href="tqtextedit.html#setText">setText</a>( sayings[num] );
 
     if ( num == 0 )
-        bPrev-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
+        bPrev-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
 
-    bNext-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
+    bNext-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( TRUE );
 }
 
 void <a name="f257"></a>MyRichText::next()
@@ -209,12 +208,12 @@ void <a name="f257"></a>MyRichText::next()
     if ( !sayings[++num] )
         return;
 
-    view-&gt;<a href="ntqtextedit.html#setText">setText</a>( sayings[num] );
+    view-&gt;<a href="tqtextedit.html#setText">setText</a>( sayings[num] );
 
     if ( !sayings[num + 1] )
-        bNext-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
+        bNext-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
 
-    bPrev-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
+    bPrev-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( TRUE );
 }
 
 
@@ -236,19 +235,19 @@ void <a name="f257"></a>MyRichText::next()
 *****************************************************************************/
 
 #include "richtext.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     MyRichText richtext;
-    richtext.<a href="ntqwidget.html#resize">resize</a>( 450, 350 );
-    richtext.<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Richtext" );
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;richtext );
-    richtext.<a href="ntqwidget.html#show">show</a>();
+    richtext.<a href="tqwidget.html#resize">resize</a>( 450, 350 );
+    richtext.<a href="tqwidget.html#setCaption">setCaption</a>( "TQt Example - Richtext" );
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;richtext );
+    richtext.<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

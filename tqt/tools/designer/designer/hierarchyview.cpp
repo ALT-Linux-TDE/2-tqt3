@@ -49,21 +49,21 @@
 #include "popupmenueditor.h"
 #include "menubareditor.h"
 
-#include <ntqpalette.h>
-#include <ntqobjectlist.h>
-#include <ntqheader.h>
-#include <ntqpopupmenu.h>
-#include <ntqtabwidget.h>
-#include <ntqwizard.h>
-#include <ntqwidgetstack.h>
-#include <ntqtabbar.h>
-#include <ntqfeatures.h>
-#include <ntqapplication.h>
-#include <ntqtimer.h>
+#include <tqpalette.h>
+#include <tqobjectlist.h>
+#include <tqheader.h>
+#include <tqpopupmenu.h>
+#include <tqtabwidget.h>
+#include <tqwizard.h>
+#include <tqwidgetstack.h>
+#include <tqtabbar.h>
+#include <tqfeatures.h>
+#include <tqapplication.h>
+#include <tqtimer.h>
 #include "../interfaces/languageinterface.h"
-#include <ntqworkspace.h>
-#include <ntqaccel.h>
-#include <ntqmessagebox.h>
+#include <tqworkspace.h>
+#include <tqaccel.h>
+#include <tqmessagebox.h>
 
 #include <stdlib.h>
 

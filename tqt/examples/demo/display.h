@@ -11,8 +11,8 @@
 #define DISPLAY_H
 
 #ifndef QT_H
-#include <ntqwidget.h>
-#include <ntqframe.h>
+#include <tqwidget.h>
+#include <tqframe.h>
 #endif // QT_H
 
 class TQTimer;

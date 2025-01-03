@@ -51,7 +51,7 @@ Kilgard, Addison Wesley Developers Press 1996).
 direct support for the use of OpenGL overlays. For many uses of
 overlays, this makes the technique described below redundant. See the
 \link opengl-overlay-example.html overlay\endlink example program. The
-following is a discussion on how to use non-QGL widgets in overlay
+following is a discussion on how to use non-TQGL widgets in overlay
 planes.
 
 In the typical case, X11 overlays can easily be used together with the
@@ -84,11 +84,11 @@ information.
 
 \section1 How it works
 
-Given the above, a QGLWidget will by default use the main plane
+Given the above, a TQGLWidget will by default use the main plane
 visual, while all other widgets will use the overlay visual. Thus, we
-can place a normal widget on top of the QGLWidget, and do drawing on
+can place a normal widget on top of the TQGLWidget, and do drawing on
 it, without destroying the image in the OpenGL window. In other words,
-we can use all the drawing capabilities of QPainter to draw the
+we can use all the drawing capabilities of TQPainter to draw the
 annotations, rubberbands, etc. For the typical use of overlays,
 this is much easier than using OpenGL for rendering the annotations.
 
@@ -102,7 +102,7 @@ set the background color to the transparent color, so that the OpenGL
 image shows through except where explicitly overpainted.
 
 Note: to use this technique, you must not use the "ManyColor" or
-"TrueColor" ColorSpec for QApplication, because this will force
+"TrueColor" ColorSpec for TQApplication, because this will force
 the normal TQt widgets to use a TrueColor visual, which will typically
 be in the main plane, not in the overlay plane as desired.
 
@@ -127,6 +127,6 @@ transparency information for overlay visuals.
 
 The \link opengl-overlay-example.html X11 overlay\endlink example
 program will output what visual is used for the normal TQt widgets, and
-what visual is used by the QGLWidget.
+what visual is used by the TQGLWidget.
 
 */

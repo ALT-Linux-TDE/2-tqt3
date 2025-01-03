@@ -34,7 +34,7 @@
 #ifndef FORMFILE_H
 #define FORMFILE_H
 
-#include <ntqobject.h>
+#include <tqobject.h>
 #include "timestamp.h"
 #include "metadatabase.h"
 

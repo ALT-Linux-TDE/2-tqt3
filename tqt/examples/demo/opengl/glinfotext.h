@@ -1,6 +1,6 @@
-#include <ntqlayout.h>
-#include <ntqtextview.h>
-#include <ntqfont.h>
+#include <tqlayout.h>
+#include <tqtextview.h>
+#include <tqfont.h>
 #include "glinfo.h"
 
 class GLInfoText : public TQWidget

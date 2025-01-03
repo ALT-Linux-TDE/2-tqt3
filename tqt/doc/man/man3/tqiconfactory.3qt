@@ -1,5 +1,5 @@
 '\" t
-.TH QIconFactory 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQIconFactory 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,20 +7,20 @@
 .ad l
 .nh
 .SH NAME
-QIconFactory \- Used to create pixmaps for a QIconSet
+TQIconFactory \- Used to create pixmaps for a TQIconSet
 .SH SYNOPSIS
-\fC#include <ntqiconset.h>\fR
+\fC#include <tqiconset.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQIconFactory\fR ()"
+.BI "\fBTQIconFactory\fR ()"
 .br
 .ti -1c
-.BI "virtual \fB~QIconFactory\fR ()"
+.BI "virtual \fB~TQIconFactory\fR ()"
 .br
 .ti -1c
-.BI "virtual QPixmap * \fBcreatePixmap\fR ( const QIconSet & iconSet, QIconSet::Size size, QIconSet::Mode mode, QIconSet::State state )"
+.BI "virtual TQPixmap * \fBcreatePixmap\fR ( const TQIconSet & iconSet, TQIconSet::Size size, TQIconSet::Mode mode, TQIconSet::State state )"
 .br
 .ti -1c
 .BI "void \fBsetAutoDelete\fR ( bool autoDelete )"
@@ -32,48 +32,48 @@ QIconFactory \- Used to create pixmaps for a QIconSet
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QIconFactory * \fBdefaultFactory\fR ()"
+.BI "TQIconFactory * \fBdefaultFactory\fR ()"
 .br
 .ti -1c
-.BI "void \fBinstallDefaultFactory\fR ( QIconFactory * factory )"
+.BI "void \fBinstallDefaultFactory\fR ( TQIconFactory * factory )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QIconFactory class is used to create pixmaps for a QIconSet.
+The TQIconFactory class is used to create pixmaps for a TQIconSet.
 .PP
-By reimplementing createPixmap(), you can override QIconSet's default algorithm for computing pixmaps not supplied by the user.
+By reimplementing createPixmap(), you can override TQIconSet's default algorithm for computing pixmaps not supplied by the user.
 .PP
-Call setAutoDelete(TRUE) if you want the factory to automatically delete itself when it is no longer needed by QIconSet.
+Call setAutoDelete(TRUE) if you want the factory to automatically delete itself when it is no longer needed by TQIconSet.
 .PP
-See also QIconSet and Advanced Widgets.
+See also TQIconSet and Advanced Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QIconFactory::QIconFactory ()"
+.SH "TQIconFactory::TQIconFactory ()"
 Constructs an icon factory.
-.SH "QIconFactory::~QIconFactory ()\fC [virtual]\fR"
+.SH "TQIconFactory::~TQIconFactory ()\fC [virtual]\fR"
 Destroys the object and frees any allocated resources.
-.SH "bool QIconFactory::autoDelete () const"
+.SH "bool TQIconFactory::autoDelete () const"
 Returns TRUE if auto-deletion is enabled; otherwise returns FALSE.
 .PP
 See also setAutoDelete().
-.SH "QPixmap * QIconFactory::createPixmap ( const QIconSet & iconSet, QIconSet::Size size, QIconSet::Mode mode, QIconSet::State state )\fC [virtual]\fR"
-Ceates a pixmap for \fIiconSet\fR with a certain \fIsize\fR, \fImode\fR, and \fIstate\fR. Returns 0 if the default QIconSet algorithm should be used to create a pixmap that wasn't supplied by the user.
+.SH "TQPixmap * TQIconFactory::createPixmap ( const TQIconSet & iconSet, TQIconSet::Size size, TQIconSet::Mode mode, TQIconSet::State state )\fC [virtual]\fR"
+Ceates a pixmap for \fIiconSet\fR with a certain \fIsize\fR, \fImode\fR, and \fIstate\fR. Returns 0 if the default TQIconSet algorithm should be used to create a pixmap that wasn't supplied by the user.
 .PP
 It is the caller's responsibility to delete the returned pixmap.
 .PP
 The default implementation always returns 0.
-.SH "QIconFactory * QIconFactory::defaultFactory ()\fC [static]\fR"
+.SH "TQIconFactory * TQIconFactory::defaultFactory ()\fC [static]\fR"
 Returns the default icon factory.
 .PP
 See also installDefaultFactory().
-.SH "void QIconFactory::installDefaultFactory ( QIconFactory * factory )\fC [static]\fR"
+.SH "void TQIconFactory::installDefaultFactory ( TQIconFactory * factory )\fC [static]\fR"
 Replaces the default icon factory with \fIfactory\fR.
-.SH "void QIconFactory::setAutoDelete ( bool autoDelete )"
-If \fIautoDelete\fR is TRUE, sets the icon factory to automatically delete itself when it is no longer referenced by any QIconSet and isn't the default factory. If \fIautoDelete\fR is FALSE (the default) auto-deletion is disabled.
+.SH "void TQIconFactory::setAutoDelete ( bool autoDelete )"
+If \fIautoDelete\fR is TRUE, sets the icon factory to automatically delete itself when it is no longer referenced by any TQIconSet and isn't the default factory. If \fIautoDelete\fR is FALSE (the default) auto-deletion is disabled.
 .PP
 See also autoDelete() and defaultFactory().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qiconfactory.html
+.BR http://doc.trolltech.com/tqiconfactory.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

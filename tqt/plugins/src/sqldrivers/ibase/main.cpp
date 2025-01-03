@@ -38,8 +38,8 @@
 **
 **********************************************************************/
 
-#include <ntqsqldriverplugin.h>
-#include "../../../../src/sql/drivers/ibase/qsql_ibase.h"
+#include <tqsqldriverplugin.h>
+#include "../../../../src/sql/drivers/ibase/tqsql_ibase.h"
 
 class TQIBaseDriverPlugin : public TQSqlDriverPlugin
 {

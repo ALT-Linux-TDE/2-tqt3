@@ -1,0 +1,1 @@
+../tools/designer/uilib/tqwidgetfactory.h

@@ -34,11 +34,11 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-#include <ntqstring.h>
-#include <ntqtextstream.h>
-#include <ntqvariant.h>
-#include <ntqvaluelist.h>
-#include <ntqimage.h>
+#include <tqstring.h>
+#include <tqtextstream.h>
+#include <tqvariant.h>
+#include <tqvaluelist.h>
+#include <tqimage.h>
 #include "actiondnd.h"
 
 #include "metadatabase.h"

@@ -1,5 +1,5 @@
 '\" t
-.TH QNetworkOperation 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQNetworkOperation 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QNetworkOperation \- Common operations for network protocols
+TQNetworkOperation \- Common operations for network protocols
 .SH SYNOPSIS
-\fC#include <ntqnetworkprotocol.h>\fR
+\fC#include <tqnetworkprotocol.h>\fR
 .PP
 Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQNetworkOperation\fR ( QNetworkProtocol::Operation operation, const TQString & arg0, const TQString & arg1, const TQString & arg2 )"
+.BI "\fBTQNetworkOperation\fR ( TQNetworkProtocol::Operation operation, const TQString & arg0, const TQString & arg1, const TQString & arg2 )"
 .br
 .ti -1c
-.BI "\fBQNetworkOperation\fR ( QNetworkProtocol::Operation operation, const QByteArray & arg0, const QByteArray & arg1, const QByteArray & arg2 )"
+.BI "\fBTQNetworkOperation\fR ( TQNetworkProtocol::Operation operation, const TQByteArray & arg0, const TQByteArray & arg1, const TQByteArray & arg2 )"
 .br
 .ti -1c
-.BI "\fB~QNetworkOperation\fR ()"
+.BI "\fB~TQNetworkOperation\fR ()"
 .br
 .ti -1c
-.BI "void \fBsetState\fR ( QNetworkProtocol::State state )"
+.BI "void \fBsetState\fR ( TQNetworkProtocol::State state )"
 .br
 .ti -1c
 .BI "void \fBsetProtocolDetail\fR ( const TQString & detail )"
@@ -37,19 +37,19 @@ Inherits TQObject.
 .BI "void \fBsetArg\fR ( int num, const TQString & arg )"
 .br
 .ti -1c
-.BI "void \fBsetRawArg\fR ( int num, const QByteArray & arg )"
+.BI "void \fBsetRawArg\fR ( int num, const TQByteArray & arg )"
 .br
 .ti -1c
-.BI "QNetworkProtocol::Operation \fBoperation\fR () const"
+.BI "TQNetworkProtocol::Operation \fBoperation\fR () const"
 .br
 .ti -1c
-.BI "QNetworkProtocol::State \fBstate\fR () const"
+.BI "TQNetworkProtocol::State \fBstate\fR () const"
 .br
 .ti -1c
 .BI "TQString \fBarg\fR ( int num ) const"
 .br
 .ti -1c
-.BI "QByteArray \fBrawArg\fR ( int num ) const"
+.BI "TQByteArray \fBrawArg\fR ( int num ) const"
 .br
 .ti -1c
 .BI "TQString \fBprotocolDetail\fR () const"
@@ -62,65 +62,65 @@ Inherits TQObject.
 .br
 .in -1c
 .SH DESCRIPTION
-The QNetworkOperation class provides common operations for network protocols.
+The TQNetworkOperation class provides common operations for network protocols.
 .PP
 An object is created to describe the operation and the current state for each operation that a network protocol should process.
 .PP
 For a detailed description of the TQt Network Architecture and how to implement and use network protocols in Qt, see the TQt Network Documentation.
 .PP
-See also QNetworkProtocol and Input/Output and Networking.
+See also TQNetworkProtocol and Input/Output and Networking.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QNetworkOperation::QNetworkOperation ( QNetworkProtocol::Operation operation, const TQString & arg0, const TQString & arg1, const TQString & arg2 )"
-Constructs a network operation object. \fIoperation\fR is the type of the operation, and \fIarg0\fR, \fIarg1\fR and \fIarg2\fR are the first three arguments of the operation. The state is initialized to QNetworkProtocol::StWaiting.
+.SH "TQNetworkOperation::TQNetworkOperation ( TQNetworkProtocol::Operation operation, const TQString & arg0, const TQString & arg1, const TQString & arg2 )"
+Constructs a network operation object. \fIoperation\fR is the type of the operation, and \fIarg0\fR, \fIarg1\fR and \fIarg2\fR are the first three arguments of the operation. The state is initialized to TQNetworkProtocol::StWaiting.
 .PP
-See also QNetworkProtocol::Operation and QNetworkProtocol::State.
-.SH "QNetworkOperation::QNetworkOperation ( QNetworkProtocol::Operation operation, const QByteArray & arg0, const QByteArray & arg1, const QByteArray & arg2 )"
-Constructs a network operation object. \fIoperation\fR is the type of the operation, and \fIarg0\fR, \fIarg1\fR and \fIarg2\fR are the first three raw data arguments of the operation. The state is initialized to QNetworkProtocol::StWaiting.
+See also TQNetworkProtocol::Operation and TQNetworkProtocol::State.
+.SH "TQNetworkOperation::TQNetworkOperation ( TQNetworkProtocol::Operation operation, const TQByteArray & arg0, const TQByteArray & arg1, const TQByteArray & arg2 )"
+Constructs a network operation object. \fIoperation\fR is the type of the operation, and \fIarg0\fR, \fIarg1\fR and \fIarg2\fR are the first three raw data arguments of the operation. The state is initialized to TQNetworkProtocol::StWaiting.
 .PP
-See also QNetworkProtocol::Operation and QNetworkProtocol::State.
-.SH "QNetworkOperation::~QNetworkOperation ()"
+See also TQNetworkProtocol::Operation and TQNetworkProtocol::State.
+.SH "TQNetworkOperation::~TQNetworkOperation ()"
 Destructor.
-.SH "TQString QNetworkOperation::arg ( int num ) const"
+.SH "TQString TQNetworkOperation::arg ( int num ) const"
 Returns the operation's \fInum\fR-th argument. If this argument was not already set, an empty string is returned.
 .PP
 Example: network/networkprotocol/nntp.cpp.
-.SH "int QNetworkOperation::errorCode () const"
+.SH "int TQNetworkOperation::errorCode () const"
 Returns the error code for the last error that occurred.
-.SH "void QNetworkOperation::free ()"
+.SH "void TQNetworkOperation::free ()"
 Sets this object to delete itself when it hasn't been used for one second.
 .PP
-Because QNetworkOperation pointers are passed around a lot the QNetworkProtocol generally does not have enough knowledge to delete these at the correct time. If a QNetworkProtocol doesn't need an operation any more it will call this function instead.
+Because TQNetworkOperation pointers are passed around a lot the TQNetworkProtocol generally does not have enough knowledge to delete these at the correct time. If a TQNetworkProtocol doesn't need an operation any more it will call this function instead.
 .PP
 Note: you should never need to call the method yourself.
-.SH "QNetworkProtocol::Operation QNetworkOperation::operation () const"
+.SH "TQNetworkProtocol::Operation TQNetworkOperation::operation () const"
 Returns the type of the operation.
-.SH "TQString QNetworkOperation::protocolDetail () const"
+.SH "TQString TQNetworkOperation::protocolDetail () const"
 Returns a detailed error message for the last error. This must have been set using setProtocolDetail().
-.SH "QByteArray QNetworkOperation::rawArg ( int num ) const"
+.SH "TQByteArray TQNetworkOperation::rawArg ( int num ) const"
 Returns the operation's \fInum\fR-th raw data argument. If this argument was not already set, an empty bytearray is returned.
-.SH "void QNetworkOperation::setArg ( int num, const TQString & arg )"
+.SH "void TQNetworkOperation::setArg ( int num, const TQString & arg )"
 Sets the network operation's \fInum\fR-th argument to \fIarg\fR.
-.SH "void QNetworkOperation::setErrorCode ( int ec )"
+.SH "void TQNetworkOperation::setErrorCode ( int ec )"
 Sets the error code to \fIec\fR.
 .PP
-If the operation failed, the protocol should set an error code to describe the error in more detail. If possible, one of the error codes defined in QNetworkProtocol should be used.
+If the operation failed, the protocol should set an error code to describe the error in more detail. If possible, one of the error codes defined in TQNetworkProtocol should be used.
 .PP
-See also setProtocolDetail() and QNetworkProtocol::Error.
-.SH "void QNetworkOperation::setProtocolDetail ( const TQString & detail )"
+See also setProtocolDetail() and TQNetworkProtocol::Error.
+.SH "void TQNetworkOperation::setProtocolDetail ( const TQString & detail )"
 If the operation failed, the error message can be specified as \fIdetail\fR.
-.SH "void QNetworkOperation::setRawArg ( int num, const QByteArray & arg )"
+.SH "void TQNetworkOperation::setRawArg ( int num, const TQByteArray & arg )"
 Sets the network operation's \fInum\fR-th raw data argument to \fIarg\fR.
-.SH "void QNetworkOperation::setState ( QNetworkProtocol::State state )"
-Sets the \fIstate\fR of the operation object. This should be done by the network protocol during processing; at the end it should be set to QNetworkProtocol::StDone or QNetworkProtocol::StFailed, depending on success or failure.
+.SH "void TQNetworkOperation::setState ( TQNetworkProtocol::State state )"
+Sets the \fIstate\fR of the operation object. This should be done by the network protocol during processing; at the end it should be set to TQNetworkProtocol::StDone or TQNetworkProtocol::StFailed, depending on success or failure.
 .PP
-See also QNetworkProtocol::State.
-.SH "QNetworkProtocol::State QNetworkOperation::state () const"
+See also TQNetworkProtocol::State.
+.SH "TQNetworkProtocol::State TQNetworkOperation::state () const"
 Returns the state of the operation. You can determine whether an
 operation is still waiting to be processed, is being processed,
 has been processed successfully, or failed.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qnetworkoperation.html
+.BR http://doc.trolltech.com/tqnetworkoperation.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

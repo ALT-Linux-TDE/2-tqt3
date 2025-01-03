@@ -535,14 +535,14 @@ Windows 95/98/NT/2000, Linux, Solaris, HP-UX. und viele andere Unix-Derivate mit
 <context>
     <name>KAsteroidsView</name>
     <message>
-        <source>QCanvas demo</source>
-        <translation>QCanvas Demonstration</translation>
+        <source>TQCanvas demo</source>
+        <translation>TQCanvas Demonstration</translation>
     </message>
     <message>
-        <source>This game has been implemented using the QCanvas class.
-The QCanvas class is not part of the Professional Edition. Please 
+        <source>This game has been implemented using the TQCanvas class.
+The TQCanvas class is not part of the Professional Edition. Please 
 contact Trolltech if you want to upgrade to the Enterprise Edition.</source>
-        <translation>Dieses Spiel wurde mit der QCanvas Klasse implementiert. Diese ist kein Teil der Professional Edition. Bitte kontaktieren Sie Trolltech wenn sie auf the Enterprise Edition upgraden möchten.</translation>
+        <translation>Dieses Spiel wurde mit der TQCanvas Klasse implementiert. Diese ist kein Teil der Professional Edition. Bitte kontaktieren Sie Trolltech wenn sie auf the Enterprise Edition upgraden möchten.</translation>
     </message>
 </context>
 <context encoding="UTF-8">

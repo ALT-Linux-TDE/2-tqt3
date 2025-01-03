@@ -1,1 +1,0 @@
-../src/kernel/ntqobjectcleanuphandler.h

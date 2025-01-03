@@ -7,15 +7,15 @@
 **
 *****************************************************************************/
 
-#include <ntqsocket.h>
-#include <ntqapplication.h>
-#include <ntqvbox.h>
-#include <ntqhbox.h>
-#include <ntqtextview.h>
-#include <ntqlineedit.h>
-#include <ntqlabel.h>
-#include <ntqpushbutton.h>
-#include <ntqtextstream.h>
+#include <tqsocket.h>
+#include <tqapplication.h>
+#include <tqvbox.h>
+#include <tqhbox.h>
+#include <tqtextview.h>
+#include <tqlineedit.h>
+#include <tqlabel.h>
+#include <tqpushbutton.h>
+#include <tqtextstream.h>
 
 
 class Client : public TQVBox

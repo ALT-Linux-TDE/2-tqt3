@@ -7,7 +7,7 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 #include "ftpmainwindow.h"
 
 int main( int argc, char **argv )

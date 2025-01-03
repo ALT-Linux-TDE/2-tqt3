@@ -17,7 +17,7 @@
 #ifndef GLBOX_H
 #define GLBOX_H
 
-#include <ntqgl.h>
+#include <tqgl.h>
 
 
 class GLTeapots : public TQGLWidget

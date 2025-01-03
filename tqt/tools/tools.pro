@@ -8,8 +8,7 @@ no-png {
 		      linguist
     unix:SUBDIRS	+= qtconfig \
 			tqtmergetr \
-			qconfig \
-			maketqpf \
+			tqconfig \
 			msg2tqm \
 			qembed
 }

@@ -41,7 +41,7 @@
 	  - (QInputContext): Add 'parent' arg
 	
 	* src/kernel/ntqinputcontext.h
-	  - Exclude ntqptrlist.h when compile with Qt4
+	  - Exclude qptrlist.h when compile with Qt4
 	  - (struct QInputContextMenu): Exclude member variables when compile
 	    with Qt4
 	  - (QInputContext): Add 'parent' arg
@@ -141,7 +141,7 @@
 	    required feature for immodule. See also changes of ntqfeatures.h
 	* src/input/qinputcontextfactory.cpp
 	  - Add #include "ntqinputcontext.h"
-	  - Remove unnecessary #include "ntqpopupmenu.h"
+	  - Remove unnecessary #include "qpopupmenu.h"
 	  - Remove inappropriate #ifndef TQT_NO_STRINGLIST. QStringList is now
 	    required feature for immodule. See also changes of ntqfeatures.h
 	
@@ -253,7 +253,7 @@
 	
 2004-08-17  YamaKen  <yamaken@bp.iij4u.or.jp>
 	
-	* src/kernel/ntqnamespace.h
+	* src/kernel/qnamespace.h
 	  - (Qt::Key) Add a comment about Korean-specific keyboard
 	    support based on the information from Choe Hwanjin. Thanks
 	    for the information. See following discussion for further
@@ -902,7 +902,7 @@
 	"deleteLater" is safer then "delete" QObject directly
 2004-07-30  YamaKen  <yamaken@bp.iij4u.or.jp>
 	
-	* src/kernel/ntqnamespace.h
+	* src/kernel/qnamespace.h
 	  - (Qt::Key):
 	    * Replace dead key values with new one to avoid keycode conflict
 	    * Add a comment about the latin 1 keycodes
@@ -1181,7 +1181,7 @@
 	
 2004-07-22  Kazuki Ohta  <mover@hct.zaq.ne.jp>
 	
-	* kernel/qapplication_x11.cpp, kernel/ntqnamespace.h
+	* kernel/qapplication_x11.cpp, kernel/qnamespace.h
 	  - add dead key entries
 	
 2004-07-22  YamaKen  <yamaken@bp.iij4u.or.jp>
@@ -2001,7 +2001,7 @@
 	    position and call QWidget::sendMouseEventToInputContext()
 	  - (drawContents): Follow API change
 
-	* src/widgets/ntqtextedit.h
+	* src/widgets/tqtextedit.h
 	  - (sendMouseEventToInputContext): New function
 	* src/widgets/qtextedit.cpp
 	  - (QTextEditPrivate::composeMode): New function

@@ -1,5 +1,5 @@
 '\" t
-.TH QDial 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQDial 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,22 +7,22 @@
 .ad l
 .nh
 .SH NAME
-QDial \- Rounded range control (like a speedometer or potentiometer)
+TQDial \- Rounded range control (like a speedometer or potentiometer)
 .SH SYNOPSIS
-\fC#include <ntqdial.h>\fR
+\fC#include <tqdial.h>\fR
 .PP
-Inherits TQWidget and QRangeControl.
+Inherits TQWidget and TQRangeControl.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDial\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBTQDial\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fBQDial\fR ( int minValue, int maxValue, int pageStep, int value, TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQDial\fR ( int minValue, int maxValue, int pageStep, int value, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QDial\fR ()"
+.BI "\fB~TQDial\fR ()"
 .br
 .ti -1c
 .BI "bool \fBtracking\fR () const"
@@ -154,13 +154,13 @@ Inherits TQWidget and QRangeControl.
 .BI "virtual void \fBrangeChange\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBrepaintScreen\fR ( const QRect * cr = 0 )"
+.BI "virtual void \fBrepaintScreen\fR ( const TQRect * cr = 0 )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QDial class provides a rounded range control (like a speedometer or potentiometer).
+The TQDial class provides a rounded range control (like a speedometer or potentiometer).
 .PP
-QDial is used when the user needs to control a value within a program-definable range, and the range either wraps around (typically, 0..359 degrees) or the dialog layout needs a square widget.
+TQDial is used when the user needs to control a value within a program-definable range, and the range either wraps around (typically, 0..359 degrees) or the dialog layout needs a square widget.
 .PP
 Both API- and UI-wise, the dial is very similar to a slider. Indeed, when wrapping() is FALSE (the default) there is no real difference between a slider and a dial. They have the same signals, slots and member functions, all of which do the same things. Which one you use depends only on your taste and on the application.
 .PP
@@ -168,9 +168,9 @@ The dial initially emits valueChanged() signals continuously while the slider is
 .PP
 The slider also emits dialPressed() and dialReleased() signals when the mouse button is pressed and released. But note that the dial's value can change without these signals being emitted; the keyboard and wheel can be used to change the value.
 .PP
-Unlike the slider, QDial attempts to draw a "nice" number of notches rather than one per lineStep(). If possible, the number of notches drawn is one per lineStep(), but if there aren't enough pixels to draw every one, QDial will draw every second, third etc., notch. notchSize() returns the number of units per notch, hopefully a multiple of lineStep(); setNotchTarget() sets the target distance between neighbouring notches in pixels. The default is 3.75 pixels.
+Unlike the slider, TQDial attempts to draw a "nice" number of notches rather than one per lineStep(). If possible, the number of notches drawn is one per lineStep(), but if there aren't enough pixels to draw every one, TQDial will draw every second, third etc., notch. notchSize() returns the number of units per notch, hopefully a multiple of lineStep(); setNotchTarget() sets the target distance between neighbouring notches in pixels. The default is 3.75 pixels.
 .PP
-Like the slider, the dial makes the QRangeControl functions setValue(), addLine(), subtractLine(), addPage() and subtractPage() available as slots.
+Like the slider, the dial makes the TQRangeControl functions setValue(), addLine(), subtractLine(), addPage() and subtractPage() available as slots.
 .PP
 The dial's keyboard interface is fairly simple: The left/up and right/down arrow keys move by lineStep(), page up and page down by pageStep() and Home and End to minValue() and maxValue().
 .PP
@@ -181,85 +181,85 @@ The dial's keyboard interface is fairly simple: The left/up and right/down arrow
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QScrollBar, QSpinBox, GUI Design Handbook: Slider, and Basic Widgets.
+See also TQScrollBar, TQSpinBox, GUI Design Handbook: Slider, and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDial::QDial ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
-Constructs a dial called \fIname\fR with parent \fIparent\fR. \fIf\fR is propagated to the TQWidget constructor. It has the default range of a QRangeControl.
-.SH "QDial::QDial ( int minValue, int maxValue, int pageStep, int value, TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQDial::TQDial ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+Constructs a dial called \fIname\fR with parent \fIparent\fR. \fIf\fR is propagated to the TQWidget constructor. It has the default range of a TQRangeControl.
+.SH "TQDial::TQDial ( int minValue, int maxValue, int pageStep, int value, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a dial called \fIname\fR with parent \fIparent\fR. The dial's value can never be smaller than \fIminValue\fR or greater than \fImaxValue\fR. Its page step size is \fIpageStep\fR, and its initial value is \fIvalue\fR.
 .PP
 \fIvalue\fR is forced to be within the legal range.
-.SH "QDial::~QDial ()"
+.SH "TQDial::~TQDial ()"
 Destroys the dial.
-.SH "void QDial::addLine ()\fC [slot]\fR"
+.SH "void TQDial::addLine ()\fC [slot]\fR"
 Increments the dial's value() by one lineStep().
-.SH "void QDial::addPage ()\fC [slot]\fR"
+.SH "void TQDial::addPage ()\fC [slot]\fR"
 Increments the dial's value() by one pageStep() of steps.
-.SH "void QDial::dialMoved ( int value )\fC [signal]\fR"
+.SH "void TQDial::dialMoved ( int value )\fC [signal]\fR"
 This signal is emitted whenever the dial \fIvalue\fR changes. The frequency of this signal is \fInot\fR influenced by setTracking().
 .PP
 See also valueChanged().
-.SH "void QDial::dialPressed ()\fC [signal]\fR"
+.SH "void TQDial::dialPressed ()\fC [signal]\fR"
 This signal is emitted when the user begins mouse interaction with the dial.
 .PP
 See also dialReleased().
-.SH "void QDial::dialReleased ()\fC [signal]\fR"
+.SH "void TQDial::dialReleased ()\fC [signal]\fR"
 This signal is emitted when the user ends mouse interaction with the dial.
 .PP
 See also dialPressed().
-.SH "int QDial::lineStep () const"
+.SH "int TQDial::lineStep () const"
 Returns the current line step. See the "lineStep" property for details.
-.SH "int QDial::maxValue () const"
+.SH "int TQDial::maxValue () const"
 Returns the current maximum value. See the "maxValue" property for details.
-.SH "int QDial::minValue () const"
+.SH "int TQDial::minValue () const"
 Returns the current minimum value. See the "minValue" property for details.
-.SH "int QDial::notchSize () const"
+.SH "int TQDial::notchSize () const"
 Returns the current notch size. See the "notchSize" property for details.
-.SH "double QDial::notchTarget () const"
+.SH "double TQDial::notchTarget () const"
 Returns the target number of pixels between notches. See the "notchTarget" property for details.
-.SH "bool QDial::notchesVisible () const"
+.SH "bool TQDial::notchesVisible () const"
 Returns TRUE if the notches are shown; otherwise returns FALSE. See the "notchesVisible" property for details.
-.SH "int QDial::pageStep () const"
+.SH "int TQDial::pageStep () const"
 Returns the current page step. See the "pageStep" property for details.
-.SH "void QDial::rangeChange ()\fC [virtual protected]\fR"
+.SH "void TQDial::rangeChange ()\fC [virtual protected]\fR"
 Reimplemented to ensure tick-marks are consistent with the new range.
 .PP
-Reimplemented from QRangeControl.
-.SH "void QDial::repaintScreen ( const QRect * cr = 0 )\fC [virtual protected]\fR"
+Reimplemented from TQRangeControl.
+.SH "void TQDial::repaintScreen ( const TQRect * cr = 0 )\fC [virtual protected]\fR"
 Paints the dial using clip region \fIcr\fR.
-.SH "void QDial::setLineStep ( int )"
+.SH "void TQDial::setLineStep ( int )"
 Sets the current line step. See the "lineStep" property for details.
-.SH "void QDial::setMaxValue ( int )"
+.SH "void TQDial::setMaxValue ( int )"
 Sets the current maximum value. See the "maxValue" property for details.
-.SH "void QDial::setMinValue ( int )"
+.SH "void TQDial::setMinValue ( int )"
 Sets the current minimum value. See the "minValue" property for details.
-.SH "void QDial::setNotchTarget ( double )\fC [virtual]\fR"
+.SH "void TQDial::setNotchTarget ( double )\fC [virtual]\fR"
 Sets the target number of pixels between notches. See the "notchTarget" property for details.
-.SH "void QDial::setNotchesVisible ( bool b )\fC [virtual slot]\fR"
+.SH "void TQDial::setNotchesVisible ( bool b )\fC [virtual slot]\fR"
 Sets whether the notches are shown to \fIb\fR. See the "notchesVisible" property for details.
-.SH "void QDial::setPageStep ( int )"
+.SH "void TQDial::setPageStep ( int )"
 Sets the current page step. See the "pageStep" property for details.
-.SH "void QDial::setTracking ( bool enable )\fC [virtual slot]\fR"
+.SH "void TQDial::setTracking ( bool enable )\fC [virtual slot]\fR"
 Sets whether tracking is enabled to \fIenable\fR. See the "tracking" property for details.
-.SH "void QDial::setValue ( int )\fC [virtual slot]\fR"
+.SH "void TQDial::setValue ( int )\fC [virtual slot]\fR"
 Sets the current dial value. See the "value" property for details.
-.SH "void QDial::setWrapping ( bool on )\fC [virtual slot]\fR"
+.SH "void TQDial::setWrapping ( bool on )\fC [virtual slot]\fR"
 Sets whether wrapping is enabled to \fIon\fR. See the "wrapping" property for details.
-.SH "void QDial::subtractLine ()\fC [slot]\fR"
+.SH "void TQDial::subtractLine ()\fC [slot]\fR"
 Decrements the dial's value() by one lineStep().
-.SH "void QDial::subtractPage ()\fC [slot]\fR"
+.SH "void TQDial::subtractPage ()\fC [slot]\fR"
 Decrements the dial's value() by one pageStep() of steps.
-.SH "bool QDial::tracking () const"
+.SH "bool TQDial::tracking () const"
 Returns TRUE if tracking is enabled; otherwise returns FALSE. See the "tracking" property for details.
-.SH "int QDial::value () const"
+.SH "int TQDial::value () const"
 Returns the current dial value. See the "value" property for details.
-.SH "void QDial::valueChange ()\fC [virtual protected]\fR"
+.SH "void TQDial::valueChange ()\fC [virtual protected]\fR"
 Reimplemented to ensure the display is correct and to emit the valueChanged(int) signal when appropriate.
 .PP
-Reimplemented from QRangeControl.
-.SH "void QDial::valueChanged ( int value )\fC [signal]\fR"
+Reimplemented from TQRangeControl.
+.SH "void TQDial::valueChanged ( int value )\fC [signal]\fR"
 This signal is emitted whenever the dial's \fIvalue\fR changes. The frequency of this signal is influenced by setTracking().
-.SH "bool QDial::wrapping () const"
+.SH "bool TQDial::wrapping () const"
 Returns TRUE if wrapping is enabled; otherwise returns FALSE. See the "wrapping" property for details.
 .SS "Property Documentation"
 .SH "int lineStep"
@@ -267,13 +267,13 @@ This property holds the current line step.
 .PP
 setLineStep() calls the virtual stepChange() function if the new line step is different from the previous setting.
 .PP
-See also QRangeControl::setSteps(), pageStep, and setRange().
+See also TQRangeControl::setSteps(), pageStep, and setRange().
 .PP
 Set this property's value with setLineStep() and get this property's value with lineStep().
 .SH "int maxValue"
 This property holds the current maximum value.
 .PP
-When setting this property, the QDial::minValue is adjusted if necessary to ensure that the range remains valid.
+When setting this property, the TQDial::minValue is adjusted if necessary to ensure that the range remains valid.
 .PP
 See also setRange().
 .PP
@@ -281,7 +281,7 @@ Set this property's value with setMaxValue() and get this property's value with 
 .SH "int minValue"
 This property holds the current minimum value.
 .PP
-When setting this property, the QDial::maxValue is adjusted if necessary to ensure that the range remains valid.
+When setting this property, the TQDial::maxValue is adjusted if necessary to ensure that the range remains valid.
 .PP
 See also setRange().
 .PP
@@ -297,7 +297,7 @@ Get this property's value with notchSize().
 .SH "double notchTarget"
 This property holds the target number of pixels between notches.
 .PP
-The notch target is the number of pixels QDial attempts to put between each notch.
+The notch target is the number of pixels TQDial attempts to put between each notch.
 .PP
 The actual size may differ from the target size.
 .PP
@@ -325,7 +325,7 @@ Set this property's value with setTracking() and get this property's value with 
 .SH "int value"
 This property holds the current dial value.
 .PP
-This is guaranteed to be within the range QDial::minValue..QDial::maxValue.
+This is guaranteed to be within the range TQDial::minValue..TQDial::maxValue.
 .PP
 See also minValue and maxValue.
 .PP
@@ -340,7 +340,7 @@ This property's default is FALSE.
 Set this property's value with setWrapping() and get this property's value with wrapping().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqdial.html
+.BR http://doc.trolltech.com/tqdial.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

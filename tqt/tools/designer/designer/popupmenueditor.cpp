@@ -31,18 +31,18 @@
 **
 **********************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqcstring.h>
-#include <ntqdatastream.h>
-#include <ntqdragobject.h>
-#include <ntqlineedit.h>
-#include <ntqobjectlist.h>
-#include <ntqpainter.h>
-#include <ntqpopupmenu.h>
-#include <ntqrect.h>
-#include <ntqsize.h>
-#include <ntqstyle.h>
-#include <ntqtimer.h>
+#include <tqapplication.h>
+#include <tqcstring.h>
+#include <tqdatastream.h>
+#include <tqdragobject.h>
+#include <tqlineedit.h>
+#include <tqobjectlist.h>
+#include <tqpainter.h>
+#include <tqpopupmenu.h>
+#include <tqrect.h>
+#include <tqsize.h>
+#include <tqstyle.h>
+#include <tqtimer.h>
 #include "actiondnd.h"
 #include "actioneditorimpl.h"
 #include "command.h"

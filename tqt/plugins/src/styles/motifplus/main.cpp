@@ -1,5 +1,5 @@
-#include <ntqstyleplugin.h>
-#include <ntqmotifplusstyle.h>
+#include <tqstyleplugin.h>
+#include <tqmotifplusstyle.h>
 
 class MotifPlusStyle : public TQStylePlugin
 {

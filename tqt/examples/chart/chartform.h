@@ -3,8 +3,8 @@
 
 #include "element.h"
 
-#include <ntqmainwindow.h>
-#include <ntqstringlist.h>
+#include <tqmainwindow.h>
+#include <tqstringlist.h>
 
 
 class CanvasView;

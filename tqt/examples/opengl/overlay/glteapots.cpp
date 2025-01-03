@@ -48,7 +48,7 @@
 ****************************************************************************/
 
 #include "glteapots.h"
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 #if defined(Q_CC_MSVC)
 #pragma warning(disable:4305) // init: truncation from const double to float

@@ -9,12 +9,12 @@
 
 #include "progressbar.h"
 
-#include <ntqradiobutton.h>
-#include <ntqpushbutton.h>
-#include <ntqprogressbar.h>
-#include <ntqlayout.h>
+#include <tqradiobutton.h>
+#include <tqpushbutton.h>
+#include <tqprogressbar.h>
+#include <tqlayout.h>
 
-#include <ntqmotifstyle.h>
+#include <tqmotifstyle.h>
 
 /*
  * Constructor

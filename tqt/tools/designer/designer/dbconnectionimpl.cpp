@@ -35,12 +35,12 @@
 #include "dbconnection.h"
 #include "project.h"
 #include "asciivalidator.h"
-#include <ntqgroupbox.h>
-#include <ntqcombobox.h>
-#include <ntqspinbox.h>
-#include <ntqlineedit.h>
-#include <ntqlayout.h>
-#include <ntqsqldatabase.h>
+#include <tqgroupbox.h>
+#include <tqcombobox.h>
+#include <tqspinbox.h>
+#include <tqlineedit.h>
+#include <tqlayout.h>
+#include <tqsqldatabase.h>
 
 DatabaseConnectionEditor::DatabaseConnectionEditor( DatabaseConnection* connection, TQWidget* parent,
 						    const char* name, bool modal, WFlags fl )

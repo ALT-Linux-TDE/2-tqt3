@@ -1,5 +1,5 @@
 #include "sizeaware.h"
-#include <ntqsettings.h>
+#include <tqsettings.h>
 
 
 SizeAware::SizeAware( TQDialog *parent, const char *name, bool modal )

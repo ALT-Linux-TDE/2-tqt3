@@ -7,10 +7,10 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqdatetime.h>
-#include <ntqsqldatabase.h>
-#include <ntqsqlcursor.h>
+#include <tqapplication.h>
+#include <tqdatetime.h>
+#include <tqsqldatabase.h>
+#include <tqsqlcursor.h>
 #include "../connection.h"
 
 class TQSqlRecord;

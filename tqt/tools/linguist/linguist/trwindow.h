@@ -38,13 +38,13 @@
 
 #include <metatranslator.h>
 
-#include <ntqmainwindow.h>
-#include <ntqptrlist.h>
-#include <ntqdict.h>
-#include <ntqprinter.h>
-#include <ntqstringlist.h>
-#include <ntqpixmap.h>
-#include <ntqlistview.h>
+#include <tqmainwindow.h>
+#include <tqptrlist.h>
+#include <tqdict.h>
+#include <tqprinter.h>
+#include <tqstringlist.h>
+#include <tqpixmap.h>
+#include <tqlistview.h>
 
 class TQAction;
 class TQDialog;

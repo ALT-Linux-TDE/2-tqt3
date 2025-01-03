@@ -1,8 +1,8 @@
 # TQt graphics 
 
 #mng support
-HEADERS += $$KERNEL_H/ntqmngio.h
-SOURCES += $$KERNEL_CPP/qmngio.cpp
+HEADERS += $$KERNEL_H/tqmngio.h
+SOURCES += $$KERNEL_CPP/tqmngio.cpp
 mng {
         system-mng {
 	    win32:LIBS += libmng.lib
@@ -39,8 +39,8 @@ mng {
 else:DEFINES += TQT_NO_IMAGEIO_MNG
 
 #jpeg support..
-HEADERS += $$KERNEL_H/ntqjpegio.h 
-SOURCES += $$KERNEL_CPP/qjpegio.cpp
+HEADERS += $$KERNEL_H/tqjpegio.h 
+SOURCES += $$KERNEL_CPP/tqjpegio.cpp
 jpeg {
         system-jpeg {
 	   unix:LIBS += -ljpeg
@@ -98,8 +98,8 @@ jpeg {
 else:DEFINES += TQT_NO_IMAGEIO_JPEG
 
 #png support
-HEADERS+=$$KERNEL_H/ntqpngio.h
-SOURCES+=$$KERNEL_CPP/qpngio.cpp
+HEADERS+=$$KERNEL_H/tqpngio.h
+SOURCES+=$$KERNEL_CPP/tqpngio.cpp
 png {
         system-png {
 	    unix:LIBS  += -lpng

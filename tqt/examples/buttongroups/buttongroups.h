@@ -10,7 +10,7 @@
 #ifndef BUTTONS_GROUPS_H
 #define BUTTONS_GROUPS_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 class TQCheckBox;
 class TQRadioButton;

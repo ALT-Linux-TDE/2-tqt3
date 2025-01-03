@@ -1,0 +1,1 @@
+../../src/codecs/tqtextcodecinterface_p.h

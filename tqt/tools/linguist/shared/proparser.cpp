@@ -33,12 +33,12 @@
 
 #include "proparser.h"
 
-#include <ntqdir.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqregexp.h>
-#include <ntqstringlist.h>
-#include <ntqtextstream.h>
+#include <tqdir.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqregexp.h>
+#include <tqstringlist.h>
+#include <tqtextstream.h>
 
 #ifdef Q_OS_UNIX
 #include <unistd.h>

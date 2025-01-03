@@ -34,10 +34,10 @@
 #ifndef PIXMAPCHOOSER_H
 #define PIXMAPCHOOSER_H
 
-#include <ntqfiledialog.h>
-#include <ntqscrollview.h>
-#include <ntqpixmap.h>
-#include <ntqurl.h>
+#include <tqfiledialog.h>
+#include <tqscrollview.h>
+#include <tqpixmap.h>
+#include <tqurl.h>
 
 class FormWindow;
 

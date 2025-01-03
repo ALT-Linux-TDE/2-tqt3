@@ -38,10 +38,10 @@
 
 #include "unixmake.h"
 #include "option.h"
-#include <ntqregexp.h>
-#include <ntqfile.h>
-#include <ntqdict.h>
-#include <ntqdir.h>
+#include <tqregexp.h>
+#include <tqfile.h>
+#include <tqdict.h>
+#include <tqdir.h>
 #include <time.h>
 
 
@@ -244,7 +244,7 @@ UnixMakefileGenerator::init()
 	    project->variables()["QMAKE_LFLAGS"] += project->variables()["QMAKE_LFLAGS_THREAD"];
     }
     if ( project->isActiveConfig("moc") )
-	setMocAware(TRUE);
+	setTQMocAware(TRUE);
     TQString compile_flag = var("QMAKE_COMPILE_FLAG");
     if(compile_flag.isEmpty())
 	compile_flag = "-c";

@@ -1,5 +1,5 @@
 '\" t
-.TH QObjectCleanupHandler 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQObjectCleanupHandler 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QObjectCleanupHandler \- Watches the lifetime of multiple QObjects
+TQObjectCleanupHandler \- Watches the lifetime of multiple TQObjects
 .SH SYNOPSIS
-\fC#include <ntqobjectcleanuphandler.h>\fR
+\fC#include <tqobjectcleanuphandler.h>\fR
 .PP
 Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQObjectCleanupHandler\fR ()"
+.BI "\fBTQObjectCleanupHandler\fR ()"
 .br
 .ti -1c
-.BI "\fB~QObjectCleanupHandler\fR ()"
+.BI "\fB~TQObjectCleanupHandler\fR ()"
 .br
 .ti -1c
 .BI "TQObject * \fBadd\fR ( TQObject * object )"
@@ -35,15 +35,15 @@ Inherits TQObject.
 .br
 .in -1c
 .SH DESCRIPTION
-The QObjectCleanupHandler class watches the lifetime of multiple QObjects.
+The TQObjectCleanupHandler class watches the lifetime of multiple TQObjects.
 .PP
-A QObjectCleanupHandler is useful whenever you need to know when a number of QObjects that are owned by someone else have been deleted. This is important, for example, when referencing memory in an application that has been allocated in a shared library.
+A TQObjectCleanupHandler is useful whenever you need to know when a number of TQObjects that are owned by someone else have been deleted. This is important, for example, when referencing memory in an application that has been allocated in a shared library.
 .PP
 Example:
 .PP
 .nf
 .br
-    class FactoryComponent : public FactoryInterface, public QLibraryInterface
+    class FactoryComponent : public FactoryInterface, public TQLibraryInterface
 .br
     {
 .br
@@ -64,7 +64,7 @@ Example:
 .br
     private:
 .br
-        QObjectCleanupHandler objects;
+        TQObjectCleanupHandler objects;
 .br
     };
 .br
@@ -80,7 +80,7 @@ Example:
     }
 .br
 .br
-    // QLibraryInterface implementation
+    // TQLibraryInterface implementation
 .br
     bool FactoryComponent::init()
 .br
@@ -112,22 +112,22 @@ Example:
 .PP
 See also Object Model.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QObjectCleanupHandler::QObjectCleanupHandler ()"
-Constructs an empty QObjectCleanupHandler.
-.SH "QObjectCleanupHandler::~QObjectCleanupHandler ()"
+.SH "TQObjectCleanupHandler::TQObjectCleanupHandler ()"
+Constructs an empty TQObjectCleanupHandler.
+.SH "TQObjectCleanupHandler::~TQObjectCleanupHandler ()"
 Destroys the cleanup handler. All objects in this cleanup handler will be deleted.
-.SH "TQObject * QObjectCleanupHandler::add ( TQObject * object )"
+.SH "TQObject * TQObjectCleanupHandler::add ( TQObject * object )"
 Adds \fIobject\fR to this cleanup handler and returns the pointer to the object.
-.SH "void QObjectCleanupHandler::clear ()"
+.SH "void TQObjectCleanupHandler::clear ()"
 Deletes all objects in this cleanup handler. The cleanup handler becomes empty.
-.SH "bool QObjectCleanupHandler::isEmpty () const"
+.SH "bool TQObjectCleanupHandler::isEmpty () const"
 Returns TRUE if this cleanup handler is empty or if all objects in this cleanup handler have been destroyed; otherwise return FALSE.
-.SH "void QObjectCleanupHandler::remove ( TQObject * object )"
+.SH "void TQObjectCleanupHandler::remove ( TQObject * object )"
 Removes the \fIobject\fR from this cleanup handler. The object will
 not be destroyed.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqobjectcleanuphandler.html
+.BR http://doc.trolltech.com/tqobjectcleanuphandler.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

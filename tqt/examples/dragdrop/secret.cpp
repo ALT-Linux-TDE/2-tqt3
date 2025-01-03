@@ -12,7 +12,7 @@
 *****************************************************************************/
 
 #include "secret.h"
-#include <ntqevent.h>
+#include <tqevent.h>
 
 
 //create the object withe the secret byte

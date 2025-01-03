@@ -35,18 +35,18 @@
 #include "helpdialogimpl.h"
 #include "config.h"
 
-#include <ntqapplication.h>
-#include <ntqserversocket.h>
-#include <ntqsocket.h>
-#include <ntqpixmap.h>
-#include <ntqptrlist.h>
-#include <ntqstringlist.h>
-#include <ntqdir.h>
-#include <ntqmessagebox.h>
-#include <ntqguardedptr.h>
+#include <tqapplication.h>
+#include <tqserversocket.h>
+#include <tqsocket.h>
+#include <tqpixmap.h>
+#include <tqptrlist.h>
+#include <tqstringlist.h>
+#include <tqdir.h>
+#include <tqmessagebox.h>
+#include <tqguardedptr.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <ntqtextcodec.h>
+#include <tqtextcodec.h>
 
 #ifdef TQ_WS_WIN
 #define INDEX_CHECK( text ) if( i+1 >= argc ) { TQMessageBox::information( 0, "TQt Assistant", text ); return 1; }

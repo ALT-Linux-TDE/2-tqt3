@@ -1,17 +1,17 @@
 TEMPLATE = lib
-TARGET	 = qcompactstyle
+TARGET	 = tqcompactstyle
 
 CONFIG  += qt warn_off release plugin
 DESTDIR	 = ../../../styles
 
-HEADERS		= ../../../../include/ntqcompactstyle.h
+HEADERS		= ../../../../include/tqcompactstyle.h
 
 SOURCES		= main.cpp \
-		  ../../../../src/styles/qcompactstyle.cpp
+		  ../../../../src/styles/tqcompactstyle.cpp
 
 !contains(styles, windows) {
-	HEADERS += ../../../../include/ntqwindowsstyle.h
-	SOURCES += ../../../../src/styles/qwindowsstyle.cpp
+	HEADERS += ../../../../include/tqwindowsstyle.h
+	SOURCES += ../../../../src/styles/tqwindowsstyle.cpp
 }
 
 unix:OBJECTS_DIR	= .obj

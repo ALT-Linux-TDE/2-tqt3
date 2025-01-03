@@ -10,7 +10,7 @@
 #include "structureparser.h"
 
 #include <stdio.h>
-#include <ntqstring.h>
+#include <tqstring.h>
  
 bool StructureParser::startDocument()
 {

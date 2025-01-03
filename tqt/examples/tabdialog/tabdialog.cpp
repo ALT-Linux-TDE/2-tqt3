@@ -9,14 +9,14 @@
 
 #include "tabdialog.h"
 
-#include <ntqvbox.h>
-#include <ntqlabel.h>
-#include <ntqlineedit.h>
-#include <ntqdatetime.h>
-#include <ntqbuttongroup.h>
-#include <ntqcheckbox.h>
-#include <ntqlistbox.h>
-#include <ntqapplication.h>
+#include <tqvbox.h>
+#include <tqlabel.h>
+#include <tqlineedit.h>
+#include <tqdatetime.h>
+#include <tqbuttongroup.h>
+#include <tqcheckbox.h>
+#include <tqlistbox.h>
+#include <tqapplication.h>
 
 TabDialog::TabDialog( TQWidget *parent, const char *name, const TQString &_filename )
     : TQTabDialog( parent, name ), filename( _filename ), fileinfo( filename )

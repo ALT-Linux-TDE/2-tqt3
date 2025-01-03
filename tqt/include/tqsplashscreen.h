@@ -1,0 +1,1 @@
+../src/widgets/tqsplashscreen.h

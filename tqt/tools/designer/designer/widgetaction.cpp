@@ -32,11 +32,11 @@
 **********************************************************************/
 
 #include "widgetaction.h"
-#include <ntqwidget.h>
-#include <ntqtoolbutton.h>
+#include <tqwidget.h>
+#include <tqtoolbutton.h>
 #include "mainwindow.h"
-#include <ntqstylefactory.h>
-#include <ntqstyle.h>
+#include <tqstylefactory.h>
+#include <tqstyle.h>
 
 static TQStyle *windowsStyle = 0;
 

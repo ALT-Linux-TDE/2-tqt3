@@ -1,7 +1,7 @@
 #ifndef I18N_H
 #define I18N_H
 
-#include <ntqmainwindow.h>
+#include <tqmainwindow.h>
 
 class TQWorkspace;
 class TQAction;

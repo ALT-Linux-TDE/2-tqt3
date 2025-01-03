@@ -7,17 +7,17 @@
 **
 *****************************************************************************/
 
-#include <ntqcombobox.h>
-#include <ntqpushbutton.h>
-#include <ntqpixmap.h>
-#include <ntqimage.h>
-#include <ntqlabel.h>
-#include <ntqfiledialog.h>
-#include <ntqregexp.h>
+#include <tqcombobox.h>
+#include <tqpushbutton.h>
+#include <tqpixmap.h>
+#include <tqimage.h>
+#include <tqlabel.h>
+#include <tqfiledialog.h>
+#include <tqregexp.h>
 
-#include <ntqapplication.h>
-#include <ntqpainter.h>
-#include <ntqwmatrix.h>
+#include <tqapplication.h>
+#include <tqpainter.h>
+#include <tqwmatrix.h>
 
 
 class MagWidget : public TQWidget

@@ -70,7 +70,7 @@
   string literals are removed beforehand.
 */
 
-#include <ntqregexp.h>
+#include <tqregexp.h>
 
 /* qmake ignore TQ_OBJECT */
 
@@ -1106,8 +1106,8 @@ int indentForBottomLine( const TQStringList& program, TQChar typedIn )
   Test driver.
 */
 
-#include <ntqfile.h>
-#include <ntqtextstream.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
 
 #include <errno.h>
 

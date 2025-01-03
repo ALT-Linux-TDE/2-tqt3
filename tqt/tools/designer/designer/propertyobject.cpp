@@ -33,10 +33,10 @@
 
 #include "propertyobject.h"
 #include "metadatabase.h"
-#include <ntqptrvector.h>
-#include <ntqptrlist.h>
-#include <ntqmetaobject.h>
-#include <ntqvariant.h>
+#include <tqptrvector.h>
+#include <tqptrlist.h>
+#include <tqmetaobject.h>
+#include <tqvariant.h>
 
 PropertyObject::PropertyObject( const TQWidgetList &objs )
     : TQObject(), objects( objs ), mobj( 0 )

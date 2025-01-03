@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/src/table/qtable.cpp:1657 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -44,10 +43,10 @@ body { background: #ffffff; color: black; }
 
 #include "statistics.h"
 
-#include &lt;<a href="qdir-h.html">ntqdir.h</a>&gt;
-#include &lt;<a href="qstringlist-h.html">ntqstringlist.h</a>&gt;
-#include &lt;<a href="qheader-h.html">ntqheader.h</a>&gt;
-#include &lt;<a href="qcombobox-h.html">ntqcombobox.h</a>&gt;
+#include &lt;<a href="tqdir-h.html">tqdir.h</a>&gt;
+#include &lt;<a href="tqstringlist-h.html">tqstringlist.h</a>&gt;
+#include &lt;<a href="tqheader-h.html">tqheader.h</a>&gt;
+#include &lt;<a href="tqcombobox-h.html">tqcombobox.h</a>&gt;
 #include &lt;stdlib.h&gt;
 
 const char* dirs[] = {
@@ -64,30 +63,30 @@ const char* dirs[] = {
 };
 
 <a name="f145"></a>Table::Table()
-    : <a href="ntqtable.html">TQTable</a>( 10, 100, 0, "table" )
+    : <a href="tqtable.html">TQTable</a>( 10, 100, 0, "table" )
 {
-    <a href="ntqtable.html#setSorting">setSorting</a>( TRUE );
-    <a href="ntqtable.html#horizontalHeader">horizontalHeader</a>()-&gt;setLabel( 0, tr( "File" ) );
-    <a href="ntqtable.html#horizontalHeader">horizontalHeader</a>()-&gt;setLabel( 1, tr( "Size (bytes)" ) );
-    <a href="ntqtable.html#horizontalHeader">horizontalHeader</a>()-&gt;setLabel( 2, tr( "Use in Sum" ) );
+    <a href="tqtable.html#setSorting">setSorting</a>( TRUE );
+    <a href="tqtable.html#horizontalHeader">horizontalHeader</a>()-&gt;setLabel( 0, tr( "File" ) );
+    <a href="tqtable.html#horizontalHeader">horizontalHeader</a>()-&gt;setLabel( 1, tr( "Size (bytes)" ) );
+    <a href="tqtable.html#horizontalHeader">horizontalHeader</a>()-&gt;setLabel( 2, tr( "Use in Sum" ) );
     initTable();
-    <a href="ntqtable.html#adjustColumn">adjustColumn</a>( 0 );
+    <a href="tqtable.html#adjustColumn">adjustColumn</a>( 0 );
 
     // if the user edited something we might need to recalculate the sum
-    <a href="ntqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="ntqtable.html#valueChanged">valueChanged</a>( int, int ) ),
+    <a href="tqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="tqtable.html#valueChanged">valueChanged</a>( int, int ) ),
              this, TQ_SLOT( recalcSum( int, int ) ) );
 }
 
 void <a name="f146"></a>Table::initTable()
 {
     // read all the TQt source and header files into a list
-    <a href="ntqstringlist.html">TQStringList</a> all;
+    <a href="tqstringlist.html">TQStringList</a> all;
     int i = 0;
-    <a href="ntqstring.html">TQString</a> srcdir( "../../../src/" );
+    <a href="tqstring.html">TQString</a> srcdir( "../../../src/" );
     while ( dirs[ i ] ) {
-        <a href="ntqdir.html">TQDir</a> dir( srcdir + dirs[ i ] );
-<a name="x2780"></a>        <a href="ntqstringlist.html">TQStringList</a> lst = dir.<a href="ntqdir.html#entryList">entryList</a>( "*.cpp; *.h" );
-<a name="x2791"></a><a name="x2789"></a>        for ( TQStringList::Iterator it = lst.<a href="ntqvaluelist.html#begin">begin</a>(); it != lst.<a href="ntqvaluelist.html#end">end</a>(); ++it ) {
+        <a href="tqdir.html">TQDir</a> dir( srcdir + dirs[ i ] );
+<a name="x2780"></a>        <a href="tqstringlist.html">TQStringList</a> lst = dir.<a href="tqdir.html#entryList">entryList</a>( "*.cpp; *.h" );
+<a name="x2791"></a><a name="x2789"></a>        for ( TQStringList::Iterator it = lst.<a href="tqvaluelist.html#begin">begin</a>(); it != lst.<a href="tqvaluelist.html#end">end</a>(); ++it ) {
             if ( ( *it ).contains( "moc" ) )
                 continue;
             all &lt;&lt; (TQString( dirs[ i ] ) + "/" + *it);
@@ -96,25 +95,25 @@ void <a name="f146"></a>Table::initTable()
     }
 
     // set the number of rows we'll need for the table
-<a name="x2790"></a>    <a href="ntqtable.html#setNumRows">setNumRows</a>( all.<a href="ntqvaluelist.html#count">count</a>() + 1 );
+<a name="x2790"></a>    <a href="tqtable.html#setNumRows">setNumRows</a>( all.<a href="tqvaluelist.html#count">count</a>() + 1 );
     i = 0;
     int sum = 0;
 
     // insert the data into the table
-    for ( TQStringList::Iterator it = all.<a href="ntqvaluelist.html#begin">begin</a>(); it != all.<a href="ntqvaluelist.html#end">end</a>(); ++it ) {
-        <a href="ntqtable.html#setText">setText</a>( i, 0, *it );
-        <a href="ntqfile.html">TQFile</a> f( srcdir + *it );
-<a name="x2781"></a>        <a href="ntqtable.html#setText">setText</a>( i, 1, TQString::number( (ulong)f.<a href="ntqfile.html#size">size</a>() ) );
+    for ( TQStringList::Iterator it = all.<a href="tqvaluelist.html#begin">begin</a>(); it != all.<a href="tqvaluelist.html#end">end</a>(); ++it ) {
+        <a href="tqtable.html#setText">setText</a>( i, 0, *it );
+        <a href="tqfile.html">TQFile</a> f( srcdir + *it );
+<a name="x2781"></a>        <a href="tqtable.html#setText">setText</a>( i, 1, TQString::number( (ulong)f.<a href="tqfile.html#size">size</a>() ) );
         ComboItem *ci = new ComboItem( this, TQTableItem::WhenCurrent );
-        <a href="ntqtable.html#setItem">setItem</a>( i++, 2, ci );
-        sum += f.<a href="ntqfile.html#size">size</a>();
+        <a href="tqtable.html#setItem">setItem</a>( i++, 2, ci );
+        sum += f.<a href="tqfile.html#size">size</a>();
     }
 
     // last row should show the sum
     TableItem *i1 = new TableItem( this, TQTableItem::Never, tr( "Sum" ) );
-    <a href="ntqtable.html#setItem">setItem</a>( i, 0, i1 );
+    <a href="tqtable.html#setItem">setItem</a>( i, 0, i1 );
     TableItem *i2 = new TableItem( this, TQTableItem::Never, TQString::number( sum ) );
-    <a href="ntqtable.html#setItem">setItem</a>( i, 1, i2 );
+    <a href="tqtable.html#setItem">setItem</a>( i, 1, i2 );
 }
 
 void <a name="f147"></a>Table::recalcSum( int, int col )
@@ -126,9 +125,9 @@ void <a name="f147"></a>Table::recalcSum( int, int col )
     // recalc sum
     int sum = 0;
     for ( int i = 0; i &lt; numRows() - 1; ++i ) {
-        if ( <a href="qtableitem.html#text">text</a>( i, 2 ) == "No" )
+        if ( <a href="tqtableitem.html#text">text</a>( i, 2 ) == "No" )
             continue;
-        sum += <a href="qtableitem.html#text">text</a>( i, 1 ).toInt();
+        sum += <a href="tqtableitem.html#text">text</a>( i, 1 ).toInt();
     }
 
     // insert calculated data
@@ -138,62 +137,62 @@ void <a name="f147"></a>Table::recalcSum( int, int col )
     setItem( numRows() - 1, 1, i2 );
 }
 
-<a name="x2784"></a>void Table::<a href="ntqtable.html#sortColumn">sortColumn</a>( int col, bool ascending, bool /*wholeRows*/ )
+<a name="x2784"></a>void Table::<a href="tqtable.html#sortColumn">sortColumn</a>( int col, bool ascending, bool /*wholeRows*/ )
 {
     // sum row should not be sorted, so get rid of it for now
     clearCell( numRows() - 1, 0 );
     clearCell( numRows() - 1, 1 );
     // do sort
-    TQTable::<a href="ntqtable.html#sortColumn">sortColumn</a>( col, ascending, TRUE );
+    TQTable::<a href="tqtable.html#sortColumn">sortColumn</a>( col, ascending, TRUE );
     // re-insert sum row
     recalcSum( 0, 1 );
 }
 
 
 
-<a name="x2786"></a>void TableItem::<a href="qtableitem.html#paint">paint</a>( <a href="ntqpainter.html">TQPainter</a> *p, const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg, const <a href="ntqrect.html">TQRect</a> &amp;cr, bool selected )
+<a name="x2786"></a>void TableItem::<a href="tqtableitem.html#paint">paint</a>( <a href="tqpainter.html">TQPainter</a> *p, const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg, const <a href="tqrect.html">TQRect</a> &amp;cr, bool selected )
 {
-    <a href="qcolorgroup.html">TQColorGroup</a> g( cg );
+    <a href="tqcolorgroup.html">TQColorGroup</a> g( cg );
     // last row is the sum row - we want to make it more visible by
     // using a red background
-    if ( <a href="qtableitem.html#row">row</a>() == <a href="qtableitem.html#table">table</a>()-&gt;numRows() - 1 )
-<a name="x2779"></a>        g.<a href="qcolorgroup.html#setColor">setColor</a>( TQColorGroup::Base, red );
-    TQTableItem::<a href="qtableitem.html#paint">paint</a>( p, g, cr, selected );
+    if ( <a href="tqtableitem.html#row">row</a>() == <a href="tqtableitem.html#table">table</a>()-&gt;numRows() - 1 )
+<a name="x2779"></a>        g.<a href="tqcolorgroup.html#setColor">setColor</a>( TQColorGroup::Base, red );
+    TQTableItem::<a href="tqtableitem.html#paint">paint</a>( p, g, cr, selected );
 }
 
 
 
 
-<a name="f144"></a>ComboItem::ComboItem( <a href="ntqtable.html">TQTable</a> *t, EditType et )
-    : <a href="qtableitem.html">TQTableItem</a>( t, et, "Yes" ), cb( 0 )
+<a name="f144"></a>ComboItem::ComboItem( <a href="tqtable.html">TQTable</a> *t, EditType et )
+    : <a href="tqtableitem.html">TQTableItem</a>( t, et, "Yes" ), cb( 0 )
 {
     // we do not want this item to be replaced
-    <a href="qtableitem.html#setReplaceable">setReplaceable</a>( FALSE );
+    <a href="tqtableitem.html#setReplaceable">setReplaceable</a>( FALSE );
 }
 
-<a name="x2785"></a>TQWidget *ComboItem::<a href="qtableitem.html#createEditor">createEditor</a>() const
+<a name="x2785"></a>TQWidget *ComboItem::<a href="tqtableitem.html#createEditor">createEditor</a>() const
 {
     // create an editor - a combobox in our case
-    ( (ComboItem*)this )-&gt;cb = new <a href="ntqcombobox.html">TQComboBox</a>( <a href="qtableitem.html#table">table</a>()-&gt;viewport() );
-    TQObject::<a href="ntqobject.html#connect">connect</a>( cb, TQ_SIGNAL( activated( int ) ), table(), TQ_SLOT( doValueChanged() ) );
+    ( (ComboItem*)this )-&gt;cb = new <a href="tqcombobox.html">TQComboBox</a>( <a href="tqtableitem.html#table">table</a>()-&gt;viewport() );
+    TQObject::<a href="tqobject.html#connect">connect</a>( cb, TQ_SIGNAL( activated( int ) ), table(), TQ_SLOT( doValueChanged() ) );
     cb-&gt;insertItem( "Yes" );
     cb-&gt;insertItem( "No" );
     // and initialize it
-    cb-&gt;setCurrentItem( <a href="qtableitem.html#text">text</a>() == "No" ? 1 : 0 );
+    cb-&gt;setCurrentItem( <a href="tqtableitem.html#text">text</a>() == "No" ? 1 : 0 );
     return cb;
 }
 
-<a name="x2787"></a>void ComboItem::<a href="qtableitem.html#setContentFromEditor">setContentFromEditor</a>( <a href="ntqwidget.html">TQWidget</a> *w )
+<a name="x2787"></a>void ComboItem::<a href="tqtableitem.html#setContentFromEditor">setContentFromEditor</a>( <a href="tqwidget.html">TQWidget</a> *w )
 {
     // the user changed the value of the combobox, so synchronize the
     // value of the item (its text), with the value of the combobox
-<a name="x2783"></a>    if ( w-&gt;<a href="ntqobject.html#inherits">inherits</a>( "TQComboBox" ) )
-        <a href="qtableitem.html#setText">setText</a>( ( (TQComboBox*)w )-&gt;currentText() );
+<a name="x2783"></a>    if ( w-&gt;<a href="tqobject.html#inherits">inherits</a>( "TQComboBox" ) )
+        <a href="tqtableitem.html#setText">setText</a>( ( (TQComboBox*)w )-&gt;currentText() );
     else
-        TQTableItem::<a href="qtableitem.html#setContentFromEditor">setContentFromEditor</a>( w );
+        TQTableItem::<a href="tqtableitem.html#setContentFromEditor">setContentFromEditor</a>( w );
 }
 
-<a name="x2788"></a>void ComboItem::<a href="qtableitem.html#setText">setText</a>( const <a href="ntqstring.html">TQString</a> &amp;s )
+<a name="x2788"></a>void ComboItem::<a href="tqtableitem.html#setText">setText</a>( const <a href="tqstring.html">TQString</a> &amp;s )
 {
     if ( cb ) {
         // initialize the combobox from the text
@@ -202,7 +201,7 @@ void <a name="f147"></a>Table::recalcSum( int, int col )
         else
             cb-&gt;setCurrentItem( 0 );
     }
-    TQTableItem::<a href="qtableitem.html#setText">setText</a>( s );
+    TQTableItem::<a href="tqtableitem.html#setText">setText</a>( s );
 }
 </pre><!-- eof -->
 <p><address><hr><div align=center>

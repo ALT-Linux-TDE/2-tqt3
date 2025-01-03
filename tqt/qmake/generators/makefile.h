@@ -40,7 +40,7 @@
 
 #include "option.h"
 #include "project.h"
-#include <ntqtextstream.h>
+#include <tqtextstream.h>
 
 #ifdef Q_OS_WIN32
 #define QT_POPEN _popen
@@ -51,7 +51,7 @@
 class MakefileGenerator
 {
     TQString spec;
-    bool init_opath_already, init_already, moc_aware, no_io;
+    bool init_opath_already, init_already, tqmoc_aware, no_io;
     TQStringList createObjectList(const TQString &var);
     TQString build_args();
     TQString dependencyKey(const TQString &file) const;
@@ -95,8 +95,8 @@ protected:
     void setNoIO(bool o);
     bool noIO() const;
 
-    void setMocAware(bool o);
-    bool mocAware() const;
+    void setTQMocAware(bool o);
+    bool tqmocAware() const;
     void logicWarn(const TQString &, const TQString &);
 
     virtual bool doDepends() const { return Option::mkfile::do_deps; }
@@ -164,11 +164,11 @@ inline TQString MakefileGenerator::findMocDestination(const TQString &src_file) 
 	return TQString("");
 }
 
-inline void MakefileGenerator::setMocAware(bool o)
-{ moc_aware = o; }
+inline void MakefileGenerator::setTQMocAware(bool o)
+{ tqmoc_aware = o; }
 
-inline bool MakefileGenerator::mocAware() const
-{ return moc_aware; }
+inline bool MakefileGenerator::tqmocAware() const
+{ return tqmoc_aware; }
 
 inline void MakefileGenerator::setNoIO(bool o)
 { no_io = o; }

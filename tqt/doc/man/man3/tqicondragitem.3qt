@@ -1,5 +1,5 @@
 '\" t
-.TH QIconDragItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQIconDragItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,51 +7,51 @@
 .ad l
 .nh
 .SH NAME
-QIconDragItem \- Encapsulates a drag item
+TQIconDragItem \- Encapsulates a drag item
 .SH SYNOPSIS
-\fC#include <ntqiconview.h>\fR
+\fC#include <tqiconview.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQIconDragItem\fR ()"
+.BI "\fBTQIconDragItem\fR ()"
 .br
 .ti -1c
-.BI "virtual \fB~QIconDragItem\fR ()"
+.BI "virtual \fB~TQIconDragItem\fR ()"
 .br
 .ti -1c
-.BI "virtual QByteArray \fBdata\fR () const"
+.BI "virtual TQByteArray \fBdata\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetData\fR ( const QByteArray & d )"
+.BI "virtual void \fBsetData\fR ( const TQByteArray & d )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QIconDragItem class encapsulates a drag item.
+The TQIconDragItem class encapsulates a drag item.
 .PP
-The QIconDrag class uses a list of QIconDragItems to support drag and drop operations.
+The TQIconDrag class uses a list of TQIconDragItems to support drag and drop operations.
 .PP
-In practice a QIconDragItem object (or an object of a class derived from QIconDragItem) is created for each icon view item which is dragged. Each of these QIconDragItems is stored in a QIconDrag object.
+In practice a TQIconDragItem object (or an object of a class derived from TQIconDragItem) is created for each icon view item which is dragged. Each of these TQIconDragItems is stored in a TQIconDrag object.
 .PP
-See QIconView::dragObject() for more information.
+See TQIconView::dragObject() for more information.
 .PP
-See the fileiconview/qfileiconview.cpp and iconview/simple_dd/main.cpp examples.
+See the fileiconview/tqfileiconview.cpp and iconview/simple_dd/main.cpp examples.
 .PP
 See also Drag And Drop Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QIconDragItem::QIconDragItem ()"
-Constructs a QIconDragItem with no data.
-.SH "QIconDragItem::~QIconDragItem ()\fC [virtual]\fR"
+.SH "TQIconDragItem::TQIconDragItem ()"
+Constructs a TQIconDragItem with no data.
+.SH "TQIconDragItem::~TQIconDragItem ()\fC [virtual]\fR"
 Destructor.
-.SH "QByteArray QIconDragItem::data () const\fC [virtual]\fR"
-Returns the data contained in the QIconDragItem.
-.SH "void QIconDragItem::setData ( const QByteArray & d )\fC [virtual]\fR"
-Sets the data for the QIconDragItem to the data stored in the QByteArray \fId\fR.
+.SH "TQByteArray TQIconDragItem::data () const\fC [virtual]\fR"
+Returns the data contained in the TQIconDragItem.
+.SH "void TQIconDragItem::setData ( const TQByteArray & d )\fC [virtual]\fR"
+Sets the data for the TQIconDragItem to the data stored in the TQByteArray \fId\fR.
 .PP
-Example: fileiconview/qfileiconview.cpp.
+Example: fileiconview/tqfileiconview.cpp.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qicondragitem.html
+.BR http://doc.trolltech.com/tqicondragitem.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

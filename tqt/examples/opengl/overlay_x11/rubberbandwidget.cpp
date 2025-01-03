@@ -11,7 +11,7 @@
 *****************************************************************************/
 
 #include "rubberbandwidget.h"
-#include <ntqpainter.h>
+#include <tqpainter.h>
 
 
 RubberbandWidget::RubberbandWidget( TQColor transparentColor, TQWidget *parent, 

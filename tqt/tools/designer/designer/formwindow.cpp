@@ -51,30 +51,29 @@
 
 #include <stdlib.h>
 
-#include <ntqevent.h>
-#include <ntqpainter.h>
-#include <ntqpen.h>
-#include <ntqlabel.h>
-#include <ntqobjectlist.h>
-#include <ntqtimer.h>
-#include <ntqapplication.h>
-#include <ntqlayout.h>
-#include <ntqspinbox.h>
-#include <ntqstatusbar.h>
-#include <ntqapplication.h>
-#include <ntqpalette.h>
-#include <ntqmessagebox.h>
-#include <ntqpopupmenu.h>
-#include <ntqsizegrip.h>
-#include <ntqpushbutton.h>
-#include <ntqwhatsthis.h>
-#include <ntqmetaobject.h>
-#include <ntqtooltip.h>
-#include <ntqfeatures.h>
-#include <ntqaccel.h>
-#include <ntqpixmapcache.h>
-#include <ntqbitmap.h>
-#include <ntqsplitter.h>
+#include <tqevent.h>
+#include <tqpainter.h>
+#include <tqpen.h>
+#include <tqlabel.h>
+#include <tqobjectlist.h>
+#include <tqtimer.h>
+#include <tqapplication.h>
+#include <tqlayout.h>
+#include <tqspinbox.h>
+#include <tqstatusbar.h>
+#include <tqpalette.h>
+#include <tqmessagebox.h>
+#include <tqpopupmenu.h>
+#include <tqsizegrip.h>
+#include <tqpushbutton.h>
+#include <tqwhatsthis.h>
+#include <tqmetaobject.h>
+#include <tqtooltip.h>
+#include <tqfeatures.h>
+#include <tqaccel.h>
+#include <tqpixmapcache.h>
+#include <tqbitmap.h>
+#include <tqsplitter.h>
 
 // FormWindow should be able to work to some limited degree
 // (existance, loading) without a MainWindow. Functions which require
@@ -1834,7 +1833,7 @@ bool FormWindow::checkCustomWidgets()
 			  "but are not known to TQt Designer:\n" ).arg( name() );
 	for ( TQStringList::Iterator sit = missingCustomWidgets.begin(); sit != missingCustomWidgets.end(); ++sit )
 	    txt += "   " + *sit + "\n";
-	txt += "If you save this form and generate code for it using uic, \n"
+	txt += "If you save this form and generate code for it using tquic, \n"
 	       "the generated code will not compile.\n"
 	       "Do you want to save this form now?";
 	if ( TQMessageBox::information( mainWindow(), tr( "Save Form" ), txt ) == 1 )

@@ -34,7 +34,7 @@
 #ifndef FILTERINTERFACE_H
 #define FILTERINTERFACE_H
 
-#include <private/qcom_p.h>
+#include <private/tqcom_p.h>
 
 // {ea8cb381-59b5-44a8-bae5-9bea8295762a}
 #ifndef IID_ImportFilter

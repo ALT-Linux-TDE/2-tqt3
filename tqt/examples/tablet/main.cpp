@@ -9,8 +9,8 @@
 
 #include "scribble.h"
 #include "tabletstats.h"
-#include <ntqapplication.h>
-#include <ntqtabwidget.h>
+#include <tqapplication.h>
+#include <tqtabwidget.h>
 
 
 int main( int argc, char **argv )

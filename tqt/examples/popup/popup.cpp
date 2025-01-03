@@ -8,8 +8,8 @@
 *****************************************************************************/
 
 #include "popup.h"
-#include <ntqapplication.h>
-#include <ntqlayout.h>
+#include <tqapplication.h>
+#include <tqlayout.h>
 
 FancyPopup::FancyPopup( TQWidget* parent, const char*  name ):
     TQLabel( parent, name, WType_Popup ){

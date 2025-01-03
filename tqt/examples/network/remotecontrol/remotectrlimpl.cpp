@@ -1,11 +1,11 @@
 #include "remotectrlimpl.h"
 
-#include <ntqpushbutton.h>
-#include <ntqlineedit.h>
-#include <ntqsocket.h>
-#include <ntqfiledialog.h>
-#include <ntqcolordialog.h>
-#include <ntqimage.h>
+#include <tqpushbutton.h>
+#include <tqlineedit.h>
+#include <tqsocket.h>
+#include <tqfiledialog.h>
+#include <tqcolordialog.h>
+#include <tqimage.h>
 
 RemoteCtrlImpl::RemoteCtrlImpl( TQSocket *s )
 {

@@ -1,6 +1,6 @@
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqlabel.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqlabel.h>
 #include "myobject.h"
 #include "mydialog.h"
 

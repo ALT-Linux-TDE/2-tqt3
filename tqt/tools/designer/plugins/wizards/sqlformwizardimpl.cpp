@@ -33,30 +33,30 @@
 
 #include "sqlformwizardimpl.h"
 
-#include <ntqlistbox.h>
-#include <ntqwidget.h>
-#include <ntqcheckbox.h>
-#include <ntqlineedit.h>
+#include <tqlistbox.h>
+#include <tqwidget.h>
+#include <tqcheckbox.h>
+#include <tqlineedit.h>
 
-#include <ntqlabel.h>
-#include <ntqgroupbox.h>
-#include <ntqlayout.h>
-#include <ntqregexp.h>
-#include <ntqpushbutton.h>
-#include <ntqmultilineedit.h>
-#include <ntqlistview.h>
-#include <ntqfeatures.h>
-#include <ntqradiobutton.h>
-#include <ntqspinbox.h>
+#include <tqlabel.h>
+#include <tqgroupbox.h>
+#include <tqlayout.h>
+#include <tqregexp.h>
+#include <tqpushbutton.h>
+#include <tqmultilineedit.h>
+#include <tqlistview.h>
+#include <tqfeatures.h>
+#include <tqradiobutton.h>
+#include <tqspinbox.h>
 #include <limits.h>
 
 #ifndef TQT_NO_SQL
-#include <ntqdatatable.h>
-#include <ntqdatabrowser.h>
-#include <ntqdataview.h>
-#include <ntqsqleditorfactory.h>
-#include <ntqsqlindex.h>
-#include <ntqsqlcursor.h>
+#include <tqdatatable.h>
+#include <tqdatabrowser.h>
+#include <tqdataview.h>
+#include <tqsqleditorfactory.h>
+#include <tqsqlindex.h>
+#include <tqsqlcursor.h>
 #endif
 
 SqlFormWizard::SqlFormWizard( TQUnknownInterface *aIface, TQWidget *w,

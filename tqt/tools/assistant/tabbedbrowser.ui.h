@@ -1,5 +1,5 @@
 /****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
+** ui.h extension file, included from the tquic-generated form implementation.
 **
 ** If you wish to add, delete or rename functions or slots use
 ** TQt Designer which will update this file, preserving your code. Create an
@@ -7,12 +7,12 @@
 ** place of a destructor.
 *****************************************************************************/
 
-#include <ntqfileinfo.h>
-#include <ntqtoolbutton.h>
-#include <ntqpixmap.h>
-#include <ntqiconset.h>
-#include <ntqstyle.h>
-#include <ntqtimer.h>
+#include <tqfileinfo.h>
+#include <tqtoolbutton.h>
+#include <tqpixmap.h>
+#include <tqiconset.h>
+#include <tqstyle.h>
+#include <tqtimer.h>
 
 #include "config.h"
 

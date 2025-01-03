@@ -1,4 +1,4 @@
-#include <ntqapplication.h>
+#include <tqapplication.h>
 #include "mainform.h"
 
 int main( int argc, char ** argv )

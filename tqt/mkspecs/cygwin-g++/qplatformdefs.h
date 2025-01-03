@@ -3,7 +3,7 @@
 
 // Get TQt defines/settings
 
-#include "ntqglobal.h"
+#include "tqglobal.h"
 
 #ifndef _DEFAULT_SOURCE
 #  define _DEFAULT_SOURCE
@@ -47,34 +47,6 @@
 // provide this functionality, but not necessarily under the Cygwin license...
 #include <netinet/in.h>
 
-
-#if !defined(TQT_NO_COMPAT)
-#define QT_STATBUF		struct stat
-#define QT_STATBUF4TSTAT	struct stat
-#define QT_STAT			::stat
-#define QT_FSTAT		::fstat
-#define QT_STAT_REG		S_IFREG
-#define QT_STAT_DIR		S_IFDIR
-#define QT_STAT_MASK		S_IFMT
-#define QT_STAT_LNK		S_IFLNK
-#define QT_FILENO		fileno
-#define QT_OPEN			::open
-#define QT_CLOSE		::close
-#define QT_LSEEK		::lseek
-#define QT_READ			::read
-#define QT_WRITE		::write
-#define QT_ACCESS		::access
-#define QT_GETCWD		::getcwd
-#define QT_CHDIR		::chdir
-#define QT_MKDIR		::mkdir
-#define QT_RMDIR		::rmdir
-#define QT_OPEN_RDONLY		O_RDONLY
-#define QT_OPEN_WRONLY		O_WRONLY
-#define QT_OPEN_RDWR		O_RDWR
-#define QT_OPEN_CREAT		O_CREAT
-#define QT_OPEN_TRUNC		O_TRUNC
-#define QT_OPEN_APPEND		O_APPEND
-#endif
 
 #define QT_SIGNAL_RETTYPE	void
 #define QT_SIGNAL_ARGS		int

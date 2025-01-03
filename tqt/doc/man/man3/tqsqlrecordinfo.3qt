@@ -1,5 +1,5 @@
 '\" t
-.TH QSqlRecordInfo 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSqlRecordInfo 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,54 +7,54 @@
 .ad l
 .nh
 .SH NAME
-QSqlRecordInfo \- Encapsulates a set of database field meta data
+TQSqlRecordInfo \- Encapsulates a set of database field meta data
 .SH SYNOPSIS
-\fC#include <ntqsqlrecord.h>\fR
+\fC#include <tqsqlrecord.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlRecordInfo\fR ()"
+.BI "\fBTQSqlRecordInfo\fR ()"
 .br
 .ti -1c
-.BI "\fBQSqlRecordInfo\fR ( const QSqlFieldInfoList & other )"
+.BI "\fBTQSqlRecordInfo\fR ( const TQSqlFieldInfoList & other )"
 .br
 .ti -1c
-.BI "\fBQSqlRecordInfo\fR ( const QSqlRecord & other )"
+.BI "\fBTQSqlRecordInfo\fR ( const TQSqlRecord & other )"
 .br
 .ti -1c
 .BI "size_type \fBcontains\fR ( const TQString & fieldName ) const"
 .br
 .ti -1c
-.BI "QSqlFieldInfo \fBfind\fR ( const TQString & fieldName ) const"
+.BI "TQSqlFieldInfo \fBfind\fR ( const TQString & fieldName ) const"
 .br
 .ti -1c
-.BI "QSqlRecord \fBtoRecord\fR () const"
+.BI "TQSqlRecord \fBtoRecord\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSqlRecordInfo class encapsulates a set of database field meta data.
+The TQSqlRecordInfo class encapsulates a set of database field meta data.
 .PP
-This class is a QValueList that holds a set of database field meta data. Use contains() to see if a given field name exists in the record, and use find() to get a QSqlFieldInfo record for a named field.
+This class is a TQValueList that holds a set of database field meta data. Use contains() to see if a given field name exists in the record, and use find() to get a TQSqlFieldInfo record for a named field.
 .PP
-See also QValueList, QSqlFieldInfo, and Database Classes.
+See also TQValueList, TQSqlFieldInfo, and Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlRecordInfo::QSqlRecordInfo ()"
+.SH "TQSqlRecordInfo::TQSqlRecordInfo ()"
 Constructs an empty record info object
-.SH "QSqlRecordInfo::QSqlRecordInfo ( const QSqlFieldInfoList & other )"
+.SH "TQSqlRecordInfo::TQSqlRecordInfo ( const TQSqlFieldInfoList & other )"
 Constructs a copy of \fIother\fR.
-.SH "QSqlRecordInfo::QSqlRecordInfo ( const QSqlRecord & other )"
-Constructs a QSqlRecordInfo object based on the fields in the QSqlRecord \fIother\fR.
-.SH "size_type QSqlRecordInfo::contains ( const TQString & fieldName ) const"
+.SH "TQSqlRecordInfo::TQSqlRecordInfo ( const TQSqlRecord & other )"
+Constructs a TQSqlRecordInfo object based on the fields in the TQSqlRecord \fIother\fR.
+.SH "size_type TQSqlRecordInfo::contains ( const TQString & fieldName ) const"
 Returns the number of times a field called \fIfieldName\fR occurs in the record. Returns 0 if no field by that name could be found.
-.SH "QSqlFieldInfo QSqlRecordInfo::find ( const TQString & fieldName ) const"
-Returns a QSqlFieldInfo object for the first field in the record which has the field name \fIfieldName\fR. If no matching field is found then an empty QSqlFieldInfo object is returned.
-.SH "QSqlRecord QSqlRecordInfo::toRecord () const"
-Returns an empty QSqlRecord based on the field information
-in this QSqlRecordInfo.
+.SH "TQSqlFieldInfo TQSqlRecordInfo::find ( const TQString & fieldName ) const"
+Returns a TQSqlFieldInfo object for the first field in the record which has the field name \fIfieldName\fR. If no matching field is found then an empty TQSqlFieldInfo object is returned.
+.SH "TQSqlRecord TQSqlRecordInfo::toRecord () const"
+Returns an empty TQSqlRecord based on the field information
+in this TQSqlRecordInfo.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qsqlrecordinfo.html
+.BR http://doc.trolltech.com/tqsqlrecordinfo.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

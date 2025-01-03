@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:15 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -35,12 +34,12 @@ body { background: #ffffff; color: black; }
 <pre>#include "setdataform.h"
 #include "chartform.h"
 
-#include &lt;<a href="qcolordialog-h.html">ntqcolordialog.h</a>&gt;
-#include &lt;<a href="qcombobox-h.html">ntqcombobox.h</a>&gt;
-#include &lt;<a href="qlayout-h.html">ntqlayout.h</a>&gt;
-#include &lt;<a href="qpixmap-h.html">ntqpixmap.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qtable-h.html">ntqtable.h</a>&gt;
+#include &lt;<a href="tqcolordialog-h.html">tqcolordialog.h</a>&gt;
+#include &lt;<a href="tqcombobox-h.html">tqcombobox.h</a>&gt;
+#include &lt;<a href="tqlayout-h.html">tqlayout.h</a>&gt;
+#include &lt;<a href="tqpixmap-h.html">tqpixmap.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqtable-h.html">tqtable.h</a>&gt;
 
 #include "images/pattern01.xpm"
 #include "images/pattern02.xpm"
@@ -61,70 +60,70 @@ const int MAX_PATTERNS = 14;
 
 
 <a name="f178"></a>SetDataForm::SetDataForm( ElementVector *elements, int decimalPlaces,
-                          <a href="ntqwidget.html">TQWidget</a>* parent,  const char* name,
+                          <a href="tqwidget.html">TQWidget</a>* parent,  const char* name,
                           bool modal, WFlags f )
-    : <a href="ntqdialog.html">TQDialog</a>( parent, name, modal, f )
+    : <a href="tqdialog.html">TQDialog</a>( parent, name, modal, f )
 
 {
     m_elements = elements;
     m_decimalPlaces = decimalPlaces;
 
-    <a href="ntqwidget.html#setCaption">setCaption</a>( "Chart -- Set Data" );
-    <a href="ntqwidget.html#resize">resize</a>( 540, 440 );
+    <a href="tqwidget.html#setCaption">setCaption</a>( "Chart -- Set Data" );
+    <a href="tqwidget.html#resize">resize</a>( 540, 440 );
 
-    tableButtonBox = new <a href="qvboxlayout.html">TQVBoxLayout</a>( this, 11, 6, "table button box layout" );
+    tableButtonBox = new <a href="tqvboxlayout.html">TQVBoxLayout</a>( this, 11, 6, "table button box layout" );
 
-    table = new <a href="ntqtable.html">TQTable</a>( this, "data table" );
-    table-&gt;<a href="ntqtable.html#setNumCols">setNumCols</a>( 5 );
-    table-&gt;<a href="ntqtable.html#setNumRows">setNumRows</a>( ChartForm::MAX_ELEMENTS );
-    table-&gt;<a href="ntqtable.html#setColumnReadOnly">setColumnReadOnly</a>( 1, TRUE );
-    table-&gt;<a href="ntqtable.html#setColumnReadOnly">setColumnReadOnly</a>( 2, TRUE );
-    table-&gt;<a href="ntqtable.html#setColumnReadOnly">setColumnReadOnly</a>( 4, TRUE );
-    table-&gt;<a href="ntqtable.html#setColumnWidth">setColumnWidth</a>( 0, 80 );
-    table-&gt;<a href="ntqtable.html#setColumnWidth">setColumnWidth</a>( 1, 60 ); // Columns 1 and 4 must be equal
-    table-&gt;<a href="ntqtable.html#setColumnWidth">setColumnWidth</a>( 2, 60 );
-    table-&gt;<a href="ntqtable.html#setColumnWidth">setColumnWidth</a>( 3, 200 );
-    table-&gt;<a href="ntqtable.html#setColumnWidth">setColumnWidth</a>( 4, 60 );
-    <a href="ntqheader.html">TQHeader</a> *th = table-&gt;<a href="ntqtable.html#horizontalHeader">horizontalHeader</a>();
-    th-&gt;<a href="ntqheader.html#setLabel">setLabel</a>( 0, "Value" );
-    th-&gt;<a href="ntqheader.html#setLabel">setLabel</a>( 1, "Color" );
-    th-&gt;<a href="ntqheader.html#setLabel">setLabel</a>( 2, "Pattern" );
-    th-&gt;<a href="ntqheader.html#setLabel">setLabel</a>( 3, "Label" );
-    th-&gt;<a href="ntqheader.html#setLabel">setLabel</a>( 4, "Color" );
-    tableButtonBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( table );
+    table = new <a href="tqtable.html">TQTable</a>( this, "data table" );
+    table-&gt;<a href="tqtable.html#setNumCols">setNumCols</a>( 5 );
+    table-&gt;<a href="tqtable.html#setNumRows">setNumRows</a>( ChartForm::MAX_ELEMENTS );
+    table-&gt;<a href="tqtable.html#setColumnReadOnly">setColumnReadOnly</a>( 1, TRUE );
+    table-&gt;<a href="tqtable.html#setColumnReadOnly">setColumnReadOnly</a>( 2, TRUE );
+    table-&gt;<a href="tqtable.html#setColumnReadOnly">setColumnReadOnly</a>( 4, TRUE );
+    table-&gt;<a href="tqtable.html#setColumnWidth">setColumnWidth</a>( 0, 80 );
+    table-&gt;<a href="tqtable.html#setColumnWidth">setColumnWidth</a>( 1, 60 ); // Columns 1 and 4 must be equal
+    table-&gt;<a href="tqtable.html#setColumnWidth">setColumnWidth</a>( 2, 60 );
+    table-&gt;<a href="tqtable.html#setColumnWidth">setColumnWidth</a>( 3, 200 );
+    table-&gt;<a href="tqtable.html#setColumnWidth">setColumnWidth</a>( 4, 60 );
+    <a href="tqheader.html">TQHeader</a> *th = table-&gt;<a href="tqtable.html#horizontalHeader">horizontalHeader</a>();
+    th-&gt;<a href="tqheader.html#setLabel">setLabel</a>( 0, "Value" );
+    th-&gt;<a href="tqheader.html#setLabel">setLabel</a>( 1, "Color" );
+    th-&gt;<a href="tqheader.html#setLabel">setLabel</a>( 2, "Pattern" );
+    th-&gt;<a href="tqheader.html#setLabel">setLabel</a>( 3, "Label" );
+    th-&gt;<a href="tqheader.html#setLabel">setLabel</a>( 4, "Color" );
+    tableButtonBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( table );
 
-    buttonBox = new <a href="qhboxlayout.html">TQHBoxLayout</a>( 0, 0, 6, "button box layout" );
+    buttonBox = new <a href="tqhboxlayout.html">TQHBoxLayout</a>( 0, 0, 6, "button box layout" );
 
-    colorPushButton = new <a href="ntqpushbutton.html">TQPushButton</a>( this, "color button" );
-    colorPushButton-&gt;<a href="ntqbutton.html#setText">setText</a>( "&amp;Color..." );
-    colorPushButton-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-    buttonBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( colorPushButton );
+    colorPushButton = new <a href="tqpushbutton.html">TQPushButton</a>( this, "color button" );
+    colorPushButton-&gt;<a href="tqbutton.html#setText">setText</a>( "&amp;Color..." );
+    colorPushButton-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+    buttonBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( colorPushButton );
 
-    <a href="qspaceritem.html">TQSpacerItem</a> *spacer = new <a href="qspaceritem.html">TQSpacerItem</a>( 0, 0, TQSizePolicy::Expanding,
+    <a href="tqspaceritem.html">TQSpacerItem</a> *spacer = new <a href="tqspaceritem.html">TQSpacerItem</a>( 0, 0, TQSizePolicy::Expanding,
                                                  TQSizePolicy::Minimum );
-    buttonBox-&gt;<a href="qboxlayout.html#addItem">addItem</a>( spacer );
+    buttonBox-&gt;<a href="tqboxlayout.html#addItem">addItem</a>( spacer );
 
-    okPushButton = new <a href="ntqpushbutton.html">TQPushButton</a>( this, "ok button" );
-    okPushButton-&gt;<a href="ntqbutton.html#setText">setText</a>( "OK" );
-    okPushButton-&gt;<a href="ntqpushbutton.html#setDefault">setDefault</a>( TRUE );
-    buttonBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( okPushButton );
+    okPushButton = new <a href="tqpushbutton.html">TQPushButton</a>( this, "ok button" );
+    okPushButton-&gt;<a href="tqbutton.html#setText">setText</a>( "OK" );
+    okPushButton-&gt;<a href="tqpushbutton.html#setDefault">setDefault</a>( TRUE );
+    buttonBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( okPushButton );
 
-    cancelPushButton = new <a href="ntqpushbutton.html">TQPushButton</a>( this, "cancel button" );
-    cancelPushButton-&gt;<a href="ntqbutton.html#setText">setText</a>( "Cancel" );
-    cancelPushButton-&gt;<a href="ntqbutton.html#setAccel">setAccel</a>( Key_Escape );
-    buttonBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( cancelPushButton );
+    cancelPushButton = new <a href="tqpushbutton.html">TQPushButton</a>( this, "cancel button" );
+    cancelPushButton-&gt;<a href="tqbutton.html#setText">setText</a>( "Cancel" );
+    cancelPushButton-&gt;<a href="tqbutton.html#setAccel">setAccel</a>( Key_Escape );
+    buttonBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( cancelPushButton );
 
-    tableButtonBox-&gt;<a href="qboxlayout.html#addLayout">addLayout</a>( buttonBox );
+    tableButtonBox-&gt;<a href="tqboxlayout.html#addLayout">addLayout</a>( buttonBox );
 
-    <a href="ntqobject.html#connect">connect</a>( table, TQ_SIGNAL( <a href="ntqtable.html#clicked">clicked</a>(int,int,int,const <a href="ntqpoint.html">TQPoint</a>&amp;) ),
+    <a href="tqobject.html#connect">connect</a>( table, TQ_SIGNAL( <a href="tqtable.html#clicked">clicked</a>(int,int,int,const <a href="tqpoint.html">TQPoint</a>&amp;) ),
              this, TQ_SLOT( setColor(int,int) ) );
-    <a href="ntqobject.html#connect">connect</a>( table, TQ_SIGNAL( <a href="ntqtable.html#currentChanged">currentChanged</a>(int,int) ),
+    <a href="tqobject.html#connect">connect</a>( table, TQ_SIGNAL( <a href="tqtable.html#currentChanged">currentChanged</a>(int,int) ),
              this, TQ_SLOT( currentChanged(int,int) ) );
-    <a href="ntqobject.html#connect">connect</a>( table, TQ_SIGNAL( <a href="ntqtable.html#valueChanged">valueChanged</a>(int,int) ),
+    <a href="tqobject.html#connect">connect</a>( table, TQ_SIGNAL( <a href="tqtable.html#valueChanged">valueChanged</a>(int,int) ),
              this, TQ_SLOT( valueChanged(int,int) ) );
-    <a href="ntqobject.html#connect">connect</a>( colorPushButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( setColor() ) );
-    <a href="ntqobject.html#connect">connect</a>( okPushButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( <a href="ntqdialog.html#accept">accept</a>() ) );
-    <a href="ntqobject.html#connect">connect</a>( cancelPushButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( <a href="ntqdialog.html#reject">reject</a>() ) );
+    <a href="tqobject.html#connect">connect</a>( colorPushButton, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( setColor() ) );
+    <a href="tqobject.html#connect">connect</a>( okPushButton, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( <a href="tqdialog.html#accept">accept</a>() ) );
+    <a href="tqobject.html#connect">connect</a>( cancelPushButton, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( <a href="tqdialog.html#reject">reject</a>() ) );
 
     TQPixmap patterns[MAX_PATTERNS];
     patterns[0]  = TQPixmap( pattern01 );
@@ -142,35 +141,35 @@ const int MAX_PATTERNS = 14;
     patterns[12] = TQPixmap( pattern13 );
     patterns[13] = TQPixmap( pattern14 );
 
-    <a href="ntqrect.html">TQRect</a> rect = table-&gt;<a href="ntqtable.html#cellRect">cellRect</a>( 0, 1 );
-    <a href="ntqpixmap.html">TQPixmap</a> pix( rect.<a href="ntqrect.html#width">width</a>(), rect.<a href="ntqrect.html#height">height</a>() );
+    <a href="tqrect.html">TQRect</a> rect = table-&gt;<a href="tqtable.html#cellRect">cellRect</a>( 0, 1 );
+    <a href="tqpixmap.html">TQPixmap</a> pix( rect.<a href="tqrect.html#width">width</a>(), rect.<a href="tqrect.html#height">height</a>() );
 
     for ( int i = 0; i &lt; ChartForm::MAX_ELEMENTS; ++i ) {
         Element element = (*m_elements)[i];
 
         if ( element.isValid() )
-            table-&gt;<a href="ntqtable.html#setText">setText</a>(
+            table-&gt;<a href="tqtable.html#setText">setText</a>(
                 i, 0,
                 TQString( "%1" ).arg( element.value(), 0, 'f',
                                      m_decimalPlaces ) );
 
-        <a href="ntqcolor.html">TQColor</a> color = element.valueColor();
-        pix.<a href="ntqpixmap.html#fill">fill</a>( color );
-        table-&gt;<a href="ntqtable.html#setPixmap">setPixmap</a>( i, 1, pix );
-        table-&gt;<a href="ntqtable.html#setText">setText</a>( i, 1, color.<a href="ntqcolor.html#name">name</a>() );
+        <a href="tqcolor.html">TQColor</a> color = element.valueColor();
+        pix.<a href="tqpixmap.html#fill">fill</a>( color );
+        table-&gt;<a href="tqtable.html#setPixmap">setPixmap</a>( i, 1, pix );
+        table-&gt;<a href="tqtable.html#setText">setText</a>( i, 1, color.<a href="tqcolor.html#name">name</a>() );
 
-        <a href="ntqcombobox.html">TQComboBox</a> *combobox = new <a href="ntqcombobox.html">TQComboBox</a>;
+        <a href="tqcombobox.html">TQComboBox</a> *combobox = new <a href="tqcombobox.html">TQComboBox</a>;
         for ( int j = 0; j &lt; MAX_PATTERNS; ++j )
-            combobox-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( patterns[j] );
-        combobox-&gt;<a href="ntqcombobox.html#setCurrentItem">setCurrentItem</a>( element.valuePattern() - 1 );
-        table-&gt;<a href="ntqtable.html#setCellWidget">setCellWidget</a>( i, 2, combobox );
+            combobox-&gt;<a href="tqcombobox.html#insertItem">insertItem</a>( patterns[j] );
+        combobox-&gt;<a href="tqcombobox.html#setCurrentItem">setCurrentItem</a>( element.valuePattern() - 1 );
+        table-&gt;<a href="tqtable.html#setCellWidget">setCellWidget</a>( i, 2, combobox );
 
-        table-&gt;<a href="ntqtable.html#setText">setText</a>( i, 3, element.label() );
+        table-&gt;<a href="tqtable.html#setText">setText</a>( i, 3, element.label() );
 
         color = element.labelColor();
-        pix.<a href="ntqpixmap.html#fill">fill</a>( color );
-        table-&gt;<a href="ntqtable.html#setPixmap">setPixmap</a>( i, 4, pix );
-        table-&gt;<a href="ntqtable.html#setText">setText</a>( i, 4, color.<a href="ntqcolor.html#name">name</a>() );
+        pix.<a href="tqpixmap.html#fill">fill</a>( color );
+        table-&gt;<a href="tqtable.html#setPixmap">setPixmap</a>( i, 4, pix );
+        table-&gt;<a href="tqtable.html#setText">setText</a>( i, 4, color.<a href="tqcolor.html#name">name</a>() );
     }
 
 }
@@ -178,7 +177,7 @@ const int MAX_PATTERNS = 14;
 
 void <a name="f179"></a>SetDataForm::currentChanged( int, int col )
 {
-    colorPushButton-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( col == 1 || col == 4 );
+    colorPushButton-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( col == 1 || col == 4 );
 }
 
 
@@ -186,21 +185,21 @@ void <a name="f180"></a>SetDataForm::valueChanged( int row, int col )
 {
     if ( col == 0 ) {
         bool ok;
-        double d = table-&gt;<a href="ntqtable.html#text">text</a>( row, col ).toDouble( &amp;ok );
+        double d = table-&gt;<a href="tqtable.html#text">text</a>( row, col ).toDouble( &amp;ok );
         if ( ok &amp;&amp; d &gt; EPSILON )
-            table-&gt;<a href="ntqtable.html#setText">setText</a>(
+            table-&gt;<a href="tqtable.html#setText">setText</a>(
                 row, col, TQString( "%1" ).arg(
                             d, 0, 'f', m_decimalPlaces ) );
-        else if ( !table-&gt;<a href="ntqtable.html#text">text</a>( row, col ).isEmpty() )
-            table-&gt;<a href="ntqtable.html#setText">setText</a>( row, col, table-&gt;<a href="ntqtable.html#text">text</a>( row, col ) + "?" );
+        else if ( !table-&gt;<a href="tqtable.html#text">text</a>( row, col ).isEmpty() )
+            table-&gt;<a href="tqtable.html#setText">setText</a>( row, col, table-&gt;<a href="tqtable.html#text">text</a>( row, col ) + "?" );
     }
 }
 
 
 void <a name="f181"></a>SetDataForm::setColor()
 {
-    setColor( table-&gt;<a href="ntqtable.html#currentRow">currentRow</a>(), table-&gt;<a href="ntqtable.html#currentColumn">currentColumn</a>() );
-    table-&gt;<a href="ntqwidget.html#setFocus">setFocus</a>();
+    setColor( table-&gt;<a href="tqtable.html#currentRow">currentRow</a>(), table-&gt;<a href="tqtable.html#currentColumn">currentColumn</a>() );
+    table-&gt;<a href="tqwidget.html#setFocus">setFocus</a>();
 }
 
 
@@ -209,36 +208,36 @@ void SetDataForm::setColor( int row, int col )
     if ( !( col == 1 || col == 4 ) )
         return;
 
-    <a href="ntqcolor.html">TQColor</a> color = TQColorDialog::<a href="ntqcolordialog.html#getColor">getColor</a>(
-                        TQColor( table-&gt;<a href="ntqtable.html#text">text</a>( row, col ) ),
+    <a href="tqcolor.html">TQColor</a> color = TQColorDialog::<a href="tqcolordialog.html#getColor">getColor</a>(
+                        TQColor( table-&gt;<a href="tqtable.html#text">text</a>( row, col ) ),
                         this, "color dialog" );
-    if ( color.<a href="ntqcolor.html#isValid">isValid</a>() ) {
-        <a href="ntqpixmap.html">TQPixmap</a> pix = table-&gt;<a href="ntqtable.html#pixmap">pixmap</a>( row, col );
-        pix.<a href="ntqpixmap.html#fill">fill</a>( color );
-        table-&gt;<a href="ntqtable.html#setPixmap">setPixmap</a>( row, col, pix );
-        table-&gt;<a href="ntqtable.html#setText">setText</a>( row, col, color.<a href="ntqcolor.html#name">name</a>() );
+    if ( color.<a href="tqcolor.html#isValid">isValid</a>() ) {
+        <a href="tqpixmap.html">TQPixmap</a> pix = table-&gt;<a href="tqtable.html#pixmap">pixmap</a>( row, col );
+        pix.<a href="tqpixmap.html#fill">fill</a>( color );
+        table-&gt;<a href="tqtable.html#setPixmap">setPixmap</a>( row, col, pix );
+        table-&gt;<a href="tqtable.html#setText">setText</a>( row, col, color.<a href="tqcolor.html#name">name</a>() );
     }
 }
 
 
-void SetDataForm::<a href="ntqdialog.html#accept">accept</a>()
+void SetDataForm::<a href="tqdialog.html#accept">accept</a>()
 {
     bool ok;
     for ( int i = 0; i &lt; ChartForm::MAX_ELEMENTS; ++i ) {
         Element &amp;element = (*m_elements)[i];
-        double d = table-&gt;<a href="ntqtable.html#text">text</a>( i, 0 ).toDouble( &amp;ok );
+        double d = table-&gt;<a href="tqtable.html#text">text</a>( i, 0 ).toDouble( &amp;ok );
         if ( ok )
             element.setValue( d );
         else
             element.setValue( Element::INVALID );
-        element.setValueColor( TQColor( table-&gt;<a href="ntqtable.html#text">text</a>( i, 1 ) ) );
+        element.setValueColor( TQColor( table-&gt;<a href="tqtable.html#text">text</a>( i, 1 ) ) );
         element.setValuePattern(
-                ((TQComboBox*)table-&gt;<a href="ntqtable.html#cellWidget">cellWidget</a>( i, 2 ))-&gt;currentItem() + 1 );
-        element.setLabel( table-&gt;<a href="ntqtable.html#text">text</a>( i, 3 ) );
-        element.setLabelColor( TQColor( table-&gt;<a href="ntqtable.html#text">text</a>( i, 4 ) ) );
+                ((TQComboBox*)table-&gt;<a href="tqtable.html#cellWidget">cellWidget</a>( i, 2 ))-&gt;currentItem() + 1 );
+        element.setLabel( table-&gt;<a href="tqtable.html#text">text</a>( i, 3 ) );
+        element.setLabelColor( TQColor( table-&gt;<a href="tqtable.html#text">text</a>( i, 4 ) ) );
     }
 
-    TQDialog::<a href="ntqdialog.html#accept">accept</a>();
+    TQDialog::<a href="tqdialog.html#accept">accept</a>();
 }
 </pre><!-- eof -->
 <p><address><hr><div align=center>

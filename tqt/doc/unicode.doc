@@ -90,7 +90,7 @@ strings are stored using Unicode. TQt provides:
 \list
 
 \i Translation to/from legacy encodings for file I/O: see \l
-QTextCodec and \l QTextStream.
+TQTextCodec and \l TQTextStream.
 \i Translation from Input Methods and 8-bit keyboard input.
 \i Translation to legacy character sets for on-screen display.
 \i A string class, \l TQString, that stores Unicode characters, with
@@ -105,13 +105,13 @@ even on Windows platforms that do not support it natively.
 
 To fully benefit from Unicode, we recommend using TQString for storing
 all user-visible strings, and performing all text file I/O using
-QTextStream. Use \l QKeyEvent::text() for keyboard input in any custom
+TQTextStream. Use \l TQKeyEvent::text() for keyboard input in any custom
 widgets you write; it does not make much difference for slow typists
 in Western Europe or North America, but for fast typists or people
 using special input methods using text() is beneficial.
 
 All the function arguments in TQt that may be user-visible strings, \l
-QLabel::setText() and a many others, take \c{const TQString &}s.
+TQLabel::setText() and a many others, take \c{const TQString &}s.
 \l TQString provides implicit casting from \c{const char *}
 so that things like
 \code
@@ -124,10 +124,10 @@ translation support, like this:
 \endcode
 
 tr() (simplifying somewhat) maps from \c{const char *} to a
-Unicode string, and uses installable \l QTranslator objects to do the
+Unicode string, and uses installable \l TQTranslator objects to do the
 mapping.
 
-Qt provides a number of built-in \l QTextCodec classes, that is,
+Qt provides a number of built-in \l TQTextCodec classes, that is,
 classes that know how to translate between Unicode and legacy
 encodings to support programs that must talk to other programs or
 read/write files in legacy file formats.
@@ -143,7 +143,7 @@ Since US-ASCII and ISO-8859-1 are so common, there are also especially
 fast functions for mapping to and from them. For example, to open an
 application's icon one might do this:
 \code
-	QFile f( TQString::fromLatin1("appicon.png") );
+	TQFile f( TQString::fromLatin1("appicon.png") );
 \endcode
 
 Regarding output, TQt will do a best-effort conversion from

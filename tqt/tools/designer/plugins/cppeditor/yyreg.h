@@ -35,8 +35,8 @@
 #ifndef YYREG_H
 #define YYREG_H
 
-#include <ntqstringlist.h>
-#include <ntqvaluelist.h>
+#include <tqstringlist.h>
+#include <tqvaluelist.h>
 
 class CppFunction
 {

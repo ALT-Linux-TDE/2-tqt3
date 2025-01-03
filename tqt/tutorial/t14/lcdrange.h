@@ -7,7 +7,7 @@
 #ifndef LCDRANGE_H
 #define LCDRANGE_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 class TQSlider;
 class TQLabel;

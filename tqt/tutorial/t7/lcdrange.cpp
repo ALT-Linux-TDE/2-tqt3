@@ -6,8 +6,8 @@
 
 #include "lcdrange.h"
 
-#include <ntqslider.h>
-#include <ntqlcdnumber.h>
+#include <tqslider.h>
+#include <tqlcdnumber.h>
 
 LCDRange::LCDRange( TQWidget *parent, const char *name )
         : TQVBox( parent, name )

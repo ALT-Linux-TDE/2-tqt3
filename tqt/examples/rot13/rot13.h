@@ -14,7 +14,7 @@
 #ifndef ROT13_H
 #define ROT13_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 class TQMultiLineEdit;
 

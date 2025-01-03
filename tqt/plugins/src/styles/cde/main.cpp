@@ -1,5 +1,5 @@
-#include <ntqstyleplugin.h>
-#include <ntqcdestyle.h>
+#include <tqstyleplugin.h>
+#include <tqcdestyle.h>
 
 class CDEStyle : public TQStylePlugin
 {

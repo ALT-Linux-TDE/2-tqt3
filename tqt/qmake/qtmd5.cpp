@@ -1,5 +1,5 @@
 /* derived from the RSA Data Security, Inc. MD5 Message-Digest Algorithm */
-#include <ntqstring.h>
+#include <tqstring.h>
 #include "qtmd5.h"
 
 typedef unsigned char *POINTER;

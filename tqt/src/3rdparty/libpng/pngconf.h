@@ -225,13 +225,9 @@
 
 #endif /* PNGARG */
 
-/* Try to determine if we are compiling on a Mac.  Note that testing for
- * just __MWERKS__ is not good enough, because the Codewarrior is now used
- * on non-Mac platforms.
- */
+/* Try to determine if we are compiling on a Mac. */
 #ifndef MACOS
-#  if (defined(__MWERKS__) && defined(macintosh)) || defined(applec) || \
-      defined(THINK_C) || defined(__SC__) || defined(TARGET_OS_MAC)
+#  if defined(applec) || defined(THINK_C) || defined(__SC__) || defined(TARGET_OS_MAC)
 #    define MACOS
 #  endif
 #endif
@@ -294,17 +290,8 @@
 #  endif
 #endif
 
-/* Codewarrior on NT has linking problems without this. */
-#if (defined(__MWERKS__) && defined(WIN32)) || defined(__STDC__)
+#if defined(__STDC__)
 #  define PNG_ALWAYS_EXTERN
-#endif
-
-/* For some reason, Borland C++ defines memcmp, etc. in mem.h, not
- * stdlib.h like it should (I think).  Or perhaps this is a C++
- * "feature"?
- */
-#ifdef __TURBOC__
-#  include <mem.h>
 #endif
 
 #if defined(_MSC_VER) && (defined(WIN32) || defined(_Windows) || \
@@ -982,41 +969,6 @@ typedef unsigned char png_byte;
    change (I'm not sure if you will or not, so I thought I'd be safe) */
 typedef size_t png_size_t;
 
-/* The following is needed for medium model support.  It cannot be in the
- * PNG_INTERNAL section.  Needs modification for other compilers besides
- * MSC.  Model independent support declares all arrays and pointers to be
- * large using the far keyword.  The zlib version used must also support
- * model independent data.  As of version zlib 1.0.4, the necessary changes
- * have been made in zlib.  The USE_FAR_KEYWORD define triggers other
- * changes that are needed. (Tim Wegner)
- */
-
-/* Separate compiler dependencies (problem here is that zlib.h always
-   defines FAR. (SJT) */
-#ifdef __BORLANDC__
-#  if defined(__LARGE__) || defined(__HUGE__) || defined(__COMPACT__)
-#    define LDATA 1
-#  else
-#    define LDATA 0
-#  endif
-   /* GRR:  why is Cygwin in here?  Cygwin is not Borland C... */
-#  if !defined(__WIN32__) && !defined(__FLAT__) && !defined(__CYGWIN__)
-#    define PNG_MAX_MALLOC_64K
-#    if (LDATA != 1)
-#      ifndef FAR
-#        define FAR __far
-#      endif
-#      define USE_FAR_KEYWORD
-#    endif   /* LDATA != 1 */
-     /* Possibly useful for moving data out of default segment.
-      * Uncomment it if you want. Could also define FARDATA as
-      * const if your compiler supports it. (SJT)
-#    define FARDATA FAR
-      */
-#  endif  /* __WIN32__, __FLAT__, __CYGWIN__ */
-#endif   /* __BORLANDC__ */
-
-
 /* Suggest testing for specific compiler first before testing for
  * FAR.  The Watcom compiler defines both __MEDIUM__ and M_I86MM,
  * making reliance oncertain keywords suspect. (SJT)
@@ -1195,9 +1147,9 @@ typedef z_stream FAR *  png_zstreamp;
 #     define PNG_EXPORT_TYPE1(type,symbol)  PNG_IMPEXP type PNGAPI symbol
 #     define PNG_EXPORT_TYPE2(type,symbol)  type PNG_IMPEXP PNGAPI symbol
 
-      /* Borland/Microsoft */
-#     if defined(_MSC_VER) || defined(__BORLANDC__)
-#        if (_MSC_VER >= 800) || (__BORLANDC__ >= 0x500)
+      /* Microsoft */
+#     if defined(_MSC_VER)
+#        if (_MSC_VER >= 800)
 #           define PNG_EXPORT PNG_EXPORT_TYPE1
 #        else
 #           define PNG_EXPORT PNG_EXPORT_TYPE2
@@ -1206,8 +1158,7 @@ typedef z_stream FAR *  png_zstreamp;
 #           else
 #              define PNG_IMPEXP /*__import */ /* doesn't exist AFAIK in
                                                  VC++ */
-#           endif                             /* Exists in Borland C++ for
-                                                 C++ classes (== huge) */
+#           endif
 #        endif
 #     endif
 

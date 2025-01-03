@@ -7,9 +7,9 @@ DEPENDPATH	= ../../include
 REQUIRES        = iconview full-config
 
 HEADERS		= mainwindow.h \
-		  qfileiconview.h \
+		  tqfileiconview.h \
 		  ../dirview/dirview.h
 SOURCES		= main.cpp \
 		  mainwindow.cpp \
-		  qfileiconview.cpp \
+		  tqfileiconview.cpp \
 		  ../dirview/dirview.cpp

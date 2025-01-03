@@ -1,5 +1,5 @@
 '\" t
-.TH QVBoxLayout 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQVBoxLayout 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,37 +7,37 @@
 .ad l
 .nh
 .SH NAME
-QVBoxLayout \- Lines up widgets vertically
+TQVBoxLayout \- Lines up widgets vertically
 .SH SYNOPSIS
-\fC#include <ntqlayout.h>\fR
+\fC#include <tqlayout.h>\fR
 .PP
-Inherits QBoxLayout.
+Inherits TQBoxLayout.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQVBoxLayout\fR ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
+.BI "\fBTQVBoxLayout\fR ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQVBoxLayout\fR ( QLayout * parentLayout, int spacing = -1, const char * name = 0 )"
+.BI "\fBTQVBoxLayout\fR ( TQLayout * parentLayout, int spacing = -1, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQVBoxLayout\fR ( int spacing = -1, const char * name = 0 )"
+.BI "\fBTQVBoxLayout\fR ( int spacing = -1, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QVBoxLayout\fR ()"
+.BI "\fB~TQVBoxLayout\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QVBoxLayout class lines up widgets vertically.
+The TQVBoxLayout class lines up widgets vertically.
 .PP
-This class is used to construct vertical box layout objects. See QBoxLayout for more details.
+This class is used to construct vertical box layout objects. See TQBoxLayout for more details.
 .PP
 The simplest use of the class is like this:
 .PP
 .nf
 .br
-        QBoxLayout * l = new QVBoxLayout( widget );
+        TQBoxLayout * l = new TQVBoxLayout( widget );
 .br
         l->addWidget( aWidget );
 .br
@@ -51,27 +51,27 @@ The simplest use of the class is like this:
 .PP
 </center>
 .PP
-See also QHBoxLayout, QGridLayout, the Layout overview, Widget Appearance and Style, and Layout Management.
+See also TQHBoxLayout, TQGridLayout, the Layout overview, Widget Appearance and Style, and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QVBoxLayout::QVBoxLayout ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
+.SH "TQVBoxLayout::TQVBoxLayout ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
 Constructs a new top-level vertical box called \fIname\fR, with parent \fIparent\fR.
 .PP
 The \fImargin\fR is the number of pixels between the edge of the widget and its managed children. The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1 the value of \fImargin\fR is used for \fIspacing\fR.
-.SH "QVBoxLayout::QVBoxLayout ( QLayout * parentLayout, int spacing = -1, const char * name = 0 )"
+.SH "TQVBoxLayout::TQVBoxLayout ( TQLayout * parentLayout, int spacing = -1, const char * name = 0 )"
 Constructs a new vertical box called name \fIname\fR and adds it to \fIparentLayout\fR.
 .PP
-The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1, this QVBoxLayout will inherit its parent's spacing().
-.SH "QVBoxLayout::QVBoxLayout ( int spacing = -1, const char * name = 0 )"
+The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1, this TQVBoxLayout will inherit its parent's spacing().
+.SH "TQVBoxLayout::TQVBoxLayout ( int spacing = -1, const char * name = 0 )"
 Constructs a new vertical box called name \fIname\fR. You must add it to another layout.
 .PP
-The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1, this QVBoxLayout will inherit its parent's spacing().
-.SH "QVBoxLayout::~QVBoxLayout ()"
+The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1, this TQVBoxLayout will inherit its parent's spacing().
+.SH "TQVBoxLayout::~TQVBoxLayout ()"
 Destroys this box layout.
 .PP
 The layout's widgets aren't destroyed.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qvboxlayout.html
+.BR http://doc.trolltech.com/tqvboxlayout.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

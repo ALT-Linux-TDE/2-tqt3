@@ -1,5 +1,5 @@
 '\" t
-.TH QVariant 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQVariant 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QVariant \- Acts like a union for the most common TQt data types
+TQVariant \- Acts like a union for the most common TQt data types
 .SH SYNOPSIS
-\fC#include <ntqvariant.h>\fR
+\fC#include <tqvariant.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -17,130 +17,130 @@ QVariant \- Acts like a union for the most common TQt data types
 .BI "enum \fBType\fR { Invalid, Map, List, String, StringList, Font, Pixmap, Brush, Rect, Size, Color, Palette, ColorGroup, IconSet, Point, Image, Int, UInt, Bool, Double, CString, PointArray, Region, Bitmap, Cursor, SizePolicy, Date, Time, DateTime, ByteArray, BitArray, KeySequence, Pen, LongLong, ULongLong }"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ()"
+.BI "\fBTQVariant\fR ()"
 .br
 .ti -1c
-.BI "\fB~QVariant\fR ()"
+.BI "\fB~TQVariant\fR ()"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QVariant & p )"
+.BI "\fBTQVariant\fR ( const TQVariant & p )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( QDataStream & s )"
+.BI "\fBTQVariant\fR ( TQDataStream & s )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const TQString & val )"
+.BI "\fBTQVariant\fR ( const TQString & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QCString & val )"
+.BI "\fBTQVariant\fR ( const TQCString & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const char * val )"
+.BI "\fBTQVariant\fR ( const char * val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QStringList & val )"
+.BI "\fBTQVariant\fR ( const TQStringList & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QFont & val )"
+.BI "\fBTQVariant\fR ( const TQFont & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QPixmap & val )"
+.BI "\fBTQVariant\fR ( const TQPixmap & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const TQImage & val )"
+.BI "\fBTQVariant\fR ( const TQImage & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QBrush & val )"
+.BI "\fBTQVariant\fR ( const TQBrush & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QPoint & val )"
+.BI "\fBTQVariant\fR ( const TQPoint & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QRect & val )"
+.BI "\fBTQVariant\fR ( const TQRect & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QSize & val )"
+.BI "\fBTQVariant\fR ( const TQSize & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const TQColor & val )"
+.BI "\fBTQVariant\fR ( const TQColor & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QPalette & val )"
+.BI "\fBTQVariant\fR ( const TQPalette & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QColorGroup & val )"
+.BI "\fBTQVariant\fR ( const TQColorGroup & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QIconSet & val )"
+.BI "\fBTQVariant\fR ( const TQIconSet & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QPointArray & val )"
+.BI "\fBTQVariant\fR ( const TQPointArray & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QRegion & val )"
+.BI "\fBTQVariant\fR ( const TQRegion & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QBitmap & val )"
+.BI "\fBTQVariant\fR ( const TQBitmap & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QCursor & val )"
+.BI "\fBTQVariant\fR ( const TQCursor & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QDate & val )"
+.BI "\fBTQVariant\fR ( const TQDate & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QTime & val )"
+.BI "\fBTQVariant\fR ( const TQTime & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QDateTime & val )"
+.BI "\fBTQVariant\fR ( const TQDateTime & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QByteArray & val )"
+.BI "\fBTQVariant\fR ( const TQByteArray & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QBitArray & val )"
+.BI "\fBTQVariant\fR ( const TQBitArray & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QKeySequence & val )"
+.BI "\fBTQVariant\fR ( const TQKeySequence & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QPen & val )"
+.BI "\fBTQVariant\fR ( const TQPen & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QValueList<QVariant> & val )"
+.BI "\fBTQVariant\fR ( const TQValueList<TQVariant> & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( const QMap<TQString, QVariant> & val )"
+.BI "\fBTQVariant\fR ( const TQMap<TQString, TQVariant> & val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( int val )"
+.BI "\fBTQVariant\fR ( int val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( uint val )"
+.BI "\fBTQVariant\fR ( uint val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( TQ_LLONG val )"
+.BI "\fBTQVariant\fR ( TQ_LLONG val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( TQ_ULLONG val )"
+.BI "\fBTQVariant\fR ( TQ_ULLONG val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( bool val, int )"
+.BI "\fBTQVariant\fR ( bool val, int )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( double val )"
+.BI "\fBTQVariant\fR ( double val )"
 .br
 .ti -1c
-.BI "\fBQVariant\fR ( QSizePolicy val )"
+.BI "\fBTQVariant\fR ( TQSizePolicy val )"
 .br
 .ti -1c
-.BI "QVariant & \fBoperator=\fR ( const QVariant & variant )"
+.BI "TQVariant & \fBoperator=\fR ( const TQVariant & variant )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QVariant & v ) const"
+.BI "bool \fBoperator==\fR ( const TQVariant & v ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator!=\fR ( const QVariant & v ) const"
+.BI "bool \fBoperator!=\fR ( const TQVariant & v ) const"
 .br
 .ti -1c
 .BI "Type \fBtype\fR () const"
@@ -167,76 +167,76 @@ QVariant \- Acts like a union for the most common TQt data types
 .BI "const TQString \fBtoString\fR () const"
 .br
 .ti -1c
-.BI "const QCString \fBtoCString\fR () const"
+.BI "const TQCString \fBtoCString\fR () const"
 .br
 .ti -1c
-.BI "const QStringList \fBtoStringList\fR () const"
+.BI "const TQStringList \fBtoStringList\fR () const"
 .br
 .ti -1c
-.BI "const QFont \fBtoFont\fR () const"
+.BI "const TQFont \fBtoFont\fR () const"
 .br
 .ti -1c
-.BI "const QPixmap \fBtoPixmap\fR () const"
+.BI "const TQPixmap \fBtoPixmap\fR () const"
 .br
 .ti -1c
 .BI "const TQImage \fBtoImage\fR () const"
 .br
 .ti -1c
-.BI "const QBrush \fBtoBrush\fR () const"
+.BI "const TQBrush \fBtoBrush\fR () const"
 .br
 .ti -1c
-.BI "const QPoint \fBtoPoint\fR () const"
+.BI "const TQPoint \fBtoPoint\fR () const"
 .br
 .ti -1c
-.BI "const QRect \fBtoRect\fR () const"
+.BI "const TQRect \fBtoRect\fR () const"
 .br
 .ti -1c
-.BI "const QSize \fBtoSize\fR () const"
+.BI "const TQSize \fBtoSize\fR () const"
 .br
 .ti -1c
 .BI "const TQColor \fBtoColor\fR () const"
 .br
 .ti -1c
-.BI "const QPalette \fBtoPalette\fR () const"
+.BI "const TQPalette \fBtoPalette\fR () const"
 .br
 .ti -1c
-.BI "const QColorGroup \fBtoColorGroup\fR () const"
+.BI "const TQColorGroup \fBtoColorGroup\fR () const"
 .br
 .ti -1c
-.BI "const QIconSet \fBtoIconSet\fR () const"
+.BI "const TQIconSet \fBtoIconSet\fR () const"
 .br
 .ti -1c
-.BI "const QPointArray \fBtoPointArray\fR () const"
+.BI "const TQPointArray \fBtoPointArray\fR () const"
 .br
 .ti -1c
-.BI "const QBitmap \fBtoBitmap\fR () const"
+.BI "const TQBitmap \fBtoBitmap\fR () const"
 .br
 .ti -1c
-.BI "const QRegion \fBtoRegion\fR () const"
+.BI "const TQRegion \fBtoRegion\fR () const"
 .br
 .ti -1c
-.BI "const QCursor \fBtoCursor\fR () const"
+.BI "const TQCursor \fBtoCursor\fR () const"
 .br
 .ti -1c
-.BI "const QDate \fBtoDate\fR () const"
+.BI "const TQDate \fBtoDate\fR () const"
 .br
 .ti -1c
-.BI "const QTime \fBtoTime\fR () const"
+.BI "const TQTime \fBtoTime\fR () const"
 .br
 .ti -1c
-.BI "const QDateTime \fBtoDateTime\fR () const"
+.BI "const TQDateTime \fBtoDateTime\fR () const"
 .br
 .ti -1c
-.BI "const QByteArray \fBtoByteArray\fR () const"
+.BI "const TQByteArray \fBtoByteArray\fR () const"
 .br
 .ti -1c
-.BI "const QBitArray \fBtoBitArray\fR () const"
+.BI "const TQBitArray \fBtoBitArray\fR () const"
 .br
 .ti -1c
-.BI "const QKeySequence \fBtoKeySequence\fR () const"
+.BI "const TQKeySequence \fBtoKeySequence\fR () const"
 .br
 .ti -1c
-.BI "const QPen \fBtoPen\fR () const"
+.BI "const TQPen \fBtoPen\fR () const"
 .br
 .ti -1c
 .BI "int \fBtoInt\fR ( bool * ok = 0 ) const"
@@ -257,109 +257,109 @@ QVariant \- Acts like a union for the most common TQt data types
 .BI "double \fBtoDouble\fR ( bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "const QValueList<QVariant> \fBtoList\fR () const"
+.BI "const TQValueList<TQVariant> \fBtoList\fR () const"
 .br
 .ti -1c
-.BI "const QMap<TQString, QVariant> \fBtoMap\fR () const"
+.BI "const TQMap<TQString, TQVariant> \fBtoMap\fR () const"
 .br
 .ti -1c
-.BI "QSizePolicy \fBtoSizePolicy\fR () const"
+.BI "TQSizePolicy \fBtoSizePolicy\fR () const"
 .br
 .ti -1c
-.BI "QValueListConstIterator<TQString> stringListBegin () const  \fI(obsolete)\fR"
+.BI "TQValueListConstIterator<TQString> stringListBegin () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QValueListConstIterator<TQString> stringListEnd () const  \fI(obsolete)\fR"
+.BI "TQValueListConstIterator<TQString> stringListEnd () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QValueListConstIterator<QVariant> listBegin () const  \fI(obsolete)\fR"
+.BI "TQValueListConstIterator<TQVariant> listBegin () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QValueListConstIterator<QVariant> listEnd () const  \fI(obsolete)\fR"
+.BI "TQValueListConstIterator<TQVariant> listEnd () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QMapConstIterator<TQString, QVariant> mapBegin () const  \fI(obsolete)\fR"
+.BI "TQMapConstIterator<TQString, TQVariant> mapBegin () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QMapConstIterator<TQString, QVariant> mapEnd () const  \fI(obsolete)\fR"
+.BI "TQMapConstIterator<TQString, TQVariant> mapEnd () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QMapConstIterator<TQString, QVariant> mapFind ( const TQString & key ) const  \fI(obsolete)\fR"
+.BI "TQMapConstIterator<TQString, TQVariant> mapFind ( const TQString & key ) const  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "TQString & \fBasString\fR ()"
 .br
 .ti -1c
-.BI "QCString & \fBasCString\fR ()"
+.BI "TQCString & \fBasCString\fR ()"
 .br
 .ti -1c
-.BI "QStringList & \fBasStringList\fR ()"
+.BI "TQStringList & \fBasStringList\fR ()"
 .br
 .ti -1c
-.BI "QFont & \fBasFont\fR ()"
+.BI "TQFont & \fBasFont\fR ()"
 .br
 .ti -1c
-.BI "QPixmap & \fBasPixmap\fR ()"
+.BI "TQPixmap & \fBasPixmap\fR ()"
 .br
 .ti -1c
 .BI "TQImage & \fBasImage\fR ()"
 .br
 .ti -1c
-.BI "QBrush & \fBasBrush\fR ()"
+.BI "TQBrush & \fBasBrush\fR ()"
 .br
 .ti -1c
-.BI "QPoint & \fBasPoint\fR ()"
+.BI "TQPoint & \fBasPoint\fR ()"
 .br
 .ti -1c
-.BI "QRect & \fBasRect\fR ()"
+.BI "TQRect & \fBasRect\fR ()"
 .br
 .ti -1c
-.BI "QSize & \fBasSize\fR ()"
+.BI "TQSize & \fBasSize\fR ()"
 .br
 .ti -1c
 .BI "TQColor & \fBasColor\fR ()"
 .br
 .ti -1c
-.BI "QPalette & \fBasPalette\fR ()"
+.BI "TQPalette & \fBasPalette\fR ()"
 .br
 .ti -1c
-.BI "QColorGroup & \fBasColorGroup\fR ()"
+.BI "TQColorGroup & \fBasColorGroup\fR ()"
 .br
 .ti -1c
-.BI "QIconSet & \fBasIconSet\fR ()"
+.BI "TQIconSet & \fBasIconSet\fR ()"
 .br
 .ti -1c
-.BI "QPointArray & \fBasPointArray\fR ()"
+.BI "TQPointArray & \fBasPointArray\fR ()"
 .br
 .ti -1c
-.BI "QBitmap & \fBasBitmap\fR ()"
+.BI "TQBitmap & \fBasBitmap\fR ()"
 .br
 .ti -1c
-.BI "QRegion & \fBasRegion\fR ()"
+.BI "TQRegion & \fBasRegion\fR ()"
 .br
 .ti -1c
-.BI "QCursor & \fBasCursor\fR ()"
+.BI "TQCursor & \fBasCursor\fR ()"
 .br
 .ti -1c
-.BI "QDate & \fBasDate\fR ()"
+.BI "TQDate & \fBasDate\fR ()"
 .br
 .ti -1c
-.BI "QTime & \fBasTime\fR ()"
+.BI "TQTime & \fBasTime\fR ()"
 .br
 .ti -1c
-.BI "QDateTime & \fBasDateTime\fR ()"
+.BI "TQDateTime & \fBasDateTime\fR ()"
 .br
 .ti -1c
-.BI "QByteArray & \fBasByteArray\fR ()"
+.BI "TQByteArray & \fBasByteArray\fR ()"
 .br
 .ti -1c
-.BI "QBitArray & \fBasBitArray\fR ()"
+.BI "TQBitArray & \fBasBitArray\fR ()"
 .br
 .ti -1c
-.BI "QKeySequence & \fBasKeySequence\fR ()"
+.BI "TQKeySequence & \fBasKeySequence\fR ()"
 .br
 .ti -1c
-.BI "QPen & \fBasPen\fR ()"
+.BI "TQPen & \fBasPen\fR ()"
 .br
 .ti -1c
 .BI "int & \fBasInt\fR ()"
@@ -380,13 +380,13 @@ QVariant \- Acts like a union for the most common TQt data types
 .BI "double & \fBasDouble\fR ()"
 .br
 .ti -1c
-.BI "QValueList<QVariant> & \fBasList\fR ()"
+.BI "TQValueList<TQVariant> & \fBasList\fR ()"
 .br
 .ti -1c
-.BI "QMap<TQString, QVariant> & \fBasMap\fR ()"
+.BI "TQMap<TQString, TQVariant> & \fBasMap\fR ()"
 .br
 .ti -1c
-.BI "QSizePolicy & \fBasSizePolicy\fR ()"
+.BI "TQSizePolicy & \fBasSizePolicy\fR ()"
 .br
 .in -1c
 .SS "Static Public Members"
@@ -399,33 +399,33 @@ QVariant \- Acts like a union for the most common TQt data types
 .br
 .in -1c
 .SH DESCRIPTION
-The QVariant class acts like a union for the most common TQt data types.
+The TQVariant class acts like a union for the most common TQt data types.
 .PP
-Because C++ forbids unions from including types that have non-default constructors or destructors, most interesting TQt classes cannot be used in unions. Without QVariant, this would be a problem for TQObject::property() and for database work, etc.
+Because C++ forbids unions from including types that have non-default constructors or destructors, most interesting TQt classes cannot be used in unions. Without TQVariant, this would be a problem for TQObject::property() and for database work, etc.
 .PP
-A QVariant object holds a single value of a single type() at a time. (Some type()s are multi-valued, for example a string list.) You can find out what type, T, the variant holds, convert it to a different type using one of the asT() functions, e.g. asSize(), get its value using one of the toT() functions, e.g. toSize(), and check whether the type can be converted to a particular type using canCast().
+A TQVariant object holds a single value of a single type() at a time. (Some type()s are multi-valued, for example a string list.) You can find out what type, T, the variant holds, convert it to a different type using one of the asT() functions, e.g. asSize(), get its value using one of the toT() functions, e.g. toSize(), and check whether the type can be converted to a particular type using canCast().
 .PP
 The methods named toT() (for any supported T, see the Type documentation for a list) are const. If you ask for the stored type, they return a copy of the stored object. If you ask for a type that can be generated from the stored type, toT() copies and converts and leaves the object itself unchanged. If you ask for a type that cannot be generated from the stored type, the result depends on the type (see the function documentation for details).
 .PP
-Note that three data types supported by QVariant are explicitly shared, namely TQImage, QPointArray, and QCString, and in these cases the toT() methods return a shallow copy. In almost all cases you must make a deep copy of the returned values before modifying them.
+Note that three data types supported by TQVariant are explicitly shared, namely TQImage, TQPointArray, and TQCString, and in these cases the toT() methods return a shallow copy. In almost all cases you must make a deep copy of the returned values before modifying them.
 .PP
 The asT() functions are not const. They do conversion like the toT() methods, set the variant to hold the converted value, and return a reference to the new contents of the variant.
 .PP
-Here is some example code to demonstrate the use of QVariant:
+Here is some example code to demonstrate the use of TQVariant:
 .PP
 .nf
 .br
-    QDataStream out(...);
+    TQDataStream out(...);
 .br
-    QVariant v(123);          // The variant now contains an int
+    TQVariant v(123);          // The variant now contains an int
 .br
     int x = v.toInt();        // x = 123
 .br
     out << v;                 // Writes a type tag and an int to out
 .br
-    v = QVariant("hello");    // The variant now contains a QCString
+    v = TQVariant("hello");    // The variant now contains a TQCString
 .br
-    v = QVariant(tr("hello"));// The variant now contains a TQString
+    v = TQVariant(tr("hello"));// The variant now contains a TQString
 .br
     int y = v.toInt();        // y = 0 since v cannot be converted to an int
 .br
@@ -435,7 +435,7 @@ Here is some example code to demonstrate the use of QVariant:
 .br
     ...
 .br
-    QDataStream in(...);      // (opening the previously written stream)
+    TQDataStream in(...);      // (opening the previously written stream)
 .br
     in >> v;                  // Reads an Int variant
 .br
@@ -447,19 +447,19 @@ Here is some example code to demonstrate the use of QVariant:
 .br
     v.asInt() += 100;         // The variant now hold the value 223.
 .br
-    v = QVariant( QStringList() );
+    v = TQVariant( TQStringList() );
 .br
     v.asStringList().append( "Hello" );
 .br
 .fi
 .PP
-You can even store QValueList<QVariant>s and QMap<TQString,QVariant>s in a variant, so you can easily construct arbitrarily complex data structures of arbitrary types. This is very powerful and versatile, but may prove less memory and speed efficient than storing specific types in standard data structures.
+You can even store TQValueList<TQVariant>s and TQMap<TQString,TQVariant>s in a variant, so you can easily construct arbitrarily complex data structures of arbitrary types. This is very powerful and versatile, but may prove less memory and speed efficient than storing specific types in standard data structures.
 .PP
-QVariant also supports the notion of NULL values, where you have a defined type with no value set.
+TQVariant also supports the notion of NULL values, where you have a defined type with no value set.
 .PP
 .nf
 .br
-    QVariant x, y( TQString() ), z( TQString("") );
+    TQVariant x, y( TQString() ), z( TQString("") );
 .br
     x.asInt();
 .br
@@ -471,269 +471,269 @@ See the Collection Classes.
 .PP
 See also Miscellaneous Classes and Object Model.
 .SS "Member Type Documentation"
-.SH "QVariant::Type"
-This enum type defines the types of variable that a QVariant can contain.
+.SH "TQVariant::Type"
+This enum type defines the types of variable that a TQVariant can contain.
 .TP
-\fCQVariant::Invalid\fR - no type
+\fCTQVariant::Invalid\fR - no type
 .TP
-\fCQVariant::BitArray\fR - a QBitArray
+\fCTQVariant::BitArray\fR - a TQBitArray
 .TP
-\fCQVariant::ByteArray\fR - a QByteArray
+\fCTQVariant::ByteArray\fR - a TQByteArray
 .TP
-\fCQVariant::Bitmap\fR - a QBitmap
+\fCTQVariant::Bitmap\fR - a TQBitmap
 .TP
-\fCQVariant::Bool\fR - a bool
+\fCTQVariant::Bool\fR - a bool
 .TP
-\fCQVariant::Brush\fR - a QBrush
+\fCTQVariant::Brush\fR - a TQBrush
 .TP
-\fCQVariant::Color\fR - a TQColor
+\fCTQVariant::Color\fR - a TQColor
 .TP
-\fCQVariant::ColorGroup\fR - a QColorGroup
+\fCTQVariant::ColorGroup\fR - a TQColorGroup
 .TP
-\fCQVariant::Cursor\fR - a QCursor
+\fCTQVariant::Cursor\fR - a TQCursor
 .TP
-\fCQVariant::Date\fR - a QDate
+\fCTQVariant::Date\fR - a TQDate
 .TP
-\fCQVariant::DateTime\fR - a QDateTime
+\fCTQVariant::DateTime\fR - a TQDateTime
 .TP
-\fCQVariant::Double\fR - a double
+\fCTQVariant::Double\fR - a double
 .TP
-\fCQVariant::Font\fR - a QFont
+\fCTQVariant::Font\fR - a TQFont
 .TP
-\fCQVariant::IconSet\fR - a QIconSet
+\fCTQVariant::IconSet\fR - a TQIconSet
 .TP
-\fCQVariant::Image\fR - a TQImage
+\fCTQVariant::Image\fR - a TQImage
 .TP
-\fCQVariant::Int\fR - an int
+\fCTQVariant::Int\fR - an int
 .TP
-\fCQVariant::KeySequence\fR - a QKeySequence
+\fCTQVariant::KeySequence\fR - a TQKeySequence
 .TP
-\fCQVariant::List\fR - a QValueList<QVariant>
+\fCTQVariant::List\fR - a TQValueList<TQVariant>
 .TP
-\fCQVariant::LongLong\fR - a long long
+\fCTQVariant::LongLong\fR - a long long
 .TP
-\fCQVariant::ULongLong\fR - an unsigned long long
+\fCTQVariant::ULongLong\fR - an unsigned long long
 .TP
-\fCQVariant::Map\fR - a QMap<TQString,QVariant>
+\fCTQVariant::Map\fR - a TQMap<TQString,TQVariant>
 .TP
-\fCQVariant::Palette\fR - a QPalette
+\fCTQVariant::Palette\fR - a TQPalette
 .TP
-\fCQVariant::Pen\fR - a QPen
+\fCTQVariant::Pen\fR - a TQPen
 .TP
-\fCQVariant::Pixmap\fR - a QPixmap
+\fCTQVariant::Pixmap\fR - a TQPixmap
 .TP
-\fCQVariant::Point\fR - a QPoint
+\fCTQVariant::Point\fR - a TQPoint
 .TP
-\fCQVariant::PointArray\fR - a QPointArray
+\fCTQVariant::PointArray\fR - a TQPointArray
 .TP
-\fCQVariant::Rect\fR - a QRect
+\fCTQVariant::Rect\fR - a TQRect
 .TP
-\fCQVariant::Region\fR - a QRegion
+\fCTQVariant::Region\fR - a TQRegion
 .TP
-\fCQVariant::Size\fR - a QSize
+\fCTQVariant::Size\fR - a TQSize
 .TP
-\fCQVariant::SizePolicy\fR - a QSizePolicy
+\fCTQVariant::SizePolicy\fR - a TQSizePolicy
 .TP
-\fCQVariant::String\fR - a TQString
+\fCTQVariant::String\fR - a TQString
 .TP
-\fCQVariant::CString\fR - a QCString
+\fCTQVariant::CString\fR - a TQCString
 .TP
-\fCQVariant::StringList\fR - a QStringList
+\fCTQVariant::StringList\fR - a TQStringList
 .TP
-\fCQVariant::Time\fR - a QTime
+\fCTQVariant::Time\fR - a TQTime
 .TP
-\fCQVariant::UInt\fR - an unsigned int
+\fCTQVariant::UInt\fR - an unsigned int
 .PP
-Note that Qt's definition of bool depends on the compiler. ntqglobal.h has the system-dependent definition of bool.
+Note that Qt's definition of bool depends on the compiler. tqglobal.h has the system-dependent definition of bool.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QVariant::QVariant ()"
+.SH "TQVariant::TQVariant ()"
 Constructs an invalid variant.
-.SH "QVariant::QVariant ( bool val, int )"
+.SH "TQVariant::TQVariant ( bool val, int )"
 Constructs a new variant with a boolean value, \fIval\fR. The integer argument is a dummy, necessary for compatibility with some compilers.
-.SH "QVariant::QVariant ( double val )"
+.SH "TQVariant::TQVariant ( double val )"
 Constructs a new variant with a floating point value, \fIval\fR.
-.SH "QVariant::QVariant ( QSizePolicy val )"
+.SH "TQVariant::TQVariant ( TQSizePolicy val )"
 Constructs a new variant with a size policy value, \fIval\fR.
-.SH "QVariant::QVariant ( const QVariant & p )"
+.SH "TQVariant::TQVariant ( const TQVariant & p )"
 Constructs a copy of the variant, \fIp\fR, passed as the argument to this constructor. Usually this is a deep copy, but a shallow copy is made if the stored data type is explicitly shared, as e.g. TQImage is.
-.SH "QVariant::QVariant ( QDataStream & s )"
+.SH "TQVariant::TQVariant ( TQDataStream & s )"
 Reads the variant from the data stream, \fIs\fR.
-.SH "QVariant::QVariant ( const TQString & val )"
+.SH "TQVariant::TQVariant ( const TQString & val )"
 Constructs a new variant with a string value, \fIval\fR.
-.SH "QVariant::QVariant ( const QCString & val )"
+.SH "TQVariant::TQVariant ( const TQCString & val )"
 Constructs a new variant with a C-string value, \fIval\fR.
 .PP
-If you want to modify the QCString after you've passed it to this constructor, we recommend passing a deep copy (see QCString::copy()).
-.SH "QVariant::QVariant ( const char * val )"
+If you want to modify the TQCString after you've passed it to this constructor, we recommend passing a deep copy (see TQCString::copy()).
+.SH "TQVariant::TQVariant ( const char * val )"
 Constructs a new variant with a C-string value of \fIval\fR if \fIval\fR is non-null. The variant creates a deep copy of \fIval\fR.
 .PP
 If \fIval\fR is null, the resulting variant has type Invalid.
-.SH "QVariant::QVariant ( const QStringList & val )"
+.SH "TQVariant::TQVariant ( const TQStringList & val )"
 Constructs a new variant with a string list value, \fIval\fR.
-.SH "QVariant::QVariant ( const QFont & val )"
+.SH "TQVariant::TQVariant ( const TQFont & val )"
 Constructs a new variant with a font value, \fIval\fR.
-.SH "QVariant::QVariant ( const QPixmap & val )"
+.SH "TQVariant::TQVariant ( const TQPixmap & val )"
 Constructs a new variant with a pixmap value, \fIval\fR.
-.SH "QVariant::QVariant ( const TQImage & val )"
+.SH "TQVariant::TQVariant ( const TQImage & val )"
 Constructs a new variant with an image value, \fIval\fR.
 .PP
 Because TQImage is explicitly shared, you may need to pass a deep copy to the variant using TQImage::copy(), e.g. if you intend changing the image you've passed later on.
-.SH "QVariant::QVariant ( const QBrush & val )"
+.SH "TQVariant::TQVariant ( const TQBrush & val )"
 Constructs a new variant with a brush value, \fIval\fR.
-.SH "QVariant::QVariant ( const QPoint & val )"
+.SH "TQVariant::TQVariant ( const TQPoint & val )"
 Constructs a new variant with a point value, \fIval\fR.
-.SH "QVariant::QVariant ( const QRect & val )"
+.SH "TQVariant::TQVariant ( const TQRect & val )"
 Constructs a new variant with a rect value, \fIval\fR.
-.SH "QVariant::QVariant ( const QSize & val )"
+.SH "TQVariant::TQVariant ( const TQSize & val )"
 Constructs a new variant with a size value, \fIval\fR.
-.SH "QVariant::QVariant ( const TQColor & val )"
+.SH "TQVariant::TQVariant ( const TQColor & val )"
 Constructs a new variant with a color value, \fIval\fR.
-.SH "QVariant::QVariant ( const QPalette & val )"
+.SH "TQVariant::TQVariant ( const TQPalette & val )"
 Constructs a new variant with a color palette value, \fIval\fR.
-.SH "QVariant::QVariant ( const QColorGroup & val )"
+.SH "TQVariant::TQVariant ( const TQColorGroup & val )"
 Constructs a new variant with a color group value, \fIval\fR.
-.SH "QVariant::QVariant ( const QIconSet & val )"
+.SH "TQVariant::TQVariant ( const TQIconSet & val )"
 Constructs a new variant with an icon set value, \fIval\fR.
-.SH "QVariant::QVariant ( const QPointArray & val )"
+.SH "TQVariant::TQVariant ( const TQPointArray & val )"
 Constructs a new variant with a point array value, \fIval\fR.
 .PP
-Because QPointArray is explicitly shared, you may need to pass a deep copy to the variant using QPointArray::copy(), e.g. if you intend changing the point array you've passed later on.
-.SH "QVariant::QVariant ( const QRegion & val )"
+Because TQPointArray is explicitly shared, you may need to pass a deep copy to the variant using TQPointArray::copy(), e.g. if you intend changing the point array you've passed later on.
+.SH "TQVariant::TQVariant ( const TQRegion & val )"
 Constructs a new variant with a region value, \fIval\fR.
-.SH "QVariant::QVariant ( const QBitmap & val )"
+.SH "TQVariant::TQVariant ( const TQBitmap & val )"
 Constructs a new variant with a bitmap value, \fIval\fR.
-.SH "QVariant::QVariant ( const QCursor & val )"
+.SH "TQVariant::TQVariant ( const TQCursor & val )"
 Constructs a new variant with a cursor value, \fIval\fR.
-.SH "QVariant::QVariant ( const QDate & val )"
+.SH "TQVariant::TQVariant ( const TQDate & val )"
 Constructs a new variant with a date value, \fIval\fR.
-.SH "QVariant::QVariant ( const QTime & val )"
+.SH "TQVariant::TQVariant ( const TQTime & val )"
 Constructs a new variant with a time value, \fIval\fR.
-.SH "QVariant::QVariant ( const QDateTime & val )"
+.SH "TQVariant::TQVariant ( const TQDateTime & val )"
 Constructs a new variant with a date/time value, \fIval\fR.
-.SH "QVariant::QVariant ( const QByteArray & val )"
+.SH "TQVariant::TQVariant ( const TQByteArray & val )"
 Constructs a new variant with a bytearray value, \fIval\fR.
-.SH "QVariant::QVariant ( const QBitArray & val )"
+.SH "TQVariant::TQVariant ( const TQBitArray & val )"
 Constructs a new variant with a bitarray value, \fIval\fR.
-.SH "QVariant::QVariant ( const QKeySequence & val )"
+.SH "TQVariant::TQVariant ( const TQKeySequence & val )"
 Constructs a new variant with a key sequence value, \fIval\fR.
-.SH "QVariant::QVariant ( const QPen & val )"
+.SH "TQVariant::TQVariant ( const TQPen & val )"
 Constructs a new variant with a pen value, \fIval\fR.
-.SH "QVariant::QVariant ( const QValueList<QVariant> & val )"
+.SH "TQVariant::TQVariant ( const TQValueList<TQVariant> & val )"
 Constructs a new variant with a list value, \fIval\fR.
-.SH "QVariant::QVariant ( const QMap<TQString, QVariant> & val )"
-Constructs a new variant with a map of QVariants, \fIval\fR.
-.SH "QVariant::QVariant ( int val )"
+.SH "TQVariant::TQVariant ( const TQMap<TQString, TQVariant> & val )"
+Constructs a new variant with a map of TQVariants, \fIval\fR.
+.SH "TQVariant::TQVariant ( int val )"
 Constructs a new variant with an integer value, \fIval\fR.
-.SH "QVariant::QVariant ( uint val )"
+.SH "TQVariant::TQVariant ( uint val )"
 Constructs a new variant with an unsigned integer value, \fIval\fR.
-.SH "QVariant::QVariant ( TQ_LLONG val )"
+.SH "TQVariant::TQVariant ( TQ_LLONG val )"
 Constructs a new variant with a long long integer value, \fIval\fR.
-.SH "QVariant::QVariant ( TQ_ULLONG val )"
+.SH "TQVariant::TQVariant ( TQ_ULLONG val )"
 Constructs a new variant with an unsigned long long integer value, \fIval\fR.
-.SH "QVariant::~QVariant ()"
-Destroys the QVariant and the contained object.
+.SH "TQVariant::~TQVariant ()"
+Destroys the TQVariant and the contained object.
 .PP
-Note that subclasses that reimplement clear() should reimplement the destructor to call clear(). This destructor calls clear(), but because it is the destructor, QVariant::clear() is called rather than a subclass's clear().
-.SH "QBitArray & QVariant::asBitArray ()"
-Tries to convert the variant to hold a QBitArray value. If that is not possible then the variant is set to an empty bitarray.
+Note that subclasses that reimplement clear() should reimplement the destructor to call clear(). This destructor calls clear(), but because it is the destructor, TQVariant::clear() is called rather than a subclass's clear().
+.SH "TQBitArray & TQVariant::asBitArray ()"
+Tries to convert the variant to hold a TQBitArray value. If that is not possible then the variant is set to an empty bitarray.
 .PP
 Returns a reference to the stored bitarray.
 .PP
 See also toBitArray().
-.SH "QBitmap & QVariant::asBitmap ()"
+.SH "TQBitmap & TQVariant::asBitmap ()"
 Tries to convert the variant to hold a bitmap value. If that is not possible the variant is set to a null bitmap.
 .PP
 Returns a reference to the stored bitmap.
 .PP
 See also toBitmap().
-.SH "bool & QVariant::asBool ()"
+.SH "bool & TQVariant::asBool ()"
 Returns the variant's value as bool reference.
-.SH "QBrush & QVariant::asBrush ()"
+.SH "TQBrush & TQVariant::asBrush ()"
 Tries to convert the variant to hold a brush value. If that is not possible the variant is set to a default black brush.
 .PP
 Returns a reference to the stored brush.
 .PP
 See also toBrush().
-.SH "QByteArray & QVariant::asByteArray ()"
-Tries to convert the variant to hold a QByteArray value. If that is not possible then the variant is set to an empty bytearray.
+.SH "TQByteArray & TQVariant::asByteArray ()"
+Tries to convert the variant to hold a TQByteArray value. If that is not possible then the variant is set to an empty bytearray.
 .PP
 Returns a reference to the stored bytearray.
 .PP
 See also toByteArray().
-.SH "QCString & QVariant::asCString ()"
+.SH "TQCString & TQVariant::asCString ()"
 Tries to convert the variant to hold a string value. If that is not possible the variant is set to an empty string.
 .PP
 Returns a reference to the stored string.
 .PP
 See also toCString().
-.SH "TQColor & QVariant::asColor ()"
+.SH "TQColor & TQVariant::asColor ()"
 Tries to convert the variant to hold a TQColor value. If that is not possible the variant is set to an invalid color.
 .PP
 Returns a reference to the stored color.
 .PP
 See also toColor() and TQColor::isValid().
-.SH "QColorGroup & QVariant::asColorGroup ()"
-Tries to convert the variant to hold a QColorGroup value. If that is not possible the variant is set to a color group of all black colors.
+.SH "TQColorGroup & TQVariant::asColorGroup ()"
+Tries to convert the variant to hold a TQColorGroup value. If that is not possible the variant is set to a color group of all black colors.
 .PP
 Returns a reference to the stored color group.
 .PP
 See also toColorGroup().
-.SH "QCursor & QVariant::asCursor ()"
-Tries to convert the variant to hold a QCursor value. If that is not possible the variant is set to a default arrow cursor.
+.SH "TQCursor & TQVariant::asCursor ()"
+Tries to convert the variant to hold a TQCursor value. If that is not possible the variant is set to a default arrow cursor.
 .PP
 Returns a reference to the stored cursor.
 .PP
 See also toCursor().
-.SH "QDate & QVariant::asDate ()"
-Tries to convert the variant to hold a QDate value. If that is not possible then the variant is set to an invalid date.
+.SH "TQDate & TQVariant::asDate ()"
+Tries to convert the variant to hold a TQDate value. If that is not possible then the variant is set to an invalid date.
 .PP
 Returns a reference to the stored date.
 .PP
 See also toDate().
-.SH "QDateTime & QVariant::asDateTime ()"
-Tries to convert the variant to hold a QDateTime value. If that is not possible then the variant is set to an invalid date/time.
+.SH "TQDateTime & TQVariant::asDateTime ()"
+Tries to convert the variant to hold a TQDateTime value. If that is not possible then the variant is set to an invalid date/time.
 .PP
 Returns a reference to the stored date/time.
 .PP
 See also toDateTime().
-.SH "double & QVariant::asDouble ()"
+.SH "double & TQVariant::asDouble ()"
 Returns the variant's value as double reference.
-.SH "QFont & QVariant::asFont ()"
-Tries to convert the variant to hold a QFont. If that is not possible the variant is set to the application's default font.
+.SH "TQFont & TQVariant::asFont ()"
+Tries to convert the variant to hold a TQFont. If that is not possible the variant is set to the application's default font.
 .PP
 Returns a reference to the stored font.
 .PP
 See also toFont().
-.SH "QIconSet & QVariant::asIconSet ()"
-Tries to convert the variant to hold a QIconSet value. If that is not possible the variant is set to an empty iconset.
+.SH "TQIconSet & TQVariant::asIconSet ()"
+Tries to convert the variant to hold a TQIconSet value. If that is not possible the variant is set to an empty iconset.
 .PP
 Returns a reference to the stored iconset.
 .PP
 See also toIconSet().
-.SH "TQImage & QVariant::asImage ()"
+.SH "TQImage & TQVariant::asImage ()"
 Tries to convert the variant to hold an image value. If that is not possible the variant is set to a null image.
 .PP
 Returns a reference to the stored image.
 .PP
 See also toImage().
-.SH "int & QVariant::asInt ()"
+.SH "int & TQVariant::asInt ()"
 Returns the variant's value as int reference.
-.SH "QKeySequence & QVariant::asKeySequence ()"
-Tries to convert the variant to hold a QKeySequence value. If that is not possible then the variant is set to an empty key sequence.
+.SH "TQKeySequence & TQVariant::asKeySequence ()"
+Tries to convert the variant to hold a TQKeySequence value. If that is not possible then the variant is set to an empty key sequence.
 .PP
 Returns a reference to the stored key sequence.
 .PP
 See also toKeySequence().
-.SH "QValueList<QVariant> & QVariant::asList ()"
+.SH "TQValueList<TQVariant> & TQVariant::asList ()"
 Returns the variant's value as variant list reference.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QValueList<QVariant> list = myVariant.asList();
+    TQValueList<TQVariant> list = myVariant.asList();
 .br
-    QValueList<QVariant>::Iterator it = list.begin();
+    TQValueList<TQVariant>::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -744,18 +744,18 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "TQ_LLONG & QVariant::asLongLong ()"
+.SH "TQ_LLONG & TQVariant::asLongLong ()"
 Returns the variant's value as long long reference.
-.SH "QMap<TQString, QVariant> & QVariant::asMap ()"
+.SH "TQMap<TQString, TQVariant> & TQVariant::asMap ()"
 Returns the variant's value as variant map reference.
 .PP
 Note that if you want to iterate over the map, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QMap<TQString, QVariant> map = myVariant.asMap();
+    TQMap<TQString, TQVariant> map = myVariant.asMap();
 .br
-    QMap<TQString, QVariant>::Iterator it = map.begin();
+    TQMap<TQString, TQVariant>::Iterator it = map.begin();
 .br
     while( it != map.end() ) {
 .br
@@ -766,64 +766,64 @@ Note that if you want to iterate over the map, you should iterate over a copy, e
     }
 .br
 .fi
-.SH "QPalette & QVariant::asPalette ()"
-Tries to convert the variant to hold a QPalette value. If that is not possible the variant is set to a palette of black colors.
+.SH "TQPalette & TQVariant::asPalette ()"
+Tries to convert the variant to hold a TQPalette value. If that is not possible the variant is set to a palette of black colors.
 .PP
 Returns a reference to the stored palette.
 .PP
 See also toString().
-.SH "QPen & QVariant::asPen ()"
-Tries to convert the variant to hold a QPen value. If that is not possible then the variant is set to an empty pen.
+.SH "TQPen & TQVariant::asPen ()"
+Tries to convert the variant to hold a TQPen value. If that is not possible then the variant is set to an empty pen.
 .PP
 Returns a reference to the stored pen.
 .PP
 See also toPen().
-.SH "QPixmap & QVariant::asPixmap ()"
+.SH "TQPixmap & TQVariant::asPixmap ()"
 Tries to convert the variant to hold a pixmap value. If that is not possible the variant is set to a null pixmap.
 .PP
 Returns a reference to the stored pixmap.
 .PP
 See also toPixmap().
-.SH "QPoint & QVariant::asPoint ()"
+.SH "TQPoint & TQVariant::asPoint ()"
 Tries to convert the variant to hold a point value. If that is not possible the variant is set to a (0, 0) point.
 .PP
 Returns a reference to the stored point.
 .PP
 See also toPoint().
-.SH "QPointArray & QVariant::asPointArray ()"
-Tries to convert the variant to hold a QPointArray value. If that is not possible the variant is set to an empty point array.
+.SH "TQPointArray & TQVariant::asPointArray ()"
+Tries to convert the variant to hold a TQPointArray value. If that is not possible the variant is set to an empty point array.
 .PP
 Returns a reference to the stored point array.
 .PP
 See also toPointArray().
-.SH "QRect & QVariant::asRect ()"
+.SH "TQRect & TQVariant::asRect ()"
 Tries to convert the variant to hold a rectangle value. If that is not possible the variant is set to an empty rectangle.
 .PP
 Returns a reference to the stored rectangle.
 .PP
 See also toRect().
-.SH "QRegion & QVariant::asRegion ()"
-Tries to convert the variant to hold a QRegion value. If that is not possible the variant is set to a null region.
+.SH "TQRegion & TQVariant::asRegion ()"
+Tries to convert the variant to hold a TQRegion value. If that is not possible the variant is set to a null region.
 .PP
 Returns a reference to the stored region.
 .PP
 See also toRegion().
-.SH "QSize & QVariant::asSize ()"
-Tries to convert the variant to hold a QSize value. If that is not possible the variant is set to an invalid size.
+.SH "TQSize & TQVariant::asSize ()"
+Tries to convert the variant to hold a TQSize value. If that is not possible the variant is set to an invalid size.
 .PP
 Returns a reference to the stored size.
 .PP
-See also toSize() and QSize::isValid().
-.SH "QSizePolicy & QVariant::asSizePolicy ()"
-Tries to convert the variant to hold a QSizePolicy value. If that fails, the variant is set to an arbitrary (valid) size policy.
-.SH "TQString & QVariant::asString ()"
+See also toSize() and TQSize::isValid().
+.SH "TQSizePolicy & TQVariant::asSizePolicy ()"
+Tries to convert the variant to hold a TQSizePolicy value. If that fails, the variant is set to an arbitrary (valid) size policy.
+.SH "TQString & TQVariant::asString ()"
 Tries to convert the variant to hold a string value. If that is not possible the variant is set to an empty string.
 .PP
 Returns a reference to the stored string.
 .PP
 See also toString().
-.SH "QStringList & QVariant::asStringList ()"
-Tries to convert the variant to hold a QStringList value. If that is not possible the variant is set to an empty string list.
+.SH "TQStringList & TQVariant::asStringList ()"
+Tries to convert the variant to hold a TQStringList value. If that is not possible the variant is set to an empty string list.
 .PP
 Returns a reference to the stored string list.
 .PP
@@ -831,9 +831,9 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .PP
 .nf
 .br
-    QStringList list = myVariant.asStringList();
+    TQStringList list = myVariant.asStringList();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -846,17 +846,17 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 .PP
 See also toStringList().
-.SH "QTime & QVariant::asTime ()"
-Tries to convert the variant to hold a QTime value. If that is not possible then the variant is set to an invalid time.
+.SH "TQTime & TQVariant::asTime ()"
+Tries to convert the variant to hold a TQTime value. If that is not possible then the variant is set to an invalid time.
 .PP
 Returns a reference to the stored time.
 .PP
 See also toTime().
-.SH "uint & QVariant::asUInt ()"
+.SH "uint & TQVariant::asUInt ()"
 Returns the variant's value as unsigned int reference.
-.SH "TQ_ULLONG & QVariant::asULongLong ()"
+.SH "TQ_ULLONG & TQVariant::asULongLong ()"
 Returns the variant's value as unsigned long long reference.
-.SH "bool QVariant::canCast ( Type t ) const"
+.SH "bool TQVariant::canCast ( Type t ) const"
 Returns TRUE if the variant's type can be cast to the requested type, \fIt\fR. Such casting is done automatically when calling the toInt(), toBool(), ... or asInt(), asBool(), ... methods.
 .PP
 The following casts are done automatically: <center>.nf
@@ -865,144 +865,144 @@ l - l. Type Automatically Cast To Bool Double, Int, UInt, LongLong, ULongLong, S
 .TE
 .fi
 </center>
-.SH "bool QVariant::cast ( Type t )"
-Casts the variant to the requested type. If the cast cannot be done, the variant is set to the default value of the requested type (e.g. an empty string if the requested type \fIt\fR is QVariant::String, an empty point array if the requested type \fIt\fR is QVariant::PointArray, etc). Returns TRUE if the current type of the variant was successfully cast; otherwise returns FALSE.
+.SH "bool TQVariant::cast ( Type t )"
+Casts the variant to the requested type. If the cast cannot be done, the variant is set to the default value of the requested type (e.g. an empty string if the requested type \fIt\fR is TQVariant::String, an empty point array if the requested type \fIt\fR is TQVariant::PointArray, etc). Returns TRUE if the current type of the variant was successfully cast; otherwise returns FALSE.
 .PP
 See also canCast().
-.SH "void QVariant::clear ()"
+.SH "void TQVariant::clear ()"
 Convert this variant to type Invalid and free up any resources used.
-.SH "bool QVariant::isNull () const"
+.SH "bool TQVariant::isNull () const"
 Returns TRUE if this is a NULL variant, FALSE otherwise.
-.SH "bool QVariant::isValid () const"
-Returns TRUE if the storage type of this variant is not QVariant::Invalid; otherwise returns FALSE.
-.SH "QValueListConstIterator<QVariant> QVariant::listBegin () const"
+.SH "bool TQVariant::isValid () const"
+Returns TRUE if the storage type of this variant is not TQVariant::Invalid; otherwise returns FALSE.
+.SH "TQValueListConstIterator<TQVariant> TQVariant::listBegin () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns an iterator to the first item in the list if the variant's type is appropriate; otherwise returns a null iterator.
-.SH "QValueListConstIterator<QVariant> QVariant::listEnd () const"
+.SH "TQValueListConstIterator<TQVariant> TQVariant::listEnd () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the end iterator for the list if the variant's type is appropriate; otherwise returns a null iterator.
-.SH "QMapConstIterator<TQString, QVariant> QVariant::mapBegin () const"
+.SH "TQMapConstIterator<TQString, TQVariant> TQVariant::mapBegin () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns an iterator to the first item in the map, if the variant's type is appropriate; otherwise returns a null iterator.
-.SH "QMapConstIterator<TQString, QVariant> QVariant::mapEnd () const"
+.SH "TQMapConstIterator<TQString, TQVariant> TQVariant::mapEnd () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the end iterator for the map, if the variant's type is appropriate; otherwise returns a null iterator.
-.SH "QMapConstIterator<TQString, QVariant> QVariant::mapFind ( const TQString & key ) const"
+.SH "TQMapConstIterator<TQString, TQVariant> TQVariant::mapFind ( const TQString & key ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns an iterator to the item in the map with \fIkey\fR as key, if the variant's type is appropriate and \fIkey\fR is a valid key; otherwise returns a null iterator.
-.SH "Type QVariant::nameToType ( const char * name )\fC [static]\fR"
+.SH "Type TQVariant::nameToType ( const char * name )\fC [static]\fR"
 Converts the string representation of the storage type given in \fIname\fR, to its enum representation.
 .PP
 If the string representation cannot be converted to any enum representation, the variant is set to Invalid.
-.SH "bool QVariant::operator!= ( const QVariant & v ) const"
-Compares this QVariant with \fIv\fR and returns TRUE if they are not equal; otherwise returns FALSE.
-.SH "QVariant & QVariant::operator= ( const QVariant & variant )"
+.SH "bool TQVariant::operator!= ( const TQVariant & v ) const"
+Compares this TQVariant with \fIv\fR and returns TRUE if they are not equal; otherwise returns FALSE.
+.SH "TQVariant & TQVariant::operator= ( const TQVariant & variant )"
 Assigns the value of the variant \fIvariant\fR to this variant.
 .PP
 This is a deep copy of the variant, but note that if the variant holds an explicitly shared type such as TQImage, a shallow copy is performed.
-.SH "bool QVariant::operator== ( const QVariant & v ) const"
-Compares this QVariant with \fIv\fR and returns TRUE if they are equal; otherwise returns FALSE.
-.SH "QValueListConstIterator<TQString> QVariant::stringListBegin () const"
+.SH "bool TQVariant::operator== ( const TQVariant & v ) const"
+Compares this TQVariant with \fIv\fR and returns TRUE if they are equal; otherwise returns FALSE.
+.SH "TQValueListConstIterator<TQString> TQVariant::stringListBegin () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns an iterator to the first string in the list if the variant's type is StringList; otherwise returns a null iterator.
-.SH "QValueListConstIterator<TQString> QVariant::stringListEnd () const"
+.SH "TQValueListConstIterator<TQString> TQVariant::stringListEnd () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the end iterator for the list if the variant's type is StringList; otherwise returns a null iterator.
-.SH "const QBitArray QVariant::toBitArray () const"
-Returns the variant as a QBitArray if the variant has type() BitArray; otherwise returns an empty bitarray.
+.SH "const TQBitArray TQVariant::toBitArray () const"
+Returns the variant as a TQBitArray if the variant has type() BitArray; otherwise returns an empty bitarray.
 .PP
 See also asBitArray().
-.SH "const QBitmap QVariant::toBitmap () const"
-Returns the variant as a QBitmap if the variant has type() Bitmap; otherwise returns a null QBitmap.
+.SH "const TQBitmap TQVariant::toBitmap () const"
+Returns the variant as a TQBitmap if the variant has type() Bitmap; otherwise returns a null TQBitmap.
 .PP
 See also asBitmap().
-.SH "bool QVariant::toBool () const"
+.SH "bool TQVariant::toBool () const"
 Returns the variant as a bool if the variant can be cast to Bool; otherWise returns FALSE.
 .PP
 Returns TRUE if the variant has a numeric type and its value is non-zero, or if the variant has type String, ByteArray or CString and its lower-case content is not empty, "0" or "false"; otherwise returns FALSE.
 .PP
 See also asBool() and canCast().
-.SH "const QBrush QVariant::toBrush () const"
-Returns the variant as a QBrush if the variant has type() Brush; otherwise returns a default brush (with all black colors).
+.SH "const TQBrush TQVariant::toBrush () const"
+Returns the variant as a TQBrush if the variant has type() Brush; otherwise returns a default brush (with all black colors).
 .PP
 See also asBrush().
-.SH "const QByteArray QVariant::toByteArray () const"
-Returns the variant as a QByteArray if the variant can be cast to a ByteArray; otherwise returns an empty bytearray.
+.SH "const TQByteArray TQVariant::toByteArray () const"
+Returns the variant as a TQByteArray if the variant can be cast to a ByteArray; otherwise returns an empty bytearray.
 .PP
 See also asByteArray() and canCast().
-.SH "const QCString QVariant::toCString () const"
-Returns the variant as a QCString if the variant can be cast to a CString; otherwise returns 0.
+.SH "const TQCString TQVariant::toCString () const"
+Returns the variant as a TQCString if the variant can be cast to a CString; otherwise returns 0.
 .PP
 See also asCString() and canCast().
-.SH "const TQColor QVariant::toColor () const"
+.SH "const TQColor TQVariant::toColor () const"
 Returns the variant as a TQColor if the variant can be cast to Color; otherwise returns an invalid color.
 .PP
 See also asColor() and canCast().
-.SH "const QColorGroup QVariant::toColorGroup () const"
-Returns the variant as a QColorGroup if the variant has type() ColorGroup; otherwise returns a completely black color group.
+.SH "const TQColorGroup TQVariant::toColorGroup () const"
+Returns the variant as a TQColorGroup if the variant has type() ColorGroup; otherwise returns a completely black color group.
 .PP
 See also asColorGroup().
-.SH "const QCursor QVariant::toCursor () const"
-Returns the variant as a QCursor if the variant has type() Cursor; otherwise returns the default arrow cursor.
+.SH "const TQCursor TQVariant::toCursor () const"
+Returns the variant as a TQCursor if the variant has type() Cursor; otherwise returns the default arrow cursor.
 .PP
 See also asCursor().
-.SH "const QDate QVariant::toDate () const"
-Returns the variant as a QDate if the variant can be cast to Date; otherwise returns an invalid date.
+.SH "const TQDate TQVariant::toDate () const"
+Returns the variant as a TQDate if the variant can be cast to Date; otherwise returns an invalid date.
 .PP
 Note that if the type() is String, CString or ByteArray an invalid date will be returned if the string cannot be parsed as a TQt::ISODate format date.
 .PP
 See also asDate() and canCast().
-.SH "const QDateTime QVariant::toDateTime () const"
-Returns the variant as a QDateTime if the variant can be cast to DateTime; otherwise returns an invalid QDateTime.
+.SH "const TQDateTime TQVariant::toDateTime () const"
+Returns the variant as a TQDateTime if the variant can be cast to DateTime; otherwise returns an invalid TQDateTime.
 .PP
-Note that if the type() is String, CString or ByteArray an invalid QDateTime will be returned if the string cannot be parsed as a TQt::ISODate format date/time.
+Note that if the type() is String, CString or ByteArray an invalid TQDateTime will be returned if the string cannot be parsed as a TQt::ISODate format date/time.
 .PP
 See also asDateTime().
-.SH "double QVariant::toDouble ( bool * ok = 0 ) const"
+.SH "double TQVariant::toDouble ( bool * ok = 0 ) const"
 Returns the variant as a double if the variant can be cast to Double; otherwise returns 0.0.
 .PP
 If \fIok\fR is non-null: \fI*ok\fR is set to TRUE if the value could be converted to a double; otherwise \fI*ok\fR is set to FALSE.
 .PP
 See also asDouble() and canCast().
-.SH "const QFont QVariant::toFont () const"
-Returns the variant as a QFont if the variant can be cast to Font; otherwise returns the application's default font.
+.SH "const TQFont TQVariant::toFont () const"
+Returns the variant as a TQFont if the variant can be cast to Font; otherwise returns the application's default font.
 .PP
 See also asFont() and canCast().
-.SH "const QIconSet QVariant::toIconSet () const"
-Returns the variant as a QIconSet if the variant has type() IconSet; otherwise returns an icon set of null pixmaps.
+.SH "const TQIconSet TQVariant::toIconSet () const"
+Returns the variant as a TQIconSet if the variant has type() IconSet; otherwise returns an icon set of null pixmaps.
 .PP
 See also asIconSet().
-.SH "const TQImage QVariant::toImage () const"
+.SH "const TQImage TQVariant::toImage () const"
 Returns the variant as a TQImage if the variant has type() Image; otherwise returns a null image.
 .PP
 See also asImage().
-.SH "int QVariant::toInt ( bool * ok = 0 ) const"
+.SH "int TQVariant::toInt ( bool * ok = 0 ) const"
 Returns the variant as an int if the variant can be cast to Int; otherwise returns 0.
 .PP
 If \fIok\fR is non-null: \fI*ok\fR is set to TRUE if the value could be converted to an int; otherwise \fI*ok\fR is set to FALSE.
 .PP
 See also asInt() and canCast().
-.SH "const QKeySequence QVariant::toKeySequence () const"
-Returns the variant as a QKeySequence if the variant can be cast to a KeySequence; otherwise returns an empty key sequence.
+.SH "const TQKeySequence TQVariant::toKeySequence () const"
+Returns the variant as a TQKeySequence if the variant can be cast to a KeySequence; otherwise returns an empty key sequence.
 .PP
 See also asKeySequence() and canCast().
-.SH "const QValueList<QVariant> QVariant::toList () const"
-Returns the variant as a QValueList<QVariant> if the variant has type() List or StringList; otherwise returns an empty list.
+.SH "const TQValueList<TQVariant> TQVariant::toList () const"
+Returns the variant as a TQValueList<TQVariant> if the variant has type() List or StringList; otherwise returns an empty list.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QValueList<QVariant> list = myVariant.toList();
+    TQValueList<TQVariant> list = myVariant.toList();
 .br
-    QValueList<QVariant>::Iterator it = list.begin();
+    TQValueList<TQVariant>::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -1015,22 +1015,22 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 .PP
 See also asList().
-.SH "TQ_LLONG QVariant::toLongLong ( bool * ok = 0 ) const"
+.SH "TQ_LLONG TQVariant::toLongLong ( bool * ok = 0 ) const"
 Returns the variant as a long long int if the variant can be cast to LongLong; otherwise returns 0.
 .PP
 If \fIok\fR is non-null: \fI*ok\fR is set to TRUE if the value could be converted to an int; otherwise \fI*ok\fR is set to FALSE.
 .PP
 See also asLongLong() and canCast().
-.SH "const QMap<TQString, QVariant> QVariant::toMap () const"
-Returns the variant as a QMap<TQString,QVariant> if the variant has type() Map; otherwise returns an empty map.
+.SH "const TQMap<TQString, TQVariant> TQVariant::toMap () const"
+Returns the variant as a TQMap<TQString,TQVariant> if the variant has type() Map; otherwise returns an empty map.
 .PP
 Note that if you want to iterate over the map, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QMap<TQString, QVariant> map = myVariant.toMap();
+    TQMap<TQString, TQVariant> map = myVariant.toMap();
 .br
-    QMap<TQString, QVariant>::Iterator it = map.begin();
+    TQMap<TQString, TQVariant>::Iterator it = map.begin();
 .br
     while( it != map.end() ) {
 .br
@@ -1043,54 +1043,54 @@ Note that if you want to iterate over the map, you should iterate over a copy, e
 .fi
 .PP
 See also asMap().
-.SH "const QPalette QVariant::toPalette () const"
-Returns the variant as a QPalette if the variant has type() Palette; otherwise returns a completely black palette.
+.SH "const TQPalette TQVariant::toPalette () const"
+Returns the variant as a TQPalette if the variant has type() Palette; otherwise returns a completely black palette.
 .PP
 See also asPalette().
-.SH "const QPen QVariant::toPen () const"
-Returns the variant as a QPen if the variant has type() Pen; otherwise returns an empty QPen.
+.SH "const TQPen TQVariant::toPen () const"
+Returns the variant as a TQPen if the variant has type() Pen; otherwise returns an empty TQPen.
 .PP
 See also asPen().
-.SH "const QPixmap QVariant::toPixmap () const"
-Returns the variant as a QPixmap if the variant has type() Pixmap; otherwise returns a null pixmap.
+.SH "const TQPixmap TQVariant::toPixmap () const"
+Returns the variant as a TQPixmap if the variant has type() Pixmap; otherwise returns a null pixmap.
 .PP
 See also asPixmap().
-.SH "const QPoint QVariant::toPoint () const"
-Returns the variant as a QPoint if the variant has type() Point; otherwise returns a point (0, 0).
+.SH "const TQPoint TQVariant::toPoint () const"
+Returns the variant as a TQPoint if the variant has type() Point; otherwise returns a point (0, 0).
 .PP
 See also asPoint().
-.SH "const QPointArray QVariant::toPointArray () const"
-Returns the variant as a QPointArray if the variant has type() PointArray; otherwise returns an empty QPointArray.
+.SH "const TQPointArray TQVariant::toPointArray () const"
+Returns the variant as a TQPointArray if the variant has type() PointArray; otherwise returns an empty TQPointArray.
 .PP
 See also asPointArray().
-.SH "const QRect QVariant::toRect () const"
-Returns the variant as a QRect if the variant has type() Rect; otherwise returns an empty rectangle.
+.SH "const TQRect TQVariant::toRect () const"
+Returns the variant as a TQRect if the variant has type() Rect; otherwise returns an empty rectangle.
 .PP
 See also asRect().
-.SH "const QRegion QVariant::toRegion () const"
-Returns the variant as a QRegion if the variant has type() Region; otherwise returns an empty QRegion.
+.SH "const TQRegion TQVariant::toRegion () const"
+Returns the variant as a TQRegion if the variant has type() Region; otherwise returns an empty TQRegion.
 .PP
 See also asRegion().
-.SH "const QSize QVariant::toSize () const"
-Returns the variant as a QSize if the variant has type() Size; otherwise returns an invalid size.
+.SH "const TQSize TQVariant::toSize () const"
+Returns the variant as a TQSize if the variant has type() Size; otherwise returns an invalid size.
 .PP
 See also asSize().
-.SH "QSizePolicy QVariant::toSizePolicy () const"
-Returns the variant as a QSizePolicy if the variant has type() SizePolicy; otherwise returns an undefined (but legal) size policy.
-.SH "const TQString QVariant::toString () const"
+.SH "TQSizePolicy TQVariant::toSizePolicy () const"
+Returns the variant as a TQSizePolicy if the variant has type() SizePolicy; otherwise returns an undefined (but legal) size policy.
+.SH "const TQString TQVariant::toString () const"
 Returns the variant as a TQString if the variant can be cast to String, otherwise returns TQString::null.
 .PP
 See also asString() and canCast().
-.SH "const QStringList QVariant::toStringList () const"
-Returns the variant as a QStringList if the variant has type() StringList or List of a type that can be converted to TQString; otherwise returns an empty list.
+.SH "const TQStringList TQVariant::toStringList () const"
+Returns the variant as a TQStringList if the variant has type() StringList or List of a type that can be converted to TQString; otherwise returns an empty list.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myVariant.toStringList();
+    TQStringList list = myVariant.toStringList();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -1103,34 +1103,34 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 .PP
 See also asStringList().
-.SH "const QTime QVariant::toTime () const"
-Returns the variant as a QTime if the variant can be cast to Time; otherwise returns an invalid date.
+.SH "const TQTime TQVariant::toTime () const"
+Returns the variant as a TQTime if the variant can be cast to Time; otherwise returns an invalid date.
 .PP
 Note that if the type() is String, CString or ByteArray an invalid time will be returned if the string cannot be parsed as a TQt::ISODate format time.
 .PP
 See also asTime().
-.SH "uint QVariant::toUInt ( bool * ok = 0 ) const"
+.SH "uint TQVariant::toUInt ( bool * ok = 0 ) const"
 Returns the variant as an unsigned int if the variant can be cast to UInt; otherwise returns 0.
 .PP
 If \fIok\fR is non-null: \fI*ok\fR is set to TRUE if the value could be converted to an unsigned int; otherwise \fI*ok\fR is set to FALSE.
 .PP
 See also asUInt() and canCast().
-.SH "TQ_ULLONG QVariant::toULongLong ( bool * ok = 0 ) const"
+.SH "TQ_ULLONG TQVariant::toULongLong ( bool * ok = 0 ) const"
 Returns the variant as as an unsigned long long int if the variant can be cast to ULongLong; otherwise returns 0.
 .PP
 If \fIok\fR is non-null: \fI*ok\fR is set to TRUE if the value could be converted to an int; otherwise \fI*ok\fR is set to FALSE.
 .PP
 See also asULongLong() and canCast().
-.SH "Type QVariant::type () const"
+.SH "Type TQVariant::type () const"
 Returns the storage type of the value stored in the variant. Usually it's best to test with canCast() whether the variant can deliver the data type you are interested in.
-.SH "const char * QVariant::typeName () const"
-Returns the name of the type stored in the variant. The returned strings describe the C++ datatype used to store the data: for example, "QFont", "TQString", or "QValueList<QVariant>". An Invalid variant returns 0.
-.SH "const char * QVariant::typeToName ( Type typ )\fC [static]\fR"
+.SH "const char * TQVariant::typeName () const"
+Returns the name of the type stored in the variant. The returned strings describe the C++ datatype used to store the data: for example, "TQFont", "TQString", or "TQValueList<TQVariant>". An Invalid variant returns 0.
+.SH "const char * TQVariant::typeToName ( Type typ )\fC [static]\fR"
 Converts the enum representation of the storage type, \fItyp\fR, to
 its string representation.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqvariant.html
+.BR http://doc.trolltech.com/tqvariant.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

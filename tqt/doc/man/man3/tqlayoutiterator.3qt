@@ -1,5 +1,5 @@
 '\" t
-.TH QLayoutIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQLayoutIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,45 +7,45 @@
 .ad l
 .nh
 .SH NAME
-QLayoutIterator \- Iterators over QLayoutItem
+TQLayoutIterator \- Iterators over TQLayoutItem
 .SH SYNOPSIS
-\fC#include <ntqlayout.h>\fR
+\fC#include <tqlayout.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQLayoutIterator\fR ( QGLayoutIterator * gi )"
+.BI "\fBTQLayoutIterator\fR ( TQGLayoutIterator * gi )"
 .br
 .ti -1c
-.BI "\fBQLayoutIterator\fR ( const QLayoutIterator & i )"
+.BI "\fBTQLayoutIterator\fR ( const TQLayoutIterator & i )"
 .br
 .ti -1c
-.BI "\fB~QLayoutIterator\fR ()"
+.BI "\fB~TQLayoutIterator\fR ()"
 .br
 .ti -1c
-.BI "QLayoutIterator & \fBoperator=\fR ( const QLayoutIterator & i )"
+.BI "TQLayoutIterator & \fBoperator=\fR ( const TQLayoutIterator & i )"
 .br
 .ti -1c
-.BI "QLayoutItem * \fBoperator++\fR ()"
+.BI "TQLayoutItem * \fBoperator++\fR ()"
 .br
 .ti -1c
-.BI "QLayoutItem * \fBcurrent\fR ()"
+.BI "TQLayoutItem * \fBcurrent\fR ()"
 .br
 .ti -1c
-.BI "QLayoutItem * \fBtakeCurrent\fR ()"
+.BI "TQLayoutItem * \fBtakeCurrent\fR ()"
 .br
 .ti -1c
 .BI "void \fBdeleteCurrent\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QLayoutIterator class provides iterators over QLayoutItem.
+The TQLayoutIterator class provides iterators over TQLayoutItem.
 .PP
-Use QLayoutItem::iterator() to create an iterator over a layout.
+Use TQLayoutItem::iterator() to create an iterator over a layout.
 .PP
-QLayoutIterator uses \fIexplicit\fR sharing with a reference count. If an iterator is copied and one of the copies is modified, both iterators will be modified.
+TQLayoutIterator uses \fIexplicit\fR sharing with a reference count. If an iterator is copied and one of the copies is modified, both iterators will be modified.
 .PP
-A QLayoutIterator is not protected against changes in its layout. If the layout is modified or deleted the iterator will become invalid. It is not possible to test for validity. It is safe to delete an invalid layout; any other access may lead to an illegal memory reference and the abnormal termination of the program.
+A TQLayoutIterator is not protected against changes in its layout. If the layout is modified or deleted the iterator will become invalid. It is not possible to test for validity. It is safe to delete an invalid layout; any other access may lead to an illegal memory reference and the abnormal termination of the program.
 .PP
 Calling takeCurrent() or deleteCurrent() leaves the iterator in a valid state, but may invalidate any other iterators that access the same layout.
 .PP
@@ -53,13 +53,13 @@ The following code will draw a rectangle for each layout item in the layout stru
 .PP
 .nf
 .br
-    static void paintLayout( QPainter *p, QLayoutItem *lay )
+    static void paintLayout( TQPainter *p, TQLayoutItem *lay )
 .br
     {
 .br
-        QLayoutIterator it = lay->iterator();
+        TQLayoutIterator it = lay->iterator();
 .br
-        QLayoutItem *child;
+        TQLayoutItem *child;
 .br
         while ( (child = it.current()) != 0 ) {
 .br
@@ -73,11 +73,11 @@ The following code will draw a rectangle for each layout item in the layout stru
 .br
     }
 .br
-    void ExampleWidget::paintEvent( QPaintEvent * )
+    void ExampleWidget::paintEvent( TQPaintEvent * )
 .br
     {
 .br
-        QPainter p( this );
+        TQPainter p( this );
 .br
         if ( layout() )
 .br
@@ -87,27 +87,27 @@ The following code will draw a rectangle for each layout item in the layout stru
 .br
 .fi
 .PP
-All the functionality of QLayoutIterator is implemented by subclasses of QGLayoutIterator. QLayoutIterator itself is not designed to be subclassed.
+All the functionality of TQLayoutIterator is implemented by subclasses of TQGLayoutIterator. TQLayoutIterator itself is not designed to be subclassed.
 .PP
 See also Widget Appearance and Style and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QLayoutIterator::QLayoutIterator ( QGLayoutIterator * gi )"
+.SH "TQLayoutIterator::TQLayoutIterator ( TQGLayoutIterator * gi )"
 Constructs an iterator based on \fIgi\fR. The constructed iterator takes ownership of \fIgi\fR and will delete it.
 .PP
-This constructor is provided for layout implementors. Application programmers should use QLayoutItem::iterator() to create an iterator over a layout.
-.SH "QLayoutIterator::QLayoutIterator ( const QLayoutIterator & i )"
+This constructor is provided for layout implementors. Application programmers should use TQLayoutItem::iterator() to create an iterator over a layout.
+.SH "TQLayoutIterator::TQLayoutIterator ( const TQLayoutIterator & i )"
 Creates a shallow copy of \fIi\fR, i.e. if the copy is modified, then the original will also be modified.
-.SH "QLayoutIterator::~QLayoutIterator ()"
+.SH "TQLayoutIterator::~TQLayoutIterator ()"
 Destroys the iterator.
-.SH "QLayoutItem * QLayoutIterator::current ()"
+.SH "TQLayoutItem * TQLayoutIterator::current ()"
 Returns the current item, or 0 if there is no current item.
-.SH "void QLayoutIterator::deleteCurrent ()"
+.SH "void TQLayoutIterator::deleteCurrent ()"
 Removes and deletes the current child item from the layout and moves the iterator to the next item. This iterator will still be valid, but any other iterator over the same layout may become invalid.
-.SH "QLayoutItem * QLayoutIterator::operator++ ()"
+.SH "TQLayoutItem * TQLayoutIterator::operator++ ()"
 Moves the iterator to the next child item and returns that item, or 0 if there is no such item.
-.SH "QLayoutIterator & QLayoutIterator::operator= ( const QLayoutIterator & i )"
+.SH "TQLayoutIterator & TQLayoutIterator::operator= ( const TQLayoutIterator & i )"
 Assigns \fIi\fR to this iterator and returns a reference to this iterator.
-.SH "QLayoutItem * QLayoutIterator::takeCurrent ()"
+.SH "TQLayoutItem * TQLayoutIterator::takeCurrent ()"
 Removes the current child item from the layout without deleting
 it, and moves the iterator to the next item. Returns the removed
 item, or 0 if there was no item to be removed. This iterator will
@@ -115,7 +115,7 @@ still be valid, but any other iterator over the same layout may
 become invalid.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qlayoutiterator.html
+.BR http://doc.trolltech.com/tqlayoutiterator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

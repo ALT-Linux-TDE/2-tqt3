@@ -7,7 +7,7 @@
 #ifndef __SPRITES_H__
 #define __SPRITES_H__
 
-#include <ntqcanvas.h>
+#include <tqcanvas.h>
 
 #define ID_ROCK_LARGE           1024
 #define ID_ROCK_MEDIUM          1025

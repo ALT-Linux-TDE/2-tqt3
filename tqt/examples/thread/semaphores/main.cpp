@@ -6,16 +6,16 @@
 ** program may be used, distributed and modified without limitation.
 **
 *****************************************************************************/
-#include <ntqapplication.h>
-#include <ntqwidget.h>
-#include <ntqpushbutton.h>
-#include <ntqmultilineedit.h>
-#include <ntqthread.h>
-#include <ntqsemaphore.h>
-#include <ntqmutex.h>
-#include <ntqlayout.h>
-#include <ntqmessagebox.h>
-#include <ntqlabel.h>
+#include <tqapplication.h>
+#include <tqwidget.h>
+#include <tqpushbutton.h>
+#include <tqmultilineedit.h>
+#include <tqthread.h>
+#include <tqsemaphore.h>
+#include <tqmutex.h>
+#include <tqlayout.h>
+#include <tqmessagebox.h>
+#include <tqlabel.h>
 
 #if defined(TQT_NO_THREAD)
 #  error Thread support not enabled.

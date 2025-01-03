@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ntqobject.h>
+#include <tqobject.h>
 #include "myobject.h"
 
 MyObject::MyObject()

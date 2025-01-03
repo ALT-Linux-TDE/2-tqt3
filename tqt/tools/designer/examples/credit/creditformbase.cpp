@@ -2,25 +2,25 @@
 ** Form implementation generated from reading ui file 'creditformbase.ui'
 **
 ** Created: Fri Aug 10 09:48:16 2001
-**      by:  The User Interface Compiler (uic)
+**      by:  The User Interface Compiler (tquic)
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
 #include "creditformbase.h"
 
-#include <ntqvariant.h>   // first for gcc 2.7.2
-#include <ntqbuttongroup.h>
-#include <ntqpushbutton.h>
-#include <ntqradiobutton.h>
-#include <ntqspinbox.h>
-#include <ntqmime.h>
-#include <ntqdragobject.h>
-#include <ntqlayout.h>
-#include <ntqtooltip.h>
-#include <ntqwhatsthis.h>
+#include <tqvariant.h>   // first for gcc 2.7.2
+#include <tqbuttongroup.h>
+#include <tqpushbutton.h>
+#include <tqradiobutton.h>
+#include <tqspinbox.h>
+#include <tqmime.h>
+#include <tqdragobject.h>
+#include <tqlayout.h>
+#include <tqtooltip.h>
+#include <tqwhatsthis.h>
 #include "creditformbase.ui.h"
-#include <ntqimage.h>
-#include <ntqpixmap.h>
+#include <tqimage.h>
+#include <tqpixmap.h>
 
 static TQPixmap uic_load_pixmap_CreditFormBase( const TQString &name )
 {

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/sql-driver.doc:35 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -121,7 +120,7 @@ client libraries (>3.23.34) allow you to use transactions on those
 modified servers.
 <p> If you have a recent client library and connect to a
 transaction-enabled MySQL server, a call to the
-<a href="ntqsqldriver.html#hasFeature">TQSqlDriver::hasFeature</a>( TQSqlDriver::Transactions ) function returns
+<a href="tqsqldriver.html#hasFeature">TQSqlDriver::hasFeature</a>( TQSqlDriver::Transactions ) function returns
 TRUE and SQL transactions can be used.
 <p> If the plugin is compiled against MySQL 4.x client libraries,
 transactions are enabled by default.
@@ -172,15 +171,15 @@ encoding to communicate with the server.
 that this process may require a lot of memory.
 <p> Note that Oracle 9 doesn't support scrollable result sets with LOB
 columns, you have to use a forward only query to select LOB fields
-(see <a href="ntqsqlquery.html#setForwardOnly">TQSqlQuery::setForwardOnly</a>()).
+(see <a href="tqsqlquery.html#setForwardOnly">TQSqlQuery::setForwardOnly</a>()).
 <p> Inserting BLOBs should be done using either a prepared query where the
-BLOBs are bound to placeholders, or <a href="ntqsqlcursor.html">TQSqlCursor</a> which uses a prepared
+BLOBs are bound to placeholders, or <a href="tqsqlcursor.html">TQSqlCursor</a> which uses a prepared
 query to do this internally (see $TQTDIR/examples/sql/blob).
 <p> <h4> Know problems 
 </h4>
-<a name="3-2-4"></a><p> When a query is in forward only mode a call to <a href="ntqsqlquery.html#last">TQSqlQuery::last</a>() will
+<a name="3-2-4"></a><p> When a query is in forward only mode a call to <a href="tqsqlquery.html#last">TQSqlQuery::last</a>() will
 position the query on the last record and return TRUE, but subsequent 
-calls to <a href="ntqsqlquery.html#value">TQSqlQuery::value</a>() will only return NULLs.
+calls to <a href="tqsqlquery.html#value">TQSqlQuery::value</a>() will only return NULLs.
 <p> <h4> How to build the plugin on Unix/Linux
 </h4>
 <a name="3-2-5"></a><p> All files required to build driver should ship with the standard Oracle
@@ -260,14 +259,14 @@ be installed first. Note that every client that uses your application
 is required to have an ODBC driver manager installed, otherwise the
 TQODBC3 plugin will not work.
 <p> Be aware that when connecting to an ODBC datasource you must pass in
-the name of the ODBC datasource to the <a href="ntqsqldatabase.html#setDatabaseName">TQSqlDatabase::setDatabaseName</a>()
+the name of the ODBC datasource to the <a href="tqsqldatabase.html#setDatabaseName">TQSqlDatabase::setDatabaseName</a>()
 function: not the actual database name.
 <p> The TQODBC3 Plugin needs an ODBC compliant driver manager version 2.0 or
 later to work. Some ODBC drivers claim to be version 2.0 compliant,
 but do not offer all the necessary functionality. The TQODBC3 plugin
 therefore checks whether the data source can be used after a
 connection has been established and refuses to work if the check
-fails. If you don't like this behaviour, you can remove the <tt>#define ODBC_CHECK_DRIVER</tt> line from the file <tt>qsql_odbc.cpp</tt>. Do this at
+fails. If you don't like this behaviour, you can remove the <tt>#define ODBC_CHECK_DRIVER</tt> line from the file <tt>tqsql_odbc.cpp</tt>. Do this at
 your own risk!
 <p> If you experience very slow access of the ODBC datasource, make sure
 that ODBC call tracing is turned off in the ODBC datasource manager.
@@ -408,7 +407,7 @@ nmake
  
 <p> By default the Microsoft library is used on Windows, if you want to force
 the use of the Sybase Open Client, you must define
-<tt>Q_USE_SYBASE</tt> in <tt>%TQTDIR%&#92;src&#92;sql&#92;drivers&#92;tds&#92;qsql_tds.cpp</tt>.
+<tt>Q_USE_SYBASE</tt> in <tt>%TQTDIR%&#92;src&#92;sql&#92;drivers&#92;tds&#92;tqsql_tds.cpp</tt>.
 <p> <a name="TQDB2"></a>
 <h3> TQDB2 - IBM DB2 Driver (v7.1 or higher)
 </h3>
@@ -422,7 +421,7 @@ files necessary for compiling the TQDB2 plugin.
 <p> The TQDB2 driver supports prepared queries, reading/writing of Unicode
 strings and reading/writing of BLOBs.
 <p> We suggest using a forward-only query when calling stored procedures
-in DB2 (see <a href="ntqsqlquery.html#setForwardOnly">TQSqlQuery::setForwardOnly</a>()).
+in DB2 (see <a href="tqsqlquery.html#setForwardOnly">TQSqlQuery::setForwardOnly</a>()).
 <p> <h4> How to build the plugin on Unix/Linux
 </h4>
 <a name="3-6-2"></a><p> <pre>
@@ -559,16 +558,16 @@ error message.
 <p> <a name="development"></a>
 <h2> How to write your own database driver
 </h2>
-<a name="5"></a><p> <a href="ntqsqldatabase.html">TQSqlDatabase</a> is responsible for loading and managing database driver
-plugins. When a database is added (see <a href="ntqsqldatabase.html#addDatabase">TQSqlDatabase::addDatabase</a>()),
-the appropriate driver plugin is loaded (using <a href="ntqsqldriverplugin.html">TQSqlDriverPlugin</a>).
+<a name="5"></a><p> <a href="tqsqldatabase.html">TQSqlDatabase</a> is responsible for loading and managing database driver
+plugins. When a database is added (see <a href="tqsqldatabase.html#addDatabase">TQSqlDatabase::addDatabase</a>()),
+the appropriate driver plugin is loaded (using <a href="tqsqldriverplugin.html">TQSqlDriverPlugin</a>).
 TQSqlDatabase relies on the driver plugin to provide interfaces for
-<a href="ntqsqldriver.html">TQSqlDriver</a> and <a href="ntqsqlresult.html">TQSqlResult</a>.
+<a href="tqsqldriver.html">TQSqlDriver</a> and <a href="tqsqlresult.html">TQSqlResult</a>.
 <p> TQSqlDriver is an abstract base class which defines the functionality
 of a SQL database driver. This includes functions such as
-<a href="ntqsqldriver.html#open">TQSqlDriver::open</a>() and <a href="ntqsqldriver.html#close">TQSqlDriver::close</a>(). TQSqlDriver is responsible
+<a href="tqsqldriver.html#open">TQSqlDriver::open</a>() and <a href="tqsqldriver.html#close">TQSqlDriver::close</a>(). TQSqlDriver is responsible
 for connecting to a database, establish the proper environment, etc.
-In addition, TQSqlDriver can create <a href="ntqsqlquery.html">TQSqlQuery</a> objects appropriate for
+In addition, TQSqlDriver can create <a href="tqsqlquery.html">TQSqlQuery</a> objects appropriate for
 the particular database API. TQSqlDatabase forwards many of its
 function calls directly to TQSqlDriver which provides the concrete
 implementation.
@@ -577,9 +576,9 @@ of a SQL database query. This includes statements such as <tt>SELECT</tt>,
 <tt>UPDATE</tt>, and <tt>ALTER TABLE</tt>. TQSqlResult contains functions such as
 TQSqlResult::next() and TQSqlResult::value(). TQSqlResult is responsible
 for sending queries to the database, returning result data, etc.
-TQSqlQuery forwards many of its function calls directly to <a href="ntqsqlresult.html">TQSqlResult</a>
+TQSqlQuery forwards many of its function calls directly to <a href="tqsqlresult.html">TQSqlResult</a>
 which provides the concrete implementation.
-<p> <a href="ntqsqldriver.html">TQSqlDriver</a> and TQSqlResult are closely connected. When implementing a
+<p> <a href="tqsqldriver.html">TQSqlDriver</a> and TQSqlResult are closely connected. When implementing a
 TQt SQL driver, both of these classes must to be subclassed and the
 abstract virtual methods in each class must be implemented. 
 <p> To implement a TQt SQL driver as a plugin (so that it is recognized and
@@ -591,36 +590,36 @@ with TQt in <tt>TQTDIR/plugins/src/sqldrivers</tt> and
 <tt>TQTDIR/src/sql/drivers</tt>.
 <p> The following code can be used as a skeleton for a SQL driver:
 <p> <pre>
-class TQNullResult : public <a href="ntqsqlresult.html">TQSqlResult</a>
+class TQNullResult : public <a href="tqsqlresult.html">TQSqlResult</a>
 {
 public:
-    TQNullResult( const <a href="ntqsqldriver.html">TQSqlDriver</a>* d ): <a href="ntqsqlresult.html">TQSqlResult</a>( d ) {}
+    TQNullResult( const <a href="tqsqldriver.html">TQSqlDriver</a>* d ): <a href="tqsqlresult.html">TQSqlResult</a>( d ) {}
     ~TQNullResult() {}
 protected:
-    <a href="ntqvariant.html">TQVariant</a>    data( int ) { return TQVariant(); }
-    bool        reset ( const <a href="ntqstring.html">TQString</a>&amp; ) { return FALSE; }
+    <a href="tqvariant.html">TQVariant</a>    data( int ) { return TQVariant(); }
+    bool        reset ( const <a href="tqstring.html">TQString</a>&amp; ) { return FALSE; }
     bool        fetch( int ) { return FALSE; }
     bool        fetchFirst() { return FALSE; }
     bool        fetchLast() { return FALSE; }
     bool        isNull( int ) { return FALSE; }
-    <a href="ntqsqlrecord.html">TQSqlRecord</a>  record() { return TQSqlRecord(); }
+    <a href="tqsqlrecord.html">TQSqlRecord</a>  record() { return TQSqlRecord(); }
     int         size()  { return 0; }
     int         numRowsAffected() { return 0; }
 };
 
-class TQNullDriver : public <a href="ntqsqldriver.html">TQSqlDriver</a>
+class TQNullDriver : public <a href="tqsqldriver.html">TQSqlDriver</a>
 {
 public:
-    TQNullDriver(): <a href="ntqsqldriver.html">TQSqlDriver</a>() {}
+    TQNullDriver(): <a href="tqsqldriver.html">TQSqlDriver</a>() {}
     ~TQNullDriver() {}
     bool    hasFeature( DriverFeature ) const { return FALSE; }
-    bool    open( const <a href="ntqstring.html">TQString</a>&amp;,
-                  const <a href="ntqstring.html">TQString</a>&amp;,
-                  const <a href="ntqstring.html">TQString</a>&amp;,
-                  const <a href="ntqstring.html">TQString</a>&amp;,
+    bool    open( const <a href="tqstring.html">TQString</a>&amp;,
+                  const <a href="tqstring.html">TQString</a>&amp;,
+                  const <a href="tqstring.html">TQString</a>&amp;,
+                  const <a href="tqstring.html">TQString</a>&amp;,
                   int ) { return FALSE; }
     void    close() {}
-    <a href="ntqsqlquery.html">TQSqlQuery</a> createQuery() const { return TQSqlQuery( new TQNullResult( this ) ); }
+    <a href="tqsqlquery.html">TQSqlQuery</a> createQuery() const { return TQSqlQuery( new TQNullResult( this ) ); }
 };
 </pre>
  

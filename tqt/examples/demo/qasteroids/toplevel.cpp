@@ -4,13 +4,13 @@
  * Part of the KDE project
  */
 //	--- toplevel.cpp ---
-#include <ntqaccel.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqlcdnumber.h>
-#include <ntqpushbutton.h>
+#include <tqaccel.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqlcdnumber.h>
+#include <tqpushbutton.h>
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 #include "toplevel.h"
 #include "ledmeter.h"

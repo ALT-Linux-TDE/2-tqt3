@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/layout/layout.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -34,7 +33,7 @@ body { background: #ffffff; color: black; }
    
 <p> 
 This example shows simple and intermediate use of TQt's layout
-classes, <a href="qgridlayout.html">TQGridLayout</a>, <a href="qboxlayout.html">TQBoxLayout</a> etc.
+classes, <a href="tqgridlayout.html">TQGridLayout</a>, <a href="tqboxlayout.html">TQBoxLayout</a> etc.
 <p> <hr>
 <p> Implementation:
 <p> <pre>/****************************************************************************
@@ -47,83 +46,83 @@ classes, <a href="qgridlayout.html">TQGridLayout</a>, <a href="qboxlayout.html">
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
-#include &lt;<a href="qcolor-h.html">ntqcolor.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qlayout-h.html">ntqlayout.h</a>&gt;
-#include &lt;<a href="qlineedit-h.html">ntqlineedit.h</a>&gt;
-#include &lt;<a href="qmultilineedit-h.html">ntqmultilineedit.h</a>&gt;
-#include &lt;<a href="qmenubar-h.html">ntqmenubar.h</a>&gt;
-#include &lt;<a href="qpopupmenu-h.html">ntqpopupmenu.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
+#include &lt;<a href="tqcolor-h.html">tqcolor.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqlayout-h.html">tqlayout.h</a>&gt;
+#include &lt;<a href="tqlineedit-h.html">tqlineedit.h</a>&gt;
+#include &lt;<a href="tqmultilineedit-h.html">tqmultilineedit.h</a>&gt;
+#include &lt;<a href="tqmenubar-h.html">tqmenubar.h</a>&gt;
+#include &lt;<a href="tqpopupmenu-h.html">tqpopupmenu.h</a>&gt;
 
-class ExampleWidget : public <a href="ntqwidget.html">TQWidget</a>
+class ExampleWidget : public <a href="tqwidget.html">TQWidget</a>
 {
 public:
-    ExampleWidget( <a href="ntqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
+    ExampleWidget( <a href="tqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
     ~ExampleWidget();
 };
 
-<a name="f260"></a>ExampleWidget::ExampleWidget( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-    : <a href="ntqwidget.html">TQWidget</a>( parent, name )
+<a name="f260"></a>ExampleWidget::ExampleWidget( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+    : <a href="tqwidget.html">TQWidget</a>( parent, name )
 {
     // Make the top-level layout; a vertical box to contain all widgets
     // and sub-layouts.
-    <a href="qboxlayout.html">TQBoxLayout</a> *topLayout = new <a href="qvboxlayout.html">TQVBoxLayout</a>( this, 5 );
+    <a href="tqboxlayout.html">TQBoxLayout</a> *topLayout = new <a href="tqvboxlayout.html">TQVBoxLayout</a>( this, 5 );
 
     // Create a menubar...
-    <a href="ntqmenubar.html">TQMenuBar</a> *menubar = new <a href="ntqmenubar.html">TQMenuBar</a>( this );
-<a name="x540"></a>    menubar-&gt;<a href="ntqmenubar.html#setSeparator">setSeparator</a>( TQMenuBar::InWindowsStyle );
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>* popup;
-    popup = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    popup-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
-    menubar-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;File", popup );
+    <a href="tqmenubar.html">TQMenuBar</a> *menubar = new <a href="tqmenubar.html">TQMenuBar</a>( this );
+<a name="x540"></a>    menubar-&gt;<a href="tqmenubar.html#setSeparator">setSeparator</a>( TQMenuBar::InWindowsStyle );
+    <a href="tqpopupmenu.html">TQPopupMenu</a>* popup;
+    popup = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    popup-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Quit", tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
+    menubar-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;File", popup );
 
     // ...and tell the layout about it.
-<a name="x539"></a>    topLayout-&gt;<a href="ntqlayout.html#setMenuBar">setMenuBar</a>( menubar );
+<a name="x539"></a>    topLayout-&gt;<a href="tqlayout.html#setMenuBar">setMenuBar</a>( menubar );
 
     // Make an hbox that will hold a row of buttons.
-    <a href="qboxlayout.html">TQBoxLayout</a> *buttons = new <a href="qhboxlayout.html">TQHBoxLayout</a>( topLayout );
+    <a href="tqboxlayout.html">TQBoxLayout</a> *buttons = new <a href="tqhboxlayout.html">TQHBoxLayout</a>( topLayout );
     int i;
     for ( i = 1; i &lt;= 4; i++ ) {
-        <a href="ntqpushbutton.html">TQPushButton</a>* but = new <a href="ntqpushbutton.html">TQPushButton</a>( this );
-        <a href="ntqstring.html">TQString</a> s;
-<a name="x542"></a>        s.<a href="ntqstring.html#sprintf">sprintf</a>( "Button %d", i );
-<a name="x530"></a>        but-&gt;<a href="ntqbutton.html#setText">setText</a>( s );
+        <a href="tqpushbutton.html">TQPushButton</a>* but = new <a href="tqpushbutton.html">TQPushButton</a>( this );
+        <a href="tqstring.html">TQString</a> s;
+<a name="x542"></a>        s.<a href="tqstring.html#sprintf">sprintf</a>( "Button %d", i );
+<a name="x530"></a>        but-&gt;<a href="tqbutton.html#setText">setText</a>( s );
 
         // Set horizontal <a href="layout.html#stretch-factor">stretch factor</a> to 10 to let the buttons
         // stretch horizontally. The buttons will not stretch
         // vertically, since bigWidget below will take up vertical
         // stretch.
-<a name="x529"></a>        buttons-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( but, 10 );
+<a name="x529"></a>        buttons-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( but, 10 );
         // (Actually, the result would have been the same with a
         // stretch factor of 0; if no items in a layout have non-zero
         // stretch, the space is divided equally between members.)
     }
 
     // Make another hbox that will hold a left-justified row of buttons.
-    <a href="qboxlayout.html">TQBoxLayout</a> *buttons2 = new <a href="qhboxlayout.html">TQHBoxLayout</a>( topLayout );
+    <a href="tqboxlayout.html">TQBoxLayout</a> *buttons2 = new <a href="tqhboxlayout.html">TQHBoxLayout</a>( topLayout );
 
-    <a href="ntqpushbutton.html">TQPushButton</a>* but = new <a href="ntqpushbutton.html">TQPushButton</a>( "Button five", this );
-    buttons2-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( but );
+    <a href="tqpushbutton.html">TQPushButton</a>* but = new <a href="tqpushbutton.html">TQPushButton</a>( "Button five", this );
+    buttons2-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( but );
 
-    but = new <a href="ntqpushbutton.html">TQPushButton</a>( "Button 6", this );
-    buttons2-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( but );
+    but = new <a href="tqpushbutton.html">TQPushButton</a>( "Button 6", this );
+    buttons2-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( but );
 
     // Fill up the rest of the hbox with stretchable space, so that
     // the buttons get their minimum width and are pushed to the left.
-<a name="x528"></a>    buttons2-&gt;<a href="qboxlayout.html#addStretch">addStretch</a>( 10 );
+<a name="x528"></a>    buttons2-&gt;<a href="tqboxlayout.html#addStretch">addStretch</a>( 10 );
 
     // Make  a big widget that will grab all space in the middle.
-    <a href="ntqmultilineedit.html">TQMultiLineEdit</a> *bigWidget = new <a href="ntqmultilineedit.html">TQMultiLineEdit</a>( this );
-    bigWidget-&gt;<a href="ntqtextedit.html#setText">setText</a>( "This widget will get all the remaining space" );
-<a name="x531"></a>    bigWidget-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Plain );
+    <a href="tqmultilineedit.html">TQMultiLineEdit</a> *bigWidget = new <a href="tqmultilineedit.html">TQMultiLineEdit</a>( this );
+    bigWidget-&gt;<a href="tqtextedit.html#setText">setText</a>( "This widget will get all the remaining space" );
+<a name="x531"></a>    bigWidget-&gt;<a href="tqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Plain );
 
     // Set vertical stretch factor to 10 to let the bigWidget stretch
     // vertically. It will stretch horizontally because there are no
     // widgets beside it to take up horizontal stretch.
-    //    topLayout-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( bigWidget, 10 );
-    topLayout-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( bigWidget );
+    //    topLayout-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( bigWidget, 10 );
+    topLayout-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( bigWidget );
 
     // Make a grid that will hold a vertical table of TQLabel/TQLineEdit
     // pairs next to a large TQMultiLineEdit.
@@ -137,47 +136,47 @@ public:
 
     // Let the grid-layout have a spacing of 10 pixels between
     // widgets, overriding the default from topLayout.
-    <a href="qgridlayout.html">TQGridLayout</a> *grid = new <a href="qgridlayout.html">TQGridLayout</a>( topLayout, 0, 0, 10 );
+    <a href="tqgridlayout.html">TQGridLayout</a> *grid = new <a href="tqgridlayout.html">TQGridLayout</a>( topLayout, 0, 0, 10 );
     int row;
 
     for ( row = 0; row &lt; numRows; row++ ) {
-        <a href="ntqlineedit.html">TQLineEdit</a> *ed = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
+        <a href="tqlineedit.html">TQLineEdit</a> *ed = new <a href="tqlineedit.html">TQLineEdit</a>( this );
         // The line edit goes in the second column
-<a name="x533"></a>        grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( ed, row, linedCol );
+<a name="x533"></a>        grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( ed, row, linedCol );
 
         // Make a label that is a buddy of the line edit
-        <a href="ntqstring.html">TQString</a> s;
-        s.<a href="ntqstring.html#sprintf">sprintf</a>( "Line &amp;%d", row+1 );
-        <a href="ntqlabel.html">TQLabel</a> *label = new <a href="ntqlabel.html">TQLabel</a>( ed, s, this );
+        <a href="tqstring.html">TQString</a> s;
+        s.<a href="tqstring.html#sprintf">sprintf</a>( "Line &amp;%d", row+1 );
+        <a href="tqlabel.html">TQLabel</a> *label = new <a href="tqlabel.html">TQLabel</a>( ed, s, this );
         // The label goes in the first column.
-        grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( label, row, labelCol );
+        grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( label, row, labelCol );
     }
 
     // The multiline edit will cover the entire vertical range of the
     // grid (rows 0 to numRows) and stay in column 2.
 
-    <a href="ntqmultilineedit.html">TQMultiLineEdit</a> *med = new <a href="ntqmultilineedit.html">TQMultiLineEdit</a>( this );
-<a name="x532"></a>    grid-&gt;<a href="qgridlayout.html#addMultiCellWidget">addMultiCellWidget</a>( med, 0, -1, multiCol, multiCol );
+    <a href="tqmultilineedit.html">TQMultiLineEdit</a> *med = new <a href="tqmultilineedit.html">TQMultiLineEdit</a>( this );
+<a name="x532"></a>    grid-&gt;<a href="tqgridlayout.html#addMultiCellWidget">addMultiCellWidget</a>( med, 0, -1, multiCol, multiCol );
 
     // The labels will take the space they need. Let the remaining
     // horizontal space be shared so that the multiline edit gets
     // twice as much as the line edit.
-<a name="x534"></a>    grid-&gt;<a href="qgridlayout.html#setColStretch">setColStretch</a>( linedCol, 10 );
-    grid-&gt;<a href="qgridlayout.html#setColStretch">setColStretch</a>( multiCol, 20 );
+<a name="x534"></a>    grid-&gt;<a href="tqgridlayout.html#setColStretch">setColStretch</a>( linedCol, 10 );
+    grid-&gt;<a href="tqgridlayout.html#setColStretch">setColStretch</a>( multiCol, 20 );
 
     // Add a widget at the bottom.
-    <a href="ntqlabel.html">TQLabel</a>* sb = new <a href="ntqlabel.html">TQLabel</a>( this );
-    sb-&gt;<a href="ntqlabel.html#setText">setText</a>( "Let's pretend this is a status bar" );
-    sb-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
+    <a href="tqlabel.html">TQLabel</a>* sb = new <a href="tqlabel.html">TQLabel</a>( this );
+    sb-&gt;<a href="tqlabel.html#setText">setText</a>( "Let's pretend this is a status bar" );
+    sb-&gt;<a href="tqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
     // This widget will use all horizontal space, and have a fixed height.
 
     // we should have made a subclass and implemented sizePolicy there...
-<a name="x545"></a><a name="x537"></a>    sb-&gt;<a href="ntqwidget.html#setFixedHeight">setFixedHeight</a>( sb-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>().height() );
+<a name="x545"></a><a name="x537"></a>    sb-&gt;<a href="tqwidget.html#setFixedHeight">setFixedHeight</a>( sb-&gt;<a href="tqwidget.html#sizeHint">sizeHint</a>().height() );
 
-<a name="x535"></a>    sb-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( AlignVCenter | AlignLeft );
-    topLayout-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( sb );
+<a name="x535"></a>    sb-&gt;<a href="tqlabel.html#setAlignment">setAlignment</a>( AlignVCenter | AlignLeft );
+    topLayout-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( sb );
 
-<a name="x538"></a>    topLayout-&gt;<a href="ntqlayout.html#activate">activate</a>();
+<a name="x538"></a>    topLayout-&gt;<a href="tqlayout.html#activate">activate</a>();
 }
 
 ExampleWidget::~ExampleWidget()
@@ -188,14 +187,14 @@ ExampleWidget::~ExampleWidget()
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     ExampleWidget f;
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>(&amp;f);
-    f.<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - Layouts");
-    f.<a href="ntqwidget.html#show">show</a>();
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>(&amp;f);
+    f.<a href="tqwidget.html#setCaption">setCaption</a>("TQt Example - Layouts");
+    f.<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

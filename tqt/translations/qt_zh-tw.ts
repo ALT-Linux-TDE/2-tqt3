@@ -1,6 +1,6 @@
 <!DOCTYPE TS><TS>
 <context>
-    <name>QAccel</name>
+    <name>TQAccel</name>
     <message>
         <source>Space</source>
         <translation>空白鍵</translation>
@@ -283,7 +283,7 @@
     </message>
 </context>
 <context>
-    <name>QApplication</name>
+    <name>TQApplication</name>
     <message>
         <source>QT_LAYOUT_DIRECTION</source>
         <comment>Translate this string to the string &apos;LTR&apos; in left-to-right languages or to &apos;RTL&apos; in right-to-left languages (such as Hebrew and Arabic) to get proper widget layout.</comment>
@@ -310,7 +310,7 @@
     </message>
 </context>
 <context>
-    <name>QColorDialog</name>
+    <name>TQColorDialog</name>
     <message>
         <source>Hu&amp;e:</source>
         <translation>色調(&amp;E)：</translation>
@@ -369,7 +369,7 @@
     </message>
 </context>
 <context>
-    <name>QDataTable</name>
+    <name>TQDataTable</name>
     <message>
         <source>True</source>
         <translation>真</translation>
@@ -392,14 +392,14 @@
     </message>
 </context>
 <context>
-    <name>QDialog</name>
+    <name>TQDialog</name>
     <message>
         <source>What&apos;s This?</source>
         <translation>這是什麼？</translation>
     </message>
 </context>
 <context>
-    <name>QErrorMessage</name>
+    <name>TQErrorMessage</name>
     <message>
         <source>&amp;Show this message again</source>
         <translation>再顯示這則訊息(&amp;S)</translation>
@@ -422,7 +422,7 @@
     </message>
 </context>
 <context>
-    <name>QFileDialog</name>
+    <name>TQFileDialog</name>
     <message>
         <source>Copy or Move a File</source>
         <translation>複製或移動檔案</translation>
@@ -681,7 +681,7 @@ Check path and filename.</source>
     </message>
 </context>
 <context>
-    <name>QFont</name>
+    <name>TQFont</name>
     <message>
         <source>Latin</source>
         <translation>拉丁文</translation>
@@ -868,7 +868,7 @@ Check path and filename.</source>
     </message>
 </context>
 <context>
-    <name>QFontDialog</name>
+    <name>TQFontDialog</name>
     <message>
         <source>&amp;Font</source>
         <translation>字型(&amp;F)</translation>
@@ -927,7 +927,7 @@ Check path and filename.</source>
     </message>
 </context>
 <context>
-    <name>QFtp</name>
+    <name>TQFtp</name>
     <message>
         <source>Host %1 found</source>
         <translation>找到主機 %1</translation>
@@ -1028,14 +1028,14 @@ Check path and filename.</source>
     </message>
 </context>
 <context>
-    <name>QHeader</name>
+    <name>TQHeader</name>
     <message>
         <source>%1</source>
         <translation>%1</translation>
     </message>
 </context>
 <context>
-    <name>QHttp</name>
+    <name>TQHttp</name>
     <message>
         <source>Connection refused</source>
         <translation>拒絕連線</translation>
@@ -1102,7 +1102,7 @@ Check path and filename.</source>
     </message>
 </context>
 <context>
-    <name>QInputDialog</name>
+    <name>TQInputDialog</name>
     <message>
         <source>OK</source>
         <translation>確定</translation>
@@ -1113,7 +1113,7 @@ Check path and filename.</source>
     </message>
 </context>
 <context>
-    <name>QLineEdit</name>
+    <name>TQLineEdit</name>
     <message>
         <source>&amp;Undo</source>
         <translation>復原(&amp;U)</translation>
@@ -1144,7 +1144,7 @@ Check path and filename.</source>
     </message>
 </context>
 <context>
-    <name>QLocalFs</name>
+    <name>TQLocalFs</name>
     <message>
         <source>Could not rename
 %1
@@ -1187,7 +1187,7 @@ to
     </message>
 </context>
 <context>
-    <name>QMainWindow</name>
+    <name>TQMainWindow</name>
     <message>
         <source>Line up</source>
         <translation>對齊</translation>
@@ -1198,7 +1198,7 @@ to
     </message>
 </context>
 <context>
-    <name>QMenuBar</name>
+    <name>TQMenuBar</name>
     <message>
         <source>About</source>
         <translation>關於</translation>
@@ -1233,7 +1233,7 @@ to
     </message>
 </context>
 <context>
-    <name>QMessageBox</name>
+    <name>TQMessageBox</name>
     <message>
         <source>OK</source>
         <translation>確定</translation>
@@ -1263,19 +1263,19 @@ to
         <translation>忽略(&amp;I)</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;關於 Qt&lt;/h3&gt;&lt;p&gt;本程式使用 TQt 版本 %1。&lt;/p&gt;&lt;p&gt;Qt 是用於多平臺 GUI 和應用程式開發的 C++ 工具套件。&lt;/p&gt;&lt;p&gt;Qt 為 MS&amp;nbsp;Windows、Mac&amp;nbsp;OS&amp;nbsp;X、Linux 和所有主要的商用 Unix 變異版本，提供跨平臺的單一原始碼可攜性。&lt;br&gt;Qt 也可用於內嵌裝置。&lt;/p&gt;&lt;p&gt;Qt 是 Trolltech 的產品。如需詳細資訊，請參閱 &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;。&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;關於 Qt&lt;/h3&gt;&lt;p&gt;本程式使用 TQt 版本 %1。&lt;/p&gt;&lt;p&gt;Qt 是用於多平臺 GUI 和應用程式開發的 C++ 工具套件。&lt;/p&gt;&lt;p&gt;Qt 為 MS&amp;nbsp;Windows、Mac&amp;nbsp;OS&amp;nbsp;X、Linux 和所有主要的商用 Unix 變異版本，提供跨平臺的單一原始碼可攜性。&lt;/p&gt;&lt;p&gt;如需詳細資訊，請參閱 &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
-    <name>QNetworkProtocol</name>
+    <name>TQNetworkProtocol</name>
     <message>
         <source>Operation stopped by the user</source>
         <translation>作業遭到使用者停止</translation>
     </message>
 </context>
 <context>
-    <name>QPrintDialog</name>
+    <name>TQPrintDialog</name>
     <message>
         <source>locally connected</source>
         <translation>本機連接</translation>
@@ -1514,14 +1514,14 @@ to
     </message>
 </context>
 <context>
-    <name>QProgressDialog</name>
+    <name>TQProgressDialog</name>
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
 </context>
 <context>
-    <name>QRegExp</name>
+    <name>TQRegExp</name>
     <message>
         <source>no error occurred</source>
         <translation>未發生錯誤</translation>
@@ -1560,7 +1560,7 @@ to
     </message>
 </context>
 <context>
-    <name>QSql</name>
+    <name>TQSql</name>
     <message>
         <source>Delete</source>
         <translation>刪除</translation>
@@ -1603,7 +1603,7 @@ to
     </message>
 </context>
 <context>
-    <name>QTabDialog</name>
+    <name>TQTabDialog</name>
     <message>
         <source>OK</source>
         <translation>確定</translation>
@@ -1626,7 +1626,7 @@ to
     </message>
 </context>
 <context>
-    <name>QTextEdit</name>
+    <name>TQTextEdit</name>
     <message>
         <source>&amp;Undo</source>
         <translation>復原(&amp;U)</translation>
@@ -1657,7 +1657,7 @@ to
     </message>
 </context>
 <context>
-    <name>QTitleBar</name>
+    <name>TQTitleBar</name>
     <message>
         <source>System Menu</source>
         <translation>系統功能表</translation>
@@ -1688,14 +1688,14 @@ to
     </message>
 </context>
 <context>
-    <name>QToolBar</name>
+    <name>TQToolBar</name>
     <message>
         <source>More...</source>
         <translation>其他…</translation>
     </message>
 </context>
 <context>
-    <name>QUrlOperator</name>
+    <name>TQUrlOperator</name>
     <message>
         <source>The protocol `%1&apos; is not supported</source>
         <translation>不支援協定 `%1&apos;</translation>
@@ -1734,65 +1734,14 @@ to
     </message>
 </context>
 <context>
-    <name>QWSDecoration</name>
-    <message>
-        <source>&amp;Restore</source>
-        <translation>還原(&amp;R)</translation>
-    </message>
-    <message>
-        <source>&amp;Move</source>
-        <translation>移動(&amp;M)</translation>
-    </message>
-    <message>
-        <source>&amp;Size</source>
-        <translation>大小(&amp;S)</translation>
-    </message>
-    <message>
-        <source>Mi&amp;nimize</source>
-        <translation>最小化(&amp;N)</translation>
-    </message>
-    <message>
-        <source>Ma&amp;ximize</source>
-        <translation>最大化(&amp;X)</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>關閉</translation>
-    </message>
-    <message>
-        <source>Windows</source>
-        <translation>Windows</translation>
-    </message>
-    <message>
-        <source>KDE</source>
-        <translation>KDE</translation>
-    </message>
-    <message>
-        <source>KDE2</source>
-        <translation>KDE2</translation>
-    </message>
-    <message>
-        <source>BeOS</source>
-        <translation>BeOS</translation>
-    </message>
-    <message>
-        <source>Hydro</source>
-        <translation>Hydro</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>預設值</translation>
-    </message>
-</context>
-<context>
-    <name>QWhatsThisButton</name>
+    <name>TQWhatsThisButton</name>
     <message>
         <source>What&apos;s this?</source>
         <translation>這是什麼？</translation>
     </message>
 </context>
 <context>
-    <name>QWizard</name>
+    <name>TQWizard</name>
     <message>
         <source>&amp;Cancel</source>
         <translation>取消(&amp;C)</translation>
@@ -1815,7 +1764,7 @@ to
     </message>
 </context>
 <context>
-    <name>QWorkspace</name>
+    <name>TQWorkspace</name>
     <message>
         <source>&amp;Restore</source>
         <translation>還原(&amp;R)</translation>
@@ -1870,7 +1819,7 @@ to
     </message>
 </context>
 <context>
-    <name>QXml</name>
+    <name>TQXml</name>
     <message>
         <source>no error occurred</source>
         <translation>未發生錯誤</translation>

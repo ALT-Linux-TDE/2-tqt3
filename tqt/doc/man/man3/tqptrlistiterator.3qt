@@ -1,5 +1,5 @@
 '\" t
-.TH QPtrListIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPtrListIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QPtrListIterator \- Iterator for QPtrList collections
+TQPtrListIterator \- Iterator for TQPtrList collections
 .SH SYNOPSIS
-\fC#include <ntqptrlist.h>\fR
+\fC#include <tqptrlist.h>\fR
 .PP
-Inherited by QObjectListIterator and QStrListIterator.
+Inherited by TQObjectListIterator and TQStrListIterator.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQPtrListIterator\fR ( const QPtrList<type> & list )"
+.BI "\fBTQPtrListIterator\fR ( const TQPtrList<type> & list )"
 .br
 .ti -1c
-.BI "\fB~QPtrListIterator\fR ()"
+.BI "\fB~TQPtrListIterator\fR ()"
 .br
 .ti -1c
 .BI "uint \fBcount\fR () const"
@@ -64,19 +64,19 @@ Inherited by QObjectListIterator and QStrListIterator.
 .BI "type * \fBoperator-=\fR ( uint jump )"
 .br
 .ti -1c
-.BI "QPtrListIterator<type> & \fBoperator=\fR ( const QPtrListIterator<type> & it )"
+.BI "TQPtrListIterator<type> & \fBoperator=\fR ( const TQPtrListIterator<type> & it )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QPtrListIterator class provides an iterator for QPtrList collections.
+The TQPtrListIterator class provides an iterator for TQPtrList collections.
 .PP
-Define a template instance QPtrListIterator<X> to create a list iterator that operates on QPtrList<X> (list of X*).
+Define a template instance TQPtrListIterator<X> to create a list iterator that operates on TQPtrList<X> (list of X*).
 .PP
-The following example is similar to the example in the QPtrList class documentation, but it uses QPtrListIterator. The class Employee is defined there.
+The following example is similar to the example in the TQPtrList class documentation, but it uses TQPtrListIterator. The class Employee is defined there.
 .PP
 .nf
 .br
-    QPtrList<Employee> list;
+    TQPtrList<Employee> list;
 .br
 .br
     list.append( new Employee("John", "Doe", 50000) );
@@ -86,7 +86,7 @@ The following example is similar to the example in the QPtrList class documentat
     list.append( new Employee("Tom", "Jones", 60000) );
 .br
 .br
-    QPtrListIterator<Employee> it( list );
+    TQPtrListIterator<Employee> it( list );
 .br
     Employee *employee;
 .br
@@ -116,76 +116,76 @@ The output is
 .br
 .fi
 .PP
-Using a list iterator is a more robust way of traversing the list than using the QPtrList member functions first(), next(), current(), etc., as many iterators can traverse the same list independently.
+Using a list iterator is a more robust way of traversing the list than using the TQPtrList member functions first(), next(), current(), etc., as many iterators can traverse the same list independently.
 .PP
 An iterator has its own current list item and can get the next and previous list items. It doesn't modify the list in any way.
 .PP
-When an item is removed from the list, all iterators that point to that item are updated to point to QPtrList::current() instead to avoid dangling references.
+When an item is removed from the list, all iterators that point to that item are updated to point to TQPtrList::current() instead to avoid dangling references.
 .PP
-See also QPtrList, Collection Classes, and Non-GUI Classes.
+See also TQPtrList, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPtrListIterator::QPtrListIterator ( const QPtrList<type> & list )"
+.SH "TQPtrListIterator::TQPtrListIterator ( const TQPtrList<type> & list )"
 Constructs an iterator for \fIlist\fR. The current iterator item is set to point on the first item in the \fIlist\fR.
-.SH "QPtrListIterator::~QPtrListIterator ()"
+.SH "TQPtrListIterator::~TQPtrListIterator ()"
 Destroys the iterator.
-.SH "bool QPtrListIterator::atFirst () const"
+.SH "bool TQPtrListIterator::atFirst () const"
 Returns TRUE if the current iterator item is the first list item; otherwise returns FALSE.
 .PP
 See also toFirst() and atLast().
-.SH "bool QPtrListIterator::atLast () const"
+.SH "bool TQPtrListIterator::atLast () const"
 Returns TRUE if the current iterator item is the last list item; otherwise returns FALSE.
 .PP
 See also toLast() and atFirst().
-.SH "uint QPtrListIterator::count () const"
+.SH "uint TQPtrListIterator::count () const"
 Returns the number of items in the list this iterator operates on.
 .PP
 See also isEmpty().
 .PP
 Example: customlayout/card.cpp.
-.SH "type * QPtrListIterator::current () const"
+.SH "type * TQPtrListIterator::current () const"
 Returns a pointer to the current iterator item. If the iterator is positioned before the first item in the list or after the last item in the list, 0 is returned.
 .PP
 Examples:
 .)l canvas/canvas.cpp, customlayout/card.cpp, and customlayout/flow.cpp.
-.SH "bool QPtrListIterator::isEmpty () const"
+.SH "bool TQPtrListIterator::isEmpty () const"
 Returns TRUE if the list is empty; otherwise returns FALSE.
 .PP
 See also count().
-.SH "QPtrListIterator::operator type * () const"
+.SH "TQPtrListIterator::operator type * () const"
 Cast operator. Returns a pointer to the current iterator item. Same as current().
-.SH "type * QPtrListIterator::operator() ()"
+.SH "type * TQPtrListIterator::operator() ()"
 Makes the succeeding item current and returns the original current item.
 .PP
 If the current iterator item was the last item in the list or if it was 0, 0 is returned.
-.SH "type * QPtrListIterator::operator* ()"
+.SH "type * TQPtrListIterator::operator* ()"
 Asterisk operator. Returns a pointer to the current iterator item. Same as current().
-.SH "type * QPtrListIterator::operator++ ()"
+.SH "type * TQPtrListIterator::operator++ ()"
 Prefix ++ makes the succeeding item current and returns the new current item.
 .PP
 If the current iterator item was the last item in the list or if it was 0, 0 is returned.
-.SH "type * QPtrListIterator::operator+= ( uint jump )"
+.SH "type * TQPtrListIterator::operator+= ( uint jump )"
 Sets the current item to the item \fIjump\fR positions after the current item and returns a pointer to that item.
 .PP
 If that item is beyond the last item or if the list is empty, it sets the current item to 0 and returns 0
-.SH "type * QPtrListIterator::operator-- ()"
+.SH "type * TQPtrListIterator::operator-- ()"
 Prefix - makes the preceding item current and returns the new current item.
 .PP
 If the current iterator item was the first item in the list or if it was 0, 0 is returned.
-.SH "type * QPtrListIterator::operator-= ( uint jump )"
+.SH "type * TQPtrListIterator::operator-= ( uint jump )"
 Returns the item \fIjump\fR positions before the current item or 0 if it is beyond the first item. Makes this the current item.
-.SH "QPtrListIterator<type> & QPtrListIterator::operator= ( const QPtrListIterator<type> & it )"
+.SH "TQPtrListIterator<type> & TQPtrListIterator::operator= ( const TQPtrListIterator<type> & it )"
 Assignment. Makes a copy of the iterator \fIit\fR and returns a reference to this iterator.
-.SH "type * QPtrListIterator::toFirst ()"
+.SH "type * TQPtrListIterator::toFirst ()"
 Sets the current iterator item to point to the first list item and returns a pointer to the item. Sets the current item to 0 and returns 0 if the list is empty.
 .PP
 See also toLast() and atFirst().
-.SH "type * QPtrListIterator::toLast ()"
+.SH "type * TQPtrListIterator::toLast ()"
 Sets the current iterator item to point to the last list item and returns a pointer to the item. Sets the current item to 0 and returns 0 if the list is empty.
 .PP
 See also toFirst() and atLast().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qptrlistiterator.html
+.BR http://doc.trolltech.com/tqptrlistiterator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

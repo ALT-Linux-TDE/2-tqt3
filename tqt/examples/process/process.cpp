@@ -7,13 +7,13 @@
 **
 *****************************************************************************/
 
-#include <ntqobject.h>
-#include <ntqprocess.h>
-#include <ntqvbox.h>
-#include <ntqtextview.h>
-#include <ntqpushbutton.h>
-#include <ntqapplication.h>
-#include <ntqmessagebox.h>
+#include <tqobject.h>
+#include <tqprocess.h>
+#include <tqvbox.h>
+#include <tqtextview.h>
+#include <tqpushbutton.h>
+#include <tqapplication.h>
+#include <tqmessagebox.h>
 
 #include <stdlib.h>
 
@@ -49,8 +49,8 @@ UicManager::UicManager()
 
     // Set up the command and arguments.
     // On the command line you would do:
-    //   uic -tr i18n "small_dialog.ui"
-    proc->addArgument( "uic" );
+    //   tquic -tr i18n "small_dialog.ui"
+    proc->addArgument( "tquic" );
     proc->addArgument( "-tr" );
     proc->addArgument( "i18n" );
     proc->addArgument( "small_dialog.ui" );
@@ -64,7 +64,7 @@ UicManager::UicManager()
 	// error handling
 	TQMessageBox::critical( 0,
 		tr("Fatal error"),
-		tr("Could not start the uic command."),
+		tr("Could not start the tquic command."),
 		tr("Quit") );
 	exit( -1 );
     }

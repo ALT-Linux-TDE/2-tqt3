@@ -10,9 +10,9 @@
 #ifndef BIFF_H
 #define BIFF_H
 
-#include <ntqwidget.h>
-#include <ntqdatetime.h>
-#include <ntqpixmap.h>
+#include <tqwidget.h>
+#include <tqdatetime.h>
+#include <tqpixmap.h>
 
 
 class Biff : public TQWidget

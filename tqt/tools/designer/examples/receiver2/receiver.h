@@ -1,5 +1,5 @@
-#include <ntqobject.h>
-#include <ntqdialog.h>
+#include <tqobject.h>
+#include <tqdialog.h>
 
 class Receiver : public TQObject
 {

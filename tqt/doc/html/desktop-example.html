@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/desktop/desktop.doc:5 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -34,7 +33,7 @@ body { background: #ffffff; color: black; }
  
 <p> 
 The desktop demo contains three routines, each of which draws
-something on the desktop.  It does some nice stuff with <a href="ntqpainter.html">TQPainter</a>,
+something on the desktop.  It does some nice stuff with <a href="tqpainter.html">TQPainter</a>,
 and also demonstrates how one can treat the desktop as a widget like
 any other.
 <p> <hr>
@@ -49,12 +48,12 @@ any other.
 **
 *****************************************************************************/
 
-#include &lt;<a href="qimage-h.html">ntqimage.h</a>&gt;
-#include &lt;<a href="qbitmap-h.html">ntqbitmap.h</a>&gt;
-#include &lt;<a href="qpainter-h.html">ntqpainter.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qdropsite-h.html">ntqdropsite.h</a>&gt;
-#include &lt;<a href="qdragobject-h.html">ntqdragobject.h</a>&gt;
+#include &lt;<a href="tqimage-h.html">tqimage.h</a>&gt;
+#include &lt;<a href="tqbitmap-h.html">tqbitmap.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqdropsite-h.html">tqdropsite.h</a>&gt;
+#include &lt;<a href="tqdragobject-h.html">tqdragobject.h</a>&gt;
 #include &lt;stdio.h&gt;
 
 
@@ -85,8 +84,8 @@ static int velocity( int i )                    // change velocity
 
 void poly()
 {
-<a name="x1721"></a>    <a href="ntqwidget.html">TQWidget</a> *d = TQApplication::<a href="ntqapplication.html#desktop">desktop</a>();
-<a name="x1761"></a>    d-&gt;<a href="ntqwidget.html#setBackgroundColor">setBackgroundColor</a>( TQt::white );         // white desktop
+<a name="x1721"></a>    <a href="tqwidget.html">TQWidget</a> *d = TQApplication::<a href="tqapplication.html#desktop">desktop</a>();
+<a name="x1761"></a>    d-&gt;<a href="tqwidget.html#setBackgroundColor">setBackgroundColor</a>( TQt::white );         // white desktop
 
     const int maxpoints = 5;
     const int maxcurves = 8;
@@ -94,32 +93,32 @@ void poly()
     static int yvel[maxpoints];
     int head = 0;
     int tail = -maxcurves + 2;
-    <a href="ntqpointarray.html">TQPointArray</a> *a = new <a href="ntqpointarray.html">TQPointArray</a>[ maxcurves ];
+    <a href="tqpointarray.html">TQPointArray</a> *a = new <a href="tqpointarray.html">TQPointArray</a>[ maxcurves ];
     TQPointArray *p;
-<a name="x1760"></a>    <a href="ntqrect.html">TQRect</a> r = d-&gt;<a href="ntqwidget.html#rect">rect</a>();                        // desktop rectangle
+<a name="x1760"></a>    <a href="tqrect.html">TQRect</a> r = d-&gt;<a href="tqwidget.html#rect">rect</a>();                        // desktop rectangle
 
     int i;
     for ( i=0; i&lt;maxcurves; i++ )
         a[i].resize( maxpoints );
     p = &amp;a[0];
     for ( i=0; i&lt;maxpoints; i++ ) {             // setup first polygon points
-<a name="x1756"></a>        p-&gt;setPoint( i, (kindaRand()&amp;0x7fff) % r.<a href="ntqrect.html#width">width</a>(),
-<a name="x1749"></a>                        (kindaRand()&amp;0x7fff) % r.<a href="ntqrect.html#height">height</a>() );
+<a name="x1756"></a>        p-&gt;setPoint( i, (kindaRand()&amp;0x7fff) % r.<a href="tqrect.html#width">width</a>(),
+<a name="x1749"></a>                        (kindaRand()&amp;0x7fff) % r.<a href="tqrect.html#height">height</a>() );
         xvel[i] = velocity(i);
         yvel[i] = velocity(i);
     }
 
-    <a href="ntqpainter.html">TQPainter</a> paint;
-<a name="x1733"></a>    paint.<a href="ntqpainter.html#begin">begin</a>( d );                           // start painting desktop
+    <a href="tqpainter.html">TQPainter</a> paint;
+<a name="x1733"></a>    paint.<a href="tqpainter.html#begin">begin</a>( d );                           // start painting desktop
 
     for ( int ntimes=0; ntimes&lt;2000; ntimes++ ) {
-        paint.<a href="ntqpainter.html#setBrush">setBrush</a>( TQColor(kindaRand()%360, 180, 255, TQColor::Hsv) );
-<a name="x1735"></a>        paint.<a href="ntqpainter.html#drawPolygon">drawPolygon</a>( a[head] );
+        paint.<a href="tqpainter.html#setBrush">setBrush</a>( TQColor(kindaRand()%360, 180, 255, TQColor::Hsv) );
+<a name="x1735"></a>        paint.<a href="tqpainter.html#drawPolygon">drawPolygon</a>( a[head] );
         if ( ++tail &gt;= maxcurves )
             tail = 0;
 
-<a name="x1751"></a><a name="x1750"></a>        int minx=r.<a href="ntqrect.html#left">left</a>(), maxx=r.<a href="ntqrect.html#right">right</a>();
-<a name="x1755"></a><a name="x1748"></a>        int miny=r.<a href="ntqrect.html#top">top</a>(),  maxy=r.<a href="ntqrect.html#bottom">bottom</a>();
+<a name="x1751"></a><a name="x1750"></a>        int minx=r.<a href="tqrect.html#left">left</a>(), maxx=r.<a href="tqrect.html#right">right</a>();
+<a name="x1755"></a><a name="x1748"></a>        int miny=r.<a href="tqrect.html#top">top</a>(),  maxy=r.<a href="tqrect.html#bottom">bottom</a>();
         int x, y;
         p = &amp;a[head];
         if ( ++head &gt;= maxcurves )
@@ -147,7 +146,7 @@ void poly()
             a[head].setPoint( i, x, y );
         }
     }
-<a name="x1737"></a>    paint.<a href="ntqpainter.html#end">end</a>();                                // painting done
+<a name="x1737"></a>    paint.<a href="tqpainter.html#end">end</a>();                                // painting done
     delete[] a;
 }
 
@@ -161,27 +160,27 @@ void rotate()
     int i;
     const int w = 64;
     const int h = 64;
-    <a href="ntqimage.html">TQImage</a> image( w, h, 8, 128 );               // create image
+    <a href="tqimage.html">TQImage</a> image( w, h, 8, 128 );               // create image
     for ( i=0; i&lt;128; i++ )                     // build color table
-<a name="x1730"></a>        image.<a href="ntqimage.html#setColor">setColor</a>( i, tqRgb(i,0,0) );
+<a name="x1730"></a>        image.<a href="tqimage.html#setColor">setColor</a>( i, tqRgb(i,0,0) );
     for ( int y=0; y&lt;h; y++ ) {                 // set image pixels
-<a name="x1729"></a>        uchar *p = image.<a href="ntqimage.html#scanLine">scanLine</a>(y);
+<a name="x1729"></a>        uchar *p = image.<a href="tqimage.html#scanLine">scanLine</a>(y);
         for ( int x=0; x&lt;w; x++ )
             *p++ = (x+y)%128;
     }
 
-    <a href="ntqpixmap.html">TQPixmap</a> pm;
+    <a href="tqpixmap.html">TQPixmap</a> pm;
     pm = image;                                 // convert image to pixmap
-<a name="x1745"></a>    pm.<a href="ntqpixmap.html#setOptimization">setOptimization</a>( TQPixmap::BestOptim );   // rotation will be faster
+<a name="x1745"></a>    pm.<a href="tqpixmap.html#setOptimization">setOptimization</a>( TQPixmap::BestOptim );   // rotation will be faster
 
-    <a href="ntqwidget.html">TQWidget</a> *d = TQApplication::<a href="ntqapplication.html#desktop">desktop</a>();       // w = desktop widget
+    <a href="tqwidget.html">TQWidget</a> *d = TQApplication::<a href="tqapplication.html#desktop">desktop</a>();       // w = desktop widget
 
     for ( i=0; i&lt;=360; i += 2 ) {
-        <a href="ntqwmatrix.html">TQWMatrix</a> m;
-<a name="x1764"></a>        m.<a href="ntqwmatrix.html#rotate">rotate</a>( i );                          // rotate coordinate system
-<a name="x1747"></a>        <a href="ntqpixmap.html">TQPixmap</a> rpm = pm.<a href="ntqpixmap.html#xForm">xForm</a>( m );            // rpm = rotated pixmap
-<a name="x1762"></a>        d-&gt;<a href="ntqwidget.html#setBackgroundPixmap">setBackgroundPixmap</a>( rpm );          // set desktop pixmap
-<a name="x1763"></a>        d-&gt;<a href="ntqwidget.html#update">update</a>();                            // repaint desktop
+        <a href="tqwmatrix.html">TQWMatrix</a> m;
+<a name="x1764"></a>        m.<a href="tqwmatrix.html#rotate">rotate</a>( i );                          // rotate coordinate system
+<a name="x1747"></a>        <a href="tqpixmap.html">TQPixmap</a> rpm = pm.<a href="tqpixmap.html#xForm">xForm</a>( m );            // rpm = rotated pixmap
+<a name="x1762"></a>        d-&gt;<a href="tqwidget.html#setBackgroundPixmap">setBackgroundPixmap</a>( rpm );          // set desktop pixmap
+<a name="x1763"></a>        d-&gt;<a href="tqwidget.html#update">update</a>();                            // repaint desktop
     }
 }
 
@@ -189,82 +188,82 @@ void rotate()
 // Generates a marble-like pattern in pm.
 //
 
-void generateStone( <a href="ntqpixmap.html">TQPixmap</a> *pm,
-                    const <a href="ntqcolor.html">TQColor</a> &amp;c1, const <a href="ntqcolor.html">TQColor</a> &amp;c2, const <a href="ntqcolor.html">TQColor</a> &amp;c3 )
+void generateStone( <a href="tqpixmap.html">TQPixmap</a> *pm,
+                    const <a href="tqcolor.html">TQColor</a> &amp;c1, const <a href="tqcolor.html">TQColor</a> &amp;c2, const <a href="tqcolor.html">TQColor</a> &amp;c3 )
 {
-    <a href="ntqpainter.html">TQPainter</a> p;
-    <a href="ntqpen.html">TQPen</a> p1 ( c1, 0 );
-    <a href="ntqpen.html">TQPen</a> p2 ( c2, 0 );
-    <a href="ntqpen.html">TQPen</a> p3 ( c3, 0 );
+    <a href="tqpainter.html">TQPainter</a> p;
+    <a href="tqpen.html">TQPen</a> p1 ( c1, 0 );
+    <a href="tqpen.html">TQPen</a> p2 ( c2, 0 );
+    <a href="tqpen.html">TQPen</a> p3 ( c3, 0 );
 
-    p.<a href="ntqpainter.html#begin">begin</a>( pm );
-<a name="x1746"></a>    for( int i = 0 ; i &lt; pm-&gt;<a href="ntqpixmap.html#width">width</a>() ; i++ )
-<a name="x1743"></a>        for( int j = 0 ; j &lt; pm-&gt;<a href="ntqpixmap.html#height">height</a>() ; j++ ) {
+    p.<a href="tqpainter.html#begin">begin</a>( pm );
+<a name="x1746"></a>    for( int i = 0 ; i &lt; pm-&gt;<a href="tqpixmap.html#width">width</a>() ; i++ )
+<a name="x1743"></a>        for( int j = 0 ; j &lt; pm-&gt;<a href="tqpixmap.html#height">height</a>() ; j++ ) {
             int r = kindaRand();
             if ( r &lt; KINDA_RAND_MAX / 3 )
-<a name="x1741"></a>                p.<a href="ntqpainter.html#setPen">setPen</a>( p1 );
+<a name="x1741"></a>                p.<a href="tqpainter.html#setPen">setPen</a>( p1 );
             else if ( r &lt; KINDA_RAND_MAX / 3 * 2 )
-                p.<a href="ntqpainter.html#setPen">setPen</a>( p2 );
+                p.<a href="tqpainter.html#setPen">setPen</a>( p2 );
             else
-                p.<a href="ntqpainter.html#setPen">setPen</a>( p3 );
-<a name="x1734"></a>            p.<a href="ntqpainter.html#drawPoint">drawPoint</a>( i,j );
+                p.<a href="tqpainter.html#setPen">setPen</a>( p3 );
+<a name="x1734"></a>            p.<a href="tqpainter.html#drawPoint">drawPoint</a>( i,j );
         }
-    p.<a href="ntqpainter.html#end">end</a>();
+    p.<a href="tqpainter.html#end">end</a>();
 }
 
-void drawShadeText( <a href="ntqpainter.html">TQPainter</a> *p, int x, int y, const char *text,
-                    const <a href="ntqcolor.html">TQColor</a> &amp;topColor, const <a href="ntqcolor.html">TQColor</a> &amp;bottomColor,
+void drawShadeText( <a href="tqpainter.html">TQPainter</a> *p, int x, int y, const char *text,
+                    const <a href="tqcolor.html">TQColor</a> &amp;topColor, const <a href="tqcolor.html">TQColor</a> &amp;bottomColor,
                     int sw = 2 )
 {
-<a name="x1739"></a>    if ( !p-&gt;<a href="ntqpainter.html#isActive">isActive</a>() )
+<a name="x1739"></a>    if ( !p-&gt;<a href="tqpainter.html#isActive">isActive</a>() )
         return;
 
-    p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( bottomColor );
-<a name="x1736"></a>    p-&gt;<a href="ntqpainter.html#drawText">drawText</a>( x+sw, y+sw, text );
-    p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( topColor );
-    p-&gt;<a href="ntqpainter.html#drawText">drawText</a>( x, y, text );
+    p-&gt;<a href="tqpainter.html#setPen">setPen</a>( bottomColor );
+<a name="x1736"></a>    p-&gt;<a href="tqpainter.html#drawText">drawText</a>( x+sw, y+sw, text );
+    p-&gt;<a href="tqpainter.html#setPen">setPen</a>( topColor );
+    p-&gt;<a href="tqpainter.html#drawText">drawText</a>( x, y, text );
 }
 
 // NOTE: desktop drag/drop is experimental
 
-class DesktopWidget : public <a href="ntqwidget.html">TQWidget</a>, private TQDropSite
+class DesktopWidget : public <a href="tqwidget.html">TQWidget</a>, private TQDropSite
 {
 public:
     DesktopWidget( const char *s, TQWidget *parent=0, const char *name=0 );
    ~DesktopWidget();
-    void paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
+    void paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
 
-    void dragEnterEvent( <a href="qdragenterevent.html">TQDragEnterEvent</a> *e )
+    void dragEnterEvent( <a href="tqdragenterevent.html">TQDragEnterEvent</a> *e )
     {
-<a name="x1731"></a>        if ( TQImageDrag::<a href="qimagedrag.html#canDecode">canDecode</a>(e) )
-<a name="x1727"></a>            e-&gt;<a href="qdragmoveevent.html#accept">accept</a>();
+<a name="x1731"></a>        if ( TQImageDrag::<a href="tqimagedrag.html#canDecode">canDecode</a>(e) )
+<a name="x1727"></a>            e-&gt;<a href="tqdragmoveevent.html#accept">accept</a>();
     }
 
-    void dragLeaveEvent( <a href="qdragleaveevent.html">TQDragLeaveEvent</a> * )
+    void dragLeaveEvent( <a href="tqdragleaveevent.html">TQDragLeaveEvent</a> * )
     {
     }
 
-    void dragMoveEvent( <a href="qdragmoveevent.html">TQDragMoveEvent</a> *e )
+    void dragMoveEvent( <a href="tqdragmoveevent.html">TQDragMoveEvent</a> *e )
     {
-        e-&gt;<a href="qdragmoveevent.html#accept">accept</a>();
+        e-&gt;<a href="tqdragmoveevent.html#accept">accept</a>();
     }
 
-    void dropEvent( <a href="qdropevent.html">TQDropEvent</a> * e )
+    void dropEvent( <a href="tqdropevent.html">TQDropEvent</a> * e )
     {
-        <a href="ntqpixmap.html">TQPixmap</a> pmp;
-<a name="x1732"></a>        if ( TQImageDrag::<a href="qimagedrag.html#decode">decode</a>( e, pmp ) ) {
-            <a href="ntqwidget.html#setBackgroundPixmap">setBackgroundPixmap</a>( pmp );
-            <a href="ntqwidget.html#update">update</a>();
+        <a href="tqpixmap.html">TQPixmap</a> pmp;
+<a name="x1732"></a>        if ( TQImageDrag::<a href="tqimagedrag.html#decode">decode</a>( e, pmp ) ) {
+            <a href="tqwidget.html#setBackgroundPixmap">setBackgroundPixmap</a>( pmp );
+            <a href="tqwidget.html#update">update</a>();
         }
     }
 
 private:
-    <a href="ntqpixmap.html">TQPixmap</a> *pm;
-    <a href="ntqstring.html">TQString</a> text;
+    <a href="tqpixmap.html">TQPixmap</a> *pm;
+    <a href="tqstring.html">TQString</a> text;
 };
 
 <a name="f483"></a>DesktopWidget::DesktopWidget( const char *s, TQWidget *parent, const char *name )
-    : <a href="ntqwidget.html">TQWidget</a>( parent, name, WType_Desktop | WPaintDesktop),
+    : <a href="tqwidget.html">TQWidget</a>( parent, name, WType_Desktop | WPaintDesktop),
         TQDropSite(this)
 {
     text = s;
@@ -276,34 +275,34 @@ DesktopWidget::~DesktopWidget()
     delete pm;
 }
 
-void DesktopWidget::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaintevent.html">TQPaintEvent</a> * )
+void DesktopWidget::<a href="tqwidget.html#paintEvent">paintEvent</a>( <a href="tqpaintevent.html">TQPaintEvent</a> * )
 {
-    <a href="ntqcolor.html">TQColor</a> c1 = <a href="ntqwidget.html#backgroundColor">backgroundColor</a>();
-<a name="x1726"></a>    <a href="ntqcolor.html">TQColor</a> c2 = c1.<a href="ntqcolor.html#light">light</a>(104);
-<a name="x1725"></a>    <a href="ntqcolor.html">TQColor</a> c3 = c1.<a href="ntqcolor.html#dark">dark</a>(106);
+    <a href="tqcolor.html">TQColor</a> c1 = <a href="tqwidget.html#backgroundColor">backgroundColor</a>();
+<a name="x1726"></a>    <a href="tqcolor.html">TQColor</a> c2 = c1.<a href="tqcolor.html#light">light</a>(104);
+<a name="x1725"></a>    <a href="tqcolor.html">TQColor</a> c3 = c1.<a href="tqcolor.html#dark">dark</a>(106);
     if ( !pm ) {
-        pm = new <a href="ntqpixmap.html">TQPixmap</a>( 64, 64 );
+        pm = new <a href="tqpixmap.html">TQPixmap</a>( 64, 64 );
         generateStone( pm, c1, c2, c3 );
-        <a href="ntqwidget.html#setBackgroundPixmap">setBackgroundPixmap</a>( *pm );
-        <a href="ntqwidget.html#update">update</a>();
+        <a href="tqwidget.html#setBackgroundPixmap">setBackgroundPixmap</a>( *pm );
+        <a href="tqwidget.html#update">update</a>();
     }
-    <a href="ntqrect.html">TQRect</a> br = <a href="ntqwidget.html#fontMetrics">fontMetrics</a>().boundingRect( text );
-    <a href="ntqpixmap.html">TQPixmap</a> offscreen( br.<a href="ntqrect.html#width">width</a>(), br.<a href="ntqrect.html#height">height</a>() );
-    int x = <a href="ntqwidget.html#width">width</a>()/2  - br.<a href="ntqrect.html#width">width</a>()/2;
-    int y = <a href="ntqwidget.html#height">height</a>()/2 - br.<a href="ntqrect.html#height">height</a>()/2;
-<a name="x1742"></a>    offscreen.<a href="ntqpixmap.html#fill">fill</a>( this, x, y );
-    <a href="ntqpainter.html">TQPainter</a> p;
-    p.<a href="ntqpainter.html#begin">begin</a>( &amp;offscreen );
-<a name="x1758"></a><a name="x1757"></a>    drawShadeText( &amp;p, -br.<a href="ntqrect.html#x">x</a>(), -br.<a href="ntqrect.html#y">y</a>(), text, c2, c3, 3 );
-    p.<a href="ntqpainter.html#end">end</a>();
-    <a href="ntqimage.html#bitBlt">bitBlt</a>( this, x, y, &amp;offscreen );
+    <a href="tqrect.html">TQRect</a> br = <a href="tqwidget.html#fontMetrics">fontMetrics</a>().boundingRect( text );
+    <a href="tqpixmap.html">TQPixmap</a> offscreen( br.<a href="tqrect.html#width">width</a>(), br.<a href="tqrect.html#height">height</a>() );
+    int x = <a href="tqwidget.html#width">width</a>()/2  - br.<a href="tqrect.html#width">width</a>()/2;
+    int y = <a href="tqwidget.html#height">height</a>()/2 - br.<a href="tqrect.html#height">height</a>()/2;
+<a name="x1742"></a>    offscreen.<a href="tqpixmap.html#fill">fill</a>( this, x, y );
+    <a href="tqpainter.html">TQPainter</a> p;
+    p.<a href="tqpainter.html#begin">begin</a>( &amp;offscreen );
+<a name="x1758"></a><a name="x1757"></a>    drawShadeText( &amp;p, -br.<a href="tqrect.html#x">x</a>(), -br.<a href="tqrect.html#y">y</a>(), text, c2, c3, 3 );
+    p.<a href="tqpainter.html#end">end</a>();
+    <a href="tqimage.html#bitBlt">bitBlt</a>( this, x, y, &amp;offscreen );
 }
 
 void desktopWidget( const char *s = "Trolltech" )
 {
     DesktopWidget *t = new DesktopWidget(s);
-    t-&gt;<a href="ntqwidget.html#update">update</a>();
-    tqApp-&gt;<a href="ntqapplication.html#exec">exec</a>();
+    t-&gt;<a href="tqwidget.html#update">update</a>();
+    tqApp-&gt;<a href="tqapplication.html#exec">exec</a>();
     delete t;
 }
 
@@ -311,31 +310,31 @@ void desktopText( const char *s = "Trolltech" )
 {
     const int border = 20;
 
-<a name="x1723"></a>    <a href="ntqcolor.html">TQColor</a> c1 =  tqApp-&gt;<a href="ntqapplication.html#palette">palette</a>().inactive().background();
-    <a href="ntqcolor.html">TQColor</a> c2 = c1.<a href="ntqcolor.html#light">light</a>(104);
-    <a href="ntqcolor.html">TQColor</a> c3 = c1.<a href="ntqcolor.html#dark">dark</a>(106);
+<a name="x1723"></a>    <a href="tqcolor.html">TQColor</a> c1 =  tqApp-&gt;<a href="tqapplication.html#palette">palette</a>().inactive().background();
+    <a href="tqcolor.html">TQColor</a> c2 = c1.<a href="tqcolor.html#light">light</a>(104);
+    <a href="tqcolor.html">TQColor</a> c3 = c1.<a href="tqcolor.html#dark">dark</a>(106);
 
-    <a href="ntqpixmap.html">TQPixmap</a> pm(10,10);
+    <a href="tqpixmap.html">TQPixmap</a> pm(10,10);
 
-    <a href="ntqpainter.html">TQPainter</a> p;
-    p.<a href="ntqpainter.html#begin">begin</a>( &amp;pm );
-<a name="x1738"></a>    <a href="ntqrect.html">TQRect</a> r = p.<a href="ntqpainter.html#fontMetrics">fontMetrics</a>().boundingRect( s );
-    p.<a href="ntqpainter.html#end">end</a>();
+    <a href="tqpainter.html">TQPainter</a> p;
+    p.<a href="tqpainter.html#begin">begin</a>( &amp;pm );
+<a name="x1738"></a>    <a href="tqrect.html">TQRect</a> r = p.<a href="tqpainter.html#fontMetrics">fontMetrics</a>().boundingRect( s );
+    p.<a href="tqpainter.html#end">end</a>();
 
-    int appWidth  =  tqApp-&gt;<a href="ntqapplication.html#desktop">desktop</a>()-&gt;width();
-    int appHeight =  tqApp-&gt;<a href="ntqapplication.html#desktop">desktop</a>()-&gt;height();
-    if ( r.<a href="ntqrect.html#width">width</a>() &gt; appWidth - border*2 )
-<a name="x1753"></a>        r.<a href="ntqrect.html#setWidth">setWidth</a>( appWidth - border*2 );
-    if ( r.<a href="ntqrect.html#height">height</a>() &gt; appHeight - border*2 )
-<a name="x1752"></a>        r.<a href="ntqrect.html#setHeight">setHeight</a>( appHeight - border*2 );
+    int appWidth  =  tqApp-&gt;<a href="tqapplication.html#desktop">desktop</a>()-&gt;width();
+    int appHeight =  tqApp-&gt;<a href="tqapplication.html#desktop">desktop</a>()-&gt;height();
+    if ( r.<a href="tqrect.html#width">width</a>() &gt; appWidth - border*2 )
+<a name="x1753"></a>        r.<a href="tqrect.html#setWidth">setWidth</a>( appWidth - border*2 );
+    if ( r.<a href="tqrect.html#height">height</a>() &gt; appHeight - border*2 )
+<a name="x1752"></a>        r.<a href="tqrect.html#setHeight">setHeight</a>( appHeight - border*2 );
 
-<a name="x1754"></a><a name="x1744"></a>    pm.<a href="ntqpixmap.html#resize">resize</a>( r.<a href="ntqrect.html#size">size</a>() + TQSize( border*2, border*2 ) );
+<a name="x1754"></a><a name="x1744"></a>    pm.<a href="tqpixmap.html#resize">resize</a>( r.<a href="tqrect.html#size">size</a>() + TQSize( border*2, border*2 ) );
     generateStone( &amp;pm, c1, c2, c3 );
-    p.<a href="ntqpainter.html#begin">begin</a>( &amp;pm );
-    drawShadeText( &amp;p, -r.<a href="ntqrect.html#x">x</a>() + border, -r.<a href="ntqrect.html#y">y</a>() + border, s, c2, c3 );
-    p.<a href="ntqpainter.html#end">end</a>();
+    p.<a href="tqpainter.html#begin">begin</a>( &amp;pm );
+    drawShadeText( &amp;p, -r.<a href="tqrect.html#x">x</a>() + border, -r.<a href="tqrect.html#y">y</a>() + border, s, c2, c3 );
+    p.<a href="tqpainter.html#end">end</a>();
 
-    tqApp-&gt;<a href="ntqapplication.html#desktop">desktop</a>()-&gt;setBackgroundPixmap( pm );
+    tqApp-&gt;<a href="tqapplication.html#desktop">desktop</a>()-&gt;setBackgroundPixmap( pm );
 }
 
 //
@@ -344,12 +343,12 @@ void desktopText( const char *s = "Trolltech" )
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv );
 
     if ( argc &gt; 1 ) {
-        <a href="ntqfont.html">TQFont</a> f( "charter", 96, TQFont::Black );
-<a name="x1728"></a>        f.<a href="ntqfont.html#setStyleHint">setStyleHint</a>( TQFont::Times );
-<a name="x1724"></a>        app.<a href="ntqapplication.html#setFont">setFont</a>( f );
+        <a href="tqfont.html">TQFont</a> f( "charter", 96, TQFont::Black );
+<a name="x1728"></a>        f.<a href="tqfont.html#setStyleHint">setStyleHint</a>( TQFont::Times );
+<a name="x1724"></a>        app.<a href="tqapplication.html#setFont">setFont</a>( f );
     }
 
     bool validOptions = FALSE;

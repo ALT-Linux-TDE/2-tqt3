@@ -1,0 +1,1 @@
+../src/opengl/tqglcolormap.h

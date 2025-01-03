@@ -1,5 +1,5 @@
 '\" t
-.TH QAsciiDictIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQAsciiDictIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,17 +7,17 @@
 .ad l
 .nh
 .SH NAME
-QAsciiDictIterator \- Iterator for QAsciiDict collections
+TQAsciiDictIterator \- Iterator for TQAsciiDict collections
 .SH SYNOPSIS
-\fC#include <ntqasciidict.h>\fR
+\fC#include <tqasciidict.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQAsciiDictIterator\fR ( const QAsciiDict<type> & dict )"
+.BI "\fBTQAsciiDictIterator\fR ( const TQAsciiDict<type> & dict )"
 .br
 .ti -1c
-.BI "\fB~QAsciiDictIterator\fR ()"
+.BI "\fB~TQAsciiDictIterator\fR ()"
 .br
 .ti -1c
 .BI "uint \fBcount\fR () const"
@@ -48,21 +48,21 @@ QAsciiDictIterator \- Iterator for QAsciiDict collections
 .br
 .in -1c
 .SH DESCRIPTION
-The QAsciiDictIterator class provides an iterator for QAsciiDict collections.
+The TQAsciiDictIterator class provides an iterator for TQAsciiDict collections.
 .PP
-QAsciiDictIterator is implemented as a template class. Define a template instance QAsciiDictIterator<X> to create a dictionary iterator that operates on QAsciiDict<X> (dictionary of X*).
+TQAsciiDictIterator is implemented as a template class. Define a template instance TQAsciiDictIterator<X> to create a dictionary iterator that operates on TQAsciiDict<X> (dictionary of X*).
 .PP
 Example:
 .PP
 .nf
 .br
-    QAsciiDict<QLineEdit> fields;
+    TQAsciiDict<TQLineEdit> fields;
 .br
-    fields.insert( "forename", new QLineEdit( this ) );
+    fields.insert( "forename", new TQLineEdit( this ) );
 .br
-    fields.insert( "surname", new QLineEdit( this ) );
+    fields.insert( "surname", new TQLineEdit( this ) );
 .br
-    fields.insert( "age", new QLineEdit( this ) );
+    fields.insert( "age", new TQLineEdit( this ) );
 .br
 .br
     fields["forename"]->setText( "Homer" );
@@ -72,7 +72,7 @@ Example:
     fields["age"]->setText( "45" );
 .br
 .br
-    QAsciiDictIterator<QLineEdit> it( fields );
+    TQAsciiDictIterator<TQLineEdit> it( fields );
 .br
     for( ; it.current(); ++it )
 .br
@@ -94,47 +94,47 @@ In the example we insert some line edits into a dictionary, then iterate over th
 .PP
 Note that the traversal order is arbitrary; you are not guaranteed any particular order.
 .PP
-Multiple iterators may independently traverse the same dictionary. A QAsciiDict knows about all the iterators that are operating on the dictionary. When an item is removed from the dictionary, QAsciiDict updates all the iterators that are referring to the removed item to point to the next item in the (arbitrary) traversal order.
+Multiple iterators may independently traverse the same dictionary. A TQAsciiDict knows about all the iterators that are operating on the dictionary. When an item is removed from the dictionary, TQAsciiDict updates all the iterators that are referring to the removed item to point to the next item in the (arbitrary) traversal order.
 .PP
-See also QAsciiDict, Collection Classes, and Non-GUI Classes.
+See also TQAsciiDict, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QAsciiDictIterator::QAsciiDictIterator ( const QAsciiDict<type> & dict )"
+.SH "TQAsciiDictIterator::TQAsciiDictIterator ( const TQAsciiDict<type> & dict )"
 Constructs an iterator for \fIdict\fR. The current iterator item is set to point on the first item in the \fIdict\fR.
-.SH "QAsciiDictIterator::~QAsciiDictIterator ()"
+.SH "TQAsciiDictIterator::~TQAsciiDictIterator ()"
 Destroys the iterator.
-.SH "uint QAsciiDictIterator::count () const"
+.SH "uint TQAsciiDictIterator::count () const"
 Returns the number of items in the dictionary this iterator operates over.
 .PP
 See also isEmpty().
-.SH "type * QAsciiDictIterator::current () const"
+.SH "type * TQAsciiDictIterator::current () const"
 Returns a pointer to the current iterator item.
-.SH "const char * QAsciiDictIterator::currentKey () const"
+.SH "const char * TQAsciiDictIterator::currentKey () const"
 Returns a pointer to the key for the current iterator item.
-.SH "bool QAsciiDictIterator::isEmpty () const"
+.SH "bool TQAsciiDictIterator::isEmpty () const"
 Returns TRUE if the dictionary is empty, i.e. count() == 0, otherwise returns FALSE.
 .PP
 See also count().
-.SH "QAsciiDictIterator::operator type * () const"
+.SH "TQAsciiDictIterator::operator type * () const"
 Cast operator. Returns a pointer to the current iterator item. Same as current().
-.SH "type * QAsciiDictIterator::operator() ()"
+.SH "type * TQAsciiDictIterator::operator() ()"
 Makes the succeeding item current and returns the original current item.
 .PP
 If the current iterator item was the last item in the dictionary or if it was 0, 0 is returned.
-.SH "type * QAsciiDictIterator::operator++ ()"
+.SH "type * TQAsciiDictIterator::operator++ ()"
 Prefix ++ makes the succeeding item current and returns the new current item.
 .PP
 If the current iterator item was the last item in the dictionary or if it was 0, 0 is returned.
-.SH "type * QAsciiDictIterator::operator+= ( uint jump )"
+.SH "type * TQAsciiDictIterator::operator+= ( uint jump )"
 Sets the current item to the item \fIjump\fR positions after the current item, and returns a pointer to that item.
 .PP
 If that item is beyond the last item or if the dictionary is empty, it sets the current item to 0 and returns 0.
-.SH "type * QAsciiDictIterator::toFirst ()"
+.SH "type * TQAsciiDictIterator::toFirst ()"
 Sets the current iterator item to point to the first item in the
 dictionary and returns a pointer to the item. If the dictionary is
 empty it sets the current item to 0 and returns 0.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qasciidictiterator.html
+.BR http://doc.trolltech.com/tqasciidictiterator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

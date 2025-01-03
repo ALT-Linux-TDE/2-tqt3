@@ -1,16 +1,16 @@
 TEMPLATE = lib
-TARGET	 = qmotifplusstyle
+TARGET	 = tqmotifplusstyle
 
 CONFIG  += qt warn_off release plugin
 DESTDIR	 = ../../../styles
 
-HEADERS		= ../../../../include/ntqmotifplusstyle.h
+HEADERS		= ../../../../include/tqmotifplusstyle.h
 SOURCES		= main.cpp \
-		  ../../../../src/styles/qmotifplusstyle.cpp
+		  ../../../../src/styles/tqmotifplusstyle.cpp
 
 !contains(styles, motif) {
-	HEADERS += ../../../../include/ntqmotifstyle.h
-	SOURCES += ../../../../src/styles/qmotifstyle.cpp
+	HEADERS += ../../../../include/tqmotifstyle.h
+	SOURCES += ../../../../src/styles/tqmotifstyle.cpp
 }
 
 unix:OBJECTS_DIR	= .obj

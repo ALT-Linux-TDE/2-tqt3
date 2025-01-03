@@ -10,7 +10,7 @@
 #ifndef RANGECONTROLS_H
 #define RANGECONTROLS_H
 
-#include <ntqvbox.h>
+#include <tqvbox.h>
 
 class TQCheckBox;
 

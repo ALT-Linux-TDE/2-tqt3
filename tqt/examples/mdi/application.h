@@ -10,8 +10,8 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <ntqmainwindow.h>
-#include <ntqptrlist.h>
+#include <tqmainwindow.h>
+#include <tqptrlist.h>
 
 class TQTextEdit;
 class TQToolBar;

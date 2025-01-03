@@ -18,28 +18,28 @@
 #  if defined(__GNUC__)
 #    ifndef TQT_NO_STL
 #      include <ios>
-#      undef _GLIBCPP_FULLY_COMPLIANT_HEADERS  // Makes qlocale.cpp compile
+#      undef _GLIBCPP_FULLY_COMPLIANT_HEADERS  // Makes tqlocale.cpp compile
 #    endif
 #  endif
-#include <ntqmap.h>		    // I must be first!
-#include <private/qucomextra_p.h>  // All moc genereated code has this include
-#include <ntqapplication.h>
-#include <ntqbitmap.h>
-#include <ntqcursor.h>
-#include <ntqdatetime.h>
-#include <ntqglobal.h>
-#include <ntqimage.h>
-#include <ntqmetaobject.h>  // All moc genereated code has this include
-#include <ntqobject.h>
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
+#include <tqmap.h>		    // I must be first!
+#include <private/tqucomextra_p.h>  // All moc genereated code has this include
+#include <tqapplication.h>
+#include <tqbitmap.h>
+#include <tqcursor.h>
+#include <tqdatetime.h>
+#include <tqglobal.h>
+#include <tqimage.h>
+#include <tqmetaobject.h>  // All moc genereated code has this include
+#include <tqobject.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
 #include <qplatformdefs.h>
-#include <ntqptrlist.h>
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqstyle.h>
-#include <ntqtimer.h>
-#include <ntqwidget.h>
+#include <tqptrlist.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqstyle.h>
+#include <tqtimer.h>
+#include <tqwidget.h>
 
 #include <limits.h>
 #include <stdlib.h>

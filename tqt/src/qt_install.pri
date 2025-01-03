@@ -4,8 +4,8 @@ INSTALLS += target
 
 #headers
 headers.files  = ../include/*.h
-headers.files += $$QT_BUILD_TREE/include/ntqconfig.h \
-                 $$QT_BUILD_TREE/include/ntqmodules.h 
+headers.files += $$QT_BUILD_TREE/include/tqconfig.h \
+                 $$QT_BUILD_TREE/include/tqmodules.h 
 isEmpty(headers_p.path):headers_p.path=$$headers.path/private
 headers_p.files = ../include/private/*.h
 INSTALLS += headers headers_p

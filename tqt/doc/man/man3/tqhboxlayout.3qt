@@ -1,5 +1,5 @@
 '\" t
-.TH QHBoxLayout 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQHBoxLayout 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,37 +7,37 @@
 .ad l
 .nh
 .SH NAME
-QHBoxLayout \- Lines up widgets horizontally
+TQHBoxLayout \- Lines up widgets horizontally
 .SH SYNOPSIS
-\fC#include <ntqlayout.h>\fR
+\fC#include <tqlayout.h>\fR
 .PP
-Inherits QBoxLayout.
+Inherits TQBoxLayout.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQHBoxLayout\fR ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
+.BI "\fBTQHBoxLayout\fR ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQHBoxLayout\fR ( QLayout * parentLayout, int spacing = -1, const char * name = 0 )"
+.BI "\fBTQHBoxLayout\fR ( TQLayout * parentLayout, int spacing = -1, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQHBoxLayout\fR ( int spacing = -1, const char * name = 0 )"
+.BI "\fBTQHBoxLayout\fR ( int spacing = -1, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QHBoxLayout\fR ()"
+.BI "\fB~TQHBoxLayout\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QHBoxLayout class lines up widgets horizontally.
+The TQHBoxLayout class lines up widgets horizontally.
 .PP
-This class is used to construct horizontal box layout objects. See QBoxLayout for more details.
+This class is used to construct horizontal box layout objects. See TQBoxLayout for more details.
 .PP
 The simplest use of the class is like this:
 .PP
 .nf
 .br
-        QBoxLayout * l = new QHBoxLayout( widget );
+        TQBoxLayout * l = new TQHBoxLayout( widget );
 .br
         l->setAutoAdd( TRUE );
 .br
@@ -53,7 +53,7 @@ or like this:
 .PP
 .nf
 .br
-        QBoxLayout * l = new QHBoxLayout( widget );
+        TQBoxLayout * l = new TQHBoxLayout( widget );
 .br
         l->addWidget( existingChildOfWidget );
 .br
@@ -67,27 +67,27 @@ or like this:
 .PP
 </center>
 .PP
-See also QVBoxLayout, QGridLayout, the Layout overview, Widget Appearance and Style, and Layout Management.
+See also TQVBoxLayout, TQGridLayout, the Layout overview, Widget Appearance and Style, and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QHBoxLayout::QHBoxLayout ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
+.SH "TQHBoxLayout::TQHBoxLayout ( TQWidget * parent, int margin = 0, int spacing = -1, const char * name = 0 )"
 Constructs a new top-level horizontal box called \fIname\fR, with parent \fIparent\fR.
 .PP
 The \fImargin\fR is the number of pixels between the edge of the widget and its managed children. The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1 the value of \fImargin\fR is used for \fIspacing\fR.
-.SH "QHBoxLayout::QHBoxLayout ( QLayout * parentLayout, int spacing = -1, const char * name = 0 )"
+.SH "TQHBoxLayout::TQHBoxLayout ( TQLayout * parentLayout, int spacing = -1, const char * name = 0 )"
 Constructs a new horizontal box called name \fIname\fR and adds it to \fIparentLayout\fR.
 .PP
-The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1, this QHBoxLayout will inherit its parent's spacing().
-.SH "QHBoxLayout::QHBoxLayout ( int spacing = -1, const char * name = 0 )"
+The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1, this TQHBoxLayout will inherit its parent's spacing().
+.SH "TQHBoxLayout::TQHBoxLayout ( int spacing = -1, const char * name = 0 )"
 Constructs a new horizontal box called name \fIname\fR. You must add it to another layout.
 .PP
-The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1, this QHBoxLayout will inherit its parent's spacing().
-.SH "QHBoxLayout::~QHBoxLayout ()"
+The \fIspacing\fR is the default number of pixels between neighboring children. If \fIspacing\fR is -1, this TQHBoxLayout will inherit its parent's spacing().
+.SH "TQHBoxLayout::~TQHBoxLayout ()"
 Destroys this box layout.
 .PP
 The layout's widgets aren't destroyed.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qhboxlayout.html
+.BR http://doc.trolltech.com/tqhboxlayout.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

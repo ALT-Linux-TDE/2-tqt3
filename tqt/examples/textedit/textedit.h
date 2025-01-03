@@ -10,8 +10,8 @@
 #ifndef TEXTEDIT_H
 #define TEXTEDIT_H
 
-#include <ntqmainwindow.h>
-#include <ntqmap.h>
+#include <tqmainwindow.h>
+#include <tqmap.h>
 
 class TQAction;
 class TQComboBox;

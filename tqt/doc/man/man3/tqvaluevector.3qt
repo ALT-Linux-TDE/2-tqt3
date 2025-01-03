@@ -1,5 +1,5 @@
 '\" t
-.TH QValueVector 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQValueVector 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QValueVector \- Value-based template class that provides a dynamic array
+TQValueVector \- Value-based template class that provides a dynamic array
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqvaluevector.h>\fR
+\fC#include <tqvaluevector.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -43,28 +43,28 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "typedef ptrdiff_t \fBdifference_type\fR"
 .br
 .ti -1c
-.BI "\fBQValueVector\fR ()"
+.BI "\fBTQValueVector\fR ()"
 .br
 .ti -1c
-.BI "\fBQValueVector\fR ( const QValueVector<T> & v )"
+.BI "\fBTQValueVector\fR ( const TQValueVector<T> & v )"
 .br
 .ti -1c
-.BI "\fBQValueVector\fR ( size_type n, const T & val = T ( ) )"
+.BI "\fBTQValueVector\fR ( size_type n, const T & val = T ( ) )"
 .br
 .ti -1c
-.BI "\fBQValueVector\fR ( std::vector<T> & v )"
+.BI "\fBTQValueVector\fR ( std::vector<T> & v )"
 .br
 .ti -1c
-.BI "\fBQValueVector\fR ( const std::vector<T> & v )"
+.BI "\fBTQValueVector\fR ( const std::vector<T> & v )"
 .br
 .ti -1c
-.BI "\fB~QValueVector\fR ()"
+.BI "\fB~TQValueVector\fR ()"
 .br
 .ti -1c
-.BI "QValueVector<T> & \fBoperator=\fR ( const QValueVector<T> & v )"
+.BI "TQValueVector<T> & \fBoperator=\fR ( const TQValueVector<T> & v )"
 .br
 .ti -1c
-.BI "QValueVector<T> & \fBoperator=\fR ( const std::vector<T> & v )"
+.BI "TQValueVector<T> & \fBoperator=\fR ( const std::vector<T> & v )"
 .br
 .ti -1c
 .BI "size_type \fBsize\fR () const"
@@ -145,10 +145,10 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "iterator \fBerase\fR ( iterator first, iterator last )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QValueVector<T> & x )"
+.BI "bool \fBoperator==\fR ( const TQValueVector<T> & x )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QValueVector<T> & x ) const"
+.BI "bool \fBoperator==\fR ( const TQValueVector<T> & x ) const"
 .br
 .ti -1c
 .BI "typedef T \fBValueType\fR"
@@ -182,17 +182,17 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .br
 .in -1c
 .SH DESCRIPTION
-The QValueVector class is a value-based template class that provides a dynamic array.
+The TQValueVector class is a value-based template class that provides a dynamic array.
 .PP
-QValueVector is a TQt implementation of an STL-like vector container. It can be used in your application if the standard \fCvector\fR is not available for your target platforms. QValueVector is part of the TQt Template Library.
+TQValueVector is a TQt implementation of an STL-like vector container. It can be used in your application if the standard \fCvector\fR is not available for your target platforms. TQValueVector is part of the TQt Template Library.
 .PP
-QValueVector<T> defines a template instance to create a vector of values that all have the class T. QValueVector does not store pointers to the members of the vector; it holds a copy of every member. QValueVector is said to be value based; in contrast, QPtrList and QDict are pointer based.
+TQValueVector<T> defines a template instance to create a vector of values that all have the class T. TQValueVector does not store pointers to the members of the vector; it holds a copy of every member. TQValueVector is said to be value based; in contrast, TQPtrList and TQDict are pointer based.
 .PP
-QValueVector contains and manages a collection of objects of type T and provides random access iterators that allow the contained objects to be addressed. QValueVector owns the contained elements. For more relaxed ownership semantics, see QPtrCollection and friends, which are pointer-based containers.
+TQValueVector contains and manages a collection of objects of type T and provides random access iterators that allow the contained objects to be addressed. TQValueVector owns the contained elements. For more relaxed ownership semantics, see TQPtrCollection and friends, which are pointer-based containers.
 .PP
-QValueVector provides good performance if you append or remove elements from the end of the vector. If you insert or remove elements from anywhere but the end, performance is very bad. The reason for this is that elements must to be copied into new positions.
+TQValueVector provides good performance if you append or remove elements from the end of the vector. If you insert or remove elements from anywhere but the end, performance is very bad. The reason for this is that elements must to be copied into new positions.
 .PP
-Some classes cannot be used within a QValueVector: for example, all classes derived from TQObject and thus all classes that implement widgets. Only values can be used in a QValueVector. To qualify as a value the class must provide:
+Some classes cannot be used within a TQValueVector: for example, all classes derived from TQObject and thus all classes that implement widgets. Only values can be used in a TQValueVector. To qualify as a value the class must provide:
 .TP
 a copy constructor;
 .TP
@@ -202,15 +202,15 @@ a default constructor, i.e., a constructor that does not take any arguments.
 .PP
 Note that C++ defaults to field-by-field assignment operators and copy constructors if no explicit version is supplied. In many cases this is sufficient.
 .PP
-QValueVector uses an STL-like syntax to manipulate and address the objects it contains. See this document for more information.
+TQValueVector uses an STL-like syntax to manipulate and address the objects it contains. See this document for more information.
 .PP
 Example:
 .PP
 .nf
 .br
-    #include <ntqvaluevector.h>
+    #include <tqvaluevector.h>
 .br
-    #include <ntqstring.h>
+    #include <tqstring.h>
 .br
     #include <stdio.h>
 .br
@@ -249,7 +249,7 @@ Example:
 .br
     {
 .br
-        typedef QValueVector<Employee> EmployeeVector;
+        typedef TQValueVector<Employee> EmployeeVector;
 .br
         EmployeeVector vec( 3 );  // vector of 3 Employees
 .br
@@ -306,12 +306,12 @@ The fastest way to access an element of a vector is by using operator[]. This fu
 .PP
 .nf
 .br
-    QValueVector<int> vec1;  // an empty vector
+    TQValueVector<int> vec1;  // an empty vector
 .br
     vec1[10] = 4;  // WARNING: undefined, probably a crash
 .br
 .br
-    QValueVector<TQString> vec2(25); // initialize with 25 elements
+    TQValueVector<TQString> vec2(25); // initialize with 25 elements
 .br
     vec2[10] = "Dave";  // OK
 .br
@@ -321,7 +321,7 @@ Whenever inserting, removing or referencing elements in a vector, always make su
 .PP
 .nf
 .br
-    void func( QValueVector<int>& vec )
+    void func( TQValueVector<int>& vec )
 .br
     {
 .br
@@ -335,17 +335,17 @@ Whenever inserting, removing or referencing elements in a vector, always make su
 .br
 .fi
 .PP
-The iterators provided by vector are random access iterators, therefore you can use them with many generic algorithms, for example, algorithms provided by the STL or the QTL.
+The iterators provided by vector are random access iterators, therefore you can use them with many generic algorithms, for example, algorithms provided by the STL or the TQTL.
 .PP
 Another way to find an element in the vector is by using the std::find() or tqFind() algorithms. For example:
 .PP
 .nf
 .br
-    QValueVector<int> vec;
+    TQValueVector<int> vec;
 .br
     ...
 .br
-    QValueVector<int>::const_iterator it = tqFind( vec.begin(), vec.end(), 3 );
+    TQValueVector<int>::const_iterator it = tqFind( vec.begin(), vec.end(), 3 );
 .br
     if ( it != vector.end() )
 .br
@@ -353,11 +353,11 @@ Another way to find an element in the vector is by using the std::find() or tqFi
 .br
 .fi
 .PP
-It is safe to have multiple iterators on the vector at the same time. Since QValueVector manages memory dynamically, all iterators can become invalid if a memory reallocation occurs. For example, if some member of the vector is removed, iterators that point to the removed element and to all following elements become invalidated. Inserting into the middle of the vector will invalidate all iterators. For convenience, the function back() returns a reference to the last element in the vector, and front() returns a reference to the first element. If the vector is empty(), both back() and front() have undefined behavior (your application will crash or do unpredictable things). Use back() and front() with caution, for example:
+It is safe to have multiple iterators on the vector at the same time. Since TQValueVector manages memory dynamically, all iterators can become invalid if a memory reallocation occurs. For example, if some member of the vector is removed, iterators that point to the removed element and to all following elements become invalidated. Inserting into the middle of the vector will invalidate all iterators. For convenience, the function back() returns a reference to the last element in the vector, and front() returns a reference to the first element. If the vector is empty(), both back() and front() have undefined behavior (your application will crash or do unpredictable things). Use back() and front() with caution, for example:
 .PP
 .nf
 .br
-    QValueVector<int> vec( 3 );
+    TQValueVector<int> vec( 3 );
 .br
     vec.push_back( 1 );
 .br
@@ -379,23 +379,23 @@ It is safe to have multiple iterators on the vector at the same time. Since QVal
 .br
     ...
 .br
-    QValueVector<double> dvec;
+    TQValueVector<double> dvec;
 .br
     double d = dvec.back(); // undefined behavior
 .br
 .fi
 .PP
-Because QValueVector manages memory dynamically, it is recommended that you contruct a vector with an initial size. Inserting and removing elements happens fastest when:
+Because TQValueVector manages memory dynamically, it is recommended that you contruct a vector with an initial size. Inserting and removing elements happens fastest when:
 .TP
 Inserting or removing elements happens at the end() of the vector;
 .TP
 The vector does not need to allocate additional memory.
 .PP
-By creating a QValueVector with a sufficiently large initial size, there will be less memory allocations. Do not use an initial size that is too big, since it will still take time to construct all the empty entries, and the extra space will be wasted if it is never used.
+By creating a TQValueVector with a sufficiently large initial size, there will be less memory allocations. Do not use an initial size that is too big, since it will still take time to construct all the empty entries, and the extra space will be wasted if it is never used.
 .PP
-Because QValueVector is value-based there is no need to be careful about deleting elements in the vector. The vector holds its own copies and will free them if the corresponding member or the vector itself is deleted. You can force the vector to free all of its items with clear().
+Because TQValueVector is value-based there is no need to be careful about deleting elements in the vector. The vector holds its own copies and will free them if the corresponding member or the vector itself is deleted. You can force the vector to free all of its items with clear().
 .PP
-QValueVector is shared implicitly, which means it can be copied in constant time. If multiple QValueVector instances share the same data and one needs to modify its contents, this modifying instance makes a copy and modifies its private copy; it thus does not affect the other instances. This is often called "copy on write". If a QValueVector is being used in a multi-threaded program, you must protect all access to the vector. See QMutex.
+TQValueVector is shared implicitly, which means it can be copied in constant time. If multiple TQValueVector instances share the same data and one needs to modify its contents, this modifying instance makes a copy and modifies its private copy; it thus does not affect the other instances. This is often called "copy on write". If a TQValueVector is being used in a multi-threaded program, you must protect all access to the vector. See TQMutex.
 .PP
 There are several ways to insert elements into the vector. The push_back() function insert elements into the end of the vector, and is usually fastest. The insert() function can be used to add elements at specific positions within the vector.
 .PP
@@ -407,7 +407,7 @@ Example:
 .PP
 .nf
 .br
-    QValueVector<int> v( 4 );
+    TQValueVector<int> v( 4 );
 .br
     v.push_back( 5 );
 .br
@@ -421,188 +421,188 @@ Example:
 .br
 .fi
 .PP
-QValueVector stores its elements in contiguous memory. This means that you can use a QValueVector in any situation that requires an array.
+TQValueVector stores its elements in contiguous memory. This means that you can use a TQValueVector in any situation that requires an array.
 .PP
 See also TQt Template Library Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
-.SH "QValueVector::ConstIterator"
+.SH "TQValueVector::ConstIterator"
 The vector's const iterator type.
-.SH "QValueVector::Iterator"
+.SH "TQValueVector::Iterator"
 The vector's iterator type.
-.SH "QValueVector::ValueType"
+.SH "TQValueVector::ValueType"
 The type of the object stored in the vector.
-.SH "QValueVector::const_iterator"
+.SH "TQValueVector::const_iterator"
 The vector's const iterator type.
-.SH "QValueVector::const_pointer"
+.SH "TQValueVector::const_pointer"
 The const pointer to T type.
-.SH "QValueVector::const_reference"
+.SH "TQValueVector::const_reference"
 The const reference to T type.
-.SH "QValueVector::difference_type"
+.SH "TQValueVector::difference_type"
 A signed integral type used to represent the distance between two iterators.
-.SH "QValueVector::iterator"
+.SH "TQValueVector::iterator"
 The vector's iterator type.
-.SH "QValueVector::pointer"
+.SH "TQValueVector::pointer"
 The pointer to T type.
-.SH "QValueVector::reference"
+.SH "TQValueVector::reference"
 The reference to T type.
-.SH "QValueVector::size_type"
+.SH "TQValueVector::size_type"
 An unsigned integral type, used to represent various sizes.
-.SH "QValueVector::value_type"
+.SH "TQValueVector::value_type"
 The type of the object stored in the vector.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QValueVector::QValueVector ()"
-Constructs an empty vector without any elements. To create a vector which reserves an initial amount of space for elements, use \fCQValueVector(size_type n)\fR.
-.SH "QValueVector::QValueVector ( const QValueVector<T> & v )"
+.SH "TQValueVector::TQValueVector ()"
+Constructs an empty vector without any elements. To create a vector which reserves an initial amount of space for elements, use \fCTQValueVector(size_type n)\fR.
+.SH "TQValueVector::TQValueVector ( const TQValueVector<T> & v )"
 Constructs a copy of \fIv\fR.
 .PP
-This operation costs O(1) time because QValueVector is implicitly shared.
+This operation costs O(1) time because TQValueVector is implicitly shared.
 .PP
 The first modification to the vector does takes O(n) time, because the elements must be copied.
-.SH "QValueVector::QValueVector ( size_type n, const T & val = T ( ) )"
+.SH "TQValueVector::TQValueVector ( size_type n, const T & val = T ( ) )"
 Constructs a vector with an initial size of \fIn\fR elements. Each element is initialized with the value of \fIval\fR.
-.SH "QValueVector::QValueVector ( std::vector<T> & v )"
+.SH "TQValueVector::TQValueVector ( std::vector<T> & v )"
 Constructs a copy of \fIv\fR.
-.SH "QValueVector::QValueVector ( const std::vector<T> & v )"
+.SH "TQValueVector::TQValueVector ( const std::vector<T> & v )"
 This operation costs O(n) time because \fIv\fR is copied.
-.SH "QValueVector::~QValueVector ()"
-Destroys the vector, destroying all elements and freeing the allocated memory. References to the values in the vector and all iterators of this vector become invalidated. Note that it is impossible for an iterator to check whether or not it is valid: QValueVector is tuned for performance, not for error checking.
-.SH "void QValueVector::append ( const T & x )"
+.SH "TQValueVector::~TQValueVector ()"
+Destroys the vector, destroying all elements and freeing the allocated memory. References to the values in the vector and all iterators of this vector become invalidated. Note that it is impossible for an iterator to check whether or not it is valid: TQValueVector is tuned for performance, not for error checking.
+.SH "void TQValueVector::append ( const T & x )"
 Appends a copy of \fIx\fR to the end of the vector.
 .PP
 See also push_back() and insert().
-.SH "reference QValueVector::at ( size_type i, bool * ok = 0 )"
+.SH "reference TQValueVector::at ( size_type i, bool * ok = 0 )"
 Returns a reference to the element with index \fIi\fR. If \fIok\fR is non-null, and the index \fIi\fR is out of range, *\fIok\fR is set to FALSE and the returned reference is undefined. If the index \fIi\fR is within the range of the vector, and \fIok\fR is non-null, *\fIok\fR is set to TRUE and the returned reference is well defined.
-.SH "const_reference QValueVector::at ( size_type i, bool * ok = 0 ) const"
+.SH "const_reference TQValueVector::at ( size_type i, bool * ok = 0 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a const reference to the element with index \fIi\fR. If \fIok\fR is non-null, and the index \fIi\fR is out of range, *\fIok\fR is set to FALSE and the returned reference is undefined. If the index \fIi\fR is within the range of the vector, and \fIok\fR is non-null, *\fIok\fR is set to TRUE and the returned reference is well defined.
-.SH "reference QValueVector::back ()"
+.SH "reference TQValueVector::back ()"
 Returns a reference to the last element in the vector. If there is no last element, this function has undefined behavior.
 .PP
 See also empty() and front().
-.SH "const_reference QValueVector::back () const"
+.SH "const_reference TQValueVector::back () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a const reference to the last element in the vector. If there is no last element, this function has undefined behavior.
 .PP
 See also empty() and front().
-.SH "iterator QValueVector::begin ()"
+.SH "iterator TQValueVector::begin ()"
 Returns an iterator pointing to the beginning of the vector. If the vector is empty(), the returned iterator will equal end().
-.SH "const_iterator QValueVector::begin () const"
+.SH "const_iterator TQValueVector::begin () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a const iterator pointing to the beginning of the vector. If the vector is empty(), the returned iterator will equal end().
-.SH "size_type QValueVector::capacity () const"
+.SH "size_type TQValueVector::capacity () const"
 Returns the maximum number of elements that can be stored in the vector without forcing memory reallocation. If memory reallocation takes place, some or all iterators may become invalidated.
-.SH "void QValueVector::clear ()"
+.SH "void TQValueVector::clear ()"
 Removes all the elements from the vector.
-.SH "const_iterator QValueVector::constBegin () const"
+.SH "const_iterator TQValueVector::constBegin () const"
 Returns a const iterator pointing to the beginning of the vector. If the vector is empty(), the returned iterator will equal end().
 .PP
 See also constEnd().
-.SH "const_iterator QValueVector::constEnd () const"
+.SH "const_iterator TQValueVector::constEnd () const"
 Returns a const iterator pointing behind the last element of the vector.
 .PP
 See also constBegin().
-.SH "size_type QValueVector::count () const"
+.SH "size_type TQValueVector::count () const"
 Returns the number of items in the vector.
 .PP
 See also isEmpty().
-.SH "bool QValueVector::empty () const"
+.SH "bool TQValueVector::empty () const"
 Returns TRUE if the vector is empty; otherwise returns FALSE. Equivalent to size()==0, only faster.
 .PP
 This function is provided for STL compatibility. It is equivalent to isEmpty().
 .PP
 See also size().
-.SH "iterator QValueVector::end ()"
+.SH "iterator TQValueVector::end ()"
 Returns an iterator pointing behind the last element of the vector.
-.SH "const_iterator QValueVector::end () const"
+.SH "const_iterator TQValueVector::end () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a const iterator pointing behind the last element of the vector.
-.SH "iterator QValueVector::erase ( iterator pos )"
+.SH "iterator TQValueVector::erase ( iterator pos )"
 Removes the element at position \fIpos\fR and returns the position of the next element.
-.SH "iterator QValueVector::erase ( iterator first, iterator last )"
+.SH "iterator TQValueVector::erase ( iterator first, iterator last )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Removes all elements from \fIfirst\fR up to but not including \fIlast\fR and returns the position of the next element.
-.SH "reference QValueVector::first ()"
+.SH "reference TQValueVector::first ()"
 Returns a reference to the first item in the vector. If there is no first item, this function has undefined behavior.
 .PP
 See also empty() and last().
-.SH "const_reference QValueVector::first () const"
+.SH "const_reference TQValueVector::first () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
-.SH "reference QValueVector::front ()"
+.SH "reference TQValueVector::front ()"
 Returns a reference to the first element in the vector. If there is no first element, this function has undefined behavior.
 .PP
 See also empty() and back().
-.SH "const_reference QValueVector::front () const"
+.SH "const_reference TQValueVector::front () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a const reference to the first element in the vector. If there is no first element, this function has undefined behavior.
 .PP
 See also empty() and back().
-.SH "iterator QValueVector::insert ( iterator pos, const T & x )"
+.SH "iterator TQValueVector::insert ( iterator pos, const T & x )"
 Inserts a copy of \fIx\fR at the position immediately before \fIpos\fR.
 .PP
 See also push_back().
-.SH "iterator QValueVector::insert ( iterator pos, size_type n, const T & x )"
+.SH "iterator TQValueVector::insert ( iterator pos, size_type n, const T & x )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts \fIn\fR copies of \fIx\fR immediately before position x.
 .PP
 See also push_back().
-.SH "bool QValueVector::isEmpty () const"
+.SH "bool TQValueVector::isEmpty () const"
 Returns TRUE if the vector is empty; returns FALSE otherwise.
 .PP
 See also count().
-.SH "reference QValueVector::last ()"
+.SH "reference TQValueVector::last ()"
 Returns a reference to the last item in the vector. If there is no last item, this function has undefined behavior.
 .PP
 See also empty() and first().
-.SH "const_reference QValueVector::last () const"
+.SH "const_reference TQValueVector::last () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
-.SH "QValueVector<T> & QValueVector::operator= ( const QValueVector<T> & v )"
+.SH "TQValueVector<T> & TQValueVector::operator= ( const TQValueVector<T> & v )"
 Assigns \fIv\fR to this vector and returns a reference to this vector.
 .PP
-All iterators of the current vector become invalidated by this operation. The cost of such an assignment is O(1) since QValueVector is implicitly shared.
-.SH "QValueVector<T> & QValueVector::operator= ( const std::vector<T> & v )"
+All iterators of the current vector become invalidated by this operation. The cost of such an assignment is O(1) since TQValueVector is implicitly shared.
+.SH "TQValueVector<T> & TQValueVector::operator= ( const std::vector<T> & v )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Assigns \fIv\fR to this vector and returns a reference to this vector.
 .PP
 All iterators of the current vector become invalidated by this operation. The cost of this assignment is O(n) since \fIv\fR is copied.
-.SH "bool QValueVector::operator== ( const QValueVector<T> & x ) const"
+.SH "bool TQValueVector::operator== ( const TQValueVector<T> & x ) const"
 Returns TRUE if each element in this vector equals each corresponding element in \fIx\fR; otherwise returns FALSE.
-.SH "bool QValueVector::operator== ( const QValueVector<T> & x )"
+.SH "bool TQValueVector::operator== ( const TQValueVector<T> & x )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns TRUE if each element in this vector equals each corresponding element in \fIx\fR; otherwise returns FALSE.
-.SH "reference QValueVector::operator[] ( size_type i )"
+.SH "reference TQValueVector::operator[] ( size_type i )"
 Returns a reference to the element at index \fIi\fR. If \fIi\fR is out of range, this function has undefined behavior.
 .PP
 See also at().
-.SH "const_reference QValueVector::operator[] ( size_type i ) const"
+.SH "const_reference TQValueVector::operator[] ( size_type i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a const reference to the element at index \fIi\fR. If \fIi\fR is out of range, this function has undefined behavior.
 .PP
 See also at().
-.SH "void QValueVector::pop_back ()"
+.SH "void TQValueVector::pop_back ()"
 Removes the last item from the vector.
 .PP
 This function is provided for STL compatibility.
-.SH "void QValueVector::push_back ( const T & x )"
+.SH "void TQValueVector::push_back ( const T & x )"
 Appends a copy of \fIx\fR to the end of the vector. This is the fastest way to add new elements.
 .PP
 This function is provided for STL compatibility. It is equivalent to append().
 .PP
 See also insert().
-.SH "void QValueVector::reserve ( size_type n )"
+.SH "void TQValueVector::reserve ( size_type n )"
 Increases the vector's capacity. If \fIn\fR is less than or equal to capacity(), nothing happens. Otherwise, additional memory is allocated so that capacity() will be increased to a value greater than or equal to \fIn\fR. All iterators will then become invalidated. Note that the vector's size() and the values of existing elements remain unchanged.
-.SH "void QValueVector::resize ( size_type n, const T & val = T ( ) )"
+.SH "void TQValueVector::resize ( size_type n, const T & val = T ( ) )"
 Changes the size of the vector to \fIn\fR. If \fIn\fR is greater than the current size(), elements are added to the end and initialized with the value of \fIval\fR. If \fIn\fR is less than size(), elements are removed from the end. If \fIn\fR is equal to size() nothing happens.
-.SH "size_type QValueVector::size () const"
+.SH "size_type TQValueVector::size () const"
 Returns the number of elements in the vector.
 .PP
 This function is provided for STL compatibility. It is equivalent to count().
@@ -610,7 +610,7 @@ This function is provided for STL compatibility. It is equivalent to count().
 See also empty().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqvaluevector.html
+.BR http://doc.trolltech.com/tqvaluevector.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

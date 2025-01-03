@@ -8,18 +8,18 @@
 *****************************************************************************/
 
 #include "qwerty.h"
-#include <ntqapplication.h>
-#include <ntqfile.h>
-#include <ntqfiledialog.h>
-#include <ntqpopupmenu.h>
-#include <ntqtextstream.h>
-#include <ntqpainter.h>
-#include <ntqmessagebox.h>
-#include <ntqpaintdevicemetrics.h>
-#include <ntqptrlist.h>
-#include <ntqfontdialog.h>
+#include <tqapplication.h>
+#include <tqfile.h>
+#include <tqfiledialog.h>
+#include <tqpopupmenu.h>
+#include <tqtextstream.h>
+#include <tqpainter.h>
+#include <tqmessagebox.h>
+#include <tqpaintdevicemetrics.h>
+#include <tqptrlist.h>
+#include <tqfontdialog.h>
 
-#include <ntqtextcodec.h>
+#include <tqtextcodec.h>
 
 const bool no_writing = FALSE;
 

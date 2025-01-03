@@ -35,9 +35,9 @@
 #ifndef KDEVDLG2UI_H
 #define KDEVDLG2UI_H
 
-#include <ntqtextstream.h>
-#include <ntqfile.h>
-#include <ntqstringlist.h>
+#include <tqtextstream.h>
+#include <tqfile.h>
+#include <tqstringlist.h>
 
 class KDEVDLG2UI
 {

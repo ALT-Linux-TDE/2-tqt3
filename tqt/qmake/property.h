@@ -39,7 +39,7 @@
 #ifndef __PROPERTY_H__
 #define __PROPERTY_H__
 
-#include <ntqstring.h>
+#include <tqstring.h>
 
 class TQSettings;
 

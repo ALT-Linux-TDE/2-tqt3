@@ -25,7 +25,7 @@ than the first tutorial. It introduces many aspects of TQt programming,
 including the creation of menus (including a recent files list),
 toolbars and dialogs, loading and saving user settings, etc. 
 
-If you're completely new to Qt, please read \link how-to-learn-ntqt.html
+If you're completely new to Qt, please read \link how-to-learn-tqt.html
 How to Learn Qt\endlink if you haven't already done so.
 
 \list
@@ -90,10 +90,10 @@ the program's functionality. The program provides two dialogs, one to
 set options, and the other to create and edit a data set. Both dialogs
 are launched from chart form menu options or toolbar buttons.
 
-The chart form's main widget is a QCanvasView which displays the
-QCanvas on which we draw the pie chart or bar graph. We subclass
-QCanvasView to obtain some specialised behaviour. Similarly we
-subclass the QCanvasText class (used to place text items on a canvas)
+The chart form's main widget is a TQCanvasView which displays the
+TQCanvas on which we draw the pie chart or bar graph. We subclass
+TQCanvasView to obtain some specialised behaviour. Similarly we
+subclass the TQCanvasText class (used to place text items on a canvas)
 since we require slightly more than the standard class provides.
 
 The project file, \c chart.pro, is used to create the Makefile that is
@@ -136,23 +136,23 @@ of chart has a (relative) position stored in the \c m_propoints array.
 Although the \c Element class is a purely internal data class, it
 \c{#include}s four TQt classes. TQt is often perceived as a purely GUI
 toolkit, but it provides many non-GUI classes to support most aspects
-of application programming. We use \c ntqcolor.h so that we can hold the
+of application programming. We use \c tqcolor.h so that we can hold the
 paint color and text color in the \c Element class. The use of \c
-ntqnamespace.h is slightly obscure. Most TQt classes are derived from the
-\link ntqt.html Qt\endlink superclass which contains various
-enumerations. The \c Element class does not derive from \link ntqt.html
-Qt\endlink, so we need to include \c ntqnamespace.h to have access to
+tqnamespace.h is slightly obscure. Most TQt classes are derived from the
+\link tqt.html Qt\endlink superclass which contains various
+enumerations. The \c Element class does not derive from \link tqt.html
+Qt\endlink, so we need to include \c tqnamespace.h to have access to
 the TQt enum names. An alternative approach would have been to have
-made \c Element a \link ntqt.html Qt\endlink subclass. We include \c
-ntqstring.h to make use of Qt's Unicode strings. As a convenience we
+made \c Element a \link tqt.html Qt\endlink subclass. We include \c
+tqstring.h to make use of Qt's Unicode strings. As a convenience we
 will \c typedef a vector container for \c{Element}s, which is why we
-pull in the \c ntqvaluevector.h header.
+pull in the \c tqvaluevector.h header.
 
-\skipto QValueVector
+\skipto TQValueVector
 \printline
 
 Qt provides a number of containers, some value based like
-QValueVector, and others pointer based. (See \link collection.html
+TQValueVector, and others pointer based. (See \link collection.html
 Collection Classes\endlink.) Here we've just typedefed one container
 type; we will keep each data set of elements in one \c ElementVector.
 
@@ -232,7 +232,7 @@ index; (see \link debug.html Debugging\endlink).
 (Extracts from \c element.h.)
 
 \quotefile chart/element.h
-\skipto QTextStream
+\skipto TQTextStream
 \printline
 \printline
 
@@ -250,7 +250,7 @@ filter the data using a scripting language.
 \printto const
 
 Our implementation of the operators requires the inclusion of \c
-ntqtextstream.h and \c ntqstringlist.h. 
+tqtextstream.h and \c tqstringlist.h. 
 
 \printto Element
 
@@ -284,7 +284,7 @@ separator. The final field is the label followed by a newline.
 \printline
 
 To read an element we read one record (i.e. one line). We break the
-data into fields using QStringList::split(). Because it is possible
+data into fields using TQStringList::split(). Because it is possible
 that a label will contain \c FIELD_SEP characters we use
 TQString::section() to extract all the text from the last field to the
 end of the line. If there are enough fields and the value, colors and
@@ -306,7 +306,7 @@ which our users will create, edit and visualise their data sets.
 \table
 \row
 \i For more information on Qt's data streaming facilities see \link
-datastreamformat.html QDataStream Operators' Formats\endlink, and see
+datastreamformat.html TQDataStream Operators' Formats\endlink, and see
 the source code for any of the TQt classes mentioned that are similar
 to what you want to store.
 \endtable
@@ -332,7 +332,7 @@ to what you want to store.
 \printline
 
 We have kept the main() function simple and small. We create a
-QApplication object and pass it the command line arguments. We are
+TQApplication object and pass it the command line arguments. We are
 allowing users to invoke the program with \c{chart mychart.cht}, so if
 they've added a filename we pass that through to the chart form
 constructor. Most of the action takes place within the chart form
@@ -361,11 +361,11 @@ conventional document-centric style.
 (Extracts from \c chartform.h.)
 
 \quotefile chart/chartform.h
-\skipto public QMainWindow
+\skipto public TQMainWindow
 \printuntil optionsVerticalBarChartAction
 \printuntil };
 
-We create a \c ChartForm subclass of QMainWindow. Our subclass uses
+We create a \c ChartForm subclass of TQMainWindow. Our subclass uses
 the \c TQ_OBJECT macro to support Qt's \link signalsandslots.html
 signals and slots\endlink mechanism. 
 
@@ -378,8 +378,8 @@ context menu.
 
 \table
 \row
-\i The QCanvas class is used for drawing 2D vector graphics. The
-QCanvasView class is used to present a view of a canvas in an
+\i The TQCanvas class is used for drawing 2D vector graphics. The
+TQCanvasView class is used to present a view of a canvas in an
 application's GUI. All our drawing operations take place on the
 canvas; but events (e.g. mouse clicks) take place on the canvas view.
 \endtable
@@ -410,19 +410,19 @@ which we've placed in the \c images subdirectory.
 \section1 The Constructor
 
 \skipto ChartForm::ChartForm
-\printuntil QMainWindow
+\printuntil TQMainWindow
 \c{	...}
 \skipto fileNewAction
 \printuntil fileSaveAction
 
-For each user action we declare a QAction pointer. Some actions are
+For each user action we declare a TQAction pointer. Some actions are
 declared in the header file because they need to be referred to
 outside of the constructor.
 
 \table
 \row
 \i Most user actions are suitable as both menu items and as toolbar
-buttons. TQt allows us to create a single QAction which can be added to
+buttons. TQt allows us to create a single TQAction which can be added to
 both a menu and a toolbar. This approach ensures that menu items and
 toolbar buttons stay in sync and saves duplicating code.
 \endtable
@@ -442,10 +442,10 @@ The chart types are all mutually exclusive: you can have a pie chart
 that if the user selects the pie chart menu option, the pie chart
 toolbar button must be automatically selected too, and the other chart
 menu options and toolbar buttons must be automatically unselected.
-This behaviour is achieved by creating a QActionGroup and placing the
+This behaviour is achieved by creating a TQActionGroup and placing the
 chart type actions in the group.
 
-\skipto new QActionGroup
+\skipto new TQActionGroup
 \printuntil setExclusive
 
 The action group becomes a child of the form (\c this) and the
@@ -475,26 +475,26 @@ canvas type we will connect the group.
 Once we've created all our user actions we can create the toolbars and
 menu options that will allow the user to invoke them.
 
-\skipto new QToolBar
+\skipto new TQToolBar
 \printuntil fileSaveAction
 \c{	...}
-\skipto new QPopupMenu
+\skipto new TQPopupMenu
 \printuntil fileSaveAction
 
-Toolbar actions and menu options are easily created from QActions.
+Toolbar actions and menu options are easily created from TQActions.
 
 As a convenience to our users we will restore the last window position
 and size and list their recently used files. This is achieved by
 writing out their settings when the application is closed and reading
 them back when we construct the form.
 
-\skipto QSettings
+\skipto TQSettings
 \printuntil PIE
-\skipto QFont
+\skipto TQFont
 \printuntil updateRecentFilesMenu
 
-The QSettings class handles user settings in a platform-independent
-way. We simply read and write settings, leaving QSettings to handle
+The TQSettings class handles user settings in a platform-independent
+way. We simply read and write settings, leaving TQSettings to handle
 the platform dependencies. The insertSearchPath() call does nothing
 except under Windows so does not have to be \c{#ifdef}ed. 
 
@@ -504,7 +504,7 @@ been run. The chart type is retrieved as an integer and cast to a
 ChartType enum value. We create a default label font and then read the
 "Font" setting, using the default we have just created if necessary.
 
-Although QSettings can handle string lists we've chosen to store each
+Although TQSettings can handle string lists we've chosen to store each
 recently used file as a separate entry to make it easier to hand edit
 the settings. We attempt to read each possible file entry ("File1" to
 "File9"), and add each non-empty entry to the list of recently used
@@ -524,12 +524,12 @@ updateChartType() slot.
 And now that we know the window size and position we can resize and
 move the chart form's window accordingly.
 
-\skipto new QCanvas
+\skipto new TQCanvas
 \printuntil show
 
-We create a new QCanvas and set its size to that of the chart form
+We create a new TQCanvas and set its size to that of the chart form
 window's client area. We also create a \c CanvasView (our own subclass
-of QCanvasView) to display the QCanvas. We make the canvas view the
+of TQCanvasView) to display the TQCanvas. We make the canvas view the
 chart form's main widget and show it.
 
 \skipto isEmpty
@@ -602,7 +602,7 @@ added a call to optionsSetData() and see which you prefer.
 \printline
 
 We check that it is okToClear(). If it is we use the static
-QFileDialog::getOpenFileName() function to get the name of the file
+TQFileDialog::getOpenFileName() function to get the name of the file
 the user wishes to load. If we get a filename we call load().
 
 \section2 fileSaveAs()
@@ -611,9 +611,9 @@ the user wishes to load. If we get a filename we call load().
 \printuntil statusBar
 \printline
 
-This function calls the static QFileDialog::getSaveFileName() to get
+This function calls the static TQFileDialog::getSaveFileName() to get
 the name of the file to save the data in. If the file exists we use a
-QMessageBox::warning() to notify the user and give them the option of
+TQMessageBox::warning() to notify the user and give them the option of
 abandoning the save. If the file is to be saved we update the recently
 opened files list and call fileSave() (covered in \link
 tutorial2-07.html File Handling\endlink) to perform the save.
@@ -621,7 +621,7 @@ tutorial2-07.html File Handling\endlink) to perform the save.
 \section1 Managing a list of Recently Opened Files
 
 \quotefile chart/chartform.h
-\skipto QStringList m_recentFiles
+\skipto TQStringList m_recentFiles
 \printline
 
 We hold the list of recently opened files in a string list.
@@ -680,7 +680,7 @@ position, chart type, etc., before terminating.
 \skipto ::saveOptions(
 \printuntil }
 
-Saving the user's options using QSettings is straight-forward.
+Saving the user's options using TQSettings is straight-forward.
 
 \section1 Custom Dialogs
 
@@ -793,7 +793,7 @@ We retrieve the width and height of the canvas and calculate the
 proportional height (\c proheight). We set the initial \c y position
 to 0. 
 
-\skipto QPen
+\skipto TQPen
 \printuntil NoPen
 
 We create a pen that we will use to draw each bar (rectangle); we set
@@ -808,7 +808,7 @@ value.
 
 \printuntil show
 
-We create a new QCanvasRectangle for each bar with an x position of 0
+We create a new TQCanvasRectangle for each bar with an x position of 0
 (since this is a horizontal bar chart every bar begins at the left), a
 y value that starts at 0 and grows by the height of each bar as each
 one is drawn, the height of the bar and the canvas that the bar should
@@ -856,30 +856,30 @@ proportional height ready to draw the next element.
 \printline
 \printline
 
-\section1 Subclassing QCanvasText
+\section1 Subclassing TQCanvasText
 
 (Extracts from \c canvastext.h.)
 
 \quotefile chart/canvastext.h
-\skipto public QCanvasText
+\skipto public TQCanvasText
 \printuntil private
 \printuntil };
 
 Our CanvasText subclass is a very simple specialisation of
-QCanvasText. All we've done is added a single private member \c
+TQCanvasText. All we've done is added a single private member \c
 m_index which holds the element vector index of the element associated
 with this text item, and provided a getter and setter for this value.
 
-\section1 Subclassing QCanvasView
+\section1 Subclassing TQCanvasView
 
 (Extracts from \c canvasview.h.)
 
 \quotefile chart/canvasview.h
-\skipto public QCanvasView
+\skipto public TQCanvasView
 \printuntil private
 \printuntil };
 
-We need to subclass QCanvasView so that we can handle:
+We need to subclass TQCanvasView so that we can handle:
 \list 1
 \i Context menu requests.
 \i Form resizing.
@@ -944,17 +944,17 @@ element's proportional x and y positions for the current chart type to
 the current x and y positions proportional to the width and height
 respectively. We know which element to update because when we create
 each canvas text item we pass it the index position of the element it
-corresponds to. We subclassed QCanvasText so that we could set and get
+corresponds to. We subclassed TQCanvasText so that we could set and get
 this index value. Finally we call update() to make the canvas redraw.
 
 \table
 \row
-\i A QCanvas has no visual representation. To see the contents of a
-canvas you must create a QCanvasView to present the canvas. Items only
+\i A TQCanvas has no visual representation. To see the contents of a
+canvas you must create a TQCanvasView to present the canvas. Items only
 appear in the canvas view if they have been show()n, and then, only if
-QCanvas::update() has been called. By default a QCanvas's background
+TQCanvas::update() has been called. By default a TQCanvas's background
 color is white, and by default shapes drawn on the canvas, e.g.
-QCanvasRectangle, QCanvasEllipse, etc., have their fill color set to
+TQCanvasRectangle, TQCanvasEllipse, etc., have their fill color set to
 white, so setting a non-white brush color is highly recommended! 
 \endtable
 
@@ -998,7 +998,7 @@ draw the chart and mark it as unchanged.
 \skipto ::fileSave
 \printline
 \printline
-\skipto QFile
+\skipto TQFile
 \printuntil FALSE
 \printline
 
@@ -1029,7 +1029,7 @@ enter label text and choose a label color for each label.
 (Extracts from \c setdataform.h.)
 
 \quotefile chart/setdataform.h
-\skipto public QDialog
+\skipto public TQDialog
 \printuntil };
 
 The header file is simple. The constructor takes a pointer to the
@@ -1051,7 +1051,7 @@ Qt supports. We'll use these in the pattern combobox.
 \skipto SetDataForm::SetDataForm
 \printuntil m_decimalPlaces
 
-We pass most of the arguments to the QDialog superclass. We assign the
+We pass most of the arguments to the TQDialog superclass. We assign the
 elements vector pointer and the number of decimal places to display to
 member variables so that they are accessible by all SetDataForm's
 member functions.
@@ -1068,10 +1068,10 @@ The layout of the form is quite simple. The buttons will be grouped
 together in a horizontal layout and the table and the button layout
 will be grouped together vertically using the tableButtonBox layout.
 
-\skipto QTable
+\skipto TQTable
 \printuntil addWidget
 
-We create a new QTable with five columns, and the same number of rows
+We create a new TQTable with five columns, and the same number of rows
 as we have elements in the elements vector. We make the color and
 pattern columns read only: this is to prevent the user typing in them.
 We will make the color changeable by the user clicking on a color or
@@ -1080,26 +1080,26 @@ be in a combobox, changeable simply by the user selecting a different
 pattern. Next we set suitable initial widths, insert labels for each
 column and finally add the table to the tableButtonBox layout.
 
-\skipto QHBoxLayout
+\skipto TQHBoxLayout
 \printline
 
 We create a horizontal box layout to hold the buttons.
 
-\skipto QPushButton
+\skipto TQPushButton
 \printuntil addWidget
 
 We create a color button and add it to the buttonBox layout. We
 disable the button; we will only enable it when the focus is actually
 on a color cell.
 
-\skipto QSpacerItem
+\skipto TQSpacerItem
 \printuntil addItem
 
 Since we want to separate the color button from the OK and Cancel
 buttons we next create a spacer and add that to the buttonBox layout.
 
 
-\skipto QPushButton
+\skipto TQPushButton
 \printuntil addWidget( cancelPushButton
 
 The OK and Cancel buttons are created and added to the buttonBox. We
@@ -1120,7 +1120,7 @@ We now "wire up" the form.
 \i If the user clicks a cell we call the setColor() slot; this will
 check that the cell is one that holds a color, and if it is, will
 invoke the color dialog. 
-\i We connect the QTable's currentChanged() signal to our own
+\i We connect the TQTable's currentChanged() signal to our own
 currentChanged() slot; this will be used to enable/disable the color
 button for example, depending on which column the user is in.
 \i We connect the table's valueChanged() signal to our own
@@ -1129,11 +1129,11 @@ correct number of decimal places.
 \i If the user clicks the Color button we call a setColor() slot.
 \i The OK button is connected to the accept() slot; we will update the
 elements vector in this slot.
-\i The Cancel button is connected to the QDialog reject() slot, and
+\i The Cancel button is connected to the TQDialog reject() slot, and
 requires no further code or action on our part.
 \endlist
 
-\skipto QPixmap
+\skipto TQPixmap
 \printline
 \printline
 \printline
@@ -1141,7 +1141,7 @@ requires no further code or action on our part.
 We create a pixmap for every brush pattern and store them in the \c
 patterns array.
 
-\skipto QRect
+\skipto TQRect
 \printline
 \printline
 
@@ -1161,15 +1161,15 @@ We read the element's value color and fill the blank pixmap with that
 color; we then set the color cell to display this pixmap. We need to
 be able to read back the color later (e.g. if the user changes it).
 One way of doing this would be to examine a pixel in the pixmap;
-another way would be to subclass QTableItem (in a similar way to our
+another way would be to subclass TQTableItem (in a similar way to our
 CanvasText subclass) and store the color there. But we've taken a
 simpler route: we set the cell's text to the name of the color.
 
 Next we populate the pattern combobox with the patterns. We will use
 the position of the chosen pattern in the combobox to determine which
-pattern the user has selected. QTable can make use of QComboTableItem
+pattern the user has selected. TQTable can make use of TQComboTableItem
 items; but these only support text, so we use setCellWidget() to
-insert \l{QComboBox}'s into the table instead.
+insert \l{TQComboBox}'s into the table instead.
 
 Next we insert the element's label. Finally we set the label color in
 the same way as we set the value color.
@@ -1204,12 +1204,12 @@ function and put the focus back into the table.
 \printline
 
 If this function is called with the focus on a color cell we call
-the static QColorDialog::getColor() dialog to get the user's choice of
+the static TQColorDialog::getColor() dialog to get the user's choice of
 color. If they chose a color we fill the color cell's pixmap with that
 color and set the cell's text to the new color's name.
 
 \skipto ::accept(
-\printuntil QDialog
+\printuntil TQDialog
 \printline
 
 If the user clicks OK we must update the elements vector. We iterate
@@ -1220,7 +1220,7 @@ color name as argument. The pattern is set to the pattern combobox's
 current item with an offset of 1 (since our pattern numbers begin at
 1, but the combobox's items are indexed from 0).
 
-Finally we call QDialog::accept().
+Finally we call TQDialog::accept().
 
 <p align="right">
 <a href="tutorial2-07.html">&laquo; File Handling</a> |
@@ -1244,7 +1244,7 @@ apply to all data sets in one place.
 (Extracts from \c optionsform.h.)
 
 \quotefile chart/optionsform.h
-\skipto public QDialog
+\skipto public TQDialog
 \printuntil };
 
 The layout of this dialog is slightly more complicated than for the
@@ -1268,7 +1268,7 @@ We include some some pixmaps to use in the chart type combobox.
 \skipto OptionsForm::OptionsForm
 \printuntil resize
 
-We pass all the arguments on to the QDialog constructor, set a caption
+We pass all the arguments on to the TQDialog constructor, set a caption
 and set an initial size.
 
 The layout of the form will be to have the chart type label and combo
@@ -1289,7 +1289,7 @@ All the widgets will be laid out within the form's vertical box layout.
 
 The chart type label and combobox will be laid out side by side.
 
-\skipto QLabel
+\skipto TQLabel
 \printuntil addLayout
 
 We create the chart type label (with an accelerator which we'll relate
@@ -1306,7 +1306,7 @@ label. The font button is straight-forward. We add a spacer to improve
 the appearance. The font text label is initially empty (since we don't
 know what font the user is using).
 
-\skipto QFrame
+\skipto TQFrame
 \printuntil addWidget( addValuesButtonGroup
 
 The user may opt to display their own labels as they are or to add the
@@ -1328,10 +1328,10 @@ We only need three connections:
 \list 1
 \i When the user clicks the font button we execute our own
 chooseFont() slot.
-\i If the user clicks OK we call QDialog::accept(); it is up to the
+\i If the user clicks OK we call TQDialog::accept(); it is up to the
 caller to read the data from the dialog's widgets and perform any
 necessary actions.
-\i If the user clicks Cancel we call QDialog::reject().
+\i If the user clicks Cancel we call TQDialog::reject().
 \endlist
 
 \skipto setBuddy
@@ -1347,7 +1347,7 @@ accelerators.
 \printuntil }
 
 When the user clicks the Font button this slot is invoked. It simply
-calls the static QFontDialog::getFont() function to obtain the user's
+calls the static TQFontDialog::getFont() function to obtain the user's
 choice of font. If they chose a font we call our setFont() slot which
 will present a textual description of the font in the font label.
 
@@ -1415,7 +1415,7 @@ The \c chart application is ripe for further development and
 experimentation. You might consider implementing some of the following
 ideas:
 \list
-\i Use a QValidator subclass to ensure that only valid doubles are
+\i Use a TQValidator subclass to ensure that only valid doubles are
 entered as values.
 \i Adding more chart types, e.g. line graph, area graph and hi-lo
 graph.

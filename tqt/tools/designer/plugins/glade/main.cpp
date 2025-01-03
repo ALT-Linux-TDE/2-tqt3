@@ -33,7 +33,7 @@
 **********************************************************************/
 
 #include <filterinterface.h>
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 #include "glade2ui.h"
 
@@ -103,7 +103,7 @@ bool GladeFilter::canUnload() const
     return TRUE;
 }
 
-Q_EXPORT_COMPONENT()
+TQ_EXPORT_COMPONENT()
 {
     Q_CREATE_INSTANCE( GladeFilter )
 }

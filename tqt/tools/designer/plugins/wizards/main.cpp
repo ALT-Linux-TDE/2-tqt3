@@ -32,14 +32,14 @@
 **********************************************************************/
 
 #include <designerinterface.h>
-#include <ntqfeatures.h>
-#include <ntqwidget.h>
+#include <tqfeatures.h>
+#include <tqwidget.h>
 #include <templatewizardiface.h>
 #ifndef TQT_NO_SQL
 #include "sqlformwizardimpl.h"
 #endif
 #include "mainwindowwizard.h"
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 class StandardTemplateWizardInterface : public TemplateWizardInterface, public TQLibraryInterface
 {
@@ -136,7 +136,7 @@ TQRESULT StandardTemplateWizardInterface::queryInterface( const TQUuid& uuid, TQ
     return TQS_OK;
 }
 
-Q_EXPORT_COMPONENT()
+TQ_EXPORT_COMPONENT()
 {
     Q_CREATE_INSTANCE( StandardTemplateWizardInterface )
 }

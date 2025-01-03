@@ -33,7 +33,7 @@
 
 #include "actiondnd.h"
 #include "actionlistview.h"
-#include <ntqheader.h>
+#include <tqheader.h>
 
 ActionListView::ActionListView( TQWidget *parent, const char *name )
     : TQListView( parent, name )

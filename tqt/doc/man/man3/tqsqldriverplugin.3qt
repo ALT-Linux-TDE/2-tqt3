@@ -1,5 +1,5 @@
 '\" t
-.TH QSqlDriverPlugin 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSqlDriverPlugin 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,27 +7,27 @@
 .ad l
 .nh
 .SH NAME
-QSqlDriverPlugin \- Abstract base for custom QSqlDriver plugins
+TQSqlDriverPlugin \- Abstract base for custom TQSqlDriver plugins
 .SH SYNOPSIS
-\fC#include <ntqsqldriverplugin.h>\fR
+\fC#include <tqsqldriverplugin.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlDriverPlugin\fR ()"
+.BI "\fBTQSqlDriverPlugin\fR ()"
 .br
 .ti -1c
-.BI "\fB~QSqlDriverPlugin\fR ()"
+.BI "\fB~TQSqlDriverPlugin\fR ()"
 .br
 .ti -1c
-.BI "virtual QStringList \fBkeys\fR () const = 0"
+.BI "virtual TQStringList \fBkeys\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QSqlDriver * \fBcreate\fR ( const TQString & key ) = 0"
+.BI "virtual TQSqlDriver * \fBcreate\fR ( const TQString & key ) = 0"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSqlDriverPlugin class provides an abstract base for custom QSqlDriver plugins.
+The TQSqlDriverPlugin class provides an abstract base for custom TQSqlDriver plugins.
 .PP
 The SQL driver plugin is a simple plugin interface that makes it easy to create your own SQL driver plugins that can be loaded dynamically by Qt.
 .PP
@@ -35,17 +35,17 @@ Writing a SQL plugin is achieved by subclassing this base class, reimplementing 
 .PP
 See also Plugins.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlDriverPlugin::QSqlDriverPlugin ()"
+.SH "TQSqlDriverPlugin::TQSqlDriverPlugin ()"
 Constructs a SQL driver plugin. This is invoked automatically by the \fCQ_EXPORT_PLUGIN\fR macro.
-.SH "QSqlDriverPlugin::~QSqlDriverPlugin ()"
+.SH "TQSqlDriverPlugin::~TQSqlDriverPlugin ()"
 Destroys the SQL driver plugin.
 .PP
 You never have to call this explicitly. TQt destroys a plugin automatically when it is no longer used.
-.SH "QSqlDriver * QSqlDriverPlugin::create ( const TQString & key )\fC [pure virtual]\fR"
-Creates and returns a QSqlDriver object for the driver key \fIkey\fR. The driver key is usually the class name of the required driver.
+.SH "TQSqlDriver * TQSqlDriverPlugin::create ( const TQString & key )\fC [pure virtual]\fR"
+Creates and returns a TQSqlDriver object for the driver key \fIkey\fR. The driver key is usually the class name of the required driver.
 .PP
 See also keys().
-.SH "QStringList QSqlDriverPlugin::keys () const\fC [pure virtual]\fR"
+.SH "TQStringList TQSqlDriverPlugin::keys () const\fC [pure virtual]\fR"
 Returns the list of drivers (keys) this plugin supports.
 .PP
 These keys are usually the class names of the custom drivers that are implemented in the plugin.
@@ -53,7 +53,7 @@ These keys are usually the class names of the custom drivers that are implemente
 See also create().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsqldriverplugin.html
+.BR http://doc.trolltech.com/tqsqldriverplugin.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

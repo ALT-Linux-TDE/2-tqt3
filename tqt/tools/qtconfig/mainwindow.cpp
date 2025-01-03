@@ -36,29 +36,29 @@
 #include "previewframe.h"
 #include "paletteeditoradvanced.h"
 
-#include <ntqlabel.h>
-#include <ntqapplication.h>
-#include <ntqcombobox.h>
-#include <ntqstylefactory.h>
-#include <ntqinputcontextfactory.h>
-#include <ntqobjectlist.h>
-#include <ntqfontdatabase.h>
-#include <ntqlineedit.h>
-#include <ntqlistbox.h>
-#include <ntqspinbox.h>
-#include <ntqcheckbox.h>
-#include <ntqfiledialog.h>
-#include <ntqaction.h>
-#include <ntqstatusbar.h>
-#include <ntqsettings.h>
-#include <ntqmessagebox.h>
-#include <ntqtextview.h>
-#include <ntqstyle.h>
+#include <tqlabel.h>
+#include <tqapplication.h>
+#include <tqcombobox.h>
+#include <tqstylefactory.h>
+#include <tqinputcontextfactory.h>
+#include <tqobjectlist.h>
+#include <tqfontdatabase.h>
+#include <tqlineedit.h>
+#include <tqlistbox.h>
+#include <tqspinbox.h>
+#include <tqcheckbox.h>
+#include <tqfiledialog.h>
+#include <tqaction.h>
+#include <tqstatusbar.h>
+#include <tqsettings.h>
+#include <tqmessagebox.h>
+#include <tqtextview.h>
+#include <tqstyle.h>
 
 #include <stdlib.h>
 
 
-// from qapplication.cpp and qapplication_x11.cpp - These are NOT for
+// from tqapplication.cpp and tqapplication_x11.cpp - These are NOT for
 // external use ignore them
 extern bool TQ_EXPORT tqt_resolve_symlinks;
 

@@ -38,10 +38,6 @@
 /* ************************************************************************** */
 
 
-#if defined(__BORLANDC__) && defined(MNG_STRICT_ANSI)
-#pragma option -A                      /* force ANSI-C */
-#endif
-
 #ifndef _libmng_conf_h_
 #define _libmng_conf_h_
 
@@ -88,16 +84,6 @@
 #if defined(MNG_SUPPORT_IJG6B) && !defined(MNG_SUPPORT_JPEG8) && !defined(MNG_SUPPORT_JPEG12)
 #define MNG_SUPPORT_JPEG8
 /* #define MNG_SUPPORT_JPEG12 */
-#endif
-
-/* The following is required to export the IJG routines from the DLL in
-   the Windows-standard calling convention;
-   currently this only works for Borland C++ !!! */
-
-#if defined(MNG_BUILD_DLL) || defined(MNG_USE_DLL)
-#if defined(MNG_SUPPORT_IJG6B) && defined(__BORLANDC__)
-#define MNG_DEFINE_JPEG_STDCALL
-#endif
 #endif
 
 /* ************************************************************************** */

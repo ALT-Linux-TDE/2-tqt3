@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>TQDir</title>
+<style type="text/css"><!--
+fn { margin-left: 1cm; text-indent: -1cm; }
+a:link { color: #004faf; text-decoration: none }
+a:visited { color: #672967; text-decoration: none }
+body { background: #ffffff; color: black; }
+--></style>
+</head>
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr bgcolor="#E5E5E5">
+<td valign=center>
+ <a href="index.html">
+<font color="#004faf">Home</font></a>
+ | <a href="classes.html">
+<font color="#004faf">All&nbsp;Classes</font></a>
+ | <a href="mainclasses.html">
+<font color="#004faf">Main&nbsp;Classes</font></a>
+ | <a href="annotated.html">
+<font color="#004faf">Annotated</font></a>
+ | <a href="groups.html">
+<font color="#004faf">Grouped&nbsp;Classes</font></a>
+ | <a href="functions.html">
+<font color="#004faf">Functions</font></a>
+</td>
+<td align="right" valign="center"><img src="logo32.png" align="right" width="64" height="32" border="0"></td></tr></table><h1 align=center>TQDir</h1>
+
+   
+<p> 
+<hr>
+<p> Main:
+<p> <pre>/****************************************************************************
+** $Id: qt/tqdir.cpp   3.3.8   edited Jan 11 14:37 $
+**
+** Copyright (C) 1992-2007 Trolltech ASA.  All rights reserved.
+**
+** This file is part of an example program for TQt.  This example
+** program may be used, distributed and modified without limitation.
+**
+*****************************************************************************/
+
+#include "../dirview/dirview.h"
+#include "tqdir.h"
+
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqtextview-h.html">tqtextview.h</a>&gt;
+#include &lt;<a href="tqfileinfo-h.html">tqfileinfo.h</a>&gt;
+#include &lt;<a href="tqfile-h.html">tqfile.h</a>&gt;
+#include &lt;<a href="tqtextstream-h.html">tqtextstream.h</a>&gt;
+#include &lt;<a href="tqhbox-h.html">tqhbox.h</a>&gt;
+#include &lt;<a href="tqspinbox-h.html">tqspinbox.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
+#include &lt;<a href="tqmultilineedit-h.html">tqmultilineedit.h</a>&gt;
+#include &lt;<a href="tqheader-h.html">tqheader.h</a>&gt;
+#include &lt;<a href="tqevent-h.html">tqevent.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
+#include &lt;<a href="tqpopupmenu-h.html">tqpopupmenu.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqtoolbutton-h.html">tqtoolbutton.h</a>&gt;
+#include &lt;<a href="tqfile-h.html">tqfile.h</a>&gt;
+#include &lt;<a href="tqtextstream-h.html">tqtextstream.h</a>&gt;
+#include &lt;<a href="tqtooltip-h.html">tqtooltip.h</a>&gt;
+
+#include &lt;stdlib.h&gt;
+
+/* XPM */
+static const char *bookmarks[]={
+    "22 14 8 1",
+    "# c #000080",
+    "a c #585858",
+    "b c #000000",
+    "c c #ffffff",
+    "d c #ffffff",
+    "e c #ffffff",
+    "f c #000000",
+    ". c None",
+    "...bb.................",
+    "..bacb....bbb.........",
+    "..badcb.bbccbab.......",
+    "..bacccbadccbab.......",
+    "..baecdbcccdbab.......",
+    "..bacccbacccbab.......",
+    "..badcdbcecdfab.......",
+    "..bacecbacccbab.......",
+    "..baccdbcccdbab.......",
+    "...badcbacdbbab.......",
+    "....bacbcbbccab.......",
+    ".....babbaaaaab.......",
+    ".....bbabbbbbbb.......",
+    "......bb.............."
+};
+
+/* XPM */
+static const char *home[]={
+    "16 15 4 1",
+    "# c #000000",
+    "a c #ffffff",
+    "b c #c0c0c0",
+    ". c None",
+    ".......##.......",
+    "..#...####......",
+    "..#..#aabb#.....",
+    "..#.#aaaabb#....",
+    "..##aaaaaabb#...",
+    "..#aaaaaaaabb#..",
+    ".#aaaaaaaaabbb#.",
+    "###aaaaaaaabb###",
+    "..#aaaaaaaabb#..",
+    "..#aaa###aabb#..",
+    "..#aaa#.#aabb#..",
+    "..#aaa#.#aabb#..",
+    "..#aaa#.#aabb#..",
+    "..#aaa#.#aabb#..",
+    "..#####.######.."
+};
+
+// ****************************************************************************************************
+
+<a name="f495"></a>PixmapView::PixmapView( <a href="tqwidget.html">TQWidget</a> *parent )
+    : <a href="tqscrollview.html">TQScrollView</a>( parent )
+{
+    <a href="tqscrollview.html#viewport">viewport</a>()-&gt;setBackgroundMode( PaletteBase );
+}
+
+void <a name="f496"></a>PixmapView::setPixmap( const <a href="tqpixmap.html">TQPixmap</a> &amp;pix )
+{
+    pixmap = pix;
+<a name="x1855"></a>    <a href="tqscrollview.html#resizeContents">resizeContents</a>( pixmap.<a href="tqwidget.html#size">size</a>().width(), pixmap.<a href="tqwidget.html#size">size</a>().height() );
+    <a href="tqscrollview.html#viewport">viewport</a>()-&gt;repaint( FALSE );
+}
+
+<a name="x1837"></a>void PixmapView::<a href="tqscrollview.html#drawContents">drawContents</a>( <a href="tqpainter.html">TQPainter</a> *p, int cx, int cy, int cw, int ch )
+{
+<a name="x1833"></a>    p-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( cx, cy, cw, ch, colorGroup().brush( TQColorGroup::Base ) );
+<a name="x1832"></a>    p-&gt;<a href="tqpainter.html#drawPixmap">drawPixmap</a>( 0, 0, pixmap );
+}
+
+// ****************************************************************************************************
+
+<a name="f497"></a>Preview::Preview( <a href="tqwidget.html">TQWidget</a> *parent )
+    : <a href="tqwidgetstack.html">TQWidgetStack</a>( parent )
+{
+    normalText = new <a href="tqmultilineedit.html">TQMultiLineEdit</a>( this );
+<a name="x1845"></a>    normalText-&gt;<a href="tqtextedit.html#setReadOnly">setReadOnly</a>( TRUE );
+    html = new <a href="tqtextview.html">TQTextView</a>( this );
+    pixmap = new PixmapView( this );
+    <a href="tqwidgetstack.html#raiseWidget">raiseWidget</a>( normalText );
+}
+
+void <a name="f498"></a>Preview::showPreview( const <a href="tqurl.html">TQUrl</a> &amp;u, int size )
+{
+<a name="x1849"></a>    if ( u.<a href="tqurl.html#isLocalFile">isLocalFile</a>() ) {
+<a name="x1850"></a>        <a href="tqstring.html">TQString</a> path = u.<a href="tqurl.html#path">path</a>();
+        <a href="tqfileinfo.html">TQFileInfo</a> fi( path );
+<a name="x1825"></a><a name="x1824"></a>        if ( fi.<a href="tqfileinfo.html#isFile">isFile</a>() &amp;&amp; (int)fi.<a href="tqfileinfo.html#size">size</a>() &gt; size * 1000 ) {
+<a name="x1846"></a>            normalText-&gt;<a href="tqtextedit.html#setText">setText</a>( <a href="tqobject.html#tr">tr</a>( "The File\n%1\nis too large, so I don't show it!" ).arg( path ) );
+            <a href="tqwidgetstack.html#raiseWidget">raiseWidget</a>( normalText );
+            return;
+        }
+
+        <a href="tqpixmap.html">TQPixmap</a> pix( path );
+<a name="x1834"></a>        if ( pix.<a href="tqpixmap.html#isNull">isNull</a>() ) {
+            if ( fi.<a href="tqfileinfo.html#isFile">isFile</a>() ) {
+                <a href="tqfile.html">TQFile</a> f( path );
+<a name="x1815"></a>                if ( f.<a href="tqfile.html#open">open</a>( <a href="tqfile.html#open">IO_ReadOnly</a> ) ) {
+                    <a href="tqtextstream.html">TQTextStream</a> ts( &amp;f );
+<a name="x1847"></a>                    <a href="tqstring.html">TQString</a> text = ts.<a href="tqtextstream.html#read">read</a>();
+<a name="x1814"></a>                    f.<a href="tqfile.html#close">close</a>();
+<a name="x1823"></a>                    if ( fi.<a href="tqfileinfo.html#extension">extension</a>().lower().contains( "htm" ) ) {
+<a name="x1844"></a><a name="x1843"></a>                        <a href="tqstring.html">TQString</a> url = html-&gt;<a href="tqtextedit.html#mimeSourceFactory">mimeSourceFactory</a>()-&gt;makeAbsolute( path, html-&gt;<a href="tqtextedit.html#context">context</a>() );
+                        html-&gt;<a href="tqtextedit.html#setText">setText</a>( text, url );
+                        raiseWidget( html );
+                        return;
+                    } else {
+                        normalText-&gt;<a href="tqtextedit.html#setText">setText</a>( text );
+                        raiseWidget( normalText );
+                        return;
+                    }
+                }
+            }
+            normalText-&gt;<a href="tqtextedit.html#setText">setText</a>( <a href="tqstring.html#TQString-null">TQString::null</a> );
+            raiseWidget( normalText );
+        } else {
+            pixmap-&gt;setPixmap( pix );
+            raiseWidget( pixmap );
+        }
+    } else {
+        normalText-&gt;<a href="tqtextedit.html#setText">setText</a>( "I only show local files!" );
+        raiseWidget( normalText );
+    }
+}
+
+// ****************************************************************************************************
+
+<a name="f499"></a>PreviewWidget::PreviewWidget( <a href="tqwidget.html">TQWidget</a> *parent )
+    : <a href="tqvbox.html">TQVBox</a>( parent ), TQFilePreview()
+{
+    setSpacing( 5 );
+    setMargin( 5 );
+    <a href="tqhbox.html">TQHBox</a> *row = new <a href="tqhbox.html">TQHBox</a>( this );
+<a name="x1826"></a>    row-&gt;<a href="tqhbox.html#setSpacing">setSpacing</a>( 5 );
+    (void)new <a href="tqlabel.html">TQLabel</a>( <a href="tqobject.html#tr">tr</a>( "Only show files smaller than: " ), row );
+    sizeSpinBox = new <a href="tqspinbox.html">TQSpinBox</a>( 1, 10000, 1, row );
+<a name="x1838"></a>    sizeSpinBox-&gt;<a href="tqspinbox.html#setSuffix">setSuffix</a>( " KB" );
+<a name="x1839"></a>    sizeSpinBox-&gt;<a href="tqspinbox.html#setValue">setValue</a>( 64 );
+<a name="x1852"></a><a name="x1840"></a>    row-&gt;<a href="tqwidget.html#setFixedHeight">setFixedHeight</a>( 10 + sizeSpinBox-&gt;<a href="tqwidget.html#sizeHint">sizeHint</a>().height() );
+    preview = new Preview( this );
+}
+
+void <a name="f500"></a>PreviewWidget::previewUrl( const <a href="tqurl.html">TQUrl</a> &amp;u )
+{
+<a name="x1841"></a>    preview-&gt;showPreview( u, sizeSpinBox-&gt;<a href="tqspinbox.html#value">value</a>() );
+}
+
+// ****************************************************************************************************
+
+<a name="f491"></a>CustomFileDialog::CustomFileDialog()
+    :  <a href="tqfiledialog.html">TQFileDialog</a>( 0, 0, TRUE )
+{
+    <a href="tqfiledialog.html#setDir">setDir</a>( "/" );
+
+    dirView = new DirectoryView( this, 0, TRUE );
+<a name="x1827"></a>    dirView-&gt;<a href="tqlistview.html#addColumn">addColumn</a>( "" );
+<a name="x1828"></a>    dirView-&gt;<a href="tqlistview.html#header">header</a>()-&gt;hide();
+    ::Directory *root = new ::Directory( dirView, "/" );
+    root-&gt;setOpen( TRUE );
+<a name="x1853"></a>    dirView-&gt;<a href="tqwidget.html#setFixedWidth">setFixedWidth</a>( 150 );
+
+    <a href="tqfiledialog.html#addLeftWidget">addLeftWidget</a>( dirView );
+
+    <a href="tqpushbutton.html">TQPushButton</a> *p = new <a href="tqpushbutton.html">TQPushButton</a>( this );
+<a name="x1811"></a>    p-&gt;<a href="tqbutton.html#setPixmap">setPixmap</a>( TQPixmap( bookmarks ) );
+<a name="x1848"></a>    TQToolTip::<a href="tqtooltip.html#add">add</a>( p, tr( "Bookmarks" ) );
+
+    bookmarkMenu = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+<a name="x1835"></a>    <a href="tqobject.html#connect">connect</a>( bookmarkMenu, TQ_SIGNAL( <a href="tqpopupmenu.html#activated">activated</a>( int ) ),
+             this, TQ_SLOT( bookmarkChosen( int ) ) );
+    addId = bookmarkMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( <a href="tqobject.html#tr">tr</a>( "Add bookmark" ) );
+    bookmarkMenu-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+
+    <a href="tqfile.html">TQFile</a> f( ".bookmarks" );
+    if ( f.<a href="tqfile.html#open">open</a>( IO_ReadOnly ) ) {
+        <a href="tqdatastream.html">TQDataStream</a> ds( &amp;f );
+        ds &gt;&gt; bookmarkList;
+        f.<a href="tqfile.html#close">close</a>();
+
+        TQStringList::Iterator it = bookmarkList.begin();
+        for ( ; it != bookmarkList.end(); ++it ) {
+            bookmarkMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( *it );
+        }
+    }
+
+<a name="x1836"></a>    p-&gt;<a href="tqpushbutton.html#setPopup">setPopup</a>( bookmarkMenu );
+
+    <a href="tqfiledialog.html#addToolButton">addToolButton</a>( p, TRUE );
+
+    <a href="tqobject.html#connect">connect</a>( dirView, TQ_SIGNAL( folderSelected( const <a href="tqstring.html">TQString</a> &amp; ) ),
+             this, TQ_SLOT( setDir2( const <a href="tqstring.html">TQString</a> &amp; ) ) );
+    <a href="tqobject.html#connect">connect</a>( this, TQ_SIGNAL( <a href="tqfiledialog.html#dirEntered">dirEntered</a>( const <a href="tqstring.html">TQString</a> &amp; ) ),
+             dirView, TQ_SLOT( <a href="tqfiledialog.html#setDir">setDir</a>( const <a href="tqstring.html">TQString</a> &amp; ) ) );
+
+    <a href="tqtoolbutton.html">TQToolButton</a> *b = new <a href="tqtoolbutton.html">TQToolButton</a>( this );
+    TQToolTip::<a href="tqtooltip.html#add">add</a>( b, tr( "Go Home!" ) );
+    b-&gt;<a href="tqbutton.html#setPixmap">setPixmap</a>( TQPixmap( home ) );
+    <a href="tqobject.html#connect">connect</a>( b, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ),
+             this, TQ_SLOT( goHome() ) );
+
+    <a href="tqfiledialog.html#addToolButton">addToolButton</a>( b );
+
+    <a href="tqwidget.html#resize">resize</a>( <a href="tqwidget.html#width">width</a>() + width() / 3, height() );
+}
+
+CustomFileDialog::~CustomFileDialog()
+{
+    if ( !bookmarkList.isEmpty() ) {
+        <a href="tqfile.html">TQFile</a> f( ".bookmarks" );
+        if ( f.<a href="tqfile.html#open">open</a>( <a href="tqfile.html#open">IO_WriteOnly</a> ) ) {
+            <a href="tqdatastream.html">TQDataStream</a> ds( &amp;f );
+            ds &lt;&lt; bookmarkList;
+            f.<a href="tqfile.html#close">close</a>();
+        }
+    }
+}
+
+void <a name="f492"></a>CustomFileDialog::setDir2( const <a href="tqstring.html">TQString</a> &amp;s )
+{
+    <a href="tqobject.html#blockSignals">blockSignals</a>( TRUE );
+    <a href="tqfiledialog.html#setDir">setDir</a>( s );
+    <a href="tqobject.html#blockSignals">blockSignals</a>( FALSE );
+}
+
+<a name="x1854"></a>void CustomFileDialog::<a href="tqwidget.html#showEvent">showEvent</a>( <a href="tqshowevent.html">TQShowEvent</a> *e )
+{
+    TQFileDialog::<a href="tqwidget.html#showEvent">showEvent</a>( e );
+    dirView-&gt;setDir( <a href="tqfiledialog.html#dirPath">dirPath</a>() );
+}
+
+void <a name="f493"></a>CustomFileDialog::bookmarkChosen( int i )
+{
+    if ( i == addId ) {
+        bookmarkList &lt;&lt; dirPath();
+        bookmarkMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( <a href="tqfiledialog.html#dirPath">dirPath</a>() );
+    } else {
+<a name="x1831"></a>        <a href="tqfiledialog.html#setDir">setDir</a>( bookmarkMenu-&gt;<a href="tqmenudata.html#text">text</a>( i ) );
+    }
+}
+
+void <a name="f494"></a>CustomFileDialog::goHome()
+{
+    if ( getenv( "HOME" ) )
+        <a href="tqfiledialog.html#setDir">setDir</a>( getenv( "HOME" ) );
+    else
+        <a href="tqfiledialog.html#setDir">setDir</a>( "/" );
+}
+
+// ****************************************************************************************************
+
+int main( int argc, char ** argv )
+{
+    TQFileDialog::Mode mode = TQFileDialog::ExistingFile;
+    <a href="tqstring.html">TQString</a> start;
+    <a href="tqstring.html">TQString</a> filter;
+    <a href="tqstring.html">TQString</a> caption;
+    bool preview = FALSE;
+    bool custom = FALSE;
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
+    for (int i=1; i&lt;argc; i++) {
+        <a href="tqstring.html">TQString</a> arg = argv[i];
+        if ( arg == "-any" )
+            mode = TQFileDialog::AnyFile;
+        else if ( arg == "-dir" )
+            mode = TQFileDialog::Directory;
+        else if ( arg == "-default" )
+            start = argv[++i];
+        else if ( arg == "-filter" )
+            filter = argv[++i];
+        else if ( arg == "-preview" )
+            preview = TRUE;
+        else if ( arg == "-custom" )
+            custom = TRUE;
+        else if ( arg[0] == '-' ) {
+            <a href="tqapplication.html#qDebug">tqDebug</a>("Usage: tqdir [-any | -dir | -custom] [-preview] [-default f] {-filter f} [caption ...]\n"
+                   "      -any         Get any filename, need not exist.\n"
+                   "      -dir         Return a directory rather than a file.\n"
+                   "      -custom      Opens a customized TQFileDialog with \n"
+                   "                   dir browser, bookmark menu, etc.\n"
+                   "      -preview     Show a preview widget.\n"
+                   "      -default f   Start from directory/file f.\n"
+                   "      -filter f    eg. '*.gif' '*.bmp'\n"
+                   "      caption ...  Caption for dialog.\n"
+                   );
+            return 1;
+        } else {
+<a name="x1842"></a>            if ( !caption.<a href="tqstring.html#isNull">isNull</a>() )
+                caption += ' ';
+            caption += arg;
+        }
+    }
+
+    if ( !start )
+<a name="x1813"></a>        start = TQDir::<a href="tqdir.html#currentDirPath">currentDirPath</a>();
+
+    if ( !caption )
+        caption = mode == TQFileDialog::Directory
+                    ? "Choose directory..." : "Choose file...";
+
+    if ( !custom ) {
+        <a href="tqfiledialog.html">TQFileDialog</a> fd( TQString::null, filter, 0, 0, TRUE );
+<a name="x1819"></a>        fd.<a href="tqfiledialog.html#setMode">setMode</a>( mode );
+        if ( preview ) {
+<a name="x1818"></a>            fd.<a href="tqfiledialog.html#setContentsPreviewEnabled">setContentsPreviewEnabled</a>( TRUE );
+            PreviewWidget *pw = new PreviewWidget( &amp;fd );
+<a name="x1817"></a>            fd.<a href="tqfiledialog.html#setContentsPreview">setContentsPreview</a>( pw, pw );
+<a name="x1822"></a>            fd.<a href="tqfiledialog.html#setViewMode">setViewMode</a>( TQFileDialog::List );
+<a name="x1820"></a>            fd.<a href="tqfiledialog.html#setPreviewMode">setPreviewMode</a>( TQFileDialog::Contents );
+        }
+        fd.<a href="tqwidget.html#setCaption">setCaption</a>( caption );
+<a name="x1821"></a>        fd.<a href="tqfiledialog.html#setSelection">setSelection</a>( start );
+<a name="x1812"></a>        if ( fd.<a href="tqdialog.html#exec">exec</a>() == TQDialog::Accepted ) {
+<a name="x1816"></a>            <a href="tqstring.html">TQString</a> result = fd.<a href="tqfiledialog.html#selectedFile">selectedFile</a>();
+            printf("%s\n", (const char*)result);
+            return 0;
+        } else {
+            return 1;
+        }
+    } else {
+        CustomFileDialog fd;
+        fd.<a href="tqdialog.html#exec">exec</a>();
+        return 1;
+    }
+}
+</pre>
+
+<p>See also <a href="examples.html">Examples</a>.
+
+<!-- eof -->
+<p><address><hr><div align=center>
+<table width=100% cellspacing=0 border=0><tr>
+<td>Copyright &copy; 2007
+<a href="troll.html">Trolltech</a><td align=center><a href="trademarks.html">Trademarks</a>
+<td align=right><div align=right>TQt 3.3.8</div>
+</table></div></address></body>
+</html>

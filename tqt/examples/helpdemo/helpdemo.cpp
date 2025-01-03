@@ -1,12 +1,12 @@
-#include <ntqassistantclient.h>
-#include <ntqmessagebox.h>
-#include <ntqlineedit.h>
-#include <ntqaction.h>
-#include <ntqpopupmenu.h>
-#include <ntqcheckbox.h>
-#include <ntqprocess.h>
-#include <ntqpushbutton.h>
-#include <ntqdir.h>
+#include <tqassistantclient.h>
+#include <tqmessagebox.h>
+#include <tqlineedit.h>
+#include <tqaction.h>
+#include <tqpopupmenu.h>
+#include <tqcheckbox.h>
+#include <tqprocess.h>
+#include <tqpushbutton.h>
+#include <tqdir.h>
 
 #include "helpdemo.h"
 

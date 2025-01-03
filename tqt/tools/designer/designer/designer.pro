@@ -64,7 +64,7 @@ SOURCES	+= command.cpp \
 		paletteeditoradvancedimpl.cpp \
 		sourcefile.cpp \
 		wizardeditorimpl.cpp \
-		qcompletionedit.cpp \
+		tqcompletionedit.cpp \
 		timestamp.cpp \
 		formfile.cpp \
 		widgetaction.cpp \
@@ -127,7 +127,7 @@ HEADERS	+= command.h \
 		pixmapcollection.h \
 		sourcefile.h \
 		wizardeditorimpl.h \
-		qcompletionedit.h \
+		tqcompletionedit.h \
 		timestamp.h \
 		formfile.h \
 		widgetaction.h \

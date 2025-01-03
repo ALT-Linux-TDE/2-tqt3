@@ -39,17 +39,17 @@
 #include "hierarchyview.h"
 #include "project.h"
 
-#include <ntqlistview.h>
-#include <ntqpushbutton.h>
-#include <ntqlineedit.h>
-#include <ntqcombobox.h>
-#include <ntqstrlist.h>
-#include <ntqmessagebox.h>
-#include <ntqlayout.h>
-#include <ntqlabel.h>
-#include <ntqgroupbox.h>
-#include <ntqheader.h>
-#include <ntqcheckbox.h>
+#include <tqlistview.h>
+#include <tqpushbutton.h>
+#include <tqlineedit.h>
+#include <tqcombobox.h>
+#include <tqstrlist.h>
+#include <tqmessagebox.h>
+#include <tqlayout.h>
+#include <tqlabel.h>
+#include <tqgroupbox.h>
+#include <tqheader.h>
+#include <tqcheckbox.h>
 
 EditFunctions::EditFunctions( TQWidget *parent, FormWindow *fw, bool justSlots )
     : EditFunctionsBase( parent, 0, TRUE ), formWindow( fw )

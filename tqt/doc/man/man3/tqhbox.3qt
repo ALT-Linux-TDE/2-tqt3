@@ -1,5 +1,5 @@
 '\" t
-.TH QHBox 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQHBox 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,18 +7,18 @@
 .ad l
 .nh
 .SH NAME
-QHBox \- Horizontal geometry management for its child widgets
+TQHBox \- Horizontal geometry management for its child widgets
 .SH SYNOPSIS
-\fC#include <ntqhbox.h>\fR
+\fC#include <tqhbox.h>\fR
 .PP
-Inherits QFrame.
+Inherits TQFrame.
 .PP
-Inherited by QVBox.
+Inherited by TQVBox.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQHBox\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBTQHBox\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "void \fBsetSpacing\fR ( int space )"
@@ -30,11 +30,11 @@ Inherited by QVBox.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "\fBQHBox\fR ( bool horizontal, TQWidget * parent, const char * name, WFlags f = 0 )"
+.BI "\fBTQHBox\fR ( bool horizontal, TQWidget * parent, const char * name, WFlags f = 0 )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QHBox widget provides horizontal geometry management for its child widgets.
+The TQHBox widget provides horizontal geometry management for its child widgets.
 .PP
 All the horizontal box's child widgets will be placed alongside each other and sized according to their sizeHint()s.
 .PP
@@ -46,28 +46,28 @@ Use setMargin() to add space around the edges, and use setSpacing() to add space
 .PP
 </center>
 .PP
-See also QHBoxLayout, QVBox, QGrid, Widget Appearance and Style, Layout Management, and Organizers.
+See also TQHBoxLayout, TQVBox, TQGrid, Widget Appearance and Style, Layout Management, and Organizers.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QHBox::QHBox ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
-Constructs an hbox widget with parent \fIparent\fR, called \fIname\fR. The parent, name and widget flags, \fIf\fR, are passed to the QFrame constructor.
-.SH "QHBox::QHBox ( bool horizontal, TQWidget * parent, const char * name, WFlags f = 0 )\fC [protected]\fR"
+.SH "TQHBox::TQHBox ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+Constructs an hbox widget with parent \fIparent\fR, called \fIname\fR. The parent, name and widget flags, \fIf\fR, are passed to the TQFrame constructor.
+.SH "TQHBox::TQHBox ( bool horizontal, TQWidget * parent, const char * name, WFlags f = 0 )\fC [protected]\fR"
 Constructs a horizontal hbox if \fIhorizontal\fR is TRUE, otherwise constructs a vertical hbox (also known as a vbox).
 .PP
-This constructor is provided for the QVBox class. You should never need to use it directly.
+This constructor is provided for the TQVBox class. You should never need to use it directly.
 .PP
-The \fIparent\fR, \fIname\fR and widget flags, \fIf\fR, are passed to the QFrame constructor.
-.SH "void QHBox::setSpacing ( int space )"
+The \fIparent\fR, \fIname\fR and widget flags, \fIf\fR, are passed to the TQFrame constructor.
+.SH "void TQHBox::setSpacing ( int space )"
 Sets the spacing between the child widgets to \fIspace\fR.
 .PP
 Examples:
-.)l i18n/mywidget.cpp, listboxcombo/listboxcombo.cpp, qdir/qdir.cpp, tabdialog/tabdialog.cpp, wizard/wizard.cpp, and xform/xform.cpp.
-.SH "bool QHBox::setStretchFactor ( TQWidget * w, int stretch )"
+.)l i18n/mywidget.cpp, listboxcombo/listboxcombo.cpp, tqdir/tqdir.cpp, tabdialog/tabdialog.cpp, wizard/wizard.cpp, and xform/xform.cpp.
+.SH "bool TQHBox::setStretchFactor ( TQWidget * w, int stretch )"
 Sets the stretch factor of widget \fIw\fR to \fIstretch\fR. Returns TRUE if \fIw\fR is found. Otherwise returns FALSE.
 .PP
-See also QBoxLayout::setStretchFactor() and Layouts.
+See also TQBoxLayout::setStretchFactor() and Layouts.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqhbox.html
+.BR http://doc.trolltech.com/tqhbox.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -16,7 +16,7 @@
 #ifndef GLTEXOBJ_H
 #define GLTEXOBJ_H
 
-#include <ntqgl.h>
+#include <tqgl.h>
 
 
 class GLTexobj : public TQGLWidget

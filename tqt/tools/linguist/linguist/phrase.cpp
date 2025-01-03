@@ -33,13 +33,13 @@
 
 #include "phrase.h"
 
-#include <ntqapplication.h>
-#include <ntqcstring.h>
-#include <ntqfile.h>
-#include <ntqmessagebox.h>
-#include <ntqregexp.h>
-#include <ntqtextstream.h>
-#include <ntqxml.h>
+#include <tqapplication.h>
+#include <tqcstring.h>
+#include <tqfile.h>
+#include <tqmessagebox.h>
+#include <tqregexp.h>
+#include <tqtextstream.h>
+#include <tqxml.h>
 
 static TQString protect( const TQString& str )
 {

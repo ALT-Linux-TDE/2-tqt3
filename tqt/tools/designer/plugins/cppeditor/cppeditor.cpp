@@ -38,9 +38,9 @@
 #include "cppcompletion.h"
 #include "cppbrowser.h"
 #include <parenmatcher.h>
-#include <ntqsettings.h>
-#include <ntqpopupmenu.h>
-#include <ntqinputdialog.h>
+#include <tqsettings.h>
+#include <tqpopupmenu.h>
+#include <tqinputdialog.h>
 #include <designerinterface.h>
 
 CppEditor::CppEditor( const TQString &fn, TQWidget *parent, const char *name, DesignerInterface *i )

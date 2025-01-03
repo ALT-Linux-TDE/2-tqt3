@@ -1,0 +1,437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>A Complete Application Window with Actions</title>
+<style type="text/css"><!--
+fn { margin-left: 1cm; text-indent: -1cm; }
+a:link { color: #004faf; text-decoration: none }
+a:visited { color: #672967; text-decoration: none }
+body { background: #ffffff; color: black; }
+--></style>
+</head>
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr bgcolor="#E5E5E5">
+<td valign=center>
+ <a href="index.html">
+<font color="#004faf">Home</font></a>
+ | <a href="classes.html">
+<font color="#004faf">All&nbsp;Classes</font></a>
+ | <a href="mainclasses.html">
+<font color="#004faf">Main&nbsp;Classes</font></a>
+ | <a href="annotated.html">
+<font color="#004faf">Annotated</font></a>
+ | <a href="groups.html">
+<font color="#004faf">Grouped&nbsp;Classes</font></a>
+ | <a href="functions.html">
+<font color="#004faf">Functions</font></a>
+</td>
+<td align="right" valign="center"><img src="logo32.png" align="right" width="64" height="32" border="0"></td></tr></table><h1 align=center>A Complete Application Window with Actions</h1>
+
+ 
+<p> 
+<p> The <a href="tqaction.html">TQAction</a> class provides a way of associating user input from different
+user interface elements with abstract high level actions. This approach makes
+it easy to customize applications for different types of users.
+<p> This example program is just like the
+<a href="simple-application-example.html">application example</a>,
+but uses TQAction to build the menu and the toolbar.
+<p> <hr>
+<p> Header file:
+<p> <pre>/****************************************************************************
+** $Id: qt/application.h   3.3.8   edited Jan 11 14:36 $
+**
+** Copyright (C) 1992-2007 Trolltech ASA.  All rights reserved.
+**
+** This file is part of an example program for TQt.  This example
+** program may be used, distributed and modified without limitation.
+**
+*****************************************************************************/
+
+#ifndef APPLICATION_H
+#define APPLICATION_H
+
+#include &lt;<a href="tqmainwindow-h.html">tqmainwindow.h</a>&gt;
+
+class TQTextEdit;
+
+class ApplicationWindow: public <a href="tqmainwindow.html">TQMainWindow</a>
+{
+    <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
+
+public:
+    ApplicationWindow();
+    ~ApplicationWindow();
+
+protected:
+    void closeEvent( <a href="tqcloseevent.html">TQCloseEvent</a>* );
+
+private slots:
+    void newDoc();
+    void choose();
+    void load( const <a href="tqstring.html">TQString</a> &amp;fileName );
+    void save();
+    void saveAs();
+    void print();
+
+    void about();
+    void aboutTQt();
+
+private:
+    <a href="tqprinter.html">TQPrinter</a> *printer;
+    <a href="tqtextedit.html">TQTextEdit</a> *e;
+    <a href="tqstring.html">TQString</a> filename;
+};
+
+
+#endif
+</pre>
+
+<p> <hr>
+<p> Implementation:
+<p> <pre>/****************************************************************************
+** $Id: qt/application.cpp   3.3.8   edited Jan 11 14:36 $
+**
+** Copyright (C) 1992-2007 Trolltech ASA.  All rights reserved.
+**
+** This file is part of an example program for TQt.  This example
+** program may be used, distributed and modified without limitation.
+**
+*****************************************************************************/
+
+#include "application.h"
+
+#include &lt;<a href="tqimage-h.html">tqimage.h</a>&gt;
+#include &lt;<a href="tqpixmap-h.html">tqpixmap.h</a>&gt;
+#include &lt;<a href="tqtoolbar-h.html">tqtoolbar.h</a>&gt;
+#include &lt;<a href="tqtoolbutton-h.html">tqtoolbutton.h</a>&gt;
+#include &lt;<a href="tqpopupmenu-h.html">tqpopupmenu.h</a>&gt;
+#include &lt;<a href="tqmenubar-h.html">tqmenubar.h</a>&gt;
+#include &lt;<a href="tqtextedit-h.html">tqtextedit.h</a>&gt;
+#include &lt;<a href="tqfile-h.html">tqfile.h</a>&gt;
+#include &lt;<a href="tqfiledialog-h.html">tqfiledialog.h</a>&gt;
+#include &lt;<a href="tqstatusbar-h.html">tqstatusbar.h</a>&gt;
+#include &lt;<a href="tqmessagebox-h.html">tqmessagebox.h</a>&gt;
+#include &lt;<a href="tqprinter-h.html">tqprinter.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqaccel-h.html">tqaccel.h</a>&gt;
+#include &lt;<a href="tqtextstream-h.html">tqtextstream.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
+#include &lt;<a href="tqpaintdevicemetrics-h.html">tqpaintdevicemetrics.h</a>&gt;
+#include &lt;<a href="tqwhatsthis-h.html">tqwhatsthis.h</a>&gt;
+#include &lt;<a href="tqaction-h.html">tqaction.h</a>&gt;
+#include &lt;<a href="tqsimplerichtext-h.html">tqsimplerichtext.h</a>&gt;
+
+#include "filesave.xpm"
+#include "fileopen.xpm"
+#include "fileprint.xpm"
+
+
+<a name="f375"></a>ApplicationWindow::ApplicationWindow()
+    : <a href="tqmainwindow.html">TQMainWindow</a>( 0, "example application main window", WDestructiveClose )
+{
+    printer = new <a href="tqprinter.html">TQPrinter</a>( TQPrinter::HighResolution );
+
+    <a href="tqaction.html">TQAction</a> * fileNewAction;
+    <a href="tqaction.html">TQAction</a> * fileOpenAction;
+    <a href="tqaction.html">TQAction</a> * fileSaveAction, * fileSaveAsAction, * filePrintAction;
+    <a href="tqaction.html">TQAction</a> * fileCloseAction, * fileQuitAction;
+
+    fileNewAction = new <a href="tqaction.html">TQAction</a>( "&amp;New", CTRL+Key_N, this, "new" );
+<a name="x1123"></a>    <a href="tqobject.html#connect">connect</a>( fileNewAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ) , this,
+             TQ_SLOT( newDoc() ) );
+
+    fileOpenAction = new <a href="tqaction.html">TQAction</a>( TQPixmap( fileopen ), "&amp;Open...",
+                                  CTRL+Key_O, this, "open" );
+    <a href="tqobject.html#connect">connect</a>( fileOpenAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ) , this, TQ_SLOT( choose() ) );
+
+    const char * fileOpenText = "&lt;p&gt;&lt;img source=\"fileopen\"&gt; "
+                     "Click this button to open a &lt;em&gt;new file&lt;/em&gt;. &lt;br&gt;"
+                     "You can also select the &lt;b&gt;Open&lt;/b&gt; command "
+                     "from the &lt;b&gt;File&lt;/b&gt; menu.&lt;/p&gt;";
+<a name="x1140"></a>    TQMimeSourceFactory::<a href="tqmimesourcefactory.html#defaultFactory">defaultFactory</a>()-&gt;setPixmap( "document-open",
+<a name="x1125"></a>                          fileOpenAction-&gt;<a href="tqaction.html#iconSet">iconSet</a>().pixmap() );
+<a name="x1126"></a>    fileOpenAction-&gt;<a href="tqaction.html#setWhatsThis">setWhatsThis</a>( fileOpenText );
+
+    fileSaveAction = new <a href="tqaction.html">TQAction</a>( TQPixmap( filesave ),
+                                  "&amp;Save", CTRL+Key_S, this, "save" );
+    <a href="tqobject.html#connect">connect</a>( fileSaveAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ) , this, TQ_SLOT( save() ) );
+
+    const char * fileSaveText = "&lt;p&gt;Click this button to save the file you "
+                     "are editing. You will be prompted for a file name.\n"
+                     "You can also select the &lt;b&gt;Save&lt;/b&gt; command "
+                     "from the &lt;b&gt;File&lt;/b&gt; menu.&lt;/p&gt;";
+    fileSaveAction-&gt;<a href="tqaction.html#setWhatsThis">setWhatsThis</a>( fileSaveText );
+
+    fileSaveAsAction = new <a href="tqaction.html">TQAction</a>( "Save File As", "Save &amp;As...", 0,  this,
+                                    "save as" );
+    <a href="tqobject.html#connect">connect</a>( fileSaveAsAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ) , this,
+             TQ_SLOT( saveAs() ) );
+    fileSaveAsAction-&gt;<a href="tqaction.html#setWhatsThis">setWhatsThis</a>( fileSaveText );
+
+    filePrintAction = new <a href="tqaction.html">TQAction</a>( "Print File", TQPixmap( fileprint ),
+                                   "&amp;Print...", CTRL+Key_P, this, "print" );
+    <a href="tqobject.html#connect">connect</a>( filePrintAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ) , this,
+             TQ_SLOT( print() ) );
+
+    const char * filePrintText = "Click this button to print the file you "
+                     "are editing.\n You can also select the Print "
+                     "command from the File menu.";
+    filePrintAction-&gt;<a href="tqaction.html#setWhatsThis">setWhatsThis</a>( filePrintText );
+
+    fileCloseAction = new <a href="tqaction.html">TQAction</a>( "Close", "&amp;Close", CTRL+Key_W, this,
+                                   "close" );
+    <a href="tqobject.html#connect">connect</a>( fileCloseAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ) , this,
+             TQ_SLOT( <a href="tqwidget.html#close">close</a>() ) );
+
+    fileQuitAction = new <a href="tqaction.html">TQAction</a>( "Quit", "&amp;Quit", CTRL+Key_Q, this,
+                                  "quit" );
+<a name="x1127"></a>    <a href="tqobject.html#connect">connect</a>( fileQuitAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ) , tqApp,
+             TQ_SLOT( <a href="tqapplication.html#closeAllWindows">closeAllWindows</a>() ) );
+
+    // populate a tool bar with some actions
+
+    <a href="tqtoolbar.html">TQToolBar</a> * fileTools = new <a href="tqtoolbar.html">TQToolBar</a>( this, "file operations" );
+<a name="x1172"></a>    fileTools-&gt;<a href="tqtoolbar.html#setLabel">setLabel</a>( "File Operations" );
+<a name="x1124"></a>    fileOpenAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileTools );
+    fileSaveAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileTools );
+    filePrintAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileTools );
+    (void)TQWhatsThis::whatsThisButton( fileTools );
+
+
+    // populate a menu with all actions
+
+    <a href="tqpopupmenu.html">TQPopupMenu</a> * file = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;File", file );
+    fileNewAction-&gt;<a href="tqaction.html#addTo">addTo</a>( file );
+    fileOpenAction-&gt;<a href="tqaction.html#addTo">addTo</a>( file );
+    fileSaveAction-&gt;<a href="tqaction.html#addTo">addTo</a>( file );
+    fileSaveAsAction-&gt;<a href="tqaction.html#addTo">addTo</a>( file );
+    file-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    filePrintAction-&gt;<a href="tqaction.html#addTo">addTo</a>( file );
+    file-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    fileCloseAction-&gt;<a href="tqaction.html#addTo">addTo</a>( file );
+    fileQuitAction-&gt;<a href="tqaction.html#addTo">addTo</a>( file );
+
+
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
+
+    // add a help menu
+
+    <a href="tqpopupmenu.html">TQPopupMenu</a> * help = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", help );
+    help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), Key_F1 );
+    help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()) );
+    help-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "What's &amp;This", this, TQ_SLOT(<a href="tqmainwindow.html#whatsThis">whatsThis</a>()),
+                      SHIFT+Key_F1 );
+
+
+    // create and define the central widget
+
+    e = new <a href="tqtextedit.html">TQTextEdit</a>( this, "editor" );
+    e-&gt;<a href="tqwidget.html#setFocus">setFocus</a>();
+    <a href="tqmainwindow.html#setCentralWidget">setCentralWidget</a>( e );
+    <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Ready", 2000 );
+
+    <a href="tqwidget.html#resize">resize</a>( 450, 600 );
+}
+
+
+ApplicationWindow::~ApplicationWindow()
+{
+    delete printer;
+}
+
+
+
+void <a name="f376"></a>ApplicationWindow::newDoc()
+{
+    ApplicationWindow *ed = new ApplicationWindow;
+    ed-&gt;<a href="tqwidget.html#show">show</a>();
+}
+
+void <a name="f377"></a>ApplicationWindow::choose()
+{
+<a name="x1132"></a>    <a href="tqstring.html">TQString</a> fn = TQFileDialog::<a href="tqfiledialog.html#getOpenFileName">getOpenFileName</a>( <a href="tqstring.html#TQString-null">TQString::null</a>, TQString::null,
+                                               this);
+    if ( !fn.<a href="tqstring.html#isEmpty">isEmpty</a>() )
+        load( fn );
+    else
+        <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Loading aborted", 2000 );
+}
+
+
+void <a name="f378"></a>ApplicationWindow::load( const <a href="tqstring.html">TQString</a> &amp;fileName )
+{
+    <a href="tqfile.html">TQFile</a> f( fileName );
+    if ( !f.<a href="tqfile.html#open">open</a>( <a href="tqfile.html#open">IO_ReadOnly</a> ) )
+        return;
+
+    <a href="tqtextstream.html">TQTextStream</a> ts( &amp;f );
+<a name="x1171"></a><a name="x1168"></a>    e-&gt;<a href="tqtextedit.html#setText">setText</a>( ts.<a href="tqtextstream.html#read">read</a>() );
+<a name="x1167"></a>    e-&gt;<a href="tqtextedit.html#setModified">setModified</a>( FALSE );
+    <a href="tqwidget.html#setCaption">setCaption</a>( fileName );
+    <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Loaded document " + fileName, 2000 );
+}
+
+
+void <a name="f379"></a>ApplicationWindow::save()
+{
+    if ( filename.isEmpty() ) {
+        saveAs();
+        return;
+    }
+
+<a name="x1170"></a>    <a href="tqstring.html">TQString</a> text = e-&gt;<a href="tqtextedit.html#text">text</a>();
+    <a href="tqfile.html">TQFile</a> f( filename );
+    if ( !f.<a href="tqfile.html#open">open</a>( <a href="tqfile.html#open">IO_WriteOnly</a> ) ) {
+        <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( TQString("Could not write to %1").arg(filename),
+                              2000 );
+        return;
+    }
+
+    <a href="tqtextstream.html">TQTextStream</a> t( &amp;f );
+    t &lt;&lt; text;
+    f.<a href="tqfile.html#close">close</a>();
+
+    e-&gt;<a href="tqtextedit.html#setModified">setModified</a>( FALSE );
+
+    <a href="tqwidget.html#setCaption">setCaption</a>( filename );
+
+    <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( TQString( "File %1 saved" ).arg( filename ), 2000 );
+}
+
+
+void <a name="f380"></a>ApplicationWindow::saveAs()
+{
+<a name="x1133"></a>    <a href="tqstring.html">TQString</a> fn = TQFileDialog::<a href="tqfiledialog.html#getSaveFileName">getSaveFileName</a>( TQString::null, TQString::null,
+                                               this );
+    if ( !fn.<a href="tqstring.html#isEmpty">isEmpty</a>() ) {
+        filename = fn;
+        save();
+    } else {
+        <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Saving aborted", 2000 );
+    }
+}
+
+
+void <a name="f381"></a>ApplicationWindow::print()
+{
+<a name="x1150"></a>    printer-&gt;<a href="tqprinter.html#setFullPage">setFullPage</a>( TRUE );
+<a name="x1151"></a>    if ( printer-&gt;<a href="tqprinter.html#setup">setup</a>(this) ) {               // printer dialog
+        <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Printing..." );
+        <a href="tqpainter.html">TQPainter</a> p;
+        if( !p.<a href="tqpainter.html#begin">begin</a>( printer ) ) {               // paint on printer
+            <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Printing aborted", 2000 );
+            return;
+        }
+
+<a name="x1145"></a>        <a href="tqpaintdevicemetrics.html">TQPaintDeviceMetrics</a> metrics( p.<a href="tqpainter.html#device">device</a>() );
+<a name="x1142"></a>        int dpiy = metrics.<a href="tqpaintdevicemetrics.html#logicalDpiY">logicalDpiY</a>();
+        int margin = (int) ( (2/2.54)*dpiy ); // 2 cm margins
+<a name="x1143"></a><a name="x1141"></a>        <a href="tqrect.html">TQRect</a> view( margin, margin, metrics.<a href="tqpaintdevicemetrics.html#width">width</a>() - 2*margin, metrics.<a href="tqpaintdevicemetrics.html#height">height</a>() - 2*margin );
+<a name="x1163"></a>        <a href="tqsimplerichtext.html">TQSimpleRichText</a> richText( TQStyleSheet::<a href="tqstylesheet.html#convertFromPlainText">convertFromPlainText</a>(e-&gt;<a href="tqtextedit.html#text">text</a>()),
+                                  TQFont(),
+<a name="x1164"></a>                                  e-&gt;<a href="tqtextedit.html#context">context</a>(),
+<a name="x1169"></a>                                  e-&gt;<a href="tqtextedit.html#styleSheet">styleSheet</a>(),
+<a name="x1166"></a>                                  e-&gt;<a href="tqtextedit.html#mimeSourceFactory">mimeSourceFactory</a>(),
+                                  view.<a href="tqrect.html#height">height</a>() );
+<a name="x1160"></a>        richText.<a href="tqsimplerichtext.html#setWidth">setWidth</a>( &amp;p, view.<a href="tqrect.html#width">width</a>() );
+        int page = 1;
+        do {
+<a name="x1158"></a>            richText.<a href="tqsimplerichtext.html#draw">draw</a>( &amp;p, margin, margin, view, colorGroup() );
+<a name="x1154"></a>            view.<a href="tqrect.html#moveBy">moveBy</a>( 0, view.<a href="tqrect.html#height">height</a>() );
+<a name="x1148"></a>            p.<a href="tqpainter.html#translate">translate</a>( 0 , -view.<a href="tqrect.html#height">height</a>() );
+<a name="x1155"></a><a name="x1147"></a>            p.<a href="tqpainter.html#drawText">drawText</a>( view.<a href="tqrect.html#right">right</a>() - p.<a href="tqpainter.html#fontMetrics">fontMetrics</a>().width( TQString::<a href="tqstring.html#number">number</a>( page ) ),
+<a name="x1152"></a>                        view.<a href="tqrect.html#bottom">bottom</a>() + p.<a href="tqpainter.html#fontMetrics">fontMetrics</a>().ascent() + 5, TQString::number( page ) );
+<a name="x1159"></a>            if ( view.<a href="tqrect.html#top">top</a>() - margin &gt;= richText.<a href="tqsimplerichtext.html#height">height</a>() )
+                break;
+<a name="x1149"></a>            printer-&gt;<a href="tqprinter.html#newPage">newPage</a>();
+            page++;
+        } while (TRUE);
+
+        <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Printing completed", 2000 );
+    } else {
+        <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Printing aborted", 2000 );
+    }
+}
+
+<a name="x1173"></a>void ApplicationWindow::<a href="tqwidget.html#closeEvent">closeEvent</a>( <a href="tqcloseevent.html">TQCloseEvent</a>* ce )
+{
+<a name="x1165"></a>    if ( !e-&gt;<a href="tqtextedit.html#isModified">isModified</a>() ) {
+<a name="x1128"></a>        ce-&gt;<a href="tqcloseevent.html#accept">accept</a>();
+        return;
+    }
+
+<a name="x1139"></a>    switch( TQMessageBox::<a href="tqmessagebox.html#information">information</a>( this, "TQt Application Example",
+                                      "The document has been changed since "
+                                      "the last save.",
+                                      "Save Now", "Cancel", "Leave Anyway",
+                                      0, 1 ) ) {
+    case 0:
+        save();
+        ce-&gt;<a href="tqcloseevent.html#accept">accept</a>();
+        break;
+    case 1:
+    default: // just for sanity
+<a name="x1129"></a>        ce-&gt;<a href="tqcloseevent.html#ignore">ignore</a>();
+        break;
+    case 2:
+        ce-&gt;<a href="tqcloseevent.html#accept">accept</a>();
+        break;
+    }
+}
+
+
+void <a name="f382"></a>ApplicationWindow::about()
+{
+<a name="x1137"></a>    TQMessageBox::<a href="tqmessagebox.html#about">about</a>( this, "TQt Application Example",
+                        "This example demonstrates simple use of "
+                        "TQMainWindow,\nTQMenuBar and TQToolBar.");
+}
+
+
+void <a name="f383"></a>ApplicationWindow::aboutTQt()
+{
+<a name="x1138"></a>    TQMessageBox::<a href="tqmessagebox.html#aboutTQt">aboutTQt</a>( this, "TQt Application Example" );
+}
+</pre>
+
+<p> <hr>
+<p> Main:
+<p> <pre>/****************************************************************************
+** $Id: qt/main.cpp   3.3.8   edited Jan 11 14:36 $
+**
+** Copyright (C) 1992-2007 Trolltech ASA.  All rights reserved.
+**
+** This file is part of an example program for TQt.  This example
+** program may be used, distributed and modified without limitation.
+**
+*****************************************************************************/
+
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include "application.h"
+
+int main( int argc, char ** argv ) {
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
+    ApplicationWindow * mw = new ApplicationWindow();
+    mw-&gt;<a href="tqwidget.html#setCaption">setCaption</a>( "Document 1" );
+<a name="x1178"></a>    mw-&gt;<a href="tqwidget.html#show">show</a>();
+<a name="x1179"></a>    a.<a href="tqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="tqapplication.html#lastWindowClosed">lastWindowClosed</a>()), &amp;a, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
+    return a.<a href="tqapplication.html#exec">exec</a>();
+}
+</pre>
+
+<p>See also <a href="tqaction-examples.html">TQAction Examples</a>.
+
+<!-- eof -->
+<p><address><hr><div align=center>
+<table width=100% cellspacing=0 border=0><tr>
+<td>Copyright &copy; 2007
+<a href="troll.html">Trolltech</a><td align=center><a href="trademarks.html">Trademarks</a>
+<td align=right><div align=right>TQt 3.3.8</div>
+</table></div></address></body>
+</html>

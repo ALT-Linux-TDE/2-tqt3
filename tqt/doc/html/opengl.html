@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/src/opengl/qgl.cpp:2250 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -40,7 +39,7 @@ body { background: #ffffff; color: black; }
 <p> OpenGL only deals with 3D rendering and provides little or no support
 for GUI programming issues. The user interface for an
 OpenGL<sup>*</sup> application must be created with another toolkit,
-such as <a href="motif-extension.html#Motif">Motif</a> on the X platform, Microsoft Foundation Classes (MFC)
+such as Motif on the X platform, Microsoft Foundation Classes (MFC)
 under Windows, or TQt on <em>both</em> platforms.
 <p> The TQt OpenGL module makes it easy to use OpenGL in TQt applications.
 It provides an OpenGL widget class that can be used just like any
@@ -73,19 +72,19 @@ the Makefiles to use these library names instead. The easiest way to
 do this is to edit the QMAKE_LIBS_OPENGL line in the config file you
 are using, changing "-lGL -lGLU" to "-lMesaGL -lMesaGLU"; then run
 "configure" again.
-<p> <h2> The <a href="ntqgl.html">TQGL</a> Classes
+<p> <h2> The <a href="tqgl.html">TQGL</a> Classes
 </h2>
 <a name="3"></a><p> The OpenGL support classes in TQt are:
 <ul>
-<li> <a href="qglwidget.html">TQGLWidget</a>: An easy-to-use TQt
+<li> <a href="tqglwidget.html">TQGLWidget</a>: An easy-to-use TQt
 widget for rendering OpenGL scenes.
-<li> <a href="qglcontext.html">TQGLContext</a>: Encapsulates an OpenGL rendering context.
-<li> <a href="qglformat.html">TQGLFormat</a>: Specifies the
+<li> <a href="tqglcontext.html">TQGLContext</a>: Encapsulates an OpenGL rendering context.
+<li> <a href="tqglformat.html">TQGLFormat</a>: Specifies the
 display format of a rendering context.
-<li> <a href="ntqglcolormap.html">TQGLColormap</a>: Handles indexed
+<li> <a href="tqglcolormap.html">TQGLColormap</a>: Handles indexed
 colormaps in GL-index mode.
 </ul>
-<p> Many applications only need the high-level <a href="qglwidget.html">TQGLWidget</a> class. The other
+<p> Many applications only need the high-level <a href="tqglwidget.html">TQGLWidget</a> class. The other
 TQGL classes provide advanced features. X11 users might like to read
 the notes on <a href="opengl-x11-overlays.html">overlays</a>.
 <p> See also the <a href="opengl-examples.html">OpenGL examples</a>.

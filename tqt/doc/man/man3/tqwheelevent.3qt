@@ -9,26 +9,26 @@
 .SH NAME
 QWheelEvent \- Parameters that describe a wheel event
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQWheelEvent\fR ( const QPoint & pos, int delta, int state, Orientation orient = Vertical )"
+.BI "\fBQWheelEvent\fR ( const TQPoint & pos, int delta, int state, Orientation orient = Vertical )"
 .br
 .ti -1c
-.BI "\fBQWheelEvent\fR ( const QPoint & pos, const QPoint & globalPos, int delta, int state, Orientation orient = Vertical )"
+.BI "\fBQWheelEvent\fR ( const TQPoint & pos, const TQPoint & globalPos, int delta, int state, Orientation orient = Vertical )"
 .br
 .ti -1c
 .BI "int \fBdelta\fR () const"
 .br
 .ti -1c
-.BI "const QPoint & \fBpos\fR () const"
+.BI "const TQPoint & \fBpos\fR () const"
 .br
 .ti -1c
-.BI "const QPoint & \fBglobalPos\fR () const"
+.BI "const TQPoint & \fBglobalPos\fR () const"
 .br
 .ti -1c
 .BI "int \fBx\fR () const"
@@ -69,15 +69,15 @@ The TQWidget::setEnable() function can be used to enable or disable mouse and ke
 .PP
 The event handler TQWidget::wheelEvent() receives wheel events.
 .PP
-See also QMouseEvent, TQWidget::grabMouse(), and Event Classes.
+See also TQMouseEvent, TQWidget::grabMouse(), and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWheelEvent::QWheelEvent ( const QPoint & pos, int delta, int state, Orientation orient = Vertical )"
+.SH "QWheelEvent::QWheelEvent ( const TQPoint & pos, int delta, int state, Orientation orient = Vertical )"
 Constructs a wheel event object.
 .PP
-The globalPos() is initialized to QCursor::pos(), i.e. \fIpos\fR, which is usually (but not always) right. Use the other constructor if you need to specify the global position explicitly. \fIdelta\fR contains the rotation distance, \fIstate\fR holds the keyboard modifier flags at the time of the event and \fIorient\fR holds the wheel's orientation.
+The globalPos() is initialized to TQCursor::pos(), i.e. \fIpos\fR, which is usually (but not always) right. Use the other constructor if you need to specify the global position explicitly. \fIdelta\fR contains the rotation distance, \fIstate\fR holds the keyboard modifier flags at the time of the event and \fIorient\fR holds the wheel's orientation.
 .PP
 See also pos(), delta(), and state().
-.SH "QWheelEvent::QWheelEvent ( const QPoint & pos, const QPoint & globalPos, int delta, int state, Orientation orient = Vertical )"
+.SH "QWheelEvent::QWheelEvent ( const TQPoint & pos, const TQPoint & globalPos, int delta, int state, Orientation orient = Vertical )"
 Constructs a wheel event object. The position when the event occurred is given in \fIpos\fR and \fIglobalPos\fR. \fIdelta\fR contains the rotation distance, \fIstate\fR holds the keyboard modifier flags at the time of the event and \fIorient\fR holds the wheel's orientation.
 .PP
 See also pos(), globalPos(), delta(), and state().
@@ -93,8 +93,8 @@ See also ignore().
 Returns the distance that the wheel is rotated expressed in multiples or divisions of the \fIwheel delta\fR, which is currently defined to be 120. A positive value indicates that the wheel was rotated forwards away from the user; a negative value indicates that the wheel was rotated backwards toward the user.
 .PP
 The \fIwheel delta\fR constant was defined to be 120 by wheel mouse vendors to allow building finer-resolution wheels in the future, including perhaps a freely rotating wheel with no notches. The expectation is that such a device would send more messages per rotation but with a smaller value in each message.
-.SH "const QPoint & QWheelEvent::globalPos () const"
-Returns the global position of the mouse pointer \fIat the time of the event\fR. This is important on asynchronous window systems such as X11; whenever you move your widgets around in response to mouse events, globalPos() can differ a lot from the current pointer position QCursor::pos().
+.SH "const TQPoint & QWheelEvent::globalPos () const"
+Returns the global position of the mouse pointer \fIat the time of the event\fR. This is important on asynchronous window systems such as X11; whenever you move your widgets around in response to mouse events, globalPos() can differ a lot from the current pointer position TQCursor::pos().
 .PP
 See also globalX() and globalY().
 .SH "int QWheelEvent::globalX () const"
@@ -115,7 +115,7 @@ See also accept().
 Returns TRUE if the receiver of the event handles the wheel event; otherwise returns FALSE.
 .SH "Orientation QWheelEvent::orientation () const"
 Returns the wheel's orientation.
-.SH "const QPoint & QWheelEvent::pos () const"
+.SH "const TQPoint & QWheelEvent::pos () const"
 Returns the position of the mouse pointer, relative to the widget that received the event.
 .PP
 If you move your widgets around in response to mouse events, use globalPos() instead of this function.

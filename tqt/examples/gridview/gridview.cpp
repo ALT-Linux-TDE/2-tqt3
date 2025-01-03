@@ -7,9 +7,9 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqgridview.h>
-#include <ntqpainter.h>
+#include <tqapplication.h>
+#include <tqgridview.h>
+#include <tqpainter.h>
 
 // Grid size
 const int numRows = 100;

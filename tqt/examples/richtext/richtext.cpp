@@ -9,12 +9,12 @@
 
 #include "richtext.h"
 
-#include <ntqhbox.h>
-#include <ntqhbox.h>
-#include <ntqpushbutton.h>
-#include <ntqtextview.h>
-#include <ntqbrush.h>
-#include <ntqapplication.h>
+#include <tqhbox.h>
+#include <tqhbox.h>
+#include <tqpushbutton.h>
+#include <tqtextview.h>
+#include <tqbrush.h>
+#include <tqapplication.h>
 
 static const char* sayings[] = {
     "<b>Saying 1:</b><br>"

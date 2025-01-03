@@ -72,7 +72,7 @@ you can set it in the project file:
 The final step is to set the \e CONFIG variable. Since this is a Qt
 application, we need to put 'qt' on the CONFIG line so that \e qmake
 will add the relevant libraries to be linked against and ensure that
-build lines for \e moc and \e uic are included in the makefile.
+build lines for \e tqmoc and \e tquic are included in the makefile.
 
 The finished project file should look like this:
 \code

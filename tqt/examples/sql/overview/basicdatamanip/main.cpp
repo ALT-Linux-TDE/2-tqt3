@@ -7,9 +7,9 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqsqldatabase.h>
-#include <ntqsqlquery.h>
+#include <tqapplication.h>
+#include <tqsqldatabase.h>
+#include <tqsqlquery.h>
 #include "../connection.h"
 
 bool createConnections();

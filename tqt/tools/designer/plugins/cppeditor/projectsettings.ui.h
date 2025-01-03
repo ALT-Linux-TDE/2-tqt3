@@ -1,5 +1,5 @@
 /****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
+** ui.h extension file, included from the tquic-generated form implementation.
 ** 
 ** Add custom slot implementations here. Use a slot init() for
 ** initialization code called during construction, and a slot destroy()

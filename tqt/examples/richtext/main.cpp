@@ -8,7 +8,7 @@
 *****************************************************************************/
 
 #include "richtext.h"
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 int main( int argc, char **argv )
 {

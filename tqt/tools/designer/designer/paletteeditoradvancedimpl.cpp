@@ -36,13 +36,13 @@
 #include "mainwindow.h"
 #include "formwindow.h"
 
-#include <ntqcheckbox.h>
-#include <ntqcombobox.h>
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqlistbox.h>
-#include <ntqpainter.h>
-#include <ntqgroupbox.h>
+#include <tqcheckbox.h>
+#include <tqcombobox.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqlistbox.h>
+#include <tqpainter.h>
+#include <tqgroupbox.h>
 
 /*!
     Class used by PaletteEditor for bold combobox items

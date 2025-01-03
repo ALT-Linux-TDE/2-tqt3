@@ -39,11 +39,11 @@
 #include "project.h"
 #include "property.h"
 #include "option.h"
-#include <ntqfile.h>
-#include <ntqdir.h>
-#include <ntqregexp.h>
-#include <ntqtextstream.h>
-#include <ntqvaluestack.h>
+#include <tqfile.h>
+#include <tqdir.h>
+#include <tqregexp.h>
+#include <tqtextstream.h>
+#include <tqvaluestack.h>
 #ifdef Q_OS_UNIX
 # include <unistd.h>
 #endif
@@ -463,17 +463,17 @@ TQMakeProject::read(const TQString &file, TQMap<TQString, TQStringList> &place)
     TQString filename = Option::fixPathToLocalOS(file);
     doVariableReplace(filename, place);
     bool ret = FALSE, using_stdin = FALSE;
-    TQFile qfile;
+    TQFile tqfile;
     if(!strcmp(filename, "-")) {
-	qfile.setName("");
-	ret = qfile.open(IO_ReadOnly, stdin);
+	tqfile.setName("");
+	ret = tqfile.open(IO_ReadOnly, stdin);
 	using_stdin = TRUE;
     } else {
-	qfile.setName(filename);
-	ret = qfile.open(IO_ReadOnly);
+	tqfile.setName(filename);
+	ret = tqfile.open(IO_ReadOnly);
     }
     if ( ret ) {
-	TQTextStream t( &qfile );
+	TQTextStream t( &tqfile );
 	TQString s, line;
 	parser.file = filename;
 	parser.line_no = 0;
@@ -503,7 +503,7 @@ TQMakeProject::read(const TQString &file, TQMap<TQString, TQStringList> &place)
 	    }
 	}
 	if(!using_stdin)
-	    qfile.close();
+	    tqfile.close();
     }
     parser = pi;
     if(scope_block != 0)
@@ -1375,9 +1375,9 @@ TQMakeProject::doVariableReplace(TQString &str, const TQMap<TQString, TQStringLi
 			msg += "?";
 		    fprintf(stderr, "Project %s: %s ", val.upper().latin1(), msg.latin1());
 
-		    TQFile qfile;
-		    if(qfile.open(IO_ReadOnly, stdin)) {
-			TQTextStream t(&qfile);
+		    TQFile tqfile;
+		    if(tqfile.open(IO_ReadOnly, stdin)) {
+			TQTextStream t(&tqfile);
 			replacement = t.readLine();
 		    }
 		}

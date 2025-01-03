@@ -34,18 +34,18 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 
-#include <ntqfeatures.h>
+#include <tqfeatures.h>
 
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqptrlist.h>
-#include <ntqmap.h>
-#include <private/qpluginmanager_p.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqptrlist.h>
+#include <tqmap.h>
+#include <private/tqpluginmanager_p.h>
 #include "../interfaces/projectsettingsiface.h"
 #include "sourcefile.h"
 #include "formfile.h"
-#include <ntqobjectlist.h>
-#include <ntqptrdict.h>
+#include <tqobjectlist.h>
+#include <tqptrdict.h>
 #include "formfile.h"
 
 class TQObjectList;

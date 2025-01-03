@@ -9,13 +9,13 @@
 
 #include "smtp.h"
 
-#include <ntqtextstream.h>
-#include <ntqsocket.h>
-#include <ntqdns.h>
-#include <ntqtimer.h>
-#include <ntqapplication.h>
-#include <ntqmessagebox.h>
-#include <ntqregexp.h>
+#include <tqtextstream.h>
+#include <tqsocket.h>
+#include <tqdns.h>
+#include <tqtimer.h>
+#include <tqapplication.h>
+#include <tqmessagebox.h>
+#include <tqregexp.h>
 
 
 Smtp::Smtp( const TQString &from, const TQString &to,

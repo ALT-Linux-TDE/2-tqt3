@@ -10,9 +10,9 @@
 #ifndef TABDIALOG_H
 #define TABDIALOG_H
 
-#include <ntqtabdialog.h>
-#include <ntqstring.h>
-#include <ntqfileinfo.h>
+#include <tqtabdialog.h>
+#include <tqstring.h>
+#include <tqfileinfo.h>
 
 class TabDialog : public TQTabDialog
 {

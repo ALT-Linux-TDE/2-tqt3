@@ -36,8 +36,8 @@
 
 #include "phrase.h"
 
-#include <ntqdialog.h>
-#include <ntqvaluelist.h>
+#include <tqdialog.h>
+#include <tqvaluelist.h>
 
 class TQLineEdit;
 class TQPushButton;

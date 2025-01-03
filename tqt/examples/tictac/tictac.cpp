@@ -8,15 +8,15 @@
 *****************************************************************************/
 
 #include "tictac.h"
-#include <ntqapplication.h>
-#include <ntqpainter.h>
-#include <ntqdrawutil.h>
-#include <ntqcombobox.h>
-#include <ntqcheckbox.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
+#include <tqapplication.h>
+#include <tqpainter.h>
+#include <tqdrawutil.h>
+#include <tqcombobox.h>
+#include <tqcheckbox.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
 #include <stdlib.h>				// rand() function
-#include <ntqdatetime.h>				// seed for rand()
+#include <tqdatetime.h>				// seed for rand()
 
 
 //***************************************************************************

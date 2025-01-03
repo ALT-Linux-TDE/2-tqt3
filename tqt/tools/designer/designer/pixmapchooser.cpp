@@ -31,7 +31,7 @@
 **
 **********************************************************************/
 
-#include <ntqvariant.h> // HP-UX compiler needs this here
+#include <tqvariant.h> // HP-UX compiler needs this here
 
 #include "pixmapchooser.h"
 #include "formwindow.h"
@@ -44,13 +44,13 @@
 #include "pixmapcollection.h"
 #include "project.h"
 
-#include <ntqapplication.h>
-#include <ntqimage.h>
-#include <ntqpainter.h>
-#include <ntqlabel.h>
-#include <ntqlineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqiconview.h>
+#include <tqapplication.h>
+#include <tqimage.h>
+#include <tqpainter.h>
+#include <tqlabel.h>
+#include <tqlineedit.h>
+#include <tqpushbutton.h>
+#include <tqiconview.h>
 
 #if defined(DESIGNER)
 static ImageIconProvider *imageIconProvider = 0;

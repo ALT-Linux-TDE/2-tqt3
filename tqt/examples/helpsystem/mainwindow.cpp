@@ -7,16 +7,16 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqassistantclient.h>
-#include <ntqfiledialog.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
-#include <ntqstatusbar.h>
-#include <ntqtable.h>
-#include <ntqtoolbar.h>
-#include <ntqtoolbutton.h>
-#include <ntqtooltip.h>
+#include <tqapplication.h>
+#include <tqassistantclient.h>
+#include <tqfiledialog.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
+#include <tqstatusbar.h>
+#include <tqtable.h>
+#include <tqtoolbar.h>
+#include <tqtoolbutton.h>
+#include <tqtooltip.h>
 
 #include "mainwindow.h"
 #include "tooltip.h"
@@ -114,5 +114,5 @@ MainWindow::~MainWindow()
 void MainWindow::assistantSlot()
 {
     TQString docsPath = TQDir("../../doc").absPath();
-    assistant->showPage( TQString("%1/html/ntqassistantclient.html").arg(docsPath) );
+    assistant->showPage( TQString("%1/html/tqassistantclient.html").arg(docsPath) );
 }

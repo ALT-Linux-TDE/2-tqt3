@@ -10,8 +10,8 @@
 #ifndef FontDisplayer_H
 #define FontDisplayer_H
 
-#include <ntqframe.h>
-#include <ntqmainwindow.h>
+#include <tqframe.h>
+#include <tqmainwindow.h>
 
 class TQSlider;
 

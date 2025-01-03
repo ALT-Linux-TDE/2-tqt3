@@ -38,10 +38,10 @@
 #include "mainwindow.h"
 #include "formwindow.h"
 
-#include <ntqcheckbox.h>
-#include <ntqcombobox.h>
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
+#include <tqcheckbox.h>
+#include <tqcombobox.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
 
 PaletteEditor::PaletteEditor( FormWindow *fw, TQWidget * parent, const char * name, bool modal, WFlags f )
     : PaletteEditorBase( parent, name, modal, f ), formWindow( fw )

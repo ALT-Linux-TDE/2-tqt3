@@ -7,14 +7,14 @@
 **
 *****************************************************************************/
 
-#include <ntqsocket.h>
-#include <ntqapplication.h>
-#include <ntqtextedit.h>
-#include <ntqlineedit.h>
-#include <ntqlabel.h>
-#include <ntqpushbutton.h>
-#include <ntqtextstream.h>
-#include <ntqlistbox.h>
+#include <tqsocket.h>
+#include <tqapplication.h>
+#include <tqtextedit.h>
+#include <tqlineedit.h>
+#include <tqlabel.h>
+#include <tqpushbutton.h>
+#include <tqtextstream.h>
+#include <tqlistbox.h>
 
 #include "client.h"
 

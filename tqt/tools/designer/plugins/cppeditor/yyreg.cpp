@@ -32,7 +32,7 @@
 **
 **********************************************************************/
 
-#include <ntqregexp.h>
+#include <tqregexp.h>
 
 #include <ctype.h>
 #include <stdio.h>
@@ -48,7 +48,7 @@
   you might want to read other simpler parsers written in the same
   style:
 
-	$(TQTDIR)/src/tools/qregexp.cpp
+	$(TQTDIR)/src/tools/tqregexp.cpp
 	$(TQTDIR)/tools/inspector/cppparser.cpp
   
   You might also want to read Section 2 in the Dragon Book.

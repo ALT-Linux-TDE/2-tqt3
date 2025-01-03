@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqsqldatabase.h>
+#include <tqapplication.h>
+#include <tqsqldatabase.h>
 #include "book.h"
 #include "../connection.h"
 

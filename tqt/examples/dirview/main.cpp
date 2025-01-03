@@ -7,9 +7,9 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqfileinfo.h>
-#include <ntqdir.h>
+#include <tqapplication.h>
+#include <tqfileinfo.h>
+#include <tqdir.h>
 #include "dirview.h"
 
 int main( int argc, char ** argv )

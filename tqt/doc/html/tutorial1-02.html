@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:216 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -42,24 +41,24 @@ now go on to make the application quit properly when the user tells it to.
 **
 ****************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
 
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
-    <a href="ntqpushbutton.html">TQPushButton</a> quit( "Quit", 0 );
-    quit.<a href="ntqwidget.html#resize">resize</a>( 75, 30 );
-    quit.<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
+    <a href="tqpushbutton.html">TQPushButton</a> quit( "Quit", 0 );
+    quit.<a href="tqwidget.html#resize">resize</a>( 75, 30 );
+    quit.<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 
-    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+    TQObject::<a href="tqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
 
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;quit );
-    quit.<a href="ntqwidget.html#show">show</a>();
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;quit );
+    quit.<a href="tqwidget.html#show">show</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 
@@ -67,35 +66,35 @@ int main( int argc, char **argv )
 
 <p> <h2> Line-by-line Walkthrough
 </h2>
-<a name="1"></a><p> <pre>    #include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
+<a name="1"></a><p> <pre>    #include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
 </pre>
-<p> Since this program uses <a href="ntqfont.html">TQFont</a>, it needs to include ntqfont.h. TQt's font
+<p> Since this program uses <a href="tqfont.html">TQFont</a>, it needs to include tqfont.h. TQt's font
 abstraction is rather different from the horror provided by X, and
 loading and using fonts has been highly optimized.
-<p> <pre>        <a href="ntqpushbutton.html">TQPushButton</a> quit( "Quit", 0 );
+<p> <pre>        <a href="tqpushbutton.html">TQPushButton</a> quit( "Quit", 0 );
 </pre>
 <p> This time, the button says "Quit" and that's exactly what the program
 will do when the user clicks the button. This is not a coincidence.
 We still pass 0 as the parent, since the button is a top-level window.
-<p> <pre>    <a name="x2292"></a>    quit.<a href="ntqwidget.html#resize">resize</a>( 75, 30 );
+<p> <pre>    <a name="x2292"></a>    quit.<a href="tqwidget.html#resize">resize</a>( 75, 30 );
 </pre>
 <p> We've chosen another size for the button since the text is a bit
-shorter than "Hello world!". We could also have used <a href="ntqfontmetrics.html">TQFontMetrics</a>
+shorter than "Hello world!". We could also have used <a href="tqfontmetrics.html">TQFontMetrics</a>
 to set right size.
-<p> <pre>    <a name="x2293"></a>    quit.<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
+<p> <pre>    <a name="x2293"></a>    quit.<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 </pre>
 <p> Here we choose a new font for the button, an 18-point bold font from
 the Times family. Note that we create the font on the spot.
-<p> It is also possible to change the default font (using <a href="ntqapplication.html#setFont">TQApplication::setFont</a>()) for the whole application.
-<p> <pre>    <a name="x2291"></a><a name="x2290"></a><a name="x2288"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<p> It is also possible to change the default font (using <a href="tqapplication.html#setFont">TQApplication::setFont</a>()) for the whole application.
+<p> <pre>    <a name="x2291"></a><a name="x2290"></a><a name="x2288"></a>    TQObject::<a href="tqobject.html#connect">connect</a>( &amp;quit, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), &amp;a, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
 </pre>
 <p> connect() is perhaps <em>the</em> most central feature of TQt.
-Note that connect() is a static function in <a href="ntqobject.html">TQObject</a>. Do not confuse it
+Note that connect() is a static function in <a href="tqobject.html">TQObject</a>. Do not confuse it
 with the connect() function in the socket library.
 <p> This line establishes a one-way connection between two TQt objects (objects
 that inherit TQObject, directly or indirectly). Every TQt object can have
 both <tt>signals</tt> (to send messages) and <tt>slots</tt> (to receive messages). All
-widgets are TQt objects. They inherit <a href="ntqwidget.html">TQWidget</a> which in turn inherits
+widgets are TQt objects. They inherit <a href="tqwidget.html">TQWidget</a> which in turn inherits
 TQObject.
 <p> Here, the <em>clicked()</em> signal of <em>quit</em> is connected to the <em>quit()</em> slot of <em>a</em>, so that when the button is clicked, the
 application quits.
@@ -111,8 +110,8 @@ makefile and build the application.)
 </h2>
 <a name="3"></a><p> Try to resize the window. Press the button. Oops!  That connect()
 would seem to make some difference.
-<p> Are there any other signals in <a href="ntqpushbutton.html">TQPushButton</a> you can connect to quit?
-Hint: The TQPushButton inherits most of its behavior from <a href="ntqbutton.html">TQButton</a>.
+<p> Are there any other signals in <a href="tqpushbutton.html">TQPushButton</a> you can connect to quit?
+Hint: The TQPushButton inherits most of its behavior from <a href="tqbutton.html">TQButton</a>.
 <p> You're now ready for <a href="tutorial1-03.html">Chapter 3.</a>
 <p> [<a href="tutorial1-01.html">Previous tutorial</a>]
 [<a href="tutorial1-03.html">Next tutorial</a>]

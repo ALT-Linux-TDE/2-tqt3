@@ -1,10 +1,10 @@
 #ifndef EXAMPLE_H
 #define EXAMPLE_H
 
-#include <ntqpopupmenu.h>
-#include <ntqmainwindow.h>
-#include <ntqintdict.h>
-#include <ntqcanvas.h>
+#include <tqpopupmenu.h>
+#include <tqmainwindow.h>
+#include <tqintdict.h>
+#include <tqcanvas.h>
 
 class BouncyLogo : public TQCanvasSprite {
     void initPos();

@@ -8,8 +8,8 @@
 *****************************************************************************/
 
 #include "qtetrix.h"
-#include "qdragapp.h"
-#include "ntqfont.h"
+#include "tqdragapp.h"
+#include "tqfont.h"
 
 int main( int argc, char **argv )
 {

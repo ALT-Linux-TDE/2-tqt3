@@ -41,14 +41,14 @@
 #include "../interfaces/languageinterface.h"
 #include "resource.h"
 #include "workspace.h"
-#include <ntqmessagebox.h>
-#include <ntqfile.h>
-#include <ntqstatusbar.h>
+#include <tqmessagebox.h>
+#include <tqfile.h>
+#include <tqstatusbar.h>
 #include "propertyeditor.h"
-#include <ntqworkspace.h>
+#include <tqworkspace.h>
 #include <stdlib.h>
 #include "designerappiface.h"
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 static TQString make_func_pretty( const TQString &s )
 {
@@ -509,7 +509,7 @@ TQString FormFile::codeExtension() const
 TQString FormFile::codeComment() const
 {
     return TQString( "/****************************************************************************\n"
-    "** ui.h extension file, included from the uic-generated form implementation.\n"
+    "** ui.h extension file, included from the tquic-generated form implementation.\n"
     "**\n"
     "** If you want to add, delete, or rename functions or slots, use\n"
     "** TQt Designer to update this file, preserving your code.\n"

@@ -1,5 +1,5 @@
-#include <ntqstyleplugin.h>
-#include <ntqsgistyle.h>
+#include <tqstyleplugin.h>
+#include <tqsgistyle.h>
 
 class SGIStyle : public TQStylePlugin
 {

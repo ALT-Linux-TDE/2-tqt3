@@ -10,7 +10,7 @@
 #ifndef IMAGETEXTEDITOR_H
 #define IMAGETEXTEDITOR_H
 
-#include <ntqdialog.h>
+#include <tqdialog.h>
 
 class TQImage;
 class TQComboBox;

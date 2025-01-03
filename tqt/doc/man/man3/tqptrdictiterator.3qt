@@ -1,5 +1,5 @@
 '\" t
-.TH QPtrDictIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPtrDictIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,17 +7,17 @@
 .ad l
 .nh
 .SH NAME
-QPtrDictIterator \- Iterator for QPtrDict collections
+TQPtrDictIterator \- Iterator for TQPtrDict collections
 .SH SYNOPSIS
-\fC#include <ntqptrdict.h>\fR
+\fC#include <tqptrdict.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQPtrDictIterator\fR ( const QPtrDict<type> & dict )"
+.BI "\fBTQPtrDictIterator\fR ( const TQPtrDict<type> & dict )"
 .br
 .ti -1c
-.BI "\fB~QPtrDictIterator\fR ()"
+.BI "\fB~TQPtrDictIterator\fR ()"
 .br
 .ti -1c
 .BI "uint \fBcount\fR () const"
@@ -48,26 +48,26 @@ QPtrDictIterator \- Iterator for QPtrDict collections
 .br
 .in -1c
 .SH DESCRIPTION
-The QPtrDictIterator class provides an iterator for QPtrDict collections.
+The TQPtrDictIterator class provides an iterator for TQPtrDict collections.
 .PP
-QPtrDictIterator is implemented as a template class. Define a template instance QPtrDictIterator<X> to create a dictionary iterator that operates on QPtrDict<X> (dictionary of X*).
+TQPtrDictIterator is implemented as a template class. Define a template instance TQPtrDictIterator<X> to create a dictionary iterator that operates on TQPtrDict<X> (dictionary of X*).
 .PP
 Example:
 .PP
 .nf
 .br
-    QPtrDict<char> fields;
+    TQPtrDict<char> fields;
 .br
 .br
-    QLineEdit *le1 = new QLineEdit( this );
+    TQLineEdit *le1 = new TQLineEdit( this );
 .br
     le1->setText( "Simpson" );
 .br
-    QLineEdit *le2 = new QLineEdit( this );
+    TQLineEdit *le2 = new TQLineEdit( this );
 .br
     le2->setText( "Homer" );
 .br
-    QLineEdit *le3 = new QLineEdit( this );
+    TQLineEdit *le3 = new TQLineEdit( this );
 .br
     le3->setText( "45" );
 .br
@@ -79,11 +79,11 @@ Example:
     fields.insert( le3, "Age" );
 .br
 .br
-    QPtrDictIterator<char> it( fields );
+    TQPtrDictIterator<char> it( fields );
 .br
     for( ; it.current(); ++it ) {
 .br
-        QLineEdit *le = (QLineEdit)it.currentKey();
+        TQLineEdit *le = (TQLineEdit)it.currentKey();
 .br
         cout << it.current() << ": " << le->text() << endl;
 .br
@@ -103,47 +103,47 @@ Example:
 .fi
 In the example we insert some line edits into a dictionary, associating a string with each. We then iterate over the dictionary printing the associated strings.
 .PP
-Multiple iterators may independently traverse the same dictionary. A QPtrDict knows about all the iterators that are operating on the dictionary. When an item is removed from the dictionary, QPtrDict updates all iterators that refer the removed item to point to the next item in the traversing order.
+Multiple iterators may independently traverse the same dictionary. A TQPtrDict knows about all the iterators that are operating on the dictionary. When an item is removed from the dictionary, TQPtrDict updates all iterators that refer the removed item to point to the next item in the traversing order.
 .PP
-See also QPtrDict, Collection Classes, and Non-GUI Classes.
+See also TQPtrDict, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPtrDictIterator::QPtrDictIterator ( const QPtrDict<type> & dict )"
+.SH "TQPtrDictIterator::TQPtrDictIterator ( const TQPtrDict<type> & dict )"
 Constructs an iterator for \fIdict\fR. The current iterator item is set to point on the first item in the \fIdict\fR.
-.SH "QPtrDictIterator::~QPtrDictIterator ()"
+.SH "TQPtrDictIterator::~TQPtrDictIterator ()"
 Destroys the iterator.
-.SH "uint QPtrDictIterator::count () const"
+.SH "uint TQPtrDictIterator::count () const"
 Returns the number of items in the dictionary this iterator operates on.
 .PP
 See also isEmpty().
-.SH "type * QPtrDictIterator::current () const"
+.SH "type * TQPtrDictIterator::current () const"
 Returns a pointer to the current iterator item's value.
-.SH "void * QPtrDictIterator::currentKey () const"
+.SH "void * TQPtrDictIterator::currentKey () const"
 Returns the current iterator item's key.
-.SH "bool QPtrDictIterator::isEmpty () const"
+.SH "bool TQPtrDictIterator::isEmpty () const"
 Returns TRUE if the dictionary is empty; otherwise returns FALSE.
 .PP
 See also count().
-.SH "QPtrDictIterator::operator type * () const"
+.SH "TQPtrDictIterator::operator type * () const"
 Cast operator. Returns a pointer to the current iterator item. Same as current().
-.SH "type * QPtrDictIterator::operator() ()"
+.SH "type * TQPtrDictIterator::operator() ()"
 Makes the succeeding item current and returns the original current item.
 .PP
 If the current iterator item was the last item in the dictionary or if it was 0, 0 is returned.
-.SH "type * QPtrDictIterator::operator++ ()"
+.SH "type * TQPtrDictIterator::operator++ ()"
 Prefix ++ makes the succeeding item current and returns the new current item.
 .PP
 If the current iterator item was the last item in the dictionary or if it was 0, 0 is returned.
-.SH "type * QPtrDictIterator::operator+= ( uint jump )"
+.SH "type * TQPtrDictIterator::operator+= ( uint jump )"
 Sets the current item to the item \fIjump\fR positions after the current item and returns a pointer to that item.
 .PP
 If that item is beyond the last item or if the dictionary is empty, it sets the current item to 0 and returns 0.
-.SH "type * QPtrDictIterator::toFirst ()"
+.SH "type * TQPtrDictIterator::toFirst ()"
 Sets the current iterator item to point to the first item in the
 dictionary and returns a pointer to the item. If the dictionary is
 empty, it sets the current item to 0 and returns 0.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qptrdictiterator.html
+.BR http://doc.trolltech.com/tqptrdictiterator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

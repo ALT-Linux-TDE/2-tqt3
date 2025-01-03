@@ -3,8 +3,8 @@
 #include "maindialog.h"
 #include "ipcserver.h"
 
-#include <ntqsocket.h>
-#include <ntqlabel.h>
+#include <tqsocket.h>
+#include <tqlabel.h>
 
 static const TQ_UINT16 ipcPort = 54923;
 

@@ -10,13 +10,13 @@
 #include "mainwindow.h"
 #include "centralwidget.h"
 
-#include <ntqtoolbar.h>
-#include <ntqtoolbutton.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqstatusbar.h>
-#include <ntqapplication.h>
-#include <ntqfiledialog.h>
+#include <tqtoolbar.h>
+#include <tqtoolbutton.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqstatusbar.h>
+#include <tqapplication.h>
+#include <tqfiledialog.h>
 
 ABMainWindow::ABMainWindow()
     : TQMainWindow( 0, "example addressbook application" ),

@@ -41,9 +41,9 @@
 #include "qthumbwheel.h"
 
 #ifndef TQT_NO_THUMBWHEEL
-#include <ntqpainter.h>
-#include <ntqdrawutil.h>
-#include <ntqpixmap.h>
+#include <tqpainter.h>
+#include <tqdrawutil.h>
+#include <tqpixmap.h>
 #include <math.h>
 
 static const double m_pi = 3.14159265358979323846;

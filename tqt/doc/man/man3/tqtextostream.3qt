@@ -1,5 +1,5 @@
 '\" t
-.TH QTextOStream 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQTextOStream 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,30 +7,30 @@
 .ad l
 .nh
 .SH NAME
-QTextOStream \- Convenience class for output streams
+TQTextOStream \- Convenience class for output streams
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqtextstream.h>\fR
+\fC#include <tqtextstream.h>\fR
 .PP
-Inherits QTextStream.
+Inherits TQTextStream.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTextOStream\fR ( TQString * s )"
+.BI "\fBTQTextOStream\fR ( TQString * s )"
 .br
 .ti -1c
-.BI "\fBQTextOStream\fR ( QByteArray ba )"
+.BI "\fBTQTextOStream\fR ( TQByteArray ba )"
 .br
 .ti -1c
-.BI "\fBQTextOStream\fR ( FILE * f )"
+.BI "\fBTQTextOStream\fR ( FILE * f )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QTextOStream class is a convenience class for output streams.
+The TQTextOStream class is a convenience class for output streams.
 .PP
-This class provides a shorthand for creating simple output QTextStreams without having to pass a \fImode\fR argument to the constructor.
+This class provides a shorthand for creating simple output TQTextStreams without having to pass a \fImode\fR argument to the constructor.
 .PP
 This makes it easy for example, to write things like this:
 .PP
@@ -38,21 +38,21 @@ This makes it easy for example, to write things like this:
 .br
     TQString result;
 .br
-    QTextOStream(&result) << "pi = " << 3.14;
+    TQTextOStream(&result) << "pi = " << 3.14;
 .br
 .fi
 .PP
 See also Input/Output and Networking and Text Related Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTextOStream::QTextOStream ( TQString * s )"
+.SH "TQTextOStream::TQTextOStream ( TQString * s )"
 Constructs a stream to write to string \fIs\fR.
-.SH "QTextOStream::QTextOStream ( QByteArray ba )"
+.SH "TQTextOStream::TQTextOStream ( TQByteArray ba )"
 Constructs a stream to write to the array \fIba\fR.
-.SH "QTextOStream::QTextOStream ( FILE * f )"
+.SH "TQTextOStream::TQTextOStream ( FILE * f )"
 Constructs a stream to write to the file \fIf\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qtextostream.html
+.BR http://doc.trolltech.com/tqtextostream.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

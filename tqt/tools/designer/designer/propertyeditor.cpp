@@ -31,7 +31,7 @@
 **
 **********************************************************************/
 
-#include <ntqvariant.h> // HP-UX compiler needs this here
+#include <tqvariant.h> // HP-UX compiler needs this here
 
 #include "propertyeditor.h"
 #include "formwindow.h"
@@ -51,44 +51,44 @@
 #include "database.h"
 #include "menubareditor.h"
 
-#include <ntqpainter.h>
-#include <ntqpalette.h>
-#include <ntqapplication.h>
-#include <ntqheader.h>
-#include <ntqlineedit.h>
-#include <ntqstrlist.h>
-#include <ntqmetaobject.h>
-#include <ntqcombobox.h>
-#include <ntqpushbutton.h>
-#include <ntqhbox.h>
-#include <ntqfontdialog.h>
-#include <ntqspinbox.h>
-#include <ntqevent.h>
-#include <ntqobjectlist.h>
-#include <ntqlistbox.h>
-#include <ntqfontdatabase.h>
-#include <ntqcolor.h>
-#include <ntqcolordialog.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqsizepolicy.h>
-#include <ntqbitmap.h>
-#include <ntqtooltip.h>
-#include <ntqwhatsthis.h>
-#include <ntqaccel.h>
-#include <ntqworkspace.h>
-#include <ntqtimer.h>
-#include <ntqdragobject.h>
-#include <ntqdom.h>
-#include <ntqprocess.h>
-#include <ntqstyle.h>
-#include <ntqdatetimeedit.h>
-#include <ntqassistantclient.h>
-#include <ntqdrawutil.h>
-#include <ntqmultilineedit.h> // FIXME: obsolete
-#include <ntqsplitter.h>
-#include <ntqdatatable.h>
-#include <ntqtextview.h>
+#include <tqpainter.h>
+#include <tqpalette.h>
+#include <tqapplication.h>
+#include <tqheader.h>
+#include <tqlineedit.h>
+#include <tqstrlist.h>
+#include <tqmetaobject.h>
+#include <tqcombobox.h>
+#include <tqpushbutton.h>
+#include <tqhbox.h>
+#include <tqfontdialog.h>
+#include <tqspinbox.h>
+#include <tqevent.h>
+#include <tqobjectlist.h>
+#include <tqlistbox.h>
+#include <tqfontdatabase.h>
+#include <tqcolor.h>
+#include <tqcolordialog.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqsizepolicy.h>
+#include <tqbitmap.h>
+#include <tqtooltip.h>
+#include <tqwhatsthis.h>
+#include <tqaccel.h>
+#include <tqworkspace.h>
+#include <tqtimer.h>
+#include <tqdragobject.h>
+#include <tqdom.h>
+#include <tqprocess.h>
+#include <tqstyle.h>
+#include <tqdatetimeedit.h>
+#include <tqassistantclient.h>
+#include <tqdrawutil.h>
+#include <tqmultilineedit.h> // FIXME: obsolete
+#include <tqsplitter.h>
+#include <tqdatatable.h>
+#include <tqtextview.h>
 
 #include <limits.h>
 
@@ -96,7 +96,7 @@ static TQFontDatabase *fontDataBase = 0;
 TQString assistantPath();
 
 #ifdef TQ_WS_MAC
-#include <ntqwindowsstyle.h>
+#include <tqwindowsstyle.h>
 static void setupStyle(TQWidget *w)
 {
     static TQStyle *windowsStyle = 0;

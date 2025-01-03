@@ -34,11 +34,11 @@
 #ifndef HIRARCHYVIEW_H
 #define HIRARCHYVIEW_H
 
-#include <ntqvariant.h>
-#include <ntqlistview.h>
-#include <ntqtabwidget.h>
-#include <ntqguardedptr.h>
-#include <private/qcom_p.h>
+#include <tqvariant.h>
+#include <tqlistview.h>
+#include <tqtabwidget.h>
+#include <tqguardedptr.h>
+#include <private/tqcom_p.h>
 #include "../interfaces/classbrowserinterface.h"
 
 class FormWindow;

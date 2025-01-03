@@ -1,5 +1,5 @@
 '\" t
-.TH QListBoxItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQListBoxItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,34 +7,34 @@
 .ad l
 .nh
 .SH NAME
-QListBoxItem \- The base class of all list box items
+TQListBoxItem \- The base class of all list box items
 .SH SYNOPSIS
-\fC#include <ntqlistbox.h>\fR
+\fC#include <tqlistbox.h>\fR
 .PP
-Inherited by QListBoxText and QListBoxPixmap.
+Inherited by TQListBoxText and TQListBoxPixmap.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQListBoxItem\fR ( QListBox * listbox = 0 )"
+.BI "\fBTQListBoxItem\fR ( TQListBox * listbox = 0 )"
 .br
 .ti -1c
-.BI "\fBQListBoxItem\fR ( QListBox * listbox, QListBoxItem * after )"
+.BI "\fBTQListBoxItem\fR ( TQListBox * listbox, TQListBoxItem * after )"
 .br
 .ti -1c
-.BI "virtual \fB~QListBoxItem\fR ()"
+.BI "virtual \fB~TQListBoxItem\fR ()"
 .br
 .ti -1c
 .BI "virtual TQString \fBtext\fR () const"
 .br
 .ti -1c
-.BI "virtual const QPixmap * \fBpixmap\fR () const"
+.BI "virtual const TQPixmap * \fBpixmap\fR () const"
 .br
 .ti -1c
-.BI "virtual int \fBheight\fR ( const QListBox * lb ) const"
+.BI "virtual int \fBheight\fR ( const TQListBox * lb ) const"
 .br
 .ti -1c
-.BI "virtual int \fBwidth\fR ( const QListBox * lb ) const"
+.BI "virtual int \fBwidth\fR ( const TQListBox * lb ) const"
 .br
 .ti -1c
 .BI "bool \fBisSelected\fR () const"
@@ -49,7 +49,7 @@ Inherited by QListBoxText and QListBoxPixmap.
 .BI "bool current () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QListBox * \fBlistBox\fR () const"
+.BI "TQListBox * \fBlistBox\fR () const"
 .br
 .ti -1c
 .BI "void \fBsetSelectable\fR ( bool b )"
@@ -58,10 +58,10 @@ Inherited by QListBoxText and QListBoxPixmap.
 .BI "bool \fBisSelectable\fR () const"
 .br
 .ti -1c
-.BI "QListBoxItem * \fBnext\fR () const"
+.BI "TQListBoxItem * \fBnext\fR () const"
 .br
 .ti -1c
-.BI "QListBoxItem * \fBprev\fR () const"
+.BI "TQListBoxItem * \fBprev\fR () const"
 .br
 .ti -1c
 .BI "virtual int \fBrtti\fR () const"
@@ -70,7 +70,7 @@ Inherited by QListBoxText and QListBoxPixmap.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBpaint\fR ( QPainter * p ) = 0"
+.BI "virtual void \fBpaint\fR ( TQPainter * p ) = 0"
 .br
 .ti -1c
 .BI "virtual void \fBsetText\fR ( const TQString & text )"
@@ -80,105 +80,105 @@ Inherited by QListBoxText and QListBoxPixmap.
 .br
 .in -1c
 .SH DESCRIPTION
-The QListBoxItem class is the base class of all list box items.
+The TQListBoxItem class is the base class of all list box items.
 .PP
-This class is an abstract base class used for all list box items. If you need to insert customized items into a QListBox you must inherit this class and reimplement paint(), height() and width().
+This class is an abstract base class used for all list box items. If you need to insert customized items into a TQListBox you must inherit this class and reimplement paint(), height() and width().
 .PP
-See also QListBox.
+See also TQListBox.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QListBoxItem::QListBoxItem ( QListBox * listbox = 0 )"
+.SH "TQListBoxItem::TQListBoxItem ( TQListBox * listbox = 0 )"
 Constructs an empty list box item in the list box \fIlistbox\fR.
-.SH "QListBoxItem::QListBoxItem ( QListBox * listbox, QListBoxItem * after )"
+.SH "TQListBoxItem::TQListBoxItem ( TQListBox * listbox, TQListBoxItem * after )"
 Constructs an empty list box item in the list box \fIlistbox\fR and inserts it after the item \fIafter\fR or at the beginning if \fIafter\fR is 0.
-.SH "QListBoxItem::~QListBoxItem ()\fC [virtual]\fR"
+.SH "TQListBoxItem::~TQListBoxItem ()\fC [virtual]\fR"
 Destroys the list box item.
-.SH "bool QListBoxItem::current () const"
+.SH "bool TQListBoxItem::current () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "int QListBoxItem::height ( const QListBox * lb ) const\fC [virtual]\fR"
+.SH "int TQListBoxItem::height ( const TQListBox * lb ) const\fC [virtual]\fR"
 Implement this function to return the height of your item. The \fIlb\fR parameter is the same as listBox() and is provided for convenience and compatibility.
 .PP
-The default implementation returns QApplication::globalStrut()'s height.
+The default implementation returns TQApplication::globalStrut()'s height.
 .PP
 See also paint() and width().
 .PP
-Reimplemented in QListBoxText and QListBoxPixmap.
-.SH "bool QListBoxItem::isCurrent () const"
+Reimplemented in TQListBoxText and TQListBoxPixmap.
+.SH "bool TQListBoxItem::isCurrent () const"
 Returns TRUE if the item is the current item; otherwise returns FALSE.
 .PP
-See also QListBox::currentItem, QListBox::item(), and isSelected().
-.SH "bool QListBoxItem::isSelectable () const"
+See also TQListBox::currentItem, TQListBox::item(), and isSelected().
+.SH "bool TQListBoxItem::isSelectable () const"
 Returns TRUE if this item is selectable (the default); otherwise returns FALSE.
 .PP
 See also setSelectable().
-.SH "bool QListBoxItem::isSelected () const"
+.SH "bool TQListBoxItem::isSelected () const"
 Returns TRUE if the item is selected; otherwise returns FALSE.
 .PP
-See also QListBox::isSelected() and isCurrent().
+See also TQListBox::isSelected() and isCurrent().
 .PP
 Example: listboxcombo/listboxcombo.cpp.
-.SH "QListBox * QListBoxItem::listBox () const"
+.SH "TQListBox * TQListBoxItem::listBox () const"
 Returns a pointer to the list box containing this item.
-.SH "QListBoxItem * QListBoxItem::next () const"
+.SH "TQListBoxItem * TQListBoxItem::next () const"
 Returns the item that comes after this in the list box. If this is the last item, 0 is returned.
 .PP
 See also prev().
-.SH "void QListBoxItem::paint ( QPainter * p )\fC [pure virtual protected]\fR"
+.SH "void TQListBoxItem::paint ( TQPainter * p )\fC [pure virtual protected]\fR"
 Implement this function to draw your item. The painter, \fIp\fR, is already open for painting.
 .PP
 See also height() and width().
 .PP
 Example: listboxcombo/listboxcombo.cpp.
 .PP
-Reimplemented in QListBoxText and QListBoxPixmap.
-.SH "const QPixmap * QListBoxItem::pixmap () const\fC [virtual]\fR"
+Reimplemented in TQListBoxText and TQListBoxPixmap.
+.SH "const TQPixmap * TQListBoxItem::pixmap () const\fC [virtual]\fR"
 Returns the pixmap associated with the item, or 0 if there isn't one.
 .PP
 The default implementation returns 0.
 .PP
 Example: listboxcombo/listboxcombo.cpp.
 .PP
-Reimplemented in QListBoxPixmap.
-.SH "QListBoxItem * QListBoxItem::prev () const"
+Reimplemented in TQListBoxPixmap.
+.SH "TQListBoxItem * TQListBoxItem::prev () const"
 Returns the item which comes before this in the list box. If this is the first item, 0 is returned.
 .PP
 See also next().
-.SH "int QListBoxItem::rtti () const\fC [virtual]\fR"
+.SH "int TQListBoxItem::rtti () const\fC [virtual]\fR"
 Returns 0.
 .PP
 Make your derived classes return their own values for rtti(), and you can distinguish between listbox items. You should use values greater than 1000 preferably a large random number, to allow for extensions to this class.
-.SH "bool QListBoxItem::selected () const"
+.SH "bool TQListBoxItem::selected () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
-.SH "void QListBoxItem::setCustomHighlighting ( bool b )\fC [protected]\fR"
+.SH "void TQListBoxItem::setCustomHighlighting ( bool b )\fC [protected]\fR"
 Defines whether the list box item is responsible for drawing itself in a highlighted state when being selected.
 .PP
 If \fIb\fR is FALSE (the default), the list box will draw some default highlight indicator before calling paint().
 .PP
 See also selected() and paint().
-.SH "void QListBoxItem::setSelectable ( bool b )"
+.SH "void TQListBoxItem::setSelectable ( bool b )"
 If \fIb\fR is TRUE (the default) then this item can be selected by the user; otherwise this item cannot be selected by the user.
 .PP
 See also isSelectable().
-.SH "void QListBoxItem::setText ( const TQString & text )\fC [virtual protected]\fR"
-Sets the text of the QListBoxItem to \fItext\fR. This \fItext\fR is also used for sorting. The text is not shown unless explicitly drawn in paint().
+.SH "void TQListBoxItem::setText ( const TQString & text )\fC [virtual protected]\fR"
+Sets the text of the TQListBoxItem to \fItext\fR. This \fItext\fR is also used for sorting. The text is not shown unless explicitly drawn in paint().
 .PP
 See also text().
-.SH "TQString QListBoxItem::text () const\fC [virtual]\fR"
+.SH "TQString TQListBoxItem::text () const\fC [virtual]\fR"
 Returns the text of the item. This text is also used for sorting.
 .PP
 See also setText().
 .PP
 Example: listboxcombo/listboxcombo.cpp.
-.SH "int QListBoxItem::width ( const QListBox * lb ) const\fC [virtual]\fR"
+.SH "int TQListBoxItem::width ( const TQListBox * lb ) const\fC [virtual]\fR"
 Reimplement this function to return the width of your item. The \fIlb\fR parameter is the same as listBox() and is provided for convenience and compatibility.
 .PP
-The default implementation returns QApplication::globalStrut()'s width.
+The default implementation returns TQApplication::globalStrut()'s width.
 .PP
 See also paint() and height().
 .PP
-Reimplemented in QListBoxText and QListBoxPixmap.
+Reimplemented in TQListBoxText and TQListBoxPixmap.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qlistboxitem.html
+.BR http://doc.trolltech.com/tqlistboxitem.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

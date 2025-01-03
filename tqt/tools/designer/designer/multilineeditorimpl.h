@@ -34,9 +34,9 @@
 #ifndef MULTILINEEDITORIMPL_H
 #define MULTILINEEDITORIMPL_H
 
-#include <ntqaction.h>
-#include <ntqtextedit.h>
-#include <private/qrichtext_p.h>
+#include <tqaction.h>
+#include <tqtextedit.h>
+#include <private/tqrichtext_p.h>
 #include "multilineeditor.h"
 
 class FormWindow;

@@ -34,11 +34,11 @@
 
 #include "syntaxhighliter_cpp.h"
 #include "paragdata.h"
-#include "ntqstring.h"
-#include "ntqstringlist.h"
-#include "ntqmap.h"
-#include "ntqapplication.h"
-#include "ntqregexp.h"
+#include "tqstring.h"
+#include "tqstringlist.h"
+#include "tqmap.h"
+#include "tqapplication.h"
+#include "tqregexp.h"
 
 const char * const SyntaxHighlighter_CPP::keywords[] = {
     // C++ keywords

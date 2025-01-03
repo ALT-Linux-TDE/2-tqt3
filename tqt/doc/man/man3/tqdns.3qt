@@ -1,5 +1,5 @@
 '\" t
-.TH QDns 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQDns 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QDns \- Asynchronous DNS lookups
+TQDns \- Asynchronous DNS lookups
 .SH SYNOPSIS
-\fC#include <ntqdns.h>\fR
+\fC#include <tqdns.h>\fR
 .PP
 Inherits TQObject.
 .PP
@@ -19,22 +19,22 @@ Inherits TQObject.
 .BI "enum \fBRecordType\fR { None, A, Aaaa, Mx, Srv, Cname, Ptr, Txt }"
 .br
 .ti -1c
-.BI "\fBQDns\fR ()"
+.BI "\fBTQDns\fR ()"
 .br
 .ti -1c
-.BI "\fBQDns\fR ( const TQString & label, RecordType rr = A )"
+.BI "\fBTQDns\fR ( const TQString & label, RecordType rr = A )"
 .br
 .ti -1c
-.BI "\fBQDns\fR ( const QHostAddress & address, RecordType rr = Ptr )"
+.BI "\fBTQDns\fR ( const TQHostAddress & address, RecordType rr = Ptr )"
 .br
 .ti -1c
-.BI "virtual \fB~QDns\fR ()"
+.BI "virtual \fB~TQDns\fR ()"
 .br
 .ti -1c
 .BI "virtual void \fBsetLabel\fR ( const TQString & label )"
 .br
 .ti -1c
-.BI "virtual void \fBsetLabel\fR ( const QHostAddress & address )"
+.BI "virtual void \fBsetLabel\fR ( const TQHostAddress & address )"
 .br
 .ti -1c
 .BI "TQString \fBlabel\fR () const"
@@ -49,25 +49,25 @@ Inherits TQObject.
 .BI "bool \fBisWorking\fR () const"
 .br
 .ti -1c
-.BI "QValueList<QHostAddress> \fBaddresses\fR () const"
+.BI "TQValueList<TQHostAddress> \fBaddresses\fR () const"
 .br
 .ti -1c
-.BI "QValueList<MailServer> \fBmailServers\fR () const"
+.BI "TQValueList<MailServer> \fBmailServers\fR () const"
 .br
 .ti -1c
-.BI "QValueList<Server> \fBservers\fR () const"
+.BI "TQValueList<Server> \fBservers\fR () const"
 .br
 .ti -1c
-.BI "QStringList \fBhostNames\fR () const"
+.BI "TQStringList \fBhostNames\fR () const"
 .br
 .ti -1c
-.BI "QStringList \fBtexts\fR () const"
+.BI "TQStringList \fBtexts\fR () const"
 .br
 .ti -1c
 .BI "TQString \fBcanonicalName\fR () const"
 .br
 .ti -1c
-.BI "QStringList \fBqualifiedNames\fR () const"
+.BI "TQStringList \fBqualifiedNames\fR () const"
 .br
 .in -1c
 .SS "Signals"
@@ -77,59 +77,59 @@ Inherits TQObject.
 .br
 .in -1c
 .SH DESCRIPTION
-The QDns class provides asynchronous DNS lookups.
+The TQDns class provides asynchronous DNS lookups.
 .PP
 Both Windows and Unix provide synchronous DNS lookups; Windows provides some asynchronous support too. At the time of writing neither operating system provides asynchronous support for anything other than hostname-to-address mapping.
 .PP
-QDns rectifies this shortcoming, by providing asynchronous caching lookups for the record types that we expect modern GUI applications to need in the near future.
+TQDns rectifies this shortcoming, by providing asynchronous caching lookups for the record types that we expect modern GUI applications to need in the near future.
 .PP
-The class is \fInot\fR straightforward to use (although it is much simpler than the native APIs); QSocket provides much easier to use TCP connection facilities. The aim of QDns is to provide a correct and small API to the DNS and nothing more. (We use "correctness" to mean that the DNS information is correctly cached, and correctly timed out.)
+The class is \fInot\fR straightforward to use (although it is much simpler than the native APIs); TQSocket provides much easier to use TCP connection facilities. The aim of TQDns is to provide a correct and small API to the DNS and nothing more. (We use "correctness" to mean that the DNS information is correctly cached, and correctly timed out.)
 .PP
-The API comprises a constructor, functions to set the DNS node (the domain in DNS terminology) and record type (setLabel() and setRecordType()), the corresponding get functions, an isWorking() function to determine whether QDns is working or reading, a resultsReady() signal and query functions for the result.
+The API comprises a constructor, functions to set the DNS node (the domain in DNS terminology) and record type (setLabel() and setRecordType()), the corresponding get functions, an isWorking() function to determine whether TQDns is working or reading, a resultsReady() signal and query functions for the result.
 .PP
 There is one query function for each RecordType, namely addresses(), mailServers(), servers(), hostNames() and texts(). There are also two generic query functions: canonicalName() returns the name you'll presumably end up using (the exact meaning of this depends on the record type) and qualifiedNames() returns a list of the fully qualified names label() maps to.
 .PP
-See also QSocket and Input/Output and Networking.
+See also TQSocket and Input/Output and Networking.
 .SS "Member Type Documentation"
-.SH "QDns::RecordType"
-This enum type defines the record types QDns can handle. The DNS provides many more; these are the ones we've judged to be in current use, useful for GUI programs and important enough to support right away:
+.SH "TQDns::RecordType"
+This enum type defines the record types TQDns can handle. The DNS provides many more; these are the ones we've judged to be in current use, useful for GUI programs and important enough to support right away:
 .TP
-\fCQDns::None\fR - No information. This exists only so that QDns can have a default.
+\fCTQDns::None\fR - No information. This exists only so that TQDns can have a default.
 .TP
-\fCQDns::A\fR - IPv4 addresses. By far the most common type.
+\fCTQDns::A\fR - IPv4 addresses. By far the most common type.
 .TP
-\fCQDns::Aaaa\fR - IPv6 addresses. So far mostly unused.
+\fCTQDns::Aaaa\fR - IPv6 addresses. So far mostly unused.
 .TP
-\fCQDns::Mx\fR - Mail eXchanger names. Used for mail delivery.
+\fCTQDns::Mx\fR - Mail eXchanger names. Used for mail delivery.
 .TP
-\fCQDns::Srv\fR - SeRVer names. Generic record type for finding servers. So far mostly unused.
+\fCTQDns::Srv\fR - SeRVer names. Generic record type for finding servers. So far mostly unused.
 .TP
-\fCQDns::Cname\fR - Canonical names. Maps from nicknames to the true name (the canonical name) for a host.
+\fCTQDns::Cname\fR - Canonical names. Maps from nicknames to the true name (the canonical name) for a host.
 .TP
-\fCQDns::Ptr\fR - name PoinTeRs. Maps from IPv4 or IPv6 addresses to hostnames.
+\fCTQDns::Ptr\fR - name PoinTeRs. Maps from IPv4 or IPv6 addresses to hostnames.
 .TP
-\fCQDns::Txt\fR - arbitrary TeXT for domains.
+\fCTQDns::Txt\fR - arbitrary TeXT for domains.
 .PP
 We expect that some support for the RFC-2535 extensions will be added in future versions.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDns::QDns ()"
+.SH "TQDns::TQDns ()"
 Constructs a DNS query object with invalid settings for both the label and the search type.
-.SH "QDns::QDns ( const TQString & label, RecordType rr = A )"
+.SH "TQDns::TQDns ( const TQString & label, RecordType rr = A )"
 Constructs a DNS query object that will return record type \fIrr\fR information about \fIlabel\fR.
 .PP
 The DNS lookup is started the next time the application enters the event loop. When the result is found the signal resultsReady() is emitted.
 .PP
 \fIrr\fR defaults to A, IPv4 addresses.
-.SH "QDns::QDns ( const QHostAddress & address, RecordType rr = Ptr )"
+.SH "TQDns::TQDns ( const TQHostAddress & address, RecordType rr = Ptr )"
 Constructs a DNS query object that will return record type \fIrr\fR information about host address \fIaddress\fR. The label is set to the IN-ADDR.ARPA domain name. This is useful in combination with the Ptr record type (e.g. if you want to look up a hostname for a given address).
 .PP
 The DNS lookup is started the next time the application enters the event loop. When the result is found the signal resultsReady() is emitted.
 .PP
 \fIrr\fR defaults to Ptr, that maps addresses to hostnames.
-.SH "QDns::~QDns ()\fC [virtual]\fR"
+.SH "TQDns::~TQDns ()\fC [virtual]\fR"
 Destroys the DNS query object and frees its allocated resources.
-.SH "QValueList<QHostAddress> QDns::addresses () const"
-Returns a list of the addresses for this name if this QDns object has a recordType() of QDns::A or QDns::Aaaa and the answer is available; otherwise returns an empty list.
+.SH "TQValueList<TQHostAddress> TQDns::addresses () const"
+Returns a list of the addresses for this name if this TQDns object has a recordType() of TQDns::A or TQDns::Aaaa and the answer is available; otherwise returns an empty list.
 .PP
 As a special case, if label() is a valid numeric IP address, this function returns that address.
 .PP
@@ -137,9 +137,9 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .PP
 .nf
 .br
-    QValueList<QHostAddress> list = myDns.addresses();
+    TQValueList<TQHostAddress> list = myDns.addresses();
 .br
-    QValueList<QHostAddress>::Iterator it = list.begin();
+    TQValueList<TQHostAddress>::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -150,22 +150,22 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "TQString QDns::canonicalName () const"
+.SH "TQString TQDns::canonicalName () const"
 Returns the canonical name for this DNS node. (This works regardless of what recordType() is set to.)
 .PP
 If the canonical name isn't known, this function returns a null string.
 .PP
-The canonical name of a DNS node is its full name, or the full name of the target of its CNAME. For example, if l.trolltech.com is a CNAME to lillian.troll.no, and the search path for QDns is" trolltech.com", then the canonical name for all of "lillian"," l", "lillian.troll.no." and "l.trolltech.com" is" lillian.troll.no.".
-.SH "QStringList QDns::hostNames () const"
+The canonical name of a DNS node is its full name, or the full name of the target of its CNAME. For example, if l.trolltech.com is a CNAME to lillian.troll.no, and the search path for TQDns is" trolltech.com", then the canonical name for all of "lillian"," l", "lillian.troll.no." and "l.trolltech.com" is" lillian.troll.no.".
+.SH "TQStringList TQDns::hostNames () const"
 Returns a list of host names if the record type is Ptr.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myDns.hostNames();
+    TQStringList list = myDns.hostNames();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -176,30 +176,30 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "bool QDns::isWorking () const"
-Returns TRUE if QDns is doing a lookup for this object (i.e. if it does not already have the necessary information); otherwise returns FALSE.
+.SH "bool TQDns::isWorking () const"
+Returns TRUE if TQDns is doing a lookup for this object (i.e. if it does not already have the necessary information); otherwise returns FALSE.
 .PP
-QDns emits the resultsReady() signal when the status changes to FALSE.
+TQDns emits the resultsReady() signal when the status changes to FALSE.
 .PP
 Example: network/mail/smtp.cpp.
-.SH "TQString QDns::label () const"
+.SH "TQString TQDns::label () const"
 Returns the domain name for which this object returns information.
 .PP
 See also setLabel().
-.SH "QValueList<MailServer> QDns::mailServers () const"
-Returns a list of mail servers if the record type is Mx. The class \fCQDns::MailServer\fR contains the following public variables:
+.SH "TQValueList<MailServer> TQDns::mailServers () const"
+Returns a list of mail servers if the record type is Mx. The class \fCTQDns::MailServer\fR contains the following public variables:
 .TP
-TQString QDns::MailServer::name
+TQString TQDns::MailServer::name
 .TP
-TQ_UINT16 QDns::MailServer::priority
+TQ_UINT16 TQDns::MailServer::priority
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QValueList<QDns::MailServer> list = myDns.mailServers();
+    TQValueList<TQDns::MailServer> list = myDns.mailServers();
 .br
-    QValueList<QDns::MailServer>::Iterator it = list.begin();
+    TQValueList<TQDns::MailServer>::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -212,16 +212,16 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 .PP
 Example: network/mail/smtp.cpp.
-.SH "QStringList QDns::qualifiedNames () const"
+.SH "TQStringList TQDns::qualifiedNames () const"
 Returns a list of the fully qualified names label() maps to.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myDns.qualifiedNames();
+    TQStringList list = myDns.qualifiedNames();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -232,32 +232,32 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "RecordType QDns::recordType () const"
+.SH "RecordType TQDns::recordType () const"
 Returns the record type of this DNS query object.
 .PP
 See also setRecordType() and RecordType.
-.SH "void QDns::resultsReady ()\fC [signal]\fR"
+.SH "void TQDns::resultsReady ()\fC [signal]\fR"
 This signal is emitted when results are available for one of the qualifiedNames().
 .PP
 Example: network/mail/smtp.cpp.
-.SH "QValueList<Server> QDns::servers () const"
-Returns a list of servers if the record type is Srv. The class \fCQDns::Server\fR contains the following public variables:
+.SH "TQValueList<Server> TQDns::servers () const"
+Returns a list of servers if the record type is Srv. The class \fCTQDns::Server\fR contains the following public variables:
 .TP
-TQString QDns::Server::name
+TQString TQDns::Server::name
 .TP
-TQ_UINT16 QDns::Server::priority
+TQ_UINT16 TQDns::Server::priority
 .TP
-TQ_UINT16 QDns::Server::weight
+TQ_UINT16 TQDns::Server::weight
 .TP
-TQ_UINT16 QDns::Server::port
+TQ_UINT16 TQDns::Server::port
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QValueList<QDns::Server> list = myDns.servers();
+    TQValueList<TQDns::Server> list = myDns.servers();
 .br
-    QValueList<QDns::Server>::Iterator it = list.begin();
+    TQValueList<TQDns::Server>::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -268,32 +268,32 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "void QDns::setLabel ( const TQString & label )\fC [virtual]\fR"
+.SH "void TQDns::setLabel ( const TQString & label )\fC [virtual]\fR"
 Sets this DNS query object to query for information about \fIlabel\fR.
 .PP
 This does not change the recordType(), but its isWorking() status will probably change as a result.
 .PP
 The DNS lookup is started the next time the application enters the event loop. When the result is found the signal resultsReady() is emitted.
-.SH "void QDns::setLabel ( const QHostAddress & address )\fC [virtual]\fR"
+.SH "void TQDns::setLabel ( const TQHostAddress & address )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets this DNS query object to query for information about the host address \fIaddress\fR. The label is set to the IN-ADDR.ARPA domain name. This is useful in combination with the Ptr record type (e.g. if you want to look up a hostname for a given address).
-.SH "void QDns::setRecordType ( RecordType rr = A )\fC [virtual]\fR"
+.SH "void TQDns::setRecordType ( RecordType rr = A )\fC [virtual]\fR"
 Sets this object to query for record type \fIrr\fR records.
 .PP
 The DNS lookup is started the next time the application enters the event loop. When the result is found the signal resultsReady() is emitted.
 .PP
 See also RecordType.
-.SH "QStringList QDns::texts () const"
+.SH "TQStringList TQDns::texts () const"
 Returns a list of texts if the record type is Txt.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myDns.texts();
+    TQStringList list = myDns.texts();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -306,7 +306,7 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqdns.html
+.BR http://doc.trolltech.com/tqdns.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

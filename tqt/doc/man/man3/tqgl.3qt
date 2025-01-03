@@ -1,5 +1,5 @@
 '\" t
-.TH QGL 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQGL 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QGL \- Namespace for miscellaneous identifiers in the TQt OpenGL module
+TQGL \- Namespace for miscellaneous identifiers in the TQt OpenGL module
 .SH SYNOPSIS
-\fC#include <ntqgl.h>\fR
+\fC#include <tqgl.h>\fR
 .PP
-Inherited by QGLFormat, QGLContext, and QGLWidget.
+Inherited by TQGLFormat, TQGLContext, and TQGLWidget.
 .PP
 .SS "Public Members"
 .in +1c
@@ -20,57 +20,57 @@ Inherited by QGLFormat, QGLContext, and QGLWidget.
 .br
 .in -1c
 .SH DESCRIPTION
-The QGL class is a namespace for miscellaneous identifiers in the TQt OpenGL module.
+The TQGL class is a namespace for miscellaneous identifiers in the TQt OpenGL module.
 .PP
-Normally you can ignore this class. QGLWidget and the other OpenGL<sup>*</sup> module classes inherit it, so when you make your own QGLWidget subclass you can use the identifiers in the QGL namespace without qualification.
+Normally you can ignore this class. TQGLWidget and the other OpenGL<sup>*</sup> module classes inherit it, so when you make your own TQGLWidget subclass you can use the identifiers in the TQGL namespace without qualification.
 .PP
-However, you may occasionally find yourself in situations where you need to refer to these identifiers from outside the QGL namespace's scope, e.g. in static functions. In such cases, simply write e.g. QGL::DoubleBuffer instead of just DoubleBuffer.
+However, you may occasionally find yourself in situations where you need to refer to these identifiers from outside the TQGL namespace's scope, e.g. in static functions. In such cases, simply write e.g. TQGL::DoubleBuffer instead of just DoubleBuffer.
 .PP
 <sup>*</sup> OpenGL is a trademark of Silicon Graphics, Inc. in the United States and other countries.
 .PP
 See also Graphics Classes and Image Processing Classes.
 .SS "Member Type Documentation"
-.SH "QGL::FormatOption"
+.SH "TQGL::FormatOption"
 This enum specifies the format options.
 .TP
-\fCQGL::DoubleBuffer\fR
+\fCTQGL::DoubleBuffer\fR
 .TP
-\fCQGL::DepthBuffer\fR
+\fCTQGL::DepthBuffer\fR
 .TP
-\fCQGL::Rgba\fR
+\fCTQGL::Rgba\fR
 .TP
-\fCQGL::AlphaChannel\fR
+\fCTQGL::AlphaChannel\fR
 .TP
-\fCQGL::AccumBuffer\fR
+\fCTQGL::AccumBuffer\fR
 .TP
-\fCQGL::StencilBuffer\fR
+\fCTQGL::StencilBuffer\fR
 .TP
-\fCQGL::StereoBuffers\fR
+\fCTQGL::StereoBuffers\fR
 .TP
-\fCQGL::DirectRendering\fR
+\fCTQGL::DirectRendering\fR
 .TP
-\fCQGL::HasOverlay\fR
+\fCTQGL::HasOverlay\fR
 .TP
-\fCQGL::SingleBuffer\fR
+\fCTQGL::SingleBuffer\fR
 .TP
-\fCQGL::NoDepthBuffer\fR
+\fCTQGL::NoDepthBuffer\fR
 .TP
-\fCQGL::ColorIndex\fR
+\fCTQGL::ColorIndex\fR
 .TP
-\fCQGL::NoAlphaChannel\fR
+\fCTQGL::NoAlphaChannel\fR
 .TP
-\fCQGL::NoAccumBuffer\fR
+\fCTQGL::NoAccumBuffer\fR
 .TP
-\fCQGL::NoStencilBuffer\fR
+\fCTQGL::NoStencilBuffer\fR
 .TP
-\fCQGL::NoStereoBuffers\fR
+\fCTQGL::NoStereoBuffers\fR
 .TP
-\fCQGL::IndirectRendering\fR
+\fCTQGL::IndirectRendering\fR
 .TP
-\fCQGL::NoOverlay\fR
+\fCTQGL::NoOverlay\fR
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqgl.html
+.BR http://doc.trolltech.com/tqgl.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

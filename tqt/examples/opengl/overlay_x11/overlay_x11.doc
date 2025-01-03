@@ -7,7 +7,7 @@
 direct support for use of OpenGL overlays. For many uses of overlays,
 this makes the technique described below redundant. See the \link
 opengl-overlay-example.html overlay\endlink example program. The
-following is a discussion on how to use non-QGL widgets in overlay
+following is a discussion on how to use non-TQGL widgets in overlay
 planes.
 
 Overlayrubber: An example program showing how to use TQt and TQt OpenGL
@@ -21,11 +21,11 @@ information on \link opengl-x11-overlays.html overlays\endlink.
 The example program has three main parts:
 
 \list 1
-\i \e GearWidget - a normal, simple QGLWidget. This renders the usual
+\i \e GearWidget - a normal, simple TQGLWidget. This renders the usual
 gears. It has been modified to print a debug message every time it
 redraws (renders) itself. Thus, you can easily confirm that drawing in
 the overlay plane does not cause redrawings in the main plane where
-the QGLWidget resides.
+the TQGLWidget resides.
 
 \i \e RubberbandWidget - Very simple standard (non-GL) TQt widget that
 implements rubberband drawing. Designed for use in an overlay plane.
@@ -42,7 +42,7 @@ color of that plane.
 \section1 Running the Example
 
 Start the \c overlayrubber executable. Click and drag with the left
-mouse button to see rubberband drawing. Observe that the QGLWidget
+mouse button to see rubberband drawing. Observe that the TQGLWidget
 does not redraw itself (no redraw debug messages are output), and yet
 the image is not destroyed. Marvel at the coolness of X11 overlays!
 
@@ -59,24 +59,24 @@ can put all kinds of TQt widgets (your own or standard TQt widgets) on
 top of the OpenGL image (widget), e.g. pushbuttons etc., and they can
 be moved, resized, or removed without destroying the OpenGL image.
 
-\i \e{Using with geometry management.} The QLayout classes don't permit
+\i \e{Using with geometry management.} The TQLayout classes don't permit
 putting one widget (the overlay) on top of another (the OpenGL
 widget); that would defy the whole purpose of the automatic layout.
-The solution is to add just one of them to the QLayout object. Have it
-keep a pointer to the other (i.e. the QGLWidget knows about its
+The solution is to add just one of them to the TQLayout object. Have it
+keep a pointer to the other (i.e. the TQGLWidget knows about its
 overlay widget or vice versa). Implement the resizeEvent() method of
 the widget you put in the layout, and make it call setGeometry() on
 the other widget with its own geometry as parameters, thus keeping the
 two widgets' geometries synchronized.
 
-\i \e{Using together with QPalette and QColorGroup.} Instead of the
+\i \e{Using together with TQPalette and TQColorGroup.} Instead of the
 simplistic setBackgroundColor( transparentColor ), you can
-use Qt's QPalette system to make your overlay widgets use
+use Qt's TQPalette system to make your overlay widgets use
 transparent color for what you want. This way, the normal TQt widgets
 can be used as overlays for fancy effects. Just create a palette for
 them with the transparent color for the relevant color roles, e.g.
 Background and Base, in the Normal and/or Active modes. This way, you
-can create see-through QPushButtons etc.
+can create see-through TQPushButtons etc.
 \endlist
 
 */

@@ -8,7 +8,7 @@
 *****************************************************************************/
 
 #include "main.h"
-#include <ntqdatatable.h>
+#include <tqdatatable.h>
 
 InvoiceItemCursor::InvoiceItemCursor() :
     TQSqlCursor( "invoiceitem" )

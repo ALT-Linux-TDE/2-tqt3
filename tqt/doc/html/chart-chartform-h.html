@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:8 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -37,8 +36,8 @@ body { background: #ffffff; color: black; }
 
 #include "element.h"
 
-#include &lt;<a href="qmainwindow-h.html">ntqmainwindow.h</a>&gt;
-#include &lt;<a href="qstringlist-h.html">ntqstringlist.h</a>&gt;
+#include &lt;<a href="tqmainwindow-h.html">tqmainwindow.h</a>&gt;
+#include &lt;<a href="tqstringlist-h.html">tqstringlist.h</a>&gt;
 
 
 class CanvasView;
@@ -50,7 +49,7 @@ class TQPrinter;
 class TQString;
 
 
-class ChartForm: public <a href="ntqmainwindow.html">TQMainWindow</a>
+class ChartForm: public <a href="tqmainwindow.html">TQMainWindow</a>
 {
     TQ_OBJECT
 public:
@@ -59,17 +58,17 @@ public:
     enum ChartType { PIE, VERTICAL_BAR, HORIZONTAL_BAR };
     enum AddValuesType { NO, YES, AS_PERCENTAGE };
 
-    ChartForm( const <a href="ntqstring.html">TQString</a>&amp; filename );
+    ChartForm( const <a href="tqstring.html">TQString</a>&amp; filename );
     ~ChartForm();
 
     int chartType() { return m_chartType; }
     void setChanged( bool changed = TRUE ) { m_changed = changed; }
     void drawElements();
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *optionsMenu; // Why public? See canvasview.cpp
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *optionsMenu; // Why public? See canvasview.cpp
 
 protected:
-    virtual void closeEvent( <a href="qcloseevent.html">TQCloseEvent</a> * );
+    virtual void closeEvent( <a href="tqcloseevent.html">TQCloseEvent</a> * );
 
 private slots:
     void fileNew();
@@ -81,7 +80,7 @@ private slots:
     void filePrint();
     void fileQuit();
     void optionsSetData();
-    void updateChartType( <a href="ntqaction.html">TQAction</a> *action );
+    void updateChartType( <a href="tqaction.html">TQAction</a> *action );
     void optionsSetFont();
     void optionsSetOptions();
     void helpHelp();
@@ -91,34 +90,34 @@ private slots:
 
 private:
     void init();
-    void load( const <a href="ntqstring.html">TQString</a>&amp; filename );
+    void load( const <a href="tqstring.html">TQString</a>&amp; filename );
     bool okToClear();
     void drawPieChart( const double scales[], double total, int count );
     void drawVerticalBarChart( const double scales[], double total, int count );
     void drawHorizontalBarChart( const double scales[], double total, int count );
 
-    <a href="ntqstring.html">TQString</a> valueLabel( const <a href="ntqstring.html">TQString</a>&amp; label, double value, double total );
-    void updateRecentFiles( const <a href="ntqstring.html">TQString</a>&amp; filename );
+    <a href="tqstring.html">TQString</a> valueLabel( const <a href="tqstring.html">TQString</a>&amp; label, double value, double total );
+    void updateRecentFiles( const <a href="tqstring.html">TQString</a>&amp; filename );
     void updateRecentFilesMenu();
     void setChartType( ChartType chartType );
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *fileMenu;
-    <a href="ntqaction.html">TQAction</a> *optionsPieChartAction;
-    <a href="ntqaction.html">TQAction</a> *optionsHorizontalBarChartAction;
-    <a href="ntqaction.html">TQAction</a> *optionsVerticalBarChartAction;
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *fileMenu;
+    <a href="tqaction.html">TQAction</a> *optionsPieChartAction;
+    <a href="tqaction.html">TQAction</a> *optionsHorizontalBarChartAction;
+    <a href="tqaction.html">TQAction</a> *optionsVerticalBarChartAction;
 
 
-    <a href="ntqstring.html">TQString</a> m_filename;
-    <a href="ntqstringlist.html">TQStringList</a> m_recentFiles;
-    <a href="ntqcanvas.html">TQCanvas</a> *m_canvas;
+    <a href="tqstring.html">TQString</a> m_filename;
+    <a href="tqstringlist.html">TQStringList</a> m_recentFiles;
+    <a href="tqcanvas.html">TQCanvas</a> *m_canvas;
     CanvasView *m_canvasView;
     bool m_changed;
     ElementVector m_elements;
-    <a href="ntqprinter.html">TQPrinter</a> *m_printer;
+    <a href="tqprinter.html">TQPrinter</a> *m_printer;
     ChartType m_chartType;
     AddValuesType m_addValues;
     int m_decimalPlaces;
-    <a href="ntqfont.html">TQFont</a> m_font;
+    <a href="tqfont.html">TQFont</a> m_font;
 };
 
 #endif

@@ -7,7 +7,7 @@
 **
 *****************************************************************************/
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 class TQStyle;
 class TQListBox;
 class TQListBoxItem;

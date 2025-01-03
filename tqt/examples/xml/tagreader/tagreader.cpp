@@ -8,9 +8,9 @@
 *****************************************************************************/
 
 #include "structureparser.h"
-#include <ntqfile.h>
-#include <ntqxml.h>
-#include <ntqwindowdefs.h>
+#include <tqfile.h>
+#include <tqxml.h>
+#include <tqwindowdefs.h>
 
 int main( int argc, char **argv )
 {

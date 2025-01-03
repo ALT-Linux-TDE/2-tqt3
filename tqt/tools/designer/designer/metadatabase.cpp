@@ -41,21 +41,21 @@
 #include "project.h"
 #include "mainwindow.h"
 
-#include <ntqapplication.h>
-#include <ntqobject.h>
-#include <ntqlayout.h>
-#include <ntqptrdict.h>
-#include <ntqobjectlist.h>
-#include <ntqstrlist.h>
-#include <ntqmetaobject.h>
-#include <ntqwidgetlist.h>
-#include <ntqmainwindow.h>
-#include <ntqregexp.h>
-#include <private/qpluginmanager_p.h>
-#include <ntqdatetime.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqtextstream.h>
+#include <tqapplication.h>
+#include <tqobject.h>
+#include <tqlayout.h>
+#include <tqptrdict.h>
+#include <tqobjectlist.h>
+#include <tqstrlist.h>
+#include <tqmetaobject.h>
+#include <tqwidgetlist.h>
+#include <tqmainwindow.h>
+#include <tqregexp.h>
+#include <private/tqpluginmanager_p.h>
+#include <tqdatetime.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqtextstream.h>
 
 #include <stdlib.h>
 

@@ -2,48 +2,48 @@
   global:
   extern "C++"
   {
-	QGuardedPtrPrivate::*
+	TQGuardedPtrPrivate::*
   };
   local:
   extern "C++"
   {
-	QClipboardWatcher::*;
-	QColorLuminancePicker::*;
-	QErrorMessageTextView::*;
+	TQClipboardWatcher::*;
+	TQColorLuminancePicker::*;
+	TQErrorMessageTextView::*;
 	QETWidget::*;
 	QFDProgress*;
-	QFileDialogQFileListView::*;
-	QFtpDTP::*;
-	QFtpPI*;
-	QHttpNormalRequest::*;
-	QHttpRequest::*;
-	QHttpResponseHeader::*;
-	QMainWindowLayout::*;
-	Q*Private::*;    # collides with QGuardedPtrPrivate
-	QPSPrinter*;
+	TQFileDialogTQFileListView::*;
+	TQFtpDTP::*;
+	TQFtpPI*;
+	TQHttpNormalRequest::*;
+	TQHttpRequest::*;
+	TQHttpResponseHeader::*;
+	TQMainWindowLayout::*;
+	Q*Private::*;    # collides with TQGuardedPtrPrivate
+	TQPSPrinter*;
 	Q*RegExpEngine::*;
 	Q*SvgDevice::*;
-	*QSvgDeviceState*;
+	*TQSvgDeviceState*;
 	ImgElement::*;
 	PixElement::*;
 	QRenameEdit::*;
 	QRollEffect::*;
-	QSharedDoubleBufferCleaner::*;
+	TQSharedDoubleBufferCleaner::*;
 	QSmSocketReceiver::*;
-	QSpinBoxValidator::*;
-	QSplitterHandle::*;
-	QSqlRecordShared::*;
+	TQSpinBoxValidator::*;
+	TQSplitterHandle::*;
+	TQSqlRecordShared::*;
 	QSVChildRec::*;
 	qt_xdnd_*;
 	QTipLabel::*;
-	QUnicodeTables::*;
+	TQUnicodeTables::*;
 	QViewportWidget::*;
 	QWFlagWidget::*;
-	QWorkspaceChild::*;
-	QFontDef::*;
-	QFontStruct::*;
-	QFont*Codec::*;
-	QInputContext::*
+	TQWorkspaceChild::*;
+	TQFontDef::*;
+	TQFontStruct::*;
+	TQFont*Codec::*;
+	TQInputContext::*
   };
   TT_*;
   TTO_*;

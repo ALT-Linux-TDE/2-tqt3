@@ -1,14 +1,14 @@
-#include <ntqdatetime.h>
-#include <ntqmainwindow.h>
-#include <ntqstatusbar.h>
-#include <ntqmessagebox.h>
-#include <ntqmenubar.h>
-#include <ntqapplication.h>
-#include <ntqpainter.h>
-#include <ntqprinter.h>
-#include <ntqlabel.h>
-#include <ntqimage.h>
-#include <ntqprogressdialog.h>
+#include <tqdatetime.h>
+#include <tqmainwindow.h>
+#include <tqstatusbar.h>
+#include <tqmessagebox.h>
+#include <tqmenubar.h>
+#include <tqapplication.h>
+#include <tqpainter.h>
+#include <tqprinter.h>
+#include <tqlabel.h>
+#include <tqimage.h>
+#include <tqprogressdialog.h>
 #include "canvas.h"
 
 #include <stdlib.h>
@@ -55,21 +55,13 @@ ImageItem::ImageItem( TQImage img, TQCanvas *canvas )
 {
     setSize( image.width(), image.height() );
 
-#if !defined(TQ_WS_QWS)
     pixmap.convertFromImage(image, OrderedAlphaDither);
-#endif
 }
 
 
 void ImageItem::drawShape( TQPainter &p )
 {
-// On TQt/Embedded, we can paint a TQImage as fast as a TQPixmap,
-// but on other platforms, we need to use a TQPixmap.
-#if defined(TQ_WS_QWS)
-    p.drawImage( int(x()), int(y()), image, 0, 0, -1, -1, OrderedAlphaDither );
-#else
     p.drawPixmap( int(x()), int(y()), pixmap );
-#endif
 }
 
 bool ImageItem::hit( const TQPoint &p ) const

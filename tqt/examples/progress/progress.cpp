@@ -7,11 +7,11 @@
 **
 *****************************************************************************/
 
-#include <ntqprogressdialog.h>
-#include <ntqapplication.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
-#include <ntqpainter.h>
+#include <tqprogressdialog.h>
+#include <tqapplication.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
+#include <tqpainter.h>
 #include <stdlib.h>
 
 class AnimatedThingy : public TQLabel {

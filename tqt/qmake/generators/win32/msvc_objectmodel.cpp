@@ -38,9 +38,9 @@
 
 #include "msvc_objectmodel.h"
 #include "msvc_vcproj.h"
-#include <ntqtextstream.h>
-#include <ntqstringlist.h>
-#include <ntqfileinfo.h>
+#include <tqtextstream.h>
+#include <tqstringlist.h>
+#include <tqfileinfo.h>
 
 extern DotNET which_dotnet_version();
 
@@ -1082,7 +1082,7 @@ TQTextStream &operator<<( TQTextStream &strm, const VCLinkerTool &tool )
 
 // Hashing routine to do fast option lookups ----
 // Slightly rewritten to stop on ':' ',' and '\0'
-// Original routine in qtranslator.cpp ----------
+// Original routine in tqtranslator.cpp ----------
 static uint elfHash( const char* name )
 {
     const uchar *k;
@@ -1949,7 +1949,7 @@ void VCFilter::addUICstage( TQTextStream & /*strm*/, TQString str )
     if ( mocDir.isEmpty() )
 	mocDir = pname;
 
-    CustomBuildTool.Description = ("Uic'ing " + str + "...\"");
+    CustomBuildTool.Description = ("TQUic'ing " + str + "...\"");
     CustomBuildTool.CommandLine += // Create .h from .ui file
 	uicApp + " " + str + " -o " + uiHeaders + fname + ".h";
     CustomBuildTool.CommandLine += // Create .cpp from .ui file
@@ -2011,8 +2011,8 @@ bool VCFilter::addIMGstage( TQTextStream &/*strm*/, TQString str )
     useCustomBuildTool = TRUE;
 
     // Some projects (like designer core) may have too many images to
-    // call uic directly. Therefor we have to create a temporary
-    // file, with the image list, and call uic with the -f option.
+    // call tquic directly. Therefor we have to create a temporary
+    // file, with the image list, and call tquic with the -f option.
     TQString tmpFileCmd = "echo ";
     TQString tmpImageFilename = ".imgcol";
     TQStringList& list = Project->project->variables()["IMAGES"];
@@ -2139,10 +2139,10 @@ TQTextStream &operator<<( TQTextStream &strm, VCFilter &tool )
 
 	tool.useCustomBuildTool = FALSE;
 	tool.useCompilerTool = FALSE;
-	// Add UIC, MOC and PCH stages to file
+	// Add TQUIC, MOC and PCH stages to file
 	if ( tool.CustomBuild == moc )
 	    tool.addMOCstage( strm, *it );
-	else if ( tool.CustomBuild == uic )
+	else if ( tool.CustomBuild == tquic )
 	    tool.addUICstage( strm, *it );
 	else if ( tool.CustomBuild == lexyacc )
 	    tool.addLexYaccStage( strm, *it );

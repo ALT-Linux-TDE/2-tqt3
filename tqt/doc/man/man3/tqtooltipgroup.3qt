@@ -1,5 +1,5 @@
 '\" t
-.TH QToolTipGroup 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQToolTipGroup 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QToolTipGroup \- Collects tool tips into related groups
+TQToolTipGroup \- Collects tool tips into related groups
 .SH SYNOPSIS
-\fC#include <ntqtooltip.h>\fR
+\fC#include <tqtooltip.h>\fR
 .PP
 Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQToolTipGroup\fR ( TQObject * parent, const char * name = 0 )"
+.BI "\fBTQToolTipGroup\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QToolTipGroup\fR ()"
+.BI "\fB~TQToolTipGroup\fR ()"
 .br
 .ti -1c
 .BI "bool \fBdelay\fR () const"
@@ -56,15 +56,15 @@ Inherits TQObject.
 .br
 .in -1c
 .SH DESCRIPTION
-The QToolTipGroup class collects tool tips into related groups.
+The TQToolTipGroup class collects tool tips into related groups.
 .PP
-Tool tips can display \fItwo\fR texts: one in the tip and (optionally) one that is typically in a status bar. QToolTipGroup provides a way to link tool tips to this status bar.
+Tool tips can display \fItwo\fR texts: one in the tip and (optionally) one that is typically in a status bar. TQToolTipGroup provides a way to link tool tips to this status bar.
 .PP
-QToolTipGroup has practically no API; it is only used as an argument to QToolTip's member functions, for example like this:
+TQToolTipGroup has practically no API; it is only used as an argument to TQToolTip's member functions, for example like this:
 .PP
 .nf
 .br
-        QToolTipGroup * grp = new QToolTipGroup( this, "tool tip relay" );
+        TQToolTipGroup * grp = new TQToolTipGroup( this, "tool tip relay" );
 .br
         connect( grp, TQ_SIGNAL(showTip(const TQString&)),
 .br
@@ -74,11 +74,11 @@ QToolTipGroup has practically no API; it is only used as an argument to QToolTip
 .br
                  myLabel, TQ_SLOT(clear()) );
 .br
-        QToolTip::add( giraffeButton, "feed giraffe",
+        TQToolTip::add( giraffeButton, "feed giraffe",
 .br
                        grp, "Give the giraffe a meal" );
 .br
-        QToolTip::add( gorillaButton, "feed gorilla",
+        TQToolTip::add( gorillaButton, "feed gorilla",
 .br
                        grp, "Give the gorilla a meal" );
 .br
@@ -90,25 +90,25 @@ Deleting a tool tip group removes the tool tips in it.
 .PP
 See also Help System.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QToolTipGroup::QToolTipGroup ( TQObject * parent, const char * name = 0 )"
+.SH "TQToolTipGroup::TQToolTipGroup ( TQObject * parent, const char * name = 0 )"
 Constructs a tool tip group called \fIname\fR, with parent \fIparent\fR.
-.SH "QToolTipGroup::~QToolTipGroup ()"
+.SH "TQToolTipGroup::~TQToolTipGroup ()"
 Destroys this tool tip group and all tool tips in it.
-.SH "bool QToolTipGroup::delay () const"
+.SH "bool TQToolTipGroup::delay () const"
 Returns TRUE if the display of the group text is delayed; otherwise returns FALSE. See the "delay" property for details.
-.SH "bool QToolTipGroup::enabled () const"
+.SH "bool TQToolTipGroup::enabled () const"
 Returns TRUE if tool tips in the group are enabled; otherwise returns FALSE. See the "enabled" property for details.
-.SH "void QToolTipGroup::removeTip ()\fC [signal]\fR"
-This signal is emitted when a tool tip in this group is hidden. See the QToolTipGroup documentation for an example of use.
+.SH "void TQToolTipGroup::removeTip ()\fC [signal]\fR"
+This signal is emitted when a tool tip in this group is hidden. See the TQToolTipGroup documentation for an example of use.
 .PP
 See also showTip().
 .PP
 Example: helpsystem/mainwindow.cpp.
-.SH "void QToolTipGroup::setDelay ( bool )\fC [slot]\fR"
+.SH "void TQToolTipGroup::setDelay ( bool )\fC [slot]\fR"
 Sets whether the display of the group text is delayed. See the "delay" property for details.
-.SH "void QToolTipGroup::setEnabled ( bool )\fC [slot]\fR"
+.SH "void TQToolTipGroup::setEnabled ( bool )\fC [slot]\fR"
 Sets whether tool tips in the group are enabled. See the "enabled" property for details.
-.SH "void QToolTipGroup::showTip ( const TQString & longText )\fC [signal]\fR"
+.SH "void TQToolTipGroup::showTip ( const TQString & longText )\fC [signal]\fR"
 This signal is emitted when one of the tool tips in the group is displayed. \fIlongText\fR is the extra text for the displayed tool tip.
 .PP
 See also removeTip().
@@ -129,7 +129,7 @@ This property's default is TRUE.
 Set this property's value with setEnabled() and get this property's value with enabled().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qtooltipgroup.html
+.BR http://doc.trolltech.com/tqtooltipgroup.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

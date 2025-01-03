@@ -1,16 +1,16 @@
 TEMPLATE = lib
-TARGET	 = qsgistyle
+TARGET	 = tqsgistyle
 
 CONFIG  += qt warn_off release plugin
 DESTDIR	 = ../../../styles
 
-HEADERS		= ../../../../include/ntqsgistyle.h
+HEADERS		= ../../../../include/tqsgistyle.h
 SOURCES		= main.cpp \
-		  ../../../../src/styles/qsgistyle.cpp
+		  ../../../../src/styles/tqsgistyle.cpp
 
 !contains(styles, motif) {
-	HEADERS += ../../../../include/ntqmotifstyle.h
-	SOURCES += ../../../../src/styles/qmotifstyle.cpp
+	HEADERS += ../../../../include/tqmotifstyle.h
+	SOURCES += ../../../../src/styles/tqmotifstyle.cpp
 }
 
 unix:OBJECTS_DIR	= .obj

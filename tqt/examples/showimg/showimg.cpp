@@ -9,14 +9,14 @@
 
 #include "showimg.h"
 #include "imagetexteditor.h"
-#include <ntqmenubar.h>
-#include <ntqfiledialog.h>
-#include <ntqmessagebox.h>
-#include <ntqpopupmenu.h>
-#include <ntqlabel.h>
-#include <ntqpainter.h>
-#include <ntqapplication.h>
-#include <ntqclipboard.h>
+#include <tqmenubar.h>
+#include <tqfiledialog.h>
+#include <tqmessagebox.h>
+#include <tqpopupmenu.h>
+#include <tqlabel.h>
+#include <tqpainter.h>
+#include <tqapplication.h>
+#include <tqclipboard.h>
 
 
 /*

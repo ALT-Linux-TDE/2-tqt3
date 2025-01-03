@@ -43,11 +43,11 @@
 #ifndef TQSIMPLEINPUT_CONTEXT_H
 #define TQSIMPLEINPUT_CONTEXT_H
 
-#include <ntqinputcontext.h>
-#include <ntqnamespace.h>
+#include <tqinputcontext.h>
+#include <tqnamespace.h>
 
 #define QT_KEYSEQUENCE_MAX_LEN 6
-#define UNITIZE(qkey) (0x02000000|qkey)
+#define UNITIZE(tqkey) (0x02000000|tqkey)
 
 struct TQComposeTableElement {
     uint keys[QT_KEYSEQUENCE_MAX_LEN];

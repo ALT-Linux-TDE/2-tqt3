@@ -38,8 +38,8 @@
 **
 **********************************************************************/
 
-#include <ntqsqldriverplugin.h>
-#include "../../../../src/sql/drivers/mysql/qsql_mysql.h"
+#include <tqsqldriverplugin.h>
+#include "../../../../src/sql/drivers/mysql/tqsql_mysql.h"
 
 class TQMYSQLDriverPlugin : public TQSqlDriverPlugin
 {

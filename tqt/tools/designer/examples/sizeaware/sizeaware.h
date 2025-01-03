@@ -1,6 +1,6 @@
 #ifndef SIZEAWARE_H
 #define SIZEAWARE_H
-#include <ntqdialog.h>
+#include <tqdialog.h>
 
 class SizeAware : public TQDialog
 {

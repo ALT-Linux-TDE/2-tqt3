@@ -1,7 +1,7 @@
 #ifndef GLCONTROLWIDGET_H
 #define GLCONTROLWIDGET_H
 
-#include <ntqgl.h>
+#include <tqgl.h>
 
 class GLControlWidget : public TQGLWidget
 {

@@ -7,9 +7,9 @@
 #ifndef __KAST_TOPLEVEL_H__
 #define __KAST_TOPLEVEL_H__
 
-#include <ntqmainwindow.h>
-#include <ntqdict.h>
-#include <ntqmap.h>
+#include <tqmainwindow.h>
+#include <tqdict.h>
+#include <tqmap.h>
 
 #include "view.h"
 

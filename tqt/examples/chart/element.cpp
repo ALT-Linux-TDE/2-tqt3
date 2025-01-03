@@ -1,7 +1,7 @@
 #include "element.h"
 
-#include <ntqstringlist.h>
-#include <ntqtextstream.h>
+#include <tqstringlist.h>
+#include <tqtextstream.h>
 
 const char FIELD_SEP = ':';
 const char PROPOINT_SEP = ';';

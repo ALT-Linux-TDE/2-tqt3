@@ -4,13 +4,13 @@
 **
 ****************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqslider.h>
-#include <ntqlcdnumber.h>
-#include <ntqfont.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqslider.h>
+#include <tqlcdnumber.h>
+#include <tqfont.h>
 
-#include <ntqvbox.h>
+#include <tqvbox.h>
 
 class MyWidget : public TQVBox
 {

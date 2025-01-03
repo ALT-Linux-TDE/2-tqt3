@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:2028 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,7 +40,7 @@ body { background: #ffffff; color: black; }
 #ifndef GAMEBRD_H
 #define GAMEBRD_H
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
 
 class TQPushButton;
 class LCDRange;
@@ -52,11 +51,11 @@ class CannonField;
 #include "cannon.h"
 
 
-class GameBoard : public <a href="ntqwidget.html">TQWidget</a>
+class GameBoard : public <a href="tqwidget.html">TQWidget</a>
 {
     TQ_OBJECT
 public:
-    GameBoard( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    GameBoard( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 
 protected slots:
     void  fire();
@@ -65,8 +64,8 @@ protected slots:
     void  newGame();
 
 private:
-    <a href="ntqlcdnumber.html">TQLCDNumber</a>  *hits;
-    <a href="ntqlcdnumber.html">TQLCDNumber</a>  *shotsLeft;
+    <a href="tqlcdnumber.html">TQLCDNumber</a>  *hits;
+    <a href="tqlcdnumber.html">TQLCDNumber</a>  *shotsLeft;
     CannonField *cannonField;
 };
 

@@ -34,13 +34,13 @@
 #ifndef DATABASE2_H
 #define DATABASE2_H
 
-#include "ntqfeatures.h"
+#include "tqfeatures.h"
 
 #ifndef TQT_NO_SQL
-#include <ntqdataview.h>
-#include <ntqdatabrowser.h>
-#include <ntqsqlcursor.h>
-#include <ntqstring.h>
+#include <tqdataview.h>
+#include <tqdatabrowser.h>
+#include <tqsqlcursor.h>
+#include <tqstring.h>
 
 class TQSqlDatabase;
 class TQSqlForm;

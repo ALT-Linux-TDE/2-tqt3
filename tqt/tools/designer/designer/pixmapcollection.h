@@ -34,9 +34,9 @@
 #ifndef PIXMAPCOLLECTION_H
 #define PIXMAPCOLLECTION_H
 
-#include <ntqstring.h>
-#include <ntqpixmap.h>
-#include <ntqvaluelist.h>
+#include <tqstring.h>
+#include <tqpixmap.h>
+#include <tqvaluelist.h>
 #include "designerappiface.h"
 
 class TQMimeSourceFactory;

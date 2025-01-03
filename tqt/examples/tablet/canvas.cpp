@@ -9,10 +9,10 @@
 
 #include "canvas.h"
 
-#include <ntqapplication.h>
-#include <ntqpainter.h>
-#include <ntqevent.h>
-#include <ntqrect.h>
+#include <tqapplication.h>
+#include <tqpainter.h>
+#include <tqevent.h>
+#include <tqrect.h>
 
 const bool no_writing = FALSE;
 

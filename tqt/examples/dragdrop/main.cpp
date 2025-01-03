@@ -9,13 +9,13 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 #include "dropsite.h"
 #include "secret.h"
-#include <ntqlayout.h>
-#include <ntqcombobox.h>
-#include <ntqlabel.h>
-#include <ntqpixmap.h>
+#include <tqlayout.h>
+#include <tqcombobox.h>
+#include <tqlabel.h>
+#include <tqpixmap.h>
 
 static void addStuff( TQWidget * parent, bool image, bool secret = FALSE )
 {

@@ -33,7 +33,7 @@
 
 #include "listviews.h"
 
-#include <ntqpainter.h>
+#include <tqpainter.h>
 
 static const int Text0MaxLen = 150;
 static const int Text1MaxLen = 150;

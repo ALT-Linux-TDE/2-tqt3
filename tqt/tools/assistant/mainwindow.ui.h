@@ -33,16 +33,16 @@
 
 #include "config.h"
 
-#include <ntqtabwidget.h>
-#include <ntqfileinfo.h>
-#include <ntqaccel.h>
-#include <ntqobjectlist.h>
-#include <ntqtimer.h>
-#include <ntqdragobject.h>
-#include <ntqfontinfo.h>
-#include <ntqaccel.h>
-#include <ntqmetaobject.h>
-#include <ntqeventloop.h>
+#include <tqtabwidget.h>
+#include <tqfileinfo.h>
+#include <tqaccel.h>
+#include <tqobjectlist.h>
+#include <tqtimer.h>
+#include <tqdragobject.h>
+#include <tqfontinfo.h>
+#include <tqaccel.h>
+#include <tqmetaobject.h>
+#include <tqeventloop.h>
 
 TQPtrList<MainWindow> *MainWindow::windows = 0;
 

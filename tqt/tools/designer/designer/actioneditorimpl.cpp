@@ -40,15 +40,15 @@
 #include "hierarchyview.h"
 #include "formfile.h"
 
-#include <ntqaction.h>
-#include <ntqlineedit.h>
-#include <ntqlabel.h>
-#include <ntqtoolbutton.h>
-#include <ntqlistview.h>
-#include <ntqcheckbox.h>
-#include <ntqpushbutton.h>
-#include <ntqpopupmenu.h>
-#include <ntqobjectlist.h>
+#include <tqaction.h>
+#include <tqlineedit.h>
+#include <tqlabel.h>
+#include <tqtoolbutton.h>
+#include <tqlistview.h>
+#include <tqcheckbox.h>
+#include <tqpushbutton.h>
+#include <tqpopupmenu.h>
+#include <tqobjectlist.h>
 
 ActionEditor::ActionEditor( TQWidget* parent,  const char* name, WFlags fl )
     : ActionEditorBase( parent, name, fl ), currentAction( 0 ), formWindow( 0 ),

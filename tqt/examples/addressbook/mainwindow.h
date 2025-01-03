@@ -10,8 +10,8 @@
 #ifndef AB_MAINWINDOW_H
 #define AB_MAINWINDOW_H
 
-#include <ntqmainwindow.h>
-#include <ntqstring.h>
+#include <tqmainwindow.h>
+#include <tqstring.h>
 
 class TQToolBar;
 class TQPopupMenu;

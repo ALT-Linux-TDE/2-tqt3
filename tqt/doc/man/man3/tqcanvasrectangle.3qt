@@ -1,5 +1,5 @@
 '\" t
-.TH QCanvasRectangle 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQCanvasRectangle 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QCanvasRectangle \- Rectangle on a QCanvas
+TQCanvasRectangle \- Rectangle on a TQCanvas
 .SH SYNOPSIS
-\fC#include <ntqcanvas.h>\fR
+\fC#include <tqcanvas.h>\fR
 .PP
-Inherits QCanvasPolygonalItem.
+Inherits TQCanvasPolygonalItem.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCanvasRectangle\fR ( QCanvas * canvas )"
+.BI "\fBTQCanvasRectangle\fR ( TQCanvas * canvas )"
 .br
 .ti -1c
-.BI "\fBQCanvasRectangle\fR ( const QRect & r, QCanvas * canvas )"
+.BI "\fBTQCanvasRectangle\fR ( const TQRect & r, TQCanvas * canvas )"
 .br
 .ti -1c
-.BI "\fBQCanvasRectangle\fR ( int x, int y, int width, int height, QCanvas * canvas )"
+.BI "\fBTQCanvasRectangle\fR ( int x, int y, int width, int height, TQCanvas * canvas )"
 .br
 .ti -1c
-.BI "\fB~QCanvasRectangle\fR ()"
+.BI "\fB~TQCanvasRectangle\fR ()"
 .br
 .ti -1c
 .BI "int \fBwidth\fR () const"
@@ -37,10 +37,10 @@ Inherits QCanvasPolygonalItem.
 .BI "void \fBsetSize\fR ( int width, int height )"
 .br
 .ti -1c
-.BI "QSize \fBsize\fR () const"
+.BI "TQSize \fBsize\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBrect\fR () const"
+.BI "TQRect \fBrect\fR () const"
 .br
 .ti -1c
 .BI "virtual int \fBrtti\fR () const"
@@ -49,62 +49,62 @@ Inherits QCanvasPolygonalItem.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBdrawShape\fR ( QPainter & p )"
+.BI "virtual void \fBdrawShape\fR ( TQPainter & p )"
 .br
 .ti -1c
-.BI "virtual QPointArray \fBchunks\fR () const"
+.BI "virtual TQPointArray \fBchunks\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QCanvasRectangle class provides a rectangle on a QCanvas.
+The TQCanvasRectangle class provides a rectangle on a TQCanvas.
 .PP
-This item paints a single rectangle which may have any pen() and brush(), but may not be tilted/rotated. For rotated rectangles, use QCanvasPolygon.
+This item paints a single rectangle which may have any pen() and brush(), but may not be tilted/rotated. For rotated rectangles, use TQCanvasPolygon.
 .PP
 The rectangle's size and initial position can be set in the constructor. The size can be set or changed later using setSize(). Use height() and width() to retrieve the rectangle's dimensions.
 .PP
 The rectangle can be drawn on a painter with drawShape().
 .PP
-Like any other canvas item rectangles can be moved with QCanvasItem::move() and QCanvasItem::moveBy(), or by setting coordinates with QCanvasItem::setX(), QCanvasItem::setY() and QCanvasItem::setZ().
+Like any other canvas item rectangles can be moved with TQCanvasItem::move() and TQCanvasItem::moveBy(), or by setting coordinates with TQCanvasItem::setX(), TQCanvasItem::setY() and TQCanvasItem::setZ().
 .PP
 See also Graphics Classes and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCanvasRectangle::QCanvasRectangle ( QCanvas * canvas )"
+.SH "TQCanvasRectangle::TQCanvasRectangle ( TQCanvas * canvas )"
 Constructs a rectangle at position (0,0) with both width and height set to 32 pixels on \fIcanvas\fR.
-.SH "QCanvasRectangle::QCanvasRectangle ( const QRect & r, QCanvas * canvas )"
+.SH "TQCanvasRectangle::TQCanvasRectangle ( const TQRect & r, TQCanvas * canvas )"
 Constructs a rectangle positioned and sized by \fIr\fR on \fIcanvas\fR.
-.SH "QCanvasRectangle::QCanvasRectangle ( int x, int y, int width, int height, QCanvas * canvas )"
+.SH "TQCanvasRectangle::TQCanvasRectangle ( int x, int y, int width, int height, TQCanvas * canvas )"
 Constructs a rectangle at position (\fIx\fR, \fIy\fR) and size \fIwidth\fR by \fIheight\fR, on \fIcanvas\fR.
-.SH "QCanvasRectangle::~QCanvasRectangle ()"
+.SH "TQCanvasRectangle::~TQCanvasRectangle ()"
 Destroys the rectangle.
-.SH "QPointArray QCanvasRectangle::chunks () const\fC [virtual protected]\fR"
-Simply calls QCanvasItem::chunks().
-.SH "void QCanvasRectangle::drawShape ( QPainter & p )\fC [virtual protected]\fR"
+.SH "TQPointArray TQCanvasRectangle::chunks () const\fC [virtual protected]\fR"
+Simply calls TQCanvasItem::chunks().
+.SH "void TQCanvasRectangle::drawShape ( TQPainter & p )\fC [virtual protected]\fR"
 Draws the rectangle on painter \fIp\fR.
 .PP
 Example: canvas/canvas.cpp.
 .PP
-Reimplemented from QCanvasPolygonalItem.
-.SH "int QCanvasRectangle::height () const"
+Reimplemented from TQCanvasPolygonalItem.
+.SH "int TQCanvasRectangle::height () const"
 Returns the height of the rectangle.
-.SH "QRect QCanvasRectangle::rect () const"
-Returns the integer-converted x(), y() position and size() of the rectangle as a QRect.
-.SH "int QCanvasRectangle::rtti () const\fC [virtual]\fR"
-Returns 5 (QCanvasItem::Rtti_Rectangle).
+.SH "TQRect TQCanvasRectangle::rect () const"
+Returns the integer-converted x(), y() position and size() of the rectangle as a TQRect.
+.SH "int TQCanvasRectangle::rtti () const\fC [virtual]\fR"
+Returns 5 (TQCanvasItem::Rtti_Rectangle).
 .PP
-See also QCanvasItem::rtti().
+See also TQCanvasItem::rtti().
 .PP
-Reimplemented from QCanvasPolygonalItem.
-.SH "void QCanvasRectangle::setSize ( int width, int height )"
+Reimplemented from TQCanvasPolygonalItem.
+.SH "void TQCanvasRectangle::setSize ( int width, int height )"
 Sets the \fIwidth\fR and \fIheight\fR of the rectangle.
-.SH "QSize QCanvasRectangle::size () const"
+.SH "TQSize TQCanvasRectangle::size () const"
 Returns the width() and height() of the rectangle.
 .PP
 See also rect() and setSize().
-.SH "int QCanvasRectangle::width () const"
+.SH "int TQCanvasRectangle::width () const"
 Returns the width of the rectangle.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcanvasrectangle.html
+.BR http://doc.trolltech.com/tqcanvasrectangle.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

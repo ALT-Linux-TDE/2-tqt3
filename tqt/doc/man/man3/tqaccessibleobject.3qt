@@ -1,5 +1,5 @@
 '\" t
-.TH QAccessibleObject 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQAccessibleObject 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QAccessibleObject \- Implements parts of the QAccessibleInterface for QObjects
+TQAccessibleObject \- Implements parts of the TQAccessibleInterface for TQObjects
 .SH SYNOPSIS
-\fC#include <ntqaccessible.h>\fR
+\fC#include <tqaccessible.h>\fR
 .PP
-Inherits TQObject and QAccessibleInterface.
+Inherits TQObject and TQAccessibleInterface.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQAccessibleObject\fR ( TQObject * object )"
+.BI "\fBTQAccessibleObject\fR ( TQObject * object )"
 .br
 .ti -1c
-.BI "virtual \fB~QAccessibleObject\fR ()"
+.BI "virtual \fB~TQAccessibleObject\fR ()"
 .br
 .in -1c
 .SS "Protected Members"
@@ -29,25 +29,25 @@ Inherits TQObject and QAccessibleInterface.
 .br
 .in -1c
 .SH DESCRIPTION
-The QAccessibleObject class implements parts of the QAccessibleInterface for QObjects.
+The TQAccessibleObject class implements parts of the TQAccessibleInterface for TQObjects.
 .PP
-This class is mainly provided for convenience. All subclasses of the QAccessibleInterface should use this class as the base class.
+This class is mainly provided for convenience. All subclasses of the TQAccessibleInterface should use this class as the base class.
 .PP
 See also Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QAccessibleObject::QAccessibleObject ( TQObject * object )"
-Creates a QAccessibleObject for \fIobject\fR.
-.SH "QAccessibleObject::~QAccessibleObject ()\fC [virtual]\fR"
-Destroys the QAccessibleObject.
+.SH "TQAccessibleObject::TQAccessibleObject ( TQObject * object )"
+Creates a TQAccessibleObject for \fIobject\fR.
+.SH "TQAccessibleObject::~TQAccessibleObject ()\fC [virtual]\fR"
+Destroys the TQAccessibleObject.
 .PP
 This only happens when a call to release() decrements the internal reference counter to zero.
-.SH "TQObject * QAccessibleObject::object () const\fC [protected]\fR"
-Returns the TQObject for which this QAccessibleInterface
+.SH "TQObject * TQAccessibleObject::object () const\fC [protected]\fR"
+Returns the TQObject for which this TQAccessibleInterface
 implementation provides information. Use isValid() to make sure
 the object pointer is safe to use.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qaccessibleobject.html
+.BR http://doc.trolltech.com/tqaccessibleobject.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

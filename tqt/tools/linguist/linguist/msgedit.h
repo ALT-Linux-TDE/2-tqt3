@@ -39,14 +39,14 @@
 
 #include <metatranslator.h>
 
-#include <ntqsplitter.h>
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqvaluelist.h>
-#include <ntqscrollview.h>
-#include <ntqpixmap.h>
-#include <ntqbitmap.h>
-#include <ntqtooltip.h>
+#include <tqsplitter.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqvaluelist.h>
+#include <tqscrollview.h>
+#include <tqpixmap.h>
+#include <tqbitmap.h>
+#include <tqtooltip.h>
 
 class TQAccel;
 class TQDockArea;

@@ -114,18 +114,11 @@
 #include "libmng_data.h"
 #include "libmng_error.h"
 #include "libmng_trace.h"
-#ifdef __BORLANDC__
-#pragma hdrstop
-#endif
 #include "libmng_objects.h"
 #include "libmng_memory.h"
 #include "libmng_cms.h"
 #include "libmng_filter.h"
 #include "libmng_pixels.h"
-
-#if defined(__BORLANDC__) && defined(MNG_STRICT_ANSI)
-#pragma option -A                      /* force ANSI-C */
-#endif
 
 /* ************************************************************************** */
 

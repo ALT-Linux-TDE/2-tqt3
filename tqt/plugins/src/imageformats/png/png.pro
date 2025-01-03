@@ -1,5 +1,5 @@
 TEMPLATE = lib
-TARGET  += qpng
+TARGET  += tqpng
 
 CONFIG += qt plugin
 DESTDIR = ../../../imageformats

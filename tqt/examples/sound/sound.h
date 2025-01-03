@@ -9,8 +9,8 @@
 #ifndef PLAY_H
 #define PLAY_H
 
-#include "ntqsound.h"
-#include <ntqmainwindow.h>
+#include "tqsound.h"
+#include <tqmainwindow.h>
 
 class SoundPlayer : public TQMainWindow {
     TQ_OBJECT

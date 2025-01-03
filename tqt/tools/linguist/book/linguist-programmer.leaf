@@ -79,16 +79,16 @@ See the \link lupdate "lupdate" \endlink and \link lrelease
 \quotefile  tt1/main.cpp
 \skipto main(
 \printline main(
-\printuntil QApplication
+\printuntil TQApplication
 
 \index main()
 
 This is how a simple \c main() function of a TQt application begins.
 
-\index QTranslator!load()
-\index load()!QTranslator
-\index QApplication!installTranslator()
-\index installTranslator()!QApplication
+\index TQTranslator!load()
+\index load()!TQTranslator
+\index TQApplication!installTranslator()
+\index installTranslator()!TQApplication
 
 \quotefile tt1/main.cpp
 \skipto main(
@@ -121,13 +121,13 @@ will fall back to using the original source text.
 User-visible strings are marked as translation targets by wrapping them
 in a \c tr() call, for example:
 \code
-    button = new QPushButton( "&Quit", this );
+    button = new TQPushButton( "&Quit", this );
 \endcode
 
 would become
 
 \code
-    button = new QPushButton( tr("&Quit"), this);
+    button = new TQPushButton( tr("&Quit"), this);
 \endcode
 
 \index TQ_OBJECT
@@ -140,7 +140,7 @@ usually called as a member function of a \l TQObject subclass, in
 other cases an explicit class name can be supplied, for example:
 
 \code
-    QPushButton::tr("&Quit")
+    TQPushButton::tr("&Quit")
 \endcode
 
 or
@@ -167,13 +167,13 @@ differ between the two. This is easily achieved using the
 two argument form of the \c tr() call, e.g.
 
 \code
-    rbc = new QRadioButton( tr("Enabled", "Color frame"), this );
+    rbc = new TQRadioButton( tr("Enabled", "Color frame"), this );
 \endcode
 
 and
 
 \code
-    rbh = new QRadioButton( tr("Enabled", "Hue frame"), this );
+    rbh = new TQRadioButton( tr("Enabled", "Hue frame"), this );
 \endcode
 
 \index Ctrl Key
@@ -237,22 +237,22 @@ understood as meaning \c MyNamespace::MyClass::tr().
 
 \section2 Translating Text that is Outside of a TQObject subclass
 
-\section3 Using QApplication::translate()
+\section3 Using TQApplication::translate()
 
 If the quoted text is not in a member function of a TQObject subclass,
 use either the tr() function of an appropriate class, or the
-QApplication::translate() function directly:
+TQApplication::translate() function directly:
 
 \code
     void some_global_function( LoginWidget *logwid )
     {
-        QLabel *label = new QLabel(
+        TQLabel *label = new TQLabel(
                 LoginWidget::tr("Password:"), logwid );
     }
 
     void same_global_function( LoginWidget *logwid )
     {
-        QLabel *label = new QLabel(
+        TQLabel *label = new TQLabel(
                 tqApp->translate("LoginWidget", "Password:"),
                 logwid );
     }
@@ -299,7 +299,7 @@ Example of TQT_TRANSLATE_NOOP():
 \section1 Tutorials
 
 Three tutorials are presented. The first demonstrates the creation of
-a \l QTranslator object. It also shows the simplest use of the \c
+a \l TQTranslator object. It also shows the simplest use of the \c
 tr() function to mark user-visible source text for translation. The
 second tutorial explains how to make the application load the
 translation file applicable to the current locale. It also shows the
@@ -332,18 +332,18 @@ English version}, above, shows the English version.
 
 \quotefile tt1/main.cpp
 
-\skipto qtranslator
-\printline qtranslator
+\skipto tqtranslator
+\printline tqtranslator
 
-\index QTranslator
+\index TQTranslator
 
-This line includes the definition of the \l QTranslator class.
+This line includes the definition of the \l TQTranslator class.
 Objects of this class provide translations for user-visible text.
 
-\skipto QTranslator
+\skipto TQTranslator
 \printuntil tor
 
-Creates a \l QTranslator object without a parent.
+Creates a \l TQTranslator object without a parent.
 
 \printline load
 
@@ -353,8 +353,8 @@ Tries to load a file called \c tt1_la.qm (the \c .qm file extension is
 implicit) that contains Latin translations for the source texts used in
 the program. No error will occur if the file is not found.
 
-\index QApplication!installTranslator()
-\index installTranslator()!QApplication
+\index TQApplication!installTranslator()
+\index installTranslator()!TQApplication
 
 \printline installTranslator
 
@@ -374,7 +374,7 @@ translation appears; if not, the source text appears.
 
 All classes that inherit \l TQObject have a \c tr() function. Inside
 a member function of a \l TQObject class, we simply write \c tr("Hello
-world!") instead of \c QPushButton::tr("Hello world!") or \c
+world!") instead of \c TQPushButton::tr("Hello world!") or \c
 TQObject::tr("Hello world!").
 
 \section3 Running the Application in English
@@ -461,7 +461,7 @@ the current directory, containing this:
 \code
     <!DOCTYPE TS><TS>
     <context>
-        <name>QPushButton</name>
+        <name>TQPushButton</name>
         <message>
             <source>Hello world!</source>
             <translation type="unfinished"></translation>
@@ -486,7 +486,7 @@ To start \e {Qt Linguist}, type
     linguist tt1_la.ts
 \endcode
 
-You should now see the text "QPushButton" in the top left pane.
+You should now see the text "TQPushButton" in the top left pane.
 Double-click it, then click on "Hello world!" and enter "Orbis, te
 saluto!" in the \e Translation pane (the middle right of the
 window). Don't forget the exclamation mark!
@@ -542,7 +542,7 @@ This example is a slightly more involved and introduces a key
 \i \c arrowpad.h contains the definition of \c ArrowPad, a custom widget;
 \i \c arrowpad.cpp contains the implementation of \c ArrowPad;
 \i \c mainwindow.h contains the definition of \c MainWindow, a subclass of
-   \l QMainWindow
+   \l TQMainWindow
 \i \c mainwindow.cpp contains the implementation of \c MainWindow;
 \i \c main.cpp contains main().
 \endlist
@@ -593,8 +593,8 @@ which the source text appears. Thus, in this example, "ArrowPad" is a
 context: it is the context of the texts in the \c ArrowPad class.
 The \c TQ_OBJECT macro defines \c tr(x) in \c ArrowPad like this
 
-\index QApplication!translate()
-\index translate()!QApplication
+\index TQApplication!translate()
+\index translate()!TQApplication
 
 \code
     tqApp->translate( "ArrowPad", x )
@@ -614,8 +614,8 @@ conflicts.
 In \c arrowpad.cpp we implement the \c ArrowPad class.
 
 \quotefile tt2/arrowpad.cpp
-\skipto QPushButton
-\printline QPushButton
+\skipto TQPushButton
+\printline TQPushButton
 
 We call \c ArrowPad::tr() for each button's label since the labels are
 user-visible text.
@@ -627,8 +627,8 @@ user-visible text.
 \index MainWindow!in Translation Tutorial
 
 \quotefile tt2/mainwindow.h
-\skipto QMainWindow
-\printline QMainWindow
+\skipto TQMainWindow
+\printline TQMainWindow
 \printuntil TQ_OBJECT
 
 In the \e {Tutorial 2 Screenshot, English version}, above, the whole
@@ -665,17 +665,17 @@ describing the function that the accelerator performs.
 Our \c main() function is defined in \c main.cpp as usual.
 
 \quotefile tt2/main.cpp
-\skipto QTranslator
-\printline QTranslator
+\skipto TQTranslator
+\printline TQTranslator
 \printuntil install
 
-\index QTextCodec!locale()
-\index locale()!QTextCodec
+\index TQTextCodec!locale()
+\index locale()!TQTextCodec
 \index LANG!Environment Variable
 \index Environment Variables!LANG
 
 We choose which translation to use according to the current locale.
-\l QTextCodec::locale() can be influenced by setting the \c LANG
+\l TQTextCodec::locale() can be influenced by setting the \c LANG
 environment variable, for example. Notice that the use of a naming
 convention that incorporates the locale for \c .qm message files,
 (and \c .ts files), makes it easy to implement choosing the
@@ -848,8 +848,8 @@ Version 1.0 consists of these files:
 The PrintPanel is defined in \c printpanel.h.
 
 \quotefile tt3/printpanel.h
-\skipto QVBox
-\printline QVBox
+\skipto TQVBox
+\printline TQVBox
 \printuntil TQ_OBJECT
 
 \index TQ_OBJECT
@@ -913,7 +913,7 @@ the second argument is the only clue the translator has to indicate
 what function that accelerator will perform.
 
 \quotefile tt3/main.cpp
-\skipto QTranslator
+\skipto TQTranslator
 \printuntil installTranslator
 
 \index main()
@@ -958,16 +958,16 @@ second argument "two-sided" in the appropriate \c tr() calls to the
 first pair of radio buttons:
 
 \code
-    but = new QRadioButton( tr("Enabled", "two-sided"), twoSided );
-    but = new QRadioButton( tr("Disabled", "two-sided"), twoSided );
+    but = new TQRadioButton( tr("Enabled", "two-sided"), twoSided );
+    but = new TQRadioButton( tr("Disabled", "two-sided"), twoSided );
 \endcode
 
 and add the second argument "colors" in the appropriate \c tr() calls
 for the second pair of radio buttons:
 
 \code
-    but = new QRadioButton( tr("Enabled", "colors"), colors );
-    but = new QRadioButton( tr("Disabled", "colors"), colors );
+    but = new TQRadioButton( tr("Enabled", "colors"), colors );
+    but = new TQRadioButton( tr("Disabled", "colors"), colors );
 \endcode
 
 \index lupdate
@@ -1059,7 +1059,7 @@ We'll now prepare release 1.1 of Troll Print. Start your favorite text
 editor and follow these steps:
 
 \list
-\i Uncomment the two lines that create a \l QLabel with the text
+\i Uncomment the two lines that create a \l TQLabel with the text
      "\<b\>TROLL PRINT\</b\>" in \c printpanel.cpp.
 \i Word-tidying: Replace "2-sided" by "Two-sided" in \c printpanel.cpp.
 \i Replace "1.0" with "1.1" everywhere it occurs in \c mainwindow.cpp.

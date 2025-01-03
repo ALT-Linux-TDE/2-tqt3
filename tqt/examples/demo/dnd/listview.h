@@ -1,4 +1,4 @@
-#include <ntqlistview.h>
+#include <tqlistview.h>
 
 class ListViewItem : public TQListViewItem
 {

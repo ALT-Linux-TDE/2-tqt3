@@ -33,9 +33,9 @@
 **********************************************************************/
 
 #include "syntaxhighlighter_html.h"
-#include "ntqstring.h"
-#include "ntqmap.h"
-#include "ntqapplication.h"
+#include "tqstring.h"
+#include "tqmap.h"
+#include "tqapplication.h"
 
 
 SyntaxHighlighter_HTML::SyntaxHighlighter_HTML()

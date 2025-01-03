@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:729 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -43,8 +42,8 @@ drawElements() function is called to redraw the canvas when necessary.
 
 <pre>    void ChartForm::drawElements()
     {
-        <a href="qcanvasitemlist.html">TQCanvasItemList</a> list = m_canvas-&gt;allItems();
-        for ( TQCanvasItemList::iterator it = list.<a href="ntqvaluelist.html#begin">begin</a>(); it != list.<a href="ntqvaluelist.html#end">end</a>(); ++it )
+        <a href="tqcanvasitemlist.html">TQCanvasItemList</a> list = m_canvas-&gt;allItems();
+        for ( TQCanvasItemList::iterator it = list.<a href="tqvaluelist.html#begin">begin</a>(); it != list.<a href="tqvaluelist.html#end">end</a>(); ++it )
             delete *it;
 </pre>
 <p> The first thing we do in drawElements() is delete all the existing
@@ -123,8 +122,8 @@ required) and a count of the number of values.
 <p> We retrieve the width and height of the canvas and calculate the
 proportional height (<tt>proheight</tt>). We set the initial <tt>y</tt> position
 to 0. 
-<p> <pre>        <a href="ntqpen.html">TQPen</a> pen;
-    <a name="x2575"></a>    pen.<a href="ntqpen.html#setStyle">setStyle</a>( NoPen );
+<p> <pre>        <a href="tqpen.html">TQPen</a> pen;
+    <a name="x2575"></a>    pen.<a href="tqpen.html#setStyle">setStyle</a>( NoPen );
 </pre>
 <p> We create a pen that we will use to draw each bar (rectangle); we set
 it to <tt>NoPen</tt> so that no outlines are drawn.
@@ -135,15 +134,15 @@ it to <tt>NoPen</tt> so that no outlines are drawn.
 <p> We iterate over every element in the element vector, skipping invalid
 elements. The extent of each bar (its length) is simply its scaled
 value. 
-<p> <pre>                <a href="qcanvasrectangle.html">TQCanvasRectangle</a> *rect = new <a href="qcanvasrectangle.html">TQCanvasRectangle</a>(
+<p> <pre>                <a href="tqcanvasrectangle.html">TQCanvasRectangle</a> *rect = new <a href="tqcanvasrectangle.html">TQCanvasRectangle</a>(
                                                 0, y, extent, proheight, m_canvas );
-    <a name="x2572"></a>            rect-&gt;<a href="qcanvaspolygonalitem.html#setBrush">setBrush</a>( TQBrush( m_elements[i].valueColor(),
+    <a name="x2572"></a>            rect-&gt;<a href="tqcanvaspolygonalitem.html#setBrush">setBrush</a>( TQBrush( m_elements[i].valueColor(),
                                         BrushStyle(m_elements[i].valuePattern()) ) );
-    <a name="x2573"></a>            rect-&gt;<a href="qcanvaspolygonalitem.html#setPen">setPen</a>( pen );
-    <a name="x2570"></a>            rect-&gt;<a href="qcanvasitem.html#setZ">setZ</a>( 0 );
-    <a name="x2571"></a>            rect-&gt;<a href="qcanvasitem.html#show">show</a>();
+    <a name="x2573"></a>            rect-&gt;<a href="tqcanvaspolygonalitem.html#setPen">setPen</a>( pen );
+    <a name="x2570"></a>            rect-&gt;<a href="tqcanvasitem.html#setZ">setZ</a>( 0 );
+    <a name="x2571"></a>            rect-&gt;<a href="tqcanvasitem.html#show">show</a>();
 </pre>
-<p> We create a new <a href="qcanvasrectangle.html">TQCanvasRectangle</a> for each bar with an x position of 0
+<p> We create a new <a href="tqcanvasrectangle.html">TQCanvasRectangle</a> for each bar with an x position of 0
 (since this is a horizontal bar chart every bar begins at the left), a
 y value that starts at 0 and grows by the height of each bar as each
 one is drawn, the height of the bar and the canvas that the bar should
@@ -151,8 +150,8 @@ be drawn on. We then set the bar's brush to the color and pattern that
 the user has specified for the element, set the pen to the pen we
 created earlier (i.e. to <tt>NoPen</tt>) and we place the bar at position 0
 in the Z-order. Finally we call show() to draw the bar on the canvas.
-<p> <pre>                <a href="ntqstring.html">TQString</a> label = m_elements[i].label();
-    <a name="x2576"></a>            if ( !label.<a href="ntqstring.html#isEmpty">isEmpty</a>() || m_addValues != NO ) {
+<p> <pre>                <a href="tqstring.html">TQString</a> label = m_elements[i].label();
+    <a name="x2576"></a>            if ( !label.<a href="tqstring.html#isEmpty">isEmpty</a>() || m_addValues != NO ) {
                     double proX = m_elements[i].proX( HORIZONTAL_BAR );
                     double proY = m_elements[i].proY( HORIZONTAL_BAR );
                     if ( proX &lt; 0 || proY &lt; 0 ) {
@@ -176,11 +175,11 @@ containing the label text. (The valueLabel() function adds on the
 value or percentage to the textual label if the user has set the
 appropriate options.) 
 <p> <pre>                    CanvasText *text = new CanvasText( i, label, m_font, m_canvas );
-    <a name="x2574"></a>                text-&gt;<a href="qcanvastext.html#setColor">setColor</a>( m_elements[i].labelColor() );
-    <a name="x2568"></a>                text-&gt;<a href="qcanvasitem.html#setX">setX</a>( proX * width );
-    <a name="x2569"></a>                text-&gt;<a href="qcanvasitem.html#setY">setY</a>( proY * height );
-                    text-&gt;<a href="qcanvasitem.html#setZ">setZ</a>( 1 );
-                    text-&gt;<a href="qcanvasitem.html#show">show</a>();
+    <a name="x2574"></a>                text-&gt;<a href="tqcanvastext.html#setColor">setColor</a>( m_elements[i].labelColor() );
+    <a name="x2568"></a>                text-&gt;<a href="tqcanvasitem.html#setX">setX</a>( proX * width );
+    <a name="x2569"></a>                text-&gt;<a href="tqcanvasitem.html#setY">setY</a>( proY * height );
+                    text-&gt;<a href="tqcanvasitem.html#setZ">setZ</a>( 1 );
+                    text-&gt;<a href="tqcanvasitem.html#show">show</a>();
                     m_elements[i].setProX( HORIZONTAL_BAR, proX );
                     m_elements[i].setProY( HORIZONTAL_BAR, proY );
 </pre>
@@ -201,22 +200,22 @@ proportional height ready to draw the next element.
         }
     }
 </pre>
-<p> <h2> Subclassing <a href="qcanvastext.html">TQCanvasText</a>
+<p> <h2> Subclassing <a href="tqcanvastext.html">TQCanvasText</a>
 </h2>
 <a name="2"></a><p> (Extracts from <tt>canvastext.h</tt>.)
 <p> 
 
-<pre>    class CanvasText : public <a href="qcanvastext.html">TQCanvasText</a>
+<pre>    class CanvasText : public <a href="tqcanvastext.html">TQCanvasText</a>
     {
     public:
         enum { CANVAS_TEXT = 1100 };
 
         CanvasText( int index, TQCanvas *canvas )
-            : <a href="qcanvastext.html">TQCanvasText</a>( canvas ), m_index( index ) {}
-        CanvasText( int index, const <a href="ntqstring.html">TQString</a>&amp; text, TQCanvas *canvas )
-            : <a href="qcanvastext.html">TQCanvasText</a>( text, canvas ), m_index( index ) {}
-        CanvasText( int index, const <a href="ntqstring.html">TQString</a>&amp; text, TQFont font, TQCanvas *canvas )
-            : <a href="qcanvastext.html">TQCanvasText</a>( text, font, canvas ), m_index( index ) {}
+            : <a href="tqcanvastext.html">TQCanvasText</a>( canvas ), m_index( index ) {}
+        CanvasText( int index, const <a href="tqstring.html">TQString</a>&amp; text, TQCanvas *canvas )
+            : <a href="tqcanvastext.html">TQCanvasText</a>( text, canvas ), m_index( index ) {}
+        CanvasText( int index, const <a href="tqstring.html">TQString</a>&amp; text, TQFont font, TQCanvas *canvas )
+            : <a href="tqcanvastext.html">TQCanvasText</a>( text, font, canvas ), m_index( index ) {}
 
         int index() const { return m_index; }
         void setIndex( int index ) { m_index = index; }
@@ -228,36 +227,36 @@ proportional height ready to draw the next element.
     };
 </pre>
 <p> Our CanvasText subclass is a very simple specialisation of
-<a href="qcanvastext.html">TQCanvasText</a>. All we've done is added a single private member <tt>m_index</tt> which holds the element vector index of the element associated
+<a href="tqcanvastext.html">TQCanvasText</a>. All we've done is added a single private member <tt>m_index</tt> which holds the element vector index of the element associated
 with this text item, and provided a getter and setter for this value.
-<p> <h2> Subclassing <a href="qcanvasview.html">TQCanvasView</a>
+<p> <h2> Subclassing <a href="tqcanvasview.html">TQCanvasView</a>
 </h2>
 <a name="3"></a><p> (Extracts from <tt>canvasview.h</tt>.)
 <p> 
 
-<pre>    class CanvasView : public <a href="qcanvasview.html">TQCanvasView</a>
+<pre>    class CanvasView : public <a href="tqcanvasview.html">TQCanvasView</a>
     {
         <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
     public:
-        CanvasView( <a href="ntqcanvas.html">TQCanvas</a> *canvas, ElementVector *elements,
-                    <a href="ntqwidget.html">TQWidget</a>* parent = 0, const char* name = "canvas view",
+        CanvasView( <a href="tqcanvas.html">TQCanvas</a> *canvas, ElementVector *elements,
+                    <a href="tqwidget.html">TQWidget</a>* parent = 0, const char* name = "canvas view",
                     WFlags f = 0 )
-            : <a href="qcanvasview.html">TQCanvasView</a>( canvas, parent, name, f ), m_movingItem(0),
+            : <a href="tqcanvasview.html">TQCanvasView</a>( canvas, parent, name, f ), m_movingItem(0),
               m_elements( elements ) {}
 
     protected:
-        void viewportResizeEvent( <a href="qresizeevent.html">TQResizeEvent</a> *e );
-        void contentsMousePressEvent( <a href="qmouseevent.html">TQMouseEvent</a> *e );
-        void contentsMouseMoveEvent( <a href="qmouseevent.html">TQMouseEvent</a> *e );
-        void contentsContextMenuEvent( <a href="qcontextmenuevent.html">TQContextMenuEvent</a> *e );
+        void viewportResizeEvent( <a href="tqresizeevent.html">TQResizeEvent</a> *e );
+        void contentsMousePressEvent( <a href="tqmouseevent.html">TQMouseEvent</a> *e );
+        void contentsMouseMoveEvent( <a href="tqmouseevent.html">TQMouseEvent</a> *e );
+        void contentsContextMenuEvent( <a href="tqcontextmenuevent.html">TQContextMenuEvent</a> *e );
 
     private:
-        <a href="qcanvasitem.html">TQCanvasItem</a> *m_movingItem;
-        <a href="ntqpoint.html">TQPoint</a> m_pos;
+        <a href="tqcanvasitem.html">TQCanvasItem</a> *m_movingItem;
+        <a href="tqpoint.html">TQPoint</a> m_pos;
         ElementVector *m_elements;
     };
 </pre>
-<p> We need to subclass <a href="qcanvasview.html">TQCanvasView</a> so that we can handle:
+<p> We need to subclass <a href="tqcanvasview.html">TQCanvasView</a> so that we can handle:
 <ol type=1>
 <li> Context menu requests.
 <li> Form resizing.
@@ -271,9 +270,9 @@ vector.
 <a name="3-1"></a><p> (Extracts from <tt>canvasview.cpp</tt>.)
 <p> 
 
-<pre>    <a name="x2584"></a>void CanvasView::<a href="ntqscrollview.html#contentsContextMenuEvent">contentsContextMenuEvent</a>( <a href="qcontextmenuevent.html">TQContextMenuEvent</a> * )
+<pre>    <a name="x2584"></a>void CanvasView::<a href="tqscrollview.html#contentsContextMenuEvent">contentsContextMenuEvent</a>( <a href="tqcontextmenuevent.html">TQContextMenuEvent</a> * )
     {
-    <a name="x2579"></a>    ((ChartForm*)<a href="ntqobject.html#parent">parent</a>())-&gt;optionsMenu-&gt;exec( TQCursor::<a href="ntqcursor.html#pos">pos</a>() );
+    <a name="x2579"></a>    ((ChartForm*)<a href="tqobject.html#parent">parent</a>())-&gt;optionsMenu-&gt;exec( TQCursor::<a href="tqcursor.html#pos">pos</a>() );
     }
 </pre>
 <p> When the user invokes a context menu (e.g. by right-clicking on most
@@ -282,10 +281,10 @@ to the right type and then exec()ute the options menu at the cursor
 position. 
 <p> <h3> Handling Resizing
 </h3>
-<a name="3-2"></a><p> <pre>    <a name="x2587"></a>void CanvasView::<a href="ntqscrollview.html#viewportResizeEvent">viewportResizeEvent</a>( <a href="qresizeevent.html">TQResizeEvent</a> *e )
+<a name="3-2"></a><p> <pre>    <a name="x2587"></a>void CanvasView::<a href="tqscrollview.html#viewportResizeEvent">viewportResizeEvent</a>( <a href="tqresizeevent.html">TQResizeEvent</a> *e )
     {
-    <a name="x2583"></a>    <a href="qcanvasview.html#canvas">canvas</a>()-&gt;resize( e-&gt;<a href="qresizeevent.html#size">size</a>().width(), e-&gt;<a href="qresizeevent.html#size">size</a>().height() );
-        ((ChartForm*)<a href="ntqobject.html#parent">parent</a>())-&gt;drawElements();
+    <a name="x2583"></a>    <a href="tqcanvasview.html#canvas">canvas</a>()-&gt;resize( e-&gt;<a href="tqresizeevent.html#size">size</a>().width(), e-&gt;<a href="tqresizeevent.html#size">size</a>().height() );
+        ((ChartForm*)<a href="tqobject.html#parent">parent</a>())-&gt;drawElements();
     }
 </pre>
 <p> To resize we simply resize the canvas that the canvas view is
@@ -297,13 +296,13 @@ drawn correctly.
 </h3>
 <a name="3-3"></a><p> When the user wants to drag a label into position they click it, then
 drag and release at the new position.
-<p> <pre>    <a name="x2586"></a>void CanvasView::<a href="ntqscrollview.html#contentsMousePressEvent">contentsMousePressEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+<p> <pre>    <a name="x2586"></a>void CanvasView::<a href="tqscrollview.html#contentsMousePressEvent">contentsMousePressEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
     {
-    <a name="x2580"></a>    <a href="qcanvasitemlist.html">TQCanvasItemList</a> list = <a href="qcanvasview.html#canvas">canvas</a>()-&gt;collisions( e-&gt;<a href="qmouseevent.html#pos">pos</a>() );
-    <a name="x2589"></a><a name="x2588"></a>    for ( TQCanvasItemList::iterator it = list.<a href="ntqvaluelist.html#begin">begin</a>(); it != list.<a href="ntqvaluelist.html#end">end</a>(); ++it )
+    <a name="x2580"></a>    <a href="tqcanvasitemlist.html">TQCanvasItemList</a> list = <a href="tqcanvasview.html#canvas">canvas</a>()-&gt;collisions( e-&gt;<a href="tqmouseevent.html#pos">pos</a>() );
+    <a name="x2589"></a><a name="x2588"></a>    for ( TQCanvasItemList::iterator it = list.<a href="tqvaluelist.html#begin">begin</a>(); it != list.<a href="tqvaluelist.html#end">end</a>(); ++it )
             if ( (*it)-&gt;rtti() == CanvasText::CANVAS_TEXT ) {
                 m_movingItem = *it;
-                m_pos = e-&gt;<a href="qmouseevent.html#pos">pos</a>();
+                m_pos = e-&gt;<a href="tqmouseevent.html#pos">pos</a>();
                 return;
             }
         m_movingItem = 0;
@@ -313,13 +312,13 @@ drag and release at the new position.
 the mouse click "collided" with (if any). We then iterate over this
 list and if we find a <tt>CanvasText</tt> item we set it as the moving item
 and record its position. Otherwise we set there to be no moving item.
-<p> <pre>    <a name="x2585"></a>void CanvasView::<a href="ntqscrollview.html#contentsMouseMoveEvent">contentsMouseMoveEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+<p> <pre>    <a name="x2585"></a>void CanvasView::<a href="tqscrollview.html#contentsMouseMoveEvent">contentsMouseMoveEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
     {
         if ( m_movingItem ) {
-            <a href="ntqpoint.html">TQPoint</a> offset = e-&gt;<a href="qmouseevent.html#pos">pos</a>() - m_pos;
-    <a name="x2582"></a><a name="x2581"></a>        m_movingItem-&gt;moveBy( offset.<a href="ntqpoint.html#x">x</a>(), offset.<a href="ntqpoint.html#y">y</a>() );
-            m_pos = e-&gt;<a href="qmouseevent.html#pos">pos</a>();
-            ChartForm *form = (ChartForm*)<a href="ntqobject.html#parent">parent</a>();
+            <a href="tqpoint.html">TQPoint</a> offset = e-&gt;<a href="tqmouseevent.html#pos">pos</a>() - m_pos;
+    <a name="x2582"></a><a name="x2581"></a>        m_movingItem-&gt;moveBy( offset.<a href="tqpoint.html#x">x</a>(), offset.<a href="tqpoint.html#y">y</a>() );
+            m_pos = e-&gt;<a href="tqmouseevent.html#pos">pos</a>();
+            ChartForm *form = (ChartForm*)<a href="tqobject.html#parent">parent</a>();
             form-&gt;setChanged( TRUE );
             int chartType = form-&gt;chartType();
             CanvasText *item = (CanvasText*)m_movingItem;
@@ -328,7 +327,7 @@ and record its position. Otherwise we set there to be no moving item.
             (*m_elements)[i].setProX( chartType, item-&gt;x() / canvas()-&gt;width() );
             (*m_elements)[i].setProY( chartType, item-&gt;y() / canvas()-&gt;height() );
 
-            <a href="qcanvasview.html#canvas">canvas</a>()-&gt;update();
+            <a href="tqcanvasview.html#canvas">canvas</a>()-&gt;update();
         }
     }
 </pre>
@@ -342,16 +341,16 @@ element's proportional x and y positions for the current chart type to
 the current x and y positions proportional to the width and height
 respectively. We know which element to update because when we create
 each canvas text item we pass it the index position of the element it
-corresponds to. We subclassed <a href="qcanvastext.html">TQCanvasText</a> so that we could set and get
+corresponds to. We subclassed <a href="tqcanvastext.html">TQCanvasText</a> so that we could set and get
 this index value. Finally we call update() to make the canvas redraw.
 <p> <center><table cellpadding="4" cellspacing="2" border="0">
 <tr bgcolor="#f0f0f0">
-<td valign="top">A <a href="ntqcanvas.html">TQCanvas</a> has no visual representation. To see the contents of a
-canvas you must create a <a href="qcanvasview.html">TQCanvasView</a> to present the canvas. Items only
+<td valign="top">A <a href="tqcanvas.html">TQCanvas</a> has no visual representation. To see the contents of a
+canvas you must create a <a href="tqcanvasview.html">TQCanvasView</a> to present the canvas. Items only
 appear in the canvas view if they have been show()n, and then, only if
-<a href="ntqcanvas.html#update">TQCanvas::update</a>() has been called. By default a TQCanvas's background
+<a href="tqcanvas.html#update">TQCanvas::update</a>() has been called. By default a TQCanvas's background
 color is white, and by default shapes drawn on the canvas, e.g.
-<a href="qcanvasrectangle.html">TQCanvasRectangle</a>, <a href="qcanvasellipse.html">TQCanvasEllipse</a>, etc., have their fill color set to
+<a href="tqcanvasrectangle.html">TQCanvasRectangle</a>, <a href="tqcanvasellipse.html">TQCanvasEllipse</a>, etc., have their fill color set to
 white, so setting a non-white brush color is highly recommended! 
 </table></center>
 <p> <p align="right">

@@ -10,13 +10,13 @@
 #ifndef SCRIBBLE_H
 #define SCRIBBLE_H
 
-#include <ntqmainwindow.h>
-#include <ntqpen.h>
-#include <ntqpoint.h>
-#include <ntqpixmap.h>
-#include <ntqwidget.h>
-#include <ntqstring.h>
-#include <ntqpointarray.h>
+#include <tqmainwindow.h>
+#include <tqpen.h>
+#include <tqpoint.h>
+#include <tqpixmap.h>
+#include <tqwidget.h>
+#include <tqstring.h>
+#include <tqpointarray.h>
 
 class TQMouseEvent;
 class TQResizeEvent;

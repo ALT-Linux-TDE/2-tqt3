@@ -1,5 +1,5 @@
 '\" t
-.TH QSpacerItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSpacerItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,83 +7,83 @@
 .ad l
 .nh
 .SH NAME
-QSpacerItem \- Blank space in a layout
+TQSpacerItem \- Blank space in a layout
 .SH SYNOPSIS
-\fC#include <ntqlayout.h>\fR
+\fC#include <tqlayout.h>\fR
 .PP
-Inherits QLayoutItem.
+Inherits TQLayoutItem.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSpacerItem\fR ( int w, int h, QSizePolicy::SizeType hData = QSizePolicy::Minimum, QSizePolicy::SizeType vData = QSizePolicy::Minimum )"
+.BI "\fBTQSpacerItem\fR ( int w, int h, TQSizePolicy::SizeType hData = TQSizePolicy::Minimum, TQSizePolicy::SizeType vData = TQSizePolicy::Minimum )"
 .br
 .ti -1c
-.BI "void \fBchangeSize\fR ( int w, int h, QSizePolicy::SizeType hData = QSizePolicy::Minimum, QSizePolicy::SizeType vData = QSizePolicy::Minimum )"
+.BI "void \fBchangeSize\fR ( int w, int h, TQSizePolicy::SizeType hData = TQSizePolicy::Minimum, TQSizePolicy::SizeType vData = TQSizePolicy::Minimum )"
 .br
 .ti -1c
-.BI "virtual QSize \fBsizeHint\fR () const"
+.BI "virtual TQSize \fBsizeHint\fR () const"
 .br
 .ti -1c
-.BI "virtual QSize \fBminimumSize\fR () const"
+.BI "virtual TQSize \fBminimumSize\fR () const"
 .br
 .ti -1c
-.BI "virtual QSize \fBmaximumSize\fR () const"
+.BI "virtual TQSize \fBmaximumSize\fR () const"
 .br
 .ti -1c
-.BI "virtual QSizePolicy::ExpandData \fBexpanding\fR () const"
+.BI "virtual TQSizePolicy::ExpandData \fBexpanding\fR () const"
 .br
 .ti -1c
 .BI "virtual bool \fBisEmpty\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetGeometry\fR ( const QRect & r )"
+.BI "virtual void \fBsetGeometry\fR ( const TQRect & r )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSpacerItem class provides blank space in a layout.
+The TQSpacerItem class provides blank space in a layout.
 .PP
 This class is used by custom layouts.
 .PP
-See also QLayout, QLayout::spacerItem(), Widget Appearance and Style, and Layout Management.
+See also TQLayout, TQLayout::spacerItem(), Widget Appearance and Style, and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSpacerItem::QSpacerItem ( int w, int h, QSizePolicy::SizeType hData = QSizePolicy::Minimum, QSizePolicy::SizeType vData = QSizePolicy::Minimum )"
+.SH "TQSpacerItem::TQSpacerItem ( int w, int h, TQSizePolicy::SizeType hData = TQSizePolicy::Minimum, TQSizePolicy::SizeType vData = TQSizePolicy::Minimum )"
 Constructs a spacer item with preferred width \fIw\fR, preferred height \fIh\fR, horizontal size policy \fIhData\fR and vertical size policy \fIvData\fR.
 .PP
 The default values provide a gap that is able to stretch if nothing else wants the space.
-.SH "void QSpacerItem::changeSize ( int w, int h, QSizePolicy::SizeType hData = QSizePolicy::Minimum, QSizePolicy::SizeType vData = QSizePolicy::Minimum )"
+.SH "void TQSpacerItem::changeSize ( int w, int h, TQSizePolicy::SizeType hData = TQSizePolicy::Minimum, TQSizePolicy::SizeType vData = TQSizePolicy::Minimum )"
 Changes this spacer item to have preferred width \fIw\fR, preferred height \fIh\fR, horizontal size policy \fIhData\fR and vertical size policy \fIvData\fR.
 .PP
 The default values provide a gap that is able to stretch if nothing else wants the space.
-.SH "QSizePolicy::ExpandData QSpacerItem::expanding () const\fC [virtual]\fR"
+.SH "TQSizePolicy::ExpandData TQSpacerItem::expanding () const\fC [virtual]\fR"
 Returns the direction in which this spacer item will expand.
 .PP
-See also QSizePolicy::ExpandData.
+See also TQSizePolicy::ExpandData.
 .PP
-Reimplemented from QLayoutItem.
-.SH "bool QSpacerItem::isEmpty () const\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "bool TQSpacerItem::isEmpty () const\fC [virtual]\fR"
 Returns TRUE because a spacer item never contains widgets.
 .PP
-Reimplemented from QLayoutItem.
-.SH "QSize QSpacerItem::maximumSize () const\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "TQSize TQSpacerItem::maximumSize () const\fC [virtual]\fR"
 Returns the maximum size of this spacer item.
 .PP
-Reimplemented from QLayoutItem.
-.SH "QSize QSpacerItem::minimumSize () const\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "TQSize TQSpacerItem::minimumSize () const\fC [virtual]\fR"
 Returns the minimum size of this spacer item.
 .PP
-Reimplemented from QLayoutItem.
-.SH "void QSpacerItem::setGeometry ( const QRect & r )\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "void TQSpacerItem::setGeometry ( const TQRect & r )\fC [virtual]\fR"
 Stores the spacer item's rect \fIr\fR so that it can be returned by geometry().
 .PP
-Reimplemented from QLayoutItem.
-.SH "QSize QSpacerItem::sizeHint () const\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "TQSize TQSpacerItem::sizeHint () const\fC [virtual]\fR"
 Returns the preferred size of this spacer item.
 .PP
-Reimplemented from QLayoutItem.
+Reimplemented from TQLayoutItem.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qspaceritem.html
+.BR http://doc.trolltech.com/tqspaceritem.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

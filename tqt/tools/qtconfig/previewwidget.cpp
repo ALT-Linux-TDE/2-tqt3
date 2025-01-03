@@ -33,7 +33,7 @@
 
 #include "previewwidget.h"
 
-#include <ntqobjectlist.h>
+#include <tqobjectlist.h>
 
 PreviewWidget::PreviewWidget( TQWidget *parent, const char *name )
     : PreviewWidgetBase( parent, name )

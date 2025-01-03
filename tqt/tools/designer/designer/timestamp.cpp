@@ -32,8 +32,8 @@
 **********************************************************************/
 
 #include "timestamp.h"
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
 
 class TQTimer;
 

@@ -35,11 +35,11 @@
 #include "editorinterfaceimpl.h"
 #include <viewmanager.h>
 #include "cppeditor.h"
-#include <private/qrichtext_p.h>
-#include <ntqapplication.h>
+#include <private/tqrichtext_p.h>
+#include <tqapplication.h>
 #include "completion.h"
 #include <designerinterface.h>
-#include <ntqtimer.h>
+#include <tqtimer.h>
 
 EditorInterfaceImpl::EditorInterfaceImpl()
     : EditorInterface(), viewManager( 0 ), dIface( 0 )

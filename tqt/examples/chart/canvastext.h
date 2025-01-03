@@ -1,7 +1,7 @@
 #ifndef CANVASTEXT_H
 #define CANVASTEXT_H
 
-#include <ntqcanvas.h>
+#include <tqcanvas.h>
 
 class TQFont;
 

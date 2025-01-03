@@ -1,5 +1,5 @@
 '\" t
-.TH QRegExpValidator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQRegExpValidator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,41 +7,41 @@
 .ad l
 .nh
 .SH NAME
-QRegExpValidator \- Used to check a string against a
+TQRegExpValidator \- Used to check a string against a
 .SH SYNOPSIS
-\fC#include <ntqvalidator.h>\fR
+\fC#include <tqvalidator.h>\fR
 .PP
-Inherits QValidator.
+Inherits TQValidator.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQRegExpValidator\fR ( TQObject * parent, const char * name = 0 )"
+.BI "\fBTQRegExpValidator\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQRegExpValidator\fR ( const QRegExp & rx, TQObject * parent, const char * name = 0 )"
+.BI "\fBTQRegExpValidator\fR ( const TQRegExp & rx, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QRegExpValidator\fR ()"
+.BI "\fB~TQRegExpValidator\fR ()"
 .br
 .ti -1c
-.BI "virtual QValidator::State \fBvalidate\fR ( TQString & input, int & pos ) const"
+.BI "virtual TQValidator::State \fBvalidate\fR ( TQString & input, int & pos ) const"
 .br
 .ti -1c
-.BI "void \fBsetRegExp\fR ( const QRegExp & rx )"
+.BI "void \fBsetRegExp\fR ( const TQRegExp & rx )"
 .br
 .ti -1c
-.BI "const QRegExp & \fBregExp\fR () const"
+.BI "const TQRegExp & \fBregExp\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QRegExpValidator class is used to check a string against a regular expression.
+The TQRegExpValidator class is used to check a string against a regular expression.
 .PP
-QRegExpValidator contains a regular expression, "regexp", used to determine whether an input string is Acceptable, Intermediate or Invalid.
+TQRegExpValidator contains a regular expression, "regexp", used to determine whether an input string is Acceptable, Intermediate or Invalid.
 .PP
 The regexp is treated as if it begins with the start of string assertion, \fB^\fR, and ends with the end of string assertion \fB$\fR so the match is against the entire input string, or from the given position if a start position greater than zero is given.
 .PP
-For a brief introduction to Qt's regexp engine see QRegExp.
+For a brief introduction to Qt's regexp engine see TQRegExp.
 .PP
 Example of use:
 .PP
@@ -49,12 +49,12 @@ Example of use:
 .br
     // regexp: optional '-' followed by between 1 and 3 digits
 .br
-    QRegExp rx( "-?\\\\d{1,3}" );
+    TQRegExp rx( "-?\\\\d{1,3}" );
 .br
-    QValidator* validator = new QRegExpValidator( rx, this );
+    TQValidator* validator = new TQRegExpValidator( rx, this );
 .br
 .br
-    QLineEdit* edit = new QLineEdit( this );
+    TQLineEdit* edit = new TQLineEdit( this );
 .br
     edit->setValidator( validator );
 .br
@@ -66,11 +66,11 @@ Below we present some examples of validators. In practice they would normally be
 .br
     // integers 1 to 9999
 .br
-    QRegExp rx( "[1-9]\\\\d{0,3}" );
+    TQRegExp rx( "[1-9]\\\\d{0,3}" );
 .br
     // the validator treats the regexp as "^[1-9]\\\\d{0,3}$"
 .br
-    QRegExpValidator v( rx, 0 );
+    TQRegExpValidator v( rx, 0 );
 .br
     TQString s;
 .br
@@ -124,37 +124,37 @@ Below we present some examples of validators. In practice they would normally be
 .br
 .fi
 .PP
-See also QRegExp, QIntValidator, QDoubleValidator, and Miscellaneous Classes.
+See also TQRegExp, TQIntValidator, TQDoubleValidator, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QRegExpValidator::QRegExpValidator ( TQObject * parent, const char * name = 0 )"
+.SH "TQRegExpValidator::TQRegExpValidator ( TQObject * parent, const char * name = 0 )"
 Constructs a validator that accepts any string (including an empty one) as valid. The object's parent is \fIparent\fR and its name is \fIname\fR.
-.SH "QRegExpValidator::QRegExpValidator ( const QRegExp & rx, TQObject * parent, const char * name = 0 )"
+.SH "TQRegExpValidator::TQRegExpValidator ( const TQRegExp & rx, TQObject * parent, const char * name = 0 )"
 Constructs a validator which accepts all strings that match the regular expression \fIrx\fR. The object's parent is \fIparent\fR and its name is \fIname\fR.
 .PP
 The match is made against the entire string, e.g. if the regexp is \fB[A-Fa-f0-9]+\fR it will be treated as \fB^[A-Fa-f0-9]+$\fR.
-.SH "QRegExpValidator::~QRegExpValidator ()"
+.SH "TQRegExpValidator::~TQRegExpValidator ()"
 Destroys the validator, freeing any resources allocated.
-.SH "const QRegExp & QRegExpValidator::regExp () const"
+.SH "const TQRegExp & TQRegExpValidator::regExp () const"
 Returns the regular expression used for validation.
 .PP
 See also setRegExp().
-.SH "void QRegExpValidator::setRegExp ( const QRegExp & rx )"
+.SH "void TQRegExpValidator::setRegExp ( const TQRegExp & rx )"
 Sets the regular expression used for validation to \fIrx\fR.
 .PP
 See also regExp().
-.SH "QValidator::State QRegExpValidator::validate ( TQString & input, int & pos ) const\fC [virtual]\fR"
+.SH "TQValidator::State TQRegExpValidator::validate ( TQString & input, int & pos ) const\fC [virtual]\fR"
 Returns Acceptable if \fIinput\fR is matched by the regular expression for this validator, Intermediate if it has matched partially (i.e. could be a valid match if additional valid characters are added), and Invalid if \fIinput\fR is not matched.
 .PP
 The \fIpos\fR parameter is set to the length of the \fIinput\fR parameter.
 .PP
 For example, if the regular expression is \fB&#92;w&#92;d&#92;d\fR (that is, word-character, digit, digit) then "A57" is Acceptable," E5" is Intermediate and "+9" is Invalid.
 .PP
-See also QRegExp::match() and QRegExp::search().
+See also TQRegExp::match() and TQRegExp::search().
 .PP
-Reimplemented from QValidator.
+Reimplemented from TQValidator.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qregexpvalidator.html
+.BR http://doc.trolltech.com/tqregexpvalidator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

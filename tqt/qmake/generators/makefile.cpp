@@ -39,11 +39,11 @@
 #include "makefile.h"
 #include "option.h"
 #include "meta.h"
-#include <ntqdir.h>
-#include <ntqfile.h>
-#include <ntqtextstream.h>
-#include <ntqregexp.h>
-#include <ntqdict.h>
+#include <tqdir.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
+#include <tqregexp.h>
+#include <tqdict.h>
 #if defined(Q_OS_UNIX)
 #include <unistd.h>
 #else
@@ -94,7 +94,7 @@ static bool createDir(const TQString& fullPath)
 
 
 MakefileGenerator::MakefileGenerator(TQMakeProject *p) : init_opath_already(FALSE),
-							init_already(FALSE), moc_aware(FALSE),
+							init_already(FALSE), tqmoc_aware(FALSE),
 							no_io(FALSE), project(p)
 {
 }
@@ -132,7 +132,7 @@ MakefileGenerator::generateMocList(const TQString &fn_target)
 	total_size_read += have_read);
     close(file);
 
-    bool ignore_qobject = FALSE;
+    bool ignore_tqobject = FALSE;
     int line_count = 1;
  /* qmake ignore TQ_OBJECT */
 #define COMP_LEN 9 //strlen("TQ_OBJECT")
@@ -154,7 +154,7 @@ MakefileGenerator::generateMocList(const TQString &fn_target)
 				    debug_msg(2, "Mocgen: %s:%d Found \"qmake ignore TQ_OBJECT\"",
 					      fn_target.latin1(), line_count);
 				    x += 20;
-				    ignore_qobject = TRUE;
+				    ignore_tqobject = TRUE;
 				}
 			    }
 			} else if(*(big_buffer + x) == '*') {
@@ -177,7 +177,7 @@ MakefileGenerator::generateMocList(const TQString &fn_target)
 	if(interesting) {
 	    int len = 0;
 	    if(!strncmp(big_buffer+x, "TQ_OBJECT", OBJ_LEN)) {
-		if(ignore_qobject) {
+		if(ignore_tqobject) {
 		    debug_msg(2, "Mocgen: %s:%d Ignoring TQ_OBJECT", fn_target.latin1(), line_count);
 		    interesting = FALSE;
 		}
@@ -545,7 +545,7 @@ MakefileGenerator::generateDependencies(TQPtrList<MakefileDependDir> &dirs, cons
 			    }
 			}
 		    }
-		    if( mocAware() &&		    //is it a moc file?
+		    if( tqmocAware() &&		    //is it a moc file?
 		       ( inc.endsWith(Option::cpp_ext.first()) || inc.endsWith(Option::cpp_moc_ext) )
 		       || ( (Option::cpp_ext.first() != Option::h_moc_ext) && inc.endsWith(Option::h_moc_ext) )) {
 			TQString mocs[] = { TQString("_HDRMOC"), TQString("_SRCMOC"), TQString::null };
@@ -944,8 +944,8 @@ MakefileGenerator::init()
 			if(!found_cache_moc || !found_cache_dep)
 			    write_cache = TRUE;
 		    }
-		    /* Do moc before dependency checking since some includes can come from
-		       moc_*.cpp files */
+		    /* Do tqmoc before dependency checking since some includes can come from
+		       tqmoc_*.cpp files */
 		    if(found_cache_moc) {
 			TQString fixed_file(fileFixify((*val_it), TQDir::currentDirPath(), Option::output_dir));
 			TQString moc = findMocDestination(fixed_file);
@@ -960,7 +960,7 @@ MakefileGenerator::init()
 				}
 			    }
 			}
-		    } else if(mocAware() && (sources[x] == "SOURCES" || sources[x] == "HEADERS") &&
+		    } else if(tqmocAware() && (sources[x] == "SOURCES" || sources[x] == "HEADERS") &&
 			    (Option::qmake_mode == Option::QMAKE_GENERATE_PROJECT ||
 			     Option::mkfile::do_mocs)) {
 			generateMocList((*val_it));
@@ -1199,7 +1199,7 @@ MakefileGenerator::init()
 							      Option::output_dir));
 
     //moc files
-    if ( mocAware() ) {
+    if ( tqmocAware() ) {
 	if(!project->isEmpty("MOC_DIR"))
 	    project->variables()["INCLUDEPATH"].append(project->first("MOC_DIR"));
 	if ( Option::h_moc_ext == Option::cpp_ext.first() )
@@ -1616,7 +1616,7 @@ MakefileGenerator::writeUicSrc(TQTextStream &t, const TQString &ui)
 	deps.remove(decl); //avoid circular dependencies..
 	t << decl << ": " << (*it) << " ";
         t << deps.join(" \\\n\t\t") << "\n\t"
-          << "$(UIC) " << (*it) << " -o " << decl << endl << endl;
+          << "$(TQUIC) " << (*it) << " -o " << decl << endl << endl;
 
 	TQString mildDecl = decl;
 	int k = mildDecl.findRev(Option::dir_sep);
@@ -1626,7 +1626,7 @@ MakefileGenerator::writeUicSrc(TQTextStream &t, const TQString &ui)
         if(TQFile::exists((*it) + Option::h_ext.first()))
             t << (*it) << Option::h_ext.first() << " ";
         t << deps.join(" \\\n\t\t") << "\n\t"
-	  << "$(UIC) " << (*it) << " -i " << mildDecl << " -o " << impl << endl << endl;
+	  << "$(TQUIC) " << (*it) << " -i " << mildDecl << " -o " << impl << endl << endl;
     }
 }
 
@@ -1807,15 +1807,11 @@ MakefileGenerator::writeImageSrc(TQTextStream &t, const TQString &src)
 	TQString gen = project->first("MAKEFILE_GENERATOR");
 	if ( gen == "MSVC" ) {
 	    t << (*it) << ": " << findDependencies((*it)).join(" \\\n\t\t") << "\n\t"
-		<< "$(UIC)  -o " << (*it) << " -embed " << project->first("QMAKE_ORIG_TARGET")
+		<< "$(TQUIC)  -o " << (*it) << " -embed " << project->first("QMAKE_ORIG_TARGET")
 		<< " -f <<\n" << findDependencies((*it)).join(" ") << "\n<<" << endl << endl;
-	} else if ( gen == "BMAKE" ) {
-	    t << (*it) << ": " << findDependencies((*it)).join(" \\\n\t\t") << "\n\t"
-		<< "$(UIC) " << " -embed " << project->first("QMAKE_ORIG_TARGET")
-		<< " -f &&|\n" << findDependencies((*it)).join(" ") << "\n| -o " << (*it) << endl << endl;
 	} else {
 	    t << (*it) << ": " << findDependencies((*it)).join(" \\\n\t\t") << "\n\t"
-		<< "$(UIC) " << " -embed " << project->first("QMAKE_ORIG_TARGET")
+		<< "$(TQUIC) " << " -embed " << project->first("QMAKE_ORIG_TARGET")
 		<< " " << findDependencies((*it)).join(" ") << " -o " << (*it) << endl << endl;
 	}
     }
@@ -2231,15 +2227,15 @@ MakefileGenerator::fileFixify(const TQString& file0, const TQString &out_d,
     TQString orig_file = file;
     if(!force_fix && project->isActiveConfig("no_fixpath")) {
 	if(!project->isEmpty("QMAKE_ABSOLUTE_SOURCE_PATH")) { //absoluteify it
-	    TQString qfile = Option::fixPathToLocalOS(file, TRUE, canon);
+	    TQString tqfile = Option::fixPathToLocalOS(file, TRUE, canon);
 	    if(TQDir::isRelativePath(file)) { //already absolute
-		TQFileInfo fi(qfile);
+		TQFileInfo fi(tqfile);
 		if(!fi.convertToAbs()) //strange
 		    file = fi.filePath();
 	    }
 	}
     } else { //fix it..
-	TQString qfile(Option::fixPathToLocalOS(file, TRUE, canon)), in_dir(in_d), out_dir(out_d);
+	TQString tqfile(Option::fixPathToLocalOS(file, TRUE, canon)), in_dir(in_d), out_dir(out_d);
 	{
 	    if(out_dir.isNull() || TQDir::isRelativePath(out_dir))
 		out_dir.prepend(Option::output_dir + TQDir::separator());
@@ -2265,8 +2261,8 @@ MakefileGenerator::fileFixify(const TQString& file0, const TQString &out_d,
 	    if(!out_canonical_dir.isEmpty())
 		out_dir = out_canonical_dir;
 	}
-	if(out_dir != in_dir || !TQDir::isRelativePath(qfile)) {
-	    if(TQDir::isRelativePath(qfile)) {
+	if(out_dir != in_dir || !TQDir::isRelativePath(tqfile)) {
+	    if(TQDir::isRelativePath(tqfile)) {
 		if(file.left(Option::dir_sep.length()) != Option::dir_sep &&
 		   in_dir.right(Option::dir_sep.length()) != Option::dir_sep)
 		    file.prepend(Option::dir_sep);
@@ -2386,16 +2382,16 @@ MakefileGenerator::specdir()
     spec = Option::mkfile::qmakespec;
 #if 0
     if(const char *d = getenv("TQTDIR")) {
-	TQString qdir = Option::fixPathToTargetOS(TQString(d));
-	if(qdir.endsWith(TQString(TQChar(TQDir::separator()))))
-	    qdir.truncate(qdir.length()-1);
+	TQString tqdir = Option::fixPathToTargetOS(TQString(d));
+	if(tqdir.endsWith(TQString(TQChar(TQDir::separator()))))
+	    tqdir.truncate(tqdir.length()-1);
 	//fix path
 	TQFileInfo fi(spec);
 	TQString absSpec(fi.absFilePath());
 	absSpec = Option::fixPathToTargetOS(absSpec);
 	//replace what you can
-	if(absSpec.startsWith(qdir)) {
-	    absSpec.replace(0, qdir.length(), "$(TQTDIR)");
+	if(absSpec.startsWith(tqdir)) {
+	    absSpec.replace(0, tqdir.length(), "$(TQTDIR)");
 	    spec = absSpec;
 	}
     }
@@ -2447,11 +2443,9 @@ MakefileGenerator::openOutput(TQFile &file) const
 //Factory thing
 #include "unixmake.h"
 #include "msvc_nmake.h"
-#include "borland_bmake.h"
 #include "mingw_make.h"
 #include "msvc_dsp.h"
 #include "msvc_vcproj.h"
-#include "metrowerks_xml.h"
 #include "pbuilder_pbx.h"
 #include "projectgenerator.h"
 
@@ -2480,12 +2474,8 @@ MakefileGenerator::create(TQMakeProject *proj)
 	    mkfile = new VcprojGenerator(proj);
 	else
 	    mkfile = new NmakeMakefileGenerator(proj);
-    } else if(gen == "BMAKE") {
-	mkfile = new BorlandMakefileGenerator(proj);
     } else if(gen == "MINGW") {
 	mkfile = new MingwMakefileGenerator(proj);
-    } else if(gen == "METROWERKS") {
-	mkfile = new MetrowerksMakefileGenerator(proj);
     } else if(gen == "PROJECTBUILDER") {
 	mkfile = new ProjectBuilderMakefileGenerator(proj);
     } else {

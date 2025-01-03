@@ -1,4 +1,4 @@
-#include <ntqwidgetplugin.h>
+#include <tqwidgetplugin.h>
 
 class CustomWidgetPlugin : public TQWidgetPlugin
 {

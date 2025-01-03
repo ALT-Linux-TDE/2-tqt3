@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqwidget.h>
-#include <ntqtooltip.h>
+#include <tqwidget.h>
+#include <tqtooltip.h>
 
 
 class DynamicTip : public TQToolTip

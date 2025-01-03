@@ -9,13 +9,13 @@
 
 #include "rangecontrols.h"
 
-#include <ntqhbox.h>
-#include <ntqlcdnumber.h>
-#include <ntqspinbox.h>
-#include <ntqlabel.h>
-#include <ntqstring.h>
-#include <ntqslider.h>
-#include <ntqcheckbox.h>
+#include <tqhbox.h>
+#include <tqlcdnumber.h>
+#include <tqspinbox.h>
+#include <tqlabel.h>
+#include <tqstring.h>
+#include <tqslider.h>
+#include <tqcheckbox.h>
 
 #include <limits.h>
 

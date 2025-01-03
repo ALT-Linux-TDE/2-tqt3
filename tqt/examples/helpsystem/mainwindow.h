@@ -7,7 +7,7 @@
 **
 *****************************************************************************/
 
-#include <ntqmainwindow.h>
+#include <tqmainwindow.h>
 
 class HeaderToolTip;
 class TableToolTip;

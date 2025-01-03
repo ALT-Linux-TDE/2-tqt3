@@ -7,7 +7,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <ntqmainwindow.h>
+#include <tqmainwindow.h>
 
 class MainWindow : public TQMainWindow
 {

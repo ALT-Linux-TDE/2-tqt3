@@ -37,8 +37,8 @@
 **********************************************************************/
 
 #include "option.h"
-#include <ntqdir.h>
-#include <ntqregexp.h>
+#include <tqdir.h>
+#include <tqregexp.h>
 #include <stdlib.h>
 #include <stdarg.h>
 

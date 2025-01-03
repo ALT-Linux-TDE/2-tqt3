@@ -7,47 +7,47 @@
 **
 *****************************************************************************/
 
-#include <ntqmessagebox.h>
-#include <ntqpixmap.h>
-#include <ntqlayout.h>
-#include <ntqapplication.h>
+#include <tqmessagebox.h>
+#include <tqpixmap.h>
+#include <tqlayout.h>
+#include <tqapplication.h>
 
 // Standard TQt widgets
 
-#include <ntqtoolbar.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
-#include <ntqbuttongroup.h>
-#include <ntqcheckbox.h>
-#include <ntqcombobox.h>
-#include <ntqframe.h>
-#include <ntqgroupbox.h>
-#include <ntqlabel.h>
-#include <ntqlcdnumber.h>
-#include <ntqmultilineedit.h>
-#include <ntqlineedit.h>
-#include <ntqlistbox.h>
-#include <ntqpushbutton.h>
-#include <ntqradiobutton.h>
-#include <ntqslider.h>
-#include <ntqtooltip.h>
-#include <ntqspinbox.h>
-#include <ntqstatusbar.h>
-#include <ntqwhatsthis.h>
-#include <ntqtoolbutton.h>
-#include <ntqvbox.h>
-#include <ntqtabbar.h>
-#include <ntqtabwidget.h>
-#include <ntqwidgetstack.h>
-#include <ntqprogressbar.h>
-#include <ntqsplitter.h>
-#include <ntqlistview.h>
-#include <ntqheader.h>
-#include <ntqtextbrowser.h>
-#include <ntqfiledialog.h>
-#include <ntqaccel.h>
-#include <ntqmetaobject.h>
-#include <ntqpainter.h>
+#include <tqtoolbar.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
+#include <tqbuttongroup.h>
+#include <tqcheckbox.h>
+#include <tqcombobox.h>
+#include <tqframe.h>
+#include <tqgroupbox.h>
+#include <tqlabel.h>
+#include <tqlcdnumber.h>
+#include <tqmultilineedit.h>
+#include <tqlineedit.h>
+#include <tqlistbox.h>
+#include <tqpushbutton.h>
+#include <tqradiobutton.h>
+#include <tqslider.h>
+#include <tqtooltip.h>
+#include <tqspinbox.h>
+#include <tqstatusbar.h>
+#include <tqwhatsthis.h>
+#include <tqtoolbutton.h>
+#include <tqvbox.h>
+#include <tqtabbar.h>
+#include <tqtabwidget.h>
+#include <tqwidgetstack.h>
+#include <tqprogressbar.h>
+#include <tqsplitter.h>
+#include <tqlistview.h>
+#include <tqheader.h>
+#include <tqtextbrowser.h>
+#include <tqfiledialog.h>
+#include <tqaccel.h>
+#include <tqmetaobject.h>
+#include <tqpainter.h>
 
 #include "widgets.h"
 

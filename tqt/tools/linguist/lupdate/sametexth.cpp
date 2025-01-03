@@ -33,8 +33,8 @@
 
 #include <metatranslator.h>
 
-#include <ntqcstring.h>
-#include <ntqmap.h>
+#include <tqcstring.h>
+#include <tqmap.h>
 
 typedef TQMap<TQCString, MetaTranslatorMessage> TMM;
 typedef TQValueList<MetaTranslatorMessage> TML;

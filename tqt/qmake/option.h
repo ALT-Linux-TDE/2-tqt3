@@ -40,9 +40,9 @@
 #define __OPTION_H__
 
 #include "project.h"
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqfile.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqfile.h>
 
 #define QMAKE_VERSION_MAJOR 1
 #define QMAKE_VERSION_MINOR 7

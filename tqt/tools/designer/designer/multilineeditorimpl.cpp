@@ -39,14 +39,14 @@
 #include "syntaxhighlighter_html.h"
 #include "widgetfactory.h"
 
-#include <ntqtextedit.h>
-#include <./private/qrichtext_p.h>
-#include <ntqpushbutton.h>
-#include <ntqlayout.h>
-#include <ntqtoolbutton.h>
-#include <ntqapplication.h>
-#include <ntqaction.h>
-#include <ntqmetaobject.h>
+#include <tqtextedit.h>
+#include <./private/tqrichtext_p.h>
+#include <tqpushbutton.h>
+#include <tqlayout.h>
+#include <tqtoolbutton.h>
+#include <tqapplication.h>
+#include <tqaction.h>
+#include <tqmetaobject.h>
 
 ToolBarItem::ToolBarItem( TQWidget *parent, TQWidget *toolBar,
 			  const TQString &label, const TQString &tagstr,

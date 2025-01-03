@@ -31,14 +31,14 @@
 **
 **********************************************************************/
 
-#include <ntqaction.h>
-#include <ntqapplication.h>
-#include <ntqbitmap.h>
-#include <ntqdragobject.h>
-#include <ntqlineedit.h>
-#include <ntqmainwindow.h>
-#include <ntqpainter.h>
-#include <ntqstyle.h>
+#include <tqaction.h>
+#include <tqapplication.h>
+#include <tqbitmap.h>
+#include <tqdragobject.h>
+#include <tqlineedit.h>
+#include <tqmainwindow.h>
+#include <tqpainter.h>
+#include <tqstyle.h>
 #include "command.h"
 #include "formwindow.h"
 #include "menubareditor.h"

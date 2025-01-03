@@ -1,5 +1,5 @@
 '\" t
-.TH QPainter 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPainter 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,13 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QPainter \- Does low-level painting e.g. on widgets
+TQPainter \- Does low-level painting e.g. on widgets
 .SH SYNOPSIS
-\fC#include <ntqpainter.h>\fR
+\fC#include <tqpainter.h>\fR
 .PP
 Inherits Qt.
-.PP
-Inherited by QDirectPainter.
 .PP
 .SS "Public Members"
 .in +1c
@@ -21,34 +19,34 @@ Inherited by QDirectPainter.
 .BI "enum \fBCoordinateMode\fR { CoordDevice, CoordPainter }"
 .br
 .ti -1c
-.BI "\fBQPainter\fR ()"
+.BI "\fBTQPainter\fR ()"
 .br
 .ti -1c
-.BI "\fBQPainter\fR ( const QPaintDevice * pd, bool unclipped = FALSE )"
+.BI "\fBTQPainter\fR ( const TQPaintDevice * pd, bool unclipped = FALSE )"
 .br
 .ti -1c
-.BI "\fBQPainter\fR ( const QPaintDevice * pd, const TQWidget * copyAttributes, bool unclipped = FALSE )"
+.BI "\fBTQPainter\fR ( const TQPaintDevice * pd, const TQWidget * copyAttributes, bool unclipped = FALSE )"
 .br
 .ti -1c
-.BI "\fB~QPainter\fR ()"
+.BI "\fB~TQPainter\fR ()"
 .br
 .ti -1c
-.BI "bool \fBbegin\fR ( const QPaintDevice * pd, bool unclipped = FALSE )"
+.BI "bool \fBbegin\fR ( const TQPaintDevice * pd, bool unclipped = FALSE )"
 .br
 .ti -1c
-.BI "bool \fBbegin\fR ( const QPaintDevice * pd, const TQWidget * copyAttributes, bool unclipped = FALSE )"
+.BI "bool \fBbegin\fR ( const TQPaintDevice * pd, const TQWidget * copyAttributes, bool unclipped = FALSE )"
 .br
 .ti -1c
 .BI "bool \fBend\fR ()"
 .br
 .ti -1c
-.BI "QPaintDevice * \fBdevice\fR () const"
+.BI "TQPaintDevice * \fBdevice\fR () const"
 .br
 .ti -1c
 .BI "bool \fBisActive\fR () const"
 .br
 .ti -1c
-.BI "void \fBflush\fR ( const QRegion & region, CoordinateMode cm = CoordDevice )"
+.BI "void \fBflush\fR ( const TQRegion & region, CoordinateMode cm = CoordDevice )"
 .br
 .ti -1c
 .BI "void \fBflush\fR ()"
@@ -60,22 +58,22 @@ Inherited by QDirectPainter.
 .BI "void \fBrestore\fR ()"
 .br
 .ti -1c
-.BI "QFontMetrics \fBfontMetrics\fR () const"
+.BI "TQFontMetrics \fBfontMetrics\fR () const"
 .br
 .ti -1c
-.BI "QFontInfo \fBfontInfo\fR () const"
+.BI "TQFontInfo \fBfontInfo\fR () const"
 .br
 .ti -1c
-.BI "const QFont & \fBfont\fR () const"
+.BI "const TQFont & \fBfont\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetFont\fR ( const QFont & font )"
+.BI "void \fBsetFont\fR ( const TQFont & font )"
 .br
 .ti -1c
-.BI "const QPen & \fBpen\fR () const"
+.BI "const TQPen & \fBpen\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetPen\fR ( const QPen & pen )"
+.BI "void \fBsetPen\fR ( const TQPen & pen )"
 .br
 .ti -1c
 .BI "void \fBsetPen\fR ( PenStyle style )"
@@ -84,10 +82,10 @@ Inherited by QDirectPainter.
 .BI "void \fBsetPen\fR ( const TQColor & color )"
 .br
 .ti -1c
-.BI "const QBrush & \fBbrush\fR () const"
+.BI "const TQBrush & \fBbrush\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetBrush\fR ( const QBrush & brush )"
+.BI "void \fBsetBrush\fR ( const TQBrush & brush )"
 .br
 .ti -1c
 .BI "void \fBsetBrush\fR ( BrushStyle style )"
@@ -96,7 +94,7 @@ Inherited by QDirectPainter.
 .BI "void \fBsetBrush\fR ( const TQColor & color )"
 .br
 .ti -1c
-.BI "QPoint pos () const  \fI(obsolete)\fR"
+.BI "TQPoint pos () const  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "const TQColor & \fBbackgroundColor\fR () const"
@@ -117,13 +115,13 @@ Inherited by QDirectPainter.
 .BI "void \fBsetRasterOp\fR ( RasterOp r )"
 .br
 .ti -1c
-.BI "const QPoint & \fBbrushOrigin\fR () const"
+.BI "const TQPoint & \fBbrushOrigin\fR () const"
 .br
 .ti -1c
 .BI "void \fBsetBrushOrigin\fR ( int x, int y )"
 .br
 .ti -1c
-.BI "void \fBsetBrushOrigin\fR ( const QPoint & p )"
+.BI "void \fBsetBrushOrigin\fR ( const TQPoint & p )"
 .br
 .ti -1c
 .BI "bool \fBhasViewXForm\fR () const"
@@ -135,19 +133,19 @@ Inherited by QDirectPainter.
 .BI "void \fBsetViewXForm\fR ( bool enable )"
 .br
 .ti -1c
-.BI "QRect \fBwindow\fR () const"
+.BI "TQRect \fBwindow\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetWindow\fR ( const QRect & r )"
+.BI "void \fBsetWindow\fR ( const TQRect & r )"
 .br
 .ti -1c
 .BI "void \fBsetWindow\fR ( int x, int y, int w, int h )"
 .br
 .ti -1c
-.BI "QRect \fBviewport\fR () const"
+.BI "TQRect \fBviewport\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetViewport\fR ( const QRect & r )"
+.BI "void \fBsetViewport\fR ( const TQRect & r )"
 .br
 .ti -1c
 .BI "void \fBsetViewport\fR ( int x, int y, int w, int h )"
@@ -156,10 +154,10 @@ Inherited by QDirectPainter.
 .BI "void \fBsetWorldXForm\fR ( bool enable )"
 .br
 .ti -1c
-.BI "const QWMatrix & \fBworldMatrix\fR () const"
+.BI "const TQWMatrix & \fBworldMatrix\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetWorldMatrix\fR ( const QWMatrix & m, bool combine = FALSE )"
+.BI "void \fBsetWorldMatrix\fR ( const TQWMatrix & m, bool combine = FALSE )"
 .br
 .ti -1c
 .BI "void saveWorldMatrix ()  \fI(obsolete)\fR"
@@ -183,28 +181,28 @@ Inherited by QDirectPainter.
 .BI "void \fBresetXForm\fR ()"
 .br
 .ti -1c
-.BI "QPoint \fBxForm\fR ( const QPoint & pv ) const"
+.BI "TQPoint \fBxForm\fR ( const TQPoint & pv ) const"
 .br
 .ti -1c
-.BI "QRect \fBxForm\fR ( const QRect & rv ) const"
+.BI "TQRect \fBxForm\fR ( const TQRect & rv ) const"
 .br
 .ti -1c
-.BI "QPointArray \fBxForm\fR ( const QPointArray & av ) const"
+.BI "TQPointArray \fBxForm\fR ( const TQPointArray & av ) const"
 .br
 .ti -1c
-.BI "QPointArray \fBxForm\fR ( const QPointArray & av, int index, int npoints ) const"
+.BI "TQPointArray \fBxForm\fR ( const TQPointArray & av, int index, int npoints ) const"
 .br
 .ti -1c
-.BI "QPoint \fBxFormDev\fR ( const QPoint & pd ) const"
+.BI "TQPoint \fBxFormDev\fR ( const TQPoint & pd ) const"
 .br
 .ti -1c
-.BI "QRect \fBxFormDev\fR ( const QRect & rd ) const"
+.BI "TQRect \fBxFormDev\fR ( const TQRect & rd ) const"
 .br
 .ti -1c
-.BI "QPointArray \fBxFormDev\fR ( const QPointArray & ad ) const"
+.BI "TQPointArray \fBxFormDev\fR ( const TQPointArray & ad ) const"
 .br
 .ti -1c
-.BI "QPointArray \fBxFormDev\fR ( const QPointArray & ad, int index, int npoints ) const"
+.BI "TQPointArray \fBxFormDev\fR ( const TQPointArray & ad, int index, int npoints ) const"
 .br
 .ti -1c
 .BI "void \fBsetClipping\fR ( bool enable )"
@@ -213,49 +211,49 @@ Inherited by QDirectPainter.
 .BI "bool \fBhasClipping\fR () const"
 .br
 .ti -1c
-.BI "QRegion \fBclipRegion\fR ( CoordinateMode m = CoordDevice ) const"
+.BI "TQRegion \fBclipRegion\fR ( CoordinateMode m = CoordDevice ) const"
 .br
 .ti -1c
-.BI "void \fBsetClipRect\fR ( const QRect & r, CoordinateMode m = CoordDevice )"
+.BI "void \fBsetClipRect\fR ( const TQRect & r, CoordinateMode m = CoordDevice )"
 .br
 .ti -1c
 .BI "void \fBsetClipRect\fR ( int x, int y, int w, int h, CoordinateMode m = CoordDevice )"
 .br
 .ti -1c
-.BI "void \fBsetClipRegion\fR ( const QRegion & rgn, CoordinateMode m = CoordDevice )"
+.BI "void \fBsetClipRegion\fR ( const TQRegion & rgn, CoordinateMode m = CoordDevice )"
 .br
 .ti -1c
 .BI "void \fBdrawPoint\fR ( int x, int y )"
 .br
 .ti -1c
-.BI "void \fBdrawPoint\fR ( const QPoint & p )"
+.BI "void \fBdrawPoint\fR ( const TQPoint & p )"
 .br
 .ti -1c
-.BI "void \fBdrawPoints\fR ( const QPointArray & a, int index = 0, int npoints = -1 )"
+.BI "void \fBdrawPoints\fR ( const TQPointArray & a, int index = 0, int npoints = -1 )"
 .br
 .ti -1c
 .BI "void moveTo ( int x, int y )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "void moveTo ( const QPoint & p )  \fI(obsolete)\fR"
+.BI "void moveTo ( const TQPoint & p )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "void lineTo ( int x, int y )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "void lineTo ( const QPoint & p )  \fI(obsolete)\fR"
+.BI "void lineTo ( const TQPoint & p )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "void \fBdrawLine\fR ( int x1, int y1, int x2, int y2 )"
 .br
 .ti -1c
-.BI "void \fBdrawLine\fR ( const QPoint & p1, const QPoint & p2 )"
+.BI "void \fBdrawLine\fR ( const TQPoint & p1, const TQPoint & p2 )"
 .br
 .ti -1c
 .BI "void \fBdrawRect\fR ( int x, int y, int w, int h )"
 .br
 .ti -1c
-.BI "void \fBdrawRect\fR ( const QRect & r )"
+.BI "void \fBdrawRect\fR ( const TQRect & r )"
 .br
 .ti -1c
 .BI "void \fBdrawWinFocusRect\fR ( int x, int y, int w, int h )"
@@ -264,109 +262,109 @@ Inherited by QDirectPainter.
 .BI "void \fBdrawWinFocusRect\fR ( int x, int y, int w, int h, const TQColor & bgColor )"
 .br
 .ti -1c
-.BI "void \fBdrawWinFocusRect\fR ( const QRect & r )"
+.BI "void \fBdrawWinFocusRect\fR ( const TQRect & r )"
 .br
 .ti -1c
-.BI "void \fBdrawWinFocusRect\fR ( const QRect & r, const TQColor & bgColor )"
+.BI "void \fBdrawWinFocusRect\fR ( const TQRect & r, const TQColor & bgColor )"
 .br
 .ti -1c
 .BI "void \fBdrawRoundRect\fR ( int x, int y, int w, int h, int xRnd = 25, int yRnd = 25 )"
 .br
 .ti -1c
-.BI "void \fBdrawRoundRect\fR ( const QRect & r, int xRnd = 25, int yRnd = 25 )"
+.BI "void \fBdrawRoundRect\fR ( const TQRect & r, int xRnd = 25, int yRnd = 25 )"
 .br
 .ti -1c
 .BI "void \fBdrawEllipse\fR ( int x, int y, int w, int h )"
 .br
 .ti -1c
-.BI "void \fBdrawEllipse\fR ( const QRect & r )"
+.BI "void \fBdrawEllipse\fR ( const TQRect & r )"
 .br
 .ti -1c
 .BI "void \fBdrawArc\fR ( int x, int y, int w, int h, int a, int alen )"
 .br
 .ti -1c
-.BI "void \fBdrawArc\fR ( const QRect & r, int a, int alen )"
+.BI "void \fBdrawArc\fR ( const TQRect & r, int a, int alen )"
 .br
 .ti -1c
 .BI "void \fBdrawPie\fR ( int x, int y, int w, int h, int a, int alen )"
 .br
 .ti -1c
-.BI "void \fBdrawPie\fR ( const QRect & r, int a, int alen )"
+.BI "void \fBdrawPie\fR ( const TQRect & r, int a, int alen )"
 .br
 .ti -1c
 .BI "void \fBdrawChord\fR ( int x, int y, int w, int h, int a, int alen )"
 .br
 .ti -1c
-.BI "void \fBdrawChord\fR ( const QRect & r, int a, int alen )"
+.BI "void \fBdrawChord\fR ( const TQRect & r, int a, int alen )"
 .br
 .ti -1c
-.BI "void \fBdrawLineSegments\fR ( const QPointArray & a, int index = 0, int nlines = -1 )"
+.BI "void \fBdrawLineSegments\fR ( const TQPointArray & a, int index = 0, int nlines = -1 )"
 .br
 .ti -1c
-.BI "void \fBdrawPolyline\fR ( const QPointArray & a, int index = 0, int npoints = -1 )"
+.BI "void \fBdrawPolyline\fR ( const TQPointArray & a, int index = 0, int npoints = -1 )"
 .br
 .ti -1c
-.BI "void \fBdrawPolygon\fR ( const QPointArray & a, bool winding = FALSE, int index = 0, int npoints = -1 )"
+.BI "void \fBdrawPolygon\fR ( const TQPointArray & a, bool winding = FALSE, int index = 0, int npoints = -1 )"
 .br
 .ti -1c
-.BI "void \fBdrawConvexPolygon\fR ( const QPointArray & pa, int index = 0, int npoints = -1 )"
+.BI "void \fBdrawConvexPolygon\fR ( const TQPointArray & pa, int index = 0, int npoints = -1 )"
 .br
 .ti -1c
-.BI "void \fBdrawCubicBezier\fR ( const QPointArray & a, int index = 0 )"
+.BI "void \fBdrawCubicBezier\fR ( const TQPointArray & a, int index = 0 )"
 .br
 .ti -1c
-.BI "void \fBdrawPixmap\fR ( int x, int y, const QPixmap & pixmap, int sx = 0, int sy = 0, int sw = -1, int sh = -1 )"
+.BI "void \fBdrawPixmap\fR ( int x, int y, const TQPixmap & pixmap, int sx = 0, int sy = 0, int sw = -1, int sh = -1 )"
 .br
 .ti -1c
-.BI "void \fBdrawPixmap\fR ( const QPoint & p, const QPixmap & pm, const QRect & sr )"
+.BI "void \fBdrawPixmap\fR ( const TQPoint & p, const TQPixmap & pm, const TQRect & sr )"
 .br
 .ti -1c
-.BI "void \fBdrawPixmap\fR ( const QPoint & p, const QPixmap & pm )"
+.BI "void \fBdrawPixmap\fR ( const TQPoint & p, const TQPixmap & pm )"
 .br
 .ti -1c
-.BI "void \fBdrawPixmap\fR ( const QRect & r, const QPixmap & pm )"
+.BI "void \fBdrawPixmap\fR ( const TQRect & r, const TQPixmap & pm )"
 .br
 .ti -1c
 .BI "void \fBdrawImage\fR ( int x, int y, const TQImage & image, int sx = 0, int sy = 0, int sw = -1, int sh = -1, int conversionFlags = 0 )"
 .br
 .ti -1c
-.BI "void \fBdrawImage\fR ( const QPoint &, const TQImage &, const QRect & sr, int conversionFlags = 0 )"
+.BI "void \fBdrawImage\fR ( const TQPoint &, const TQImage &, const TQRect & sr, int conversionFlags = 0 )"
 .br
 .ti -1c
-.BI "void \fBdrawImage\fR ( const QPoint & p, const TQImage & i, int conversion_flags = 0 )"
+.BI "void \fBdrawImage\fR ( const TQPoint & p, const TQImage & i, int conversion_flags = 0 )"
 .br
 .ti -1c
-.BI "void \fBdrawImage\fR ( const QRect & r, const TQImage & i )"
+.BI "void \fBdrawImage\fR ( const TQRect & r, const TQImage & i )"
 .br
 .ti -1c
-.BI "void \fBdrawTiledPixmap\fR ( int x, int y, int w, int h, const QPixmap & pixmap, int sx = 0, int sy = 0 )"
+.BI "void \fBdrawTiledPixmap\fR ( int x, int y, int w, int h, const TQPixmap & pixmap, int sx = 0, int sy = 0 )"
 .br
 .ti -1c
-.BI "void \fBdrawTiledPixmap\fR ( const QRect & r, const QPixmap & pm, const QPoint & sp )"
+.BI "void \fBdrawTiledPixmap\fR ( const TQRect & r, const TQPixmap & pm, const TQPoint & sp )"
 .br
 .ti -1c
-.BI "void \fBdrawTiledPixmap\fR ( const QRect & r, const QPixmap & pm )"
+.BI "void \fBdrawTiledPixmap\fR ( const TQRect & r, const TQPixmap & pm )"
 .br
 .ti -1c
-.BI "void drawPicture ( const QPicture & pic )  \fI(obsolete)\fR"
+.BI "void drawPicture ( const TQPicture & pic )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "void \fBdrawPicture\fR ( int x, int y, const QPicture & pic )"
+.BI "void \fBdrawPicture\fR ( int x, int y, const TQPicture & pic )"
 .br
 .ti -1c
-.BI "void \fBdrawPicture\fR ( const QPoint & p, const QPicture & pic )"
+.BI "void \fBdrawPicture\fR ( const TQPoint & p, const TQPicture & pic )"
 .br
 .ti -1c
-.BI "void \fBfillRect\fR ( int x, int y, int w, int h, const QBrush & brush )"
+.BI "void \fBfillRect\fR ( int x, int y, int w, int h, const TQBrush & brush )"
 .br
 .ti -1c
-.BI "void \fBfillRect\fR ( const QRect & r, const QBrush & brush )"
+.BI "void \fBfillRect\fR ( const TQRect & r, const TQBrush & brush )"
 .br
 .ti -1c
 .BI "void \fBeraseRect\fR ( int x, int y, int w, int h )"
 .br
 .ti -1c
-.BI "void \fBeraseRect\fR ( const QRect & r )"
+.BI "void \fBeraseRect\fR ( const TQRect & r )"
 .br
 .ti -1c
 .BI "enum \fBTextDirection\fR { Auto, RTL, LTR }"
@@ -375,25 +373,25 @@ Inherited by QDirectPainter.
 .BI "void \fBdrawText\fR ( int x, int y, const TQString &, int len = -1, TextDirection dir = Auto )"
 .br
 .ti -1c
-.BI "void \fBdrawText\fR ( const QPoint &, const TQString &, int len = -1, TextDirection dir = Auto )"
+.BI "void \fBdrawText\fR ( const TQPoint &, const TQString &, int len = -1, TextDirection dir = Auto )"
 .br
 .ti -1c
 .BI "void \fBdrawText\fR ( int x, int y, const TQString &, int pos, int len, TextDirection dir = Auto )"
 .br
 .ti -1c
-.BI "void \fBdrawText\fR ( const QPoint & p, const TQString &, int pos, int len, TextDirection dir = Auto )"
+.BI "void \fBdrawText\fR ( const TQPoint & p, const TQString &, int pos, int len, TextDirection dir = Auto )"
 .br
 .ti -1c
-.BI "void \fBdrawText\fR ( int x, int y, int w, int h, int flags, const TQString &, int len = -1, QRect * br = 0, QTextParag ** internal = 0 )"
+.BI "void \fBdrawText\fR ( int x, int y, int w, int h, int flags, const TQString &, int len = -1, TQRect * br = 0, TQTextParag ** internal = 0 )"
 .br
 .ti -1c
-.BI "void \fBdrawText\fR ( const QRect & r, int tf, const TQString & str, int len = -1, QRect * brect = 0, QTextParag ** internal = 0 )"
+.BI "void \fBdrawText\fR ( const TQRect & r, int tf, const TQString & str, int len = -1, TQRect * brect = 0, TQTextParag ** internal = 0 )"
 .br
 .ti -1c
-.BI "QRect \fBboundingRect\fR ( int x, int y, int w, int h, int flags, const TQString &, int len = -1, QTextParag ** intern = 0 )"
+.BI "TQRect \fBboundingRect\fR ( int x, int y, int w, int h, int flags, const TQString &, int len = -1, TQTextParag ** intern = 0 )"
 .br
 .ti -1c
-.BI "QRect \fBboundingRect\fR ( const QRect & r, int flags, const TQString & str, int len = -1, QTextParag ** internal = 0 )"
+.BI "TQRect \fBboundingRect\fR ( const TQRect & r, int flags, const TQString & str, int len = -1, TQTextParag ** internal = 0 )"
 .br
 .ti -1c
 .BI "int \fBtabStops\fR () const"
@@ -414,34 +412,34 @@ Inherited by QDirectPainter.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "void \fBredirect\fR ( QPaintDevice * pdev, QPaintDevice * replacement )"
+.BI "void \fBredirect\fR ( TQPaintDevice * pdev, TQPaintDevice * replacement )"
 .br
 .in -1c
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "void \fBqDrawShadeLine\fR ( QPainter * p, int x1, int y1, int x2, int y2, const QColorGroup & g, bool sunken, int lineWidth, int midLineWidth )"
+.BI "void \fBqDrawShadeLine\fR ( TQPainter * p, int x1, int y1, int x2, int y2, const TQColorGroup & g, bool sunken, int lineWidth, int midLineWidth )"
 .br
 .ti -1c
-.BI "void \fBqDrawShadeRect\fR ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool sunken, int lineWidth, int midLineWidth, const QBrush * fill )"
+.BI "void \fBqDrawShadeRect\fR ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool sunken, int lineWidth, int midLineWidth, const TQBrush * fill )"
 .br
 .ti -1c
-.BI "void \fBqDrawShadePanel\fR ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool sunken, int lineWidth, const QBrush * fill )"
+.BI "void \fBqDrawShadePanel\fR ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool sunken, int lineWidth, const TQBrush * fill )"
 .br
 .ti -1c
-.BI "void \fBqDrawWinButton\fR ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool sunken, const QBrush * fill )"
+.BI "void \fBqDrawWinButton\fR ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool sunken, const TQBrush * fill )"
 .br
 .ti -1c
-.BI "void \fBqDrawWinPanel\fR ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool sunken, const QBrush * fill )"
+.BI "void \fBqDrawWinPanel\fR ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool sunken, const TQBrush * fill )"
 .br
 .ti -1c
-.BI "void \fBqDrawPlainRect\fR ( QPainter * p, int x, int y, int w, int h, const TQColor & c, int lineWidth, const QBrush * fill )"
+.BI "void \fBqDrawPlainRect\fR ( TQPainter * p, int x, int y, int w, int h, const TQColor & c, int lineWidth, const TQBrush * fill )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QPainter class does low-level painting e.g. on widgets.
+The TQPainter class does low-level painting e.g. on widgets.
 .PP
-The painter provides highly optimized functions to do most of the drawing GUI programs require. QPainter can draw everything from simple lines to complex shapes like pies and chords. It can also draw aligned text and pixmaps. Normally, it draws in a "natural" coordinate system, but it can also do view and world transformation.
+The painter provides highly optimized functions to do most of the drawing GUI programs require. TQPainter can draw everything from simple lines to complex shapes like pies and chords. It can also draw aligned text and pixmaps. Normally, it draws in a "natural" coordinate system, but it can also do view and world transformation.
 .PP
 The typical use of a painter is:
 .TP
@@ -453,7 +451,7 @@ Draw.
 .TP
 Destroy the painter.
 .PP
-Mostly, all this is done inside a paint event. (In fact, 99% of all QPainter use is in a reimplementation of TQWidget::paintEvent(), and the painter is heavily optimized for such use.) Here's one very simple example:
+Mostly, all this is done inside a paint event. (In fact, 99% of all TQPainter use is in a reimplementation of TQWidget::paintEvent(), and the painter is heavily optimized for such use.) Here's one very simple example:
 .PP
 .nf
 .br
@@ -461,7 +459,7 @@ Mostly, all this is done inside a paint event. (In fact, 99% of all QPainter use
 .br
     {
 .br
-        QPainter paint( this );
+        TQPainter paint( this );
 .br
         paint.setPen( TQt::blue );
 .br
@@ -504,77 +502,77 @@ hasClipping() is whether the painter clips at all. (The paint device clips, too.
 pos() is the current position, set by moveTo() and used by lineTo().
 .IP
 .PP
-Note that some of these settings mirror settings in some paint devices, e.g. TQWidget::font(). QPainter::begin() (or the QPainter constructor) copies these attributes from the paint device. Calling, for example, TQWidget::setFont() doesn't take effect until the next time a painter begins painting on it.
+Note that some of these settings mirror settings in some paint devices, e.g. TQWidget::font(). TQPainter::begin() (or the TQPainter constructor) copies these attributes from the paint device. Calling, for example, TQWidget::setFont() doesn't take effect until the next time a painter begins painting on it.
 .PP
 save() saves all of these settings on an internal stack, restore() pops them back.
 .PP
-The core functionality of QPainter is drawing, and there are functions to draw most primitives: drawPoint(), drawPoints(), drawLine(), drawRect(), drawWinFocusRect(), drawRoundRect(), drawEllipse(), drawArc(), drawPie(), drawChord(), drawLineSegments(), drawPolyline(), drawPolygon(), drawConvexPolygon() and drawCubicBezier(). All of these functions take integer coordinates; there are no floating-point versions since we want drawing to be as fast as possible.
+The core functionality of TQPainter is drawing, and there are functions to draw most primitives: drawPoint(), drawPoints(), drawLine(), drawRect(), drawWinFocusRect(), drawRoundRect(), drawEllipse(), drawArc(), drawPie(), drawChord(), drawLineSegments(), drawPolyline(), drawPolygon(), drawConvexPolygon() and drawCubicBezier(). All of these functions take integer coordinates; there are no floating-point versions since we want drawing to be as fast as possible.
 .PP
-There are functions to draw pixmaps/images, namely drawPixmap(), drawImage() and drawTiledPixmap(). drawPixmap() and drawImage() produce the same result, except that drawPixmap() is faster on-screen and drawImage() faster and sometimes better on QPrinter and QPicture.
+There are functions to draw pixmaps/images, namely drawPixmap(), drawImage() and drawTiledPixmap(). drawPixmap() and drawImage() produce the same result, except that drawPixmap() is faster on-screen and drawImage() faster and sometimes better on TQPrinter and TQPicture.
 .PP
 Text drawing is done using drawText(), and when you need fine-grained positioning, boundingRect() tells you where a given drawText() command would draw.
 .PP
-There is a drawPicture() function that draws the contents of an entire QPicture using this painter. drawPicture() is the only function that disregards all the painter's settings: the QPicture has its own settings.
+There is a drawPicture() function that draws the contents of an entire TQPicture using this painter. drawPicture() is the only function that disregards all the painter's settings: the TQPicture has its own settings.
 .PP
-Normally, the QPainter operates on the device's own coordinate system (usually pixels), but QPainter has good support for coordinate transformation. See The Coordinate System for a more general overview and a simple example.
+Normally, the TQPainter operates on the device's own coordinate system (usually pixels), but TQPainter has good support for coordinate transformation. See The Coordinate System for a more general overview and a simple example.
 .PP
 The most common functions used are scale(), rotate(), translate() and shear(), all of which operate on the worldMatrix(). setWorldMatrix() can replace or add to the currently set worldMatrix().
 .PP
-setViewport() sets the rectangle on which QPainter operates. The default is the entire device, which is usually fine, except on printers. setWindow() sets the coordinate system, that is, the rectangle that maps to viewport(). What's drawn inside the window() ends up being inside the viewport(). The window's default is the same as the viewport, and if you don't use the transformations, they are optimized away, gaining another little bit of speed.
+setViewport() sets the rectangle on which TQPainter operates. The default is the entire device, which is usually fine, except on printers. setWindow() sets the coordinate system, that is, the rectangle that maps to viewport(). What's drawn inside the window() ends up being inside the viewport(). The window's default is the same as the viewport, and if you don't use the transformations, they are optimized away, gaining another little bit of speed.
 .PP
-After all the coordinate transformation is done, QPainter can clip the drawing to an arbitrary rectangle or region. hasClipping() is TRUE if QPainter clips, and clipRegion() returns the clip region. You can set it using either setClipRegion() or setClipRect(). Note that the clipping can be slow. It's all system-dependent, but as a rule of thumb, you can assume that drawing speed is inversely proportional to the number of rectangles in the clip region.
+After all the coordinate transformation is done, TQPainter can clip the drawing to an arbitrary rectangle or region. hasClipping() is TRUE if TQPainter clips, and clipRegion() returns the clip region. You can set it using either setClipRegion() or setClipRect(). Note that the clipping can be slow. It's all system-dependent, but as a rule of thumb, you can assume that drawing speed is inversely proportional to the number of rectangles in the clip region.
 .PP
-After QPainter's clipping, the paint device may also clip. For example, most widgets clip away the pixels used by child widgets, and most printers clip away an area near the edges of the paper. This additional clipping is not reflected by the return value of clipRegion() or hasClipping().
+After TQPainter's clipping, the paint device may also clip. For example, most widgets clip away the pixels used by child widgets, and most printers clip away an area near the edges of the paper. This additional clipping is not reflected by the return value of clipRegion() or hasClipping().
 .PP
-QPainter also includes some less-used functions that are very useful on those occasions when they're needed.
+TQPainter also includes some less-used functions that are very useful on those occasions when they're needed.
 .PP
 isActive() indicates whether the painter is active. begin() (and the most usual constructor) makes it active. end() (and the destructor) deactivates it. If the painter is active, device() returns the paint device on which the painter paints.
 .PP
-Sometimes it is desirable to make someone else paint on an unusual QPaintDevice. QPainter supports a static function to do this, redirect(). We recommend not using it, but for some hacks it's perfect.
+Sometimes it is desirable to make someone else paint on an unusual TQPaintDevice. TQPainter supports a static function to do this, redirect(). We recommend not using it, but for some hacks it's perfect.
 .PP
 setTabStops() and setTabArray() can change where the tab stops are, but these are very seldomly used.
 .PP
-\fBWarning:\fR Note that QPainter does not attempt to work around coordinate limitations in the underlying window system. Some platforms may behave incorrectly with coordinates as small as +/-4000.
+\fBWarning:\fR Note that TQPainter does not attempt to work around coordinate limitations in the underlying window system. Some platforms may behave incorrectly with coordinates as small as +/-4000.
 .PP
-See also QPaintDevice, TQWidget, QPixmap, QPrinter, QPicture, Application Walkthrough, Coordinate System Overview, Graphics Classes, and Image Processing Classes.
+See also TQPaintDevice, TQWidget, TQPixmap, TQPrinter, TQPicture, Application Walkthrough, Coordinate System Overview, Graphics Classes, and Image Processing Classes.
 .SS "Member Type Documentation"
-.SH "QPainter::CoordinateMode"
+.SH "TQPainter::CoordinateMode"
 .TP
-\fCQPainter::CoordDevice\fR
+\fCTQPainter::CoordDevice\fR
 .TP
-\fCQPainter::CoordPainter\fR
+\fCTQPainter::CoordPainter\fR
 .PP
 See also clipRegion().
-.SH "QPainter::TextDirection"
+.SH "TQPainter::TextDirection"
 .TP
-\fCQPainter::Auto\fR
+\fCTQPainter::Auto\fR
 .TP
-\fCQPainter::RTL\fR - right to left
+\fCTQPainter::RTL\fR - right to left
 .TP
-\fCQPainter::LTR\fR - left to right
+\fCTQPainter::LTR\fR - left to right
 .PP
 See also drawText().
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPainter::QPainter ()"
+.SH "TQPainter::TQPainter ()"
 Constructs a painter.
 .PP
 Notice that all painter settings (setPen, setBrush etc.) are reset to default values when begin() is called.
 .PP
 See also begin() and end().
-.SH "QPainter::QPainter ( const QPaintDevice * pd, bool unclipped = FALSE )"
+.SH "TQPainter::TQPainter ( const TQPaintDevice * pd, bool unclipped = FALSE )"
 Constructs a painter that begins painting the paint device \fIpd\fR immediately. Depending on the underlying graphic system the painter will paint over children of the paintdevice if \fIunclipped\fR is TRUE.
 .PP
-This constructor is convenient for short-lived painters, e.g. in a paint event and should be used only once. The constructor calls begin() for you and the QPainter destructor automatically calls end().
+This constructor is convenient for short-lived painters, e.g. in a paint event and should be used only once. The constructor calls begin() for you and the TQPainter destructor automatically calls end().
 .PP
 Here's an example using begin() and end():
 .PP
 .nf
 .br
-        void MyWidget::paintEvent( QPaintEvent * )
+        void MyWidget::paintEvent( TQPaintEvent * )
 .br
         {
 .br
-            QPainter p;
+            TQPainter p;
 .br
             p.begin( this );
 .br
@@ -590,11 +588,11 @@ The same example using this constructor:
 .PP
 .nf
 .br
-        void MyWidget::paintEvent( QPaintEvent * )
+        void MyWidget::paintEvent( TQPaintEvent * )
 .br
         {
 .br
-            QPainter p( this );
+            TQPainter p( this );
 .br
             p.drawLine( ... );  // drawing code
 .br
@@ -605,21 +603,21 @@ The same example using this constructor:
 Since the constructor cannot provide feedback when the initialization of the painter failed you should rather use begin() and end() to paint on external devices, e.g. printers.
 .PP
 See also begin() and end().
-.SH "QPainter::QPainter ( const QPaintDevice * pd, const TQWidget * copyAttributes, bool unclipped = FALSE )"
+.SH "TQPainter::TQPainter ( const TQPaintDevice * pd, const TQWidget * copyAttributes, bool unclipped = FALSE )"
 Constructs a painter that begins painting the paint device \fIpd\fR immediately, with the default arguments taken from \fIcopyAttributes\fR. The painter will paint over children of the paint device if \fIunclipped\fR is TRUE (although this is not supported on all platforms).
 .PP
 See also begin().
-.SH "QPainter::~QPainter ()"
+.SH "TQPainter::~TQPainter ()"
 Destroys the painter.
-.SH "const TQColor & QPainter::backgroundColor () const"
+.SH "const TQColor & TQPainter::backgroundColor () const"
 Returns the current background color.
 .PP
 See also setBackgroundColor() and TQColor.
-.SH "BGMode QPainter::backgroundMode () const"
+.SH "BGMode TQPainter::backgroundMode () const"
 Returns the current background mode.
 .PP
 See also setBackgroundMode() and BGMode.
-.SH "bool QPainter::begin ( const QPaintDevice * pd, bool unclipped = FALSE )"
+.SH "bool TQPainter::begin ( const TQPaintDevice * pd, bool unclipped = FALSE )"
 Begins painting the paint device \fIpd\fR and returns TRUE if successful; otherwise returns FALSE. If \fIunclipped\fR is TRUE, the painting will not be clipped at the paint device's boundaries, (although this is not supported by all platforms).
 .PP
 The errors that can occur are serious problems, such as these:
@@ -629,7 +627,7 @@ The errors that can occur are serious problems, such as these:
         p->begin( 0 ); // impossible - paint device cannot be 0
 .br
 .br
-        QPixmap pm( 0, 0 );
+        TQPixmap pm( 0, 0 );
 .br
         p->begin( pm ); // impossible - pm.isNull();
 .br
@@ -648,14 +646,14 @@ See also end() and flush().
 .PP
 Examples:
 .)l aclock/aclock.cpp, desktop/desktop.cpp, drawdemo/drawdemo.cpp, hello/hello.cpp, picture/picture.cpp, t10/cannon.cpp, and xform/xform.cpp.
-.SH "bool QPainter::begin ( const QPaintDevice * pd, const TQWidget * copyAttributes, bool unclipped = FALSE )"
+.SH "bool TQPainter::begin ( const TQPaintDevice * pd, const TQWidget * copyAttributes, bool unclipped = FALSE )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This version opens the painter on a paint device \fIpd\fR and sets the initial pen, background color and font from \fIcopyAttributes\fR, painting over the paint device's children when \fIunclipped\fR is TRUE. This is equivalent to:
 .PP
 .nf
 .br
-        QPainter p;
+        TQPainter p;
 .br
         p.begin( pd );
 .br
@@ -673,13 +671,13 @@ Example:
 .PP
 .nf
 .br
-        void MyWidget::paintEvent( QPaintEvent * )
+        void MyWidget::paintEvent( TQPaintEvent * )
 .br
         {
 .br
-            QPixmap pm(size());
+            TQPixmap pm(size());
 .br
-            QPainter p;
+            TQPainter p;
 .br
             p.begin(&pm, this);
 .br
@@ -694,7 +692,7 @@ Example:
 .fi
 .PP
 See also end().
-.SH "QRect QPainter::boundingRect ( int x, int y, int w, int h, int flags, const TQString &, int len = -1, QTextParag ** intern = 0 )"
+.SH "TQRect TQPainter::boundingRect ( int x, int y, int w, int h, int flags, const TQString &, int len = -1, TQTextParag ** intern = 0 )"
 Returns the bounding rectangle of the aligned text that would be printed with the corresponding drawText() function using the first \fIlen\fR characters of the string if \fIlen\fR is > -1, or the whole of the string if \fIlen\fR is -1. The drawing, and hence the bounding rectangle, is constrained to the rectangle that begins at point \fI(x, y)\fR with width \fIw\fR and hight \fIh\fR, or to the rectangle required to draw the text, whichever is the larger.
 .PP
 The \fIflags\fR argument is the bitwise OR of the following flags: <center>.nf
@@ -711,39 +709,39 @@ If several of the horizontal or several of the vertical alignment flags are set,
 The \fIintern\fR parameter should not be used.
 .PP
 See also TQt::TextFlags.
-.SH "QRect QPainter::boundingRect ( const QRect & r, int flags, const TQString & str, int len = -1, QTextParag ** internal = 0 )"
+.SH "TQRect TQPainter::boundingRect ( const TQRect & r, int flags, const TQString & str, int len = -1, TQTextParag ** internal = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the bounding rectangle of the aligned text that would be printed with the corresponding drawText() function using the first \fIlen\fR characters from \fIstr\fR if \fIlen\fR is > -1, or the whole of \fIstr\fR if \fIlen\fR is -1. The drawing, and hence the bounding rectangle, is constrained to the rectangle \fIr\fR, or to the rectangle required to draw the text, whichever is the larger.
 .PP
 The \fIinternal\fR parameter should not be used.
 .PP
-See also drawText(), fontMetrics(), QFontMetrics::boundingRect(), and TQt::TextFlags.
-.SH "const QBrush & QPainter::brush () const"
+See also drawText(), fontMetrics(), TQFontMetrics::boundingRect(), and TQt::TextFlags.
+.SH "const TQBrush & TQPainter::brush () const"
 Returns the painter's current brush.
 .PP
-See also QPainter::setBrush().
+See also TQPainter::setBrush().
 .PP
 Examples:
 .)l themes/metal.cpp and themes/wood.cpp.
-.SH "const QPoint & QPainter::brushOrigin () const"
+.SH "const TQPoint & TQPainter::brushOrigin () const"
 Returns the brush origin currently set.
 .PP
 See also setBrushOrigin().
-.SH "QRegion QPainter::clipRegion ( CoordinateMode m = CoordDevice ) const"
+.SH "TQRegion TQPainter::clipRegion ( CoordinateMode m = CoordDevice ) const"
 Returns the currently set clip region. Note that the clip region is given in physical device coordinates and \fInot\fR subject to any coordinate transformation if \fIm\fR is equal to CoordDevice (the default). If \fIm\fR equals CoordPainter the returned region is in model coordinates.
 .PP
-See also setClipRegion(), setClipRect(), setClipping(), and QPainter::CoordinateMode.
+See also setClipRegion(), setClipRect(), setClipping(), and TQPainter::CoordinateMode.
 .PP
 Example: themes/wood.cpp.
-.SH "QPaintDevice * QPainter::device () const"
+.SH "TQPaintDevice * TQPainter::device () const"
 Returns the paint device on which this painter is currently painting, or 0 if the painter is not active.
 .PP
-See also QPaintDevice::paintingActive().
+See also TQPaintDevice::paintingActive().
 .PP
 Examples:
 .)l action/application.cpp, application/application.cpp, helpviewer/helpwindow.cpp, listboxcombo/listboxcombo.cpp, and mdi/application.cpp.
-.SH "void QPainter::drawArc ( int x, int y, int w, int h, int a, int alen )"
+.SH "void TQPainter::drawArc ( int x, int y, int w, int h, int a, int alen )"
 Draws an arc defined by the rectangle \fI(x, y, w, h)\fR, the start angle \fIa\fR and the arc length \fIalen\fR.
 .PP
 The angles \fIa\fR and \fIalen\fR are 1/16th of a degree, i.e. a full circle equals 5760 (16*360). Positive values of \fIa\fR and \fIalen\fR mean counter-clockwise while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
@@ -752,18 +750,18 @@ Example:
 .PP
 .nf
 .br
-        QPainter p( myWidget );
+        TQPainter p( myWidget );
 .br
         p.drawArc( 10,10, 70,100, 100*16, 160*16 ); // draws a "(" arc
 .br
 .fi
 .PP
 See also drawPie() and drawChord().
-.SH "void QPainter::drawArc ( const QRect & r, int a, int alen )"
+.SH "void TQPainter::drawArc ( const TQRect & r, int a, int alen )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the arc that fits inside the rectangle \fIr\fR with start angle \fIa\fR and arc length \fIalen\fR.
-.SH "void QPainter::drawChord ( int x, int y, int w, int h, int a, int alen )"
+.SH "void TQPainter::drawChord ( int x, int y, int w, int h, int a, int alen )"
 Draws a chord defined by the rectangle \fI(x, y, w, h)\fR, the start angle \fIa\fR and the arc length \fIalen\fR.
 .PP
 The chord is filled with the current brush().
@@ -771,11 +769,11 @@ The chord is filled with the current brush().
 The angles \fIa\fR and \fIalen\fR are 1/16th of a degree, i.e. a full circle equals 5760 (16*360). Positive values of \fIa\fR and \fIalen\fR mean counter-clockwise while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 .PP
 See also drawArc() and drawPie().
-.SH "void QPainter::drawChord ( const QRect & r, int a, int alen )"
+.SH "void TQPainter::drawChord ( const TQRect & r, int a, int alen )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws a chord that fits inside the rectangle \fIr\fR with start angle \fIa\fR and arc length \fIalen\fR.
-.SH "void QPainter::drawConvexPolygon ( const QPointArray & pa, int index = 0, int npoints = -1 )"
+.SH "void TQPainter::drawConvexPolygon ( const TQPointArray & pa, int index = 0, int npoints = -1 )"
 Draws the convex polygon defined by the \fInpoints\fR points in \fIpa\fR starting at \fIpa[index]\fR (\fIindex\fR defaults to 0).
 .PP
 If the supplied polygon is not convex, the results are undefined.
@@ -785,36 +783,36 @@ On some platforms (e.g. X Window), this is faster than drawPolygon().
 \fBWarning:\fR On X11, coordinates that do not fit into 16-bit signed values are truncated. This limitation is expected to go away in TQt 4.
 .PP
 Example: aclock/aclock.cpp.
-.SH "void QPainter::drawCubicBezier ( const QPointArray & a, int index = 0 )"
+.SH "void TQPainter::drawCubicBezier ( const TQPointArray & a, int index = 0 )"
 Draws a cubic Bezier curve defined by the control points in \fIa\fR, starting at \fIa[index]\fR (\fIindex\fR defaults to 0).
 .PP
 Control points after \fIa[index + 3]\fR are ignored. Nothing happens if there aren't enough control points.
 .PP
 \fBWarning:\fR On X11, coordinates that do not fit into 16-bit signed values are truncated. This limitation is expected to go away in TQt 4.
-.SH "void QPainter::drawEllipse ( int x, int y, int w, int h )"
+.SH "void TQPainter::drawEllipse ( int x, int y, int w, int h )"
 Draws an ellipse with center at \fI(x + w/2, y + h/2)\fR and size \fI(w, h)\fR.
 .PP
 Examples:
 .)l drawdemo/drawdemo.cpp, multiple/ax2.h, picture/picture.cpp, and tictac/tictac.cpp.
-.SH "void QPainter::drawEllipse ( const QRect & r )"
+.SH "void TQPainter::drawEllipse ( const TQRect & r )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the ellipse that fits inside rectangle \fIr\fR.
-.SH "void QPainter::drawImage ( int x, int y, const TQImage & image, int sx = 0, int sy = 0, int sw = -1, int sh = -1, int conversionFlags = 0 )"
+.SH "void TQPainter::drawImage ( int x, int y, const TQImage & image, int sx = 0, int sy = 0, int sw = -1, int sh = -1, int conversionFlags = 0 )"
 Draws at (\fIx\fR, \fIy\fR) the \fIsw\fR by \fIsh\fR area of pixels from (\fIsx\fR, \fIsy\fR) in \fIimage\fR, using \fIconversionFlags\fR if the image needs to be converted to a pixmap. The default value for \fIconversionFlags\fR is 0; see convertFromImage() for information about what other values do.
 .PP
-This function may convert \fIimage\fR to a pixmap and then draw it, if device() is a QPixmap or a TQWidget, or else draw it directly, if device() is a QPrinter or QPicture.
+This function may convert \fIimage\fR to a pixmap and then draw it, if device() is a TQPixmap or a TQWidget, or else draw it directly, if device() is a TQPrinter or TQPicture.
 .PP
-Currently alpha masks of the image are ignored when painting on a QPrinter.
+Currently alpha masks of the image are ignored when painting on a TQPrinter.
 .PP
-See also drawPixmap() and QPixmap::convertFromImage().
+See also drawPixmap() and TQPixmap::convertFromImage().
 .PP
 Example: canvas/canvas.cpp.
-.SH "void QPainter::drawImage ( const QPoint &, const TQImage &, const QRect & sr, int conversionFlags = 0 )"
+.SH "void TQPainter::drawImage ( const TQPoint &, const TQImage &, const TQRect & sr, int conversionFlags = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the rectangle \fIsr\fR from the image at the given point.
-.SH "void QPainter::drawImage ( const QPoint & p, const TQImage & i, int conversion_flags = 0 )"
+.SH "void TQPainter::drawImage ( const TQPoint & p, const TQImage & i, int conversion_flags = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the image \fIi\fR at point \fIp\fR.
@@ -822,45 +820,45 @@ Draws the image \fIi\fR at point \fIp\fR.
 If the image needs to be modified to fit in a lower-resolution result (e.g. converting from 32-bit to 8-bit), use the \fIconversion_flags\fR to specify how you'd prefer this to happen.
 .PP
 See also TQt::ImageConversionFlags.
-.SH "void QPainter::drawImage ( const QRect & r, const TQImage & i )"
+.SH "void TQPainter::drawImage ( const TQRect & r, const TQImage & i )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the image \fIi\fR into the rectangle \fIr\fR. The image will be scaled to fit the rectangle if image and rectangle dimensions differ.
-.SH "void QPainter::drawLine ( int x1, int y1, int x2, int y2 )"
+.SH "void TQPainter::drawLine ( int x1, int y1, int x2, int y2 )"
 Draws a line from (\fIx1\fR, \fIy1\fR) to (\fIx2\fR, \fIy2\fR) and sets the current pen position to (\fIx2\fR, \fIy2\fR).
 .PP
 See also pen().
 .PP
 Examples:
 .)l aclock/aclock.cpp, drawlines/connect.cpp, progress/progress.cpp, splitter/splitter.cpp, themes/metal.cpp, and themes/wood.cpp.
-.SH "void QPainter::drawLine ( const QPoint & p1, const QPoint & p2 )"
+.SH "void TQPainter::drawLine ( const TQPoint & p1, const TQPoint & p2 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws a line from point \fIp1\fR to point \fIp2\fR.
-.SH "void QPainter::drawLineSegments ( const QPointArray & a, int index = 0, int nlines = -1 )"
+.SH "void TQPainter::drawLineSegments ( const TQPointArray & a, int index = 0, int nlines = -1 )"
 Draws \fInlines\fR separate lines from points defined in \fIa\fR, starting at \fIa[index]\fR (\fIindex\fR defaults to 0). If \fInlines\fR is -1 (the default) all points until the end of the array are used (i.e. (a.size()-index)/2 lines are drawn).
 .PP
 Draws the 1st line from \fIa[index]\fR to \fIa[index+1]\fR. Draws the 2nd line from \fIa[index+2]\fR to \fIa[index+3]\fR etc.
 .PP
 \fBWarning:\fR On X11, coordinates that do not fit into 16-bit signed values are truncated. This limitation is expected to go away in TQt 4.
 .PP
-See also drawPolyline(), drawPolygon(), and QPen.
-.SH "void QPainter::drawPicture ( int x, int y, const QPicture & pic )"
+See also drawPolyline(), drawPolygon(), and TQPen.
+.SH "void TQPainter::drawPicture ( int x, int y, const TQPicture & pic )"
 Replays the picture \fIpic\fR translated by (\fIx\fR, \fIy\fR).
 .PP
-This function does exactly the same as QPicture::play() when called with (\fIx\fR, \fIy\fR) = (0, 0).
+This function does exactly the same as TQPicture::play() when called with (\fIx\fR, \fIy\fR) = (0, 0).
 .PP
 Examples:
 .)l picture/picture.cpp and xform/xform.cpp.
-.SH "void QPainter::drawPicture ( const QPicture & pic )"
+.SH "void TQPainter::drawPicture ( const TQPicture & pic )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Use one of the other QPainter::drawPicture() functions with a (0, 0) offset instead.
-.SH "void QPainter::drawPicture ( const QPoint & p, const QPicture & pic )"
+Use one of the other TQPainter::drawPicture() functions with a (0, 0) offset instead.
+.SH "void TQPainter::drawPicture ( const TQPoint & p, const TQPicture & pic )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws picture \fIpic\fR at point \fIp\fR.
-.SH "void QPainter::drawPie ( int x, int y, int w, int h, int a, int alen )"
+.SH "void TQPainter::drawPie ( int x, int y, int w, int h, int a, int alen )"
 Draws a pie defined by the rectangle \fI(x, y, w, h)\fR, the start angle \fIa\fR and the arc length \fIalen\fR.
 .PP
 The pie is filled with the current brush().
@@ -870,54 +868,54 @@ The angles \fIa\fR and \fIalen\fR are 1/16th of a degree, i.e. a full circle equ
 See also drawArc() and drawChord().
 .PP
 Examples:
-.)l drawdemo/drawdemo.cpp, grapher/grapher.cpp, t10/cannon.cpp, and t9/cannon.cpp.
-.SH "void QPainter::drawPie ( const QRect & r, int a, int alen )"
+.)l drawdemo/drawdemo.cpp, t10/cannon.cpp and t9/cannon.cpp.
+.SH "void TQPainter::drawPie ( const TQRect & r, int a, int alen )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws a pie segment that fits inside the rectangle \fIr\fR with start angle \fIa\fR and arc length \fIalen\fR.
-.SH "void QPainter::drawPixmap ( int x, int y, const QPixmap & pixmap, int sx = 0, int sy = 0, int sw = -1, int sh = -1 )"
+.SH "void TQPainter::drawPixmap ( int x, int y, const TQPixmap & pixmap, int sx = 0, int sy = 0, int sw = -1, int sh = -1 )"
 Draws a pixmap at \fI(x, y)\fR by copying a part of \fIpixmap\fR into the paint device.
 .PP
 \fI(x, y)\fR specifies the top-left point in the paint device that is to be drawn onto. \fI(sx, sy)\fR specifies the top-left point in \fIpixmap\fR that is to be drawn. The default is (0, 0).
 .PP
 \fI(sw, sh)\fR specifies the size of the pixmap that is to be drawn. The default, (-1, -1), means all the way to the bottom right of the pixmap.
 .PP
-Currently the mask of the pixmap or it's alpha channel are ignored when painting on a QPrinter.
+Currently the mask of the pixmap or it's alpha channel are ignored when painting on a TQPrinter.
 .PP
-See also bitBlt() and QPixmap::setMask().
+See also bitBlt() and TQPixmap::setMask().
 .PP
 Examples:
-.)l grapher/grapher.cpp, picture/picture.cpp, qdir/qdir.cpp, qmag/qmag.cpp, showimg/showimg.cpp, t10/cannon.cpp, and xform/xform.cpp.
-.SH "void QPainter::drawPixmap ( const QPoint & p, const QPixmap & pm, const QRect & sr )"
+.)l picture/picture.cpp, tqdir/tqdir.cpp, qmag/qmag.cpp, showimg/showimg.cpp, t10/cannon.cpp, and xform/xform.cpp.
+.SH "void TQPainter::drawPixmap ( const TQPoint & p, const TQPixmap & pm, const TQRect & sr )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the rectangle \fIsr\fR of pixmap \fIpm\fR with its origin at point \fIp\fR.
-.SH "void QPainter::drawPixmap ( const QPoint & p, const QPixmap & pm )"
+.SH "void TQPainter::drawPixmap ( const TQPoint & p, const TQPixmap & pm )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the pixmap \fIpm\fR with its origin at point \fIp\fR.
-.SH "void QPainter::drawPixmap ( const QRect & r, const QPixmap & pm )"
+.SH "void TQPainter::drawPixmap ( const TQRect & r, const TQPixmap & pm )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the pixmap \fIpm\fR into the rectangle \fIr\fR. The pixmap is scaled to fit the rectangle, if image and rectangle size disagree.
-.SH "void QPainter::drawPoint ( int x, int y )"
+.SH "void TQPainter::drawPoint ( int x, int y )"
 Draws/plots a single point at \fI(x, y)\fR using the current pen.
 .PP
-See also QPen.
+See also TQPen.
 .PP
 Examples:
 .)l desktop/desktop.cpp and drawlines/connect.cpp.
-.SH "void QPainter::drawPoint ( const QPoint & p )"
+.SH "void TQPainter::drawPoint ( const TQPoint & p )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the point \fIp\fR.
-.SH "void QPainter::drawPoints ( const QPointArray & a, int index = 0, int npoints = -1 )"
+.SH "void TQPainter::drawPoints ( const TQPointArray & a, int index = 0, int npoints = -1 )"
 Draws/plots an array of points, \fIa\fR, using the current pen.
 .PP
 If \fIindex\fR is non-zero (the default is zero) only points from \fIindex\fR are drawn. If \fInpoints\fR is negative (the default) the rest of the points from \fIindex\fR are drawn. If \fInpoints\fR is zero or greater, \fInpoints\fR points are drawn.
 .PP
 \fBWarning:\fR On X11, coordinates that do not fit into 16-bit signed values are truncated. This limitation is expected to go away in TQt 4.
-.SH "void QPainter::drawPolygon ( const QPointArray & a, bool winding = FALSE, int index = 0, int npoints = -1 )"
+.SH "void TQPainter::drawPolygon ( const TQPointArray & a, bool winding = FALSE, int index = 0, int npoints = -1 )"
 Draws the polygon defined by the \fInpoints\fR points in \fIa\fR starting at \fIa[index]\fR. (\fIindex\fR defaults to 0.)
 .PP
 If \fInpoints\fR is -1 (the default) all points until the end of the array are used (i.e. a.size()-index line segments define the polygon).
@@ -928,77 +926,77 @@ The polygon is filled with the current brush(). If \fIwinding\fR is TRUE, the po
 .PP
 \fBWarning:\fR On X11, coordinates that do not fit into 16-bit signed values are truncated. This limitation is expected to go away in TQt 4.
 .PP
-See also drawLineSegments(), drawPolyline(), and QPen.
+See also drawLineSegments(), drawPolyline(), and TQPen.
 .PP
 Examples:
 .)l desktop/desktop.cpp and picture/picture.cpp.
-.SH "void QPainter::drawPolyline ( const QPointArray & a, int index = 0, int npoints = -1 )"
+.SH "void TQPainter::drawPolyline ( const TQPointArray & a, int index = 0, int npoints = -1 )"
 Draws the polyline defined by the \fInpoints\fR points in \fIa\fR starting at \fIa[index]\fR. (\fIindex\fR defaults to 0.)
 .PP
 If \fInpoints\fR is -1 (the default) all points until the end of the array are used (i.e. a.size()-index-1 line segments are drawn).
 .PP
 \fBWarning:\fR On X11, coordinates that do not fit into 16-bit signed values are truncated. This limitation is expected to go away in TQt 4.
 .PP
-See also drawLineSegments(), drawPolygon(), and QPen.
+See also drawLineSegments(), drawPolygon(), and TQPen.
 .PP
 Examples:
 .)l scribble/scribble.cpp and themes/metal.cpp.
-.SH "void QPainter::drawRect ( int x, int y, int w, int h )"
+.SH "void TQPainter::drawRect ( int x, int y, int w, int h )"
 Draws a rectangle with upper left corner at \fI(x, y)\fR and with width \fIw\fR and height \fIh\fR.
 .PP
-See also QPen and drawRoundRect().
+See also TQPen and drawRoundRect().
 .PP
 Examples:
-.)l drawdemo/drawdemo.cpp, picture/picture.cpp, t10/cannon.cpp, t11/cannon.cpp, t9/cannon.cpp, tooltip/tooltip.cpp, and trivial/trivial.cpp.
-.SH "void QPainter::drawRect ( const QRect & r )"
+.)l drawdemo/drawdemo.cpp, picture/picture.cpp, t10/cannon.cpp, t11/cannon.cpp, t9/cannon.cpp and tooltip/tooltip.cpp.
+.SH "void TQPainter::drawRect ( const TQRect & r )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the rectangle \fIr\fR.
-.SH "void QPainter::drawRoundRect ( int x, int y, int w, int h, int xRnd = 25, int yRnd = 25 )"
+.SH "void TQPainter::drawRoundRect ( int x, int y, int w, int h, int xRnd = 25, int yRnd = 25 )"
 Draws a rectangle with rounded corners at \fI(x, y)\fR, with width \fIw\fR and height \fIh\fR.
 .PP
 The \fIxRnd\fR and \fIyRnd\fR arguments specify how rounded the corners should be. 0 is angled corners, 99 is maximum roundedness.
 .PP
 The width and height include all of the drawn lines.
 .PP
-See also drawRect() and QPen.
+See also drawRect() and TQPen.
 .PP
 Examples:
 .)l drawdemo/drawdemo.cpp and themes/wood.cpp.
-.SH "void QPainter::drawRoundRect ( const QRect & r, int xRnd = 25, int yRnd = 25 )"
+.SH "void TQPainter::drawRoundRect ( const TQRect & r, int xRnd = 25, int yRnd = 25 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws a rounded rectangle \fIr\fR, rounding to the x position \fIxRnd\fR and the y position \fIyRnd\fR on each corner.
-.SH "void QPainter::drawText ( const QPoint & p, const TQString &, int pos, int len, TextDirection dir = Auto )"
+.SH "void TQPainter::drawText ( const TQPoint & p, const TQString &, int pos, int len, TextDirection dir = Auto )"
 Draws the text from position \fIpos\fR, at point \fIp\fR. If \fIlen\fR is -1 the entire string is drawn, otherwise just the first \fIlen\fR characters. The text's direction is specified by \fIdir\fR.
 .PP
 Note that the meaning of \fIy\fR is not the same for the two drawText() varieties. For overloads that take a simple \fIx\fR, \fIy\fR pair (or a point), the \fIy\fR value is the text's baseline; for overloads that take a rectangle, \fIrect.y()\fR is the top of the rectangle and the text is aligned within that rectangle in accordance with the alignment flags.
 .PP
-See also QPainter::TextDirection.
+See also TQPainter::TextDirection.
 .PP
 Examples:
-.)l desktop/desktop.cpp, drawdemo/drawdemo.cpp, grapher/grapher.cpp, picture/picture.cpp, progress/progress.cpp, t8/cannon.cpp, and trivial/trivial.cpp.
-.SH "void QPainter::drawText ( int x, int y, const TQString &, int len = -1, TextDirection dir = Auto )"
+.)l desktop/desktop.cpp, drawdemo/drawdemo.cpp, picture/picture.cpp, progress/progress.cpp and t8/cannon.cpp.
+.SH "void TQPainter::drawText ( int x, int y, const TQString &, int len = -1, TextDirection dir = Auto )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the given text at position \fIx\fR, \fIy\fR. If \fIlen\fR is -1 (the default) all the text is drawn, otherwise the first \fIlen\fR characters are drawn. The text's direction is given by \fIdir\fR.
 .PP
-See also QPainter::TextDirection.
-.SH "void QPainter::drawText ( const QPoint &, const TQString &, int len = -1, TextDirection dir = Auto )"
+See also TQPainter::TextDirection.
+.SH "void TQPainter::drawText ( const TQPoint &, const TQString &, int len = -1, TextDirection dir = Auto )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the text at the given point.
 .PP
-See also QPainter::TextDirection.
-.SH "void QPainter::drawText ( int x, int y, const TQString &, int pos, int len, TextDirection dir = Auto )"
+See also TQPainter::TextDirection.
+.SH "void TQPainter::drawText ( int x, int y, const TQString &, int pos, int len, TextDirection dir = Auto )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the text from position \fIpos\fR, at point \fI(x, y)\fR. If \fIlen\fR is -1 the entire string is drawn, otherwise just the first \fIlen\fR characters. The text's direction is specified by \fIdir\fR.
-.SH "void QPainter::drawText ( int x, int y, int w, int h, int flags, const TQString &, int len = -1, QRect * br = 0, QTextParag ** internal = 0 )"
+.SH "void TQPainter::drawText ( int x, int y, int w, int h, int flags, const TQString &, int len = -1, TQRect * br = 0, TQTextParag ** internal = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws the given text within the rectangle starting at \fIx\fR, \fIy\fR, with width \fIw\fR and height \fIh\fR. If \fIlen\fR is -1 (the default) all the text is drawn, otherwise the first \fIlen\fR characters are drawn. The text's flags that are given in the \fIflags\fR parameter are TQt::AlignmentFlags and TQt::TextFlags OR'd together. \fIbr\fR (if not null) is set to the actual bounding rectangle of the output. The \fIinternal\fR parameter is for internal use only.
-.SH "void QPainter::drawText ( const QRect & r, int tf, const TQString & str, int len = -1, QRect * brect = 0, QTextParag ** internal = 0 )"
+.SH "void TQPainter::drawText ( const TQRect & r, int tf, const TQString & str, int len = -1, TQRect * brect = 0, TQTextParag ** internal = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws at most \fIlen\fR characters from \fIstr\fR in the rectangle \fIr\fR.
@@ -1010,7 +1008,7 @@ Horizontal alignment defaults to AlignAuto and vertical alignment defaults to Al
 \fIbrect\fR (if not null) is set to the actual bounding rectangle of the output. \fIinternal\fR is, yes, internal.
 .PP
 See also boundingRect().
-.SH "void QPainter::drawTiledPixmap ( int x, int y, int w, int h, const QPixmap & pixmap, int sx = 0, int sy = 0 )"
+.SH "void TQPainter::drawTiledPixmap ( int x, int y, int w, int h, const TQPixmap & pixmap, int sx = 0, int sy = 0 )"
 Draws a tiled \fIpixmap\fR in the specified rectangle.
 .PP
 \fI(x, y)\fR specifies the top-left point in the paint device that is to be drawn onto; with the width and height given by \fIw\fR and \fIh\fR. \fI(sx, sy)\fR specifies the top-left point in \fIpixmap\fR that is to be drawn. The default is (0, 0).
@@ -1018,50 +1016,50 @@ Draws a tiled \fIpixmap\fR in the specified rectangle.
 Calling drawTiledPixmap() is similar to calling drawPixmap() several times to fill (tile) an area with a pixmap, but is potentially much more efficient depending on the underlying window system.
 .PP
 See also drawPixmap().
-.SH "void QPainter::drawTiledPixmap ( const QRect & r, const QPixmap & pm, const QPoint & sp )"
+.SH "void TQPainter::drawTiledPixmap ( const TQRect & r, const TQPixmap & pm, const TQPoint & sp )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws a tiled pixmap, \fIpm\fR, inside rectangle \fIr\fR with its origin at point \fIsp\fR.
-.SH "void QPainter::drawTiledPixmap ( const QRect & r, const QPixmap & pm )"
+.SH "void TQPainter::drawTiledPixmap ( const TQRect & r, const TQPixmap & pm )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws a tiled pixmap, \fIpm\fR, inside rectangle \fIr\fR.
-.SH "void QPainter::drawWinFocusRect ( int x, int y, int w, int h, const TQColor & bgColor )"
+.SH "void TQPainter::drawWinFocusRect ( int x, int y, int w, int h, const TQColor & bgColor )"
 Draws a Windows focus rectangle with upper left corner at (\fIx\fR, \fIy\fR) and with width \fIw\fR and height \fIh\fR using a pen color that contrasts with \fIbgColor\fR.
 .PP
-This function draws a stippled rectangle (XOR is not used) that is used to indicate keyboard focus (when the QApplication::style() is \fCWindowStyle\fR).
+This function draws a stippled rectangle (XOR is not used) that is used to indicate keyboard focus (when the TQApplication::style() is \fCWindowStyle\fR).
 .PP
 The pen color used to draw the rectangle is either white or black depending on the color of \fIbgColor\fR (see TQColor::gray()).
 .PP
 \fBWarning:\fR This function draws nothing if the coordinate system has been rotated or sheared.
 .PP
-See also drawRect() and QApplication::style().
-.SH "void QPainter::drawWinFocusRect ( int x, int y, int w, int h )"
+See also drawRect() and TQApplication::style().
+.SH "void TQPainter::drawWinFocusRect ( int x, int y, int w, int h )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws a Windows focus rectangle with upper left corner at (\fIx\fR, \fIy\fR) and with width \fIw\fR and height \fIh\fR.
 .PP
-This function draws a stippled XOR rectangle that is used to indicate keyboard focus (when QApplication::style() is \fCWindowStyle\fR).
+This function draws a stippled XOR rectangle that is used to indicate keyboard focus (when TQApplication::style() is \fCWindowStyle\fR).
 .PP
 \fBWarning:\fR This function draws nothing if the coordinate system has been rotated or sheared.
 .PP
-See also drawRect() and QApplication::style().
-.SH "void QPainter::drawWinFocusRect ( const QRect & r )"
+See also drawRect() and TQApplication::style().
+.SH "void TQPainter::drawWinFocusRect ( const TQRect & r )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws rectangle \fIr\fR as a window focus rectangle.
-.SH "void QPainter::drawWinFocusRect ( const QRect & r, const TQColor & bgColor )"
+.SH "void TQPainter::drawWinFocusRect ( const TQRect & r, const TQColor & bgColor )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws rectangle \fIr\fR as a window focus rectangle using background color \fIbgColor\fR.
-.SH "bool QPainter::end ()"
+.SH "bool TQPainter::end ()"
 Ends painting. Any resources used while painting are released.
 .PP
 Note that while you mostly don't need to call end(), the destructor will do it, there is at least one common case when it is needed, namely double buffering.
 .PP
 .nf
 .br
-        QPainter p( myPixmap, this )
+        TQPainter p( myPixmap, this )
 .br
         // ...
 .br
@@ -1073,188 +1071,188 @@ Note that while you mostly don't need to call end(), the destructor will do it, 
 .br
 .fi
 .PP
-Since you can't draw a QPixmap while it is being painted, it is necessary to close the active painter.
+Since you can't draw a TQPixmap while it is being painted, it is necessary to close the active painter.
 .PP
 See also begin() and isActive().
 .PP
 Examples:
 .)l aclock/aclock.cpp, desktop/desktop.cpp, hello/hello.cpp, picture/picture.cpp, scribble/scribble.cpp, t10/cannon.cpp, and xform/xform.cpp.
-.SH "void QPainter::eraseRect ( int x, int y, int w, int h )"
+.SH "void TQPainter::eraseRect ( int x, int y, int w, int h )"
 Erases the area inside \fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR. Equivalent to \fCfillRect( x, y, w, h, backgroundColor() )\fR.
 .PP
 Examples:
 .)l listboxcombo/listboxcombo.cpp and showimg/showimg.cpp.
-.SH "void QPainter::eraseRect ( const QRect & r )"
+.SH "void TQPainter::eraseRect ( const TQRect & r )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Erases the area inside the rectangle \fIr\fR.
-.SH "void QPainter::fillRect ( int x, int y, int w, int h, const QBrush & brush )"
+.SH "void TQPainter::fillRect ( int x, int y, int w, int h, const TQBrush & brush )"
 Fills the rectangle \fI(x, y, w, h)\fR with the \fIbrush\fR.
 .PP
-You can specify a TQColor as \fIbrush\fR, since there is a QBrush constructor that takes a TQColor argument and creates a solid pattern brush.
+You can specify a TQColor as \fIbrush\fR, since there is a TQBrush constructor that takes a TQColor argument and creates a solid pattern brush.
 .PP
 See also drawRect().
 .PP
 Examples:
-.)l listboxcombo/listboxcombo.cpp, multiple/ax1.h, progress/progress.cpp, qdir/qdir.cpp, qfd/fontdisplayer.cpp, themes/metal.cpp, and themes/wood.cpp.
-.SH "void QPainter::fillRect ( const QRect & r, const QBrush & brush )"
+.)l listboxcombo/listboxcombo.cpp, multiple/ax1.h, progress/progress.cpp, tqdir/tqdir.cpp, qfd/fontdisplayer.cpp, themes/metal.cpp, and themes/wood.cpp.
+.SH "void TQPainter::fillRect ( const TQRect & r, const TQBrush & brush )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Fills the rectangle \fIr\fR using brush \fIbrush\fR.
-.SH "void QPainter::flush ( const QRegion & region, CoordinateMode cm = CoordDevice )"
+.SH "void TQPainter::flush ( const TQRegion & region, CoordinateMode cm = CoordDevice )"
 Flushes any buffered drawing operations inside the region \fIregion\fR using clipping mode \fIcm\fR.
 .PP
 The flush may update the whole device if the platform does not support flushing to a specified region.
 .PP
 See also CoordinateMode.
-.SH "void QPainter::flush ()"
+.SH "void TQPainter::flush ()"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Flushes any buffered drawing operations.
-.SH "const QFont & QPainter::font () const"
+.SH "const TQFont & TQPainter::font () const"
 Returns the currently set painter font.
 .PP
-See also setFont() and QFont.
+See also setFont() and TQFont.
 .PP
-Example: fileiconview/qfileiconview.cpp.
-.SH "QFontInfo QPainter::fontInfo () const"
+Example: fileiconview/tqfileiconview.cpp.
+.SH "TQFontInfo TQPainter::fontInfo () const"
 Returns the font info for the painter, if the painter is active. It is not possible to obtain font information for an inactive painter, so the return value is undefined if the painter is not active.
 .PP
 See also fontMetrics() and isActive().
-.SH "QFontMetrics QPainter::fontMetrics () const"
+.SH "TQFontMetrics TQPainter::fontMetrics () const"
 Returns the font metrics for the painter, if the painter is active. It is not possible to obtain metrics for an inactive painter, so the return value is undefined if the painter is not active.
 .PP
 See also fontInfo() and isActive().
 .PP
 Examples:
 .)l action/application.cpp, application/application.cpp, desktop/desktop.cpp, drawdemo/drawdemo.cpp, helpviewer/helpwindow.cpp, mdi/application.cpp, and qwerty/qwerty.cpp.
-.SH "HDC QPainter::handle () const"
+.SH "HDC TQPainter::handle () const"
 Returns the platform-dependent handle used for drawing. Using this function is not portable.
-.SH "bool QPainter::hasClipping () const"
+.SH "bool TQPainter::hasClipping () const"
 Returns TRUE if clipping has been set; otherwise returns FALSE.
 .PP
 See also setClipping().
 .PP
 Example: themes/wood.cpp.
-.SH "bool QPainter::hasViewXForm () const"
+.SH "bool TQPainter::hasViewXForm () const"
 Returns TRUE if view transformation is enabled; otherwise returns FALSE.
 .PP
 See also setViewXForm() and xForm().
-.SH "bool QPainter::hasWorldXForm () const"
+.SH "bool TQPainter::hasWorldXForm () const"
 Returns TRUE if world transformation is enabled; otherwise returns FALSE.
 .PP
 See also setWorldXForm().
-.SH "bool QPainter::isActive () const"
+.SH "bool TQPainter::isActive () const"
 Returns TRUE if the painter is active painting, i.e. begin() has been called and end() has not yet been called; otherwise returns FALSE.
 .PP
-See also QPaintDevice::paintingActive().
+See also TQPaintDevice::paintingActive().
 .PP
 Examples:
 .)l desktop/desktop.cpp and helpviewer/helpwindow.cpp.
-.SH "void QPainter::lineTo ( int x, int y )"
+.SH "void TQPainter::lineTo ( int x, int y )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use drawLine() instead.
 .PP
 Draws a line from the current pen position to \fI(x, y)\fR and sets \fI(x, y)\fR to be the new current pen position.
 .PP
-See also QPen, moveTo(), drawLine(), and pos().
-.SH "void QPainter::lineTo ( const QPoint & p )"
+See also TQPen, moveTo(), drawLine(), and pos().
+.SH "void TQPainter::lineTo ( const TQPoint & p )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Draws a line to the point \fIp\fR.
-.SH "void QPainter::moveTo ( int x, int y )"
+.SH "void TQPainter::moveTo ( int x, int y )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Sets the current pen position to \fI(x, y)\fR
 .PP
 See also lineTo() and pos().
-.SH "void QPainter::moveTo ( const QPoint & p )"
+.SH "void TQPainter::moveTo ( const TQPoint & p )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Moves to the point \fIp\fR.
-.SH "const QPen & QPainter::pen () const"
+.SH "const TQPen & TQPainter::pen () const"
 Returns the painter's current pen.
 .PP
 See also setPen().
 .PP
 Examples:
 .)l multiple/ax2.h, progress/progress.cpp, and themes/wood.cpp.
-.SH "QPoint QPainter::pos () const"
+.SH "TQPoint TQPainter::pos () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the current position of the pen.
 .PP
 See also moveTo().
-.SH "RasterOp QPainter::rasterOp () const"
+.SH "RasterOp TQPainter::rasterOp () const"
 Returns the current raster operation.
 .PP
 See also setRasterOp() and RasterOp.
-.SH "void QPainter::redirect ( QPaintDevice * pdev, QPaintDevice * replacement )\fC [static]\fR"
+.SH "void TQPainter::redirect ( TQPaintDevice * pdev, TQPaintDevice * replacement )\fC [static]\fR"
 Redirects all paint commands for a paint device, \fIpdev\fR, to another paint device, \fIreplacement\fR, unless \fIreplacement\fR is 0. If \fIreplacement\fR is 0, the redirection for \fIpdev\fR is removed.
 .PP
-In general, you'll probably find calling QPixmap::grabWidget() or QPixmap::grabWindow() is an easier solution.
-.SH "void QPainter::resetXForm ()"
+In general, you'll probably find calling TQPixmap::grabWidget() or TQPixmap::grabWindow() is an easier solution.
+.SH "void TQPainter::resetXForm ()"
 Resets any transformations that were made using translate(), scale(), shear(), rotate(), setWorldMatrix(), setViewport() and setWindow().
 .PP
 See also worldMatrix(), viewport(), and window().
-.SH "void QPainter::restore ()"
+.SH "void TQPainter::restore ()"
 Restores the current painter state (pops a saved state off the stack).
 .PP
 See also save().
 .PP
 Example: aclock/aclock.cpp.
-.SH "void QPainter::restoreWorldMatrix ()"
+.SH "void TQPainter::restoreWorldMatrix ()"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 We recommend using restore() instead.
-.SH "void QPainter::rotate ( double a )"
+.SH "void TQPainter::rotate ( double a )"
 Rotates the coordinate system \fIa\fR degrees counterclockwise.
 .PP
 See also translate(), scale(), shear(), resetXForm(), setWorldMatrix(), and xForm().
 .PP
 Examples:
 .)l aclock/aclock.cpp, t10/cannon.cpp, and t9/cannon.cpp.
-.SH "void QPainter::save ()"
+.SH "void TQPainter::save ()"
 Saves the current painter state (pushes the state onto a stack). A save() must be followed by a corresponding restore(). end() unwinds the stack.
 .PP
 See also restore().
 .PP
 Example: aclock/aclock.cpp.
-.SH "void QPainter::saveWorldMatrix ()"
+.SH "void TQPainter::saveWorldMatrix ()"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 We recommend using save() instead.
-.SH "void QPainter::scale ( double sx, double sy )"
+.SH "void TQPainter::scale ( double sx, double sy )"
 Scales the coordinate system by \fI(sx, sy)\fR.
 .PP
 See also translate(), shear(), rotate(), resetXForm(), setWorldMatrix(), and xForm().
 .PP
 Example: xform/xform.cpp.
-.SH "void QPainter::setBackgroundColor ( const TQColor & c )"
+.SH "void TQPainter::setBackgroundColor ( const TQColor & c )"
 Sets the background color of the painter to \fIc\fR.
 .PP
 The background color is the color that is filled in when drawing opaque text, stippled lines and bitmaps. The background color has no effect in transparent background mode (which is the default).
 .PP
 See also backgroundColor(), setBackgroundMode(), and BackgroundMode.
-.SH "void QPainter::setBackgroundMode ( BGMode m )"
+.SH "void TQPainter::setBackgroundMode ( BGMode m )"
 Sets the background mode of the painter to \fIm\fR, which must be either TransparentMode (the default) or OpaqueMode.
 .PP
 Transparent mode draws stippled lines and text without setting the background pixels. Opaque mode fills these space with the current background color.
 .PP
-Note that in order to draw a bitmap or pixmap transparently, you must use QPixmap::setMask().
+Note that in order to draw a bitmap or pixmap transparently, you must use TQPixmap::setMask().
 .PP
 See also backgroundMode() and setBackgroundColor().
 .PP
 Example: picture/picture.cpp.
-.SH "void QPainter::setBrush ( BrushStyle style )"
+.SH "void TQPainter::setBrush ( BrushStyle style )"
 Sets the painter's brush to black color and the specified \fIstyle\fR.
 .PP
-See also brush() and QBrush.
+See also brush() and TQBrush.
 .PP
 Examples:
 .)l aclock/aclock.cpp, drawdemo/drawdemo.cpp, picture/picture.cpp, t10/cannon.cpp, t9/cannon.cpp, themes/wood.cpp, and tooltip/tooltip.cpp.
-.SH "void QPainter::setBrush ( const QBrush & brush )"
+.SH "void TQPainter::setBrush ( const TQBrush & brush )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the painter's brush to \fIbrush\fR.
@@ -1262,38 +1260,38 @@ Sets the painter's brush to \fIbrush\fR.
 The \fIbrush\fR defines how shapes are filled.
 .PP
 See also brush().
-.SH "void QPainter::setBrush ( const TQColor & color )"
+.SH "void TQPainter::setBrush ( const TQColor & color )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the painter's brush to have style SolidPattern and the specified \fIcolor\fR.
 .PP
-See also brush() and QBrush.
-.SH "void QPainter::setBrushOrigin ( int x, int y )"
+See also brush() and TQBrush.
+.SH "void TQPainter::setBrushOrigin ( int x, int y )"
 Sets the brush origin to \fI(x, y)\fR.
 .PP
 The brush origin specifies the (0, 0) coordinate of the painter's brush. This setting only applies to pattern brushes and pixmap brushes.
 .PP
 See also brushOrigin().
-.SH "void QPainter::setBrushOrigin ( const QPoint & p )"
+.SH "void TQPainter::setBrushOrigin ( const TQPoint & p )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the brush origin to point \fIp\fR.
-.SH "void QPainter::setClipRect ( int x, int y, int w, int h, CoordinateMode m = CoordDevice )"
+.SH "void TQPainter::setClipRect ( int x, int y, int w, int h, CoordinateMode m = CoordDevice )"
 Sets the clip region to the rectangle \fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR and enables clipping. The clip mode is set to \fIm\fR.
 .PP
 If \fIm\fR is CoordDevice (the default), the coordinates given for the clip region are taken to be physical device coordinates and are \fInot\fR subject to any coordinate transformations. If \fIm\fR is CoordPainter, the coordinates given for the clip region are taken to be model coordinates.
 .PP
-See also setClipRegion(), clipRegion(), setClipping(), and QPainter::CoordinateMode.
+See also setClipRegion(), clipRegion(), setClipping(), and TQPainter::CoordinateMode.
 .PP
 Examples:
-.)l grapher/grapher.cpp, progress/progress.cpp, showimg/showimg.cpp, splitter/splitter.cpp, and trivial/trivial.cpp.
-.SH "void QPainter::setClipRect ( const QRect & r, CoordinateMode m = CoordDevice )"
+.)l progress/progress.cpp, showimg/showimg.cpp and splitter/splitter.cpp.
+.SH "void TQPainter::setClipRect ( const TQRect & r, CoordinateMode m = CoordDevice )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the clip region to the rectangle \fIr\fR and enables clipping. The clip mode is set to \fIm\fR.
 .PP
 See also CoordinateMode.
-.SH "void QPainter::setClipRegion ( const QRegion & rgn, CoordinateMode m = CoordDevice )"
+.SH "void TQPainter::setClipRegion ( const TQRegion & rgn, CoordinateMode m = CoordDevice )"
 Sets the clip region to \fIrgn\fR and enables clipping. The clip mode is set to \fIm\fR.
 .PP
 Note that the clip region is given in physical device coordinates and \fInot\fR subject to any coordinate transformation.
@@ -1302,13 +1300,13 @@ See also setClipRect(), clipRegion(), setClipping(), and CoordinateMode.
 .PP
 Examples:
 .)l qfd/fontdisplayer.cpp and themes/wood.cpp.
-.SH "void QPainter::setClipping ( bool enable )"
+.SH "void TQPainter::setClipping ( bool enable )"
 Enables clipping if \fIenable\fR is TRUE, or disables clipping if \fIenable\fR is FALSE.
 .PP
 See also hasClipping(), setClipRect(), and setClipRegion().
 .PP
 Example: themes/wood.cpp.
-.SH "void QPainter::setFont ( const QFont & font )"
+.SH "void TQPainter::setFont ( const TQFont & font )"
 Sets the painter's font to \fIfont\fR.
 .PP
 This font is used by subsequent drawText() functions. The text color is the same as the pen color.
@@ -1316,8 +1314,8 @@ This font is used by subsequent drawText() functions. The text color is the same
 See also font() and drawText().
 .PP
 Examples:
-.)l drawdemo/drawdemo.cpp, grapher/grapher.cpp, hello/hello.cpp, picture/picture.cpp, qwerty/qwerty.cpp, t13/cannon.cpp, and xform/xform.cpp.
-.SH "void QPainter::setPen ( const QPen & pen )"
+.)l drawdemo/drawdemo.cpp, hello/hello.cpp, picture/picture.cpp, qwerty/qwerty.cpp, t13/cannon.cpp, and xform/xform.cpp.
+.SH "void TQPainter::setPen ( const TQPen & pen )"
 Sets a new painter pen.
 .PP
 The \fIpen\fR defines how to draw lines and outlines, and it also defines the text color.
@@ -1326,29 +1324,29 @@ See also pen().
 .PP
 Examples:
 .)l desktop/desktop.cpp, drawdemo/drawdemo.cpp, multiple/ax2.h, progress/progress.cpp, t9/cannon.cpp, themes/metal.cpp, and themes/wood.cpp.
-.SH "void QPainter::setPen ( PenStyle style )"
+.SH "void TQPainter::setPen ( PenStyle style )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the painter's pen to have style \fIstyle\fR, width 0 and black color.
 .PP
-See also pen() and QPen.
-.SH "void QPainter::setPen ( const TQColor & color )"
+See also pen() and TQPen.
+.SH "void TQPainter::setPen ( const TQColor & color )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the painter's pen to have style SolidLine, width 0 and the specified \fIcolor\fR.
 .PP
-See also pen() and QPen.
-.SH "void QPainter::setRasterOp ( RasterOp r )"
+See also pen() and TQPen.
+.SH "void TQPainter::setRasterOp ( RasterOp r )"
 Sets the raster operation to \fIr\fR. The default is CopyROP.
 .PP
 See also rasterOp() and TQt::RasterOp.
-.SH "void QPainter::setTabArray ( int * ta )"
+.SH "void TQPainter::setTabArray ( int * ta )"
 Sets the tab stop array to \fIta\fR. This puts tab stops at \fIta[0]\fR, \fIta[1]\fR and so on. The array is null-terminated.
 .PP
 If both a tab array and a tab top size is set, the tab array wins.
 .PP
 See also tabArray(), setTabStops(), drawText(), and fontMetrics().
-.SH "void QPainter::setTabStops ( int ts )"
+.SH "void TQPainter::setTabStops ( int ts )"
 Set the tab stop width to \fIts\fR, i.e. locates tab stops at \fIts\fR, 2*\fIts\fR, 3*\fIts\fR and so on.
 .PP
 Tab stops are used when drawing formatted text with ExpandTabs set. This fixed tab stop value is used only if no tab array is set (which is the default case).
@@ -1356,11 +1354,11 @@ Tab stops are used when drawing formatted text with ExpandTabs set. This fixed t
 A value of 0 (the default) implies a tabstop setting of 8 times the width of the character 'x' in the font currently set on the painter.
 .PP
 See also tabStops(), setTabArray(), drawText(), and fontMetrics().
-.SH "void QPainter::setViewXForm ( bool enable )"
+.SH "void TQPainter::setViewXForm ( bool enable )"
 Enables view transformations if \fIenable\fR is TRUE, or disables view transformations if \fIenable\fR is FALSE.
 .PP
 See also hasViewXForm(), setWindow(), setViewport(), setWorldMatrix(), setWorldXForm(), and xForm().
-.SH "void QPainter::setViewport ( int x, int y, int w, int h )"
+.SH "void TQPainter::setViewport ( int x, int y, int w, int h )"
 Sets the viewport rectangle view transformation for the painter and enables view transformation.
 .PP
 The viewport rectangle is part of the view transformation. The viewport specifies the device coordinate system and is specified by the \fIx\fR, \fIy\fR, \fIw\fR width and \fIh\fR height parameters. Its sister, the window(), specifies the logical coordinate system.
@@ -1370,11 +1368,11 @@ The default viewport rectangle is the same as the device's rectangle. See the Co
 See also viewport(), setWindow(), setViewXForm(), setWorldMatrix(), setWorldXForm(), and xForm().
 .PP
 Example: aclock/aclock.cpp.
-.SH "void QPainter::setViewport ( const QRect & r )"
+.SH "void TQPainter::setViewport ( const TQRect & r )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the painter's viewport to rectangle \fIr\fR.
-.SH "void QPainter::setWindow ( int x, int y, int w, int h )"
+.SH "void TQPainter::setWindow ( int x, int y, int w, int h )"
 Sets the window rectangle view transformation for the painter and enables view transformation.
 .PP
 The window rectangle is part of the view transformation. The window specifies the logical coordinate system and is specified by the \fIx\fR, \fIy\fR, \fIw\fR width and \fIh\fR height parameters. Its sister, the viewport(), specifies the device coordinate system.
@@ -1385,20 +1383,20 @@ See also window(), setViewport(), setViewXForm(), setWorldMatrix(), and setWorld
 .PP
 Examples:
 .)l aclock/aclock.cpp and drawdemo/drawdemo.cpp.
-.SH "void QPainter::setWindow ( const QRect & r )"
+.SH "void TQPainter::setWindow ( const TQRect & r )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the painter's window to rectangle \fIr\fR.
-.SH "void QPainter::setWorldMatrix ( const QWMatrix & m, bool combine = FALSE )"
+.SH "void TQPainter::setWorldMatrix ( const TQWMatrix & m, bool combine = FALSE )"
 Sets the world transformation matrix to \fIm\fR and enables world transformation.
 .PP
 If \fIcombine\fR is TRUE, then \fIm\fR is combined with the current transformation matrix, otherwise \fIm\fR replaces the current transformation matrix.
 .PP
-If \fIm\fR is the identity matrix and \fIcombine\fR is FALSE, this function calls setWorldXForm(FALSE). (The identity matrix is the matrix where QWMatrix::m11() and QWMatrix::m22() are 1.0 and the rest are 0.0.)
+If \fIm\fR is the identity matrix and \fIcombine\fR is FALSE, this function calls setWorldXForm(FALSE). (The identity matrix is the matrix where TQWMatrix::m11() and TQWMatrix::m22() are 1.0 and the rest are 0.0.)
 .PP
 World transformations are applied after the view transformations (i.e. window and viewport).
 .PP
-The following functions can transform the coordinate system without using a QWMatrix:
+The following functions can transform the coordinate system without using a TQWMatrix:
 .TP
 translate()
 .TP
@@ -1412,11 +1410,11 @@ They operate on the painter's worldMatrix() and are implemented like this:
 .PP
 .nf
 .br
-        void QPainter::rotate( double a )
+        void TQPainter::rotate( double a )
 .br
         {
 .br
-            QWMatrix m;
+            TQWMatrix m;
 .br
             m.rotate( a );
 .br
@@ -1426,31 +1424,31 @@ They operate on the painter's worldMatrix() and are implemented like this:
 .br
 .fi
 .PP
-Note that you should always use \fIcombine\fR when you are drawing into a QPicture. Otherwise it may not be possible to replay the picture with additional transformations. Using translate(), scale(), etc., is safe.
+Note that you should always use \fIcombine\fR when you are drawing into a TQPicture. Otherwise it may not be possible to replay the picture with additional transformations. Using translate(), scale(), etc., is safe.
 .PP
 For a brief overview of coordinate transformation, see the Coordinate System Overview.
 .PP
-See also worldMatrix(), setWorldXForm(), setWindow(), setViewport(), setViewXForm(), xForm(), and QWMatrix.
+See also worldMatrix(), setWorldXForm(), setWindow(), setViewport(), setViewXForm(), xForm(), and TQWMatrix.
 .PP
 Examples:
 .)l drawdemo/drawdemo.cpp and xform/xform.cpp.
-.SH "void QPainter::setWorldXForm ( bool enable )"
+.SH "void TQPainter::setWorldXForm ( bool enable )"
 Enables world transformations if \fIenable\fR is TRUE, or disables world transformations if \fIenable\fR is FALSE. The world transformation matrix is not changed.
 .PP
 See also setWorldMatrix(), setWindow(), setViewport(), setViewXForm(), and xForm().
-.SH "void QPainter::shear ( double sh, double sv )"
+.SH "void TQPainter::shear ( double sh, double sv )"
 Shears the coordinate system by \fI(sh, sv)\fR.
 .PP
 See also translate(), scale(), rotate(), resetXForm(), setWorldMatrix(), and xForm().
-.SH "int * QPainter::tabArray () const"
+.SH "int * TQPainter::tabArray () const"
 Returns the currently set tab stop array.
 .PP
 See also setTabArray().
-.SH "int QPainter::tabStops () const"
+.SH "int TQPainter::tabStops () const"
 Returns the tab stop setting.
 .PP
 See also setTabStops().
-.SH "void QPainter::translate ( double dx, double dy )"
+.SH "void TQPainter::translate ( double dx, double dy )"
 Translates the coordinate system by \fI(dx, dy)\fR. After this call, \fI(dx, dy)\fR is added to points.
 .PP
 For example, the following code draws the same point twice:
@@ -1461,7 +1459,7 @@ For example, the following code draws the same point twice:
 .br
         {
 .br
-            QPainter paint( this );
+            TQPainter paint( this );
 .br
 .br
             paint.drawPoint( 0, 0 );
@@ -1479,39 +1477,39 @@ See also scale(), shear(), rotate(), resetXForm(), setWorldMatrix(), and xForm()
 .PP
 Examples:
 .)l action/application.cpp, application/application.cpp, t10/cannon.cpp, t9/cannon.cpp, themes/metal.cpp, themes/wood.cpp, and xform/xform.cpp.
-.SH "QRect QPainter::viewport () const"
+.SH "TQRect TQPainter::viewport () const"
 Returns the viewport rectangle.
 .PP
 See also setViewport() and setViewXForm().
 .PP
 Example: aclock/aclock.cpp.
-.SH "QRect QPainter::window () const"
+.SH "TQRect TQPainter::window () const"
 Returns the window rectangle.
 .PP
 See also setWindow() and setViewXForm().
-.SH "const QWMatrix & QPainter::worldMatrix () const"
+.SH "const TQWMatrix & TQPainter::worldMatrix () const"
 Returns the world transformation matrix.
 .PP
 See also setWorldMatrix().
-.SH "QPoint QPainter::xForm ( const QPoint & pv ) const"
+.SH "TQPoint TQPainter::xForm ( const TQPoint & pv ) const"
 Returns the point \fIpv\fR transformed from model coordinates to device coordinates.
 .PP
-See also xFormDev() and QWMatrix::map().
-.SH "QRect QPainter::xForm ( const QRect & rv ) const"
+See also xFormDev() and TQWMatrix::map().
+.SH "TQRect TQPainter::xForm ( const TQRect & rv ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the rectangle \fIrv\fR transformed from model coordinates to device coordinates.
 .PP
 If world transformation is enabled and rotation or shearing has been specified, then the bounding rectangle is returned.
 .PP
-See also xFormDev() and QWMatrix::map().
-.SH "QPointArray QPainter::xForm ( const QPointArray & av ) const"
+See also xFormDev() and TQWMatrix::map().
+.SH "TQPointArray TQPainter::xForm ( const TQPointArray & av ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the point array \fIav\fR transformed from model coordinates to device coordinates.
 .PP
-See also xFormDev() and QWMatrix::map().
-.SH "QPointArray QPainter::xForm ( const QPointArray & av, int index, int npoints ) const"
+See also xFormDev() and TQWMatrix::map().
+.SH "TQPointArray TQPainter::xForm ( const TQPointArray & av, int index, int npoints ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the point array \fIav\fR transformed from model coordinates to device coordinates. The \fIindex\fR is the first point in the array and \fInpoints\fR denotes the number of points to be transformed. If \fInpoints\fR is negative, all points from \fIav[index]\fR until the last point in the array are transformed.
@@ -1522,9 +1520,9 @@ Example:
 .PP
 .nf
 .br
-        QPointArray a(10);
+        TQPointArray a(10);
 .br
-        QPointArray b;
+        TQPointArray b;
 .br
         b = painter.xForm(a, 2, 4);  // b.size() == 4
 .br
@@ -1532,26 +1530,26 @@ Example:
 .br
 .fi
 .PP
-See also xFormDev() and QWMatrix::map().
-.SH "QRect QPainter::xFormDev ( const QRect & rd ) const"
+See also xFormDev() and TQWMatrix::map().
+.SH "TQRect TQPainter::xFormDev ( const TQRect & rd ) const"
 Returns the rectangle \fIrd\fR transformed from device coordinates to model coordinates.
 .PP
 If world transformation is enabled and rotation or shearing is used, then the bounding rectangle is returned.
 .PP
-See also xForm() and QWMatrix::map().
-.SH "QPoint QPainter::xFormDev ( const QPoint & pd ) const"
+See also xForm() and TQWMatrix::map().
+.SH "TQPoint TQPainter::xFormDev ( const TQPoint & pd ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the point \fIpd\fR transformed from device coordinates to model coordinates.
 .PP
-See also xForm() and QWMatrix::map().
-.SH "QPointArray QPainter::xFormDev ( const QPointArray & ad ) const"
+See also xForm() and TQWMatrix::map().
+.SH "TQPointArray TQPainter::xFormDev ( const TQPointArray & ad ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the point array \fIad\fR transformed from device coordinates to model coordinates.
 .PP
-See also xForm() and QWMatrix::map().
-.SH "QPointArray QPainter::xFormDev ( const QPointArray & ad, int index, int npoints ) const"
+See also xForm() and TQWMatrix::map().
+.SH "TQPointArray TQPainter::xFormDev ( const TQPointArray & ad, int index, int npoints ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the point array \fIad\fR transformed from device coordinates to model coordinates. The \fIindex\fR is the first point in the array and \fInpoints\fR denotes the number of points to be transformed. If \fInpoints\fR is negative, all points from \fIad[index]\fR until the last point in the array are transformed.
@@ -1562,9 +1560,9 @@ Example:
 .PP
 .nf
 .br
-        QPointArray a(10);
+        TQPointArray a(10);
 .br
-        QPointArray b;
+        TQPointArray b;
 .br
         b = painter.xFormDev(a, 1, 3);  // b.size() == 3
 .br
@@ -1572,10 +1570,10 @@ Example:
 .br
 .fi
 .PP
-See also xForm() and QWMatrix::map().
+See also xForm() and TQWMatrix::map().
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "void qDrawPlainRect ( QPainter * p, int x, int y, int w, int h, const TQColor & c, int lineWidth, const QBrush * fill )"
-\fC#include <ntqdrawutil.h>\fR
+.SH "void qDrawPlainRect ( TQPainter * p, int x, int y, int w, int h, const TQColor & c, int lineWidth, const TQBrush * fill )"
+\fC#include <tqdrawutil.h>\fR
 .PP
 Draws the plain rectangle specified by (\fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR) using the painter \fIp\fR.
 .PP
@@ -1585,13 +1583,13 @@ The \fIlineWidth\fR argument specifies the line width.
 .PP
 The rectangle's interior is filled with the \fIfill\fR brush unless \fIfill\fR is 0.
 .PP
-If you want to use a QFrame widget instead, you can make it display a plain rectangle, for example \fCQFrame::setFrameStyle( QFrame::Box | QFrame::Plain )\fR.
+If you want to use a TQFrame widget instead, you can make it display a plain rectangle, for example \fCTQFrame::setFrameStyle( TQFrame::Box | TQFrame::Plain )\fR.
 .PP
-\fBWarning:\fR This function does not look at TQWidget::style() or QApplication::style(). Use the drawing functions in QStyle to make widgets that follow the current GUI style.
+\fBWarning:\fR This function does not look at TQWidget::style() or TQApplication::style(). Use the drawing functions in TQStyle to make widgets that follow the current GUI style.
 .PP
-See also qDrawShadeRect() and QStyle::drawPrimitive().
-.SH "void qDrawShadeLine ( QPainter * p, int x1, int y1, int x2, int y2, const QColorGroup & g, bool sunken, int lineWidth, int midLineWidth )"
-\fC#include <ntqdrawutil.h>\fR
+See also qDrawShadeRect() and TQStyle::drawPrimitive().
+.SH "void qDrawShadeLine ( TQPainter * p, int x1, int y1, int x2, int y2, const TQColorGroup & g, bool sunken, int lineWidth, int midLineWidth )"
+\fC#include <tqdrawutil.h>\fR
 .PP
 Draws a horizontal (\fIy1\fR == \fIy2\fR) or vertical (\fIx1\fR == \fIx2\fR) shaded line using the painter \fIp\fR.
 .PP
@@ -1603,15 +1601,15 @@ The line appears sunken if \fIsunken\fR is TRUE, or raised if \fIsunken\fR is FA
 .PP
 The \fIlineWidth\fR argument specifies the line width for each of the lines. It is not the total line width.
 .PP
-The \fImidLineWidth\fR argument specifies the width of a middle line drawn in the QColorGroup::mid() color.
+The \fImidLineWidth\fR argument specifies the width of a middle line drawn in the TQColorGroup::mid() color.
 .PP
-If you want to use a QFrame widget instead, you can make it display a shaded line, for example \fCQFrame::setFrameStyle( QFrame::HLine | QFrame::Sunken )\fR.
+If you want to use a TQFrame widget instead, you can make it display a shaded line, for example \fCTQFrame::setFrameStyle( TQFrame::HLine | TQFrame::Sunken )\fR.
 .PP
-\fBWarning:\fR This function does not look at TQWidget::style() or QApplication::style(). Use the drawing functions in QStyle to make widgets that follow the current GUI style.
+\fBWarning:\fR This function does not look at TQWidget::style() or TQApplication::style(). Use the drawing functions in TQStyle to make widgets that follow the current GUI style.
 .PP
-See also qDrawShadeRect(), qDrawShadePanel(), and QStyle::drawPrimitive().
-.SH "void qDrawShadePanel ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool sunken, int lineWidth, const QBrush * fill )"
-\fC#include <ntqdrawutil.h>\fR
+See also qDrawShadeRect(), qDrawShadePanel(), and TQStyle::drawPrimitive().
+.SH "void qDrawShadePanel ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool sunken, int lineWidth, const TQBrush * fill )"
+\fC#include <tqdrawutil.h>\fR
 .PP
 Draws the shaded panel specified by (\fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR) using the painter \fIp\fR.
 .PP
@@ -1623,13 +1621,13 @@ The \fIlineWidth\fR argument specifies the line width.
 .PP
 The panel's interior is filled with the \fIfill\fR brush unless \fIfill\fR is 0.
 .PP
-If you want to use a QFrame widget instead, you can make it display a shaded panel, for example \fCQFrame::setFrameStyle( QFrame::Panel | QFrame::Sunken )\fR.
+If you want to use a TQFrame widget instead, you can make it display a shaded panel, for example \fCTQFrame::setFrameStyle( TQFrame::Panel | TQFrame::Sunken )\fR.
 .PP
-\fBWarning:\fR This function does not look at TQWidget::style() or QApplication::style(). Use the drawing functions in QStyle to make widgets that follow the current GUI style.
+\fBWarning:\fR This function does not look at TQWidget::style() or TQApplication::style(). Use the drawing functions in TQStyle to make widgets that follow the current GUI style.
 .PP
-See also qDrawWinPanel(), qDrawShadeLine(), qDrawShadeRect(), and QStyle::drawPrimitive().
-.SH "void qDrawShadeRect ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool sunken, int lineWidth, int midLineWidth, const QBrush * fill )"
-\fC#include <ntqdrawutil.h>\fR
+See also qDrawWinPanel(), qDrawShadeLine(), qDrawShadeRect(), and TQStyle::drawPrimitive().
+.SH "void qDrawShadeRect ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool sunken, int lineWidth, int midLineWidth, const TQBrush * fill )"
+\fC#include <tqdrawutil.h>\fR
 .PP
 Draws the shaded rectangle specified by (\fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR) using the painter \fIp\fR.
 .PP
@@ -1639,17 +1637,17 @@ The rectangle appears sunken if \fIsunken\fR is TRUE, or raised if \fIsunken\fR 
 .PP
 The \fIlineWidth\fR argument specifies the line width for each of the lines. It is not the total line width.
 .PP
-The \fImidLineWidth\fR argument specifies the width of a middle line drawn in the QColorGroup::mid() color.
+The \fImidLineWidth\fR argument specifies the width of a middle line drawn in the TQColorGroup::mid() color.
 .PP
 The rectangle's interior is filled with the \fIfill\fR brush unless \fIfill\fR is 0.
 .PP
-If you want to use a QFrame widget instead, you can make it display a shaded rectangle, for example \fCQFrame::setFrameStyle( QFrame::Box | QFrame::Raised )\fR.
+If you want to use a TQFrame widget instead, you can make it display a shaded rectangle, for example \fCTQFrame::setFrameStyle( TQFrame::Box | TQFrame::Raised )\fR.
 .PP
-\fBWarning:\fR This function does not look at TQWidget::style() or QApplication::style(). Use the drawing functions in QStyle to make widgets that follow the current GUI style.
+\fBWarning:\fR This function does not look at TQWidget::style() or TQApplication::style(). Use the drawing functions in TQStyle to make widgets that follow the current GUI style.
 .PP
-See also qDrawShadeLine(), qDrawShadePanel(), qDrawPlainRect(), QStyle::drawItem(), QStyle::drawControl(), and QStyle::drawComplexControl().
-.SH "void qDrawWinButton ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool sunken, const QBrush * fill )"
-\fC#include <ntqdrawutil.h>\fR
+See also qDrawShadeLine(), qDrawShadePanel(), qDrawPlainRect(), TQStyle::drawItem(), TQStyle::drawControl(), and TQStyle::drawComplexControl().
+.SH "void qDrawWinButton ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool sunken, const TQBrush * fill )"
+\fC#include <tqdrawutil.h>\fR
 .PP
 Draws the Windows-style button specified by (\fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR) using the painter \fIp\fR.
 .PP
@@ -1661,11 +1659,11 @@ The line width is 2 pixels.
 .PP
 The button's interior is filled with the \fI*fill\fR brush unless \fIfill\fR is 0.
 .PP
-\fBWarning:\fR This function does not look at TQWidget::style() or QApplication::style(). Use the drawing functions in QStyle to make widgets that follow the current GUI style.
+\fBWarning:\fR This function does not look at TQWidget::style() or TQApplication::style(). Use the drawing functions in TQStyle to make widgets that follow the current GUI style.
 .PP
-See also qDrawWinPanel() and QStyle::drawControl().
-.SH "void qDrawWinPanel ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool sunken, const QBrush * fill )"
-\fC#include <ntqdrawutil.h>\fR
+See also qDrawWinPanel() and TQStyle::drawControl().
+.SH "void qDrawWinPanel ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool sunken, const TQBrush * fill )"
+\fC#include <tqdrawutil.h>\fR
 .PP
 Draws the Windows-style panel specified by (\fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR) using the painter \fIp\fR.
 .PP
@@ -1677,14 +1675,14 @@ The line width is 2 pixels.
 .PP
 The button's interior is filled with the \fIfill\fR brush unless \fIfill\fR is 0.
 .PP
-If you want to use a QFrame widget instead, you can make it display a shaded panel, for example \fCQFrame::setFrameStyle( QFrame::WinPanel | QFrame::Raised )\fR.
+If you want to use a TQFrame widget instead, you can make it display a shaded panel, for example \fCTQFrame::setFrameStyle( TQFrame::WinPanel | TQFrame::Raised )\fR.
 .PP
-\fBWarning:\fR This function does not look at TQWidget::style() or QApplication::style(). Use the drawing functions in QStyle to make widgets that follow the current GUI style.
+\fBWarning:\fR This function does not look at TQWidget::style() or TQApplication::style(). Use the drawing functions in TQStyle to make widgets that follow the current GUI style.
 .PP
-See also qDrawShadePanel(), qDrawWinButton(), and QStyle::drawPrimitive().
+See also qDrawShadePanel(), qDrawWinButton(), and TQStyle::drawPrimitive().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqpainter.html
+.BR http://doc.trolltech.com/tqpainter.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

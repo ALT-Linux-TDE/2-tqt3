@@ -1,0 +1,1 @@
+../../src/widgets/tqeffects_p.h

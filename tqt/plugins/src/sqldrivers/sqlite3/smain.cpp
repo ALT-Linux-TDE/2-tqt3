@@ -34,8 +34,8 @@
 **
 **********************************************************************/
 
-#include <ntqsqldriverplugin.h>
-#include "../../../../src/sql/drivers/sqlite3/qsql_sqlite3.h"
+#include <tqsqldriverplugin.h>
+#include "../../../../src/sql/drivers/sqlite3/tqsql_sqlite3.h"
 
 class TQSQLite3DriverPlugin : public TQSqlDriverPlugin
 {

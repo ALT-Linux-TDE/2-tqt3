@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/tooltip/tooltip.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -50,38 +49,38 @@ tool tips on the blue rectangles and a static tool tip on the red one.
 **
 *****************************************************************************/
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
-#include &lt;<a href="qtooltip-h.html">ntqtooltip.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
+#include &lt;<a href="tqtooltip-h.html">tqtooltip.h</a>&gt;
 
 
-class DynamicTip : public <a href="ntqtooltip.html">TQToolTip</a>
+class DynamicTip : public <a href="tqtooltip.html">TQToolTip</a>
 {
 public:
-    DynamicTip( <a href="ntqwidget.html">TQWidget</a> * parent );
+    DynamicTip( <a href="tqwidget.html">TQWidget</a> * parent );
 
 protected:
-    void maybeTip( const <a href="ntqpoint.html">TQPoint</a> &amp; );
+    void maybeTip( const <a href="tqpoint.html">TQPoint</a> &amp; );
 };
 
 
-class TellMe : public <a href="ntqwidget.html">TQWidget</a>
+class TellMe : public <a href="tqwidget.html">TQWidget</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 public:
-    TellMe( <a href="ntqwidget.html">TQWidget</a> * parent = 0, const char * name = 0 );
+    TellMe( <a href="tqwidget.html">TQWidget</a> * parent = 0, const char * name = 0 );
     ~TellMe();
 
-    <a href="ntqrect.html">TQRect</a> tip( const <a href="ntqpoint.html">TQPoint</a> &amp; );
+    <a href="tqrect.html">TQRect</a> tip( const <a href="tqpoint.html">TQPoint</a> &amp; );
 
 protected:
-    void paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
-    void mousePressEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-    void resizeEvent( <a href="qresizeevent.html">TQResizeEvent</a> * );
+    void paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
+    void mousePressEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+    void resizeEvent( <a href="tqresizeevent.html">TQResizeEvent</a> * );
 
 private:
-    <a href="ntqrect.html">TQRect</a> randomRect();
+    <a href="tqrect.html">TQRect</a> randomRect();
 
-    <a href="ntqrect.html">TQRect</a> r1, r2, r3;
+    <a href="tqrect.html">TQRect</a> r1, r2, r3;
     DynamicTip * t;
 };
 </pre>
@@ -99,44 +98,44 @@ private:
 *****************************************************************************/
 
 #include "tooltip.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qpainter-h.html">ntqpainter.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
 #include &lt;stdlib.h&gt;
 
 
-<a name="f251"></a>DynamicTip::DynamicTip( <a href="ntqwidget.html">TQWidget</a> * parent )
-    : <a href="ntqtooltip.html">TQToolTip</a>( parent )
+<a name="f251"></a>DynamicTip::DynamicTip( <a href="tqwidget.html">TQWidget</a> * parent )
+    : <a href="tqtooltip.html">TQToolTip</a>( parent )
 {
     // no explicit initialization needed
 }
 
 
-<a name="x451"></a>void DynamicTip::<a href="ntqtooltip.html#maybeTip">maybeTip</a>( const <a href="ntqpoint.html">TQPoint</a> &amp;pos )
+<a name="x451"></a>void DynamicTip::<a href="tqtooltip.html#maybeTip">maybeTip</a>( const <a href="tqpoint.html">TQPoint</a> &amp;pos )
 {
     if ( !parentWidget()-&gt;inherits( "TellMe" ) )
         return;
 
-    <a href="ntqrect.html">TQRect</a> r( ((TellMe*)<a href="ntqtooltip.html#parentWidget">parentWidget</a>())-&gt;tip(pos) );
-<a name="x448"></a>    if ( !r.<a href="ntqrect.html#isValid">isValid</a>() )
+    <a href="tqrect.html">TQRect</a> r( ((TellMe*)<a href="tqtooltip.html#parentWidget">parentWidget</a>())-&gt;tip(pos) );
+<a name="x448"></a>    if ( !r.<a href="tqrect.html#isValid">isValid</a>() )
         return;
 
-    <a href="ntqstring.html">TQString</a> s;
-<a name="x449"></a><a name="x447"></a>    s.<a href="ntqstring.html#sprintf">sprintf</a>( "position: %d,%d", r.<a href="ntqrect.html#center">center</a>().x(), r.<a href="ntqrect.html#center">center</a>().y() );
+    <a href="tqstring.html">TQString</a> s;
+<a name="x449"></a><a name="x447"></a>    s.<a href="tqstring.html#sprintf">sprintf</a>( "position: %d,%d", r.<a href="tqrect.html#center">center</a>().x(), r.<a href="tqrect.html#center">center</a>().y() );
     tip( r, s );
 }
 
 
-<a name="f252"></a>TellMe::TellMe( <a href="ntqwidget.html">TQWidget</a> * parent , const char * name  )
-    : <a href="ntqwidget.html">TQWidget</a>( parent, name )
+<a name="f252"></a>TellMe::TellMe( <a href="tqwidget.html">TQWidget</a> * parent , const char * name  )
+    : <a href="tqwidget.html">TQWidget</a>( parent, name )
 {
-    <a href="ntqwidget.html#setMinimumSize">setMinimumSize</a>( 30, 30 );
+    <a href="tqwidget.html#setMinimumSize">setMinimumSize</a>( 30, 30 );
     r1 = randomRect();
     r2 = randomRect();
     r3 = randomRect();
 
     t = new DynamicTip( this );
 
-<a name="x450"></a>    TQToolTip::<a href="ntqtooltip.html#add">add</a>( this, r3, "this color is called red" ); // &lt;- helpful
+<a name="x450"></a>    TQToolTip::<a href="tqtooltip.html#add">add</a>( this, r3, "this color is called red" ); // &lt;- helpful
 }
 
 
@@ -147,40 +146,40 @@ TellMe::~TellMe()
 }
 
 
-void TellMe::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaintevent.html">TQPaintEvent</a> * e )
+void TellMe::<a href="tqwidget.html#paintEvent">paintEvent</a>( <a href="tqpaintevent.html">TQPaintEvent</a> * e )
 {
-    <a href="ntqpainter.html">TQPainter</a> p( this );
+    <a href="tqpainter.html">TQPainter</a> p( this );
 
     // I try to be efficient here, and repaint only what's needed
 
-<a name="x446"></a>    if ( e-&gt;<a href="qpaintevent.html#rect">rect</a>().intersects( r1 ) ) {
-<a name="x445"></a>        p.<a href="ntqpainter.html#setBrush">setBrush</a>( blue );
-<a name="x444"></a>        p.<a href="ntqpainter.html#drawRect">drawRect</a>( r1 );
+<a name="x446"></a>    if ( e-&gt;<a href="tqpaintevent.html#rect">rect</a>().intersects( r1 ) ) {
+<a name="x445"></a>        p.<a href="tqpainter.html#setBrush">setBrush</a>( blue );
+<a name="x444"></a>        p.<a href="tqpainter.html#drawRect">drawRect</a>( r1 );
     }
 
-    if ( e-&gt;<a href="qpaintevent.html#rect">rect</a>().intersects( r2 ) ) {
-        p.<a href="ntqpainter.html#setBrush">setBrush</a>( blue );
-        p.<a href="ntqpainter.html#drawRect">drawRect</a>( r2 );
+    if ( e-&gt;<a href="tqpaintevent.html#rect">rect</a>().intersects( r2 ) ) {
+        p.<a href="tqpainter.html#setBrush">setBrush</a>( blue );
+        p.<a href="tqpainter.html#drawRect">drawRect</a>( r2 );
     }
 
-    if ( e-&gt;<a href="qpaintevent.html#rect">rect</a>().intersects( r3 ) ) {
-        p.<a href="ntqpainter.html#setBrush">setBrush</a>( red );
-        p.<a href="ntqpainter.html#drawRect">drawRect</a>( r3 );
+    if ( e-&gt;<a href="tqpaintevent.html#rect">rect</a>().intersects( r3 ) ) {
+        p.<a href="tqpainter.html#setBrush">setBrush</a>( red );
+        p.<a href="tqpainter.html#drawRect">drawRect</a>( r3 );
     }
 }
 
 
-<a name="x452"></a>void TellMe::<a href="ntqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> * e )
+<a name="x452"></a>void TellMe::<a href="tqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> * e )
 {
-<a name="x443"></a>    if ( r1.contains( e-&gt;<a href="qmouseevent.html#pos">pos</a>() ) )
+<a name="x443"></a>    if ( r1.contains( e-&gt;<a href="tqmouseevent.html#pos">pos</a>() ) )
         r1 = randomRect();
-    if ( r2.contains( e-&gt;<a href="qmouseevent.html#pos">pos</a>() ) )
+    if ( r2.contains( e-&gt;<a href="tqmouseevent.html#pos">pos</a>() ) )
         r2 = randomRect();
-    <a href="ntqwidget.html#repaint">repaint</a>();
+    <a href="tqwidget.html#repaint">repaint</a>();
 }
 
 
-<a name="x454"></a>void TellMe::<a href="ntqwidget.html#resizeEvent">resizeEvent</a>( <a href="qresizeevent.html">TQResizeEvent</a> * )
+<a name="x454"></a>void TellMe::<a href="tqwidget.html#resizeEvent">resizeEvent</a>( <a href="tqresizeevent.html">TQResizeEvent</a> * )
 {
     if ( !rect().contains( r1 ) )
          r1 = randomRect();
@@ -191,12 +190,12 @@ void TellMe::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaint
 
 TQRect <a name="f253"></a>TellMe::randomRect()
 {
-    return TQRect( ::rand() % (<a href="ntqwidget.html#width">width</a>() - 20), ::rand() % (<a href="ntqwidget.html#height">height</a>() - 20),
+    return TQRect( ::rand() % (<a href="tqwidget.html#width">width</a>() - 20), ::rand() % (<a href="tqwidget.html#height">height</a>() - 20),
                   20, 20 );
 }
 
 
-TQRect <a name="f254"></a>TellMe::tip( const <a href="ntqpoint.html">TQPoint</a> &amp; p )
+TQRect <a name="f254"></a>TellMe::tip( const <a href="tqpoint.html">TQPoint</a> &amp; p )
 {
     if ( r1.contains( p ) )
         return r1;
@@ -219,19 +218,19 @@ TQRect <a name="f254"></a>TellMe::tip( const <a href="ntqpoint.html">TQPoint</a>
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 #include "tooltip.h"
 
 int main( int argc, char ** argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     TellMe mw;
-    mw.<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Dynamic Tool Tips" );
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;mw );
-    mw.<a href="ntqwidget.html#show">show</a>();
+    mw.<a href="tqwidget.html#setCaption">setCaption</a>( "TQt Example - Dynamic Tool Tips" );
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;mw );
+    mw.<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

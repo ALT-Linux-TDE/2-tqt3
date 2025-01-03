@@ -8,9 +8,9 @@
 *****************************************************************************/
 
 #include "aclock.h"
-#include <ntqtimer.h>
-#include <ntqpainter.h>
-#include <ntqbitmap.h>
+#include <tqtimer.h>
+#include <tqpainter.h>
+#include <tqbitmap.h>
 
 //
 // Constructs an analog clock widget that uses an internal TQTimer.

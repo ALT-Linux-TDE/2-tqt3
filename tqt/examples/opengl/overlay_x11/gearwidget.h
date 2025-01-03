@@ -12,7 +12,7 @@
 #ifndef GEAR_H
 #define GEAR_H
 
-#include <ntqgl.h>
+#include <tqgl.h>
 
 class GearWidget : public TQGLWidget
 {

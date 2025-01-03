@@ -26,7 +26,7 @@
  * other special, indirect and consequential damages.
  *****************************************************************************/
 
-//#include <ntqglobal.h>
+//#include <tqglobal.h>
 
 
 #define NUMPTS	63

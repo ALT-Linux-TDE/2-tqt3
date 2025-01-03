@@ -32,10 +32,6 @@
 /* *                                                                        * */
 /* ************************************************************************** */
 
-#if defined(__BORLANDC__) && defined(MNG_STRICT_ANSI)
-#pragma option -A                      /* force ANSI-C */
-#endif
-
 #ifndef _libmng_chunk_io_h_
 #define _libmng_chunk_io_h_
 

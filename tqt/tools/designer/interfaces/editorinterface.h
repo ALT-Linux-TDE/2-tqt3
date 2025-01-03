@@ -47,9 +47,9 @@
 //
 //
 
-#include <private/qcom_p.h>
-#include <ntqmap.h>
-#include <ntqvaluelist.h>
+#include <private/tqcom_p.h>
+#include <tqmap.h>
+#include <tqvaluelist.h>
 
 class TQWidget;
 class TQObjectList;

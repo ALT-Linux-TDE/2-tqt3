@@ -13,11 +13,11 @@
 
 #include "dropsite.h"
 #include "secret.h"
-#include <ntqevent.h>
-#include <ntqpixmap.h>
-#include <ntqdragobject.h>
-#include <ntqimage.h>
-#include <ntqdir.h>
+#include <tqevent.h>
+#include <tqpixmap.h>
+#include <tqdragobject.h>
+#include <tqimage.h>
+#include <tqdir.h>
 
 
 DropSite::DropSite( TQWidget * parent, const char * name )

@@ -34,7 +34,7 @@
 #include "mainwindow.h"
 #include "widgetaction.h"
 #include "listviewdnd.h"
-#include <ntqlistview.h>
+#include <tqlistview.h>
 
 void ConfigToolboxDialog::init()
 {

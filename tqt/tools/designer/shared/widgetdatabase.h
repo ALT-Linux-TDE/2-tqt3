@@ -34,10 +34,10 @@
 #ifndef WIDGETDATABASE_H
 #define WIDGETDATABASE_H
 
-#include <ntqiconset.h>
-#include <ntqstring.h>
+#include <tqiconset.h>
+#include <tqstring.h>
 #include "../interfaces/widgetinterface.h" // up here for GCC 2.7.* compatibility
-#include <private/qpluginmanager_p.h>
+#include <private/tqpluginmanager_p.h>
 
 
 extern TQPluginManager<WidgetInterface> *widgetManager();

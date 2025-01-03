@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqwindowsstyle.h>
+#include <tqapplication.h>
+#include <tqwindowsstyle.h>
 #include "themes.h"
 
 #include "metal.h"

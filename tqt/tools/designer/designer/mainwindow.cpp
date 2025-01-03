@@ -54,12 +54,12 @@
 #include "actiondnd.h"
 #include "project.h"
 #include "projectsettingsimpl.h"
-#include "ntqwidgetfactory.h"
+#include "tqwidgetfactory.h"
 #include "pixmapcollection.h"
-#include "qcompletionedit.h"
+#include "tqcompletionedit.h"
 #include "sourcefile.h"
 #include "orderindicator.h"
-#include <ntqtoolbox.h>
+#include <tqtoolbox.h>
 #include "widgetaction.h"
 #include "propertyobject.h"
 #include "popupmenueditor.h"
@@ -87,37 +87,37 @@
 #include "replacedialog.h"
 #include "gotolinedialog.h"
 
-#include <ntqinputdialog.h>
-#include <ntqtoolbar.h>
-#include <ntqfeatures.h>
-#include <ntqmetaobject.h>
-#include <ntqaction.h>
-#include <ntqpixmap.h>
-#include <ntqworkspace.h>
-#include <ntqfiledialog.h>
-#include <ntqclipboard.h>
-#include <ntqmessagebox.h>
-#include <ntqbuffer.h>
-#include <ntqdir.h>
-#include <ntqstyle.h>
-#include <ntqlabel.h>
-#include <ntqstatusbar.h>
-#include <ntqfile.h>
-#include <ntqcheckbox.h>
-#include <ntqwhatsthis.h>
-#include <ntqwizard.h>
-#include <ntqtimer.h>
-#include <ntqlistbox.h>
-#include <ntqdockwindow.h>
-#include <ntqstylefactory.h>
-#include <ntqvbox.h>
-#include <ntqprocess.h>
-#include <ntqsettings.h>
-#include <ntqaccel.h>
-#include <ntqtooltip.h>
-#include <ntqsizegrip.h>
-#include <ntqtextview.h>
-#include <ntqassistantclient.h>
+#include <tqinputdialog.h>
+#include <tqtoolbar.h>
+#include <tqfeatures.h>
+#include <tqmetaobject.h>
+#include <tqaction.h>
+#include <tqpixmap.h>
+#include <tqworkspace.h>
+#include <tqfiledialog.h>
+#include <tqclipboard.h>
+#include <tqmessagebox.h>
+#include <tqbuffer.h>
+#include <tqdir.h>
+#include <tqstyle.h>
+#include <tqlabel.h>
+#include <tqstatusbar.h>
+#include <tqfile.h>
+#include <tqcheckbox.h>
+#include <tqwhatsthis.h>
+#include <tqwizard.h>
+#include <tqtimer.h>
+#include <tqlistbox.h>
+#include <tqdockwindow.h>
+#include <tqstylefactory.h>
+#include <tqvbox.h>
+#include <tqprocess.h>
+#include <tqsettings.h>
+#include <tqaccel.h>
+#include <tqtooltip.h>
+#include <tqsizegrip.h>
+#include <tqtextview.h>
+#include <tqassistantclient.h>
 #include <stdlib.h>
 
 static bool mblockNewForms = FALSE;
@@ -768,10 +768,10 @@ void MainWindow::helpContents()
 	    } else if ( cp == "layoutSpacing" ) {
 		source = propertyDocumentation[ "TQLayout/spacing" ];
 	    } else if ( cp == "toolTip" ) {
-		source = "ntqtooltip.html#details";
+		source = "tqtooltip.html#details";
 	    } else if ( mo && qstrcmp( mo->className(), "Spacer" ) == 0 ) {
 		if ( cp != "name" )
-		    source = "ntqsizepolicy.html#SizeType";
+		    source = "tqsizepolicy.html#SizeType";
 		else
 		    source = propertyDocumentation[ "TQObject/name" ];
 	    } else {
@@ -785,7 +785,7 @@ void MainWindow::helpContents()
 	TQString classname =  WidgetFactory::classNameOf( propertyEditor->widget() );
 	if ( source.isEmpty() || source == "designer-manual.html" ) {
 	    if ( classname.lower() == "spacer" )
-		source = "qspaceritem.html#details";
+		source = "tqspaceritem.html#details";
 	    else if ( classname == "TQLayoutWidget" )
 		source = "layout.html";
 	    else
@@ -826,7 +826,7 @@ void MainWindow::helpAboutTQt()
 
 #if defined(_WS_WIN_)
 #include <qt_windows.h>
-#include <ntqprocess.h>
+#include <tqprocess.h>
 #endif
 
 void MainWindow::helpRegister()

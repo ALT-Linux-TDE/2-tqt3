@@ -7,7 +7,7 @@
 #ifndef PRINTPANEL_H
 #define PRINTPANEL_H
 
-#include <ntqvbox.h>
+#include <tqvbox.h>
 
 class PrintPanel : public TQVBox
 {

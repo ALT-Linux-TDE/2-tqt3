@@ -51,7 +51,7 @@ appropriate \c{#ifdef} statements (see below).
 For information about which platforms are supported by Qt, see the
 \link http://www.trolltech.com/products/platforms/ Platform
 Notes\endlink. For information on distributing TQt applications, see
-\link distributingntqt.html Deploying TQt Applications\endlink.
+\link distributingtqt.html Deploying TQt Applications\endlink.
 
 \target x11
 \section1 Qt/X11
@@ -101,23 +101,6 @@ When compiling for this platform, the macro \c{TQ_WS_MACX} is defined.
 
 \list
  \i \link mac-differences.html Qt/Mac issues\endlink
-\endlist
-
-\target qws
-\section1 Qt/Embedded
-
-When compiling for this platform, the macro \c{TQ_WS_QWS} is defined
-(the window system is literally the TQt Window System).
-
-\list
- \i \link emb-install.html Installation\endlink
- \i \link emb-performance.html Qt/Embedded performance tuning\endlink
- \i \link emb-running.html Running Qt/Embedded applications\endlink
- \i \link emb-porting.html Porting your applications to Qt/Embedded\endlink
- \i \link emb-fonts.html Font formats and definitions\endlink
- \i \link emb-charinput.html Character input (keyboard, pen, ...)\endlink
- \i \link emb-pointer.html Pointer handling (mouse, pen, ...)\endlink
- \i \link emb-features.html Reduce memory use with the feature definition file\endlink
 \endlist
 
 */

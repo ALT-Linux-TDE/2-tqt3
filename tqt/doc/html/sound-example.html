@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/sound/sound.doc:1 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -49,10 +48,10 @@ if your machine is set up to play audio.
 #ifndef PLAY_H
 #define PLAY_H
 
-#include "ntqsound.h"
-#include &lt;<a href="qmainwindow-h.html">ntqmainwindow.h</a>&gt;
+#include "tqsound.h"
+#include &lt;<a href="tqmainwindow-h.html">tqmainwindow.h</a>&gt;
 
-class SoundPlayer : public <a href="ntqmainwindow.html">TQMainWindow</a> {
+class SoundPlayer : public <a href="tqmainwindow.html">TQMainWindow</a> {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 public:
     SoundPlayer();
@@ -66,8 +65,8 @@ public slots:
     void doPlay1234();
 
 private:
-    <a href="ntqsound.html">TQSound</a> bucket3;
-    <a href="ntqsound.html">TQSound</a> bucket4;
+    <a href="tqsound.html">TQSound</a> bucket3;
+    <a href="tqsound.html">TQSound</a> bucket4;
 };
 
 #endif
@@ -92,12 +91,12 @@ private:
 //
 
 #include "sound.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qmessagebox-h.html">ntqmessagebox.h</a>&gt;
-#include &lt;<a href="qmenubar-h.html">ntqmenubar.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqmessagebox-h.html">tqmessagebox.h</a>&gt;
+#include &lt;<a href="tqmenubar-h.html">tqmenubar.h</a>&gt;
 
 <a name="f581"></a>SoundPlayer::SoundPlayer() :
-    <a href="ntqmainwindow.html">TQMainWindow</a>(),
+    <a href="tqmainwindow.html">TQMainWindow</a>(),
     bucket3("sounds/3.wav"),
     bucket4("sounds/4.wav")
 {
@@ -105,7 +104,7 @@ private:
         // Bail out.  Programs in which sound is not critical
         // could just silently (hehe) ignore the lack of a server.
         //
-<a name="x2812"></a>        TQMessageBox::<a href="ntqmessagebox.html#warning">warning</a>(this,"No Sound",
+<a name="x2812"></a>        TQMessageBox::<a href="tqmessagebox.html#warning">warning</a>(this,"No Sound",
                 "&lt;p&gt;&lt;b&gt;Sorry, you are not running the Network Audio System.&lt;/b&gt;"
                 "&lt;p&gt;If you have the `au' command, run it in the background before this program. "
                 "The latest release of the Network Audio System can be obtained from:"
@@ -119,27 +118,27 @@ private:
                 "&lt;p&gt;After installing NAS, you will then need to reconfigure TQt with NAS sound support");
     }
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>;
-<a name="x2810"></a>    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play &amp;1",  this, TQ_SLOT(doPlay1()), CTRL+Key_1);
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play &amp;2",  this, TQ_SLOT(doPlay2()), CTRL+Key_2);
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play from bucket &amp;3",  this, TQ_SLOT(doPlay3()), CTRL+Key_3);
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play from bucket &amp;4",  this, TQ_SLOT(doPlay4()), CTRL+Key_4);
-<a name="x2811"></a>    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play 3 and 4 together",  this, TQ_SLOT(doPlay34()));
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("Play all together",  this, TQ_SLOT(doPlay1234()));
-    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("E&amp;xit",  tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()));
-    <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem("&amp;File", file);
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *file = new <a href="tqpopupmenu.html">TQPopupMenu</a>;
+<a name="x2810"></a>    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("Play &amp;1",  this, TQ_SLOT(doPlay1()), CTRL+Key_1);
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("Play &amp;2",  this, TQ_SLOT(doPlay2()), CTRL+Key_2);
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("Play from bucket &amp;3",  this, TQ_SLOT(doPlay3()), CTRL+Key_3);
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("Play from bucket &amp;4",  this, TQ_SLOT(doPlay4()), CTRL+Key_4);
+<a name="x2811"></a>    file-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("Play 3 and 4 together",  this, TQ_SLOT(doPlay34()));
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("Play all together",  this, TQ_SLOT(doPlay1234()));
+    file-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("E&amp;xit",  tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()));
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem("&amp;File", file);
 }
 
 void <a name="f582"></a>SoundPlayer::doPlay1()
 {
-<a name="x2813"></a>    TQSound::<a href="ntqsound.html#play">play</a>("sounds/1.wav");
+<a name="x2813"></a>    TQSound::<a href="tqsound.html#play">play</a>("sounds/1.wav");
 }
 
 void <a name="f583"></a>SoundPlayer::doPlay2()
 {
-    TQSound::<a href="ntqsound.html#play">play</a>("sounds/2.wav");
+    TQSound::<a href="tqsound.html#play">play</a>("sounds/2.wav");
 }
 
 void <a name="f584"></a>SoundPlayer::doPlay3()
@@ -162,20 +161,20 @@ void <a name="f586"></a>SoundPlayer::doPlay34()
 void <a name="f587"></a>SoundPlayer::doPlay1234()
 {
     // Some sound platforms will only play one sound at a time
-    TQSound::<a href="ntqsound.html#play">play</a>("sounds/1.wav");
-    TQSound::<a href="ntqsound.html#play">play</a>("sounds/2.wav");
+    TQSound::<a href="tqsound.html#play">play</a>("sounds/1.wav");
+    TQSound::<a href="tqsound.html#play">play</a>("sounds/2.wav");
     bucket3.play();
     bucket4.play();
 }
 
 int main(int argc, char** argv)
 {
-    <a href="ntqapplication.html">TQApplication</a> app(argc,argv);
+    <a href="tqapplication.html">TQApplication</a> app(argc,argv);
     SoundPlayer sp;
-    app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>(&amp;sp);
-    sp.<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - Sounds");
-    sp.<a href="ntqwidget.html#show">show</a>();
-    return app.<a href="ntqapplication.html#exec">exec</a>();
+    app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>(&amp;sp);
+    sp.<a href="tqwidget.html#setCaption">setCaption</a>("TQt Example - Sounds");
+    sp.<a href="tqwidget.html#show">show</a>();
+    return app.<a href="tqapplication.html#exec">exec</a>();
 }
 
 </pre>

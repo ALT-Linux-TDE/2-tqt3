@@ -1,5 +1,5 @@
 '\" t
-.TH QGrid 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQGrid 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,26 +7,26 @@
 .ad l
 .nh
 .SH NAME
-QGrid \- Simple geometry management of its children
+TQGrid \- Simple geometry management of its children
 .SH SYNOPSIS
-\fC#include <ntqgrid.h>\fR
+\fC#include <tqgrid.h>\fR
 .PP
-Inherits QFrame.
+Inherits TQFrame.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQGrid\fR ( int n, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBTQGrid\fR ( int n, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fBQGrid\fR ( int n, Orientation orient, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBTQGrid\fR ( int n, Orientation orient, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
 .BI "void \fBsetSpacing\fR ( int space )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QGrid widget provides simple geometry management of its children.
+The TQGrid widget provides simple geometry management of its children.
 .PP
 The grid places its widgets either in columns or in rows depending on its orientation.
 .PP
@@ -40,17 +40,17 @@ Use setMargin() to add space around the grid itself, and setSpacing() to add spa
 .PP
 </center>
 .PP
-See also QVBox, QHBox, QGridLayout, Widget Appearance and Style, and Layout Management.
+See also TQVBox, TQHBox, TQGridLayout, Widget Appearance and Style, and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QGrid::QGrid ( int n, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
-Constructs a grid widget with parent \fIparent\fR, called \fIname\fR. \fIn\fR specifies the number of columns. The widget flags \fIf\fR are passed to the QFrame constructor.
-.SH "QGrid::QGrid ( int n, Orientation orient, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
-Constructs a grid widget with parent \fIparent\fR, called \fIname\fR. If \fIorient\fR is Horizontal, \fIn\fR specifies the number of columns. If \fIorient\fR is Vertical, \fIn\fR specifies the number of rows. The widget flags \fIf\fR are passed to the QFrame constructor.
-.SH "void QGrid::setSpacing ( int space )"
+.SH "TQGrid::TQGrid ( int n, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+Constructs a grid widget with parent \fIparent\fR, called \fIname\fR. \fIn\fR specifies the number of columns. The widget flags \fIf\fR are passed to the TQFrame constructor.
+.SH "TQGrid::TQGrid ( int n, Orientation orient, TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+Constructs a grid widget with parent \fIparent\fR, called \fIname\fR. If \fIorient\fR is Horizontal, \fIn\fR specifies the number of columns. If \fIorient\fR is Vertical, \fIn\fR specifies the number of rows. The widget flags \fIf\fR are passed to the TQFrame constructor.
+.SH "void TQGrid::setSpacing ( int space )"
 Sets the spacing between the child widgets to \fIspace\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqgrid.html
+.BR http://doc.trolltech.com/tqgrid.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

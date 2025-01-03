@@ -1,5 +1,5 @@
 '\" t
-.TH QGLColormap 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQGLColormap 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,23 +7,23 @@
 .ad l
 .nh
 .SH NAME
-QGLColormap \- Used for installing custom colormaps into QGLWidgets
+TQGLColormap \- Used for installing custom colormaps into TQGLWidgets
 .SH SYNOPSIS
-\fC#include <ntqglcolormap.h>\fR
+\fC#include <tqglcolormap.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQGLColormap\fR ()"
+.BI "\fBTQGLColormap\fR ()"
 .br
 .ti -1c
-.BI "\fBQGLColormap\fR ( const QGLColormap & map )"
+.BI "\fBTQGLColormap\fR ( const TQGLColormap & map )"
 .br
 .ti -1c
-.BI "\fB~QGLColormap\fR ()"
+.BI "\fB~TQGLColormap\fR ()"
 .br
 .ti -1c
-.BI "QGLColormap & \fBoperator=\fR ( const QGLColormap & map )"
+.BI "TQGLColormap & \fBoperator=\fR ( const TQGLColormap & map )"
 .br
 .ti -1c
 .BI "bool \fBisEmpty\fR () const"
@@ -57,9 +57,9 @@ QGLColormap \- Used for installing custom colormaps into QGLWidgets
 .br
 .in -1c
 .SH DESCRIPTION
-The QGLColormap class is used for installing custom colormaps into QGLWidgets.
+The TQGLColormap class is used for installing custom colormaps into TQGLWidgets.
 .PP
-QGLColormap provides a platform independent way of specifying and installing indexed colormaps into QGLWidgets. QGLColormap is especially useful when using the OpenGL color-index mode.
+TQGLColormap provides a platform independent way of specifying and installing indexed colormaps into TQGLWidgets. TQGLColormap is especially useful when using the OpenGL color-index mode.
 .PP
 Under X11 you must use an X server that supports either a \fCPseudoColor\fR or \fCDirectColor\fR visual class. If your X server currently only provides a \fCGrayScale\fR, \fCTrueColor\fR, \fCStaticColor\fR or \fCStaticGray\fR visual, you will not be able to allocate colorcells for writing. If this is the case, try setting your X server to 8 bit mode. It should then provide you with at least a \fCPseudoColor\fR visual. Note that you may experience colormap flashing if your X server is running in 8 bit mode.
 .PP
@@ -71,21 +71,21 @@ Example of use:
 .PP
 .nf
 .br
-    #include <ntqapplication.h>
+    #include <tqapplication.h>
 .br
-    #include <ntqglcolormap.h>
+    #include <tqglcolormap.h>
 .br
 .br
     int main()
 .br
     {
 .br
-        QApplication a( argc, argv );
+        TQApplication a( argc, argv );
 .br
 .br
-        MySuperGLWidget widget( 0 ); // A QGLWidget in color-index mode
+        MySuperGLWidget widget( 0 ); // A TQGLWidget in color-index mode
 .br
-        QGLColormap colormap;
+        TQGLColormap colormap;
 .br
 .br
         // This will fill the colormap with colors ranging from
@@ -107,41 +107,41 @@ Example of use:
 .br
 .fi
 .PP
-See also QGLWidget::setColormap(), QGLWidget::colormap(), Graphics Classes, and Image Processing Classes.
+See also TQGLWidget::setColormap(), TQGLWidget::colormap(), Graphics Classes, and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QGLColormap::QGLColormap ()"
-Construct a QGLColormap.
-.SH "QGLColormap::QGLColormap ( const QGLColormap & map )"
+.SH "TQGLColormap::TQGLColormap ()"
+Construct a TQGLColormap.
+.SH "TQGLColormap::TQGLColormap ( const TQGLColormap & map )"
 Construct a shallow copy of \fImap\fR.
-.SH "QGLColormap::~QGLColormap ()"
-Dereferences the QGLColormap and deletes it if this was the last reference to it.
-.SH "void QGLColormap::detach ()"
-Detaches this QGLColormap from the shared block.
-.SH "TQColor QGLColormap::entryColor ( int idx ) const"
+.SH "TQGLColormap::~TQGLColormap ()"
+Dereferences the TQGLColormap and deletes it if this was the last reference to it.
+.SH "void TQGLColormap::detach ()"
+Detaches this TQGLColormap from the shared block.
+.SH "TQColor TQGLColormap::entryColor ( int idx ) const"
 Returns the TQRgb value in the colorcell with index \fIidx\fR.
-.SH "TQRgb QGLColormap::entryRgb ( int idx ) const"
+.SH "TQRgb TQGLColormap::entryRgb ( int idx ) const"
 Returns the TQRgb value in the colorcell with index \fIidx\fR.
-.SH "int QGLColormap::find ( TQRgb color ) const"
+.SH "int TQGLColormap::find ( TQRgb color ) const"
 Returns the index of the color \fIcolor\fR. If \fIcolor\fR is not in the map, -1 is returned.
-.SH "int QGLColormap::findNearest ( TQRgb color ) const"
+.SH "int TQGLColormap::findNearest ( TQRgb color ) const"
 Returns the index of the color that is the closest match to color \fIcolor\fR.
-.SH "bool QGLColormap::isEmpty () const"
+.SH "bool TQGLColormap::isEmpty () const"
 Returns TRUE if the colormap is empty; otherwise returns FALSE. A colormap with no color values set is considered to be empty.
-.SH "QGLColormap & QGLColormap::operator= ( const QGLColormap & map )"
-Assign a shallow copy of \fImap\fR to this QGLColormap.
-.SH "void QGLColormap::setEntries ( int count, const TQRgb * colors, int base = 0 )"
+.SH "TQGLColormap & TQGLColormap::operator= ( const TQGLColormap & map )"
+Assign a shallow copy of \fImap\fR to this TQGLColormap.
+.SH "void TQGLColormap::setEntries ( int count, const TQRgb * colors, int base = 0 )"
 Set an array of cells in this colormap. \fIcount\fR is the number of colors that should be set, \fIcolors\fR is the array of colors, and \fIbase\fR is the starting index.
-.SH "void QGLColormap::setEntry ( int idx, TQRgb color )"
+.SH "void TQGLColormap::setEntry ( int idx, TQRgb color )"
 Set cell at index \fIidx\fR in the colormap to color \fIcolor\fR.
-.SH "void QGLColormap::setEntry ( int idx, const TQColor & color )"
+.SH "void TQGLColormap::setEntry ( int idx, const TQColor & color )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Set the cell with index \fIidx\fR in the colormap to color \fIcolor\fR.
-.SH "int QGLColormap::size () const"
+.SH "int TQGLColormap::size () const"
 Returns the number of colorcells in the colormap.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqglcolormap.html
+.BR http://doc.trolltech.com/tqglcolormap.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

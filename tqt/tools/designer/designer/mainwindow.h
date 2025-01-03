@@ -46,12 +46,12 @@
 #include "../interfaces/sourcetemplateiface.h"
 #include "sourceeditor.h"
 
-#include <ntqaction.h>
-#include <ntqmainwindow.h>
-#include <ntqmap.h>
-#include <ntqguardedptr.h>
-#include <private/qpluginmanager_p.h>
-#include <ntqobjectlist.h>
+#include <tqaction.h>
+#include <tqmainwindow.h>
+#include <tqmap.h>
+#include <tqguardedptr.h>
+#include <private/tqpluginmanager_p.h>
+#include <tqobjectlist.h>
 
 class TQToolBox;
 class PropertyEditor;
@@ -75,7 +75,7 @@ class FormFile;
 class TQAssistantClient;
 
 #if defined(TQ_FULL_TEMPLATE_INSTANTIATION)
-#include <ntqtoolbar.h>
+#include <tqtoolbar.h>
 #else
 class TQToolBar;
 #endif

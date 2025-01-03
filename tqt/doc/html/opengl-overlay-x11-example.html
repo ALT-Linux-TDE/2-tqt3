@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/opengl/overlay_x11/overlay_x11.doc:1 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -45,7 +44,7 @@ Extension with X11 overlay visuals.
 information on <a href="opengl-x11-overlays.html">overlays</a>. 
 <p> The example program has three main parts:
 <p> <ol type=1>
-<li> <em>GearWidget</em> - a normal, simple <a href="qglwidget.html">TQGLWidget</a>. This renders the usual
+<li> <em>GearWidget</em> - a normal, simple <a href="tqglwidget.html">TQGLWidget</a>. This renders the usual
 gears. It has been modified to print a debug message every time it
 redraws (renders) itself. Thus, you can easily confirm that drawing in
 the overlay plane does not cause redrawings in the main plane where
@@ -63,7 +62,7 @@ color of that plane.
 <p> <h2> Running the Example
 </h2>
 <a name="1"></a><p> Start the <tt>overlayrubber</tt> executable. Click and drag with the left
-mouse button to see rubberband drawing. Observe that the <a href="qglwidget.html">TQGLWidget</a>
+mouse button to see rubberband drawing. Observe that the <a href="tqglwidget.html">TQGLWidget</a>
 does not redraw itself (no redraw debug messages are output), and yet
 the image is not destroyed. Marvel at the coolness of X11 overlays!
 <p> <h2> Using this technique in a real application
@@ -75,16 +74,16 @@ some hints for real application usage:
 can put all kinds of TQt widgets (your own or standard TQt widgets) on
 top of the OpenGL image (widget), e.g. pushbuttons etc., and they can
 be moved, resized, or removed without destroying the OpenGL image.
-<p> <li> <em>Using with geometry management.</em> The <a href="ntqlayout.html">TQLayout</a> classes don't permit
+<p> <li> <em>Using with geometry management.</em> The <a href="tqlayout.html">TQLayout</a> classes don't permit
 putting one widget (the overlay) on top of another (the OpenGL
 widget); that would defy the whole purpose of the automatic layout.
 The solution is to add just one of them to the TQLayout object. Have it
-keep a pointer to the other (i.e. the <a href="qglwidget.html">TQGLWidget</a> knows about its
+keep a pointer to the other (i.e. the <a href="tqglwidget.html">TQGLWidget</a> knows about its
 overlay widget or vice versa). Implement the resizeEvent() method of
 the widget you put in the layout, and make it call setGeometry() on
 the other widget with its own geometry as parameters, thus keeping the
 two widgets' geometries synchronized.
-<p> <li> <em>Using together with <a href="ntqpalette.html">TQPalette</a> and <a href="qcolorgroup.html">TQColorGroup</a>.</em> Instead of the
+<p> <li> <em>Using together with <a href="tqpalette.html">TQPalette</a> and <a href="tqcolorgroup.html">TQColorGroup</a>.</em> Instead of the
 simplistic setBackgroundColor( transparentColor ), you can
 use TQt's TQPalette system to make your overlay widgets use
 transparent color for what you want. This way, the normal TQt widgets

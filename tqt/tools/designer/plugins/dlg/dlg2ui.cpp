@@ -35,11 +35,11 @@
 **********************************************************************/
 
 #include "dlg2ui.h"
-#include <ntqfile.h>
-#include <ntqframe.h>
-#include <ntqmessagebox.h>
-#include <ntqregexp.h>
-#include <ntqtextstream.h>
+#include <tqfile.h>
+#include <tqframe.h>
+#include <tqmessagebox.h>
+#include <tqregexp.h>
+#include <tqtextstream.h>
 
 /*
   Possible improvements:
@@ -78,7 +78,7 @@ static const struct {
 } propertyDefs[] = {
     { "Button", "AutoRepeat", "autoRepeat", "boolean" },
     { "Button", "AutoResize", 0, 0 },
-    { "Button", "Text", "text", "qstring" },
+    { "Button", "Text", "text", "tqstring" },
     { "ButtonGroup", "Exclusive", "exclusive", "boolean" },
     { "ButtonGroup", "RadioButtonExclusive", "radioButtonExclusive",
       "boolean" },
@@ -102,17 +102,17 @@ static const struct {
     { "DlgWidget", "AdjustSize", 0, 0 },
     { "DlgWidget", "BackgroundMode", "backgroundMode", "enum" },
     { "DlgWidget", "BackgroundOrigin", "backgroundOrigin", "enum" },
-    { "DlgWidget", "BackgroundPixmap", "backgroundPixmap", "qpixmap" },
+    { "DlgWidget", "BackgroundPixmap", "backgroundPixmap", "tqpixmap" },
     { "DlgWidget", "DataLenName", 0, 0 },
     { "DlgWidget", "DataVarName", 0, 0 },
     { "DlgWidget", "Enabled", "enabled", "boolean" },
     { "DlgWidget", "FocusPolicy", "focusPolicy", "enum" },
-    { "DlgWidget", "Font", "font", "qfont" },
+    { "DlgWidget", "Font", "font", "tqfont" },
     { "DlgWidget", "FontPropagation", 0, 0 },
-    { "DlgWidget", "MaximumSize", "maximumSize", "qsize" },
-    { "DlgWidget", "MinimumSize", "minimumSize", "qsize" },
+    { "DlgWidget", "MaximumSize", "maximumSize", "tqsize" },
+    { "DlgWidget", "MinimumSize", "minimumSize", "tqsize" },
     { "DlgWidget", "Name", 0, 0 },
-    { "DlgWidget", "Palette", "palette", "qpalette" },
+    { "DlgWidget", "Palette", "palette", "tqpalette" },
     { "DlgWidget", "PalettePropagation", 0, 0 },
     { "DlgWidget", "ReadPixmapFromData", 0, 0 },
     { "DlgWidget", "Rect", 0, 0 },
@@ -123,7 +123,7 @@ static const struct {
     { "Frame", "LineWidth", "lineWidth", "integer" },
     { "Frame", "MidLineWidth", "midLineWidth", "integer" },
     { "Frame", "Style", 0, 0 },
-    { "GroupBox", "Title", "title", "qstring" },
+    { "GroupBox", "Title", "title", "tqstring" },
     { "IconView", "AlignMode", 0, 0 },
     { "IconView", "Aligning", 0, 0 },
     { "IconView", "Arrangement", "arrangement", "enum" },
@@ -148,12 +148,12 @@ static const struct {
     { "LCDNumber", "Value", 0, 0 },
     { "Label", "AutoResize", 0, 0 },
     { "Label", "Indent", "indent", "integer" },
-    { "Label", "Text", "text", "qstring" },
+    { "Label", "Text", "text", "tqstring" },
     { "Label", "TextFormat", "textFormat", "enum" },
     { "LineEdit", "EchoMode", "echoMode", "enum" },
     { "LineEdit", "FrameShown", "frame", "boolean"  },
     { "LineEdit", "MaxLength", "maxLength", "integer" },
-    { "LineEdit", "Text", "text", "qstring" },
+    { "LineEdit", "Text", "text", "tqstring" },
     { "ListBox", "AutoScroll", 0, 0 },
     { "ListBox", "AutoUpdate", 0, 0 },
     { "ListBox", "ColumnMode", "columnMode", "enum" },
@@ -214,10 +214,10 @@ static const struct {
     { "SpinBox", "ButtonSymbols", "buttonSymbols", "enum" },
     { "SpinBox", "MaxValue", "maxValue", "integer" },
     { "SpinBox", "MinValue", "minValue", "integer" },
-    { "SpinBox", "Prefix", "prefix", "qstring" },
-    { "SpinBox", "SpecialValue", "specialValueText", "qstring" },
+    { "SpinBox", "Prefix", "prefix", "tqstring" },
+    { "SpinBox", "SpecialValue", "specialValueText", "tqstring" },
     { "SpinBox", "Step", "lineStep", "integer" },
-    { "SpinBox", "Suffix", "suffix", "qstring" },
+    { "SpinBox", "Suffix", "suffix", "tqstring" },
     { "SpinBox", "Wrapping", "wrapping", "boolean" },
     { "Splitter", "OpaqueResize", 0, 0 },
     { "Splitter", "Orientation", "orientation", "enum" },
@@ -225,7 +225,7 @@ static const struct {
     { "TabBar", "TabNames", 0, 0 },
     { "TextView", "Context", 0, 0 },
     { "TextView", "LinkUnderline", "linkUnderline", "boolean" },
-    { "TextView", "Text", "text", "qstring" },
+    { "TextView", "Text", "text", "tqstring" },
     { "TextView", "TextFormat", "textFormat", "enum" },
     { "User", "UserClassHeader", 0, 0 },
     { "User", "UserClassName", 0, 0 },
@@ -573,7 +573,7 @@ void Dlg2Ui::emitSpacer( int spacing, int stretch )
 		  TQString("Spacer%1").arg(uniqueSpacer++).latin1() );
     emitProperty( TQString("orientation"), orientationStr, TQString("enum") );
     if ( spacing > 0 )
-	emitProperty( TQString("sizeHint"), sizeHint, TQString("qsize") );
+	emitProperty( TQString("sizeHint"), sizeHint, TQString("tqsize") );
     emitProperty( TQString("sizeType"), sizeType, TQString("enum") );
     emitClosing( TQString("spacer") );
 }
@@ -660,7 +660,7 @@ void Dlg2Ui::emitWidgetBody( const TQDomElement& e, bool layouted )
     TQRegExp connex( TQString(
 	    "\\s*\\[(BaseClass|P(?:ublic|rotected))\\]\\s*([0-9A-Z_a-z]+)\\s*"
 	    "-->\\s*([0-9A-Z_a-z]+)\\s*(\\([^()]*\\))\\s*") );
-    TQRegExp qdialogSlots( TQString(
+    TQRegExp tqdialogSlots( TQString(
 	    "done\\(\\s*int\\s*\\)|(?:accept|reject)\\(\\s*\\)") );
 
     TQString userClassHeader;
@@ -725,11 +725,11 @@ void Dlg2Ui::emitWidgetBody( const TQDomElement& e, bool layouted )
 			    name = getTextValue( n );
 			} else if ( tagName == TQString("Rect") ) {
 			    TQRect rect = getValue( n.toElement(), tagName,
-						   TQString("qrect") )
+						   TQString("tqrect") )
 					 .toRect();
 			    if ( !layouted )
 				emitProperty( TQString("geometry"), rect,
-					      TQString("qrect") );
+					      TQString("tqrect") );
 			} else if ( tagName == TQString("SignalConnection") ) {
 			    TQDomNode child = n.firstChild();
 			    while ( !child.isNull() ) {
@@ -749,7 +749,7 @@ void Dlg2Ui::emitWidgetBody( const TQDomElement& e, bool layouted )
 
 					if ( connex.cap(1) !=
 					     TQString("BaseClass") &&
-					     !qdialogSlots.exactMatch(c.slot) )
+					     !tqdialogSlots.exactMatch(c.slot) )
 					    yySlots.insert( c.slot,
 							    connex.cap(1) );
 				    }
@@ -824,7 +824,7 @@ void Dlg2Ui::emitWidgetBody( const TQDomElement& e, bool layouted )
 		    TQString type( propertyDefs[*p].type );
 		    TQVariant val = getValue( n.toElement(), tagName, type );
 
-		    if ( type == TQString("qstring") )
+		    if ( type == TQString("tqstring") )
 			type = TQString( "string" );
 
 		    bool omit = FALSE;
@@ -870,9 +870,9 @@ bool Dlg2Ui::checkTagName( const TQDomElement& e, const TQString& tagName )
 TQString Dlg2Ui::normalizeType( const TQString& type )
 {
     TQString t = type;
-    if ( t.isEmpty() || t == TQString("enum") || t == TQString( "qcstring" ) ||
+    if ( t.isEmpty() || t == TQString("enum") || t == TQString( "tqcstring" ) ||
 	 t == TQString("set") )
-	t = TQString( "qstring" );
+	t = TQString( "tqstring" );
     return t;
 }
 
@@ -894,21 +894,21 @@ TQVariant Dlg2Ui::getValue( const TQDomElement& e, const TQString& tagName,
 	return TQVariant( isTrue(getTextValue(e)) );
     } else if ( type == TQString("double") ) {
 	return getTextValue( e ).toDouble();
-    } else if ( type == TQString("qcstring") ) {
+    } else if ( type == TQString("tqcstring") ) {
 	return getTextValue( e ).latin1();
-    } else if ( type == TQString("enum") || type == TQString("qstring") ||
+    } else if ( type == TQString("enum") || type == TQString("tqstring") ||
 		type == TQString("set") ) {
 	return getTextValue( e );
     } else {
 	TQDomNodeList children = e.childNodes();
 
-	if ( type == TQString("qsize") ) {
+	if ( type == TQString("tqsize") ) {
 	    int width = getValue( children, TQString("Width"),
 				  TQString("integer") ).toInt();
 	    int height = getValue( children, TQString("Height"),
 				   TQString("integer") ).toInt();
 	    return TQSize( width, height );
-	} else if ( type == TQString("qrect") ) {
+	} else if ( type == TQString("tqrect") ) {
 	    int x = getValue( children, TQString("X"), TQString("integer") )
 		    .toInt();
 	    int y = getValue( children, TQString("Y"), TQString("integer") )
@@ -918,26 +918,26 @@ TQVariant Dlg2Ui::getValue( const TQDomElement& e, const TQString& tagName,
 	    int height = getValue( children, TQString("Height"),
 				   TQString("integer") ).toInt();
 	    return TQRect( x, y, width, height );
-	} else if ( type == TQString("qpoint") ) {
+	} else if ( type == TQString("tqpoint") ) {
 	    int x = getValue( children, TQString("X"), TQString("integer") )
 		    .toInt();
 	    int y = getValue( children, TQString("Y"), TQString("integer") )
 		    .toInt();
 	    return TQPoint( x, y );
-	} else if ( type == TQString("qpalette") ) {
+	} else if ( type == TQString("tqpalette") ) {
 	    TQColorGroup active = getValue( children, TQString("Active"),
-					   TQString("qcolorgroup") )
+					   TQString("tqcolorgroup") )
 					   .toColorGroup();
 	    TQColorGroup disabled = getValue( children, TQString("Disabled"),
-					   TQString("qcolorgroup") )
+					   TQString("tqcolorgroup") )
 					   .toColorGroup();
 	    TQColorGroup inactive = getValue( children, TQString("Inactive"),
-					   TQString("qcolorgroup") )
+					   TQString("tqcolorgroup") )
 					   .toColorGroup();
 	    return TQPalette( active, disabled, inactive );
-	} else if ( type == TQString("qfont") ) {
+	} else if ( type == TQString("tqfont") ) {
 	    TQString family = getValue( children, TQString("Family"),
-				       TQString("qstring") ).toString();
+				       TQString("tqstring") ).toString();
 	    int pointSize = getValue( children, TQString("PointSize"),
 				      TQString("integer") ).toInt();
 	    int weight = getValue( children, TQString("weight"),
@@ -964,7 +964,7 @@ TQVariant Dlg2Ui::getValue( const TQDomElement& e, const TQString& tagName,
 	    if ( styleHint != 0 )
 		f.setStyleHint( (TQFont::StyleHint) styleHint );
 	    return f;
-	} else if ( type == TQString("qcolor") ) {
+	} else if ( type == TQString("tqcolor") ) {
 	    // if any component missing, zero is to be assumed
 	    int red = getValue( children, TQString("Red"), TQString("integer") )
 		      .toInt();
@@ -973,7 +973,7 @@ TQVariant Dlg2Ui::getValue( const TQDomElement& e, const TQString& tagName,
 	    int blue = getValue( children, TQString("Blue"), TQString("integer") )
 		       .toInt();
 	    return TQColor( red, green, blue );
-	} else if ( type == TQString("qcolorgroup") ) {
+	} else if ( type == TQString("tqcolorgroup") ) {
 	    static const TQColorGroup::ColorRole roles[NumColorRoles] = {
 		TQColorGroup::Foreground, TQColorGroup::Button,
 		TQColorGroup::Light, TQColorGroup::Midlight, TQColorGroup::Dark,
@@ -992,7 +992,7 @@ TQVariant Dlg2Ui::getValue( const TQDomElement& e, const TQString& tagName,
 	    for ( int i = 0; i < NumColorRoles; i++ )
 		group.setColor( roles[i],
 				getValue(children, TQString(roleNames[i]),
-					 TQString("qcolor")).toColor() );
+					 TQString("tqcolor")).toColor() );
 	    return group;
 	} else {
 	    syntaxError();
@@ -1372,13 +1372,13 @@ void Dlg2Ui::matchWidgetLayoutCommon( const TQDomElement& widgetLayoutCommon )
     */
 #if 1
     TQPoint initialPos = getValue( children, TQString("InitialPos"),
-				  TQString("qpoint") ).toPoint();
-    TQSize size = getValue( children, TQString("Size"), TQString("qsize") )
+				  TQString("tqpoint") ).toPoint();
+    TQSize size = getValue( children, TQString("Size"), TQString("tqsize") )
 		 .toSize();
 #endif
-    TQSize minSize = getValue( children, TQString("MinSize"), TQString("qsize") )
+    TQSize minSize = getValue( children, TQString("MinSize"), TQString("tqsize") )
 		    .toSize();
-    TQSize maxSize = getValue( children, TQString("MaxSize"), TQString("qsize") )
+    TQSize maxSize = getValue( children, TQString("MaxSize"), TQString("tqsize") )
 		    .toSize();
 
 #if 1

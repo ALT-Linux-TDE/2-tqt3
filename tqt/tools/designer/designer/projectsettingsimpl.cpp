@@ -41,15 +41,15 @@
 #include "sourcefile.h"
 #include "workspace.h"
 
-#include <ntqlineedit.h>
-#include <ntqtextedit.h>
-#include <ntqcheckbox.h>
-#include <ntqfiledialog.h>
-#include <ntqcombobox.h>
-#include <ntqobjectlist.h>
-#include <ntqheader.h>
-#include <ntqpushbutton.h>
-#include <ntqlabel.h>
+#include <tqlineedit.h>
+#include <tqtextedit.h>
+#include <tqcheckbox.h>
+#include <tqfiledialog.h>
+#include <tqcombobox.h>
+#include <tqobjectlist.h>
+#include <tqheader.h>
+#include <tqpushbutton.h>
+#include <tqlabel.h>
 
 /*
  *  Constructs a ProjectSettings which is a child of 'parent', with the

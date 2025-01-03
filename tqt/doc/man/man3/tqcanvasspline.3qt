@@ -1,5 +1,5 @@
 '\" t
-.TH QCanvasSpline 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQCanvasSpline 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QCanvasSpline \- Multi-bezier splines on a QCanvas
+TQCanvasSpline \- Multi-bezier splines on a TQCanvas
 .SH SYNOPSIS
-\fC#include <ntqcanvas.h>\fR
+\fC#include <tqcanvas.h>\fR
 .PP
-Inherits QCanvasPolygon.
+Inherits TQCanvasPolygon.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCanvasSpline\fR ( QCanvas * canvas )"
+.BI "\fBTQCanvasSpline\fR ( TQCanvas * canvas )"
 .br
 .ti -1c
-.BI "\fB~QCanvasSpline\fR ()"
+.BI "\fB~TQCanvasSpline\fR ()"
 .br
 .ti -1c
-.BI "void \fBsetControlPoints\fR ( QPointArray ctrl, bool close = TRUE )"
+.BI "void \fBsetControlPoints\fR ( TQPointArray ctrl, bool close = TRUE )"
 .br
 .ti -1c
-.BI "QPointArray \fBcontrolPoints\fR () const"
+.BI "TQPointArray \fBcontrolPoints\fR () const"
 .br
 .ti -1c
 .BI "bool \fBclosed\fR () const"
@@ -35,9 +35,9 @@ Inherits QCanvasPolygon.
 .br
 .in -1c
 .SH DESCRIPTION
-The QCanvasSpline class provides multi-bezier splines on a QCanvas.
+The TQCanvasSpline class provides multi-bezier splines on a TQCanvas.
 .PP
-A QCanvasSpline is a sequence of 4-point bezier curves joined together to make a curved shape.
+A TQCanvasSpline is a sequence of 4-point bezier curves joined together to make a curved shape.
 .PP
 You set the control points of the spline with setControlPoints().
 .PP
@@ -45,29 +45,29 @@ If the bezier is closed(), then the first control point will be re-used as the l
 .PP
 The beziers are not necessarily joined "smoothly". To ensure this, set control points appropriately (general reference texts about beziers will explain this in detail).
 .PP
-Like any other canvas item splines can be moved with QCanvasItem::move() and QCanvasItem::moveBy(), or by setting coordinates with QCanvasItem::setX(), QCanvasItem::setY() and QCanvasItem::setZ().
+Like any other canvas item splines can be moved with TQCanvasItem::move() and TQCanvasItem::moveBy(), or by setting coordinates with TQCanvasItem::setX(), TQCanvasItem::setY() and TQCanvasItem::setZ().
 .PP
 See also Graphics Classes and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCanvasSpline::QCanvasSpline ( QCanvas * canvas )"
+.SH "TQCanvasSpline::TQCanvasSpline ( TQCanvas * canvas )"
 Create a spline with no control points on the canvas \fIcanvas\fR.
 .PP
 See also setControlPoints().
-.SH "QCanvasSpline::~QCanvasSpline ()"
+.SH "TQCanvasSpline::~TQCanvasSpline ()"
 Destroy the spline.
-.SH "bool QCanvasSpline::closed () const"
+.SH "bool TQCanvasSpline::closed () const"
 Returns TRUE if the control points are a closed set; otherwise returns FALSE.
-.SH "QPointArray QCanvasSpline::controlPoints () const"
+.SH "TQPointArray TQCanvasSpline::controlPoints () const"
 Returns the current set of control points.
 .PP
 See also setControlPoints() and closed().
-.SH "int QCanvasSpline::rtti () const\fC [virtual]\fR"
-Returns 8 (QCanvasItem::Rtti_Spline).
+.SH "int TQCanvasSpline::rtti () const\fC [virtual]\fR"
+Returns 8 (TQCanvasItem::Rtti_Spline).
 .PP
-See also QCanvasItem::rtti().
+See also TQCanvasItem::rtti().
 .PP
-Reimplemented from QCanvasPolygon.
-.SH "void QCanvasSpline::setControlPoints ( QPointArray ctrl, bool close = TRUE )"
+Reimplemented from TQCanvasPolygon.
+.SH "void TQCanvasSpline::setControlPoints ( TQPointArray ctrl, bool close = TRUE )"
 Set the spline control points to \fIctrl\fR.
 .PP
 If \fIclose\fR is TRUE, then the first point in \fIctrl\fR will be re-used as the last point, and the number of control points must be a multiple of 3. If \fIclose\fR is FALSE, one additional control point is required, and the number of control points must be one of (4, 7, 10, 13, ...).
@@ -77,7 +77,7 @@ If the number of control points doesn't meet the above conditions, the number of
 Example: canvas/canvas.cpp.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcanvasspline.html
+.BR http://doc.trolltech.com/tqcanvasspline.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

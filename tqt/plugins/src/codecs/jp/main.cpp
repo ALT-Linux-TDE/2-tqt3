@@ -1,11 +1,11 @@
-#include <ntqtextcodecplugin.h>
-#include <ntqtextcodec.h>
-#include <ntqptrlist.h>
+#include <tqtextcodecplugin.h>
+#include <tqtextcodec.h>
+#include <tqptrlist.h>
 
-#include <ntqeucjpcodec.h>
-#include <ntqjiscodec.h>
-#include <ntqsjiscodec.h>
-#include <private/qfontcodecs_p.h>
+#include <tqeucjpcodec.h>
+#include <tqjiscodec.h>
+#include <tqsjiscodec.h>
+#include <private/tqfontcodecs_p.h>
 
 
 class JPTextCodecs : public TQTextCodecPlugin

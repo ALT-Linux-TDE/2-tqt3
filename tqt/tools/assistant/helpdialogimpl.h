@@ -39,14 +39,14 @@
 #include "helpwindow.h"
 #include "docuparser.h"
 
-#include <ntqlistbox.h>
-#include <ntqlistview.h>
-#include <ntqmap.h>
-#include <ntqstringlist.h>
-#include <ntqvalidator.h>
-#include <ntqpopupmenu.h>
-#include <ntqdict.h>
-#include <ntqpopupmenu.h>
+#include <tqlistbox.h>
+#include <tqlistview.h>
+#include <tqmap.h>
+#include <tqstringlist.h>
+#include <tqvalidator.h>
+#include <tqpopupmenu.h>
+#include <tqdict.h>
+#include <tqpopupmenu.h>
 
 class TQProgressBar;
 class MainWindow;

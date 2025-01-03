@@ -34,8 +34,8 @@
 #ifndef STYLEDBUTTON_H
 #define STYLEDBUTTON_H
 
-#include <ntqbutton.h>
-#include <ntqpixmap.h>
+#include <tqbutton.h>
+#include <tqpixmap.h>
 
 class TQColor;
 class TQBrush;

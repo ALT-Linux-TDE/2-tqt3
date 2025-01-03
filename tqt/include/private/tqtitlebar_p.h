@@ -1,0 +1,1 @@
+../../src/widgets/tqtitlebar_p.h

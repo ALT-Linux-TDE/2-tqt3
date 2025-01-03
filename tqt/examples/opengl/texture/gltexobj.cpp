@@ -17,8 +17,8 @@
 ****************************************************************************/
 
 #include "gltexobj.h"
-#include <ntqimage.h>
-#include <ntqtimer.h>
+#include <tqimage.h>
+#include <tqtimer.h>
 
 
 const int redrawWait = 50;

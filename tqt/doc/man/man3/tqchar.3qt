@@ -11,36 +11,36 @@ TQChar \- Lightweight Unicode character
 .SH SYNOPSIS
 Almost all the functions in this class are reentrant when TQt is built with thread support. The exception is \fBdecomposition\fR(). </p>
 .PP
-\fC#include <ntqstring.h>\fR
+\fC#include <tqstring.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQChar\fR ()"
+.BI "\fBTQChar\fR ()"
 .br
 .ti -1c
-.BI "\fBQChar\fR ( char c )"
+.BI "\fBTQChar\fR ( char c )"
 .br
 .ti -1c
-.BI "\fBQChar\fR ( uchar c )"
+.BI "\fBTQChar\fR ( uchar c )"
 .br
 .ti -1c
-.BI "\fBQChar\fR ( uchar c, uchar r )"
+.BI "\fBTQChar\fR ( uchar c, uchar r )"
 .br
 .ti -1c
-.BI "\fBQChar\fR ( const TQChar & c )"
+.BI "\fBTQChar\fR ( const TQChar & c )"
 .br
 .ti -1c
-.BI "\fBQChar\fR ( ushort rc )"
+.BI "\fBTQChar\fR ( ushort rc )"
 .br
 .ti -1c
-.BI "\fBQChar\fR ( short rc )"
+.BI "\fBTQChar\fR ( short rc )"
 .br
 .ti -1c
-.BI "\fBQChar\fR ( uint rc )"
+.BI "\fBTQChar\fR ( uint rc )"
 .br
 .ti -1c
-.BI "\fBQChar\fR ( int rc )"
+.BI "\fBTQChar\fR ( int rc )"
 .br
 .ti -1c
 .BI "enum \fBCategory\fR { NoCategory, Mark_NonSpacing, Mark_SpacingCombining, Mark_Enclosing, Number_DecimalDigit, Number_Letter, Number_Other, Separator_Space, Separator_Line, Separator_Paragraph, Other_Control, Other_Format, Other_Surrogate, Other_PrivateUse, Other_NotAssigned, Letter_Uppercase, Letter_Lowercase, Letter_Titlecase, Letter_Modifier, Letter_Other, Punctuation_Connector, Punctuation_Dash, Punctuation_Dask = Punctuation_Dash, Punctuation_Open, Punctuation_Close, Punctuation_InitialQuote, Punctuation_FinalQuote, Punctuation_Other, Symbol_Math, Symbol_Currency, Symbol_Modifier, Symbol_Other }"
@@ -221,80 +221,80 @@ The conversion functions include unicode() (to a scalar), latin1() (to scalar, b
 .PP
 More information can be found in the document About Unicode.
 .PP
-See also TQString, QCharRef, and Text Related Classes.
+See also TQString, TQCharRef, and Text Related Classes.
 .SS "Member Type Documentation"
 .SH "TQChar::Category"
 This enum maps the Unicode character categories.
 .PP
 The following characters are normative in Unicode:
 .TP
-\fCQChar::Mark_NonSpacing\fR - Unicode class name Mn
+\fCTQChar::Mark_NonSpacing\fR - Unicode class name Mn
 .TP
-\fCQChar::Mark_SpacingCombining\fR - Unicode class name Mc
+\fCTQChar::Mark_SpacingCombining\fR - Unicode class name Mc
 .TP
-\fCQChar::Mark_Enclosing\fR - Unicode class name Me
+\fCTQChar::Mark_Enclosing\fR - Unicode class name Me
 .TP
-\fCQChar::Number_DecimalDigit\fR - Unicode class name Nd
+\fCTQChar::Number_DecimalDigit\fR - Unicode class name Nd
 .TP
-\fCQChar::Number_Letter\fR - Unicode class name Nl
+\fCTQChar::Number_Letter\fR - Unicode class name Nl
 .TP
-\fCQChar::Number_Other\fR - Unicode class name No
+\fCTQChar::Number_Other\fR - Unicode class name No
 .TP
-\fCQChar::Separator_Space\fR - Unicode class name Zs
+\fCTQChar::Separator_Space\fR - Unicode class name Zs
 .TP
-\fCQChar::Separator_Line\fR - Unicode class name Zl
+\fCTQChar::Separator_Line\fR - Unicode class name Zl
 .TP
-\fCQChar::Separator_Paragraph\fR - Unicode class name Zp
+\fCTQChar::Separator_Paragraph\fR - Unicode class name Zp
 .TP
-\fCQChar::Other_Control\fR - Unicode class name Cc
+\fCTQChar::Other_Control\fR - Unicode class name Cc
 .TP
-\fCQChar::Other_Format\fR - Unicode class name Cf
+\fCTQChar::Other_Format\fR - Unicode class name Cf
 .TP
-\fCQChar::Other_Surrogate\fR - Unicode class name Cs
+\fCTQChar::Other_Surrogate\fR - Unicode class name Cs
 .TP
-\fCQChar::Other_PrivateUse\fR - Unicode class name Co
+\fCTQChar::Other_PrivateUse\fR - Unicode class name Co
 .TP
-\fCQChar::Other_NotAssigned\fR - Unicode class name Cn
+\fCTQChar::Other_NotAssigned\fR - Unicode class name Cn
 .PP
 The following categories are informative in Unicode:
 .TP
-\fCQChar::Letter_Uppercase\fR - Unicode class name Lu
+\fCTQChar::Letter_Uppercase\fR - Unicode class name Lu
 .TP
-\fCQChar::Letter_Lowercase\fR - Unicode class name Ll
+\fCTQChar::Letter_Lowercase\fR - Unicode class name Ll
 .TP
-\fCQChar::Letter_Titlecase\fR - Unicode class name Lt
+\fCTQChar::Letter_Titlecase\fR - Unicode class name Lt
 .TP
-\fCQChar::Letter_Modifier\fR - Unicode class name Lm
+\fCTQChar::Letter_Modifier\fR - Unicode class name Lm
 .TP
-\fCQChar::Letter_Other\fR - Unicode class name Lo
+\fCTQChar::Letter_Other\fR - Unicode class name Lo
 .TP
-\fCQChar::Punctuation_Connector\fR - Unicode class name Pc
+\fCTQChar::Punctuation_Connector\fR - Unicode class name Pc
 .TP
-\fCQChar::Punctuation_Dash\fR - Unicode class name Pd
+\fCTQChar::Punctuation_Dash\fR - Unicode class name Pd
 .TP
-\fCQChar::Punctuation_Open\fR - Unicode class name Ps
+\fCTQChar::Punctuation_Open\fR - Unicode class name Ps
 .TP
-\fCQChar::Punctuation_Close\fR - Unicode class name Pe
+\fCTQChar::Punctuation_Close\fR - Unicode class name Pe
 .TP
-\fCQChar::Punctuation_InitialQuote\fR - Unicode class name Pi
+\fCTQChar::Punctuation_InitialQuote\fR - Unicode class name Pi
 .TP
-\fCQChar::Punctuation_FinalQuote\fR - Unicode class name Pf
+\fCTQChar::Punctuation_FinalQuote\fR - Unicode class name Pf
 .TP
-\fCQChar::Punctuation_Other\fR - Unicode class name Po
+\fCTQChar::Punctuation_Other\fR - Unicode class name Po
 .TP
-\fCQChar::Symbol_Math\fR - Unicode class name Sm
+\fCTQChar::Symbol_Math\fR - Unicode class name Sm
 .TP
-\fCQChar::Symbol_Currency\fR - Unicode class name Sc
+\fCTQChar::Symbol_Currency\fR - Unicode class name Sc
 .TP
-\fCQChar::Symbol_Modifier\fR - Unicode class name Sk
+\fCTQChar::Symbol_Modifier\fR - Unicode class name Sk
 .TP
-\fCQChar::Symbol_Other\fR - Unicode class name So
+\fCTQChar::Symbol_Other\fR - Unicode class name So
 .PP
 There are two categories that are specific to Qt:
 .TP
-\fCQChar::NoCategory\fR - used when TQt is dazed and confused and cannot make sense of anything.
+\fCTQChar::NoCategory\fR - used when TQt is dazed and confused and cannot make sense of anything.
 .TP
-\fCQChar::Punctuation_Dask\fR - old typo alias for Punctuation_Dash
+\fCTQChar::Punctuation_Dask\fR - old typo alias for Punctuation_Dash
 .SH "TQChar::CombiningClass"
 This enum type defines names for some of the Unicode combining classes. See the Unicode Standard for a description of the values.
 .SH "TQChar::Decomposition"
@@ -465,7 +465,7 @@ character \fIch\fR is greater than or equal to that of \fIc\fR;
 otherwise returns FALSE.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qchar.html
+.BR http://doc.trolltech.com/tqchar.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -7,8 +7,8 @@
 **
 *****************************************************************************/
 
-#include <ntqmainwindow.h>
-#include <ntqintdict.h>
+#include <tqmainwindow.h>
+#include <tqintdict.h>
 #include "categoryinterface.h"
 
 class TQToolBox;

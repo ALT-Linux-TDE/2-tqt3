@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/mac.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -103,7 +102,7 @@ Native</a>.
 or using the open(1) command. Mac OS X needs this to dispatch events correctly,
 as well as gaining access to the menubar. If using GDB you must run with the 
 full path to the executable.
-<p> <h2> <a href="ntqcursor.html">TQCursor</a>
+<p> <h2> <a href="tqcursor.html">TQCursor</a>
 </h2>
 <a name="2"></a><p> Due to Mac OS X having only 16x16 custom cursors TQCursor is limited by this
 as well. For now the only workaround to this problem is to use a small
@@ -182,7 +181,7 @@ automatically included in the make builds.
 <a name="6-1"></a><p> If a static build fails with the following error messages during the
 designer make phase:
 <p> <pre>
-TQWidget::<a href="ntqwidget.html#sizeHint">sizeHint</a>() const referenced from libtqui expected to be defined in @executable_path/../Frameworks/libtqt-mt.3.dylib
+TQWidget::<a href="tqwidget.html#sizeHint">sizeHint</a>() const referenced from libtqui expected to be defined in @executable_path/../Frameworks/libtqt-mt.3.dylib
 non-virtual thunk [nv:-40] to TQWidget::metric(int) const referenced from libtqui
  expected to be defined in @executable_path/../Frameworks/libtqt-mt.3.dylib
 </pre>
@@ -204,7 +203,7 @@ do this:
                                                kCFURLPOSIXPathStyle);
         const char *pathPtr = CFStringGetCStringPtr(macPath, 
                                                CFStringGetSystemEncoding());
-        <a href="ntqapplication.html#qDebug">tqDebug</a>("Path = %s", pathPtr);
+        <a href="tqapplication.html#qDebug">tqDebug</a>("Path = %s", pathPtr);
         CFRelease(pluginRef);
         CFRelease(macPath);
 </pre>
@@ -244,7 +243,7 @@ you should see menu items like "Avslutt" instead of "Quit"
 <a name="8"></a><p> <h3> Right-Mouse Clicks
 </h3>
 <a name="8-1"></a><p> If you want to provide right-mouse click support for Mac OS X, use the
-<a href="qcontextmenuevent.html">TQContextMenuEvent</a> class. This will map to a context menu event, in other
+<a href="tqcontextmenuevent.html">TQContextMenuEvent</a> class. This will map to a context menu event, in other
 words a menu that will display a popup selection. This is the most common
 use of right-mouse clicks, and maps to a control-click with the Mac OS X
 one-button mouse support.
@@ -254,8 +253,8 @@ one-button mouse support.
 into Mac native menubars. Fitting this into your existing TQt application
 will normally be automatic, however, if you have special needs the TQt/Mac
 implementation currently selects a menubar by starting at the active window
-(ie <a href="ntqapplication.html#activeWindow">TQApplication::activeWindow</a>()), and applying:
-<p> 1) If the window has a <a href="ntqmenubar.html">TQMenuBar</a> then it is used.
+(ie <a href="tqapplication.html#activeWindow">TQApplication::activeWindow</a>()), and applying:
+<p> 1) If the window has a <a href="tqmenubar.html">TQMenuBar</a> then it is used.
 2) If the window is a modal then its menubar is used. If no menubar is
 specified then a default menubar is used (as documented below)
 3) If the window has no parent then the default menubar is used (as documented below).
@@ -273,7 +272,7 @@ used whenever a default menubar is needed.
 <p> <li> TQCustomMenuItems are not supported in Mac native menubars, they are supported
 in popupmenus that are not in the Mac native menubar.
 <p> <li> Items with accelerators that have more than one keystroke
-(<a href="ntqkeysequence.html">TQKeySequence</a>) will not be honored, and the first key will be used.
+(<a href="tqkeysequence.html">TQKeySequence</a>) will not be honored, and the first key will be used.
 <p> </ul>
 <p> <h3> Unsupported Native Widgets
 </h3>

@@ -7,7 +7,7 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 #include <stdlib.h>
 #include "tictac.h"
 

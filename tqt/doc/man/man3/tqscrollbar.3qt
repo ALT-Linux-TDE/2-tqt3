@@ -1,5 +1,5 @@
 '\" t
-.TH QScrollBar 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQScrollBar 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QScrollBar \- Vertical or horizontal scroll bar
+TQScrollBar \- Vertical or horizontal scroll bar
 .SH SYNOPSIS
-\fC#include <ntqscrollbar.h>\fR
+\fC#include <tqscrollbar.h>\fR
 .PP
-Inherits TQWidget and QRangeControl.
+Inherits TQWidget and TQRangeControl.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQScrollBar\fR ( TQWidget * parent, const char * name = 0 )"
+.BI "\fBTQScrollBar\fR ( TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQScrollBar\fR ( Orientation orientation, TQWidget * parent, const char * name = 0 )"
+.BI "\fBTQScrollBar\fR ( Orientation orientation, TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQScrollBar\fR ( int minValue, int maxValue, int lineStep, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
+.BI "\fBTQScrollBar\fR ( int minValue, int maxValue, int lineStep, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QScrollBar\fR ()"
+.BI "\fB~TQScrollBar\fR ()"
 .br
 .ti -1c
 .BI "virtual void \fBsetOrientation\fR ( Orientation )"
@@ -43,7 +43,7 @@ Inherits TQWidget and QRangeControl.
 .BI "bool \fBdraggingSlider\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetPalette\fR ( const QPalette & p )"
+.BI "virtual void \fBsetPalette\fR ( const TQPalette & p )"
 .br
 .ti -1c
 .BI "int \fBminValue\fR () const"
@@ -76,7 +76,7 @@ Inherits TQWidget and QRangeControl.
 .BI "int \fBsliderStart\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBsliderRect\fR () const"
+.BI "TQRect \fBsliderRect\fR () const"
 .br
 .in -1c
 .SS "Public Slots"
@@ -142,11 +142,11 @@ Inherits TQWidget and QRangeControl.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBhideEvent\fR ( QHideEvent * )"
+.BI "virtual void \fBhideEvent\fR ( TQHideEvent * )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QScrollBar widget provides a vertical or horizontal scroll bar.
+The TQScrollBar widget provides a vertical or horizontal scroll bar.
 .PP
 A scroll bar allows the user to control a value within a program-definable range and gives users a visible indication of the current value of a range control.
 .PP
@@ -162,22 +162,22 @@ The \fIslider\fR is the handle that indicates the current value of the scroll ba
 The \fIpage-up/page-down\fR control is the area on which the slider slides (the scroll bar's background). Clicking here moves the scroll bar towards the click. The meaning of "page" is also configurable: in editors and list boxes it means as many lines as there is space for in the widget.
 .IP
 .PP
-QScrollBar has very few of its own functions; it mostly relies on QRangeControl. The most useful functions are setValue() to set the scroll bar directly to some value; addPage(), addLine(), subtractPage(), and subtractLine() to simulate the effects of clicking (useful for accelerator keys); setSteps() to define the values of pageStep() and lineStep(); and setRange() to set the minValue() and maxValue() of the scroll bar. QScrollBar has a convenience constructor with which you can set most of these properties.
+TQScrollBar has very few of its own functions; it mostly relies on TQRangeControl. The most useful functions are setValue() to set the scroll bar directly to some value; addPage(), addLine(), subtractPage(), and subtractLine() to simulate the effects of clicking (useful for accelerator keys); setSteps() to define the values of pageStep() and lineStep(); and setRange() to set the minValue() and maxValue() of the scroll bar. TQScrollBar has a convenience constructor with which you can set most of these properties.
 .PP
 Some GUI styles (for example, the Windows and Motif styles provided with Qt), also use the pageStep() value to calculate the size of the slider.
 .PP
-In addition to the access functions from QRangeControl, QScrollBar provides a comprehensive set of signals: <center>.nf
+In addition to the access functions from TQRangeControl, TQScrollBar provides a comprehensive set of signals: <center>.nf
 .TS
-l - l. Signal Emitted when valueChanged() the scroll bar's value has changed. The tracking() determines whether this signal is emitted during user interaction. sliderPressed() the user starts to drag the slider. sliderMoved() the user drags the slider. sliderReleased() the user releases the slider. nextLine() the scroll bar has moved one line down or right. Line is defined in QRangeControl. prevLine() the scroll bar has moved one line up or left. nextPage() the scroll bar has moved one page down or right. prevPage()
+l - l. Signal Emitted when valueChanged() the scroll bar's value has changed. The tracking() determines whether this signal is emitted during user interaction. sliderPressed() the user starts to drag the slider. sliderMoved() the user drags the slider. sliderReleased() the user releases the slider. nextLine() the scroll bar has moved one line down or right. Line is defined in TQRangeControl. prevLine() the scroll bar has moved one line up or left. nextPage() the scroll bar has moved one page down or right. prevPage()
 .TE
 .fi
 </center>
 .PP
-QScrollBar only provides integer ranges. Note that although QScrollBar handles very large numbers, scroll bars on current screens cannot usefully control ranges above about 100,000 pixels. Beyond that, it becomes difficult for the user to control the scroll bar using either the keyboard or the mouse.
+TQScrollBar only provides integer ranges. Note that although TQScrollBar handles very large numbers, scroll bars on current screens cannot usefully control ranges above about 100,000 pixels. Beyond that, it becomes difficult for the user to control the scroll bar using either the keyboard or the mouse.
 .PP
 A scroll bar can be controlled by the keyboard, but it has a default focusPolicy() of NoFocus. Use setFocusPolicy() to enable keyboard focus. See keyPressEvent() for a list of key bindings.
 .PP
-If you need to add scroll bars to an interface, consider using the QScrollView class, which encapsulates the common uses for scroll bars.
+If you need to add scroll bars to an interface, consider using the TQScrollView class, which encapsulates the common uses for scroll bars.
 .PP
 .ce 1
 .B "[Image Omitted]"
@@ -186,15 +186,15 @@ If you need to add scroll bars to an interface, consider using the QScrollView c
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QSlider, QSpinBox, QScrollView, GUI Design Handbook: Scroll Bar, and Basic Widgets.
+See also TQSlider, TQSpinBox, TQScrollView, GUI Design Handbook: Scroll Bar, and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QScrollBar::QScrollBar ( TQWidget * parent, const char * name = 0 )"
+.SH "TQScrollBar::TQScrollBar ( TQWidget * parent, const char * name = 0 )"
 Constructs a vertical scroll bar.
 .PP
 The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
 .PP
 The minValue defaults to 0, the maxValue to 99, with a lineStep size of 1 and a pageStep size of 10, and an initial value of 0.
-.SH "QScrollBar::QScrollBar ( Orientation orientation, TQWidget * parent, const char * name = 0 )"
+.SH "TQScrollBar::TQScrollBar ( Orientation orientation, TQWidget * parent, const char * name = 0 )"
 Constructs a scroll bar.
 .PP
 The \fIorientation\fR must be TQt::Vertical or TQt::Horizontal.
@@ -202,81 +202,81 @@ The \fIorientation\fR must be TQt::Vertical or TQt::Horizontal.
 The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
 .PP
 The minValue defaults to 0, the maxValue to 99, with a lineStep size of 1 and a pageStep size of 10, and an initial value of 0.
-.SH "QScrollBar::QScrollBar ( int minValue, int maxValue, int lineStep, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
+.SH "TQScrollBar::TQScrollBar ( int minValue, int maxValue, int lineStep, int pageStep, int value, Orientation orientation, TQWidget * parent, const char * name = 0 )"
 Constructs a scroll bar whose value can never be smaller than \fIminValue\fR or greater than \fImaxValue\fR, whose line step size is \fIlineStep\fR and page step size is \fIpageStep\fR and whose value is initially \fIvalue\fR (which is guaranteed to be in range using bound()).
 .PP
 If \fIorientation\fR is Vertical the scroll bar is vertical and if it is Horizontal the scroll bar is horizontal.
 .PP
 The \fIparent\fR and \fIname\fR arguments are sent on to the TQWidget constructor.
-.SH "QScrollBar::~QScrollBar ()"
+.SH "TQScrollBar::~TQScrollBar ()"
 Destructor.
-.SH "bool QScrollBar::draggingSlider () const"
+.SH "bool TQScrollBar::draggingSlider () const"
 Returns TRUE if the user has clicked the mouse on the slider and is currently dragging it; otherwise returns FALSE. See the "draggingSlider" property for details.
-.SH "void QScrollBar::hideEvent ( QHideEvent * )\fC [virtual protected]\fR"
+.SH "void TQScrollBar::hideEvent ( TQHideEvent * )\fC [virtual protected]\fR"
 This function is called when the scrollbar is hidden.
 .PP
 Reimplemented from TQWidget.
-.SH "int QScrollBar::lineStep () const"
+.SH "int TQScrollBar::lineStep () const"
 Returns the line step. See the "lineStep" property for details.
-.SH "int QScrollBar::maxValue () const"
+.SH "int TQScrollBar::maxValue () const"
 Returns the scroll bar's maximum value. See the "maxValue" property for details.
-.SH "int QScrollBar::minValue () const"
+.SH "int TQScrollBar::minValue () const"
 Returns the scroll bar's minimum value. See the "minValue" property for details.
-.SH "void QScrollBar::nextLine ()\fC [signal]\fR"
+.SH "void TQScrollBar::nextLine ()\fC [signal]\fR"
 This signal is emitted when the scroll bar scrolls one line down or right.
-.SH "void QScrollBar::nextPage ()\fC [signal]\fR"
+.SH "void TQScrollBar::nextPage ()\fC [signal]\fR"
 This signal is emitted when the scroll bar scrolls one page down or right.
-.SH "Orientation QScrollBar::orientation () const"
+.SH "Orientation TQScrollBar::orientation () const"
 Returns the orientation of the scroll bar. See the "orientation" property for details.
-.SH "int QScrollBar::pageStep () const"
+.SH "int TQScrollBar::pageStep () const"
 Returns the page step. See the "pageStep" property for details.
-.SH "void QScrollBar::prevLine ()\fC [signal]\fR"
+.SH "void TQScrollBar::prevLine ()\fC [signal]\fR"
 This signal is emitted when the scroll bar scrolls one line up or left.
-.SH "void QScrollBar::prevPage ()\fC [signal]\fR"
+.SH "void TQScrollBar::prevPage ()\fC [signal]\fR"
 This signal is emitted when the scroll bar scrolls one page up or left.
-.SH "void QScrollBar::setLineStep ( int )"
+.SH "void TQScrollBar::setLineStep ( int )"
 Sets the line step. See the "lineStep" property for details.
-.SH "void QScrollBar::setMaxValue ( int )"
+.SH "void TQScrollBar::setMaxValue ( int )"
 Sets the scroll bar's maximum value. See the "maxValue" property for details.
-.SH "void QScrollBar::setMinValue ( int )"
+.SH "void TQScrollBar::setMinValue ( int )"
 Sets the scroll bar's minimum value. See the "minValue" property for details.
-.SH "void QScrollBar::setOrientation ( Orientation )\fC [virtual]\fR"
+.SH "void TQScrollBar::setOrientation ( Orientation )\fC [virtual]\fR"
 Sets the orientation of the scroll bar. See the "orientation" property for details.
-.SH "void QScrollBar::setPageStep ( int )"
+.SH "void TQScrollBar::setPageStep ( int )"
 Sets the page step. See the "pageStep" property for details.
-.SH "void QScrollBar::setPalette ( const QPalette & p )\fC [virtual]\fR"
+.SH "void TQScrollBar::setPalette ( const TQPalette & p )\fC [virtual]\fR"
 Reimplements the virtual function TQWidget::setPalette().
 .PP
 Sets the background color to the mid color for Motif style scroll bars using palette \fIp\fR.
 .PP
 Reimplemented from TQWidget.
-.SH "void QScrollBar::setTracking ( bool enable )\fC [virtual]\fR"
+.SH "void TQScrollBar::setTracking ( bool enable )\fC [virtual]\fR"
 Sets whether scroll bar tracking is enabled to \fIenable\fR. See the "tracking" property for details.
-.SH "void QScrollBar::setValue ( int )\fC [slot]\fR"
+.SH "void TQScrollBar::setValue ( int )\fC [slot]\fR"
 Sets the scroll bar's value. See the "value" property for details.
-.SH "void QScrollBar::sliderMoved ( int value )\fC [signal]\fR"
+.SH "void TQScrollBar::sliderMoved ( int value )\fC [signal]\fR"
 This signal is emitted when the slider is dragged by the user, with the new scroll bar \fIvalue\fR as an argument.
 .PP
 This signal is emitted even when tracking is turned off.
 .PP
 See also tracking, valueChanged(), nextLine(), prevLine(), nextPage(), and prevPage().
-.SH "void QScrollBar::sliderPressed ()\fC [signal]\fR"
+.SH "void TQScrollBar::sliderPressed ()\fC [signal]\fR"
 This signal is emitted when the user presses the slider with the mouse.
-.SH "QRect QScrollBar::sliderRect () const"
+.SH "TQRect TQScrollBar::sliderRect () const"
 Returns the scroll bar slider rectangle.
 .PP
 See also sliderStart().
-.SH "void QScrollBar::sliderReleased ()\fC [signal]\fR"
+.SH "void TQScrollBar::sliderReleased ()\fC [signal]\fR"
 This signal is emitted when the user releases the slider with the mouse.
-.SH "int QScrollBar::sliderStart () const"
+.SH "int TQScrollBar::sliderStart () const"
 Returns the pixel position where the scroll bar slider starts.
 .PP
 This is equivalent to sliderRect().y() for vertical scroll bars or sliderRect().x() for horizontal scroll bars.
-.SH "bool QScrollBar::tracking () const"
+.SH "bool TQScrollBar::tracking () const"
 Returns TRUE if scroll bar tracking is enabled; otherwise returns FALSE. See the "tracking" property for details.
-.SH "int QScrollBar::value () const"
+.SH "int TQScrollBar::value () const"
 Returns the scroll bar's value. See the "value" property for details.
-.SH "void QScrollBar::valueChanged ( int value )\fC [signal]\fR"
+.SH "void TQScrollBar::valueChanged ( int value )\fC [signal]\fR"
 This signal is emitted when the scroll bar value has changed, with the new scroll bar \fIvalue\fR as an argument.
 .SS "Property Documentation"
 .SH "bool draggingSlider"
@@ -288,13 +288,13 @@ This property holds the line step.
 .PP
 When setting lineStep, the virtual stepChange() function will be called if the new line step is different from the previous setting.
 .PP
-See also setSteps(), QRangeControl::pageStep(), and setRange().
+See also setSteps(), TQRangeControl::pageStep(), and setRange().
 .PP
 Set this property's value with setLineStep() and get this property's value with lineStep().
 .SH "int maxValue"
 This property holds the scroll bar's maximum value.
 .PP
-When setting this property, the QScrollBar::minValue is adjusted if necessary to ensure that the range remains valid.
+When setting this property, the TQScrollBar::minValue is adjusted if necessary to ensure that the range remains valid.
 .PP
 See also setRange().
 .PP
@@ -302,7 +302,7 @@ Set this property's value with setMaxValue() and get this property's value with 
 .SH "int minValue"
 This property holds the scroll bar's minimum value.
 .PP
-When setting this property, the QScrollBar::maxValue is adjusted if necessary to ensure that the range remains valid.
+When setting this property, the TQScrollBar::maxValue is adjusted if necessary to ensure that the range remains valid.
 .PP
 See also setRange().
 .PP
@@ -318,7 +318,7 @@ This property holds the page step.
 .PP
 When setting pageStep, the virtual stepChange() function will be called if the new page step is different from the previous setting.
 .PP
-See also QRangeControl::setSteps(), lineStep, and setRange().
+See also TQRangeControl::setSteps(), lineStep, and setRange().
 .PP
 Set this property's value with setPageStep() and get this property's value with pageStep().
 .SH "bool tracking"
@@ -332,10 +332,10 @@ This property holds the scroll bar's value.
 .PP
 Set this property's value with setValue() and get this property's value with value().
 .PP
-See also QRangeControl::value() and prevValue().
+See also TQRangeControl::value() and prevValue().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqscrollbar.html
+.BR http://doc.trolltech.com/tqscrollbar.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

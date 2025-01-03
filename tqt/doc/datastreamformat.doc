@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Documentation of the Format of the QDataStream operators
+** Documentation of the Format of the TQDataStream operators
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
@@ -39,10 +39,10 @@
 /*!
 \page datastreamformat.html
 
-\title Format of the QDataStream Operators
+\title Format of the TQDataStream Operators
 
-The \l QDataStream allows you to serialize some of the TQt data types.
-The table below lists the data types that QDataStream can serialize
+The \l TQDataStream allows you to serialize some of the TQt data types.
+The table below lists the data types that TQDataStream can serialize
 and how they are represented.
 
 It is best to always cast integers to a TQt integer type when writing,
@@ -87,23 +87,23 @@ and to read back into the same TQt integer type when reading.
 	\i The string bytes including the terminating 0
 	\endlist
 	The null string is represented as \c {(TQ_UINT32) 0}.
-\row \i QBitArray
+\row \i TQBitArray
      \i \list
 	\i The array size (TQ_UINT32)
 	\i The array bits, i.e. (size + 7)/8 bytes
 	\endlist
-\row \i QBrush
+\row \i TQBrush
      \i \list
 	\i The brush style (TQ_UINT8)
 	\i The brush color (TQColor)
-	\i If style is CustomPattern, the brush pixmap (QPixmap)
+	\i If style is CustomPattern, the brush pixmap (TQPixmap)
 	\endlist
-\row \i QByteArray
+\row \i TQByteArray
      \i \list
 	\i The array size (TQ_UINT32)
 	\i The array bytes, i.e. size bytes
 	\endlist
-\row \i QCString
+\row \i TQCString
      \i \list
 	\i The size of the string including the terminating 0 (TQ_UINT32)
 	\i The string bytes including the terminating 0
@@ -111,40 +111,40 @@ and to read back into the same TQt integer type when reading.
 	The null string is represented as \c {(TQ_UINT32) 0}.
 \row \i \l TQColor
      \i \list \i RGB value serialized as a TQ_UINT32 \endlist
-\row \i QColorGroup
+\row \i TQColorGroup
      \i \list
-	\i foreground (QBrush)
-	\i button (QBrush)
-	\i light (QBrush)
-	\i midLight (QBrush)
-	\i dark (QBrush)
-	\i mid (QBrush)
-	\i text (QBrush)
-	\i brightText (QBrush)
-	\i ButtonText (QBrush)
-	\i base (QBrush)
-	\i background (QBrush)
-	\i shadow (QBrush)
-	\i highlight (QBrush)
-	\i highlightedText (QBrush)
+	\i foreground (TQBrush)
+	\i button (TQBrush)
+	\i light (TQBrush)
+	\i midLight (TQBrush)
+	\i dark (TQBrush)
+	\i mid (TQBrush)
+	\i text (TQBrush)
+	\i brightText (TQBrush)
+	\i ButtonText (TQBrush)
+	\i base (TQBrush)
+	\i background (TQBrush)
+	\i shadow (TQBrush)
+	\i highlight (TQBrush)
+	\i highlightedText (TQBrush)
 	\endlist
-\row \i QCursor
+\row \i TQCursor
      \i \list
 	\i Shape id (TQ_INT16)
-	\i If shape is BitmapCursor: The bitmap (QPixmap), mask (QPixmap) and hot spot (QPoint)
+	\i If shape is BitmapCursor: The bitmap (TQPixmap), mask (TQPixmap) and hot spot (TQPoint)
 	\endlist
-\row \i QDate
+\row \i TQDate
      \i \list
 	\i Julian day (TQ_UINT32)
 	\endlist
-\row \i QDateTime
+\row \i TQDateTime
      \i \list
-	\i Date (QDate)
-	\i Time (QTime)
+	\i Date (TQDate)
+	\i Time (TQTime)
 	\endlist
-\row \i QFont
+\row \i TQFont
      \i \list
-	\i The family (QCString)
+	\i The family (TQCString)
 	\i The point size (TQ_INT16)
 	\i The style hint (TQ_UINT8)
 	\i The char set (TQ_UINT8)
@@ -156,60 +156,60 @@ and to read back into the same TQt integer type when reading.
 	\i If the image is null a "null image" marker is saved;
 	otherwise the image is saved in PNG or BMP format (depending
 	on the stream version). If you want control of the format,
-	stream the image into a QBuffer (using QImageIO) and stream
+	stream the image into a TQBuffer (using TQImageIO) and stream
 	that.
 	\endlist
-\row \i QMap
+\row \i TQMap
      \i \list
 	\i The number of items (TQ_UINT32)
 	\i For all items, the key and value
 	\endlist
-\row \i QPalette
+\row \i TQPalette
      \i \list
-	\i active (QColorGroup)
-	\i disabled (QColorGroup)
-	\i inactive (QColorGroup)
+	\i active (TQColorGroup)
+	\i disabled (TQColorGroup)
+	\i inactive (TQColorGroup)
 	\endlist
-\row \i QPen
+\row \i TQPen
      \i \list
 	\i The pen styles (TQ_UINT8)
 	\i The pen width (TQ_UINT8)
 	\i The pen color (TQColor)
 	\endlist
-\row \i QPicture
+\row \i TQPicture
      \i \list
 	\i The size of the picture data (TQ_UINT32)
 	\i The raw bytes of picture data (char)
 	\endlist
-\row \i QPixmap
+\row \i TQPixmap
      \i \list
 	\i Save it as a PNG image.
 	\endlist
-\row \i QPoint
+\row \i TQPoint
      \i \list
 	\i The x coordinate (TQ_INT32)
 	\i The y coordinate (TQ_INT32)
 	\endlist
-\row \i QPointArray
+\row \i TQPointArray
      \i \list
 	\i The array size (TQ_UINT32)
-	\i The array points (QPoint)
+	\i The array points (TQPoint)
 	\endlist
-\row \i QRect
+\row \i TQRect
      \i \list
 	\i left (TQ_INT32)
 	\i top (TQ_INT32)
 	\i right (TQ_INT32)
 	\i bottom (TQ_INT32)
 	\endlist
-\row \i QRegion
+\row \i TQRegion
      \i \list
 	\i The size of the data, i.e. 8 + 16 * (number of rectangles) (TQ_UINT32)
 	\i QRGN_RECTS (TQ_INT32)
 	\i The number of rectangles (TQ_UINT32)
-	\i The rectangles in sequential order (QRect)
+	\i The rectangles in sequential order (TQRect)
 	\endlist
-\row \i QSize
+\row \i TQSize
      \i \list
 	\i width (TQ_INT32)
 	\i height (TQ_INT32)
@@ -220,21 +220,21 @@ and to read back into the same TQt integer type when reading.
 	   otherwise: The string length (TQ_UINT32) followed by the
 	   data in UTF-16
 	\endlist
-\row \i QTime
+\row \i TQTime
      \i \list
 	\i Milliseconds since midnight (TQ_UINT32)
 	\endlist
-\row \i QValueList
+\row \i TQValueList
      \i \list
 	\i The number of list elements (TQ_UINT32)
 	\i All the elements in sequential order
 	\endlist
-\row \i QVariant
+\row \i TQVariant
      \i \list
 	\i The type of the data (TQ_UINT32)
 	\i The data of the specified type
 	\endlist
-\row \i QWMatrix
+\row \i TQWMatrix
      \i \list
 	\i m11 (double)
 	\i m12 (double)

@@ -7,11 +7,11 @@
 #include "mainwindow.h"
 #include "printpanel.h"
 
-#include <ntqaccel.h>
-#include <ntqapplication.h>
-#include <ntqmenubar.h>
-#include <ntqmessagebox.h>
-#include <ntqpopupmenu.h>
+#include <tqaccel.h>
+#include <tqapplication.h>
+#include <tqmenubar.h>
+#include <tqmessagebox.h>
+#include <tqpopupmenu.h>
 
 MainWindow::MainWindow( TQWidget *parent, const char *name )
     : TQMainWindow( parent, name )

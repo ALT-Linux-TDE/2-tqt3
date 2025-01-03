@@ -40,8 +40,8 @@
 #define __MSVC_OBJECTMODEL_H__
 
 #include "project.h"
-#include <ntqstring.h>
-#include <ntqstringlist.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
 
 enum DotNET {
     NETUnknown = 0,
@@ -66,7 +66,7 @@ enum DotNET {
 enum customBuildCheck {
     none,
     moc,
-    uic,
+    tquic,
     lexyacc,
     resource
 };

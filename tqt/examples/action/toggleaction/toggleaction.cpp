@@ -1,7 +1,7 @@
-#include <ntqapplication.h>
-#include <ntqmainwindow.h>
-#include <ntqtoolbar.h>
-#include <ntqaction.h>
+#include <tqapplication.h>
+#include <tqmainwindow.h>
+#include <tqtoolbar.h>
+#include <tqaction.h>
 
 #include "labelonoff.xpm"
 

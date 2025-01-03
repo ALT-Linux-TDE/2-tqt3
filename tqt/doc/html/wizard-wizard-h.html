@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/src/dialogs/qwizard.cpp:53 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -45,19 +44,19 @@ body { background: #ffffff; color: black; }
 #ifndef WIZARD_H
 #define WIZARD_H
 
-#include &lt;<a href="qwizard-h.html">ntqwizard.h</a>&gt;
+#include &lt;<a href="tqwizard-h.html">tqwizard.h</a>&gt;
 
 class TQWidget;
 class TQHBox;
 class TQLineEdit;
 class TQLabel;
 
-class Wizard : public <a href="ntqwizard.html">TQWizard</a>
+class Wizard : public <a href="tqwizard.html">TQWizard</a>
 {
     TQ_OBJECT
 
 public:
-    Wizard( <a href="ntqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
+    Wizard( <a href="tqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
 
     void showPage(TQWidget* page);
 
@@ -66,13 +65,13 @@ protected:
     void setupPage2();
     void setupPage3();
 
-    <a href="ntqhbox.html">TQHBox</a> *page1, *page2, *page3;
-    <a href="ntqlineedit.html">TQLineEdit</a> *key, *firstName, *lastName, *address, *phone, *email;
-    <a href="ntqlabel.html">TQLabel</a> *lKey, *lFirstName, *lLastName, *lAddress, *lPhone, *lEmail;
+    <a href="tqhbox.html">TQHBox</a> *page1, *page2, *page3;
+    <a href="tqlineedit.html">TQLineEdit</a> *key, *firstName, *lastName, *address, *phone, *email;
+    <a href="tqlabel.html">TQLabel</a> *lKey, *lFirstName, *lLastName, *lAddress, *lPhone, *lEmail;
 
 protected slots:
-    void keyChanged( const <a href="ntqstring.html">TQString</a> &amp; );
-    void dataChanged( const <a href="ntqstring.html">TQString</a> &amp; );
+    void keyChanged( const <a href="tqstring.html">TQString</a> &amp; );
+    void dataChanged( const <a href="tqstring.html">TQString</a> &amp; );
 
 };
 

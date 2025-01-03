@@ -31,19 +31,19 @@
 **
 **********************************************************************/
 
-#include <ntqvariant.h>  // HP-UX compiler needs this here
+#include <tqvariant.h>  // HP-UX compiler needs this here
 #include "styledbutton.h"
 #include "formwindow.h"
 #include "pixmapchooser.h"
-#include <ntqcolordialog.h>
-#include <ntqpalette.h>
-#include <ntqlabel.h>
-#include <ntqpainter.h>
-#include <ntqimage.h>
-#include <ntqpixmap.h>
-#include <ntqapplication.h>
-#include <ntqdragobject.h>
-#include <ntqstyle.h>
+#include <tqcolordialog.h>
+#include <tqpalette.h>
+#include <tqlabel.h>
+#include <tqpainter.h>
+#include <tqimage.h>
+#include <tqpixmap.h>
+#include <tqapplication.h>
+#include <tqdragobject.h>
+#include <tqstyle.h>
 
 StyledButton::StyledButton(TQWidget* parent, const char* name)
     : TQButton( parent, name ), pix( 0 ), spix( 0 ), s( 0 ), formWindow( 0 ), mousePressed( FALSE )

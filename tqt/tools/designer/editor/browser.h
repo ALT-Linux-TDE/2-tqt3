@@ -34,7 +34,7 @@
 #ifndef BROWSER_H
 #define BROWSER_H
 
-#include <ntqobject.h>
+#include <tqobject.h>
 
 class Editor;
 class TQTextCursor;

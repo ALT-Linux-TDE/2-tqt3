@@ -1,5 +1,5 @@
 '\" t
-.TH QHeader 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQHeader 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,28 +7,28 @@
 .ad l
 .nh
 .SH NAME
-QHeader \- Header row or column, e.g. for tables and listviews
+TQHeader \- Header row or column, e.g. for tables and listviews
 .SH SYNOPSIS
-\fC#include <ntqheader.h>\fR
+\fC#include <tqheader.h>\fR
 .PP
 Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQHeader\fR ( TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQHeader\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQHeader\fR ( int n, TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQHeader\fR ( int n, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QHeader\fR ()"
+.BI "\fB~TQHeader\fR ()"
 .br
 .ti -1c
 .BI "int \fBaddLabel\fR ( const TQString & s, int size = -1 )"
 .br
 .ti -1c
-.BI "int \fBaddLabel\fR ( const QIconSet & iconset, const TQString & s, int size = -1 )"
+.BI "int \fBaddLabel\fR ( const TQIconSet & iconset, const TQString & s, int size = -1 )"
 .br
 .ti -1c
 .BI "void \fBremoveLabel\fR ( int section )"
@@ -37,13 +37,13 @@ Inherits TQWidget.
 .BI "virtual void \fBsetLabel\fR ( int section, const TQString & s, int size = -1 )"
 .br
 .ti -1c
-.BI "virtual void \fBsetLabel\fR ( int section, const QIconSet & iconset, const TQString & s, int size = -1 )"
+.BI "virtual void \fBsetLabel\fR ( int section, const TQIconSet & iconset, const TQString & s, int size = -1 )"
 .br
 .ti -1c
 .BI "TQString \fBlabel\fR ( int section ) const"
 .br
 .ti -1c
-.BI "QIconSet * \fBiconSet\fR ( int section ) const"
+.BI "TQIconSet * \fBiconSet\fR ( int section ) const"
 .br
 .ti -1c
 .BI "virtual void \fBsetOrientation\fR ( Orientation )"
@@ -106,7 +106,7 @@ Inherits TQWidget.
 .BI "int \fBheaderWidth\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBsectionRect\fR ( int section ) const"
+.BI "TQRect \fBsectionRect\fR ( int section ) const"
 .br
 .ti -1c
 .BI "virtual void setCellSize ( int section, int s )  \fI(obsolete)\fR"
@@ -214,19 +214,19 @@ Inherits TQWidget.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "QRect \fBsRect\fR ( int index )"
+.BI "TQRect \fBsRect\fR ( int index )"
 .br
 .ti -1c
-.BI "virtual void \fBpaintSection\fR ( QPainter * p, int index, const QRect & fr )"
+.BI "virtual void \fBpaintSection\fR ( TQPainter * p, int index, const TQRect & fr )"
 .br
 .ti -1c
-.BI "virtual void \fBpaintSectionLabel\fR ( QPainter * p, int index, const QRect & fr )"
+.BI "virtual void \fBpaintSectionLabel\fR ( TQPainter * p, int index, const TQRect & fr )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QHeader class provides a header row or column, e.g. for tables and listviews.
+The TQHeader class provides a header row or column, e.g. for tables and listviews.
 .PP
-This class provides a header, e.g. a vertical header to display row labels, or a horizontal header to display column labels. It is used by QTable and QListView for example.
+This class provides a header, e.g. a vertical header to display row labels, or a horizontal header to display column labels. It is used by TQTable and TQListView for example.
 .PP
 A header is composed of one or more \fIsections\fR, each of which can display a text label and an iconset. A sort indicator (an arrow) can also be displayed using setSortIndicator().
 .PP
@@ -234,7 +234,7 @@ Sections are added with addLabel() and removed with removeLabel(). The label and
 .PP
 The orientation of the header is set with setOrientation(). If setStretchEnabled() is TRUE, the sections will expand to take up the full width (height for vertical headers) of the header. The user can resize the sections manually if setResizeEnabled() is TRUE. Call adjustHeaderSize() to have the sections resize to occupy the full width (or height).
 .PP
-A section can be moved with moveSection(). If setMovingEnabled() is TRUE (the default)the user may drag a section from one position to another. If a section is moved, the index positions at which sections were added (with addLabel()), may not be the same after the move. You don't have to worry about this in practice because the QHeader API works in terms of section numbers, so it doesn't matter where a particular section has been moved to.
+A section can be moved with moveSection(). If setMovingEnabled() is TRUE (the default)the user may drag a section from one position to another. If a section is moved, the index positions at which sections were added (with addLabel()), may not be the same after the move. You don't have to worry about this in practice because the TQHeader API works in terms of section numbers, so it doesn't matter where a particular section has been moved to.
 .PP
 If you want the current index position of a section call mapToIndex() giving it the section number. (This is the number returned by the addLabel() call which created the section.) If you want to get the section number of a section at a particular index position call mapToSection() giving it the index number.
 .PP
@@ -256,7 +256,7 @@ l - l. \fIk\fR mapToSection(\fIk\fR) mapToIndex(\fIk\fR) 0 0 0 1 2 3 2 3 1 3 1
 .PP
 In the example above, if we wanted to find out which section is at index position 3 we'd call mapToSection(3) and get a section number of 1 since section 1 was moved. Similarly, if we wanted to know which index position section 2 occupied we'd call mapToIndex(2) and get an index of 1.
 .PP
-QHeader provides the clicked(), pressed() and released() signals. If the user changes the size of a section, the sizeChange() signal is emitted. If you want to have a sizeChange() signal emitted continuously whilst the user is resizing (rather than just after the resizing is finished), use setTracking(). If the user moves a section the indexChange() signal is emitted.
+TQHeader provides the clicked(), pressed() and released() signals. If the user changes the size of a section, the sizeChange() signal is emitted. If you want to have a sizeChange() signal emitted continuously whilst the user is resizing (rather than just after the resizing is finished), use setTracking(). If the user moves a section the indexChange() signal is emitted.
 .PP
 .ce 1
 .B "[Image Omitted]"
@@ -265,79 +265,79 @@ QHeader provides the clicked(), pressed() and released() signals. If the user ch
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QListView, QTable, and Advanced Widgets.
+See also TQListView, TQTable, and Advanced Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QHeader::QHeader ( TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQHeader::TQHeader ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a horizontal header called \fIname\fR, with parent \fIparent\fR.
-.SH "QHeader::QHeader ( int n, TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQHeader::TQHeader ( int n, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a horizontal header called \fIname\fR, with \fIn\fR sections and parent \fIparent\fR.
-.SH "QHeader::~QHeader ()"
+.SH "TQHeader::~TQHeader ()"
 Destroys the header and all its sections.
-.SH "int QHeader::addLabel ( const TQString & s, int size = -1 )"
+.SH "int TQHeader::addLabel ( const TQString & s, int size = -1 )"
 Adds a new section with label text \fIs\fR. Returns the index position where the section was added (at the right for horizontal headers, at the bottom for vertical headers). The section's width is set to \fIsize\fR. If \fIsize\fR < 0, an appropriate size for the text \fIs\fR is chosen.
-.SH "int QHeader::addLabel ( const QIconSet & iconset, const TQString & s, int size = -1 )"
+.SH "int TQHeader::addLabel ( const TQIconSet & iconset, const TQString & s, int size = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Adds a new section with iconset \fIiconset\fR and label text \fIs\fR. Returns the index position where the section was added (at the right for horizontal headers, at the bottom for vertical headers). The section's width is set to \fIsize\fR, unless size is negative in which case the size is calculated taking account of the size of the text.
-.SH "void QHeader::adjustHeaderSize ()"
+.SH "void TQHeader::adjustHeaderSize ()"
 Adjusts the size of the sections to fit the size of the header as completely as possible. Only sections for which isStretchEnabled() is TRUE will be resized.
-.SH "int QHeader::cellAt ( int pos ) const"
+.SH "int TQHeader::cellAt ( int pos ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use sectionAt() instead.
 .PP
 Returns the index at which the section is displayed, which contains \fIpos\fR in widget coordinates, or -1 if \fIpos\fR is outside the header sections.
-.SH "int QHeader::cellPos ( int i ) const"
+.SH "int TQHeader::cellPos ( int i ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use sectionPos() instead.
 .PP
 Returns the position in pixels of the section that is displayed at the index \fIi\fR. The position is measured from the start of the header.
-.SH "int QHeader::cellSize ( int i ) const"
+.SH "int TQHeader::cellSize ( int i ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use sectionSize() instead.
 .PP
 Returns the size in pixels of the section that is displayed at the index \fIi\fR.
-.SH "void QHeader::clicked ( int section )\fC [signal]\fR"
+.SH "void TQHeader::clicked ( int section )\fC [signal]\fR"
 If isClickEnabled() is TRUE, this signal is emitted when the user clicks section \fIsection\fR.
 .PP
 See also pressed() and released().
-.SH "int QHeader::count () const"
+.SH "int TQHeader::count () const"
 Returns the number of sections in the header. See the "count" property for details.
-.SH "int QHeader::headerWidth () const"
+.SH "int TQHeader::headerWidth () const"
 Returns the total width of all the header columns.
-.SH "QIconSet * QHeader::iconSet ( int section ) const"
+.SH "TQIconSet * TQHeader::iconSet ( int section ) const"
 Returns the icon set for section \fIsection\fR. If the section does not exist, 0 is returned.
-.SH "void QHeader::indexChange ( int section, int fromIndex, int toIndex )\fC [signal]\fR"
+.SH "void TQHeader::indexChange ( int section, int fromIndex, int toIndex )\fC [signal]\fR"
 This signal is emitted when the user moves section \fIsection\fR from index position \fIfromIndex\fR, to index position \fItoIndex\fR.
-.SH "bool QHeader::isClickEnabled ( int section = -1 ) const"
+.SH "bool TQHeader::isClickEnabled ( int section = -1 ) const"
 Returns TRUE if section \fIsection\fR is clickable; otherwise returns FALSE.
 .PP
 If \fIsection\fR is out of range (negative or larger than count() - 1): returns TRUE if all sections are clickable; otherwise returns FALSE.
 .PP
 See also setClickEnabled().
-.SH "bool QHeader::isMovingEnabled () const"
+.SH "bool TQHeader::isMovingEnabled () const"
 Returns TRUE if the header sections can be moved; otherwise returns FALSE. See the "moving" property for details.
-.SH "bool QHeader::isResizeEnabled ( int section = -1 ) const"
+.SH "bool TQHeader::isResizeEnabled ( int section = -1 ) const"
 Returns TRUE if section \fIsection\fR is resizeable; otherwise returns FALSE.
 .PP
 If \fIsection\fR is -1 then this function applies to all sections, i.e. returns TRUE if all sections are resizeable; otherwise returns FALSE.
 .PP
 See also setResizeEnabled().
-.SH "bool QHeader::isStretchEnabled () const"
+.SH "bool TQHeader::isStretchEnabled () const"
 Returns TRUE if the header sections always take up the full width (or height) of the header; otherwise returns FALSE. See the "stretching" property for details.
-.SH "bool QHeader::isStretchEnabled ( int section ) const"
+.SH "bool TQHeader::isStretchEnabled ( int section ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns TRUE if section \fIsection\fR will resize to take up the full width (or height) of the header; otherwise returns FALSE. If at least one section has stretch enabled the sections will always take up the full width of the header.
 .PP
 See also setStretchEnabled().
-.SH "TQString QHeader::label ( int section ) const"
+.SH "TQString TQHeader::label ( int section ) const"
 Returns the text for section \fIsection\fR. If the section does not exist, a TQString::null is returned.
 .PP
 Example: helpsystem/tooltip.cpp.
-.SH "int QHeader::mapToActual ( int l ) const"
+.SH "int TQHeader::mapToActual ( int l ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use mapToIndex() instead.
@@ -345,13 +345,13 @@ Use mapToIndex() instead.
 Translates from logical index \fIl\fR to actual index (index at which the section \fIl\fR is displayed) . Returns -1 if \fIl\fR is outside the legal range.
 .PP
 See also mapToLogical().
-.SH "int QHeader::mapToIndex ( int section ) const"
+.SH "int TQHeader::mapToIndex ( int section ) const"
 Returns the index position corresponding to the specified \fIsection\fR number.
 .PP
-\fBWarning:\fR If QTable is used to move header sections as a result of user interaction, the mapping exposed by this function will not reflect the order of the headers in the table; i.e., QTable does not call moveSection() to move sections but handles move operations internally.
+\fBWarning:\fR If TQTable is used to move header sections as a result of user interaction, the mapping exposed by this function will not reflect the order of the headers in the table; i.e., TQTable does not call moveSection() to move sections but handles move operations internally.
 .PP
 See also mapToSection().
-.SH "int QHeader::mapToLogical ( int a ) const"
+.SH "int TQHeader::mapToLogical ( int a ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use mapToSection() instead.
@@ -359,59 +359,59 @@ Use mapToSection() instead.
 Translates from actual index \fIa\fR (index at which the section is displayed) to logical index of the section. Returns -1 if \fIa\fR is outside the legal range.
 .PP
 See also mapToActual().
-.SH "int QHeader::mapToSection ( int index ) const"
+.SH "int TQHeader::mapToSection ( int index ) const"
 Returns the number of the section that corresponds to the specified \fIindex\fR.
 .PP
-\fBWarning:\fR If QTable is used to move header sections as a result of user interaction, the mapping exposed by this function will not reflect the order of the headers in the table; i.e., QTable does not call moveSection() to move sections but handles move operations internally.
+\fBWarning:\fR If TQTable is used to move header sections as a result of user interaction, the mapping exposed by this function will not reflect the order of the headers in the table; i.e., TQTable does not call moveSection() to move sections but handles move operations internally.
 .PP
 See also mapToIndex().
-.SH "void QHeader::moveCell ( int fromIdx, int toIdx )\fC [virtual]\fR"
+.SH "void TQHeader::moveCell ( int fromIdx, int toIdx )\fC [virtual]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use moveSection() instead.
 .PP
 Moves the section that is currently displayed at index \fIfromIdx\fR to index \fItoIdx\fR.
-.SH "void QHeader::moveSection ( int section, int toIndex )"
+.SH "void TQHeader::moveSection ( int section, int toIndex )"
 Moves section \fIsection\fR to index position \fItoIndex\fR.
-.SH "void QHeader::moved ( int fromIndex, int toIndex )\fC [signal]\fR"
+.SH "void TQHeader::moved ( int fromIndex, int toIndex )\fC [signal]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use indexChange() instead.
 .PP
 This signal is emitted when the user has moved the section which is displayed at the index \fIfromIndex\fR to the index \fItoIndex\fR.
-.SH "int QHeader::offset () const"
+.SH "int TQHeader::offset () const"
 Returns the header's left-most (or top-most) visible pixel. See the "offset" property for details.
-.SH "Orientation QHeader::orientation () const"
+.SH "Orientation TQHeader::orientation () const"
 Returns the header's orientation. See the "orientation" property for details.
-.SH "void QHeader::paintSection ( QPainter * p, int index, const QRect & fr )\fC [virtual protected]\fR"
+.SH "void TQHeader::paintSection ( TQPainter * p, int index, const TQRect & fr )\fC [virtual protected]\fR"
 Paints the section at position \fIindex\fR, inside rectangle \fIfr\fR (which uses widget coordinates) using painter \fIp\fR.
 .PP
 Calls paintSectionLabel().
-.SH "void QHeader::paintSectionLabel ( QPainter * p, int index, const QRect & fr )\fC [virtual protected]\fR"
+.SH "void TQHeader::paintSectionLabel ( TQPainter * p, int index, const TQRect & fr )\fC [virtual protected]\fR"
 Paints the label of the section at position \fIindex\fR, inside rectangle \fIfr\fR (which uses widget coordinates) using painter \fIp\fR.
 .PP
 Called by paintSection()
-.SH "void QHeader::pressed ( int section )\fC [signal]\fR"
+.SH "void TQHeader::pressed ( int section )\fC [signal]\fR"
 This signal is emitted when the user presses section \fIsection\fR down.
 .PP
 See also released().
-.SH "void QHeader::released ( int section )\fC [signal]\fR"
+.SH "void TQHeader::released ( int section )\fC [signal]\fR"
 This signal is emitted when section \fIsection\fR is released.
 .PP
 See also pressed().
-.SH "void QHeader::removeLabel ( int section )"
+.SH "void TQHeader::removeLabel ( int section )"
 Removes section \fIsection\fR. If the section does not exist, nothing happens.
-.SH "void QHeader::resizeSection ( int section, int s )"
+.SH "void TQHeader::resizeSection ( int section, int s )"
 Resizes section \fIsection\fR to \fIs\fR pixels wide (or high).
-.SH "QRect QHeader::sRect ( int index )\fC [protected]\fR"
+.SH "TQRect TQHeader::sRect ( int index )\fC [protected]\fR"
 Returns the rectangle covered by the section at index \fIindex\fR.
-.SH "int QHeader::sectionAt ( int pos ) const"
+.SH "int TQHeader::sectionAt ( int pos ) const"
 Returns the index of the section which contains the position \fIpos\fR given in pixels from the left (or top).
 .PP
 See also offset.
 .PP
 Example: helpsystem/tooltip.cpp.
-.SH "void QHeader::sectionClicked ( int index )\fC [signal]\fR"
+.SH "void TQHeader::sectionClicked ( int index )\fC [signal]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use clicked() instead.
@@ -419,19 +419,19 @@ Use clicked() instead.
 This signal is emitted when a part of the header is clicked. \fIindex\fR is the index at which the section is displayed.
 .PP
 In a list view this signal would typically be connected to a slot that sorts the specified column (or row).
-.SH "void QHeader::sectionHandleDoubleClicked ( int section )\fC [signal]\fR"
+.SH "void TQHeader::sectionHandleDoubleClicked ( int section )\fC [signal]\fR"
 This signal is emitted when the user doubleclicks on the edge (handle) of section \fIsection\fR.
-.SH "int QHeader::sectionPos ( int section ) const"
+.SH "int TQHeader::sectionPos ( int section ) const"
 Returns the position (in pixels) at which the \fIsection\fR starts.
 .PP
 See also offset.
-.SH "QRect QHeader::sectionRect ( int section ) const"
+.SH "TQRect TQHeader::sectionRect ( int section ) const"
 Returns the rectangle covered by section \fIsection\fR.
 .PP
 Example: helpsystem/tooltip.cpp.
-.SH "int QHeader::sectionSize ( int section ) const"
+.SH "int TQHeader::sectionSize ( int section ) const"
 Returns the width (or height) of the \fIsection\fR in pixels.
-.SH "void QHeader::setCellSize ( int section, int s )\fC [virtual]\fR"
+.SH "void TQHeader::setCellSize ( int section, int s )\fC [virtual]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use resizeSection() instead.
@@ -439,32 +439,32 @@ Use resizeSection() instead.
 Sets the size of the section \fIsection\fR to \fIs\fR pixels.
 .PP
 \fBWarning:\fR does not repaint or send out signals
-.SH "void QHeader::setClickEnabled ( bool enable, int section = -1 )\fC [virtual]\fR"
+.SH "void TQHeader::setClickEnabled ( bool enable, int section = -1 )\fC [virtual]\fR"
 If \fIenable\fR is TRUE, any clicks on section \fIsection\fR will result in clicked() signals being emitted; otherwise the section will ignore clicks.
 .PP
 If \fIsection\fR is -1 (the default) then the \fIenable\fR value is set for all existing sections and will be applied to any new sections that are added.
 .PP
 See also moving and setResizeEnabled().
-.SH "void QHeader::setLabel ( int section, const TQString & s, int size = -1 )\fC [virtual]\fR"
+.SH "void TQHeader::setLabel ( int section, const TQString & s, int size = -1 )\fC [virtual]\fR"
 Sets the text of section \fIsection\fR to \fIs\fR. The section's width is set to \fIsize\fR if \fIsize\fR >= 0; otherwise it is left unchanged. Any icon set that has been set for this section remains unchanged.
 .PP
 If the section does not exist, nothing happens.
 .PP
 Examples:
 .)l chart/setdataform.cpp and table/small-table-demo/main.cpp.
-.SH "void QHeader::setLabel ( int section, const QIconSet & iconset, const TQString & s, int size = -1 )\fC [virtual]\fR"
+.SH "void TQHeader::setLabel ( int section, const TQIconSet & iconset, const TQString & s, int size = -1 )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the icon for section \fIsection\fR to \fIiconset\fR and the text to \fIs\fR. The section's width is set to \fIsize\fR if \fIsize\fR >= 0; otherwise it is left unchanged.
 .PP
 If the section does not exist, nothing happens.
-.SH "void QHeader::setMovingEnabled ( bool )\fC [virtual]\fR"
+.SH "void TQHeader::setMovingEnabled ( bool )\fC [virtual]\fR"
 Sets whether the header sections can be moved. See the "moving" property for details.
-.SH "void QHeader::setOffset ( int pos )\fC [virtual slot]\fR"
+.SH "void TQHeader::setOffset ( int pos )\fC [virtual slot]\fR"
 Sets the header's left-most (or top-most) visible pixel to \fIpos\fR. See the "offset" property for details.
-.SH "void QHeader::setOrientation ( Orientation )\fC [virtual]\fR"
+.SH "void TQHeader::setOrientation ( Orientation )\fC [virtual]\fR"
 Sets the header's orientation. See the "orientation" property for details.
-.SH "void QHeader::setResizeEnabled ( bool enable, int section = -1 )\fC [virtual]\fR"
+.SH "void TQHeader::setResizeEnabled ( bool enable, int section = -1 )\fC [virtual]\fR"
 If \fIenable\fR is TRUE the user may resize section \fIsection\fR; otherwise the section may not be manually resized.
 .PP
 If \fIsection\fR is negative (the default) then the \fIenable\fR value is set for all existing sections and will be applied to any new sections that are added. Example:
@@ -484,39 +484,39 @@ If \fIsection\fR is negative (the default) then the \fIenable\fR value is set fo
 If the user resizes a section, a sizeChange() signal is emitted.
 .PP
 See also moving, setClickEnabled(), and tracking.
-.SH "void QHeader::setSortIndicator ( int section, SortOrder order )"
+.SH "void TQHeader::setSortIndicator ( int section, SortOrder order )"
 Sets a sort indicator onto the specified \fIsection\fR. The indicator's \fIorder\fR is either Ascending or Descending.
 .PP
 Only one section can show a sort indicator at any one time. If you don't want any section to show a sort indicator pass a \fIsection\fR number of -1.
 .PP
 See also sortIndicatorSection() and sortIndicatorOrder().
-.SH "void QHeader::setSortIndicator ( int section, bool ascending = TRUE )"
+.SH "void TQHeader::setSortIndicator ( int section, bool ascending = TRUE )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Use the other overload instead.
-.SH "void QHeader::setStretchEnabled ( bool b, int section )\fC [virtual]\fR"
+.SH "void TQHeader::setStretchEnabled ( bool b, int section )\fC [virtual]\fR"
 If \fIb\fR is TRUE, section \fIsection\fR will be resized when the header is resized, so that the sections take up the full width (or height for vertical headers) of the header; otherwise section \fIsection\fR will be set to be unstretchable and will not resize when the header is resized.
 .PP
 If \fIsection\fR is -1, and if \fIb\fR is TRUE, then all sections will be resized equally when the header is resized so that they take up the full width (or height for vertical headers) of the header; otherwise all the sections will be set to be unstretchable and will not resize when the header is resized.
 .PP
 See also adjustHeaderSize().
-.SH "void QHeader::setStretchEnabled ( bool b )"
+.SH "void TQHeader::setStretchEnabled ( bool b )"
 Sets whether the header sections always take up the full width (or height) of the header to \fIb\fR. See the "stretching" property for details.
-.SH "void QHeader::setTracking ( bool enable )\fC [virtual]\fR"
+.SH "void TQHeader::setTracking ( bool enable )\fC [virtual]\fR"
 Sets whether the sizeChange() signal is emitted continuously to \fIenable\fR. See the "tracking" property for details.
-.SH "void QHeader::sizeChange ( int section, int oldSize, int newSize )\fC [signal]\fR"
+.SH "void TQHeader::sizeChange ( int section, int oldSize, int newSize )\fC [signal]\fR"
 This signal is emitted when the user has changed the size of a \fIsection\fR from \fIoldSize\fR to \fInewSize\fR. This signal is typically connected to a slot that repaints the table or list that contains the header.
-.SH "SortOrder QHeader::sortIndicatorOrder () const"
-Returns the implied sort order of the QHeaders sort indicator.
+.SH "SortOrder TQHeader::sortIndicatorOrder () const"
+Returns the implied sort order of the TQHeaders sort indicator.
 .PP
 See also setSortIndicator() and sortIndicatorSection().
-.SH "int QHeader::sortIndicatorSection () const"
+.SH "int TQHeader::sortIndicatorSection () const"
 Returns the section showing the sort indicator or -1 if there is no sort indicator.
 .PP
 See also setSortIndicator() and sortIndicatorOrder().
-.SH "bool QHeader::tracking () const"
+.SH "bool TQHeader::tracking () const"
 Returns TRUE if the sizeChange() signal is emitted continuously; otherwise returns FALSE. See the "tracking" property for details.
 .SS "Property Documentation"
 .SH "int count"
@@ -559,7 +559,7 @@ Tracking defaults to FALSE.
 Set this property's value with setTracking() and get this property's value with tracking().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqheader.html
+.BR http://doc.trolltech.com/tqheader.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

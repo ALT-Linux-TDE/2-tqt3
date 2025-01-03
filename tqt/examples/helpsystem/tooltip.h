@@ -10,7 +10,7 @@
 #ifndef TOOLTIP_H
 #define TOOLTIP_H
 
-#include <ntqtooltip.h>
+#include <tqtooltip.h>
 
 
 class TQTable;

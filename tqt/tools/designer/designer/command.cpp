@@ -46,22 +46,22 @@
 #include "menubareditor.h"
 #include "popupmenueditor.h"
 
-#include <ntqfeatures.h>
-#include <ntqwidget.h>
-#include <ntqmetaobject.h>
-#include <ntqapplication.h>
-#include <ntqlayout.h>
-#include <ntqmessagebox.h>
-#include <ntqlistbox.h>
-#include <ntqiconview.h>
-#include <ntqtextedit.h>
-#include <ntqptrstack.h>
-#include <ntqheader.h>
-#include <ntqsplitter.h>
+#include <tqfeatures.h>
+#include <tqwidget.h>
+#include <tqmetaobject.h>
+#include <tqapplication.h>
+#include <tqlayout.h>
+#include <tqmessagebox.h>
+#include <tqlistbox.h>
+#include <tqiconview.h>
+#include <tqtextedit.h>
+#include <tqptrstack.h>
+#include <tqheader.h>
+#include <tqsplitter.h>
 #ifndef TQT_NO_TABLE
-#include <ntqtable.h>
+#include <tqtable.h>
 #endif
-#include <ntqaction.h>
+#include <tqaction.h>
 
 CommandHistory::CommandHistory( int s )
     : current( -1 ), steps( s ), savedAt( -1 )

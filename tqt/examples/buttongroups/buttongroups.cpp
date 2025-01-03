@@ -9,13 +9,13 @@
 
 #include "buttongroups.h"
 
-#include <ntqpopupmenu.h>
-#include <ntqbuttongroup.h>
-#include <ntqlayout.h>
-#include <ntqradiobutton.h>
-#include <ntqcheckbox.h>
-#include <ntqgroupbox.h>
-#include <ntqpushbutton.h>
+#include <tqpopupmenu.h>
+#include <tqbuttongroup.h>
+#include <tqlayout.h>
+#include <tqradiobutton.h>
+#include <tqcheckbox.h>
+#include <tqgroupbox.h>
+#include <tqpushbutton.h>
 
 /*
  * Constructor

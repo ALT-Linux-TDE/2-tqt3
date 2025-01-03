@@ -1,10 +1,10 @@
 #include "canvasview.h"
 #include "chartform.h"
 
-#include <ntqcursor.h>
-#include <ntqpoint.h>
-#include <ntqpopupmenu.h>
-#include <ntqstatusbar.h>
+#include <tqcursor.h>
+#include <tqpoint.h>
+#include <tqpopupmenu.h>
+#include <tqstatusbar.h>
 
 
 void CanvasView::contentsContextMenuEvent( TQContextMenuEvent * )

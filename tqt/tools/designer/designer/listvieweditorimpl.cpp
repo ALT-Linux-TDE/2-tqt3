@@ -40,16 +40,16 @@
 #include "listboxdnd.h"
 #include "listboxrename.h"
 
-#include <ntqlistview.h>
-#include <ntqheader.h>
-#include <ntqlistbox.h>
-#include <ntqlineedit.h>
-#include <ntqcheckbox.h>
-#include <ntqlabel.h>
-#include <ntqtabwidget.h>
-#include <ntqspinbox.h>
-#include <ntqpushbutton.h>
-#include <ntqptrstack.h>
+#include <tqlistview.h>
+#include <tqheader.h>
+#include <tqlistbox.h>
+#include <tqlineedit.h>
+#include <tqcheckbox.h>
+#include <tqlabel.h>
+#include <tqtabwidget.h>
+#include <tqspinbox.h>
+#include <tqpushbutton.h>
+#include <tqptrstack.h>
 
 ListViewEditor::ListViewEditor( TQWidget *parent, TQListView *lv, FormWindow *fw )
     : ListViewEditorBase( parent, 0, TRUE ), listview( lv ), formwindow( fw )

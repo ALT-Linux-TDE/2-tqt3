@@ -7,10 +7,10 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqtextedit.h>
-#include <ntqpushbutton.h>
-#include <ntqfiledialog.h>
+#include <tqapplication.h>
+#include <tqtextedit.h>
+#include <tqpushbutton.h>
+#include <tqfiledialog.h>
 
 #include "qip.h"
 #include "client.h"

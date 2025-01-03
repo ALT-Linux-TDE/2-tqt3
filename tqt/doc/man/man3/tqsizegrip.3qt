@@ -1,5 +1,5 @@
 '\" t
-.TH QSizeGrip 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSizeGrip 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,42 +7,42 @@
 .ad l
 .nh
 .SH NAME
-QSizeGrip \- Corner-grip for resizing a top-level window
+TQSizeGrip \- Corner-grip for resizing a top-level window
 .SH SYNOPSIS
-\fC#include <ntqsizegrip.h>\fR
+\fC#include <tqsizegrip.h>\fR
 .PP
 Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSizeGrip\fR ( TQWidget * parent, const char * name = 0 )"
+.BI "\fBTQSizeGrip\fR ( TQWidget * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QSizeGrip\fR ()"
+.BI "\fB~TQSizeGrip\fR ()"
 .br
 .ti -1c
-.BI "virtual QSize \fBsizeHint\fR () const"
+.BI "virtual TQSize \fBsizeHint\fR () const"
 .br
 .in -1c
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBpaintEvent\fR ( QPaintEvent * e )"
+.BI "virtual void \fBpaintEvent\fR ( TQPaintEvent * e )"
 .br
 .ti -1c
-.BI "virtual void \fBmousePressEvent\fR ( QMouseEvent * e )"
+.BI "virtual void \fBmousePressEvent\fR ( TQMouseEvent * e )"
 .br
 .ti -1c
-.BI "virtual void \fBmouseMoveEvent\fR ( QMouseEvent * e )"
+.BI "virtual void \fBmouseMoveEvent\fR ( TQMouseEvent * e )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSizeGrip class provides a corner-grip for resizing a top-level window.
+The TQSizeGrip class provides a corner-grip for resizing a top-level window.
 .PP
 This widget works like the standard Windows resize handle. In the X11 version this resize handle generally works differently from the one provided by the system; we hope to reduce this difference in the future.
 .PP
-Put this widget anywhere in a widget tree and the user can use it to resize the top-level window. Generally, this should be in the lower right-hand corner. Note that QStatusBar already uses this widget, so if you have a status bar (e.g. you are using QMainWindow), then you don't need to use this widget explicitly.
+Put this widget anywhere in a widget tree and the user can use it to resize the top-level window. Generally, this should be in the lower right-hand corner. Note that TQStatusBar already uses this widget, so if you have a status bar (e.g. you are using TQMainWindow), then you don't need to use this widget explicitly.
 .PP
 .ce 1
 .B "[Image Omitted]"
@@ -51,31 +51,31 @@ Put this widget anywhere in a widget tree and the user can use it to resize the 
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QStatusBar, Widget Appearance and Style, Main Window and Related Classes, and Basic Widgets.
+See also TQStatusBar, Widget Appearance and Style, Main Window and Related Classes, and Basic Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSizeGrip::QSizeGrip ( TQWidget * parent, const char * name = 0 )"
+.SH "TQSizeGrip::TQSizeGrip ( TQWidget * parent, const char * name = 0 )"
 Constructs a resize corner called \fIname\fR, as a child widget of \fIparent\fR.
-.SH "QSizeGrip::~QSizeGrip ()"
+.SH "TQSizeGrip::~TQSizeGrip ()"
 Destroys the size grip.
-.SH "void QSizeGrip::mouseMoveEvent ( QMouseEvent * e )\fC [virtual protected]\fR"
+.SH "void TQSizeGrip::mouseMoveEvent ( TQMouseEvent * e )\fC [virtual protected]\fR"
 Resizes the top-level widget containing this widget. The event is in \fIe\fR.
 .PP
 Reimplemented from TQWidget.
-.SH "void QSizeGrip::mousePressEvent ( QMouseEvent * e )\fC [virtual protected]\fR"
+.SH "void TQSizeGrip::mousePressEvent ( TQMouseEvent * e )\fC [virtual protected]\fR"
 Primes the resize operation. The event is in \fIe\fR.
 .PP
 Reimplemented from TQWidget.
-.SH "void QSizeGrip::paintEvent ( QPaintEvent * e )\fC [virtual protected]\fR"
+.SH "void TQSizeGrip::paintEvent ( TQPaintEvent * e )\fC [virtual protected]\fR"
 Paints the resize grip. Resize grips are usually rendered as small diagonal textured lines in the lower-right corner. The event is in \fIe\fR.
 .PP
 Reimplemented from TQWidget.
-.SH "QSize QSizeGrip::sizeHint () const\fC [virtual]\fR"
+.SH "TQSize TQSizeGrip::sizeHint () const\fC [virtual]\fR"
 Returns the size grip's size hint; this is a small size.
 .PP
 Reimplemented from TQWidget.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsizegrip.html
+.BR http://doc.trolltech.com/tqsizegrip.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

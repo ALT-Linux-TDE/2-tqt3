@@ -1,5 +1,5 @@
 '\" t
-.TH QSqlField 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSqlField 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,32 +7,32 @@
 .ad l
 .nh
 .SH NAME
-QSqlField \- Manipulates the fields in SQL database tables and views
+TQSqlField \- Manipulates the fields in SQL database tables and views
 .SH SYNOPSIS
-\fC#include <ntqsqlfield.h>\fR
+\fC#include <tqsqlfield.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlField\fR ( const TQString & fieldName = TQString::null, QVariant::Type type = QVariant::Invalid )"
+.BI "\fBTQSqlField\fR ( const TQString & fieldName = TQString::null, TQVariant::Type type = TQVariant::Invalid )"
 .br
 .ti -1c
-.BI "\fBQSqlField\fR ( const QSqlField & other )"
+.BI "\fBTQSqlField\fR ( const TQSqlField & other )"
 .br
 .ti -1c
-.BI "QSqlField & \fBoperator=\fR ( const QSqlField & other )"
+.BI "TQSqlField & \fBoperator=\fR ( const TQSqlField & other )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QSqlField & other ) const"
+.BI "bool \fBoperator==\fR ( const TQSqlField & other ) const"
 .br
 .ti -1c
-.BI "virtual \fB~QSqlField\fR ()"
+.BI "virtual \fB~TQSqlField\fR ()"
 .br
 .ti -1c
-.BI "virtual void \fBsetValue\fR ( const QVariant & value )"
+.BI "virtual void \fBsetValue\fR ( const TQVariant & value )"
 .br
 .ti -1c
-.BI "virtual QVariant \fBvalue\fR () const"
+.BI "virtual TQVariant \fBvalue\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBsetName\fR ( const TQString & name )"
@@ -56,21 +56,21 @@ QSqlField \- Manipulates the fields in SQL database tables and views
 .BI "void \fBclear\fR ( bool nullify = TRUE )"
 .br
 .ti -1c
-.BI "QVariant::Type \fBtype\fR () const"
+.BI "TQVariant::Type \fBtype\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSqlField class manipulates the fields in SQL database tables and views.
+The TQSqlField class manipulates the fields in SQL database tables and views.
 .PP
-QSqlField represents the characteristics of a single column in a database table or view, such as the data type and column name. A field also contains the value of the database column, which can be viewed or changed.
+TQSqlField represents the characteristics of a single column in a database table or view, such as the data type and column name. A field also contains the value of the database column, which can be viewed or changed.
 .PP
-Field data values are stored as QVariants. Using an incompatible type is not permitted. For example:
+Field data values are stored as TQVariants. Using an incompatible type is not permitted. For example:
 .PP
 .nf
 .br
-    QSqlField f( "myfield", QVariant::Int );
+    TQSqlField f( "myfield", TQVariant::Int );
 .br
-    f.setValue( QPixmap() );  // will not work
+    f.setValue( TQPixmap() );  // will not work
 .br
 .fi
 .PP
@@ -78,19 +78,19 @@ However, the field will attempt to cast certain data types to the field data typ
 .PP
 .nf
 .br
-    QSqlField f( "myfield", QVariant::Int );
+    TQSqlField f( "myfield", TQVariant::Int );
 .br
     f.setValue( TQString("123") ); // casts TQString to int
 .br
 .fi
 .PP
-QSqlField objects are rarely created explicitly in application code. They are usually accessed indirectly through QSqlRecord or QSqlCursor which already contain a list of fields. For example:
+TQSqlField objects are rarely created explicitly in application code. They are usually accessed indirectly through TQSqlRecord or TQSqlCursor which already contain a list of fields. For example:
 .PP
 .nf
 .br
-    QSqlCursor cur( "Employee" );        // create cursor using the 'Employee' table
+    TQSqlCursor cur( "Employee" );        // create cursor using the 'Employee' table
 .br
-    QSqlField* f = cur.field( "name" );  // use the 'name' field
+    TQSqlField* f = cur.field( "name" );  // use the 'name' field
 .br
     f->setValue( "Dave" );               // set field value
 .br
@@ -102,7 +102,7 @@ In practice we rarely need to extract a pointer to a field at all. The previous 
 .PP
 .nf
 .br
-    QSqlCursor cur( "Employee" );
+    TQSqlCursor cur( "Employee" );
 .br
     cur.setValue( "name", "Dave" );
 .br
@@ -112,25 +112,25 @@ In practice we rarely need to extract a pointer to a field at all. The previous 
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlField::QSqlField ( const TQString & fieldName = TQString::null, QVariant::Type type = QVariant::Invalid )"
+.SH "TQSqlField::TQSqlField ( const TQString & fieldName = TQString::null, TQVariant::Type type = TQVariant::Invalid )"
 Constructs an empty field called \fIfieldName\fR of type \fItype\fR.
-.SH "QSqlField::QSqlField ( const QSqlField & other )"
+.SH "TQSqlField::TQSqlField ( const TQSqlField & other )"
 Constructs a copy of \fIother\fR.
-.SH "QSqlField::~QSqlField ()\fC [virtual]\fR"
+.SH "TQSqlField::~TQSqlField ()\fC [virtual]\fR"
 Destroys the object and frees any allocated resources.
-.SH "void QSqlField::clear ( bool nullify = TRUE )"
+.SH "void TQSqlField::clear ( bool nullify = TRUE )"
 Clears the value of the field. If the field is read-only, nothing happens. If \fInullify\fR is TRUE (the default), the field is set to NULL.
-.SH "bool QSqlField::isNull () const"
+.SH "bool TQSqlField::isNull () const"
 Returns TRUE if the field is currently NULL; otherwise returns FALSE.
-.SH "bool QSqlField::isReadOnly () const"
+.SH "bool TQSqlField::isReadOnly () const"
 Returns TRUE if the field's value is read only; otherwise returns FALSE.
-.SH "TQString QSqlField::name () const"
+.SH "TQString TQSqlField::name () const"
 Returns the name of the field.
 .PP
 Example: sql/overview/table4/main.cpp.
-.SH "QSqlField & QSqlField::operator= ( const QSqlField & other )"
+.SH "TQSqlField & TQSqlField::operator= ( const TQSqlField & other )"
 Sets the field equal to \fIother\fR.
-.SH "bool QSqlField::operator== ( const QSqlField & other ) const"
+.SH "bool TQSqlField::operator== ( const TQSqlField & other ) const"
 Returns TRUE if the field is equal to \fIother\fR; otherwise returns FALSE. Fields are considered equal when the following field properties are the same:
 .TP
 name()
@@ -140,24 +140,24 @@ isNull()
 value()
 .TP
 isReadOnly()
-.SH "void QSqlField::setName ( const TQString & name )\fC [virtual]\fR"
+.SH "void TQSqlField::setName ( const TQString & name )\fC [virtual]\fR"
 Sets the name of the field to \fIname\fR.
-.SH "void QSqlField::setNull ()\fC [virtual]\fR"
+.SH "void TQSqlField::setNull ()\fC [virtual]\fR"
 Sets the field to NULL and clears the value using clear(). If the field is read-only, nothing happens.
 .PP
 See also isReadOnly() and clear().
-.SH "void QSqlField::setReadOnly ( bool readOnly )\fC [virtual]\fR"
+.SH "void TQSqlField::setReadOnly ( bool readOnly )\fC [virtual]\fR"
 Sets the read only flag of the field's value to \fIreadOnly\fR.
 .PP
 See also setValue().
-.SH "void QSqlField::setValue ( const QVariant & value )\fC [virtual]\fR"
+.SH "void TQSqlField::setValue ( const TQVariant & value )\fC [virtual]\fR"
 Sets the value of the field to \fIvalue\fR. If the field is read-only (isReadOnly() returns TRUE), nothing happens. If the data type of \fIvalue\fR differs from the field's current data type, an attempt is made to cast it to the proper type. This preserves the data type of the field in the case of assignment, e.g. a TQString to an integer data type. For example:
 .PP
 .nf
 .br
-    QSqlCursor cur( "Employee" );                 // 'Employee' table
+    TQSqlCursor cur( "Employee" );                 // 'Employee' table
 .br
-    QSqlField* f = cur.field( "student_count" );  // an integer field
+    TQSqlField* f = cur.field( "student_count" );  // an integer field
 .br
     ...
 .br
@@ -166,15 +166,15 @@ Sets the value of the field to \fIvalue\fR. If the field is read-only (isReadOnl
 .fi
 .PP
 See also isReadOnly().
-.SH "QVariant::Type QSqlField::type () const"
+.SH "TQVariant::Type TQSqlField::type () const"
 Returns the field's type as stored in the database. Note that the actual value might have a different type, Numerical values that are too large to store in a long int or double are usually stored as strings to prevent precision loss.
-.SH "QVariant QSqlField::value () const\fC [virtual]\fR"
-Returns the value of the field as a QVariant.
+.SH "TQVariant TQSqlField::value () const\fC [virtual]\fR"
+Returns the value of the field as a TQVariant.
 .PP
 Example: sql/overview/table4/main.cpp.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsqlfield.html
+.BR http://doc.trolltech.com/tqsqlfield.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

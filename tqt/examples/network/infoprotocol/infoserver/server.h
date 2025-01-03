@@ -10,8 +10,8 @@
 #ifndef SERVER_H
 #define SERVER_H
 
-#include <ntqsocket.h>
-#include <ntqserversocket.h>
+#include <tqsocket.h>
+#include <tqserversocket.h>
 
 #include "infodata.h"
 #include "serverbase.h"

@@ -10,8 +10,8 @@
 #ifndef _TABLET_STATS_
 #define _TABLET_STATS_
 
-#include <ntqwidget.h>
-#include <ntqframe.h>
+#include <tqwidget.h>
+#include <tqframe.h>
 #include "canvas.h"
 #include "tabletstatsbase.h"
 

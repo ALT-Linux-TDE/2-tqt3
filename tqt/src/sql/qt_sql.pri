@@ -8,58 +8,58 @@ sql {
 	}
 	
 	SQL_P	    = sql
-	HEADERS     += $$SQL_H/ntqsql.h \
-		    $$SQL_H/ntqsqlquery.h \
-		    $$SQL_H/ntqsqldatabase.h \
-		    $$SQL_H/ntqsqlfield.h \
-		    $$SQL_H/ntqsqlrecord.h \
-		    $$SQL_H/ntqsqlcursor.h \
-		    $$SQL_H/ntqsqlform.h \
-		    $$SQL_H/ntqeditorfactory.h \
-		    $$SQL_H/ntqsqleditorfactory.h \
-		    $$SQL_H/ntqsqldriver.h \
-		    $$SQL_P/qsqldriverinterface_p.h \
-		    $$SQL_P/qsqlextension_p.h \
-		    $$SQL_H/ntqsqldriverplugin.h \
-		    $$SQL_H/ntqsqlerror.h \
-		    $$SQL_H/ntqsqlresult.h \
-		    $$SQL_H/ntqsqlindex.h \
-		    $$SQL_H/ntqsqlpropertymap.h \
-		    $$SQL_P/qsqlmanager_p.h \
-		    $$SQL_H/ntqdatatable.h \
-		    $$SQL_H/ntqdataview.h \
-		    $$SQL_H/ntqdatabrowser.h \
-		    $$SQL_H/ntqsqlselectcursor.h 
+	HEADERS     += $$SQL_H/tqsql.h \
+		    $$SQL_H/tqsqlquery.h \
+		    $$SQL_H/tqsqldatabase.h \
+		    $$SQL_H/tqsqlfield.h \
+		    $$SQL_H/tqsqlrecord.h \
+		    $$SQL_H/tqsqlcursor.h \
+		    $$SQL_H/tqsqlform.h \
+		    $$SQL_H/tqeditorfactory.h \
+		    $$SQL_H/tqsqleditorfactory.h \
+		    $$SQL_H/tqsqldriver.h \
+		    $$SQL_P/tqsqldriverinterface_p.h \
+		    $$SQL_P/tqsqlextension_p.h \
+		    $$SQL_H/tqsqldriverplugin.h \
+		    $$SQL_H/tqsqlerror.h \
+		    $$SQL_H/tqsqlresult.h \
+		    $$SQL_H/tqsqlindex.h \
+		    $$SQL_H/tqsqlpropertymap.h \
+		    $$SQL_P/tqsqlmanager_p.h \
+		    $$SQL_H/tqdatatable.h \
+		    $$SQL_H/tqdataview.h \
+		    $$SQL_H/tqdatabrowser.h \
+		    $$SQL_H/tqsqlselectcursor.h 
 
-	SOURCES     += $$SQL_CPP/qsqlquery.cpp \
-		    $$SQL_CPP/qsqldatabase.cpp \
-		    $$SQL_CPP/qsqlfield.cpp \
-		    $$SQL_CPP/qsqlrecord.cpp \
-		    $$SQL_CPP/qsqlform.cpp \
-		    $$SQL_CPP/qsqlcursor.cpp \
-		    $$SQL_CPP/qeditorfactory.cpp \
-		    $$SQL_CPP/qsqleditorfactory.cpp \
-		    $$SQL_CPP/qsqldriver.cpp \
-		    $$SQL_CPP/qsqlextension_p.cpp \
-		    $$SQL_CPP/qsqldriverplugin.cpp \
-		    $$SQL_CPP/qsqlerror.cpp \
-		    $$SQL_CPP/qsqlresult.cpp \
-		    $$SQL_CPP/qsqlindex.cpp \
-		    $$SQL_CPP/qsqlpropertymap.cpp \
-		    $$SQL_CPP/qsqlmanager_p.cpp \
-		    $$SQL_CPP/qdatatable.cpp \
-		    $$SQL_CPP/qdataview.cpp \
-		    $$SQL_CPP/qdatabrowser.cpp \
-		    $$SQL_CPP/qsqlselectcursor.cpp \
-		    $$SQL_CPP/drivers/cache/qsqlcachedresult.cpp
+	SOURCES     += $$SQL_CPP/tqsqlquery.cpp \
+		    $$SQL_CPP/tqsqldatabase.cpp \
+		    $$SQL_CPP/tqsqlfield.cpp \
+		    $$SQL_CPP/tqsqlrecord.cpp \
+		    $$SQL_CPP/tqsqlform.cpp \
+		    $$SQL_CPP/tqsqlcursor.cpp \
+		    $$SQL_CPP/tqeditorfactory.cpp \
+		    $$SQL_CPP/tqsqleditorfactory.cpp \
+		    $$SQL_CPP/tqsqldriver.cpp \
+		    $$SQL_CPP/tqsqlextension_p.cpp \
+		    $$SQL_CPP/tqsqldriverplugin.cpp \
+		    $$SQL_CPP/tqsqlerror.cpp \
+		    $$SQL_CPP/tqsqlresult.cpp \
+		    $$SQL_CPP/tqsqlindex.cpp \
+		    $$SQL_CPP/tqsqlpropertymap.cpp \
+		    $$SQL_CPP/tqsqlmanager_p.cpp \
+		    $$SQL_CPP/tqdatatable.cpp \
+		    $$SQL_CPP/tqdataview.cpp \
+		    $$SQL_CPP/tqdatabrowser.cpp \
+		    $$SQL_CPP/tqsqlselectcursor.cpp \
+		    $$SQL_CPP/drivers/cache/tqsqlcachedresult.cpp
 
 	contains(sql-drivers, all ) {
 		sql-driver += psql mysql odbc oci tds db2 sqlite ibase
 	}			
 
 	contains(sql-drivers, psql) {
-		HEADERS += $$SQL_CPP/drivers/psql/qsql_psql.h
-		SOURCES += $$SQL_CPP/drivers/psql/qsql_psql.cpp
+		HEADERS += $$SQL_CPP/drivers/psql/tqsql_psql.h
+		SOURCES += $$SQL_CPP/drivers/psql/tqsql_psql.cpp
 		DEFINES += QT_SQL_POSTGRES
 		unix {
 			!contains( LIBS, .*pq.* ) {
@@ -74,15 +74,12 @@ sql {
 #				LIBS *= delayimp.lib
 #				QMAKE_LFLAGS += /DELAYLOAD:libpqdll.dll
 #			}
-#			win32-borland: {
-#				QMAKE_LFLAGS += /dlibpqdll.dll
-#			}		
 		}
 	}
 
 	contains(sql-drivers, mysql) {
-		HEADERS += $$SQL_CPP/drivers/mysql/qsql_mysql.h
-		SOURCES += $$SQL_CPP/drivers/mysql/qsql_mysql.cpp
+		HEADERS += $$SQL_CPP/drivers/mysql/tqsql_mysql.h
+		SOURCES += $$SQL_CPP/drivers/mysql/tqsql_mysql.cpp
 		DEFINES += QT_SQL_MYSQL
 		unix {
 			!contains( LIBS, .*mysql.* ) {
@@ -97,15 +94,12 @@ sql {
 #				LIBS *= delayimp.lib
 #				QMAKE_LFLAGS += /DELAYLOAD:libmysql.dll
 #			}
-#			win32-borland: {
-#				QMAKE_LFLAGS += /dlibmysql.dll
-#			}
 		}
 	}
 	
 	contains(sql-drivers, odbc) {
-		HEADERS += $$SQL_CPP/drivers/odbc/qsql_odbc.h
-		SOURCES += $$SQL_CPP/drivers/odbc/qsql_odbc.cpp
+		HEADERS += $$SQL_CPP/drivers/odbc/tqsql_odbc.h
+		SOURCES += $$SQL_CPP/drivers/odbc/tqsql_odbc.cpp
 		DEFINES += QT_SQL_ODBC
 
 		mac {
@@ -121,15 +115,14 @@ sql {
 		}
 
 		win32 {
-			!win32-borland:LIBS     *= odbc32.lib
-			win32-borland:LIBS      *= $(BCB)/lib/PSDK/odbc32.lib
+			LIBS     *= odbc32.lib
 		}
 
 	}
 
 	contains(sql-drivers, oci) {
-		HEADERS += $$SQL_CPP/drivers/oci/qsql_oci.h
-		SOURCES += $$SQL_CPP/drivers/oci/qsql_oci.cpp
+		HEADERS += $$SQL_CPP/drivers/oci/tqsql_oci.h
+		SOURCES += $$SQL_CPP/drivers/oci/tqsql_oci.cpp
 		DEFINES += QT_SQL_OCI
 		unix {
 			!contains( LIBS, .*clnts.* ) {
@@ -142,57 +135,48 @@ sql {
 #				LIBS *= delayimp.lib
 #				QMAKE_LFLAGS += /DELAYLOAD:oci.dll
 #			}
-#			win32-borland: {
-#				QMAKE_LFLAGS += /doci.dll
-#			}		
 		}
 	}
 
 	contains(sql-drivers, tds) {
-		HEADERS += $$SQL_CPP/drivers/tds/qsql_tds.h \
-			   $$SQL_CPP/drivers/shared/qsql_result.h
-		SOURCES += $$SQL_CPP/drivers/tds/qsql_tds.cpp \
-			   $$SQL_CPP/drivers/shared/qsql_result.cpp
+		HEADERS += $$SQL_CPP/drivers/tds/tqsql_tds.h \
+			   $$SQL_CPP/drivers/shared/tqsql_result.h
+		SOURCES += $$SQL_CPP/drivers/tds/tqsql_tds.cpp \
+			   $$SQL_CPP/drivers/shared/tqsql_result.cpp
 		DEFINES += QT_SQL_TDS
 		unix {
 			LIBS += -L$SYBASE/lib -lsybdb
 		}
 		win32 {
-			!win32-borland:LIBS += NTWDBLIB.LIB
-			win32-borland:LIBS += $(BCB)/lib/PSDK/NTWDBLIB.LIB
+			LIBS += NTWDBLIB.LIB
 #			win32-msvc: { 
 #				LIBS *= delayimp.lib
 #				QMAKE_LFLAGS += /DELAYLOAD:ntwdblib.dll
 #			}
-#			win32-borland: {
-#				QMAKE_LFLAGS += /dntwdblib.dll
-#			}		
 		}
 	}
 
 	contains(sql-drivers, db2) {
-		HEADERS += $$SQL_CPP/drivers/db2/qsql_db2.h
-		SOURCES += $$SQL_CPP/drivers/db2/qsql_db2.cpp
+		HEADERS += $$SQL_CPP/drivers/db2/tqsql_db2.h
+		SOURCES += $$SQL_CPP/drivers/db2/tqsql_db2.cpp
 		DEFINES += QT_SQL_DB2
 		unix {
 			LIBS += -ldb2
 		}
 		win32 {
-			!win32-borland:LIBS += db2cli.lib
-#			win32-borland:LIBS  += $(BCB)/lib/PSDK/db2cli.lib
+			LIBS += db2cli.lib
 		}
 	}
 
 	contains(sql-drivers, ibase) {
-                HEADERS += $$SQL_CPP/drivers/ibase/qsql_ibase.h
-                SOURCES += $$SQL_CPP/drivers/ibase/qsql_ibase.cpp
+                HEADERS += $$SQL_CPP/drivers/ibase/tqsql_ibase.h
+                SOURCES += $$SQL_CPP/drivers/ibase/tqsql_ibase.cpp
                 DEFINES += QT_SQL_IBASE
                 unix {
                         LIBS *= -lfbclient
                 }
                 win32 {
-			!win32-borland:LIBS *= gds32_ms.lib
-			win32-borland:LIBS  += gds32.lib
+			LIBS *= gds32_ms.lib
                 }
 	}
 
@@ -246,14 +230,14 @@ sql {
                 $$SQL_CPP/../3rdparty/sqlite/where.c
 	    }
 
-            HEADERS += $$SQL_CPP/drivers/sqlite/qsql_sqlite.h
-            SOURCES += $$SQL_CPP/drivers/sqlite/qsql_sqlite.cpp
+            HEADERS += $$SQL_CPP/drivers/sqlite/tqsql_sqlite.h
+            SOURCES += $$SQL_CPP/drivers/sqlite/tqsql_sqlite.cpp
             DEFINES += QT_SQL_SQLITE
         }
 
         contains(sql-drivers, sqlite3) {
-            HEADERS += $$SQL_CPP/drivers/sqlite3/qsql_sqlite3.h
-            SOURCES += $$SQL_CPP/drivers/sqlite3/qsql_sqlite3.cpp
+            HEADERS += $$SQL_CPP/drivers/sqlite3/tqsql_sqlite3.h
+            SOURCES += $$SQL_CPP/drivers/sqlite3/tqsql_sqlite3.cpp
             DEFINES += QT_SQL_SQLITE3
             unix {
                 !contains( LIBS, .*sqlite3.* ) {

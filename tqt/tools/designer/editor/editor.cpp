@@ -33,12 +33,12 @@
 
 #include "editor.h"
 #include "parenmatcher.h"
-#include <ntqfile.h>
-#include <private/qrichtext_p.h>
+#include <tqfile.h>
+#include <private/tqrichtext_p.h>
 #include "conf.h"
-#include <ntqapplication.h>
-#include <ntqpopupmenu.h>
-#include <ntqaccel.h>
+#include <tqapplication.h>
+#include <tqpopupmenu.h>
+#include <tqaccel.h>
 
 Editor::Editor( const TQString &fn, TQWidget *parent, const char *name )
     : TQTextEdit( parent, name ), hasError( FALSE )

@@ -8,12 +8,12 @@
 *****************************************************************************/
 
 #include "menu.h"
-#include <ntqcursor.h>
-#include <ntqpopupmenu.h>
-#include <ntqapplication.h>
-#include <ntqmessagebox.h>
-#include <ntqpixmap.h>
-#include <ntqpainter.h>
+#include <tqcursor.h>
+#include <tqpopupmenu.h>
+#include <tqapplication.h>
+#include <tqmessagebox.h>
+#include <tqpixmap.h>
+#include <tqpainter.h>
 
 /* XPM */
 static const char * p1_xpm[] = {

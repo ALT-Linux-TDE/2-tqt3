@@ -34,12 +34,12 @@
 #include "docuparser.h"
 #include "profile.h"
 
-#include <ntqdir.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqregexp.h>
-#include <ntqstring.h>
-#include <ntqxml.h>
+#include <tqdir.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqregexp.h>
+#include <tqstring.h>
+#include <tqxml.h>
 
 TQDataStream &operator>>( TQDataStream &s, ContentItem &ci )
 {

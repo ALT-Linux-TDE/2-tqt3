@@ -6,14 +6,14 @@
 
 #include "gamebrd.h"
 
-#include <ntqfont.h>
-#include <ntqapplication.h>
-#include <ntqlabel.h>
-#include <ntqaccel.h>
-#include <ntqpushbutton.h>
-#include <ntqlcdnumber.h>
-#include <ntqlayout.h>
-#include <ntqvbox.h>
+#include <tqfont.h>
+#include <tqapplication.h>
+#include <tqlabel.h>
+#include <tqaccel.h>
+#include <tqpushbutton.h>
+#include <tqlcdnumber.h>
+#include <tqlayout.h>
+#include <tqvbox.h>
 
 #include "lcdrange.h"
 #include "cannon.h"

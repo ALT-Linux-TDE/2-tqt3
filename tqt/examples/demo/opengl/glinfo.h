@@ -10,7 +10,7 @@
 #ifndef GLINFO_H
 #define GLINFO_H
 
-#include <ntqstring.h>
+#include <tqstring.h>
 
 class GLInfo
 {

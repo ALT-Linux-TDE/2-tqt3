@@ -34,8 +34,8 @@
 #ifndef SIMTEXTH_H
 #define SIMTEXTH_H
 
-#include <ntqstring.h>
-#include <ntqvaluelist.h>
+#include <tqstring.h>
+#include <tqvaluelist.h>
 
 class MetaTranslator;
 

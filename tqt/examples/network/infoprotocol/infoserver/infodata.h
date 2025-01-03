@@ -10,8 +10,8 @@
 #ifndef INFODATA_H
 #define INFODATA_H
 
-#include <ntqdict.h>
-#include <ntqstringlist.h>
+#include <tqdict.h>
+#include <tqstringlist.h>
 
 
 // The InfoData class manages data, organized in tree structure.

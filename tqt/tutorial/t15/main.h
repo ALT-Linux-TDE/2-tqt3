@@ -11,10 +11,10 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#include <ntqapplication.h>
-#include <ntqobject.h>
-#include <ntqpushbutton.h>
-#include <ntqthread.h>
+#include <tqapplication.h>
+#include <tqobject.h>
+#include <tqpushbutton.h>
+#include <tqthread.h>
 
 class MainObject;
 

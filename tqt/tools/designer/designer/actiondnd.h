@@ -34,15 +34,15 @@
 #ifndef ACTIONDND_H
 #define ACTIONDND_H
 
-#include <ntqaction.h>
-#include <ntqdragobject.h>
-#include <ntqmap.h>
-#include <ntqmenubar.h>
-#include <ntqpixmap.h>
-#include <ntqpopupmenu.h>
-#include <ntqptrlist.h>
-#include <ntqtoolbar.h>
-#include <ntqguardedptr.h>
+#include <tqaction.h>
+#include <tqdragobject.h>
+#include <tqmap.h>
+#include <tqmenubar.h>
+#include <tqpixmap.h>
+#include <tqpopupmenu.h>
+#include <tqptrlist.h>
+#include <tqtoolbar.h>
+#include <tqguardedptr.h>
 #include "../shared/widgetdatabase.h"
 
 //class TQDesignerPopupMenu;

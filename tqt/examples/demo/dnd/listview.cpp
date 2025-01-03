@@ -1,5 +1,5 @@
-#include <ntqdragobject.h>
-#include <ntqapplication.h>
+#include <tqdragobject.h>
+#include <tqapplication.h>
 #include "listview.h"
 #include "dnd.h"
 

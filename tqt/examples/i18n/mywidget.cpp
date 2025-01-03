@@ -7,19 +7,19 @@
 **
 *****************************************************************************/
 
-#include <ntqbuttongroup.h>
-#include <ntqradiobutton.h>
-#include <ntqlabel.h>
-#include <ntqlistbox.h>
-#include <ntqcombobox.h>
-#include <ntqlabel.h>
-#include <ntqhbox.h>
-#include <ntqvbox.h>
-#include <ntqaccel.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqstatusbar.h>
-#include <ntqapplication.h>
+#include <tqbuttongroup.h>
+#include <tqradiobutton.h>
+#include <tqlabel.h>
+#include <tqlistbox.h>
+#include <tqcombobox.h>
+#include <tqlabel.h>
+#include <tqhbox.h>
+#include <tqvbox.h>
+#include <tqaccel.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqstatusbar.h>
+#include <tqapplication.h>
 
 #include "mywidget.h"
 

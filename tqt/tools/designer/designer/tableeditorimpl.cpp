@@ -33,20 +33,20 @@
 
 #include "tableeditorimpl.h"
 #ifndef TQT_NO_TABLE
-#include <ntqtable.h>
+#include <tqtable.h>
 #endif
 #include "formwindow.h"
-#include <ntqlabel.h>
-#include <ntqcombobox.h>
-#include <ntqheader.h>
-#include <ntqlistbox.h>
-#include <ntqlineedit.h>
-#include <ntqpushbutton.h>
+#include <tqlabel.h>
+#include <tqcombobox.h>
+#include <tqheader.h>
+#include <tqlistbox.h>
+#include <tqlineedit.h>
+#include <tqpushbutton.h>
 #include "pixmapchooser.h"
 #include "command.h"
-#include <ntqvaluelist.h>
-#include <ntqtabwidget.h>
-#include <ntqdatatable.h>
+#include <tqvaluelist.h>
+#include <tqtabwidget.h>
+#include <tqdatatable.h>
 #include "project.h"
 #include "metadatabase.h"
 #include "mainwindow.h"

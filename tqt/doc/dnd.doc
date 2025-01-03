@@ -52,29 +52,29 @@ mechanism.
 For drag and drop examples see (in increasing order of
 sophistication): \c qt/examples/iconview/simple_dd, \c
 qt/examples/dragdrop and \c qt/examples/fileiconview. See also the
-QTextEdit widget source code.
+TQTextEdit widget source code.
 
 
 \section1 Dragging
 
 To start a drag, for example in a \link TQWidget::mouseMoveEvent()
-mouse motion event\endlink, create an object of the QDragObject
-subclass appropriate for your media, such as QTextDrag for text and
-QImageDrag for images. Then call the drag() method. This is all you
+mouse motion event\endlink, create an object of the TQDragObject
+subclass appropriate for your media, such as TQTextDrag for text and
+TQImageDrag for images. Then call the drag() method. This is all you
 need for simple dragging of existing types.
 
 For example, to start dragging some text from a widget:
 \code
 void MyWidget::startDrag()
 {
-    QDragObject *d = new QTextDrag( myHighlightedText(), this );
+    TQDragObject *d = new TQTextDrag( myHighlightedText(), this );
     d->dragCopy();
     // do NOT delete d.
 }
 \endcode
 
-Note that the QDragObject is not deleted after the drag. The
-QDragObject needs to persist after the drag is apparently finished
+Note that the TQDragObject is not deleted after the drag. The
+TQDragObject needs to persist after the drag is apparently finished
 since it may still be communicating with another process. Eventually
 Qt will delete the object. If the widget owning the drag object is
 deleted before then, any pending drop will be canceled and the drag
@@ -103,22 +103,22 @@ MyWidget::MyWidget(...) :
     setAcceptDrops(TRUE);
 }
 
-void MyWidget::dragEnterEvent(QDragEnterEvent* event)
+void MyWidget::dragEnterEvent(TQDragEnterEvent* event)
 {
     event->accept(
-	QTextDrag::canDecode(event) ||
-	QImageDrag::canDecode(event)
+	TQTextDrag::canDecode(event) ||
+	TQImageDrag::canDecode(event)
     );
 }
 
-void MyWidget::dropEvent(QDropEvent* event)
+void MyWidget::dropEvent(TQDropEvent* event)
 {
     TQImage image;
     TQString text;
 
-    if ( QImageDrag::decode(event, image) ) {
+    if ( TQImageDrag::decode(event, image) ) {
 	insertImageAt(image, event->pos());
-    } else if ( QTextDrag::decode(event, text) ) {
+    } else if ( TQTextDrag::decode(event, text) ) {
 	insertTextAt(text, event->pos());
     }
 }
@@ -126,39 +126,39 @@ void MyWidget::dropEvent(QDropEvent* event)
 
 \section1 The Clipboard
 
-The QDragObject, QDragEnterEvent, QDragMoveEvent, and QDropEvent
-classes are all subclasses of QMimeSource: the class of objects which
+The TQDragObject, TQDragEnterEvent, TQDragMoveEvent, and TQDropEvent
+classes are all subclasses of TQMimeSource: the class of objects which
 provide typed information. If you base your data transfers on
-QDragObject, you not only get drag-and-drop, but you also get
-traditional cut-and-paste for free. The QClipboard has two functions:
+TQDragObject, you not only get drag-and-drop, but you also get
+traditional cut-and-paste for free. The TQClipboard has two functions:
 \code
-    setData(QMimeSource*)
-    QMimeSource* data()const
+    setData(TQMimeSource*)
+    TQMimeSource* data()const
 \endcode
 With these functions you can trivially put your drag-and-drop oriented
 information on the clipboard:
 \code
 void MyWidget::copy()
 {
-    QApplication::clipboard()->setData(
-	new QTextDrag(myHighlightedText()) );
+    TQApplication::clipboard()->setData(
+	new TQTextDrag(myHighlightedText()) );
 }
 
 void MyWidget::paste()
 {
     TQString text;
-    if ( QTextDrag::decode(QApplication::clipboard()->data(), text) )
+    if ( TQTextDrag::decode(TQApplication::clipboard()->data(), text) )
 	insertText( text );
 }
 \endcode
-You can even use QDragObject subclasses as part of file IO. For
-example, if your application has a subclass of QDragObject that
+You can even use TQDragObject subclasses as part of file IO. For
+example, if your application has a subclass of TQDragObject that
 encodes CAD designs in DXF format, your saving and loading code might
 be:
 \code
 void MyWidget::save()
 {
-    QFile out(current_file_name);
+    TQFile out(current_file_name);
     if ( out.open(IO_WriteOnly) ) {
 	MyCadDrag tmp(current_design);
 	out.writeBlock( tmp->encodedData( "image/x-dxf" ) );
@@ -167,10 +167,10 @@ void MyWidget::save()
 
 void MyWidget::load()
 {
-    QFile in(current_file_name);
+    TQFile in(current_file_name);
     if ( in.open(IO_ReadOnly) ) {
 	if ( !MyCadDrag::decode(in.readAll(), current_design) ) {
-	    QMessageBox::warning( this, "Format error",
+	    TQMessageBox::warning( this, "Format error",
 		tr("The file \"%1\" is not in any supported format")
 		    .arg(current_file_name)
 	    );
@@ -178,15 +178,15 @@ void MyWidget::load()
     }
 }
 \endcode
-Note how the QDragObject subclass is called "MyCadDrag", not
+Note how the TQDragObject subclass is called "MyCadDrag", not
 "MyDxfDrag": because in the future you might extend it to provide
-DXF, DWG, SVF, WMF, or even QPicture data to other applications.
+DXF, DWG, SVF, WMF, or even TQPicture data to other applications.
 
 \section1 Drag and Drop Actions
 
 In the simpler cases, the target of a drag-and-drop receives a copy of
 the data being dragged and the source decides whether to delete the
-original. This is the "Copy" action in QDropEvent. The target may also
+original. This is the "Copy" action in TQDropEvent. The target may also
 choose to understand other actions, specifically the Move and Link
 actions. If the target understands the Move action, \e{the
 target} is responsible for both the copy and delete operations and
@@ -211,16 +211,16 @@ they can produce. This is achieved using \link
 http://www.rfc-editor.org/rfc/rfc1341.txt MIME types\endlink: the drag
 source provides a list of MIME types that it can produce (ordered from
 most appropriate to least appropriate), and the drop target chooses
-which of those it can accept. For example, QTextDrag provides support
+which of those it can accept. For example, TQTextDrag provides support
 for the "\c{text/plain}" MIME type (ordinary unformatted text), and
-the Unicode formats "\c{text/utf16}" and "\c{text/utf8}"; QImageDrag
+the Unicode formats "\c{text/utf16}" and "\c{text/utf8}"; TQImageDrag
 provides for "\c{image/*}", where \c{*} is any image format that
-\l QImageIO supports; and the QUriDrag subclass provides
+\l TQImageIO supports; and the TQUriDrag subclass provides
 "\c{text/uri-list}", a standard format for transferring a list of
 filenames (or URLs).
 
 To implement drag-and-drop of some type of information for which there
-is no available QDragObject subclass, the first and most important
+is no available TQDragObject subclass, the first and most important
 step is to look for existing formats that are appropriate: the
 Internet Assigned Numbers Authority (\link http://www.iana.org
 IANA\endlink) provides a \link
@@ -230,31 +230,31 @@ list of MIME media types\endlink at the Information Sciences Institute
 maximizes the inter-operability of your application with other
 software now and in the future.
 
-To support an additional media type, subclass either QDragObject or
-QStoredDrag. Subclass QDragObject when you need to provide support for
-multiple media types. Subclass the simpler QStoredDrag when one type
+To support an additional media type, subclass either TQDragObject or
+TQStoredDrag. Subclass TQDragObject when you need to provide support for
+multiple media types. Subclass the simpler TQStoredDrag when one type
 is sufficient.
 
-Subclasses of QDragObject will override the
-\link QDragObject::format()
+Subclasses of TQDragObject will override the
+\link TQDragObject::format()
 const char* format(int i) const
 \endlink and
-\link QDragObject::encodedData()
-QByteArray encodedData(const char* mimetype) const
+\link TQDragObject::encodedData()
+TQByteArray encodedData(const char* mimetype) const
 \endlink
 members, and provide a set-method to encode the media data and static
 members canDecode() and decode() to decode incoming data, similar to
-\link QImageDrag::canDecode()
-bool canDecode(QMimeSource*) const
+\link TQImageDrag::canDecode()
+bool canDecode(TQMimeSource*) const
 \endlink and
-\link QImageDrag::decode()
-QByteArray decode(QMimeSource*) const
+\link TQImageDrag::decode()
+TQByteArray decode(TQMimeSource*) const
 \endlink
-of QImageDrag.
+of TQImageDrag.
 Of course, you can provide drag-only or drop-only support for a media
 type by omitting some of these methods.
 
-Subclasses of QStoredDrag provide a set-method to encode the media
+Subclasses of TQStoredDrag provide a set-method to encode the media
 data and the same static members canDecode() and decode() to decode
 incoming data.
 
@@ -276,17 +276,17 @@ the drag start point and the drop event might look like this:
 \code
 void MyEditor::startDrag()
 {
-    QDragObject *d = new QTextDrag(myHighlightedText(), this);
+    TQDragObject *d = new TQTextDrag(myHighlightedText(), this);
     if ( d->drag() && d->target() != this )
 	cutMyHighlightedText();
 }
 
-void MyEditor::dropEvent(QDropEvent* event)
+void MyEditor::dropEvent(TQDropEvent* event)
 {
     TQString text;
 
-    if ( QTextDrag::decode(event, text) ) {
-	if ( event->source() == this && event->action() == QDropEvent::Move ) {
+    if ( TQTextDrag::decode(event, text) ) {
+	if ( event->source() == this && event->action() == TQDropEvent::Move ) {
 	    // Careful not to tread on my own feet
 	    event->acceptAction();
 	    moveMyHighlightedTextTo(event->pos());
@@ -303,9 +303,9 @@ accept drops of text onto text objects in the view. In these cases,
 the \link TQWidget::dragMoveEvent() dragMoveEvent()\endlink is used and
 an \e area is given for which the drag is accepted or ignored:
 \code
-void MyWidget::dragMoveEvent(QDragMoveEvent* event)
+void MyWidget::dragMoveEvent(TQDragMoveEvent* event)
 {
-    if ( QTextDrag::canDecode(event) ) {
+    if ( TQTextDrag::canDecode(event) ) {
 	MyCadItem* item = findMyItemAt(event->pos());
 	if ( item )
 	    event->accept();
@@ -316,12 +316,12 @@ If the computations to find objects are particularly slow, you might
 achieve improved performance if you tell the system an area for which
 you promise the acceptance persists:
 \code
-void MyWidget::dragMoveEvent(QDragMoveEvent* event)
+void MyWidget::dragMoveEvent(TQDragMoveEvent* event)
 {
-    if ( QTextDrag::canDecode(event) ) {
+    if ( TQTextDrag::canDecode(event) ) {
 	MyCadItem* item = findMyItemAt(event->pos());
 	if ( item ) {
-	    QRect r = item->areaRelativeToMeClippedByAnythingInTheWay();
+	    TQRect r = item->areaRelativeToMeClippedByAnythingInTheWay();
 	    if ( item->type() == MyTextType )
 		event->accept( r );
 	    else
@@ -336,12 +336,12 @@ feedback as the drag progresses, to start timers, to scroll the
 window, or whatever is appropriate (don't forget to stop the scrolling
 and timers in a dragLeaveEvent() though).
 
-The QApplication object (available as the \c tqApp global) also
+The TQApplication object (available as the \c tqApp global) also
 provides some drag and drop related functions:
-\l{QApplication::setStartDragTime()},
-\l{QApplication::setStartDragDistance()}, and their corresponding
-getters, \l{QApplication::startDragTime()} and
-\l{QApplication::startDragDistance()}.
+\l{TQApplication::setStartDragTime()},
+\l{TQApplication::setStartDragDistance()}, and their corresponding
+getters, \l{TQApplication::startDragTime()} and
+\l{TQApplication::startDragDistance()}.
 
 \section1 Inter-operating with Other Applications
 
@@ -380,4 +380,4 @@ provided "as is" without express or implied warranty.
 Modifications Copyright 1999 Matt Koss, under the same license as
 above.
 
-*/ // NOTE: That notice is from qmotifdnd_x11.cpp.
+*/ // NOTE: That notice is from tqmotifdnd_x11.cpp.

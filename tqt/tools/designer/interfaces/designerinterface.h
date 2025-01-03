@@ -47,13 +47,13 @@
 //
 //
 
-#include <private/qcom_p.h>
-#include <ntqptrlist.h>
-#include <ntqstring.h>
-#include <ntqmap.h>
-#include <ntqstringlist.h>
-#include <ntqwidgetlist.h>
-#include <ntqobjectlist.h>
+#include <private/tqcom_p.h>
+#include <tqptrlist.h>
+#include <tqstring.h>
+#include <tqmap.h>
+#include <tqstringlist.h>
+#include <tqwidgetlist.h>
+#include <tqobjectlist.h>
 
 struct DesignerProject;
 struct DesignerDatabase;

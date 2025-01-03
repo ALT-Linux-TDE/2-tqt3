@@ -63,37 +63,21 @@
 ** Figure out if we are dealing with Unix, Windows or MacOS.
 **
 ** N.B. MacOS means Mac Classic (or Carbon). Treat Darwin (OS X) as Unix.
-**      The MacOS build is designed to use CodeWarrior (tested with v8)
 */
 #ifndef OS_UNIX
 # ifndef OS_WIN
-#  ifndef OS_MAC
-#    if defined(__MACOS__)
-#      define OS_MAC 1
-#      define OS_WIN 0
-#      define OS_UNIX 0
-#    elif defined(_WIN32) || defined(WIN32) || defined(__CYGWIN__) || defined(__MINGW32__) || defined(__BORLANDC__)
-#      define OS_MAC 0
-#      define OS_WIN 1
-#      define OS_UNIX 0
-#    else
-#      define OS_MAC 0
-#      define OS_WIN 0
-#      define OS_UNIX 1
-#    endif
+#  if defined(_WIN32) || defined(WIN32) || defined(__CYGWIN__) || defined(__MINGW32__)
+#    define OS_WIN 1
+#    define OS_UNIX 0
 #  else
 #    define OS_WIN 0
-#    define OS_UNIX 0
+#    define OS_UNIX 1
 #  endif
 # else
-#  define OS_MAC 0
 #  define OS_UNIX 0
 # endif
 #else
-# define OS_MAC 0
-# ifndef OS_WIN
-#  define OS_WIN 0
-# endif
+# define OS_WIN 0
 #endif
 
 /*
@@ -128,7 +112,7 @@
     HANDLE h;               /* Handle for accessing the file */
     int locked;             /* 0: unlocked, <0: write lock, >0: read lock */
   };
-# if defined(_MSC_VER) || defined(__BORLANDC__)
+# if defined(_MSC_VER)
     typedef __int64 off_t;
 # else
 #  if !defined(_CYGWIN_TYPES_H)
@@ -140,26 +124,6 @@
 # endif
 # define SQLITE_TEMPNAME_SIZE (MAX_PATH+50)
 # define SQLITE_MIN_SLEEP_MS 1
-#endif
-
-#if OS_MAC
-# include <unistd.h>
-# include <Files.h>
-  typedef struct OsFile OsFile;
-  struct OsFile {
-    SInt16 refNum;           /* Data fork/file reference number */
-    SInt16 refNumRF;         /* Resource fork reference number (for locking) */
-    int locked;              /* 0: unlocked, <0: write lock, >0: read lock */
-    int delOnClose;          /* True if file is to be deleted on close */
-    char *pathToDel;         /* Name of file to delete on close */
-  };
-# ifdef _LARGE_FILE
-    typedef SInt64 off_t;
-# else
-    typedef SInt32 off_t;
-# endif
-# define SQLITE_TEMPNAME_SIZE _MAX_PATH
-# define SQLITE_MIN_SLEEP_MS 17
 #endif
 
 int sqliteOsDelete(const char*);

@@ -1,5 +1,5 @@
-#include <ntqglobal.h>
-#include <ntqconfig.h>
+#include <tqglobal.h>
+#include <tqconfig.h>
 
 #ifndef TQT_POINTER_SIZE
 # ifdef Q_OS_WIN32

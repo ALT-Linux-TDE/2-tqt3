@@ -51,10 +51,10 @@
 
 #if !defined(Q_NO_IM)
 
-#include "ntqglobal.h"
-#include <ntqinputcontext.h>
-#include <ntqfont.h>
-#include <ntqcstring.h>
+#include "tqglobal.h"
+#include <tqinputcontext.h>
+#include <tqfont.h>
+#include <tqcstring.h>
 
 class TQKeyEvent;
 class TQWidget;
@@ -63,9 +63,9 @@ class TQString;
 
 
 #ifdef TQ_WS_X11
-#include "ntqarray.h"
-#include "ntqwindowdefs.h"
-#include <private/qt_x11_p.h>
+#include "tqmemarray.h"
+#include "tqwindowdefs.h"
+#include <private/tqt_x11_p.h>
 #endif
 
 class TQXIMInputContext : public TQInputContext

@@ -10,7 +10,7 @@
 #ifndef RICHTEXT_H
 #define RICHTEXT_H
 
-#include <ntqvbox.h>
+#include <tqvbox.h>
 
 class TQTextView;
 class TQPushButton;

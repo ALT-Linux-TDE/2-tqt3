@@ -46,26 +46,14 @@ UNAME_VERSION=`(uname -v) 2>/dev/null` || UNAME_VERSION=unknown
 
 PLATFORM_X11=no
 PLATFORM_MAC=no
-PLATFORM_QWS=no
 PLATFORM_QNX=no
 
-if [ -f $relpath/src/kernel/qapplication_mac.cpp ] && [ -d /System/Library/Frameworks/Carbon.framework ]; then
+if [ -f $relpath/src/kernel/tqapplication_mac.cpp ] && [ -d /System/Library/Frameworks/Carbon.framework ]; then
     # Qt/Mac
     # ~ the Carbon SDK exists
-    # ~ src/kernel/qapplication_mac.cpp is present
+    # ~ src/kernel/tqapplication_mac.cpp is present
     # ~ this is the internal edition and Qt/Mac sources exist
     PLATFORM_MAC=maybe
-elif [ -f $relpath/src/kernel/qapplication_qws.cpp ]; then
-    # Qt/Embedded
-    # ~ src/kernel/qapplication_qws.cpp is present
-    # ~ this is the open source or commercial edition
-    # ~ this is the internal edition and Qt/Embedded is explicitly enabled
-    # ~ this is the internal edition and the OS is QNX
-    if [ "$UNAME_SYSTEM" = "QNX" ]; then
-	PLATFORM_QNX=maybe
-    else
-	PLATFORM_QWS=maybe
-    fi
 fi
 
 
@@ -73,7 +61,6 @@ fi
 # Free license only: no check for other licenses
 #-------------------------------------------------------------------------------
 [ "$PLATFORM_MAC" = "maybe" ] && PLATFORM_MAC=yes
-[ "$PLATFORM_QWS" = "maybe" ] && PLATFORM_QWS=yes
 Edition="free"
 Licensee="Free"
 Products="qt-free"
@@ -100,7 +87,6 @@ CFG_PROFILE=no
 CFG_EXCEPTION_SUPPORT=unspecified
 CFG_INCREMENTAL=auto
 CFG_QCONFIG=full
-CFG_EMBEDDED=no
 CFG_DEBUG=no
 CFG_SHARED=yes
 CFG_GIF=no
@@ -120,10 +106,8 @@ CFG_XCURSOR=auto
 CFG_XRANDR=auto
 CFG_XRENDER=auto
 CFG_FREETYPE=auto
-CFG_QWS_FREETYPE=yes
 CFG_SQL_AVAILABLE=
 CFG_SQL_AUTODETECTED=
-CFG_GFX_AVAILABLE=
 CFG_STYLE_AVAILABLE=
 #Keep this position for CFG_IM* to avoid patch rejection
 CFG_IM=yes
@@ -138,7 +122,6 @@ CFG_STL=auto
 CFG_PRECOMPILE=no
 CFG_IPV6=auto
 CFG_NAS=no
-CFG_QWS_DEPTHS=prompted
 CFG_USER_BUILD_KEY=
 CFG_ACCESSIBILITY=auto
 CFG_DLOPEN_OPENGL=no
@@ -226,22 +209,12 @@ while [ "$#" -gt 0 ]; do
 	VAL=no
 	;;
     #Qt style yes options
-    -incremental|-tqvfb|-profile|-shared|-static|-sm|-thread|-xinerama|-xshape|-tablet|-pch|-stl|-ipv6|-freetype|-big-codecs|-xcursor|-xrandr|-xrender|-xft|-xkb|-nis|-cups|-largefile|-h|-help|-v|-verbose|-debug|-release|-fast|-version-script|-dlopen-opengl|-glibmainloop)
+    -incremental|-profile|-shared|-static|-sm|-thread|-xinerama|-xshape|-tablet|-pch|-stl|-ipv6|-big-codecs|-xcursor|-xrandr|-xrender|-xft|-xkb|-nis|-cups|-largefile|-h|-help|-v|-verbose|-debug|-release|-fast|-version-script|-dlopen-opengl|-glibmainloop)
 	VAR=`echo $1 | sed "s,^-\(.*\),\1,"`
 	VAL=yes
 	;;
     #Qt style options that pass an argument
-    -qconfig)
-	if [ "$PLATFORM_QWS" = "yes" ]; then
-	    CFG_QCONFIG="$VAL"
-	    VAR=`echo $1 | sed "s,^-\(.*\),\1,"`
-	    shift
-	    VAL=$1
-	else
-	    UNKNOWN_ARG=yes
-	fi
-	;;
-    -prefix|-sysshare|-docdir|-headerdir|-plugindir|-datadir|-libdir|-bindir|-translationdir|-sysconfdir|-depths|-make|-nomake|-platform|-xplatform|-buildkey)
+    -prefix|-sysshare|-docdir|-headerdir|-plugindir|-datadir|-libdir|-bindir|-translationdir|-sysconfdir|-make|-nomake|-platform|-xplatform|-buildkey)
 	VAR=`echo $1 | sed "s,^-\(.*\),\1,"`
 	shift
 	VAL=$1
@@ -266,16 +239,6 @@ while [ "$#" -gt 0 ]; do
     -inputmethod|-inputmethod-ext)
 	VAR=`echo $1 | sed "s,^-\(.*\),\1,"`
 	VAL=yes
-	;;
-    -embedded)
-	VAR=embedded
-	# this option may or may not be followed by an argument
-	if [ -z $2 ] || echo $2 | grep '^-' >/dev/null 2>&1; then
-	    VAL=auto
-	else
-	    shift;
-	    VAL=$1
-	fi
 	;;
     -*-endian)
 	VAR=endian
@@ -374,7 +337,7 @@ while [ "$#" -gt 0 ]; do
     sysshare)
 	QT_INSTALL_SHARE="$VAL"
 	;;
-    qconfig)
+    tqconfig)
 	CFG_QCONFIG="$VAL"
 	;;
     bindir)
@@ -382,19 +345,6 @@ while [ "$#" -gt 0 ]; do
 	;;
     buildkey)
 	CFG_USER_BUILD_KEY="$VAL"
-	;;
-    embedded)
-	CFG_EMBEDDED="$VAL"
-	if [ "$PLATFORM_QNX" != "no" -o "$PLATFORM_QWS" != "no" ]; then
-	    if [ "$PLATFORM_QNX" = "maybe" ]; then
-		PLATFORM_QNX=yes
-	    elif [ "$PLATFORM_QWS" = "maybe" ]; then
-		PLATFORM_QWS=yes
-	    fi
-	else
-	    echo "No license exists to enable Qt/Embedded. Disabling."
-	    CFG_EMBEDDED=no
-	fi
 	;;
     endian)
         if [ "$VAL" = "little" ]; then
@@ -405,16 +355,6 @@ while [ "$#" -gt 0 ]; do
 	    UNKNOWN_OPT=yes
 	fi
         ;;
-    depths)
-	CFG_QWS_DEPTHS="$VAL"
-	;;
-    tqvfb) # left for commandline compatibility, not documented
-	if [ "$VAL" = "yes" ] || [ "$VAL" = "no" ]; then
-	    [ "$VAL" = "yes" ] && QMAKE_VARS="$QMAKE_VARS \"gfx-drivers += tqvfb\""
-	else
-	    UNKNOWN_OPT=yes
-        fi
-	;;
     nomake)
 	QMAKE_IGNORE_PROJECTS="$QMAKE_IGNORE_PROJECTS $VAL"
 	;;
@@ -433,8 +373,6 @@ while [ "$#" -gt 0 ]; do
         if [ "$Edition" = "troll" ] && [ "$VAL" = "yes" ]; then
 	    if [ "$PLATFORM_MAC" = "yes" ]; then
 		PLATFORM_MAC=no
-	    elif [ "$PLATFORM_QWS" = "yes" ]; then
-		PLATFORM_QWS=no
 	    fi
 	    PLATFORM_X11=yes
 	else
@@ -489,9 +427,6 @@ while [ "$#" -gt 0 ]; do
 	    ;;
 	irix-cc-n64)
 	    PLATFORM=irix-cc-64
-	    ;;
-	reliant-64)
-	    PLATFORM=reliant-cds-64
 	    ;;
 	solaris-64)
 	    PLATFORM=solaris-cc-64
@@ -619,13 +554,6 @@ while [ "$#" -gt 0 ]; do
     ipv6)
 	if [ "$VAL" = "yes" ] || [ "$VAL" = "no" ]; then
 	    CFG_IPV6="$VAL"
-	else
-	    UNKNOWN_OPT=yes
-	fi
-	;;
-    freetype)
-	if [ "$VAL" = "yes" ] || [ "$VAL" = "no" ]; then
-	    CFG_QWS_FREETYPE="$VAL"
 	else
 	    UNKNOWN_OPT=yes
 	fi
@@ -785,7 +713,7 @@ while [ "$#" -gt 0 ]; do
 	    UNKNOWN_OPT=yes
 	fi
 	;;
-    imgfmt-*|style-*|sql-*|gfx-*|kbd-*|mouse-*)
+    imgfmt-*|style-*|sql-*|kbd-*|mouse-*)
 	# if TQt style options were used, $VAL can be "no", "qt", or "plugin"
 	# if autoconf style options were used, $VAL can be "yes" or "no"
 	[ "$VAL" = "yes" ] && VAL=qt
@@ -831,14 +759,14 @@ while [ "$#" -gt 0 ]; do
 		    [ "$VAR" = "style" ] && QMAKE_VARS="$QMAKE_VARS \"${VAR}s -= $VAL\""
 		    VAR="${VAR}-${OPT}"
 		else
-		    if [ "$VAR" = "sql" ] || [ "$VAR" = "gfx" ] || [ "$VAR" = "kbd" ] || [ "$VAR" = "mouse" ]; then
+		    if [ "$VAR" = "sql" ] || [ "$VAR" = "kbd" ] || [ "$VAR" = "mouse" ]; then
 			VAR="${VAR}-driver"
 		    fi
 		fi
 		QMAKE_VARS="$QMAKE_VARS \"${VAR}s += $VAL\""
 	    elif [ "$OPT" = "no" ]; then
 		PLUG_VAR="${VAR}-plugin"
-		if [ "$VAR" = "sql" ] || [ "$VAR" = "gfx" ] || [ "$VAR" = "kbd" ] || [ "$VAR" = "mouse" ]; then
+		if [ "$VAR" = "sql" ] || [ "$VAR" = "kbd" ] || [ "$VAR" = "mouse" ]; then
 		    IN_VAR="${VAR}-driver"
 		else
 		    IN_VAR="${VAR}"
@@ -922,7 +850,7 @@ while [ "$#" -gt 0 ]; do
 done
 
 #-------------------------------------------------------------------------------
-# post initialize QT_INSTALL_* variables, and generate qconfig.cpp
+# post initialize QT_INSTALL_* variables, and generate tqconfig.cpp
 #-------------------------------------------------------------------------------
 
 # default $outpath
@@ -946,11 +874,11 @@ done
 # default PREFIX/share
 [ -z "$QT_INSTALL_SHARE" ]        && QT_INSTALL_SHARE=$QT_INSTALL_PREFIX/share
 
-# generate qconfig.cpp
+# generate tqconfig.cpp
 [ -d $outpath/src/tools ] || mkdir -p $outpath/src/tools
-cat > $outpath/src/tools/qconfig.cpp.new <<EOF
+cat > $outpath/src/tools/tqconfig.cpp.new <<EOF
 /* Install paths from configure */
-#include "ntqglobal.h"
+#include "tqglobal.h"
 
 static const char QT_INSTALL_PREFIX      [267] = "qt_nstpath=$QT_INSTALL_PREFIX";
 static const char QT_INSTALL_BINS        [267] = "qt_binpath=$QT_INSTALL_BINS";
@@ -976,13 +904,13 @@ const char *tqInstallPathSysconf()      { return QT_INSTALL_SYSCONF      + 11; }
 const char *tqInstallPathShare()        { return QT_INSTALL_SHARE        + 11; }
 EOF
 
-# avoid unecessary rebuilds by copying only if qconfig.cpp has changed
-if cmp -s $outpath/src/tools/qconfig.cpp $outpath/src/tools/qconfig.cpp.new; then
-    rm -f $outpath/src/tools/qconfig.cpp.new
+# avoid unecessary rebuilds by copying only if tqconfig.cpp has changed
+if cmp -s $outpath/src/tools/tqconfig.cpp $outpath/src/tools/tqconfig.cpp.new; then
+    rm -f $outpath/src/tools/tqconfig.cpp.new
 else
-    [ -f $outpath/src/tools/qconfig.cpp ] && chmod +w $outpath/src/tools/qconfig.cpp
-    mv $outpath/src/tools/qconfig.cpp.new $outpath/src/tools/qconfig.cpp
-    chmod -w $outpath/src/tools/qconfig.cpp
+    [ -f $outpath/src/tools/tqconfig.cpp ] && chmod +w $outpath/src/tools/tqconfig.cpp
+    mv $outpath/src/tools/tqconfig.cpp.new $outpath/src/tools/tqconfig.cpp
+    chmod -w $outpath/src/tools/tqconfig.cpp
 fi
 
 
@@ -997,18 +925,18 @@ WHICH=$unixtests/which.test
 ### skip this if the user just needs help...
 if [ "$OPT_HELP" != "yes" ]; then
 
-# create the include and include/qmake directory (for ntqconfig.h and ntqmodules.h)
+# create the include and include/qmake directory (for tqconfig.h and tqmodules.h)
 [ -d $outpath/include/qmake ] || mkdir -p $outpath/include/qmake
 
-# create temporary ntqconfig.h for compiling qmake
+# create temporary tqconfig.h for compiling qmake
 # when building qmake, we use #defines for the install paths,
 # however they are real functions in the library
-cat >>$outpath/include/qmake/ntqconfig.h <<EOF
+cat >>$outpath/include/qmake/tqconfig.h <<EOF
 /* All features enabled while building qmake */
 EOF
 
-# create temporary ntqmodules.h for compiling qmake
-cat >>$outpath/include/qmake/ntqmodules.h <<EOF
+# create temporary tqmodules.h for compiling qmake
+cat >>$outpath/include/qmake/tqmodules.h <<EOF
 /* All modules enabled while building qmake */
 EOF
 
@@ -1029,9 +957,7 @@ fi
 
 #detect how mng should be built
 if [ "$CFG_MNG" = "auto" ]; then
-    if [ "$CFG_EMBEDDED" = "yes" ]; then
-	CFG_MNG=no
-    elif [ "$CFG_SHARED" = "yes" ]; then
+    if [ "$CFG_SHARED" = "yes" ]; then
 	CFG_MNG=plugin
     else
 	CFG_MNG=yes
@@ -1040,9 +966,7 @@ fi
 
 #detect how jpeg should be built
 if [ "$CFG_JPEG" = "auto" ]; then
-    if [ "$CFG_EMBEDDED" = "yes" ]; then
-	CFG_JPEG=no
-    elif [ "$CFG_MNG" = "yes" ]; then
+    if [ "$CFG_MNG" = "yes" ]; then
 	CFG_JPEG=yes
     elif [ "$CFG_SHARED" = "yes" ]; then
 	CFG_JPEG=plugin
@@ -1147,7 +1071,7 @@ QMAKE_VARS="$QMAKE_VARS \"QMAKE_MOC=$outpath/bin/tqmoc\""
 QMAKE_VARS="$QMAKE_VARS \"QMAKE_UIC=$outpath/bin/tquic -L \$\$QT_BUILD_TREE/plugins\""
 QMAKE_VARS="$QMAKE_VARS \"QMAKE_QMAKE=$outpath/bin/tqmake\""
 # hacky src line
-QMAKE_VARS="$QMAKE_VARS \"QMAKE_MOC_SRC=$outpath/src/moc\""
+QMAKE_VARS="$QMAKE_VARS \"QMAKE_MOC_SRC=$outpath/src/tqmoc\""
 
 # find out which awk we want to use, prefer gawk, then nawk, then regular awk
 AWK=
@@ -1186,88 +1110,18 @@ fi ### help
 # auto-detect all that hasn't been specified in the arguments
 #-------------------------------------------------------------------------------
 
-[ "$PLATFORM_QWS" = "yes" -a "$CFG_EMBEDDED" = "no" ] && CFG_EMBEDDED=auto
-if [ "$CFG_EMBEDDED" != "no" ]; then
-    case "$UNAME_SYSTEM:$UNAME_RELEASE" in
-    QNX:*)
-        [ -z "$PLATFORM" ] && PLATFORM=qws/qnx-rtp-g++
-#	[ "$CFG_EMBEDDED" = "qnx4" ] && PLATFORM_QNX=qws/qnx4-cc
-	if [ -z "$XPLATFORM" ]; then
-	    [ "$CFG_EMBEDDED" = "auto" ] && CFG_EMBEDDED=generic
-	    XPLATFORM="$PLATFORM"
-        fi
-	CFG_STL=no
-	CFG_QWS_QVFB=no
-	;;
-    Darwin:*)
-	[ -z "$PLATFORM" ] && PLATFORM=qws/macx-generic-g++
-	if [ -z "$XPLATFORM" ]; then
-	    [ "$CFG_EMBEDDED" = "auto" ] && CFG_EMBEDDED=generic
-	    XPLATFORM="qws/macx-$CFG_EMBEDDED-g++"
-	fi
-	;;
-    FreeBSD:*)
-	[ -z "$PLATFORM" ] && PLATFORM=qws/freebsd-generic-g++
-	if [ -z "$XPLATFORM" ]; then
-	    [ "$CFG_EMBEDDED" = "auto" ] && CFG_EMBEDDED=generic
-	    XPLATFORM="qws/freebsd-$CFG_EMBEDDED-g++"
-	fi
-	;;
-    SunOS:5*)
-	[ -z "$PLATFORM" ] && PLATFORM=qws/solaris-generic-g++
-	if [ -z "$XPLATFORM" ]; then
-	    [ "$CFG_EMBEDDED" = "auto" ] && CFG_EMBEDDED=generic
-	    XPLATFORM="qws/solaris-$CFG_EMBEDDED-g++"
-	fi
-	;;
-    Linux:*|GNU:*|GNU/*:*)
-	if [ -z "$PLATFORM" ]; then
-	    case "$UNAME_MACHINE" in
-	    *86)
-		PLATFORM=qws/linux-x86-g++
-		;;
-	    *)
-		PLATFORM=qws/linux-generic-g++
-		;;
-	    esac
-	fi
-	if [ -z "$XPLATFORM" ]; then
-	    if [ "$CFG_EMBEDDED" = "auto" ]; then
-		case "$UNAME_MACHINE" in
-		*86)
-		    CFG_EMBEDDED=x86
-		    ;;
-		*)
-		    CFG_EMBEDDED=generic
-		    ;;
-		esac
-	    fi
-	    XPLATFORM="qws/linux-$CFG_EMBEDDED-g++"
-	fi
-	;;
-    *)
-	echo "Qt/Embedded is not supported on this platform. Disabling."
-	CFG_EMBEDDED=no
-	PLATFORM_QWS=no
-	PLATFORM_QNX=no
-	;;
-    esac
-fi
 if [ -z "$PLATFORM" ]; then
     PLATFORM_NOTES=
     case "$UNAME_SYSTEM:$UNAME_RELEASE" in
      Darwin:*)
 	if [ "$PLATFORM_MAC" = "yes" ]; then
 	  PLATFORM=macx-g++
-	# PLATFORM=macx-pbuilder
 	else
 	  PLATFORM=darwin-g++
 	fi
 	;;
      AIX:*)
-	#PLATFORM=aix-g++
 	PLATFORM=aix-xlc
-	#PLATFORM=aix-xlc-64
 	PLATFORM_NOTES="
 	    - Also available for AIX: aix-g++ aix-xlc-64
 	"
@@ -1278,9 +1132,6 @@ if [ -z "$PLATFORM" ]; then
      dgux:*)
 	PLATFORM=dgux-g++
 	;;
-#     DYNIX/ptx:4*)
-#	PLATFORM=dynix-g++
-#	;;
      ULTRIX:*)
 	PLATFORM=ultrix-g++
 	;;
@@ -1335,13 +1186,6 @@ if [ -z "$PLATFORM" ]; then
 	    - Also available for Solaris: solaris-g++ solaris-cc-64
 	"
 	;;
-     ReliantUNIX-*:*|SINIX-*:*)
-	PLATFORM=reliant-cds
-	#PLATFORM=reliant-cds-64
-	PLATFORM_NOTES="
-	    - Also available for Reliant UNIX: reliant-cds-64
-	"
-	;;
      CYGWIN*:*)
 	PLATFORM=cygwin-g++
 	;;
@@ -1389,13 +1233,7 @@ if [ -z "$PLATFORM" ]; then
     esac
 fi
 
-if [ "$PLATFORM_QWS" = "yes" -o "$PLATFORM_QNX" = "yes" ]; then
-    CFG_SM=no
-    MODULES=`echo $MODULES | sed -e 's/opengl//'`
-    PLATFORMS=`find $relpath/mkspecs/qws | sed "s,$relpath/mkspecs/qws/,,"`
-else
-    PLATFORMS=`find $relpath/mkspecs/ -type f | grep -v qws | sed "s,$relpath/mkspecs/qws/,,"`
-fi
+PLATFORMS=`find $relpath/mkspecs/ -type f`
 
 ##if [ "$OPT_CONCURRENT" = "0" ] && echo $MAKEFLAGS | grep '.* *-j[0-9]* *.*' >/dev/null 2>&1; then
 #    OPT_CONCURRENT=`echo $MAKEFLAGS | sed "s,.* *-j\([0-9]*\) *.*,\1,"`
@@ -1462,7 +1300,6 @@ fi
 
 # now look at the configs and figure out what platform we are config'd for
 [ '!' -z "`grep QMAKE_LIBS_X11 $XQMAKESPEC/qmake.conf | awk '{print $3;}'`" ] && PLATFORM_X11=yes
-### echo "$XQMAKESPEC" | grep mkspecs/qws >/dev/null 2>&1 && PLATFORM_QWS=yes
 
 # find default thread option for target
 if grep >/dev/null '^QMAKE_LIBS_THREAD' $XQMAKESPEC/qmake.conf; then
@@ -1785,11 +1622,6 @@ if [ "$PLATFORM_X11" = "yes" ]; then
 fi
 
 # embedded graphics
-if [ "$PLATFORM_QWS" = "yes" ]; then
-    CFG_GFX_AVAILABLE=`find $relpath/plugins/src/gfxdrivers/* -prune -type d -print | awk -F/ '{print $NF}'`
-    CFG_GFX_AVAILABLE=`echo $CFG_GFX_AVAILABLE`
-fi
-
 # immodule extensions
 if [ "$CFG_IM" = "no" ]; then
     CFG_IM_EXT=no
@@ -1916,7 +1748,7 @@ Configure options:
 
  *  -no-gif ............ Do not compile in GIF reading support.
     -qt-gif ............ Compile in GIF reading support.
-			 See src/kernel/ntqgif.h
+			 See src/kernel/tqgif.h
 
  *  -qt-zlib ........... Use the zlib bundled with Qt.
     -system-zlib ....... Use zlib from the operating system.
@@ -2175,53 +2007,6 @@ Qt/X11 only:
 EOF
 fi
 
-if [ "$PLATFORM_QWS" = "yes" -o "$PLATFORM_QNX" = "yes" ]; then
-    cat << EOF
-
-Qt/Embedded only:
-
-    -embedded arch...... This will enable the embedded build, you must have a
-			 proper license for this switch to work.
-
-    -little-endian ..... Target platform is little endian (LSB first).
-    -big-endian ........ Target platform is big endian (MSB first).
-
-                         You only need to specify the endianness when
-                         cross-compiling, otherwise the host
-                         endianness will be used.
-
-    -no-freetype ....... Qt/Embedded only: do not compile in FreeType2 support.
- *  -freetype .......... Qt/Embedded only: add FreeType2 font support.
-
-    -no-zlib ........... No compression library -- implies -no-libpng
-
-    -qconfig local ..... Use src/tools/qconfig-local.h rather than the
-			 default ($CFG_QCONFIG).
-
-    -depths list ....... Comma-separated list of supported bit-per-pixel
-			 depths, from:  4, 8, 16, 24, and 32.
-			 (8bpp is required by the VGA16 driver)
-
-    -qt-gfx-<driver> ... Enable a graphics <driver> in the TQt Library.
-    -plugin-gfx-<driver> Enable graphics <driver> as a plugin to be
-                         linked to at run time.
-    -no-gfx-<driver> ... Disable graphics <driver> entirely.
-
-                         Possible values for <driver>: [ $CFG_GFX_AVAILABLE ]
-
-    -qt-kbd-<driver> ... Enable a keyboard <driver> in the TQt Library.
-    -no-kbd-<driver> ... Disable keyboard <driver> entirely.
-
-                         Possible values for <driver>: [ sl5000 tty usb yopy vr41xx ]
-
-    -qt-mouse-<driver> . Enable a mouse <driver> in the TQt Library.
-    -no-mouse-<driver> . Disable mouse <driver> entirely.
-
-                         Possible values for <driver>: [ pc bus linuxtp yopy vr41xx ]
-
-EOF
-fi
-
    [ "x$ERROR" = "xyes" ] && exit 1
    exit 0
 fi
@@ -2232,9 +2017,7 @@ fi
 # -----------------------------------------------------------------------------
 
 echo
-if [ "$PLATFORM_QWS" = "yes" ]; then
-    echo "This is the Qt/Embedded Open Source Edition."
-elif [ "$PLATFORM_MAC" = "yes" ]; then
+if [ "$PLATFORM_MAC" = "yes" ]; then
     echo "This is the Qt/Mac Open Source Edition."
 elif [ "$PLATFORM_X11" = "yes" ]; then
     echo "This is the Qt/X11 Open Source Edition."
@@ -2331,7 +2114,7 @@ if true; then ###[ '!' -f "$outpath/bin/tqmake" ];
 	    EXTRA_LFLAGS="$EXTRA_LFLAGS \$(CARBON_LFLAGS)"
 	    EXTRA_CFLAGS="$EXTRA_CFLAGS \$(CARBON_CFLAGS) -DQT_MACOSX_VERSION=$QT_MAC_VERSION"
 	    EXTRA_CXXFLAGS="$EXTRA_CXXFLAGS \$(CARBON_CFLAGS) -DQT_MACOSX_VERSION=$QT_MAC_VERSION"
-	    EXTRA_SOURCES="qurl.o qsettings_mac.o"
+	    EXTRA_SOURCES="tqurl.o tqsettings_mac.o"
 	elif [ "$PLATFORM" = "tru64-cxx" ]; then
 	    echo "OSF_LFLAGS = -lm"  >>$mkfile
 	    EXTRA_LFLAGS="$EXTRA_LFLAGS \$(OSF_LFLAGS)"
@@ -2341,7 +2124,6 @@ if true; then ###[ '!' -f "$outpath/bin/tqmake" ];
 	  EXTRA_LFLAGS="$EXTRA_CFLAGS \$(QNX_LFLAGS)"
 	  EXTRA_CFLAGS="$EXTRA_CFLAGS \$(QNX_CFLAGS)"
 	fi
-	[ "$CFG_EMBEDDED" != "no" ] && EXTRA_CFLAGS="$EXTRA_CFLAGS -DQWS"
 	if [ '!' -z "$D_FLAGS" ]; then
 	    for DEF in $D_FLAGS; do
 		EXTRA_CFLAGS="$EXTRA_CFLAGS -D${DEF}"
@@ -2372,9 +2154,9 @@ if true; then ###[ '!' -f "$outpath/bin/tqmake" ];
     (cd $outpath/qmake; $MAKE || (echo "qmake failed to build. Aborting." && exit 2)) || exit 2
 fi
 
-# clean up temporary ntqconfig.h and ntqmodules.h
-rm -f $outpath/include/qmake/ntqconfig.h
-rm -f $outpath/include/qmake/ntqmodules.h
+# clean up temporary tqconfig.h and tqmodules.h
+rm -f $outpath/include/qmake/tqconfig.h
+rm -f $outpath/include/qmake/tqmodules.h
 rmdir $outpath/include/qmake
 
 
@@ -2466,53 +2248,6 @@ fi
 # ask for all that hasn't been auto-detected or specified in the arguments
 #-------------------------------------------------------------------------------
 
-### fix this: user input should be validated in a loop
-if [ "$CFG_QWS_DEPTHS" = "prompted" -a "$PLATFORM_QWS" = "yes" ]; then
-    echo
-    echo "Choose pixel-depths to support:"
-    echo
-    echo "   4. 4bpp grayscale - also enables 8bpp"
-    echo "   8. 8bpp"
-    echo "  16. 16bpp"
-    echo "  24. 24bpp - also enables 32bpp"
-    echo "  32. 32bpp"
-    echo
-    echo "Each depth adds around 100Kb on 80386."
-    echo
-    echo "Your choices (default 8,16,32):"
-    read CFG_QWS_DEPTHS
-    if [ -z "$CFG_QWS_DEPTHS" ] || [ "$CFG_QWS_DEPTHS" = "yes" ]; then
-	CFG_QWS_DEPTHS=8,16,32
-    fi
-fi
-if [ -n "$CFG_QWS_DEPTHS" -a "$PLATFORM_QWS" = "yes" ]; then
-    D4=;D8=;D16=;D24=;D32=
-    for D in `echo "$CFG_QWS_DEPTHS" | sed -e 's/,/ /g'`; do
-	case "$D" in
-	    4) D4=y; D8=y
-	;;  8) D8=y
-	;; 16) D16=y
-	;; 24) D24=y; D32=y
-	;; 32) D32=y
-	esac
-    done
-    if [ -z "$D4" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_4"
-    fi
-    if [ -z "$D8" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_8"
-    fi
-    if [ -z "$D16" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_16"
-    fi
-    if [ -z "$D24" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_24"
-    fi
-    if [ -z "$D32" ]; then
-	QCONFIG_FLAGS="$QCONFIG_FLAGS TQT_NO_QWS_DEPTH_32"
-    fi
-fi
-
 # enable accessibility
 if [ "$CFG_ACCESSIBILITY" = "yes" ]; then
    QMAKE_CONFIG="$QMAKE_CONFIG accessibility"
@@ -2531,7 +2266,7 @@ minimal|small|medium|large|full)
     ;;
 *)
     # not known to be sufficient for anything
-    if [ '!' -f $relpath/src/tools/qconfig-$CFG_QCONFIG.h ]; then
+    if [ '!' -f $relpath/src/tools/tqconfig-$CFG_QCONFIG.h ]; then
 	echo >&2 "No such configuration: $CFG_QCONFIG"
 	OPT_HELP=yes
     fi
@@ -2580,11 +2315,6 @@ fi
 if [ "$CFG_THREAD" = "yes" ]; then
     QMAKE_OUTDIR="${QMAKE_OUTDIR}-mt"
     QMAKE_CONFIG="$QMAKE_CONFIG thread"
-fi
-if [ "$PLATFORM_QWS" = "yes" -o "$PLATFORM_QNX" = "yes" ]; then
-    QMAKE_OUTDIR="${QMAKE_OUTDIR}-emb-$CFG_EMBEDDED"
-    QMAKE_CONFIG="$QMAKE_CONFIG embedded"
-    rm -f src/.moc/$QMAKE_OUTDIR/allmoc.cpp # needs remaking if config changes
 fi
 QMAKE_VARS="$QMAKE_VARS \"QMAKE_INCDIR_TQT=$relpath/include\""
 QMAKE_VARS="$QMAKE_VARS \"QMAKE_LIBDIR_TQT=$outpath/lib\""
@@ -2678,7 +2408,6 @@ fi
 [ "$CFG_NAS" = "system" ] && QMAKE_CONFIG="$QMAKE_CONFIG nas"
 [ "$CFG_BIG_CODECS" = "yes" ] && QMAKE_CONFIG="$QMAKE_CONFIG bigcodecs"
 
-[ "$CFG_QWS_FREETYPE" = "yes" -a "x$CFG_EMBEDDED" != "xno" ] && QMAKE_CONFIG="$QMAKE_CONFIG ft"
 if [ "$PLATFORM_X11" = "yes" ]; then
     [ "$CFG_SM" = "yes" ] && QMAKE_CONFIG="$QMAKE_CONFIG x11sm"
 
@@ -2786,27 +2515,27 @@ if [ "$CFG_EXCEPTION_SUPPORT" = "no" ]; then
 fi
 
 #-------------------------------------------------------------------------------
-# part of configuration information goes into ntqmodules.h
+# part of configuration information goes into tqmodules.h
 #-------------------------------------------------------------------------------
 
-rm -f $outpath/include/ntqmodules.h.new
-cat >$outpath/include/ntqmodules.h.new << EOF
+rm -f $outpath/include/tqmodules.h.new
+cat >$outpath/include/tqmodules.h.new << EOF
 /* These modules are present in this configuration of TQt */
 EOF
 for MODULE in $MODULES; do
     if [ -d "$relpath/src/$MODULE" ]; then
 	M=`echo $MODULE | tr 'abcdefghijklmnopqrstuvwxyz' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`
-	echo "#define TQT_MODULE_$M" >>$outpath/include/ntqmodules.h.new
+	echo "#define TQT_MODULE_$M" >>$outpath/include/tqmodules.h.new
     fi
 done
 
-# avoid unecessary rebuilds by copying only if ntqmodules.h has changed
-if cmp -s $outpath/include/ntqmodules.h $outpath/include/ntqmodules.h.new; then
-    rm -f $outpath/include/ntqmodules.h.new
+# avoid unecessary rebuilds by copying only if tqmodules.h has changed
+if cmp -s $outpath/include/tqmodules.h $outpath/include/tqmodules.h.new; then
+    rm -f $outpath/include/tqmodules.h.new
 else
-    [ -f $outpath/include/ntqmodules.h ] && chmod +w $outpath/include/ntqmodules.h
-    mv -f $outpath/include/ntqmodules.h.new $outpath/include/ntqmodules.h
-    chmod -w $outpath/include/ntqmodules.h
+    [ -f $outpath/include/tqmodules.h ] && chmod +w $outpath/include/tqmodules.h
+    mv -f $outpath/include/tqmodules.h.new $outpath/include/tqmodules.h
+    chmod -w $outpath/include/tqmodules.h
 fi
 
 #-------------------------------------------------------------------------------
@@ -2891,7 +2620,6 @@ esac
 #     ipv6
 #
 #     X11     : xftnameunparse x11sm xinerama xcursor xrandr xrender xftfreetype xkb inputmethod
-#     Embedded: embedded ft
 #
 ALL_OPTIONS="styles tools kernel widgets dialogs workspace inputmethod network canvas table xml opengl sql stl"
 BUILD_CONFIG=
@@ -2972,20 +2700,20 @@ TQT_BUILD_KEY="$CFG_USER_BUILD_KEY $UNAME_MACHINE $UNAME_SYSTEM $COMPILER $BUILD
 TQT_BUILD_KEY=`echo $TQT_BUILD_KEY | sed -e "s,  *, ,g" -e "s,^  *,," -e "s,  *$,,"`
 
 #-------------------------------------------------------------------------------
-# part of configuration information goes into ntqconfig.h
+# part of configuration information goes into tqconfig.h
 #-------------------------------------------------------------------------------
 
 case "$CFG_QCONFIG" in
 full)
-    echo "/* Everything */" >$outpath/include/ntqconfig.h.new
+    echo "/* Everything */" >$outpath/include/tqconfig.h.new
     ;;
 *)
-    QCONFIGFILE=qconfig-$CFG_QCONFIG.h
-    echo "/* Copied from $QCONFIGFILE */" >$outpath/include/ntqconfig.h.new
-    cat $relpath/src/tools/$QCONFIGFILE >>$outpath/include/ntqconfig.h.new
+    QCONFIGFILE=tqconfig-$CFG_QCONFIG.h
+    echo "/* Copied from $QCONFIGFILE */" >$outpath/include/tqconfig.h.new
+    cat $relpath/src/tools/$QCONFIGFILE >>$outpath/include/tqconfig.h.new
     ;;
 esac
-cat >> $outpath/include/ntqconfig.h.new <<EOF
+cat >> $outpath/include/tqconfig.h.new <<EOF
 
 /* License information */
 #define TQT_PRODUCT_LICENSEE "$Licensee"
@@ -2999,7 +2727,7 @@ cat >> $outpath/include/ntqconfig.h.new <<EOF
 #define TQ_LITTLE_ENDIAN 1234
 EOF
 if [ "$CFG_ENDIAN" = "auto" ]; then
-cat >> $outpath/include/ntqconfig.h.new << EOF
+cat >> $outpath/include/tqconfig.h.new << EOF
 #if defined(__BIG_ENDIAN__)
 # define TQ_BYTE_ORDER TQ_BIG_ENDIAN
 #elif defined(__LITTLE_ENDIAN__)
@@ -3009,26 +2737,23 @@ cat >> $outpath/include/ntqconfig.h.new << EOF
 #endif
 EOF
 else
-echo "#define TQ_BYTE_ORDER $CFG_ENDIAN" >> $outpath/include/ntqconfig.h.new
+echo "#define TQ_BYTE_ORDER $CFG_ENDIAN" >> $outpath/include/tqconfig.h.new
 fi
 
-cat >> $outpath/include/ntqconfig.h.new << EOF
+cat >> $outpath/include/tqconfig.h.new << EOF
 /* Compile time features */
 EOF
-[ '!' -z "$LicenseKey" ] && echo "#define QT_PRODUCT_LICENSEKEY \"$LicenseKey\"" >>$outpath/include/ntqconfig.h.new
+[ '!' -z "$LicenseKey" ] && echo "#define QT_PRODUCT_LICENSEKEY \"$LicenseKey\"" >>$outpath/include/tqconfig.h.new
 
 if [ "$CFG_LARGEFILE" = "yes" ]; then
-    echo "#define QT_LARGEFILE_SUPPORT 64" >>$outpath/include/ntqconfig.h.new
-    if [ "$CFG_NEWABI" = "yes" ]; then
-	echo "#define QT_ABI_QT4 1" >>$outpath/include/ntqconfig.h.new
-    fi
+    echo "#define QT_LARGEFILE_SUPPORT 64" >>$outpath/include/tqconfig.h.new
 fi
 
 $unixtests/ptrsize.test $XQMAKESPEC $OPT_VERBOSE $relpath $outpath
-echo "#define TQT_POINTER_SIZE $?" >>$outpath/include/ntqconfig.h.new
+echo "#define TQT_POINTER_SIZE $?" >>$outpath/include/tqconfig.h.new
 
 if [ ! -z "$QT_MAC_VERSION" ]; then
-    echo "#define QT_MACOSX_VERSION  ${QT_MAC_VERSION}  /*from config.tests*/" >>$outpath/include/ntqconfig.h.new
+    echo "#define QT_MACOSX_VERSION  ${QT_MAC_VERSION}  /*from config.tests*/" >>$outpath/include/tqconfig.h.new
 fi
 
 ## find excluded styles and add this to $QCONFIG_FLAGS
@@ -3063,7 +2788,7 @@ done
 if [ -n "$QCONFIG_FLAGS" ]; then
     for cfg in $QCONFIG_FLAGS; do
 
-cat >>$outpath/include/ntqconfig.h.new << EOF
+cat >>$outpath/include/tqconfig.h.new << EOF
 #ifndef $cfg
 # define $cfg
 #endif
@@ -3072,13 +2797,13 @@ EOF
     done
 fi
 
-# avoid unecessary rebuilds by copying only if ntqconfig.h has changed
-if cmp -s $outpath/include/ntqconfig.h $outpath/include/ntqconfig.h.new; then
-    rm -f $outpath/include/ntqconfig.h.new
+# avoid unecessary rebuilds by copying only if tqconfig.h has changed
+if cmp -s $outpath/include/tqconfig.h $outpath/include/tqconfig.h.new; then
+    rm -f $outpath/include/tqconfig.h.new
 else
-    [ -f $outpath/include/ntqconfig.h ] && chmod +w $outpath/include/ntqconfig.h
-    mv $outpath/include/ntqconfig.h.new $outpath/include/ntqconfig.h
-    chmod -w $outpath/include/ntqconfig.h
+    [ -f $outpath/include/tqconfig.h ] && chmod +w $outpath/include/tqconfig.h
+    mv $outpath/include/tqconfig.h.new $outpath/include/tqconfig.h
+    chmod -w $outpath/include/tqconfig.h
 fi
 
 
@@ -3238,16 +2963,12 @@ else
     echo "Glib main loop support ......... $CFG_GLIBMAINLOOP ($CFG_LIBGLIBMAINLOOP)"
 fi
 echo "zlib support ........ $CFG_ZLIB"
-if [ "$PLATFORM_QWS" = "yes" ]; then
-    echo "Embedded support .... $CFG_EMBEDDED"
+if echo $MODULES | grep opengl >/dev/null; then
+    opengl=yes
 else
-    if echo $MODULES | grep opengl >/dev/null; then
-	opengl=yes
-    else
-	opengl=no
-    fi
-    echo "OpenGL support ...... $opengl"
+    opengl=no
 fi
+echo "OpenGL support ...... $opengl"
 if [ "$PLATFORM_X11" = "yes" ]; then
     echo "NAS sound support ... $CFG_NAS"
     echo "Session management .. $CFG_SM"

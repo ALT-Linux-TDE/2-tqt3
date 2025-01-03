@@ -34,8 +34,8 @@
 #ifndef PHRASE_H
 #define PHRASE_H
 
-#include <ntqstring.h>
-#include <ntqvaluelist.h>
+#include <tqstring.h>
+#include <tqvaluelist.h>
 
 class Phrase
 {

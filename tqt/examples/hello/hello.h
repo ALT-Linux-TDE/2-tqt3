@@ -10,7 +10,7 @@
 #ifndef HELLO_H
 #define HELLO_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 
 class Hello : public TQWidget

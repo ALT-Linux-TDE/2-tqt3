@@ -1174,15 +1174,6 @@ struct png_struct_def
 
 #endif /* PNG_PROGRESSIVE_READ_SUPPORTED */
 
-#if defined(__TURBOC__) && !defined(_Windows) && !defined(__FLAT__)
-/* for the Borland special 64K segment handler */
-   png_bytepp offset_table_ptr;
-   png_bytep offset_table;
-   png_uint_16 offset_table_number;
-   png_uint_16 offset_table_count;
-   png_uint_16 offset_table_count_free;
-#endif
-
 #if defined(PNG_READ_DITHER_SUPPORTED)
    png_bytep palette_lookup;         /* lookup table for dithering */
    png_bytep dither_index;           /* index translation for palette files */

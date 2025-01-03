@@ -1,5 +1,5 @@
 '\" t
-.TH QHttpResponseHeader 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQHttpResponseHeader 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QHttpResponseHeader \- Response header information for HTTP
+TQHttpResponseHeader \- Response header information for HTTP
 .SH SYNOPSIS
-\fC#include <ntqhttp.h>\fR
+\fC#include <tqhttp.h>\fR
 .PP
-Inherits QHttpHeader.
+Inherits TQHttpHeader.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQHttpResponseHeader\fR ()"
+.BI "\fBTQHttpResponseHeader\fR ()"
 .br
 .ti -1c
-.BI "\fBQHttpResponseHeader\fR ( const QHttpResponseHeader & header )"
+.BI "\fBTQHttpResponseHeader\fR ( const TQHttpResponseHeader & header )"
 .br
 .ti -1c
 .BI "int \fBstatusCode\fR () const"
@@ -35,41 +35,41 @@ Inherits QHttpHeader.
 .br
 .in -1c
 .SH DESCRIPTION
-The QHttpResponseHeader class contains response header information for HTTP.
+The TQHttpResponseHeader class contains response header information for HTTP.
 .PP
-This class is used by the QHttp class to report the header information that the client received from the server.
+This class is used by the TQHttp class to report the header information that the client received from the server.
 .PP
 HTTP responses have a status code that indicates the status of the response. This code is a 3-digit integer result code (for details see to RFC 1945). In addition to the status code, you can also specify a human-readable text that describes the reason for the code ("reason phrase"). This class allows you to get the status code and the reason phrase.
 .PP
-See also QHttpRequestHeader, QHttp, and Input/Output and Networking.
+See also TQHttpRequestHeader, TQHttp, and Input/Output and Networking.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QHttpResponseHeader::QHttpResponseHeader ()"
+.SH "TQHttpResponseHeader::TQHttpResponseHeader ()"
 Constructs an empty HTTP response header.
-.SH "QHttpResponseHeader::QHttpResponseHeader ( const QHttpResponseHeader & header )"
+.SH "TQHttpResponseHeader::TQHttpResponseHeader ( const TQHttpResponseHeader & header )"
 Constructs a copy of \fIheader\fR.
-.SH "int QHttpResponseHeader::majorVersion () const\fC [virtual]\fR"
+.SH "int TQHttpResponseHeader::majorVersion () const\fC [virtual]\fR"
 Returns the major protocol-version of the HTTP response header.
 .PP
 See also minorVersion(), statusCode(), and reasonPhrase().
 .PP
-Reimplemented from QHttpHeader.
-.SH "int QHttpResponseHeader::minorVersion () const\fC [virtual]\fR"
+Reimplemented from TQHttpHeader.
+.SH "int TQHttpResponseHeader::minorVersion () const\fC [virtual]\fR"
 Returns the minor protocol-version of the HTTP response header.
 .PP
 See also majorVersion(), statusCode(), and reasonPhrase().
 .PP
-Reimplemented from QHttpHeader.
-.SH "TQString QHttpResponseHeader::reasonPhrase () const"
+Reimplemented from TQHttpHeader.
+.SH "TQString TQHttpResponseHeader::reasonPhrase () const"
 Returns the reason phrase of the HTTP response header.
 .PP
 See also statusCode(), majorVersion(), and minorVersion().
-.SH "int QHttpResponseHeader::statusCode () const"
+.SH "int TQHttpResponseHeader::statusCode () const"
 Returns the status code of the HTTP response header.
 .PP
 See also reasonPhrase(), majorVersion(), and minorVersion().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qhttpresponseheader.html
+.BR http://doc.trolltech.com/tqhttpresponseheader.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

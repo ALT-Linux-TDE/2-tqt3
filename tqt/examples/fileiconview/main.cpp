@@ -8,9 +8,9 @@
 *****************************************************************************/
 
 #include "mainwindow.h"
-#include "qfileiconview.h"
+#include "tqfileiconview.h"
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 
 int main( int argc, char **argv )

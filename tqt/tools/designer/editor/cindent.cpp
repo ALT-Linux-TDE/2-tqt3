@@ -32,7 +32,7 @@
 **********************************************************************/
 
 #include "cindent.h"
-#include "ntqregexp.h"
+#include "tqregexp.h"
 
 extern int indentForBottomLine( const TQStringList& program, TQChar typedIn );
 extern void setTabSize( int s );

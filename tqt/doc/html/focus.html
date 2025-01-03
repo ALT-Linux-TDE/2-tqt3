@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/focus.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -68,11 +67,11 @@ keyboard focus to the next widget in a circular per-window list. Tab
 moves focus along the circular list in one direction, Shift+Tab in the
 other. The order in which Tab presses move from widget to widget is
 called the tab order.
-<p> In TQt, this list is kept in the <a href="ntqfocusdata.html">TQFocusData</a> class. There is one
-<a href="ntqfocusdata.html">TQFocusData</a> object per window, and widgets automatically append
-themselves to the end of it when <a href="ntqwidget.html#setFocusPolicy">TQWidget::setFocusPolicy</a>() is
-called with an appropriate <a href="ntqwidget.html#FocusPolicy-enum">TQWidget::FocusPolicy</a>. You can customize
-the tab order using <a href="ntqwidget.html#setTabOrder">TQWidget::setTabOrder</a>(). (If you don't, Tab
+<p> In TQt, this list is kept in the <a href="tqfocusdata.html">TQFocusData</a> class. There is one
+<a href="tqfocusdata.html">TQFocusData</a> object per window, and widgets automatically append
+themselves to the end of it when <a href="tqwidget.html#setFocusPolicy">TQWidget::setFocusPolicy</a>() is
+called with an appropriate <a href="tqwidget.html#FocusPolicy-enum">TQWidget::FocusPolicy</a>. You can customize
+the tab order using <a href="tqwidget.html#setTabOrder">TQWidget::setTabOrder</a>(). (If you don't, Tab
 generally moves focus in the order of widget construction.) <a href="designer-manual.html">TQt Designer</a> provides a means of visually
 changing the tab order.
 <p> Since pressing Tab is so common, most widgets that can have focus
@@ -96,8 +95,8 @@ focus to this field.
 <p> Another exception to Tab support is text-entry widgets that must
 support the insertion of tabs; almost all text editors fall into this
 class. TQt treats Control+Tab as Tab and Control+Shift+Tab as
-Shift+Tab, and such widgets can reimplement <a href="ntqwidget.html#event">TQWidget::event</a>() and
-handle Tab before calling <a href="ntqwidget.html#event">TQWidget::event</a>() to get normal processing of
+Shift+Tab, and such widgets can reimplement <a href="tqwidget.html#event">TQWidget::event</a>() and
+handle Tab before calling <a href="tqwidget.html#event">TQWidget::event</a>() to get normal processing of
 all other keys. However, since some systems use Control+Tab for other
 purposes, and many users aren't aware of Control+Tab anyway, this
 isn't a complete solution.
@@ -120,14 +119,14 @@ it move to the 'B' button?
 <p> We advise supporting click-to-focus for widgets that support text
 entry, and to avoid it for most widgets where a mouse click has a
 different effect. (For buttons, we also recommend adding a keyboard
-shortcut: <a href="ntqbutton.html">TQButton</a> and its subclasses make this very easy.)
-<p> In TQt, only the <a href="ntqwidget.html#setFocusPolicy">TQWidget::setFocusPolicy</a>() function affects
+shortcut: <a href="tqbutton.html">TQButton</a> and its subclasses make this very easy.)
+<p> In TQt, only the <a href="tqwidget.html#setFocusPolicy">TQWidget::setFocusPolicy</a>() function affects
 click-to-focus.
 <p> <h3> The user presses a keyboard shortcut.
 </h3>
 <a name="1-3"></a><p> It's not unusual for keyboard shortcuts to move the focus. This can
 happen implicitly by opening modal dialogs, but also explicitly using
-focus accelerators such as those provided by <a href="ntqlabel.html#setBuddy">TQLabel::setBuddy</a>(), <a href="ntqgroupbox.html">TQGroupBox</a> and <a href="ntqtabbar.html">TQTabBar</a>.
+focus accelerators such as those provided by <a href="tqlabel.html#setBuddy">TQLabel::setBuddy</a>(), <a href="tqgroupbox.html">TQGroupBox</a> and <a href="tqtabbar.html">TQTabBar</a>.
 <p> We advise supporting shortcut focus for all widgets that the user may
 want to jump to. For example, a tab dialog can have keyboard shortcuts
 for each of its pages, so the user can press e.g. Alt+P to step to the
@@ -153,8 +152,8 @@ the window should receive the focus.
 the last widget to have focus should regain it. TQt does this
 automatically.
 <p> If focus has never been in this window before and you know where focus
-should start out, call <a href="ntqwidget.html#setFocus">TQWidget::setFocus</a>() on the widget which
-should receive focus before you <a href="ntqwidget.html#show">TQWidget::show</a>() it. If you don't,
+should start out, call <a href="tqwidget.html#setFocus">TQWidget::setFocus</a>() on the widget which
+should receive focus before you <a href="tqwidget.html#show">TQWidget::show</a>() it. If you don't,
 TQt will pick a suitable widget.
 <p> 
 <!-- eof -->

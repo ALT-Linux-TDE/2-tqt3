@@ -8,11 +8,11 @@
 *****************************************************************************/
 
 #include "nntp.h"
-#include <ntqurlinfo.h>
+#include <tqurlinfo.h>
 #include <stdlib.h>
-#include <ntqurloperator.h>
-#include <ntqstringlist.h>
-#include <ntqregexp.h>
+#include <tqurloperator.h>
+#include <tqstringlist.h>
+#include <tqregexp.h>
 
 Nntp::Nntp()
     : TQNetworkProtocol(), connectionReady( FALSE ),

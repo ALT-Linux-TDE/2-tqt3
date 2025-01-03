@@ -7,12 +7,12 @@
 **
 *****************************************************************************/
 
-#include <ntqlayout.h>
-#include <ntqframe.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
-#include <ntqapplication.h>
-#include <ntqmessagebox.h>
+#include <tqlayout.h>
+#include <tqframe.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
+#include <tqapplication.h>
+#include <tqmessagebox.h>
 #include "globjwin.h"
 #include "glteapots.h"
 

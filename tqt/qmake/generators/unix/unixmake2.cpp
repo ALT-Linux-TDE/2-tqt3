@@ -39,9 +39,9 @@
 #include "unixmake.h"
 #include "option.h"
 #include "meta.h"
-#include <ntqregexp.h>
-#include <ntqfile.h>
-#include <ntqdir.h>
+#include <tqregexp.h>
+#include <tqfile.h>
+#include <tqdir.h>
 #include <time.h>
 
 TQString mkdir_p_asstring(const TQString &dir);
@@ -182,7 +182,7 @@ UnixMakefileGenerator::writeMakeParts(TQTextStream &t)
     t << "AR       = " << var("QMAKE_AR") << endl;
     t << "RANLIB   = " << var("QMAKE_RANLIB") << endl;
     t << "MOC      = " << var("QMAKE_MOC") << endl;
-    t << "UIC      = "	<< var("QMAKE_UIC") << endl;
+    t << "TQUIC      = "	<< var("QMAKE_UIC") << endl;
     t << "QMAKE    = "	<< (project->isEmpty("QMAKE_QMAKE") ? TQString("tqmake") : var("QMAKE_QMAKE")) << endl;
     t << "TAR      = "	<< var("QMAKE_TAR") << endl;
     t << "GZIP     = " << var("QMAKE_GZIP") << endl;
@@ -687,7 +687,7 @@ UnixMakefileGenerator::writeMakeParts(TQTextStream &t)
 	//moc itself shouldn't have this dependency - this is a little kludgy but it is
 	//better than the alternative for now.
 	TQString moc = project->first("QMAKE_MOC"), target = project->first("TARGET"),
-	    moc_dir = "$(TQTDIR)/src/moc";
+	    moc_dir = "$(TQTDIR)/src/tqmoc";
 	if(!project->isEmpty("QMAKE_MOC_SRC"))
 	    moc_dir = project->first("QMAKE_MOC_SRC");
 	fixEnvVariables(target);
@@ -777,7 +777,7 @@ UnixMakefileGenerator::writeMakeParts(TQTextStream &t)
 
     TQString clean_targets;
     t << "mocclean:" << "\n";
-    if(mocAware()) {
+    if(tqmocAware()) {
 	if(!objMoc.isEmpty() || !srcMoc.isEmpty() || moc_incremental) {
 	    if(!objMoc.isEmpty())
 		t << "\t-$(DEL_FILE) $(OBJMOC)" << '\n';
@@ -1607,18 +1607,18 @@ UnixMakefileGenerator::writePkgConfigFile()     // ### does make sense only for 
 	libs << "QMAKE_LIBS"; //obvious one
     if(project->isActiveConfig("thread"))
 	libs << "QMAKE_LFLAGS_THREAD"; //not sure about this one, but what about things like -pthread?
-    t << "Libs: -L${libdir} -l" << lname.left(lname.length()-Option::libtool_ext.length()) << " ";
-    for(TQStringList::ConstIterator it = libs.begin(); it != libs.end(); ++it)
-	t << project->variables()[(*it)].join(" ") << " ";
+    t << "Libs: -L${libdir} -l" << lname.left(lname.length()-Option::libtool_ext.length());
+    // for(TQStringList::ConstIterator it = libs.begin(); it != libs.end(); ++it)
+	// t << project->variables()[(*it)].join(" ") << " ";
     t << endl;
 
     // flags
     // ### too many
     t << "Cflags: "
-	// << var("QMAKE_CXXFLAGS") << " "
-      << varGlue("PRL_EXPORT_DEFINES","-D"," -D"," ")
-      << project->variables()["PRL_EXPORT_CXXFLAGS"].join(" ")
-	//      << varGlue("DEFINES","-D"," -D"," ")
-      << " -I${includedir}";
+    //  << var("QMAKE_CXXFLAGS") << " "
+    //  << varGlue("PRL_EXPORT_DEFINES","-D"," -D"," ")
+    //  << project->variables()["PRL_EXPORT_CXXFLAGS"].join(" ")
+    //  << varGlue("DEFINES","-D"," -D"," ")
+      << "-DTQT_NO_ASCII_CAST -DTQT_NO_STL -DTQT_NO_COMPAT -DTQT_NO_TRANSLATION -DTQT_THREAD_SUPPORT -D_REENTRANT -I${includedir}";
     t << endl;
 }

@@ -8,7 +8,7 @@
 *****************************************************************************/
 
 #include "dclock.h"
-#include <ntqdatetime.h>
+#include <tqdatetime.h>
 
 
 //

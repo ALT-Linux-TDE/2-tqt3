@@ -39,13 +39,13 @@
 #include "mainwindow.h"
 #include "project.h"
 
-#include <ntqmultilineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqcombobox.h>
-#include <ntqradiobutton.h>
-#include <ntqlineedit.h>
-#include <ntqspinbox.h>
-#include <ntqcheckbox.h>
+#include <tqmultilineedit.h>
+#include <tqpushbutton.h>
+#include <tqcombobox.h>
+#include <tqradiobutton.h>
+#include <tqlineedit.h>
+#include <tqspinbox.h>
+#include <tqcheckbox.h>
 
 FormSettings::FormSettings( TQWidget *parent, FormWindow *fw )
     : FormSettingsBase( parent, 0, TRUE ), formwindow( fw )

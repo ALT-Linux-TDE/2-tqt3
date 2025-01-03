@@ -32,11 +32,11 @@
 **********************************************************************/
 
 #include "arghintwidget.h"
-#include <ntqbutton.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
+#include <tqbutton.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
 
 static const char * left_xpm[] = {
 "16 16 3 1",

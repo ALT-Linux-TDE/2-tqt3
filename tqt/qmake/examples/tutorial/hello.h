@@ -1,4 +1,4 @@
-#include <ntqpushbutton.h>
+#include <tqpushbutton.h>
 
 class MyPushButton : public TQPushButton
 {

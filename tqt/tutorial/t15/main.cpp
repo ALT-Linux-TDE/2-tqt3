@@ -12,8 +12,8 @@
 
 #include <unistd.h>
 
-#include <ntqtimer.h>
-#include <ntqeventloop.h>
+#include <tqtimer.h>
+#include <tqeventloop.h>
 
 void WorkerObject::run()
 {

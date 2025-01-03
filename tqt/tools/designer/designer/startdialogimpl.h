@@ -34,12 +34,12 @@
 #ifndef STARTDIALOGIMPL_H
 #define STARTDIALOGIMPL_H
 
-#include <ntqiconview.h>
-#include <ntqlistview.h>
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqfiledialog.h>
-#include <ntqmap.h>
+#include <tqiconview.h>
+#include <tqlistview.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqfiledialog.h>
+#include <tqmap.h>
 
 #include "newformimpl.h"
 #include "startdialog.h"

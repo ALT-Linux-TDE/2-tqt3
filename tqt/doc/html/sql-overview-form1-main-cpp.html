@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/sql.doc:55 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -42,17 +41,17 @@ body { background: #ffffff; color: black; }
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qdialog-h.html">ntqdialog.h</a>&gt;
-#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
-#include &lt;<a href="qlayout-h.html">ntqlayout.h</a>&gt;
-#include &lt;<a href="qlineedit-h.html">ntqlineedit.h</a>&gt;
-#include &lt;<a href="qsqldatabase-h.html">ntqsqldatabase.h</a>&gt;
-#include &lt;<a href="qsqlcursor-h.html">ntqsqlcursor.h</a>&gt;
-#include &lt;<a href="qsqlform-h.html">ntqsqlform.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqdialog-h.html">tqdialog.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
+#include &lt;<a href="tqlayout-h.html">tqlayout.h</a>&gt;
+#include &lt;<a href="tqlineedit-h.html">tqlineedit.h</a>&gt;
+#include &lt;<a href="tqsqldatabase-h.html">tqsqldatabase.h</a>&gt;
+#include &lt;<a href="tqsqlcursor-h.html">tqsqlcursor.h</a>&gt;
+#include &lt;<a href="tqsqlform-h.html">tqsqlform.h</a>&gt;
 #include "../connection.h"
 
-class FormDialog : public <a href="ntqdialog.html">TQDialog</a>
+class FormDialog : public <a href="tqdialog.html">TQDialog</a>
 {
     public:
         FormDialog();
@@ -61,46 +60,46 @@ class FormDialog : public <a href="ntqdialog.html">TQDialog</a>
 
 <a name="f15"></a>FormDialog::FormDialog()
 {
-    <a href="ntqlabel.html">TQLabel</a> *forenameLabel   = new <a href="ntqlabel.html">TQLabel</a>( "Forename:", this );
-    <a href="ntqlabel.html">TQLabel</a> *forenameDisplay = new <a href="ntqlabel.html">TQLabel</a>( this );
-    <a href="ntqlabel.html">TQLabel</a> *surnameLabel    = new <a href="ntqlabel.html">TQLabel</a>( "Surname:", this );
-    <a href="ntqlabel.html">TQLabel</a> *surnameDisplay  = new <a href="ntqlabel.html">TQLabel</a>( this );
-    <a href="ntqlabel.html">TQLabel</a> *salaryLabel     = new <a href="ntqlabel.html">TQLabel</a>( "Salary:", this );
-    <a href="ntqlineedit.html">TQLineEdit</a> *salaryEdit   = new <a href="ntqlineedit.html">TQLineEdit</a>( this );
+    <a href="tqlabel.html">TQLabel</a> *forenameLabel   = new <a href="tqlabel.html">TQLabel</a>( "Forename:", this );
+    <a href="tqlabel.html">TQLabel</a> *forenameDisplay = new <a href="tqlabel.html">TQLabel</a>( this );
+    <a href="tqlabel.html">TQLabel</a> *surnameLabel    = new <a href="tqlabel.html">TQLabel</a>( "Surname:", this );
+    <a href="tqlabel.html">TQLabel</a> *surnameDisplay  = new <a href="tqlabel.html">TQLabel</a>( this );
+    <a href="tqlabel.html">TQLabel</a> *salaryLabel     = new <a href="tqlabel.html">TQLabel</a>( "Salary:", this );
+    <a href="tqlineedit.html">TQLineEdit</a> *salaryEdit   = new <a href="tqlineedit.html">TQLineEdit</a>( this );
 
-    <a href="qgridlayout.html">TQGridLayout</a> *grid = new <a href="qgridlayout.html">TQGridLayout</a>( this );
-    grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( forenameLabel,     0, 0 );
-    grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( forenameDisplay,   0, 1 );
-    grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( surnameLabel,      1, 0 );
-    grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( surnameDisplay,    1, 1 );
-    grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( salaryLabel,       2, 0 );
-    grid-&gt;<a href="qgridlayout.html#addWidget">addWidget</a>( salaryEdit,        2, 1 );
-    grid-&gt;<a href="ntqlayout.html#activate">activate</a>();
+    <a href="tqgridlayout.html">TQGridLayout</a> *grid = new <a href="tqgridlayout.html">TQGridLayout</a>( this );
+    grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( forenameLabel,     0, 0 );
+    grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( forenameDisplay,   0, 1 );
+    grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( surnameLabel,      1, 0 );
+    grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( surnameDisplay,    1, 1 );
+    grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( salaryLabel,       2, 0 );
+    grid-&gt;<a href="tqgridlayout.html#addWidget">addWidget</a>( salaryEdit,        2, 1 );
+    grid-&gt;<a href="tqlayout.html#activate">activate</a>();
 
-    <a href="ntqsqlcursor.html">TQSqlCursor</a> staffCursor( "staff" );
-    staffCursor.<a href="ntqsqlcursor.html#select">select</a>();
-    staffCursor.<a href="ntqsqlquery.html#next">next</a>();
+    <a href="tqsqlcursor.html">TQSqlCursor</a> staffCursor( "staff" );
+    staffCursor.<a href="tqsqlcursor.html#select">select</a>();
+    staffCursor.<a href="tqsqlquery.html#next">next</a>();
 
-    <a href="ntqsqlform.html">TQSqlForm</a> sqlForm( this );
-    sqlForm.<a href="ntqsqlform.html#setRecord">setRecord</a>( staffCursor.<a href="ntqsqlcursor.html#primeUpdate">primeUpdate</a>() );
-    sqlForm.<a href="ntqsqlform.html#insert">insert</a>( forenameDisplay, "forename" );
-    sqlForm.<a href="ntqsqlform.html#insert">insert</a>( surnameDisplay, "surname" );
-    sqlForm.<a href="ntqsqlform.html#insert">insert</a>( salaryEdit, "salary" );
-    sqlForm.<a href="ntqsqlform.html#readFields">readFields</a>();
+    <a href="tqsqlform.html">TQSqlForm</a> sqlForm( this );
+    sqlForm.<a href="tqsqlform.html#setRecord">setRecord</a>( staffCursor.<a href="tqsqlcursor.html#primeUpdate">primeUpdate</a>() );
+    sqlForm.<a href="tqsqlform.html#insert">insert</a>( forenameDisplay, "forename" );
+    sqlForm.<a href="tqsqlform.html#insert">insert</a>( surnameDisplay, "surname" );
+    sqlForm.<a href="tqsqlform.html#insert">insert</a>( salaryEdit, "salary" );
+    sqlForm.<a href="tqsqlform.html#readFields">readFields</a>();
 }
 
 
 int main( int argc, char *argv[] )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv );
 
     if ( ! createConnections() ) return 1;
 
     FormDialog *formDialog = new FormDialog();
-    formDialog-&gt;<a href="ntqdialog.html#show">show</a>();
-    app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( formDialog );
+    formDialog-&gt;<a href="tqdialog.html#show">show</a>();
+    app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( formDialog );
 
-    return app.<a href="ntqapplication.html#exec">exec</a>();
+    return app.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre><!-- eof -->
 <p><address><hr><div align=center>

@@ -1,5 +1,5 @@
 '\" t
-.TH QXmlEntityResolver 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQXmlEntityResolver 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,35 +7,35 @@
 .ad l
 .nh
 .SH NAME
-QXmlEntityResolver \- Interface to resolve external entities contained in XML data
+TQXmlEntityResolver \- Interface to resolve external entities contained in XML data
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqxml.h>\fR
+\fC#include <tqxml.h>\fR
 .PP
-Inherited by QXmlDefaultHandler.
+Inherited by TQXmlDefaultHandler.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "virtual bool \fBresolveEntity\fR ( const TQString & publicId, const TQString & systemId, QXmlInputSource *& ret ) = 0"
+.BI "virtual bool \fBresolveEntity\fR ( const TQString & publicId, const TQString & systemId, TQXmlInputSource *& ret ) = 0"
 .br
 .ti -1c
 .BI "virtual TQString \fBerrorString\fR () = 0"
 .br
 .in -1c
 .SH DESCRIPTION
-The QXmlEntityResolver class provides an interface to resolve external entities contained in XML data.
+The TQXmlEntityResolver class provides an interface to resolve external entities contained in XML data.
 .PP
-If an application needs to implement customized handling for external entities, it must implement this interface, i.e. resolveEntity(), and register it with QXmlReader::setEntityResolver().
+If an application needs to implement customized handling for external entities, it must implement this interface, i.e. resolveEntity(), and register it with TQXmlReader::setEntityResolver().
 .PP
 See also the Introduction to SAX2.
 .PP
-See also QXmlDTDHandler, QXmlDeclHandler, QXmlContentHandler, QXmlErrorHandler, QXmlLexicalHandler, and XML.
+See also TQXmlDTDHandler, TQXmlDeclHandler, TQXmlContentHandler, TQXmlErrorHandler, TQXmlLexicalHandler, and XML.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "TQString QXmlEntityResolver::errorString ()\fC [pure virtual]\fR"
+.SH "TQString TQXmlEntityResolver::errorString ()\fC [pure virtual]\fR"
 The reader calls this function to get an error string if any of the handler functions returns FALSE.
-.SH "bool QXmlEntityResolver::resolveEntity ( const TQString & publicId, const TQString & systemId, QXmlInputSource *& ret )\fC [pure virtual]\fR"
+.SH "bool TQXmlEntityResolver::resolveEntity ( const TQString & publicId, const TQString & systemId, TQXmlInputSource *& ret )\fC [pure virtual]\fR"
 The reader calls this function before it opens any external entity, except the top-level document entity. The application may request the reader to resolve the entity itself (\fIret\fR is 0) or to use an entirely different input source (\fIret\fR points to the input source).
 .PP
 The reader deletes the input source \fIret\fR when it no longer needs it, so you should allocate it on the heap with \fCnew\fR.
@@ -47,7 +47,7 @@ reports an error. The reader uses the function errorString() to
 get the error message.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qxmlentityresolver.html
+.BR http://doc.trolltech.com/tqxmlentityresolver.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

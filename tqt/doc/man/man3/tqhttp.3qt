@@ -1,5 +1,5 @@
 '\" t
-.TH QHttp 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQHttp 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QHttp \- Implementation of the HTTP protocol
+TQHttp \- Implementation of the HTTP protocol
 .SH SYNOPSIS
-\fC#include <ntqhttp.h>\fR
+\fC#include <tqhttp.h>\fR
 .PP
-Inherits QNetworkProtocol.
+Inherits TQNetworkProtocol.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQHttp\fR ()"
+.BI "\fBTQHttp\fR ()"
 .br
 .ti -1c
-.BI "\fBQHttp\fR ( TQObject * parent, const char * name = 0 )"
+.BI "\fBTQHttp\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQHttp\fR ( const TQString & hostname, TQ_UINT16 port = 80, TQObject * parent = 0, const char * name = 0 )"
+.BI "\fBTQHttp\fR ( const TQString & hostname, TQ_UINT16 port = 80, TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "virtual \fB~QHttp\fR ()"
+.BI "virtual \fB~TQHttp\fR ()"
 .br
 .ti -1c
 .BI "enum \fBState\fR { Unconnected, HostLookup, Connecting, Sending, Reading, Connected, Closing }"
@@ -43,16 +43,16 @@ Inherits QNetworkProtocol.
 .BI "int \fBpost\fR ( const TQString & path, TQIODevice * data, TQIODevice * to = 0 )"
 .br
 .ti -1c
-.BI "int \fBpost\fR ( const TQString & path, const QByteArray & data, TQIODevice * to = 0 )"
+.BI "int \fBpost\fR ( const TQString & path, const TQByteArray & data, TQIODevice * to = 0 )"
 .br
 .ti -1c
 .BI "int \fBhead\fR ( const TQString & path )"
 .br
 .ti -1c
-.BI "int \fBrequest\fR ( const QHttpRequestHeader & header, TQIODevice * data = 0, TQIODevice * to = 0 )"
+.BI "int \fBrequest\fR ( const TQHttpRequestHeader & header, TQIODevice * data = 0, TQIODevice * to = 0 )"
 .br
 .ti -1c
-.BI "int \fBrequest\fR ( const QHttpRequestHeader & header, const QByteArray & data, TQIODevice * to = 0 )"
+.BI "int \fBrequest\fR ( const TQHttpRequestHeader & header, const TQByteArray & data, TQIODevice * to = 0 )"
 .br
 .ti -1c
 .BI "int \fBcloseConnection\fR ()"
@@ -64,7 +64,7 @@ Inherits QNetworkProtocol.
 .BI "TQ_LONG \fBreadBlock\fR ( char * data, TQ_ULONG maxlen )"
 .br
 .ti -1c
-.BI "QByteArray \fBreadAll\fR ()"
+.BI "TQByteArray \fBreadAll\fR ()"
 .br
 .ti -1c
 .BI "int \fBcurrentId\fR () const"
@@ -76,7 +76,7 @@ Inherits QNetworkProtocol.
 .BI "TQIODevice * \fBcurrentDestinationDevice\fR () const"
 .br
 .ti -1c
-.BI "QHttpRequestHeader \fBcurrentRequest\fR () const"
+.BI "TQHttpRequestHeader \fBcurrentRequest\fR () const"
 .br
 .ti -1c
 .BI "bool \fBhasPendingRequests\fR () const"
@@ -106,10 +106,10 @@ Inherits QNetworkProtocol.
 .BI "void \fBstateChanged\fR ( int state )"
 .br
 .ti -1c
-.BI "void \fBresponseHeaderReceived\fR ( const QHttpResponseHeader & resp )"
+.BI "void \fBresponseHeaderReceived\fR ( const TQHttpResponseHeader & resp )"
 .br
 .ti -1c
-.BI "void \fBreadyRead\fR ( const QHttpResponseHeader & resp )"
+.BI "void \fBreadyRead\fR ( const TQHttpResponseHeader & resp )"
 .br
 .ti -1c
 .BI "void \fBdataSendProgress\fR ( int done, int total )"
@@ -128,25 +128,25 @@ Inherits QNetworkProtocol.
 .br
 .in -1c
 .SH DESCRIPTION
-The QHttp class provides an implementation of the HTTP protocol.
+The TQHttp class provides an implementation of the HTTP protocol.
 .PP
-This class provides two different interfaces: one is the QNetworkProtocol interface that allows you to use HTTP through the QUrlOperator abstraction. The other is a direct interface to HTTP that allows you to have more control over the requests and that allows you to access the response header fields.
+This class provides two different interfaces: one is the TQNetworkProtocol interface that allows you to use HTTP through the TQUrlOperator abstraction. The other is a direct interface to HTTP that allows you to have more control over the requests and that allows you to access the response header fields.
 .PP
 Don't mix the two interfaces, since the behavior is not well-defined.
 .PP
-If you want to use QHttp with the QNetworkProtocol interface, you do not use it directly, but rather through a QUrlOperator, for example:
+If you want to use TQHttp with the TQNetworkProtocol interface, you do not use it directly, but rather through a TQUrlOperator, for example:
 .PP
 .nf
 .br
-    QUrlOperator op( "http://www.trolltech.com" );
+    TQUrlOperator op( "http://www.trolltech.com" );
 .br
     op.get( "index.html" );
 .br
 .fi
 .PP
-This code will only work if the QHttp class is registered; to register the class, you must call tqInitNetworkProtocols() before using a QUrlOperator with HTTP.
+This code will only work if the TQHttp class is registered; to register the class, you must call tqInitNetworkProtocols() before using a TQUrlOperator with HTTP.
 .PP
-The QNetworkProtocol interface for HTTP only supports the operations operationGet() and operationPut(), i.e. QUrlOperator::get() and QUrlOperator::put(), if you use it with a QUrlOperator.
+The TQNetworkProtocol interface for HTTP only supports the operations operationGet() and operationPut(), i.e. TQUrlOperator::get() and TQUrlOperator::put(), if you use it with a TQUrlOperator.
 .PP
 The rest of this descrption describes the direct interface to HTTP.
 .PP
@@ -160,7 +160,7 @@ To make an HTTP request you must set up suitable HTTP headers. The following exa
 .PP
 .nf
 .br
-    QHttpRequestHeader header( "GET", "/index.html" );
+    TQHttpRequestHeader header( "GET", "/index.html" );
 .br
     header.setValue( "Host", "www.trolltech.com" );
 .br
@@ -170,7 +170,7 @@ To make an HTTP request you must set up suitable HTTP headers. The following exa
 .br
 .fi
 .PP
-For the common HTTP requests \fCGET\fR, \fCPOST\fR and \fCHEAD\fR, QHttp provides the convenience functions get(), post() and head(). They already use a reasonable header and if you don't have to set special header fields, they are easier to use. The above example can also be written as:
+For the common HTTP requests \fCGET\fR, \fCPOST\fR and \fCHEAD\fR, TQHttp provides the convenience functions get(), post() and head(). They already use a reasonable header and if you don't have to set special header fields, they are easier to use. The above example can also be written as:
 .PP
 .nf
 .br
@@ -223,7 +223,7 @@ For this example the following sequence of signals is emitted (with small variat
 .br
 .fi
 .PP
-The dataSendProgress() and dataReadProgress() signals in the above example are useful if you want to show a progressbar to inform the user about the progress of the download. The second argument is the total size of data. In certain cases it is not possible to know the total amount in advance, in which case the second argument is 0. (If you connect to a QProgressBar a total of 0 results in a busy indicator.)
+The dataSendProgress() and dataReadProgress() signals in the above example are useful if you want to show a progressbar to inform the user about the progress of the download. The second argument is the total size of data. In certain cases it is not possible to know the total amount in advance, in which case the second argument is 0. (If you connect to a TQProgressBar a total of 0 results in a busy indicator.)
 .PP
 When the response header is read, it is reported with the responseHeaderReceived() signal.
 .PP
@@ -272,58 +272,58 @@ The functions currentId() and currentRequest() provide more information about th
 .PP
 The functions hasPendingRequests() and clearPendingRequests() allow you to query and clear the list of pending requests.
 .PP
-See also TQt Network Documentation, QNetworkProtocol, QUrlOperator, QFtp, and Input/Output and Networking.
+See also TQt Network Documentation, TQNetworkProtocol, TQUrlOperator, TQFtp, and Input/Output and Networking.
 .SS "Member Type Documentation"
-.SH "QHttp::Error"
+.SH "TQHttp::Error"
 This enum identifies the error that occurred.
 .TP
-\fCQHttp::NoError\fR - No error occurred.
+\fCTQHttp::NoError\fR - No error occurred.
 .TP
-\fCQHttp::HostNotFound\fR - The host name lookup failed.
+\fCTQHttp::HostNotFound\fR - The host name lookup failed.
 .TP
-\fCQHttp::ConnectionRefused\fR - The server refused the connection.
+\fCTQHttp::ConnectionRefused\fR - The server refused the connection.
 .TP
-\fCQHttp::UnexpectedClose\fR - The server closed the connection unexpectedly.
+\fCTQHttp::UnexpectedClose\fR - The server closed the connection unexpectedly.
 .TP
-\fCQHttp::InvalidResponseHeader\fR - The server sent an invalid response header.
+\fCTQHttp::InvalidResponseHeader\fR - The server sent an invalid response header.
 .TP
-\fCQHttp::WrongContentLength\fR - The client could not read the content correctly because an error with respect to the content length occurred.
+\fCTQHttp::WrongContentLength\fR - The client could not read the content correctly because an error with respect to the content length occurred.
 .TP
-\fCQHttp::Aborted\fR - The request was aborted with abort().
+\fCTQHttp::Aborted\fR - The request was aborted with abort().
 .TP
-\fCQHttp::UnknownError\fR - An error other than those specified above occurred.
+\fCTQHttp::UnknownError\fR - An error other than those specified above occurred.
 .PP
 See also error().
-.SH "QHttp::State"
+.SH "TQHttp::State"
 This enum is used to specify the state the client is in:
 .TP
-\fCQHttp::Unconnected\fR - There is no connection to the host.
+\fCTQHttp::Unconnected\fR - There is no connection to the host.
 .TP
-\fCQHttp::HostLookup\fR - A host name lookup is in progress.
+\fCTQHttp::HostLookup\fR - A host name lookup is in progress.
 .TP
-\fCQHttp::Connecting\fR - An attempt to connect to the host is in progress.
+\fCTQHttp::Connecting\fR - An attempt to connect to the host is in progress.
 .TP
-\fCQHttp::Sending\fR - The client is sending its request to the server.
+\fCTQHttp::Sending\fR - The client is sending its request to the server.
 .TP
-\fCQHttp::Reading\fR - The client's request has been sent and the client is reading the server's response.
+\fCTQHttp::Reading\fR - The client's request has been sent and the client is reading the server's response.
 .TP
-\fCQHttp::Connected\fR - The connection to the host is open, but the client is neither sending a request, nor waiting for a response.
+\fCTQHttp::Connected\fR - The connection to the host is open, but the client is neither sending a request, nor waiting for a response.
 .TP
-\fCQHttp::Closing\fR - The connection is closing down, but is not yet closed. (The state will be Unconnected when the connection is closed.)
+\fCTQHttp::Closing\fR - The connection is closing down, but is not yet closed. (The state will be Unconnected when the connection is closed.)
 .PP
 See also stateChanged() and state().
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QHttp::QHttp ()"
-Constructs a QHttp object.
-.SH "QHttp::QHttp ( TQObject * parent, const char * name = 0 )"
-Constructs a QHttp object. The parameters \fIparent\fR and \fIname\fR are passed on to the TQObject constructor.
-.SH "QHttp::QHttp ( const TQString & hostname, TQ_UINT16 port = 80, TQObject * parent = 0, const char * name = 0 )"
-Constructs a QHttp object. Subsequent requests are done by connecting to the server \fIhostname\fR on port \fIport\fR. The parameters \fIparent\fR and \fIname\fR are passed on to the TQObject constructor.
+.SH "TQHttp::TQHttp ()"
+Constructs a TQHttp object.
+.SH "TQHttp::TQHttp ( TQObject * parent, const char * name = 0 )"
+Constructs a TQHttp object. The parameters \fIparent\fR and \fIname\fR are passed on to the TQObject constructor.
+.SH "TQHttp::TQHttp ( const TQString & hostname, TQ_UINT16 port = 80, TQObject * parent = 0, const char * name = 0 )"
+Constructs a TQHttp object. Subsequent requests are done by connecting to the server \fIhostname\fR on port \fIport\fR. The parameters \fIparent\fR and \fIname\fR are passed on to the TQObject constructor.
 .PP
 See also setHost().
-.SH "QHttp::~QHttp ()\fC [virtual]\fR"
-Destroys the QHttp object. If there is an open connection, it is closed.
-.SH "void QHttp::abort ()\fC [slot]\fR"
+.SH "TQHttp::~TQHttp ()\fC [virtual]\fR"
+Destroys the TQHttp object. If there is an open connection, it is closed.
+.SH "void TQHttp::abort ()\fC [slot]\fR"
 Aborts the current request and deletes all scheduled requests.
 .PP
 For the current request, the requestFinished() signal with the \fCerror\fR argument \fCTRUE\fR is emitted. For all other requests that are affected by the abort(), no signals are emitted.
@@ -331,18 +331,18 @@ For the current request, the requestFinished() signal with the \fCerror\fR argum
 Since this slot also deletes the scheduled requests, there are no requests left and the done() signal is emitted (with the \fCerror\fR argument \fCTRUE\fR).
 .PP
 See also clearPendingRequests().
-.SH "TQ_ULONG QHttp::bytesAvailable () const"
+.SH "TQ_ULONG TQHttp::bytesAvailable () const"
 Returns the number of bytes that can be read from the response content at the moment.
 .PP
 See also get(), post(), request(), readyRead(), readBlock(), and readAll().
-.SH "void QHttp::clearPendingRequests ()"
+.SH "void TQHttp::clearPendingRequests ()"
 Deletes all pending requests from the list of scheduled requests. This does not affect the request that is being executed. If you want to stop this this as well, use abort().
 .PP
 See also hasPendingRequests() and abort().
-.SH "int QHttp::closeConnection ()"
+.SH "int TQHttp::closeConnection ()"
 Closes the connection; this is useful if you have a keep-alive connection and want to close it.
 .PP
-For the requests issued with get(), post() and head(), QHttp sets the connection to be keep-alive. You can also do this using the header you pass to the request() function. QHttp only closes the connection to the HTTP server if the response header requires it to do so.
+For the requests issued with get(), post() and head(), TQHttp sets the connection to be keep-alive. You can also do this using the header you pass to the request() function. TQHttp only closes the connection to the HTTP server if the response header requires it to do so.
 .PP
 The function does not block and returns immediately. The request is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by requestStarted() and requestFinished().
 .PP
@@ -351,53 +351,53 @@ When the request is started the requestStarted() signal is emitted. When it is f
 If you want to close the connection immediately, you have to use abort() instead.
 .PP
 See also stateChanged(), abort(), requestStarted(), requestFinished(), and done().
-.SH "TQIODevice * QHttp::currentDestinationDevice () const"
+.SH "TQIODevice * TQHttp::currentDestinationDevice () const"
 Returns the TQIODevice pointer that is used as to store the data of the HTTP request being executed. If there is no current request or if the request does not store the data to an IO device, this function returns 0.
 .PP
 This function can be used to delete the TQIODevice in the slot connected to the requestFinished() signal.
 .PP
 See also get(), post(), and request().
-.SH "int QHttp::currentId () const"
+.SH "int TQHttp::currentId () const"
 Returns the identifier of the HTTP request being executed or 0 if there is no request being executed (i.e. they've all finished).
 .PP
 See also currentRequest().
-.SH "QHttpRequestHeader QHttp::currentRequest () const"
-Returns the request header of the HTTP request being executed. If the request is one issued by setHost() or closeConnection(), it returns an invalid request header, i.e. QHttpRequestHeader::isValid() returns FALSE.
+.SH "TQHttpRequestHeader TQHttp::currentRequest () const"
+Returns the request header of the HTTP request being executed. If the request is one issued by setHost() or closeConnection(), it returns an invalid request header, i.e. TQHttpRequestHeader::isValid() returns FALSE.
 .PP
 See also currentId().
-.SH "TQIODevice * QHttp::currentSourceDevice () const"
+.SH "TQIODevice * TQHttp::currentSourceDevice () const"
 Returns the TQIODevice pointer that is used as the data source of the HTTP request being executed. If there is no current request or if the request does not use an IO device as the data source, this function returns 0.
 .PP
 This function can be used to delete the TQIODevice in the slot connected to the requestFinished() signal.
 .PP
 See also currentDestinationDevice(), post(), and request().
-.SH "void QHttp::dataReadProgress ( int done, int total )\fC [signal]\fR"
+.SH "void TQHttp::dataReadProgress ( int done, int total )\fC [signal]\fR"
 This signal is emitted when this object reads data from a HTTP server to indicate the current progress of the download.
 .PP
-\fIdone\fR is the amount of data that has already arrived and \fItotal\fR is the total amount of data. It is possible that the total amount of data that should be transferred cannot be determined, in which case \fItotal\fR is 0.(If you connect to a QProgressBar, the progress bar shows a busy indicator if the total is 0).
+\fIdone\fR is the amount of data that has already arrived and \fItotal\fR is the total amount of data. It is possible that the total amount of data that should be transferred cannot be determined, in which case \fItotal\fR is 0.(If you connect to a TQProgressBar, the progress bar shows a busy indicator if the total is 0).
 .PP
 \fBWarning:\fR \fIdone\fR and \fItotal\fR are not necessarily the size in bytes, since for large files these values might need to be" scaled" to avoid overflow.
 .PP
-See also dataSendProgress(), get(), post(), request(), and QProgressBar::progress.
-.SH "void QHttp::dataSendProgress ( int done, int total )\fC [signal]\fR"
+See also dataSendProgress(), get(), post(), request(), and TQProgressBar::progress.
+.SH "void TQHttp::dataSendProgress ( int done, int total )\fC [signal]\fR"
 This signal is emitted when this object sends data to a HTTP server to inform it about the progress of the upload.
 .PP
-\fIdone\fR is the amount of data that has already arrived and \fItotal\fR is the total amount of data. It is possible that the total amount of data that should be transferred cannot be determined, in which case \fItotal\fR is 0.(If you connect to a QProgressBar, the progress bar shows a busy indicator if the total is 0).
+\fIdone\fR is the amount of data that has already arrived and \fItotal\fR is the total amount of data. It is possible that the total amount of data that should be transferred cannot be determined, in which case \fItotal\fR is 0.(If you connect to a TQProgressBar, the progress bar shows a busy indicator if the total is 0).
 .PP
 \fBWarning:\fR \fIdone\fR and \fItotal\fR are not necessarily the size in bytes, since for large files these values might need to be" scaled" to avoid overflow.
 .PP
-See also dataReadProgress(), post(), request(), and QProgressBar::progress.
-.SH "void QHttp::done ( bool error )\fC [signal]\fR"
+See also dataReadProgress(), post(), request(), and TQProgressBar::progress.
+.SH "void TQHttp::done ( bool error )\fC [signal]\fR"
 This signal is emitted when the last pending request has finished; (it is emitted after the last request's requestFinished() signal). \fIerror\fR is TRUE if an error occurred during the processing; otherwise \fIerror\fR is FALSE.
 .PP
 See also requestFinished(), error(), and errorString().
-.SH "Error QHttp::error () const"
+.SH "Error TQHttp::error () const"
 Returns the last error that occurred. This is useful to find out what happened when receiving a requestFinished() or a done() signal with the \fCerror\fR argument \fCTRUE\fR.
 .PP
 If you start a new request, the error status is reset to NoError.
-.SH "TQString QHttp::errorString () const"
+.SH "TQString TQHttp::errorString () const"
 Returns a human-readable description of the last error that occurred. This is useful to present a error message to the user when receiving a requestFinished() or a done() signal with the \fCerror\fR argument \fCTRUE\fR.
-.SH "int QHttp::get ( const TQString & path, TQIODevice * to = 0 )"
+.SH "int TQHttp::get ( const TQString & path, TQIODevice * to = 0 )"
 Sends a get request for \fIpath\fR to the server set by setHost() or as specified in the constructor.
 .PP
 \fIpath\fR must be an absolute path like \fC/index.html\fR or an absolute URI like http://www.trolltech.com/index.html.
@@ -411,13 +411,13 @@ The function does not block and returns immediately. The request is scheduled, a
 When the request is started the requestStarted() signal is emitted. When it is finished the requestFinished() signal is emitted.
 .PP
 See also setHost(), post(), head(), request(), requestStarted(), requestFinished(), and done().
-.SH "bool QHttp::hasPendingRequests () const"
+.SH "bool TQHttp::hasPendingRequests () const"
 Returns TRUE if there are any requests scheduled that have not yet been executed; otherwise returns FALSE.
 .PP
 The request that is being executed is \fInot\fR considered as a scheduled request.
 .PP
 See also clearPendingRequests(), currentId(), and currentRequest().
-.SH "int QHttp::head ( const TQString & path )"
+.SH "int TQHttp::head ( const TQString & path )"
 Sends a header request for \fIpath\fR to the server set by setHost() or as specified in the constructor.
 .PP
 \fIpath\fR must be an absolute path like \fC/index.html\fR or an absolute URI like http://www.trolltech.com/index.html.
@@ -427,7 +427,7 @@ The function does not block and returns immediately. The request is scheduled, a
 When the request is started the requestStarted() signal is emitted. When it is finished the requestFinished() signal is emitted.
 .PP
 See also setHost(), get(), post(), request(), requestStarted(), requestFinished(), and done().
-.SH "int QHttp::post ( const TQString & path, TQIODevice * data, TQIODevice * to = 0 )"
+.SH "int TQHttp::post ( const TQString & path, TQIODevice * data, TQIODevice * to = 0 )"
 Sends a post request for \fIpath\fR to the server set by setHost() or as specified in the constructor.
 .PP
 \fIpath\fR must be an absolute path like \fC/index.html\fR or an absolute URI like http://www.trolltech.com/index.html.
@@ -443,19 +443,19 @@ The function does not block and returns immediately. The request is scheduled, a
 When the request is started the requestStarted() signal is emitted. When it is finished the requestFinished() signal is emitted.
 .PP
 See also setHost(), get(), head(), request(), requestStarted(), requestFinished(), and done().
-.SH "int QHttp::post ( const TQString & path, const QByteArray & data, TQIODevice * to = 0 )"
+.SH "int TQHttp::post ( const TQString & path, const TQByteArray & data, TQIODevice * to = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIdata\fR is used as the content data of the HTTP request.
-.SH "QByteArray QHttp::readAll ()"
+.SH "TQByteArray TQHttp::readAll ()"
 Reads all the bytes from the response content and returns them.
 .PP
 See also get(), post(), request(), readyRead(), bytesAvailable(), and readBlock().
-.SH "TQ_LONG QHttp::readBlock ( char * data, TQ_ULONG maxlen )"
+.SH "TQ_LONG TQHttp::readBlock ( char * data, TQ_ULONG maxlen )"
 Reads \fImaxlen\fR bytes from the response content into \fIdata\fR and returns the number of bytes read. Returns -1 if an error occurred.
 .PP
 See also get(), post(), request(), readyRead(), bytesAvailable(), and readAll().
-.SH "void QHttp::readyRead ( const QHttpResponseHeader & resp )\fC [signal]\fR"
+.SH "void TQHttp::readyRead ( const TQHttpResponseHeader & resp )\fC [signal]\fR"
 This signal is emitted when there is new response data to read.
 .PP
 If you specified a device in the request where the data should be written to, then this signal is \fInot\fR emitted; instead the data is written directly to the device.
@@ -467,7 +467,7 @@ You can read the data with the readAll() or readBlock() functions
 This signal is useful if you want to process the data in chunks as soon as it becomes available. If you are only interested in the complete data, just connect to the requestFinished() signal and read the data then instead.
 .PP
 See also get(), post(), request(), readAll(), readBlock(), and bytesAvailable().
-.SH "int QHttp::request ( const QHttpRequestHeader & header, TQIODevice * data = 0, TQIODevice * to = 0 )"
+.SH "int TQHttp::request ( const TQHttpRequestHeader & header, TQIODevice * data = 0, TQIODevice * to = 0 )"
 Sends a request to the server set by setHost() or as specified in the constructor. Uses the \fIheader\fR as the HTTP request header. You are responsible for setting up a header that is appropriate for your request.
 .PP
 The incoming data comes via the \fIdata\fR IO device.
@@ -481,23 +481,23 @@ The function does not block and returns immediately. The request is scheduled, a
 When the request is started the requestStarted() signal is emitted. When it is finished the requestFinished() signal is emitted.
 .PP
 See also setHost(), get(), post(), head(), requestStarted(), requestFinished(), and done().
-.SH "int QHttp::request ( const QHttpRequestHeader & header, const QByteArray & data, TQIODevice * to = 0 )"
+.SH "int TQHttp::request ( const TQHttpRequestHeader & header, const TQByteArray & data, TQIODevice * to = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIdata\fR is used as the content data of the HTTP request.
-.SH "void QHttp::requestFinished ( int id, bool error )\fC [signal]\fR"
+.SH "void TQHttp::requestFinished ( int id, bool error )\fC [signal]\fR"
 This signal is emitted when processing the request identified by \fIid\fR has finished. \fIerror\fR is TRUE if an error occurred during the processing; otherwise \fIerror\fR is FALSE.
 .PP
 See also requestStarted(), done(), error(), and errorString().
-.SH "void QHttp::requestStarted ( int id )\fC [signal]\fR"
+.SH "void TQHttp::requestStarted ( int id )\fC [signal]\fR"
 This signal is emitted when processing the request identified by \fIid\fR starts.
 .PP
 See also requestFinished() and done().
-.SH "void QHttp::responseHeaderReceived ( const QHttpResponseHeader & resp )\fC [signal]\fR"
+.SH "void TQHttp::responseHeaderReceived ( const TQHttpResponseHeader & resp )\fC [signal]\fR"
 This signal is emitted when the HTTP header of a server response is available. The header is passed in \fIresp\fR.
 .PP
 See also get(), post(), head(), request(), and readyRead().
-.SH "int QHttp::setHost ( const TQString & hostname, TQ_UINT16 port = 80 )"
+.SH "int TQHttp::setHost ( const TQString & hostname, TQ_UINT16 port = 80 )"
 Sets the HTTP server that is used for requests to \fIhostname\fR on port \fIport\fR.
 .PP
 The function does not block and returns immediately. The request is scheduled, and its execution is performed asynchronously. The function returns a unique identifier which is passed by requestStarted() and requestFinished().
@@ -505,19 +505,19 @@ The function does not block and returns immediately. The request is scheduled, a
 When the request is started the requestStarted() signal is emitted. When it is finished the requestFinished() signal is emitted.
 .PP
 See also get(), post(), head(), request(), requestStarted(), requestFinished(), and done().
-.SH "State QHttp::state () const"
+.SH "State TQHttp::state () const"
 Returns the current state of the object. When the state changes, the stateChanged() signal is emitted.
 .PP
 See also State and stateChanged().
-.SH "void QHttp::stateChanged ( int state )\fC [signal]\fR"
-This signal is emitted when the state of the QHttp object changes. The argument \fIstate\fR is the new state of the connection; it is one of the State values.
+.SH "void TQHttp::stateChanged ( int state )\fC [signal]\fR"
+This signal is emitted when the state of the TQHttp object changes. The argument \fIstate\fR is the new state of the connection; it is one of the State values.
 .PP
 This usually happens when a request is started, but it can also happen when the server closes the connection or when a call to closeConnection() succeeded.
 .PP
 See also get(), post(), head(), request(), closeConnection(), state(), and State.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqhttp.html
+.BR http://doc.trolltech.com/tqhttp.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

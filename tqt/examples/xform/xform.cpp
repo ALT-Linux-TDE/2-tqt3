@@ -7,26 +7,26 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
-#include <ntqdialog.h>
-#include <ntqlabel.h>
-#include <ntqlineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqcheckbox.h>
-#include <ntqradiobutton.h>
-#include <ntqbuttongroup.h>
-#include <ntqlcdnumber.h>
-#include <ntqslider.h>
-#include <ntqmenubar.h>
-#include <ntqfontdialog.h>
-#include <ntqlayout.h>
-#include <ntqvbox.h>
-#include <ntqwidgetstack.h>
+#include <tqdialog.h>
+#include <tqlabel.h>
+#include <tqlineedit.h>
+#include <tqpushbutton.h>
+#include <tqcheckbox.h>
+#include <tqradiobutton.h>
+#include <tqbuttongroup.h>
+#include <tqlcdnumber.h>
+#include <tqslider.h>
+#include <tqmenubar.h>
+#include <tqfontdialog.h>
+#include <tqlayout.h>
+#include <tqvbox.h>
+#include <tqwidgetstack.h>
 
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
-#include <ntqpicture.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
+#include <tqpicture.h>
 
 #include <stdlib.h>
 

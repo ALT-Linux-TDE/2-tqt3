@@ -40,23 +40,23 @@
 #include "widgetfactory.h"
 #include "widgetdatabase.h"
 
-#include <ntqlistbox.h>
-#include <ntqpushbutton.h>
-#include <ntqlineedit.h>
-#include <ntqcombobox.h>
-#include <ntqspinbox.h>
-#include <ntqlabel.h>
-#include <ntqmessagebox.h>
-#include <ntqfiledialog.h>
-#include <ntqmessagebox.h>
-#include <ntqtimer.h>
-#include <ntqapplication.h>
-#include <ntqlistview.h>
-#include <ntqfile.h>
-#include <ntqtextstream.h>
-#include <ntqdom.h>
-#include <ntqtextcodec.h>
-#include <ntqcheckbox.h>
+#include <tqlistbox.h>
+#include <tqpushbutton.h>
+#include <tqlineedit.h>
+#include <tqcombobox.h>
+#include <tqspinbox.h>
+#include <tqlabel.h>
+#include <tqmessagebox.h>
+#include <tqfiledialog.h>
+#include <tqmessagebox.h>
+#include <tqtimer.h>
+#include <tqapplication.h>
+#include <tqlistview.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
+#include <tqdom.h>
+#include <tqtextcodec.h>
+#include <tqcheckbox.h>
 
 CustomWidgetEditor::CustomWidgetEditor( TQWidget *parent, MainWindow *mw )
     : CustomWidgetEditorBase( parent, 0, TRUE ), mainWindow( mw )

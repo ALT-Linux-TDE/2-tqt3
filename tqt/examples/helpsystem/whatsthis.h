@@ -10,7 +10,7 @@
 #ifndef WHATSTHIS_H
 #define WHATSTHIS_H
 
-#include <ntqwhatsthis.h> 
+#include <tqwhatsthis.h> 
 
 class TQHeader;
 class TQTable;

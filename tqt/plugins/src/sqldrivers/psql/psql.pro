@@ -4,9 +4,9 @@ TARGET	 = qsqlpsql
 CONFIG	+= qt plugin
 DESTDIR	 = ../../../sqldrivers
 
-HEADERS		= ../../../../src/sql/drivers/psql/qsql_psql.h
+HEADERS		= ../../../../src/sql/drivers/psql/tqsql_psql.h
 SOURCES		= main.cpp \
-		  ../../../../src/sql/drivers/psql/qsql_psql.cpp
+		  ../../../../src/sql/drivers/psql/tqsql_psql.cpp
 unix {
 	OBJECTS_DIR	= .obj
 	!contains( LIBS, .*pq.* ) {
@@ -20,9 +20,6 @@ win32 {
 #	win32-msvc: {
 #		LIBS *= delayimp.lib
 #		QMAKE_LFLAGS += /DELAYLOAD:libpq.dll
-#	}
-#	win32-borland: {
-#		QMAKE_LFLAGS += /dlibpq.dll
 #	}
 }
 

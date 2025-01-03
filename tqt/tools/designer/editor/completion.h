@@ -34,10 +34,10 @@
 #ifndef COMPLETION_H
 #define COMPLETION_H
 
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqobject.h>
-#include <ntqmap.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqobject.h>
+#include <tqmap.h>
 
 class TQTextDocument;
 class Editor;

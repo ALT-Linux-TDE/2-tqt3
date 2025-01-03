@@ -1,5 +1,5 @@
 '\" t
-.TH QEucJpCodec 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQEucJpCodec 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,13 +7,13 @@
 .ad l
 .nh
 .SH NAME
-QEucJpCodec \- Conversion to and from EUC-JP character sets
+TQEucJpCodec \- Conversion to and from EUC-JP character sets
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqeucjpcodec.h>\fR
+\fC#include <tqeucjpcodec.h>\fR
 .PP
-Inherits QTextCodec.
+Inherits TQTextCodec.
 .PP
 .SS "Public Members"
 .in +1c
@@ -24,18 +24,18 @@ Inherits QTextCodec.
 .BI "virtual const char * \fBmimeName\fR () const"
 .br
 .ti -1c
-.BI "\fBQEucJpCodec\fR ()"
+.BI "\fBTQEucJpCodec\fR ()"
 .br
 .ti -1c
-.BI "\fB~QEucJpCodec\fR ()"
+.BI "\fB~TQEucJpCodec\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QEucJpCodec class provides conversion to and from EUC-JP character sets.
+The TQEucJpCodec class provides conversion to and from EUC-JP character sets.
 .PP
-More precisely, the QEucJpCodec class subclasses QTextCodec to provide support for EUC-JP, the main legacy encoding for Unix machines in Japan.
+More precisely, the TQEucJpCodec class subclasses TQTextCodec to provide support for EUC-JP, the main legacy encoding for Unix machines in Japan.
 .PP
-The environment variable \fCUNICODEMAP_JP\fR can be used to fine-tune QJisCodec, QSjisCodec and QEucJpCodec. The QJisCodec documentation describes how to use this variable.
+The environment variable \fCUNICODEMAP_JP\fR can be used to fine-tune TQJisCodec, TQSjisCodec and TQEucJpCodec. The TQJisCodec documentation describes how to use this variable.
 .PP
 Most of the code here was written by Serika Kurusugawa, a.k.a. Junji Takagi, and is included in TQt with the author's permission and the grateful thanks of the Trolltech team. Here is the copyright statement for that code:
 .PP
@@ -51,21 +51,21 @@ THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS "AS IS". ANY EXPRESS OR
 .PP
 See also Internationalization with Qt.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QEucJpCodec::QEucJpCodec ()"
-Constructs a QEucJpCodec.
-.SH "QEucJpCodec::~QEucJpCodec ()"
+.SH "TQEucJpCodec::TQEucJpCodec ()"
+Constructs a TQEucJpCodec.
+.SH "TQEucJpCodec::~TQEucJpCodec ()"
 Destroys the codec.
-.SH "int QEucJpCodec::mibEnum () const\fC [virtual]\fR"
+.SH "int TQEucJpCodec::mibEnum () const\fC [virtual]\fR"
 Returns 18.
 .PP
-Reimplemented from QTextCodec.
-.SH "const char * QEucJpCodec::mimeName () const\fC [virtual]\fR"
+Reimplemented from TQTextCodec.
+.SH "const char * TQEucJpCodec::mimeName () const\fC [virtual]\fR"
 Returns the codec's mime name.
 .PP
-Reimplemented from QTextCodec.
+Reimplemented from TQTextCodec.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqeucjpcodec.html
+.BR http://doc.trolltech.com/tqeucjpcodec.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

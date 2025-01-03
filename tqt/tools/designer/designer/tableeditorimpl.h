@@ -35,7 +35,7 @@
 #define TABLEEDITORIMPL_H
 
 #include "tableeditor.h"
-#include <ntqmap.h>
+#include <tqmap.h>
 
 class TQListBoxItem;
 class TQTable;

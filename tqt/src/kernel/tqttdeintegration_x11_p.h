@@ -4,7 +4,7 @@
 #ifndef TQTDEINTEGRATION_H
 #define TQTDEINTEGRATION_H
 
-#include <ntqstringlist.h>
+#include <tqstringlist.h>
 
 class TQLibrary;
 class TQWidget;

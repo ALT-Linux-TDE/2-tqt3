@@ -34,15 +34,15 @@
 #include "completion.h"
 #include "paragdata.h"
 #include "editor.h"
-#include <ntqlistbox.h>
-#include <ntqvbox.h>
-#include <ntqmap.h>
-#include <private/qrichtext_p.h>
-#include <ntqapplication.h>
-#include <ntqregexp.h>
+#include <tqlistbox.h>
+#include <tqvbox.h>
+#include <tqmap.h>
+#include <private/tqrichtext_p.h>
+#include <tqapplication.h>
+#include <tqregexp.h>
 #include "arghintwidget.h"
-#include <ntqsizegrip.h>
-#include <ntqtimer.h>
+#include <tqsizegrip.h>
+#include <tqtimer.h>
 
 static TQColor getColor( const TQString &type )
 {

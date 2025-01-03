@@ -42,7 +42,7 @@
 		WORKSPACE_H = $$WORKSPACE_CPP
 	}
 	INCLUDEPATH += $$QT_SOURCE_TREE/src/workspace
-	include( $$QT_SOURCE_TREE/src/workspace/qt_workspace.pri )
+	include( $$QT_SOURCE_TREE/src/workspace/tqt_workspace.pri )
 	DEFINES     *= TQT_MODULE_WORKSPACE
 }
 

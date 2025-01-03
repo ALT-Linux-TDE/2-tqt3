@@ -31,8 +31,8 @@
 **
 **********************************************************************/
 
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
 #include "designerappiface.h"
 #include "mainwindow.h"
 #include "project.h"
@@ -42,14 +42,14 @@
 #include "command.h"
 #include "outputwindow.h"
 #include "../shared/widgetdatabase.h"
-#include <ntqvariant.h>
-#include <ntqlistview.h>
-#include <ntqtextedit.h>
-#include <ntqstatusbar.h>
+#include <tqvariant.h>
+#include <tqlistview.h>
+#include <tqtextedit.h>
+#include <tqstatusbar.h>
 #include "pixmapcollection.h"
 #include "hierarchyview.h"
 #include <stdlib.h>
-#include <ntqmetaobject.h>
+#include <tqmetaobject.h>
 #include "popupmenueditor.h"
 #include "menubareditor.h"
 

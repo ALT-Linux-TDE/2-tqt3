@@ -1,0 +1,1 @@
+../src/dialogs/tqcolordialog.h

@@ -1,5 +1,5 @@
-#include <ntqradiobutton.h>
-#include <ntqspinbox.h>
+#include <tqradiobutton.h>
+#include <tqspinbox.h>
 #include "receiver.h"
 
 void Receiver::setParent( TQDialog *parent )

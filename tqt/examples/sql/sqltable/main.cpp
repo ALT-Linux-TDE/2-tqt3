@@ -7,11 +7,11 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqsqldatabase.h>
-#include <ntqdatatable.h>
-#include <ntqsqlcursor.h>
-#include <ntqmessagebox.h>
+#include <tqapplication.h>
+#include <tqsqldatabase.h>
+#include <tqdatatable.h>
+#include <tqsqlcursor.h>
+#include <tqmessagebox.h>
 
 /* Modify the following to match your environment */
 #define DRIVER       "TQSQLITE"  /* see the TQt SQL documentation for a list of available drivers */

@@ -1,11 +1,11 @@
-#include <ntqimageformatplugin.h>
+#include <tqimageformatplugin.h>
 
 #ifndef TQT_NO_IMAGEFORMATPLUGIN
 
 #ifdef TQT_NO_IMAGEIO_JPEG
 #undef TQT_NO_IMAGEIO_JPEG
 #endif
-#include "../../../../src/kernel/qjpegio.cpp"
+#include "../../../../src/kernel/tqjpegio.cpp"
 
 class JPEGFormat : public TQImageFormatPlugin
 {

@@ -34,8 +34,8 @@
 #ifndef LISTDND_H
 #define LISTDND_H
 
-#include <ntqobject.h>
-#include <ntqscrollview.h>
+#include <tqobject.h>
+#include <tqscrollview.h>
 
 class ListDnd : public TQObject
 {

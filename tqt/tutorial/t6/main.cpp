@@ -4,13 +4,13 @@
 **
 ****************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqslider.h>
-#include <ntqlcdnumber.h>
-#include <ntqfont.h>
-#include <ntqvbox.h>
-#include <ntqgrid.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqslider.h>
+#include <tqlcdnumber.h>
+#include <tqfont.h>
+#include <tqvbox.h>
+#include <tqgrid.h>
 
 class LCDRange : public TQVBox
 {

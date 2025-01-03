@@ -4,9 +4,9 @@ TARGET	 = qsqlite3
 CONFIG	+= qt plugin
 DESTDIR	 = ../../../sqldrivers
 
-HEADERS		= ../../../../src/sql/drivers/sqlite3/qsql_sqlite3.h
+HEADERS		= ../../../../src/sql/drivers/sqlite3/tqsql_sqlite3.h
 SOURCES		= smain.cpp \
-		  ../../../../src/sql/drivers/sqlite3/qsql_sqlite3.cpp
+		  ../../../../src/sql/drivers/sqlite3/tqsql_sqlite3.cpp
 
 unix {
 	OBJECTS_DIR = .obj
@@ -21,9 +21,6 @@ win32 {
 #	win32-msvc: {
 #		LIBS *= delayimp.lib
 #		QMAKE_LFLAGS += /DELAYLOAD:sqlite3.dll
-#	}
-#	win32-borland: {
-#		QMAKE_LFLAGS += /dsqlite3.dll
 #	}
 }
 

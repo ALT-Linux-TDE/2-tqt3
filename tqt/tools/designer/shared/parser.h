@@ -34,7 +34,7 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <ntqstring.h>
+#include <tqstring.h>
 
 class Parser
 {

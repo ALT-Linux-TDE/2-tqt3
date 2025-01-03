@@ -90,7 +90,7 @@
   \printto cbBehaviorTool
   A modal widget blocks input to other toplevel widgets, unless 
   those are in a different modal group (see \c WGroupLeader).
-  Dialogs are often modal, and the QDialog class provides an easy API
+  Dialogs are often modal, and the TQDialog class provides an easy API
   to create and display them without the need to explicitly use this
   flag.
 
@@ -104,7 +104,7 @@
   The widget is created if it has not been created yet, or if it was
   closed (since we use the \c WDestructiveClose flag). Note that the
   window is not visible yet.
-  \footnote The example uses QGuardedPtr to make sure that the 
+  \footnote The example uses TQGuardedPtr to make sure that the 
   pointer is reset to zero when the widget object is destroyed 
   due to the \c WDestructiveClose flag. \endfootnote
 

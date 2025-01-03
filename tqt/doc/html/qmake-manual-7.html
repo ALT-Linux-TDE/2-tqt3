@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/qmake/book/qmake-pch.leaf:3 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -56,9 +55,9 @@ body { background: #ffffff; color: black; }
         #include &lt;stdlib&gt;
         #include &lt;iostream&gt;
         #include &lt;vector&gt;
-        #include &lt;ntqapplication.h&gt; // TQt includes
-        #include &lt;ntqpushbutton.h&gt;
-        #include &lt;ntqlabel.h&gt;
+        #include &lt;tqapplication.h&gt; // TQt includes
+        #include &lt;tqpushbutton.h&gt;
+        #include &lt;tqlabel.h&gt;
         #include "thirdparty/include/libmain.h"
         #include "my_stable_class.h"
         ...
@@ -118,15 +117,15 @@ body { background: #ffffff; color: black; }
     /* Add C++ includes here */
 
     # include &lt;iostream&gt;
-    # include &lt;ntqapplication.h&gt;
-    # include &lt;ntqpushbutton.h&gt;
-    # include &lt;ntqlabel.h&gt;
+    # include &lt;tqapplication.h&gt;
+    # include &lt;tqpushbutton.h&gt;
+    # include &lt;tqlabel.h&gt;
     #endif
 </pre>
  <p><b>myobject.h</b></p>
-<pre>    #include &lt;<a href="qobject-h.html">ntqobject.h</a>&gt;
+<pre>    #include &lt;<a href="tqobject-h.html">tqobject.h</a>&gt;
 
-    class MyObject : public <a href="ntqobject.html">TQObject</a>
+    class MyObject : public <a href="tqobject.html">TQObject</a>
     {
     public:
         MyObject();
@@ -135,11 +134,11 @@ body { background: #ffffff; color: black; }
 </pre>
  <p><b>myobject.cpp</b></p>
 <pre>    #include &lt;iostream&gt;
-    #include &lt;<a href="qobject-h.html">ntqobject.h</a>&gt;
+    #include &lt;<a href="tqobject-h.html">tqobject.h</a>&gt;
     #include "myobject.h"
 
     MyObject::MyObject()
-        : <a href="ntqobject.html">TQObject</a>()
+        : <a href="tqobject.html">TQObject</a>()
     {
         std::cout &lt;&lt; "MyObject::MyObject()\n";
     }
@@ -153,23 +152,23 @@ body { background: #ffffff; color: black; }
     }
 </pre>
  <p><b>main.cpp</b></p>
-<pre>    #include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-    #include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-    #include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
+<pre>    #include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+    #include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+    #include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
     #include "myobject.h"
     #include "mydialog.h"
 
     int main(int argc, char **argv)
     {
-        <a href="ntqapplication.html">TQApplication</a> app(argc, argv);
+        <a href="tqapplication.html">TQApplication</a> app(argc, argv);
 
         MyObject obj;
         MyDialog dia;
-        app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;dia );
-        dia.connect( dia.aButton, TQ_SIGNAL(clicked()), TQ_SLOT(<a href="ntqwidget.html#close">close</a>()) );
+        app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;dia );
+        dia.connect( dia.aButton, TQ_SIGNAL(clicked()), TQ_SLOT(<a href="tqwidget.html#close">close</a>()) );
         dia.show();
 
-        return app.<a href="ntqapplication.html#exec">exec</a>();
+        return app.<a href="tqapplication.html#exec">exec</a>();
     }
 </pre>
  <p><b>precompile.pro</b></p>

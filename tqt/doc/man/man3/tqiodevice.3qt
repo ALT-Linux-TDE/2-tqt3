@@ -11,9 +11,9 @@ TQIODevice \- The base class of I/O devices
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqiodevice.h>\fR
+\fC#include <tqiodevice.h>\fR
 .PP
-Inherited by QBuffer, QFile, QSocket, and QSocketDevice.
+Inherited by TQBuffer, TQFile, TQSocket, and TQSocketDevice.
 .PP
 .SS "Public Members"
 .in +1c
@@ -21,7 +21,7 @@ Inherited by QBuffer, QFile, QSocket, and QSocketDevice.
 .BI "typedef TQ_ULONG \fBOffset\fR"
 .br
 .ti -1c
-.BI "\fBQIODevice\fR ()"
+.BI "\fBTQIODevice\fR ()"
 .br
 .ti -1c
 .BI "virtual \fB~TQIODevice\fR ()"
@@ -114,10 +114,10 @@ Inherited by QBuffer, QFile, QSocket, and QSocketDevice.
 .BI "virtual TQ_LONG \fBreadLine\fR ( char * data, TQ_ULONG maxlen )"
 .br
 .ti -1c
-.BI "TQ_LONG \fBwriteBlock\fR ( const QByteArray & data )"
+.BI "TQ_LONG \fBwriteBlock\fR ( const TQByteArray & data )"
 .br
 .ti -1c
-.BI "virtual QByteArray \fBreadAll\fR ()"
+.BI "virtual TQByteArray \fBreadAll\fR ()"
 .br
 .ti -1c
 .BI "virtual int \fBgetch\fR () = 0"
@@ -150,9 +150,9 @@ Inherited by QBuffer, QFile, QSocket, and QSocketDevice.
 .SH DESCRIPTION
 The TQIODevice class is the base class of I/O devices.
 .PP
-An I/O device represents a medium that one can read bytes from and/or write bytes to. The TQIODevice class is the abstract superclass of all such devices; classes such as QFile, QBuffer and QSocket inherit TQIODevice and implement virtual functions such as write() appropriately.
+An I/O device represents a medium that one can read bytes from and/or write bytes to. The TQIODevice class is the abstract superclass of all such devices; classes such as TQFile, TQBuffer and TQSocket inherit TQIODevice and implement virtual functions such as write() appropriately.
 .PP
-Although applications sometimes use TQIODevice directly, it is usually better to use QTextStream and QDataStream, which provide stream operations on any TQIODevice subclass. QTextStream provides text-oriented stream functionality (for human-readable ASCII files, for example), whereas QDataStream deals with binary data in a totally platform-independent manner.
+Although applications sometimes use TQIODevice directly, it is usually better to use TQTextStream and TQDataStream, which provide stream operations on any TQIODevice subclass. TQTextStream provides text-oriented stream functionality (for human-readable ASCII files, for example), whereas TQDataStream deals with binary data in a totally platform-independent manner.
 .PP
 The public member functions in TQIODevice roughly fall into two groups: the action functions and the state access functions. The most important action functions are:
 .IP
@@ -270,7 +270,7 @@ TQIODevice provides numerous pure virtual functions that you need to implement w
 .PP
 The three non-pure virtual functions need not be reimplemented for sequential devices.
 .PP
-See also QDataStream, QTextStream, and Input/Output and Networking.
+See also TQDataStream, TQTextStream, and Input/Output and Networking.
 .SS "Member Type Documentation"
 .SH "TQIODevice::Offset"
 The offset within the device.
@@ -288,17 +288,17 @@ See also size().
 .PP
 Example: distributor/distributor.ui.h.
 .PP
-Reimplemented in QSocket.
+Reimplemented in TQSocket.
 .SH "bool TQIODevice::at ( Offset pos )\fC [virtual]\fR"
 Virtual function that sets the I/O device position to \fIpos\fR. Returns TRUE if the position was successfully set, i.e. \fIpos\fR is within range and the seek was successful; otherwise returns FALSE.
 .PP
 See also size().
 .PP
-Reimplemented in QSocket.
+Reimplemented in TQSocket.
 .SH "bool TQIODevice::atEnd () const\fC [virtual]\fR"
 Virtual function that returns TRUE if the I/O device position is at the end of the input; otherwise returns FALSE.
 .PP
-Reimplemented in QFile and QSocket.
+Reimplemented in TQFile and TQSocket.
 .SH "void TQIODevice::close ()\fC [pure virtual]\fR"
 Closes the I/O device.
 .PP
@@ -306,9 +306,7 @@ This virtual function must be reimplemented by all subclasses.
 .PP
 See also open().
 .PP
-Example: grapher/grapher.cpp.
-.PP
-Reimplemented in QFile and QSocket.
+Reimplemented in TQFile and TQSocket.
 .SH "int TQIODevice::flags () const"
 Returns the current I/O device flags setting.
 .PP
@@ -320,7 +318,7 @@ Flushes an open I/O device.
 .PP
 This virtual function must be reimplemented by all subclasses.
 .PP
-Reimplemented in QFile and QSocket.
+Reimplemented in TQFile and TQSocket.
 .SH "int TQIODevice::getch ()\fC [pure virtual]\fR"
 Reads a single byte/character from the I/O device.
 .PP
@@ -330,7 +328,7 @@ This virtual function must be reimplemented by all subclasses.
 .PP
 See also putch() and ungetch().
 .PP
-Reimplemented in QFile and QSocket.
+Reimplemented in TQFile and TQSocket.
 .SH "bool TQIODevice::isAsynchronous () const"
 Returns TRUE if the device is an asynchronous device; otherwise returns FALSE, i.e. if the device is a synchronous device.
 .PP
@@ -384,7 +382,7 @@ See also isAsynchronous().
 .SH "bool TQIODevice::isTranslated () const"
 Returns TRUE if the I/O device translates carriage-return and linefeed characters; otherwise returns FALSE.
 .PP
-A QFile is translated if it is opened with the IO_Translate mode flag.
+A TQFile is translated if it is opened with the IO_Translate mode flag.
 .SH "bool TQIODevice::isWritable () const"
 Returns TRUE if the I/O device was opened using IO_WriteOnly or IO_ReadWrite mode; otherwise returns FALSE.
 .PP
@@ -409,9 +407,7 @@ This virtual function must be reimplemented by all subclasses.
 .PP
 See also close().
 .PP
-Example: grapher/grapher.cpp.
-.PP
-Reimplemented in QFile and QSocket.
+Reimplemented in TQFile and TQSocket.
 .SH "int TQIODevice::putch ( int ch )\fC [pure virtual]\fR"
 Writes the character \fIch\fR to the I/O device.
 .PP
@@ -421,10 +417,8 @@ This virtual function must be reimplemented by all subclasses.
 .PP
 See also getch() and ungetch().
 .PP
-Example: grapher/grapher.cpp.
-.PP
-Reimplemented in QFile and QSocket.
-.SH "QByteArray TQIODevice::readAll ()\fC [virtual]\fR"
+Reimplemented in TQFile and TQSocket.
+.SH "TQByteArray TQIODevice::readAll ()\fC [virtual]\fR"
 This convenience function returns all of the remaining data in the device.
 .SH "TQ_LONG TQIODevice::readBlock ( char * data, TQ_ULONG maxlen )\fC [pure virtual]\fR"
 Reads at most \fImaxlen\fR bytes from the I/O device into \fIdata\fR and returns the number of bytes actually read.
@@ -439,7 +433,7 @@ See also writeBlock(), isOpen(), and isReadable().
 .PP
 Example: distributor/distributor.ui.h.
 .PP
-Reimplemented in QSocket and QSocketDevice.
+Reimplemented in TQSocket and TQSocketDevice.
 .SH "TQ_LONG TQIODevice::readLine ( char * data, TQ_ULONG maxlen )\fC [virtual]\fR"
 Reads a line of text, (or up to \fImaxlen\fR bytes if a newline isn't encountered) plus a terminating '&#92;0' into \fIdata\fR. If there is a newline at the end if the line, it is not stripped.
 .PP
@@ -447,9 +441,9 @@ Returns the number of bytes read including the terminating '&#92;0', or -1 if an
 .PP
 This virtual function can be reimplemented much more efficiently by the most subclasses.
 .PP
-See also readBlock() and QTextStream::readLine().
+See also readBlock() and TQTextStream::readLine().
 .PP
-Reimplemented in QFile.
+Reimplemented in TQFile.
 .SH "bool TQIODevice::reset ()"
 Sets the device index position to 0.
 .PP
@@ -473,7 +467,7 @@ Virtual function that returns the size of the I/O device.
 .PP
 See also at().
 .PP
-Reimplemented in QFile and QSocket.
+Reimplemented in TQFile and TQSocket.
 .SH "int TQIODevice::state () const"
 Returns bits OR'ed together that specify the current state.
 .PP
@@ -506,7 +500,7 @@ This virtual function must be reimplemented by all subclasses.
 .PP
 See also getch() and putch().
 .PP
-Reimplemented in QFile and QSocket.
+Reimplemented in TQFile and TQSocket.
 .SH "TQ_LONG TQIODevice::writeBlock ( const char * data, TQ_ULONG len )\fC [pure virtual]\fR"
 Writes \fIlen\fR bytes from \fIdata\fR to the I/O device and returns the number of bytes actually written.
 .PP
@@ -518,15 +512,15 @@ See also readBlock().
 .PP
 Example: distributor/distributor.ui.h.
 .PP
-Reimplemented in QBuffer, QSocket, and QSocketDevice.
-.SH "TQ_LONG TQIODevice::writeBlock ( const QByteArray & data )"
+Reimplemented in TQBuffer, TQSocket, and TQSocketDevice.
+.SH "TQ_LONG TQIODevice::writeBlock ( const TQByteArray & data )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This convenience function is the same as calling writeBlock(
 data.data(), data.size() ).
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqiodevice.html
+.BR http://doc.trolltech.com/tqiodevice.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

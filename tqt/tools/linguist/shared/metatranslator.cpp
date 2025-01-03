@@ -33,13 +33,13 @@
 
 #include "metatranslator.h"
 
-#include <ntqapplication.h>
-#include <ntqcstring.h>
-#include <ntqfile.h>
-#include <ntqmessagebox.h>
-#include <ntqtextcodec.h>
-#include <ntqtextstream.h>
-#include <ntqxml.h>
+#include <tqapplication.h>
+#include <tqcstring.h>
+#include <tqfile.h>
+#include <tqmessagebox.h>
+#include <tqtextcodec.h>
+#include <tqtextstream.h>
+#include <tqxml.h>
 
 static bool encodingIsUtf8( const TQXmlAttributes& atts )
 {

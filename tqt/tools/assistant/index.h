@@ -34,10 +34,10 @@
 #ifndef INDEX_H
 #define INDEX_H
 
-#include <ntqstringlist.h>
-#include <ntqdict.h>
-#include <ntqdatastream.h>
-#include <ntqobject.h>
+#include <tqstringlist.h>
+#include <tqdict.h>
+#include <tqdatastream.h>
+#include <tqobject.h>
 
 struct Document {
     Document( int d, int f ) : docNumber( d ), frequency( f ) {}

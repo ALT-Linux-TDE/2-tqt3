@@ -9,22 +9,22 @@
 
 #include "scribble.h"
 
-#include <ntqapplication.h>
-#include <ntqevent.h>
-#include <ntqpainter.h>
-#include <ntqtoolbar.h>
-#include <ntqtoolbutton.h>
-#include <ntqspinbox.h>
-#include <ntqtooltip.h>
-#include <ntqrect.h>
-#include <ntqpoint.h>
-#include <ntqcolordialog.h>
-#include <ntqfiledialog.h>
-#include <ntqcursor.h>
-#include <ntqimage.h>
-#include <ntqstrlist.h>
-#include <ntqpopupmenu.h>
-#include <ntqintdict.h>
+#include <tqapplication.h>
+#include <tqevent.h>
+#include <tqpainter.h>
+#include <tqtoolbar.h>
+#include <tqtoolbutton.h>
+#include <tqspinbox.h>
+#include <tqtooltip.h>
+#include <tqrect.h>
+#include <tqpoint.h>
+#include <tqcolordialog.h>
+#include <tqfiledialog.h>
+#include <tqcursor.h>
+#include <tqimage.h>
+#include <tqstrlist.h>
+#include <tqpopupmenu.h>
+#include <tqintdict.h>
 
 const bool no_writing = FALSE;
 

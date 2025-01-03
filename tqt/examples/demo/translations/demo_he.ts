@@ -532,15 +532,15 @@
 <context>
     <name>KAsteroidsView</name>
     <message>
-        <source>QCanvas demo</source>
-        <translation>הדגמה של QCanvas</translation>
+        <source>TQCanvas demo</source>
+        <translation>הדגמה של TQCanvas</translation>
     </message>
     <message>
-        <source>This game has been implemented using the QCanvas class.
-The QCanvas class is not part of the Professional Edition. Please 
+        <source>This game has been implemented using the TQCanvas class.
+The TQCanvas class is not part of the Professional Edition. Please 
 contact Trolltech if you want to upgrade to the Enterprise Edition.</source>
-        <translation>משחק זה יושם באמצעות המחלקה QCanvas.
-המחלקה QCanvas אינה חלק מהמהדורה המקצועית. אנא
+        <translation>משחק זה יושם באמצעות המחלקה TQCanvas.
+המחלקה TQCanvas אינה חלק מהמהדורה המקצועית. אנא
 צור קשר עם Trolltech אם ברצונך לשדרג למהדורה העסקית.</translation>
     </message>
 </context>

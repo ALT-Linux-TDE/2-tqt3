@@ -1,7 +1,7 @@
-#include <ntqiconview.h>
-#include <ntqdragobject.h>
-#include <ntqlayout.h>
-#include <ntqmultilineedit.h>
+#include <tqiconview.h>
+#include <tqdragobject.h>
+#include <tqlayout.h>
+#include <tqmultilineedit.h>
 
 #include "dnd.h"
 #include "styledbutton.h"

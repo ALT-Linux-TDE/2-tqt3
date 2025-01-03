@@ -8,7 +8,7 @@
 *****************************************************************************/
 
 #include "main.h"
-#include <ntqdatatable.h>
+#include <tqdatatable.h>
 
 StatusPicker::StatusPicker( TQWidget *parent, const char *name )
     : TQComboBox( parent, name )

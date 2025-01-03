@@ -10,8 +10,8 @@
 #ifndef STATISTICS_H
 #define STATISTICS_H
 
-#include <ntqtable.h>
-#include <ntqcombobox.h>
+#include <tqtable.h>
+#include <tqcombobox.h>
 
 class TableItem : public TQTableItem
 {

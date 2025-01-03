@@ -6,9 +6,9 @@
 
 #include "printpanel.h"
 
-#include <ntqlabel.h>
-#include <ntqradiobutton.h>
-#include <ntqhbuttongroup.h>
+#include <tqlabel.h>
+#include <tqradiobutton.h>
+#include <tqhbuttongroup.h>
 
 PrintPanel::PrintPanel( TQWidget *parent, const char *name )
     : TQVBox( parent, name )

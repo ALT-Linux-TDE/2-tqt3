@@ -41,25 +41,21 @@
 
 \title The Feature Definition File
 
-By modifying the configured \c ntqconfig.h file from src/tools, you
+By modifying the configured \c tqconfig.h file from src/tools, you
 can define a subset of the full TQt functionality that you wish to
-be available in your installation. The -qconfig option to
+be available in your installation. The -tqconfig option to
 configure is used to select the configuration.
 
-Note that such modification is only supported on Qt/Embedded
-platforms, where reducing the size of TQt is
-important and the application set is often fixed.
-
-The \c ntqconfig.h definition file simply defines macros to disable
+The \c tqconfig.h definition file simply defines macros to disable
 features. Some features are dependent on other features and these
-dependencies are expressed in \c ntqfeatures.h.
+dependencies are expressed in \c tqfeatures.h.
 
 The available options are:
 
 \table
 \header \i Macro \i Disables \i Set automatically by
 
-\header \i31 Images (\l QImageIO)
+\header \i31 Images (\l TQImageIO)
 \row \i TQT_NO_IMAGEIO_BMP
      \i Microsoft Bitmap image file format.
      \i &nbsp;
@@ -78,22 +74,16 @@ The available options are:
 
 \header \i31 Animation
 \row \i TQT_NO_ASYNC_IO
-     \i Asynchronous I/O (\l QAsyncIO)
+     \i Asynchronous I/O (\l TQAsyncIO)
      \i &nbsp;
 \row \i TQT_NO_ASYNC_IMAGE_IO
-     \i Asynchronous Image I/O and GIF image support (\l QImageDecoder, ...)
+     \i Asynchronous Image I/O and GIF image support (\l TQImageDecoder, ...)
      \i &nbsp;
 \row \i TQT_NO_MOVIE
-     \i Animation support (\l QMovie)
+     \i Animation support (\l TQMovie)
      \i TQT_NO_ASYNC_IO, TQT_NO_ASYNC_IMAGE_IO
 
 \header \i31 Fonts
-\row \i TQT_NO_TRUETYPE
-     \i TrueType (TTF and TTC) font file format, only used by Qt/Embedded.
-     \i &nbsp;
-\row \i TQT_NO_BDF
-     \i Bitmap Distribution Format (BDF) font file format, only used by Qt/Embedded.
-     \i &nbsp;
 \row \i TQT_NO_FONTDATABASE
      \i Font database.
      \i &nbsp;
@@ -110,21 +100,21 @@ The available options are:
 \header \i31 MIME
 \row \i TQT_NO_MIME
      \i Multipurpose Internet Mail Extensions, an Internet standard for encoding
-	and tagging typed data (eg. text, images, colors) (\l QMimeSource)
+	and tagging typed data (eg. text, images, colors) (\l TQMimeSource)
      \i &nbsp;
 \row \i TQT_NO_RICHTEXT
-     \i HTML-like text (\l QStyleSheet, \l QLabel)
+     \i HTML-like text (\l TQStyleSheet, \l TQLabel)
      \i TQT_NO_MIME
 \row \i TQT_NO_DRAGANDDROP
-     \i Drag-and-drop data between applications (\l QDragObject)
+     \i Drag-and-drop data between applications (\l TQDragObject)
      \i TQT_NO_MIME
 \row \i TQT_NO_CLIPBOARD
-     \i Cut-and-paste data between applications (\l QClipboard)
+     \i Cut-and-paste data between applications (\l TQClipboard)
      \i TQT_NO_MIME
 
 \header \i31 Sound
 \row \i TQT_NO_SOUND
-     \i Playing audio files (\l QSound)
+     \i Playing audio files (\l TQSound)
      \i &nbsp;
 
 \header \i31 Scripting
@@ -132,39 +122,10 @@ The available options are:
      \i Scripting Qt-based applications.
      \i &nbsp;
 
-\header \i31 Qt/Embedded-specific
-\row \i TQT_NO_QWS_CURSOR
-     \i The cursor sprite on Qt/Embedded. Pen-operated devices would not
-	normally need this feature.
-     \i &nbsp;
-\row \i TQT_NO_QWS_DEPTH_8GRAYSCALE
-     \i11 8 bits per pixel: 256 levels of gray.
-	Incompatible with QWS_DEPTH_8.
-     \i &nbsp;
-\row \i TQT_NO_QWS_DEPTH_8
-     \i11 8 bits per pixel: 216-color cube with 40 auxiliary colors.
-	Incompatible with QWS_DEPTH_8GRAYSCALE.
-     \i &nbsp;
-\row \i TQT_NO_QWS_DEPTH_15
-     \i11 15 bits per pixel: 32 levels for each of red, green and blue.
-     \i &nbsp;
-\row \i TQT_NO_QWS_DEPTH_16
-     \i11 16 bits per pixel: 64 levels of green, 32 levels for red and for blue.
-     \i &nbsp;
-\row \i TQT_NO_QWS_DEPTH_32
-     \i11 32 bits per pixel: 256 levels for each of red, green and blue.
-     \i &nbsp;
-\row \i TQT_NO_QWS_MACH64
-     \i Mach64 accelerated driver (demonstration only).
-     \i &nbsp;
-\row \i TQT_NO_QWS_VFB
-     \i Virtual framebuffer running on X11 (see reference documentation).
-     \i &nbsp;
-
 \header \i31 Networking
 \row \i TQT_NO_NETWORKPROTOCOL
      \i Abstract multi-protocol data retrieval,
-	with local file retrieval included (\l QNetworkProtocol)
+	with local file retrieval included (\l TQNetworkProtocol)
      \i &nbsp;
 \row \i TQT_NO_NETWORKPROTOCOL_FTP
      \i FTP-protocol data retrieval.
@@ -176,21 +137,21 @@ The available options are:
 \header \i31 Painting/drawing
 \row \i TQT_NO_COLORNAMES
      \i Color names such as "red", used by some \l TQColor constructors
-	and by some HTML documents (\l TQColor, \l QStyleSheet)
+	and by some HTML documents (\l TQColor, \l TQStyleSheet)
      \i &nbsp;
 \row \i TQT_NO_TRANSFORMATIONS
      \i Used by a number of classes in Qt. With this, rotation and
 	scaling are possible. Without it you can only do coordinate
-	translation (\l QWMatrix)
+	translation (\l TQWMatrix)
      \i &nbsp;
 \row \i TQT_NO_PSPRINTER
      \i PostScript printer support.
      \i &nbsp;
 \row \i TQT_NO_PRINTER
-     \i Printer support (\l QPrinter)
+     \i Printer support (\l TQPrinter)
      \i TQT_NO_PSPRINTER (Unix only)
 \row \i TQT_NO_PICTURE
-     \i Save TQt drawing commands to a files (\l QPicture)
+     \i Save TQt drawing commands to a files (\l TQPicture)
      \i &nbsp;
 
 \header \i31 Widgets
@@ -198,47 +159,47 @@ The available options are:
      \i Disabling this disables all widgets except \l TQWidget.
      \i &nbsp;
 \row \i TQT_NO_TEXTVIEW
-     \i HTML document viewing (\l QTextView)
+     \i HTML document viewing (\l TQTextView)
      \i TQT_NO_WIDGETS, TQT_NO_RICHTEXT
 \row \i TQT_NO_TEXTBROWSER
-     \i HTML document browsing (\l QTextBrowser)
+     \i HTML document browsing (\l TQTextBrowser)
      \i TQT_NO_TEXTVIEW
 \row \i TQT_NO_ICONVIEW
-     \i Labelled icons (\l QIconView)
+     \i Labelled icons (\l TQIconView)
      \i TQT_NO_WIDGETS, TQT_NO_DRAGANDDROP
 \row \i TQT_NO_LISTVIEW
-     \i Lists of information (\l QListView)
+     \i Lists of information (\l TQListView)
      \i TQT_NO_WIDGETS
 \row \i TQT_NO_CANVAS
-     \i Object canvas (\l QCanvas)
+     \i Object canvas (\l TQCanvas)
      \i TQT_NO_WIDGETS
 \row \i TQT_NO_DIAL
-     \i Value control (\l QDial)
+     \i Value control (\l TQDial)
      \i TQT_NO_WIDGETS
 \row \i TQT_NO_WORKSPACE
-     \i MDI (Multiple Document Interface) (\l QWorkspace)
+     \i MDI (Multiple Document Interface) (\l TQWorkspace)
      \i TQT_NO_WIDGETS
 \row \i TQT_NO_LCDNUMBER
-     \i LCD-like number display (\l QLCDNumber)
+     \i LCD-like number display (\l TQLCDNumber)
      \i TQT_NO_WIDGETS
 
 \header \i31 GUI Styles
 \row \i TQT_NO_STYLE_WINDOWS
-     \i Microsoft Windows style (\l QWindowsStyle)
+     \i Microsoft Windows style (\l TQWindowsStyle)
      \i TQT_NO_WIDGETS
 \row \i TQT_NO_STYLE_MOTIF
-     \i OSF Motif style (\l QMotifStyle)
+     \i OSF Motif style (\l TQMotifStyle)
      \i TQT_NO_WIDGETS
 \row \i TQT_NO_STYLE_CDE
-     \i Open Group CDE style (\l QCDEStyle)
+     \i Open Group CDE style (\l TQCDEStyle)
      \i TQT_NO_STYLE_MOTIF
 \row \i TQT_NO_STYLE_AQUA
      \i MacOS X style (\l QAquaStyle)
 \row \i TQT_NO_STYLE_PLATINUM
-     \i MacOS 9 style (\l QPlatinumStyle)
+     \i MacOS 9 style (\l TQPlatinumStyle)
      \i TQT_NO_WIDGETS
 \row \i TQT_NO_STYLE_SGI
-     \i SGI style (\l QSGIStyle)
+     \i SGI style (\l TQSGIStyle)
      \i TQT_NO_STYLE_MOTIF
 
 \header \i31 Dialogs
@@ -246,28 +207,28 @@ The available options are:
      \i Disabling this disables all common dialogs \l TQWidget.
      \i TQT_NO_WIDGETS
 \row \i TQT_NO_FILEDIALOG
-     \i The file selection dialog (\l QFileDialog)
+     \i The file selection dialog (\l TQFileDialog)
      \i TQT_NO_DIALOGS, TQT_NO_NETWORKPROTOCOL, TQT_NO_LISTVIEW
 \row \i TQT_NO_FONTDIALOG
-     \i The font selection dialog (\l QFontDialog)
+     \i The font selection dialog (\l TQFontDialog)
      \i TQT_NO_DIALOGS, TQT_NO_FONTDATABASE
 \row \i TQT_NO_COLORDIALOG
-     \i The color selection dialog (\l QColorDialog)
+     \i The color selection dialog (\l TQColorDialog)
      \i TQT_NO_DIALOGS
 \row \i TQT_NO_INPUTDIALOG
-     \i Text input dialog (\l QInputDialog)
+     \i Text input dialog (\l TQInputDialog)
      \i TQT_NO_DIALOGS
 \row \i TQT_NO_MESSAGEBOX
-     \i Message/prompting dialog (\l QMessageBox)
+     \i Message/prompting dialog (\l TQMessageBox)
      \i TQT_NO_DIALOGS
 \row \i TQT_NO_PROGRESSDIALOG
-     \i Long-computation progress dialog (\l QProgressDialog)
+     \i Long-computation progress dialog (\l TQProgressDialog)
      \i TQT_NO_DIALOGS
 \row \i TQT_NO_TABDIALOG
-     \i Tabbed-pages dialog (\l QTabDialog)
+     \i Tabbed-pages dialog (\l TQTabDialog)
      \i TQT_NO_DIALOGS
 \row \i TQT_NO_WIZARD
-     \i Multi-step dialog (\l QWizard)
+     \i Multi-step dialog (\l TQWizard)
      \i TQT_NO_DIALOGS
 \endtable
 

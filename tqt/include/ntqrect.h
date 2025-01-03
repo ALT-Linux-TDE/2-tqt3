@@ -1,1 +1,0 @@
-../src/kernel/ntqrect.h

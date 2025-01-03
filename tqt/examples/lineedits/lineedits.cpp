@@ -9,13 +9,13 @@
 
 #include "lineedits.h"
 
-#include <ntqlineedit.h>
-#include <ntqcombobox.h>
-#include <ntqframe.h>
-#include <ntqvalidator.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqhbox.h>
+#include <tqlineedit.h>
+#include <tqcombobox.h>
+#include <tqframe.h>
+#include <tqvalidator.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqhbox.h>
 
 /*
  * Constructor

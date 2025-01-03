@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/tools/designer/book/chap-quickstart2.leaf:3 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -95,7 +94,7 @@ body { background: #ffffff; color: black; }
 </ul><p align="center"><img align="middle" src="qs-addwidg.png" width="422" height="210">
 </p>
 <p>Now we need to relate each of the text labels to the corresponding widget. We do this by creating "buddies".</p>
-<p>A widget that does not accept focus itself, e.g. a <a href="ntqlabel.html">TQLabel</a>, can have an accelerator that will pass the focus to its "buddy", e.g. a <a href="ntqlineedit.html">TQLineEdit</a>. In <em>TQt Designer</em>, we enable this by setting the first widget's <em>buddy</em> property to the name of the buddy widget.</p>
+<p>A widget that does not accept focus itself, e.g. a <a href="tqlabel.html">TQLabel</a>, can have an accelerator that will pass the focus to its "buddy", e.g. a <a href="tqlineedit.html">TQLineEdit</a>. In <em>TQt Designer</em>, we enable this by setting the first widget's <em>buddy</em> property to the name of the buddy widget.</p>
 <ul><li><p>Click the <b>Set Buddy</b> toolbar button (or press <b>F12</b>). Click the Enter Number label, drag the line to the numberLineEdit, then release.</p>
 <li><p>Click the <b>Set Buddy</b> toolbar button. Click the Convert From label, drag the line to the fromComboBox, then release.</p>
 <li><p>Click the <b>Set Buddy</b> toolbar button. Click the Convert To label, drag the line to the toComboBox, then release.</p>
@@ -256,21 +255,21 @@ body { background: #ffffff; color: black; }
 
         // set the result
         int decimals = decimalsSpinBox-&gt;value();
-        resultLineEdit-&gt;setText( TQString::<a href="ntqstring.html#number">number</a>( result, 'f', decimals ) );
-        numberLineEdit-&gt;setText( TQString::<a href="ntqstring.html#number">number</a>( input, 'f', decimals ) );
+        resultLineEdit-&gt;setText( TQString::<a href="tqstring.html#number">number</a>( result, 'f', decimals ) );
+        numberLineEdit-&gt;setText( TQString::<a href="tqstring.html#number">number</a>( input, 'f', decimals ) );
     }
 </pre>
  <p>First, we define some enums for the input and output units. Then we retrieve the input from the numberLineEdit. We convert the input to millimeters because this is the most precise metric unit we support. Then we convert it to inches which is the most precise output unit we support. We then scale it to the selected output unit. Finally, we put the result in the resultLineEdit.</p>
 <p>Next, we will implement the <tt>init()</tt> function which is called when the dialog is created.</p>
 <pre>    void ConversionForm::init()
     {
-        numberLineEdit-&gt;setValidator( new <a href="qdoublevalidator.html">TQDoubleValidator</a>( numberLineEdit ) );
+        numberLineEdit-&gt;setValidator( new <a href="tqdoublevalidator.html">TQDoubleValidator</a>( numberLineEdit ) );
         numberLineEdit-&gt;setText( "10" );
         convert();
         numberLineEdit-&gt;selectAll();
     }
 </pre>
- <p>For this function, we set a validator on the numberLineEdit so that the user can only input numbers. To be able to do this, we also need to add <tt>#include &lt;ntqvalidator.h&gt;</tt> at the top of the "conversionform.ui.h" file, before the <tt>init()</tt> function. Lastly, we set the initial input.</p>
+ <p>For this function, we set a validator on the numberLineEdit so that the user can only input numbers. To be able to do this, we also need to add <tt>#include &lt;tqvalidator.h&gt;</tt> at the top of the "conversionform.ui.h" file, before the <tt>init()</tt> function. Lastly, we set the initial input.</p>
 <p>We are almost ready to run the application. Before we compile the application, we need a <tt>main.cpp</tt> file.</p>
 <ul><li><p>Click <b>File|New</b> to open the New File dialog.</p>
 <li><p>Click C++ Main File (<tt>main.cpp</tt>) then click <b>OK</b>.</p>

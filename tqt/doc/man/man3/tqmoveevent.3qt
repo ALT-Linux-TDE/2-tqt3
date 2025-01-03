@@ -1,5 +1,5 @@
 '\" t
-.TH QMoveEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMoveEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,26 +7,26 @@
 .ad l
 .nh
 .SH NAME
-QMoveEvent \- Event parameters for move events
+TQMoveEvent \- Event parameters for move events
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQMoveEvent\fR ( const QPoint & pos, const QPoint & oldPos )"
+.BI "\fBTQMoveEvent\fR ( const TQPoint & pos, const TQPoint & oldPos )"
 .br
 .ti -1c
-.BI "const QPoint & \fBpos\fR () const"
+.BI "const TQPoint & \fBpos\fR () const"
 .br
 .ti -1c
-.BI "const QPoint & \fBoldPos\fR () const"
+.BI "const TQPoint & \fBoldPos\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QMoveEvent class contains event parameters for move events.
+The TQMoveEvent class contains event parameters for move events.
 .PP
 Move events are sent to widgets that have been moved to a new position relative to their parent.
 .PP
@@ -34,16 +34,16 @@ The event handler TQWidget::moveEvent() receives move events.
 .PP
 See also TQWidget::pos, TQWidget::geometry, and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMoveEvent::QMoveEvent ( const QPoint & pos, const QPoint & oldPos )"
+.SH "TQMoveEvent::TQMoveEvent ( const TQPoint & pos, const TQPoint & oldPos )"
 Constructs a move event with the new and old widget positions, \fIpos\fR and \fIoldPos\fR respectively.
-.SH "const QPoint & QMoveEvent::oldPos () const"
+.SH "const TQPoint & TQMoveEvent::oldPos () const"
 Returns the old position of the widget.
-.SH "const QPoint & QMoveEvent::pos () const"
+.SH "const TQPoint & TQMoveEvent::pos () const"
 Returns the new position of the widget. This excludes the window
 frame for top level widgets.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qmoveevent.html
+.BR http://doc.trolltech.com/tqmoveevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

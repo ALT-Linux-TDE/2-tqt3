@@ -40,25 +40,25 @@
 #include "dbconnectionimpl.h"
 #endif
 #include "resource.h"
-#include <ntqwidgetfactory.h>
+#include <tqwidgetfactory.h>
 #include "outputwindow.h"
 
-#include <ntqfile.h>
-#include <ntqtextstream.h>
-#include <ntqurl.h>
-#include <ntqobjectlist.h>
-#include <ntqfeatures.h>
-#include <ntqtextcodec.h>
-#include <ntqdom.h>
-#include <ntqmessagebox.h>
-#include <ntqapplication.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
+#include <tqurl.h>
+#include <tqobjectlist.h>
+#include <tqfeatures.h>
+#include <tqtextcodec.h>
+#include <tqdom.h>
+#include <tqmessagebox.h>
+#include <tqapplication.h>
 #include "mainwindow.h"
-#include <ntqworkspace.h>
+#include <tqworkspace.h>
 
 #ifndef TQT_NO_SQL
-#include <ntqsqldatabase.h>
-#include <ntqsqlrecord.h>
-#include <ntqdatatable.h>
+#include <tqsqldatabase.h>
+#include <tqsqlrecord.h>
+#include <tqdatatable.h>
 #endif
 
 #include <stdlib.h>

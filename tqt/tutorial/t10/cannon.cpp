@@ -5,8 +5,8 @@
 ****************************************************************/
 
 #include "cannon.h"
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
 
 
 CannonField::CannonField( TQWidget *parent, const char *name )

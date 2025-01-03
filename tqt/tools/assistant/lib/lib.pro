@@ -5,8 +5,8 @@ VERSION		= 1.0
 CONFIG		+= qt warn_on release
 CONFIG		+= dll
 
-SOURCES		= qassistantclient.cpp
-HEADERS         += $$QT_SOURCE_TREE/include/ntqassistantclient.h
+SOURCES		= tqassistantclient.cpp
+HEADERS         += $$QT_SOURCE_TREE/include/tqassistantclient.h
 
 
 DEFINES		+= QT_INTERNAL_NETWORK

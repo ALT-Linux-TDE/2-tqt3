@@ -1,0 +1,1 @@
+../../src/widgets/tqsyntaxhighlighter_p.h

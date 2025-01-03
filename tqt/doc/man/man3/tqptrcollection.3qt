@@ -1,5 +1,5 @@
 '\" t
-.TH QPtrCollection 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPtrCollection 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,13 +7,13 @@
 .ad l
 .nh
 .SH NAME
-QPtrCollection \- The base class of most pointer-based TQt collections
+TQPtrCollection \- The base class of most pointer-based TQt collections
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqptrcollection.h>\fR
+\fC#include <tqptrcollection.h>\fR
 .PP
-Inherited by QAsciiCache, QAsciiDict, QCache, QDict, QIntCache, QIntDict, QPtrList, QPtrDict, and QPtrVector.
+Inherited by TQAsciiCache, TQAsciiDict, TQCache, TQDict, TQIntCache, TQIntDict, TQPtrList, TQPtrDict, and TQPtrVector.
 .PP
 .SS "Public Members"
 .in +1c
@@ -36,13 +36,13 @@ Inherited by QAsciiCache, QAsciiDict, QCache, QDict, QIntCache, QIntDict, QPtrLi
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "\fBQPtrCollection\fR ()"
+.BI "\fBTQPtrCollection\fR ()"
 .br
 .ti -1c
-.BI "\fBQPtrCollection\fR ( const QPtrCollection & source )"
+.BI "\fBTQPtrCollection\fR ( const TQPtrCollection & source )"
 .br
 .ti -1c
-.BI "virtual \fB~QPtrCollection\fR ()"
+.BI "virtual \fB~TQPtrCollection\fR ()"
 .br
 .ti -1c
 .BI "virtual Item \fBnewItem\fR ( Item d )"
@@ -52,42 +52,42 @@ Inherited by QAsciiCache, QAsciiDict, QCache, QDict, QIntCache, QIntDict, QPtrLi
 .br
 .in -1c
 .SH DESCRIPTION
-The QPtrCollection class is the base class of most pointer-based TQt collections.
+The TQPtrCollection class is the base class of most pointer-based TQt collections.
 .PP
-The QPtrCollection class is an abstract base class for the TQt collection classes QDict, QPtrList, etc. TQt also includes value based collections, e.g. QValueList, QMap, etc.
+The TQPtrCollection class is an abstract base class for the TQt collection classes TQDict, TQPtrList, etc. TQt also includes value based collections, e.g. TQValueList, TQMap, etc.
 .PP
-A QPtrCollection only knows about the number of objects in the collection and the deletion strategy (see setAutoDelete()).
+A TQPtrCollection only knows about the number of objects in the collection and the deletion strategy (see setAutoDelete()).
 .PP
 A collection is implemented using the Item (generic collection item) type, which is a \fCvoid*\fR. The template classes that create the real collections cast the Item to the required type.
 .PP
 See also Collection Classes and Non-GUI Classes.
 .SS "Member Type Documentation"
-.SH "QPtrCollection::Item"
-This type is the generic "item" in a QPtrCollection.
+.SH "TQPtrCollection::Item"
+This type is the generic "item" in a TQPtrCollection.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPtrCollection::QPtrCollection ()\fC [protected]\fR"
-Constructs a collection. The constructor is protected because QPtrCollection is an abstract class.
-.SH "QPtrCollection::QPtrCollection ( const QPtrCollection & source )\fC [protected]\fR"
-Constructs a copy of \fIsource\fR with autoDelete() set to FALSE. The constructor is protected because QPtrCollection is an abstract class.
+.SH "TQPtrCollection::TQPtrCollection ()\fC [protected]\fR"
+Constructs a collection. The constructor is protected because TQPtrCollection is an abstract class.
+.SH "TQPtrCollection::TQPtrCollection ( const TQPtrCollection & source )\fC [protected]\fR"
+Constructs a copy of \fIsource\fR with autoDelete() set to FALSE. The constructor is protected because TQPtrCollection is an abstract class.
 .PP
 Note that if \fIsource\fR has autoDelete turned on, copying it will risk memory leaks, reading freed memory, or both.
-.SH "QPtrCollection::~QPtrCollection ()\fC [virtual protected]\fR"
-Destroys the collection. The destructor is protected because QPtrCollection is an abstract class.
-.SH "bool QPtrCollection::autoDelete () const"
+.SH "TQPtrCollection::~TQPtrCollection ()\fC [virtual protected]\fR"
+Destroys the collection. The destructor is protected because TQPtrCollection is an abstract class.
+.SH "bool TQPtrCollection::autoDelete () const"
 Returns the setting of the auto-delete option. The default is FALSE.
 .PP
 See also setAutoDelete().
-.SH "void QPtrCollection::clear ()\fC [pure virtual]\fR"
+.SH "void TQPtrCollection::clear ()\fC [pure virtual]\fR"
 Removes all objects from the collection. The objects will be deleted if auto-delete has been enabled.
 .PP
 See also setAutoDelete().
 .PP
-Reimplemented in QAsciiCache, QAsciiDict, QCache, QDict, QIntCache, QIntDict, QPtrList, QPtrDict, and QPtrVector.
-.SH "uint QPtrCollection::count () const\fC [pure virtual]\fR"
+Reimplemented in TQAsciiCache, TQAsciiDict, TQCache, TQDict, TQIntCache, TQIntDict, TQPtrList, TQPtrDict, and TQPtrVector.
+.SH "uint TQPtrCollection::count () const\fC [pure virtual]\fR"
 Returns the number of objects in the collection.
 .PP
-Reimplemented in QAsciiCache, QAsciiDict, QCache, QDict, QIntCache, QIntDict, QPtrList, QPtrDict, and QPtrVector.
-.SH "void QPtrCollection::deleteItem ( Item d )\fC [pure virtual protected]\fR"
+Reimplemented in TQAsciiCache, TQAsciiDict, TQCache, TQDict, TQIntCache, TQIntDict, TQPtrList, TQPtrDict, and TQPtrVector.
+.SH "void TQPtrCollection::deleteItem ( Item d )\fC [pure virtual protected]\fR"
 Reimplement this function if you want to be able to delete items.
 .PP
 Deletes an item that is about to be removed from the collection.
@@ -97,7 +97,7 @@ This function has to reimplemented in the collection template classes, and shoul
 \fBWarning:\fR If you reimplement this function you must also reimplement the destructor and call the virtual function clear() from your destructor. This is due to the way virtual functions and destructors work in C++: Virtual functions in derived classes cannot be called from a destructor. If you do not do this, your deleteItem() function will not be called when the container is destroyed.
 .PP
 See also newItem() and setAutoDelete().
-.SH "Item QPtrCollection::newItem ( Item d )\fC [virtual protected]\fR"
+.SH "Item TQPtrCollection::newItem ( Item d )\fC [virtual protected]\fR"
 Virtual function that creates a copy of an object that is about to be inserted into the collection.
 .PP
 The default implementation returns the \fId\fR pointer, i.e. no copy is made.
@@ -105,7 +105,7 @@ The default implementation returns the \fId\fR pointer, i.e. no copy is made.
 This function is seldom reimplemented in the collection template classes. It is not common practice to make a copy of something that is being inserted.
 .PP
 See also deleteItem().
-.SH "void QPtrCollection::setAutoDelete ( bool enable )"
+.SH "void TQPtrCollection::setAutoDelete ( bool enable )"
 Sets the collection to auto-delete its contents if \fIenable\fR is TRUE and to never delete them if \fIenable\fR is FALSE.
 .PP
 If auto-deleting is turned on, all the items in a collection are deleted when the collection itself is deleted. This is convenient if the collection has the only pointer to the items.
@@ -117,10 +117,10 @@ Note that the auto-delete setting may also affect other functions in subclasses.
 See also autoDelete().
 .PP
 Examples:
-.)l grapher/grapher.cpp, scribble/scribble.cpp, and table/bigtable/main.cpp.
+.)l scribble/scribble.cpp and table/bigtable/main.cpp.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqptrcollection.html
+.BR http://doc.trolltech.com/tqptrcollection.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

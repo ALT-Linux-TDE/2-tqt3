@@ -33,9 +33,9 @@
 
 #include <metatranslator.h>
 
-#include <ntqregexp.h>
-#include <ntqstring.h>
-#include <ntqtranslator.h>
+#include <tqregexp.h>
+#include <tqstring.h>
+#include <tqtranslator.h>
 
 typedef TQValueList<TQTranslatorMessage> TML;
 

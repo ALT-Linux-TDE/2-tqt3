@@ -9,8 +9,8 @@
 
 #include "qtetrixb.h"
 #include "qtetrix.h"
-#include <ntqtimer.h>
-#include <ntqpainter.h>
+#include <tqtimer.h>
+#include <tqpainter.h>
 
 const int waitAfterLineTime = 500;
 

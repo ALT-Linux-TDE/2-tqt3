@@ -14,9 +14,9 @@
 #ifndef DROPSITE_H
 #define DROPSITE_H
 
-#include <ntqlabel.h>
-#include <ntqmovie.h>
-#include "ntqdropsite.h"
+#include <tqlabel.h>
+#include <tqmovie.h>
+#include "tqdropsite.h"
 
 class TQDragObject;
 

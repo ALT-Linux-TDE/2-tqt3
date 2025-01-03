@@ -33,10 +33,10 @@
 **********************************************************************/
 
 #include "cppbrowser.h"
-#include <private/qrichtext_p.h>
-#include <ntqprocess.h>
-#include <ntqmainwindow.h>
-#include <ntqstatusbar.h>
+#include <private/tqrichtext_p.h>
+#include <tqprocess.h>
+#include <tqmainwindow.h>
+#include <tqstatusbar.h>
 #include <editor.h>
 
 CppEditorBrowser::CppEditorBrowser( Editor *e )

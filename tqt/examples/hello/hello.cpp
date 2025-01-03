@@ -8,10 +8,10 @@
 *****************************************************************************/
 
 #include "hello.h"
-#include <ntqpushbutton.h>
-#include <ntqtimer.h>
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
+#include <tqpushbutton.h>
+#include <tqtimer.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
 
 
 /*

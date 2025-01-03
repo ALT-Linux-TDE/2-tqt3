@@ -35,7 +35,7 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <ntqgl.h>
+#include <tqgl.h>
 
 class GLWidget : public TQGLWidget
 {

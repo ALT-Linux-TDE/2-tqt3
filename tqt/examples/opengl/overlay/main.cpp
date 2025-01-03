@@ -17,9 +17,9 @@
 // 
 
 #include "globjwin.h"
-#include <ntqapplication.h>
-#include <ntqgl.h>
-#include <ntqmessagebox.h>
+#include <tqapplication.h>
+#include <tqgl.h>
+#include <tqmessagebox.h>
 
 /*
   The main program is here. 

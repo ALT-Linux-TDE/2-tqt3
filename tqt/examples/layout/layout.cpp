@@ -7,15 +7,15 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqlabel.h>
-#include <ntqcolor.h>
-#include <ntqpushbutton.h>
-#include <ntqlayout.h>
-#include <ntqlineedit.h>
-#include <ntqmultilineedit.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
+#include <tqapplication.h>
+#include <tqlabel.h>
+#include <tqcolor.h>
+#include <tqpushbutton.h>
+#include <tqlayout.h>
+#include <tqlineedit.h>
+#include <tqmultilineedit.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
 
 class ExampleWidget : public TQWidget
 {

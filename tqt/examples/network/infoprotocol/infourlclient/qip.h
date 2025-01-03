@@ -10,7 +10,7 @@
 #ifndef TQIP_H
 #define TQIP_H
 
-#include <ntqnetworkprotocol.h>
+#include <tqnetworkprotocol.h>
 
 class TQSocket;
 

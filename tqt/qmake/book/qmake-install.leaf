@@ -23,19 +23,13 @@ The following is a list of environment variables available to choose
 from when setting QMAKESPEC:
 
 aix-64       hpux-cc    irix-032      netbsd-g++  solaris-cc   unixware7-g++
-aix-g++      hpux-g++   linux-cxx     openbsd-g++ solaris-g++  win32-borland    
+aix-g++      hpux-g++   linux-cxx     openbsd-g++ solaris-g++
 aix-xlc      hpux-n64   linux-g++     openunix-cc sunos-g++    win32-g++ 
 bsdi-g++     hpux-o64   linux-icc     qnx-g++     tru64-cxx    win32-msvc 
-dgux-g++     hurd-g++   linux-kcc     reliant-64  tru64-g++    win32-watc
-freebsd-g++  irix-64    macx-pbuilder reliant-cds ultrix-g++   win32-visa    
+dgux-g++     hurd-g++   linux-kcc     tru64-g++   win32-watc
+freebsd-g++  irix-64    macx-pbuilder ultrix-g++  win32-visa    
 hpux-acc     irix-g++   macx-g++      sco-g++     unixware-g        	
 hpux-acc     irix-n32   solaris-64    unixware7-cc 
-
-The environment variable should be set to qws/envvar where envvar is
-one of the following:
-
-linux-arm-g++      linux-generic-g++  linux-mips-g++     linux-x86-g++
-linux-freebsd-g++  linux-ipaq-g++     linux-solaris-g++  qnx-rtp-g++
 
 \i TQTDIR \BR This must be set to where TQt is (or will be) installed.
 For example, \e {c:\\qt} and \e {\\local\\qt} 

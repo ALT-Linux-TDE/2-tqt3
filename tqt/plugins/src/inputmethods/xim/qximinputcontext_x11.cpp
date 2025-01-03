@@ -45,12 +45,12 @@ const int XKeyRelease = KeyRelease;
 
 #include "qplatformdefs.h"
 
-#include "ntqapplication.h"
-#include "ntqwidget.h"
-#include "ntqstring.h"
-#include "ntqptrlist.h"
-#include "ntqintdict.h"
-#include "ntqtextcodec.h"
+#include "tqapplication.h"
+#include "tqwidget.h"
+#include "tqstring.h"
+#include "tqptrlist.h"
+#include "tqintdict.h"
+#include "tqtextcodec.h"
 
 #include <stdlib.h>
 #include <limits.h>
@@ -63,7 +63,7 @@ const int XKeyRelease = KeyRelease;
 
 // #define QT_XIM_DEBUG
 
-// from qapplication_x11.cpp
+// from tqapplication_x11.cpp
 static XIM	qt_xim = 0;
 extern XIMStyle	qt_xim_style;
 extern XIMStyle	qt_xim_preferred_style;

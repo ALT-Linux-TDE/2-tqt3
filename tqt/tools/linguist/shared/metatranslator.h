@@ -34,10 +34,10 @@
 #ifndef METATRANSLATOR_H
 #define METATRANSLATOR_H
 
-#include <ntqmap.h>
-#include <ntqstring.h>
-#include <ntqtranslator.h>
-#include <ntqvaluelist.h>
+#include <tqmap.h>
+#include <tqstring.h>
+#include <tqtranslator.h>
+#include <tqvaluelist.h>
 
 class TQTextCodec;
 

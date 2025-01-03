@@ -107,10 +107,6 @@
 
 /* ************************************************************************** */
 
-#ifdef __BORLANDC__
-#pragma option -AT                     /* turn off strict ANSI-C for the moment */
-#endif
-
 #ifndef WIN32
 #if defined(_WIN32) || defined(__WIN32__) || defined(_Windows) || defined(_WINDOWS)
 #define WIN32                          /* gather them into a single define */
@@ -181,13 +177,7 @@
 #include <limits.h>                    /* get proper integer widths */
 
 #ifdef WIN32
-/* B003 */
-#if defined __BORLANDC__
-#include <mem.h>                       /* defines "memcpy" for BCB */
-#else
 #include <memory.h>                    /* defines "memcpy" for other win32 platforms */
-#endif
-/* B003 */
 #ifdef MNG_CHECK_BAD_ICCP
 #include <string.h>                    /* strncmp() */
 #endif
@@ -234,10 +224,6 @@
 #define MNG_DECL                       /* dummies for non-DLL */
 #define MNG_EXT
 #endif /* MNG_DLL && WIN32 */
-
-#if defined(__BORLANDC__) && defined(MNG_STRICT_ANSI)
-#pragma option -A                      /* now force ANSI-C from here on */
-#endif
 
 /* ************************************************************************** */
 

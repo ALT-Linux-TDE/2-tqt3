@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
-open(INPUT, 'qpsprinter.ps')
-  or die "Can't open qpsprinter.ps";
+open(INPUT, 'tqpsprinter.ps')
+  or die "Can't open tqpsprinter.ps";
 
 $dontcompress = 1;
 while(<INPUT>) {

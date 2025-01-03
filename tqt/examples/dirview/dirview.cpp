@@ -9,19 +9,19 @@
 
 #include "dirview.h"
 
-#include <ntqdir.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqpixmap.h>
-#include <ntqevent.h>
-#include <ntqpoint.h>
-#include <ntqmessagebox.h>
-#include <ntqdragobject.h>
-#include <ntqmime.h>
-#include <ntqstrlist.h>
-#include <ntqstringlist.h>
-#include <ntqapplication.h>
-#include <ntqheader.h>
+#include <tqdir.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqpixmap.h>
+#include <tqevent.h>
+#include <tqpoint.h>
+#include <tqmessagebox.h>
+#include <tqdragobject.h>
+#include <tqmime.h>
+#include <tqstrlist.h>
+#include <tqstringlist.h>
+#include <tqapplication.h>
+#include <tqheader.h>
 
 static const char* folder_closed_xpm[]={
     "16 16 9 1",

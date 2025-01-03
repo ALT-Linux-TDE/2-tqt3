@@ -36,7 +36,7 @@
 #define CPPCOMPLETION_H
 
 #include <completion.h>
-#include <ntqguardedptr.h>
+#include <tqguardedptr.h>
 
 class CppEditorCompletion : public EditorCompletion
 {

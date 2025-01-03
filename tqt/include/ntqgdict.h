@@ -1,1 +1,0 @@
-../src/tools/ntqgdict.h

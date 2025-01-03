@@ -9,13 +9,13 @@
 
 #include "checklists.h"
 
-#include <ntqlistview.h>
-#include <ntqvbox.h>
-#include <ntqlabel.h>
-#include <ntqvaluelist.h>
-#include <ntqstring.h>
-#include <ntqpushbutton.h>
-#include <ntqlayout.h>
+#include <tqlistview.h>
+#include <tqvbox.h>
+#include <tqlabel.h>
+#include <tqvaluelist.h>
+#include <tqstring.h>
+#include <tqpushbutton.h>
+#include <tqlayout.h>
 
 /*
  * Constructor

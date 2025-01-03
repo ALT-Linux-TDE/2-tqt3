@@ -58,17 +58,10 @@
 #include "libmng_data.h"
 #include "libmng_error.h"
 #include "libmng_trace.h"
-#ifdef __BORLANDC__
-#pragma hdrstop
-#endif
 #include "libmng_memory.h"
 #include "libmng_chunks.h"
 #include "libmng_chunk_prc.h"
 #include "libmng_chunk_io.h"
-
-#if defined(__BORLANDC__) && defined(MNG_STRICT_ANSI)
-#pragma option -A                      /* force ANSI-C */
-#endif
 
 /* ************************************************************************** */
 

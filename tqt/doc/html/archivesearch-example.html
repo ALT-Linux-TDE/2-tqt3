@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/network/archivesearch/archivesearch.doc:5 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -34,7 +33,7 @@ body { background: #ffffff; color: black; }
  
 <p> 
 <p> This example does a search on the qt-interest mailinglist archives. It uses
-<a href="ntqhttp.html">TQHttp</a> to issue the search command and to fetch the results. The GUI parts
+<a href="tqhttp.html">TQHttp</a> to issue the search command and to fetch the results. The GUI parts
 were done using <a href="designer-manual.html">TQt Designer</a>.
 <p> <hr>
 <p> The implementation of the HTTP requests (archivedialog.ui.h):
@@ -49,7 +48,7 @@ were done using <a href="designer-manual.html">TQt Designer</a>.
 *****************************************************************************/
 
 /****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
+** ui.h extension file, included from the tquic-generated form implementation.
 **
 ** If you wish to add, delete or rename functions or slots use
 ** TQt Designer which will update this file, preserving your code. Create an
@@ -67,17 +66,17 @@ void ArchiveDialog::init()
     connect(myPushButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(close()));
 }
 
-void ArchiveDialog::fetch( <a href="qlistviewitem.html">TQListViewItem</a> *it )
+void ArchiveDialog::fetch( <a href="tqlistviewitem.html">TQListViewItem</a> *it )
 {
-<a name="x477"></a>    <a href="ntqurl.html">TQUrl</a> u(it-&gt;<a href="qlistviewitem.html#text">text</a>(1));
-<a name="x485"></a>    articleFetcher.setHost(u.<a href="ntqurl.html#host">host</a>());
-    articleFetcher.get(it-&gt;<a href="qlistviewitem.html#text">text</a>(1));
+<a name="x477"></a>    <a href="tqurl.html">TQUrl</a> u(it-&gt;<a href="tqlistviewitem.html#text">text</a>(1));
+<a name="x485"></a>    articleFetcher.setHost(u.<a href="tqurl.html#host">host</a>());
+    articleFetcher.get(it-&gt;<a href="tqlistviewitem.html#text">text</a>(1));
 }
 
 void ArchiveDialog::fetchDone( bool error )
 {
     if (error) {
-<a name="x478"></a>        TQMessageBox::<a href="ntqmessagebox.html#critical">critical</a>(this, "Error fetching",
+<a name="x478"></a>        TQMessageBox::<a href="tqmessagebox.html#critical">critical</a>(this, "Error fetching",
                               "An error occurred when fetching this document: "
                               + articleFetcher.errorString(),
                               TQMessageBox::Ok, TQMessageBox::NoButton);
@@ -96,23 +95,23 @@ void ArchiveDialog::search()
     }
 
     if (myLineEdit-&gt;text() == "") {
-        TQMessageBox::<a href="ntqmessagebox.html#critical">critical</a>(this, "Empty query",
+        TQMessageBox::<a href="tqmessagebox.html#critical">critical</a>(this, "Empty query",
                               "Please type a search string.",
                               TQMessageBox::Ok, TQMessageBox::NoButton);
     } else {
-<a name="x474"></a>        TQApplication::<a href="ntqapplication.html#setOverrideCursor">setOverrideCursor</a>(TQCursor(TQt::WaitCursor));
+<a name="x474"></a>        TQApplication::<a href="tqapplication.html#setOverrideCursor">setOverrideCursor</a>(TQCursor(TQt::WaitCursor));
 
         articleSearcher.setHost("lists.trolltech.com");
 
-        <a href="qhttprequestheader.html">TQHttpRequestHeader</a> header("POST", "/qt-interest/search.php");
-<a name="x476"></a>        header.<a href="qhttpheader.html#setValue">setValue</a>("Host", "lists.trolltech.com");
-<a name="x475"></a>        header.<a href="qhttpheader.html#setContentType">setContentType</a>("application/x-www-form-urlencoded");
+        <a href="tqhttprequestheader.html">TQHttpRequestHeader</a> header("POST", "/qt-interest/search.php");
+<a name="x476"></a>        header.<a href="tqhttpheader.html#setValue">setValue</a>("Host", "lists.trolltech.com");
+<a name="x475"></a>        header.<a href="tqhttpheader.html#setContentType">setContentType</a>("application/x-www-form-urlencoded");
 
-        <a href="ntqstring.html">TQString</a> encodedTopic = myLineEdit-&gt;text();
-<a name="x484"></a>        TQUrl::<a href="ntqurl.html#encode">encode</a>(encodedTopic);
-        <a href="ntqstring.html">TQString</a> searchString = "qt-interest=on&amp;search=" + encodedTopic;
+        <a href="tqstring.html">TQString</a> encodedTopic = myLineEdit-&gt;text();
+<a name="x484"></a>        TQUrl::<a href="tqurl.html#encode">encode</a>(encodedTopic);
+        <a href="tqstring.html">TQString</a> searchString = "qt-interest=on&amp;search=" + encodedTopic;
 
-<a name="x483"></a>        articleSearcher.request(header, searchString.<a href="ntqstring.html#utf8">utf8</a>());
+<a name="x483"></a>        articleSearcher.request(header, searchString.<a href="tqstring.html#utf8">utf8</a>());
     }
 
 }
@@ -120,26 +119,26 @@ void ArchiveDialog::search()
 void ArchiveDialog::searchDone( bool error )
 {
     if (error) {
-        TQMessageBox::<a href="ntqmessagebox.html#critical">critical</a>(this, "Error searching",
+        TQMessageBox::<a href="tqmessagebox.html#critical">critical</a>(this, "Error searching",
                               "An error occurred when searching: "
                               + articleSearcher.errorString(),
                               TQMessageBox::Ok, TQMessageBox::NoButton);
     } else {
-        <a href="ntqstring.html">TQString</a> result(articleSearcher.readAll());
+        <a href="tqstring.html">TQString</a> result(articleSearcher.readAll());
 
-        <a href="ntqregexp.html">TQRegExp</a> rx("&lt;a href=\"(http://lists\\.trolltech\\.com/qt-interest/.*)\"&gt;(.*)&lt;/a&gt;");
-<a name="x482"></a>        rx.<a href="ntqregexp.html#setMinimal">setMinimal</a>(TRUE);
+        <a href="tqregexp.html">TQRegExp</a> rx("&lt;a href=\"(http://lists\\.trolltech\\.com/qt-interest/.*)\"&gt;(.*)&lt;/a&gt;");
+<a name="x482"></a>        rx.<a href="tqregexp.html#setMinimal">setMinimal</a>(TRUE);
         int pos = 0;
         while (pos &gt;= 0) {
-<a name="x481"></a>            pos = rx.<a href="ntqregexp.html#search">search</a>(result, pos);
+<a name="x481"></a>            pos = rx.<a href="tqregexp.html#search">search</a>(result, pos);
             if (pos &gt; -1) {
-<a name="x480"></a>                pos += rx.<a href="ntqregexp.html#matchedLength">matchedLength</a>();
-<a name="x479"></a>                new <a href="qlistviewitem.html">TQListViewItem</a>(myListView, rx.<a href="ntqregexp.html#cap">cap</a>(2), rx.<a href="ntqregexp.html#cap">cap</a>(1));
+<a name="x480"></a>                pos += rx.<a href="tqregexp.html#matchedLength">matchedLength</a>();
+<a name="x479"></a>                new <a href="tqlistviewitem.html">TQListViewItem</a>(myListView, rx.<a href="tqregexp.html#cap">cap</a>(2), rx.<a href="tqregexp.html#cap">cap</a>(1));
             }
         }
     }
 
-<a name="x473"></a>    TQApplication::<a href="ntqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();
+<a name="x473"></a>    TQApplication::<a href="tqapplication.html#restoreOverrideCursor">restoreOverrideCursor</a>();
 }
 </pre>
 
@@ -156,18 +155,18 @@ void ArchiveDialog::searchDone( bool error )
 *****************************************************************************/
 
 #include "archivedialog.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 int main(int argc, char **argv)
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
     ArchiveDialog ad;
     ad.show();
 
-<a name="x489"></a><a name="x487"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="ntqapplication.html#lastWindowClosed">lastWindowClosed</a>()),
-<a name="x488"></a>                      &amp;a, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()) );
+<a name="x489"></a><a name="x487"></a>    TQObject::<a href="tqobject.html#connect">connect</a>( &amp;a, TQ_SIGNAL(<a href="tqapplication.html#lastWindowClosed">lastWindowClosed</a>()),
+<a name="x488"></a>                      &amp;a, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()) );
 
-<a name="x486"></a>    return a.<a href="ntqapplication.html#exec">exec</a>();
+<a name="x486"></a>    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

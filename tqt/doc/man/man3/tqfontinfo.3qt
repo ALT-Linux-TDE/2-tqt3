@@ -1,5 +1,5 @@
 '\" t
-.TH QFontInfo 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQFontInfo 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,26 +7,26 @@
 .ad l
 .nh
 .SH NAME
-QFontInfo \- General information about fonts
+TQFontInfo \- General information about fonts
 .SH SYNOPSIS
-\fC#include <ntqfontinfo.h>\fR
+\fC#include <tqfontinfo.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQFontInfo\fR ( const QFont & font )"
+.BI "\fBTQFontInfo\fR ( const TQFont & font )"
 .br
 .ti -1c
-.BI "\fBQFontInfo\fR ( const QFont & font, QFont::Script script )"
+.BI "\fBTQFontInfo\fR ( const TQFont & font, TQFont::Script script )"
 .br
 .ti -1c
-.BI "\fBQFontInfo\fR ( const QFontInfo & fi )"
+.BI "\fBTQFontInfo\fR ( const TQFontInfo & fi )"
 .br
 .ti -1c
-.BI "\fB~QFontInfo\fR ()"
+.BI "\fB~TQFontInfo\fR ()"
 .br
 .ti -1c
-.BI "QFontInfo & \fBoperator=\fR ( const QFontInfo & fi )"
+.BI "TQFontInfo & \fBoperator=\fR ( const TQFontInfo & fi )"
 .br
 .ti -1c
 .BI "TQString \fBfamily\fR () const"
@@ -50,7 +50,7 @@ QFontInfo \- General information about fonts
 .BI "bool \fBfixedPitch\fR () const"
 .br
 .ti -1c
-.BI "QFont::StyleHint \fBstyleHint\fR () const"
+.BI "TQFont::StyleHint \fBstyleHint\fR () const"
 .br
 .ti -1c
 .BI "bool \fBrawMode\fR () const"
@@ -60,97 +60,97 @@ QFontInfo \- General information about fonts
 .br
 .in -1c
 .SH DESCRIPTION
-The QFontInfo class provides general information about fonts.
+The TQFontInfo class provides general information about fonts.
 .PP
-The QFontInfo class provides the same access functions as QFont, e.g. family(), pointSize(), italic(), weight(), fixedPitch(), styleHint() etc. But whilst the QFont access functions return the values that were set, a QFontInfo object returns the values that apply to the font that will actually be used to draw the text.
+The TQFontInfo class provides the same access functions as TQFont, e.g. family(), pointSize(), italic(), weight(), fixedPitch(), styleHint() etc. But whilst the TQFont access functions return the values that were set, a TQFontInfo object returns the values that apply to the font that will actually be used to draw the text.
 .PP
-For example, when the program asks for a 25pt Courier font on a machine that has a non-scalable 24pt Courier font, QFont will (normally) use the 24pt Courier for rendering. In this case, QFont::pointSize() returns 25 and QFontInfo::pointSize() returns 24.
+For example, when the program asks for a 25pt Courier font on a machine that has a non-scalable 24pt Courier font, TQFont will (normally) use the 24pt Courier for rendering. In this case, TQFont::pointSize() returns 25 and TQFontInfo::pointSize() returns 24.
 .PP
-There are three ways to create a QFontInfo object. <ol type=1>
+There are three ways to create a TQFontInfo object. <ol type=1>
 .IP 1
-Calling the QFontInfo constructor with a QFont creates a font info object for a screen-compatible font, i.e. the font cannot be a printer font<sup>*</sup>. If the font is changed later, the font info object is \fInot\fR updated.
+Calling the TQFontInfo constructor with a TQFont creates a font info object for a screen-compatible font, i.e. the font cannot be a printer font<sup>*</sup>. If the font is changed later, the font info object is \fInot\fR updated.
 .IP 2
-TQWidget::fontInfo() returns the font info for a widget's font. This is equivalent to calling QFontInfo(widget->font()). If the widget's font is changed later, the font info object is \fInot\fR updated.
+TQWidget::fontInfo() returns the font info for a widget's font. This is equivalent to calling TQFontInfo(widget->font()). If the widget's font is changed later, the font info object is \fInot\fR updated.
 .IP 3
-QPainter::fontInfo() returns the font info for a painter's current font. If the painter's font is changed later, the font info object is \fInot\fR updated.
+TQPainter::fontInfo() returns the font info for a painter's current font. If the painter's font is changed later, the font info object is \fInot\fR updated.
 .PP
 <sup>*</sup> If you use a printer font the values returned may be inaccurate. Printer fonts are not always accessible so the nearest screen font is used if a printer font is supplied.
 .PP
-See also QFont, QFontMetrics, QFontDatabase, Graphics Classes, and Implicitly and Explicitly Shared Classes.
+See also TQFont, TQFontMetrics, TQFontDatabase, Graphics Classes, and Implicitly and Explicitly Shared Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QFontInfo::QFontInfo ( const QFont & font )"
+.SH "TQFontInfo::TQFontInfo ( const TQFont & font )"
 Constructs a font info object for \fIfont\fR.
 .PP
-The font must be screen-compatible, i.e. a font you use when drawing text in widgets or pixmaps, not QPicture or QPrinter.
+The font must be screen-compatible, i.e. a font you use when drawing text in widgets or pixmaps, not TQPicture or TQPrinter.
 .PP
 The font info object holds the information for the font that is passed in the constructor at the time it is created, and is not updated if the font's attributes are changed later.
 .PP
-Use QPainter::fontInfo() to get the font info when painting. This will give correct results also when painting on paint device that is not screen-compatible.
-.SH "QFontInfo::QFontInfo ( const QFont & font, QFont::Script script )"
+Use TQPainter::fontInfo() to get the font info when painting. This will give correct results also when painting on paint device that is not screen-compatible.
+.SH "TQFontInfo::TQFontInfo ( const TQFont & font, TQFont::Script script )"
 Constructs a font info object for \fIfont\fR using the specified \fIscript\fR.
-.SH "QFontInfo::QFontInfo ( const QFontInfo & fi )"
+.SH "TQFontInfo::TQFontInfo ( const TQFontInfo & fi )"
 Constructs a copy of \fIfi\fR.
-.SH "QFontInfo::~QFontInfo ()"
+.SH "TQFontInfo::~TQFontInfo ()"
 Destroys the font info object.
-.SH "bool QFontInfo::bold () const"
-Returns TRUE if weight() would return a value greater than QFont::Normal; otherwise returns FALSE.
+.SH "bool TQFontInfo::bold () const"
+Returns TRUE if weight() would return a value greater than TQFont::Normal; otherwise returns FALSE.
 .PP
-See also weight() and QFont::bold().
+See also weight() and TQFont::bold().
 .PP
 Example: qfd/fontdisplayer.cpp.
-.SH "bool QFontInfo::exactMatch () const"
+.SH "bool TQFontInfo::exactMatch () const"
 Returns TRUE if the matched window system font is exactly the same as the one specified by the font; otherwise returns FALSE.
 .PP
-See also QFont::exactMatch().
-.SH "TQString QFontInfo::family () const"
+See also TQFont::exactMatch().
+.SH "TQString TQFontInfo::family () const"
 Returns the family name of the matched window system font.
 .PP
-See also QFont::family().
+See also TQFont::family().
 .PP
 Examples:
-.)l fonts/simple-qfont-demo/viewer.cpp and qfd/fontdisplayer.cpp.
-.SH "bool QFontInfo::fixedPitch () const"
+.)l fonts/simple-tqfont-demo/viewer.cpp and qfd/fontdisplayer.cpp.
+.SH "bool TQFontInfo::fixedPitch () const"
 Returns the fixed pitch value of the matched window system font.
 .PP
-See also QFont::fixedPitch().
-.SH "bool QFontInfo::italic () const"
+See also TQFont::fixedPitch().
+.SH "bool TQFontInfo::italic () const"
 Returns the italic value of the matched window system font.
 .PP
-See also QFont::italic().
+See also TQFont::italic().
 .PP
 Example: qfd/fontdisplayer.cpp.
-.SH "QFontInfo & QFontInfo::operator= ( const QFontInfo & fi )"
+.SH "TQFontInfo & TQFontInfo::operator= ( const TQFontInfo & fi )"
 Assigns the font info in \fIfi\fR.
-.SH "int QFontInfo::pixelSize () const"
+.SH "int TQFontInfo::pixelSize () const"
 Returns the pixel size of the matched window system font.
 .PP
-See also QFont::pointSize().
-.SH "int QFontInfo::pointSize () const"
+See also TQFont::pointSize().
+.SH "int TQFontInfo::pointSize () const"
 Returns the point size of the matched window system font.
 .PP
-See also QFont::pointSize().
+See also TQFont::pointSize().
 .PP
 Examples:
-.)l fonts/simple-qfont-demo/viewer.cpp and qfd/fontdisplayer.cpp.
-.SH "bool QFontInfo::rawMode () const"
+.)l fonts/simple-tqfont-demo/viewer.cpp and qfd/fontdisplayer.cpp.
+.SH "bool TQFontInfo::rawMode () const"
 Returns TRUE if the font is a raw mode font; otherwise returns FALSE.
 .PP
-If it is a raw mode font, all other functions in QFontInfo will return the same values set in the QFont, regardless of the font actually used.
+If it is a raw mode font, all other functions in TQFontInfo will return the same values set in the TQFont, regardless of the font actually used.
 .PP
-See also QFont::rawMode().
-.SH "QFont::StyleHint QFontInfo::styleHint () const"
+See also TQFont::rawMode().
+.SH "TQFont::StyleHint TQFontInfo::styleHint () const"
 Returns the style of the matched window system font.
 .PP
-Currently only returns the style hint set in QFont.
+Currently only returns the style hint set in TQFont.
 .PP
-See also QFont::styleHint() and QFont::StyleHint.
-.SH "int QFontInfo::weight () const"
+See also TQFont::styleHint() and TQFont::StyleHint.
+.SH "int TQFontInfo::weight () const"
 Returns the weight of the matched window system font.
 .PP
-See also QFont::weight() and bold().
+See also TQFont::weight() and bold().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqfontinfo.html
+.BR http://doc.trolltech.com/tqfontinfo.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

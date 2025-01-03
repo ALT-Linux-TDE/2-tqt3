@@ -39,9 +39,9 @@
 #include "pbuilder_pbx.h"
 #include "option.h"
 #include "meta.h"
-#include <ntqdir.h>
-#include <ntqdict.h>
-#include <ntqregexp.h>
+#include <tqdir.h>
+#include <tqdict.h>
+#include <tqregexp.h>
 #include <stdlib.h>
 #include <time.h>
 #include "qtmd5.h"
@@ -403,7 +403,7 @@ ProjectBuilderMakefileGenerator::writeMakeParts(TQTextStream &t)
 	else if(srcs[i] == "SRCMOC")
 	    src_group = "Sources [moc]";
 	else if(srcs[i] == "UICIMPLS" || srcs[i] == "FORMS")
-	    src_group = "Sources [uic]";
+	    src_group = "Sources [tquic]";
 	else if(srcs[i] == "QMAKE_IMAGE_COLLECTION")
 	    src_group = "Sources [images]";
 	else if(srcs[i] == "QMAKE_INTERNAL_INCLUDED_FILES")
@@ -545,7 +545,7 @@ ProjectBuilderMakefileGenerator::writeMakeParts(TQTextStream &t)
 	    TQTextStream mkt(&mkf);
 	    writeHeader(mkt);
 	    mkt << "MOC       = " << Option::fixPathToTargetOS(var("QMAKE_MOC")) << endl;
-	    mkt << "UIC       = " << Option::fixPathToTargetOS(var("QMAKE_UIC")) << endl;
+	    mkt << "TQUIC       = " << Option::fixPathToTargetOS(var("QMAKE_UIC")) << endl;
 	    mkt << "LEX       = " << var("QMAKE_LEX") << endl;
 	    mkt << "LEXFLAGS  = " << var("QMAKE_LEXFLAGS") << endl;
 	    mkt << "YACC      = " << var("QMAKE_YACC") << endl;

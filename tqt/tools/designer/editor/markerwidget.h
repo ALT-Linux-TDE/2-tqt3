@@ -34,8 +34,8 @@
 #ifndef MARKERWIDGET_H
 #define MARKERWIDGET_H
 
-#include <ntqwidget.h>
-#include <ntqpixmap.h>
+#include <tqwidget.h>
+#include <tqpixmap.h>
 
 class ViewManager;
 class TQTextParagraph;

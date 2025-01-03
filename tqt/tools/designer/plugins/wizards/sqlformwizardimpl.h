@@ -37,7 +37,7 @@
 #include "sqlformwizard.h"
 #include <templatewizardiface.h>
 #include <designerinterface.h>
-#include <ntqvaluelist.h>
+#include <tqvaluelist.h>
 
 class SqlFormWizard : public SqlFormWizardBase
 {

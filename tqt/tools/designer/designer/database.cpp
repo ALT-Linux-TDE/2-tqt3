@@ -44,10 +44,10 @@
 #include "mainwindow.h"
 #endif
 
-#include <ntqsqldatabase.h>
-#include <ntqsqlform.h>
-#include <ntqsqlcursor.h>
-#include <ntqsqlrecord.h>
+#include <tqsqldatabase.h>
+#include <tqsqlform.h>
+#include <tqsqlcursor.h>
+#include <tqsqlrecord.h>
 
 DatabaseSupport::DatabaseSupport()
 {

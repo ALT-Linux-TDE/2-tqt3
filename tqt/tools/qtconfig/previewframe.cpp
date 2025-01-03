@@ -33,8 +33,8 @@
 
 #include "previewframe.h"
 
-#include <ntqvbox.h>
-#include <ntqpainter.h>
+#include <tqvbox.h>
+#include <tqpainter.h>
 
 PreviewFrame::PreviewFrame( TQWidget *parent, const char *name )
     : TQVBox( parent, name )

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/object.doc:210 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,31 +40,31 @@ features like <tt>__property</tt> or <tt>[property]</tt>. Our solution works wit
 on the meta-object system that also provides object communication
 through <a href="signalsandslots.html">signals and slots</a>.
 <p> The <tt>TQ_PROPERTY</tt> macro in a class declaration declares a
-property. Properties can only be declared in classes that inherit <a href="ntqobject.html">TQObject</a>. A second macro, <tt>TQ_OVERRIDE</tt>, can be used to override some
+property. Properties can only be declared in classes that inherit <a href="tqobject.html">TQObject</a>. A second macro, <tt>TQ_OVERRIDE</tt>, can be used to override some
 aspects of an inherited property in a subclass. (See <a href="#override">TQ_OVERRIDE</a>.)
 <p> To the outer world, a property appears to be similar to a data member.
 But properties have several features that distinguish them from
 ordinary data members:
 <p> <ul>
 <li> A read function. This always exists.
-<p> <li> A write function. This is optional: read-only properties like <a href="ntqwidget.html#isDesktop">TQWidget::isDesktop</a>() do not have one.
+<p> <li> A write function. This is optional: read-only properties like <a href="tqwidget.html#isDesktop">TQWidget::isDesktop</a>() do not have one.
 <p> <li> An attribute "stored" that indicates persistence. Most properties
-are stored, but a few virtual properties are not. For example, <a href="ntqwidget.html#minimumWidth">TQWidget::minimumWidth</a>() isn't stored, since it's just a view of
-<a href="ntqwidget.html#minimumSize">TQWidget::minimumSize</a>(), and has no data of its own.
+are stored, but a few virtual properties are not. For example, <a href="tqwidget.html#minimumWidth">TQWidget::minimumWidth</a>() isn't stored, since it's just a view of
+<a href="tqwidget.html#minimumSize">TQWidget::minimumSize</a>(), and has no data of its own.
 <p> <li> A reset function to set a property back to its context specific
-default value. This is very rare, but for example, <a href="ntqwidget.html#font">TQWidget::font</a>()
-needs this, since no call to <a href="ntqwidget.html#setFont">TQWidget::setFont</a>() can mean 'reset to
+default value. This is very rare, but for example, <a href="tqwidget.html#font">TQWidget::font</a>()
+needs this, since no call to <a href="tqwidget.html#setFont">TQWidget::setFont</a>() can mean 'reset to
 the context specific font'.
 <p> <li> An attribute "designable" that indicates whether it makes sense to
 make the property available in a GUI builder (e.g. <a href="designer-manual.html">TQt Designer</a>). For most properties this 
-makes sense, but not for all, e.g. <a href="ntqbutton.html#isDown">TQButton::isDown</a>(). The user can
+makes sense, but not for all, e.g. <a href="tqbutton.html#isDown">TQButton::isDown</a>(). The user can
 press buttons, and the application programmer can make the program
 press its own buttons, but a GUI design tool can't press buttons.
 <p> </ul>
 <p> The read, write, and reset functions must be public member functions
 from the class in which the property is defined.
 <p> Properties can be read and written through generic functions in
-<a href="ntqobject.html">TQObject</a> without knowing anything about the class in use. These two
+<a href="tqobject.html">TQObject</a> without knowing anything about the class in use. These two
 function calls are equivalent:
 <p> <pre>
     // TQButton *b and TQObject *o point to the same button
@@ -76,21 +75,21 @@ function calls are equivalent:
 <p> Equivalent, that is, except that the first is faster, and provides
 much better diagnostics at compile time. When practical, the first is
 better. However, since you can get a list of all available properties
-for any TQObject through its <a href="ntqmetaobject.html">TQMetaObject</a>, <a href="ntqobject.html#setProperty">TQObject::setProperty</a>()
+for any TQObject through its <a href="tqmetaobject.html">TQMetaObject</a>, <a href="tqobject.html#setProperty">TQObject::setProperty</a>()
 can give you control over classes that weren't available at compile
 time.
-<p> As well as <a href="ntqobject.html#setProperty">TQObject::setProperty</a>(), there is a corresponding <a href="ntqobject.html#property">TQObject::property</a>() function. <a href="ntqmetaobject.html#propertyNames">TQMetaObject::propertyNames</a>() returns
-the names of all available properties. <a href="ntqmetaobject.html#property">TQMetaObject::property</a>()
-returns the property data for a named property: a <a href="qmetaproperty.html">TQMetaProperty</a>
+<p> As well as <a href="tqobject.html#setProperty">TQObject::setProperty</a>(), there is a corresponding <a href="tqobject.html#property">TQObject::property</a>() function. <a href="tqmetaobject.html#propertyNames">TQMetaObject::propertyNames</a>() returns
+the names of all available properties. <a href="tqmetaobject.html#property">TQMetaObject::property</a>()
+returns the property data for a named property: a <a href="tqmetaproperty.html">TQMetaProperty</a>
 object.
 <p> Here's a simple example that shows the most important property
 functions in use:
 <p> <pre>
-    class MyClass : public <a href="ntqobject.html">TQObject</a>
+    class MyClass : public <a href="tqobject.html">TQObject</a>
     {
         <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
     public:
-        MyClass( <a href="ntqobject.html">TQObject</a> * parent=0, const char * name=0 );
+        MyClass( <a href="tqobject.html">TQObject</a> * parent=0, const char * name=0 );
         ~MyClass();
 
         enum Priority { High, Low, VeryHigh, VeryLow };
@@ -112,31 +111,31 @@ to return either the type itself, a pointer to it, or a reference to
 it. The optional write function must return void and must take exactly
 one argument, either the type itself, a pointer or a const reference
 to it. The meta object compiler enforces this.
-<p> The type of a property can be any <a href="ntqvariant.html">TQVariant</a> supported type or an
+<p> The type of a property can be any <a href="tqvariant.html">TQVariant</a> supported type or an
 enumeration type declared in the class itself. Since <tt>MyClass</tt> uses
 the enumeration type <tt>Priority</tt> for the property, this type must be
 registered with the property system as well.
 <p> There are two exceptions to the above: The type of a property can also
-be either <a href="ntqvaluelist.html">TQValueList&lt;TQVariant&gt;</a> or <a href="ntqmap.html">TQMap&lt;TQString,TQVariant&gt;</a>. In
-these cases the type must be specified as <a href="ntqvaluelist.html">TQValueList</a> or as <a href="ntqmap.html">TQMap</a>
+be either <a href="tqvaluelist.html">TQValueList&lt;TQVariant&gt;</a> or <a href="tqmap.html">TQMap&lt;TQString,TQVariant&gt;</a>. In
+these cases the type must be specified as <a href="tqvaluelist.html">TQValueList</a> or as <a href="tqmap.html">TQMap</a>
 (i.e. without their template parameters).
 <p> It is possible to set a value by name, like this:
 <pre>
     obj-&gt;setProperty( "priority", "VeryHigh" );
 </pre>
  
-In the case of <a href="ntqvaluelist.html">TQValueList</a> and <a href="ntqmap.html">TQMap</a> properties the value passes
-is a <a href="ntqvariant.html">TQVariant</a> whose value is the entire list or map.
+In the case of <a href="tqvaluelist.html">TQValueList</a> and <a href="tqmap.html">TQMap</a> properties the value passes
+is a <a href="tqvariant.html">TQVariant</a> whose value is the entire list or map.
 <p> Enumeration types are registered with the <tt>TQ_ENUMS</tt> macro. Here's the
 final class declaration including the property related declarations:
 <p> <pre>
-    class MyClass : public <a href="ntqobject.html">TQObject</a>
+    class MyClass : public <a href="tqobject.html">TQObject</a>
     {
         TQ_OBJECT
         TQ_PROPERTY( Priority priority READ priority WRITE setPriority )
         TQ_ENUMS( Priority )
     public:
-        MyClass( <a href="ntqobject.html">TQObject</a> * parent=0, const char * name=0 );
+        MyClass( <a href="tqobject.html">TQObject</a> * parent=0, const char * name=0 );
         ~MyClass();
 
         enum Priority { High, Low, VeryHigh, VeryLow };
@@ -163,7 +162,7 @@ you can specify a boolean member function.
 <p> <tt>STORED</tt> declares whether the property's value must be remembered
 when storing an object's state. Stored makes only sense for writable
 properties. The default value is <tt>TRUE</tt>. Technically superfluous
-properties (like <a href="ntqpoint.html">TQPoint</a> pos if <a href="ntqrect.html">TQRect</a> geometry is already a property)
+properties (like <a href="tqpoint.html">TQPoint</a> pos if <a href="tqrect.html">TQRect</a> geometry is already a property)
 define this to be <tt>FALSE</tt>.
 <p> Connected to the property system is an additional macro, "TQ_CLASSINFO",
 that can be used to attach additional name/value-pairs to a class'
@@ -173,13 +172,13 @@ meta object, for example:
 </pre>
  
 <p> Like other meta data, class information is accessible at runtime
-through the meta object, see <a href="ntqmetaobject.html#classInfo">TQMetaObject::classInfo</a>() for details.
+through the meta object, see <a href="tqmetaobject.html#classInfo">TQMetaObject::classInfo</a>() for details.
 <p> <a name="override"></a>
 <h2> TQ_OVERRIDE
 </h2>
-<a name="1"></a><p> When you inherit a <a href="ntqobject.html">TQObject</a> subclass you may wish to override some
+<a name="1"></a><p> When you inherit a <a href="tqobject.html">TQObject</a> subclass you may wish to override some
 aspects of some of the class's properties.
-<p> For example, in <a href="ntqwidget.html">TQWidget</a> we have the autoMask property defined like
+<p> For example, in <a href="tqwidget.html">TQWidget</a> we have the autoMask property defined like
 this:
 <pre>
     TQ_PROPERTY( bool autoMask READ autoMask WRITE setAutoMask DESIGNABLE false SCRIPTABLE false )
@@ -188,13 +187,13 @@ this:
 <p> But we need to make the auto mask property designable in some TQWidget
 subclasses. Similarly some classes will need this property to be
 scriptable (e.g. for TQSA). This is achieved by overriding these
-features of the property in a subclass. In <a href="ntqcheckbox.html">TQCheckBox</a>, for example, we
+features of the property in a subclass. In <a href="tqcheckbox.html">TQCheckBox</a>, for example, we
 achieve this using the following code:
 <pre>
     TQ_OVERRIDE( bool autoMask DESIGNABLE true SCRIPTABLE true )
 </pre>
  
-<p> Another example is <a href="ntqtoolbutton.html">TQToolButton</a>. By default TQToolButton has a read-only
+<p> Another example is <a href="tqtoolbutton.html">TQToolButton</a>. By default TQToolButton has a read-only
 "toggleButton" property, because that's what it inherits from TQButton:
 <pre>
     TQ_PROPERTY( bool toggleButton READ isToggleButton )

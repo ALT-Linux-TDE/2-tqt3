@@ -39,11 +39,11 @@
 #include "listboxdnd.h"
 #include "listboxrename.h"
 
-#include <ntqlineedit.h>
-#include <ntqlabel.h>
-#include <ntqlistbox.h>
-#include <ntqpushbutton.h>
-#include <ntqcheckbox.h>
+#include <tqlineedit.h>
+#include <tqlabel.h>
+#include <tqlistbox.h>
+#include <tqpushbutton.h>
+#include <tqcheckbox.h>
 
 ListBoxEditor::ListBoxEditor( TQWidget *parent, TQWidget *editWidget, FormWindow *fw )
     : ListBoxEditorBase( parent, 0, TRUE ), formwindow( fw )

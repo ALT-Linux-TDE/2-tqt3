@@ -1,0 +1,88 @@
+/*!
+    \class TQObjectList tqobjectlist.h
+    \brief The TQObjectList class is a TQPtrList of TQObjects.
+
+    \ingroup collection
+    \ingroup tools
+
+    A TQObjectList is a \link tqptrlist.html
+    TQPtrList\<TQObject\>\endlink. The list can be traversed using
+    inherited functions, e.g. getFirst(), next(), etc., or using a
+    TQObjectListIterator iterator.
+
+    See \l TQObject::queryList() for an example of use.
+
+    \sa TQObjectListIterator TQObject 
+*/
+
+/*!
+    \fn TQObjectList::TQObjectList()
+
+    Constructs an empty TQObject list.
+*/
+
+/*!
+    \fn TQObjectList::TQObjectList( const TQObjectList &list )
+
+    Constructs a copy of \a list.
+
+    Each item in \a list is \link append() appended\endlink to this
+    list. Only the pointers are copied (shallow copy).
+*/
+
+/*!
+    \fn TQObjectList::~TQObjectList()
+
+    Removes all the object pointers from the list and destroys the
+    list.
+
+    All list iterators that access this list will be reset.
+
+    \sa setAutoDelete()
+*/
+
+/*!
+    \fn TQObjectList &TQObjectList::operator=(const TQObjectList &list)
+
+    Assigns \a list to this list and returns a reference to this list.
+
+    This list is first cleared and then each item in \a list is \link
+    append() appended\endlink to this list. Only the pointers are
+    copied (shallow copy) unless newItem() has been reimplemented().
+*/
+
+
+/*!
+    \class TQObjectListIterator tqobjectlist.h
+    \brief The TQObjectListIterator class provides an iterator for
+    TQObjectLists.
+
+    \ingroup collection
+    \ingroup tools
+
+    A TQObjectListIterator iterator is a \link tqptrlistiterator.html
+    TQPtrListIterator\<TQObject\>\endlink.
+
+    See \l TQObject::queryList() for an example of use.
+
+    \sa TQObjectList
+*/
+
+/*!
+    \fn TQObjectListIterator::TQObjectListIterator( const TQObjectList &list )
+
+    Constructs an iterator for \a list. The current iterator item is
+    set to point on the first item in the \a list.
+*/
+
+/*!
+    \fn TQObjectListIterator& TQObjectListIterator::operator=( const TQObjectListIterator &it )
+
+    Assignment. Makes a copy of the iterator \a it and returns a
+    reference to this iterator.
+*/
+
+
+
+
+

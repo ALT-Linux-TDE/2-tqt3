@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/network/mail/mail.doc:5 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -33,7 +32,7 @@ body { background: #ffffff; color: black; }
 
  
 <p> 
-<p> This example shows how to use the <a href="ntqsocket.html">TQSocket</a> class. The client can only be
+<p> This example shows how to use the <a href="tqsocket.html">TQSocket</a> class. The client can only be
 used to send mails. The interesting part is the implementation of the
 SMTP protocol.
 <p> <hr>
@@ -51,24 +50,24 @@ SMTP protocol.
 #ifndef SMTP_H
 #define SMTP_H
 
-#include &lt;<a href="qobject-h.html">ntqobject.h</a>&gt;
-#include &lt;<a href="qstring-h.html">ntqstring.h</a>&gt;
+#include &lt;<a href="tqobject-h.html">tqobject.h</a>&gt;
+#include &lt;<a href="tqstring-h.html">tqstring.h</a>&gt;
 
 class TQSocket;
 class TQTextStream;
 class TQDns;
 
-class Smtp : public <a href="ntqobject.html">TQObject</a>
+class Smtp : public <a href="tqobject.html">TQObject</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 
 public:
-    Smtp( const <a href="ntqstring.html">TQString</a> &amp;from, const <a href="ntqstring.html">TQString</a> &amp;to,
-          const <a href="ntqstring.html">TQString</a> &amp;subject, const <a href="ntqstring.html">TQString</a> &amp;body );
+    Smtp( const <a href="tqstring.html">TQString</a> &amp;from, const <a href="tqstring.html">TQString</a> &amp;to,
+          const <a href="tqstring.html">TQString</a> &amp;subject, const <a href="tqstring.html">TQString</a> &amp;body );
     ~Smtp();
 
 signals:
-    void status( const <a href="ntqstring.html">TQString</a> &amp; );
+    void status( const <a href="tqstring.html">TQString</a> &amp; );
 
 private slots:
     void dnsLookupHelper();
@@ -86,14 +85,14 @@ private:
         Close
     };
 
-    <a href="ntqstring.html">TQString</a> message;
-    <a href="ntqstring.html">TQString</a> from;
-    <a href="ntqstring.html">TQString</a> rcpt;
-    <a href="ntqsocket.html">TQSocket</a> *socket;
-    <a href="ntqtextstream.html">TQTextStream</a> * t;
+    <a href="tqstring.html">TQString</a> message;
+    <a href="tqstring.html">TQString</a> from;
+    <a href="tqstring.html">TQString</a> rcpt;
+    <a href="tqsocket.html">TQSocket</a> *socket;
+    <a href="tqtextstream.html">TQTextStream</a> * t;
     int state;
-    <a href="ntqstring.html">TQString</a> response;
-    <a href="ntqdns.html">TQDns</a> * mxLookup;
+    <a href="tqstring.html">TQString</a> response;
+    <a href="tqdns.html">TQDns</a> * mxLookup;
 };
 
 #endif
@@ -113,37 +112,37 @@ private:
 
 #include "smtp.h"
 
-#include &lt;<a href="qtextstream-h.html">ntqtextstream.h</a>&gt;
-#include &lt;<a href="qsocket-h.html">ntqsocket.h</a>&gt;
-#include &lt;<a href="qdns-h.html">ntqdns.h</a>&gt;
-#include &lt;<a href="qtimer-h.html">ntqtimer.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qmessagebox-h.html">ntqmessagebox.h</a>&gt;
-#include &lt;<a href="qregexp-h.html">ntqregexp.h</a>&gt;
+#include &lt;<a href="tqtextstream-h.html">tqtextstream.h</a>&gt;
+#include &lt;<a href="tqsocket-h.html">tqsocket.h</a>&gt;
+#include &lt;<a href="tqdns-h.html">tqdns.h</a>&gt;
+#include &lt;<a href="tqtimer-h.html">tqtimer.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqmessagebox-h.html">tqmessagebox.h</a>&gt;
+#include &lt;<a href="tqregexp-h.html">tqregexp.h</a>&gt;
 
 
-<a name="f297"></a>Smtp::Smtp( const <a href="ntqstring.html">TQString</a> &amp;from, const <a href="ntqstring.html">TQString</a> &amp;to,
-            const <a href="ntqstring.html">TQString</a> &amp;subject,
-            const <a href="ntqstring.html">TQString</a> &amp;body )
+<a name="f297"></a>Smtp::Smtp( const <a href="tqstring.html">TQString</a> &amp;from, const <a href="tqstring.html">TQString</a> &amp;to,
+            const <a href="tqstring.html">TQString</a> &amp;subject,
+            const <a href="tqstring.html">TQString</a> &amp;body )
 {
-    socket = new <a href="ntqsocket.html">TQSocket</a>( this );
-<a name="x714"></a>    <a href="ntqobject.html#connect">connect</a> ( socket, TQ_SIGNAL( <a href="ntqsocket.html#readyRead">readyRead</a>() ),
+    socket = new <a href="tqsocket.html">TQSocket</a>( this );
+<a name="x714"></a>    <a href="tqobject.html#connect">connect</a> ( socket, TQ_SIGNAL( <a href="tqsocket.html#readyRead">readyRead</a>() ),
               this, TQ_SLOT( readyRead() ) );
-<a name="x711"></a>    <a href="ntqobject.html#connect">connect</a> ( socket, TQ_SIGNAL( <a href="ntqsocket.html#connected">connected</a>() ),
+<a name="x711"></a>    <a href="tqobject.html#connect">connect</a> ( socket, TQ_SIGNAL( <a href="tqsocket.html#connected">connected</a>() ),
               this, TQ_SLOT( connected() ) );
 
-<a name="x717"></a><a name="x715"></a>    mxLookup = new <a href="ntqdns.html">TQDns</a>( to.<a href="ntqstring.html#mid">mid</a>( to.<a href="ntqstring.html#find">find</a>( '@' )+1 ), TQDns::Mx );
-<a name="x707"></a>    <a href="ntqobject.html#connect">connect</a>( mxLookup, TQ_SIGNAL(<a href="ntqdns.html#resultsReady">resultsReady</a>()),
+<a name="x717"></a><a name="x715"></a>    mxLookup = new <a href="tqdns.html">TQDns</a>( to.<a href="tqstring.html#mid">mid</a>( to.<a href="tqstring.html#find">find</a>( '@' )+1 ), TQDns::Mx );
+<a name="x707"></a>    <a href="tqobject.html#connect">connect</a>( mxLookup, TQ_SIGNAL(<a href="tqdns.html#resultsReady">resultsReady</a>()),
              this, TQ_SLOT(dnsLookupHelper()) );
 
-<a name="x716"></a>    message = TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "From: " ) + from +
-              TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "\nTo: " ) + to +
-              TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "\nSubject: " ) + subject +
-              TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "\n\n" ) + body + "\n";
-    message.replace( TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "\n" ),
-                     TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "\r\n" ) );
-    message.replace( TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "\r\n.\r\n" ),
-                     TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>( "\r\n..\r\n" ) );
+<a name="x716"></a>    message = TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "From: " ) + from +
+              TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "\nTo: " ) + to +
+              TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "\nSubject: " ) + subject +
+              TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "\n\n" ) + body + "\n";
+    message.replace( TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "\n" ),
+                     TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "\r\n" ) );
+    message.replace( TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "\r\n.\r\n" ),
+                     TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>( "\r\n..\r\n" ) );
 
     this-&gt;from = from;
     rcpt = to;
@@ -161,37 +160,37 @@ Smtp::~Smtp()
 
 void <a name="f298"></a>Smtp::dnsLookupHelper()
 {
-<a name="x706"></a>    <a href="ntqvaluelist.html">TQValueList</a>&lt;TQDns::MailServer&gt; s = mxLookup-&gt;<a href="ntqdns.html#mailServers">mailServers</a>();
-<a name="x720"></a>    if ( s.<a href="ntqvaluelist.html#isEmpty">isEmpty</a>() ) {
-<a name="x705"></a>        if ( !mxLookup-&gt;<a href="ntqdns.html#isWorking">isWorking</a>() )
-            emit status( <a href="ntqobject.html#tr">tr</a>( "Error in MX record lookup" ) );
+<a name="x706"></a>    <a href="tqvaluelist.html">TQValueList</a>&lt;TQDns::MailServer&gt; s = mxLookup-&gt;<a href="tqdns.html#mailServers">mailServers</a>();
+<a name="x720"></a>    if ( s.<a href="tqvaluelist.html#isEmpty">isEmpty</a>() ) {
+<a name="x705"></a>        if ( !mxLookup-&gt;<a href="tqdns.html#isWorking">isWorking</a>() )
+            emit status( <a href="tqobject.html#tr">tr</a>( "Error in MX record lookup" ) );
         return;
     }
 
-<a name="x719"></a>    emit status( <a href="ntqobject.html#tr">tr</a>( "Connecting to %1" ).arg( s.<a href="ntqvaluelist.html#first">first</a>().name ) );
+<a name="x719"></a>    emit status( <a href="tqobject.html#tr">tr</a>( "Connecting to %1" ).arg( s.<a href="tqvaluelist.html#first">first</a>().name ) );
 
-<a name="x710"></a>    socket-&gt;<a href="ntqsocket.html#connectToHost">connectToHost</a>( s.<a href="ntqvaluelist.html#first">first</a>().name, 25 );
-    t = new <a href="ntqtextstream.html">TQTextStream</a>( socket );
+<a name="x710"></a>    socket-&gt;<a href="tqsocket.html#connectToHost">connectToHost</a>( s.<a href="tqvaluelist.html#first">first</a>().name, 25 );
+    t = new <a href="tqtextstream.html">TQTextStream</a>( socket );
 }
 
 
 void <a name="f299"></a>Smtp::connected()
 {
-<a name="x712"></a>    emit status( <a href="ntqobject.html#tr">tr</a>( "Connected to %1" ).arg( socket-&gt;<a href="ntqsocket.html#peerName">peerName</a>() ) );
+<a name="x712"></a>    emit status( <a href="tqobject.html#tr">tr</a>( "Connected to %1" ).arg( socket-&gt;<a href="tqsocket.html#peerName">peerName</a>() ) );
 }
 
 void <a name="f300"></a>Smtp::readyRead()
 {
     // SMTP is line-oriented
-<a name="x709"></a>    if ( !socket-&gt;<a href="ntqsocket.html#canReadLine">canReadLine</a>() )
+<a name="x709"></a>    if ( !socket-&gt;<a href="tqsocket.html#canReadLine">canReadLine</a>() )
         return;
 
-    <a href="ntqstring.html">TQString</a> responseLine;
+    <a href="tqstring.html">TQString</a> responseLine;
     do {
-<a name="x713"></a>        responseLine = socket-&gt;<a href="ntqsocket.html#readLine">readLine</a>();
+<a name="x713"></a>        responseLine = socket-&gt;<a href="tqsocket.html#readLine">readLine</a>();
         response += responseLine;
-    } while( socket-&gt;<a href="ntqsocket.html#canReadLine">canReadLine</a>() &amp;&amp; responseLine[3] != ' ' );
-<a name="x718"></a>    responseLine.<a href="ntqstring.html#truncate">truncate</a>( 3 );
+    } while( socket-&gt;<a href="tqsocket.html#canReadLine">canReadLine</a>() &amp;&amp; responseLine[3] != ' ' );
+<a name="x718"></a>    responseLine.<a href="tqstring.html#truncate">truncate</a>( 3 );
 
     if ( state == Init &amp;&amp; responseLine[0] == '2' ) {
         // banner was okay, let's go on
@@ -214,15 +213,15 @@ void <a name="f300"></a>Smtp::readyRead()
         *t &lt;&lt; "QUIT\r\n";
         // here, we just close.
         state = Close;
-        emit status( <a href="ntqobject.html#tr">tr</a>( "Message sent" ) );
+        emit status( <a href="tqobject.html#tr">tr</a>( "Message sent" ) );
     } else if ( state == Close ) {
-        <a href="ntqobject.html#deleteLater">deleteLater</a>();
+        <a href="tqobject.html#deleteLater">deleteLater</a>();
         return;
     } else {
         // something broke.
-<a name="x708"></a><a name="x704"></a>        TQMessageBox::<a href="ntqmessagebox.html#warning">warning</a>( tqApp-&gt;<a href="ntqapplication.html#activeWindow">activeWindow</a>(),
-                              <a href="ntqobject.html#tr">tr</a>( "TQt Mail Example" ),
-                              <a href="ntqobject.html#tr">tr</a>( "Unexpected reply from SMTP server:\n\n" ) +
+<a name="x708"></a><a name="x704"></a>        TQMessageBox::<a href="tqmessagebox.html#warning">warning</a>( tqApp-&gt;<a href="tqapplication.html#activeWindow">activeWindow</a>(),
+                              <a href="tqobject.html#tr">tr</a>( "TQt Mail Example" ),
+                              <a href="tqobject.html#tr">tr</a>( "Unexpected reply from SMTP server:\n\n" ) +
                               response );
         state = Close;
     }

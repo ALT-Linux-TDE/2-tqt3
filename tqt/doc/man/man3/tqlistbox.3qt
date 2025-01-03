@@ -1,5 +1,5 @@
 '\" t
-.TH QListBox 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQListBox 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,49 +7,49 @@
 .ad l
 .nh
 .SH NAME
-QListBox \- List of selectable, read-only items
+TQListBox \- List of selectable, read-only items
 .SH SYNOPSIS
-\fC#include <ntqlistbox.h>\fR
+\fC#include <tqlistbox.h>\fR
 .PP
-Inherits QScrollView.
+Inherits TQScrollView.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQListBox\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.BI "\fBTQListBox\fR ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 .br
 .ti -1c
-.BI "\fB~QListBox\fR ()"
+.BI "\fB~TQListBox\fR ()"
 .br
 .ti -1c
 .BI "uint \fBcount\fR () const"
 .br
 .ti -1c
-.BI "void \fBinsertStringList\fR ( const QStringList & list, int index = -1 )"
+.BI "void \fBinsertStringList\fR ( const TQStringList & list, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertStrList\fR ( const QStrList * list, int index = -1 )"
+.BI "void \fBinsertStrList\fR ( const TQStrList * list, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertStrList\fR ( const QStrList & list, int index = -1 )"
+.BI "void \fBinsertStrList\fR ( const TQStrList & list, int index = -1 )"
 .br
 .ti -1c
 .BI "void \fBinsertStrList\fR ( const char ** strings, int numStrings = -1, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertItem\fR ( const QListBoxItem * lbi, int index = -1 )"
+.BI "void \fBinsertItem\fR ( const TQListBoxItem * lbi, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertItem\fR ( const QListBoxItem * lbi, const QListBoxItem * after )"
+.BI "void \fBinsertItem\fR ( const TQListBoxItem * lbi, const TQListBoxItem * after )"
 .br
 .ti -1c
 .BI "void \fBinsertItem\fR ( const TQString & text, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertItem\fR ( const QPixmap & pixmap, int index = -1 )"
+.BI "void \fBinsertItem\fR ( const TQPixmap & pixmap, int index = -1 )"
 .br
 .ti -1c
-.BI "void \fBinsertItem\fR ( const QPixmap & pixmap, const TQString & text, int index = -1 )"
+.BI "void \fBinsertItem\fR ( const TQPixmap & pixmap, const TQString & text, int index = -1 )"
 .br
 .ti -1c
 .BI "void \fBremoveItem\fR ( int index )"
@@ -58,22 +58,22 @@ Inherits QScrollView.
 .BI "TQString \fBtext\fR ( int index ) const"
 .br
 .ti -1c
-.BI "const QPixmap * \fBpixmap\fR ( int index ) const"
+.BI "const TQPixmap * \fBpixmap\fR ( int index ) const"
 .br
 .ti -1c
-.BI "void \fBchangeItem\fR ( const QListBoxItem * lbi, int index )"
+.BI "void \fBchangeItem\fR ( const TQListBoxItem * lbi, int index )"
 .br
 .ti -1c
 .BI "void \fBchangeItem\fR ( const TQString & text, int index )"
 .br
 .ti -1c
-.BI "void \fBchangeItem\fR ( const QPixmap & pixmap, int index )"
+.BI "void \fBchangeItem\fR ( const TQPixmap & pixmap, int index )"
 .br
 .ti -1c
-.BI "void \fBchangeItem\fR ( const QPixmap & pixmap, const TQString & text, int index )"
+.BI "void \fBchangeItem\fR ( const TQPixmap & pixmap, const TQString & text, int index )"
 .br
 .ti -1c
-.BI "void \fBtakeItem\fR ( const QListBoxItem * item )"
+.BI "void \fBtakeItem\fR ( const TQListBoxItem * item )"
 .br
 .ti -1c
 .BI "int \fBnumItemsVisible\fR () const"
@@ -88,7 +88,7 @@ Inherits QScrollView.
 .BI "virtual void \fBsetCurrentItem\fR ( int index )"
 .br
 .ti -1c
-.BI "virtual void \fBsetCurrentItem\fR ( QListBoxItem * i )"
+.BI "virtual void \fBsetCurrentItem\fR ( TQListBoxItem * i )"
 .br
 .ti -1c
 .BI "void centerCurrentItem ()  \fI(obsolete)\fR"
@@ -121,7 +121,7 @@ Inherits QScrollView.
 .BI "bool isMultiSelection () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "virtual void \fBsetSelected\fR ( QListBoxItem * item, bool select )"
+.BI "virtual void \fBsetSelected\fR ( TQListBoxItem * item, bool select )"
 .br
 .ti -1c
 .BI "void \fBsetSelected\fR ( int index, bool select )"
@@ -130,19 +130,19 @@ Inherits QScrollView.
 .BI "bool \fBisSelected\fR ( int i ) const"
 .br
 .ti -1c
-.BI "bool \fBisSelected\fR ( const QListBoxItem * i ) const"
+.BI "bool \fBisSelected\fR ( const TQListBoxItem * i ) const"
 .br
 .ti -1c
-.BI "QListBoxItem * \fBselectedItem\fR () const"
+.BI "TQListBoxItem * \fBselectedItem\fR () const"
 .br
 .ti -1c
-.BI "QListBoxItem * \fBitem\fR ( int index ) const"
+.BI "TQListBoxItem * \fBitem\fR ( int index ) const"
 .br
 .ti -1c
-.BI "int \fBindex\fR ( const QListBoxItem * lbi ) const"
+.BI "int \fBindex\fR ( const TQListBoxItem * lbi ) const"
 .br
 .ti -1c
-.BI "QListBoxItem * \fBfindItem\fR ( const TQString & text, ComparisonFlags compare = BeginsWith ) const"
+.BI "TQListBoxItem * \fBfindItem\fR ( const TQString & text, ComparisonFlags compare = BeginsWith ) const"
 .br
 .ti -1c
 .BI "void \fBtriggerUpdate\fR ( bool doLayout )"
@@ -151,7 +151,7 @@ Inherits QScrollView.
 .BI "bool \fBitemVisible\fR ( int index )"
 .br
 .ti -1c
-.BI "bool \fBitemVisible\fR ( const QListBoxItem * item )"
+.BI "bool \fBitemVisible\fR ( const TQListBoxItem * item )"
 .br
 .ti -1c
 .BI "enum \fBLayoutMode\fR { FixedNumber, FitToWidth, FitToHeight = FitToWidth, Variable }"
@@ -217,7 +217,7 @@ Inherits QScrollView.
 .BI "void setBottomScrollBar ( bool enable )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "int inSort ( const QListBoxItem * lbi )  \fI(obsolete)\fR"
+.BI "int inSort ( const TQListBoxItem * lbi )  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "int inSort ( const TQString & text )  \fI(obsolete)\fR"
@@ -238,13 +238,13 @@ Inherits QScrollView.
 .BI "int \fBitemHeight\fR ( int index = 0 ) const"
 .br
 .ti -1c
-.BI "QListBoxItem * \fBitemAt\fR ( const QPoint & p ) const"
+.BI "TQListBoxItem * \fBitemAt\fR ( const TQPoint & p ) const"
 .br
 .ti -1c
-.BI "QRect \fBitemRect\fR ( QListBoxItem * item ) const"
+.BI "TQRect \fBitemRect\fR ( TQListBoxItem * item ) const"
 .br
 .ti -1c
-.BI "QListBoxItem * \fBfirstItem\fR () const"
+.BI "TQListBoxItem * \fBfirstItem\fR () const"
 .br
 .ti -1c
 .BI "void \fBsort\fR ( bool ascending = TRUE )"
@@ -283,55 +283,55 @@ Inherits QScrollView.
 .BI "void \fBselected\fR ( const TQString & )"
 .br
 .ti -1c
-.BI "void \fBhighlighted\fR ( QListBoxItem * )"
+.BI "void \fBhighlighted\fR ( TQListBoxItem * )"
 .br
 .ti -1c
-.BI "void \fBselected\fR ( QListBoxItem * )"
+.BI "void \fBselected\fR ( TQListBoxItem * )"
 .br
 .ti -1c
 .BI "void \fBselectionChanged\fR ()"
 .br
 .ti -1c
-.BI "void \fBselectionChanged\fR ( QListBoxItem * item )"
+.BI "void \fBselectionChanged\fR ( TQListBoxItem * item )"
 .br
 .ti -1c
-.BI "void \fBcurrentChanged\fR ( QListBoxItem * item )"
+.BI "void \fBcurrentChanged\fR ( TQListBoxItem * item )"
 .br
 .ti -1c
-.BI "void \fBclicked\fR ( QListBoxItem * item )"
+.BI "void \fBclicked\fR ( TQListBoxItem * item )"
 .br
 .ti -1c
-.BI "void \fBclicked\fR ( QListBoxItem * item, const QPoint & pnt )"
+.BI "void \fBclicked\fR ( TQListBoxItem * item, const TQPoint & pnt )"
 .br
 .ti -1c
-.BI "void \fBpressed\fR ( QListBoxItem * item )"
+.BI "void \fBpressed\fR ( TQListBoxItem * item )"
 .br
 .ti -1c
-.BI "void \fBpressed\fR ( QListBoxItem * item, const QPoint & pnt )"
+.BI "void \fBpressed\fR ( TQListBoxItem * item, const TQPoint & pnt )"
 .br
 .ti -1c
-.BI "void \fBdoubleClicked\fR ( QListBoxItem * item )"
+.BI "void \fBdoubleClicked\fR ( TQListBoxItem * item )"
 .br
 .ti -1c
-.BI "void \fBreturnPressed\fR ( QListBoxItem * )"
+.BI "void \fBreturnPressed\fR ( TQListBoxItem * )"
 .br
 .ti -1c
-.BI "void \fBrightButtonClicked\fR ( QListBoxItem *, const QPoint & )"
+.BI "void \fBrightButtonClicked\fR ( TQListBoxItem *, const TQPoint & )"
 .br
 .ti -1c
-.BI "void \fBrightButtonPressed\fR ( QListBoxItem *, const QPoint & )"
+.BI "void \fBrightButtonPressed\fR ( TQListBoxItem *, const TQPoint & )"
 .br
 .ti -1c
-.BI "void \fBmouseButtonPressed\fR ( int button, QListBoxItem * item, const QPoint & pos )"
+.BI "void \fBmouseButtonPressed\fR ( int button, TQListBoxItem * item, const TQPoint & pos )"
 .br
 .ti -1c
-.BI "void \fBmouseButtonClicked\fR ( int button, QListBoxItem * item, const QPoint & pos )"
+.BI "void \fBmouseButtonClicked\fR ( int button, TQListBoxItem * item, const TQPoint & pos )"
 .br
 .ti -1c
-.BI "void \fBcontextMenuRequested\fR ( QListBoxItem * item, const QPoint & pos )"
+.BI "void \fBcontextMenuRequested\fR ( TQListBoxItem * item, const TQPoint & pos )"
 .br
 .ti -1c
-.BI "void \fBonItem\fR ( QListBoxItem * i )"
+.BI "void \fBonItem\fR ( TQListBoxItem * i )"
 .br
 .ti -1c
 .BI "void \fBonViewport\fR ()"
@@ -385,7 +385,7 @@ Inherits QScrollView.
 .BI "void \fBupdateItem\fR ( int index )"
 .br
 .ti -1c
-.BI "void \fBupdateItem\fR ( QListBoxItem * i )"
+.BI "void \fBupdateItem\fR ( TQListBoxItem * i )"
 .br
 .ti -1c
 .BI "int totalWidth () const  \fI(obsolete)\fR"
@@ -394,7 +394,7 @@ Inherits QScrollView.
 .BI "int totalHeight () const  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "virtual void \fBpaintCell\fR ( QPainter * p, int row, int col )"
+.BI "virtual void \fBpaintCell\fR ( TQPainter * p, int row, int col )"
 .br
 .ti -1c
 .BI "void \fBtoggleCurrentItem\fR ()"
@@ -413,39 +413,39 @@ Inherits QScrollView.
 .br
 .in -1c
 .SH DESCRIPTION
-The QListBox widget provides a list of selectable, read-only items.
+The TQListBox widget provides a list of selectable, read-only items.
 .PP
 This is typically a single-column list in which either no item or one item is selected, but it can also be used in many other ways.
 .PP
-QListBox will add scroll bars as necessary, but it isn't intended for \fIreally\fR big lists. If you want more than a few thousand items, it's probably better to use a different widget mainly because the scroll bars won't provide very good navigation, but also because QListBox may become slow with huge lists. (See QListView and QTable for possible alternatives.)
+TQListBox will add scroll bars as necessary, but it isn't intended for \fIreally\fR big lists. If you want more than a few thousand items, it's probably better to use a different widget mainly because the scroll bars won't provide very good navigation, but also because TQListBox may become slow with huge lists. (See TQListView and TQTable for possible alternatives.)
 .PP
-There are a variety of selection modes described in the QListBox::SelectionMode documentation. The default is Single selection mode, but you can change it using setSelectionMode(). (setMultiSelection() is still provided for compatibility with TQt 1.x. We recommend using setSelectionMode() in all code.)
+There are a variety of selection modes described in the TQListBox::SelectionMode documentation. The default is Single selection mode, but you can change it using setSelectionMode(). (setMultiSelection() is still provided for compatibility with TQt 1.x. We recommend using setSelectionMode() in all code.)
 .PP
-Because QListBox offers multiple selection it must display keyboard focus and selection state separately. Therefore there are functions both to set the selection state of an item, i.e. setSelected(), and to set which item displays keyboard focus, i.e. setCurrentItem().
+Because TQListBox offers multiple selection it must display keyboard focus and selection state separately. Therefore there are functions both to set the selection state of an item, i.e. setSelected(), and to set which item displays keyboard focus, i.e. setCurrentItem().
 .PP
-The list box normally arranges its items in a single column and adds a vertical scroll bar if required. It is possible to have a different fixed number of columns (setColumnMode()), or as many columns as will fit in the list box's assigned screen space (setColumnMode(FitToWidth)), or to have a fixed number of rows (setRowMode()) or as many rows as will fit in the list box's assigned screen space (setRowMode(FitToHeight)). In all these cases QListBox will add scroll bars, as appropriate, in at least one direction.
+The list box normally arranges its items in a single column and adds a vertical scroll bar if required. It is possible to have a different fixed number of columns (setColumnMode()), or as many columns as will fit in the list box's assigned screen space (setColumnMode(FitToWidth)), or to have a fixed number of rows (setRowMode()) or as many rows as will fit in the list box's assigned screen space (setRowMode(FitToHeight)). In all these cases TQListBox will add scroll bars, as appropriate, in at least one direction.
 .PP
 If multiple rows are used, each row can be as high as necessary (the normal setting), or you can request that all items will have the same height by calling setVariableHeight(FALSE). The same applies to a column's width, see setVariableWidth().
 .PP
-The QListBox's items are QListBoxItem objects. QListBox provides methods to insert new items as strings, as pixmaps, and as QListBoxItem * (insertItem() with various arguments), and to replace an existing item with a new string, pixmap or QListBoxItem (changeItem() with various arguments). You can also remove items singly with removeItem() or clear() the entire list box. Note that if you create a QListBoxItem yourself and insert it, QListBox takes ownership of the item.
+The TQListBox's items are TQListBoxItem objects. TQListBox provides methods to insert new items as strings, as pixmaps, and as TQListBoxItem * (insertItem() with various arguments), and to replace an existing item with a new string, pixmap or TQListBoxItem (changeItem() with various arguments). You can also remove items singly with removeItem() or clear() the entire list box. Note that if you create a TQListBoxItem yourself and insert it, TQListBox takes ownership of the item.
 .PP
-You can also create a QListBoxItem, such as QListBoxText or QListBoxPixmap, with the list box as first parameter. The item will then append itself. When you delete an item it is automatically removed from the list box.
+You can also create a TQListBoxItem, such as TQListBoxText or TQListBoxPixmap, with the list box as first parameter. The item will then append itself. When you delete an item it is automatically removed from the list box.
 .PP
-The list of items can be arbitrarily large; QListBox will add scroll bars if necessary. QListBox can display a single-column (the common case) or multiple-columns, and offers both single and multiple selection. QListBox does not support multiple-column items (but QListView and QTable do), or tree hierarchies (but QListView does).
+The list of items can be arbitrarily large; TQListBox will add scroll bars if necessary. TQListBox can display a single-column (the common case) or multiple-columns, and offers both single and multiple selection. TQListBox does not support multiple-column items (but TQListView and TQTable do), or tree hierarchies (but TQListView does).
 .PP
-The list box items can be accessed both as QListBoxItem objects (recommended) and using integer indexes (the original QListBox implementation used an array of strings internally, and the API still supports this mode of operation). Everything can be done using the new objects, and most things can be done using indexes.
+The list box items can be accessed both as TQListBoxItem objects (recommended) and using integer indexes (the original TQListBox implementation used an array of strings internally, and the API still supports this mode of operation). Everything can be done using the new objects, and most things can be done using indexes.
 .PP
-Each item in a QListBox contains a QListBoxItem. One of the items can be the current item. The currentChanged() signal and the highlighted() signal are emitted when a new item becomes current, e.g. because the user clicks on it or QListBox::setCurrentItem() is called. The selected() signal is emitted when the user double-clicks on an item or presses Enter on the current item.
+Each item in a TQListBox contains a TQListBoxItem. One of the items can be the current item. The currentChanged() signal and the highlighted() signal are emitted when a new item becomes current, e.g. because the user clicks on it or TQListBox::setCurrentItem() is called. The selected() signal is emitted when the user double-clicks on an item or presses Enter on the current item.
 .PP
 If the user does not select anything, no signals are emitted and currentItem() returns -1.
 .PP
 A list box has WheelFocus as a default focusPolicy(), i.e. it can get keyboard focus by tabbing, clicking and through the use of the mouse wheel.
 .PP
-New items can be inserted using insertItem(), insertStrList() or insertStringList(). inSort() is obsolete because this method is quite inefficient. It's preferable to insert the items normally and call sort() afterwards, or to insert a sorted QStringList().
+New items can be inserted using insertItem(), insertStrList() or insertStringList(). inSort() is obsolete because this method is quite inefficient. It's preferable to insert the items normally and call sort() afterwards, or to insert a sorted TQStringList().
 .PP
 By default, vertical and horizontal scroll bars are added and removed as necessary. setHScrollBarMode() and setVScrollBarMode() can be used to change this policy.
 .PP
-If you need to insert types other than strings and pixmaps, you must define new classes which inherit QListBoxItem.
+If you need to insert types other than strings and pixmaps, you must define new classes which inherit TQListBoxItem.
 .PP
 \fBWarning:\fR The list box assumes ownership of all list box items and will delete them when it does not need them any more.
 .PP
@@ -456,60 +456,60 @@ If you need to insert types other than strings and pixmaps, you must define new 
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QListView, QComboBox, QButtonGroup, GUI Design Handbook: List Box (two sections), and Advanced Widgets.
+See also TQListView, TQComboBox, TQButtonGroup, GUI Design Handbook: List Box (two sections), and Advanced Widgets.
 .SS "Member Type Documentation"
-.SH "QListBox::LayoutMode"
-This enum type is used to specify how QListBox lays out its rows and columns.
+.SH "TQListBox::LayoutMode"
+This enum type is used to specify how TQListBox lays out its rows and columns.
 .TP
-\fCQListBox::FixedNumber\fR - There is a fixed number of rows (or columns).
+\fCTQListBox::FixedNumber\fR - There is a fixed number of rows (or columns).
 .TP
-\fCQListBox::FitToWidth\fR - There are as many columns as will fit on-screen.
+\fCTQListBox::FitToWidth\fR - There are as many columns as will fit on-screen.
 .TP
-\fCQListBox::FitToHeight\fR - There are as many rows as will fit on-screen.
+\fCTQListBox::FitToHeight\fR - There are as many rows as will fit on-screen.
 .TP
-\fCQListBox::Variable\fR - There are as many rows as are required by the column mode. (Or as many columns as required by the row mode.)
+\fCTQListBox::Variable\fR - There are as many rows as are required by the column mode. (Or as many columns as required by the row mode.)
 .PP
 Example: When you call setRowMode( FitToHeight ), columnMode() automatically becomes Variable to accommodate the row mode you've set.
-.SH "QListBox::SelectionMode"
-This enumerated type is used by QListBox to indicate how it reacts to selection by the user.
+.SH "TQListBox::SelectionMode"
+This enumerated type is used by TQListBox to indicate how it reacts to selection by the user.
 .TP
-\fCQListBox::Single\fR - When the user selects an item, any already-selected item becomes unselected and the user cannot unselect the selected item. This means that the user can never clear the selection, even though the selection may be cleared by the application programmer using QListBox::clearSelection().
+\fCTQListBox::Single\fR - When the user selects an item, any already-selected item becomes unselected and the user cannot unselect the selected item. This means that the user can never clear the selection, even though the selection may be cleared by the application programmer using TQListBox::clearSelection().
 .TP
-\fCQListBox::Multi\fR - When the user selects an item the selection status of that item is toggled and the other items are left alone. Also, multiple items can be selected by dragging the mouse while the left mouse button is kept pressed.
+\fCTQListBox::Multi\fR - When the user selects an item the selection status of that item is toggled and the other items are left alone. Also, multiple items can be selected by dragging the mouse while the left mouse button is kept pressed.
 .TP
-\fCQListBox::Extended\fR - When the user selects an item the selection is cleared and the new item selected. However, if the user presses the Ctrl key when clicking on an item, the clicked item gets toggled and all other items are left untouched. And if the user presses the Shift key while clicking on an item, all items between the current item and the clicked item get selected or unselected, depending on the state of the clicked item. Also, multiple items can be selected by dragging the mouse while the left mouse button is kept pressed.
+\fCTQListBox::Extended\fR - When the user selects an item the selection is cleared and the new item selected. However, if the user presses the Ctrl key when clicking on an item, the clicked item gets toggled and all other items are left untouched. And if the user presses the Shift key while clicking on an item, all items between the current item and the clicked item get selected or unselected, depending on the state of the clicked item. Also, multiple items can be selected by dragging the mouse while the left mouse button is kept pressed.
 .TP
-\fCQListBox::NoSelection\fR - Items cannot be selected.
+\fCTQListBox::NoSelection\fR - Items cannot be selected.
 .PP
 In other words, Single is a real single-selection list box, Multi is a real multi-selection list box, Extended is a list box in which users can select multiple items but usually want to select either just one or a range of contiguous items, and NoSelection is for a list box where the user can look but not touch.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QListBox::QListBox ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
+.SH "TQListBox::TQListBox ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 )"
 Constructs a new empty list box called \fIname\fR and with parent \fIparent\fR.
 .PP
-Performance is boosted by modifying the widget flags \fIf\fR so that only part of the QListBoxItem children is redrawn. This may be unsuitable for custom QListBoxItem classes, in which case WStaticContents and WNoAutoErase should be cleared immediately after construction.
+Performance is boosted by modifying the widget flags \fIf\fR so that only part of the TQListBoxItem children is redrawn. This may be unsuitable for custom TQListBoxItem classes, in which case WStaticContents and WNoAutoErase should be cleared immediately after construction.
 .PP
 See also TQWidget::clearWFlags() and TQt::WidgetFlags.
-.SH "QListBox::~QListBox ()"
+.SH "TQListBox::~TQListBox ()"
 Destroys the list box. Deletes all list box items.
-.SH "bool QListBox::autoBottomScrollBar () const"
+.SH "bool TQListBox::autoBottomScrollBar () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns TRUE if hScrollBarMode() is Auto; otherwise returns FALSE.
-.SH "bool QListBox::autoScrollBar () const"
+.SH "bool TQListBox::autoScrollBar () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns TRUE if vScrollBarMode() is Auto; otherwise returns FALSE.
-.SH "bool QListBox::bottomScrollBar () const"
+.SH "bool TQListBox::bottomScrollBar () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns FALSE if vScrollBarMode() is AlwaysOff; otherwise returns TRUE.
-.SH "int QListBox::cellHeight ( int i ) const"
+.SH "int TQListBox::cellHeight ( int i ) const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the item height of item \fIi\fR.
 .PP
 See also itemHeight().
-.SH "int QListBox::cellHeight () const"
+.SH "int TQListBox::cellHeight () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -517,25 +517,25 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns the item height of the first item, item 0.
 .PP
 See also itemHeight().
-.SH "int QListBox::cellWidth () const"
+.SH "int TQListBox::cellWidth () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the maximum item width.
 .PP
 See also maxItemWidth().
-.SH "void QListBox::centerCurrentItem ()"
+.SH "void TQListBox::centerCurrentItem ()"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 This function does exactly the same as ensureCurrentVisible()
 .PP
-See also QListBox::ensureCurrentVisible().
-.SH "void QListBox::changeItem ( const QListBoxItem * lbi, int index )"
+See also TQListBox::ensureCurrentVisible().
+.SH "void TQListBox::changeItem ( const TQListBoxItem * lbi, int index )"
 Replaces the item at position \fIindex\fR with \fIlbi\fR. If \fIindex\fR is negative or too large, changeItem() does nothing.
 .PP
 The item that has been changed will become selected.
 .PP
 See also insertItem() and removeItem().
-.SH "void QListBox::changeItem ( const TQString & text, int index )"
+.SH "void TQListBox::changeItem ( const TQString & text, int index )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Replaces the item at position \fIindex\fR with a new list box text item with text \fItext\fR.
@@ -543,7 +543,7 @@ Replaces the item at position \fIindex\fR with a new list box text item with tex
 The operation is ignored if \fIindex\fR is out of range.
 .PP
 See also insertItem() and removeItem().
-.SH "void QListBox::changeItem ( const QPixmap & pixmap, int index )"
+.SH "void TQListBox::changeItem ( const TQPixmap & pixmap, int index )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Replaces the item at position \fIindex\fR with a new list box pixmap item with pixmap \fIpixmap\fR.
@@ -551,7 +551,7 @@ Replaces the item at position \fIindex\fR with a new list box pixmap item with p
 The operation is ignored if \fIindex\fR is out of range.
 .PP
 See also insertItem() and removeItem().
-.SH "void QListBox::changeItem ( const QPixmap & pixmap, const TQString & text, int index )"
+.SH "void TQListBox::changeItem ( const TQPixmap & pixmap, const TQString & text, int index )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Replaces the item at position \fIindex\fR with a new list box pixmap item with pixmap \fIpixmap\fR and text \fItext\fR.
@@ -559,79 +559,79 @@ Replaces the item at position \fIindex\fR with a new list box pixmap item with p
 The operation is ignored if \fIindex\fR is out of range.
 .PP
 See also insertItem() and removeItem().
-.SH "void QListBox::clear ()\fC [slot]\fR"
+.SH "void TQListBox::clear ()\fC [slot]\fR"
 Deletes all the items in the list.
 .PP
 See also removeItem().
-.SH "void QListBox::clearSelection ()\fC [virtual slot]\fR"
+.SH "void TQListBox::clearSelection ()\fC [virtual slot]\fR"
 Deselects all items, if possible.
 .PP
 Note that a Single selection list box will automatically select an item if it has keyboard focus.
 .PP
 Example: listbox/listbox.cpp.
-.SH "void QListBox::clicked ( QListBoxItem * item )\fC [signal]\fR"
+.SH "void TQListBox::clicked ( TQListBoxItem * item )\fC [signal]\fR"
 This signal is emitted when the user clicks any mouse button. If \fIitem\fR is not 0, the cursor is on \fIitem\fR. If \fIitem\fR is 0, the mouse cursor isn't on any item.
 .PP
-Note that you must not delete any QListBoxItem objects in slots connected to this signal.
-.SH "void QListBox::clicked ( QListBoxItem * item, const QPoint & pnt )\fC [signal]\fR"
+Note that you must not delete any TQListBoxItem objects in slots connected to this signal.
+.SH "void TQListBox::clicked ( TQListBoxItem * item, const TQPoint & pnt )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the user clicks any mouse button. If \fIitem\fR is not 0, the cursor is on \fIitem\fR. If \fIitem\fR is 0, the mouse cursor isn't on any item.
 .PP
-\fIpnt\fR is the position of the mouse cursor in the global coordinate system (QMouseEvent::globalPos()). (If the click's press and release differs by a pixel or two, \fIpnt\fR is the position at release time.)
+\fIpnt\fR is the position of the mouse cursor in the global coordinate system (TQMouseEvent::globalPos()). (If the click's press and release differs by a pixel or two, \fIpnt\fR is the position at release time.)
 .PP
-Note that you must not delete any QListBoxItem objects in slots connected to this signal.
-.SH "LayoutMode QListBox::columnMode () const"
+Note that you must not delete any TQListBoxItem objects in slots connected to this signal.
+.SH "LayoutMode TQListBox::columnMode () const"
 Returns the column layout mode for this list box. See the "columnMode" property for details.
-.SH "void QListBox::contextMenuRequested ( QListBoxItem * item, const QPoint & pos )\fC [signal]\fR"
+.SH "void TQListBox::contextMenuRequested ( TQListBoxItem * item, const TQPoint & pos )\fC [signal]\fR"
 This signal is emitted when the user invokes a context menu with the right mouse button or with special system keys, with \fIitem\fR being the item under the mouse cursor or the current item, respectively.
 .PP
 \fIpos\fR is the position for the context menu in the global coordinate system.
-.SH "uint QListBox::count () const"
+.SH "uint TQListBox::count () const"
 Returns the number of items in the list box. See the "count" property for details.
-.SH "void QListBox::currentChanged ( QListBoxItem * item )\fC [signal]\fR"
+.SH "void TQListBox::currentChanged ( TQListBoxItem * item )\fC [signal]\fR"
 This signal is emitted when the user makes a new item the current item. \fIitem\fR is the new current list box item.
 .PP
 See also currentItem and currentItem.
-.SH "int QListBox::currentItem () const"
+.SH "int TQListBox::currentItem () const"
 Returns the current highlighted item. See the "currentItem" property for details.
-.SH "TQString QListBox::currentText () const"
+.SH "TQString TQListBox::currentText () const"
 Returns the text of the current item. See the "currentText" property for details.
-.SH "void QListBox::doLayout () const\fC [protected]\fR"
+.SH "void TQListBox::doLayout () const\fC [protected]\fR"
 This function does the hard layout work. You should never need to call it.
-.SH "void QListBox::doubleClicked ( QListBoxItem * item )\fC [signal]\fR"
+.SH "void TQListBox::doubleClicked ( TQListBoxItem * item )\fC [signal]\fR"
 This signal is emitted whenever an item is double-clicked. It's emitted on the second button press, not the second button release. If \fIitem\fR is not 0, the cursor is on \fIitem\fR. If \fIitem\fR is 0, the mouse cursor isn't on any item.
-.SH "void QListBox::ensureCurrentVisible ()\fC [virtual slot]\fR"
+.SH "void TQListBox::ensureCurrentVisible ()\fC [virtual slot]\fR"
 Ensures that the current item is visible.
-.SH "QListBoxItem * QListBox::findItem ( const TQString & text, ComparisonFlags compare = BeginsWith ) const"
+.SH "TQListBoxItem * TQListBox::findItem ( const TQString & text, ComparisonFlags compare = BeginsWith ) const"
 Finds the first list box item that has the text \fItext\fR and returns it, or returns 0 of no such item could be found. The search starts from the current item if the current item exists, otherwise it starts from the first list box item. If \fCComparisonFlags\fR are specified in \fIcompare\fR then these flags are used, otherwise the default is a case-insensitive, "begins with" search.
 .PP
 See also TQt::StringComparisonMode.
-.SH "int QListBox::findItem ( int yPos ) const\fC [protected]\fR"
+.SH "int TQListBox::findItem ( int yPos ) const\fC [protected]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the index of the item a point (0, \fIyPos\fR).
 .PP
 See also index() and itemAt().
-.SH "QListBoxItem * QListBox::firstItem () const"
+.SH "TQListBoxItem * TQListBox::firstItem () const"
 Returns the first item in this list box. If the list box is empty, returns 0.
-.SH "void QListBox::highlighted ( int index )\fC [signal]\fR"
+.SH "void TQListBox::highlighted ( int index )\fC [signal]\fR"
 This signal is emitted when the user makes a new item the current item. \fIindex\fR is the index of the new current item.
 .PP
 See also currentChanged(), selected(), currentItem, and selectionChanged().
-.SH "void QListBox::highlighted ( const TQString & )\fC [signal]\fR"
+.SH "void TQListBox::highlighted ( const TQString & )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the user makes a new item the current item and the item is (or has) a string. The argument is the text of the new current item.
 .PP
 See also currentChanged(), selected(), currentItem, and selectionChanged().
-.SH "void QListBox::highlighted ( QListBoxItem * )\fC [signal]\fR"
+.SH "void TQListBox::highlighted ( TQListBoxItem * )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the user makes a new item the current item. The argument is a pointer to the new current item.
 .PP
 See also currentChanged(), selected(), currentItem, and selectionChanged().
-.SH "int QListBox::inSort ( const QListBoxItem * lbi )"
+.SH "int TQListBox::inSort ( const TQListBoxItem * lbi )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Using this method is quite inefficient. We suggest to use insertItem() for inserting and sort() afterwards.
@@ -641,7 +641,7 @@ Inserts \fIlbi\fR at its sorted position in the list box and returns the positio
 All items must be inserted with inSort() to maintain the sorting order. inSort() treats any pixmap (or user-defined type) as lexicographically less than any string.
 .PP
 See also insertItem() and sort().
-.SH "int QListBox::inSort ( const TQString & text )"
+.SH "int TQListBox::inSort ( const TQString & text )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
@@ -653,11 +653,11 @@ Inserts a new item of \fItext\fR at its sorted position in the list box and retu
 All items must be inserted with inSort() to maintain the sorting order. inSort() treats any pixmap (or user-defined type) as lexicographically less than any string.
 .PP
 See also insertItem() and sort().
-.SH "int QListBox::index ( const QListBoxItem * lbi ) const"
+.SH "int TQListBox::index ( const TQListBoxItem * lbi ) const"
 Returns the index of \fIlbi\fR, or -1 if the item is not in this list box or \fIlbi\fR is 0.
 .PP
 See also item().
-.SH "void QListBox::insertItem ( const QListBoxItem * lbi, int index = -1 )"
+.SH "void TQListBox::insertItem ( const TQListBoxItem * lbi, int index = -1 )"
 Inserts the item \fIlbi\fR into the list at position \fIindex\fR.
 .PP
 If \fIindex\fR is negative or larger than the number of items in the list box, \fIlbi\fR is inserted at the end of the list.
@@ -666,13 +666,13 @@ See also insertStrList().
 .PP
 Examples:
 .)l i18n/mywidget.cpp, listbox/listbox.cpp, listboxcombo/listboxcombo.cpp, and tabdialog/tabdialog.cpp.
-.SH "void QListBox::insertItem ( const QListBoxItem * lbi, const QListBoxItem * after )"
+.SH "void TQListBox::insertItem ( const TQListBoxItem * lbi, const TQListBoxItem * after )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts the item \fIlbi\fR into the list after the item \fIafter\fR, or at the beginning if \fIafter\fR is 0.
 .PP
 See also insertStrList().
-.SH "void QListBox::insertItem ( const TQString & text, int index = -1 )"
+.SH "void TQListBox::insertItem ( const TQString & text, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a new list box text item with the text \fItext\fR into the list at position \fIindex\fR.
@@ -680,7 +680,7 @@ Inserts a new list box text item with the text \fItext\fR into the list at posit
 If \fIindex\fR is negative, \fItext\fR is inserted at the end of the list.
 .PP
 See also insertStrList().
-.SH "void QListBox::insertItem ( const QPixmap & pixmap, int index = -1 )"
+.SH "void TQListBox::insertItem ( const TQPixmap & pixmap, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a new list box pixmap item with the pixmap \fIpixmap\fR into the list at position \fIindex\fR.
@@ -688,7 +688,7 @@ Inserts a new list box pixmap item with the pixmap \fIpixmap\fR into the list at
 If \fIindex\fR is negative, \fIpixmap\fR is inserted at the end of the list.
 .PP
 See also insertStrList().
-.SH "void QListBox::insertItem ( const QPixmap & pixmap, const TQString & text, int index = -1 )"
+.SH "void TQListBox::insertItem ( const TQPixmap & pixmap, const TQString & text, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts a new list box pixmap item with the pixmap \fIpixmap\fR and the text \fItext\fR into the list at position \fIindex\fR.
@@ -696,41 +696,41 @@ Inserts a new list box pixmap item with the pixmap \fIpixmap\fR and the text \fI
 If \fIindex\fR is negative, \fIpixmap\fR is inserted at the end of the list.
 .PP
 See also insertStrList().
-.SH "void QListBox::insertStrList ( const QStrList * list, int index = -1 )"
+.SH "void TQListBox::insertStrList ( const TQStrList * list, int index = -1 )"
 Inserts the string list \fIlist\fR into the list at position \fIindex\fR.
 .PP
 If \fIindex\fR is negative, \fIlist\fR is inserted at the end of the list. If \fIindex\fR is too large, the operation is ignored.
 .PP
-\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
+\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real TQStrings.
 .PP
 \fBWarning:\fR This function is never significantly faster than a loop around insertItem().
 .PP
 See also insertItem() and insertStringList().
-.SH "void QListBox::insertStrList ( const QStrList & list, int index = -1 )"
+.SH "void TQListBox::insertStrList ( const TQStrList & list, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts the string list \fIlist\fR into the list at position \fIindex\fR.
 .PP
 If \fIindex\fR is negative, \fIlist\fR is inserted at the end of the list. If \fIindex\fR is too large, the operation is ignored.
 .PP
-\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
+\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real TQStrings.
 .PP
 \fBWarning:\fR This function is never significantly faster than a loop around insertItem().
 .PP
 See also insertItem() and insertStringList().
-.SH "void QListBox::insertStrList ( const char ** strings, int numStrings = -1, int index = -1 )"
+.SH "void TQListBox::insertStrList ( const char ** strings, int numStrings = -1, int index = -1 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts the \fInumStrings\fR strings of the array \fIstrings\fR into the list at position \fIindex\fR.
 .PP
 If \fIindex\fR is negative, insertStrList() inserts \fIstrings\fR at the end of the list. If \fIindex\fR is too large, the operation is ignored.
 .PP
-\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real QStrings.
+\fBWarning:\fR This function uses \fCconst char *\fR rather than TQString, so we recommend against using it. It is provided so that legacy code will continue to work, and so that programs that certainly will not need to handle code outside a single 8-bit locale can use it. See insertStringList() which uses real TQStrings.
 .PP
 \fBWarning:\fR This function is never significantly faster than a loop around insertItem().
 .PP
 See also insertItem() and insertStringList().
-.SH "void QListBox::insertStringList ( const QStringList & list, int index = -1 )"
+.SH "void TQListBox::insertStringList ( const TQStringList & list, int index = -1 )"
 Inserts the string list \fIlist\fR into the list at position \fIindex\fR.
 .PP
 If \fIindex\fR is negative, \fIlist\fR is inserted at the end of the list. If \fIindex\fR is too large, the operation is ignored.
@@ -738,187 +738,187 @@ If \fIindex\fR is negative, \fIlist\fR is inserted at the end of the list. If \f
 \fBWarning:\fR This function is never significantly faster than a loop around insertItem().
 .PP
 See also insertItem() and insertStrList().
-.SH "void QListBox::invertSelection ()\fC [virtual slot]\fR"
+.SH "void TQListBox::invertSelection ()\fC [virtual slot]\fR"
 Inverts the selection. Only works in Multi and Extended selection mode.
-.SH "bool QListBox::isMultiSelection () const"
+.SH "bool TQListBox::isMultiSelection () const"
 Returns TRUE if or not the list box is in Multi selection mode; otherwise returns FALSE. See the "multiSelection" property for details.
-.SH "bool QListBox::isRubberSelecting () const\fC [protected]\fR"
+.SH "bool TQListBox::isRubberSelecting () const\fC [protected]\fR"
 Returns TRUE if the user is selecting items using a rubber band rectangle; otherwise returns FALSE.
-.SH "bool QListBox::isSelected ( int i ) const"
+.SH "bool TQListBox::isSelected ( int i ) const"
 Returns TRUE if item \fIi\fR is selected; otherwise returns FALSE.
-.SH "bool QListBox::isSelected ( const QListBoxItem * i ) const"
+.SH "bool TQListBox::isSelected ( const TQListBoxItem * i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns TRUE if item \fIi\fR is selected; otherwise returns FALSE.
-.SH "QListBoxItem * QListBox::item ( int index ) const"
+.SH "TQListBoxItem * TQListBox::item ( int index ) const"
 Returns a pointer to the item at position \fIindex\fR, or 0 if \fIindex\fR is out of bounds.
 .PP
 See also index().
 .PP
 Example: listboxcombo/listboxcombo.cpp.
-.SH "QListBoxItem * QListBox::itemAt ( const QPoint & p ) const"
+.SH "TQListBoxItem * TQListBox::itemAt ( const TQPoint & p ) const"
 Returns the item at point \fIp\fR, specified in viewport coordinates, or a 0 if there is no item at \fIp\fR.
 .PP
 Use contentsToViewport() to convert between widget coordinates and viewport coordinates.
-.SH "int QListBox::itemHeight ( int index = 0 ) const"
+.SH "int TQListBox::itemHeight ( int index = 0 ) const"
 Returns the height in pixels of the item with index \fIindex\fR. \fIindex\fR defaults to 0.
 .PP
 If \fIindex\fR is too large, this function returns 0.
-.SH "QRect QListBox::itemRect ( QListBoxItem * item ) const"
+.SH "TQRect TQListBox::itemRect ( TQListBoxItem * item ) const"
 Returns the rectangle on the screen that \fIitem\fR occupies in viewport()'s coordinates, or an invalid rectangle if \fIitem\fR is 0 or is not currently visible.
-.SH "bool QListBox::itemVisible ( int index )"
+.SH "bool TQListBox::itemVisible ( int index )"
 Returns TRUE if the item at position \fIindex\fR is at least partly visible; otherwise returns FALSE.
-.SH "bool QListBox::itemVisible ( const QListBoxItem * item )"
+.SH "bool TQListBox::itemVisible ( const TQListBoxItem * item )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns TRUE if \fIitem\fR is at least partly visible; otherwise returns FALSE.
-.SH "bool QListBox::itemYPos ( int index, int * yPos ) const\fC [protected]\fR"
+.SH "bool TQListBox::itemYPos ( int index, int * yPos ) const\fC [protected]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the vertical pixel-coordinate in \fI*yPos\fR, of the list box item at position \fIindex\fR in the list. Returns FALSE if the item is outside the visible area.
-.SH "long QListBox::maxItemWidth () const"
+.SH "long TQListBox::maxItemWidth () const"
 Returns the width of the widest item in the list box.
-.SH "void QListBox::mouseButtonClicked ( int button, QListBoxItem * item, const QPoint & pos )\fC [signal]\fR"
+.SH "void TQListBox::mouseButtonClicked ( int button, TQListBoxItem * item, const TQPoint & pos )\fC [signal]\fR"
 This signal is emitted when the user clicks mouse button \fIbutton\fR. If \fIitem\fR is not 0, the cursor is on \fIitem\fR. If \fIitem\fR is 0, the mouse cursor isn't on any item.
 .PP
-\fIpos\fR is the position of the mouse cursor in the global coordinate system (QMouseEvent::globalPos()). (If the click's press and release differs by a pixel or two, \fIpos\fR is the position at release time.)
+\fIpos\fR is the position of the mouse cursor in the global coordinate system (TQMouseEvent::globalPos()). (If the click's press and release differs by a pixel or two, \fIpos\fR is the position at release time.)
 .PP
-Note that you must not delete any QListBoxItem objects in slots connected to this signal.
-.SH "void QListBox::mouseButtonPressed ( int button, QListBoxItem * item, const QPoint & pos )\fC [signal]\fR"
+Note that you must not delete any TQListBoxItem objects in slots connected to this signal.
+.SH "void TQListBox::mouseButtonPressed ( int button, TQListBoxItem * item, const TQPoint & pos )\fC [signal]\fR"
 This signal is emitted when the user presses mouse button \fIbutton\fR. If \fIitem\fR is not 0, the cursor is on \fIitem\fR. If \fIitem\fR is 0, the mouse cursor isn't on any item.
 .PP
-\fIpos\fR is the position of the mouse cursor in the global coordinate system (QMouseEvent::globalPos()).
+\fIpos\fR is the position of the mouse cursor in the global coordinate system (TQMouseEvent::globalPos()).
 .PP
-Note that you must not delete any QListBoxItem objects in slots connected to this signal.
-.SH "int QListBox::numCols () const"
+Note that you must not delete any TQListBoxItem objects in slots connected to this signal.
+.SH "int TQListBox::numCols () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns the number of columns.
 .PP
 See also numColumns.
-.SH "int QListBox::numColumns () const"
+.SH "int TQListBox::numColumns () const"
 Returns the number of columns in the list box. See the "numColumns" property for details.
-.SH "int QListBox::numItemsVisible () const"
+.SH "int TQListBox::numItemsVisible () const"
 Returns the number of visible items. See the "numItemsVisible" property for details.
-.SH "int QListBox::numRows () const"
+.SH "int TQListBox::numRows () const"
 Returns the number of rows in the list box. See the "numRows" property for details.
-.SH "void QListBox::onItem ( QListBoxItem * i )\fC [signal]\fR"
-This signal is emitted when the user moves the mouse cursor onto an item, similar to the TQWidget::enterEvent() function. \fIi\fR is the QListBoxItem that the mouse has moved on.
-.SH "void QListBox::onViewport ()\fC [signal]\fR"
+.SH "void TQListBox::onItem ( TQListBoxItem * i )\fC [signal]\fR"
+This signal is emitted when the user moves the mouse cursor onto an item, similar to the TQWidget::enterEvent() function. \fIi\fR is the TQListBoxItem that the mouse has moved on.
+.SH "void TQListBox::onViewport ()\fC [signal]\fR"
 This signal is emitted when the user moves the mouse cursor from an item to an empty part of the list box.
-.SH "void QListBox::paintCell ( QPainter * p, int row, int col )\fC [virtual protected]\fR"
-Provided for compatibility with the old QListBox. We recommend using QListBoxItem::paint() instead.
+.SH "void TQListBox::paintCell ( TQPainter * p, int row, int col )\fC [virtual protected]\fR"
+Provided for compatibility with the old TQListBox. We recommend using TQListBoxItem::paint() instead.
 .PP
 Repaints the cell at \fIrow\fR, \fIcol\fR using painter \fIp\fR.
-.SH "const QPixmap * QListBox::pixmap ( int index ) const"
+.SH "const TQPixmap * TQListBox::pixmap ( int index ) const"
 Returns a pointer to the pixmap at position \fIindex\fR, or 0 if there is no pixmap there.
 .PP
 See also text().
-.SH "void QListBox::pressed ( QListBoxItem * item )\fC [signal]\fR"
+.SH "void TQListBox::pressed ( TQListBoxItem * item )\fC [signal]\fR"
 This signal is emitted when the user presses any mouse button. If \fIitem\fR is not 0, the cursor is on \fIitem\fR. If \fIitem\fR is 0, the mouse cursor isn't on any item.
 .PP
-Note that you must not delete any QListBoxItem objects in slots connected to this signal.
-.SH "void QListBox::pressed ( QListBoxItem * item, const QPoint & pnt )\fC [signal]\fR"
+Note that you must not delete any TQListBoxItem objects in slots connected to this signal.
+.SH "void TQListBox::pressed ( TQListBoxItem * item, const TQPoint & pnt )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the user presses any mouse button. If \fIitem\fR is not 0, the cursor is on \fIitem\fR. If \fIitem\fR is 0, the mouse cursor isn't on any item.
 .PP
-\fIpnt\fR is the position of the mouse cursor in the global coordinate system (QMouseEvent::globalPos()).
+\fIpnt\fR is the position of the mouse cursor in the global coordinate system (TQMouseEvent::globalPos()).
 .PP
-Note that you must not delete any QListBoxItem objects in slots connected to this signal.
+Note that you must not delete any TQListBoxItem objects in slots connected to this signal.
 .PP
 See also mouseButtonPressed(), rightButtonPressed(), and clicked().
-.SH "void QListBox::removeItem ( int index )"
+.SH "void TQListBox::removeItem ( int index )"
 Removes and deletes the item at position \fIindex\fR. If \fIindex\fR is equal to currentItem(), a new item becomes current and the currentChanged() and highlighted() signals are emitted.
 .PP
 See also insertItem() and clear().
-.SH "void QListBox::returnPressed ( QListBoxItem * )\fC [signal]\fR"
+.SH "void TQListBox::returnPressed ( TQListBoxItem * )\fC [signal]\fR"
 This signal is emitted when Enter or Return is pressed. The argument is currentItem().
-.SH "void QListBox::rightButtonClicked ( QListBoxItem *, const QPoint & )\fC [signal]\fR"
-This signal is emitted when the right button is clicked (i.e. when it's released at the same point where it was pressed). The arguments are the relevant QListBoxItem (may be 0) and the point in global coordinates.
-.SH "void QListBox::rightButtonPressed ( QListBoxItem *, const QPoint & )\fC [signal]\fR"
-This signal is emitted when the right button is pressed. The arguments are the relevant QListBoxItem (may be 0) and the point in global coordinates.
-.SH "LayoutMode QListBox::rowMode () const"
+.SH "void TQListBox::rightButtonClicked ( TQListBoxItem *, const TQPoint & )\fC [signal]\fR"
+This signal is emitted when the right button is clicked (i.e. when it's released at the same point where it was pressed). The arguments are the relevant TQListBoxItem (may be 0) and the point in global coordinates.
+.SH "void TQListBox::rightButtonPressed ( TQListBoxItem *, const TQPoint & )\fC [signal]\fR"
+This signal is emitted when the right button is pressed. The arguments are the relevant TQListBoxItem (may be 0) and the point in global coordinates.
+.SH "LayoutMode TQListBox::rowMode () const"
 Returns the row layout mode for this list box. See the "rowMode" property for details.
-.SH "bool QListBox::scrollBar () const"
+.SH "bool TQListBox::scrollBar () const"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns FALSE if vScrollBarMode() is AlwaysOff; otherwise returns TRUE.
-.SH "void QListBox::selectAll ( bool select )\fC [virtual slot]\fR"
+.SH "void TQListBox::selectAll ( bool select )\fC [virtual slot]\fR"
 In Multi and Extended modes, this function sets all items to be selected if \fIselect\fR is TRUE, and to be unselected if \fIselect\fR is FALSE.
 .PP
 In Single and NoSelection modes, this function only changes the selection status of currentItem().
-.SH "void QListBox::selected ( int index )\fC [signal]\fR"
+.SH "void TQListBox::selected ( int index )\fC [signal]\fR"
 This signal is emitted when the user double-clicks on an item or presses Enter on the current item. \fIindex\fR is the index of the selected item.
 .PP
 See also currentChanged(), highlighted(), and selectionChanged().
-.SH "void QListBox::selected ( const TQString & )\fC [signal]\fR"
+.SH "void TQListBox::selected ( const TQString & )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the user double-clicks on an item or presses Enter on the current item, and the item is (or has) a string. The argument is the text of the selected item.
 .PP
 See also currentChanged(), highlighted(), and selectionChanged().
-.SH "void QListBox::selected ( QListBoxItem * )\fC [signal]\fR"
+.SH "void TQListBox::selected ( TQListBoxItem * )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the user double-clicks on an item or presses Enter on the current item. The argument is a pointer to the new selected item.
 .PP
 See also currentChanged(), highlighted(), and selectionChanged().
-.SH "QListBoxItem * QListBox::selectedItem () const"
+.SH "TQListBoxItem * TQListBox::selectedItem () const"
 Returns the selected item if the list box is in single-selection mode and an item is selected.
 .PP
 If no items are selected or the list box is in another selection mode this function returns 0.
 .PP
 See also setSelected() and multiSelection.
-.SH "void QListBox::selectionChanged ()\fC [signal]\fR"
-This signal is emitted when the selection set of a list box changes. This signal is emitted in each selection mode. If the user selects five items by drag-selecting, QListBox tries to emit just one selectionChanged() signal so the signal can be connected to computationally expensive slots.
+.SH "void TQListBox::selectionChanged ()\fC [signal]\fR"
+This signal is emitted when the selection set of a list box changes. This signal is emitted in each selection mode. If the user selects five items by drag-selecting, TQListBox tries to emit just one selectionChanged() signal so the signal can be connected to computationally expensive slots.
 .PP
 See also selected() and currentItem.
-.SH "void QListBox::selectionChanged ( QListBoxItem * item )\fC [signal]\fR"
+.SH "void TQListBox::selectionChanged ( TQListBoxItem * item )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted when the selection in a Single selection list box changes. \fIitem\fR is the newly selected list box item.
 .PP
 See also selected() and currentItem.
-.SH "SelectionMode QListBox::selectionMode () const"
+.SH "SelectionMode TQListBox::selectionMode () const"
 Returns the selection mode of the list box. See the "selectionMode" property for details.
-.SH "void QListBox::setAutoBottomScrollBar ( bool enable )"
+.SH "void TQListBox::setAutoBottomScrollBar ( bool enable )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 If \fIenable\fR is TRUE sets setHScrollBarMode() to AlwaysOn; otherwise sets setHScrollBarMode() to AlwaysOff.
-.SH "void QListBox::setAutoScrollBar ( bool enable )"
+.SH "void TQListBox::setAutoScrollBar ( bool enable )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 If \fIenable\fR is TRUE sets setVScrollBarMode() to AlwaysOn; otherwise sets setVScrollBarMode() to AlwaysOff.
-.SH "void QListBox::setBottomItem ( int index )\fC [virtual]\fR"
+.SH "void TQListBox::setBottomItem ( int index )\fC [virtual]\fR"
 Scrolls the list box so the item at position \fIindex\fR in the list is displayed in the bottom row of the list box.
 .PP
 See also topItem.
-.SH "void QListBox::setBottomScrollBar ( bool enable )"
+.SH "void TQListBox::setBottomScrollBar ( bool enable )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 If \fIenable\fR is TRUE sets setHScrollBarMode() to AlwaysOn; otherwise sets setHScrollBarMode() to AlwaysOff.
-.SH "void QListBox::setColumnMode ( LayoutMode )\fC [virtual]\fR"
+.SH "void TQListBox::setColumnMode ( LayoutMode )\fC [virtual]\fR"
 Sets the column layout mode for this list box. See the "columnMode" property for details.
-.SH "void QListBox::setColumnMode ( int )\fC [virtual]\fR"
+.SH "void TQListBox::setColumnMode ( int )\fC [virtual]\fR"
 Sets the column layout mode for this list box. See the "columnMode" property for details.
-.SH "void QListBox::setCurrentItem ( int index )\fC [virtual]\fR"
+.SH "void TQListBox::setCurrentItem ( int index )\fC [virtual]\fR"
 Sets the current highlighted item to \fIindex\fR. See the "currentItem" property for details.
-.SH "void QListBox::setCurrentItem ( QListBoxItem * i )\fC [virtual]\fR"
+.SH "void TQListBox::setCurrentItem ( TQListBoxItem * i )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Sets the current item to the QListBoxItem \fIi\fR.
-.SH "void QListBox::setMultiSelection ( bool multi )"
+Sets the current item to the TQListBoxItem \fIi\fR.
+.SH "void TQListBox::setMultiSelection ( bool multi )"
 Sets whether or not the list box is in Multi selection mode to \fImulti\fR. See the "multiSelection" property for details.
-.SH "void QListBox::setRowMode ( LayoutMode )\fC [virtual]\fR"
+.SH "void TQListBox::setRowMode ( LayoutMode )\fC [virtual]\fR"
 Sets the row layout mode for this list box. See the "rowMode" property for details.
-.SH "void QListBox::setRowMode ( int )\fC [virtual]\fR"
+.SH "void TQListBox::setRowMode ( int )\fC [virtual]\fR"
 Sets the row layout mode for this list box. See the "rowMode" property for details.
-.SH "void QListBox::setScrollBar ( bool enable )"
+.SH "void TQListBox::setScrollBar ( bool enable )"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 If \fIenable\fR is TRUE sets setVScrollBarMode() to AlwaysOn; otherwise sets setVScrollBarMode() to AlwaysOff.
-.SH "void QListBox::setSelected ( QListBoxItem * item, bool select )\fC [virtual]\fR"
+.SH "void TQListBox::setSelected ( TQListBoxItem * item, bool select )\fC [virtual]\fR"
 Selects \fIitem\fR if \fIselect\fR is TRUE or unselects it if \fIselect\fR is FALSE, and repaints the item appropriately.
 .PP
 If the list box is a Single selection list box and \fIselect\fR is TRUE, setSelected() calls setCurrentItem().
@@ -926,57 +926,57 @@ If the list box is a Single selection list box and \fIselect\fR is TRUE, setSele
 If the list box is a Single selection list box, \fIselect\fR is FALSE, setSelected() calls clearSelection().
 .PP
 See also multiSelection, currentItem, clearSelection(), and currentItem.
-.SH "void QListBox::setSelected ( int index, bool select )"
+.SH "void TQListBox::setSelected ( int index, bool select )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 If \fIselect\fR is TRUE the item at position \fIindex\fR is selected; otherwise the item is deselected.
-.SH "void QListBox::setSelectionMode ( SelectionMode )\fC [virtual]\fR"
+.SH "void TQListBox::setSelectionMode ( SelectionMode )\fC [virtual]\fR"
 Sets the selection mode of the list box. See the "selectionMode" property for details.
-.SH "void QListBox::setTopItem ( int index )\fC [virtual]\fR"
+.SH "void TQListBox::setTopItem ( int index )\fC [virtual]\fR"
 Sets the index of an item at the top of the screen to \fIindex\fR. See the "topItem" property for details.
-.SH "void QListBox::setVariableHeight ( bool )\fC [virtual]\fR"
+.SH "void TQListBox::setVariableHeight ( bool )\fC [virtual]\fR"
 Sets whether this list box has variable-height rows. See the "variableHeight" property for details.
-.SH "void QListBox::setVariableWidth ( bool )\fC [virtual]\fR"
+.SH "void TQListBox::setVariableWidth ( bool )\fC [virtual]\fR"
 Sets whether this list box has variable-width columns. See the "variableWidth" property for details.
-.SH "void QListBox::sort ( bool ascending = TRUE )"
+.SH "void TQListBox::sort ( bool ascending = TRUE )"
 If \fIascending\fR is TRUE sorts the items in ascending order; otherwise sorts in descending order.
 .PP
-To compare the items, the text (QListBoxItem::text()) of the items is used.
+To compare the items, the text (TQListBoxItem::text()) of the items is used.
 .PP
 Example: listbox/listbox.cpp.
-.SH "void QListBox::takeItem ( const QListBoxItem * item )"
-Removes \fIitem\fR from the list box and causes an update of the screen display. The item is not deleted. You should normally not need to call this function because QListBoxItem::~QListBoxItem() calls it. The normal way to delete an item is with \fCdelete\fR.
+.SH "void TQListBox::takeItem ( const TQListBoxItem * item )"
+Removes \fIitem\fR from the list box and causes an update of the screen display. The item is not deleted. You should normally not need to call this function because TQListBoxItem::~TQListBoxItem() calls it. The normal way to delete an item is with \fCdelete\fR.
 .PP
-See also QListBox::insertItem().
-.SH "TQString QListBox::text ( int index ) const"
+See also TQListBox::insertItem().
+.SH "TQString TQListBox::text ( int index ) const"
 Returns the text at position \fIindex\fR, or TQString::null if there is no text at that position.
 .PP
 See also pixmap().
-.SH "void QListBox::toggleCurrentItem ()\fC [protected]\fR"
+.SH "void TQListBox::toggleCurrentItem ()\fC [protected]\fR"
 Toggles the selection status of currentItem() and repaints if the list box is a Multi selection list box.
 .PP
 See also multiSelection.
-.SH "int QListBox::topItem () const"
+.SH "int TQListBox::topItem () const"
 Returns the index of an item at the top of the screen. See the "topItem" property for details.
-.SH "int QListBox::totalHeight () const\fC [protected]\fR"
+.SH "int TQListBox::totalHeight () const\fC [protected]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns contentsHeight().
-.SH "int QListBox::totalWidth () const\fC [protected]\fR"
+.SH "int TQListBox::totalWidth () const\fC [protected]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Returns contentsWidth().
-.SH "void QListBox::triggerUpdate ( bool doLayout )"
+.SH "void TQListBox::triggerUpdate ( bool doLayout )"
 Ensures that a single paint event will occur at the end of the current event loop iteration. If \fIdoLayout\fR is TRUE, the layout is also redone.
-.SH "void QListBox::updateItem ( int index )\fC [protected]\fR"
+.SH "void TQListBox::updateItem ( int index )\fC [protected]\fR"
 Repaints the item at position \fIindex\fR in the list.
-.SH "void QListBox::updateItem ( QListBoxItem * i )\fC [protected]\fR"
+.SH "void TQListBox::updateItem ( TQListBoxItem * i )\fC [protected]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Repaints the QListBoxItem \fIi\fR.
-.SH "bool QListBox::variableHeight () const"
+Repaints the TQListBoxItem \fIi\fR.
+.SH "bool TQListBox::variableHeight () const"
 Returns TRUE if this list box has variable-height rows; otherwise returns FALSE. See the "variableHeight" property for details.
-.SH "bool QListBox::variableWidth () const"
+.SH "bool TQListBox::variableWidth () const"
 Returns TRUE if this list box has variable-width columns; otherwise returns FALSE. See the "variableWidth" property for details.
 .SS "Property Documentation"
 .SH "LayoutMode columnMode"
@@ -1010,7 +1010,7 @@ Get this property's value with currentText().
 .PP
 This property holds whether or not the list box is in Multi selection mode.
 .PP
-Consider using the QListBox::selectionMode property instead of this property.
+Consider using the TQListBox::selectionMode property instead of this property.
 .PP
 When setting this property, Multi selection mode is used if set to TRUE and to Single selection mode if set to FALSE.
 .PP
@@ -1022,7 +1022,7 @@ Set this property's value with setMultiSelection() and get this property's value
 .SH "int numColumns"
 This property holds the number of columns in the list box.
 .PP
-This is normally 1, but can be different if QListBox::columnMode or QListBox::rowMode has been set.
+This is normally 1, but can be different if TQListBox::columnMode or TQListBox::rowMode has been set.
 .PP
 See also columnMode, rowMode, and numRows.
 .PP
@@ -1085,7 +1085,7 @@ See also variableHeight.
 Set this property's value with setVariableWidth() and get this property's value with variableWidth().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqlistbox.html
+.BR http://doc.trolltech.com/tqlistbox.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

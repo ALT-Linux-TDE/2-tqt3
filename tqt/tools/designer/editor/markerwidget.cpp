@@ -33,10 +33,10 @@
 
 #include "markerwidget.h"
 #include "viewmanager.h"
-#include <private/qrichtext_p.h>
+#include <private/tqrichtext_p.h>
 #include "editor.h"
-#include <ntqpainter.h>
-#include <ntqpopupmenu.h>
+#include <tqpainter.h>
+#include <tqpopupmenu.h>
 #include "paragdata.h"
 
 static const char * error_xpm[] = {

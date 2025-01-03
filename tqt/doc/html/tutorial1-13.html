@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:2032 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -59,44 +58,44 @@ implementation.
 </h3>
 <a name="1-1"></a><p> 
 
-<p> <pre>    #include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
+<p> <pre>    #include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
 
     class TQSlider;
     class TQLabel;
 
-    class LCDRange : public <a href="ntqwidget.html">TQWidget</a>
+    class LCDRange : public <a href="tqwidget.html">TQWidget</a>
 </pre>
-<p> We inherit <a href="ntqwidget.html">TQWidget</a> rather than <a href="ntqvbox.html">TQVBox</a>. TQVBox is very easy to use, but
+<p> We inherit <a href="tqwidget.html">TQWidget</a> rather than <a href="tqvbox.html">TQVBox</a>. TQVBox is very easy to use, but
 again it showed its limitations so we switch to the more powerful and
-slightly harder to use <a href="qvboxlayout.html">TQVBoxLayout</a>. (As you remember, TQVBoxLayout is
+slightly harder to use <a href="tqvboxlayout.html">TQVBoxLayout</a>. (As you remember, TQVBoxLayout is
 not a widget, it manages one.)
 <p> <h3> <a href="t13-lcdrange-cpp.html">t13/lcdrange.cpp</a>
 </h3>
 <a name="1-2"></a><p> 
 
-<p> <pre>    #include &lt;<a href="qlayout-h.html">ntqlayout.h</a>&gt;
+<p> <pre>    #include &lt;<a href="tqlayout-h.html">tqlayout.h</a>&gt;
 </pre>
-<p> We need to include ntqlayout.h now to get the other layout management
+<p> We need to include tqlayout.h now to get the other layout management
 API.
-<p> <pre>    LCDRange::LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-            : <a href="ntqwidget.html">TQWidget</a>( parent, name )
+<p> <pre>    LCDRange::LCDRange( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+            : <a href="tqwidget.html">TQWidget</a>( parent, name )
 </pre>
 <p> We inherit TQWidget in the usual way.
 <p> The other constructor has the same change. init() is unchanged,
 except that we've added some lines at the end:
-<p> <pre>        <a href="qvboxlayout.html">TQVBoxLayout</a> * l = new <a href="qvboxlayout.html">TQVBoxLayout</a>( this );
+<p> <pre>        <a href="tqvboxlayout.html">TQVBoxLayout</a> * l = new <a href="tqvboxlayout.html">TQVBoxLayout</a>( this );
 </pre>
 <p> We create a TQVBoxLayout with all the default values, managing this
 widget's children.
-<p> <pre>    <a name="x2401"></a>    l-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( lcd, 1 );
+<p> <pre>    <a name="x2401"></a>    l-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( lcd, 1 );
 </pre>
-<p> At the top we add the <a href="ntqlcdnumber.html">TQLCDNumber</a> with a non-zero stretch.
-<p> <pre>        l-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( slider );
-        l-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( label );
+<p> At the top we add the <a href="tqlcdnumber.html">TQLCDNumber</a> with a non-zero stretch.
+<p> <pre>        l-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( slider );
+        l-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( label );
 </pre>
 <p> Then we add the other two, both with the default zero stretch.
-<p> This stretch control is something <a href="qvboxlayout.html">TQVBoxLayout</a> (and <a href="qhboxlayout.html">TQHBoxLayout</a>, and
-<a href="qgridlayout.html">TQGridLayout</a>) offers but classes like <a href="ntqvbox.html">TQVBox</a> do not. In this case
+<p> This stretch control is something <a href="tqvboxlayout.html">TQVBoxLayout</a> (and <a href="tqhboxlayout.html">TQHBoxLayout</a>, and
+<a href="tqgridlayout.html">TQGridLayout</a>) offers but classes like <a href="tqvbox.html">TQVBox</a> do not. In this case
 we're saying that the TQLCDNumber should stretch and the others should
 not.
 <p> <h3> <a href="t13-cannon-h.html">t13/cannon.h</a>
@@ -136,7 +135,7 @@ over (luckily for the player :-).
         timerCount = 0;
         shoot_ang = ang;
         shoot_f = f;
-    <a name="x2407"></a>    autoShootTimer-&gt;<a href="ntqtimer.html#start">start</a>( 50 );
+    <a name="x2407"></a>    autoShootTimer-&gt;<a href="tqtimer.html#start">start</a>( 50 );
         emit canShoot( FALSE );
     }
 </pre>
@@ -148,9 +147,9 @@ cannot shoot now.
         if ( gameEnded )
             return;
         if ( isShooting() )
-            autoShootTimer-&gt;<a href="ntqtimer.html#stop">stop</a>();
+            autoShootTimer-&gt;<a href="tqtimer.html#stop">stop</a>();
         gameEnded = TRUE;
-        <a href="ntqwidget.html#repaint">repaint</a>();
+        <a href="tqwidget.html#repaint">repaint</a>();
     }
 </pre>
 <p> This slot ends the game. It must be called from outside CannonField,
@@ -165,9 +164,9 @@ widget.
 <p> <pre>    void CannonField::restartGame()
     {
         if ( isShooting() )
-    <a name="x2408"></a>        autoShootTimer-&gt;<a href="ntqtimer.html#stop">stop</a>();
+    <a name="x2408"></a>        autoShootTimer-&gt;<a href="tqtimer.html#stop">stop</a>();
         gameEnded = FALSE;
-        <a href="ntqwidget.html#repaint">repaint</a>();
+        <a href="tqwidget.html#repaint">repaint</a>();
         emit canShoot( TRUE );
     }
 </pre>
@@ -176,15 +175,15 @@ We then reset the <tt>gameEnded</tt> variable and repaint the widget.
 <p> moveShot() too emits the new canShoot(TRUE) signal at the same time as
 either hit() or miss().
 <p> Modifications in CannonField::paintEvent():
-<p> <pre>    void CannonField::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaintevent.html">TQPaintEvent</a> *e )
+<p> <pre>    void CannonField::<a href="tqwidget.html#paintEvent">paintEvent</a>( <a href="tqpaintevent.html">TQPaintEvent</a> *e )
     {
-    <a name="x2405"></a>    <a href="ntqrect.html">TQRect</a> updateR = e-&gt;<a href="qpaintevent.html#rect">rect</a>();
-        <a href="ntqpainter.html">TQPainter</a> p( this );
+    <a name="x2405"></a>    <a href="tqrect.html">TQRect</a> updateR = e-&gt;<a href="tqpaintevent.html#rect">rect</a>();
+        <a href="tqpainter.html">TQPainter</a> p( this );
 
         if ( gameEnded ) {
-            p.<a href="ntqpainter.html#setPen">setPen</a>( black );
-    <a name="x2403"></a>        p.<a href="ntqpainter.html#setFont">setFont</a>( TQFont( "Courier", 48, TQFont::Bold ) );
-            p.<a href="ntqpainter.html#drawText">drawText</a>( <a href="ntqwidget.html#rect">rect</a>(), AlignCenter, "Game Over" );
+            p.<a href="tqpainter.html#setPen">setPen</a>( black );
+    <a name="x2403"></a>        p.<a href="tqpainter.html#setFont">setFont</a>( TQFont( "Courier", 48, TQFont::Bold ) );
+            p.<a href="tqpainter.html#drawText">drawText</a>( <a href="tqwidget.html#rect">rect</a>(), AlignCenter, "Game Over" );
         }
 </pre>
 <p> The paint event has been enhanced to display the text "Game Over" if
@@ -198,11 +197,11 @@ rectangle. Unfortunately, on some systems (especially X servers with
 Unicode fonts) it can take a while to load such a large font. Because
 TQt caches fonts, you will notice this only the first time the font is
 used.
-<p> <pre>    <a name="x2406"></a>    if ( updateR.<a href="ntqrect.html#intersects">intersects</a>( cannonRect() ) )
+<p> <pre>    <a name="x2406"></a>    if ( updateR.<a href="tqrect.html#intersects">intersects</a>( cannonRect() ) )
             paintCannon( &amp;p );
-        if ( isShooting() &amp;&amp; updateR.<a href="ntqrect.html#intersects">intersects</a>( shotRect() ) )
+        if ( isShooting() &amp;&amp; updateR.<a href="tqrect.html#intersects">intersects</a>( shotRect() ) )
             paintShot( &amp;p );
-        if ( !gameEnded &amp;&amp; updateR.<a href="ntqrect.html#intersects">intersects</a>( targetRect() ) )
+        if ( !gameEnded &amp;&amp; updateR.<a href="tqrect.html#intersects">intersects</a>( targetRect() ) )
             paintTarget( &amp;p );
     }
 </pre>
@@ -222,11 +221,11 @@ which was last seen as MyWidget.
     #include "lcdrange.h"
     #include "cannon.h"
 
-    class GameBoard : public <a href="ntqwidget.html">TQWidget</a>
+    class GameBoard : public <a href="tqwidget.html">TQWidget</a>
     {
         <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
     public:
-        GameBoard( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+        GameBoard( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 
     protected slots:
         void  fire();
@@ -235,8 +234,8 @@ which was last seen as MyWidget.
         void  newGame();
 
     private:
-        <a href="ntqlcdnumber.html">TQLCDNumber</a>  *hits;
-        <a href="ntqlcdnumber.html">TQLCDNumber</a>  *shotsLeft;
+        <a href="tqlcdnumber.html">TQLCDNumber</a>  *hits;
+        <a href="tqlcdnumber.html">TQLCDNumber</a>  *shotsLeft;
         CannonField *cannonField;
     };
 </pre>
@@ -256,15 +255,15 @@ class, which was last seen as MyWidget.
 constructor to use it. (The <em>good</em> programmers at Trolltech never
 forget this, but I do. Caveat programmor - if "programmor" is Latin,
 at least. Anyway, back to the code.)
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(hit()),
+<p> <pre>        <a href="tqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(hit()),
                  this, TQ_SLOT(hit()) );
-        <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(missed()),
+        <a href="tqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(missed()),
                  this, TQ_SLOT(missed()) );
 </pre>
 <p> This time we want to do something when the shot has hit or missed the
 target. Thus we connect the hit() and missed() signals of the
 CannonField to two protected slots with the same names in this class.
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( shoot, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), TQ_SLOT(fire()) );
+<p> <pre>        <a href="tqobject.html#connect">connect</a>( shoot, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), TQ_SLOT(fire()) );
 </pre>
 <p> Previously we connected the Shoot button's clicked() signal directly
 to the CannonField's shoot() slot. This time we want to keep track of
@@ -272,40 +271,40 @@ the number of shots fired, so we connect it to a protected slot in
 this class instead.
 <p> Notice how easy it is to change the behavior of a program when you are
 working with self-contained components.
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(canShoot(bool)),
-    <a name="x2416"></a>             shoot, TQ_SLOT(<a href="ntqwidget.html#setEnabled">setEnabled</a>(bool)) );
+<p> <pre>        <a href="tqobject.html#connect">connect</a>( cannonField, TQ_SIGNAL(canShoot(bool)),
+    <a name="x2416"></a>             shoot, TQ_SLOT(<a href="tqwidget.html#setEnabled">setEnabled</a>(bool)) );
 </pre>
 <p> We also use the cannonField's canShoot() signal to enable or disable
 the Shoot button appropriately.
 <p> <pre>        TQPushButton *restart
-            = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;New Game", this, "newgame" );
+            = new <a href="tqpushbutton.html">TQPushButton</a>( "&amp;New Game", this, "newgame" );
         restart-&gt;setFont( TQFont( "Times", 18, TQFont::Bold ) );
 
-        <a href="ntqobject.html#connect">connect</a>( restart, TQ_SIGNAL(clicked()), this, TQ_SLOT(newGame()) );
+        <a href="tqobject.html#connect">connect</a>( restart, TQ_SIGNAL(clicked()), this, TQ_SLOT(newGame()) );
 </pre>
 <p> We create, set up, and connect the New Game button as we have done
 with the other buttons. Clicking this button will activate the
 newGame() slot in this widget.
-<p> <pre>        hits = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, this, "hits" );
-        shotsLeft = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, this, "shotsleft" );
-        <a href="ntqlabel.html">TQLabel</a> *hitsL = new <a href="ntqlabel.html">TQLabel</a>( "HITS", this, "hitsLabel" );
+<p> <pre>        hits = new <a href="tqlcdnumber.html">TQLCDNumber</a>( 2, this, "hits" );
+        shotsLeft = new <a href="tqlcdnumber.html">TQLCDNumber</a>( 2, this, "shotsleft" );
+        <a href="tqlabel.html">TQLabel</a> *hitsL = new <a href="tqlabel.html">TQLabel</a>( "HITS", this, "hitsLabel" );
         TQLabel *shotsLeftL
-            = new <a href="ntqlabel.html">TQLabel</a>( "SHOTS LEFT", this, "shotsleftLabel" );
+            = new <a href="tqlabel.html">TQLabel</a>( "SHOTS LEFT", this, "shotsleftLabel" );
 </pre>
 <p> We create four new widgets. Note that we don't bother to keep the
-pointers to the <a href="ntqlabel.html">TQLabel</a> widgets in the GameBoard class because there's
+pointers to the <a href="tqlabel.html">TQLabel</a> widgets in the GameBoard class because there's
 nothing much we want to do with them. TQt will delete them when the
 GameBoard widget is destroyed, and the layout classes will resize them
 appropriately.
-<p> <pre>        <a href="qhboxlayout.html">TQHBoxLayout</a> *topBox = new <a href="qhboxlayout.html">TQHBoxLayout</a>;
-    <a name="x2413"></a>    grid-&gt;<a href="qgridlayout.html#addLayout">addLayout</a>( topBox, 0, 1 );
-        topBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( shoot );
-        topBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( hits );
-        topBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( hitsL );
-        topBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( shotsLeft );
-        topBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( shotsLeftL );
-    <a name="x2410"></a>    topBox-&gt;<a href="qboxlayout.html#addStretch">addStretch</a>( 1 );
-    <a name="x2411"></a>    topBox-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( restart );
+<p> <pre>        <a href="tqhboxlayout.html">TQHBoxLayout</a> *topBox = new <a href="tqhboxlayout.html">TQHBoxLayout</a>;
+    <a name="x2413"></a>    grid-&gt;<a href="tqgridlayout.html#addLayout">addLayout</a>( topBox, 0, 1 );
+        topBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( shoot );
+        topBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( hits );
+        topBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( hitsL );
+        topBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( shotsLeft );
+        topBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( shotsLeftL );
+    <a name="x2410"></a>    topBox-&gt;<a href="tqboxlayout.html#addStretch">addStretch</a>( 1 );
+    <a name="x2411"></a>    topBox-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( restart );
 </pre>
 <p> The number of widgets in the top-right cell is getting large. Once it
 was empty; now it's full enough that we group together the layout
@@ -322,7 +321,7 @@ ordinary functions, too.)
     {
         if ( cannonField-&gt;gameOver() || cannonField-&gt;isShooting() )
             return;
-        shotsLeft-&gt;<a href="ntqlcdnumber.html#display">display</a>( shotsLeft-&gt;<a href="ntqlcdnumber.html#intValue">intValue</a>() - 1 );
+        shotsLeft-&gt;<a href="tqlcdnumber.html#display">display</a>( shotsLeft-&gt;<a href="tqlcdnumber.html#intValue">intValue</a>() - 1 );
         cannonField-&gt;shoot();
     }
 </pre>
@@ -331,8 +330,8 @@ air, we return immediately. We decrement the number of shots left and tell
 the cannon to shoot.
 <p> <pre>    void GameBoard::hit()
     {
-        hits-&gt;<a href="ntqlcdnumber.html#display">display</a>( hits-&gt;<a href="ntqlcdnumber.html#intValue">intValue</a>() + 1 );
-        if ( shotsLeft-&gt;<a href="ntqlcdnumber.html#intValue">intValue</a>() == 0 )
+        hits-&gt;<a href="tqlcdnumber.html#display">display</a>( hits-&gt;<a href="tqlcdnumber.html#intValue">intValue</a>() + 1 );
+        if ( shotsLeft-&gt;<a href="tqlcdnumber.html#intValue">intValue</a>() == 0 )
             cannonField-&gt;setGameOver();
         else
             cannonField-&gt;newTarget();
@@ -343,7 +342,7 @@ number of hits. If there are no shots left, the game is over. Otherwise,
 we make the CannonField generate a new target.
 <p> <pre>    void GameBoard::missed()
     {
-    <a name="x2415"></a>    if ( shotsLeft-&gt;<a href="ntqlcdnumber.html#intValue">intValue</a>() == 0 )
+    <a name="x2415"></a>    if ( shotsLeft-&gt;<a href="tqlcdnumber.html#intValue">intValue</a>() == 0 )
             cannonField-&gt;setGameOver();
     }
 </pre>
@@ -351,8 +350,8 @@ we make the CannonField generate a new target.
 shots left, the game is over.
 <p> <pre>    void GameBoard::newGame()
     {
-    <a name="x2414"></a>    shotsLeft-&gt;<a href="ntqlcdnumber.html#display">display</a>( 15 );
-        hits-&gt;<a href="ntqlcdnumber.html#display">display</a>( 0 );
+    <a name="x2414"></a>    shotsLeft-&gt;<a href="tqlcdnumber.html#display">display</a>( 15 );
+        hits-&gt;<a href="tqlcdnumber.html#display">display</a>( 0 );
         cannonField-&gt;restartGame();
         cannonField-&gt;newTarget();
     }

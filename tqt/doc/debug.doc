@@ -91,7 +91,7 @@ often useful even without names.
 
 \section1 Debugging Macros
 
-The header file \c ntqglobal.h contains many debugging macros and
+The header file \c tqglobal.h contains many debugging macros and
 \c{#define}s.
 
 Two important macros are:
@@ -180,7 +180,7 @@ Example:
 
 There is one bug that is so common that it deserves mention here: If
 you include the TQ_OBJECT macro in a class declaration and run the
-\link moc.html moc\endlink, but forget to link the moc-generated
+\link tqmoc.html tqmoc\endlink, but forget to link the tqmoc-generated
 object code into your executable, you will get very confusing error
 messages. Any link error complaining about a lack of \c{vtbl},
 \c{_vtbl}, \c{__vtbl} or similar is likely to be a result of this

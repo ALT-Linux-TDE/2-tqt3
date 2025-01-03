@@ -51,7 +51,7 @@
 
 #include "qsimpleinputcontext.h"
 
-#include <ntqnamespace.h>
+#include <tqnamespace.h>
 
 static const TQComposeTableElement defaultTable[] = {
 // /* broken */    { {0x0000, 0x0000, 0, 0, 0, 0}, 0x1eda }, // U1EDA # LATIN CAPITAL LETTER O WITH HORN AND ACUTE

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/debug.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,7 +40,7 @@ that can help with debugging.
 <p> <center><table cellpadding="4" cellspacing="2" border="0">
 <tr bgcolor="#a2c511"> <th valign="top">Option <th valign="top">Result
 <tr bgcolor="#f0f0f0"> <td valign="top">-nograb
-<td valign="top">The application should never grab <a href="ntqwidget.html#grabMouse">the mouse</a> or <a href="ntqwidget.html#grabKeyboard">the
+<td valign="top">The application should never grab <a href="tqwidget.html#grabMouse">the mouse</a> or <a href="tqwidget.html#grabKeyboard">the
 	keyboard</a>. This option is set by default when the
 program is running in the <tt>gdb</tt> debugger under Linux.
 <tr bgcolor="#d0d0d0"> <td valign="top">-dograb
@@ -59,29 +58,29 @@ option is only valid for the X11 version of TQt.
 <a name="2"></a><p> TQt includes three global functions for writing out warning and debug
 text.
 <ul>
-<li> <a href="ntqapplication.html#qDebug">tqDebug()</a> for writing debug output for testing etc.
-<li> <a href="ntqapplication.html#qWarning">tqWarning()</a> for writing warning output when program
+<li> <a href="tqapplication.html#qDebug">tqDebug()</a> for writing debug output for testing etc.
+<li> <a href="tqapplication.html#qWarning">tqWarning()</a> for writing warning output when program
 errors occur.
-<li> <a href="ntqapplication.html#qFatal">tqFatal()</a> for writing fatal error messages
+<li> <a href="tqapplication.html#qFatal">tqFatal()</a> for writing fatal error messages
 and exiting.
 </ul>
 <p> The TQt implementation of these functions prints the text to the <tt>stderr</tt>
 output under Unix/X11 and to the debugger under Windows. You can
 take over these functions by installing a message handler;
-<a href="ntqapplication.html#qInstallMsgHandler">qInstallMsgHandler()</a>.
-<p> The debugging functions <a href="ntqobject.html#dumpObjectTree">TQObject::dumpObjectTree</a>() and <a href="ntqobject.html#dumpObjectInfo">TQObject::dumpObjectInfo</a>() are often useful when an application looks
+<a href="tqapplication.html#qInstallMsgHandler">qInstallMsgHandler()</a>.
+<p> The debugging functions <a href="tqobject.html#dumpObjectTree">TQObject::dumpObjectTree</a>() and <a href="tqobject.html#dumpObjectInfo">TQObject::dumpObjectInfo</a>() are often useful when an application looks
 or acts strangely. More useful if you use object names than not, but
 often useful even without names.
 <p> <h2> Debugging Macros
 </h2>
-<a name="3"></a><p> The header file <a href="qglobal-h.html">ntqglobal.h</a> contains many debugging macros and
+<a name="3"></a><p> The header file <a href="tqglobal-h.html">tqglobal.h</a> contains many debugging macros and
 <tt>#define</tt>s.
 <p> Two important macros are:
 <ul>
-<li> <a href="ntqapplication.html#Q_ASSERT">Q_ASSERT(b)</a> where b is a boolean
+<li> <a href="tqapplication.html#Q_ASSERT">Q_ASSERT(b)</a> where b is a boolean
 expression, writes the warning: "ASSERT: 'b' in file file.cpp (234)"
 if b is FALSE.
-<li> <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR(p)</a> where p is a pointer.
+<li> <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR(p)</a> where p is a pointer.
 Writes the warning "In file file.cpp, line 234: Out of memory" if p is
 0.
 </ul>
@@ -89,9 +88,9 @@ Writes the warning "In file file.cpp, line 234: Out of memory" if p is
 <pre>
   char *alloc( int size )
   {
-      <a href="ntqapplication.html#Q_ASSERT">Q_ASSERT</a>( size &gt; 0 );
+      <a href="tqapplication.html#Q_ASSERT">Q_ASSERT</a>( size &gt; 0 );
       char *p = new char[size];
-      <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( p );
+      <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( p );
       return p;
   }
 </pre>
@@ -108,7 +107,7 @@ TQ_CHECK_PTR:
   char *alloc( int size )
   {
       char *p;
-      <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( p = new char[size] ); // WRONG!
+      <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( p = new char[size] ); // WRONG!
       return p;
   }
 </pre>
@@ -141,12 +140,12 @@ define TQT_NO_CHECK.
   {
   #if defined(QT_CHECK_NULL)
       if ( p == 0 )
-          <a href="ntqapplication.html#qWarning">tqWarning</a>( "f: Null pointer not allowed" );
+          <a href="tqapplication.html#qWarning">tqWarning</a>( "f: Null pointer not allowed" );
   #endif
 
   #if defined(QT_CHECK_RANGE)
       if ( i &lt; 0 )
-          <a href="ntqapplication.html#qWarning">tqWarning</a>( "f: The index cannot be negative" );
+          <a href="tqapplication.html#qWarning">tqWarning</a>( "f: The index cannot be negative" );
   #endif
   }
 </pre>
@@ -155,7 +154,7 @@ define TQT_NO_CHECK.
 </h2>
 <a name="4"></a><p> There is one bug that is so common that it deserves mention here: If
 you include the <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a> macro in a class declaration and run the
-<a href="moc.html">moc</a>, but forget to link the <a href="moc.html#moc">moc</a>-generated
+<a href="tqmoc.html">tqmoc</a>, but forget to link the <a href="tqmoc.html#tqmoc">tqmoc</a>-generated
 object code into your executable, you will get very confusing error
 messages. Any link error complaining about a lack of <tt>vtbl</tt>,
 <tt>_vtbl</tt>, <tt>__vtbl</tt> or similar is likely to be a result of this

@@ -1,5 +1,5 @@
 /****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
+** ui.h extension file, included from the tquic-generated form implementation.
 **
 ** If you wish to add, delete or rename functions or slots use
 ** TQt Designer which will update this file, preserving your code. Create an
@@ -7,16 +7,16 @@
 ** place of a destructor.
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqcursor.h>
-#include <ntqeventloop.h>
-#include <ntqfile.h>
-#include <ntqfiledialog.h>
-#include <ntqfileinfo.h>
-#include <ntqlineedit.h>
-#include <ntqmessagebox.h>
-#include <ntqpushbutton.h>
-#include <ntqtimer.h>
+#include <tqapplication.h>
+#include <tqcursor.h>
+#include <tqeventloop.h>
+#include <tqfile.h>
+#include <tqfiledialog.h>
+#include <tqfileinfo.h>
+#include <tqlineedit.h>
+#include <tqmessagebox.h>
+#include <tqpushbutton.h>
+#include <tqtimer.h>
 
 
 void Distributor::init()

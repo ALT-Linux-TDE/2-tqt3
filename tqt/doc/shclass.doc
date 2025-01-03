@@ -79,7 +79,7 @@ the reference count.
 
 Object assignment (with operator=()) for implicitly and explicitly
 shared objects is implemented using shallow copies. A deep copy can be
-made by calling a copy() function or by using \l QDeepCopy.
+made by calling a copy() function or by using \l TQDeepCopy.
 
 The benefit of sharing is that a program does not need to duplicate
 data unnecessarily, which results in lower memory use and less copying
@@ -92,17 +92,17 @@ that objects share common data. Implicit sharing means that the
 sharing mechanism takes place behind the scenes and the programmer
 does not need to worry about it.
 
-\section1 A QByteArray Example
+\section1 A TQByteArray Example
 
-QByteArray is an example of a shared class that uses explicit sharing.
+TQByteArray is an example of a shared class that uses explicit sharing.
 Example:
 \code
 			  //Line    a=         b=         c=
-    QByteArray a(3),b(2)  // 1:     {?,?,?}    {?,?}
+    TQByteArray a(3),b(2)  // 1:     {?,?,?}    {?,?}
     b[0] = 12; b[1] = 34; // 2:     {?,?,?}    {12,34}
     a = b;                // 3:     {12,34}    {12,34}
     a[1] = 56;            // 4:     {12,56}    {12,56}
-    QByteArray c = a;     // 5:     {12,56}    {12,56}    {12,56}
+    TQByteArray c = a;     // 5:     {12,56}    {12,56}    {12,56}
     a.detach();           // 6:     {12,56}    {12,56}    {12,56}
     a[1] = 78;            // 7:     {12,78}    {12,56}    {12,56}
     b = a.copy();         // 8:     {12,78}    {12,78}    {12,56}
@@ -138,88 +138,88 @@ refer to the same data.
 Implicit sharing optimizes memory use and copying of data without
 this side effect. So why didn't we implement implicit sharing for all
 shared classes? The answer is that a class that allows direct access
-to its internal data (for efficiency reasons), like QByteArray, cannot
+to its internal data (for efficiency reasons), like TQByteArray, cannot
 be implicitly shared, because it can be changed without letting
-QByteArray know.
+TQByteArray know.
 
 An implicitly shared class has total control of its internal data. In
 any member functions that modify its data, it automatically detaches
 before modifying the data.
 
-The QPen class, which uses implicit sharing, detaches from the shared
+The TQPen class, which uses implicit sharing, detaches from the shared
 data in all member functions that change the internal data.
 
 Code fragment:
 \code
-    void QPen::setStyle( PenStyle s )
+    void TQPen::setStyle( PenStyle s )
     {
 	detach();        // detach from common data
 	data->style = s; // set the style member
     }
 
-    void QPen::detach()
+    void TQPen::detach()
     {
 	if ( data->count != 1 ) // only if >1 reference
 	    *this = copy();
     }
 \endcode
 
-This is clearly not possible for QByteArray, because the programmer
+This is clearly not possible for TQByteArray, because the programmer
 can do the following:
 
 \code
-    QByteArray array( 10 );
+    TQByteArray array( 10 );
     array.fill( 'a' );
     array[0] = 'f';        // will modify array
     array.data()[1] = 'i'; // will modify array
 \endcode
 
-If we monitor changes in a QByteArray, the QByteArray class would
+If we monitor changes in a TQByteArray, the TQByteArray class would
 become unacceptably slow.
 
 
 \section1 Explicitly Shared Classes
 
-All classes that are instances of the QMemArray template class are
+All classes that are instances of the TQMemArray template class are
 explicitly shared:
 
 \list
-\i \l QBitArray
-\i \l QPointArray
-\i \l QByteArray
-\i Any other instantiation of \link QMemArray QMemArray\<type\>\endlink
+\i \l TQBitArray
+\i \l TQPointArray
+\i \l TQByteArray
+\i Any other instantiation of \link TQMemArray TQMemArray\<type\>\endlink
 \endlist
 
 These classes have a detach() function that can be called if you want
 your object to get a private copy of the shared data. They also have a
 copy() function that returns a deep copy with a reference count of 1.
 
-The same is true for \l TQImage, which does not inherit QMemArray. \l
-QMovie is also explicitly shared, but it does not support detach() or
+The same is true for \l TQImage, which does not inherit TQMemArray. \l
+TQMovie is also explicitly shared, but it does not support detach() or
 copy().
 
 \section1 Implicitly Shared Classes
 
 The TQt classes that are implicitly shared are:
 \list
-\i \l QBitmap
-\i \l QBrush
-\i \l QCursor
-\i \l QFont
-\i \l QFontInfo
-\i \l QFontMetrics
-\i \l QIconSet
-\i \l QMap
-\i \l QPalette
-\i \l QPen
-\i \l QPicture
-\i \l QPixmap
-\i \l QRegion
-\i \l QRegExp
+\i \l TQBitmap
+\i \l TQBrush
+\i \l TQCursor
+\i \l TQFont
+\i \l TQFontInfo
+\i \l TQFontMetrics
+\i \l TQIconSet
+\i \l TQMap
+\i \l TQPalette
+\i \l TQPen
+\i \l TQPicture
+\i \l TQPixmap
+\i \l TQRegion
+\i \l TQRegExp
 \i \l TQString
-\i \l QStringList
-\i \l QValueList
-\i \l QValueStack
+\i \l TQStringList
+\i \l TQValueList
+\i \l TQValueStack
 \endlist
 
 These classes automatically detach from common data if an object is
@@ -232,28 +232,28 @@ functions by value without concern for the copying overhead.
 
 Example:
 \code
-    QPixmap p1, p2;
+    TQPixmap p1, p2;
     p1.load( "image.bmp" );
     p2 = p1;			// p1 and p2 share data
-    QPainter paint;
+    TQPainter paint;
     paint.begin( &p2 );		// cuts p2 loose from p1
     paint.drawText( 0,50, "Hi" );
     paint.end();
 \endcode
 
-In this example, \c p1 and \c p2 share data until QPainter::begin() is
+In this example, \c p1 and \c p2 share data until TQPainter::begin() is
 called for \c p2, because painting a pixmap will modify it. The same
 also happens if anything is \link ::bitBlt() bitBlt()\endlink'ed into
 \c p2.
 
-\warning Do not copy an implicitly shared container (QMap,
-QValueVector, etc.) while you are iterating over it.
+\warning Do not copy an implicitly shared container (TQMap,
+TQValueVector, etc.) while you are iterating over it.
 
-\section1 QCString: implicit or explicit?
+\section1 TQCString: implicit or explicit?
 
-\l QCString uses a mixture of implicit and explicit sharing. Functions
-inherited from QByteArray, such as data(), employ explicit sharing, while
-those only in QCString detach automatically. Thus, QCString is rather an
+\l TQCString uses a mixture of implicit and explicit sharing. Functions
+inherited from TQByteArray, such as data(), employ explicit sharing, while
+those only in TQCString detach automatically. Thus, TQCString is rather an
 "experts only" class, provided mainly to ease porting from TQt 1.x to TQt 2.0.
 We recommend that you use \l TQString, a purely implicitly shared class.
 

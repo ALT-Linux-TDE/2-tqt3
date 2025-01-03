@@ -7,11 +7,11 @@
 **
 *****************************************************************************/
 
-#include <ntqtextview.h>
-#include <ntqpushbutton.h>
-#include <ntqtextstream.h>
-#include <ntqapplication.h>
-#include <ntqmessagebox.h>
+#include <tqtextview.h>
+#include <tqpushbutton.h>
+#include <tqtextstream.h>
+#include <tqapplication.h>
+#include <tqmessagebox.h>
 #include <stdlib.h>
 
 #include "server.h"

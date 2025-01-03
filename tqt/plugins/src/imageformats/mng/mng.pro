@@ -1,5 +1,5 @@
 TEMPLATE = lib
-TARGET  += qmng
+TARGET  += tqmng
 
 CONFIG  += qt plugin
 DESTDIR  = ../../../imageformats
@@ -9,10 +9,6 @@ REQUIRES = !no-mng !mng
 
 SOURCES += main.cpp
 
-win32-borland {
-	QMAKE_CFLAGS_WARN_ON	+= -w-par
-	QMAKE_CXXFLAGS_WARN_ON	+= -w-par
-}
 win32: CONFIG-=zlib system-zlib jpeg system-jpeg
 
 system-mng {

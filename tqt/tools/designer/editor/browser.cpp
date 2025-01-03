@@ -33,7 +33,7 @@
 
 #include "browser.h"
 #include "editor.h"
-#include <private/qrichtext_p.h>
+#include <private/tqrichtext_p.h>
 
 
 EditorBrowser::EditorBrowser( Editor *e )

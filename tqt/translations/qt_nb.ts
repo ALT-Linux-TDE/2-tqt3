@@ -1,7 +1,7 @@
 <!DOCTYPE TS>
 <TS>
   <context>
-    <name>QAccel</name>
+    <name>TQAccel</name>
     <message>
       <source>Space</source>
       <translation>Mellomrom</translation>
@@ -284,7 +284,7 @@
     </message>
   </context>
   <context>
-    <name>QApplication</name>
+    <name>TQApplication</name>
     <message>
       <source>QT_LAYOUT_DIRECTION</source>
       <comment>Translate this string to the string 'LTR' in left-to-right languages or to 'RTL' in right-to-left languages (such as Hebrew and Arabic) to get proper widget layout.
@@ -312,7 +312,7 @@
     </message>
   </context>
   <context>
-    <name>QColorDialog</name>
+    <name>TQColorDialog</name>
     <message>
       <source>Hu&amp;e:</source>
       <translation>Fargeton&amp;e:</translation>
@@ -371,7 +371,7 @@
     </message>
   </context>
   <context>
-    <name>QDataTable</name>
+    <name>TQDataTable</name>
     <message>
       <source>True</source>
       <translation>Ja</translation>
@@ -394,14 +394,14 @@
     </message>
   </context>
   <context>
-    <name>QDialog</name>
+    <name>TQDialog</name>
     <message>
       <source>What's This?</source>
       <translation>Hva er dette?</translation>
     </message>
   </context>
   <context>
-    <name>QErrorMessage</name>
+    <name>TQErrorMessage</name>
     <message>
       <source>&amp;Show this message again</source>
       <translation>&amp;Vis denne meldingen igjen</translation>
@@ -424,7 +424,7 @@
     </message>
   </context>
   <context>
-    <name>QFileDialog</name>
+    <name>TQFileDialog</name>
     <message>
       <source>Copy or Move a File</source>
       <translation>Kopier eller flytt en fil</translation>
@@ -683,7 +683,7 @@ Kontroller filsti og filnavn.</translation>
     </message>
   </context>
   <context>
-    <name>QFont</name>
+    <name>TQFont</name>
     <message>
       <source>Latin</source>
       <translation>Latin</translation>
@@ -870,7 +870,7 @@ Kontroller filsti og filnavn.</translation>
     </message>
   </context>
   <context>
-    <name>QFontDialog</name>
+    <name>TQFontDialog</name>
     <message>
       <source>&amp;Font</source>
       <translation>&amp;Skrifttype</translation>
@@ -929,7 +929,7 @@ Kontroller filsti og filnavn.</translation>
     </message>
   </context>
   <context>
-    <name>QFtp</name>
+    <name>TQFtp</name>
     <message>
       <source>Host %1 found</source>
       <translation>Vertsmaskinen %1 funnet</translation>
@@ -1030,14 +1030,14 @@ Kontroller filsti og filnavn.</translation>
     </message>
   </context>
   <context>
-    <name>QHeader</name>
+    <name>TQHeader</name>
     <message>
       <source>%1</source>
       <translation>%1</translation>
     </message>
   </context>
   <context>
-    <name>QHttp</name>
+    <name>TQHttp</name>
     <message>
       <source>Connection refused</source>
       <translation>Tilkoblingen ble avvist</translation>
@@ -1104,7 +1104,7 @@ Kontroller filsti og filnavn.</translation>
     </message>
   </context>
   <context>
-    <name>QInputDialog</name>
+    <name>TQInputDialog</name>
     <message>
       <source>OK</source>
       <translation>OK</translation>
@@ -1115,7 +1115,7 @@ Kontroller filsti og filnavn.</translation>
     </message>
   </context>
   <context>
-    <name>QLineEdit</name>
+    <name>TQLineEdit</name>
     <message>
       <source>&amp;Undo</source>
       <translation>&amp;Angre</translation>
@@ -1146,7 +1146,7 @@ Kontroller filsti og filnavn.</translation>
     </message>
   </context>
   <context>
-    <name>QLocalFs</name>
+    <name>TQLocalFs</name>
     <message>
       <source>Could not rename
 %1
@@ -1189,7 +1189,7 @@ til
     </message>
   </context>
   <context>
-    <name>QMainWindow</name>
+    <name>TQMainWindow</name>
     <message>
       <source>Line up</source>
       <translation>Linje opp</translation>
@@ -1200,7 +1200,7 @@ til
     </message>
   </context>
   <context>
-    <name>QMenuBar</name>
+    <name>TQMenuBar</name>
     <message>
       <source>About</source>
       <translation>Om</translation>
@@ -1235,7 +1235,7 @@ til
     </message>
   </context>
   <context>
-    <name>QMessageBox</name>
+    <name>TQMessageBox</name>
     <message>
       <source>OK</source>
       <translation>OK</translation>
@@ -1265,19 +1265,19 @@ til
       <translation>&amp;Ignorer</translation>
     </message>
     <message>
-      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses TQt version %1.&lt;/p>&lt;p>TQt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>TQt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br>TQt is also available for embedded devices.&lt;/p>&lt;p>TQt is a Trolltech product. See &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> for more information.&lt;/p></source>
-      <translation>&lt;h3&gt; Om Qt&lt;/h3&gt;&lt;p&gt;Dette programmet bruker TQt versjon %1.&lt;/p&gt;&lt;p&gt;Qt er et C++ bibliotek for multiplattform GUI &amp;amp; applikasjonsutvikling.&lt;/p&gt;&lt;p&gt;Qt gir lik-kildekode portabilitet for MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, og alle de viktigste kommersielle varianter av Unix.&lt;br&gt;Qt er ogs tilgjengelig for integrerte (embedded) enheter.&lt;/p&gt;&lt;p&gt;Qt er et Trolltech produkt. &lt;tt&gt;Se https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for mer informasjon.&lt;/p&gt;</translation>
+      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses TQt version %1.&lt;/p>&lt;p>TQt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>TQt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;/p&gt;&lt;p&gt;See &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> for more information.&lt;/p></source>
+      <translation>&lt;h3&gt; Om Qt&lt;/h3&gt;&lt;p&gt;Dette programmet bruker TQt versjon %1.&lt;/p&gt;&lt;p&gt;Qt er et C++ bibliotek for multiplattform GUI &amp;amp; applikasjonsutvikling.&lt;/p&gt;&lt;p&gt;Qt gir lik-kildekode portabilitet for MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, og alle de viktigste kommersielle varianter av Unix.&lt;/p&gt;&lt;p&gt;&lt;tt&gt;Se https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for mer informasjon.&lt;/p&gt;</translation>
     </message>
   </context>
   <context>
-    <name>QNetworkProtocol</name>
+    <name>TQNetworkProtocol</name>
     <message>
       <source>Operation stopped by the user</source>
       <translation>Operasjon stanset av bruker</translation>
     </message>
   </context>
   <context>
-    <name>QPrintDialog</name>
+    <name>TQPrintDialog</name>
     <message>
       <source>locally connected</source>
       <translation>lokal tilkobling</translation>
@@ -1516,14 +1516,14 @@ til
     </message>
   </context>
   <context>
-    <name>QProgressDialog</name>
+    <name>TQProgressDialog</name>
     <message>
       <source>Cancel</source>
       <translation>Avbryt</translation>
     </message>
   </context>
   <context>
-    <name>QRegExp</name>
+    <name>TQRegExp</name>
     <message>
       <source>no error occurred</source>
       <translation>ingen feil registrert</translation>
@@ -1562,7 +1562,7 @@ til
     </message>
   </context>
   <context>
-    <name>QSql</name>
+    <name>TQSql</name>
     <message>
       <source>Delete</source>
       <translation>Slett</translation>
@@ -1605,7 +1605,7 @@ til
     </message>
   </context>
   <context>
-    <name>QTabDialog</name>
+    <name>TQTabDialog</name>
     <message>
       <source>OK</source>
       <translation>OK</translation>
@@ -1628,7 +1628,7 @@ til
     </message>
   </context>
   <context>
-    <name>QTextEdit</name>
+    <name>TQTextEdit</name>
     <message>
       <source>&amp;Undo</source>
       <translation>&amp;Angre</translation>
@@ -1659,7 +1659,7 @@ til
     </message>
   </context>
   <context>
-    <name>QTitleBar</name>
+    <name>TQTitleBar</name>
     <message>
       <source>System Menu</source>
       <translation>Systemmeny</translation>
@@ -1690,14 +1690,14 @@ til
     </message>
   </context>
   <context>
-    <name>QToolBar</name>
+    <name>TQToolBar</name>
     <message>
       <source>More...</source>
       <translation>Mer...</translation>
     </message>
   </context>
   <context>
-    <name>QUrlOperator</name>
+    <name>TQUrlOperator</name>
     <message>
       <source>The protocol `%1' is not supported</source>
       <translation>Protokollen `%1' støttes ikke</translation>
@@ -1736,65 +1736,14 @@ til
     </message>
   </context>
   <context>
-    <name>QWSDecoration</name>
-    <message>
-      <source>&amp;Restore</source>
-      <translation>Gjenopp&amp;rett</translation>
-    </message>
-    <message>
-      <source>&amp;Move</source>
-      <translation>&amp;Flytt</translation>
-    </message>
-    <message>
-      <source>&amp;Size</source>
-      <translation>&amp;Størrelse</translation>
-    </message>
-    <message>
-      <source>Mi&amp;nimize</source>
-      <translation>Mi&amp;nimer</translation>
-    </message>
-    <message>
-      <source>Ma&amp;ximize</source>
-      <translation>Ma&amp;ksimer</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Lukk</translation>
-    </message>
-    <message>
-      <source>Windows</source>
-      <translation>Windows</translation>
-    </message>
-    <message>
-      <source>KDE</source>
-      <translation>KDE</translation>
-    </message>
-    <message>
-      <source>KDE2</source>
-      <translation>KDE2</translation>
-    </message>
-    <message>
-      <source>BeOS</source>
-      <translation>BeOS</translation>
-    </message>
-    <message>
-      <source>Hydro</source>
-      <translation>Hydro</translation>
-    </message>
-    <message>
-      <source>Default</source>
-      <translation>Standard</translation>
-    </message>
-  </context>
-  <context>
-    <name>QWhatsThisButton</name>
+    <name>TQWhatsThisButton</name>
     <message>
       <source>What's this?</source>
       <translation>Hva er dette?</translation>
     </message>
   </context>
   <context>
-    <name>QWizard</name>
+    <name>TQWizard</name>
     <message>
       <source>&amp;Cancel</source>
       <translation>&amp;Avbryt</translation>
@@ -1817,7 +1766,7 @@ til
     </message>
   </context>
   <context>
-    <name>QWorkspace</name>
+    <name>TQWorkspace</name>
     <message>
       <source>&amp;Restore</source>
       <translation>Gjenopp&amp;rett</translation>
@@ -1872,7 +1821,7 @@ til
     </message>
   </context>
   <context>
-    <name>QXml</name>
+    <name>TQXml</name>
     <message>
       <source>no error occurred</source>
       <translation>ingen feil registrert</translation>

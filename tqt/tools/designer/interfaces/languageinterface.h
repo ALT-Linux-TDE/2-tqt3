@@ -47,11 +47,11 @@
 //
 //
 
-#include <private/qcom_p.h>
-#include <ntqvaluelist.h>
-#include <ntqstringlist.h>
-#include <ntqmap.h>
-#include <ntqstrlist.h>
+#include <private/tqcom_p.h>
+#include <tqvaluelist.h>
+#include <tqstringlist.h>
+#include <tqmap.h>
+#include <tqstrlist.h>
 
 // {f208499a-6f69-4883-9219-6e936e55a330}
 #ifndef IID_Language

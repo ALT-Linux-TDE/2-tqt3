@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/fonts/simple-qfont-demo/simple-qfont-demo.doc:1 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -34,7 +33,7 @@ body { background: #ffffff; color: black; }
  
 <p> 
 <p> This example demonstrates the use of various
-<a href="ntqfont.html">TQFont</a> member functions.
+<a href="tqfont.html">TQFont</a> member functions.
 <p> <hr>
 <p> The main window API (viewer.h):
 <p> <pre>/* $Id: qt/viewer.h   3.3.8   edited May 27 2003 $ */
@@ -43,13 +42,13 @@ body { background: #ffffff; color: black; }
 #define VIEWER_H
 
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
-#include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
+#include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
 
 class TQTextView;
 class TQPushButton;
 
-class Viewer : public <a href="ntqwidget.html">TQWidget</a>
+class Viewer : public <a href="tqwidget.html">TQWidget</a>
 {
 <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 
@@ -64,14 +63,14 @@ private slots:
 private:
     void setFontSubstitutions();
     void layout();
-    void showFontInfo( <a href="ntqfont.html">TQFont</a> &amp; );
+    void showFontInfo( <a href="tqfont.html">TQFont</a> &amp; );
 
-    <a href="ntqtextview.html">TQTextView</a> * greetings;
-    <a href="ntqtextview.html">TQTextView</a> * fontInfo;
+    <a href="tqtextview.html">TQTextView</a> * greetings;
+    <a href="tqtextview.html">TQTextView</a> * fontInfo;
 
-    <a href="ntqpushbutton.html">TQPushButton</a> * defaultButton;
-    <a href="ntqpushbutton.html">TQPushButton</a> * sansSerifButton;
-    <a href="ntqpushbutton.html">TQPushButton</a> * italicsButton;
+    <a href="tqpushbutton.html">TQPushButton</a> * defaultButton;
+    <a href="tqpushbutton.html">TQPushButton</a> * sansSerifButton;
+    <a href="tqpushbutton.html">TQPushButton</a> * italicsButton;
 };
 
 #endif
@@ -82,128 +81,128 @@ private:
 <p> <pre>/* $Id: qt/viewer.cpp   3.3.8   edited May 27 2003 $ */
 
 #include "viewer.h"
-#include &lt;<a href="qstring-h.html">ntqstring.h</a>&gt;
-#include &lt;<a href="qstringlist-h.html">ntqstringlist.h</a>&gt;
-#include &lt;<a href="qtextview-h.html">ntqtextview.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qlayout-h.html">ntqlayout.h</a>&gt;
+#include &lt;<a href="tqstring-h.html">tqstring.h</a>&gt;
+#include &lt;<a href="tqstringlist-h.html">tqstringlist.h</a>&gt;
+#include &lt;<a href="tqtextview-h.html">tqtextview.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqlayout-h.html">tqlayout.h</a>&gt;
 
 <a name="f590"></a>Viewer::Viewer()
-       :<a href="ntqwidget.html">TQWidget</a>()
+       :<a href="tqwidget.html">TQWidget</a>()
 {
     setFontSubstitutions();
 
-<a name="x2850"></a>    <a href="ntqstring.html">TQString</a> greeting_heb = TQString::<a href="ntqstring.html#fromUtf8">fromUtf8</a>( "\327\251\327\234\327\225\327\235" );
-    <a href="ntqstring.html">TQString</a> greeting_ru = TQString::<a href="ntqstring.html#fromUtf8">fromUtf8</a>( "\320\227\320\264\321\200\320\260\320\262\321\201\321\202\320\262\321\203\320\271\321\202\320\265" );
-    <a href="ntqstring.html">TQString</a> greeting_en( "Hello" );
+<a name="x2850"></a>    <a href="tqstring.html">TQString</a> greeting_heb = TQString::<a href="tqstring.html#fromUtf8">fromUtf8</a>( "\327\251\327\234\327\225\327\235" );
+    <a href="tqstring.html">TQString</a> greeting_ru = TQString::<a href="tqstring.html#fromUtf8">fromUtf8</a>( "\320\227\320\264\321\200\320\260\320\262\321\201\321\202\320\262\321\203\320\271\321\202\320\265" );
+    <a href="tqstring.html">TQString</a> greeting_en( "Hello" );
 
-    greetings = new <a href="ntqtextview.html">TQTextView</a>( this, "textview" );
+    greetings = new <a href="tqtextview.html">TQTextView</a>( this, "textview" );
 
-    greetings-&gt;<a href="ntqtextedit.html#setText">setText</a>( greeting_en + "\n" +
+    greetings-&gt;<a href="tqtextedit.html#setText">setText</a>( greeting_en + "\n" +
                        greeting_ru + "\n" +
                        greeting_heb );
 
-    fontInfo = new <a href="ntqtextview.html">TQTextView</a>( this, "fontinfo" );
+    fontInfo = new <a href="tqtextview.html">TQTextView</a>( this, "fontinfo" );
 
     setDefault();
 
-    defaultButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Default", this,
+    defaultButton = new <a href="tqpushbutton.html">TQPushButton</a>( "Default", this,
                                                    "pushbutton1" );
-<a name="x2860"></a>    defaultButton-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "times" ) );
-    <a href="ntqobject.html#connect">connect</a>( defaultButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
+<a name="x2860"></a>    defaultButton-&gt;<a href="tqwidget.html#setFont">setFont</a>( TQFont( "times" ) );
+    <a href="tqobject.html#connect">connect</a>( defaultButton, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ),
              this, TQ_SLOT( setDefault() ) );
 
-    sansSerifButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Sans Serif", this,
+    sansSerifButton = new <a href="tqpushbutton.html">TQPushButton</a>( "Sans Serif", this,
                                                      "pushbutton2" );
-    sansSerifButton-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Helvetica", 12 ) );
-    <a href="ntqobject.html#connect">connect</a>( sansSerifButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
+    sansSerifButton-&gt;<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Helvetica", 12 ) );
+    <a href="tqobject.html#connect">connect</a>( sansSerifButton, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ),
              this, TQ_SLOT( setSansSerif() ) );
 
-    italicsButton = new <a href="ntqpushbutton.html">TQPushButton</a>( "Italics", this,
+    italicsButton = new <a href="tqpushbutton.html">TQPushButton</a>( "Italics", this,
                                                    "pushbutton3" );
-    italicsButton-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "lucida", 12, TQFont::Bold, TRUE ) );
-    <a href="ntqobject.html#connect">connect</a>( italicsButton, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ),
+    italicsButton-&gt;<a href="tqwidget.html#setFont">setFont</a>( TQFont( "lucida", 12, TQFont::Bold, TRUE ) );
+    <a href="tqobject.html#connect">connect</a>( italicsButton, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ),
              this, TQ_SLOT( setItalics() ) );
 
-    <a href="ntqwidget.html#layout">layout</a>();
+    <a href="tqwidget.html#layout">layout</a>();
 }
 
 void <a name="f591"></a>Viewer::setDefault()
 {
-    <a href="ntqfont.html">TQFont</a> font( "Bavaria" );
-<a name="x2843"></a>    font.<a href="ntqfont.html#setPointSize">setPointSize</a>( 24 );
+    <a href="tqfont.html">TQFont</a> font( "Bavaria" );
+<a name="x2843"></a>    font.<a href="tqfont.html#setPointSize">setPointSize</a>( 24 );
 
-<a name="x2846"></a>    font.<a href="ntqfont.html#setWeight">setWeight</a>( TQFont::Bold );
-<a name="x2845"></a>    font.<a href="ntqfont.html#setUnderline">setUnderline</a>( TRUE );
+<a name="x2846"></a>    font.<a href="tqfont.html#setWeight">setWeight</a>( TQFont::Bold );
+<a name="x2845"></a>    font.<a href="tqfont.html#setUnderline">setUnderline</a>( TRUE );
 
-    greetings-&gt;<a href="ntqwidget.html#setFont">setFont</a>( font );
+    greetings-&gt;<a href="tqwidget.html#setFont">setFont</a>( font );
 
     showFontInfo( font );
 }
 
 void <a name="f592"></a>Viewer::setSansSerif()
 {
-    <a href="ntqfont.html">TQFont</a> font( "Newyork", 18 );
-<a name="x2844"></a>    font.<a href="ntqfont.html#setStyleHint">setStyleHint</a>( TQFont::SansSerif );
-    greetings-&gt;<a href="ntqwidget.html#setFont">setFont</a>( font );
+    <a href="tqfont.html">TQFont</a> font( "Newyork", 18 );
+<a name="x2844"></a>    font.<a href="tqfont.html#setStyleHint">setStyleHint</a>( TQFont::SansSerif );
+    greetings-&gt;<a href="tqwidget.html#setFont">setFont</a>( font );
 
     showFontInfo( font );
 }
 
 void <a name="f593"></a>Viewer::setItalics()
 {
-    <a href="ntqfont.html">TQFont</a> font( "Tokyo" );
-    font.<a href="ntqfont.html#setPointSize">setPointSize</a>( 32 );
-    font.<a href="ntqfont.html#setWeight">setWeight</a>( TQFont::Bold );
-<a name="x2842"></a>    font.<a href="ntqfont.html#setItalic">setItalic</a>( TRUE );
+    <a href="tqfont.html">TQFont</a> font( "Tokyo" );
+    font.<a href="tqfont.html#setPointSize">setPointSize</a>( 32 );
+    font.<a href="tqfont.html#setWeight">setWeight</a>( TQFont::Bold );
+<a name="x2842"></a>    font.<a href="tqfont.html#setItalic">setItalic</a>( TRUE );
 
-    greetings-&gt;<a href="ntqwidget.html#setFont">setFont</a>( font );
+    greetings-&gt;<a href="tqwidget.html#setFont">setFont</a>( font );
 
     showFontInfo( font );
 }
 
-void <a name="f594"></a>Viewer::showFontInfo( <a href="ntqfont.html">TQFont</a> &amp; font )
+void <a name="f594"></a>Viewer::showFontInfo( <a href="tqfont.html">TQFont</a> &amp; font )
 {
-    <a href="ntqfontinfo.html">TQFontInfo</a> info( font );
+    <a href="tqfontinfo.html">TQFontInfo</a> info( font );
 
-    <a href="ntqstring.html">TQString</a> messageText;
+    <a href="tqstring.html">TQString</a> messageText;
     messageText = "Font requested: \"" +
-<a name="x2838"></a>                  font.<a href="ntqfont.html#family">family</a>() + "\" " +
-<a name="x2851"></a><a name="x2841"></a>                  TQString::<a href="ntqstring.html#number">number</a>( font.<a href="ntqfont.html#pointSize">pointSize</a>() ) + "pt&lt;BR&gt;" +
+<a name="x2838"></a>                  font.<a href="tqfont.html#family">family</a>() + "\" " +
+<a name="x2851"></a><a name="x2841"></a>                  TQString::<a href="tqstring.html#number">number</a>( font.<a href="tqfont.html#pointSize">pointSize</a>() ) + "pt&lt;BR&gt;" +
                   "Font used: \"" +
-<a name="x2848"></a>                  info.<a href="ntqfontinfo.html#family">family</a>() + "\" " +
-<a name="x2849"></a>                  TQString::<a href="ntqstring.html#number">number</a>( info.<a href="ntqfontinfo.html#pointSize">pointSize</a>() ) + "pt&lt;P&gt;";
+<a name="x2848"></a>                  info.<a href="tqfontinfo.html#family">family</a>() + "\" " +
+<a name="x2849"></a>                  TQString::<a href="tqstring.html#number">number</a>( info.<a href="tqfontinfo.html#pointSize">pointSize</a>() ) + "pt&lt;P&gt;";
 
-<a name="x2847"></a>    <a href="ntqstringlist.html">TQStringList</a> substitutions = TQFont::<a href="ntqfont.html#substitutes">substitutes</a>( font.<a href="ntqfont.html#family">family</a>() );
+<a name="x2847"></a>    <a href="tqstringlist.html">TQStringList</a> substitutions = TQFont::<a href="tqfont.html#substitutes">substitutes</a>( font.<a href="tqfont.html#family">family</a>() );
 
-<a name="x2856"></a>    if ( ! substitutions.<a href="ntqvaluelist.html#isEmpty">isEmpty</a>() ){
+<a name="x2856"></a>    if ( ! substitutions.<a href="tqvaluelist.html#isEmpty">isEmpty</a>() ){
         messageText += "The following substitutions exist for " + \
-                       font.<a href="ntqfont.html#family">family</a>() + ":&lt;UL&gt;";
+                       font.<a href="tqfont.html#family">family</a>() + ":&lt;UL&gt;";
 
-        TQStringList::Iterator i = substitutions.<a href="ntqvaluelist.html#begin">begin</a>();
-        while ( i != substitutions.<a href="ntqvaluelist.html#end">end</a>() ){
+        TQStringList::Iterator i = substitutions.<a href="tqvaluelist.html#begin">begin</a>();
+        while ( i != substitutions.<a href="tqvaluelist.html#end">end</a>() ){
             messageText += "&lt;LI&gt;\"" + (* i) + "\"";
             i++;
         }
          messageText += "&lt;/UL&gt;";
     } else {
         messageText += "No substitutions exist for " + \
-                       font.<a href="ntqfont.html#family">family</a>() + ".";
+                       font.<a href="tqfont.html#family">family</a>() + ".";
     }
 
-    fontInfo-&gt;<a href="ntqtextedit.html#setText">setText</a>( messageText );
+    fontInfo-&gt;<a href="tqtextedit.html#setText">setText</a>( messageText );
 }
 
 void <a name="f595"></a>Viewer::setFontSubstitutions()
 {
-    <a href="ntqstringlist.html">TQStringList</a> substitutes;
-<a name="x2853"></a>    substitutes.<a href="ntqvaluelist.html#append">append</a>( "Times" );
+    <a href="tqstringlist.html">TQStringList</a> substitutes;
+<a name="x2853"></a>    substitutes.<a href="tqvaluelist.html#append">append</a>( "Times" );
     substitutes +=  "Mincho",
     substitutes &lt;&lt; "Arabic Newspaper" &lt;&lt; "crox";
 
-<a name="x2840"></a>    TQFont::<a href="ntqfont.html#insertSubstitutions">insertSubstitutions</a>( "Bavaria", substitutes );
+<a name="x2840"></a>    TQFont::<a href="tqfont.html#insertSubstitutions">insertSubstitutions</a>( "Bavaria", substitutes );
 
-<a name="x2839"></a>    TQFont::<a href="ntqfont.html#insertSubstitution">insertSubstitution</a>( "Tokyo", "Lucida" );
+<a name="x2839"></a>    TQFont::<a href="tqfont.html#insertSubstitution">insertSubstitution</a>( "Tokyo", "Lucida" );
 }
 
 
@@ -211,57 +210,57 @@ void <a name="f595"></a>Viewer::setFontSubstitutions()
 // the following function might not be of particular interest:
 // all it does is creating the widget layout.
 
-<a name="x2858"></a>void Viewer::<a href="ntqwidget.html#layout">layout</a>()
+<a name="x2858"></a>void Viewer::<a href="tqwidget.html#layout">layout</a>()
 {
-    <a href="qhboxlayout.html">TQHBoxLayout</a> * textViewContainer = new <a href="qhboxlayout.html">TQHBoxLayout</a>();
-    textViewContainer-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( greetings );
-    textViewContainer-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( fontInfo );
+    <a href="tqhboxlayout.html">TQHBoxLayout</a> * textViewContainer = new <a href="tqhboxlayout.html">TQHBoxLayout</a>();
+    textViewContainer-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( greetings );
+    textViewContainer-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( fontInfo );
 
-    <a href="qhboxlayout.html">TQHBoxLayout</a> * buttonContainer = new <a href="qhboxlayout.html">TQHBoxLayout</a>();
+    <a href="tqhboxlayout.html">TQHBoxLayout</a> * buttonContainer = new <a href="tqhboxlayout.html">TQHBoxLayout</a>();
 
-    buttonContainer-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( defaultButton );
-    buttonContainer-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( sansSerifButton );
-    buttonContainer-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( italicsButton );
+    buttonContainer-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( defaultButton );
+    buttonContainer-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( sansSerifButton );
+    buttonContainer-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( italicsButton );
 
-<a name="x2857"></a>    int maxButtonHeight = defaultButton-&gt;<a href="ntqwidget.html#height">height</a>();
+<a name="x2857"></a>    int maxButtonHeight = defaultButton-&gt;<a href="tqwidget.html#height">height</a>();
 
-    if ( sansSerifButton-&gt;<a href="ntqwidget.html#height">height</a>() &gt; maxButtonHeight )
-        maxButtonHeight = sansSerifButton-&gt;<a href="ntqwidget.html#height">height</a>();
-    if ( italicsButton-&gt;<a href="ntqwidget.html#height">height</a>() &gt; maxButtonHeight )
-        maxButtonHeight = italicsButton-&gt;<a href="ntqwidget.html#height">height</a>();
+    if ( sansSerifButton-&gt;<a href="tqwidget.html#height">height</a>() &gt; maxButtonHeight )
+        maxButtonHeight = sansSerifButton-&gt;<a href="tqwidget.html#height">height</a>();
+    if ( italicsButton-&gt;<a href="tqwidget.html#height">height</a>() &gt; maxButtonHeight )
+        maxButtonHeight = italicsButton-&gt;<a href="tqwidget.html#height">height</a>();
 
-<a name="x2859"></a>    defaultButton-&gt;<a href="ntqwidget.html#setFixedHeight">setFixedHeight</a>( maxButtonHeight );
-    sansSerifButton-&gt;<a href="ntqwidget.html#setFixedHeight">setFixedHeight</a>( maxButtonHeight );
-    italicsButton-&gt;<a href="ntqwidget.html#setFixedHeight">setFixedHeight</a>( maxButtonHeight );
+<a name="x2859"></a>    defaultButton-&gt;<a href="tqwidget.html#setFixedHeight">setFixedHeight</a>( maxButtonHeight );
+    sansSerifButton-&gt;<a href="tqwidget.html#setFixedHeight">setFixedHeight</a>( maxButtonHeight );
+    italicsButton-&gt;<a href="tqwidget.html#setFixedHeight">setFixedHeight</a>( maxButtonHeight );
 
-    <a href="qvboxlayout.html">TQVBoxLayout</a> * container = new <a href="qvboxlayout.html">TQVBoxLayout</a>( this );
-<a name="x2835"></a>    container-&gt;<a href="qboxlayout.html#addLayout">addLayout</a>( textViewContainer );
-    container-&gt;<a href="qboxlayout.html#addLayout">addLayout</a>( buttonContainer );
+    <a href="tqvboxlayout.html">TQVBoxLayout</a> * container = new <a href="tqvboxlayout.html">TQVBoxLayout</a>( this );
+<a name="x2835"></a>    container-&gt;<a href="tqboxlayout.html#addLayout">addLayout</a>( textViewContainer );
+    container-&gt;<a href="tqboxlayout.html#addLayout">addLayout</a>( buttonContainer );
 
-    <a href="ntqwidget.html#resize">resize</a>( 700, 250 );
+    <a href="tqwidget.html#resize">resize</a>( 700, 250 );
 }
 </pre>
 
 <p> <hr>
-<p> main() program (simple-qfont-demo.cpp):
-<p> <pre>/* $Id: qt/simple-qfont-demo.cpp   3.3.8   edited May 27 2003 $ */
+<p> main() program (simple-tqfont-demo.cpp):
+<p> <pre>/* $Id: qt/simple-tqfont-demo.cpp   3.3.8   edited May 27 2003 $ */
 
 #include "viewer.h"
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv );
     Viewer * textViewer = new Viewer();
-    textViewer-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Simple TQFont Demo" );
-    app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( textViewer );
-    textViewer-&gt;<a href="ntqwidget.html#show">show</a>();
-    return app.<a href="ntqapplication.html#exec">exec</a>();
+    textViewer-&gt;<a href="tqwidget.html#setCaption">setCaption</a>( "TQt Example - Simple TQFont Demo" );
+    app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( textViewer );
+    textViewer-&gt;<a href="tqwidget.html#show">show</a>();
+    return app.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 
-<p> <p>See also <a href="qfont-examples.html">TQFont Examples</a>.
+<p> <p>See also <a href="tqfont-examples.html">TQFont Examples</a>.
 
 <!-- eof -->
 <p><address><hr><div align=center>

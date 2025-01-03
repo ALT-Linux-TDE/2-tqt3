@@ -4,11 +4,11 @@
 **
 ****************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqlcdnumber.h>
-#include <ntqfont.h>
-#include <ntqlayout.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqlcdnumber.h>
+#include <tqfont.h>
+#include <tqlayout.h>
 
 #include "lcdrange.h"
 #include "cannon.h"

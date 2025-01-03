@@ -1,5 +1,5 @@
 '\" t
-.TH QBuffer 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQBuffer 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,69 +7,69 @@
 .ad l
 .nh
 .SH NAME
-QBuffer \- I/O device that operates on a QByteArray
+TQBuffer \- I/O device that operates on a TQByteArray
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqbuffer.h>\fR
+\fC#include <tqbuffer.h>\fR
 .PP
 Inherits TQIODevice.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQBuffer\fR ()"
+.BI "\fBTQBuffer\fR ()"
 .br
 .ti -1c
-.BI "\fBQBuffer\fR ( QByteArray buf )"
+.BI "\fBTQBuffer\fR ( TQByteArray buf )"
 .br
 .ti -1c
-.BI "\fB~QBuffer\fR ()"
+.BI "\fB~TQBuffer\fR ()"
 .br
 .ti -1c
-.BI "QByteArray \fBbuffer\fR () const"
+.BI "TQByteArray \fBbuffer\fR () const"
 .br
 .ti -1c
-.BI "bool \fBsetBuffer\fR ( QByteArray buf )"
+.BI "bool \fBsetBuffer\fR ( TQByteArray buf )"
 .br
 .ti -1c
 .BI "virtual TQ_LONG \fBwriteBlock\fR ( const char * p, TQ_ULONG len )"
 .br
 .ti -1c
-.BI "TQ_LONG \fBwriteBlock\fR ( const QByteArray & data )"
+.BI "TQ_LONG \fBwriteBlock\fR ( const TQByteArray & data )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QBuffer class is an I/O device that operates on a QByteArray.
+The TQBuffer class is an I/O device that operates on a TQByteArray.
 .PP
-QBuffer is used to read and write to a memory buffer. It is normally used with a QTextStream or a QDataStream. QBuffer has an associated QByteArray which holds the buffer data. The size() of the buffer is automatically adjusted as data is written.
+TQBuffer is used to read and write to a memory buffer. It is normally used with a TQTextStream or a TQDataStream. TQBuffer has an associated TQByteArray which holds the buffer data. The size() of the buffer is automatically adjusted as data is written.
 .PP
-The constructor \fCQBuffer(QByteArray)\fR creates a QBuffer using an existing byte array. The byte array can also be set with setBuffer(). Writing to the QBuffer will modify the original byte array because QByteArray is explicitly shared.
+The constructor \fCTQBuffer(TQByteArray)\fR creates a TQBuffer using an existing byte array. The byte array can also be set with setBuffer(). Writing to the TQBuffer will modify the original byte array because TQByteArray is explicitly shared.
 .PP
 Use open() to open the buffer before use and to set the mode (read-only, write-only, etc.). close() closes the buffer. The buffer must be closed before reopening or calling setBuffer().
 .PP
-A common way to use QBuffer is through QDataStream or QTextStream, which have constructors that take a QBuffer parameter. For convenience, there are also QDataStream and QTextStream constructors that take a QByteArray parameter. These constructors create and open an internal QBuffer.
+A common way to use TQBuffer is through TQDataStream or TQTextStream, which have constructors that take a TQBuffer parameter. For convenience, there are also TQDataStream and TQTextStream constructors that take a TQByteArray parameter. These constructors create and open an internal TQBuffer.
 .PP
-Note that QTextStream can also operate on a TQString (a Unicode string); a QBuffer cannot.
+Note that TQTextStream can also operate on a TQString (a Unicode string); a TQBuffer cannot.
 .PP
-You can also use QBuffer directly through the standard TQIODevice functions readBlock(), writeBlock() readLine(), at(), getch(), putch() and ungetch().
+You can also use TQBuffer directly through the standard TQIODevice functions readBlock(), writeBlock() readLine(), at(), getch(), putch() and ungetch().
 .PP
-See also QFile, QDataStream, QTextStream, QByteArray, Shared Classes, Collection Classes, and Input/Output and Networking.
+See also TQFile, TQDataStream, TQTextStream, TQByteArray, Shared Classes, Collection Classes, and Input/Output and Networking.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QBuffer::QBuffer ()"
+.SH "TQBuffer::TQBuffer ()"
 Constructs an empty buffer.
-.SH "QBuffer::QBuffer ( QByteArray buf )"
+.SH "TQBuffer::TQBuffer ( TQByteArray buf )"
 Constructs a buffer that operates on \fIbuf\fR.
 .PP
-If you open the buffer in write mode (<a href="ntqfile.html#open">IO_WriteOnly</a> or IO_ReadWrite) and write something into the buffer, \fIbuf\fR will be modified.
+If you open the buffer in write mode (<a href="tqfile.html#open">IO_WriteOnly</a> or IO_ReadWrite) and write something into the buffer, \fIbuf\fR will be modified.
 .PP
 Example:
 .PP
 .nf
 .br
-    QCString str = "abc";
+    TQCString str = "abc";
 .br
-    QBuffer b( str );
+    TQBuffer b( str );
 .br
     b.open( IO_WriteOnly );
 .br
@@ -84,21 +84,21 @@ Example:
 .fi
 .PP
 See also setBuffer().
-.SH "QBuffer::~QBuffer ()"
+.SH "TQBuffer::~TQBuffer ()"
 Destroys the buffer.
-.SH "QByteArray QBuffer::buffer () const"
+.SH "TQByteArray TQBuffer::buffer () const"
 Returns this buffer's byte array.
 .PP
 See also setBuffer().
-.SH "bool QBuffer::setBuffer ( QByteArray buf )"
+.SH "bool TQBuffer::setBuffer ( TQByteArray buf )"
 Replaces the buffer's contents with \fIbuf\fR and returns TRUE.
 .PP
 Does nothing (and returns FALSE) if isOpen() is TRUE.
 .PP
-Note that if you open the buffer in write mode (<a href="ntqfile.html#open">IO_WriteOnly</a> or IO_ReadWrite) and write something into the buffer, \fIbuf\fR is also modified because QByteArray is an explicitly shared class.
+Note that if you open the buffer in write mode (<a href="tqfile.html#open">IO_WriteOnly</a> or IO_ReadWrite) and write something into the buffer, \fIbuf\fR is also modified because TQByteArray is an explicitly shared class.
 .PP
 See also buffer(), open(), and close().
-.SH "TQ_LONG QBuffer::writeBlock ( const char * p, TQ_ULONG len )\fC [virtual]\fR"
+.SH "TQ_LONG TQBuffer::writeBlock ( const char * p, TQ_ULONG len )\fC [virtual]\fR"
 Writes \fIlen\fR bytes from \fIp\fR into the buffer at the current index position, overwriting any characters there and extending the buffer if necessary. Returns the number of bytes actually written.
 .PP
 Returns -1 if an error occurred.
@@ -106,14 +106,14 @@ Returns -1 if an error occurred.
 See also readBlock().
 .PP
 Reimplemented from TQIODevice.
-.SH "TQ_LONG QBuffer::writeBlock ( const QByteArray & data )"
+.SH "TQ_LONG TQBuffer::writeBlock ( const TQByteArray & data )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This convenience function is the same as calling
 \fCwriteBlock( data.data(), data.size() )\fR with \fIdata\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqbuffer.html
+.BR http://doc.trolltech.com/tqbuffer.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

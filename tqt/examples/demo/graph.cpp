@@ -1,12 +1,12 @@
 #include "graph.h"
-#include <ntqcanvas.h>
+#include <tqcanvas.h>
 #include <stdlib.h>
-#include <ntqdatetime.h>
-#include <ntqhbox.h>
-#include <ntqpushbutton.h>
-#include <ntqslider.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
+#include <tqdatetime.h>
+#include <tqhbox.h>
+#include <tqpushbutton.h>
+#include <tqslider.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
 
 const int bounce_rtti = 1234;
 

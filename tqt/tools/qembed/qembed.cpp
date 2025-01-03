@@ -16,15 +16,15 @@
 **
 *****************************************************************************/
 
-#include <ntqstring.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqptrlist.h>
-#include <ntqtextstream.h>
-#include <ntqdatetime.h>
-#include <ntqimage.h>
-#include <ntqdict.h>
-#include <ntqdir.h>
+#include <tqstring.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqptrlist.h>
+#include <tqtextstream.h>
+#include <tqdatetime.h>
+#include <tqimage.h>
+#include <tqdict.h>
+#include <tqdir.h>
 #include <ctype.h>
 #include <stdlib.h>
 
@@ -96,8 +96,8 @@ int main( int argc, char **argv )
 	TQString arg = (*it);
 	if ( arg == "--images" ) {
 	    if ( !images ) {
-		out << "#include <ntqimage.h>\n";
-		out << "#include <ntqdict.h>\n";
+		out << "#include <tqimage.h>\n";
+		out << "#include <tqdict.h>\n";
 		images = TRUE;
 	    }
 	} else {
@@ -171,9 +171,9 @@ int main( int argc, char **argv )
     }
 
     if ( list.count() > 0 ) {
-	out << "#include <ntqcstring.h>\n";
+	out << "#include <tqcstring.h>\n";
 	if ( !images )
-	    out << "#include <ntqdict.h>\n";
+	    out << "#include <tqdict.h>\n";
 
 	out << "static struct Embed {\n"
 	       "    unsigned int size;\n"

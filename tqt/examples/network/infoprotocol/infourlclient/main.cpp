@@ -7,7 +7,7 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 #include "qip.h"
 #include "client.h"

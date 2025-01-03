@@ -1,5 +1,5 @@
 '\" t
-.TH QPlatinumStyle 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPlatinumStyle 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,16 +7,16 @@
 .ad l
 .nh
 .SH NAME
-QPlatinumStyle \- Mac/Platinum look and feel
+TQPlatinumStyle \- Mac/Platinum look and feel
 .SH SYNOPSIS
-\fC#include <ntqplatinumstyle.h>\fR
+\fC#include <tqplatinumstyle.h>\fR
 .PP
-Inherits QWindowsStyle.
+Inherits TQWindowsStyle.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQPlatinumStyle\fR ()"
+.BI "\fBTQPlatinumStyle\fR ()"
 .br
 .in -1c
 .SS "Protected Members"
@@ -25,25 +25,25 @@ Inherits QWindowsStyle.
 .BI "TQColor \fBmixedColor\fR ( const TQColor & c1, const TQColor & c2 ) const"
 .br
 .ti -1c
-.BI "void \fBdrawRiffles\fR ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool horizontal ) const"
+.BI "void \fBdrawRiffles\fR ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool horizontal ) const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QPlatinumStyle class provides Mac/Platinum look and feel.
+The TQPlatinumStyle class provides Mac/Platinum look and feel.
 .PP
-This class implements the Platinum look and feel. It's an experimental class that tries to resemble a Macinosh-like GUI style with the QStyle system. The emulation is currently far from perfect.
+This class implements the Platinum look and feel. It's an experimental class that tries to resemble a Macinosh-like GUI style with the TQStyle system. The emulation is currently far from perfect.
 .PP
 See also QAquaStyle and Widget Appearance and Style.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPlatinumStyle::QPlatinumStyle ()"
-Constructs a QPlatinumStyle
-.SH "void QPlatinumStyle::drawRiffles ( QPainter * p, int x, int y, int w, int h, const QColorGroup & g, bool horizontal ) const\fC [protected]\fR"
+.SH "TQPlatinumStyle::TQPlatinumStyle ()"
+Constructs a TQPlatinumStyle
+.SH "void TQPlatinumStyle::drawRiffles ( TQPainter * p, int x, int y, int w, int h, const TQColorGroup & g, bool horizontal ) const\fC [protected]\fR"
 Draws the nifty Macintosh decoration used on sliders using painter \fIp\fR and colorgroup \fIg\fR. \fIx\fR, \fIy\fR, \fIw\fR, \fIh\fR and \fIhorizontal\fR specify the geometry and orientation of the riffles.
-.SH "TQColor QPlatinumStyle::mixedColor ( const TQColor & c1, const TQColor & c2 ) const\fC [protected]\fR"
+.SH "TQColor TQPlatinumStyle::mixedColor ( const TQColor & c1, const TQColor & c2 ) const\fC [protected]\fR"
 Mixes two colors \fIc1\fR and \fIc2\fR to a new color.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqplatinumstyle.html
+.BR http://doc.trolltech.com/tqplatinumstyle.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

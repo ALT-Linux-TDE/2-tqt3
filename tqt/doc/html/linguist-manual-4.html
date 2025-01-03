@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/tools/linguist/book/linguist-programmer.leaf:3 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -52,25 +51,25 @@ body { background: #ffffff; color: black; }
 <h4><a name="1-2"></a>Loading Translations</h4>
 <pre>    int main( int argc, char **argv )
     {
-        <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+        <a href="tqapplication.html">TQApplication</a> app( argc, argv );
 </pre>
 <!-- index main() --> <p>This is how a simple <tt>main()</tt> function of a TQt application begins.</p>
 <!-- index TQTranslator!load() --><!-- index load()!TQTranslator --><!-- index TQApplication!installTranslator() --><!-- index installTranslator()!TQApplication --><pre>    int main( int argc, char **argv )
     {
-        <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+        <a href="tqapplication.html">TQApplication</a> app( argc, argv );
 
-        <a href="ntqtranslator.html">TQTranslator</a> translator( 0 );
-        translator.<a href="ntqtranslator.html#load">load</a>( "tt1_la", "." );
-        app.<a href="ntqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
+        <a href="tqtranslator.html">TQTranslator</a> translator( 0 );
+        translator.<a href="tqtranslator.html#load">load</a>( "tt1_la", "." );
+        app.<a href="tqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
 </pre>
  <p>For a translation-aware application a translator object is created, a translation is loaded and the translator object installed into the application.</p>
 <pre>    int main( int argc, char **argv )
     {
-        <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+        <a href="tqapplication.html">TQApplication</a> app( argc, argv );
 
-        <a href="ntqtranslator.html">TQTranslator</a> translator( 0 );
-        translator.<a href="ntqtranslator.html#load">load</a>( TQString("tt2_") + TQTextCodec::locale(), "." );
-        app.<a href="ntqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
+        <a href="tqtranslator.html">TQTranslator</a> translator( 0 );
+        translator.<a href="tqtranslator.html#load">load</a>( TQString("tt2_") + TQTextCodec::locale(), "." );
+        app.<a href="tqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
 </pre>
  <p>In production applications a more flexible approach, for example, loading translations according to locale, might be more appropriate. If the <tt>.ts</tt> files are all named according to a convention such as <em>appname_locale</em>, e.g. <tt>tt2_fr</tt>, <tt>tt2_de</tt> etc, then the code above will load the current locale's translation at runtime.</p>
 <p>If there is no translation file for the current locale the application will fall back to using the original source text.</p>
@@ -83,8 +82,8 @@ body { background: #ffffff; color: black; }
 <pre>
     button = new TQPushButton( tr("&amp;Quit"), this);
 </pre>
-<!-- index TQ_OBJECT --><p>All <a href="ntqobject.html">TQObject</a> subclasses that use the <tt>TQ_OBJECT</tt> macro implement the <tt>tr()</tt> function.</p>
-<p>Although the <tt>tr()</tt> call is normally made directly since it is usually called as a member function of a <a href="ntqobject.html">TQObject</a> subclass, in other cases an explicit class name can be supplied, for example:</p>
+<!-- index TQ_OBJECT --><p>All <a href="tqobject.html">TQObject</a> subclasses that use the <tt>TQ_OBJECT</tt> macro implement the <tt>tr()</tt> function.</p>
+<p>Although the <tt>tr()</tt> call is normally made directly since it is usually called as a member function of a <a href="tqobject.html">TQObject</a> subclass, in other cases an explicit class name can be supplied, for example:</p>
 <pre>
     TQPushButton::tr("&amp;Quit")
 </pre>
@@ -102,8 +101,8 @@ body { background: #ffffff; color: black; }
     rbh = new TQRadioButton( tr("Enabled", "Hue frame"), this );
 </pre>
 <!-- index Ctrl Key --><p>Ctrl key accelerators are also translatable:</p>
-<pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()),
-                          <a href="ntqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
+<pre>        file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( <a href="tqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()),
+                          <a href="tqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
 </pre>
  <p>It is strongly recommended that the two argument form of <tt>tr()</tt> is used for Ctrl key accelerators. The second argument is the only clue the translator has as to the function performed by the accelerator.</p>
 <h4><a name="1-5"></a>Helping The Translator With Navigation Information</h4>
@@ -172,7 +171,7 @@ body { background: #ffffff; color: black; }
     }
 </pre>
 <h3><a name="2"></a>Tutorials</h3>
-<p>Three tutorials are presented. The first demonstrates the creation of a <a href="ntqtranslator.html">TQTranslator</a> object. It also shows the simplest use of the <tt>tr()</tt> function to mark user-visible source text for translation. The second tutorial explains how to make the application load the translation file applicable to the current locale. It also shows the use of the two-argument form of <tt>tr()</tt> which provides additional information to the translator. The third tutorial explains how identical source texts can be distinguished even when they occur in the same context. This tutorial also discusses how the translation tools help minimize the translator's work when an application is upgraded.</p>
+<p>Three tutorials are presented. The first demonstrates the creation of a <a href="tqtranslator.html">TQTranslator</a> object. It also shows the simplest use of the <tt>tr()</tt> function to mark user-visible source text for translation. The second tutorial explains how to make the application load the translation file applicable to the current locale. It also shows the use of the two-argument form of <tt>tr()</tt> which provides additional information to the translator. The third tutorial explains how identical source texts can be distinguished even when they occur in the same context. This tutorial also discusses how the translation tools help minimize the translator's work when an application is upgraded.</p>
 <h4><a name="2-1"></a>Tutorial 1: Loading and Using Translations</h4>
 <p align="center"><img align="middle" src="tt1_en.png" width="112" height="49">
 </p>
@@ -189,45 +188,45 @@ TRANSLATIONS    = tt1_la.ts
 **
 ****************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qtranslator-h.html">ntqtranslator.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqtranslator-h.html">tqtranslator.h</a>&gt;
 
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv );
 
-    <a href="ntqtranslator.html">TQTranslator</a> translator( 0 );
-    translator.<a href="ntqtranslator.html#load">load</a>( "tt1_la", "." );
-    app.<a href="ntqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
+    <a href="tqtranslator.html">TQTranslator</a> translator( 0 );
+    translator.<a href="tqtranslator.html#load">load</a>( "tt1_la", "." );
+    app.<a href="tqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
 
-    <a href="ntqpushbutton.html">TQPushButton</a> hello( TQPushButton::<a href="ntqobject.html#tr">tr</a>("Hello world!"), 0 );
+    <a href="tqpushbutton.html">TQPushButton</a> hello( TQPushButton::<a href="tqobject.html#tr">tr</a>("Hello world!"), 0 );
 
-    app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;hello );
-    hello.<a href="ntqwidget.html#show">show</a>();
-    return app.<a href="ntqapplication.html#exec">exec</a>();
+    app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;hello );
+    hello.<a href="tqwidget.html#show">show</a>();
+    return app.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 <blockquote><p align="center"><em><tt>main.cpp</tt></em></p></blockquote>
 <p>This example is a reworking of the <a href="tutorial1-01.html">"hello-world"</a> example from <a href="tutorial.html">Tutorial #1</a>, with a Latin translation. The <em>Tutorial 1 Screenshot, English version</em>, above, shows the English version.</p>
 <h5><a name="2-1-1"></a>Line by Line Walk-through</h5>
-<pre>    #include &lt;<a href="qtranslator-h.html">ntqtranslator.h</a>&gt;
+<pre>    #include &lt;<a href="tqtranslator-h.html">tqtranslator.h</a>&gt;
 </pre>
-<!-- index TQTranslator --> <p>This line includes the definition of the <a href="ntqtranslator.html">TQTranslator</a> class. Objects of this class provide translations for user-visible text.</p>
-<pre>        <a href="ntqtranslator.html">TQTranslator</a> translator( 0 );
+<!-- index TQTranslator --> <p>This line includes the definition of the <a href="tqtranslator.html">TQTranslator</a> class. Objects of this class provide translations for user-visible text.</p>
+<pre>        <a href="tqtranslator.html">TQTranslator</a> translator( 0 );
 </pre>
- <p>Creates a <a href="ntqtranslator.html">TQTranslator</a> object without a parent.</p>
-<pre>        translator.<a href="ntqtranslator.html#load">load</a>( "tt1_la", "." );
+ <p>Creates a <a href="tqtranslator.html">TQTranslator</a> object without a parent.</p>
+<pre>        translator.<a href="tqtranslator.html#load">load</a>( "tt1_la", "." );
 </pre>
 <!-- index tt1_la.qm --> <p>Tries to load a file called <tt>tt1_la.qm</tt> (the <tt>.qm</tt> file extension is implicit) that contains Latin translations for the source texts used in the program. No error will occur if the file is not found.</p>
-<!-- index TQApplication!installTranslator() --><!-- index installTranslator()!TQApplication --><pre>        app.<a href="ntqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
+<!-- index TQApplication!installTranslator() --><!-- index installTranslator()!TQApplication --><pre>        app.<a href="tqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
 </pre>
  <p>Adds the translations from <tt>tt1_la.qm</tt> to the pool of translations used by the program.</p>
-<!-- index Hello World --><pre>        <a href="ntqpushbutton.html">TQPushButton</a> hello( TQPushButton::<a href="ntqobject.html#tr">tr</a>("Hello world!"), 0 );
+<!-- index Hello World --><pre>        <a href="tqpushbutton.html">TQPushButton</a> hello( TQPushButton::<a href="tqobject.html#tr">tr</a>("Hello world!"), 0 );
 </pre>
  <p>Creates a push button that displays "Hello world!". If <tt>tt1_la.qm</tt> was found and contains a translation for "Hello world!", the translation appears; if not, the source text appears.</p>
-<!-- index tr() --><!-- index TQObject!tr() --><p>All classes that inherit <a href="ntqobject.html">TQObject</a> have a <tt>tr()</tt> function. Inside a member function of a <a href="ntqobject.html">TQObject</a> class, we simply write <tt>tr("Hello world!")</tt> instead of <tt>TQPushButton::tr("Hello world!")</tt> or <tt>TQObject::tr("Hello world!")</tt>.</p>
+<!-- index tr() --><!-- index TQObject!tr() --><p>All classes that inherit <a href="tqobject.html">TQObject</a> have a <tt>tr()</tt> function. Inside a member function of a <a href="tqobject.html">TQObject</a> class, we simply write <tt>tr("Hello world!")</tt> instead of <tt>TQPushButton::tr("Hello world!")</tt> or <tt>TQObject::tr("Hello world!")</tt>.</p>
 <h5><a name="2-1-2"></a>Running the Application in English</h5>
 <!-- index English Language --><p>Since we haven't made the translation file <tt>tt1_la.qm</tt>, the source text is shown when we run the application:</p>
 <p align="center"><img align="middle" src="tt1_en.png" width="112" height="49">
@@ -298,7 +297,7 @@ TRANSLATIONS    = tt2_fr.ts \
 <!-- index Translation Contexts --><!-- index Contexts!for Translation --><p>This example is a slightly more involved and introduces a key <em>TQt Linguist</em> concept: "contexts".</p>
 <ul><li><p><tt>arrowpad.h</tt> contains the definition of <tt>ArrowPad</tt>, a custom widget;</p>
 <li><p><tt>arrowpad.cpp</tt> contains the implementation of <tt>ArrowPad</tt>;</p>
-<li><p><tt>mainwindow.h</tt> contains the definition of <tt>MainWindow</tt>, a subclass of <a href="ntqmainwindow.html">TQMainWindow</a></p>
+<li><p><tt>mainwindow.h</tt> contains the definition of <tt>MainWindow</tt>, a subclass of <a href="tqmainwindow.html">TQMainWindow</a></p>
 <li><p><tt>mainwindow.cpp</tt> contains the implementation of <tt>MainWindow</tt>;</p>
 <li><p><tt>main.cpp</tt> contains main().</p>
 </ul><!-- index tt2.pro --><!-- index French Language --><!-- index Dutch Language --><p>We will use two translations, French and Dutch, although there is no effective limit on the number of possible translations that can be used with an application. The relevant lines of <tt>tt2.pro</tt> are</p>
@@ -312,8 +311,8 @@ TRANSLATIONS    = tt2_fr.ts \
 </pre>
 <!-- index lupdate --><!-- index tt2_fr.ts --><!-- index tt2_nl.ts --> <p>Run <a href="linguist-manual-2.html#2">lupdate</a>; it should produce two identical message files <tt>tt2_fr.ts</tt> and <tt>tt2_nl.ts</tt>. These files will contain all the source texts marked for translation with <tt>tr()</tt> calls and their contexts.</p>
 <h5><a name="2-2-1"></a>Line by Line Walk-through</h5>
-<!-- index ArrowPad!in Translation Tutorial --><!-- index English Language --><p>In <tt>arrowpad.h</tt> we define the <tt>ArrowPad</tt> subclass which is a subclass of <a href="ntqwidget.html">TQWidget</a>. In the <em>Tutorial 2 Screenshot, English version</em>, above, the central widget with the four buttons is an <tt>ArrowPad</tt>.</p>
-<pre>    class ArrowPad : public <a href="ntqgrid.html">TQGrid</a>
+<!-- index ArrowPad!in Translation Tutorial --><!-- index English Language --><p>In <tt>arrowpad.h</tt> we define the <tt>ArrowPad</tt> subclass which is a subclass of <a href="tqwidget.html">TQWidget</a>. In the <em>Tutorial 2 Screenshot, English version</em>, above, the central widget with the four buttons is an <tt>ArrowPad</tt>.</p>
+<pre>    class ArrowPad : public <a href="tqgrid.html">TQGrid</a>
 </pre>
 <!-- index TQ_OBJECT --><!-- index tr() --><!-- index TQObject!tr() --><!-- index Translation Contexts --><!-- index Contexts!for Translation --> <p>When <a href="linguist-manual-2.html#2">lupdate</a> is run it not only extracts the source texts but it also groups them into contexts. A context is the name of the class in which the source text appears. Thus, in this example, "ArrowPad" is a context: it is the context of the texts in the <tt>ArrowPad</tt> class. The <tt>TQ_OBJECT</tt> macro defines <tt>tr(x)</tt> in <tt>ArrowPad</tt> like this</p>
 <!-- index TQApplication!translate() --><!-- index translate()!TQApplication --><pre>
@@ -321,13 +320,13 @@ TRANSLATIONS    = tt2_fr.ts \
 </pre>
 <p>Knowing which class each source text appears in enables <em>TQt Linguist</em> to group texts that are logically related together, e.g. all the text in a dialog will have the context of the dialog's class name and will be shown together. This provides useful information for the translator since the context in which text appears may influence how it should be translated. For some translations keyboard accelerators may need to be changed and having all the source texts in a particular context (class) grouped together makes it easier for the translator to perform any accelerator changes without introducing conflicts.</p>
 <p>In <tt>arrowpad.cpp</tt> we implement the <tt>ArrowPad</tt> class.</p>
-<pre>        (void) new <a href="ntqpushbutton.html">TQPushButton</a>( <a href="ntqobject.html#tr">tr</a>("&amp;Up"), this );
+<pre>        (void) new <a href="tqpushbutton.html">TQPushButton</a>( <a href="tqobject.html#tr">tr</a>("&amp;Up"), this );
 </pre>
  <p>We call <tt>ArrowPad::tr()</tt> for each button's label since the labels are user-visible text.</p>
 <p align="center"><img align="middle" src="tt2_en.png" width="170" height="157">
 </p>
 <blockquote><p align="center"><em>Tutorial 2 Screenshot, English version</em></p></blockquote>
-<!-- index TQ_OBJECT --><!-- index MainWindow!in Translation Tutorial --><pre>    class MainWindow : public <a href="ntqmainwindow.html">TQMainWindow</a>
+<!-- index TQ_OBJECT --><!-- index MainWindow!in Translation Tutorial --><pre>    class MainWindow : public <a href="tqmainwindow.html">TQMainWindow</a>
     {
         TQ_OBJECT
 </pre>
@@ -336,16 +335,16 @@ TRANSLATIONS    = tt2_fr.ts \
 <pre>        ArrowPad *ap = new ArrowPad( this, "arrow pad" );
 </pre>
  <p>We also call <tt>MainWindow::tr()</tt> twice, once for the menu item and once for the accelerator.</p>
-<!-- index Ctrl Key --><!-- index Alt Key --><pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()),
-                          <a href="ntqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
+<!-- index Ctrl Key --><!-- index Alt Key --><pre>        file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( <a href="tqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()),
+                          <a href="tqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
 </pre>
  <p>Note the use of <tt>tr()</tt> to support different keys in other languages. "Ctrl+Q" is a good choice for Quit in English, but a Dutch translator might want to use "Ctrl+A" (for Afsluiten) and a German translator "Strg+E" (for Beenden). When using <tt>tr()</tt> for Ctrl key accelerators, the two argument form should be used with the second argument describing the function that the accelerator performs.</p>
 <!-- index main() --><p>Our <tt>main()</tt> function is defined in <tt>main.cpp</tt> as usual.</p>
-<pre>        <a href="ntqtranslator.html">TQTranslator</a> translator( 0 );
-        translator.<a href="ntqtranslator.html#load">load</a>( TQString("tt2_") + TQTextCodec::locale(), "." );
-        app.<a href="ntqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
+<pre>        <a href="tqtranslator.html">TQTranslator</a> translator( 0 );
+        translator.<a href="tqtranslator.html#load">load</a>( TQString("tt2_") + TQTextCodec::locale(), "." );
+        app.<a href="tqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
 </pre>
-<!-- index TQTextCodec!locale() --><!-- index locale()!TQTextCodec --><!-- index LANG!Environment Variable --><!-- index Environment Variables!LANG --> <p>We choose which translation to use according to the current locale. <a href="ntqtextcodec.html#locale">TQTextCodec::locale</a>() can be influenced by setting the <tt>LANG</tt> environment variable, for example. Notice that the use of a naming convention that incorporates the locale for <tt>.qm</tt> message files, (and <tt>.ts</tt> files), makes it easy to implement choosing the translation file according to locale.</p>
+<!-- index TQTextCodec!locale() --><!-- index locale()!TQTextCodec --><!-- index LANG!Environment Variable --><!-- index Environment Variables!LANG --> <p>We choose which translation to use according to the current locale. <a href="tqtextcodec.html#locale">TQTextCodec::locale</a>() can be influenced by setting the <tt>LANG</tt> environment variable, for example. Notice that the use of a naming convention that incorporates the locale for <tt>.qm</tt> message files, (and <tt>.ts</tt> files), makes it easy to implement choosing the translation file according to locale.</p>
 <p>If there is no <tt>.qm</tt> message file for the locale chosen the original source text will be used and no error raised.</p>
 <h5><a name="2-2-2"></a>Translating to French and Dutch</h5>
 <p>We'll begin by translating the example application into French. Start <em>TQt Linguist</em> with <tt>tt2_fr.ts</tt>. You should get the seven source texts ("&amp;Up", "&amp;Left", etc.) grouped in two contexts ("ArrowPad" and "MainWindow").</p>
@@ -424,48 +423,48 @@ TRANSLATIONS    = tt3_pt.ts
 <li><p><tt>tt3_pt.ts</tt> is the Portuguese message file.</p>
 </ul><h5><a name="2-3-1"></a>Line by Line Walk-through</h5>
 <p>The PrintPanel is defined in <tt>printpanel.h</tt>.</p>
-<pre>    class PrintPanel : public <a href="ntqvbox.html">TQVBox</a>
+<pre>    class PrintPanel : public <a href="tqvbox.html">TQVBox</a>
     {
         TQ_OBJECT
 </pre>
-<!-- index TQ_OBJECT --><!-- index PrintPanel!in Translation Tutorial --> <p>PrintPanel is a <a href="ntqwidget.html">TQWidget</a>. It needs the <tt>TQ_OBJECT</tt> macro for <tt>tr()</tt> to work properly.</p>
+<!-- index TQ_OBJECT --><!-- index PrintPanel!in Translation Tutorial --> <p>PrintPanel is a <a href="tqwidget.html">TQWidget</a>. It needs the <tt>TQ_OBJECT</tt> macro for <tt>tr()</tt> to work properly.</p>
 <p>The implementation file is <tt>printpanel.cpp</tt>.</p>
 <pre>    /*
-        <a href="ntqlabel.html">TQLabel</a> *lab = new <a href="ntqlabel.html">TQLabel</a>( <a href="ntqobject.html#tr">tr</a>("&lt;b&gt;TROLL PRINT&lt;/b&gt;"), this );
-        lab-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( <a href="ntqt.html#AlignmentFlags-enum">AlignCenter</a> );
+        <a href="tqlabel.html">TQLabel</a> *lab = new <a href="tqlabel.html">TQLabel</a>( <a href="tqobject.html#tr">tr</a>("&lt;b&gt;TROLL PRINT&lt;/b&gt;"), this );
+        lab-&gt;<a href="tqlabel.html#setAlignment">setAlignment</a>( <a href="tqt.html#AlignmentFlags-enum">AlignCenter</a> );
     */
 </pre>
 <!-- index Troll Print --> <p>Some of the code is commented out in Troll Print 1.0; you will uncomment it later, for Troll Print 1.1.</p>
-<pre>        <a href="ntqhbuttongroup.html">TQHButtonGroup</a> *twoSided = new <a href="ntqhbuttongroup.html">TQHButtonGroup</a>( this );
-        twoSided-&gt;<a href="ntqgroupbox.html#setTitle">setTitle</a>( <a href="ntqobject.html#tr">tr</a>("2-sided") );
-        but = new <a href="ntqradiobutton.html">TQRadioButton</a>( <a href="ntqobject.html#tr">tr</a>("Enabled"), twoSided );
-        but = new <a href="ntqradiobutton.html">TQRadioButton</a>( <a href="ntqobject.html#tr">tr</a>("Disabled"), twoSided );
-        but-&gt;<a href="ntqbutton.html#toggle">toggle</a>();
-        <a href="ntqhbuttongroup.html">TQHButtonGroup</a> *colors = new <a href="ntqhbuttongroup.html">TQHButtonGroup</a>( this );
-        colors-&gt;<a href="ntqgroupbox.html#setTitle">setTitle</a>( <a href="ntqobject.html#tr">tr</a>("Colors") );
-        but = new <a href="ntqradiobutton.html">TQRadioButton</a>( <a href="ntqobject.html#tr">tr</a>("Enabled"), colors );
-        but = new <a href="ntqradiobutton.html">TQRadioButton</a>( <a href="ntqobject.html#tr">tr</a>("Disabled"), colors );
-        but-&gt;<a href="ntqbutton.html#toggle">toggle</a>();
+<pre>        <a href="tqhbuttongroup.html">TQHButtonGroup</a> *twoSided = new <a href="tqhbuttongroup.html">TQHButtonGroup</a>( this );
+        twoSided-&gt;<a href="tqgroupbox.html#setTitle">setTitle</a>( <a href="tqobject.html#tr">tr</a>("2-sided") );
+        but = new <a href="tqradiobutton.html">TQRadioButton</a>( <a href="tqobject.html#tr">tr</a>("Enabled"), twoSided );
+        but = new <a href="tqradiobutton.html">TQRadioButton</a>( <a href="tqobject.html#tr">tr</a>("Disabled"), twoSided );
+        but-&gt;<a href="tqbutton.html#toggle">toggle</a>();
+        <a href="tqhbuttongroup.html">TQHButtonGroup</a> *colors = new <a href="tqhbuttongroup.html">TQHButtonGroup</a>( this );
+        colors-&gt;<a href="tqgroupbox.html#setTitle">setTitle</a>( <a href="tqobject.html#tr">tr</a>("Colors") );
+        but = new <a href="tqradiobutton.html">TQRadioButton</a>( <a href="tqobject.html#tr">tr</a>("Enabled"), colors );
+        but = new <a href="tqradiobutton.html">TQRadioButton</a>( <a href="tqobject.html#tr">tr</a>("Disabled"), colors );
+        but-&gt;<a href="tqbutton.html#toggle">toggle</a>();
 </pre>
  <p>Notice the two occurrences of <tt>tr("Enabled")</tt> and of <tt>tr("Disabled")</tt> in PrintPanel. Since both "Enabled"s and "Disabled"s appear in the same context <em>TQt Linguist</em> will only display one occurrence of each and will use the same translations for the duplicates that it doesn't display. Whilst this is a useful timesaver, in some languages, such as Portuguese, the second occurrence requires a separate translation. We will see how <em>TQt Linguist</em> can be made to display all the occurrences for separate translation shortly.</p>
 <!-- index MainWindow!in Translation Tutorial --><p>The header file for <tt>MainWindow</tt>, <tt>mainwindow.h</tt>, contains no surprises. In the implementation, <tt>mainwindow.cpp</tt>, we have some user-visible source texts that must be marked for translation.</p>
-<pre>        <a href="ntqwidget.html#setCaption">setCaption</a>( <a href="ntqobject.html#tr">tr</a>("Troll Print 1.0") );
+<pre>        <a href="tqwidget.html#setCaption">setCaption</a>( <a href="tqobject.html#tr">tr</a>("Troll Print 1.0") );
 </pre>
  <p>We must translate the window's caption.</p>
-<pre>        file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()),
-                          <a href="ntqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
-        <a href="ntqpopupmenu.html">TQPopupMenu</a> *help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("&amp;About"), this, TQ_SLOT(about()), Key_F1 );
-        help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( <a href="ntqobject.html#tr">tr</a>("About &amp;TQt"), this, TQ_SLOT(aboutTQt()) );
+<pre>        file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( <a href="tqobject.html#tr">tr</a>("E&amp;xit"), tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()),
+                          <a href="tqobject.html#tr">tr</a>("Ctrl+Q", "Quit") );
+        <a href="tqpopupmenu.html">TQPopupMenu</a> *help = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+        help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( <a href="tqobject.html#tr">tr</a>("&amp;About"), this, TQ_SLOT(about()), Key_F1 );
+        help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( <a href="tqobject.html#tr">tr</a>("About &amp;TQt"), this, TQ_SLOT(aboutTQt()) );
 
-        <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("&amp;File"), file );
-        <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
-        <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="ntqobject.html#tr">tr</a>("&amp;Help"), help );
+        <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="tqobject.html#tr">tr</a>("&amp;File"), file );
+        <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
+        <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( <a href="tqobject.html#tr">tr</a>("&amp;Help"), help );
 </pre>
  <p>We also need to translate the menu items. Note that the two argument form of <tt>tr()</tt> is used for the keyboard accelerator, "Ctrl+Q", since the second argument is the only clue the translator has to indicate what function that accelerator will perform.</p>
-<pre>        <a href="ntqtranslator.html">TQTranslator</a> translator( 0 );
-        translator.<a href="ntqtranslator.html#load">load</a>( TQString("tt3_") + TQTextCodec::locale(), "." );
-        app.<a href="ntqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
+<pre>        <a href="tqtranslator.html">TQTranslator</a> translator( 0 );
+        translator.<a href="tqtranslator.html#load">load</a>( TQString("tt3_") + TQTextCodec::locale(), "." );
+        app.<a href="tqapplication.html#installTranslator">installTranslator</a>( &amp;translator );
 </pre>
 <!-- index main() --> <p>The <tt>main()</tt> function in <tt>main.cpp</tt> is the same as the one in <a href="linguist-manual-4.html#2-2">Tutorial 2</a>. In particular it chooses a translation file based on the current locale.</p>
 <h5><a name="2-3-2"></a>Running Troll Print 1.0 in English and in Portuguese</h5>
@@ -518,7 +517,7 @@ TRANSLATIONS    = tt3_pt.ts
 </pre>
 <h5><a name="2-3-3"></a>Troll Print 1.1</h5>
 <p>We'll now prepare release 1.1 of Troll Print. Start your favorite text editor and follow these steps:</p>
-<ul><li><p>Uncomment the two lines that create a <a href="ntqlabel.html">TQLabel</a> with the text "&lt;b&gt;TROLL PRINT&lt;/b&gt;" in <tt>printpanel.cpp</tt>.</p>
+<ul><li><p>Uncomment the two lines that create a <a href="tqlabel.html">TQLabel</a> with the text "&lt;b&gt;TROLL PRINT&lt;/b&gt;" in <tt>printpanel.cpp</tt>.</p>
 <li><p>Word-tidying: Replace "2-sided" by "Two-sided" in <tt>printpanel.cpp</tt>.</p>
 <li><p>Replace "1.0" with "1.1" everywhere it occurs in <tt>mainwindow.cpp</tt>.</p>
 <li><p>Update the copyright year to 1999-2000 in <tt>mainwindow.cpp</tt>.</p>

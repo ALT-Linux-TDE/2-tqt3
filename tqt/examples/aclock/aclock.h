@@ -10,8 +10,8 @@
 #ifndef ACLOCK_H
 #define ACLOCK_H
 
-#include <ntqwidget.h>
-#include <ntqdatetime.h>
+#include <tqwidget.h>
+#include <tqdatetime.h>
 
 class TQTimer;
 class AnalogClock : public TQWidget		// analog clock widget

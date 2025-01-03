@@ -1,0 +1,1 @@
+../../src/widgets/tqwidgetresizehandler_p.h

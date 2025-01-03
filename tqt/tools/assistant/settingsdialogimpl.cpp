@@ -35,23 +35,23 @@
 #include "docuparser.h"
 #include "config.h"
 
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqcheckbox.h>
-#include <ntqcolordialog.h>
-#include <ntqdir.h>
-#include <ntqfiledialog.h>
-#include <ntqfileinfo.h>
-#include <ntqlineedit.h>
-#include <ntqlistbox.h>
-#include <ntqlistview.h>
-#include <ntqmessagebox.h>
-#include <ntqptrstack.h>
-#include <ntqsettings.h>
-#include <ntqtimer.h>
-#include <ntqtoolbutton.h>
-#include <ntqtabwidget.h>
-#include <ntqmap.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqcheckbox.h>
+#include <tqcolordialog.h>
+#include <tqdir.h>
+#include <tqfiledialog.h>
+#include <tqfileinfo.h>
+#include <tqlineedit.h>
+#include <tqlistbox.h>
+#include <tqlistview.h>
+#include <tqmessagebox.h>
+#include <tqptrstack.h>
+#include <tqsettings.h>
+#include <tqtimer.h>
+#include <tqtoolbutton.h>
+#include <tqtabwidget.h>
+#include <tqmap.h>
 
 
 SettingsDialog::SettingsDialog( TQWidget *parent, const char* name )

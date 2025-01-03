@@ -43,8 +43,8 @@
 #ifndef TQT_NO_IM
 #include "qmultiinputcontext.h"
 #include "qmultiinputcontextplugin.h"
-#include <ntqinputcontextplugin.h>
-#include <ntqstringlist.h>
+#include <tqinputcontextplugin.h>
+#include <tqstringlist.h>
 
 
 TQMultiInputContextPlugin::TQMultiInputContextPlugin()

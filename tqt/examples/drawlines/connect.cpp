@@ -7,9 +7,9 @@
 **
 *****************************************************************************/
 
-#include <ntqwidget.h>
-#include <ntqpainter.h>
-#include <ntqapplication.h>
+#include <tqwidget.h>
+#include <tqpainter.h>
+#include <tqapplication.h>
 #include <stdlib.h>
 
 

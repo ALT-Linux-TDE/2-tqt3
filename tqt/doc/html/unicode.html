@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/unicode.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -63,10 +62,10 @@ update</a> and
 <a name="3"></a><p> In TQt, and in most applications that use TQt, most or all user-visible
 strings are stored using Unicode. TQt provides:
 <p> <ul>
-<p> <li> Translation to/from legacy encodings for file I/O: see <a href="ntqtextcodec.html">TQTextCodec</a> and <a href="ntqtextstream.html">TQTextStream</a>.
+<p> <li> Translation to/from legacy encodings for file I/O: see <a href="tqtextcodec.html">TQTextCodec</a> and <a href="tqtextstream.html">TQTextStream</a>.
 <li> Translation from Input Methods and 8-bit keyboard input.
 <li> Translation to legacy character sets for on-screen display.
-<li> A string class, <a href="ntqstring.html">TQString</a>, that stores Unicode characters, with
+<li> A string class, <a href="tqstring.html">TQString</a>, that stores Unicode characters, with
 support for migrating from C strings including fast (cached)
 translation to and from US-ASCII, and all the usual string
 operations.
@@ -74,29 +73,29 @@ operations.
 <li> Unicode support detection on Windows, so that TQt provides Unicode
 even on Windows platforms that do not support it natively.
 <p> </ul>
-<p> To fully benefit from Unicode, we recommend using <a href="ntqstring.html">TQString</a> for storing
+<p> To fully benefit from Unicode, we recommend using <a href="tqstring.html">TQString</a> for storing
 all user-visible strings, and performing all text file I/O using
-<a href="ntqtextstream.html">TQTextStream</a>. Use <a href="qkeyevent.html#text">TQKeyEvent::text</a>() for keyboard input in any custom
+<a href="tqtextstream.html">TQTextStream</a>. Use <a href="tqkeyevent.html#text">TQKeyEvent::text</a>() for keyboard input in any custom
 widgets you write; it does not make much difference for slow typists
 in Western Europe or North America, but for fast typists or people
 using special input methods using text() is beneficial.
-<p> All the function arguments in TQt that may be user-visible strings, <a href="ntqlabel.html#setText">TQLabel::setText</a>() and a many others, take <tt>const TQString &amp;</tt>s.
-<a href="ntqstring.html">TQString</a> provides implicit casting from <tt>const char *</tt>
+<p> All the function arguments in TQt that may be user-visible strings, <a href="tqlabel.html#setText">TQLabel::setText</a>() and a many others, take <tt>const TQString &amp;</tt>s.
+<a href="tqstring.html">TQString</a> provides implicit casting from <tt>const char *</tt>
 so that things like
 <pre>
     myLabel-&gt;setText( "Hello, Dolly!" );
 </pre>
  
-will work. There is also a function, <a href="ntqobject.html#tr">TQObject::tr</a>(), that provides
+will work. There is also a function, <a href="tqobject.html#tr">TQObject::tr</a>(), that provides
 translation support, like this:
 <pre>
     myLabel-&gt;setText( tr("Hello, Dolly!") );
 </pre>
  
 <p> tr() (simplifying somewhat) maps from <tt>const char *</tt> to a
-Unicode string, and uses installable <a href="ntqtranslator.html">TQTranslator</a> objects to do the
+Unicode string, and uses installable <a href="tqtranslator.html">TQTranslator</a> objects to do the
 mapping.
-<p> TQt provides a number of built-in <a href="ntqtextcodec.html">TQTextCodec</a> classes, that is,
+<p> TQt provides a number of built-in <a href="tqtextcodec.html">TQTextCodec</a> classes, that is,
 classes that know how to translate between Unicode and legacy
 encodings to support programs that must talk to other programs or
 read/write files in legacy file formats.
@@ -110,7 +109,7 @@ writing, Vietnamese/VISCII is one such example.)
 fast functions for mapping to and from them. For example, to open an
 application's icon one might do this:
 <pre>
-        <a href="ntqfile.html">TQFile</a> f( TQString::<a href="ntqstring.html#fromLatin1">fromLatin1</a>("appicon.png") );
+        <a href="tqfile.html">TQFile</a> f( TQString::<a href="tqstring.html#fromLatin1">fromLatin1</a>("appicon.png") );
 </pre>
  
 <p> Regarding output, TQt will do a best-effort conversion from

@@ -1,5 +1,5 @@
 '\" t
-.TH QMessageBox 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMessageBox 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QMessageBox \- Modal dialog with a short message, an icon, and some buttons
+TQMessageBox \- Modal dialog with a short message, an icon, and some buttons
 .SH SYNOPSIS
-\fC#include <ntqmessagebox.h>\fR
+\fC#include <tqmessagebox.h>\fR
 .PP
-Inherits QDialog.
+Inherits TQDialog.
 .PP
 .SS "Public Members"
 .in +1c
@@ -19,13 +19,13 @@ Inherits QDialog.
 .BI "enum \fBIcon\fR { NoIcon = 0, Information = 1, Warning = 2, Critical = 3, Question = 4 }"
 .br
 .ti -1c
-.BI "\fBQMessageBox\fR ( TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQMessageBox\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQMessageBox\fR ( const TQString & caption, const TQString & text, Icon icon, int button0, int button1, int button2, TQWidget * parent = 0, const char * name = 0, bool modal = TRUE, WFlags f = WStyle_DialogBorder )"
+.BI "\fBTQMessageBox\fR ( const TQString & caption, const TQString & text, Icon icon, int button0, int button1, int button2, TQWidget * parent = 0, const char * name = 0, bool modal = TRUE, WFlags f = WStyle_DialogBorder )"
 .br
 .ti -1c
-.BI "\fB~QMessageBox\fR ()"
+.BI "\fB~TQMessageBox\fR ()"
 .br
 .ti -1c
 .BI "TQString \fBtext\fR () const"
@@ -40,10 +40,10 @@ Inherits QDialog.
 .BI "void \fBsetIcon\fR ( Icon )"
 .br
 .ti -1c
-.BI "const QPixmap * \fBiconPixmap\fR () const"
+.BI "const TQPixmap * \fBiconPixmap\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetIconPixmap\fR ( const QPixmap & )"
+.BI "void \fBsetIconPixmap\fR ( const TQPixmap & )"
 .br
 .ti -1c
 .BI "TQString \fBbuttonText\fR ( int button ) const"
@@ -100,10 +100,10 @@ Inherits QDialog.
 .BI "bool query ( const TQString & caption, const TQString & text, const TQString & yesButtonText = TQString::null, const TQString & noButtonText = TQString::null, TQWidget * parent = 0, const char * = 0 )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QPixmap standardIcon ( Icon icon, GUIStyle style )  \fI(obsolete)\fR"
+.BI "TQPixmap standardIcon ( Icon icon, GUIStyle style )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QPixmap \fBstandardIcon\fR ( Icon icon )"
+.BI "TQPixmap \fBstandardIcon\fR ( Icon icon )"
 .br
 .in -1c
 .SS "Properties"
@@ -112,7 +112,7 @@ Inherits QDialog.
 .BI "Icon \fBicon\fR - the message box's icon"
 .br
 .ti -1c
-.BI "QPixmap \fBiconPixmap\fR - the current icon"
+.BI "TQPixmap \fBiconPixmap\fR - the current icon"
 .br
 .ti -1c
 .BI "TQString \fBtext\fR - the message box text to be displayed"
@@ -122,11 +122,11 @@ Inherits QDialog.
 .br
 .in -1c
 .SH DESCRIPTION
-The QMessageBox class provides a modal dialog with a short message, an icon, and some buttons.
+The TQMessageBox class provides a modal dialog with a short message, an icon, and some buttons.
 .PP
 Message boxes are used to provide informative messages and to ask simple questions.
 .PP
-QMessageBox provides a range of different messages, arranged roughly along two axes: severity and complexity.
+TQMessageBox provides a range of different messages, arranged roughly along two axes: severity and complexity.
 .PP
 Severity is <center>.nf
 .TS
@@ -148,7 +148,7 @@ If a program is unable to find a supporting file, but can do perfectly well with
 .PP
 .nf
 .br
-    QMessageBox::information( this, "Application name",
+    TQMessageBox::information( this, "Application name",
 .br
     "Unable to find the user preferences file.\\n"
 .br
@@ -160,9 +160,9 @@ question() is useful for simple yes/no questions:
 .PP
 .nf
 .br
-    if ( QFile::exists( filename ) &&
+    if ( TQFile::exists( filename ) &&
 .br
-        QMessageBox::question(
+        TQMessageBox::question(
 .br
             this,
 .br
@@ -186,7 +186,7 @@ warning() can be used to tell the user about unusual errors, or errors which can
 .PP
 .nf
 .br
-    switch( QMessageBox::warning( this, "Application name",
+    switch( TQMessageBox::warning( this, "Application name",
 .br
         "Could not connect to the <mumble> server.\\n"
 .br
@@ -214,7 +214,7 @@ warning() can be used to tell the user about unusual errors, or errors which can
 .br
 .fi
 .PP
-The text part of all message box messages can be either rich text or plain text. If you specify a rich text formatted string, it will be rendered using the default stylesheet. See QStyleSheet::defaultSheet() for details. With certain strings that contain XML meta characters, the auto-rich text detection may fail, interpreting plain text incorrectly as rich text. In these rare cases, use QStyleSheet::convertFromPlainText() to convert your plain text string to a visually equivalent rich text string or set the text format explicitly with setTextFormat().
+The text part of all message box messages can be either rich text or plain text. If you specify a rich text formatted string, it will be rendered using the default stylesheet. See TQStyleSheet::defaultSheet() for details. With certain strings that contain XML meta characters, the auto-rich text detection may fail, interpreting plain text incorrectly as rich text. In these rare cases, use TQStyleSheet::convertFromPlainText() to convert your plain text string to a visually equivalent rich text string or set the text format explicitly with setTextFormat().
 .PP
 Note that the Microsoft Windows User Interface Guidelines recommend using the application name as the window's caption.
 .PP
@@ -224,7 +224,7 @@ Exiting a program is part of its normal operation. If there is unsaved data the 
 .PP
 .nf
 .br
-    switch( QMessageBox::information( this, "Application name here",
+    switch( TQMessageBox::information( this, "Application name here",
 .br
         "The document contains unsaved changes\\n"
 .br
@@ -264,7 +264,7 @@ Disk full errors are unusual and they certainly can be hard to correct. This exa
 .PP
 .nf
 .br
-    switch( QMessageBox::warning( this, "Application name here",
+    switch( TQMessageBox::warning( this, "Application name here",
 .br
         "Could not save the user preferences,\\n"
 .br
@@ -274,17 +274,17 @@ Disk full errors are unusual and they certainly can be hard to correct. This exa
 .br
         "abort the Save Preferences operation.",
 .br
-        QMessageBox::Retry | QMessageBox::Default,
+        TQMessageBox::Retry | TQMessageBox::Default,
 .br
-        QMessageBox::Abort | QMessageBox::Escape )) {
+        TQMessageBox::Abort | TQMessageBox::Escape )) {
 .br
-    case QMessageBox::Retry: // Retry clicked or Enter pressed
+    case TQMessageBox::Retry: // Retry clicked or Enter pressed
 .br
         // try again
 .br
         break;
 .br
-    case QMessageBox::Abort: // Abort clicked or Escape pressed
+    case TQMessageBox::Abort: // Abort clicked or Escape pressed
 .br
         // abort
 .br
@@ -298,7 +298,7 @@ The critical() function should be reserved for critical errors. In this example 
 .PP
 .nf
 .br
-    QMessageBox::critical( 0, "Application name here",
+    TQMessageBox::critical( 0, "Application name here",
 .br
         TQString("An internal error occurred. Please ") +
 .br
@@ -312,11 +312,11 @@ The critical() function should be reserved for critical errors. In this example 
 .PP
 In this example an OK button is displayed.
 .PP
-QMessageBox provides a very simple About box which displays an appropriate icon and the string you provide:
+TQMessageBox provides a very simple About box which displays an appropriate icon and the string you provide:
 .PP
 .nf
 .br
-    QMessageBox::about( this, "About <Application>",
+    TQMessageBox::about( this, "About <Application>",
 .br
         "<Application> is a <one-paragraph blurb>\\n\\n"
 .br
@@ -334,43 +334,43 @@ See about() for more information.
 .PP
 If you want your users to know that the application is built using TQt (so they know that you use high quality tools) you might like to add an "About Qt" menu option under the Help menu to invoke aboutTQt().
 .PP
-If none of the standard message boxes is suitable, you can create a QMessageBox from scratch and use custom button texts:
+If none of the standard message boxes is suitable, you can create a TQMessageBox from scratch and use custom button texts:
 .PP
 .nf
 .br
-    QMessageBox mb( "Application name here",
+    TQMessageBox mb( "Application name here",
 .br
         "Saving the file will overwrite the original file on the disk.\\n"
 .br
         "Do you really want to save?",
 .br
-        QMessageBox::Information,
+        TQMessageBox::Information,
 .br
-        QMessageBox::Yes | QMessageBox::Default,
+        TQMessageBox::Yes | TQMessageBox::Default,
 .br
-        QMessageBox::No,
+        TQMessageBox::No,
 .br
-        QMessageBox::Cancel | QMessageBox::Escape );
+        TQMessageBox::Cancel | TQMessageBox::Escape );
 .br
-    mb.setButtonText( QMessageBox::Yes, "Save" );
+    mb.setButtonText( TQMessageBox::Yes, "Save" );
 .br
-    mb.setButtonText( QMessageBox::No, "Discard" );
+    mb.setButtonText( TQMessageBox::No, "Discard" );
 .br
     switch( mb.exec() ) {
 .br
-    case QMessageBox::Yes:
+    case TQMessageBox::Yes:
 .br
         // save and exit
 .br
         break;
 .br
-    case QMessageBox::No:
+    case TQMessageBox::No:
 .br
         // exit without saving
 .br
         break;
 .br
-    case QMessageBox::Cancel:
+    case TQMessageBox::Cancel:
 .br
         // don't save and don't exit
 .br
@@ -380,7 +380,7 @@ If none of the standard message boxes is suitable, you can create a QMessageBox 
 .br
 .fi
 .PP
-QMessageBox defines two enum types: Icon and an unnamed button type. Icon defines the Question, Information, Warning, and Critical icons for each GUI style. It is used by the constructor and by the static member functions question(), information(), warning() and critical(). A function called standardIcon() gives you access to the various icons.
+TQMessageBox defines two enum types: Icon and an unnamed button type. Icon defines the Question, Information, Warning, and Critical icons for each GUI style. It is used by the constructor and by the static member functions question(), information(), warning() and critical(). A function called standardIcon() gives you access to the various icons.
 .PP
 The button types are:
 .TP
@@ -408,11 +408,11 @@ Default - makes pressing Enter equivalent to clicking this button. Normally used
 .TP
 Escape - makes pressing Escape equivalent to clicking this button. Normally used with Abort, Cancel or similar.
 .PP
-The text(), icon() and iconPixmap() functions provide access to the current text and pixmap of the message box. The setText(), setIcon() and setIconPixmap() let you change it. The difference between setIcon() and setIconPixmap() is that the former accepts a QMessageBox::Icon and can be used to set standard icons, whereas the latter accepts a QPixmap and can be used to set custom icons.
+The text(), icon() and iconPixmap() functions provide access to the current text and pixmap of the message box. The setText(), setIcon() and setIconPixmap() let you change it. The difference between setIcon() and setIconPixmap() is that the former accepts a TQMessageBox::Icon and can be used to set standard icons, whereas the latter accepts a TQPixmap and can be used to set custom icons.
 .PP
 setButtonText() and buttonText() provide access to the buttons.
 .PP
-QMessageBox has no signals or slots.
+TQMessageBox has no signals or slots.
 .PP
 .ce 1
 .B "[Image Omitted]"
@@ -421,88 +421,88 @@ QMessageBox has no signals or slots.
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QDialog, Isys on error messages, GUI Design Handbook: Message Box, and Dialog Classes.
+See also TQDialog, Isys on error messages, GUI Design Handbook: Message Box, and Dialog Classes.
 .SS "Member Type Documentation"
-.SH "QMessageBox::Icon"
+.SH "TQMessageBox::Icon"
 This enum has the following values:
 .TP
-\fCQMessageBox::NoIcon\fR - the message box does not have any icon.
+\fCTQMessageBox::NoIcon\fR - the message box does not have any icon.
 .TP
-\fCQMessageBox::Question\fR - an icon indicating that the message is asking a question.
+\fCTQMessageBox::Question\fR - an icon indicating that the message is asking a question.
 .TP
-\fCQMessageBox::Information\fR - an icon indicating that the message is nothing out of the ordinary.
+\fCTQMessageBox::Information\fR - an icon indicating that the message is nothing out of the ordinary.
 .TP
-\fCQMessageBox::Warning\fR - an icon indicating that the message is a warning, but can be dealt with.
+\fCTQMessageBox::Warning\fR - an icon indicating that the message is a warning, but can be dealt with.
 .TP
-\fCQMessageBox::Critical\fR - an icon indicating that the message represents a critical problem.
+\fCTQMessageBox::Critical\fR - an icon indicating that the message represents a critical problem.
 .PP
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMessageBox::QMessageBox ( TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQMessageBox::TQMessageBox ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a message box with no text and a button with the label" OK".
 .PP
 If \fIparent\fR is 0, the message box becomes an application-global modal dialog box. If \fIparent\fR is a widget, the message box becomes modal relative to \fIparent\fR.
 .PP
-The \fIparent\fR and \fIname\fR arguments are passed to the QDialog constructor.
-.SH "QMessageBox::QMessageBox ( const TQString & caption, const TQString & text, Icon icon, int button0, int button1, int button2, TQWidget * parent = 0, const char * name = 0, bool modal = TRUE, WFlags f = WStyle_DialogBorder )"
+The \fIparent\fR and \fIname\fR arguments are passed to the TQDialog constructor.
+.SH "TQMessageBox::TQMessageBox ( const TQString & caption, const TQString & text, Icon icon, int button0, int button1, int button2, TQWidget * parent = 0, const char * name = 0, bool modal = TRUE, WFlags f = WStyle_DialogBorder )"
 Constructs a message box with a \fIcaption\fR, a \fItext\fR, an \fIicon\fR, and up to three buttons.
 .PP
 The \fIicon\fR must be one of the following:
 .TP
-QMessageBox::NoIcon
+TQMessageBox::NoIcon
 .TP
-QMessageBox::Question
+TQMessageBox::Question
 .TP
-QMessageBox::Information
+TQMessageBox::Information
 .TP
-QMessageBox::Warning
+TQMessageBox::Warning
 .TP
-QMessageBox::Critical
+TQMessageBox::Critical
 .PP
 Each button, \fIbutton0\fR, \fIbutton1\fR and \fIbutton2\fR, can have one of the following values:
 .TP
-QMessageBox::NoButton
+TQMessageBox::NoButton
 .TP
-QMessageBox::Ok
+TQMessageBox::Ok
 .TP
-QMessageBox::Cancel
+TQMessageBox::Cancel
 .TP
-QMessageBox::Yes
+TQMessageBox::Yes
 .TP
-QMessageBox::No
+TQMessageBox::No
 .TP
-QMessageBox::Abort
+TQMessageBox::Abort
 .TP
-QMessageBox::Retry
+TQMessageBox::Retry
 .TP
-QMessageBox::Ignore
+TQMessageBox::Ignore
 .TP
-QMessageBox::YesAll
+TQMessageBox::YesAll
 .TP
-QMessageBox::NoAll
+TQMessageBox::NoAll
 .PP
-Use QMessageBox::NoButton for the later parameters to have fewer than three buttons in your message box. If you don't specify any buttons at all, QMessageBox will provide an Ok button.
+Use TQMessageBox::NoButton for the later parameters to have fewer than three buttons in your message box. If you don't specify any buttons at all, TQMessageBox will provide an Ok button.
 .PP
-One of the buttons can be OR-ed with the \fCQMessageBox::Default\fR flag to make it the default button (clicked when Enter is pressed).
+One of the buttons can be OR-ed with the \fCTQMessageBox::Default\fR flag to make it the default button (clicked when Enter is pressed).
 .PP
-One of the buttons can be OR-ed with the \fCQMessageBox::Escape\fR flag to make it the cancel or close button (clicked when Escape is pressed).
+One of the buttons can be OR-ed with the \fCTQMessageBox::Escape\fR flag to make it the cancel or close button (clicked when Escape is pressed).
 .PP
 Example:
 .PP
 .nf
 .br
-    QMessageBox mb( "Application Name",
+    TQMessageBox mb( "Application Name",
 .br
         "Hardware failure.\\n\\nDisk error detected\\nDo you want to stop?",
 .br
-        QMessageBox::Question,
+        TQMessageBox::Question,
 .br
-        QMessageBox::Yes | QMessageBox::Default,
+        TQMessageBox::Yes | TQMessageBox::Default,
 .br
-        QMessageBox::No  | QMessageBox::Escape,
+        TQMessageBox::No  | TQMessageBox::Escape,
 .br
-        QMessageBox::NoButton );
+        TQMessageBox::NoButton );
 .br
-    if ( mb.exec() == QMessageBox::No )
+    if ( mb.exec() == TQMessageBox::No )
 .br
         // try again
 .br
@@ -512,12 +512,12 @@ If \fIparent\fR is 0, the message box becomes an application-global modal dialog
 .PP
 If \fImodal\fR is TRUE the message box is modal; otherwise it is modeless.
 .PP
-The \fIparent\fR, \fIname\fR, \fImodal\fR, and \fIf\fR arguments are passed to the QDialog constructor.
+The \fIparent\fR, \fIname\fR, \fImodal\fR, and \fIf\fR arguments are passed to the TQDialog constructor.
 .PP
 See also caption, text, and icon.
-.SH "QMessageBox::~QMessageBox ()"
+.SH "TQMessageBox::~TQMessageBox ()"
 Destroys the message box.
-.SH "void QMessageBox::about ( TQWidget * parent, const TQString & caption, const TQString & text )\fC [static]\fR"
+.SH "void TQMessageBox::about ( TQWidget * parent, const TQString & caption, const TQString & text )\fC [static]\fR"
 Displays a simple about box with caption \fIcaption\fR and text \fItext\fR. The about box's parent is \fIparent\fR.
 .PP
 about() looks for a suitable icon in four locations: <ol type=1>
@@ -532,59 +532,59 @@ As a last resort it uses the Information icon.
 .PP
 The about box has a single button labelled "OK".
 .PP
-See also TQWidget::icon and QApplication::mainWidget().
+See also TQWidget::icon and TQApplication::mainWidget().
 .PP
 Examples:
 .)l action/application.cpp, application/application.cpp, chart/chartform.cpp, helpviewer/helpwindow.cpp, mdi/application.cpp, menu/menu.cpp, and themes/themes.cpp.
-.SH "void QMessageBox::aboutTQt ( TQWidget * parent, const TQString & caption = TQString::null )\fC [static]\fR"
+.SH "void TQMessageBox::aboutTQt ( TQWidget * parent, const TQString & caption = TQString::null )\fC [static]\fR"
 Displays a simple message box about Qt, with caption \fIcaption\fR and centered over \fIparent\fR (if \fIparent\fR is not 0). The message includes the version number of TQt being used by the application.
 .PP
 This is useful for inclusion in the Help menu of an application. See the examples/menu/menu.cpp example.
 .PP
-QApplication provides this functionality as a slot.
+TQApplication provides this functionality as a slot.
 .PP
-See also QApplication::aboutTQt().
+See also TQApplication::aboutTQt().
 .PP
 Examples:
-.)l action/application.cpp, application/application.cpp, chart/chartform.cpp, helpviewer/helpwindow.cpp, menu/menu.cpp, themes/themes.cpp, and trivial/trivial.cpp.
-.SH "void QMessageBox::adjustSize ()\fC [virtual]\fR"
-Adjusts the size of the message box to fit the contents just before QDialog::exec() or QDialog::show() is called.
+.)l action/application.cpp, application/application.cpp, chart/chartform.cpp, helpviewer/helpwindow.cpp, menu/menu.cpp and themes/themes.cpp.
+.SH "void TQMessageBox::adjustSize ()\fC [virtual]\fR"
+Adjusts the size of the message box to fit the contents just before TQDialog::exec() or TQDialog::show() is called.
 .PP
 This function will not be called if the message box has been explicitly resized before showing it.
 .PP
 Reimplemented from TQWidget.
-.SH "TQString QMessageBox::buttonText ( int button ) const"
+.SH "TQString TQMessageBox::buttonText ( int button ) const"
 Returns the text of the message box button \fIbutton\fR, or TQString::null if the message box does not contain the button.
 .PP
 See also setButtonText().
-.SH "int QMessageBox::critical ( TQWidget * parent, const TQString & caption, const TQString & text, int button0, int button1, int button2 = 0 )\fC [static]\fR"
+.SH "int TQMessageBox::critical ( TQWidget * parent, const TQString & caption, const TQString & text, int button0, int button1, int button2 = 0 )\fC [static]\fR"
 Opens a critical message box with the caption \fIcaption\fR and the text \fItext\fR. The dialog may have up to three buttons. Each of the button parameters, \fIbutton0\fR, \fIbutton1\fR and \fIbutton2\fR may be set to one of the following values:
 .TP
-QMessageBox::NoButton
+TQMessageBox::NoButton
 .TP
-QMessageBox::Ok
+TQMessageBox::Ok
 .TP
-QMessageBox::Cancel
+TQMessageBox::Cancel
 .TP
-QMessageBox::Yes
+TQMessageBox::Yes
 .TP
-QMessageBox::No
+TQMessageBox::No
 .TP
-QMessageBox::Abort
+TQMessageBox::Abort
 .TP
-QMessageBox::Retry
+TQMessageBox::Retry
 .TP
-QMessageBox::Ignore
+TQMessageBox::Ignore
 .TP
-QMessageBox::YesAll
+TQMessageBox::YesAll
 .TP
-QMessageBox::NoAll
+TQMessageBox::NoAll
 .PP
-If you don't want all three buttons, set the last button, or last two buttons to QMessageBox::NoButton.
+If you don't want all three buttons, set the last button, or last two buttons to TQMessageBox::NoButton.
 .PP
-One button can be OR-ed with \fCQMessageBox::Default\fR, and one button can be OR-ed with \fCQMessageBox::Escape\fR.
+One button can be OR-ed with \fCTQMessageBox::Default\fR, and one button can be OR-ed with \fCTQMessageBox::Escape\fR.
 .PP
-Returns the identity (QMessageBox::Ok, or QMessageBox::No, etc.) of the button that was clicked.
+Returns the identity (TQMessageBox::Ok, or TQMessageBox::No, etc.) of the button that was clicked.
 .PP
 If \fIparent\fR is 0, the message box becomes an application-global modal dialog box. If \fIparent\fR is a widget, the message box becomes modal relative to \fIparent\fR.
 .PP
@@ -592,7 +592,7 @@ See also information(), question(), and warning().
 .PP
 Examples:
 .)l network/archivesearch/archivedialog.ui.h, network/ftpclient/ftpmainwindow.ui.h, process/process.cpp, and xml/outliner/outlinetree.cpp.
-.SH "int QMessageBox::critical ( TQWidget * parent, const TQString & caption, const TQString & text, const TQString & button0Text = TQString::null, const TQString & button1Text = TQString::null, const TQString & button2Text = TQString::null, int defaultButtonNumber = 0, int escapeButtonNumber = -1 )\fC [static]\fR"
+.SH "int TQMessageBox::critical ( TQWidget * parent, const TQString & caption, const TQString & text, const TQString & button0Text = TQString::null, const TQString & button1Text = TQString::null, const TQString & button2Text = TQString::null, int defaultButtonNumber = 0, int escapeButtonNumber = -1 )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Displays a critical error message box with a caption, a text, and 1, 2 or 3 buttons. Returns the number of the button that was clicked (0, 1 or 2).
@@ -602,46 +602,46 @@ Displays a critical error message box with a caption, a text, and 1, 2 or 3 butt
 If \fIparent\fR is 0, the message box becomes an application-global modal dialog box. If \fIparent\fR is a widget, the message box becomes modal relative to \fIparent\fR.
 .PP
 See also information(), question(), and warning().
-.SH "Icon QMessageBox::icon () const"
+.SH "Icon TQMessageBox::icon () const"
 Returns the message box's icon. See the "icon" property for details.
-.SH "const QPixmap * QMessageBox::iconPixmap () const"
+.SH "const TQPixmap * TQMessageBox::iconPixmap () const"
 Returns the current icon. See the "iconPixmap" property for details.
-.SH "int QMessageBox::information ( TQWidget * parent, const TQString & caption, const TQString & text, int button0, int button1 = 0, int button2 = 0 )\fC [static]\fR"
+.SH "int TQMessageBox::information ( TQWidget * parent, const TQString & caption, const TQString & text, int button0, int button1 = 0, int button2 = 0 )\fC [static]\fR"
 Opens an information message box with the caption \fIcaption\fR and the text \fItext\fR. The dialog may have up to three buttons. Each of the buttons, \fIbutton0\fR, \fIbutton1\fR and \fIbutton2\fR may be set to one of the following values:
 .TP
-QMessageBox::NoButton
+TQMessageBox::NoButton
 .TP
-QMessageBox::Ok
+TQMessageBox::Ok
 .TP
-QMessageBox::Cancel
+TQMessageBox::Cancel
 .TP
-QMessageBox::Yes
+TQMessageBox::Yes
 .TP
-QMessageBox::No
+TQMessageBox::No
 .TP
-QMessageBox::Abort
+TQMessageBox::Abort
 .TP
-QMessageBox::Retry
+TQMessageBox::Retry
 .TP
-QMessageBox::Ignore
+TQMessageBox::Ignore
 .TP
-QMessageBox::YesAll
+TQMessageBox::YesAll
 .TP
-QMessageBox::NoAll
+TQMessageBox::NoAll
 .PP
-If you don't want all three buttons, set the last button, or last two buttons to QMessageBox::NoButton.
+If you don't want all three buttons, set the last button, or last two buttons to TQMessageBox::NoButton.
 .PP
-One button can be OR-ed with \fCQMessageBox::Default\fR, and one button can be OR-ed with \fCQMessageBox::Escape\fR.
+One button can be OR-ed with \fCTQMessageBox::Default\fR, and one button can be OR-ed with \fCTQMessageBox::Escape\fR.
 .PP
-Returns the identity (QMessageBox::Ok, or QMessageBox::No, etc.) of the button that was clicked.
+Returns the identity (TQMessageBox::Ok, or TQMessageBox::No, etc.) of the button that was clicked.
 .PP
 If \fIparent\fR is 0, the message box becomes an application-global modal dialog box. If \fIparent\fR is a widget, the message box becomes modal relative to \fIparent\fR.
 .PP
 See also question(), warning(), and critical().
 .PP
 Examples:
-.)l action/application.cpp, application/application.cpp, dirview/dirview.cpp, fileiconview/qfileiconview.cpp, picture/picture.cpp, qwerty/qwerty.cpp, and simple/main.cpp.
-.SH "int QMessageBox::information ( TQWidget * parent, const TQString & caption, const TQString & text, const TQString & button0Text = TQString::null, const TQString & button1Text = TQString::null, const TQString & button2Text = TQString::null, int defaultButtonNumber = 0, int escapeButtonNumber = -1 )\fC [static]\fR"
+.)l action/application.cpp, application/application.cpp, dirview/dirview.cpp, fileiconview/tqfileiconview.cpp, picture/picture.cpp, qwerty/qwerty.cpp, and simple/main.cpp.
+.SH "int TQMessageBox::information ( TQWidget * parent, const TQString & caption, const TQString & text, const TQString & button0Text = TQString::null, const TQString & button1Text = TQString::null, const TQString & button2Text = TQString::null, int defaultButtonNumber = 0, int escapeButtonNumber = -1 )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Displays an information message box with caption \fIcaption\fR, text \fItext\fR and one, two or three buttons. Returns the index of the button that was clicked (0, 1 or 2).
@@ -653,53 +653,51 @@ If \fIparent\fR is 0, the message box becomes an application-global modal dialog
 Note: If you do not specify an Escape button then if the Escape button is pressed then -1 will be returned. It is suggested that you specify an Escape button to prevent this from happening.
 .PP
 See also question(), warning(), and critical().
-.SH "int QMessageBox::message ( const TQString & caption, const TQString & text, const TQString & buttonText = TQString::null, TQWidget * parent = 0, const char * = 0 )\fC [static]\fR"
+.SH "int TQMessageBox::message ( const TQString & caption, const TQString & text, const TQString & buttonText = TQString::null, TQWidget * parent = 0, const char * = 0 )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Opens a modal message box directly using the specified parameters.
 .PP
 Please use information(), warning(), question(), or critical() instead.
-.PP
-Example: grapher/grapher.cpp.
-.SH "bool QMessageBox::query ( const TQString & caption, const TQString & text, const TQString & yesButtonText = TQString::null, const TQString & noButtonText = TQString::null, TQWidget * parent = 0, const char * = 0 )\fC [static]\fR"
+.SH "bool TQMessageBox::query ( const TQString & caption, const TQString & text, const TQString & yesButtonText = TQString::null, const TQString & noButtonText = TQString::null, TQWidget * parent = 0, const char * = 0 )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
 Queries the user using a modal message box with two buttons. Note that \fIcaption\fR is not always shown, it depends on the window manager.
 .PP
 Please use information(), question(), warning(), or critical() instead.
-.SH "int QMessageBox::question ( TQWidget * parent, const TQString & caption, const TQString & text, int button0, int button1 = 0, int button2 = 0 )\fC [static]\fR"
+.SH "int TQMessageBox::question ( TQWidget * parent, const TQString & caption, const TQString & text, int button0, int button1 = 0, int button2 = 0 )\fC [static]\fR"
 Opens a question message box with the caption \fIcaption\fR and the text \fItext\fR. The dialog may have up to three buttons. Each of the buttons, \fIbutton0\fR, \fIbutton1\fR and \fIbutton2\fR may be set to one of the following values:
 .TP
-QMessageBox::NoButton
+TQMessageBox::NoButton
 .TP
-QMessageBox::Ok
+TQMessageBox::Ok
 .TP
-QMessageBox::Cancel
+TQMessageBox::Cancel
 .TP
-QMessageBox::Yes
+TQMessageBox::Yes
 .TP
-QMessageBox::No
+TQMessageBox::No
 .TP
-QMessageBox::Abort
+TQMessageBox::Abort
 .TP
-QMessageBox::Retry
+TQMessageBox::Retry
 .TP
-QMessageBox::Ignore
+TQMessageBox::Ignore
 .TP
-QMessageBox::YesAll
+TQMessageBox::YesAll
 .TP
-QMessageBox::NoAll
+TQMessageBox::NoAll
 .PP
-If you don't want all three buttons, set the last button, or last two buttons to QMessageBox::NoButton.
+If you don't want all three buttons, set the last button, or last two buttons to TQMessageBox::NoButton.
 .PP
-One button can be OR-ed with \fCQMessageBox::Default\fR, and one button can be OR-ed with \fCQMessageBox::Escape\fR.
+One button can be OR-ed with \fCTQMessageBox::Default\fR, and one button can be OR-ed with \fCTQMessageBox::Escape\fR.
 .PP
-Returns the identity (QMessageBox::Yes, or QMessageBox::No, etc.) of the button that was clicked.
+Returns the identity (TQMessageBox::Yes, or TQMessageBox::No, etc.) of the button that was clicked.
 .PP
 If \fIparent\fR is 0, the message box becomes an application-global modal dialog box. If \fIparent\fR is a widget, the message box becomes modal relative to \fIparent\fR.
 .PP
 See also information(), warning(), and critical().
-.SH "int QMessageBox::question ( TQWidget * parent, const TQString & caption, const TQString & text, const TQString & button0Text = TQString::null, const TQString & button1Text = TQString::null, const TQString & button2Text = TQString::null, int defaultButtonNumber = 0, int escapeButtonNumber = -1 )\fC [static]\fR"
+.SH "int TQMessageBox::question ( TQWidget * parent, const TQString & caption, const TQString & text, const TQString & button0Text = TQString::null, const TQString & button1Text = TQString::null, const TQString & button2Text = TQString::null, int defaultButtonNumber = 0, int escapeButtonNumber = -1 )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Displays a question message box with caption \fIcaption\fR, text \fItext\fR and one, two or three buttons. Returns the index of the button that was clicked (0, 1 or 2).
@@ -711,58 +709,58 @@ If \fIparent\fR is 0, the message box becomes an application-global modal dialog
 Note: If you do not specify an Escape button then if the Escape button is pressed then -1 will be returned. It is suggested that you specify an Escape button to prevent this from happening.
 .PP
 See also information(), warning(), and critical().
-.SH "void QMessageBox::setButtonText ( int button, const TQString & text )"
+.SH "void TQMessageBox::setButtonText ( int button, const TQString & text )"
 Sets the text of the message box button \fIbutton\fR to \fItext\fR. Setting the text of a button that is not in the message box is silently ignored.
 .PP
 See also buttonText().
-.SH "void QMessageBox::setIcon ( Icon )"
+.SH "void TQMessageBox::setIcon ( Icon )"
 Sets the message box's icon. See the "icon" property for details.
-.SH "void QMessageBox::setIconPixmap ( const QPixmap & )"
+.SH "void TQMessageBox::setIconPixmap ( const TQPixmap & )"
 Sets the current icon. See the "iconPixmap" property for details.
-.SH "void QMessageBox::setText ( const TQString & )"
+.SH "void TQMessageBox::setText ( const TQString & )"
 Sets the message box text to be displayed. See the "text" property for details.
-.SH "void QMessageBox::setTextFormat ( TextFormat )"
+.SH "void TQMessageBox::setTextFormat ( TextFormat )"
 Sets the format of the text displayed by the message box. See the "textFormat" property for details.
-.SH "QPixmap QMessageBox::standardIcon ( Icon icon )\fC [static]\fR"
-Returns the pixmap used for a standard icon. This allows the pixmaps to be used in more complex message boxes. \fIicon\fR specifies the required icon, e.g. QMessageBox::Question, QMessageBox::Information, QMessageBox::Warning or QMessageBox::Critical.
-.SH "QPixmap QMessageBox::standardIcon ( Icon icon, GUIStyle style )\fC [static]\fR"
+.SH "TQPixmap TQMessageBox::standardIcon ( Icon icon )\fC [static]\fR"
+Returns the pixmap used for a standard icon. This allows the pixmaps to be used in more complex message boxes. \fIicon\fR specifies the required icon, e.g. TQMessageBox::Question, TQMessageBox::Information, TQMessageBox::Warning or TQMessageBox::Critical.
+.SH "TQPixmap TQMessageBox::standardIcon ( Icon icon, GUIStyle style )\fC [static]\fR"
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Returns the pixmap used for a standard icon. This allows the pixmaps to be used in more complex message boxes. \fIicon\fR specifies the required icon, e.g. QMessageBox::Information, QMessageBox::Warning or QMessageBox::Critical.
+Returns the pixmap used for a standard icon. This allows the pixmaps to be used in more complex message boxes. \fIicon\fR specifies the required icon, e.g. TQMessageBox::Information, TQMessageBox::Warning or TQMessageBox::Critical.
 .PP
 \fIstyle\fR is unused.
-.SH "TQString QMessageBox::text () const"
+.SH "TQString TQMessageBox::text () const"
 Returns the message box text to be displayed. See the "text" property for details.
-.SH "TextFormat QMessageBox::textFormat () const"
+.SH "TextFormat TQMessageBox::textFormat () const"
 Returns the format of the text displayed by the message box. See the "textFormat" property for details.
-.SH "int QMessageBox::warning ( TQWidget * parent, const TQString & caption, const TQString & text, int button0, int button1, int button2 = 0 )\fC [static]\fR"
+.SH "int TQMessageBox::warning ( TQWidget * parent, const TQString & caption, const TQString & text, int button0, int button1, int button2 = 0 )\fC [static]\fR"
 Opens a warning message box with the caption \fIcaption\fR and the text \fItext\fR. The dialog may have up to three buttons. Each of the button parameters, \fIbutton0\fR, \fIbutton1\fR and \fIbutton2\fR may be set to one of the following values:
 .TP
-QMessageBox::NoButton
+TQMessageBox::NoButton
 .TP
-QMessageBox::Ok
+TQMessageBox::Ok
 .TP
-QMessageBox::Cancel
+TQMessageBox::Cancel
 .TP
-QMessageBox::Yes
+TQMessageBox::Yes
 .TP
-QMessageBox::No
+TQMessageBox::No
 .TP
-QMessageBox::Abort
+TQMessageBox::Abort
 .TP
-QMessageBox::Retry
+TQMessageBox::Retry
 .TP
-QMessageBox::Ignore
+TQMessageBox::Ignore
 .TP
-QMessageBox::YesAll
+TQMessageBox::YesAll
 .TP
-QMessageBox::NoAll
+TQMessageBox::NoAll
 .PP
-If you don't want all three buttons, set the last button, or last two buttons to QMessageBox::NoButton.
+If you don't want all three buttons, set the last button, or last two buttons to TQMessageBox::NoButton.
 .PP
-One button can be OR-ed with \fCQMessageBox::Default\fR, and one button can be OR-ed with \fCQMessageBox::Escape\fR.
+One button can be OR-ed with \fCTQMessageBox::Default\fR, and one button can be OR-ed with \fCTQMessageBox::Escape\fR.
 .PP
-Returns the identity (QMessageBox::Ok, or QMessageBox::No, etc.) of the button that was clicked.
+Returns the identity (TQMessageBox::Ok, or TQMessageBox::No, etc.) of the button that was clicked.
 .PP
 If \fIparent\fR is 0, the message box becomes an application-global modal dialog box. If \fIparent\fR is a widget, the message box becomes modal relative to \fIparent\fR.
 .PP
@@ -770,7 +768,7 @@ See also information(), question(), and critical().
 .PP
 Examples:
 .)l chart/chartform.cpp, i18n/main.cpp, network/mail/smtp.cpp, qwerty/qwerty.cpp, showimg/showimg.cpp, and sound/sound.cpp.
-.SH "int QMessageBox::warning ( TQWidget * parent, const TQString & caption, const TQString & text, const TQString & button0Text = TQString::null, const TQString & button1Text = TQString::null, const TQString & button2Text = TQString::null, int defaultButtonNumber = 0, int escapeButtonNumber = -1 )\fC [static]\fR"
+.SH "int TQMessageBox::warning ( TQWidget * parent, const TQString & caption, const TQString & text, const TQString & button0Text = TQString::null, const TQString & button1Text = TQString::null, const TQString & button2Text = TQString::null, int defaultButtonNumber = 0, int escapeButtonNumber = -1 )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Displays a warning message box with a caption, a text, and 1, 2 or 3 buttons. Returns the number of the button that was clicked (0, 1, or 2).
@@ -788,22 +786,22 @@ This property holds the message box's icon.
 .PP
 The icon of the message box can be one of the following predefined icons:
 .TP
-QMessageBox::NoIcon
+TQMessageBox::NoIcon
 .TP
-QMessageBox::Question
+TQMessageBox::Question
 .TP
-QMessageBox::Information
+TQMessageBox::Information
 .TP
-QMessageBox::Warning
+TQMessageBox::Warning
 .TP
-QMessageBox::Critical
+TQMessageBox::Critical
 .PP
-The actual pixmap used for displaying the icon depends on the current GUI style. You can also set a custom pixmap icon using the QMessageBox::iconPixmap property. The default icon is QMessageBox::NoIcon.
+The actual pixmap used for displaying the icon depends on the current GUI style. You can also set a custom pixmap icon using the TQMessageBox::iconPixmap property. The default icon is TQMessageBox::NoIcon.
 .PP
 See also iconPixmap.
 .PP
 Set this property's value with setIcon() and get this property's value with icon().
-.SH "QPixmap iconPixmap"
+.SH "TQPixmap iconPixmap"
 This property holds the current icon.
 .PP
 The icon currently used by the message box. Note that it's often hard to draw one pixmap that looks appropriate in both Motif and Windows GUI styles; you may want to draw two pixmaps.
@@ -814,7 +812,7 @@ Set this property's value with setIconPixmap() and get this property's value wit
 .SH "TQString text"
 This property holds the message box text to be displayed.
 .PP
-The text will be interpreted either as a plain text or as rich text, depending on the text format setting (QMessageBox::textFormat). The default setting is AutoText, i.e. the message box will try to auto-detect the format of the text.
+The text will be interpreted either as a plain text or as rich text, depending on the text format setting (TQMessageBox::textFormat). The default setting is AutoText, i.e. the message box will try to auto-detect the format of the text.
 .PP
 The default value of this property is TQString::null.
 .PP
@@ -833,7 +831,7 @@ See also text.
 Set this property's value with setTextFormat() and get this property's value with textFormat().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqmessagebox.html
+.BR http://doc.trolltech.com/tqmessagebox.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -43,8 +43,8 @@
 #ifndef TQT_NO_IM
 #include "qximinputcontext.h"
 #include "qximinputcontextplugin.h"
-#include <ntqinputcontextplugin.h>
-#include <ntqstringlist.h>
+#include <tqinputcontextplugin.h>
+#include <tqstringlist.h>
 
 
 TQXIMInputContextPlugin::TQXIMInputContextPlugin()

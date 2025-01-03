@@ -9,11 +9,11 @@
 
 #include "life.h"
 
-#include <ntqpainter.h>
-#include <ntqdrawutil.h>
-#include <ntqcheckbox.h>
-#include <ntqevent.h>
-#include <ntqapplication.h>
+#include <tqpainter.h>
+#include <tqdrawutil.h>
+#include <tqcheckbox.h>
+#include <tqevent.h>
+#include <tqapplication.h>
 
 // The main game of life widget
 

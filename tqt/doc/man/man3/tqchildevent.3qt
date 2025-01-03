@@ -1,5 +1,5 @@
 '\" t
-.TH QChildEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQChildEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,16 +7,16 @@
 .ad l
 .nh
 .SH NAME
-QChildEvent \- Event parameters for child object events
+TQChildEvent \- Event parameters for child object events
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQChildEvent\fR ( Type type, TQObject * child )"
+.BI "\fBTQChildEvent\fR ( Type type, TQObject * child )"
 .br
 .ti -1c
 .BI "TQObject * \fBchild\fR () const"
@@ -29,11 +29,11 @@ Inherits QEvent.
 .br
 .in -1c
 .SH DESCRIPTION
-The QChildEvent class contains event parameters for child object events.
+The TQChildEvent class contains event parameters for child object events.
 .PP
 Child events are sent to objects when children are inserted or removed.
 .PP
-A ChildRemoved event is sent immediately, but a ChildInserted event is \fIposted\fR (with QApplication::postEvent()).
+A ChildRemoved event is sent immediately, but a ChildInserted event is \fIposted\fR (with TQApplication::postEvent()).
 .PP
 Note that if a child is removed immediately after it is inserted, the ChildInserted event may be suppressed, but the ChildRemoved event will always be sent. In this case there will be a ChildRemoved event without a corresponding ChildInserted event.
 .PP
@@ -41,19 +41,19 @@ The handler for these events is TQObject::childEvent().
 .PP
 See also Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QChildEvent::QChildEvent ( Type type, TQObject * child )"
+.SH "TQChildEvent::TQChildEvent ( Type type, TQObject * child )"
 Constructs a child event object. The \fIchild\fR is the object that is to be removed or inserted.
 .PP
-The \fItype\fR parameter must be either QEvent::ChildInserted or QEvent::ChildRemoved.
-.SH "TQObject * QChildEvent::child () const"
+The \fItype\fR parameter must be either TQEvent::ChildInserted or TQEvent::ChildRemoved.
+.SH "TQObject * TQChildEvent::child () const"
 Returns the child widget that was inserted or removed.
-.SH "bool QChildEvent::inserted () const"
+.SH "bool TQChildEvent::inserted () const"
 Returns TRUE if the widget received a new child; otherwise returns FALSE.
-.SH "bool QChildEvent::removed () const"
+.SH "bool TQChildEvent::removed () const"
 Returns TRUE if the object lost a child; otherwise returns FALSE.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qchildevent.html
+.BR http://doc.trolltech.com/tqchildevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

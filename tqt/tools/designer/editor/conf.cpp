@@ -32,10 +32,10 @@
 **********************************************************************/
 
 #include "conf.h"
-#include <ntqapplication.h>
-#include <ntqfont.h>
-#include <ntqcolor.h>
-#include <ntqsettings.h>
+#include <tqapplication.h>
+#include <tqfont.h>
+#include <tqcolor.h>
+#include <tqsettings.h>
 
 TQMap<TQString, ConfigStyle> Config::defaultStyles()
 {

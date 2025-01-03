@@ -1,4 +1,4 @@
-#include <ntqapplication.h>
+#include <tqapplication.h>
 #include "options.h"
 
 int main( int argc, char ** argv )

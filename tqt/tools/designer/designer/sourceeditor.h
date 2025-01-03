@@ -35,8 +35,8 @@
 #define SOURCEEDITOR_H
 
 #include "../interfaces/editorinterface.h"
-#include <ntqvbox.h>
-#include <ntqguardedptr.h>
+#include <tqvbox.h>
+#include <tqguardedptr.h>
 
 class FormWindow;
 class TQCloseEvent;

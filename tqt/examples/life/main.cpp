@@ -8,7 +8,7 @@
 *****************************************************************************/
 
 #include "lifedlg.h"
-#include <ntqapplication.h>
+#include <tqapplication.h>
 #include <stdlib.h>
  
 void usage()

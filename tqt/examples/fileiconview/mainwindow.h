@@ -10,7 +10,7 @@
 #ifndef MAINWIN_H
 #define MAINWIN_H
 
-#include <ntqmainwindow.h>
+#include <tqmainwindow.h>
 
 class TQtFileIconView;
 class DirectoryView;

@@ -1,5 +1,5 @@
 '\" t
-.TH QBitArray 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQBitArray 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,27 +7,27 @@
 .ad l
 .nh
 .SH NAME
-QBitArray \- Array of bits
+TQBitArray \- Array of bits
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqbitarray.h>\fR
+\fC#include <tqbitarray.h>\fR
 .PP
-Inherits QByteArray.
+Inherits TQByteArray.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQBitArray\fR ()"
+.BI "\fBTQBitArray\fR ()"
 .br
 .ti -1c
-.BI "\fBQBitArray\fR ( uint size )"
+.BI "\fBTQBitArray\fR ( uint size )"
 .br
 .ti -1c
-.BI "\fBQBitArray\fR ( const QBitArray & a )"
+.BI "\fBTQBitArray\fR ( const TQBitArray & a )"
 .br
 .ti -1c
-.BI "QBitArray & \fBoperator=\fR ( const QBitArray & a )"
+.BI "TQBitArray & \fBoperator=\fR ( const TQBitArray & a )"
 .br
 .ti -1c
 .BI "uint \fBsize\fR () const"
@@ -42,7 +42,7 @@ Inherits QByteArray.
 .BI "virtual void \fBdetach\fR ()"
 .br
 .ti -1c
-.BI "QBitArray \fBcopy\fR () const"
+.BI "TQBitArray \fBcopy\fR () const"
 .br
 .ti -1c
 .BI "bool \fBtestBit\fR ( uint index ) const"
@@ -63,48 +63,48 @@ Inherits QByteArray.
 .BI "bool \fBat\fR ( uint index ) const"
 .br
 .ti -1c
-.BI "QBitVal \fBoperator[]\fR ( int index )"
+.BI "TQBitVal \fBoperator[]\fR ( int index )"
 .br
 .ti -1c
 .BI "bool \fBoperator[]\fR ( int index ) const"
 .br
 .ti -1c
-.BI "QBitArray & \fBoperator&=\fR ( const QBitArray & a )"
+.BI "TQBitArray & \fBoperator&=\fR ( const TQBitArray & a )"
 .br
 .ti -1c
-.BI "QBitArray & \fBoperator|=\fR ( const QBitArray & a )"
+.BI "TQBitArray & \fBoperator|=\fR ( const TQBitArray & a )"
 .br
 .ti -1c
-.BI "QBitArray & \fBoperator^=\fR ( const QBitArray & a )"
+.BI "TQBitArray & \fBoperator^=\fR ( const TQBitArray & a )"
 .br
 .ti -1c
-.BI "QBitArray \fBoperator~\fR () const"
+.BI "TQBitArray \fBoperator~\fR () const"
 .br
 .in -1c
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "QBitArray \fBoperator&\fR ( const QBitArray & a1, const QBitArray & a2 )"
+.BI "TQBitArray \fBoperator&\fR ( const TQBitArray & a1, const TQBitArray & a2 )"
 .br
 .ti -1c
-.BI "QBitArray \fBoperator|\fR ( const QBitArray & a1, const QBitArray & a2 )"
+.BI "TQBitArray \fBoperator|\fR ( const TQBitArray & a1, const TQBitArray & a2 )"
 .br
 .ti -1c
-.BI "QBitArray \fBoperator^\fR ( const QBitArray & a1, const QBitArray & a2 )"
+.BI "TQBitArray \fBoperator^\fR ( const TQBitArray & a1, const TQBitArray & a2 )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const QBitArray & a )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQBitArray & a )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, QBitArray & a )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQBitArray & a )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QBitArray class provides an array of bits.
+The TQBitArray class provides an array of bits.
 .PP
-Because QBitArray is a QMemArray, it uses explicit sharing with a reference count.
+Because TQBitArray is a TQMemArray, it uses explicit sharing with a reference count.
 .PP
-A QBitArray is a special byte array that can access individual bits and perform bit-operations (AND, OR, XOR and NOT) on entire arrays or bits.
+A TQBitArray is a special byte array that can access individual bits and perform bit-operations (AND, OR, XOR and NOT) on entire arrays or bits.
 .PP
 Bits can be manipulated by the setBit() and clearBit() functions, but it is also possible to use the indexing [] operator to test and set individual bits. The [] operator is a little slower than setBit() and clearBit() because some tricks are required to implement single-bit assignments.
 .PP
@@ -112,7 +112,7 @@ Example:
 .PP
 .nf
 .br
-    QBitArray a(3);
+    TQBitArray a(3);
 .br
     a.setBit( 0 );
 .br
@@ -121,7 +121,7 @@ Example:
     a.setBit( 2 );     // a = [1 0 1]
 .br
 .br
-    QBitArray b(3);
+    TQBitArray b(3);
 .br
     b[0] = 1;
 .br
@@ -130,47 +130,47 @@ Example:
     b[2] = 0;          // b = [1 1 0]
 .br
 .br
-    QBitArray c;
+    TQBitArray c;
 .br
     c = ~a & b;        // c = [0 1 0]
 .br
 .fi
 .PP
-When a QBitArray is constructed the bits are uninitialized. Use fill() to set all the bits to 0 or 1. The array can be resized with resize() and copied with copy(). Bits can be set with setBit() and cleared with clearBit(). Bits can be toggled with toggleBit(). A bit's value can be obtained with testBit() and with at().
+When a TQBitArray is constructed the bits are uninitialized. Use fill() to set all the bits to 0 or 1. The array can be resized with resize() and copied with copy(). Bits can be set with setBit() and cleared with clearBit(). Bits can be toggled with toggleBit(). A bit's value can be obtained with testBit() and with at().
 .PP
-QBitArray supports the & (AND), | (OR), ^ (XOR) and ~ (NOT) operators.
+TQBitArray supports the & (AND), | (OR), ^ (XOR) and ~ (NOT) operators.
 .PP
 See also Collection Classes, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QBitArray::QBitArray ()"
+.SH "TQBitArray::TQBitArray ()"
 Constructs an empty bit array.
-.SH "QBitArray::QBitArray ( uint size )"
+.SH "TQBitArray::TQBitArray ( uint size )"
 Constructs a bit array of \fIsize\fR bits. The bits are uninitialized.
 .PP
 See also fill().
-.SH "QBitArray::QBitArray ( const QBitArray & a )"
+.SH "TQBitArray::TQBitArray ( const TQBitArray & a )"
 Constructs a shallow copy of \fIa\fR.
-.SH "bool QBitArray::at ( uint index ) const"
+.SH "bool TQBitArray::at ( uint index ) const"
 Returns the value (0 or 1) of the bit at position \fIindex\fR.
 .PP
 See also operator[]().
-.SH "void QBitArray::clearBit ( uint index )"
+.SH "void TQBitArray::clearBit ( uint index )"
 Clears the bit at position \fIindex\fR, i.e. sets it to 0.
 .PP
 See also setBit() and toggleBit().
-.SH "QBitArray QBitArray::copy () const"
+.SH "TQBitArray TQBitArray::copy () const"
 Returns a deep copy of the bit array.
 .PP
 See also detach().
-.SH "void QBitArray::detach ()\fC [virtual]\fR"
+.SH "void TQBitArray::detach ()\fC [virtual]\fR"
 Detaches from shared bit array data and makes sure that this bit array is the only one referring to the data.
 .PP
 If multiple bit arrays share common data, this bit array dereferences the data and gets a copy of the data. Nothing happens if there is only a single reference.
 .PP
 See also copy().
 .PP
-Reimplemented from QMemArray.
-.SH "bool QBitArray::fill ( bool v, int size = -1 )"
+Reimplemented from TQMemArray.
+.SH "bool TQBitArray::fill ( bool v, int size = -1 )"
 Fills the bit array with \fIv\fR (1's if \fIv\fR is TRUE, or 0's if \fIv\fR is FALSE).
 .PP
 fill() resizes the bit array to \fIsize\fR bits if \fIsize\fR is nonnegative.
@@ -178,14 +178,14 @@ fill() resizes the bit array to \fIsize\fR bits if \fIsize\fR is nonnegative.
 Returns FALSE if a nonnegative \fIsize\fR was specified and the bit array could not be resized; otherwise returns TRUE.
 .PP
 See also resize().
-.SH "QBitArray & QBitArray::operator&= ( const QBitArray & a )"
+.SH "TQBitArray & TQBitArray::operator&= ( const TQBitArray & a )"
 Performs the AND operation between all bits in this bit array and \fIa\fR. Returns a reference to this bit array.
 .PP
 The result has the length of the longest of the two bit arrays, with any missing bits (i.e. if one array is shorter than the other), taken to be 0.
 .PP
 .nf
 .br
-    QBitArray a( 3 ), b( 2 );
+    TQBitArray a( 3 ), b( 2 );
 .br
     a[0] = 1;  a[1] = 0;  a[2] = 1;     // a = [1 0 1]
 .br
@@ -196,18 +196,18 @@ The result has the length of the longest of the two bit arrays, with any missing
 .fi
 .PP
 See also operator|=(), operator^=(), and operator~().
-.SH "QBitArray & QBitArray::operator= ( const QBitArray & a )"
+.SH "TQBitArray & TQBitArray::operator= ( const TQBitArray & a )"
 Assigns a shallow copy of \fIa\fR to this bit array and returns a reference to this array.
-.SH "QBitVal QBitArray::operator[] ( int index )"
+.SH "TQBitVal TQBitArray::operator[] ( int index )"
 Implements the [] operator for bit arrays.
 .PP
-The returned QBitVal is a context object. It makes it possible to get and set a single bit value by its \fIindex\fR position.
+The returned TQBitVal is a context object. It makes it possible to get and set a single bit value by its \fIindex\fR position.
 .PP
 Example:
 .PP
 .nf
 .br
-    QBitArray a( 3 );
+    TQBitArray a( 3 );
 .br
     a[0] = 0;
 .br
@@ -220,18 +220,18 @@ Example:
 The functions testBit(), setBit() and clearBit() are faster.
 .PP
 See also at().
-.SH "bool QBitArray::operator[] ( int index ) const"
+.SH "bool TQBitArray::operator[] ( int index ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Implements the [] operator for constant bit arrays.
-.SH "QBitArray & QBitArray::operator^= ( const QBitArray & a )"
+.SH "TQBitArray & TQBitArray::operator^= ( const TQBitArray & a )"
 Performs the XOR operation between all bits in this bit array and \fIa\fR. Returns a reference to this bit array.
 .PP
 The result has the length of the longest of the two bit arrays, with any missing bits (i.e. if one array is shorter than the other), taken to be 0.
 .PP
 .nf
 .br
-    QBitArray a( 3 ), b( 2 );
+    TQBitArray a( 3 ), b( 2 );
 .br
     a[0] = 1;  a[1] = 0;  a[2] = 1;     // a = [1 0 1]
 .br
@@ -242,14 +242,14 @@ The result has the length of the longest of the two bit arrays, with any missing
 .fi
 .PP
 See also operator&=(), operator|=(), and operator~().
-.SH "QBitArray & QBitArray::operator|= ( const QBitArray & a )"
+.SH "TQBitArray & TQBitArray::operator|= ( const TQBitArray & a )"
 Performs the OR operation between all bits in this bit array and \fIa\fR. Returns a reference to this bit array.
 .PP
 The result has the length of the longest of the two bit arrays, with any missing bits (i.e. if one array is shorter than the other), taken to be 0.
 .PP
 .nf
 .br
-    QBitArray a( 3 ), b( 2 );
+    TQBitArray a( 3 ), b( 2 );
 .br
     a[0] = 1;  a[1] = 0;  a[2] = 1;     // a = [1 0 1]
 .br
@@ -260,27 +260,27 @@ The result has the length of the longest of the two bit arrays, with any missing
 .fi
 .PP
 See also operator&=(), operator^=(), and operator~().
-.SH "QBitArray QBitArray::operator~ () const"
+.SH "TQBitArray TQBitArray::operator~ () const"
 Returns a bit array that contains the inverted bits of this bit array.
 .PP
 Example:
 .PP
 .nf
 .br
-    QBitArray a( 3 ), b;
+    TQBitArray a( 3 ), b;
 .br
     a[0] = 1;  a[1] = 0; a[2] = 1;      // a = [1 0 1]
 .br
     b = ~a;                             // b = [0 1 0]
 .br
 .fi
-.SH "bool QBitArray::resize ( uint size )"
+.SH "bool TQBitArray::resize ( uint size )"
 Resizes the bit array to \fIsize\fR bits and returns TRUE if the bit array could be resized; otherwise returns FALSE. The array becomes a null array if \fIsize\fR == 0.
 .PP
 If the array is expanded, the new bits are set to 0.
 .PP
 See also size().
-.SH "void QBitArray::setBit ( uint index, bool value )"
+.SH "void TQBitArray::setBit ( uint index, bool value )"
 Sets the bit at position \fIindex\fR to \fIvalue\fR.
 .PP
 Equivalent to:
@@ -298,56 +298,56 @@ Equivalent to:
 .fi
 .PP
 See also clearBit() and toggleBit().
-.SH "void QBitArray::setBit ( uint index )"
+.SH "void TQBitArray::setBit ( uint index )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the bit at position \fIindex\fR to 1.
 .PP
 See also clearBit() and toggleBit().
-.SH "uint QBitArray::size () const"
+.SH "uint TQBitArray::size () const"
 Returns the bit array's size (number of bits).
 .PP
 See also resize().
-.SH "bool QBitArray::testBit ( uint index ) const"
+.SH "bool TQBitArray::testBit ( uint index ) const"
 Returns TRUE if the bit at position \fIindex\fR is set, i.e. is 1; otherwise returns FALSE.
 .PP
 See also setBit() and clearBit().
-.SH "bool QBitArray::toggleBit ( uint index )"
+.SH "bool TQBitArray::toggleBit ( uint index )"
 Toggles the bit at position \fIindex\fR.
 .PP
 If the previous value was 0, the new value will be 1. If the previous value was 1, the new value will be 0.
 .PP
 See also setBit() and clearBit().
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "QBitArray operator& ( const QBitArray & a1, const QBitArray & a2 )"
+.SH "TQBitArray operator& ( const TQBitArray & a1, const TQBitArray & a2 )"
 Returns the AND result between the bit arrays \fIa1\fR and \fIa2\fR.
 .PP
 The result has the length of the longest of the two bit arrays, with any missing bits (i.e. if one array is shorter than the other), taken to be 0.
 .PP
-See also QBitArray::operator&=().
-.SH "QDataStream & operator<< ( QDataStream & s, const QBitArray & a )"
+See also TQBitArray::operator&=().
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQBitArray & a )"
 Writes bit array \fIa\fR to stream \fIs\fR.
 .PP
-See also Format of the QDataStream operators.
-.SH "QDataStream & operator>> ( QDataStream & s, QBitArray & a )"
+See also Format of the TQDataStream operators.
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQBitArray & a )"
 Reads a bit array into \fIa\fR from stream \fIs\fR.
 .PP
-See also Format of the QDataStream operators.
-.SH "QBitArray operator^ ( const QBitArray & a1, const QBitArray & a2 )"
+See also Format of the TQDataStream operators.
+.SH "TQBitArray operator^ ( const TQBitArray & a1, const TQBitArray & a2 )"
 Returns the XOR result between the bit arrays \fIa1\fR and \fIa2\fR.
 .PP
 The result has the length of the longest of the two bit arrays, with any missing bits (i.e. if one array is shorter than the other), taken to be 0.
 .PP
-See also QBitArray::operator^().
-.SH "QBitArray operator| ( const QBitArray & a1, const QBitArray & a2 )"
+See also TQBitArray::operator^().
+.SH "TQBitArray operator| ( const TQBitArray & a1, const TQBitArray & a2 )"
 Returns the OR result between the bit arrays \fIa1\fR and \fIa2\fR.
 .PP
 The result has the length of the longest of the two bit arrays, with any missing bits (i.e. if one array is shorter than the other), taken to be 0.
 .PP
-See also QBitArray::operator|=().
+See also TQBitArray::operator|=().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqbitarray.html
+.BR http://doc.trolltech.com/tqbitarray.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

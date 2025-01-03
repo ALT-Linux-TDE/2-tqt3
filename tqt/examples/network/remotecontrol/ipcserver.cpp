@@ -1,10 +1,10 @@
 #include "ipcserver.h"
 
-#include <ntqsocket.h>
-#include <ntqvariant.h>
-#include <ntqimage.h>
-#include <ntqpalette.h>
-#include <ntqapplication.h>
+#include <tqsocket.h>
+#include <tqvariant.h>
+#include <tqimage.h>
+#include <tqpalette.h>
+#include <tqapplication.h>
 
 class IpcSocket : public TQSocket
 {

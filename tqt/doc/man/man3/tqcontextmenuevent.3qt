@@ -1,5 +1,5 @@
 '\" t
-.TH QContextMenuEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQContextMenuEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QContextMenuEvent \- Parameters that describe a context menu event
+TQContextMenuEvent \- Parameters that describe a context menu event
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
@@ -19,10 +19,10 @@ Inherits QEvent.
 .BI "enum \fBReason\fR { Mouse, Keyboard, Other }"
 .br
 .ti -1c
-.BI "\fBQContextMenuEvent\fR ( Reason reason, const QPoint & pos, const QPoint & globalPos, int state )"
+.BI "\fBTQContextMenuEvent\fR ( Reason reason, const TQPoint & pos, const TQPoint & globalPos, int state )"
 .br
 .ti -1c
-.BI "\fBQContextMenuEvent\fR ( Reason reason, const QPoint & pos, int state )"
+.BI "\fBTQContextMenuEvent\fR ( Reason reason, const TQPoint & pos, int state )"
 .br
 .ti -1c
 .BI "int \fBx\fR () const"
@@ -37,10 +37,10 @@ Inherits QEvent.
 .BI "int \fBglobalY\fR () const"
 .br
 .ti -1c
-.BI "const QPoint & \fBpos\fR () const"
+.BI "const TQPoint & \fBpos\fR () const"
 .br
 .ti -1c
-.BI "const QPoint & \fBglobalPos\fR () const"
+.BI "const TQPoint & \fBglobalPos\fR () const"
 .br
 .ti -1c
 .BI "ButtonState \fBstate\fR () const"
@@ -65,40 +65,40 @@ Inherits QEvent.
 .br
 .in -1c
 .SH DESCRIPTION
-The QContextMenuEvent class contains parameters that describe a context menu event.
+The TQContextMenuEvent class contains parameters that describe a context menu event.
 .PP
 Context menu events are sent to widgets when a user triggers a context menu. What triggers this is platform dependent. For example, on Windows, pressing the menu button or releasing the right mouse button will cause this event to be sent.
 .PP
-When this event occurs it is customary to show a QPopupMenu with a context menu, if this is relevant to the context.
+When this event occurs it is customary to show a TQPopupMenu with a context menu, if this is relevant to the context.
 .PP
 Context menu events contain a special accept flag that indicates whether the receiver accepted the event. If the event handler does not accept the event, then whatever triggered the event will be handled as a regular input event if possible.
 .PP
-See also QPopupMenu and Event Classes.
+See also TQPopupMenu and Event Classes.
 .SS "Member Type Documentation"
-.SH "QContextMenuEvent::Reason"
+.SH "TQContextMenuEvent::Reason"
 This enum describes the reason the ContextMenuEvent was sent. The values are:
 .TP
-\fCQContextMenuEvent::Mouse\fR - The mouse caused the event to be sent. Normally this means the right mouse button was clicked, but this is platform specific.
+\fCTQContextMenuEvent::Mouse\fR - The mouse caused the event to be sent. Normally this means the right mouse button was clicked, but this is platform specific.
 .TP
-\fCQContextMenuEvent::Keyboard\fR - The keyboard caused this event to be sent. On Windows this means the menu button was pressed.
+\fCTQContextMenuEvent::Keyboard\fR - The keyboard caused this event to be sent. On Windows this means the menu button was pressed.
 .TP
-\fCQContextMenuEvent::Other\fR - The event was sent by some other means (i.e. not by the mouse or keyboard).
+\fCTQContextMenuEvent::Other\fR - The event was sent by some other means (i.e. not by the mouse or keyboard).
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QContextMenuEvent::QContextMenuEvent ( Reason reason, const QPoint & pos, const QPoint & globalPos, int state )"
+.SH "TQContextMenuEvent::TQContextMenuEvent ( Reason reason, const TQPoint & pos, const TQPoint & globalPos, int state )"
 Constructs a context menu event object with the accept parameter flag set to FALSE.
 .PP
-The \fIreason\fR parameter must be QContextMenuEvent::Mouse or QContextMenuEvent::Keyboard.
+The \fIreason\fR parameter must be TQContextMenuEvent::Mouse or TQContextMenuEvent::Keyboard.
 .PP
 The \fIpos\fR parameter specifies the mouse position relative to the receiving widget. \fIglobalPos\fR is the mouse position in absolute coordinates. \fIstate\fR is the ButtonState at the time of the event.
-.SH "QContextMenuEvent::QContextMenuEvent ( Reason reason, const QPoint & pos, int state )"
+.SH "TQContextMenuEvent::TQContextMenuEvent ( Reason reason, const TQPoint & pos, int state )"
 Constructs a context menu event object with the accept parameter flag set to FALSE.
 .PP
-The \fIreason\fR parameter must be QContextMenuEvent::Mouse or QContextMenuEvent::Keyboard.
+The \fIreason\fR parameter must be TQContextMenuEvent::Mouse or TQContextMenuEvent::Keyboard.
 .PP
 The \fIpos\fR parameter specifies the mouse position relative to the receiving widget. \fIstate\fR is the ButtonState at the time of the event.
 .PP
-The globalPos() is initialized to QCursor::pos(), which may not be appropriate. Use the other constructor to specify the global position explicitly.
-.SH "void QContextMenuEvent::accept ()"
+The globalPos() is initialized to TQCursor::pos(), which may not be appropriate. Use the other constructor to specify the global position explicitly.
+.SH "void TQContextMenuEvent::accept ()"
 Sets the accept flag of the context event object.
 .PP
 Setting the accept flag indicates that the receiver of this event has processed the event. Processing the event means you did something with it and it will be implicitly consumed.
@@ -106,7 +106,7 @@ Setting the accept flag indicates that the receiver of this event has processed 
 The accept flag is not set by default.
 .PP
 See also ignore() and consume().
-.SH "void QContextMenuEvent::consume ()"
+.SH "void TQContextMenuEvent::consume ()"
 Sets the consume flag of the context event object.
 .PP
 Setting the consume flag indicates that the receiver of this event does not want the event to be propagated further (i.e. not sent to parent classes.)
@@ -114,19 +114,19 @@ Setting the consume flag indicates that the receiver of this event does not want
 The consumed flag is not set by default.
 .PP
 See also ignore() and accept().
-.SH "const QPoint & QContextMenuEvent::globalPos () const"
+.SH "const TQPoint & TQContextMenuEvent::globalPos () const"
 Returns the global position of the mouse pointer at the time of the event.
 .PP
 See also x(), y(), and pos().
-.SH "int QContextMenuEvent::globalX () const"
+.SH "int TQContextMenuEvent::globalX () const"
 Returns the global x-position of the mouse pointer at the time of the event.
 .PP
 See also globalY() and globalPos().
-.SH "int QContextMenuEvent::globalY () const"
+.SH "int TQContextMenuEvent::globalY () const"
 Returns the global y-position of the mouse pointer at the time of the event.
 .PP
 See also globalX() and globalPos().
-.SH "void QContextMenuEvent::ignore ()"
+.SH "void TQContextMenuEvent::ignore ()"
 Clears the accept flag of the context event object.
 .PP
 Clearing the accept flag indicates that the receiver of this event does not need to show a context menu. This will implicitly remove the consumed flag as well.
@@ -134,35 +134,35 @@ Clearing the accept flag indicates that the receiver of this event does not need
 The accept flag is not set by default.
 .PP
 See also accept() and consume().
-.SH "bool QContextMenuEvent::isAccepted () const"
+.SH "bool TQContextMenuEvent::isAccepted () const"
 Returns TRUE if the receiver has processed the event; otherwise returns FALSE.
 .PP
 See also accept(), ignore(), and consume().
-.SH "bool QContextMenuEvent::isConsumed () const"
+.SH "bool TQContextMenuEvent::isConsumed () const"
 Returns TRUE (which stops propagation of the event) if the receiver has blocked the event; otherwise returns FALSE.
 .PP
 See also accept(), ignore(), and consume().
-.SH "const QPoint & QContextMenuEvent::pos () const"
+.SH "const TQPoint & TQContextMenuEvent::pos () const"
 Returns the position of the mouse pointer relative to the widget that received the event.
 .PP
 See also x(), y(), and globalPos().
-.SH "Reason QContextMenuEvent::reason () const"
+.SH "Reason TQContextMenuEvent::reason () const"
 Returns the reason for this context event.
-.SH "ButtonState QContextMenuEvent::state () const"
+.SH "ButtonState TQContextMenuEvent::state () const"
 Returns the button state (a combination of mouse buttons and keyboard modifiers), i.e. what buttons and keys were being pressed immediately before the event was generated.
 .PP
 The returned value is LeftButton, RightButton, MidButton, ShiftButton, ControlButton and AltButton OR'ed together.
-.SH "int QContextMenuEvent::x () const"
+.SH "int TQContextMenuEvent::x () const"
 Returns the x-position of the mouse pointer, relative to the widget that received the event.
 .PP
 See also y() and pos().
-.SH "int QContextMenuEvent::y () const"
+.SH "int TQContextMenuEvent::y () const"
 Returns the y-position of the mouse pointer, relative to the widget that received the event.
 .PP
 See also x() and pos().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcontextmenuevent.html
+.BR http://doc.trolltech.com/tqcontextmenuevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

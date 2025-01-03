@@ -1,5 +1,5 @@
 '\" t
-.TH QSemaphore 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSemaphore 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QSemaphore \- Robust integer semaphore
+TQSemaphore \- Robust integer semaphore
 .SH SYNOPSIS
 All the functions in this class are thread-safe when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqsemaphore.h>\fR
+\fC#include <tqsemaphore.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSemaphore\fR ( int maxcount )"
+.BI "\fBTQSemaphore\fR ( int maxcount )"
 .br
 .ti -1c
-.BI "virtual \fB~QSemaphore\fR ()"
+.BI "virtual \fB~TQSemaphore\fR ()"
 .br
 .ti -1c
 .BI "int \fBavailable\fR () const"
@@ -44,9 +44,9 @@ All the functions in this class are thread-safe when TQt is built with thread su
 .br
 .in -1c
 .SH DESCRIPTION
-The QSemaphore class provides a robust integer semaphore.
+The TQSemaphore class provides a robust integer semaphore.
 .PP
-A QSemaphore can be used to serialize thread execution, in a similar way to a QMutex. A semaphore differs from a mutex, in that a semaphore can be accessed by more than one thread at a time.
+A TQSemaphore can be used to serialize thread execution, in a similar way to a TQMutex. A semaphore differs from a mutex, in that a semaphore can be accessed by more than one thread at a time.
 .PP
 For example, suppose we have an application that stores data in a large tree structure. The application creates 10 threads (commonly called a thread pool) to perform searches on the tree. When the application searches the tree for some piece of data, it uses one thread per base node to do the searching. A semaphore could be used to make sure that two threads don't try to search the same branch of the tree at the same time.
 .PP
@@ -56,36 +56,36 @@ When a semaphore is created it is given a number which is the maximum number of 
 .PP
 See also Environment Classes and Threading.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSemaphore::QSemaphore ( int maxcount )"
+.SH "TQSemaphore::TQSemaphore ( int maxcount )"
 Creates a new semaphore. The semaphore can be concurrently accessed at most \fImaxcount\fR times.
-.SH "QSemaphore::~QSemaphore ()\fC [virtual]\fR"
+.SH "TQSemaphore::~TQSemaphore ()\fC [virtual]\fR"
 Destroys the semaphore.
 .PP
 \fBWarning:\fR If you destroy a semaphore that has accesses in use the resultant behavior is undefined.
-.SH "int QSemaphore::available () const"
+.SH "int TQSemaphore::available () const"
 Returns the number of accesses currently available to the semaphore.
-.SH "int QSemaphore::operator++ ( int )"
+.SH "int TQSemaphore::operator++ ( int )"
 Postfix ++ operator.
 .PP
 Try to get access to the semaphore. If available() == 0, this call will block until it can get access, i.e. until available() > 0.
-.SH "int QSemaphore::operator+= ( int n )"
+.SH "int TQSemaphore::operator+= ( int n )"
 Try to get access to the semaphore. If available() < \fIn\fR, this call will block until it can get all the accesses it wants, i.e. until available() >= \fIn\fR.
-.SH "int QSemaphore::operator-- ( int )"
+.SH "int TQSemaphore::operator-- ( int )"
 Postfix -- operator.
 .PP
 Release access of the semaphore. This wakes all threads waiting for access to the semaphore.
-.SH "int QSemaphore::operator-= ( int n )"
+.SH "int TQSemaphore::operator-= ( int n )"
 Release \fIn\fR accesses to the semaphore.
-.SH "int QSemaphore::total () const"
+.SH "int TQSemaphore::total () const"
 Returns the total number of accesses to the semaphore.
-.SH "bool QSemaphore::tryAccess ( int n )"
+.SH "bool TQSemaphore::tryAccess ( int n )"
 Try to get access to the semaphore. If available() < \fIn\fR, this
 function will return FALSE immediately. If available() >= \fIn\fR,
 this function will take \fIn\fR accesses and return TRUE. This
 function does \fInot\fR block.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsemaphore.html
+.BR http://doc.trolltech.com/tqsemaphore.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -8,9 +8,9 @@
 *****************************************************************************/
 
 #include "biff.h"
-#include <ntqstring.h>
-#include <ntqfileinfo.h>
-#include <ntqpainter.h>
+#include <tqstring.h>
+#include <tqfileinfo.h>
+#include <tqpainter.h>
 
 #include <unistd.h>
 #include <stdlib.h>

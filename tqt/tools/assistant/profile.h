@@ -34,10 +34,10 @@
 #ifndef PROFILE_H
 #define PROFILE_H
 
-#include <ntqfileinfo.h>
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqmap.h>
+#include <tqfileinfo.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqmap.h>
 
 class DocuParser;
 

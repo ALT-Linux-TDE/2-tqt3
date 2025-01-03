@@ -7,18 +7,18 @@
 **
 *****************************************************************************/
 
-#include <ntqscrollview.h>
-#include <ntqapplication.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
-#include <ntqpushbutton.h>
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
-#include <ntqmessagebox.h>
-#include <ntqlayout.h>
-#include <ntqlabel.h>
-#include <ntqmultilineedit.h>
-#include <ntqsizegrip.h>
+#include <tqscrollview.h>
+#include <tqapplication.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
+#include <tqpushbutton.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
+#include <tqmessagebox.h>
+#include <tqlayout.h>
+#include <tqlabel.h>
+#include <tqmultilineedit.h>
+#include <tqsizegrip.h>
 #include <stdlib.h>
 
 

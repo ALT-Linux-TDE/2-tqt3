@@ -1,5 +1,5 @@
 '\" t
-.TH QMutexLocker 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMutexLocker 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,32 +7,32 @@
 .ad l
 .nh
 .SH NAME
-QMutexLocker \- Simplifies locking and unlocking QMutexes
+TQMutexLocker \- Simplifies locking and unlocking TQMutexes
 .SH SYNOPSIS
 All the functions in this class are thread-safe when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqmutex.h>\fR
+\fC#include <tqmutex.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQMutexLocker\fR ( QMutex * mutex )"
+.BI "\fBTQMutexLocker\fR ( TQMutex * mutex )"
 .br
 .ti -1c
-.BI "\fB~QMutexLocker\fR ()"
+.BI "\fB~TQMutexLocker\fR ()"
 .br
 .ti -1c
-.BI "QMutex * \fBmutex\fR () const"
+.BI "TQMutex * \fBmutex\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QMutexLocker class simplifies locking and unlocking QMutexes.
+The TQMutexLocker class simplifies locking and unlocking TQMutexes.
 .PP
-The purpose of QMutexLocker is to simplify QMutex locking and unlocking. Locking and unlocking a QMutex in complex functions and statements or in exception handling code is error prone and difficult to debug. QMutexLocker should be used in such situations to ensure that the state of the mutex is well defined and always locked and unlocked properly.
+The purpose of TQMutexLocker is to simplify TQMutex locking and unlocking. Locking and unlocking a TQMutex in complex functions and statements or in exception handling code is error prone and difficult to debug. TQMutexLocker should be used in such situations to ensure that the state of the mutex is well defined and always locked and unlocked properly.
 .PP
-QMutexLocker should be created within a function where a QMutex needs to be locked. The mutex is locked when QMutexLocker is created, and unlocked when QMutexLocker is destroyed.
+TQMutexLocker should be created within a function where a TQMutex needs to be locked. The mutex is locked when TQMutexLocker is created, and unlocked when TQMutexLocker is destroyed.
 .PP
-For example, this complex function locks a QMutex upon entering the function and unlocks the mutex at all the exit points:
+For example, this complex function locks a TQMutex upon entering the function and unlocks the mutex at all the exit points:
 .PP
 .nf
 .br
@@ -111,7 +111,7 @@ For example, this complex function locks a QMutex upon entering the function and
 .PP
 This example function will get more complicated as it is developed, which increases the likelihood that errors will occur.
 .PP
-Using QMutexLocker greatly simplifies the code, and makes it more readable:
+Using TQMutexLocker greatly simplifies the code, and makes it more readable:
 .PP
 .nf
 .br
@@ -119,7 +119,7 @@ Using QMutexLocker greatly simplifies the code, and makes it more readable:
 .br
     {
 .br
-        QMutexLocker locker( &mutex );
+        TQMutexLocker locker( &mutex );
 .br
 .br
         int return_value = 0;
@@ -176,11 +176,11 @@ Using QMutexLocker greatly simplifies the code, and makes it more readable:
 .br
 .fi
 .PP
-Now, the mutex will always be unlocked when the QMutexLocker object is destroyed (when the function returns since \fClocker\fR is an auto variable). Note that the mutex will be unlocked after the call to moreComplexFunction() in this example, avoiding possible bugs caused by unlocking the mutex too early, as in the first example.
+Now, the mutex will always be unlocked when the TQMutexLocker object is destroyed (when the function returns since \fClocker\fR is an auto variable). Note that the mutex will be unlocked after the call to moreComplexFunction() in this example, avoiding possible bugs caused by unlocking the mutex too early, as in the first example.
 .PP
 The same principle applies to code that throws and catches exceptions. An exception that is not caught in the function that has locked the mutex has no way of unlocking the mutex before the exception is passed up the stack to the calling function.
 .PP
-QMutexLocker also provides a mutex() member function that returns the mutex on which the QMutexLocker is operating. This is useful for code that needs access to the mutex, such as QWaitCondition::wait(). For example:
+TQMutexLocker also provides a mutex() member function that returns the mutex on which the TQMutexLocker is operating. This is useful for code that needs access to the mutex, such as TQWaitCondition::wait(). For example:
 .PP
 .nf
 .br
@@ -190,12 +190,12 @@ QMutexLocker also provides a mutex() member function that returns the mutex on w
 .br
     private:
 .br
-        QMutexLocker locker;
+        TQMutexLocker locker;
 .br
 .br
     public:
 .br
-        SignalWaiter( QMutex *mutex )
+        SignalWaiter( TQMutex *mutex )
 .br
             : locker( mutex )
 .br
@@ -232,23 +232,23 @@ QMutexLocker also provides a mutex() member function that returns the mutex on w
 .br
 .fi
 .PP
-See also QMutex, QWaitCondition, Environment Classes, and Threading.
+See also TQMutex, TQWaitCondition, Environment Classes, and Threading.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMutexLocker::QMutexLocker ( QMutex * mutex )"
-Constructs a QMutexLocker and locks \fImutex\fR. The mutex will be unlocked when the QMutexLocker is destroyed. If \fImutex\fR is zero, QMutexLocker does nothing.
+.SH "TQMutexLocker::TQMutexLocker ( TQMutex * mutex )"
+Constructs a TQMutexLocker and locks \fImutex\fR. The mutex will be unlocked when the TQMutexLocker is destroyed. If \fImutex\fR is zero, TQMutexLocker does nothing.
 .PP
-See also QMutex::lock().
-.SH "QMutexLocker::~QMutexLocker ()"
-Destroys the QMutexLocker and unlocks the mutex which was locked in the constructor.
+See also TQMutex::lock().
+.SH "TQMutexLocker::~TQMutexLocker ()"
+Destroys the TQMutexLocker and unlocks the mutex which was locked in the constructor.
 .PP
-See also QMutexLocker::QMutexLocker() and QMutex::unlock().
-.SH "QMutex * QMutexLocker::mutex () const"
+See also TQMutexLocker::TQMutexLocker() and TQMutex::unlock().
+.SH "TQMutex * TQMutexLocker::mutex () const"
 Returns a pointer to the mutex which was locked in the constructor.
 .PP
-See also QMutexLocker::QMutexLocker().
+See also TQMutexLocker::TQMutexLocker().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qmutexlocker.html
+.BR http://doc.trolltech.com/tqmutexlocker.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

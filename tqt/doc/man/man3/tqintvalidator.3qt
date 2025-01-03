@@ -1,5 +1,5 @@
 '\" t
-.TH QIntValidator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQIntValidator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QIntValidator \- Validator which ensures that a string contains a valid integer within a specified range
+TQIntValidator \- Validator which ensures that a string contains a valid integer within a specified range
 .SH SYNOPSIS
-\fC#include <ntqvalidator.h>\fR
+\fC#include <tqvalidator.h>\fR
 .PP
-Inherits QValidator.
+Inherits TQValidator.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQIntValidator\fR ( TQObject * parent, const char * name = 0 )"
+.BI "\fBTQIntValidator\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQIntValidator\fR ( int minimum, int maximum, TQObject * parent, const char * name = 0 )"
+.BI "\fBTQIntValidator\fR ( int minimum, int maximum, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QIntValidator\fR ()"
+.BI "\fB~TQIntValidator\fR ()"
 .br
 .ti -1c
-.BI "virtual QValidator::State \fBvalidate\fR ( TQString & input, int & ) const"
+.BI "virtual TQValidator::State \fBvalidate\fR ( TQString & input, int & ) const"
 .br
 .ti -1c
 .BI "void \fBsetBottom\fR ( int )"
@@ -53,15 +53,15 @@ Inherits QValidator.
 .br
 .in -1c
 .SH DESCRIPTION
-The QIntValidator class provides a validator which ensures that a string contains a valid integer within a specified range.
+The TQIntValidator class provides a validator which ensures that a string contains a valid integer within a specified range.
 .PP
 Example of use:
 .PP
 .nf
 .br
-    QValidator* validator = new QIntValidator( 100, 999, this );
+    TQValidator* validator = new TQIntValidator( 100, 999, this );
 .br
-    QLineEdit* edit = new QLineEdit( this );
+    TQLineEdit* edit = new TQLineEdit( this );
 .br
 .br
     // the edit lineedit will only accept integers between 100 and 999
@@ -78,7 +78,7 @@ Below we present some examples of validators. In practice they would normally be
 .br
     int pos = 0;
 .br
-    QIntValidator v( 100, 999, this );
+    TQIntValidator v( 100, 999, this );
 .br
 .br
     str = "1";
@@ -119,25 +119,25 @@ Below we present some examples of validators. In practice they would normally be
 .PP
 The minimum and maximum values are set in one call with setRange() or individually with setBottom() and setTop().
 .PP
-See also QDoubleValidator, QRegExpValidator, and Miscellaneous Classes.
+See also TQDoubleValidator, TQRegExpValidator, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QIntValidator::QIntValidator ( TQObject * parent, const char * name = 0 )"
+.SH "TQIntValidator::TQIntValidator ( TQObject * parent, const char * name = 0 )"
 Constructs a validator called \fIname\fR with parent \fIparent\fR, that accepts all integers.
-.SH "QIntValidator::QIntValidator ( int minimum, int maximum, TQObject * parent, const char * name = 0 )"
+.SH "TQIntValidator::TQIntValidator ( int minimum, int maximum, TQObject * parent, const char * name = 0 )"
 Constructs a validator called \fIname\fR with parent \fIparent\fR, that accepts integers from \fIminimum\fR to \fImaximum\fR inclusive.
-.SH "QIntValidator::~QIntValidator ()"
+.SH "TQIntValidator::~TQIntValidator ()"
 Destroys the validator, freeing any resources allocated.
-.SH "int QIntValidator::bottom () const"
+.SH "int TQIntValidator::bottom () const"
 Returns the validator's lowest acceptable value. See the "bottom" property for details.
-.SH "void QIntValidator::setBottom ( int )"
+.SH "void TQIntValidator::setBottom ( int )"
 Sets the validator's lowest acceptable value. See the "bottom" property for details.
-.SH "void QIntValidator::setRange ( int bottom, int top )\fC [virtual]\fR"
+.SH "void TQIntValidator::setRange ( int bottom, int top )\fC [virtual]\fR"
 Sets the range of the validator to only accept integers between \fIbottom\fR and \fItop\fR inclusive.
-.SH "void QIntValidator::setTop ( int )"
+.SH "void TQIntValidator::setTop ( int )"
 Sets the validator's highest acceptable value. See the "top" property for details.
-.SH "int QIntValidator::top () const"
+.SH "int TQIntValidator::top () const"
 Returns the validator's highest acceptable value. See the "top" property for details.
-.SH "QValidator::State QIntValidator::validate ( TQString & input, int & ) const\fC [virtual]\fR"
+.SH "TQValidator::State TQIntValidator::validate ( TQString & input, int & ) const\fC [virtual]\fR"
 Returns Acceptable if the \fIinput\fR is an integer within the valid range, Intermediate if the \fIinput\fR is an integer outside the valid range and Invalid if the \fIinput\fR is not an integer.
 .PP
 Note: If the valid range consists of just positive integers (e.g. 32 - 100) and \fIinput\fR is a negative integer then Invalid is returned.
@@ -162,7 +162,7 @@ Note: If the valid range consists of just positive integers (e.g. 32 - 100) and 
 .br
 .fi
 .PP
-Reimplemented from QValidator.
+Reimplemented from TQValidator.
 .SS "Property Documentation"
 .SH "int bottom"
 This property holds the validator's lowest acceptable value.
@@ -178,7 +178,7 @@ Set this property's value with setTop() and get this property's value with top()
 See also setRange().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qintvalidator.html
+.BR http://doc.trolltech.com/tqintvalidator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

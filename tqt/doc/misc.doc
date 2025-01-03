@@ -59,16 +59,16 @@ machine\endlink
     \i \link #qtsrc Developers building for two versions of TQt on Unix - TQt sources\endlink
     \endlist
 \i \link #nowinman Using TQt on X11 without a window manager\endlink
-\i \link distributingntqt.html Distributing TQt Applications\endlink
+\i \link distributingtqt.html Distributing TQt Applications\endlink
 \endlist
 
 \target linkerror
 \section1 Link error, complaining about a lack of \c vtbl, \c _vtbl, \c __vtbl or similar
 
 This indicates that you've included the TQ_OBJECT macro in a class
-declaration and probably also run the moc, but forgot to link the
-moc-generated object code into your executable. See \link moc.html
-Using the Meta Object Compiler\endlink for details on how to use moc.
+declaration and probably also run tqmoc, but forgot to link the
+moc-generated object code into your executable. See \link tqmoc.html
+Using the Meta Object Compiler\endlink for details on how to use tqmoc.
 
 \target diffver
 \section1 Using different versions of TQt on the same machine
@@ -88,12 +88,12 @@ the relevant release of Qt.
 
 <dt>Meta Object Compiler and other tools - Compile time
 
-<dd>Programmers need to run \e moc and other tools such as \e uic. These
+<dd>Programmers need to run \e tqmoc and other tools such as \e tquic. These
 tools are usually located in the \c bin subdirectory of TQt distributions.
-Either run \c "$TQTDIR"/bin/moc and \c "$TQTDIR"/bin/uic or add \c "$TQTDIR"/bin
-to your \c PATH and run \c moc and \c uic. If you use \c qmake the
-appropriate lines will be added to your Makefiles so that \e uic and
-\e moc will be executed as required.
+Either run \c "$TQTDIR"/bin/tqmoc and \c "$TQTDIR"/bin/tquic or add \c "$TQTDIR"/bin
+to your \c PATH and run \c tqmoc and \c tquic. If you use \c qmake the
+appropriate lines will be added to your Makefiles so that \e tquic and
+\e tqmoc will be executed as required.
 
 <dt>Static or shared libraries - Link time
 
@@ -128,7 +128,7 @@ usually consist of two parts:
 \list
 \i shared libraries in the run time package, usually called \c qt3.
 
-\i header files, static libraries, the moc and other tools in the developers'
+\i header files, static libraries, tqmoc and other tools in the developers'
 kit, usually called \c qt3-dev.
 
 \endlist
@@ -150,7 +150,7 @@ like \c qt-dev.  You will need the appropriate packages:
 \list
 
 \i To build programs you will need the header files, the libraries,
-the moc and other tools from TQt 3.x. They are included in the developer
+tqmoc and other tools from TQt 3.x. They are included in the developer
 package of TQt 3.x (\c qt3-dev or similar).
 
 \i To run programs you will need the shared libraries of TQt 3.x and
@@ -169,7 +169,7 @@ You build and run programs for TQt 2.x and TQt 3.x. You will need:
 
 \list
 
-\i the header files, the libraries, the moc and other tools from TQt 3.x
+\i the header files, the libraries, tqmoc and other tools from TQt 3.x
 and TQt 2.x to build programs,
 
 \i the shared libraries of TQt 3.x and TQt 2.x to run programs.
@@ -234,7 +234,7 @@ Setting \c TQTDIR ensures that the proper resources are used, such as the
 documentation appropriate to the version of TQt you're using.  Also
 your Makfiles may refer to \c "$TQTDIR"/include and \c "$TQTDIR"/lib to
 include the proper header files and link with the proper libraries.
-Setting the \c PATH ensures that the proper version of moc and other
+Setting the \c PATH ensures that the proper version of tqmoc and other
 tools is being used.
 
 \target nowinman
@@ -301,14 +301,6 @@ It allows free use of TQt Open Source Edition for running software developed by
 others, and free use of TQt Open Source Edition for development of free and open source
 software. There is \link http://www.trolltech.com/qpl/ more information
 about the QPL\endlink at the Trolltech web site.
-
-Note that the Qt/Embedded Open Source Edition is <b>not</b> distributed
-under the QPL, but under the \link gpl.html GNU General Public
-License (GPL)\endlink.
-
-For development non-free/proprietary software, the TQt Professional
-Edition is available. It has a normal commercial library license, with
-none of the special restrictions of the QPL or the GPL.
 
 <hr>
 
@@ -444,11 +436,10 @@ by Oslo City Court.
 /*! \page gpl.html
 \title GNU General Public License
 
- The TQt GUI Toolkit is Copyright (C) 1994-2008 Trolltech ASA.
+ The TQt GUI Toolkit is an enhanced fork of the Open Source Edition of the
+ Trolltech Qt GUI toolkit, version 3. It is available under the GPL license.
 
- The TQt Open Source Edition and the Qt/Embedded Open Source Edition are available
- under the GPL. The TQt Open Source Edition (for Unix/X11) is also available
- under the \link license.html QPL\endlink.
+ The original Qt3 GUI Toolkit is Copyright (C) 1994-2008 Trolltech ASA.
 
 \code
  You may use, distribute and copy the TQt GUI Toolkit under the terms of
@@ -808,17 +799,10 @@ headquarters in Oslo, the capital of Norway, and with offices
 in Brisbane, Australia, and Redwood City, California.
 
 Our flagship product is \link
-http://www.trolltech.com/products/ntqt.html Qt\endlink, the
+http://www.trolltech.com/products/tqt.html Qt\endlink, the
 multi-platform C++ GUI toolkit. TQt enables you to build professional,
 efficient, portable and maintainable GUI applications quickly and
 easily.
-
-\link http://www.trolltech.com/products/embedded/index.html
-Qt/Embedded\endlink, the embedded version of Qt, is designed to power
-todays new generation of embedded computers and electronic consumer
-devices. On top of that, \link
-http://www.trolltech.com/products/qtopia/index.html Qtopia\endlink
-provides a window system and application suite for handheld devices.
 
 \section1 Software that makes Sense
 
@@ -1112,8 +1096,8 @@ example:
 \code
     MyWidget* widget = new MyWidget
     ...
-    QPoint p = widget->pos();	// store position
-    QSize s = widget->size();	// store size
+    TQPoint p = widget->pos();	// store position
+    TQSize s = widget->size();	// store size
     ...
     widget = new MyWidget;
     widget->resize( s ); 	// restore size

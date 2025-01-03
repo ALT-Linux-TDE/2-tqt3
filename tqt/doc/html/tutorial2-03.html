@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:110 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -40,10 +39,10 @@ access for data elements.
 
 <pre>    private:
 </pre><pre>        double m_value;
-        <a href="ntqcolor.html">TQColor</a> m_valueColor;
+        <a href="tqcolor.html">TQColor</a> m_valueColor;
         int m_valuePattern;
-        <a href="ntqstring.html">TQString</a> m_label;
-        <a href="ntqcolor.html">TQColor</a> m_labelColor;
+        <a href="tqstring.html">TQString</a> m_label;
+        <a href="tqcolor.html">TQColor</a> m_labelColor;
         double m_propoints[2 * MAX_PROPOINTS];
 </pre>
 <p> Each element has a value. Each value is displayed graphically with a
@@ -52,26 +51,26 @@ with them; the label is drawn using the label color and for each type
 of chart has a (relative) position stored in the <tt>m_propoints</tt> array.
 <p> 
 
-<pre>    #include &lt;<a href="qcolor-h.html">ntqcolor.h</a>&gt;
-    #include &lt;<a href="qnamespace-h.html">ntqnamespace.h</a>&gt;
-    #include &lt;<a href="qstring-h.html">ntqstring.h</a>&gt;
-    #include &lt;<a href="qvaluevector-h.html">ntqvaluevector.h</a>&gt;
+<pre>    #include &lt;<a href="tqcolor-h.html">tqcolor.h</a>&gt;
+    #include &lt;<a href="tqnamespace-h.html">tqnamespace.h</a>&gt;
+    #include &lt;<a href="tqstring-h.html">tqstring.h</a>&gt;
+    #include &lt;<a href="tqvaluevector-h.html">tqvaluevector.h</a>&gt;
 </pre>
 <p> Although the <tt>Element</tt> class is a purely internal data class, it
 <tt>#include</tt>s four TQt classes. TQt is often perceived as a purely GUI
 toolkit, but it provides many non-GUI classes to support most aspects
-of application programming. We use <a href="qcolor-h.html">ntqcolor.h</a> so that we can hold the
-paint color and text color in the <tt>Element</tt> class. The use of <a href="qnamespace-h.html">ntqnamespace.h</a> is slightly obscure. Most TQt classes are derived from the
-<a href="ntqt.html">TQt</a> superclass which contains various
-enumerations. The <tt>Element</tt> class does not derive from <a href="ntqt.html">TQt</a>, so we need to include <a href="qnamespace-h.html">ntqnamespace.h</a> to have access to
+of application programming. We use <a href="tqcolor-h.html">tqcolor.h</a> so that we can hold the
+paint color and text color in the <tt>Element</tt> class. The use of <a href="tqnamespace-h.html">tqnamespace.h</a> is slightly obscure. Most TQt classes are derived from the
+<a href="tqt.html">TQt</a> superclass which contains various
+enumerations. The <tt>Element</tt> class does not derive from <a href="tqt.html">TQt</a>, so we need to include <a href="tqnamespace-h.html">tqnamespace.h</a> to have access to
 the TQt enum names. An alternative approach would have been to have
-made <tt>Element</tt> a <a href="ntqt.html">TQt</a> subclass. We include <a href="qstring-h.html">ntqstring.h</a> to make use of TQt's Unicode strings. As a convenience we
+made <tt>Element</tt> a <a href="tqt.html">TQt</a> subclass. We include <a href="tqstring-h.html">tqstring.h</a> to make use of TQt's Unicode strings. As a convenience we
 will <tt>typedef</tt> a vector container for <tt>Element</tt>s, which is why we
-pull in the <a href="qvaluevector-h.html">ntqvaluevector.h</a> header.
+pull in the <a href="tqvaluevector-h.html">tqvaluevector.h</a> header.
 <p> <pre>    typedef TQValueVector&lt;Element&gt; ElementVector;
 </pre>
 <p> TQt provides a number of containers, some value based like
-<a href="ntqvaluevector.html">TQValueVector</a>, and others pointer based. (See <a href="collection.html">Collection Classes</a>.) Here we've just typedefed one container
+<a href="tqvaluevector.html">TQValueVector</a>, and others pointer based. (See <a href="collection.html">Collection Classes</a>.) Here we've just typedefed one container
 type; we will keep each data set of elements in one <tt>ElementVector</tt>.
 <p> <pre>    const double EPSILON = 0.0000001; // Must be &gt; INVALID.
 </pre>
@@ -114,8 +113,8 @@ and dynamically resized it depending on how many chart types are
 available. 
 <p> <pre>        Element( double value = INVALID, TQColor valueColor = TQt::gray,
                  int valuePattern = TQt::SolidPattern,
-                 const <a href="ntqstring.html">TQString</a>&amp; label = <a href="ntqstring.html#TQString-null">TQString::null</a>,
-                 <a href="ntqcolor.html">TQColor</a> labelColor = TQt::black ) {
+                 const <a href="tqstring.html">TQString</a>&amp; label = <a href="tqstring.html#TQString-null">TQString::null</a>,
+                 <a href="tqcolor.html">TQColor</a> labelColor = TQt::black ) {
             init( value, valueColor, valuePattern, label, labelColor );
             for ( int i = 0; i &lt; MAX_PROPOINTS * 2; ++i )
                 m_propoints[i] = NO_PROPORTION;
@@ -136,7 +135,7 @@ with the isValid() function.
 
 <pre>    double Element::proX( int index ) const
     {
-        <a href="ntqapplication.html#Q_ASSERT">Q_ASSERT</a>(index &gt;= 0 &amp;&amp; index &lt; MAX_PROPOINTS);
+        <a href="tqapplication.html#Q_ASSERT">Q_ASSERT</a>(index &gt;= 0 &amp;&amp; index &lt; MAX_PROPOINTS);
         return m_propoints[2 * index];
     }
 </pre>
@@ -153,8 +152,8 @@ index; (see <a href="debug.html">Debugging</a>).
 <a name="1"></a><p> (Extracts from <tt>element.h</tt>.)
 <p> 
 
-<pre>    TQTextStream &amp;operator&lt;&lt;( <a href="ntqtextstream.html">TQTextStream</a>&amp;, const Element&amp; );
-    TQTextStream &amp;operator&gt;&gt;( <a href="ntqtextstream.html">TQTextStream</a>&amp;, Element&amp; );
+<pre>    TQTextStream &amp;operator&lt;&lt;( <a href="tqtextstream.html">TQTextStream</a>&amp;, const Element&amp; );
+    TQTextStream &amp;operator&gt;&gt;( <a href="tqtextstream.html">TQTextStream</a>&amp;, Element&amp; );
 </pre>
 <p> To make our <tt>Element</tt> class more self-contained we provide overloads
 for the &lt;&lt; and &gt;&gt; operators so that <tt>Element</tt>s may be written to
@@ -167,10 +166,10 @@ filter the data using a scripting language.
 
 <pre>    #include "element.h"
 
-    #include &lt;<a href="qstringlist-h.html">ntqstringlist.h</a>&gt;
-    #include &lt;<a href="qtextstream-h.html">ntqtextstream.h</a>&gt;
+    #include &lt;<a href="tqstringlist-h.html">tqstringlist.h</a>&gt;
+    #include &lt;<a href="tqtextstream-h.html">tqtextstream.h</a>&gt;
 </pre>
-<p> Our implementation of the operators requires the inclusion of <a href="qtextstream-h.html">ntqtextstream.h</a> and <a href="qstringlist-h.html">ntqstringlist.h</a>. 
+<p> Our implementation of the operators requires the inclusion of <a href="tqtextstream-h.html">tqtextstream.h</a> and <a href="tqstringlist-h.html">tqstringlist.h</a>. 
 <p> <pre>    const char FIELD_SEP = ':';
     const char PROPOINT_SEP = ';';
     const char XY_SEP = ',';
@@ -190,7 +189,7 @@ label text. For example:
  
 <p> There's no problem having whitespace and field separators in label
 text due to the way we read <tt>Element</tt> data.
-<p> <pre>    TQTextStream &amp;operator&lt;&lt;( <a href="ntqtextstream.html">TQTextStream</a> &amp;s, const Element &amp;element )
+<p> <pre>    TQTextStream &amp;operator&lt;&lt;( <a href="tqtextstream.html">TQTextStream</a> &amp;s, const Element &amp;element )
     {
         s &lt;&lt; element.value() &lt;&lt; FIELD_SEP
           &lt;&lt; element.valueColor().name() &lt;&lt; FIELD_SEP
@@ -210,39 +209,39 @@ text due to the way we read <tt>Element</tt> data.
 <p> Writing elements is straight-forward. Each member is written followed
 by a field separator. The points are written as comma separated (<tt>XY_SEP</tt>) x, y pairs, each pair separated by the <tt>PROPOINT_SEP</tt>
 separator. The final field is the label followed by a newline.
-<p> <pre>    TQTextStream &amp;operator&gt;&gt;( <a href="ntqtextstream.html">TQTextStream</a> &amp;s, Element &amp;element )
+<p> <pre>    TQTextStream &amp;operator&gt;&gt;( <a href="tqtextstream.html">TQTextStream</a> &amp;s, Element &amp;element )
     {
-    <a name="x2553"></a>    <a href="ntqstring.html">TQString</a> data = s.<a href="ntqtextstream.html#readLine">readLine</a>();
+    <a name="x2553"></a>    <a href="tqstring.html">TQString</a> data = s.<a href="tqtextstream.html#readLine">readLine</a>();
         element.setValue( Element::INVALID );
 
         int errors = 0;
         bool ok;
 
-    <a name="x2552"></a>    <a href="ntqstringlist.html">TQStringList</a> fields = TQStringList::<a href="ntqstringlist.html#split">split</a>( FIELD_SEP, data );
-    <a name="x2555"></a>    if ( fields.<a href="ntqvaluelist.html#count">count</a>() &gt;= 4 ) {
+    <a name="x2552"></a>    <a href="tqstringlist.html">TQStringList</a> fields = TQStringList::<a href="tqstringlist.html#split">split</a>( FIELD_SEP, data );
+    <a name="x2555"></a>    if ( fields.<a href="tqvaluelist.html#count">count</a>() &gt;= 4 ) {
             double value = fields[0].toDouble( &amp;ok );
             if ( !ok )
                 errors++;
-            <a href="ntqcolor.html">TQColor</a> valueColor = TQColor( fields[1] );
-    <a name="x2550"></a>        if ( !valueColor.<a href="ntqcolor.html#isValid">isValid</a>() )
+            <a href="tqcolor.html">TQColor</a> valueColor = TQColor( fields[1] );
+    <a name="x2550"></a>        if ( !valueColor.<a href="tqcolor.html#isValid">isValid</a>() )
                 errors++;
             int valuePattern = fields[2].toInt( &amp;ok );
             if ( !ok )
                 errors++;
-            <a href="ntqcolor.html">TQColor</a> labelColor = TQColor( fields[3] );
-            if ( !labelColor.<a href="ntqcolor.html#isValid">isValid</a>() )
+            <a href="tqcolor.html">TQColor</a> labelColor = TQColor( fields[3] );
+            if ( !labelColor.<a href="tqcolor.html#isValid">isValid</a>() )
                 errors++;
-            <a href="ntqstringlist.html">TQStringList</a> propoints = TQStringList::<a href="ntqstringlist.html#split">split</a>( PROPOINT_SEP, fields[4] );
-    <a name="x2551"></a>        <a href="ntqstring.html">TQString</a> label = data.<a href="ntqstring.html#section">section</a>( FIELD_SEP, 5 );
+            <a href="tqstringlist.html">TQStringList</a> propoints = TQStringList::<a href="tqstringlist.html#split">split</a>( PROPOINT_SEP, fields[4] );
+    <a name="x2551"></a>        <a href="tqstring.html">TQString</a> label = data.<a href="tqstring.html#section">section</a>( FIELD_SEP, 5 );
 
             if ( !errors ) {
                 element.set( value, valueColor, valuePattern, label, labelColor );
                 int i = 0;
-    <a name="x2554"></a>            for ( TQStringList::iterator point = propoints.<a href="ntqvaluelist.html#begin">begin</a>();
-    <a name="x2556"></a>                i &lt; Element::MAX_PROPOINTS &amp;&amp; point != propoints.<a href="ntqvaluelist.html#end">end</a>();
+    <a name="x2554"></a>            for ( TQStringList::iterator point = propoints.<a href="tqvaluelist.html#begin">begin</a>();
+    <a name="x2556"></a>                i &lt; Element::MAX_PROPOINTS &amp;&amp; point != propoints.<a href="tqvaluelist.html#end">end</a>();
                     ++i, ++point ) {
                     errors = 0;
-                    <a href="ntqstringlist.html">TQStringList</a> xy = TQStringList::<a href="ntqstringlist.html#split">split</a>( XY_SEP, *point );
+                    <a href="tqstringlist.html">TQStringList</a> xy = TQStringList::<a href="tqstringlist.html#split">split</a>( XY_SEP, *point );
                     double x = xy[0].toDouble( &amp;ok );
                     if ( !ok || x &lt;= 0.0 || x &gt;= 1.0 )
                         errors++;
@@ -261,9 +260,9 @@ separator. The final field is the label followed by a newline.
     }
 </pre>
 <p> To read an element we read one record (i.e. one line). We break the
-data into fields using <a href="ntqstringlist.html#split">TQStringList::split</a>(). Because it is possible
+data into fields using <a href="tqstringlist.html#split">TQStringList::split</a>(). Because it is possible
 that a label will contain <tt>FIELD_SEP</tt> characters we use
-<a href="ntqstring.html#section">TQString::section</a>() to extract all the text from the last field to the
+<a href="tqstring.html#section">TQString::section</a>() to extract all the text from the last field to the
 end of the line. If there are enough fields and the value, colors and
 pattern data is valid we use <tt>Element::set()</tt> to write this data into
 the element; otherwise we leave the element <tt>INVALID</tt>. We then

@@ -9,13 +9,13 @@
 
 #include "listviews.h"
 
-#include <ntqlabel.h>
-#include <ntqpainter.h>
-#include <ntqpalette.h>
-#include <ntqobjectlist.h>
-#include <ntqpopupmenu.h>
-#include <ntqheader.h>
-#include <ntqregexp.h>
+#include <tqlabel.h>
+#include <tqpainter.h>
+#include <tqpalette.h>
+#include <tqobjectlist.h>
+#include <tqpopupmenu.h>
+#include <tqheader.h>
+#include <tqregexp.h>
 
 // -----------------------------------------------------------------
 

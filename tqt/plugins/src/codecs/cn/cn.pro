@@ -6,11 +6,11 @@ DESTDIR	 = ../../../codecs
 
 REQUIRES = !bigcodecs
 
-HEADERS		= ../../../../include/ntqgb18030codec.h \
-		  ../../../../include/private/qfontcodecs_p.h
+HEADERS		= ../../../../include/tqgb18030codec.h \
+		  ../../../../include/private/tqfontcodecs_p.h
 
-SOURCES		= ../../../../src/codecs/qgb18030codec.cpp \
-		  ../../../../src/codecs/qfontcncodec.cpp \
+SOURCES		= ../../../../src/codecs/tqgb18030codec.cpp \
+		  ../../../../src/codecs/tqfontcncodec.cpp \
 		  main.cpp
 
 

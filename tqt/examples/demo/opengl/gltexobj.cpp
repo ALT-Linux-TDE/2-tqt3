@@ -17,7 +17,7 @@
 ****************************************************************************/
 
 #include "gltexobj.h"
-#include <ntqimage.h>
+#include <tqimage.h>
 
 /*!
   Create a GLTexobj widget

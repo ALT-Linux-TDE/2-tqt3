@@ -1,8 +1,8 @@
 #include "filechooser.h"
-#include <ntqlineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqfiledialog.h>
-#include <ntqlayout.h>
+#include <tqlineedit.h>
+#include <tqpushbutton.h>
+#include <tqfiledialog.h>
+#include <tqlayout.h>
 
 FileChooser::FileChooser( TQWidget *parent, const char *name )
     : TQWidget( parent, name ), md( File )

@@ -1,5 +1,5 @@
 '\" t
-.TH QSqlIndex 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSqlIndex 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QSqlIndex \- Functions to manipulate and describe QSqlCursor and QSqlDatabase indexes
+TQSqlIndex \- Functions to manipulate and describe TQSqlCursor and TQSqlDatabase indexes
 .SH SYNOPSIS
-\fC#include <ntqsqlindex.h>\fR
+\fC#include <tqsqlindex.h>\fR
 .PP
-Inherits QSqlRecord.
+Inherits TQSqlRecord.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlIndex\fR ( const TQString & cursorname = TQString::null, const TQString & name = TQString::null )"
+.BI "\fBTQSqlIndex\fR ( const TQString & cursorname = TQString::null, const TQString & name = TQString::null )"
 .br
 .ti -1c
-.BI "\fBQSqlIndex\fR ( const QSqlIndex & other )"
+.BI "\fBTQSqlIndex\fR ( const TQSqlIndex & other )"
 .br
 .ti -1c
-.BI "\fB~QSqlIndex\fR ()"
+.BI "\fB~TQSqlIndex\fR ()"
 .br
 .ti -1c
-.BI "QSqlIndex & \fBoperator=\fR ( const QSqlIndex & other )"
+.BI "TQSqlIndex & \fBoperator=\fR ( const TQSqlIndex & other )"
 .br
 .ti -1c
 .BI "virtual void \fBsetCursorName\fR ( const TQString & cursorName )"
@@ -40,10 +40,10 @@ Inherits QSqlRecord.
 .BI "TQString \fBname\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBappend\fR ( const QSqlField & field )"
+.BI "virtual void \fBappend\fR ( const TQSqlField & field )"
 .br
 .ti -1c
-.BI "virtual void \fBappend\fR ( const QSqlField & field, bool desc )"
+.BI "virtual void \fBappend\fR ( const TQSqlField & field, bool desc )"
 .br
 .ti -1c
 .BI "bool \fBisDescending\fR ( int i ) const"
@@ -55,53 +55,53 @@ Inherits QSqlRecord.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QSqlIndex \fBfromStringList\fR ( const QStringList & l, const QSqlCursor * cursor )"
+.BI "TQSqlIndex \fBfromStringList\fR ( const TQStringList & l, const TQSqlCursor * cursor )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSqlIndex class provides functions to manipulate and describe QSqlCursor and QSqlDatabase indexes.
+The TQSqlIndex class provides functions to manipulate and describe TQSqlCursor and TQSqlDatabase indexes.
 .PP
-This class is used to describe and manipulate QSqlCursor and QSqlDatabase indexes. An index refers to a single table or view in a database. Information about the fields that comprise the index can be used to generate SQL statements, or to affect the behavior of a QSqlCursor object.
+This class is used to describe and manipulate TQSqlCursor and TQSqlDatabase indexes. An index refers to a single table or view in a database. Information about the fields that comprise the index can be used to generate SQL statements, or to affect the behavior of a TQSqlCursor object.
 .PP
-Normally, QSqlIndex objects are created by QSqlDatabase or QSqlCursor.
+Normally, TQSqlIndex objects are created by TQSqlDatabase or TQSqlCursor.
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlIndex::QSqlIndex ( const TQString & cursorname = TQString::null, const TQString & name = TQString::null )"
+.SH "TQSqlIndex::TQSqlIndex ( const TQString & cursorname = TQString::null, const TQString & name = TQString::null )"
 Constructs an empty index using the cursor name \fIcursorname\fR and index name \fIname\fR.
-.SH "QSqlIndex::QSqlIndex ( const QSqlIndex & other )"
+.SH "TQSqlIndex::TQSqlIndex ( const TQSqlIndex & other )"
 Constructs a copy of \fIother\fR.
-.SH "QSqlIndex::~QSqlIndex ()"
+.SH "TQSqlIndex::~TQSqlIndex ()"
 Destroys the object and frees any allocated resources.
-.SH "void QSqlIndex::append ( const QSqlField & field )\fC [virtual]\fR"
+.SH "void TQSqlIndex::append ( const TQSqlField & field )\fC [virtual]\fR"
 Appends the field \fIfield\fR to the list of indexed fields. The field is appended with an ascending sort order.
 .PP
-Reimplemented from QSqlRecord.
-.SH "void QSqlIndex::append ( const QSqlField & field, bool desc )\fC [virtual]\fR"
+Reimplemented from TQSqlRecord.
+.SH "void TQSqlIndex::append ( const TQSqlField & field, bool desc )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Appends the field \fIfield\fR to the list of indexed fields. The field is appended with an ascending sort order, unless \fIdesc\fR is TRUE.
-.SH "TQString QSqlIndex::cursorName () const"
+.SH "TQString TQSqlIndex::cursorName () const"
 Returns the name of the cursor which the index is associated with.
-.SH "QSqlIndex QSqlIndex::fromStringList ( const QStringList & l, const QSqlCursor * cursor )\fC [static]\fR"
+.SH "TQSqlIndex TQSqlIndex::fromStringList ( const TQStringList & l, const TQSqlCursor * cursor )\fC [static]\fR"
 Returns an index based on the field descriptions in \fIl\fR and the cursor \fIcursor\fR. The field descriptions should be in the same format that toStringList() produces, for example, a surname field in the people table might be in one of these forms: "surname"," surname DESC" or "people.surname ASC".
 .PP
 See also toStringList().
-.SH "bool QSqlIndex::isDescending ( int i ) const"
+.SH "bool TQSqlIndex::isDescending ( int i ) const"
 Returns TRUE if field \fIi\fR in the index is sorted in descending order; otherwise returns FALSE.
-.SH "TQString QSqlIndex::name () const"
+.SH "TQString TQSqlIndex::name () const"
 Returns the name of the index.
-.SH "QSqlIndex & QSqlIndex::operator= ( const QSqlIndex & other )"
+.SH "TQSqlIndex & TQSqlIndex::operator= ( const TQSqlIndex & other )"
 Sets the index equal to \fIother\fR.
-.SH "void QSqlIndex::setCursorName ( const TQString & cursorName )\fC [virtual]\fR"
+.SH "void TQSqlIndex::setCursorName ( const TQString & cursorName )\fC [virtual]\fR"
 Sets the name of the cursor that the index is associated with to \fIcursorName\fR.
-.SH "void QSqlIndex::setDescending ( int i, bool desc )\fC [virtual]\fR"
+.SH "void TQSqlIndex::setDescending ( int i, bool desc )\fC [virtual]\fR"
 If \fIdesc\fR is TRUE, field \fIi\fR is sorted in descending order. Otherwise, field \fIi\fR is sorted in ascending order (the default). If the field does not exist, nothing happens.
-.SH "void QSqlIndex::setName ( const TQString & name )\fC [virtual]\fR"
+.SH "void TQSqlIndex::setName ( const TQString & name )\fC [virtual]\fR"
 Sets the name of the index to \fIname\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsqlindex.html
+.BR http://doc.trolltech.com/tqsqlindex.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

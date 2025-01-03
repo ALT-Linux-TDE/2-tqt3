@@ -1,5 +1,5 @@
 '\" t
-.TH QObjectList 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQObjectList 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,56 +7,56 @@
 .ad l
 .nh
 .SH NAME
-QObjectList \- QPtrList of QObjects
+TQObjectList \- TQPtrList of TQObjects
 .SH SYNOPSIS
-\fC#include <ntqobjectlist.h>\fR
+\fC#include <tqobjectlist.h>\fR
 .PP
-Inherits QPtrList<TQObject>.
+Inherits TQPtrList<TQObject>.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQObjectList\fR ()"
+.BI "\fBTQObjectList\fR ()"
 .br
 .ti -1c
-.BI "\fBQObjectList\fR ( const QObjectList & list )"
+.BI "\fBTQObjectList\fR ( const TQObjectList & list )"
 .br
 .ti -1c
-.BI "\fB~QObjectList\fR ()"
+.BI "\fB~TQObjectList\fR ()"
 .br
 .ti -1c
-.BI "QObjectList & \fBoperator=\fR ( const QObjectList & list )"
+.BI "TQObjectList & \fBoperator=\fR ( const TQObjectList & list )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QObjectList class is a QPtrList of QObjects.
+The TQObjectList class is a TQPtrList of TQObjects.
 .PP
-A QObjectList is a QPtrList<TQObject>. The list can be traversed using inherited functions, e.g. getFirst(), next(), etc., or using a QObjectListIterator iterator.
+A TQObjectList is a TQPtrList<TQObject>. The list can be traversed using inherited functions, e.g. getFirst(), next(), etc., or using a TQObjectListIterator iterator.
 .PP
 See TQObject::queryList() for an example of use.
 .PP
-See also QObjectListIterator, TQObject, Collection Classes, and Non-GUI Classes.
+See also TQObjectListIterator, TQObject, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QObjectList::QObjectList ()"
+.SH "TQObjectList::TQObjectList ()"
 Constructs an empty TQObject list.
-.SH "QObjectList::QObjectList ( const QObjectList & list )"
+.SH "TQObjectList::TQObjectList ( const TQObjectList & list )"
 Constructs a copy of \fIlist\fR.
 .PP
 Each item in \fIlist\fR is appended to this list. Only the pointers are copied (shallow copy).
-.SH "QObjectList::~QObjectList ()"
+.SH "TQObjectList::~TQObjectList ()"
 Removes all the object pointers from the list and destroys the list.
 .PP
 All list iterators that access this list will be reset.
 .PP
 See also setAutoDelete().
-.SH "QObjectList & QObjectList::operator= ( const QObjectList & list )"
+.SH "TQObjectList & TQObjectList::operator= ( const TQObjectList & list )"
 Assigns \fIlist\fR to this list and returns a reference to this list.
 .PP
 This list is first cleared and then each item in \fIlist\fR is appended to this list. Only the pointers are
 copied (shallow copy) unless newItem() has been reimplemented().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqobjectlist.html
+.BR http://doc.trolltech.com/tqobjectlist.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

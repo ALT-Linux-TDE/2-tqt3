@@ -19,16 +19,16 @@
 #include "../rangecontrols/rangecontrols.h"
 #include "../richtext/richtext.h"
 
-#include <ntqtabwidget.h>
-#include <ntqapplication.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqmessagebox.h>
-#include <ntqfont.h>
-#include <ntqstylefactory.h>
-#include <ntqaction.h>
-#include <ntqsignalmapper.h>
-#include <ntqdict.h>
+#include <tqtabwidget.h>
+#include <tqapplication.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqmessagebox.h>
+#include <tqfont.h>
+#include <tqstylefactory.h>
+#include <tqaction.h>
+#include <tqsignalmapper.h>
+#include <tqdict.h>
 
 Themes::Themes( TQWidget *parent, const char *name, WFlags f )
     : TQMainWindow( parent, name, f )

@@ -39,9 +39,9 @@
 #ifndef __PROJECT_H__
 #define __PROJECT_H__
 
-#include <ntqstringlist.h>
-#include <ntqstring.h>
-#include <ntqmap.h>
+#include <tqstringlist.h>
+#include <tqstring.h>
+#include <tqmap.h>
 
 class TQMakeProperty;
 

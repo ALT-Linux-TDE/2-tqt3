@@ -1,5 +1,5 @@
 /****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
+** ui.h extension file, included from the tquic-generated form implementation.
 **
 ** If you wish to add, delete or rename slots use TQt Designer which will
 ** update this file, preserving your code. Create an init() slot in place of
@@ -8,10 +8,10 @@
 
 #include "addressdetails.h"
 #include "search.h"
-#include <ntqfile.h>
-#include <ntqtextstream.h>
-#include <ntqfiledialog.h>
-#include <ntqapplication.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
+#include <tqfiledialog.h>
+#include <tqapplication.h>
 
 void AddressBook::fileNew()
 {

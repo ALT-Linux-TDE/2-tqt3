@@ -9,14 +9,14 @@
 
 #include "wizard.h"
 
-#include <ntqwidget.h>
-#include <ntqhbox.h>
-#include <ntqvbox.h>
-#include <ntqlabel.h>
-#include <ntqlineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqvalidator.h>
-#include <ntqapplication.h>
+#include <tqwidget.h>
+#include <tqhbox.h>
+#include <tqvbox.h>
+#include <tqlabel.h>
+#include <tqlineedit.h>
+#include <tqpushbutton.h>
+#include <tqvalidator.h>
+#include <tqapplication.h>
 
 Wizard::Wizard( TQWidget *parent, const char *name )
     : TQWizard( parent, name, TRUE )

@@ -34,8 +34,8 @@
 #ifndef MENUBAREDITOR_H
 #define MENUBAREDITOR_H
 
-#include <ntqmenubar.h>
-#include <ntqptrlist.h>
+#include <tqmenubar.h>
+#include <tqptrlist.h>
 
 class PopupMenuEditor;
 class MenuBarEditor;

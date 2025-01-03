@@ -8,15 +8,15 @@
 *****************************************************************************/
 
 #include "fontdisplayer.h"
-#include <ntqapplication.h>
-#include <ntqslider.h>
-#include <ntqspinbox.h>
-#include <ntqpainter.h>
-#include <ntqtoolbar.h>
-#include <ntqstatusbar.h>
-#include <ntqlabel.h>
-#include <ntqpushbutton.h>
-#include <ntqfontdialog.h>
+#include <tqapplication.h>
+#include <tqslider.h>
+#include <tqspinbox.h>
+#include <tqpainter.h>
+#include <tqtoolbar.h>
+#include <tqstatusbar.h>
+#include <tqlabel.h>
+#include <tqpushbutton.h>
+#include <tqfontdialog.h>
 #include <stdlib.h>
 
 

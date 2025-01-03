@@ -99,7 +99,7 @@
 #if !defined(STDC) && (defined(__STDC__) || defined(__cplusplus))
 #  define STDC
 #endif
-#if !defined(STDC) && (defined(__GNUC__) || defined(__BORLANDC__))
+#if !defined(STDC) && defined(__GNUC__)
 #  define STDC
 #endif
 #if !defined(STDC) && (defined(MSDOS) || defined(WINDOWS) || defined(WIN32))
@@ -120,7 +120,7 @@
 #endif
 
 /* Some Mac compilers merge all .h files incorrectly: */
-#if defined(__MWERKS__)||defined(applec)||defined(THINK_C)||defined(__SC__)
+#if defined(applec)||defined(THINK_C)||defined(__SC__)
 #  define NO_DUMMY_DECL
 #endif
 
@@ -184,11 +184,7 @@
 #  if (defined(__SMALL__) || defined(__MEDIUM__))
      /* Turbo C small or medium model */
 #    define SMALL_MEDIUM
-#    ifdef __BORLANDC__
-#      define FAR _far
-#    else
-#      define FAR far
-#    endif
+#    define FAR far
 #  endif
 #endif
 
@@ -197,7 +193,7 @@
     * This is not mandatory, but it offers a little performance increase.
     */
 #  ifdef ZLIB_DLL
-#    if defined(WIN32) && (!defined(__BORLANDC__) || (__BORLANDC__ >= 0x500))
+#    if defined(WIN32)
 #      ifdef ZLIB_INTERNAL
 #        define ZEXTERN extern __declspec(dllexport)
 #      else
@@ -257,12 +253,7 @@ typedef unsigned char  Byte;  /* 8 bits */
 typedef unsigned int   uInt;  /* 16 bits or more */
 typedef unsigned long  uLong; /* 32 bits or more */
 
-#ifdef SMALL_MEDIUM
-   /* Borland C/C++ and some old MSC versions ignore FAR inside typedef */
-#  define Bytef Byte FAR
-#else
-   typedef Byte  FAR Bytef;
-#endif
+typedef Byte  FAR Bytef;
 typedef char  FAR charf;
 typedef int   FAR intf;
 typedef uInt  FAR uIntf;

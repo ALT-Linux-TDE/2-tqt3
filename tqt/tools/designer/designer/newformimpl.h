@@ -35,7 +35,7 @@
 #define NEWFORMIMPL_H
 
 #include "newform.h"
-#include <ntqiconview.h>
+#include <tqiconview.h>
 
 class Project;
 

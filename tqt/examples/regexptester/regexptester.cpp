@@ -1,13 +1,13 @@
-#include <ntqapplication.h>
-#include <ntqcheckbox.h>
-#include <ntqclipboard.h>
-#include <ntqcombobox.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqpushbutton.h>
-#include <ntqregexp.h>
-#include <ntqstatusbar.h>
-#include <ntqtable.h>
+#include <tqapplication.h>
+#include <tqcheckbox.h>
+#include <tqclipboard.h>
+#include <tqcombobox.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqpushbutton.h>
+#include <tqregexp.h>
+#include <tqstatusbar.h>
+#include <tqtable.h>
 
 #include "regexptester.h"
 

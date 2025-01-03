@@ -10,7 +10,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include <ntqurloperator.h>
+#include <tqurloperator.h>
 
 #include "clientbase.h"
 

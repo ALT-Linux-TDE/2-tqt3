@@ -1,0 +1,1 @@
+../src/tools/tqconfig-medium.h

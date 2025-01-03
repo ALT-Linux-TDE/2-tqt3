@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:14 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -37,7 +36,7 @@ body { background: #ffffff; color: black; }
 
 #include "element.h"
 
-#include &lt;<a href="qdialog-h.html">ntqdialog.h</a>&gt;
+#include &lt;<a href="tqdialog-h.html">tqdialog.h</a>&gt;
 
 class TQHBoxLayout;
 class TQPushButton;
@@ -45,12 +44,12 @@ class TQTable;
 class TQVBoxLayout;
 
 
-class SetDataForm: public <a href="ntqdialog.html">TQDialog</a>
+class SetDataForm: public <a href="tqdialog.html">TQDialog</a>
 {
     TQ_OBJECT
 public:
     SetDataForm( ElementVector *elements, int decimalPlaces,
-                 <a href="ntqwidget.html">TQWidget</a> *parent = 0, const char *name = "set data form",
+                 <a href="tqwidget.html">TQWidget</a> *parent = 0, const char *name = "set data form",
                  bool modal = TRUE, WFlags f = 0 );
     ~SetDataForm() {}
 
@@ -64,14 +63,14 @@ protected slots:
     void accept();
 
 private:
-    <a href="ntqtable.html">TQTable</a> *table;
-    <a href="ntqpushbutton.html">TQPushButton</a> *colorPushButton;
-    <a href="ntqpushbutton.html">TQPushButton</a> *okPushButton;
-    <a href="ntqpushbutton.html">TQPushButton</a> *cancelPushButton;
+    <a href="tqtable.html">TQTable</a> *table;
+    <a href="tqpushbutton.html">TQPushButton</a> *colorPushButton;
+    <a href="tqpushbutton.html">TQPushButton</a> *okPushButton;
+    <a href="tqpushbutton.html">TQPushButton</a> *cancelPushButton;
 
 protected:
-    <a href="qvboxlayout.html">TQVBoxLayout</a> *tableButtonBox;
-    <a href="qhboxlayout.html">TQHBoxLayout</a> *buttonBox;
+    <a href="tqvboxlayout.html">TQVBoxLayout</a> *tableButtonBox;
+    <a href="tqhboxlayout.html">TQHBoxLayout</a> *buttonBox;
 
 private:
     ElementVector *m_elements;

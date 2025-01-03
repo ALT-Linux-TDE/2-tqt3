@@ -1,5 +1,5 @@
 '\" t
-.TH QWidgetItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQWidgetItem 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,79 +7,79 @@
 .ad l
 .nh
 .SH NAME
-QWidgetItem \- Layout item that represents a widget
+TQWidgetItem \- Layout item that represents a widget
 .SH SYNOPSIS
-\fC#include <ntqlayout.h>\fR
+\fC#include <tqlayout.h>\fR
 .PP
-Inherits QLayoutItem.
+Inherits TQLayoutItem.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQWidgetItem\fR ( TQWidget * w )"
+.BI "\fBTQWidgetItem\fR ( TQWidget * w )"
 .br
 .ti -1c
-.BI "virtual QSize \fBsizeHint\fR () const"
+.BI "virtual TQSize \fBsizeHint\fR () const"
 .br
 .ti -1c
-.BI "virtual QSize \fBminimumSize\fR () const"
+.BI "virtual TQSize \fBminimumSize\fR () const"
 .br
 .ti -1c
-.BI "virtual QSize \fBmaximumSize\fR () const"
+.BI "virtual TQSize \fBmaximumSize\fR () const"
 .br
 .ti -1c
-.BI "virtual QSizePolicy::ExpandData \fBexpanding\fR () const"
+.BI "virtual TQSizePolicy::ExpandData \fBexpanding\fR () const"
 .br
 .ti -1c
 .BI "virtual bool \fBisEmpty\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetGeometry\fR ( const QRect & r )"
+.BI "virtual void \fBsetGeometry\fR ( const TQRect & r )"
 .br
 .ti -1c
 .BI "virtual TQWidget * \fBwidget\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QWidgetItem class is a layout item that represents a widget.
+The TQWidgetItem class is a layout item that represents a widget.
 .PP
 This is used by custom layouts.
 .PP
-See also QLayout, QLayout::widget(), Widget Appearance and Style, and Layout Management.
+See also TQLayout, TQLayout::widget(), Widget Appearance and Style, and Layout Management.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWidgetItem::QWidgetItem ( TQWidget * w )"
+.SH "TQWidgetItem::TQWidgetItem ( TQWidget * w )"
 Creates an item containing widget \fIw\fR.
-.SH "QSizePolicy::ExpandData QWidgetItem::expanding () const\fC [virtual]\fR"
+.SH "TQSizePolicy::ExpandData TQWidgetItem::expanding () const\fC [virtual]\fR"
 Returns whether this item's widget can make use of more space than sizeHint(). A value of \fCVertical\fR or \fCHorizontal\fR means that it wants to grow in only one dimension, whereas \fCBothDirections\fR means that it wants to grow in both dimensions and \fCNoDirection\fR means that it doesn't want to grow at all.
 .PP
-Reimplemented from QLayoutItem.
-.SH "bool QWidgetItem::isEmpty () const\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "bool TQWidgetItem::isEmpty () const\fC [virtual]\fR"
 Returns TRUE if the widget has been hidden; otherwise returns FALSE.
 .PP
-Reimplemented from QLayoutItem.
-.SH "QSize QWidgetItem::maximumSize () const\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "TQSize TQWidgetItem::maximumSize () const\fC [virtual]\fR"
 Returns the maximum size of this item.
 .PP
-Reimplemented from QLayoutItem.
-.SH "QSize QWidgetItem::minimumSize () const\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "TQSize TQWidgetItem::minimumSize () const\fC [virtual]\fR"
 Returns the minimum size of this item.
 .PP
-Reimplemented from QLayoutItem.
-.SH "void QWidgetItem::setGeometry ( const QRect & r )\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "void TQWidgetItem::setGeometry ( const TQRect & r )\fC [virtual]\fR"
 Sets the geometry of this item's widget to be contained within rect \fIr\fR, taking alignment and maximum size into account.
 .PP
-Reimplemented from QLayoutItem.
-.SH "QSize QWidgetItem::sizeHint () const\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "TQSize TQWidgetItem::sizeHint () const\fC [virtual]\fR"
 Returns the preferred size of this item.
 .PP
-Reimplemented from QLayoutItem.
-.SH "TQWidget * QWidgetItem::widget ()\fC [virtual]\fR"
+Reimplemented from TQLayoutItem.
+.SH "TQWidget * TQWidgetItem::widget ()\fC [virtual]\fR"
 Returns the widget managed by this item.
 .PP
-Reimplemented from QLayoutItem.
+Reimplemented from TQLayoutItem.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qwidgetitem.html
+.BR http://doc.trolltech.com/tqwidgetitem.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

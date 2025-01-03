@@ -14,8 +14,8 @@
 #ifndef SECRETDRAG_H
 #define SECRETDRAG_H
 
-#include <ntqdragobject.h>
-#include <ntqlabel.h>
+#include <tqdragobject.h>
+#include <tqlabel.h>
 
 class SecretDrag: public TQStoredDrag {
 public:

@@ -1,5 +1,5 @@
 '\" t
-.TH QCustomEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQCustomEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QCustomEvent \- Support for custom events
+TQCustomEvent \- Support for custom events
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCustomEvent\fR ( int type )"
+.BI "\fBTQCustomEvent\fR ( int type )"
 .br
 .ti -1c
-.BI "\fBQCustomEvent\fR ( Type type, void * data )"
+.BI "\fBTQCustomEvent\fR ( Type type, void * data )"
 .br
 .ti -1c
 .BI "void * \fBdata\fR () const"
@@ -29,21 +29,21 @@ Inherits QEvent.
 .br
 .in -1c
 .SH DESCRIPTION
-The QCustomEvent class provides support for custom events.
+The TQCustomEvent class provides support for custom events.
 .PP
-QCustomEvent is a generic event class for user-defined events. User defined events can be sent to widgets or other TQObject instances using QApplication::postEvent() or QApplication::sendEvent(). Subclasses of TQObject can easily receive custom events by implementing the TQObject::customEvent() event handler function.
+TQCustomEvent is a generic event class for user-defined events. User defined events can be sent to widgets or other TQObject instances using TQApplication::postEvent() or TQApplication::sendEvent(). Subclasses of TQObject can easily receive custom events by implementing the TQObject::customEvent() event handler function.
 .PP
-QCustomEvent objects should be created with a type ID that uniquely identifies the event type. To avoid clashes with the Qt-defined events types, the value should be at least as large as the value of the "User" entry in the QEvent::Type enum.
+TQCustomEvent objects should be created with a type ID that uniquely identifies the event type. To avoid clashes with the Qt-defined events types, the value should be at least as large as the value of the "User" entry in the TQEvent::Type enum.
 .PP
-QCustomEvent contains a generic void* data member that may be used for transferring event-specific data to the receiver. Note that since events are normally delivered asynchronously, the data pointer, if used, must remain valid until the event has been received and processed.
+TQCustomEvent contains a generic void* data member that may be used for transferring event-specific data to the receiver. Note that since events are normally delivered asynchronously, the data pointer, if used, must remain valid until the event has been received and processed.
 .PP
-QCustomEvent can be used as-is for simple user-defined event types, but normally you will want to make a subclass of it for your event types. In a subclass, you can add data members that are suitable for your event type.
+TQCustomEvent can be used as-is for simple user-defined event types, but normally you will want to make a subclass of it for your event types. In a subclass, you can add data members that are suitable for your event type.
 .PP
 Example:
 .PP
 .nf
 .br
-    class ColorChangeEvent : public QCustomEvent
+    class ColorChangeEvent : public TQCustomEvent
 .br
     {
 .br
@@ -51,7 +51,7 @@ Example:
 .br
         ColorChangeEvent( TQColor color )
 .br
-            : QCustomEvent( 65432 ), c( color ) {}
+            : TQCustomEvent( 65432 ), c( color ) {}
 .br
         TQColor color() const { return c; }
 .br
@@ -67,13 +67,13 @@ Example:
 .br
     ColorChangeEvent* ce = new ColorChangeEvent( blue );
 .br
-    QApplication::postEvent( receiver, ce );  // TQt will delete it when done
+    TQApplication::postEvent( receiver, ce );  // TQt will delete it when done
 .br
 .br
     // To receive an event of this custom event type:
 .br
 .br
-    void MyWidget::customEvent( QCustomEvent * e )
+    void MyWidget::customEvent( TQCustomEvent * e )
 .br
     {
 .br
@@ -89,23 +89,23 @@ Example:
 .br
 .fi
 .PP
-See also TQWidget::customEvent(), QApplication::notify(), and Event Classes.
+See also TQWidget::customEvent(), TQApplication::notify(), and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCustomEvent::QCustomEvent ( int type )"
-Constructs a custom event object with event type \fItype\fR. The value of \fItype\fR must be at least as large as QEvent::User. The data pointer is set to 0.
-.SH "QCustomEvent::QCustomEvent ( Type type, void * data )"
-Constructs a custom event object with the event type \fItype\fR and a pointer to \fIdata\fR. (Note that any int value may safely be cast to QEvent::Type).
-.SH "void * QCustomEvent::data () const"
+.SH "TQCustomEvent::TQCustomEvent ( int type )"
+Constructs a custom event object with event type \fItype\fR. The value of \fItype\fR must be at least as large as TQEvent::User. The data pointer is set to 0.
+.SH "TQCustomEvent::TQCustomEvent ( Type type, void * data )"
+Constructs a custom event object with the event type \fItype\fR and a pointer to \fIdata\fR. (Note that any int value may safely be cast to TQEvent::Type).
+.SH "void * TQCustomEvent::data () const"
 Returns a pointer to the generic event data.
 .PP
 See also setData().
-.SH "void QCustomEvent::setData ( void * data )"
+.SH "void TQCustomEvent::setData ( void * data )"
 Sets the generic data pointer to \fIdata\fR.
 .PP
 See also data().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcustomevent.html
+.BR http://doc.trolltech.com/tqcustomevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

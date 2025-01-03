@@ -1,5 +1,5 @@
 '\" t
-.TH QSjisCodec 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSjisCodec 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,13 +7,13 @@
 .ad l
 .nh
 .SH NAME
-QSjisCodec \- Conversion to and from Shift-JIS
+TQSjisCodec \- Conversion to and from Shift-JIS
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqsjiscodec.h>\fR
+\fC#include <tqsjiscodec.h>\fR
 .PP
-Inherits QTextCodec.
+Inherits TQTextCodec.
 .PP
 .SS "Public Members"
 .in +1c
@@ -21,18 +21,18 @@ Inherits QTextCodec.
 .BI "virtual const char * \fBmimeName\fR () const"
 .br
 .ti -1c
-.BI "\fBQSjisCodec\fR ()"
+.BI "\fBTQSjisCodec\fR ()"
 .br
 .ti -1c
-.BI "\fB~QSjisCodec\fR ()"
+.BI "\fB~TQSjisCodec\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSjisCodec class provides conversion to and from Shift-JIS.
+The TQSjisCodec class provides conversion to and from Shift-JIS.
 .PP
-More precisely, the QSjisCodec class subclasses QTextCodec to provide support for Shift-JIS, an encoding of JIS X 0201 Latin, JIS X 0201 Kana or JIS X 0208.
+More precisely, the TQSjisCodec class subclasses TQTextCodec to provide support for Shift-JIS, an encoding of JIS X 0201 Latin, JIS X 0201 Kana or JIS X 0208.
 .PP
-The environment variable \fCUNICODEMAP_JP\fR can be used to fine-tune QJisCodec, QSjisCodec and QEucJpCodec. The QJisCodec documentation describes how to use this variable.
+The environment variable \fCUNICODEMAP_JP\fR can be used to fine-tune TQJisCodec, TQSjisCodec and TQEucJpCodec. The TQJisCodec documentation describes how to use this variable.
 .PP
 Most of the code here was written by Serika Kurusugawa, a.k.a. Junji Takagi, and is included in TQt with the author's permission and the grateful thanks of the Trolltech team. Here is the copyright statement for the code as it was at the point of contribution. Trolltech's subsequent modifications are covered by the usual copyright for Qt.
 .PP
@@ -48,17 +48,17 @@ THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS "AS IS". ANY EXPRESS OR
 .PP
 See also Internationalization with Qt.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSjisCodec::QSjisCodec ()"
-Creates a Shift-JIS codec. Note that this is done automatically by the QApplication, you do not need construct your own.
-.SH "QSjisCodec::~QSjisCodec ()"
+.SH "TQSjisCodec::TQSjisCodec ()"
+Creates a Shift-JIS codec. Note that this is done automatically by the TQApplication, you do not need construct your own.
+.SH "TQSjisCodec::~TQSjisCodec ()"
 Destroys the Shift-JIS codec.
-.SH "const char * QSjisCodec::mimeName () const\fC [virtual]\fR"
+.SH "const char * TQSjisCodec::mimeName () const\fC [virtual]\fR"
 Returns the codec's mime name.
 .PP
-Reimplemented from QTextCodec.
+Reimplemented from TQTextCodec.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsjiscodec.html
+.BR http://doc.trolltech.com/tqsjiscodec.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

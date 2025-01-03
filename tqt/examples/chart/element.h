@@ -1,10 +1,10 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include <ntqcolor.h>
-#include <ntqnamespace.h>
-#include <ntqstring.h>
-#include <ntqvaluevector.h>
+#include <tqcolor.h>
+#include <tqnamespace.h>
+#include <tqstring.h>
+#include <tqvaluevector.h>
 
 class Element;
 

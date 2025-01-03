@@ -35,7 +35,7 @@
 #ifndef TQCPPSYNTAXHIGHLIGHTER_H
 #define TQCPPSYNTAXHIGHLIGHTER_H
 
-#include <private/qrichtext_p.h>
+#include <private/tqrichtext_p.h>
 #include <conf.h>
 
 class SyntaxHighlighter_CPP : public TQTextPreProcessor

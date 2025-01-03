@@ -10,7 +10,7 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 #include "gearwidget.h"
 #include "rubberbandwidget.h"
 

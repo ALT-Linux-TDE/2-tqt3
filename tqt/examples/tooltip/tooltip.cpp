@@ -8,8 +8,8 @@
 *****************************************************************************/
 
 #include "tooltip.h"
-#include <ntqapplication.h>
-#include <ntqpainter.h>
+#include <tqapplication.h>
+#include <tqpainter.h>
 #include <stdlib.h>
 
 

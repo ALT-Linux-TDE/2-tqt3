@@ -33,21 +33,21 @@
 
 #include "domtool.h"
 
-#include <ntqsizepolicy.h>
-#include <ntqcolor.h>
-#include <ntqcursor.h>
-#include <ntqdatetime.h>
-#include <ntqrect.h>
-#include <ntqsize.h>
-#include <ntqfont.h>
-#include <ntqdom.h>
+#include <tqsizepolicy.h>
+#include <tqcolor.h>
+#include <tqcursor.h>
+#include <tqdatetime.h>
+#include <tqrect.h>
+#include <tqsize.h>
+#include <tqfont.h>
+#include <tqdom.h>
 
 /*!
   \class DomTool domtool.h
   \brief Tools for the dom
 
   A collection of static functions used by Resource (part of the
-  designer) and Uic.
+  designer) and TQUic.
 
 */
 

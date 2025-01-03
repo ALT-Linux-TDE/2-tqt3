@@ -1,5 +1,5 @@
 '\" t
-.TH QStringList 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQStringList 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,30 +7,30 @@
 .ad l
 .nh
 .SH NAME
-QStringList \- List of strings
+TQStringList \- List of strings
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqstringlist.h>\fR
+\fC#include <tqstringlist.h>\fR
 .PP
-Inherits QValueList<TQString>.
+Inherits TQValueList<TQString>.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQStringList\fR ()"
+.BI "\fBTQStringList\fR ()"
 .br
 .ti -1c
-.BI "\fBQStringList\fR ( const QStringList & l )"
+.BI "\fBTQStringList\fR ( const TQStringList & l )"
 .br
 .ti -1c
-.BI "\fBQStringList\fR ( const QValueList<TQString> & l )"
+.BI "\fBTQStringList\fR ( const TQValueList<TQString> & l )"
 .br
 .ti -1c
-.BI "\fBQStringList\fR ( const TQString & i )"
+.BI "\fBTQStringList\fR ( const TQString & i )"
 .br
 .ti -1c
-.BI "\fBQStringList\fR ( const char * i )"
+.BI "\fBTQStringList\fR ( const char * i )"
 .br
 .ti -1c
 .BI "void \fBsort\fR ()"
@@ -39,45 +39,45 @@ Inherits QValueList<TQString>.
 .BI "TQString \fBjoin\fR ( const TQString & sep ) const"
 .br
 .ti -1c
-.BI "QStringList \fBgrep\fR ( const TQString & str, bool cs = TRUE ) const"
+.BI "TQStringList \fBgrep\fR ( const TQString & str, bool cs = TRUE ) const"
 .br
 .ti -1c
-.BI "QStringList \fBgrep\fR ( const QRegExp & rx ) const"
+.BI "TQStringList \fBgrep\fR ( const TQRegExp & rx ) const"
 .br
 .ti -1c
-.BI "QStringList & \fBgres\fR ( const TQString & before, const TQString & after, bool cs = TRUE )"
+.BI "TQStringList & \fBgres\fR ( const TQString & before, const TQString & after, bool cs = TRUE )"
 .br
 .ti -1c
-.BI "QStringList & \fBgres\fR ( const QRegExp & rx, const TQString & after )"
+.BI "TQStringList & \fBgres\fR ( const TQRegExp & rx, const TQString & after )"
 .br
 .in -1c
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QStringList \fBfromStrList\fR ( const QStrList & ascii )"
+.BI "TQStringList \fBfromStrList\fR ( const TQStrList & ascii )"
 .br
 .ti -1c
-.BI "QStringList \fBsplit\fR ( const TQString & sep, const TQString & str, bool allowEmptyEntries = FALSE )"
+.BI "TQStringList \fBsplit\fR ( const TQString & sep, const TQString & str, bool allowEmptyEntries = FALSE )"
 .br
 .ti -1c
-.BI "QStringList \fBsplit\fR ( const TQChar & sep, const TQString & str, bool allowEmptyEntries = FALSE )"
+.BI "TQStringList \fBsplit\fR ( const TQChar & sep, const TQString & str, bool allowEmptyEntries = FALSE )"
 .br
 .ti -1c
-.BI "QStringList \fBsplit\fR ( const QRegExp & sep, const TQString & str, bool allowEmptyEntries = FALSE )"
+.BI "TQStringList \fBsplit\fR ( const TQRegExp & sep, const TQString & str, bool allowEmptyEntries = FALSE )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QStringList class provides a list of strings.
+The TQStringList class provides a list of strings.
 .PP
-It is used to store and manipulate strings that logically belong together. Essentially QStringList is a QValueList of TQString objects. Unlike QStrList, which stores pointers to characters, QStringList holds real TQString objects. It is the class of choice whenever you work with Unicode strings. QStringList is part of the TQt Template Library.
+It is used to store and manipulate strings that logically belong together. Essentially TQStringList is a TQValueList of TQString objects. Unlike TQStrList, which stores pointers to characters, TQStringList holds real TQString objects. It is the class of choice whenever you work with Unicode strings. TQStringList is part of the TQt Template Library.
 .PP
-Like TQString itself, QStringList objects are implicitly shared, so passing them around as value-parameters is both fast and safe.
+Like TQString itself, TQStringList objects are implicitly shared, so passing them around as value-parameters is both fast and safe.
 .PP
 Strings can be added to a list using append(), operator+=() or operator<<(), e.g.
 .PP
 .nf
 .br
-    QStringList fonts;
+    TQStringList fonts;
 .br
     fonts.append( "Times" );
 .br
@@ -89,11 +89,11 @@ Strings can be added to a list using append(), operator+=() or operator<<(), e.g
 .br
 .fi
 .PP
-String lists have an iterator, QStringList::Iterator(), e.g.
+String lists have an iterator, TQStringList::Iterator(), e.g.
 .PP
 .nf
 .br
-    for ( QStringList::Iterator it = fonts.begin(); it != fonts.end(); ++it ) {
+    for ( TQStringList::Iterator it = fonts.begin(); it != fonts.end(); ++it ) {
 .br
         cout << *it << ":";
 .br
@@ -136,7 +136,7 @@ You can sort the list with sort(), and extract a new list which contains only th
     //  Courier, Courier New, Helvetica [Adobe], Helvetica [Cronyx], Times
 .br
 .br
-    QStringList helveticas = fonts.grep( "Helvetica" );
+    TQStringList helveticas = fonts.grep( "Helvetica" );
 .br
     cout << helveticas.join( ", " ) << endl;
 .br
@@ -152,7 +152,7 @@ Existing strings can be split into string lists with character, string or regula
 .br
     TQString s = "Red\\tGreen\\tBlue";
 .br
-    QStringList colors = QStringList::split( "\\t", s );
+    TQStringList colors = TQStringList::split( "\\t", s );
 .br
     cout << colors.join( ", " ) << endl;
 .br
@@ -164,35 +164,35 @@ Existing strings can be split into string lists with character, string or regula
 .PP
 See also Implicitly and Explicitly Shared Classes, Text Related Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStringList::QStringList ()"
+.SH "TQStringList::TQStringList ()"
 Creates an empty string list.
-.SH "QStringList::QStringList ( const QStringList & l )"
-Creates a copy of the list \fIl\fR. This function is very fast because QStringList is implicitly shared. In most situations this acts like a deep copy, for example, if this list or the original one or some other list referencing the same shared data is modified, the modifying list first makes a copy, i.e. copy-on-write. In a threaded environment you may require a real deep copy
+.SH "TQStringList::TQStringList ( const TQStringList & l )"
+Creates a copy of the list \fIl\fR. This function is very fast because TQStringList is implicitly shared. In most situations this acts like a deep copy, for example, if this list or the original one or some other list referencing the same shared data is modified, the modifying list first makes a copy, i.e. copy-on-write. In a threaded environment you may require a real deep copy
 .
-.SH "QStringList::QStringList ( const QValueList<TQString> & l )"
+.SH "TQStringList::TQStringList ( const TQValueList<TQString> & l )"
 Constructs a new string list that is a copy of \fIl\fR.
-.SH "QStringList::QStringList ( const TQString & i )"
+.SH "TQStringList::TQStringList ( const TQString & i )"
 Constructs a string list consisting of the single string \fIi\fR. Longer lists are easily created as follows:
 .PP
 .nf
 .br
-    QStringList items;
+    TQStringList items;
 .br
     items << "Buy" << "Sell" << "Update" << "Value";
 .br
 .fi
-.SH "QStringList::QStringList ( const char * i )"
+.SH "TQStringList::TQStringList ( const char * i )"
 Constructs a string list consisting of the single Latin-1 string \fIi\fR.
-.SH "QStringList QStringList::fromStrList ( const QStrList & ascii )\fC [static]\fR"
-Converts from an ASCII-QStrList \fIascii\fR to a QStringList (Unicode).
-.SH "QStringList QStringList::grep ( const TQString & str, bool cs = TRUE ) const"
+.SH "TQStringList TQStringList::fromStrList ( const TQStrList & ascii )\fC [static]\fR"
+Converts from an ASCII-TQStrList \fIascii\fR to a TQStringList (Unicode).
+.SH "TQStringList TQStringList::grep ( const TQString & str, bool cs = TRUE ) const"
 Returns a list of all the strings containing the substring \fIstr\fR.
 .PP
 If \fIcs\fR is TRUE, the grep is done case-sensitively; otherwise case is ignored.
 .PP
 .nf
 .br
-    QStringList list;
+    TQStringList list;
 .br
     list << "Bill Gates" << "John Doe" << "Bill Clinton";
 .br
@@ -203,13 +203,13 @@ If \fIcs\fR is TRUE, the grep is done case-sensitively; otherwise case is ignore
 .fi
 .PP
 See also TQString::find().
-.SH "QStringList QStringList::grep ( const QRegExp & rx ) const"
+.SH "TQStringList TQStringList::grep ( const TQRegExp & rx ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a list of all the strings that match the regular expression \fIrx\fR.
 .PP
 See also TQString::find().
-.SH "QStringList & QStringList::gres ( const TQString & before, const TQString & after, bool cs = TRUE )"
+.SH "TQStringList & TQStringList::gres ( const TQString & before, const TQString & after, bool cs = TRUE )"
 Replaces every occurrence of the string \fIbefore\fR in the strings that constitute the string list with the string \fIafter\fR. Returns a reference to the string list.
 .PP
 If \fIcs\fR is TRUE, the search is case sensitive; otherwise the search is case insensitive.
@@ -218,7 +218,7 @@ Example:
 .PP
 .nf
 .br
-    QStringList list;
+    TQStringList list;
 .br
     list << "alpha" << "beta" << "gamma" << "epsilon";
 .br
@@ -229,7 +229,7 @@ Example:
 .fi
 .PP
 See also TQString::replace().
-.SH "QStringList & QStringList::gres ( const QRegExp & rx, const TQString & after )"
+.SH "TQStringList & TQStringList::gres ( const TQRegExp & rx, const TQString & after )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Replaces every occurrence of the regexp \fIrx\fR in the string with \fIafter\fR. Returns a reference to the string list.
@@ -238,11 +238,11 @@ Example:
 .PP
 .nf
 .br
-    QStringList list;
+    TQStringList list;
 .br
     list << "alpha" << "beta" << "gamma" << "epsilon";
 .br
-    list.gres( QRegExp("^a"), "o" );
+    list.gres( TQRegExp("^a"), "o" );
 .br
     // list == ["olpha", "beta", "gamma", "epsilon"]
 .br
@@ -254,33 +254,33 @@ Example:
 .PP
 .nf
 .br
-    QStringList list;
+    TQStringList list;
 .br
     list << "Bill Clinton" << "Gates, Bill";
 .br
-    list.gres( QRegExp("^(.*), (.*)$"), "\\\\2 \\\\1" );
+    list.gres( TQRegExp("^(.*), (.*)$"), "\\\\2 \\\\1" );
 .br
     // list == ["Bill Clinton", "Bill Gates"]
 .br
 .fi
 .PP
 See also TQString::replace().
-.SH "TQString QStringList::join ( const TQString & sep ) const"
+.SH "TQString TQStringList::join ( const TQString & sep ) const"
 Joins the string list into a single string with each element separated by the string \fIsep\fR (which can be empty).
 .PP
 See also split().
 .PP
 Examples:
-.)l fileiconview/qfileiconview.cpp and toplevel/options.ui.h.
-.SH "void QStringList::sort ()"
+.)l fileiconview/tqfileiconview.cpp and toplevel/options.ui.h.
+.SH "void TQStringList::sort ()"
 Sorts the list of strings in ascending case-sensitive order.
 .PP
 Sorting is very fast. It uses the TQt Template Library's efficient HeapSort implementation that has a time complexity of O(n*log n).
 .PP
-If you want to sort your strings in an arbitrary order consider using a QMap. For example you could use a QMap<TQString,TQString> to create a case-insensitive ordering (e.g. mapping the lowercase text to the text), or a QMap<int,TQString> to sort the strings by some integer index, etc.
+If you want to sort your strings in an arbitrary order consider using a TQMap. For example you could use a TQMap<TQString,TQString> to create a case-insensitive ordering (e.g. mapping the lowercase text to the text), or a TQMap<int,TQString> to sort the strings by some integer index, etc.
 .PP
 Example: themes/themes.cpp.
-.SH "QStringList QStringList::split ( const QRegExp & sep, const TQString & str, bool allowEmptyEntries = FALSE )\fC [static]\fR"
+.SH "TQStringList TQStringList::split ( const TQRegExp & sep, const TQString & str, bool allowEmptyEntries = FALSE )\fC [static]\fR"
 Splits the string \fIstr\fR into strings wherever the regular expression \fIsep\fR occurs, and returns the list of those strings.
 .PP
 If \fIallowEmptyEntries\fR is TRUE, a null string is inserted in the list wherever the separator matches twice without intervening text.
@@ -293,7 +293,7 @@ See also join() and TQString::section().
 .PP
 Examples:
 .)l chart/element.cpp, dirview/dirview.cpp, and network/httpd/httpd.cpp.
-.SH "QStringList QStringList::split ( const TQString & sep, const TQString & str, bool allowEmptyEntries = FALSE )\fC [static]\fR"
+.SH "TQStringList TQStringList::split ( const TQString & sep, const TQString & str, bool allowEmptyEntries = FALSE )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This version of the function uses a TQString as separator, rather than a regular expression.
@@ -303,7 +303,7 @@ If \fIsep\fR is an empty string, the return value is a list of one-character str
 If \fIallowEmptyEntries\fR is TRUE, a null string is inserted in the list wherever the separator matches twice without intervening text.
 .PP
 See also join() and TQString::section().
-.SH "QStringList QStringList::split ( const TQChar & sep, const TQString & str, bool allowEmptyEntries = FALSE )\fC [static]\fR"
+.SH "TQStringList TQStringList::split ( const TQChar & sep, const TQString & str, bool allowEmptyEntries = FALSE )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This version of the function uses a TQChar as separator, rather than a regular expression.
@@ -311,7 +311,7 @@ This version of the function uses a TQChar as separator, rather than a regular e
 See also join() and TQString::section().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqstringlist.html
+.BR http://doc.trolltech.com/tqstringlist.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

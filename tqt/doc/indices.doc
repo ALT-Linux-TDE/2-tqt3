@@ -68,7 +68,7 @@ Solutions\endlink
 </td>
 <td valign="top">
 \list
-\i \link how-to-learn-ntqt.html How to Learn Qt\endlink
+\i \link how-to-learn-tqt.html How to Learn Qt\endlink
 \i \link http://www.trolltech.com/products/qt/readyforqt4.html Getting Ready for TQt 4\endlink
 \i \link tutorial.html Tutorial #1\endlink, 
 \link tutorial2.html Tutorial #2\endlink
@@ -78,7 +78,7 @@ Solutions\endlink
 </td>
 <td valign="top">
 \list
-\i \link aboutntqt.html About Qt\endlink
+\i \link abouttqt.html About Qt\endlink
 \i \link opensourceedition.html Open Source Edition\endlink
 \i \link troll.html About Trolltech\endlink
 \endlist
@@ -150,8 +150,6 @@ Licenses &amp; Credits
 <td valign="top">
 \list
 \i \link winsystem.html Window system specific notes\endlink
-\i \link activentqt.html ActiveQt Framework\endlink
-\i \link motif-extension.html Motif Extension\endlink
 \i \link mac-differences.html Mac OS X development\endlink
 \i \link porting.html Porting from TQt 2.x to TQt 3.x\endlink
 \endlist
@@ -233,7 +231,7 @@ related classes together. Some classes may appear in more than one group.
 \row 
 \i \link tools.html  Utility Classes \endlink
 \i Collection classes such as list, queue, stack and string, along
-with other classes that can be used without needing QApplication.
+with other classes that can be used without needing TQApplication.
 
 \row 
 \i \link graphics.html   Graphics and Printing \endlink
@@ -298,7 +296,7 @@ images.html Image Processing\endlink)
 \i Ready-made dialogs for file, font, color selection and more.
 
 \row
-\i \link ntqtl.html Template Library\endlink
+\i \link tqtl.html Template Library\endlink
 \i Qt's template library container classes.
 
 \row
@@ -341,9 +339,9 @@ in a line-by-line coverage please refer to the tutorials
 \section1 TQt Base Classes: Assorted Examples
 
 \list
-\i \link qaction-examples.html QAction and QActionGroup \endlink
-\i \link qfont-examples.html QFont, QFontMetrics, QFontInfo and QFontDatabase \endlink
-\i \link qprocess-examples.html QProcess \endlink
+\i \link tqaction-examples.html TQAction and TQActionGroup \endlink
+\i \link tqfont-examples.html TQFont, TQFontMetrics, TQFontInfo and TQFontDatabase \endlink
+\i \link tqprocess-examples.html TQProcess \endlink
 \endlist
 
 \section1 TQt Modules: Assorted Examples
@@ -356,43 +354,32 @@ in a line-by-line coverage please refer to the tutorials
 \i \link sql-examples.html SQL examples \endlink
 \endlist
 
-\section1 TQt Extensions: Assorted Examples
+*/
 
-\list
-\i \link activeqt-examples.html ActiveX support extension \endlink
-\i \link motif-examples.html QMotif support extension \endlink
-\omit \i \link xt-motif-examples.html Xt/Motif support extension \endlink \endomit
-\i \link nsplugin-examples.html Qt-based plugins for web browsers \endlink
-\endlist
+/*! \defgroup tqaction-examples 
 
-\section1 Miscellaneous Examples
+\title TQAction Examples 
+
+The following example programs show how to use the 
+TQAction and TQActionGroup classes.
 
 */
 
-/*! \defgroup qaction-examples 
+/*! \defgroup tqfont-examples 
 
-\title QAction Examples 
+\title TQFont Examples 
 
 The following example programs show how to use the 
-QAction and QActionGroup classes.
+classes TQFont, TQFontMetrics, TQFontInfo, and TQFontDatabase. 
 
 */
 
-/*! \defgroup qfont-examples 
+/*! \defgroup tqprocess-examples 
 
-\title QFont Examples 
-
-The following example programs show how to use the 
-classes QFont, QFontMetrics, QFontInfo, and QFontDatabase. 
-
-*/
-
-/*! \defgroup qprocess-examples 
-
-\title QProcess Examples 
+\title TQProcess Examples 
 
 The following example programs show how to use the 
-QProcess class.
+TQProcess class.
 
 */
 
@@ -441,42 +428,6 @@ Qt XML classes.
 
 */
 
-/*! \defgroup nsplugin-examples 
-
-\title Netscape Plugin Examples
-
-The following example programs show how to write plugins 
-that can be used with web browsers supporting the LiveConnect
-protocol.
-
-For more information see the \link netscape-plugin.html Plugin Howto \endlink.
-*/
-
-/*! \defgroup motif-examples 
-
-\title QMotif Support Extension
-
-The following example programs illustrate the use of the QMotif Extension
-assisting in the migration process of old Xt and Motif based code
-to the more comfortable TQt toolkit.
-
-For more information see the \link motif-extension.html QMotif
-Support Extension documentation. \endlink
-*/
-
-/*
-\defgroup xt-motif-examples 
-
-\title TQt Xt/Motif Support Extension
-
-The following example programs illustrate the use of the TQt Xt/Motif Extension
-assisting in the migration process of old Xt and Motif based code
-to the more comfortable TQt toolkit.
-
-For more information see the \link xt.html TQt Xt/Motif Support
-Extension documentation. \endlink
-*/
-
 /*! \defgroup step-by-step-examples
 
 \title Step-by-step Examples
@@ -499,7 +450,7 @@ programmers and try to make learning TQt as painless as possible.
 The non-GUI classes are general-purpose collection and string classes
 that may be used independently of the GUI classes.
 
-In particular, these classes do not depend on QApplication at all,
+In particular, these classes do not depend on TQApplication at all,
 and so can be used in non-GUI programs.
 
 See also the \link collection.html introduction to the TQt collection
@@ -569,11 +520,6 @@ These classes deal with shared libraries, (e.g. .so and DLL files),
 and with TQt plugins. 
 
 See the \link plugins-howto.html plugins documentation\endlink.
-
-
-See also the \link activentqt.html ActiveQt framework\endlink for
-Windows.
-
 */
 
 /*! \defgroup organizers
@@ -738,11 +684,11 @@ and \link signalsandslots.html Signals and Slots\endlink.
 These classes provide support for graphics, sound, animation etc.
 */
 
-/*! \defgroup qtl
+/*! \defgroup tqtl
 
 \title TQt Template Library Classes
 
-The TQt Template Library (QTL) is a set of templates that provide
+The TQt Template Library (TQTL) is a set of templates that provide
 object containers. See the \link qt-template-lib.html TQt Template
 Library\endlink.
 
@@ -770,13 +716,6 @@ These classes are relevant to threaded applications.
 \title XML
 
 These classes are relevant to XML users.
-*/
-
-/*! \defgroup qws
-
-\title Qt/Embedded
-
-These classes are relevant to Qt/Embedded users.
 */
 
 /*! \defgroup text

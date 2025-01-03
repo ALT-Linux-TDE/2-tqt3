@@ -10,7 +10,7 @@
 #ifndef LISTBOX_COMBO_H
 #define LISTBOX_COMBO_H
 
-#include <ntqvbox.h>
+#include <tqvbox.h>
 
 class TQListBox;
 class TQLabel;

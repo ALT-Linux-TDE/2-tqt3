@@ -7,12 +7,12 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqcursor.h>
-#include <ntqsplitter.h>
-#include <ntqlistbox.h>
-#include <ntqiconview.h>
-#include <ntqpixmap.h>
+#include <tqapplication.h>
+#include <tqcursor.h>
+#include <tqsplitter.h>
+#include <tqlistbox.h>
+#include <tqiconview.h>
+#include <tqpixmap.h>
 
 class TQDragEnterEvent;
 class TQDragDropEvent;

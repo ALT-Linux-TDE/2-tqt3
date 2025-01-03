@@ -32,14 +32,14 @@
 **********************************************************************/
 
 #include "sourcefile.h"
-#include <ntqfile.h>
-#include <ntqtextstream.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
 #include "designerappiface.h"
 #include "sourceeditor.h"
 #include "metadatabase.h"
 #include "../interfaces/languageinterface.h"
-#include <ntqfiledialog.h>
-#include <ntqmessagebox.h>
+#include <tqfiledialog.h>
+#include <tqmessagebox.h>
 #include "mainwindow.h"
 #include "workspace.h"
 #include <stdlib.h>

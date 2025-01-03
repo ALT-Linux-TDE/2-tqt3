@@ -36,7 +36,7 @@
 
 class FormWindow;
 
-#include <ntqtable.h>
+#include <tqtable.h>
 
 class SenderItem;
 class ReceiverItem;

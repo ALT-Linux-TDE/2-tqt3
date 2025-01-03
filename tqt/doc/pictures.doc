@@ -42,7 +42,7 @@
 \title Pictures of Most TQt Widgets
 
 Most of these widgets are shown in either Motif or Windows style. 
-All widgets are supported in both styles (and other \link QStyle
+All widgets are supported in both styles (and other \link TQStyle
 styles\endlink), but for clarity we just present a selection.
 
 Qt provides more widgets than the selection shown below. And extra Qt
@@ -60,64 +60,64 @@ shows off many of Qt's widgets. (The source is in \c{examples/demo}.
 \endomit
 
 
-Below we have three views seperated by \l {QSplitter}s. At the
-top-left there's a \l QListBox, at the top-right there's a \l
-QListView with a \l QHeader and two \l {QScrollBar}s. And at the
-bottom there's a \l QIconView.
+Below we have three views seperated by \l {TQSplitter}s. At the
+top-left there's a \l TQListBox, at the top-right there's a \l
+TQListView with a \l TQHeader and two \l {TQScrollBar}s. And at the
+bottom there's a \l TQIconView.
 
 \img splitter-views-w.png
 
-Below we present a \l QMainWindow which has
-a \l QMenuBar and some \l {QToolBar}s that contain
-various widgets, e.g. \l {QToolButton}s and \l {QComboBox}es. The central
-widget is a \l QWorkspace which is used for MDI window management and
-which contains an MDI-Window featuring a \l QTextEdit. At the bottom
-you see a \l QStatusBar and at the bottom-right a \l QSizeGrip.
+Below we present a \l TQMainWindow which has
+a \l TQMenuBar and some \l {TQToolBar}s that contain
+various widgets, e.g. \l {TQToolButton}s and \l {TQComboBox}es. The central
+widget is a \l TQWorkspace which is used for MDI window management and
+which contains an MDI-Window featuring a \l TQTextEdit. At the bottom
+you see a \l TQStatusBar and at the bottom-right a \l TQSizeGrip.
 
 \img mainwindow-w.png
 
-The image below shows a \l QFileDialog. On the Macintosh and Windows
-platforms you can either use a QFileDialog or the native file
-dialog. This is explained in the \l QFileDialog class documentation.
+The image below shows a \l TQFileDialog. On the Macintosh and Windows
+platforms you can either use a TQFileDialog or the native file
+dialog. This is explained in the \l TQFileDialog class documentation.
 
-\img qfiledlg-w.png
+\img tqfiledlg-w.png
 
-Below is a QPrintDialog. On Macintosh and Windows the native print
-dialog is used, but for other platforms we provide QPrintDialog. Use
-QPrinter::setup() for portability instead of the QPrintDialog if you
+Below is a TQPrintDialog. On Macintosh and Windows the native print
+dialog is used, but for other platforms we provide TQPrintDialog. Use
+TQPrinter::setup() for portability instead of the TQPrintDialog if you
 need to be platform independent.
 
-\img qprintdlg-m.png
+\img tqprintdlg-m.png
 
-Below is a \l QFontDialog.
+Below is a \l TQFontDialog.
 
-\img qfontdlg-w.png
+\img tqfontdlg-w.png
 \caption Windows
 
-The screenshot below shows a \l QColorDialog.
+The screenshot below shows a \l TQColorDialog.
 
-\img qcolordlg-w.png
+\img tqcolordlg-w.png
 
-Messages are presented using \l{QMessageBox}es, as shown below.
+Messages are presented using \l{TQMessageBox}es, as shown below.
 
 \img qmsgbox-w.png
 
-The image below shows a \l QProgressDialog. The \l QProgressBar can
+The image below shows a \l TQProgressDialog. The \l TQProgressBar can
 also be used as a separate widget.
 
 \img qprogdlg-w.png
 
-In the screenshot below we have a \l QGroupBox that contains a \l
-QLineEdit, a read-only \l QComboBox and an editable \l QComboBox.
+In the screenshot below we have a \l TQGroupBox that contains a \l
+TQLineEdit, a read-only \l TQComboBox and an editable \l TQComboBox.
 
 \img groupbox-w.png
 
-The screenshot below shows a \l QPopupMenu.
+The screenshot below shows a \l TQPopupMenu.
 
 \img qpopmenu-w.png
 
-In the screenshot below there's a \l QButtonGroup containing four \l
-{QRadioButton}s and two \l {QCheckBox}es.
+In the screenshot below there's a \l TQButtonGroup containing four \l
+{TQRadioButton}s and two \l {TQCheckBox}es.
 
 \img buttongroup-w.png
 
@@ -125,23 +125,23 @@ In the screenshot below there's a \l QButtonGroup containing four \l
 THIS IMAGE DOESN'T SHOW ANYTHING UNDERSTANDABLY USEFUL
 
 All views in the first screenshot are widgets derived from a \l
-QScrollView. But this class can also manage lots of child-widgets,
+TQScrollView. But this class can also manage lots of child-widgets,
 like in this screenshot.
 
-\img qscrollview-m.png
+\img tqscrollview-m.png
 \endomit
 
-The screenshot below shows a \l QTabDialog. The tabs (\l QTabBar) or the
-more convenient class \l QTabWidget, which combines a tab bar with
+The screenshot below shows a \l TQTabDialog. The tabs (\l TQTabBar) or the
+more convenient class \l TQTabWidget, which combines a tab bar with
 the pages, can be used separately. In the visible page you see a \l
-QLabel, the range controls \l QSlider and \l QSpinBox and below a \l
-QLCDNumber. In the bottom row there are some \l {QPushButton}s.
+TQLabel, the range controls \l TQSlider and \l TQSpinBox and below a \l
+TQLCDNumber. In the bottom row there are some \l {TQPushButton}s.
 
-\img qtabdlg-w.png
+\img tqtabdlg-w.png
 
-In the screenshot below there's a \l QTextBrowser displaying a HTML
-page. See also \l QTextEdit.
+In the screenshot below there's a \l TQTextBrowser displaying a HTML
+page. See also \l TQTextEdit.
 
-\img qtextbrowser-w.png
+\img tqtextbrowser-w.png
 
 */

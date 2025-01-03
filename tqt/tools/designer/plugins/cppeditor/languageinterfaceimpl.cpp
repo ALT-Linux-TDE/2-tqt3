@@ -33,11 +33,11 @@
 **********************************************************************/
 
 #include "languageinterfaceimpl.h"
-#include <ntqobject.h>
+#include <tqobject.h>
 #include <designerinterface.h>
-#include <ntqfile.h>
+#include <tqfile.h>
 #include "yyreg.h"
-#include <ntqmetaobject.h>
+#include <tqmetaobject.h>
 
 LanguageInterfaceImpl::LanguageInterfaceImpl( TQUnknownInterface *outer )
     : parent( outer ), ref( 0 )

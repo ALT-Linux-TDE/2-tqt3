@@ -38,8 +38,8 @@
 **
 **********************************************************************/
 
-#include <ntqsqldriverplugin.h>
-#include "../../../../src/sql/drivers/sqlite/qsql_sqlite.h"
+#include <tqsqldriverplugin.h>
+#include "../../../../src/sql/drivers/sqlite/tqsql_sqlite.h"
 
 class TQSQLiteDriverPlugin : public TQSqlDriverPlugin
 {

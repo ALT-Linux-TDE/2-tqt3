@@ -34,7 +34,7 @@
 #ifndef WORKSPACE_H
 #define WORKSPACE_H
 
-#include <ntqlistview.h>
+#include <tqlistview.h>
 
 class FormWindow;
 class TQResizeEvent;

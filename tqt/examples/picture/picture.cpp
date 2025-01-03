@@ -7,13 +7,13 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqpainter.h>
-#include <ntqpicture.h>
-#include <ntqpixmap.h>
-#include <ntqwidget.h>
-#include <ntqmessagebox.h>
-#include <ntqfile.h>
+#include <tqapplication.h>
+#include <tqpainter.h>
+#include <tqpicture.h>
+#include <tqpixmap.h>
+#include <tqwidget.h>
+#include <tqmessagebox.h>
+#include <tqfile.h>
 #include <ctype.h>
 
 

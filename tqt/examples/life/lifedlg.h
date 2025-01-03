@@ -10,8 +10,8 @@
 #ifndef LIFEDLG_H
 #define LIFEDLG_H
 
-#include <ntqtimer.h>
-#include <ntqwidget.h>
+#include <tqtimer.h>
+#include <tqwidget.h>
 
 class TQSlider;
 class TQPushButton;

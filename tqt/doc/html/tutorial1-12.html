@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:1711 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -55,13 +54,13 @@ implementation.
 
 <p> <pre>    class TQLabel;
 </pre>
-<p> We name declare <a href="ntqlabel.html">TQLabel</a> because we want to use a pointer to it in the class
+<p> We name declare <a href="tqlabel.html">TQLabel</a> because we want to use a pointer to it in the class
 definition.
-<p> <pre>    class LCDRange : public <a href="ntqvbox.html">TQVBox</a>
+<p> <pre>    class LCDRange : public <a href="tqvbox.html">TQVBox</a>
     {
         <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
     public:
-        LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+        LCDRange( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
         LCDRange( const char *s, TQWidget *parent=0,
                   const char *name=0 );
 </pre>
@@ -78,7 +77,7 @@ the parent and name.
 </pre>
 <p> Because we now have two constructors, we have chosen to put the common
 initialization in the private init() function.
-<p> <pre>        <a href="ntqlabel.html">TQLabel</a>      *label;
+<p> <pre>        <a href="tqlabel.html">TQLabel</a>      *label;
 </pre>
 <p> We also have a new private variable: a TQLabel. TQLabel is one of TQt's
 standard widgets and can show a text or a pixmap with or without a
@@ -87,11 +86,11 @@ frame.
 </h3>
 <a name="1-2"></a><p> 
 
-<p> <pre>    #include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
+<p> <pre>    #include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
 </pre>
-<p> Here we include the <a href="ntqlabel.html">TQLabel</a> class definition.
-<p> <pre>    LCDRange::LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-            : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+<p> Here we include the <a href="tqlabel.html">TQLabel</a> class definition.
+<p> <pre>    LCDRange::LCDRange( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+            : <a href="tqvbox.html">TQVBox</a>( parent, name )
     {
         init();
     }
@@ -100,7 +99,7 @@ frame.
 initialization code.
 <p> <pre>    LCDRange::LCDRange( const char *s, TQWidget *parent,
                         const char *name )
-            : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+            : <a href="tqvbox.html">TQVBox</a>( parent, name )
     {
         init();
         setText( s );
@@ -109,35 +108,35 @@ initialization code.
 <p> This constructor first calls init() and then sets the label text.
 <p> <pre>    void LCDRange::init()
     {
-        <a href="ntqlcdnumber.html">TQLCDNumber</a> *lcd  = new <a href="ntqlcdnumber.html">TQLCDNumber</a>( 2, this, "lcd"  );
-        slider = new <a href="ntqslider.html">TQSlider</a>( Horizontal, this, "slider" );
-    <a name="x2387"></a>    slider-&gt;<a href="ntqrangecontrol.html#setRange">setRange</a>( 0, 99 );
-    <a name="x2388"></a>    slider-&gt;<a href="ntqslider.html#setValue">setValue</a>( 0 );
+        <a href="tqlcdnumber.html">TQLCDNumber</a> *lcd  = new <a href="tqlcdnumber.html">TQLCDNumber</a>( 2, this, "lcd"  );
+        slider = new <a href="tqslider.html">TQSlider</a>( Horizontal, this, "slider" );
+    <a name="x2387"></a>    slider-&gt;<a href="tqrangecontrol.html#setRange">setRange</a>( 0, 99 );
+    <a name="x2388"></a>    slider-&gt;<a href="tqslider.html#setValue">setValue</a>( 0 );
 
-        label = new <a href="ntqlabel.html">TQLabel</a>( " ", this, "label"  );
-    <a name="x2383"></a>    label-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
+        label = new <a href="tqlabel.html">TQLabel</a>( " ", this, "label"  );
+    <a name="x2383"></a>    label-&gt;<a href="tqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
 
-    <a name="x2389"></a>    <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
-    <a name="x2386"></a>             lcd, TQ_SLOT(<a href="ntqlcdnumber.html#display">display</a>(int)) );
-        <a href="ntqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="ntqslider.html#valueChanged">valueChanged</a>(int)),
+    <a name="x2389"></a>    <a href="tqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="tqslider.html#valueChanged">valueChanged</a>(int)),
+    <a name="x2386"></a>             lcd, TQ_SLOT(<a href="tqlcdnumber.html#display">display</a>(int)) );
+        <a href="tqobject.html#connect">connect</a>( slider, TQ_SIGNAL(<a href="tqslider.html#valueChanged">valueChanged</a>(int)),
                  TQ_SIGNAL(valueChanged(int)) );
 
-        <a href="ntqwidget.html#setFocusProxy">setFocusProxy</a>( slider );
+        <a href="tqwidget.html#setFocusProxy">setFocusProxy</a>( slider );
     }
 </pre>
 <p> The setup of <tt>lcd</tt> and <tt>slider</tt> is the same as in the previous
-chapter. Next we create a <a href="ntqlabel.html">TQLabel</a> and tell it to align the contents
+chapter. Next we create a <a href="tqlabel.html">TQLabel</a> and tell it to align the contents
 centered (both vertically and horizontally). The connect() statements
 have also been taken from the previous chapter.
 <p> <pre>    const char *LCDRange::text() const
     {
-    <a name="x2385"></a>    return label-&gt;<a href="ntqlabel.html#text">text</a>();
+    <a name="x2385"></a>    return label-&gt;<a href="tqlabel.html#text">text</a>();
     }
 </pre>
 <p> This function returns the label text.
 <p> <pre>    void LCDRange::setText( const char *s )
     {
-    <a name="x2384"></a>    label-&gt;<a href="ntqlabel.html#setText">setText</a>( s );
+    <a name="x2384"></a>    label-&gt;<a href="tqlabel.html#setText">setText</a>( s );
     }
 </pre>
 <p> This function sets the label text.
@@ -158,22 +157,22 @@ it contains a target.
 signal is emitted when the shot moves beyond the right or bottom edge
 of the widget (i.e., it is certain that it has not and will not
 hit the target).
-<p> <pre>        void  paintTarget( <a href="ntqpainter.html">TQPainter</a> * );
+<p> <pre>        void  paintTarget( <a href="tqpainter.html">TQPainter</a> * );
 </pre>
 <p> This private function paints the target.
-<p> <pre>        <a href="ntqrect.html">TQRect</a> targetRect() const;
+<p> <pre>        <a href="tqrect.html">TQRect</a> targetRect() const;
 </pre>
 <p> This private function returns the enclosing rectangle of the target.
-<p> <pre>        <a href="ntqpoint.html">TQPoint</a> target;
+<p> <pre>        <a href="tqpoint.html">TQPoint</a> target;
 </pre>
 <p> This private variable contains the center point of the target.
 <p> <h3> <a href="t12-cannon-cpp.html">t12/cannon.cpp</a>
 </h3>
 <a name="1-4"></a><p> 
 
-<p> <pre>    #include &lt;<a href="qdatetime-h.html">ntqdatetime.h</a>&gt;
+<p> <pre>    #include &lt;<a href="tqdatetime-h.html">tqdatetime.h</a>&gt;
 </pre>
-<p> We include the <a href="qdate.html">TQDate</a>, <a href="qtime.html">TQTime</a>, and <a href="ntqdatetime.html">TQDateTime</a> class definitions.
+<p> We include the <a href="tqdate.html">TQDate</a>, <a href="tqtime.html">TQTime</a>, and <a href="tqdatetime.html">TQDateTime</a> class definitions.
 <p> <pre>    #include &lt;stdlib.h&gt;
 </pre>
 <p> We include the stdlib library because we need the rand() function.
@@ -189,13 +188,13 @@ repaint() on a hidden widget.
         static bool first_time = TRUE;
         if ( first_time ) {
             first_time = FALSE;
-            <a href="qtime.html">TQTime</a> midnight( 0, 0, 0 );
-    <a name="x2399"></a><a name="x2398"></a>        srand( midnight.<a href="qtime.html#secsTo">secsTo</a>(TQTime::<a href="qtime.html#currentTime">currentTime</a>()) );
+            <a href="tqtime.html">TQTime</a> midnight( 0, 0, 0 );
+    <a name="x2399"></a><a name="x2398"></a>        srand( midnight.<a href="tqtime.html#secsTo">secsTo</a>(TQTime::<a href="tqtime.html#currentTime">currentTime</a>()) );
         }
-        <a href="ntqregion.html">TQRegion</a> r( targetRect() );
+        <a href="tqregion.html">TQRegion</a> r( targetRect() );
         target = TQPoint( 200 + rand() % 190,
                          10  + rand() % 255 );
-    <a name="x2395"></a>    <a href="ntqwidget.html#repaint">repaint</a>( r.<a href="ntqrect.html#unite">unite</a>( targetRect() ) );
+    <a name="x2395"></a>    <a href="tqwidget.html#repaint">repaint</a>( r.<a href="tqrect.html#unite">unite</a>( targetRect() ) );
     }
 </pre>
 <p> This private function creates a target center point at a new "random"
@@ -211,10 +210,10 @@ passed since midnight as a pseudo-random value.
 this one is guaranteed to keep its value between calls to the function.
 <p> The <tt>if</tt> test will succeed only the first time this function is called
 because we set <tt>first_time</tt> to FALSE inside the <tt>if</tt> block.
-<p> Then we create the <a href="qtime.html">TQTime</a> object <tt>midnight</tt>, which represents the time
+<p> Then we create the <a href="tqtime.html">TQTime</a> object <tt>midnight</tt>, which represents the time
 00:00:00. Next we fetch the number of seconds from midnight until
-now and use it as a random seed. See the documentation for <a href="qdate.html">TQDate</a>,
-<a href="qtime.html">TQTime</a>, and <a href="ntqdatetime.html">TQDateTime</a> for more information.
+now and use it as a random seed. See the documentation for <a href="tqdate.html">TQDate</a>,
+<a href="tqtime.html">TQTime</a>, and <a href="tqdatetime.html">TQDateTime</a> for more information.
 <p> Finally we calculate the target's center point. We keep it within
 the rectangle (x=200, y=35, width=190, height=255), (i.e., the
 possible x and y values are x = 200..389 and y = 35..289) in a
@@ -225,14 +224,14 @@ the left edge and with x values increasing to the right.
 <p> Note that rand() returns a random integer >= 0.
 <p> <pre>    void CannonField::moveShot()
     {
-        <a href="ntqregion.html">TQRegion</a> r( shotRect() );
+        <a href="tqregion.html">TQRegion</a> r( shotRect() );
         timerCount++;
 
-        <a href="ntqrect.html">TQRect</a> shotR = shotRect();
+        <a href="tqrect.html">TQRect</a> shotR = shotRect();
 </pre>
 <p> This part of the timer event has not changed from the previous chapter.
-<p> <pre>        if ( shotR.<a href="ntqrect.html#intersects">intersects</a>( targetRect() ) ) {
-    <a name="x2400"></a>        autoShootTimer-&gt;<a href="ntqtimer.html#stop">stop</a>();
+<p> <pre>        if ( shotR.<a href="tqrect.html#intersects">intersects</a>( targetRect() ) ) {
+    <a name="x2400"></a>        autoShootTimer-&gt;<a href="tqtimer.html#stop">stop</a>();
             emit hit();
 </pre>
 <p> This <tt>if</tt> statement checks whether the shot rectangle intersects the
@@ -242,8 +241,8 @@ world that a target was destroyed, and return.
 <p> Note that we could have created a new target on the spot, but because the
 CannonField is a component we leave such decisions to the user of the
 component.
-<p> <pre>    <a name="x2397"></a><a name="x2396"></a>    } else if ( shotR.<a href="ntqrect.html#x">x</a>() &gt; width() || shotR.<a href="ntqrect.html#y">y</a>() &gt; height() ) {
-            autoShootTimer-&gt;<a href="ntqtimer.html#stop">stop</a>();
+<p> <pre>    <a name="x2397"></a><a name="x2396"></a>    } else if ( shotR.<a href="tqrect.html#x">x</a>() &gt; width() || shotR.<a href="tqrect.html#y">y</a>() &gt; height() ) {
+            autoShootTimer-&gt;<a href="tqtimer.html#stop">stop</a>();
             emit missed();
 </pre>
 <p> This <tt>if</tt> statement is the same as in the previous chapter, except that
@@ -254,30 +253,30 @@ failure.
 <p> And the rest of the function is as before.
 <p> CannonField::paintEvent() is as before, except that this has been
 added:
-<p> <pre>    <a name="x2393"></a>    if ( updateR.<a href="ntqrect.html#intersects">intersects</a>( targetRect() ) )
+<p> <pre>    <a name="x2393"></a>    if ( updateR.<a href="tqrect.html#intersects">intersects</a>( targetRect() ) )
             paintTarget( &amp;p );
 </pre>
 <p> These two lines make sure that the target is also painted when necessary.
-<p> <pre>    void CannonField::paintTarget( <a href="ntqpainter.html">TQPainter</a> *p )
+<p> <pre>    void CannonField::paintTarget( <a href="tqpainter.html">TQPainter</a> *p )
     {
-        p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( red );
-        p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( black );
-        p-&gt;<a href="ntqpainter.html#drawRect">drawRect</a>( targetRect() );
+        p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( red );
+        p-&gt;<a href="tqpainter.html#setPen">setPen</a>( black );
+        p-&gt;<a href="tqpainter.html#drawRect">drawRect</a>( targetRect() );
     }
 </pre>
 <p> This private function paints the target; a rectangle filled with red and
 with a black outline.
 <p> <pre>    TQRect CannonField::targetRect() const
     {
-        <a href="ntqrect.html">TQRect</a> r( 0, 0, 20, 10 );
-    <a name="x2394"></a>    r.<a href="ntqrect.html#moveCenter">moveCenter</a>( TQPoint(target.x(),height() - 1 - target.y()) );
+        <a href="tqrect.html">TQRect</a> r( 0, 0, 20, 10 );
+    <a name="x2394"></a>    r.<a href="tqrect.html#moveCenter">moveCenter</a>( TQPoint(target.x(),height() - 1 - target.y()) );
         return r;
     }
 </pre>
 <p> This private function returns the enclosing rectangle of the target.
 Remember from newTarget() that the <tt>target</tt> point uses y coordinate 0 at
 the bottom of the widget. We calculate the point in widget coordinates
-before we call <a href="ntqrect.html#moveCenter">TQRect::moveCenter</a>().
+before we call <a href="tqrect.html#moveCenter">TQRect::moveCenter</a>().
 <p> The reason we have chosen this coordinate mapping is to fix the distance
 between the target and the bottom of the widget. Remember that the widget
 can be resized by the user or the program at any time.
@@ -296,7 +295,7 @@ changed the constructor to set the new LCDRange text labels.
 <p> <h2> Behavior
 </h2>
 <a name="2"></a><p> The LCDRange widgets look a bit strange - the built-in layout
-management in <a href="ntqvbox.html">TQVBox</a> gives the labels too much space and the rest not
+management in <a href="tqvbox.html">TQVBox</a> gives the labels too much space and the rest not
 enough. We'll fix that in the next chapter.
 <p> (See <a href="tutorial1-07.html#compiling">Compiling</a> for how to create a
 makefile and build the application.)
@@ -305,12 +304,12 @@ makefile and build the application.)
 <a name="3"></a><p> Make a cheat button that, when pressed, makes the CannonField display
 the shot trajectory for five seconds.
 <p> If you did the "round shot" exercise from the previous chapter, try
-changing the shotRect() to a shotRegion() that returns a <a href="ntqregion.html">TQRegion</a> so
+changing the shotRect() to a shotRegion() that returns a <a href="tqregion.html">TQRegion</a> so
 you can have really accurate collision detection.
 <p> Make a moving target.
 <p> Make sure that the target is always created entirely on-screen.
 <p> Make sure that the widget cannot be resized so that the target isn't
-visible. Hint: <a href="ntqwidget.html#setMinimumSize">TQWidget::setMinimumSize</a>() is your friend.
+visible. Hint: <a href="tqwidget.html#setMinimumSize">TQWidget::setMinimumSize</a>() is your friend.
 <p> Not easy; make it possible to have several shots in the air at the
 same time. Hint: make a Shot object.
 <p> You're now ready for <a href="tutorial1-13.html">Chapter 13.</a>

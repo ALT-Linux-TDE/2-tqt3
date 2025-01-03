@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/themes/themes.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -57,73 +56,73 @@ during runtime using the pulldown menu.
 #define WOOD_H
 
 
-#include &lt;<a href="qpalette-h.html">ntqpalette.h</a>&gt;
+#include &lt;<a href="tqpalette-h.html">tqpalette.h</a>&gt;
 
 #ifndef TQT_NO_STYLE_WINDOWS
 
-#include &lt;<a href="qwindowsstyle-h.html">ntqwindowsstyle.h</a>&gt;
+#include &lt;<a href="tqwindowsstyle-h.html">tqwindowsstyle.h</a>&gt;
 
 
-class NorwegianWoodStyle : public <a href="ntqwindowsstyle.html">TQWindowsStyle</a>
+class NorwegianWoodStyle : public <a href="tqwindowsstyle.html">TQWindowsStyle</a>
 {
 public:
     NorwegianWoodStyle();
-    void polish( <a href="ntqapplication.html">TQApplication</a>*);
-    void polish( <a href="ntqwidget.html">TQWidget</a>* );
-    void unPolish( <a href="ntqwidget.html">TQWidget</a>* );
-    void unPolish( <a href="ntqapplication.html">TQApplication</a>*);
+    void polish( <a href="tqapplication.html">TQApplication</a>*);
+    void polish( <a href="tqwidget.html">TQWidget</a>* );
+    void unPolish( <a href="tqwidget.html">TQWidget</a>* );
+    void unPolish( <a href="tqapplication.html">TQApplication</a>*);
 
     void drawPrimitive( PrimitiveElement pe,
-                        <a href="ntqpainter.html">TQPainter</a> *p,
-                        const <a href="ntqrect.html">TQRect</a> &amp;r,
-                        const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+                        <a href="tqpainter.html">TQPainter</a> *p,
+                        const <a href="tqrect.html">TQRect</a> &amp;r,
+                        const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                         SFlags flags = Style_Default,
-                        const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
+                        const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
 
     void drawControl( ControlElement element,
-                      <a href="ntqpainter.html">TQPainter</a> *p,
-                      const <a href="ntqwidget.html">TQWidget</a> *widget,
-                      const <a href="ntqrect.html">TQRect</a> &amp;r,
-                      const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+                      <a href="tqpainter.html">TQPainter</a> *p,
+                      const <a href="tqwidget.html">TQWidget</a> *widget,
+                      const <a href="tqrect.html">TQRect</a> &amp;r,
+                      const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                       SFlags how = Style_Default,
-                      const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
+                      const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
 
     void drawControlMask( ControlElement element,
-                          <a href="ntqpainter.html">TQPainter</a> *p,
-                          const <a href="ntqwidget.html">TQWidget</a> *widget,
-                          const <a href="ntqrect.html">TQRect</a> &amp;r,
-                          const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
+                          <a href="tqpainter.html">TQPainter</a> *p,
+                          const <a href="tqwidget.html">TQWidget</a> *widget,
+                          const <a href="tqrect.html">TQRect</a> &amp;r,
+                          const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
 
     void drawComplexControl( ComplexControl cc,
-                             <a href="ntqpainter.html">TQPainter</a> *p,
-                             const <a href="ntqwidget.html">TQWidget</a> *widget,
-                             const <a href="ntqrect.html">TQRect</a> &amp;r,
-                             const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+                             <a href="tqpainter.html">TQPainter</a> *p,
+                             const <a href="tqwidget.html">TQWidget</a> *widget,
+                             const <a href="tqrect.html">TQRect</a> &amp;r,
+                             const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                              SFlags how = Style_Default,
                              SCFlags sub = SC_All,
                              SCFlags subActive = SC_None,
-                             const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
+                             const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
 
     void drawComplexControlMask( ComplexControl control,
-                                 <a href="ntqpainter.html">TQPainter</a> *p,
-                                 const <a href="ntqwidget.html">TQWidget</a> *widget,
-                                 const <a href="ntqrect.html">TQRect</a> &amp;r,
-                                 const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
+                                 <a href="tqpainter.html">TQPainter</a> *p,
+                                 const <a href="tqwidget.html">TQWidget</a> *widget,
+                                 const <a href="tqrect.html">TQRect</a> &amp;r,
+                                 const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
 
-    <a href="ntqrect.html">TQRect</a> querySubControlMetrics( ComplexControl control,
-                                  const <a href="ntqwidget.html">TQWidget</a> *widget,
+    <a href="tqrect.html">TQRect</a> querySubControlMetrics( ComplexControl control,
+                                  const <a href="tqwidget.html">TQWidget</a> *widget,
                                   SubControl sc,
-                                  const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
+                                  const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
 
-    <a href="ntqrect.html">TQRect</a> subRect( SubRect r, const <a href="ntqwidget.html">TQWidget</a> *widget ) const;
+    <a href="tqrect.html">TQRect</a> subRect( SubRect r, const <a href="tqwidget.html">TQWidget</a> *widget ) const;
 
 
 private:
-    void drawSemicircleButton(TQPainter *p, const <a href="ntqrect.html">TQRect</a> &amp;r, int dir,
-                              bool sunken, const <a href="qcolorgroup.html">TQColorGroup</a> &amp;g ) const;
-    <a href="ntqpalette.html">TQPalette</a> oldPalette;
-    <a href="ntqpixmap.html">TQPixmap</a> *sunkenDark;
-    <a href="ntqpixmap.html">TQPixmap</a> *sunkenLight;
+    void drawSemicircleButton(TQPainter *p, const <a href="tqrect.html">TQRect</a> &amp;r, int dir,
+                              bool sunken, const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;g ) const;
+    <a href="tqpalette.html">TQPalette</a> oldPalette;
+    <a href="tqpixmap.html">TQPixmap</a> *sunkenDark;
+    <a href="tqpixmap.html">TQPixmap</a> *sunkenLight;
 
 };
 
@@ -148,21 +147,21 @@ private:
 
 #ifndef TQT_NO_STYLE_WINDOWS
 
-#include "ntqapplication.h"
-#include "ntqcombobox.h"
-#include "ntqpainter.h"
-#include "ntqdrawutil.h" // for now
-#include "ntqpixmap.h" // for now
-#include "ntqpalette.h" // for now
-#include "ntqwidget.h"
-#include "ntqlabel.h"
-#include "ntqimage.h"
-#include "ntqpushbutton.h"
-#include "ntqwidget.h"
-#include "ntqrangecontrol.h"
-#include "ntqscrollbar.h"
+#include "tqapplication.h"
+#include "tqcombobox.h"
+#include "tqpainter.h"
+#include "tqdrawutil.h" // for now
+#include "tqpixmap.h" // for now
+#include "tqpalette.h" // for now
+#include "tqwidget.h"
+#include "tqlabel.h"
+#include "tqimage.h"
+#include "tqpushbutton.h"
+#include "tqwidget.h"
+#include "tqrangecontrol.h"
+#include "tqscrollbar.h"
 #include &lt;limits.h&gt;
-#include "ntqstylefactory.h"
+#include "tqstylefactory.h"
 
 /* XPM */
 static const char *polish_xpm[] = {
@@ -882,14 +881,14 @@ static const char *button_xpm[] = {
 ".rb..g.e#s.YaPbV#z.wbnbV.wbn#Dbn.OaP.4.y.4#N.K.K#T#t.U.Q#z.w#F#YazanaNan.bap#Ga0az#0#P#b#KbR.Z#aaz#ibK#h#u.wbC#B#b.1bebs#B#D#baLbcbA.k#P#G#E#S#2.K.8bAbL.Tbw.6.K#G#0.wbVbVbV#s#s.e.Oba.K.4aT.k.0"
 };
 
-static void drawroundrect( <a href="ntqpainter.html">TQPainter</a> *p, TQCOORD x, TQCOORD y,
+static void drawroundrect( <a href="tqpainter.html">TQPainter</a> *p, TQCOORD x, TQCOORD y,
                            TQCOORD w, TQCOORD h, TQCOORD d );
 
 static inline int buttonthickness( int d );
 
-static TQRegion roundRectRegion( const <a href="ntqrect.html">TQRect</a>&amp; g, int r );
+static TQRegion roundRectRegion( const <a href="tqrect.html">TQRect</a>&amp; g, int r );
 
-static void get_combo_parameters( const <a href="ntqrect.html">TQRect</a> &amp;r,
+static void get_combo_parameters( const <a href="tqrect.html">TQRect</a> &amp;r,
                                   int &amp;ew, int &amp;awh, int &amp;ax,
                                   int &amp;ay, int &amp;sh, int &amp;dh,
                                   int &amp;sy );
@@ -899,210 +898,210 @@ static int get_combo_extra_width( int h, int *return_awh = 0 );
 enum { PointUp, PointDown, PointLeft, PointRight };
 
 
-<a name="f225"></a>NorwegianWoodStyle::NorwegianWoodStyle() : <a href="ntqwindowsstyle.html">TQWindowsStyle</a>()
+<a name="f225"></a>NorwegianWoodStyle::NorwegianWoodStyle() : <a href="tqwindowsstyle.html">TQWindowsStyle</a>()
 {
 }
 
 /*!
   Reimplementation from TQStyle
  */
-<a name="x261"></a>void NorwegianWoodStyle::<a href="ntqstyle.html#polish">polish</a>( <a href="ntqapplication.html">TQApplication</a> *app)
+<a name="x261"></a>void NorwegianWoodStyle::<a href="tqstyle.html#polish">polish</a>( <a href="tqapplication.html">TQApplication</a> *app)
 {
 
-<a name="x186"></a>    oldPalette = app-&gt;<a href="ntqapplication.html#palette">palette</a>();
+<a name="x186"></a>    oldPalette = app-&gt;<a href="tqapplication.html#palette">palette</a>();
 
     // we simply create a nice TQColorGroup with a couple of fancy wood
     // pixmaps here and apply to it all widgets
 
-    <a href="ntqimage.html">TQImage</a> img(button_xpm);
-    <a href="ntqimage.html">TQImage</a> orig = img;
-<a name="x208"></a>    orig.<a href="ntqimage.html#detach">detach</a>();
-    <a href="ntqpixmap.html">TQPixmap</a> button;
-<a name="x228"></a>    button.<a href="ntqpixmap.html#convertFromImage">convertFromImage</a>(img);
+    <a href="tqimage.html">TQImage</a> img(button_xpm);
+    <a href="tqimage.html">TQImage</a> orig = img;
+<a name="x208"></a>    orig.<a href="tqimage.html#detach">detach</a>();
+    <a href="tqpixmap.html">TQPixmap</a> button;
+<a name="x228"></a>    button.<a href="tqpixmap.html#convertFromImage">convertFromImage</a>(img);
 
 
     int i;
-<a name="x209"></a>    for (i=0; i&lt;img.<a href="ntqimage.html#numColors">numColors</a>(); i++) {
-<a name="x207"></a>        TQRgb rgb = img.<a href="ntqimage.html#color">color</a>(i);
-        <a href="ntqcolor.html">TQColor</a> c(rgb);
-<a name="x192"></a>        rgb = c.<a href="ntqcolor.html#dark">dark</a>(120).rgb();
-<a name="x210"></a>        img.<a href="ntqimage.html#setColor">setColor</a>(i,rgb);
+<a name="x209"></a>    for (i=0; i&lt;img.<a href="tqimage.html#numColors">numColors</a>(); i++) {
+<a name="x207"></a>        TQRgb rgb = img.<a href="tqimage.html#color">color</a>(i);
+        <a href="tqcolor.html">TQColor</a> c(rgb);
+<a name="x192"></a>        rgb = c.<a href="tqcolor.html#dark">dark</a>(120).rgb();
+<a name="x210"></a>        img.<a href="tqimage.html#setColor">setColor</a>(i,rgb);
     }
-    <a href="ntqpixmap.html">TQPixmap</a> mid;
-    mid.<a href="ntqpixmap.html#convertFromImage">convertFromImage</a>(img);
+    <a href="tqpixmap.html">TQPixmap</a> mid;
+    mid.<a href="tqpixmap.html#convertFromImage">convertFromImage</a>(img);
 
     img = orig;
-    img.<a href="ntqimage.html#detach">detach</a>();
-    for (i=0; i&lt;img.<a href="ntqimage.html#numColors">numColors</a>(); i++) {
-        TQRgb rgb = img.<a href="ntqimage.html#color">color</a>(i);
-        <a href="ntqcolor.html">TQColor</a> c(rgb);
-<a name="x193"></a>        rgb = c.<a href="ntqcolor.html#light">light</a>().rgb();
-        img.<a href="ntqimage.html#setColor">setColor</a>(i,rgb);
+    img.<a href="tqimage.html#detach">detach</a>();
+    for (i=0; i&lt;img.<a href="tqimage.html#numColors">numColors</a>(); i++) {
+        TQRgb rgb = img.<a href="tqimage.html#color">color</a>(i);
+        <a href="tqcolor.html">TQColor</a> c(rgb);
+<a name="x193"></a>        rgb = c.<a href="tqcolor.html#light">light</a>().rgb();
+        img.<a href="tqimage.html#setColor">setColor</a>(i,rgb);
     }
-    <a href="ntqpixmap.html">TQPixmap</a> light;
-    light.<a href="ntqpixmap.html#convertFromImage">convertFromImage</a>(img);
+    <a href="tqpixmap.html">TQPixmap</a> light;
+    light.<a href="tqpixmap.html#convertFromImage">convertFromImage</a>(img);
 
     img = orig;
-    img.<a href="ntqimage.html#detach">detach</a>();
-    for (i=0; i&lt;img.<a href="ntqimage.html#numColors">numColors</a>(); i++) {
-        TQRgb rgb = img.<a href="ntqimage.html#color">color</a>(i);
-        <a href="ntqcolor.html">TQColor</a> c(rgb);
-        rgb = c.<a href="ntqcolor.html#dark">dark</a>(180).rgb();
-        img.<a href="ntqimage.html#setColor">setColor</a>(i,rgb);
+    img.<a href="tqimage.html#detach">detach</a>();
+    for (i=0; i&lt;img.<a href="tqimage.html#numColors">numColors</a>(); i++) {
+        TQRgb rgb = img.<a href="tqimage.html#color">color</a>(i);
+        <a href="tqcolor.html">TQColor</a> c(rgb);
+        rgb = c.<a href="tqcolor.html#dark">dark</a>(180).rgb();
+        img.<a href="tqimage.html#setColor">setColor</a>(i,rgb);
     }
-    <a href="ntqpixmap.html">TQPixmap</a> dark;
-    dark.<a href="ntqpixmap.html#convertFromImage">convertFromImage</a>(img);
+    <a href="tqpixmap.html">TQPixmap</a> dark;
+    dark.<a href="tqpixmap.html#convertFromImage">convertFromImage</a>(img);
 
 
-    <a href="ntqimage.html">TQImage</a> bgimage(polish_xpm);
-    <a href="ntqpixmap.html">TQPixmap</a> background;
-    background.<a href="ntqpixmap.html#convertFromImage">convertFromImage</a>(bgimage);
+    <a href="tqimage.html">TQImage</a> bgimage(polish_xpm);
+    <a href="tqpixmap.html">TQPixmap</a> background;
+    background.<a href="tqpixmap.html#convertFromImage">convertFromImage</a>(bgimage);
 
     img = bgimage;
-    img.<a href="ntqimage.html#detach">detach</a>();
-    for (i=0; i&lt;img.<a href="ntqimage.html#numColors">numColors</a>(); i++) {
-        TQRgb rgb = img.<a href="ntqimage.html#color">color</a>(i);
-        <a href="ntqcolor.html">TQColor</a> c(rgb);
-        rgb = c.<a href="ntqcolor.html#dark">dark</a>(180).rgb();
-        img.<a href="ntqimage.html#setColor">setColor</a>(i,rgb);
+    img.<a href="tqimage.html#detach">detach</a>();
+    for (i=0; i&lt;img.<a href="tqimage.html#numColors">numColors</a>(); i++) {
+        TQRgb rgb = img.<a href="tqimage.html#color">color</a>(i);
+        <a href="tqcolor.html">TQColor</a> c(rgb);
+        rgb = c.<a href="tqcolor.html#dark">dark</a>(180).rgb();
+        img.<a href="tqimage.html#setColor">setColor</a>(i,rgb);
     }
-    sunkenDark = new <a href="ntqpixmap.html">TQPixmap</a>;
-    sunkenDark-&gt;<a href="ntqpixmap.html#convertFromImage">convertFromImage</a>(img);
+    sunkenDark = new <a href="tqpixmap.html">TQPixmap</a>;
+    sunkenDark-&gt;<a href="tqpixmap.html#convertFromImage">convertFromImage</a>(img);
 
 
     img = bgimage;
-    img.<a href="ntqimage.html#detach">detach</a>();
-    for (i=0; i&lt;img.<a href="ntqimage.html#numColors">numColors</a>(); i++) {
-        TQRgb rgb = img.<a href="ntqimage.html#color">color</a>(i);
-        <a href="ntqcolor.html">TQColor</a> c(rgb);
-        rgb = c.<a href="ntqcolor.html#light">light</a>(130).rgb();
-        img.<a href="ntqimage.html#setColor">setColor</a>(i,rgb);
+    img.<a href="tqimage.html#detach">detach</a>();
+    for (i=0; i&lt;img.<a href="tqimage.html#numColors">numColors</a>(); i++) {
+        TQRgb rgb = img.<a href="tqimage.html#color">color</a>(i);
+        <a href="tqcolor.html">TQColor</a> c(rgb);
+        rgb = c.<a href="tqcolor.html#light">light</a>(130).rgb();
+        img.<a href="tqimage.html#setColor">setColor</a>(i,rgb);
     }
-    sunkenLight= new <a href="ntqpixmap.html">TQPixmap</a>;
-    sunkenLight-&gt;<a href="ntqpixmap.html#convertFromImage">convertFromImage</a>(img);
+    sunkenLight= new <a href="tqpixmap.html">TQPixmap</a>;
+    sunkenLight-&gt;<a href="tqpixmap.html#convertFromImage">convertFromImage</a>(img);
 
 
 
-    <a href="ntqpalette.html">TQPalette</a> op(TQColor(212,140,95));
+    <a href="tqpalette.html">TQPalette</a> op(TQColor(212,140,95));
     // TQPalette op(white);
-<a name="x224"></a>    <a href="qcolorgroup.html">TQColorGroup</a> active (op.<a href="ntqpalette.html#active">active</a>().foreground(),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().button(),button),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().light(), light),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().dark(), dark),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().mid(), mid),
-                     op.<a href="ntqpalette.html#active">active</a>().text(),
+<a name="x224"></a>    <a href="tqcolorgroup.html">TQColorGroup</a> active (op.<a href="tqpalette.html#active">active</a>().foreground(),
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().button(),button),
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().light(), light),
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().dark(), dark),
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().mid(), mid),
+                     op.<a href="tqpalette.html#active">active</a>().text(),
                      TQt::white,
                      TQColor(236,182,120),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().background(), background)
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().background(), background)
                      );
-<a name="x225"></a>    <a href="qcolorgroup.html">TQColorGroup</a> disabled (op.<a href="ntqpalette.html#disabled">disabled</a>().foreground(),
-                     TQBrush(op.<a href="ntqpalette.html#disabled">disabled</a>().button(),button),
-                     TQBrush(op.<a href="ntqpalette.html#disabled">disabled</a>().light(), light),
-                     op.<a href="ntqpalette.html#disabled">disabled</a>().dark(),
-                     TQBrush(op.<a href="ntqpalette.html#disabled">disabled</a>().mid(), mid),
-                     op.<a href="ntqpalette.html#disabled">disabled</a>().text(),
+<a name="x225"></a>    <a href="tqcolorgroup.html">TQColorGroup</a> disabled (op.<a href="tqpalette.html#disabled">disabled</a>().foreground(),
+                     TQBrush(op.<a href="tqpalette.html#disabled">disabled</a>().button(),button),
+                     TQBrush(op.<a href="tqpalette.html#disabled">disabled</a>().light(), light),
+                     op.<a href="tqpalette.html#disabled">disabled</a>().dark(),
+                     TQBrush(op.<a href="tqpalette.html#disabled">disabled</a>().mid(), mid),
+                     op.<a href="tqpalette.html#disabled">disabled</a>().text(),
                      TQt::white,
                      TQColor(236,182,120),
-                     TQBrush(op.<a href="ntqpalette.html#disabled">disabled</a>().background(), background)
+                     TQBrush(op.<a href="tqpalette.html#disabled">disabled</a>().background(), background)
                      );
 
-<a name="x187"></a>   app-&gt;<a href="ntqapplication.html#setPalette">setPalette</a>(TQPalette(active, disabled, active), TRUE );
+<a name="x187"></a>   app-&gt;<a href="tqapplication.html#setPalette">setPalette</a>(TQPalette(active, disabled, active), TRUE );
 
 }
 
-<a name="x263"></a>void NorwegianWoodStyle::<a href="ntqstyle.html#unPolish">unPolish</a>( <a href="ntqapplication.html">TQApplication</a> *app)
+<a name="x263"></a>void NorwegianWoodStyle::<a href="tqstyle.html#unPolish">unPolish</a>( <a href="tqapplication.html">TQApplication</a> *app)
 {
-    app-&gt;<a href="ntqapplication.html#setPalette">setPalette</a>(oldPalette, TRUE);
+    app-&gt;<a href="tqapplication.html#setPalette">setPalette</a>(oldPalette, TRUE);
 }
 
 /*!
   Reimplementation from TQStyle
  */
-void NorwegianWoodStyle::<a href="ntqstyle.html#polish">polish</a>( <a href="ntqwidget.html">TQWidget</a>* w)
+void NorwegianWoodStyle::<a href="tqstyle.html#polish">polish</a>( <a href="tqwidget.html">TQWidget</a>* w)
 {
 
     // the polish function sets some widgets to transparent mode and
     // some to translate background mode in order to get the full
     // benefit from the nice pixmaps in the color group.
 
-<a name="x253"></a>    if ( !w-&gt;<a href="ntqwidget.html#isTopLevel">isTopLevel</a>() ) {
-<a name="x211"></a>        if ( w-&gt;<a href="ntqobject.html#inherits">inherits</a>("TQPushButton")
-             || w-&gt;<a href="ntqobject.html#inherits">inherits</a>("TQToolButton")
-             || w-&gt;<a href="ntqobject.html#inherits">inherits</a>("TQComboBox") ) {
-<a name="x255"></a>            w-&gt;<a href="ntqwidget.html#setAutoMask">setAutoMask</a>( TRUE );
+<a name="x253"></a>    if ( !w-&gt;<a href="tqwidget.html#isTopLevel">isTopLevel</a>() ) {
+<a name="x211"></a>        if ( w-&gt;<a href="tqobject.html#inherits">inherits</a>("TQPushButton")
+             || w-&gt;<a href="tqobject.html#inherits">inherits</a>("TQToolButton")
+             || w-&gt;<a href="tqobject.html#inherits">inherits</a>("TQComboBox") ) {
+<a name="x255"></a>            w-&gt;<a href="tqwidget.html#setAutoMask">setAutoMask</a>( TRUE );
             return;
         }
-<a name="x250"></a>        if ( w-&gt;<a href="ntqwidget.html#backgroundPixmap">backgroundPixmap</a>() )
-<a name="x256"></a>            w-&gt;<a href="ntqwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>( TQWidget::WindowOrigin );
+<a name="x250"></a>        if ( w-&gt;<a href="tqwidget.html#backgroundPixmap">backgroundPixmap</a>() )
+<a name="x256"></a>            w-&gt;<a href="tqwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>( TQWidget::WindowOrigin );
     }
 }
 
-void NorwegianWoodStyle::<a href="ntqstyle.html#unPolish">unPolish</a>( <a href="ntqwidget.html">TQWidget</a>* w)
+void NorwegianWoodStyle::<a href="tqstyle.html#unPolish">unPolish</a>( <a href="tqwidget.html">TQWidget</a>* w)
 {
     // the polish function sets some widgets to transparent mode and
     // some to translate background mode in order to get the full
     // benefit from the nice pixmaps in the color group.
-    if ( !w-&gt;<a href="ntqwidget.html#isTopLevel">isTopLevel</a>() ) {
-        if ( w-&gt;<a href="ntqobject.html#inherits">inherits</a>("TQPushButton")
-             || w-&gt;<a href="ntqobject.html#inherits">inherits</a>("TQToolButton")
-             || w-&gt;<a href="ntqobject.html#inherits">inherits</a>("TQComboBox") ) {
-            w-&gt;<a href="ntqwidget.html#setAutoMask">setAutoMask</a>( FALSE );
+    if ( !w-&gt;<a href="tqwidget.html#isTopLevel">isTopLevel</a>() ) {
+        if ( w-&gt;<a href="tqobject.html#inherits">inherits</a>("TQPushButton")
+             || w-&gt;<a href="tqobject.html#inherits">inherits</a>("TQToolButton")
+             || w-&gt;<a href="tqobject.html#inherits">inherits</a>("TQComboBox") ) {
+            w-&gt;<a href="tqwidget.html#setAutoMask">setAutoMask</a>( FALSE );
             return;
         }
-        if ( w-&gt;<a href="ntqwidget.html#backgroundPixmap">backgroundPixmap</a>() )
-            w-&gt;<a href="ntqwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>( TQWidget::WidgetOrigin );
+        if ( w-&gt;<a href="tqwidget.html#backgroundPixmap">backgroundPixmap</a>() )
+            w-&gt;<a href="tqwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>( TQWidget::WidgetOrigin );
     }
 }
 
-<a name="x260"></a>void NorwegianWoodStyle::<a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PrimitiveElement pe,
-                                        <a href="ntqpainter.html">TQPainter</a> *p,
-                                        const <a href="ntqrect.html">TQRect</a> &amp;r,
-                                        const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
-                                        SFlags flags, const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+<a name="x260"></a>void NorwegianWoodStyle::<a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PrimitiveElement pe,
+                                        <a href="tqpainter.html">TQPainter</a> *p,
+                                        const <a href="tqrect.html">TQRect</a> &amp;r,
+                                        const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
+                                        SFlags flags, const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
     int x, y, w, h;
-<a name="x240"></a>    r.<a href="ntqrect.html#rect">rect</a>( &amp;x, &amp;y, &amp;w, &amp;h );
+<a name="x240"></a>    r.<a href="tqrect.html#rect">rect</a>( &amp;x, &amp;y, &amp;w, &amp;h );
     switch ( pe ) {
     case PE_ButtonCommand:
         {
             int d = TQMIN( w, h ) / 2;
             int b = buttonthickness( d );
 
-            <a href="ntqregion.html">TQRegion</a> internR = roundRectRegion( TQRect(x + b, y + b,
+            <a href="tqregion.html">TQRegion</a> internR = roundRectRegion( TQRect(x + b, y + b,
                                                        w - 2 * b,
                                                        h - 2 * b), d - b );
-<a name="x218"></a>            <a href="ntqpen.html">TQPen</a> oldPen = p-&gt;<a href="ntqpainter.html#pen">pen</a>();
+<a name="x218"></a>            <a href="tqpen.html">TQPen</a> oldPen = p-&gt;<a href="tqpainter.html#pen">pen</a>();
 
-<a name="x195"></a>            <a href="ntqbrush.html">TQBrush</a> brush( flags &amp; Style_Sunken ? cg.<a href="qcolorgroup.html#brush">brush</a>(TQColorGroup::Mid) :
-                          cg.<a href="qcolorgroup.html#brush">brush</a>(TQColorGroup::Button) );
-<a name="x220"></a>            p-&gt;<a href="ntqpainter.html#setClipRegion">setClipRegion</a>( internR );
-<a name="x216"></a>            p-&gt;<a href="ntqpainter.html#fillRect">fillRect</a>( r, brush );
+<a name="x195"></a>            <a href="tqbrush.html">TQBrush</a> brush( flags &amp; Style_Sunken ? cg.<a href="tqcolorgroup.html#brush">brush</a>(TQColorGroup::Mid) :
+                          cg.<a href="tqcolorgroup.html#brush">brush</a>(TQColorGroup::Button) );
+<a name="x220"></a>            p-&gt;<a href="tqpainter.html#setClipRegion">setClipRegion</a>( internR );
+<a name="x216"></a>            p-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( r, brush );
 
             int e = TQMIN( w, h ) / 2;
-            <a href="ntqpoint.html">TQPoint</a> p2( x + w - 1 - e, y + e );
-            <a href="ntqpoint.html">TQPoint</a> p3( x + e, y + h - 1 - e );
+            <a href="tqpoint.html">TQPoint</a> p2( x + w - 1 - e, y + e );
+            <a href="tqpoint.html">TQPoint</a> p3( x + e, y + h - 1 - e );
 
-            <a href="ntqpointarray.html">TQPointArray</a> a;
-<a name="x232"></a><a name="x230"></a>            a.setPoints( 5, x,y, x+w-1, y, p2.<a href="ntqpoint.html#x">x</a>(), p2.<a href="ntqpoint.html#y">y</a>(), p3.<a href="ntqpoint.html#x">x</a>(), p3.<a href="ntqpoint.html#y">y</a>(),
+            <a href="tqpointarray.html">TQPointArray</a> a;
+<a name="x232"></a><a name="x230"></a>            a.setPoints( 5, x,y, x+w-1, y, p2.<a href="tqpoint.html#x">x</a>(), p2.<a href="tqpoint.html#y">y</a>(), p3.<a href="tqpoint.html#x">x</a>(), p3.<a href="tqpoint.html#y">y</a>(),
                          x, y + h - 1 );
-            p-&gt;<a href="ntqpainter.html#setClipRegion">setClipRegion</a>( TQRegion(a) - internR );
+            p-&gt;<a href="tqpainter.html#setClipRegion">setClipRegion</a>( TQRegion(a) - internR );
 
-<a name="x198"></a>            p-&gt;<a href="ntqpainter.html#fillRect">fillRect</a>( r, (flags &amp; Style_Sunken ? TQBrush( cg.<a href="qcolorgroup.html#dark">dark</a>(), *sunkenDark)
-                                             : cg.<a href="qcolorgroup.html#brush">brush</a>(TQColorGroup::Light)) );
+<a name="x198"></a>            p-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( r, (flags &amp; Style_Sunken ? TQBrush( cg.<a href="tqcolorgroup.html#dark">dark</a>(), *sunkenDark)
+                                             : cg.<a href="tqcolorgroup.html#brush">brush</a>(TQColorGroup::Light)) );
 
             // A little inversion is needed the buttons
             // ( but not flat)
             if ( flags &amp; Style_Raised || flags &amp; Style_Sunken ) {
-<a name="x231"></a>                a.<a href="ntqpointarray.html#setPoint">setPoint</a>( 0, x + w - 1, y + w - 1 );
-                p-&gt;<a href="ntqpainter.html#setClipRegion">setClipRegion</a>( TQRegion( a ) - internR );
+<a name="x231"></a>                a.<a href="tqpointarray.html#setPoint">setPoint</a>( 0, x + w - 1, y + w - 1 );
+                p-&gt;<a href="tqpainter.html#setClipRegion">setClipRegion</a>( TQRegion( a ) - internR );
 
-<a name="x200"></a>                p-&gt;<a href="ntqpainter.html#fillRect">fillRect</a>( r, (flags &amp; Style_Sunken ? TQBrush( cg.<a href="qcolorgroup.html#light">light</a>(), *sunkenLight) : cg.<a href="qcolorgroup.html#brush">brush</a>( TQColorGroup::Dark ) ) );
+<a name="x200"></a>                p-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( r, (flags &amp; Style_Sunken ? TQBrush( cg.<a href="tqcolorgroup.html#light">light</a>(), *sunkenLight) : cg.<a href="tqcolorgroup.html#brush">brush</a>( TQColorGroup::Dark ) ) );
             }
-            p-&gt;<a href="ntqpainter.html#setClipRegion">setClipRegion</a>( internR );
-<a name="x221"></a>            p-&gt;<a href="ntqpainter.html#setClipping">setClipping</a>( FALSE );
-<a name="x222"></a><a name="x199"></a>            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( cg.<a href="qcolorgroup.html#foreground">foreground</a>() );
+            p-&gt;<a href="tqpainter.html#setClipRegion">setClipRegion</a>( internR );
+<a name="x221"></a>            p-&gt;<a href="tqpainter.html#setClipping">setClipping</a>( FALSE );
+<a name="x222"></a><a name="x199"></a>            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( cg.<a href="tqcolorgroup.html#foreground">foreground</a>() );
             drawroundrect( p, x, y, w, h, d );
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( oldPen );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( oldPen );
             break;
         }
     case PE_ScrollBarAddLine:
@@ -1118,237 +1117,237 @@ void NorwegianWoodStyle::<a href="ntqstyle.html#unPolish">unPolish</a>( <a href=
             drawSemicircleButton( p, r, PointUp, flags &amp; Style_Down, cg );
         break;
     default:
-        <a href="ntqwindowsstyle.html">TQWindowsStyle</a>::<a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( pe, p, r, cg, flags, opt );
+        <a href="tqwindowsstyle.html">TQWindowsStyle</a>::<a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( pe, p, r, cg, flags, opt );
         break;
     }
 }
 
-<a name="x259"></a>void NorwegianWoodStyle::<a href="ntqstyle.html#drawControl">drawControl</a>( ControlElement element,
-                                      <a href="ntqpainter.html">TQPainter</a> *p,
-                                      const <a href="ntqwidget.html">TQWidget</a> *widget,
-                                      const <a href="ntqrect.html">TQRect</a> &amp;r,
-                                      const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
-                                      SFlags how, const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+<a name="x259"></a>void NorwegianWoodStyle::<a href="tqstyle.html#drawControl">drawControl</a>( ControlElement element,
+                                      <a href="tqpainter.html">TQPainter</a> *p,
+                                      const <a href="tqwidget.html">TQWidget</a> *widget,
+                                      const <a href="tqrect.html">TQRect</a> &amp;r,
+                                      const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
+                                      SFlags how, const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
     switch( element ) {
     case CE_PushButton:
         {
-            const <a href="ntqpushbutton.html">TQPushButton</a> *btn;
-            btn = ( const <a href="ntqpushbutton.html">TQPushButton</a> * )widget;
-            <a href="qcolorgroup.html">TQColorGroup</a> myCg( cg );
+            const <a href="tqpushbutton.html">TQPushButton</a> *btn;
+            btn = ( const <a href="tqpushbutton.html">TQPushButton</a> * )widget;
+            <a href="tqcolorgroup.html">TQColorGroup</a> myCg( cg );
             SFlags flags = Style_Default;
-<a name="x189"></a>            if ( btn-&gt;<a href="ntqbutton.html#isOn">isOn</a>() )
+<a name="x189"></a>            if ( btn-&gt;<a href="tqbutton.html#isOn">isOn</a>() )
                 flags |= Style_On;
-<a name="x188"></a>            if ( btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() )
+<a name="x188"></a>            if ( btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() )
                 flags |= Style_Down;
-            if ( btn-&gt;<a href="ntqbutton.html#isOn">isOn</a>() || btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() )
+            if ( btn-&gt;<a href="tqbutton.html#isOn">isOn</a>() || btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() )
                 flags |= Style_Sunken;
-<a name="x233"></a>            if ( btn-&gt;<a href="ntqpushbutton.html#isDefault">isDefault</a>() )
+<a name="x233"></a>            if ( btn-&gt;<a href="tqpushbutton.html#isDefault">isDefault</a>() )
                 flags |= Style_Default;
-<a name="x234"></a>            if ( ! btn-&gt;<a href="ntqpushbutton.html#isFlat">isFlat</a>() &amp;&amp; !(flags &amp; Style_Down) )
+<a name="x234"></a>            if ( ! btn-&gt;<a href="tqpushbutton.html#isFlat">isFlat</a>() &amp;&amp; !(flags &amp; Style_Down) )
                 flags |= Style_Raised;
 
             int x1, y1, x2, y2;
-<a name="x237"></a>            r.<a href="ntqrect.html#coords">coords</a>( &amp;x1, &amp;y1, &amp;x2, &amp;y2 );
+<a name="x237"></a>            r.<a href="tqrect.html#coords">coords</a>( &amp;x1, &amp;y1, &amp;x2, &amp;y2 );
 
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( cg.<a href="qcolorgroup.html#foreground">foreground</a>() );
-<a name="x219"></a><a name="x196"></a>            p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( TQBrush( cg.<a href="qcolorgroup.html#button">button</a>(), NoBrush ) );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( cg.<a href="tqcolorgroup.html#foreground">foreground</a>() );
+<a name="x219"></a><a name="x196"></a>            p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( TQBrush( cg.<a href="tqcolorgroup.html#button">button</a>(), NoBrush ) );
 
-            <a href="ntqbrush.html">TQBrush</a> fill;
-            if ( btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() )
-                fill = cg.<a href="qcolorgroup.html#brush">brush</a>( TQColorGroup::Mid );
-            else if ( btn-&gt;<a href="ntqbutton.html#isOn">isOn</a>() )
-<a name="x201"></a>                fill = TQBrush( cg.<a href="qcolorgroup.html#mid">mid</a>(), Dense4Pattern );
+            <a href="tqbrush.html">TQBrush</a> fill;
+            if ( btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() )
+                fill = cg.<a href="tqcolorgroup.html#brush">brush</a>( TQColorGroup::Mid );
+            else if ( btn-&gt;<a href="tqbutton.html#isOn">isOn</a>() )
+<a name="x201"></a>                fill = TQBrush( cg.<a href="tqcolorgroup.html#mid">mid</a>(), Dense4Pattern );
             else
-                fill = cg.<a href="qcolorgroup.html#brush">brush</a>( TQColorGroup::Button );
-<a name="x202"></a>            myCg.<a href="qcolorgroup.html#setBrush">setBrush</a>( TQColorGroup::Mid, fill );
+                fill = cg.<a href="tqcolorgroup.html#brush">brush</a>( TQColorGroup::Button );
+<a name="x202"></a>            myCg.<a href="tqcolorgroup.html#setBrush">setBrush</a>( TQColorGroup::Mid, fill );
 
-            if ( btn-&gt;<a href="ntqpushbutton.html#isDefault">isDefault</a>() ) {
+            if ( btn-&gt;<a href="tqpushbutton.html#isDefault">isDefault</a>() ) {
                 x1 += 2;
                 y1 += 2;
                 x2 -= 2;
                 y2 -= 2;
             }
 
-            <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ButtonCommand, p,
+            <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ButtonCommand, p,
                            TQRect( x1, y1, x2 - x1 + 1, y2 - y1 + 1),
                            myCg, flags, opt );
 
-            if ( btn-&gt;<a href="ntqpushbutton.html#isDefault">isDefault</a>() ) {
-                <a href="ntqpen.html">TQPen</a> pen( TQt::black, 4 );
-<a name="x226"></a>                pen.<a href="ntqpen.html#setCapStyle">setCapStyle</a>( TQt::RoundCap );
-<a name="x227"></a>                pen.<a href="ntqpen.html#setJoinStyle">setJoinStyle</a>( TQt::RoundJoin );
-                p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( pen );
+            if ( btn-&gt;<a href="tqpushbutton.html#isDefault">isDefault</a>() ) {
+                <a href="tqpen.html">TQPen</a> pen( TQt::black, 4 );
+<a name="x226"></a>                pen.<a href="tqpen.html#setCapStyle">setCapStyle</a>( TQt::RoundCap );
+<a name="x227"></a>                pen.<a href="tqpen.html#setJoinStyle">setJoinStyle</a>( TQt::RoundJoin );
+                p-&gt;<a href="tqpainter.html#setPen">setPen</a>( pen );
                 drawroundrect( p, x1 - 1, y1 - 1, x2 - x1 + 3, y2 - y1 + 3, 8 );
             }
 
-<a name="x235"></a>            if ( btn-&gt;<a href="ntqpushbutton.html#isMenuButton">isMenuButton</a>() ) {
+<a name="x235"></a>            if ( btn-&gt;<a href="tqpushbutton.html#isMenuButton">isMenuButton</a>() ) {
                 int dx = ( y1 - y2 - 4 ) / 3;
 
                 // reset the flags
                 flags = Style_Default;
-<a name="x252"></a>                if ( btn-&gt;<a href="ntqwidget.html#isEnabled">isEnabled</a>() )
+<a name="x252"></a>                if ( btn-&gt;<a href="tqwidget.html#isEnabled">isEnabled</a>() )
                     flags |= Style_Enabled;
-                <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
+                <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
                                TQRect( x2 - dx, dx, y1, y2 - y1),
                                myCg, flags, opt );
             }
 
-<a name="x212"></a>            if ( p-&gt;<a href="ntqpainter.html#brush">brush</a>().style() != NoBrush )
-                p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( NoBrush );
+<a name="x212"></a>            if ( p-&gt;<a href="tqpainter.html#brush">brush</a>().style() != NoBrush )
+                p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( NoBrush );
             break;
         }
     case CE_PushButtonLabel:
         {
-            const <a href="ntqpushbutton.html">TQPushButton</a> *btn;
-            btn = (const <a href="ntqpushbutton.html">TQPushButton</a>*)widget;
+            const <a href="tqpushbutton.html">TQPushButton</a> *btn;
+            btn = (const <a href="tqpushbutton.html">TQPushButton</a>*)widget;
             int x, y, w, h;
-            r.<a href="ntqrect.html#rect">rect</a>( &amp;x, &amp;y, &amp;w, &amp;h );
+            r.<a href="tqrect.html#rect">rect</a>( &amp;x, &amp;y, &amp;w, &amp;h );
 
             int x1, y1, x2, y2;
-            r.<a href="ntqrect.html#coords">coords</a>( &amp;x1, &amp;y1, &amp;x2, &amp;y2 );
+            r.<a href="tqrect.html#coords">coords</a>( &amp;x1, &amp;y1, &amp;x2, &amp;y2 );
             int dx = 0;
             int dy = 0;
-            if ( btn-&gt;<a href="ntqpushbutton.html#isMenuButton">isMenuButton</a>() )
+            if ( btn-&gt;<a href="tqpushbutton.html#isMenuButton">isMenuButton</a>() )
                 dx = ( y2 - y1 ) / 3;
             if ( dx || dy )
-<a name="x223"></a>                p-&gt;<a href="ntqpainter.html#translate">translate</a>( dx, dy );
+<a name="x223"></a>                p-&gt;<a href="tqpainter.html#translate">translate</a>( dx, dy );
 
             x += 2;
             y += 2;
             w -= 4;
             h -= 4;
-            <a href="ntqstyle.html#drawItem">drawItem</a>( p, TQRect( x, y, w, h ),
+            <a href="tqstyle.html#drawItem">drawItem</a>( p, TQRect( x, y, w, h ),
                       AlignCenter | ShowPrefix,
-                      cg, btn-&gt;<a href="ntqwidget.html#isEnabled">isEnabled</a>(),
-<a name="x191"></a><a name="x190"></a>                      btn-&gt;<a href="ntqbutton.html#pixmap">pixmap</a>(), btn-&gt;<a href="ntqbutton.html#text">text</a>(), -1,
-<a name="x194"></a>                      (btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() || btn-&gt;<a href="ntqbutton.html#isOn">isOn</a>()) ? &amp;cg.<a href="qcolorgroup.html#brightText">brightText</a>()
-<a name="x197"></a>                      : &amp;cg.<a href="qcolorgroup.html#buttonText">buttonText</a>() );
+                      cg, btn-&gt;<a href="tqwidget.html#isEnabled">isEnabled</a>(),
+<a name="x191"></a><a name="x190"></a>                      btn-&gt;<a href="tqbutton.html#pixmap">pixmap</a>(), btn-&gt;<a href="tqbutton.html#text">text</a>(), -1,
+<a name="x194"></a>                      (btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() || btn-&gt;<a href="tqbutton.html#isOn">isOn</a>()) ? &amp;cg.<a href="tqcolorgroup.html#brightText">brightText</a>()
+<a name="x197"></a>                      : &amp;cg.<a href="tqcolorgroup.html#buttonText">buttonText</a>() );
             if ( dx || dy )
-                p-&gt;<a href="ntqpainter.html#translate">translate</a>( -dx, -dy );
+                p-&gt;<a href="tqpainter.html#translate">translate</a>( -dx, -dy );
             break;
         }
     default:
-        <a href="ntqwindowsstyle.html">TQWindowsStyle</a>::<a href="ntqstyle.html#drawControl">drawControl</a>( element, p, widget, r, cg, how, opt );
+        <a href="tqwindowsstyle.html">TQWindowsStyle</a>::<a href="tqstyle.html#drawControl">drawControl</a>( element, p, widget, r, cg, how, opt );
         break;
     }
 }
 
-<a name="x205"></a>void NorwegianWoodStyle::<a href="ntqstyle.html#drawControlMask">drawControlMask</a>( ControlElement element,
-                                          <a href="ntqpainter.html">TQPainter</a> *p,
-                                          const <a href="ntqwidget.html">TQWidget</a> *widget,
-                                          const <a href="ntqrect.html">TQRect</a> &amp;r,
-                                          const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+<a name="x205"></a>void NorwegianWoodStyle::<a href="tqstyle.html#drawControlMask">drawControlMask</a>( ControlElement element,
+                                          <a href="tqpainter.html">TQPainter</a> *p,
+                                          const <a href="tqwidget.html">TQWidget</a> *widget,
+                                          const <a href="tqrect.html">TQRect</a> &amp;r,
+                                          const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
     switch( element ) {
     case CE_PushButton:
         {
-<a name="x244"></a><a name="x238"></a>            int d = TQMIN( r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>() ) / 2;
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( color1 );
-            p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( color1 );
-<a name="x246"></a><a name="x245"></a>            drawroundrect( p, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>(), d );
+<a name="x244"></a><a name="x238"></a>            int d = TQMIN( r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>() ) / 2;
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( color1 );
+            p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( color1 );
+<a name="x246"></a><a name="x245"></a>            drawroundrect( p, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>(), d );
             break;
         }
     default:
-        <a href="ntqwindowsstyle.html">TQWindowsStyle</a>::<a href="ntqstyle.html#drawControlMask">drawControlMask</a>( element, p, widget, r, opt );
+        <a href="tqwindowsstyle.html">TQWindowsStyle</a>::<a href="tqstyle.html#drawControlMask">drawControlMask</a>( element, p, widget, r, opt );
         break;
     }
 }
 
-<a name="x258"></a>void NorwegianWoodStyle::<a href="ntqstyle.html#drawComplexControl">drawComplexControl</a>( ComplexControl cc,
-                                             <a href="ntqpainter.html">TQPainter</a> *p,
-                                             const <a href="ntqwidget.html">TQWidget</a> *widget,
-                                             const <a href="ntqrect.html">TQRect</a> &amp;r,
-                                             const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+<a name="x258"></a>void NorwegianWoodStyle::<a href="tqstyle.html#drawComplexControl">drawComplexControl</a>( ComplexControl cc,
+                                             <a href="tqpainter.html">TQPainter</a> *p,
+                                             const <a href="tqwidget.html">TQWidget</a> *widget,
+                                             const <a href="tqrect.html">TQRect</a> &amp;r,
+                                             const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                                              SFlags how,
                                              SCFlags sub,
                                              SCFlags subActive,
-                                             const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+                                             const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
     switch( cc ) {
     case CC_ComboBox:
         {
-            const <a href="ntqcombobox.html">TQComboBox</a> *cmb;
-            cmb = (const <a href="ntqcombobox.html">TQComboBox</a>*)widget;
+            const <a href="tqcombobox.html">TQComboBox</a> *cmb;
+            cmb = (const <a href="tqcombobox.html">TQComboBox</a>*)widget;
 
             int awh, ax, ay, sh, sy, dh, ew;
-            get_combo_parameters( <a href="ntqstyle.html#subRect">subRect</a>(SR_PushButtonContents, widget),
+            get_combo_parameters( <a href="tqstyle.html#subRect">subRect</a>(SR_PushButtonContents, widget),
                                   ew, awh, ax, ay, sh, dh, sy );
-            <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ButtonCommand, p, r, cg, Style_Raised, opt );
-            <a href="ntqstyle.html">TQStyle</a> *mstyle = TQStyleFactory::<a href="ntqstylefactory.html#create">create</a>( "Motif" );
+            <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ButtonCommand, p, r, cg, Style_Raised, opt );
+            <a href="tqstyle.html">TQStyle</a> *mstyle = TQStyleFactory::<a href="tqstylefactory.html#create">create</a>( "Motif" );
             if ( mstyle )
-                mstyle-&gt;<a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
+                mstyle-&gt;<a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
                                        TQRect(ax, ay, awh, awh), cg, how, opt );
             else
-                <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
+                <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
                                TQRect(ax, ay, awh, awh), cg, how, opt );
 
-            <a href="ntqpen.html">TQPen</a> oldPen = p-&gt;<a href="ntqpainter.html#pen">pen</a>();
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( cg.<a href="qcolorgroup.html#light">light</a>() );
-<a name="x214"></a>            p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( ax, sy, ax + awh - 1, sy );
-            p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( ax, sy, ax, sy + sh - 1 );
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( cg.<a href="qcolorgroup.html#dark">dark</a>() );
-            p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( ax + 1, sy + sh - 1, ax + awh - 1, sy + sh - 1 );
-            p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( ax + awh - 1, sy + 1, ax + awh - 1, sy + sh - 1 );
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( oldPen );
+            <a href="tqpen.html">TQPen</a> oldPen = p-&gt;<a href="tqpainter.html#pen">pen</a>();
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( cg.<a href="tqcolorgroup.html#light">light</a>() );
+<a name="x214"></a>            p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( ax, sy, ax + awh - 1, sy );
+            p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( ax, sy, ax, sy + sh - 1 );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( cg.<a href="tqcolorgroup.html#dark">dark</a>() );
+            p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( ax + 1, sy + sh - 1, ax + awh - 1, sy + sh - 1 );
+            p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( ax + awh - 1, sy + 1, ax + awh - 1, sy + sh - 1 );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( oldPen );
 
-            if ( cmb-&gt;<a href="ntqcombobox.html#editable">editable</a>() ) {
-                <a href="ntqrect.html">TQRect</a> r( <a href="ntqstyle.html#querySubControlMetrics">querySubControlMetrics</a>(CC_ComboBox, widget,
+            if ( cmb-&gt;<a href="tqcombobox.html#editable">editable</a>() ) {
+                <a href="tqrect.html">TQRect</a> r( <a href="tqstyle.html#querySubControlMetrics">querySubControlMetrics</a>(CC_ComboBox, widget,
                                                 SC_ComboBoxEditField, opt) );
-                <a href="ntqpainter.html#qDrawShadePanel">qDrawShadePanel</a>( p, r, cg, TRUE, 1,
-                                 &amp;cg.<a href="qcolorgroup.html#brush">brush</a>(TQColorGroup::Button) );
+                <a href="tqpainter.html#qDrawShadePanel">qDrawShadePanel</a>( p, r, cg, TRUE, 1,
+                                 &amp;cg.<a href="tqcolorgroup.html#brush">brush</a>(TQColorGroup::Button) );
             }
 
             break;
         }
     default:
-        <a href="ntqwindowsstyle.html">TQWindowsStyle</a>::<a href="ntqstyle.html#drawComplexControl">drawComplexControl</a>( cc, p, widget, r, cg, how,
+        <a href="tqwindowsstyle.html">TQWindowsStyle</a>::<a href="tqstyle.html#drawComplexControl">drawComplexControl</a>( cc, p, widget, r, cg, how,
                                            sub, subActive, opt );
         break;
     }
 }
 
-<a name="x204"></a>void NorwegianWoodStyle::<a href="ntqstyle.html#drawComplexControlMask">drawComplexControlMask</a>( ComplexControl control,
-                                                 <a href="ntqpainter.html">TQPainter</a> *p,
-                                                 const <a href="ntqwidget.html">TQWidget</a> *widget,
-                                                 const <a href="ntqrect.html">TQRect</a> &amp;r,
-                                                 const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+<a name="x204"></a>void NorwegianWoodStyle::<a href="tqstyle.html#drawComplexControlMask">drawComplexControlMask</a>( ComplexControl control,
+                                                 <a href="tqpainter.html">TQPainter</a> *p,
+                                                 const <a href="tqwidget.html">TQWidget</a> *widget,
+                                                 const <a href="tqrect.html">TQRect</a> &amp;r,
+                                                 const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
     switch ( control ) {
     case CC_ComboBox:
         {
-            int d = TQMIN( r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>() ) / 2;
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( color1 );
-            p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( color1 );
-            drawroundrect( p, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>(), d );
+            int d = TQMIN( r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>() ) / 2;
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( color1 );
+            p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( color1 );
+            drawroundrect( p, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>(), d );
             break;
         }
     default:
-        <a href="ntqwindowsstyle.html">TQWindowsStyle</a>::<a href="ntqstyle.html#drawComplexControlMask">drawComplexControlMask</a>( control, p, widget, r, opt );
+        <a href="tqwindowsstyle.html">TQWindowsStyle</a>::<a href="tqstyle.html#drawComplexControlMask">drawComplexControlMask</a>( control, p, widget, r, opt );
         break;
     }
 }
 
-<a name="x206"></a>TQRect NorwegianWoodStyle::<a href="ntqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( ComplexControl control,
-                                                  const <a href="ntqwidget.html">TQWidget</a> *widget,
+<a name="x206"></a>TQRect NorwegianWoodStyle::<a href="tqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( ComplexControl control,
+                                                  const <a href="tqwidget.html">TQWidget</a> *widget,
                                                   SubControl sc,
-                                                  const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+                                                  const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
-    <a href="ntqrect.html">TQRect</a> rect;
+    <a href="tqrect.html">TQRect</a> rect;
     switch ( control ) {
     case CC_ComboBox:
         {
             switch( sc ) {
             case SC_ComboBoxEditField:
                 {
-                    rect = <a href="ntqstyle.html#subRect">subRect</a>( SR_PushButtonContents, widget );
-                    int ew = get_combo_extra_width( rect.<a href="ntqrect.html#height">height</a>(), 0 );
-<a name="x242"></a>                    rect.<a href="ntqrect.html#setRect">setRect</a>( rect.<a href="ntqrect.html#x">x</a>() + 1, rect.<a href="ntqrect.html#y">y</a>() + 1,
-                                  rect.<a href="ntqrect.html#width">width</a>() - 2 - ew, rect.<a href="ntqrect.html#height">height</a>() - 2 );
+                    rect = <a href="tqstyle.html#subRect">subRect</a>( SR_PushButtonContents, widget );
+                    int ew = get_combo_extra_width( rect.<a href="tqrect.html#height">height</a>(), 0 );
+<a name="x242"></a>                    rect.<a href="tqrect.html#setRect">setRect</a>( rect.<a href="tqrect.html#x">x</a>() + 1, rect.<a href="tqrect.html#y">y</a>() + 1,
+                                  rect.<a href="tqrect.html#width">width</a>() - 2 - ew, rect.<a href="tqrect.html#height">height</a>() - 2 );
                     break;
                 }
             default:
-                rect = TQWindowsStyle::<a href="ntqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( control, widget,
+                rect = TQWindowsStyle::<a href="tqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( control, widget,
                                                               sc, opt );
                 break;
             }
@@ -1356,97 +1355,97 @@ void NorwegianWoodStyle::<a href="ntqstyle.html#unPolish">unPolish</a>( <a href=
         }
     case CC_ScrollBar:
         {
-            const <a href="ntqscrollbar.html">TQScrollBar</a>* sb;
-            sb = (const <a href="ntqscrollbar.html">TQScrollBar</a>*)widget;
-            bool horz = sb-&gt;<a href="ntqscrollbar.html#orientation">orientation</a>() == TQScrollBar::Horizontal;
+            const <a href="tqscrollbar.html">TQScrollBar</a>* sb;
+            sb = (const <a href="tqscrollbar.html">TQScrollBar</a>*)widget;
+            bool horz = sb-&gt;<a href="tqscrollbar.html#orientation">orientation</a>() == TQScrollBar::Horizontal;
             int b = 2;
-<a name="x257"></a>            int w = horz ? sb-&gt;<a href="ntqwidget.html#height">height</a>() : sb-&gt;<a href="ntqwidget.html#width">width</a>();
+<a name="x257"></a>            int w = horz ? sb-&gt;<a href="tqwidget.html#height">height</a>() : sb-&gt;<a href="tqwidget.html#width">width</a>();
 
             switch ( sc ) {
             case SC_ScrollBarAddLine:
-                rect.<a href="ntqrect.html#setRect">setRect</a>( b, b, w - 2 * b, w - 2 * b );
+                rect.<a href="tqrect.html#setRect">setRect</a>( b, b, w - 2 * b, w - 2 * b );
                 if ( horz )
-<a name="x239"></a>                    rect.<a href="ntqrect.html#moveBy">moveBy</a>( sb-&gt;<a href="ntqwidget.html#width">width</a>() - w, 0 );
+<a name="x239"></a>                    rect.<a href="tqrect.html#moveBy">moveBy</a>( sb-&gt;<a href="tqwidget.html#width">width</a>() - w, 0 );
                 else
-                    rect.<a href="ntqrect.html#moveBy">moveBy</a>( 0, sb-&gt;<a href="ntqwidget.html#height">height</a>() - w );
+                    rect.<a href="tqrect.html#moveBy">moveBy</a>( 0, sb-&gt;<a href="tqwidget.html#height">height</a>() - w );
                 break;
             case SC_ScrollBarSubLine:
-                rect.<a href="ntqrect.html#setRect">setRect</a>( b, b, w - 2 * b, w - 2 * b );
+                rect.<a href="tqrect.html#setRect">setRect</a>( b, b, w - 2 * b, w - 2 * b );
                 break;
             default:
-                rect = TQWindowsStyle::<a href="ntqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( control, widget,
+                rect = TQWindowsStyle::<a href="tqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( control, widget,
                                                               sc, opt );
                 break;
             }
             break;
         }
     default:
-        rect = TQWindowsStyle::<a href="ntqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( control, widget,
+        rect = TQWindowsStyle::<a href="tqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( control, widget,
                                                       sc, opt );
         break;
     }
     return rect;
 }
 
-<a name="x262"></a>TQRect NorwegianWoodStyle::<a href="ntqstyle.html#subRect">subRect</a>( SubRect sr, const <a href="ntqwidget.html">TQWidget</a> * widget ) const
+<a name="x262"></a>TQRect NorwegianWoodStyle::<a href="tqstyle.html#subRect">subRect</a>( SubRect sr, const <a href="tqwidget.html">TQWidget</a> * widget ) const
 {
-    <a href="ntqrect.html">TQRect</a> r;
+    <a href="tqrect.html">TQRect</a> r;
     switch ( sr ) {
     case SR_PushButtonContents:
         {
-            const <a href="ntqpushbutton.html">TQPushButton</a> *btn;
-            btn = (const <a href="ntqpushbutton.html">TQPushButton</a>*)widget;
-<a name="x254"></a>            r = btn-&gt;<a href="ntqwidget.html#rect">rect</a>();
-            int d = TQMIN( r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>() ) / 2;
+            const <a href="tqpushbutton.html">TQPushButton</a> *btn;
+            btn = (const <a href="tqpushbutton.html">TQPushButton</a>*)widget;
+<a name="x254"></a>            r = btn-&gt;<a href="tqwidget.html#rect">rect</a>();
+            int d = TQMIN( r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>() ) / 2;
             int b = buttonthickness( d );
 
             d -= b;
             b++;
 
-            if ( r.<a href="ntqrect.html#width">width</a>() &lt; r.<a href="ntqrect.html#height">height</a>() )
-                r.<a href="ntqrect.html#setRect">setRect</a>( r.<a href="ntqrect.html#x">x</a>() + b, r.<a href="ntqrect.html#y">y</a>() + d,
-                           r.<a href="ntqrect.html#width">width</a>() - 2 * b, r.<a href="ntqrect.html#height">height</a>() - 2 * d );
+            if ( r.<a href="tqrect.html#width">width</a>() &lt; r.<a href="tqrect.html#height">height</a>() )
+                r.<a href="tqrect.html#setRect">setRect</a>( r.<a href="tqrect.html#x">x</a>() + b, r.<a href="tqrect.html#y">y</a>() + d,
+                           r.<a href="tqrect.html#width">width</a>() - 2 * b, r.<a href="tqrect.html#height">height</a>() - 2 * d );
             else
-                r.<a href="ntqrect.html#setRect">setRect</a>( r.<a href="ntqrect.html#x">x</a>() + d, r.<a href="ntqrect.html#y">y</a>() + b,
-                           r.<a href="ntqrect.html#width">width</a>() - 2 * d, r.<a href="ntqrect.html#height">height</a>() - 2 * b );
+                r.<a href="tqrect.html#setRect">setRect</a>( r.<a href="tqrect.html#x">x</a>() + d, r.<a href="tqrect.html#y">y</a>() + b,
+                           r.<a href="tqrect.html#width">width</a>() - 2 * d, r.<a href="tqrect.html#height">height</a>() - 2 * b );
             break;
         }
     case SR_ComboBoxFocusRect:
         {
-            r = <a href="ntqstyle.html#subRect">subRect</a>( SR_PushButtonContents, widget );
-            int ew = get_combo_extra_width( r.<a href="ntqrect.html#height">height</a>() );
-            r.<a href="ntqrect.html#setRect">setRect</a>( r.<a href="ntqrect.html#x">x</a>() + 1, r.<a href="ntqrect.html#y">y</a>() + 1, r.<a href="ntqrect.html#width">width</a>() - 2 - ew,
-                       r.<a href="ntqrect.html#height">height</a>() - 2 );
+            r = <a href="tqstyle.html#subRect">subRect</a>( SR_PushButtonContents, widget );
+            int ew = get_combo_extra_width( r.<a href="tqrect.html#height">height</a>() );
+            r.<a href="tqrect.html#setRect">setRect</a>( r.<a href="tqrect.html#x">x</a>() + 1, r.<a href="tqrect.html#y">y</a>() + 1, r.<a href="tqrect.html#width">width</a>() - 2 - ew,
+                       r.<a href="tqrect.html#height">height</a>() - 2 );
             break;
         }
     default:
-        r = TQWindowsStyle::<a href="ntqstyle.html#subRect">subRect</a>( sr, widget );
+        r = TQWindowsStyle::<a href="tqstyle.html#subRect">subRect</a>( sr, widget );
         break;
     }
     return r;
 }
 
-static void drawroundrect( <a href="ntqpainter.html">TQPainter</a> *p, TQCOORD x, TQCOORD y,
+static void drawroundrect( <a href="tqpainter.html">TQPainter</a> *p, TQCOORD x, TQCOORD y,
                            TQCOORD w, TQCOORD h, TQCOORD d )
 {
     int rx = (200*d)/w;
     int ry = (200*d)/h;
-<a name="x215"></a>    p-&gt;<a href="ntqpainter.html#drawRoundRect">drawRoundRect</a>( x, y, w, h, rx, ry );
+<a name="x215"></a>    p-&gt;<a href="tqpainter.html#drawRoundRect">drawRoundRect</a>( x, y, w, h, rx, ry );
 }
 
-static TQRegion roundRectRegion( const <a href="ntqrect.html">TQRect</a>&amp; g, int r )
+static TQRegion roundRectRegion( const <a href="tqrect.html">TQRect</a>&amp; g, int r )
 {
-    <a href="ntqpointarray.html">TQPointArray</a> a;
-<a name="x241"></a>    a.setPoints( 8, g.<a href="ntqrect.html#x">x</a>()+r, g.<a href="ntqrect.html#y">y</a>(), g.<a href="ntqrect.html#right">right</a>()-r, g.<a href="ntqrect.html#y">y</a>(),
-<a name="x236"></a>                 g.<a href="ntqrect.html#right">right</a>(), g.<a href="ntqrect.html#y">y</a>()+r, g.<a href="ntqrect.html#right">right</a>(), g.<a href="ntqrect.html#bottom">bottom</a>()-r,
-                 g.<a href="ntqrect.html#right">right</a>()-r, g.<a href="ntqrect.html#bottom">bottom</a>(), g.<a href="ntqrect.html#x">x</a>()+r, g.<a href="ntqrect.html#bottom">bottom</a>(),
-                 g.<a href="ntqrect.html#x">x</a>(), g.<a href="ntqrect.html#bottom">bottom</a>()-r, g.<a href="ntqrect.html#x">x</a>(), g.<a href="ntqrect.html#y">y</a>()+r );
-    <a href="ntqregion.html">TQRegion</a> reg( a );
+    <a href="tqpointarray.html">TQPointArray</a> a;
+<a name="x241"></a>    a.setPoints( 8, g.<a href="tqrect.html#x">x</a>()+r, g.<a href="tqrect.html#y">y</a>(), g.<a href="tqrect.html#right">right</a>()-r, g.<a href="tqrect.html#y">y</a>(),
+<a name="x236"></a>                 g.<a href="tqrect.html#right">right</a>(), g.<a href="tqrect.html#y">y</a>()+r, g.<a href="tqrect.html#right">right</a>(), g.<a href="tqrect.html#bottom">bottom</a>()-r,
+                 g.<a href="tqrect.html#right">right</a>()-r, g.<a href="tqrect.html#bottom">bottom</a>(), g.<a href="tqrect.html#x">x</a>()+r, g.<a href="tqrect.html#bottom">bottom</a>(),
+                 g.<a href="tqrect.html#x">x</a>(), g.<a href="tqrect.html#bottom">bottom</a>()-r, g.<a href="tqrect.html#x">x</a>(), g.<a href="tqrect.html#y">y</a>()+r );
+    <a href="tqregion.html">TQRegion</a> reg( a );
     int d = r*2-1;
-    reg += TQRegion( g.<a href="ntqrect.html#x">x</a>(),g.<a href="ntqrect.html#y">y</a>(),r*2,r*2, TQRegion::Ellipse );
-    reg += TQRegion( g.<a href="ntqrect.html#right">right</a>()-d,g.<a href="ntqrect.html#y">y</a>(),r*2,r*2, TQRegion::Ellipse );
-    reg += TQRegion( g.<a href="ntqrect.html#x">x</a>(),g.<a href="ntqrect.html#bottom">bottom</a>()-d,r*2,r*2, TQRegion::Ellipse );
-    reg += TQRegion( g.<a href="ntqrect.html#right">right</a>()-d,g.<a href="ntqrect.html#bottom">bottom</a>()-d,r*2,r*2, TQRegion::Ellipse );
+    reg += TQRegion( g.<a href="tqrect.html#x">x</a>(),g.<a href="tqrect.html#y">y</a>(),r*2,r*2, TQRegion::Ellipse );
+    reg += TQRegion( g.<a href="tqrect.html#right">right</a>()-d,g.<a href="tqrect.html#y">y</a>(),r*2,r*2, TQRegion::Ellipse );
+    reg += TQRegion( g.<a href="tqrect.html#x">x</a>(),g.<a href="tqrect.html#bottom">bottom</a>()-d,r*2,r*2, TQRegion::Ellipse );
+    reg += TQRegion( g.<a href="tqrect.html#right">right</a>()-d,g.<a href="tqrect.html#bottom">bottom</a>()-d,r*2,r*2, TQRegion::Ellipse );
     return reg;
 }
 
@@ -1469,83 +1468,83 @@ static int get_combo_extra_width( int h, int *return_awh )
 }
 
 
-static void get_combo_parameters( const <a href="ntqrect.html">TQRect</a> &amp;r,
+static void get_combo_parameters( const <a href="tqrect.html">TQRect</a> &amp;r,
                                   int &amp;ew, int &amp;awh, int &amp;ax,
                                   int &amp;ay, int &amp;sh, int &amp;dh,
                                   int &amp;sy )
 {
-    ew = get_combo_extra_width( r.<a href="ntqrect.html#height">height</a>(), &amp;awh );
+    ew = get_combo_extra_width( r.<a href="tqrect.html#height">height</a>(), &amp;awh );
 
     sh = (awh+3)/4;
     if ( sh &lt; 3 )
         sh = 3;
     dh = sh/2 + 1;
 
-    ay = r.<a href="ntqrect.html#y">y</a>() + (r.<a href="ntqrect.html#height">height</a>()-awh-sh-dh)/2;
+    ay = r.<a href="tqrect.html#y">y</a>() + (r.<a href="tqrect.html#height">height</a>()-awh-sh-dh)/2;
     if ( ay &lt; 0 ) {
         //panic mode
         ay = 0;
-        sy = r.<a href="ntqrect.html#height">height</a>();
+        sy = r.<a href="tqrect.html#height">height</a>();
     } else {
         sy = ay+awh+dh;
     }
-    ax = r.<a href="ntqrect.html#x">x</a>() + r.<a href="ntqrect.html#width">width</a>() - ew +(ew-awh)/2;
+    ax = r.<a href="tqrect.html#x">x</a>() + r.<a href="tqrect.html#width">width</a>() - ew +(ew-awh)/2;
 }
 
 static inline int buttonthickness( int d )
 { return  d &gt; 20 ? 5 : ( d &lt; 10 ? 2: 3 ); }
 
-void <a name="f226"></a>NorwegianWoodStyle::drawSemicircleButton( <a href="ntqpainter.html">TQPainter</a> *p, const <a href="ntqrect.html">TQRect</a> &amp;r,
+void <a name="f226"></a>NorwegianWoodStyle::drawSemicircleButton( <a href="tqpainter.html">TQPainter</a> *p, const <a href="tqrect.html">TQRect</a> &amp;r,
                                                int dir, bool sunken,
-                                               const <a href="qcolorgroup.html">TQColorGroup</a> &amp;g ) const
+                                               const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;g ) const
 {
-    int b =  <a href="ntqstyle.html#pixelMetric">pixelMetric</a>( PM_ScrollBarExtent ) &gt; 20 ? 3 : 2;
+    int b =  <a href="tqstyle.html#pixelMetric">pixelMetric</a>( PM_ScrollBarExtent ) &gt; 20 ? 3 : 2;
 
-     <a href="ntqregion.html">TQRegion</a> extrn(  r.<a href="ntqrect.html#x">x</a>(),   r.<a href="ntqrect.html#y">y</a>(),   r.<a href="ntqrect.html#width">width</a>(),     r.<a href="ntqrect.html#height">height</a>(),     TQRegion::Ellipse );
-     <a href="ntqregion.html">TQRegion</a> intern( r.<a href="ntqrect.html#x">x</a>()+b, r.<a href="ntqrect.html#y">y</a>()+b, r.<a href="ntqrect.html#width">width</a>()-2*b, r.<a href="ntqrect.html#height">height</a>()-2*b, TQRegion::Ellipse );
-    int w2 = r.<a href="ntqrect.html#width">width</a>()/2;
-    int h2 = r.<a href="ntqrect.html#height">height</a>()/2;
+     <a href="tqregion.html">TQRegion</a> extrn(  r.<a href="tqrect.html#x">x</a>(),   r.<a href="tqrect.html#y">y</a>(),   r.<a href="tqrect.html#width">width</a>(),     r.<a href="tqrect.html#height">height</a>(),     TQRegion::Ellipse );
+     <a href="tqregion.html">TQRegion</a> intern( r.<a href="tqrect.html#x">x</a>()+b, r.<a href="tqrect.html#y">y</a>()+b, r.<a href="tqrect.html#width">width</a>()-2*b, r.<a href="tqrect.html#height">height</a>()-2*b, TQRegion::Ellipse );
+    int w2 = r.<a href="tqrect.html#width">width</a>()/2;
+    int h2 = r.<a href="tqrect.html#height">height</a>()/2;
 
     int bug = 1; //off-by-one somewhere!!!???
 
     switch( dir ) {
     case PointRight:
-        extrn +=  TQRegion( r.<a href="ntqrect.html#x">x</a>(),  r.<a href="ntqrect.html#y">y</a>(),   w2,     r.<a href="ntqrect.html#height">height</a>() );
-        intern += TQRegion( r.<a href="ntqrect.html#x">x</a>()+b,r.<a href="ntqrect.html#y">y</a>()+b, w2-2*b, r.<a href="ntqrect.html#height">height</a>()-2*b );
+        extrn +=  TQRegion( r.<a href="tqrect.html#x">x</a>(),  r.<a href="tqrect.html#y">y</a>(),   w2,     r.<a href="tqrect.html#height">height</a>() );
+        intern += TQRegion( r.<a href="tqrect.html#x">x</a>()+b,r.<a href="tqrect.html#y">y</a>()+b, w2-2*b, r.<a href="tqrect.html#height">height</a>()-2*b );
         break;
     case PointLeft:
-        extrn +=  TQRegion( r.<a href="ntqrect.html#x">x</a>()+w2,  r.<a href="ntqrect.html#y">y</a>(),   w2,     r.<a href="ntqrect.html#height">height</a>() );
-        intern += TQRegion( r.<a href="ntqrect.html#x">x</a>()+w2+b,r.<a href="ntqrect.html#y">y</a>()+b, w2-2*b, r.<a href="ntqrect.html#height">height</a>()-2*b );
+        extrn +=  TQRegion( r.<a href="tqrect.html#x">x</a>()+w2,  r.<a href="tqrect.html#y">y</a>(),   w2,     r.<a href="tqrect.html#height">height</a>() );
+        intern += TQRegion( r.<a href="tqrect.html#x">x</a>()+w2+b,r.<a href="tqrect.html#y">y</a>()+b, w2-2*b, r.<a href="tqrect.html#height">height</a>()-2*b );
         break;
     case PointUp:
-        extrn +=  TQRegion( r.<a href="ntqrect.html#x">x</a>(),  r.<a href="ntqrect.html#y">y</a>()+h2,   r.<a href="ntqrect.html#width">width</a>(),     h2 );
-        intern += TQRegion( r.<a href="ntqrect.html#x">x</a>()+b,r.<a href="ntqrect.html#y">y</a>()+h2+b, r.<a href="ntqrect.html#width">width</a>()-2*b-bug, h2-2*b-bug );
+        extrn +=  TQRegion( r.<a href="tqrect.html#x">x</a>(),  r.<a href="tqrect.html#y">y</a>()+h2,   r.<a href="tqrect.html#width">width</a>(),     h2 );
+        intern += TQRegion( r.<a href="tqrect.html#x">x</a>()+b,r.<a href="tqrect.html#y">y</a>()+h2+b, r.<a href="tqrect.html#width">width</a>()-2*b-bug, h2-2*b-bug );
         break;
     case PointDown:
-        extrn +=  TQRegion( r.<a href="ntqrect.html#x">x</a>(),  r.<a href="ntqrect.html#y">y</a>(),   r.<a href="ntqrect.html#width">width</a>(),     h2 );
-        intern += TQRegion( r.<a href="ntqrect.html#x">x</a>()+b,r.<a href="ntqrect.html#y">y</a>()+b, r.<a href="ntqrect.html#width">width</a>()-2*b-bug, h2-2*b-bug );
+        extrn +=  TQRegion( r.<a href="tqrect.html#x">x</a>(),  r.<a href="tqrect.html#y">y</a>(),   r.<a href="tqrect.html#width">width</a>(),     h2 );
+        intern += TQRegion( r.<a href="tqrect.html#x">x</a>()+b,r.<a href="tqrect.html#y">y</a>()+b, r.<a href="tqrect.html#width">width</a>()-2*b-bug, h2-2*b-bug );
         break;
     }
 
     extrn = extrn - intern;
-    <a href="ntqpointarray.html">TQPointArray</a> a;
-<a name="x243"></a>    a.setPoints( 3, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#bottom">bottom</a>(), r.<a href="ntqrect.html#right">right</a>(), r.<a href="ntqrect.html#top">top</a>() );
+    <a href="tqpointarray.html">TQPointArray</a> a;
+<a name="x243"></a>    a.setPoints( 3, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#bottom">bottom</a>(), r.<a href="tqrect.html#right">right</a>(), r.<a href="tqrect.html#top">top</a>() );
 
-<a name="x213"></a>    <a href="ntqregion.html">TQRegion</a> oldClip = p-&gt;<a href="ntqpainter.html#clipRegion">clipRegion</a>();
-<a name="x217"></a>    bool bReallyClip = p-&gt;<a href="ntqpainter.html#hasClipping">hasClipping</a>();  // clip only if we really want.
-    p-&gt;<a href="ntqpainter.html#setClipRegion">setClipRegion</a>( intern );
-    p-&gt;<a href="ntqpainter.html#fillRect">fillRect</a>( r, g.<a href="qcolorgroup.html#brush">brush</a>( TQColorGroup::Button ) );
+<a name="x213"></a>    <a href="tqregion.html">TQRegion</a> oldClip = p-&gt;<a href="tqpainter.html#clipRegion">clipRegion</a>();
+<a name="x217"></a>    bool bReallyClip = p-&gt;<a href="tqpainter.html#hasClipping">hasClipping</a>();  // clip only if we really want.
+    p-&gt;<a href="tqpainter.html#setClipRegion">setClipRegion</a>( intern );
+    p-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( r, g.<a href="tqcolorgroup.html#brush">brush</a>( TQColorGroup::Button ) );
 
-    p-&gt;<a href="ntqpainter.html#setClipRegion">setClipRegion</a>( TQRegion(a)&amp;extrn );
-    p-&gt;<a href="ntqpainter.html#fillRect">fillRect</a>( r, sunken ? g.<a href="qcolorgroup.html#dark">dark</a>() : g.<a href="qcolorgroup.html#light">light</a>() );
+    p-&gt;<a href="tqpainter.html#setClipRegion">setClipRegion</a>( TQRegion(a)&amp;extrn );
+    p-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( r, sunken ? g.<a href="tqcolorgroup.html#dark">dark</a>() : g.<a href="tqcolorgroup.html#light">light</a>() );
 
-    a.setPoints( 3, r.<a href="ntqrect.html#right">right</a>(), r.<a href="ntqrect.html#bottom">bottom</a>(), r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#bottom">bottom</a>(),
-                 r.<a href="ntqrect.html#right">right</a>(), r.<a href="ntqrect.html#top">top</a>() );
-    p-&gt;<a href="ntqpainter.html#setClipRegion">setClipRegion</a>( TQRegion(a) &amp;  extrn );
-    p-&gt;<a href="ntqpainter.html#fillRect">fillRect</a>( r, sunken ? g.<a href="qcolorgroup.html#light">light</a>() : g.<a href="qcolorgroup.html#dark">dark</a>() );
+    a.setPoints( 3, r.<a href="tqrect.html#right">right</a>(), r.<a href="tqrect.html#bottom">bottom</a>(), r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#bottom">bottom</a>(),
+                 r.<a href="tqrect.html#right">right</a>(), r.<a href="tqrect.html#top">top</a>() );
+    p-&gt;<a href="tqpainter.html#setClipRegion">setClipRegion</a>( TQRegion(a) &amp;  extrn );
+    p-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( r, sunken ? g.<a href="tqcolorgroup.html#light">light</a>() : g.<a href="tqcolorgroup.html#dark">dark</a>() );
 
-    p-&gt;<a href="ntqpainter.html#setClipRegion">setClipRegion</a>( oldClip );
-    p-&gt;<a href="ntqpainter.html#setClipping">setClipping</a>( bReallyClip );
+    p-&gt;<a href="tqpainter.html#setClipRegion">setClipRegion</a>( oldClip );
+    p-&gt;<a href="tqpainter.html#setClipping">setClipping</a>( bReallyClip );
 }
 
 #endif
@@ -1571,56 +1570,56 @@ void <a name="f226"></a>NorwegianWoodStyle::drawSemicircleButton( <a href="ntqpa
 #define METAL_H
 
 
-#include &lt;<a href="qpalette-h.html">ntqpalette.h</a>&gt;
+#include &lt;<a href="tqpalette-h.html">tqpalette.h</a>&gt;
 
 #ifndef TQT_NO_STYLE_WINDOWS
 
-#include &lt;<a href="qwindowsstyle-h.html">ntqwindowsstyle.h</a>&gt;
+#include &lt;<a href="tqwindowsstyle-h.html">tqwindowsstyle.h</a>&gt;
 
 
-class MetalStyle : public <a href="ntqwindowsstyle.html">TQWindowsStyle</a>
+class MetalStyle : public <a href="tqwindowsstyle.html">TQWindowsStyle</a>
 {
 public:
     MetalStyle();
-    void polish( <a href="ntqapplication.html">TQApplication</a>*);
-    void unPolish( <a href="ntqapplication.html">TQApplication</a>*);
-    void polish( <a href="ntqwidget.html">TQWidget</a>* );
-    void unPolish( <a href="ntqwidget.html">TQWidget</a>* );
+    void polish( <a href="tqapplication.html">TQApplication</a>*);
+    void unPolish( <a href="tqapplication.html">TQApplication</a>*);
+    void polish( <a href="tqwidget.html">TQWidget</a>* );
+    void unPolish( <a href="tqwidget.html">TQWidget</a>* );
 
     void drawPrimitive( PrimitiveElement pe,
-                        <a href="ntqpainter.html">TQPainter</a> *p,
-                        const <a href="ntqrect.html">TQRect</a> &amp;r,
-                        const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+                        <a href="tqpainter.html">TQPainter</a> *p,
+                        const <a href="tqrect.html">TQRect</a> &amp;r,
+                        const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                         SFlags flags = Style_Default,
-                        const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default) const;
+                        const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default) const;
 
     void drawControl( ControlElement element,
-                      <a href="ntqpainter.html">TQPainter</a> *p,
-                      const <a href="ntqwidget.html">TQWidget</a> *widget,
-                      const <a href="ntqrect.html">TQRect</a> &amp;r,
-                      const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+                      <a href="tqpainter.html">TQPainter</a> *p,
+                      const <a href="tqwidget.html">TQWidget</a> *widget,
+                      const <a href="tqrect.html">TQRect</a> &amp;r,
+                      const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                       SFlags how = Style_Default,
-                      const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
+                      const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
 
     void drawComplexControl( ComplexControl cc,
-                             <a href="ntqpainter.html">TQPainter</a> *p,
-                             const <a href="ntqwidget.html">TQWidget</a> *widget,
-                             const <a href="ntqrect.html">TQRect</a> &amp;r,
-                             const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+                             <a href="tqpainter.html">TQPainter</a> *p,
+                             const <a href="tqwidget.html">TQWidget</a> *widget,
+                             const <a href="tqrect.html">TQRect</a> &amp;r,
+                             const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                              SFlags how = Style_Default,
                              SCFlags sub = SC_All,
                              SCFlags subActive = SC_None,
-                             const <a href="qstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
-    int pixelMetric( PixelMetric, const <a href="ntqwidget.html">TQWidget</a> * ) const;
+                             const <a href="tqstyleoption.html">TQStyleOption</a>&amp; = TQStyleOption::Default ) const;
+    int pixelMetric( PixelMetric, const <a href="tqwidget.html">TQWidget</a> * ) const;
 
 
 private:
-    void drawMetalFrame(  <a href="ntqpainter.html">TQPainter</a> *p, int x, int y, int w, int h ) const;
-    void drawMetalGradient( <a href="ntqpainter.html">TQPainter</a> *p, int x, int y, int w, int h,
+    void drawMetalFrame(  <a href="tqpainter.html">TQPainter</a> *p, int x, int y, int w, int h ) const;
+    void drawMetalGradient( <a href="tqpainter.html">TQPainter</a> *p, int x, int y, int w, int h,
                           bool sunken, bool horz, bool flat=FALSE ) const;
-    void drawMetalButton( <a href="ntqpainter.html">TQPainter</a> *p, int x, int y, int w, int h,
+    void drawMetalButton( <a href="tqpainter.html">TQPainter</a> *p, int x, int y, int w, int h,
                           bool sunken, bool horz, bool flat=FALSE ) const;
-    <a href="ntqpalette.html">TQPalette</a> oldPalette;
+    <a href="tqpalette.html">TQPalette</a> oldPalette;
 };
 
 #endif
@@ -1644,20 +1643,20 @@ private:
 
 #ifndef TQT_NO_STYLE_WINDOWS
 
-#include "ntqapplication.h"
-#include "ntqcombobox.h"
-#include "ntqpainter.h"
-#include "ntqdrawutil.h" // for now
-#include "ntqpixmap.h" // for now
-#include "ntqpalette.h" // for now
-#include "ntqwidget.h"
-#include "ntqlabel.h"
-#include "ntqimage.h"
-#include "ntqpushbutton.h"
-#include "ntqwidget.h"
-#include "ntqrangecontrol.h"
-#include "ntqscrollbar.h"
-#include "ntqslider.h"
+#include "tqapplication.h"
+#include "tqcombobox.h"
+#include "tqpainter.h"
+#include "tqdrawutil.h" // for now
+#include "tqpixmap.h" // for now
+#include "tqpalette.h" // for now
+#include "tqwidget.h"
+#include "tqlabel.h"
+#include "tqimage.h"
+#include "tqpushbutton.h"
+#include "tqwidget.h"
+#include "tqrangecontrol.h"
+#include "tqscrollbar.h"
+#include "tqslider.h"
 #include &lt;limits.h&gt;
 
 
@@ -1669,121 +1668,121 @@ private:
 
 
 
-<a name="f227"></a>MetalStyle::MetalStyle() : <a href="ntqwindowsstyle.html">TQWindowsStyle</a>() { }
+<a name="f227"></a>MetalStyle::MetalStyle() : <a href="tqwindowsstyle.html">TQWindowsStyle</a>() { }
 
 /*!
   Reimplementation from TQStyle
  */
-<a name="x314"></a>void MetalStyle::<a href="ntqstyle.html#polish">polish</a>( <a href="ntqapplication.html">TQApplication</a> *app)
+<a name="x314"></a>void MetalStyle::<a href="tqstyle.html#polish">polish</a>( <a href="tqapplication.html">TQApplication</a> *app)
 {
-<a name="x265"></a>    oldPalette = app-&gt;<a href="ntqapplication.html#palette">palette</a>();
+<a name="x265"></a>    oldPalette = app-&gt;<a href="tqapplication.html#palette">palette</a>();
 
     // we simply create a nice TQColorGroup with a couple of fancy
     // pixmaps here and apply to it all widgets
 
-<a name="x264"></a>    <a href="ntqfont.html">TQFont</a> f("times", app-&gt;<a href="ntqapplication.html#font">font</a>().pointSize() );
-<a name="x280"></a>    f.<a href="ntqfont.html#setBold">setBold</a>( TRUE );
-<a name="x281"></a>    f.<a href="ntqfont.html#setItalic">setItalic</a>( TRUE );
-<a name="x266"></a>    app-&gt;<a href="ntqapplication.html#setFont">setFont</a>( f, TRUE, "TQMenuBar");
-    app-&gt;<a href="ntqapplication.html#setFont">setFont</a>( f, TRUE, "TQPopupMenu");
+<a name="x264"></a>    <a href="tqfont.html">TQFont</a> f("times", app-&gt;<a href="tqapplication.html#font">font</a>().pointSize() );
+<a name="x280"></a>    f.<a href="tqfont.html#setBold">setBold</a>( TRUE );
+<a name="x281"></a>    f.<a href="tqfont.html#setItalic">setItalic</a>( TRUE );
+<a name="x266"></a>    app-&gt;<a href="tqapplication.html#setFont">setFont</a>( f, TRUE, "TQMenuBar");
+    app-&gt;<a href="tqapplication.html#setFont">setFont</a>( f, TRUE, "TQPopupMenu");
 
 
 
     //    TQPixmap button( stonedark_xpm );
 
-    <a href="ntqcolor.html">TQColor</a> gold("#B9B9A5A54040"); //same as topgrad below
-<a name="x292"></a>    <a href="ntqpixmap.html">TQPixmap</a> button( 1, 1 ); button.<a href="ntqpixmap.html#fill">fill</a>( gold );
+    <a href="tqcolor.html">TQColor</a> gold("#B9B9A5A54040"); //same as topgrad below
+<a name="x292"></a>    <a href="tqpixmap.html">TQPixmap</a> button( 1, 1 ); button.<a href="tqpixmap.html#fill">fill</a>( gold );
 
-    <a href="ntqpixmap.html">TQPixmap</a> background(marble_xpm);
-    <a href="ntqpixmap.html">TQPixmap</a> dark( 1, 1 ); dark.<a href="ntqpixmap.html#fill">fill</a>( red.dark() );
-    <a href="ntqpixmap.html">TQPixmap</a> mid( stone1_xpm );
-    <a href="ntqpixmap.html">TQPixmap</a> light( stone1_xpm );//1, 1 ); light.<a href="ntqpixmap.html#fill">fill</a>( green );
+    <a href="tqpixmap.html">TQPixmap</a> background(marble_xpm);
+    <a href="tqpixmap.html">TQPixmap</a> dark( 1, 1 ); dark.<a href="tqpixmap.html#fill">fill</a>( red.dark() );
+    <a href="tqpixmap.html">TQPixmap</a> mid( stone1_xpm );
+    <a href="tqpixmap.html">TQPixmap</a> light( stone1_xpm );//1, 1 ); light.<a href="tqpixmap.html#fill">fill</a>( green );
 
-    <a href="ntqpalette.html">TQPalette</a> op = app-&gt;<a href="ntqapplication.html#palette">palette</a>();
+    <a href="tqpalette.html">TQPalette</a> op = app-&gt;<a href="tqapplication.html#palette">palette</a>();
 
-    <a href="ntqcolor.html">TQColor</a> backCol( 227,227,227 );
+    <a href="tqcolor.html">TQColor</a> backCol( 227,227,227 );
 
     // TQPalette op(white);
-<a name="x290"></a>    <a href="qcolorgroup.html">TQColorGroup</a> active (op.<a href="ntqpalette.html#active">active</a>().foreground(),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().button(),button),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().light(), light),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().dark(), dark),
-                     TQBrush(op.<a href="ntqpalette.html#active">active</a>().mid(), mid),
-                     op.<a href="ntqpalette.html#active">active</a>().text(),
+<a name="x290"></a>    <a href="tqcolorgroup.html">TQColorGroup</a> active (op.<a href="tqpalette.html#active">active</a>().foreground(),
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().button(),button),
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().light(), light),
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().dark(), dark),
+                     TQBrush(op.<a href="tqpalette.html#active">active</a>().mid(), mid),
+                     op.<a href="tqpalette.html#active">active</a>().text(),
                      TQt::white,
-                     op.<a href="ntqpalette.html#active">active</a>().base(),//                   TQColor(236,182,120),
+                     op.<a href="tqpalette.html#active">active</a>().base(),//                   TQColor(236,182,120),
                      TQBrush(backCol, background)
                      );
-<a name="x279"></a>    active.<a href="qcolorgroup.html#setColor">setColor</a>( TQColorGroup::ButtonText,  TQt::white  );
-    active.<a href="qcolorgroup.html#setColor">setColor</a>( TQColorGroup::Shadow,  TQt::black  );
-<a name="x291"></a>    <a href="qcolorgroup.html">TQColorGroup</a> disabled (op.<a href="ntqpalette.html#disabled">disabled</a>().foreground(),
-                     TQBrush(op.<a href="ntqpalette.html#disabled">disabled</a>().button(),button),
-                     TQBrush(op.<a href="ntqpalette.html#disabled">disabled</a>().light(), light),
-                     op.<a href="ntqpalette.html#disabled">disabled</a>().dark(),
-                     TQBrush(op.<a href="ntqpalette.html#disabled">disabled</a>().mid(), mid),
-                     op.<a href="ntqpalette.html#disabled">disabled</a>().text(),
+<a name="x279"></a>    active.<a href="tqcolorgroup.html#setColor">setColor</a>( TQColorGroup::ButtonText,  TQt::white  );
+    active.<a href="tqcolorgroup.html#setColor">setColor</a>( TQColorGroup::Shadow,  TQt::black  );
+<a name="x291"></a>    <a href="tqcolorgroup.html">TQColorGroup</a> disabled (op.<a href="tqpalette.html#disabled">disabled</a>().foreground(),
+                     TQBrush(op.<a href="tqpalette.html#disabled">disabled</a>().button(),button),
+                     TQBrush(op.<a href="tqpalette.html#disabled">disabled</a>().light(), light),
+                     op.<a href="tqpalette.html#disabled">disabled</a>().dark(),
+                     TQBrush(op.<a href="tqpalette.html#disabled">disabled</a>().mid(), mid),
+                     op.<a href="tqpalette.html#disabled">disabled</a>().text(),
                      TQt::white,
-                     op.<a href="ntqpalette.html#disabled">disabled</a>().base(),//                 TQColor(236,182,120),
+                     op.<a href="tqpalette.html#disabled">disabled</a>().base(),//                 TQColor(236,182,120),
                      TQBrush(backCol, background)
                      );
 
-    <a href="ntqpalette.html">TQPalette</a> newPalette( active, disabled, active );
-<a name="x267"></a>    app-&gt;<a href="ntqapplication.html#setPalette">setPalette</a>( newPalette, TRUE );
+    <a href="tqpalette.html">TQPalette</a> newPalette( active, disabled, active );
+<a name="x267"></a>    app-&gt;<a href="tqapplication.html#setPalette">setPalette</a>( newPalette, TRUE );
 }
 
 /*!
   Reimplementation from TQStyle
  */
-<a name="x315"></a>void MetalStyle::<a href="ntqstyle.html#unPolish">unPolish</a>( <a href="ntqapplication.html">TQApplication</a> *app)
+<a name="x315"></a>void MetalStyle::<a href="tqstyle.html#unPolish">unPolish</a>( <a href="tqapplication.html">TQApplication</a> *app)
 {
-    app-&gt;<a href="ntqapplication.html#setPalette">setPalette</a>(oldPalette, TRUE);
-    app-&gt;<a href="ntqapplication.html#setFont">setFont</a>( app-&gt;<a href="ntqapplication.html#font">font</a>(), TRUE );
+    app-&gt;<a href="tqapplication.html#setPalette">setPalette</a>(oldPalette, TRUE);
+    app-&gt;<a href="tqapplication.html#setFont">setFont</a>( app-&gt;<a href="tqapplication.html#font">font</a>(), TRUE );
 }
 
 /*!
   Reimplementation from TQStyle
  */
-void MetalStyle::<a href="ntqstyle.html#polish">polish</a>( <a href="ntqwidget.html">TQWidget</a>* w)
+void MetalStyle::<a href="tqstyle.html#polish">polish</a>( <a href="tqwidget.html">TQWidget</a>* w)
 {
 
    // the polish function sets some widgets to transparent mode and
     // some to translate background mode in order to get the full
     // benefit from the nice pixmaps in the color group.
 
-<a name="x282"></a>    if (w-&gt;<a href="ntqobject.html#inherits">inherits</a>("TQPushButton")){
-<a name="x308"></a>        w-&gt;<a href="ntqwidget.html#setBackgroundMode">setBackgroundMode</a>( TQWidget::NoBackground );
+<a name="x282"></a>    if (w-&gt;<a href="tqobject.html#inherits">inherits</a>("TQPushButton")){
+<a name="x308"></a>        w-&gt;<a href="tqwidget.html#setBackgroundMode">setBackgroundMode</a>( TQWidget::NoBackground );
         return;
     }
 
-<a name="x307"></a>    if ( !w-&gt;<a href="ntqwidget.html#isTopLevel">isTopLevel</a>() ) {
-<a name="x305"></a>        if ( w-&gt;<a href="ntqwidget.html#backgroundPixmap">backgroundPixmap</a>() )
-<a name="x309"></a>            w-&gt;<a href="ntqwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>( TQWidget::WindowOrigin );
+<a name="x307"></a>    if ( !w-&gt;<a href="tqwidget.html#isTopLevel">isTopLevel</a>() ) {
+<a name="x305"></a>        if ( w-&gt;<a href="tqwidget.html#backgroundPixmap">backgroundPixmap</a>() )
+<a name="x309"></a>            w-&gt;<a href="tqwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>( TQWidget::WindowOrigin );
     }
 }
 
-void MetalStyle::<a href="ntqstyle.html#unPolish">unPolish</a>( <a href="ntqwidget.html">TQWidget</a>* w)
+void MetalStyle::<a href="tqstyle.html#unPolish">unPolish</a>( <a href="tqwidget.html">TQWidget</a>* w)
 {
 
    // the polish function sets some widgets to transparent mode and
     // some to translate background mode in order to get the full
     // benefit from the nice pixmaps in the color group.
 
-    if (w-&gt;<a href="ntqobject.html#inherits">inherits</a>("TQPushButton")){
-        w-&gt;<a href="ntqwidget.html#setBackgroundMode">setBackgroundMode</a>( TQWidget::PaletteButton );
+    if (w-&gt;<a href="tqobject.html#inherits">inherits</a>("TQPushButton")){
+        w-&gt;<a href="tqwidget.html#setBackgroundMode">setBackgroundMode</a>( TQWidget::PaletteButton );
         return;
     }
-    if ( !w-&gt;<a href="ntqwidget.html#isTopLevel">isTopLevel</a>() ) {
-        if ( w-&gt;<a href="ntqwidget.html#backgroundPixmap">backgroundPixmap</a>() )
-            w-&gt;<a href="ntqwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>( TQWidget::WidgetOrigin );
+    if ( !w-&gt;<a href="tqwidget.html#isTopLevel">isTopLevel</a>() ) {
+        if ( w-&gt;<a href="tqwidget.html#backgroundPixmap">backgroundPixmap</a>() )
+            w-&gt;<a href="tqwidget.html#setBackgroundOrigin">setBackgroundOrigin</a>( TQWidget::WidgetOrigin );
     }
 
 }
 
-<a name="x312"></a>void MetalStyle::<a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PrimitiveElement pe,
-                                <a href="ntqpainter.html">TQPainter</a> *p,
-                                const <a href="ntqrect.html">TQRect</a> &amp;r,
-                                const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
-                                SFlags flags, const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+<a name="x312"></a>void MetalStyle::<a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PrimitiveElement pe,
+                                <a href="tqpainter.html">TQPainter</a> *p,
+                                const <a href="tqrect.html">TQRect</a> &amp;r,
+                                const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
+                                SFlags flags, const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
     switch( pe ) {
     case PE_HeaderSection:
@@ -1792,185 +1791,185 @@ void MetalStyle::<a href="ntqstyle.html#unPolish">unPolish</a>( <a href="ntqwidg
         // fall through
     case PE_ButtonBevel:
     case PE_ButtonCommand:
-<a name="x303"></a><a name="x302"></a><a name="x301"></a><a name="x298"></a>            drawMetalButton( p, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>(),
+<a name="x303"></a><a name="x302"></a><a name="x301"></a><a name="x298"></a>            drawMetalButton( p, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>(),
                              (flags &amp; (Style_Sunken|Style_On|Style_Down)),
                              TRUE, !(flags &amp; Style_Raised) );
             break;
     case PE_PanelMenuBar:
-        drawMetalFrame( p, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>() );
+        drawMetalFrame( p, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>() );
         break;
     case PE_ScrollBarAddLine:
-        drawMetalButton( p, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>(),
+        drawMetalButton( p, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>(),
                          flags &amp; Style_Down, !( flags &amp; Style_Horizontal ) );
-        <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( (flags &amp; Style_Horizontal) ? PE_ArrowRight :PE_ArrowDown,
+        <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( (flags &amp; Style_Horizontal) ? PE_ArrowRight :PE_ArrowDown,
                        p, r, cg, flags, opt );
         break;
     case PE_ScrollBarSubLine:
-        drawMetalButton( p, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>(),
+        drawMetalButton( p, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>(),
                          flags &amp; Style_Down, !( flags &amp; Style_Horizontal ) );
-        <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( (flags &amp; Style_Horizontal) ? PE_ArrowLeft : PE_ArrowUp,
+        <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( (flags &amp; Style_Horizontal) ? PE_ArrowLeft : PE_ArrowUp,
                        p, r, cg, flags, opt );
         break;
 
 
     case PE_ScrollBarSlider:
-        drawMetalButton( p, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>(), FALSE,
+        drawMetalButton( p, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>(), FALSE,
                          flags &amp; Style_Horizontal );
         break;
     default:
-        <a href="ntqwindowsstyle.html">TQWindowsStyle</a>::<a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( pe, p, r, cg, flags, opt );
+        <a href="tqwindowsstyle.html">TQWindowsStyle</a>::<a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( pe, p, r, cg, flags, opt );
         break;
     }
 }
 
-<a name="x311"></a>void MetalStyle::<a href="ntqstyle.html#drawControl">drawControl</a>( ControlElement element,
-                              <a href="ntqpainter.html">TQPainter</a> *p,
-                              const <a href="ntqwidget.html">TQWidget</a> *widget,
-                              const <a href="ntqrect.html">TQRect</a> &amp;r,
-                              const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+<a name="x311"></a>void MetalStyle::<a href="tqstyle.html#drawControl">drawControl</a>( ControlElement element,
+                              <a href="tqpainter.html">TQPainter</a> *p,
+                              const <a href="tqwidget.html">TQWidget</a> *widget,
+                              const <a href="tqrect.html">TQRect</a> &amp;r,
+                              const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                               SFlags how,
-                              const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+                              const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
     switch( element ) {
     case CE_PushButton:
         {
-            const <a href="ntqpushbutton.html">TQPushButton</a> *btn;
-            btn = (const <a href="ntqpushbutton.html">TQPushButton</a>*)widget;
+            const <a href="tqpushbutton.html">TQPushButton</a> *btn;
+            btn = (const <a href="tqpushbutton.html">TQPushButton</a>*)widget;
             int x1, y1, x2, y2;
 
-<a name="x297"></a>            r.<a href="ntqrect.html#coords">coords</a>( &amp;x1, &amp;y1, &amp;x2, &amp;y2 );
+<a name="x297"></a>            r.<a href="tqrect.html#coords">coords</a>( &amp;x1, &amp;y1, &amp;x2, &amp;y2 );
 
-<a name="x288"></a><a name="x277"></a>            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( cg.<a href="qcolorgroup.html#foreground">foreground</a>() );
-<a name="x275"></a>            p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( TQBrush(cg.<a href="qcolorgroup.html#button">button</a>(), NoBrush) );
+<a name="x288"></a><a name="x277"></a>            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( cg.<a href="tqcolorgroup.html#foreground">foreground</a>() );
+<a name="x275"></a>            p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( TQBrush(cg.<a href="tqcolorgroup.html#button">button</a>(), NoBrush) );
 
 
-            <a href="ntqbrush.html">TQBrush</a> fill;
-<a name="x268"></a>            if ( btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() )
-<a name="x274"></a>                fill = cg.<a href="qcolorgroup.html#brush">brush</a>( TQColorGroup::Mid );
-<a name="x269"></a>            else if ( btn-&gt;<a href="ntqbutton.html#isOn">isOn</a>() )
-<a name="x278"></a>                fill = TQBrush( cg.<a href="qcolorgroup.html#mid">mid</a>(), Dense4Pattern );
+            <a href="tqbrush.html">TQBrush</a> fill;
+<a name="x268"></a>            if ( btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() )
+<a name="x274"></a>                fill = cg.<a href="tqcolorgroup.html#brush">brush</a>( TQColorGroup::Mid );
+<a name="x269"></a>            else if ( btn-&gt;<a href="tqbutton.html#isOn">isOn</a>() )
+<a name="x278"></a>                fill = TQBrush( cg.<a href="tqcolorgroup.html#mid">mid</a>(), Dense4Pattern );
             else
-                fill = cg.<a href="qcolorgroup.html#brush">brush</a>( TQColorGroup::Button );
+                fill = cg.<a href="tqcolorgroup.html#brush">brush</a>( TQColorGroup::Button );
 
-<a name="x294"></a>            if ( btn-&gt;<a href="ntqpushbutton.html#isDefault">isDefault</a>() ) {
-                <a href="ntqpointarray.html">TQPointArray</a> a;
+<a name="x294"></a>            if ( btn-&gt;<a href="tqpushbutton.html#isDefault">isDefault</a>() ) {
+                <a href="tqpointarray.html">TQPointArray</a> a;
 <a name="x293"></a>                a.setPoints( 9,
                              x1, y1, x2, y1, x2, y2, x1, y2, x1, y1+1,
                              x2-1, y1+1, x2-1, y2-1, x1+1, y2-1, x1+1, y1+1 );
-                p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( TQt::black );
-<a name="x285"></a>                p-&gt;<a href="ntqpainter.html#drawPolyline">drawPolyline</a>( a );
+                p-&gt;<a href="tqpainter.html#setPen">setPen</a>( TQt::black );
+<a name="x285"></a>                p-&gt;<a href="tqpainter.html#drawPolyline">drawPolyline</a>( a );
                 x1 += 2;
                 y1 += 2;
                 x2 -= 2;
                 y2 -= 2;
             }
             SFlags flags = Style_Default;
-            if ( btn-&gt;<a href="ntqbutton.html#isOn">isOn</a>() )
+            if ( btn-&gt;<a href="tqbutton.html#isOn">isOn</a>() )
                 flags |= Style_On;
-            if ( btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() )
+            if ( btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() )
                 flags |= Style_Down;
-<a name="x295"></a>            if ( !btn-&gt;<a href="ntqpushbutton.html#isFlat">isFlat</a>() &amp;&amp; !btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() )
+<a name="x295"></a>            if ( !btn-&gt;<a href="tqpushbutton.html#isFlat">isFlat</a>() &amp;&amp; !btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() )
                 flags |= Style_Raised;
-            <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ButtonCommand, p,
+            <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ButtonCommand, p,
                            TQRect( x1, y1, x2 - x1 + 1, y2 - y1 + 1),
                            cg, flags, opt );
 
-<a name="x296"></a>            if ( btn-&gt;<a href="ntqpushbutton.html#isMenuButton">isMenuButton</a>() ) {
+<a name="x296"></a>            if ( btn-&gt;<a href="tqpushbutton.html#isMenuButton">isMenuButton</a>() ) {
                 flags = Style_Default;
-<a name="x306"></a>                if ( btn-&gt;<a href="ntqwidget.html#isEnabled">isEnabled</a>() )
+<a name="x306"></a>                if ( btn-&gt;<a href="tqwidget.html#isEnabled">isEnabled</a>() )
                     flags |= Style_Enabled;
 
                 int dx = ( y1 - y2 - 4 ) / 3;
-                <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
+                <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
                                TQRect(x2 - dx, dx, y1, y2 - y1),
                                cg, flags, opt );
             }
-<a name="x283"></a>            if ( p-&gt;<a href="ntqpainter.html#brush">brush</a>().style() != NoBrush )
-                p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( NoBrush );
+<a name="x283"></a>            if ( p-&gt;<a href="tqpainter.html#brush">brush</a>().style() != NoBrush )
+                p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( NoBrush );
             break;
         }
     case CE_PushButtonLabel:
         {
-            const <a href="ntqpushbutton.html">TQPushButton</a> *btn;
-            btn = (const <a href="ntqpushbutton.html">TQPushButton</a>*)widget;
+            const <a href="tqpushbutton.html">TQPushButton</a> *btn;
+            btn = (const <a href="tqpushbutton.html">TQPushButton</a>*)widget;
             int x, y, w, h;
-<a name="x300"></a>            r.<a href="ntqrect.html#rect">rect</a>( &amp;x, &amp;y, &amp;w, &amp;h );
+<a name="x300"></a>            r.<a href="tqrect.html#rect">rect</a>( &amp;x, &amp;y, &amp;w, &amp;h );
 
             int x1, y1, x2, y2;
-            r.<a href="ntqrect.html#coords">coords</a>( &amp;x1, &amp;y1, &amp;x2, &amp;y2 );
+            r.<a href="tqrect.html#coords">coords</a>( &amp;x1, &amp;y1, &amp;x2, &amp;y2 );
             int dx = 0;
             int dy = 0;
-            if ( btn-&gt;<a href="ntqpushbutton.html#isMenuButton">isMenuButton</a>() )
+            if ( btn-&gt;<a href="tqpushbutton.html#isMenuButton">isMenuButton</a>() )
                 dx = ( y2 - y1 ) / 3;
-            if ( btn-&gt;<a href="ntqbutton.html#isOn">isOn</a>() || btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() ) {
+            if ( btn-&gt;<a href="tqbutton.html#isOn">isOn</a>() || btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() ) {
                 dx--;
                 dy--;
             }
             if ( dx || dy )
-<a name="x289"></a>                p-&gt;<a href="ntqpainter.html#translate">translate</a>( dx, dy );
+<a name="x289"></a>                p-&gt;<a href="tqpainter.html#translate">translate</a>( dx, dy );
             x += 2;
             y += 2;
             w -= 4;
             h -= 4;
-            <a href="ntqstyle.html#drawItem">drawItem</a>( p, TQRect( x, y, w, h ),
+            <a href="tqstyle.html#drawItem">drawItem</a>( p, TQRect( x, y, w, h ),
                       AlignCenter|ShowPrefix,
-                      cg, btn-&gt;<a href="ntqwidget.html#isEnabled">isEnabled</a>(),
-<a name="x271"></a><a name="x270"></a>                      btn-&gt;<a href="ntqbutton.html#pixmap">pixmap</a>(), btn-&gt;<a href="ntqbutton.html#text">text</a>(), -1,
-<a name="x276"></a><a name="x273"></a>                      (btn-&gt;<a href="ntqbutton.html#isDown">isDown</a>() || btn-&gt;<a href="ntqbutton.html#isOn">isOn</a>())? &amp;cg.<a href="qcolorgroup.html#brightText">brightText</a>() : &amp;cg.<a href="qcolorgroup.html#buttonText">buttonText</a>() );
+                      cg, btn-&gt;<a href="tqwidget.html#isEnabled">isEnabled</a>(),
+<a name="x271"></a><a name="x270"></a>                      btn-&gt;<a href="tqbutton.html#pixmap">pixmap</a>(), btn-&gt;<a href="tqbutton.html#text">text</a>(), -1,
+<a name="x276"></a><a name="x273"></a>                      (btn-&gt;<a href="tqbutton.html#isDown">isDown</a>() || btn-&gt;<a href="tqbutton.html#isOn">isOn</a>())? &amp;cg.<a href="tqcolorgroup.html#brightText">brightText</a>() : &amp;cg.<a href="tqcolorgroup.html#buttonText">buttonText</a>() );
             if ( dx || dy )
-                p-&gt;<a href="ntqpainter.html#translate">translate</a>( -dx, -dy );
+                p-&gt;<a href="tqpainter.html#translate">translate</a>( -dx, -dy );
             break;
         }
     default:
-        <a href="ntqwindowsstyle.html">TQWindowsStyle</a>::<a href="ntqstyle.html#drawControl">drawControl</a>( element, p, widget, r, cg, how, opt );
+        <a href="tqwindowsstyle.html">TQWindowsStyle</a>::<a href="tqstyle.html#drawControl">drawControl</a>( element, p, widget, r, cg, how, opt );
         break;
     }
 }
-<a name="x310"></a>void MetalStyle::<a href="ntqstyle.html#drawComplexControl">drawComplexControl</a>( ComplexControl cc,
-                                     <a href="ntqpainter.html">TQPainter</a> *p,
-                                     const <a href="ntqwidget.html">TQWidget</a> *widget,
-                                     const <a href="ntqrect.html">TQRect</a> &amp;r,
-                                     const <a href="qcolorgroup.html">TQColorGroup</a> &amp;cg,
+<a name="x310"></a>void MetalStyle::<a href="tqstyle.html#drawComplexControl">drawComplexControl</a>( ComplexControl cc,
+                                     <a href="tqpainter.html">TQPainter</a> *p,
+                                     const <a href="tqwidget.html">TQWidget</a> *widget,
+                                     const <a href="tqrect.html">TQRect</a> &amp;r,
+                                     const <a href="tqcolorgroup.html">TQColorGroup</a> &amp;cg,
                                      SFlags how,
                                      SCFlags sub,
                                      SCFlags subActive,
-                                     const <a href="qstyleoption.html">TQStyleOption</a>&amp; opt ) const
+                                     const <a href="tqstyleoption.html">TQStyleOption</a>&amp; opt ) const
 {
     switch ( cc ) {
     case CC_Slider:
         {
-            const <a href="ntqslider.html">TQSlider</a> *slider = ( const <a href="ntqslider.html">TQSlider</a>* ) widget;
-            <a href="ntqrect.html">TQRect</a> handle = <a href="ntqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( CC_Slider, widget,
+            const <a href="tqslider.html">TQSlider</a> *slider = ( const <a href="tqslider.html">TQSlider</a>* ) widget;
+            <a href="tqrect.html">TQRect</a> handle = <a href="tqstyle.html#querySubControlMetrics">querySubControlMetrics</a>( CC_Slider, widget,
                                                    SC_SliderHandle, opt);
             if ( sub &amp; SC_SliderGroove )
-                TQWindowsStyle::<a href="ntqstyle.html#drawComplexControl">drawComplexControl</a>( cc, p, widget, r, cg, how,
+                TQWindowsStyle::<a href="tqstyle.html#drawComplexControl">drawComplexControl</a>( cc, p, widget, r, cg, how,
                                                    SC_SliderGroove, subActive, opt );
-<a name="x299"></a>            if ( (sub &amp; SC_SliderHandle) &amp;&amp; handle.<a href="ntqrect.html#isValid">isValid</a>() )
-                drawMetalButton( p, handle.<a href="ntqrect.html#x">x</a>(), handle.<a href="ntqrect.html#y">y</a>(), handle.<a href="ntqrect.html#width">width</a>(),
-                                 handle.<a href="ntqrect.html#height">height</a>(), FALSE,
-<a name="x304"></a>                                 slider-&gt;<a href="ntqslider.html#orientation">orientation</a>() == TQSlider::Horizontal);
+<a name="x299"></a>            if ( (sub &amp; SC_SliderHandle) &amp;&amp; handle.<a href="tqrect.html#isValid">isValid</a>() )
+                drawMetalButton( p, handle.<a href="tqrect.html#x">x</a>(), handle.<a href="tqrect.html#y">y</a>(), handle.<a href="tqrect.html#width">width</a>(),
+                                 handle.<a href="tqrect.html#height">height</a>(), FALSE,
+<a name="x304"></a>                                 slider-&gt;<a href="tqslider.html#orientation">orientation</a>() == TQSlider::Horizontal);
             break;
         }
     case CC_ComboBox:
         {
             // not exactly correct...
-            const <a href="ntqcombobox.html">TQComboBox</a> *cmb = ( const <a href="ntqcombobox.html">TQComboBox</a>* ) widget;
+            const <a href="tqcombobox.html">TQComboBox</a> *cmb = ( const <a href="tqcombobox.html">TQComboBox</a>* ) widget;
 
-            <a href="ntqpainter.html#qDrawWinPanel">qDrawWinPanel</a>( p, r.<a href="ntqrect.html#x">x</a>(), r.<a href="ntqrect.html#y">y</a>(), r.<a href="ntqrect.html#width">width</a>(), r.<a href="ntqrect.html#height">height</a>(), cg, TRUE,
-                           cmb-&gt;<a href="ntqwidget.html#isEnabled">isEnabled</a>() ? &amp;cg.<a href="qcolorgroup.html#brush">brush</a>( TQColorGroup::Base ) :
-                                              &amp;cg.<a href="qcolorgroup.html#brush">brush</a>( TQColorGroup::Background ) );
-            drawMetalButton( p, r.<a href="ntqrect.html#x">x</a>() + r.<a href="ntqrect.html#width">width</a>() - 2 - 16, r.<a href="ntqrect.html#y">y</a>() + 2, 16, r.<a href="ntqrect.html#height">height</a>() - 4,
+            <a href="tqpainter.html#qDrawWinPanel">qDrawWinPanel</a>( p, r.<a href="tqrect.html#x">x</a>(), r.<a href="tqrect.html#y">y</a>(), r.<a href="tqrect.html#width">width</a>(), r.<a href="tqrect.html#height">height</a>(), cg, TRUE,
+                           cmb-&gt;<a href="tqwidget.html#isEnabled">isEnabled</a>() ? &amp;cg.<a href="tqcolorgroup.html#brush">brush</a>( TQColorGroup::Base ) :
+                                              &amp;cg.<a href="tqcolorgroup.html#brush">brush</a>( TQColorGroup::Background ) );
+            drawMetalButton( p, r.<a href="tqrect.html#x">x</a>() + r.<a href="tqrect.html#width">width</a>() - 2 - 16, r.<a href="tqrect.html#y">y</a>() + 2, 16, r.<a href="tqrect.html#height">height</a>() - 4,
                              how &amp; Style_Sunken, TRUE );
-            <a href="ntqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
-                           TQRect( r.<a href="ntqrect.html#x">x</a>() + r.<a href="ntqrect.html#width">width</a>() - 2 - 16 + 2,
-                                  r.<a href="ntqrect.html#y">y</a>() + 2 + 2, 16 - 4, r.<a href="ntqrect.html#height">height</a>() - 4 -4 ),
+            <a href="tqstyle.html#drawPrimitive">drawPrimitive</a>( PE_ArrowDown, p,
+                           TQRect( r.<a href="tqrect.html#x">x</a>() + r.<a href="tqrect.html#width">width</a>() - 2 - 16 + 2,
+                                  r.<a href="tqrect.html#y">y</a>() + 2 + 2, 16 - 4, r.<a href="tqrect.html#height">height</a>() - 4 -4 ),
                            cg,
-                           cmb-&gt;<a href="ntqwidget.html#isEnabled">isEnabled</a>() ? Style_Enabled : Style_Default,
+                           cmb-&gt;<a href="tqwidget.html#isEnabled">isEnabled</a>() ? Style_Enabled : Style_Default,
                            opt );
             break;
         }
     default:
-        <a href="ntqwindowsstyle.html">TQWindowsStyle</a>::<a href="ntqstyle.html#drawComplexControl">drawComplexControl</a>( cc, p, widget, r, cg, how, sub, subActive,
+        <a href="tqwindowsstyle.html">TQWindowsStyle</a>::<a href="tqstyle.html#drawComplexControl">drawComplexControl</a>( cc, p, widget, r, cg, how, sub, subActive,
                                            opt );
         break;
     }
@@ -1982,7 +1981,7 @@ void MetalStyle::<a href="ntqstyle.html#unPolish">unPolish</a>( <a href="ntqwidg
   /a horz is TRUE.
 */
 
-void <a name="f228"></a>MetalStyle::drawMetalButton( <a href="ntqpainter.html">TQPainter</a> *p, int x, int y, int w, int h,
+void <a name="f228"></a>MetalStyle::drawMetalButton( <a href="tqpainter.html">TQPainter</a> *p, int x, int y, int w, int h,
                                   bool sunken, bool horz, bool flat  ) const
 {
 
@@ -1993,13 +1992,13 @@ void <a name="f228"></a>MetalStyle::drawMetalButton( <a href="ntqpainter.html">T
 
 
 
-void <a name="f229"></a>MetalStyle::drawMetalFrame( <a href="ntqpainter.html">TQPainter</a> *p, int x, int y, int w, int h ) const
+void <a name="f229"></a>MetalStyle::drawMetalFrame( <a href="tqpainter.html">TQPainter</a> *p, int x, int y, int w, int h ) const
 {
-    <a href="ntqcolor.html">TQColor</a> top1("#878769691515");
-    <a href="ntqcolor.html">TQColor</a> top2("#C6C6B4B44949");
+    <a href="tqcolor.html">TQColor</a> top1("#878769691515");
+    <a href="tqcolor.html">TQColor</a> top2("#C6C6B4B44949");
 
-    <a href="ntqcolor.html">TQColor</a> bot2("#70705B5B1414");
-    <a href="ntqcolor.html">TQColor</a> bot1("#56564A4A0E0E"); //first from the bottom
+    <a href="tqcolor.html">TQColor</a> bot2("#70705B5B1414");
+    <a href="tqcolor.html">TQColor</a> bot1("#56564A4A0E0E"); //first from the bottom
 
 
     int x2 = x + w - 1;
@@ -2007,39 +2006,39 @@ void <a name="f229"></a>MetalStyle::drawMetalFrame( <a href="ntqpainter.html">TQ
 
     //frame:
 
-    p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( top1 );
-<a name="x284"></a>    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x, y2, x, y );
-    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x, y, x2-1, y );
-    p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( top2 );
-    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x+1, y2 -1, x+1, y+1 );
-    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x+1, y+1 , x2-2, y+1 );
+    p-&gt;<a href="tqpainter.html#setPen">setPen</a>( top1 );
+<a name="x284"></a>    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x, y2, x, y );
+    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x, y, x2-1, y );
+    p-&gt;<a href="tqpainter.html#setPen">setPen</a>( top2 );
+    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x+1, y2 -1, x+1, y+1 );
+    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x+1, y+1 , x2-2, y+1 );
 
-    p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( bot1 );
-    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x+1, y2, x2, y2 );
-    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x2, y2, x2, y );
-    p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( bot2 );
-    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x+1, y2-1, x2-1, y2-1 );
-    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x2-1, y2-1, x2-1, y+1 );
+    p-&gt;<a href="tqpainter.html#setPen">setPen</a>( bot1 );
+    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x+1, y2, x2, y2 );
+    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x2, y2, x2, y );
+    p-&gt;<a href="tqpainter.html#setPen">setPen</a>( bot2 );
+    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x+1, y2-1, x2-1, y2-1 );
+    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x2-1, y2-1, x2-1, y+1 );
 
 
 }
 
 
-void <a name="f230"></a>MetalStyle::drawMetalGradient( <a href="ntqpainter.html">TQPainter</a> *p, int x, int y, int w, int h,
+void <a name="f230"></a>MetalStyle::drawMetalGradient( <a href="tqpainter.html">TQPainter</a> *p, int x, int y, int w, int h,
                                     bool sunken, bool horz, bool flat  ) const
 
 {
-    <a href="ntqcolor.html">TQColor</a> highlight("#E8E8DDDD6565");
-    <a href="ntqcolor.html">TQColor</a> subh1("#CECEBDBD5151");
-    <a href="ntqcolor.html">TQColor</a> subh2("#BFBFACAC4545");
+    <a href="tqcolor.html">TQColor</a> highlight("#E8E8DDDD6565");
+    <a href="tqcolor.html">TQColor</a> subh1("#CECEBDBD5151");
+    <a href="tqcolor.html">TQColor</a> subh2("#BFBFACAC4545");
 
-    <a href="ntqcolor.html">TQColor</a> topgrad("#B9B9A5A54040");
-    <a href="ntqcolor.html">TQColor</a> botgrad("#89896C6C1A1A");
+    <a href="tqcolor.html">TQColor</a> topgrad("#B9B9A5A54040");
+    <a href="tqcolor.html">TQColor</a> botgrad("#89896C6C1A1A");
 
 
 
     if ( flat &amp;&amp; !sunken ) {
-<a name="x286"></a>            p-&gt;<a href="ntqpainter.html#fillRect">fillRect</a>( x + 2, y + 2, w - 4,h -4, topgrad );
+<a name="x286"></a>            p-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( x + 2, y + 2, w - 4,h -4, topgrad );
     } else {
         // highlight:
         int i = 0;
@@ -2053,18 +2052,18 @@ void <a name="f230"></a>MetalStyle::drawMetalGradient( <a href="ntqpainter.html"
             y2 = y2 - 2;
 
 #define DRAWLINE if (horz) \
-                    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x1, y1+i, x2, y1+i ); \
+                    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x1, y1+i, x2, y1+i ); \
                  else \
-                    p-&gt;<a href="ntqpainter.html#drawLine">drawLine</a>( x1+i, y1, x1+i, y2 ); \
+                    p-&gt;<a href="tqpainter.html#drawLine">drawLine</a>( x1+i, y1, x1+i, y2 ); \
                  i++;
 
         if ( !sunken ) {
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( highlight );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( highlight );
             DRAWLINE;
             DRAWLINE;
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( subh1 );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( subh1 );
             DRAWLINE;
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( subh2 );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( subh2 );
             DRAWLINE;
         }
         // gradient:
@@ -2072,32 +2071,32 @@ void <a name="f230"></a>MetalStyle::drawMetalGradient( <a href="ntqpainter.html"
 
         int h1, h2, s1, s2, v1, v2;
         if ( !sunken ) {
-<a name="x272"></a>            topgrad.<a href="ntqcolor.html#hsv">hsv</a>( &amp;h1, &amp;s1, &amp;v1 );
-            botgrad.<a href="ntqcolor.html#hsv">hsv</a>( &amp;h2, &amp;s2, &amp;v2 );
+<a name="x272"></a>            topgrad.<a href="tqcolor.html#hsv">hsv</a>( &amp;h1, &amp;s1, &amp;v1 );
+            botgrad.<a href="tqcolor.html#hsv">hsv</a>( &amp;h2, &amp;s2, &amp;v2 );
         } else {
-            botgrad.<a href="ntqcolor.html#hsv">hsv</a>( &amp;h1, &amp;s1, &amp;v1 );
-            topgrad.<a href="ntqcolor.html#hsv">hsv</a>( &amp;h2, &amp;s2, &amp;v2 );
+            botgrad.<a href="tqcolor.html#hsv">hsv</a>( &amp;h1, &amp;s1, &amp;v1 );
+            topgrad.<a href="tqcolor.html#hsv">hsv</a>( &amp;h2, &amp;s2, &amp;v2 );
         }
 
         if ( ng &gt; 1 ) {
             for ( int j =0; j &lt; ng; j++ ) {
-                p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( TQColor( h1 + ((h2-h1)*j)/(ng-1),
+                p-&gt;<a href="tqpainter.html#setPen">setPen</a>( TQColor( h1 + ((h2-h1)*j)/(ng-1),
                                    s1 + ((s2-s1)*j)/(ng-1),
                                    v1 + ((v2-v1)*j)/(ng-1),  TQColor::Hsv ) );
                 DRAWLINE;
             }
         } else if ( ng == 1 ) {
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( TQColor((h1+h2)/2, (s1+s2)/2, (v1+v2)/2, TQColor::Hsv) );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( TQColor((h1+h2)/2, (s1+s2)/2, (v1+v2)/2, TQColor::Hsv) );
             DRAWLINE;
         }
         if ( sunken ) {
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( subh2 );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( subh2 );
             DRAWLINE;
 
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( subh1 );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( subh1 );
             DRAWLINE;
 
-            p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( highlight );
+            p-&gt;<a href="tqpainter.html#setPen">setPen</a>( highlight );
             DRAWLINE;
             DRAWLINE;
         }
@@ -2106,7 +2105,7 @@ void <a name="f230"></a>MetalStyle::drawMetalGradient( <a href="ntqpainter.html"
 
 
 
-<a name="x313"></a>int MetalStyle::<a href="ntqstyle.html#pixelMetric">pixelMetric</a>( PixelMetric metric, const <a href="ntqwidget.html">TQWidget</a> *w ) const
+<a name="x313"></a>int MetalStyle::<a href="tqstyle.html#pixelMetric">pixelMetric</a>( PixelMetric metric, const <a href="tqwidget.html">TQWidget</a> *w ) const
 {
     switch ( metric ) {
     case PM_MenuBarFrameWidth:
@@ -2134,28 +2133,28 @@ void <a name="f230"></a>MetalStyle::drawMetalGradient( <a href="ntqpainter.html"
 #ifndef THEMES_H
 #define THEMES_H
 
-#include &lt;<a href="qmainwindow-h.html">ntqmainwindow.h</a>&gt;
-#include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
+#include &lt;<a href="tqmainwindow-h.html">tqmainwindow.h</a>&gt;
+#include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
 
 class TQTabWidget;
 
-class Themes: public <a href="ntqmainwindow.html">TQMainWindow</a>
+class Themes: public <a href="tqmainwindow.html">TQMainWindow</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 
 public:
-    Themes( <a href="ntqwidget.html">TQWidget</a> *parent = 0, const char *name = 0, WFlags f = WType_TopLevel );
+    Themes( <a href="tqwidget.html">TQWidget</a> *parent = 0, const char *name = 0, WFlags f = WType_TopLevel );
 
 protected:
-    <a href="ntqtabwidget.html">TQTabWidget</a> *tabwidget;
+    <a href="tqtabwidget.html">TQTabWidget</a> *tabwidget;
 
 protected slots:
-    void makeStyle(const <a href="ntqstring.html">TQString</a> &amp;);
+    void makeStyle(const <a href="tqstring.html">TQString</a> &amp;);
     void about();
     void aboutTQt();
 
 private:
-    <a href="ntqfont.html">TQFont</a> appFont;
+    <a href="tqfont.html">TQFont</a> appFont;
 };
 
 
@@ -2186,137 +2185,137 @@ private:
 #include "../rangecontrols/rangecontrols.h"
 #include "../richtext/richtext.h"
 
-#include &lt;<a href="qtabwidget-h.html">ntqtabwidget.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qpopupmenu-h.html">ntqpopupmenu.h</a>&gt;
-#include &lt;<a href="qmenubar-h.html">ntqmenubar.h</a>&gt;
-#include &lt;<a href="qmessagebox-h.html">ntqmessagebox.h</a>&gt;
-#include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
-#include &lt;<a href="qstylefactory-h.html">ntqstylefactory.h</a>&gt;
-#include &lt;<a href="qaction-h.html">ntqaction.h</a>&gt;
-#include &lt;<a href="qsignalmapper-h.html">ntqsignalmapper.h</a>&gt;
-#include &lt;<a href="qdict-h.html">ntqdict.h</a>&gt;
+#include &lt;<a href="tqtabwidget-h.html">tqtabwidget.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqpopupmenu-h.html">tqpopupmenu.h</a>&gt;
+#include &lt;<a href="tqmenubar-h.html">tqmenubar.h</a>&gt;
+#include &lt;<a href="tqmessagebox-h.html">tqmessagebox.h</a>&gt;
+#include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
+#include &lt;<a href="tqstylefactory-h.html">tqstylefactory.h</a>&gt;
+#include &lt;<a href="tqaction-h.html">tqaction.h</a>&gt;
+#include &lt;<a href="tqsignalmapper-h.html">tqsignalmapper.h</a>&gt;
+#include &lt;<a href="tqdict-h.html">tqdict.h</a>&gt;
 
-<a name="f231"></a>Themes::Themes( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name, WFlags f )
-    : <a href="ntqmainwindow.html">TQMainWindow</a>( parent, name, f )
+<a name="f231"></a>Themes::Themes( <a href="tqwidget.html">TQWidget</a> *parent, const char *name, WFlags f )
+    : <a href="tqmainwindow.html">TQMainWindow</a>( parent, name, f )
 {
-<a name="x321"></a>    appFont = TQApplication::<a href="ntqapplication.html#font">font</a>();
-    tabwidget = new <a href="ntqtabwidget.html">TQTabWidget</a>( this );
+<a name="x321"></a>    appFont = TQApplication::<a href="tqapplication.html#font">font</a>();
+    tabwidget = new <a href="tqtabwidget.html">TQTabWidget</a>( this );
 
-<a name="x343"></a>    tabwidget-&gt;<a href="ntqtabwidget.html#addTab">addTab</a>( new ButtonsGroups( tabwidget ), "Buttons/Groups" );
-    <a href="ntqhbox.html">TQHBox</a> *hbox = new <a href="ntqhbox.html">TQHBox</a>( tabwidget );
-    hbox-&gt;<a href="ntqframe.html#setMargin">setMargin</a>( 5 );
+<a name="x343"></a>    tabwidget-&gt;<a href="tqtabwidget.html#addTab">addTab</a>( new ButtonsGroups( tabwidget ), "Buttons/Groups" );
+    <a href="tqhbox.html">TQHBox</a> *hbox = new <a href="tqhbox.html">TQHBox</a>( tabwidget );
+    hbox-&gt;<a href="tqframe.html#setMargin">setMargin</a>( 5 );
     (void)new LineEdits( hbox );
     (void)new ProgressBar( hbox );
-    tabwidget-&gt;<a href="ntqtabwidget.html#addTab">addTab</a>( hbox, "Lineedits/Progressbar" );
-    tabwidget-&gt;<a href="ntqtabwidget.html#addTab">addTab</a>( new ListBoxCombo( tabwidget ), "Listboxes/Comboboxes" );
-    tabwidget-&gt;<a href="ntqtabwidget.html#addTab">addTab</a>( new CheckLists( tabwidget ), "Listviews" );
-    tabwidget-&gt;<a href="ntqtabwidget.html#addTab">addTab</a>( new RangeControls( tabwidget ), "Rangecontrols" );
-    tabwidget-&gt;<a href="ntqtabwidget.html#addTab">addTab</a>( new MyRichText( tabwidget ), "Fortune" );
+    tabwidget-&gt;<a href="tqtabwidget.html#addTab">addTab</a>( hbox, "Lineedits/Progressbar" );
+    tabwidget-&gt;<a href="tqtabwidget.html#addTab">addTab</a>( new ListBoxCombo( tabwidget ), "Listboxes/Comboboxes" );
+    tabwidget-&gt;<a href="tqtabwidget.html#addTab">addTab</a>( new CheckLists( tabwidget ), "Listviews" );
+    tabwidget-&gt;<a href="tqtabwidget.html#addTab">addTab</a>( new RangeControls( tabwidget ), "Rangecontrols" );
+    tabwidget-&gt;<a href="tqtabwidget.html#addTab">addTab</a>( new MyRichText( tabwidget ), "Fortune" );
 
-    <a href="ntqmainwindow.html#setCentralWidget">setCentralWidget</a>( tabwidget );
+    <a href="tqmainwindow.html#setCentralWidget">setCentralWidget</a>( tabwidget );
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *style = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-<a name="x333"></a>    style-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
-    <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Style" , style );
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *style = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+<a name="x333"></a>    style-&gt;<a href="tqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Style" , style );
 
-    style-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
-    <a href="qactiongroup.html">TQActionGroup</a> *ag = new <a href="qactiongroup.html">TQActionGroup</a>( this, 0 );
-<a name="x320"></a>    ag-&gt;<a href="qactiongroup.html#setExclusive">setExclusive</a>( TRUE );
-    <a href="ntqsignalmapper.html">TQSignalMapper</a> *styleMapper = new <a href="ntqsignalmapper.html">TQSignalMapper</a>( this );
-<a name="x335"></a>    <a href="ntqobject.html#connect">connect</a>( styleMapper, TQ_SIGNAL( <a href="ntqsignalmapper.html#mapped">mapped</a>( const <a href="ntqstring.html">TQString</a>&amp; ) ), this, TQ_SLOT( makeStyle( const <a href="ntqstring.html">TQString</a>&amp; ) ) );
-<a name="x342"></a>    <a href="ntqstringlist.html">TQStringList</a> list = TQStyleFactory::<a href="ntqstylefactory.html#keys">keys</a>();
-<a name="x341"></a>    list.<a href="ntqstringlist.html#sort">sort</a>();
+    style-&gt;<a href="tqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
+    <a href="tqactiongroup.html">TQActionGroup</a> *ag = new <a href="tqactiongroup.html">TQActionGroup</a>( this, 0 );
+<a name="x320"></a>    ag-&gt;<a href="tqactiongroup.html#setExclusive">setExclusive</a>( TRUE );
+    <a href="tqsignalmapper.html">TQSignalMapper</a> *styleMapper = new <a href="tqsignalmapper.html">TQSignalMapper</a>( this );
+<a name="x335"></a>    <a href="tqobject.html#connect">connect</a>( styleMapper, TQ_SIGNAL( <a href="tqsignalmapper.html#mapped">mapped</a>( const <a href="tqstring.html">TQString</a>&amp; ) ), this, TQ_SLOT( makeStyle( const <a href="tqstring.html">TQString</a>&amp; ) ) );
+<a name="x342"></a>    <a href="tqstringlist.html">TQStringList</a> list = TQStyleFactory::<a href="tqstylefactory.html#keys">keys</a>();
+<a name="x341"></a>    list.<a href="tqstringlist.html#sort">sort</a>();
 #ifndef TQT_NO_STYLE_WINDOWS
-<a name="x346"></a><a name="x344"></a>    list.<a href="ntqvaluelist.html#insert">insert</a>(list.<a href="ntqvaluelist.html#begin">begin</a>(), "Norwegian Wood");
-    list.<a href="ntqvaluelist.html#insert">insert</a>(list.<a href="ntqvaluelist.html#begin">begin</a>(), "Metal");
+<a name="x346"></a><a name="x344"></a>    list.<a href="tqvaluelist.html#insert">insert</a>(list.<a href="tqvaluelist.html#begin">begin</a>(), "Norwegian Wood");
+    list.<a href="tqvaluelist.html#insert">insert</a>(list.<a href="tqvaluelist.html#begin">begin</a>(), "Metal");
 #endif
-    <a href="ntqdict.html">TQDict</a>&lt;int&gt; stylesDict( 17, FALSE );
-<a name="x345"></a>    for ( TQStringList::Iterator it = list.<a href="ntqvaluelist.html#begin">begin</a>(); it != list.<a href="ntqvaluelist.html#end">end</a>(); ++it ) {
-        <a href="ntqstring.html">TQString</a> styleStr = *it;
-        <a href="ntqstring.html">TQString</a> styleAccel = styleStr;
-<a name="x338"></a>        if ( stylesDict[styleAccel.<a href="ntqstring.html#left">left</a>(1)] ) {
-<a name="x339"></a>            for ( uint i = 0; i &lt; styleAccel.<a href="ntqstring.html#length">length</a>(); i++ ) {
-<a name="x340"></a>                if ( !stylesDict[styleAccel.<a href="ntqstring.html#mid">mid</a>( i, 1 )] ) {
-<a name="x326"></a>                    stylesDict.<a href="ntqdict.html#insert">insert</a>(styleAccel.<a href="ntqstring.html#mid">mid</a>( i, 1 ), (const int *)1);
-<a name="x337"></a>                    styleAccel = styleAccel.<a href="ntqstring.html#insert">insert</a>( i, '&amp;' );
+    <a href="tqdict.html">TQDict</a>&lt;int&gt; stylesDict( 17, FALSE );
+<a name="x345"></a>    for ( TQStringList::Iterator it = list.<a href="tqvaluelist.html#begin">begin</a>(); it != list.<a href="tqvaluelist.html#end">end</a>(); ++it ) {
+        <a href="tqstring.html">TQString</a> styleStr = *it;
+        <a href="tqstring.html">TQString</a> styleAccel = styleStr;
+<a name="x338"></a>        if ( stylesDict[styleAccel.<a href="tqstring.html#left">left</a>(1)] ) {
+<a name="x339"></a>            for ( uint i = 0; i &lt; styleAccel.<a href="tqstring.html#length">length</a>(); i++ ) {
+<a name="x340"></a>                if ( !stylesDict[styleAccel.<a href="tqstring.html#mid">mid</a>( i, 1 )] ) {
+<a name="x326"></a>                    stylesDict.<a href="tqdict.html#insert">insert</a>(styleAccel.<a href="tqstring.html#mid">mid</a>( i, 1 ), (const int *)1);
+<a name="x337"></a>                    styleAccel = styleAccel.<a href="tqstring.html#insert">insert</a>( i, '&amp;' );
                     break;
                 }
             }
         } else {
-            stylesDict.<a href="ntqdict.html#insert">insert</a>(styleAccel.<a href="ntqstring.html#left">left</a>(1), (const int *)1);
+            stylesDict.<a href="tqdict.html#insert">insert</a>(styleAccel.<a href="tqstring.html#left">left</a>(1), (const int *)1);
             styleAccel = "&amp;"+styleAccel;
         }
-<a name="x319"></a>        <a href="ntqaction.html">TQAction</a> *a = new <a href="ntqaction.html">TQAction</a>( styleStr, TQIconSet(), styleAccel, 0, ag, 0, ag-&gt;<a href="qactiongroup.html#isExclusive">isExclusive</a>() );
-<a name="x334"></a><a name="x316"></a>        <a href="ntqobject.html#connect">connect</a>( a, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), styleMapper, TQ_SLOT(<a href="ntqsignalmapper.html#map">map</a>()) );
-<a name="x336"></a><a name="x317"></a>        styleMapper-&gt;<a href="ntqsignalmapper.html#setMapping">setMapping</a>( a, a-&gt;<a href="ntqaction.html#text">text</a>() );
+<a name="x319"></a>        <a href="tqaction.html">TQAction</a> *a = new <a href="tqaction.html">TQAction</a>( styleStr, TQIconSet(), styleAccel, 0, ag, 0, ag-&gt;<a href="tqactiongroup.html#isExclusive">isExclusive</a>() );
+<a name="x334"></a><a name="x316"></a>        <a href="tqobject.html#connect">connect</a>( a, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ), styleMapper, TQ_SLOT(<a href="tqsignalmapper.html#map">map</a>()) );
+<a name="x336"></a><a name="x317"></a>        styleMapper-&gt;<a href="tqsignalmapper.html#setMapping">setMapping</a>( a, a-&gt;<a href="tqaction.html#text">text</a>() );
     }
-<a name="x318"></a>    ag-&gt;<a href="qactiongroup.html#addTo">addTo</a>(style);
-    style-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    style-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>("&amp;Quit", tqApp, TQ_SLOT( <a href="ntqapplication.html#quit">quit</a>() ), CTRL | Key_Q );
+<a name="x318"></a>    ag-&gt;<a href="tqactiongroup.html#addTo">addTo</a>(style);
+    style-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    style-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>("&amp;Quit", tqApp, TQ_SLOT( <a href="tqapplication.html#quit">quit</a>() ), CTRL | Key_Q );
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> * help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
-    <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", help );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), Key_F1);
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()));
+    <a href="tqpopupmenu.html">TQPopupMenu</a> * help = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", help );
+    help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), Key_F1);
+    help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()));
 
 #ifndef TQT_NO_STYLE_WINDOWS
-<a name="x325"></a>    tqApp-&gt;<a href="ntqapplication.html#setStyle">setStyle</a>( new NorwegianWoodStyle );
+<a name="x325"></a>    tqApp-&gt;<a href="tqapplication.html#setStyle">setStyle</a>( new NorwegianWoodStyle );
 #endif
 }
 
-void <a name="f232"></a>Themes::makeStyle(const <a href="ntqstring.html">TQString</a> &amp;style)
+void <a name="f232"></a>Themes::makeStyle(const <a href="tqstring.html">TQString</a> &amp;style)
 {
     if(style == "Norwegian Wood") {
 #ifndef TQT_NO_STYLE_WINDOWS
-        tqApp-&gt;<a href="ntqapplication.html#setStyle">setStyle</a>( new NorwegianWoodStyle );
+        tqApp-&gt;<a href="tqapplication.html#setStyle">setStyle</a>( new NorwegianWoodStyle );
 #endif
     } else if( style == "Metal" ) {
 #ifndef TQT_NO_STYLE_WINDOWS
-        tqApp-&gt;<a href="ntqapplication.html#setStyle">setStyle</a>( new MetalStyle );
+        tqApp-&gt;<a href="tqapplication.html#setStyle">setStyle</a>( new MetalStyle );
 #endif
     } else {
-        tqApp-&gt;<a href="ntqapplication.html#setStyle">setStyle</a>(style);
+        tqApp-&gt;<a href="tqapplication.html#setStyle">setStyle</a>(style);
         if(style == "Platinum") {
-            <a href="ntqpalette.html">TQPalette</a> p( TQColor( 239, 239, 239 ) );
-<a name="x324"></a>            tqApp-&gt;<a href="ntqapplication.html#setPalette">setPalette</a>( p, TRUE );
-<a name="x323"></a>            tqApp-&gt;<a href="ntqapplication.html#setFont">setFont</a>( appFont, TRUE );
+            <a href="tqpalette.html">TQPalette</a> p( TQColor( 239, 239, 239 ) );
+<a name="x324"></a>            tqApp-&gt;<a href="tqapplication.html#setPalette">setPalette</a>( p, TRUE );
+<a name="x323"></a>            tqApp-&gt;<a href="tqapplication.html#setFont">setFont</a>( appFont, TRUE );
         } else if(style == "Windows") {
-            tqApp-&gt;<a href="ntqapplication.html#setFont">setFont</a>( appFont, TRUE );
+            tqApp-&gt;<a href="tqapplication.html#setFont">setFont</a>( appFont, TRUE );
         } else if(style == "CDE") {
-            <a href="ntqpalette.html">TQPalette</a> p( TQColor( 75, 123, 130 ) );
-<a name="x332"></a>            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::Base, TQColor( 55, 77, 78 ) );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::Base, TQColor( 55, 77, 78 ) );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::Base, TQColor( 55, 77, 78 ) );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::Highlight, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::HighlightedText, TQColor( 55, 77, 78 ) );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::Highlight, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::HighlightedText, TQColor( 55, 77, 78 ) );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::Highlight, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::HighlightedText, TQColor( 55, 77, 78 ) );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::Foreground, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::Text, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::ButtonText, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::Foreground, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::Text, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::ButtonText, TQt::white );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::Foreground, TQt::lightGray );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::Text, TQt::lightGray );
-            p.<a href="ntqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::ButtonText, TQt::lightGray );
-            tqApp-&gt;<a href="ntqapplication.html#setPalette">setPalette</a>( p, TRUE );
-            tqApp-&gt;<a href="ntqapplication.html#setFont">setFont</a>( TQFont( "times", appFont.pointSize() ), TRUE );
+            <a href="tqpalette.html">TQPalette</a> p( TQColor( 75, 123, 130 ) );
+<a name="x332"></a>            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::Base, TQColor( 55, 77, 78 ) );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::Base, TQColor( 55, 77, 78 ) );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::Base, TQColor( 55, 77, 78 ) );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::Highlight, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::HighlightedText, TQColor( 55, 77, 78 ) );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::Highlight, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::HighlightedText, TQColor( 55, 77, 78 ) );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::Highlight, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::HighlightedText, TQColor( 55, 77, 78 ) );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::Foreground, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::Text, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Active, TQColorGroup::ButtonText, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::Foreground, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::Text, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Inactive, TQColorGroup::ButtonText, TQt::white );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::Foreground, TQt::lightGray );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::Text, TQt::lightGray );
+            p.<a href="tqpalette.html#setColor">setColor</a>( TQPalette::Disabled, TQColorGroup::ButtonText, TQt::lightGray );
+            tqApp-&gt;<a href="tqapplication.html#setPalette">setPalette</a>( p, TRUE );
+            tqApp-&gt;<a href="tqapplication.html#setFont">setFont</a>( TQFont( "times", appFont.pointSize() ), TRUE );
         } else if(style == "Motif" || style == "MotifPlus") {
-            <a href="ntqpalette.html">TQPalette</a> p( TQColor( 192, 192, 192 ) );
-            tqApp-&gt;<a href="ntqapplication.html#setPalette">setPalette</a>( p, TRUE );
-            tqApp-&gt;<a href="ntqapplication.html#setFont">setFont</a>( appFont, TRUE );
+            <a href="tqpalette.html">TQPalette</a> p( TQColor( 192, 192, 192 ) );
+            tqApp-&gt;<a href="tqapplication.html#setPalette">setPalette</a>( p, TRUE );
+            tqApp-&gt;<a href="tqapplication.html#setFont">setFont</a>( appFont, TRUE );
         }
     }
 }
 
 void <a name="f233"></a>Themes::about()
 {
-<a name="x330"></a>    TQMessageBox::<a href="ntqmessagebox.html#about">about</a>( this, "TQt Themes Example",
+<a name="x330"></a>    TQMessageBox::<a href="tqmessagebox.html#about">about</a>( this, "TQt Themes Example",
                         "&lt;p&gt;This example demonstrates the concept of "
                         "&lt;b&gt;generalized GUI styles &lt;/b&gt; first introduced "
                         " with the 2.0 release of TQt.&lt;/p&gt;" );
@@ -2325,7 +2324,7 @@ void <a name="f233"></a>Themes::about()
 
 void <a name="f234"></a>Themes::aboutTQt()
 {
-<a name="x331"></a>    TQMessageBox::<a href="ntqmessagebox.html#aboutTQt">aboutTQt</a>( this, "TQt Themes Example" );
+<a name="x331"></a>    TQMessageBox::<a href="tqmessagebox.html#aboutTQt">aboutTQt</a>( this, "TQt Themes Example" );
 }
 
 
@@ -2343,24 +2342,24 @@ void <a name="f234"></a>Themes::aboutTQt()
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qwindowsstyle-h.html">ntqwindowsstyle.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqwindowsstyle-h.html">tqwindowsstyle.h</a>&gt;
 #include "themes.h"
 
 #include "metal.h"
 
 int main( int argc, char ** argv )
 {
-<a name="x348"></a>    TQApplication::<a href="ntqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::ManyColor );
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+<a name="x348"></a>    TQApplication::<a href="tqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::ManyColor );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     Themes themes;
-    themes.<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Themes (TQStyle)" );
-    themes.<a href="ntqwidget.html#resize">resize</a>( 640, 400 );
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;themes );
-<a name="x350"></a>    themes.<a href="ntqwidget.html#show">show</a>();
+    themes.<a href="tqwidget.html#setCaption">setCaption</a>( "TQt Example - Themes (TQStyle)" );
+    themes.<a href="tqwidget.html#resize">resize</a>( 640, 400 );
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;themes );
+<a name="x350"></a>    themes.<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

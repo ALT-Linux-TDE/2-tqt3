@@ -1,5 +1,5 @@
 '\" t
-.TH QPointArray 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPointArray 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,58 +7,58 @@
 .ad l
 .nh
 .SH NAME
-QPointArray \- Array of points
+TQPointArray \- Array of points
 .SH SYNOPSIS
-\fC#include <ntqpointarray.h>\fR
+\fC#include <tqpointarray.h>\fR
 .PP
-Inherits QMemArray<QPoint>.
+Inherits TQMemArray<TQPoint>.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQPointArray\fR ()"
+.BI "\fBTQPointArray\fR ()"
 .br
 .ti -1c
-.BI "\fB~QPointArray\fR ()"
+.BI "\fB~TQPointArray\fR ()"
 .br
 .ti -1c
-.BI "\fBQPointArray\fR ( int size )"
+.BI "\fBTQPointArray\fR ( int size )"
 .br
 .ti -1c
-.BI "\fBQPointArray\fR ( const QPointArray & a )"
+.BI "\fBTQPointArray\fR ( const TQPointArray & a )"
 .br
 .ti -1c
-.BI "\fBQPointArray\fR ( const QRect & r, bool closed = FALSE )"
+.BI "\fBTQPointArray\fR ( const TQRect & r, bool closed = FALSE )"
 .br
 .ti -1c
-.BI "QPointArray & \fBoperator=\fR ( const QPointArray & a )"
+.BI "TQPointArray & \fBoperator=\fR ( const TQPointArray & a )"
 .br
 .ti -1c
-.BI "QPointArray \fBcopy\fR () const"
+.BI "TQPointArray \fBcopy\fR () const"
 .br
 .ti -1c
 .BI "void \fBtranslate\fR ( int dx, int dy )"
 .br
 .ti -1c
-.BI "QRect \fBboundingRect\fR () const"
+.BI "TQRect \fBboundingRect\fR () const"
 .br
 .ti -1c
 .BI "void \fBpoint\fR ( uint index, int * x, int * y ) const"
 .br
 .ti -1c
-.BI "QPoint \fBpoint\fR ( uint index ) const"
+.BI "TQPoint \fBpoint\fR ( uint index ) const"
 .br
 .ti -1c
 .BI "void \fBsetPoint\fR ( uint index, int x, int y )"
 .br
 .ti -1c
-.BI "void \fBsetPoint\fR ( uint i, const QPoint & p )"
+.BI "void \fBsetPoint\fR ( uint i, const TQPoint & p )"
 .br
 .ti -1c
 .BI "bool \fBputPoints\fR ( int index, int nPoints, int firstx, int firsty, ... )"
 .br
 .ti -1c
-.BI "bool \fBputPoints\fR ( int index, int nPoints, const QPointArray & from, int fromIndex = 0 )"
+.BI "bool \fBputPoints\fR ( int index, int nPoints, const TQPointArray & from, int fromIndex = 0 )"
 .br
 .ti -1c
 .BI "void \fBmakeArc\fR ( int x, int y, int w, int h, int a1, int a2 )"
@@ -67,41 +67,41 @@ Inherits QMemArray<QPoint>.
 .BI "void \fBmakeEllipse\fR ( int x, int y, int w, int h )"
 .br
 .ti -1c
-.BI "void \fBmakeArc\fR ( int x, int y, int w, int h, int a1, int a2, const QWMatrix & xf )"
+.BI "void \fBmakeArc\fR ( int x, int y, int w, int h, int a1, int a2, const TQWMatrix & xf )"
 .br
 .ti -1c
-.BI "QPointArray \fBcubicBezier\fR () const"
+.BI "TQPointArray \fBcubicBezier\fR () const"
 .br
 .in -1c
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const QPointArray & a )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQPointArray & a )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, QPointArray & a )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQPointArray & a )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QPointArray class provides an array of points.
+The TQPointArray class provides an array of points.
 .PP
-A QPointArray is an array of QPoint objects. In addition to the functions provided by QMemArray, QPointArray provides some point-specific functions.
+A TQPointArray is an array of TQPoint objects. In addition to the functions provided by TQMemArray, TQPointArray provides some point-specific functions.
 .PP
 For convenient reading and writing of the point data use setPoints(), putPoints(), point(), and setPoint().
 .PP
-For geometry operations use boundingRect() and translate(). There is also the QWMatrix::map() function for more general transformations of QPointArrays. You can also create arcs and ellipses with makeArc() and makeEllipse().
+For geometry operations use boundingRect() and translate(). There is also the TQWMatrix::map() function for more general transformations of TQPointArrays. You can also create arcs and ellipses with makeArc() and makeEllipse().
 .PP
-Among others, QPointArray is used by QPainter::drawLineSegments(), QPainter::drawPolyline(), QPainter::drawPolygon() and QPainter::drawCubicBezier().
+Among others, TQPointArray is used by TQPainter::drawLineSegments(), TQPainter::drawPolyline(), TQPainter::drawPolygon() and TQPainter::drawCubicBezier().
 .PP
-Note that because this class is a QMemArray, copying an array and modifying the copy modifies the original as well, i.e. a shallow copy. If you need a deep copy use copy() or detach(), for example:
+Note that because this class is a TQMemArray, copying an array and modifying the copy modifies the original as well, i.e. a shallow copy. If you need a deep copy use copy() or detach(), for example:
 .PP
 .nf
 .br
-        void drawGiraffe( const QPointArray & r, QPainter * p )
+        void drawGiraffe( const TQPointArray & r, TQPainter * p )
 .br
         {
 .br
-            QPointArray tmp = r;
+            TQPointArray tmp = r;
 .br
             tmp.detach();
 .br
@@ -115,43 +115,43 @@ Note that because this class is a QMemArray, copying an array and modifying the 
 .PP
 If you forget the tmp.detach(), the const array will be modified.
 .PP
-See also QPainter, QWMatrix, QMemArray, Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
+See also TQPainter, TQWMatrix, TQMemArray, Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPointArray::QPointArray ()"
+.SH "TQPointArray::TQPointArray ()"
 Constructs a null point array.
 .PP
 See also isNull().
-.SH "QPointArray::QPointArray ( int size )"
+.SH "TQPointArray::TQPointArray ( int size )"
 Constructs a point array with room for \fIsize\fR points. Makes a null array if \fIsize\fR == 0.
 .PP
 See also resize() and isNull().
-.SH "QPointArray::QPointArray ( const QPointArray & a )"
+.SH "TQPointArray::TQPointArray ( const TQPointArray & a )"
 Constructs a shallow copy of the point array \fIa\fR.
 .PP
 See also copy() and detach().
-.SH "QPointArray::QPointArray ( const QRect & r, bool closed = FALSE )"
+.SH "TQPointArray::TQPointArray ( const TQRect & r, bool closed = FALSE )"
 Constructs a point array from the rectangle \fIr\fR.
 .PP
 If \fIclosed\fR is FALSE, then the point array just contains the following four points in the listed order: r.topLeft(), r.topRight(), r.bottomRight() and r.bottomLeft().
 .PP
 If \fIclosed\fR is TRUE, then a fifth point is set to r.topLeft().
-.SH "QPointArray::~QPointArray ()"
+.SH "TQPointArray::~TQPointArray ()"
 Destroys the point array.
-.SH "QRect QPointArray::boundingRect () const"
-Returns the bounding rectangle of the points in the array, or QRect(0,0,0,0) if the array is empty.
-.SH "QPointArray QPointArray::copy () const"
+.SH "TQRect TQPointArray::boundingRect () const"
+Returns the bounding rectangle of the points in the array, or TQRect(0,0,0,0) if the array is empty.
+.SH "TQPointArray TQPointArray::copy () const"
 Creates a deep copy of the array.
 .PP
 See also detach().
-.SH "QPointArray QPointArray::cubicBezier () const"
+.SH "TQPointArray TQPointArray::cubicBezier () const"
 Returns the Bezier points for the four control points in this array.
-.SH "void QPointArray::makeArc ( int x, int y, int w, int h, int a1, int a2 )"
-Sets the points of the array to those describing an arc of an ellipse with size, width \fIw\fR by height \fIh\fR, and position (\fIx\fR, \fIy\fR), starting from angle \fIa1\fR and spanning by angle \fIa2\fR. The resulting array has sufficient resolution for pixel accuracy (see the overloaded function which takes an additional QWMatrix parameter).
+.SH "void TQPointArray::makeArc ( int x, int y, int w, int h, int a1, int a2 )"
+Sets the points of the array to those describing an arc of an ellipse with size, width \fIw\fR by height \fIh\fR, and position (\fIx\fR, \fIy\fR), starting from angle \fIa1\fR and spanning by angle \fIa2\fR. The resulting array has sufficient resolution for pixel accuracy (see the overloaded function which takes an additional TQWMatrix parameter).
 .PP
 Angles are specified in 16ths of a degree, i.e. a full circle equals 5760 (16*360). Positive values mean counter-clockwise, whereas negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 .PP
 See the angle diagram.
-.SH "void QPointArray::makeArc ( int x, int y, int w, int h, int a1, int a2, const QWMatrix & xf )"
+.SH "void TQPointArray::makeArc ( int x, int y, int w, int h, int a1, int a2, const TQWMatrix & xf )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the points of the array to those describing an arc of an ellipse with width \fIw\fR and height \fIh\fR and position (\fIx\fR, \fIy\fR), starting from angle \fIa1\fR, and spanning angle by \fIa2\fR, and transformed by the matrix \fIxf\fR. The resulting array has sufficient resolution for pixel accuracy.
@@ -159,23 +159,23 @@ Sets the points of the array to those describing an arc of an ellipse with width
 Angles are specified in 16ths of a degree, i.e. a full circle equals 5760 (16*360). Positive values mean counter-clockwise, whereas negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 .PP
 See the angle diagram.
-.SH "void QPointArray::makeEllipse ( int x, int y, int w, int h )"
+.SH "void TQPointArray::makeEllipse ( int x, int y, int w, int h )"
 Sets the points of the array to those describing an ellipse with size, width \fIw\fR by height \fIh\fR, and position (\fIx\fR, \fIy\fR).
 .PP
 The returned array has sufficient resolution for use as pixels.
-.SH "QPointArray & QPointArray::operator= ( const QPointArray & a )"
+.SH "TQPointArray & TQPointArray::operator= ( const TQPointArray & a )"
 Assigns a shallow copy of \fIa\fR to this point array and returns a reference to this point array.
 .PP
 Equivalent to assign(a).
 .PP
 See also copy() and detach().
-.SH "void QPointArray::point ( uint index, int * x, int * y ) const"
+.SH "void TQPointArray::point ( uint index, int * x, int * y ) const"
 Reads the coordinates of the point at position \fIindex\fR within the array and writes them into \fI*x\fR and \fI*y\fR.
-.SH "QPoint QPointArray::point ( uint index ) const"
+.SH "TQPoint TQPointArray::point ( uint index ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the point at position \fIindex\fR within the array.
-.SH "bool QPointArray::putPoints ( int index, int nPoints, int firstx, int firsty, ... )"
+.SH "bool TQPointArray::putPoints ( int index, int nPoints, int firstx, int firsty, ... )"
 Copies \fInPoints\fR points from the variable argument list into this point array from position \fIindex\fR, and resizes the point array if \fCindex+nPoints\fR exceeds the size of the array.
 .PP
 Returns TRUE if successful, or FALSE if the array could not be resized (typically due to lack of memory).
@@ -184,9 +184,9 @@ The example code creates an array with three points (4,5), (6,7) and (8,9), by e
 .PP
 .nf
 .br
-        QPointArray a( 1 );
+        TQPointArray a( 1 );
 .br
-        a[0] = QPoint( 4, 5 );
+        a[0] = TQPoint( 4, 5 );
 .br
         a.putPoints( 1, 2, 6,7, 8,9 ); // index == 1, points == 2
 .br
@@ -196,7 +196,7 @@ This has the same result, but here putPoints overwrites rather than extends:
 .PP
 .nf
 .br
-        QPointArray a( 3 );
+        TQPointArray a( 3 );
 .br
         a.putPoints( 0, 3, 4,5, 0,0, 8,9 );
 .br
@@ -207,20 +207,20 @@ This has the same result, but here putPoints overwrites rather than extends:
 The points are given as a sequence of integers, starting with \fIfirstx\fR then \fIfirsty\fR, and so on.
 .PP
 See also resize().
-.SH "bool QPointArray::putPoints ( int index, int nPoints, const QPointArray & from, int fromIndex = 0 )"
+.SH "bool TQPointArray::putPoints ( int index, int nPoints, const TQPointArray & from, int fromIndex = 0 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This version of the function copies \fInPoints\fR from \fIfrom\fR into this array, starting at \fIindex\fR in this array and \fIfromIndex\fR in \fIfrom\fR. \fIfromIndex\fR is 0 by default.
 .PP
 .nf
 .br
-        QPointArray a;
+        TQPointArray a;
 .br
         a.putPoints( 0, 3, 1,2, 0,0, 5,6 );
 .br
         // a is now the three-point array ( 1,2, 0,0, 5,6 );
 .br
-        QPointArray b;
+        TQPointArray b;
 .br
         b.putPoints( 0, 3, 4,4, 5,5, 6,6 );
 .br
@@ -231,28 +231,28 @@ This version of the function copies \fInPoints\fR from \fIfrom\fR into this arra
         // a is now ( 1,2, 0,0, 4,4, 5,5, 6,6 );
 .br
 .fi
-.SH "void QPointArray::setPoint ( uint index, int x, int y )"
+.SH "void TQPointArray::setPoint ( uint index, int x, int y )"
 Sets the point at position \fIindex\fR in the array to \fI(x, y)\fR.
 .PP
 Example: themes/wood.cpp.
-.SH "void QPointArray::setPoint ( uint i, const QPoint & p )"
+.SH "void TQPointArray::setPoint ( uint i, const TQPoint & p )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets the point at array index \fIi\fR to \fIp\fR.
-.SH "void QPointArray::translate ( int dx, int dy )"
+.SH "void TQPointArray::translate ( int dx, int dy )"
 Translates all points in the array by \fI(dx, dy)\fR.
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "QDataStream & operator<< ( QDataStream & s, const QPointArray & a )"
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQPointArray & a )"
 Writes the point array, \fIa\fR to the stream \fIs\fR and returns a reference to the stream.
 .PP
-See also Format of the QDataStream operators.
-.SH "QDataStream & operator>> ( QDataStream & s, QPointArray & a )"
+See also Format of the TQDataStream operators.
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQPointArray & a )"
 Reads a point array, \fIa\fR from the stream \fIs\fR and returns a reference to the stream.
 .PP
-See also Format of the QDataStream operators.
+See also Format of the TQDataStream operators.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqpointarray.html
+.BR http://doc.trolltech.com/tqpointarray.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

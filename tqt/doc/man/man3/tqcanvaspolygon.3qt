@@ -1,5 +1,5 @@
 '\" t
-.TH QCanvasPolygon 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQCanvasPolygon 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,30 +7,30 @@
 .ad l
 .nh
 .SH NAME
-QCanvasPolygon \- Polygon on a QCanvas
+TQCanvasPolygon \- Polygon on a TQCanvas
 .SH SYNOPSIS
-\fC#include <ntqcanvas.h>\fR
+\fC#include <tqcanvas.h>\fR
 .PP
-Inherits QCanvasPolygonalItem.
+Inherits TQCanvasPolygonalItem.
 .PP
-Inherited by QCanvasSpline.
+Inherited by TQCanvasSpline.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCanvasPolygon\fR ( QCanvas * canvas )"
+.BI "\fBTQCanvasPolygon\fR ( TQCanvas * canvas )"
 .br
 .ti -1c
-.BI "\fB~QCanvasPolygon\fR ()"
+.BI "\fB~TQCanvasPolygon\fR ()"
 .br
 .ti -1c
-.BI "void \fBsetPoints\fR ( QPointArray pa )"
+.BI "void \fBsetPoints\fR ( TQPointArray pa )"
 .br
 .ti -1c
-.BI "QPointArray \fBpoints\fR () const"
+.BI "TQPointArray \fBpoints\fR () const"
 .br
 .ti -1c
-.BI "virtual QPointArray \fBareaPoints\fR () const"
+.BI "virtual TQPointArray \fBareaPoints\fR () const"
 .br
 .ti -1c
 .BI "virtual int \fBrtti\fR () const"
@@ -39,57 +39,57 @@ Inherited by QCanvasSpline.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBdrawShape\fR ( QPainter & p )"
+.BI "virtual void \fBdrawShape\fR ( TQPainter & p )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QCanvasPolygon class provides a polygon on a QCanvas.
+The TQCanvasPolygon class provides a polygon on a TQCanvas.
 .PP
-Paints a polygon with a QBrush. The polygon's points can be set in the constructor or set or changed later using setPoints(). Use points() to retrieve the points, or areaPoints() to retrieve the points relative to the canvas's origin.
+Paints a polygon with a TQBrush. The polygon's points can be set in the constructor or set or changed later using setPoints(). Use points() to retrieve the points, or areaPoints() to retrieve the points relative to the canvas's origin.
 .PP
 The polygon can be drawn on a painter with drawShape().
 .PP
-Like any other canvas item polygons can be moved with QCanvasItem::move() and QCanvasItem::moveBy(), or by setting coordinates with QCanvasItem::setX(), QCanvasItem::setY() and QCanvasItem::setZ().
+Like any other canvas item polygons can be moved with TQCanvasItem::move() and TQCanvasItem::moveBy(), or by setting coordinates with TQCanvasItem::setX(), TQCanvasItem::setY() and TQCanvasItem::setZ().
 .PP
-Note: QCanvasPolygon does not use the pen.
+Note: TQCanvasPolygon does not use the pen.
 .PP
 See also Graphics Classes and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCanvasPolygon::QCanvasPolygon ( QCanvas * canvas )"
+.SH "TQCanvasPolygon::TQCanvasPolygon ( TQCanvas * canvas )"
 Constructs a point-less polygon on the canvas \fIcanvas\fR. You should call setPoints() before using it further.
-.SH "QCanvasPolygon::~QCanvasPolygon ()"
+.SH "TQCanvasPolygon::~TQCanvasPolygon ()"
 Destroys the polygon.
-.SH "QPointArray QCanvasPolygon::areaPoints () const\fC [virtual]\fR"
+.SH "TQPointArray TQCanvasPolygon::areaPoints () const\fC [virtual]\fR"
 Returns the vertices of the polygon translated by the polygon's current x(), y() position, i.e. relative to the canvas's origin.
 .PP
 See also setPoints() and points().
 .PP
-Reimplemented from QCanvasPolygonalItem.
-.SH "void QCanvasPolygon::drawShape ( QPainter & p )\fC [virtual protected]\fR"
+Reimplemented from TQCanvasPolygonalItem.
+.SH "void TQCanvasPolygon::drawShape ( TQPainter & p )\fC [virtual protected]\fR"
 Draws the polygon using the painter \fIp\fR.
 .PP
-Note that QCanvasPolygon does not support an outline (the pen is always NoPen).
+Note that TQCanvasPolygon does not support an outline (the pen is always NoPen).
 .PP
-Reimplemented from QCanvasPolygonalItem.
-.SH "QPointArray QCanvasPolygon::points () const"
+Reimplemented from TQCanvasPolygonalItem.
+.SH "TQPointArray TQCanvasPolygon::points () const"
 Returns the vertices of the polygon, not translated by the position.
 .PP
 See also setPoints() and areaPoints().
-.SH "int QCanvasPolygon::rtti () const\fC [virtual]\fR"
-Returns 4 (QCanvasItem::Rtti_Polygon).
+.SH "int TQCanvasPolygon::rtti () const\fC [virtual]\fR"
+Returns 4 (TQCanvasItem::Rtti_Polygon).
 .PP
-See also QCanvasItem::rtti().
+See also TQCanvasItem::rtti().
 .PP
-Reimplemented from QCanvasPolygonalItem.
+Reimplemented from TQCanvasPolygonalItem.
 .PP
-Reimplemented in QCanvasSpline.
-.SH "void QCanvasPolygon::setPoints ( QPointArray pa )"
+Reimplemented in TQCanvasSpline.
+.SH "void TQCanvasPolygon::setPoints ( TQPointArray pa )"
 Sets the points of the polygon to be \fIpa\fR. These points will have
 their x and y coordinates automatically translated by x(), y() as
 the polygon is moved.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcanvaspolygon.html
+.BR http://doc.trolltech.com/tqcanvaspolygon.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

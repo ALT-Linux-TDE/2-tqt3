@@ -6,10 +6,10 @@
 
 #include "mainwindow.h"
 
-#include <ntqapplication.h>
-#include <ntqstring.h>
-#include <ntqtextcodec.h>
-#include <ntqtranslator.h>
+#include <tqapplication.h>
+#include <tqstring.h>
+#include <tqtextcodec.h>
+#include <tqtranslator.h>
 
 int main( int argc, char **argv )
 {

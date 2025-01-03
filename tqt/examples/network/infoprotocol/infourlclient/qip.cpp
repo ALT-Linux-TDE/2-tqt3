@@ -7,10 +7,10 @@
 **
 *****************************************************************************/
 
-#include <ntqsocket.h>
-#include <ntqurlinfo.h>
-#include <ntqurloperator.h>
-#include <ntqtextstream.h>
+#include <tqsocket.h>
+#include <tqurlinfo.h>
+#include <tqurloperator.h>
+#include <tqtextstream.h>
 
 #include "qip.h"
 

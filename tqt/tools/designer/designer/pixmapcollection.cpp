@@ -34,11 +34,11 @@
 #include "pixmapcollection.h"
 #include "project.h"
 #include "mainwindow.h"
-#include <ntqmime.h>
-#include <ntqdir.h>
-#include <ntqfileinfo.h>
-#include <ntqtextstream.h>
-#include <ntqimage.h>
+#include <tqmime.h>
+#include <tqdir.h>
+#include <tqfileinfo.h>
+#include <tqtextstream.h>
+#include <tqimage.h>
 
 PixmapCollection::PixmapCollection( Project *pro )
     : project( pro )

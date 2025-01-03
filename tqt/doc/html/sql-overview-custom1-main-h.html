@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/sql.doc:57 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -42,34 +41,34 @@ body { background: #ffffff; color: black; }
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qdialog-h.html">ntqdialog.h</a>&gt;
-#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
-#include &lt;<a href="qlayout-h.html">ntqlayout.h</a>&gt;
-#include &lt;<a href="qlineedit-h.html">ntqlineedit.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qsqldatabase-h.html">ntqsqldatabase.h</a>&gt;
-#include &lt;<a href="qsqlcursor-h.html">ntqsqlcursor.h</a>&gt;
-#include &lt;<a href="qsqlform-h.html">ntqsqlform.h</a>&gt;
-#include &lt;<a href="qsqlpropertymap-h.html">ntqsqlpropertymap.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqdialog-h.html">tqdialog.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
+#include &lt;<a href="tqlayout-h.html">tqlayout.h</a>&gt;
+#include &lt;<a href="tqlineedit-h.html">tqlineedit.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqsqldatabase-h.html">tqsqldatabase.h</a>&gt;
+#include &lt;<a href="tqsqlcursor-h.html">tqsqlcursor.h</a>&gt;
+#include &lt;<a href="tqsqlform-h.html">tqsqlform.h</a>&gt;
+#include &lt;<a href="tqsqlpropertymap-h.html">tqsqlpropertymap.h</a>&gt;
 #include "../connection.h"
 
-class CustomEdit : public <a href="ntqlineedit.html">TQLineEdit</a>
+class CustomEdit : public <a href="tqlineedit.html">TQLineEdit</a>
 {
     TQ_OBJECT
     TQ_PROPERTY( TQString upperLine READ upperLine WRITE setUpperLine )
     public:
-        CustomEdit( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
-        <a href="ntqstring.html">TQString</a> upperLine() const;
-        void setUpperLine( const <a href="ntqstring.html">TQString</a> &amp;line );
+        CustomEdit( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+        <a href="tqstring.html">TQString</a> upperLine() const;
+        void setUpperLine( const <a href="tqstring.html">TQString</a> &amp;line );
     public slots:
-        void changed( const <a href="ntqstring.html">TQString</a> &amp;line );
+        void changed( const <a href="tqstring.html">TQString</a> &amp;line );
     private:
-        <a href="ntqstring.html">TQString</a> upperLineText;
+        <a href="tqstring.html">TQString</a> upperLineText;
 };
 
 
-class FormDialog : public <a href="ntqdialog.html">TQDialog</a>
+class FormDialog : public <a href="tqdialog.html">TQDialog</a>
 {
     TQ_OBJECT
     public:
@@ -78,10 +77,10 @@ class FormDialog : public <a href="ntqdialog.html">TQDialog</a>
     public slots:
         void save();
     private:
-        <a href="ntqsqlcursor.html">TQSqlCursor</a> *staffCursor;
-        <a href="ntqsqlform.html">TQSqlForm</a> *sqlForm;
-        <a href="ntqsqlpropertymap.html">TQSqlPropertyMap</a> *propMap;
-        <a href="ntqsqlindex.html">TQSqlIndex</a> idIndex;
+        <a href="tqsqlcursor.html">TQSqlCursor</a> *staffCursor;
+        <a href="tqsqlform.html">TQSqlForm</a> *sqlForm;
+        <a href="tqsqlpropertymap.html">TQSqlPropertyMap</a> *propMap;
+        <a href="tqsqlindex.html">TQSqlIndex</a> idIndex;
 };
 
 

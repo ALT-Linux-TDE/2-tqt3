@@ -50,43 +50,43 @@
 #include <domtool.h>
 #include <widgetdatabase.h>
 
-#include <ntqaccel.h>
-#include <ntqapplication.h>
-#include <ntqbuffer.h>
-#include <ntqcombobox.h>
-#include <ntqdatetime.h>
-#include <ntqdom.h>
-#include <ntqfeatures.h>
-#include <ntqfile.h>
-#include <ntqheader.h>
-#include <ntqiconview.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqlistbox.h>
-#include <ntqlistview.h>
-#include <ntqmenudata.h>
-#include <ntqmessagebox.h>
-#include <ntqmetaobject.h>
-#include <ntqobject.h>
-#include <ntqobjectlist.h>
-#include <ntqtabbar.h>
+#include <tqaccel.h>
+#include <tqapplication.h>
+#include <tqbuffer.h>
+#include <tqcombobox.h>
+#include <tqdatetime.h>
+#include <tqdom.h>
+#include <tqfeatures.h>
+#include <tqfile.h>
+#include <tqheader.h>
+#include <tqiconview.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqlistbox.h>
+#include <tqlistview.h>
+#include <tqmenudata.h>
+#include <tqmessagebox.h>
+#include <tqmetaobject.h>
+#include <tqobject.h>
+#include <tqobjectlist.h>
+#include <tqtabbar.h>
 #ifndef TQT_NO_TABLE
-#include <ntqtable.h>
-#include <ntqdatatable.h>
+#include <tqtable.h>
+#include <tqdatatable.h>
 #endif
-#include <ntqtabwidget.h>
-#include <ntqtabwidget.h>
-#include <ntqtextcodec.h>
-#include <ntqtextstream.h>
-#include <ntqtooltip.h>
-#include <ntqwhatsthis.h>
-#include <ntqwidget.h>
-#include <ntqwidgetstack.h>
-#include <ntqwizard.h>
-#include <ntqworkspace.h>
-#include <ntqworkspace.h>
-#include <ntqsplitter.h>
-#include <private/qucom_p.h>
+#include <tqtabwidget.h>
+#include <tqtabwidget.h>
+#include <tqtextcodec.h>
+#include <tqtextstream.h>
+#include <tqtooltip.h>
+#include <tqwhatsthis.h>
+#include <tqwidget.h>
+#include <tqwidgetstack.h>
+#include <tqwizard.h>
+#include <tqworkspace.h>
+#include <tqworkspace.h>
+#include <tqsplitter.h>
+#include <private/tqucom_p.h>
 
 static TQString makeIndent( int indent )
 {
@@ -2219,7 +2219,7 @@ TQWidget *Resource::createSpacer( const TQDomElement &e, TQWidget *parent, TQLay
 }
 
 /*!
-  Attention: this function has to be in sync with Uic::setObjectProperty(). If you change one, change both.
+  Attention: this function has to be in sync with TQUic::setObjectProperty(). If you change one, change both.
 */
 void Resource::setObjectProperty( TQObject* obj, const TQString &prop, const TQDomElement &e )
 {

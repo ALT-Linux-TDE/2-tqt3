@@ -1,8 +1,8 @@
 #ifndef WRAPPER_H
 #define WRAPPER_H
 
-#include <ntqvbox.h>
-#include <ntqtranslator.h>
+#include <tqvbox.h>
+#include <tqtranslator.h>
 
 
 class Wrapper : public TQVBox

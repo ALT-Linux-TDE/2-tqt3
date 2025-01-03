@@ -1,7 +1,7 @@
 #include "glcontrolwidget.h"
 
-#include <ntqcursor.h>
-#include <ntqtimer.h>
+#include <tqcursor.h>
+#include <tqtimer.h>
 
 #include <math.h>
 

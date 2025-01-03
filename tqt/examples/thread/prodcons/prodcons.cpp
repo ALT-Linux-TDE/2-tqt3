@@ -1,17 +1,17 @@
-#include <ntqthread.h>
-#include <ntqwaitcondition.h>
-#include <ntqmutex.h>
-#include <ntqapplication.h>
-#include <ntqwidget.h>
-#include <ntqpushbutton.h>
-#include <ntqcheckbox.h>
-#include <ntqprogressbar.h>
-#include <ntqlayout.h>
-#include <ntqevent.h>
-#include <ntqlabel.h>
-#include <ntqcstring.h>
-#include <ntqtextstream.h>
-#include <ntqfile.h>
+#include <tqthread.h>
+#include <tqwaitcondition.h>
+#include <tqmutex.h>
+#include <tqapplication.h>
+#include <tqwidget.h>
+#include <tqpushbutton.h>
+#include <tqcheckbox.h>
+#include <tqprogressbar.h>
+#include <tqlayout.h>
+#include <tqevent.h>
+#include <tqlabel.h>
+#include <tqcstring.h>
+#include <tqtextstream.h>
+#include <tqfile.h>
 
 #include <stdio.h>
 

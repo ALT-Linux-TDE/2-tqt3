@@ -1,5 +1,5 @@
 '\" t
-.TH QPrinter 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQPrinter 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QPrinter \- Paint device that paints on a printer
+TQPrinter \- Paint device that paints on a printer
 .SH SYNOPSIS
-\fC#include <ntqprinter.h>\fR
+\fC#include <tqprinter.h>\fR
 .PP
-Inherits QPaintDevice.
+Inherits TQPaintDevice.
 .PP
 .SS "Public Members"
 .in +1c
@@ -19,10 +19,10 @@ Inherits QPaintDevice.
 .BI "enum \fBPrinterMode\fR { ScreenResolution, PrinterResolution, HighResolution, Compatible }"
 .br
 .ti -1c
-.BI "\fBQPrinter\fR ( PrinterMode m = ScreenResolution )"
+.BI "\fBTQPrinter\fR ( PrinterMode m = ScreenResolution )"
 .br
 .ti -1c
-.BI "\fB~QPrinter\fR ()"
+.BI "\fB~TQPrinter\fR ()"
 .br
 .ti -1c
 .BI "enum \fBOrientation\fR { Portrait, Landscape }"
@@ -130,7 +130,7 @@ Inherits QPaintDevice.
 .BI "bool \fBfullPage\fR () const"
 .br
 .ti -1c
-.BI "QSize \fBmargins\fR () const"
+.BI "TQSize \fBmargins\fR () const"
 .br
 .ti -1c
 .BI "void \fBsetMargins\fR ( uint top, uint left, uint bottom, uint right )"
@@ -194,29 +194,29 @@ Inherits QPaintDevice.
 .br
 .in -1c
 .SH DESCRIPTION
-The QPrinter class is a paint device that paints on a printer.
+The TQPrinter class is a paint device that paints on a printer.
 .PP
 On Windows it uses the built-in printer drivers. On X11 it generates postscript and sends that to lpr, lp, or another print command.
 .PP
-QPrinter is used in much the same way as TQWidget and QPixmap are used. The big difference is that you must keep track of the pages.
+TQPrinter is used in much the same way as TQWidget and TQPixmap are used. The big difference is that you must keep track of the pages.
 .PP
-QPrinter supports a number of settable parameters, most of which can be changed by the end user when the application calls QPrinter::setup().
+TQPrinter supports a number of settable parameters, most of which can be changed by the end user when the application calls TQPrinter::setup().
 .PP
 The most important parameters are:
 .TP
-setOrientation() tells QPrinter which page orientation to use (virtual).
+setOrientation() tells TQPrinter which page orientation to use (virtual).
 .TP
-setPageSize() tells QPrinter what page size to expect from the printer.
+setPageSize() tells TQPrinter what page size to expect from the printer.
 .TP
-setResolution() tells QPrinter what resolution you wish the printer to provide (in dpi).
+setResolution() tells TQPrinter what resolution you wish the printer to provide (in dpi).
 .TP
-setFullPage() tells QPrinter whether you want to deal with the full page or just with the part the printer can draw on. The default is FALSE, so that by default you should be able to paint on (0,0). If TRUE the origin of the coordinate system will be in the top left corner of the paper and most probably the printer will not be able to paint something there due to it's physical margins.
+setFullPage() tells TQPrinter whether you want to deal with the full page or just with the part the printer can draw on. The default is FALSE, so that by default you should be able to paint on (0,0). If TRUE the origin of the coordinate system will be in the top left corner of the paper and most probably the printer will not be able to paint something there due to it's physical margins.
 .TP
-setNumCopies() tells QPrinter how many copies of the document it should print.
+setNumCopies() tells TQPrinter how many copies of the document it should print.
 .TP
-setMinMax() tells QPrinter and QPrintDialog what the allowed range for fromPage() and toPage() are.
+setMinMax() tells TQPrinter and TQPrintDialog what the allowed range for fromPage() and toPage() are.
 .PP
-Except where noted, you can only call the set functions before setup(), or between QPainter::end() and setup(). (Some may take effect between setup() and begin(), or between begin() and end(), but that's strictly undocumented and such behaviour may differ depending on platform.)
+Except where noted, you can only call the set functions before setup(), or between TQPainter::end() and setup(). (Some may take effect between setup() and begin(), or between begin() and end(), but that's strictly undocumented and such behaviour may differ depending on platform.)
 .PP
 There are also some settings that the user sets (through the printer dialog) and that applications are expected to obey:
 .IP
@@ -233,13 +233,13 @@ fromPage() and toPage() indicate what pages the application program should print
 paperSource() tells the application progam which paper source to print from.
 .IP
 .PP
-You can of course call these functions to establish defaults before you ask the user through QPrinter::setup().
+You can of course call these functions to establish defaults before you ask the user through TQPrinter::setup().
 .PP
-Once you start printing, calling newPage() is essential. You will probably also need to look at the QPaintDeviceMetrics for the printer (see the print function in the Application walk-through). In previous versions, paint device metrics were valid only after the QPrinter has been set up, i.e. after setup() has returned successfully. This is no longer the case and paint device metrics can be requested safely before set up.
+Once you start printing, calling newPage() is essential. You will probably also need to look at the TQPaintDeviceMetrics for the printer (see the print function in the Application walk-through). In previous versions, paint device metrics were valid only after the TQPrinter has been set up, i.e. after setup() has returned successfully. This is no longer the case and paint device metrics can be requested safely before set up.
 .PP
 If you want to abort the print job, abort() will try its best to stop printing. It may cancel the entire job or just some of it.
 .PP
-If your current locale converts "," to ".", you will need to set a locale (via the standard C setlocale() function) that doen't do this before using QPrinter. The "C" locale works well for this.
+If your current locale converts "," to ".", you will need to set a locale (via the standard C setlocale() function) that doen't do this before using TQPrinter. The "C" locale works well for this.
 .PP
 The TrueType font embedding for Qt's postscript driver uses code by David Chappell of Trinity College Computing Center.
 .PP
@@ -257,184 +257,184 @@ Last revised 11 July 1995.
 .PP
 See also Graphics Classes and Image Processing Classes.
 .SS "Member Type Documentation"
-.SH "QPrinter::ColorMode"
-This enum type is used to indicate whether QPrinter should print in color or not.
+.SH "TQPrinter::ColorMode"
+This enum type is used to indicate whether TQPrinter should print in color or not.
 .TP
-\fCQPrinter::Color\fR - print in color if available, otherwise in grayscale.
+\fCTQPrinter::Color\fR - print in color if available, otherwise in grayscale.
 .TP
-\fCQPrinter::GrayScale\fR - print in grayscale, even on color printers. Might be a little faster than Color. This is the default.
-.SH "QPrinter::Orientation"
+\fCTQPrinter::GrayScale\fR - print in grayscale, even on color printers. Might be a little faster than Color. This is the default.
+.SH "TQPrinter::Orientation"
 This enum type (not to be confused with TQt::Orientation) is used to specify each page's orientation.
 .TP
-\fCQPrinter::Portrait\fR - the page's height is greater than its width (the default).
+\fCTQPrinter::Portrait\fR - the page's height is greater than its width (the default).
 .TP
-\fCQPrinter::Landscape\fR - the page's width is greater than its height.
+\fCTQPrinter::Landscape\fR - the page's width is greater than its height.
 .PP
-This type interacts with QPrinter::PageSize and QPrinter::setFullPage() to determine the final size of the page available to the application.
-.SH "QPrinter::PageOrder"
-This enum type is used by QPrinter to tell the application program how to print.
+This type interacts with TQPrinter::PageSize and TQPrinter::setFullPage() to determine the final size of the page available to the application.
+.SH "TQPrinter::PageOrder"
+This enum type is used by TQPrinter to tell the application program how to print.
 .TP
-\fCQPrinter::FirstPageFirst\fR - the lowest-numbered page should be printed first.
+\fCTQPrinter::FirstPageFirst\fR - the lowest-numbered page should be printed first.
 .TP
-\fCQPrinter::LastPageFirst\fR - the highest-numbered page should be printed first.
-.SH "QPrinter::PageSize"
-This enum type specifies what paper size QPrinter should use. QPrinter does not check that the paper size is available; it just uses this information, together with QPrinter::Orientation and QPrinter::setFullPage(), to determine the printable area (see QPaintDeviceMetrics).
+\fCTQPrinter::LastPageFirst\fR - the highest-numbered page should be printed first.
+.SH "TQPrinter::PageSize"
+This enum type specifies what paper size TQPrinter should use. TQPrinter does not check that the paper size is available; it just uses this information, together with TQPrinter::Orientation and TQPrinter::setFullPage(), to determine the printable area (see TQPaintDeviceMetrics).
 .PP
 The defined sizes (with setFullPage(TRUE)) are:
 .TP
-\fCQPrinter::A0\fR - 841 x 1189 mm This value is not supported on windows.
+\fCTQPrinter::A0\fR - 841 x 1189 mm This value is not supported on windows.
 .TP
-\fCQPrinter::A1\fR - 594 x 841 mm This value is not supported on windows.
+\fCTQPrinter::A1\fR - 594 x 841 mm This value is not supported on windows.
 .TP
-\fCQPrinter::A2\fR - 420 x 594 mm
+\fCTQPrinter::A2\fR - 420 x 594 mm
 .TP
-\fCQPrinter::A3\fR - 297 x 420 mm
+\fCTQPrinter::A3\fR - 297 x 420 mm
 .TP
-\fCQPrinter::A4\fR - 210 x 297 mm, 8.26 x 11.7 inches
+\fCTQPrinter::A4\fR - 210 x 297 mm, 8.26 x 11.7 inches
 .TP
-\fCQPrinter::A5\fR - 148 x 210 mm
+\fCTQPrinter::A5\fR - 148 x 210 mm
 .TP
-\fCQPrinter::A6\fR - 105 x 148 mm
+\fCTQPrinter::A6\fR - 105 x 148 mm
 .TP
-\fCQPrinter::A7\fR - 74 x 105 mm
+\fCTQPrinter::A7\fR - 74 x 105 mm
 .TP
-\fCQPrinter::A8\fR - 52 x 74 mm
+\fCTQPrinter::A8\fR - 52 x 74 mm
 .TP
-\fCQPrinter::A9\fR - 37 x 52 mm
+\fCTQPrinter::A9\fR - 37 x 52 mm
 .TP
-\fCQPrinter::B0\fR - 1030 x 1456 mm
+\fCTQPrinter::B0\fR - 1030 x 1456 mm
 .TP
-\fCQPrinter::B1\fR - 728 x 1030 mm
+\fCTQPrinter::B1\fR - 728 x 1030 mm
 .TP
-\fCQPrinter::B10\fR - 32 x 45 mm
+\fCTQPrinter::B10\fR - 32 x 45 mm
 .TP
-\fCQPrinter::B2\fR - 515 x 728 mm
+\fCTQPrinter::B2\fR - 515 x 728 mm
 .TP
-\fCQPrinter::B3\fR - 364 x 515 mm
+\fCTQPrinter::B3\fR - 364 x 515 mm
 .TP
-\fCQPrinter::B4\fR - 257 x 364 mm
+\fCTQPrinter::B4\fR - 257 x 364 mm
 .TP
-\fCQPrinter::B5\fR - 182 x 257 mm, 7.17 x 10.13 inches
+\fCTQPrinter::B5\fR - 182 x 257 mm, 7.17 x 10.13 inches
 .TP
-\fCQPrinter::B6\fR - 128 x 182 mm
+\fCTQPrinter::B6\fR - 128 x 182 mm
 .TP
-\fCQPrinter::B7\fR - 91 x 128 mm
+\fCTQPrinter::B7\fR - 91 x 128 mm
 .TP
-\fCQPrinter::B8\fR - 64 x 91 mm
+\fCTQPrinter::B8\fR - 64 x 91 mm
 .TP
-\fCQPrinter::B9\fR - 45 x 64 mm
+\fCTQPrinter::B9\fR - 45 x 64 mm
 .TP
-\fCQPrinter::C5E\fR - 163 x 229 mm
+\fCTQPrinter::C5E\fR - 163 x 229 mm
 .TP
-\fCQPrinter::Comm10E\fR - 105 x 241 mm, US Common #10 Envelope
+\fCTQPrinter::Comm10E\fR - 105 x 241 mm, US Common #10 Envelope
 .TP
-\fCQPrinter::DLE\fR - 110 x 220 mm
+\fCTQPrinter::DLE\fR - 110 x 220 mm
 .TP
-\fCQPrinter::Executive\fR - 7.5 x 10 inches, 191 x 254 mm
+\fCTQPrinter::Executive\fR - 7.5 x 10 inches, 191 x 254 mm
 .TP
-\fCQPrinter::Folio\fR - 210 x 330 mm
+\fCTQPrinter::Folio\fR - 210 x 330 mm
 .TP
-\fCQPrinter::Ledger\fR - 432 x 279 mm
+\fCTQPrinter::Ledger\fR - 432 x 279 mm
 .TP
-\fCQPrinter::Legal\fR - 8.5 x 14 inches, 216 x 356 mm
+\fCTQPrinter::Legal\fR - 8.5 x 14 inches, 216 x 356 mm
 .TP
-\fCQPrinter::Letter\fR - 8.5 x 11 inches, 216 x 279 mm
+\fCTQPrinter::Letter\fR - 8.5 x 11 inches, 216 x 279 mm
 .TP
-\fCQPrinter::Tabloid\fR - 279 x 432 mm
+\fCTQPrinter::Tabloid\fR - 279 x 432 mm
 .TP
-\fCQPrinter::Custom\fR
+\fCTQPrinter::Custom\fR
 .TP
-\fCQPrinter::NPageSize\fR - (internal)
+\fCTQPrinter::NPageSize\fR - (internal)
 .PP
 With setFullPage(FALSE) (the default), the metrics will be a bit smaller; how much depends on the printer in use.
-.SH "QPrinter::PaperSource"
-This enum type specifies what paper source QPrinter is to use. QPrinter does not check that the paper source is available; it just uses this information to try and set the paper source. Whether it will set the paper source depends on whether the printer has that particular source.
+.SH "TQPrinter::PaperSource"
+This enum type specifies what paper source TQPrinter is to use. TQPrinter does not check that the paper source is available; it just uses this information to try and set the paper source. Whether it will set the paper source depends on whether the printer has that particular source.
 .PP
 Note: this is currently only implemented for Windows.
 .TP
-\fCQPrinter::OnlyOne\fR
+\fCTQPrinter::OnlyOne\fR
 .TP
-\fCQPrinter::Lower\fR
+\fCTQPrinter::Lower\fR
 .TP
-\fCQPrinter::Middle\fR
+\fCTQPrinter::Middle\fR
 .TP
-\fCQPrinter::Manual\fR
+\fCTQPrinter::Manual\fR
 .TP
-\fCQPrinter::Envelope\fR
+\fCTQPrinter::Envelope\fR
 .TP
-\fCQPrinter::EnvelopeManual\fR
+\fCTQPrinter::EnvelopeManual\fR
 .TP
-\fCQPrinter::Auto\fR
+\fCTQPrinter::Auto\fR
 .TP
-\fCQPrinter::Tractor\fR
+\fCTQPrinter::Tractor\fR
 .TP
-\fCQPrinter::SmallFormat\fR
+\fCTQPrinter::SmallFormat\fR
 .TP
-\fCQPrinter::LargeFormat\fR
+\fCTQPrinter::LargeFormat\fR
 .TP
-\fCQPrinter::LargeCapacity\fR
+\fCTQPrinter::LargeCapacity\fR
 .TP
-\fCQPrinter::Cassette\fR
+\fCTQPrinter::Cassette\fR
 .TP
-\fCQPrinter::FormSource\fR
-.SH "QPrinter::PrintRange"
+\fCTQPrinter::FormSource\fR
+.SH "TQPrinter::PrintRange"
 This enum is used to specify which print range the application should use to print.
 .TP
-\fCQPrinter::AllPages\fR - All pages should be printed
+\fCTQPrinter::AllPages\fR - All pages should be printed
 .TP
-\fCQPrinter::Selection\fR - Only the selection should be printed.
+\fCTQPrinter::Selection\fR - Only the selection should be printed.
 .TP
-\fCQPrinter::PageRange\fR - From page, to page option.
+\fCTQPrinter::PageRange\fR - From page, to page option.
 .PP
 See also setPrintRange() and printRange().
-.SH "QPrinter::PrinterMode"
+.SH "TQPrinter::PrinterMode"
 This enum describes the mode the printer should work in. It basically presets a certain resolution and working mode.
 .TP
-\fCQPrinter::ScreenResolution\fR - Sets the resolution of the print device to the screen resolution. This has the big advantage that the results obtained when painting on the printer will match more or less exactly the visible output on the screen. It is the easiest to use, as font metrics on the screen and on the printer are the same. This is the default value. ScreenResolution will produce a lower quality output than HighResolution and should only be used for drafts.
+\fCTQPrinter::ScreenResolution\fR - Sets the resolution of the print device to the screen resolution. This has the big advantage that the results obtained when painting on the printer will match more or less exactly the visible output on the screen. It is the easiest to use, as font metrics on the screen and on the printer are the same. This is the default value. ScreenResolution will produce a lower quality output than HighResolution and should only be used for drafts.
 .TP
-\fCQPrinter::PrinterResolution\fR - Use the physical resolution of the printer on Windows. On Unix, set the postscript resolution to 72 dpi.
+\fCTQPrinter::PrinterResolution\fR - Use the physical resolution of the printer on Windows. On Unix, set the postscript resolution to 72 dpi.
 .TP
-\fCQPrinter::HighResolution\fR - Use printer resolution on windows, set the resolution of the postscript driver to 600dpi.
+\fCTQPrinter::HighResolution\fR - Use printer resolution on windows, set the resolution of the postscript driver to 600dpi.
 .TP
-\fCQPrinter::Compatible\fR - Almost the same as PrinterResolution, but keeps some peculiarities of the TQt 2.x printer driver. This is useful for applications ported from TQt 2.x to TQt 3.x.
-.SH "QPrinter::PrinterOption"
+\fCTQPrinter::Compatible\fR - Almost the same as PrinterResolution, but keeps some peculiarities of the TQt 2.x printer driver. This is useful for applications ported from TQt 2.x to TQt 3.x.
+.SH "TQPrinter::PrinterOption"
 This enum describes various printer options that appear in the printer setup dialog. It is used to enable and disable these options in the setup dialog.
 .TP
-\fCQPrinter::PrintToFile\fR - Describes if print to file should be enabled.
+\fCTQPrinter::PrintToFile\fR - Describes if print to file should be enabled.
 .TP
-\fCQPrinter::PrintSelection\fR - Describes if printing selections should be enabled.
+\fCTQPrinter::PrintSelection\fR - Describes if printing selections should be enabled.
 .TP
-\fCQPrinter::PrintPageRange\fR - Describes if printing page ranges (from, to) should be enabled
+\fCTQPrinter::PrintPageRange\fR - Describes if printing page ranges (from, to) should be enabled
 .PP
 See also setOptionEnabled() and isOptionEnabled().
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QPrinter::QPrinter ( PrinterMode m = ScreenResolution )"
+.SH "TQPrinter::TQPrinter ( PrinterMode m = ScreenResolution )"
 Constructs a printer paint device with mode \fIm\fR.
 .PP
-See also QPrinter::PrinterMode.
-.SH "QPrinter::~QPrinter ()"
+See also TQPrinter::PrinterMode.
+.SH "TQPrinter::~TQPrinter ()"
 Destroys the printer paint device and cleans up.
-.SH "bool QPrinter::abort ()"
+.SH "bool TQPrinter::abort ()"
 Aborts the print job. Returns TRUE if successful; otherwise returns FALSE.
 .PP
 See also aborted().
-.SH "bool QPrinter::aborted () const"
+.SH "bool TQPrinter::aborted () const"
 Returns TRUE if the print job was aborted; otherwise returns FALSE.
 .PP
 See also abort().
-.SH "ColorMode QPrinter::colorMode () const"
+.SH "ColorMode TQPrinter::colorMode () const"
 Returns the current color mode. The default color mode is Color.
 .PP
 See also setColorMode().
-.SH "TQString QPrinter::creator () const"
+.SH "TQString TQPrinter::creator () const"
 Returns the name of the application that created the document.
 .PP
 See also setCreator().
-.SH "TQString QPrinter::docName () const"
+.SH "TQString TQPrinter::docName () const"
 Returns the document name.
 .PP
 See also setDocName().
-.SH "int QPrinter::fromPage () const"
+.SH "int TQPrinter::fromPage () const"
 Returns the from-page setting. The default value is 0.
 .PP
 If fromPage() and toPage() both return 0 this signifies 'print the whole document'.
@@ -442,68 +442,68 @@ If fromPage() and toPage() both return 0 this signifies 'print the whole documen
 The programmer is responsible for reading this setting and printing accordingly.
 .PP
 See also setFromTo() and toPage().
-.SH "bool QPrinter::fullPage () const"
+.SH "bool TQPrinter::fullPage () const"
 Returns TRUE if the origin of the printer's coordinate system is at the corner of the sheet and FALSE if it is at the edge of the printable area.
 .PP
 See setFullPage() for details and caveats.
 .PP
-See also setFullPage(), PageSize, and QPaintDeviceMetrics.
-.SH "bool QPrinter::isOptionEnabled ( PrinterOption option )"
+See also setFullPage(), PageSize, and TQPaintDeviceMetrics.
+.SH "bool TQPrinter::isOptionEnabled ( PrinterOption option )"
 Returns TRUE if the printer option with identifier \fIoption\fR is enabled; otherwise returns FALSE.
 .PP
 See also setOptionEnabled().
-.SH "QSize QPrinter::margins () const"
+.SH "TQSize TQPrinter::margins () const"
 Returns the width of the left margin and the height of the top margin of the printer. On Unix, this is a best-effort guess, not based on perfect knowledge.
 .PP
 If you have called setFullPage( TRUE ), margins().width() may be treated as the smallest sane left margin you can use, and margins().height() as the smallest sane top margin you can use.
 .PP
-If you have called setFullPage( FALSE ) (this is the default), margins() is automatically subtracted from the pageSize() by QPrinter.
+If you have called setFullPage( FALSE ) (this is the default), margins() is automatically subtracted from the pageSize() by TQPrinter.
 .PP
-See also setFullPage(), QPaintDeviceMetrics, and PageSize.
-.SH "void QPrinter::margins ( uint * top, uint * left, uint * bottom, uint * right ) const"
+See also setFullPage(), TQPaintDeviceMetrics, and PageSize.
+.SH "void TQPrinter::margins ( uint * top, uint * left, uint * bottom, uint * right ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Sets \fItop\fR, \fIleft\fR, \fIbottom\fR and \fIright\fR to the margins of the printer. On Unix, this is a best-effort guess, not based on perfect knowledge.
 .PP
 If you have called setFullPage( TRUE ), the four values specify the smallest sane margins you can use.
 .PP
-If you have called setFullPage( FALSE ) (this is the default), the margins are automatically subtracted from the pageSize() by QPrinter.
+If you have called setFullPage( FALSE ) (this is the default), the margins are automatically subtracted from the pageSize() by TQPrinter.
 .PP
-See also setFullPage(), QPaintDeviceMetrics, and PageSize.
-.SH "int QPrinter::maxPage () const"
+See also setFullPage(), TQPaintDeviceMetrics, and PageSize.
+.SH "int TQPrinter::maxPage () const"
 Returns the max-page setting. A user can't choose a higher page number than maxPage() when they select a print range. The default value is 0.
 .PP
 See also minPage(), setMinMax(), and setFromTo().
-.SH "int QPrinter::minPage () const"
+.SH "int TQPrinter::minPage () const"
 Returns the min-page setting, i.e. the lowest page number a user is allowed to choose. The default value is 0.
 .PP
 See also maxPage(), setMinMax(), and setFromTo().
-.SH "bool QPrinter::newPage ()"
+.SH "bool TQPrinter::newPage ()"
 Advances to a new page on the printer. Returns TRUE if successful; otherwise returns FALSE.
 .PP
 Examples:
 .)l action/application.cpp, application/application.cpp, helpviewer/helpwindow.cpp, and mdi/application.cpp.
-.SH "int QPrinter::numCopies () const"
+.SH "int TQPrinter::numCopies () const"
 Returns the number of copies to be printed. The default value is 1.
 .PP
 This value will return the number of times the application is required to print in order to match the number specified in the printer setup dialog. This has been done since some printer drivers are not capable of buffering up the copies and the application in those cases have to make an explicit call to the print code for each copy.
 .PP
 See also setNumCopies().
-.SH "Orientation QPrinter::orientation () const"
-Returns the orientation setting. The default value is QPrinter::Portrait.
+.SH "Orientation TQPrinter::orientation () const"
+Returns the orientation setting. The default value is TQPrinter::Portrait.
 .PP
 See also setOrientation().
-.SH "TQString QPrinter::outputFileName () const"
+.SH "TQString TQPrinter::outputFileName () const"
 Returns the name of the output file. There is no default file name.
 .PP
 See also setOutputFileName() and setOutputToFile().
-.SH "bool QPrinter::outputToFile () const"
+.SH "bool TQPrinter::outputToFile () const"
 Returns TRUE if the output should be written to a file, or FALSE if the output should be sent directly to the printer. The default setting is FALSE.
 .PP
 This function is currently only supported under X11 and Mac OS X.
 .PP
 See also setOutputToFile() and setOutputFileName().
-.SH "PageOrder QPrinter::pageOrder () const"
+.SH "PageOrder TQPrinter::pageOrder () const"
 Returns the current page order.
 .PP
 The default page order is FirstPageFirst.
@@ -511,31 +511,31 @@ The default page order is FirstPageFirst.
 Bugs and limitations:
 .TP
 This value is not kept in sync with the Windows or Mac OS X printer dialogs.
-.SH "PageSize QPrinter::pageSize () const"
+.SH "PageSize TQPrinter::pageSize () const"
 Returns the printer page size. The default value is system-dependent.
 .PP
 See also setPageSize().
-.SH "PaperSource QPrinter::paperSource () const"
+.SH "PaperSource TQPrinter::paperSource () const"
 Returns the currently set paper source of the printer.
 .PP
 See also setPaperSource().
-.SH "TQString QPrinter::printProgram () const"
+.SH "TQString TQPrinter::printProgram () const"
 Returns the name of the program that sends the print output to the printer.
 .PP
-The default is to return a null string; meaning that QPrinter will try to be smart in a system-dependent way. On X11 only, you can set it to something different to use a specific print program.
+The default is to return a null string; meaning that TQPrinter will try to be smart in a system-dependent way. On X11 only, you can set it to something different to use a specific print program.
 .PP
 On Windows, this function returns the name of the printer device driver.
 .PP
 See also setPrintProgram() and setPrinterSelectionOption().
-.SH "PrintRange QPrinter::printRange () const"
-Returns the PageRange of the QPrinter. After the print setup dialog has been opened, this function returns the value selected by the user.
+.SH "PrintRange TQPrinter::printRange () const"
+Returns the PageRange of the TQPrinter. After the print setup dialog has been opened, this function returns the value selected by the user.
 .PP
 See also setPrintRange().
-.SH "TQString QPrinter::printerName () const"
+.SH "TQString TQPrinter::printerName () const"
 Returns the printer name. This value is initially set to the name of the default printer.
 .PP
 See also setPrinterName().
-.SH "TQString QPrinter::printerSelectionOption () const"
+.SH "TQString TQPrinter::printerSelectionOption () const"
 Returns the printer options selection string. This is useful only if the print command has been explicitly set.
 .PP
 The default value (a null string) implies that the printer should be selected in a system-dependent manner.
@@ -543,23 +543,23 @@ The default value (a null string) implies that the printer should be selected in
 Any other value implies that the given value should be used.
 .PP
 See also setPrinterSelectionOption().
-.SH "int QPrinter::resolution () const\fC [virtual]\fR"
+.SH "int TQPrinter::resolution () const\fC [virtual]\fR"
 Returns the current assumed resolution of the printer, as set by setResolution() or by the printer subsystem.
 .PP
 See also setResolution().
-.SH "void QPrinter::setColorMode ( ColorMode newColorMode )\fC [virtual]\fR"
+.SH "void TQPrinter::setColorMode ( ColorMode newColorMode )\fC [virtual]\fR"
 Sets the printer's color mode to \fInewColorMode\fR, which can be either Color or GrayScale (the default).
 .PP
 See also colorMode().
-.SH "void QPrinter::setCreator ( const TQString & creator )\fC [virtual]\fR"
+.SH "void TQPrinter::setCreator ( const TQString & creator )\fC [virtual]\fR"
 Sets the name of the application that created the document to \fIcreator\fR.
 .PP
 This function is only applicable to the X11 version of Qt. If no creator name is specified, the creator will be set to "Qt" followed by some version number.
 .PP
 See also creator().
-.SH "void QPrinter::setDocName ( const TQString & name )\fC [virtual]\fR"
+.SH "void TQPrinter::setDocName ( const TQString & name )\fC [virtual]\fR"
 Sets the document name to \fIname\fR.
-.SH "void QPrinter::setFromTo ( int fromPage, int toPage )\fC [virtual]\fR"
+.SH "void TQPrinter::setFromTo ( int fromPage, int toPage )\fC [virtual]\fR"
 Sets the from-page and to-page settings to \fIfromPage\fR and \fItoPage\fR respectively.
 .PP
 The from-page and to-page settings specify what pages to print.
@@ -569,50 +569,50 @@ If fromPage() and toPage() both return 0 this signifies 'print the whole documen
 This function is useful mostly to set a default value that the user can override in the print dialog when you call setup().
 .PP
 See also fromPage(), toPage(), setMinMax(), and setup().
-.SH "void QPrinter::setFullPage ( bool fp )\fC [virtual]\fR"
-Sets QPrinter to have the origin of the coordinate system at the top-left corner of the paper if \fIfp\fR is TRUE, or where it thinks the top-left corner of the printable area is if \fIfp\fR is FALSE.
+.SH "void TQPrinter::setFullPage ( bool fp )\fC [virtual]\fR"
+Sets TQPrinter to have the origin of the coordinate system at the top-left corner of the paper if \fIfp\fR is TRUE, or where it thinks the top-left corner of the printable area is if \fIfp\fR is FALSE.
 .PP
-The default is FALSE. You can (probably) print on (0,0), and QPaintDeviceMetrics will report something smaller than the size indicated by PageSize. (Note that QPrinter may be wrong on Unix systems - it does not have perfect knowledge of the physical printer.)
+The default is FALSE. You can (probably) print on (0,0), and TQPaintDeviceMetrics will report something smaller than the size indicated by PageSize. (Note that TQPrinter may be wrong on Unix systems - it does not have perfect knowledge of the physical printer.)
 .PP
-If you set \fIfp\fR to TRUE, QPaintDeviceMetrics will report the exact same size as indicated by PageSize, but you cannot print on all of that - you must take care of the output margins yourself.
+If you set \fIfp\fR to TRUE, TQPaintDeviceMetrics will report the exact same size as indicated by PageSize, but you cannot print on all of that - you must take care of the output margins yourself.
 .PP
-See also PageSize, setPageSize(), QPaintDeviceMetrics, and fullPage().
+See also PageSize, setPageSize(), TQPaintDeviceMetrics, and fullPage().
 .PP
 Examples:
 .)l action/application.cpp, application/application.cpp, helpviewer/helpwindow.cpp, and mdi/application.cpp.
-.SH "void QPrinter::setMargins ( uint top, uint left, uint bottom, uint right )"
+.SH "void TQPrinter::setMargins ( uint top, uint left, uint bottom, uint right )"
 Sets the printer margins to the sizes specified in \fItop\fR, \fIleft\fR, \fIbottom\fR and \fIright\fR.
 .PP
 This function currently only has an effect on Unix systems.
 .PP
 See also margins().
-.SH "void QPrinter::setMinMax ( int minPage, int maxPage )\fC [virtual]\fR"
+.SH "void TQPrinter::setMinMax ( int minPage, int maxPage )\fC [virtual]\fR"
 Sets the min-page and max-page settings to \fIminPage\fR and \fImaxPage\fR respectively.
 .PP
 The min-page and max-page restrict the from-page and to-page settings. When the printer setup dialog appears, the user cannot select a from page or a to page that are outside the range specified by min and max pages.
 .PP
 See also minPage(), maxPage(), setFromTo(), and setup().
-.SH "void QPrinter::setNumCopies ( int numCopies )\fC [virtual]\fR"
+.SH "void TQPrinter::setNumCopies ( int numCopies )\fC [virtual]\fR"
 Sets the number of copies to be printed to \fInumCopies\fR.
 .PP
 The printer driver reads this setting and prints the specified number of copies.
 .PP
 See also numCopies() and setup().
-.SH "void QPrinter::setOptionEnabled ( PrinterOption option, bool enable )"
+.SH "void TQPrinter::setOptionEnabled ( PrinterOption option, bool enable )"
 Enables the printer option with the identifier \fIoption\fR if \fIenable\fR is TRUE, and disables option \fIoption\fR if \fIenable\fR is FALSE.
 .PP
 See also isOptionEnabled().
-.SH "void QPrinter::setOrientation ( Orientation orientation )\fC [virtual]\fR"
+.SH "void TQPrinter::setOrientation ( Orientation orientation )\fC [virtual]\fR"
 Sets the print orientation to \fIorientation\fR.
 .PP
-The orientation can be either QPrinter::Portrait or QPrinter::Landscape.
+The orientation can be either TQPrinter::Portrait or TQPrinter::Landscape.
 .PP
-The printer driver reads this setting and prints using the specified orientation. On Windows this setting won't take effect until the printer dialog is shown (using QPrinter::setup()).
+The printer driver reads this setting and prints using the specified orientation. On Windows this setting won't take effect until the printer dialog is shown (using TQPrinter::setup()).
 .PP
 Windows only! This option can be changed while printing and will take effect from the next call to newPage()
 .PP
 See also orientation().
-.SH "void QPrinter::setOutputFileName ( const TQString & fileName )\fC [virtual]\fR"
+.SH "void TQPrinter::setOutputFileName ( const TQString & fileName )\fC [virtual]\fR"
 Sets the name of the output file to \fIfileName\fR.
 .PP
 Setting a null or empty name (0 or "") disables output to a file, i.e. calls setOutputToFile(FALSE). Setting a non-empty name enables output to a file, i.e. calls setOutputToFile(TRUE).
@@ -620,7 +620,7 @@ Setting a null or empty name (0 or "") disables output to a file, i.e. calls set
 This function is currently only supported under X11.
 .PP
 See also outputFileName() and setOutputToFile().
-.SH "void QPrinter::setOutputToFile ( bool enable )\fC [virtual]\fR"
+.SH "void TQPrinter::setOutputToFile ( bool enable )\fC [virtual]\fR"
 Specifies whether the output should be written to a file or sent directly to the printer.
 .PP
 Will output to a file if \fIenable\fR is TRUE, or will output directly to the printer if \fIenable\fR is FALSE.
@@ -628,17 +628,17 @@ Will output to a file if \fIenable\fR is TRUE, or will output directly to the pr
 This function is currently only supported under X11 and Mac OS X.
 .PP
 See also outputToFile() and setOutputFileName().
-.SH "void QPrinter::setPageOrder ( PageOrder newPageOrder )\fC [virtual]\fR"
+.SH "void TQPrinter::setPageOrder ( PageOrder newPageOrder )\fC [virtual]\fR"
 Sets the page order to \fInewPageOrder\fR.
 .PP
-The page order can be QPrinter::FirstPageFirst or QPrinter::LastPageFirst. The application programmer is responsible for reading the page order and printing accordingly.
+The page order can be TQPrinter::FirstPageFirst or TQPrinter::LastPageFirst. The application programmer is responsible for reading the page order and printing accordingly.
 .PP
 This function is useful mostly for setting a default value that the user can override in the print dialog when you call setup().
 .PP
 Bugs and limitations:
 .TP
 This value is not kept in sync with the Windows or Mac OS X printer dialogs.
-.SH "void QPrinter::setPageSize ( PageSize newPageSize )\fC [virtual]\fR"
+.SH "void TQPrinter::setPageSize ( PageSize newPageSize )\fC [virtual]\fR"
 Sets the printer page size to \fInewPageSize\fR if that size is supported. The result if undefined if \fInewPageSize\fR is not supported.
 .PP
 The default page size is system-dependent.
@@ -646,23 +646,23 @@ The default page size is system-dependent.
 This function is useful mostly for setting a default value that the user can override in the print dialog when you call setup().
 .PP
 See also pageSize(), PageSize, setFullPage(), and setResolution().
-.SH "void QPrinter::setPaperSource ( PaperSource source )\fC [virtual]\fR"
+.SH "void TQPrinter::setPaperSource ( PaperSource source )\fC [virtual]\fR"
 Sets the paper source setting to \fIsource\fR.
 .PP
 Windows only! This option can be changed while printing and will take effect from the next call to newPage()
 .PP
 See also paperSource().
-.SH "void QPrinter::setPrintProgram ( const TQString & printProg )\fC [virtual]\fR"
+.SH "void TQPrinter::setPrintProgram ( const TQString & printProg )\fC [virtual]\fR"
 Sets the name of the program that should do the print job to \fIprintProg\fR.
 .PP
 On X11, this function sets the program to call with the PostScript output. On other platforms, it has no effect.
 .PP
 See also printProgram().
-.SH "void QPrinter::setPrintRange ( PrintRange range )"
+.SH "void TQPrinter::setPrintRange ( PrintRange range )"
 Sets the default selected page range to be used when the print setup dialog is opened to \fIrange\fR. If the PageRange specified by \fIrange\fR is currently disabled the function does nothing.
 .PP
 See also printRange().
-.SH "void QPrinter::setPrinterName ( const TQString & name )\fC [virtual]\fR"
+.SH "void TQPrinter::setPrinterName ( const TQString & name )\fC [virtual]\fR"
 Sets the printer name to \fIname\fR.
 .PP
 The default printer will be used if no printer name is set.
@@ -670,32 +670,32 @@ The default printer will be used if no printer name is set.
 Under X11, the \fCPRINTER\fR environment variable defines the default printer. Under any other window system, the window system defines the default printer.
 .PP
 See also printerName().
-.SH "void QPrinter::setPrinterSelectionOption ( const TQString & option )\fC [virtual]\fR"
+.SH "void TQPrinter::setPrinterSelectionOption ( const TQString & option )\fC [virtual]\fR"
 Sets the printer to use \fIoption\fR to select the printer. \fIoption\fR is null by default (which implies that TQt should be smart enough to guess correctly), but it can be set to other values to use a specific printer selection option.
 .PP
 If the printer selection option is changed while the printer is active, the current print job may or may not be affected.
 .PP
 See also printerSelectionOption().
-.SH "void QPrinter::setResolution ( int dpi )\fC [virtual]\fR"
+.SH "void TQPrinter::setResolution ( int dpi )\fC [virtual]\fR"
 Requests that the printer prints at \fIdpi\fR or as near to \fIdpi\fR as possible.
 .PP
-This setting affects the coordinate system as returned by, for example, QPaintDeviceMetrics and QPainter::viewport().
+This setting affects the coordinate system as returned by, for example, TQPaintDeviceMetrics and TQPainter::viewport().
 .PP
-The value depends on the \fCPrintingMode\fR used in the QPrinter constructor. By default, the dpi value of the screen is used.
+The value depends on the \fCPrintingMode\fR used in the TQPrinter constructor. By default, the dpi value of the screen is used.
 .PP
 This function must be called before setup() to have an effect on all platforms.
 .PP
 See also resolution() and setPageSize().
-.SH "void QPrinter::setWinPageSize ( short winPageSize )"
+.SH "void TQPrinter::setWinPageSize ( short winPageSize )"
 Windows only, using this function is not portable! Sets the windows page size value that is used by the \fCDEVMODE\fR struct. The \fIwinPageSize\fR value must be one of the DMPAPER_ defines from wingdi.h.
-.SH "bool QPrinter::setup ( TQWidget * parent = 0 )"
+.SH "bool TQPrinter::setup ( TQWidget * parent = 0 )"
 Opens a printer setup dialog, with parent \fIparent\fR, and asks the user to specify which printer they wish to use and what settings it should have.
 .PP
 Returns TRUE if the user pressed "OK" to print, or FALSE if the user canceled the operation.
 .PP
 Examples:
 .)l action/application.cpp, application/application.cpp, drawdemo/drawdemo.cpp, helpviewer/helpwindow.cpp, and mdi/application.cpp.
-.SH "int QPrinter::toPage () const"
+.SH "int TQPrinter::toPage () const"
 Returns the to-page setting. The default value is 0.
 .PP
 If fromPage() and toPage() both return 0 this signifies 'print the whole document'.
@@ -703,13 +703,13 @@ If fromPage() and toPage() both return 0 this signifies 'print the whole documen
 The programmer is responsible for reading this setting and printing accordingly.
 .PP
 See also setFromTo() and fromPage().
-.SH "short QPrinter::winPageSize () const"
+.SH "short TQPrinter::winPageSize () const"
 Returns the Windows page size value as used by the \fCDEVMODE\fR struct (Windows only). Using this function is not portable.
 .PP
 Use pageSize() to get the PageSize, e.g. 'A4', 'Letter', etc.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqprinter.html
+.BR http://doc.trolltech.com/tqprinter.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

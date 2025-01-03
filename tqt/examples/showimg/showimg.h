@@ -10,8 +10,8 @@
 #ifndef SHOWIMG_H
 #define SHOWIMG_H
 
-#include <ntqwidget.h>
-#include <ntqimage.h>
+#include <tqwidget.h>
+#include <tqimage.h>
 
 
 class TQLabel;

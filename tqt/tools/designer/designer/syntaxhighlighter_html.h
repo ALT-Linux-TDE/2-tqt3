@@ -34,7 +34,7 @@
 #ifndef SYNTAXHIGHLIGHTER_HTML_H
 #define SYNTAXHIGHLIGHTER_HTML_H
 
-#include <./private/qrichtext_p.h>
+#include <./private/tqrichtext_p.h>
 
 class SyntaxHighlighter_HTML : public TQTextPreProcessor
 {

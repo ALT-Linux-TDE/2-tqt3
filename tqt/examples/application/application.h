@@ -10,7 +10,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <ntqmainwindow.h>
+#include <tqmainwindow.h>
 
 class TQTextEdit;
 

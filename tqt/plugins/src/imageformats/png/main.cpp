@@ -1,11 +1,11 @@
-#include <ntqimageformatplugin.h>
+#include <tqimageformatplugin.h>
 
 #ifndef TQT_NO_IMAGEFORMATPLUGIN
 
 #ifdef TQT_NO_IMAGEIO_PNG
 #undef TQT_NO_IMAGEIO_PNG
 #endif
-#include "../../../../src/kernel/qpngio.cpp"
+#include "../../../../src/kernel/tqpngio.cpp"
 
 class PNGFormat : public TQImageFormatPlugin
 {

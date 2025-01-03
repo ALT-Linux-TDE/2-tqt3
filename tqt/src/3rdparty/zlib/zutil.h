@@ -76,17 +76,7 @@ extern const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
 
 #if defined(MSDOS) || (defined(WINDOWS) && !defined(WIN32))
 #  define OS_CODE  0x00
-#  if defined(__TURBOC__) || defined(__BORLANDC__)
-#    if(__STDC__ == 1) && (defined(__LARGE__) || defined(__COMPACT__))
-       /* Allow compilation with ANSI keywords only enabled */
-       void _Cdecl farfree( void *block );
-       void *_Cdecl farmalloc( unsigned long nbytes );
-#    else
-#      include <alloc.h>
-#    endif
-#  else /* MSC or DJGPP */
-#    include <malloc.h>
-#  endif
+#  include <malloc.h>
 #endif
 
 #ifdef AMIGA
@@ -109,12 +99,8 @@ extern const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
 
 #if defined(MACOS) || defined(TARGET_OS_MAC)
 #  define OS_CODE  0x07
-#  if defined(__MWERKS__) && __dest_os != __be_os && __dest_os != __win32_os
-#    include <unix.h> /* for fdopen */
-#  else
-#    ifndef fdopen
-#      define fdopen(fd,mode) NULL /* No fdopen() */
-#    endif
+#  ifndef fdopen
+#    define fdopen(fd,mode) NULL /* No fdopen() */
 #  endif
 #endif
 
@@ -160,7 +146,7 @@ extern const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
 
          /* functions */
 
-#if defined(STDC99) || (defined(__TURBOC__) && __TURBOC__ >= 0x550)
+#if defined(STDC99)
 #  ifndef HAVE_VSNPRINTF
 #    define HAVE_VSNPRINTF
 #  endif
@@ -174,9 +160,6 @@ extern const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
 #  ifdef MSDOS
      /* vsnprintf may exist on some MS-DOS compilers (DJGPP?),
         but for now we just assume it doesn't. */
-#    define NO_vsnprintf
-#  endif
-#  ifdef __TURBOC__
 #    define NO_vsnprintf
 #  endif
 #  ifdef WIN32

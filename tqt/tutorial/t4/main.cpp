@@ -4,9 +4,9 @@
 **
 ****************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqfont.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqfont.h>
 
 
 class MyWidget : public TQWidget

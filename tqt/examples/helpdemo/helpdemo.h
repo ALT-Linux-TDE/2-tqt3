@@ -1,7 +1,7 @@
 #ifndef HELPDEMO_H
 #define HELPDEMO_H
 
-#include <ntqptrdict.h>
+#include <tqptrdict.h>
 
 #include "helpdemobase.h"
 

@@ -7,13 +7,13 @@
 **
 *****************************************************************************/
 
-#include <ntqiconview.h>
-#include <ntqapplication.h>
-#include <ntqdragobject.h>
-#include <ntqpixmap.h>
-#include <ntqiconset.h>
+#include <tqiconview.h>
+#include <tqapplication.h>
+#include <tqdragobject.h>
+#include <tqpixmap.h>
+#include <tqiconset.h>
 
-#include <ntqmime.h>
+#include <tqmime.h>
 #include <stdio.h>
 
 class ListenDND : public TQObject
@@ -50,24 +50,24 @@ int main( int argc, char **argv )
 {
     TQApplication a( argc, argv );
 
-    TQIconView qiconview;
-    qiconview.setSelectionMode( TQIconView::Extended );
+    TQIconView tqiconview;
+    tqiconview.setSelectionMode( TQIconView::Extended );
 
     for ( unsigned int i = 0; i < 3000; i++ ) {
-	TQIconViewItem *item = new TQIconViewItem( &qiconview, TQString( "Item %1" ).arg( i + 1 ) );
+	TQIconViewItem *item = new TQIconViewItem( &tqiconview, TQString( "Item %1" ).arg( i + 1 ) );
 	item->setRenameEnabled( TRUE );
     }
 
-    qiconview.setCaption( "TQt Example - Iconview" );
+    tqiconview.setCaption( "TQt Example - Iconview" );
 
-    ListenDND listen_dnd( &qiconview );
-    TQObject::connect( &qiconview, TQ_SIGNAL( dropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ),
+    ListenDND listen_dnd( &tqiconview );
+    TQObject::connect( &tqiconview, TQ_SIGNAL( dropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ),
 		      &listen_dnd, TQ_SLOT( dropped( TQDropEvent * ) ) );
-    TQObject::connect( &qiconview, TQ_SIGNAL( moved() ), &listen_dnd, TQ_SLOT( moved() ) );
+    TQObject::connect( &tqiconview, TQ_SIGNAL( moved() ), &listen_dnd, TQ_SLOT( moved() ) );
 
-    a.setMainWidget( &qiconview );
-    qiconview.show();
-    qiconview.resize( qiconview.sizeHint() );
+    a.setMainWidget( &tqiconview );
+    tqiconview.show();
+    tqiconview.resize( tqiconview.sizeHint() );
 
     return a.exec();
 }

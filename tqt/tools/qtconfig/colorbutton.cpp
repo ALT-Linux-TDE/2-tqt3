@@ -33,11 +33,11 @@
 
 #include "colorbutton.h"
 
-#include <ntqapplication.h>
-#include <ntqcolordialog.h>
-#include <ntqpainter.h>
-#include <ntqdragobject.h>
-#include <ntqstyle.h>
+#include <tqapplication.h>
+#include <tqcolordialog.h>
+#include <tqpainter.h>
+#include <tqdragobject.h>
+#include <tqstyle.h>
 
 
 ColorButton::ColorButton(TQWidget *parent, const char *name)

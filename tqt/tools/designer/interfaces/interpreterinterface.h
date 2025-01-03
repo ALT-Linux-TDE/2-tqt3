@@ -47,7 +47,7 @@
 //
 //
 
-#include <private/qcom_p.h>
+#include <private/tqcom_p.h>
 
 class TQObject;
 

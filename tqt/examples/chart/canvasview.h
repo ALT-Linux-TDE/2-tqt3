@@ -4,7 +4,7 @@
 #include "element.h"
 #include "canvastext.h"
 
-#include <ntqcanvas.h>
+#include <tqcanvas.h>
 
 
 class TQPoint;

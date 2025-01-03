@@ -45,11 +45,11 @@
 
 #ifndef TQT_NO_IM
 
-#include <ntqnamespace.h>
-#include <ntqwidget.h>
-#include <ntqinputcontext.h>
-#include <ntqguardedptr.h>
-#include <ntqintdict.h>
+#include <tqnamespace.h>
+#include <tqwidget.h>
+#include <tqinputcontext.h>
+#include <tqguardedptr.h>
+#include <tqintdict.h>
 
 class TQPopupMenu;
 
@@ -78,9 +78,6 @@ public:
     bool isComposing() const;
     bool isPreeditRelocationEnabled();
     
-#if (TQT_VERSION-0 >= 0x040000)
-    TQPtrList<TQMenu> *qt4menus();
-#endif
     TQPtrList<TQInputContextMenu> *menus();
     TQPopupMenu *createImSelPopup();    
 

@@ -7,15 +7,15 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqcombobox.h>
-#include <ntqmap.h>
-#include <ntqpainter.h>
-#include <ntqsqldatabase.h>
-#include <ntqsqlcursor.h>
-#include <ntqsqleditorfactory.h>
-#include <ntqsqlpropertymap.h>
-#include <ntqdatatable.h>
+#include <tqapplication.h>
+#include <tqcombobox.h>
+#include <tqmap.h>
+#include <tqpainter.h>
+#include <tqsqldatabase.h>
+#include <tqsqlcursor.h>
+#include <tqsqleditorfactory.h>
+#include <tqsqlpropertymap.h>
+#include <tqdatatable.h>
 #include "../connection.h"
 
 class StatusPicker : public TQComboBox

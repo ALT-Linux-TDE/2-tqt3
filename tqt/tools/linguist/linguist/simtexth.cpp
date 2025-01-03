@@ -35,12 +35,12 @@
 
 #include <metatranslator.h>
 
-#include <ntqcstring.h>
-#include <ntqdict.h>
-#include <ntqmap.h>
-#include <ntqstring.h>
-#include <ntqstringlist.h>
-#include <ntqvaluelist.h>
+#include <tqcstring.h>
+#include <tqdict.h>
+#include <tqmap.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqvaluelist.h>
 
 #include <string.h>
 

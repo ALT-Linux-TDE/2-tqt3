@@ -1,5 +1,5 @@
 '\" t
-.TH QStylePlugin 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQStylePlugin 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,45 +7,45 @@
 .ad l
 .nh
 .SH NAME
-QStylePlugin \- Abstract base for custom QStyle plugins
+TQStylePlugin \- Abstract base for custom TQStyle plugins
 .SH SYNOPSIS
-\fC#include <ntqstyleplugin.h>\fR
+\fC#include <tqstyleplugin.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQStylePlugin\fR ()"
+.BI "\fBTQStylePlugin\fR ()"
 .br
 .ti -1c
-.BI "\fB~QStylePlugin\fR ()"
+.BI "\fB~TQStylePlugin\fR ()"
 .br
 .ti -1c
-.BI "virtual QStringList \fBkeys\fR () const = 0"
+.BI "virtual TQStringList \fBkeys\fR () const = 0"
 .br
 .ti -1c
-.BI "virtual QStyle * \fBcreate\fR ( const TQString & key ) = 0"
+.BI "virtual TQStyle * \fBcreate\fR ( const TQString & key ) = 0"
 .br
 .in -1c
 .SH DESCRIPTION
-The QStylePlugin class provides an abstract base for custom QStyle plugins.
+The TQStylePlugin class provides an abstract base for custom TQStyle plugins.
 .PP
-The style plugin is a simple plugin interface that makes it easy to create custom styles that can be loaded dynamically into applications with a QStyleFactory.
+The style plugin is a simple plugin interface that makes it easy to create custom styles that can be loaded dynamically into applications with a TQStyleFactory.
 .PP
 Writing a style plugin is achieved by subclassing this base class, reimplementing the pure virtual functions keys() and create(), and exporting the class with the \fCQ_EXPORT_PLUGIN\fR macro. See the plugins documentation for an example.
 .PP
 See also Plugins.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStylePlugin::QStylePlugin ()"
+.SH "TQStylePlugin::TQStylePlugin ()"
 Constructs a style plugin. This is invoked automatically by the \fCQ_EXPORT_PLUGIN\fR macro.
-.SH "QStylePlugin::~QStylePlugin ()"
+.SH "TQStylePlugin::~TQStylePlugin ()"
 Destroys the style plugin.
 .PP
 You never have to call this explicitly. TQt destroys a plugin automatically when it is no longer used.
-.SH "QStyle * QStylePlugin::create ( const TQString & key )\fC [pure virtual]\fR"
-Creates and returns a QStyle object for the style key \fIkey\fR. The style key is usually the class name of the required style.
+.SH "TQStyle * TQStylePlugin::create ( const TQString & key )\fC [pure virtual]\fR"
+Creates and returns a TQStyle object for the style key \fIkey\fR. The style key is usually the class name of the required style.
 .PP
 See also keys().
-.SH "QStringList QStylePlugin::keys () const\fC [pure virtual]\fR"
+.SH "TQStringList TQStylePlugin::keys () const\fC [pure virtual]\fR"
 Returns the list of style keys this plugin supports.
 .PP
 These keys are usually the class names of the custom styles that are implemented in the plugin.
@@ -53,7 +53,7 @@ These keys are usually the class names of the custom styles that are implemented
 See also create().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqstyleplugin.html
+.BR http://doc.trolltech.com/tqstyleplugin.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

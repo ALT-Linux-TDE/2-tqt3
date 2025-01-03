@@ -35,10 +35,10 @@
 #ifndef GLADE2UI_H
 #define GLADE2UI_H
 
-#include <ntqdom.h>
-#include <ntqmap.h>
-#include <ntqstring.h>
-#include <ntqvariant.h>
+#include <tqdom.h>
+#include <tqmap.h>
+#include <tqstring.h>
+#include <tqvariant.h>
 
 typedef TQMap<TQString, TQString> AttributeMap;
 
@@ -122,7 +122,7 @@ private:
 				   const TQStringList& items );
     void emitGtkNotebookChildWidgets(
 	    const TQValueList<TQDomElement>& childWidgets );
-    void emitTQListViewColumns( const TQDomElement& qlistview );
+    void emitTQListViewColumns( const TQDomElement& tqlistview );
     void emitGtkScrolledWindowChildWidgets(
 	    const TQValueList<TQDomElement>& childWidgets,
 	    const TQString& qtClass );

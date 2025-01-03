@@ -34,7 +34,7 @@
 #ifndef CINDENT_H
 #define CINDENT_H
 
-#include <private/qrichtext_p.h>
+#include <private/tqrichtext_p.h>
 
 class CIndent : public TQTextIndent
 {

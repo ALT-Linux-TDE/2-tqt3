@@ -1,7 +1,7 @@
 #ifndef GLWORKSPACE_H
 #define GLWORKSPACE_H
 
-#include <ntqmainwindow.h>
+#include <tqmainwindow.h>
 
 class TQWorkspace;
 class TQPrinter;

@@ -7,12 +7,12 @@
 **
 *****************************************************************************/
 
-#include <ntqimage.h>
-#include <ntqbitmap.h>
-#include <ntqpainter.h>
-#include <ntqapplication.h>
-#include <ntqdropsite.h>
-#include <ntqdragobject.h>
+#include <tqimage.h>
+#include <tqbitmap.h>
+#include <tqpainter.h>
+#include <tqapplication.h>
+#include <tqdropsite.h>
+#include <tqdragobject.h>
 #include <stdio.h>
 
 

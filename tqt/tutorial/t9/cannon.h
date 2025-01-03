@@ -7,7 +7,7 @@
 #ifndef CANNON_H
 #define CANNON_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 
 class CannonField : public TQWidget

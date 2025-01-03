@@ -1,5 +1,5 @@
 '\" t
-.TH QStatusBar 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQStatusBar 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QStatusBar \- Horizontal bar suitable for presenting status information
+TQStatusBar \- Horizontal bar suitable for presenting status information
 .SH SYNOPSIS
-\fC#include <ntqstatusbar.h>\fR
+\fC#include <tqstatusbar.h>\fR
 .PP
 Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQStatusBar\fR ( TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQStatusBar\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "virtual \fB~QStatusBar\fR ()"
+.BI "virtual \fB~TQStatusBar\fR ()"
 .br
 .ti -1c
 .BI "virtual void \fBaddWidget\fR ( TQWidget * widget, int stretch = 0, bool permanent = FALSE )"
@@ -55,13 +55,13 @@ Inherits TQWidget.
 .SS "Properties"
 .in +1c
 .ti -1c
-.BI "bool \fBsizeGripEnabled\fR - whether the QSizeGrip in the bottom right of the status bar is enabled"
+.BI "bool \fBsizeGripEnabled\fR - whether the TQSizeGrip in the bottom right of the status bar is enabled"
 .br
 .in -1c
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBpaintEvent\fR ( QPaintEvent * )"
+.BI "virtual void \fBpaintEvent\fR ( TQPaintEvent * )"
 .br
 .ti -1c
 .BI "void \fBreformat\fR ()"
@@ -71,7 +71,7 @@ Inherits TQWidget.
 .br
 .in -1c
 .SH DESCRIPTION
-The QStatusBar class provides a horizontal bar suitable for presenting status information.
+The TQStatusBar class provides a horizontal bar suitable for presenting status information.
 .PP
 Each status indicator falls into one of three categories:
 .TP
@@ -81,7 +81,7 @@ Each status indicator falls into one of three categories:
 .TP
 \fIPermanent\fR - is never hidden. Used for important mode indications, for example, some applications put a Caps Lock indicator in the status bar.
 .PP
-QStatusBar lets you display all three types of indicators.
+TQStatusBar lets you display all three types of indicators.
 .PP
 To display a \fItemporary\fR message, call message() (perhaps by connecting a suitable signal to it). To remove a temporary message, call clear(). There are two variants of message(): one that displays the message until the next clear() or message() and one that has a time limit:
 .PP
@@ -100,7 +100,7 @@ To display a \fItemporary\fR message, call message() (perhaps by connecting a su
 .br
 .fi
 .PP
-\fINormal\fR and \fIPermanent\fR messages are displayed by creating a small widget and then adding it to the status bar with addWidget(). Widgets like QLabel, QProgressBar or even QToolButton are useful for adding to status bars. removeWidget() is used to remove widgets.
+\fINormal\fR and \fIPermanent\fR messages are displayed by creating a small widget and then adding it to the status bar with addWidget(). Widgets like TQLabel, TQProgressBar or even TQToolButton are useful for adding to status bars. removeWidget() is used to remove widgets.
 .PP
 .nf
 .br
@@ -108,7 +108,7 @@ To display a \fItemporary\fR message, call message() (perhaps by connecting a su
 .br
 .fi
 .PP
-By default QStatusBar provides a QSizeGrip in the lower-right corner. You can disable it with setSizeGripEnabled(FALSE);
+By default TQStatusBar provides a TQSizeGrip in the lower-right corner. You can disable it with setSizeGripEnabled(FALSE);
 .PP
 .ce 1
 .B "[Image Omitted]"
@@ -117,16 +117,16 @@ By default QStatusBar provides a QSizeGrip in the lower-right corner. You can di
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QToolBar, QMainWindow, QLabel, GUI Design Handbook: Status Bar, Main Window and Related Classes, and Help System.
+See also TQToolBar, TQMainWindow, TQLabel, GUI Design Handbook: Status Bar, Main Window and Related Classes, and Help System.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStatusBar::QStatusBar ( TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQStatusBar::TQStatusBar ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a status bar called \fIname\fR with parent \fIparent\fR and with a size grip.
 .PP
 See also sizeGripEnabled.
-.SH "QStatusBar::~QStatusBar ()\fC [virtual]\fR"
+.SH "TQStatusBar::~TQStatusBar ()\fC [virtual]\fR"
 Destroys the status bar and frees any allocated resources and child widgets.
-.SH "void QStatusBar::addWidget ( TQWidget * widget, int stretch = 0, bool permanent = FALSE )\fC [virtual]\fR"
-Adds \fIwidget\fR to this status bar. \fIwidget\fR is reparented if it isn't already a child of the QStatusBar.
+.SH "void TQStatusBar::addWidget ( TQWidget * widget, int stretch = 0, bool permanent = FALSE )\fC [virtual]\fR"
+Adds \fIwidget\fR to this status bar. \fIwidget\fR is reparented if it isn't already a child of the TQStatusBar.
 .PP
 \fIwidget\fR is permanently visible if \fIpermanent\fR is TRUE and may be obscured by temporary messages if \fIpermanent\fR is FALSE. The default is FALSE.
 .PP
@@ -137,35 +137,35 @@ If \fIpermanent\fR is TRUE, \fIwidget\fR is located at the far right of the stat
 This function may cause some flicker.
 .PP
 See also removeWidget().
-.SH "void QStatusBar::clear ()\fC [slot]\fR"
+.SH "void TQStatusBar::clear ()\fC [slot]\fR"
 Removes any temporary message being shown.
 .PP
 See also message().
-.SH "void QStatusBar::hideOrShow ()\fC [protected]\fR"
+.SH "void TQStatusBar::hideOrShow ()\fC [protected]\fR"
 Ensures that the right widgets are visible. Used by message() and clear().
-.SH "bool QStatusBar::isSizeGripEnabled () const"
-Returns TRUE if the QSizeGrip in the bottom right of the status bar is enabled; otherwise returns FALSE. See the "sizeGripEnabled" property for details.
-.SH "void QStatusBar::message ( const TQString & message )\fC [slot]\fR"
+.SH "bool TQStatusBar::isSizeGripEnabled () const"
+Returns TRUE if the TQSizeGrip in the bottom right of the status bar is enabled; otherwise returns FALSE. See the "sizeGripEnabled" property for details.
+.SH "void TQStatusBar::message ( const TQString & message )\fC [slot]\fR"
 Hides the normal status indicators and displays \fImessage\fR until clear() or another message() is called.
 .PP
 See also clear().
 .PP
 Example: regexptester/regexptester.cpp.
-.SH "void QStatusBar::message ( const TQString & message, int ms )\fC [slot]\fR"
+.SH "void TQStatusBar::message ( const TQString & message, int ms )\fC [slot]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Hides the normal status indications and displays \fImessage\fR for \fIms\fR milli-seconds or until clear() or another message() is called, whichever occurs first.
-.SH "void QStatusBar::messageChanged ( const TQString & message )\fC [signal]\fR"
+.SH "void TQStatusBar::messageChanged ( const TQString & message )\fC [signal]\fR"
 This signal is emitted when the temporary status messages changes. \fImessage\fR is the new temporary message, and is a null-string when the message has been removed.
 .PP
 See also message() and clear().
-.SH "void QStatusBar::paintEvent ( QPaintEvent * )\fC [virtual protected]\fR"
+.SH "void TQStatusBar::paintEvent ( TQPaintEvent * )\fC [virtual protected]\fR"
 Shows the temporary message, if appropriate.
 .PP
 Reimplemented from TQWidget.
-.SH "void QStatusBar::reformat ()\fC [protected]\fR"
+.SH "void TQStatusBar::reformat ()\fC [protected]\fR"
 Changes the status bar's appearance to account for item changes. Special subclasses may need this, but geometry management will usually take care of any necessary rearrangements.
-.SH "void QStatusBar::removeWidget ( TQWidget * widget )\fC [virtual]\fR"
+.SH "void TQStatusBar::removeWidget ( TQWidget * widget )\fC [virtual]\fR"
 Removes \fIwidget\fR from the status bar.
 .PP
 This function may cause some flicker.
@@ -173,18 +173,18 @@ This function may cause some flicker.
 Note that \fIwidget\fR is not deleted.
 .PP
 See also addWidget().
-.SH "void QStatusBar::setSizeGripEnabled ( bool )"
-Sets whether the QSizeGrip in the bottom right of the status bar is enabled. See the "sizeGripEnabled" property for details.
+.SH "void TQStatusBar::setSizeGripEnabled ( bool )"
+Sets whether the TQSizeGrip in the bottom right of the status bar is enabled. See the "sizeGripEnabled" property for details.
 .SS "Property Documentation"
 .SH "bool sizeGripEnabled"
-This property holds whether the QSizeGrip in the bottom right of the status bar is enabled.
+This property holds whether the TQSizeGrip in the bottom right of the status bar is enabled.
 .PP
-Enables or disables the QSizeGrip in the bottom right of the status bar. By default, the size grip is enabled.
+Enables or disables the TQSizeGrip in the bottom right of the status bar. By default, the size grip is enabled.
 .PP
 Set this property's value with setSizeGripEnabled() and get this property's value with isSizeGripEnabled().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqstatusbar.html
+.BR http://doc.trolltech.com/tqstatusbar.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

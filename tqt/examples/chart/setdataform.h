@@ -3,7 +3,7 @@
 
 #include "element.h"
 
-#include <ntqdialog.h>
+#include <tqdialog.h>
 
 class TQHBoxLayout;
 class TQPushButton;

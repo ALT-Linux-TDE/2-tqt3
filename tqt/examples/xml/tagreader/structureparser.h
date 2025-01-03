@@ -10,7 +10,7 @@
 #ifndef STRUCTUREPARSER_H
 #define STRUCTUREPARSER_H   
 
-#include <ntqxml.h>
+#include <tqxml.h>
 
 class TQString;
 

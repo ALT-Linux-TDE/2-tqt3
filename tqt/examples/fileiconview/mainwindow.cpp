@@ -8,19 +8,19 @@
 *****************************************************************************/
 
 #include "mainwindow.h"
-#include "qfileiconview.h"
+#include "tqfileiconview.h"
 #include "../dirview/dirview.h"
 
-#include <ntqsplitter.h>
-#include <ntqprogressbar.h>
-#include <ntqlabel.h>
-#include <ntqstatusbar.h>
-#include <ntqtoolbar.h>
-#include <ntqcombobox.h>
-#include <ntqpixmap.h>
-#include <ntqtoolbutton.h>
-#include <ntqdir.h>
-#include <ntqfileinfo.h>
+#include <tqsplitter.h>
+#include <tqprogressbar.h>
+#include <tqlabel.h>
+#include <tqstatusbar.h>
+#include <tqtoolbar.h>
+#include <tqcombobox.h>
+#include <tqpixmap.h>
+#include <tqtoolbutton.h>
+#include <tqdir.h>
+#include <tqfileinfo.h>
 
 static const char* cdtoparent_xpm[]={
     "15 13 3 1",

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/sql.doc:41 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -42,21 +41,21 @@ body { background: #ffffff; color: black; }
 **
 *****************************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qsqldatabase-h.html">ntqsqldatabase.h</a>&gt;
-#include &lt;<a href="qsqlquery-h.html">ntqsqlquery.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqsqldatabase-h.html">tqsqldatabase.h</a>&gt;
+#include &lt;<a href="tqsqlquery-h.html">tqsqlquery.h</a>&gt;
 #include "../connection.h"
 
 int main( int argc, char *argv[] )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv, FALSE );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv, FALSE );
 
     if ( createConnections() ) {
-        <a href="ntqsqlquery.html">TQSqlQuery</a> query( "SELECT id, surname FROM staff" );
-        if ( query.<a href="ntqsqlquery.html#isActive">isActive</a>() ) {
-            while ( query.<a href="ntqsqlquery.html#next">next</a>() ) {
-                <a href="ntqapplication.html#qDebug">tqDebug</a>( query.<a href="ntqsqlquery.html#value">value</a>(0).toString() + ": " +
-                        query.<a href="ntqsqlquery.html#value">value</a>(1).toString() );
+        <a href="tqsqlquery.html">TQSqlQuery</a> query( "SELECT id, surname FROM staff" );
+        if ( query.<a href="tqsqlquery.html#isActive">isActive</a>() ) {
+            while ( query.<a href="tqsqlquery.html#next">next</a>() ) {
+                <a href="tqapplication.html#qDebug">tqDebug</a>( query.<a href="tqsqlquery.html#value">value</a>(0).toString() + ": " +
+                        query.<a href="tqsqlquery.html#value">value</a>(1).toString() );
             }
         }
     }

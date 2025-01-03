@@ -34,9 +34,9 @@
 #include "parenmatcher.h"
 #include "paragdata.h"
 
-#include "ntqtextedit.h"
-#include <private/qrichtext_p.h>
-#include <ntqapplication.h>
+#include "tqtextedit.h"
+#include <private/tqrichtext_p.h>
+#include <tqapplication.h>
 
 ParenMatcher::ParenMatcher()
 {

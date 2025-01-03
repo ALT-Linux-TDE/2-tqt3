@@ -9,22 +9,22 @@
 
 #include "frame.h"
 
-#include <ntqapplication.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqaccel.h>
-#include <ntqtoolbox.h>
-#include <ntqpainter.h>
-#include <ntqwidgetstack.h>
-#include <ntqstylefactory.h>
-#include <ntqaction.h>
-#include <ntqsignalmapper.h>
-#include <ntqdict.h>
-#include <ntqdir.h>
-#include <ntqtextcodec.h>
+#include <tqapplication.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqaccel.h>
+#include <tqtoolbox.h>
+#include <tqpainter.h>
+#include <tqwidgetstack.h>
+#include <tqstylefactory.h>
+#include <tqaction.h>
+#include <tqsignalmapper.h>
+#include <tqdict.h>
+#include <tqdir.h>
+#include <tqtextcodec.h>
 #include <stdlib.h>
-#include <ntqbuttongroup.h>
-#include <ntqtoolbutton.h>
+#include <tqbuttongroup.h>
+#include <tqtoolbutton.h>
 
 static TQTranslator *translator = 0;
 static TQTranslator *qt_translator = 0;

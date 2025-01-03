@@ -1,5 +1,5 @@
-#include <ntqstyleplugin.h>
-#include <ntqcompactstyle.h>
+#include <tqstyleplugin.h>
+#include <tqcompactstyle.h>
 
 class CompactStyle : public TQStylePlugin
 {

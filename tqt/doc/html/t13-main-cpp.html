@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:2030 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -38,21 +37,21 @@ body { background: #ffffff; color: black; }
 **
 ****************************************************************/
 
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 #include "gamebrd.h"
 
 
 int main( int argc, char **argv )
 {
-    TQApplication::<a href="ntqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::CustomColor );
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    TQApplication::<a href="tqapplication.html#setColorSpec">setColorSpec</a>( TQApplication::CustomColor );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     GameBoard gb;
-    gb.<a href="ntqwidget.html#setGeometry">setGeometry</a>( 100, 100, 500, 355 );
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;gb );
-    gb.<a href="ntqwidget.html#show">show</a>();
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    gb.<a href="tqwidget.html#setGeometry">setGeometry</a>( 100, 100, 500, 355 );
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;gb );
+    gb.<a href="tqwidget.html#show">show</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre><!-- eof -->
 <p><address><hr><div align=center>

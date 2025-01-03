@@ -1,7 +1,7 @@
 #ifndef OPTIONSFORM_H
 #define OPTIONSFORM_H
 
-#include <ntqdialog.h>
+#include <tqdialog.h>
 
 class TQButtonGroup;
 class TQComboBox;

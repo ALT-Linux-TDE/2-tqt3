@@ -34,12 +34,12 @@
 #include "viewmanager.h"
 #include "editor.h"
 #include "markerwidget.h"
-#include <ntqlayout.h>
-#include <private/qrichtext_p.h>
+#include <tqlayout.h>
+#include <private/tqrichtext_p.h>
 #include "paragdata.h"
-#include <ntqobjectlist.h>
-#include <ntqlabel.h>
-#include <ntqtimer.h>
+#include <tqobjectlist.h>
+#include <tqlabel.h>
+#include <tqtimer.h>
 
 ViewManager::ViewManager( TQWidget *parent, const char *name )
     : TQWidget( parent, name ), curView( 0 )

@@ -2,7 +2,7 @@ TEMPLATE = subdirs
 
 CONFIG  += ordered
 
-SUBDIRS	=  uic \
+SUBDIRS	=  tquic \
 	   uilib \
 	   designer \
 	   app \

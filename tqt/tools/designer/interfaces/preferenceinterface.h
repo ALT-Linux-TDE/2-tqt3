@@ -47,9 +47,9 @@
 //
 //
 
-#include <private/qcom_p.h>
-#include <ntqwidgetlist.h>
-#include <ntqcstring.h>
+#include <private/tqcom_p.h>
+#include <tqwidgetlist.h>
+#include <tqcstring.h>
 
 // {5c168ee7-4bee-469f-9995-6afdb04ce5a2}
 #ifndef IID_Preference

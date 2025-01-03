@@ -10,7 +10,7 @@
 #ifndef LINEDITS_H
 #define LINEDITS_H
 
-#include <ntqgroupbox.h>
+#include <tqgroupbox.h>
 
 class TQLineEdit;
 class TQComboBox;

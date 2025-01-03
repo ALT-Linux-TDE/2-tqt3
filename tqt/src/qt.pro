@@ -1,7 +1,6 @@
 # TQt project file
 TEMPLATE	= lib
 TARGET		= qt
-embedded:TARGET	= qte
 VERSION		= 3.5
 DESTDIR		= $$QMAKE_LIBDIR_TQT
 DLLDESTDIR	= ../bin
@@ -10,15 +9,6 @@ CONFIG		+= qt warn_on depend_includepath
 CONFIG          += qmake_cache
 
 win32:!shared:CONFIG += staticlib
-
-win32-borland {
-	mng:QMAKE_CFLAGS_WARN_ON	+= -w-par
-	mng:QMAKE_CXXFLAGS_WARN_ON	+= -w-par
-	# Keep the size of the .tds file for the TQt library smaller than
-	# 34 Mbytes to avoid linking problems
-	QMAKE_CFLAGS_DEBUG += -vi -y-
-	QMAKE_CXXFLAGS_DEBUG += -vi -y-
-}
 
 linux-*:version_script {
    QMAKE_LFLAGS += -Wl,--version-script=libtqt.map
@@ -39,7 +29,6 @@ WORKSPACE_CPP	= workspace
 INPUTMETHOD_CPP	= inputmethod
 XML_CPP	        = xml
 STYLES_CPP	= styles
-EMBEDDED_CPP	= embedded
 
 win32 {
 	contains(QT_PRODUCT,qt-internal) {
@@ -83,7 +72,6 @@ win32 {
 	    exists(qt.rc):RC_FILE = qt.rc
 	}
 }
-win32-borland:INCLUDEPATH += kernel
 
 unix {
 	CANVAS_H	= $$CANVAS_CPP
@@ -100,7 +88,7 @@ unix {
         INPUTMETHOD_H 	= $$INPUTMETHOD_CPP
 	XML_H		= $$XML_CPP
 	STYLES_H	= $$STYLES_CPP
-	!embedded:!mac:CONFIG	   += x11 x11inc
+	!mac:CONFIG	   += x11 x11inc
 }
 
 aix-g++ {
@@ -108,19 +96,12 @@ aix-g++ {
 	QMAKE_CXXFLAGS += -mminimal-toc
 }
 
-embedded {
-	EMBEDDED_H	= $$EMBEDDED_CPP
-}
-
 DEPENDPATH += ;$$NETWORK_H;$$KERNEL_H;$$WIDGETS_H;$$INPUTMETHOD_H;$$SQL_H;$$TABLE_H;$$DIALOGS_H;
 DEPENDPATH += $$OPENGL_H;$$TOOLS_H;$$CODECS_H;$$WORKSPACE_H;$$XML_H;
 DEPENDPATH += $$CANVAS_H;$$STYLES_H
-embedded:DEPENDPATH += ;$$EMBEDDED_H
 
 thread {
-	!win32-borland:TARGET = tqt-mt
-	win32-borland:TARGET = qtmt
-	embedded:TARGET = qte-mt
+	TARGET = tqt-mt
 	DEFINES += TQT_THREAD_SUPPORT
 }
 
@@ -136,16 +117,15 @@ largefile {
 include($$KERNEL_CPP/qt_compat.pri)
 
 #platforms
-x11:include($$KERNEL_CPP/qt_x11.pri)
+x11:include($$KERNEL_CPP/tqt_x11.pri)
 mac:include($$KERNEL_CPP/qt_mac.pri)
 win32:include($$KERNEL_CPP/qt_win.pri)
-embedded:include($$KERNEL_CPP/qt_qws.pri)
 
 #modules
 include($$KERNEL_CPP/qt_kernel.pri)
 include($$WIDGETS_CPP/qt_widgets.pri)
 include($$DIALOGS_CPP/qt_dialogs.pri)
-include($$WORKSPACE_CPP/qt_workspace.pri)
+include($$WORKSPACE_CPP/tqt_workspace.pri)
 include($$INPUTMETHOD_CPP/qt_inputmethod.pri)
 include($$NETWORK_CPP/qt_network.pri)
 include($$CANVAS_CPP/qt_canvas.pri)
@@ -155,13 +135,12 @@ include($$OPENGL_CPP/qt_opengl.pri)
 include($$SQL_CPP/qt_sql.pri)
 include($$KERNEL_CPP/qt_gfx.pri)
 include($$TOOLS_CPP/qt_tools.pri)
-include($$CODECS_CPP/qt_codecs.pri)
+include($$CODECS_CPP/tqt_codecs.pri)
 include($$STYLES_CPP/qt_styles.pri)
-embedded:include($$EMBEDDED_CPP/qt_embedded.pri)
 
-# qconfig.cpp
-exists($$QT_BUILD_TREE/src/tools/qconfig.cpp) {
-    SOURCES += $$QT_BUILD_TREE/src/tools/qconfig.cpp
+# tqconfig.cpp
+exists($$QT_BUILD_TREE/src/tools/tqconfig.cpp) {
+    SOURCES += $$QT_BUILD_TREE/src/tools/tqconfig.cpp
 }
 
 #install directives
@@ -178,19 +157,19 @@ unix {
 wince-* {
 	CONFIG -= incremental
 	message( ...removing plugin stuff... (not permanent) )
-	HEADERS -= $$TOOLS_CPP/qcomlibrary.h \
-		   $$KERNEL_CPP/ntqgplugin.h \
-		   $$KERNEL_CPP/ntqimageformatplugin.h \
-		   $$STYLES_CPP/ntqstyleplugin.h \
-		   $$CODECS_CPP/ntqtextcodecplugin.h \
-		   $$WIDGETS_CPP/ntqwidgetplugin.h
+	HEADERS -= $$TOOLS_CPP/tqcomlibrary.h \
+		   $$KERNEL_CPP/tqgplugin.h \
+		   $$KERNEL_CPP/tqimageformatplugin.h \
+		   $$STYLES_CPP/tqstyleplugin.h \
+		   $$CODECS_CPP/tqtextcodecplugin.h \
+		   $$WIDGETS_CPP/tqwidgetplugin.h
 
-	SOURCES -= $$TOOLS_CPP/qcomlibrary.cpp \
-		   $$KERNEL_CPP/qgplugin.cpp \
-		   $$KERNEL_CPP/qimageformatplugin.cpp \
-		   $$STYLES_CPP/qstyleplugin.cpp \
-		   $$CODECS_CPP/qtextcodecplugin.cpp \
-		   $$WIDGETS_CPP/qwidgetplugin.cpp 
+	SOURCES -= $$TOOLS_CPP/tqcomlibrary.cpp \
+		   $$KERNEL_CPP/tqgplugin.cpp \
+		   $$KERNEL_CPP/tqimageformatplugin.cpp \
+		   $$STYLES_CPP/tqstyleplugin.cpp \
+		   $$CODECS_CPP/tqtextcodecplugin.cpp \
+		   $$WIDGETS_CPP/tqwidgetplugin.cpp 
 }
 
 glibmainloop {

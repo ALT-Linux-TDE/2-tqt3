@@ -1,5 +1,5 @@
 '\" t
-.TH QIMEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQIMEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,16 +7,16 @@
 .ad l
 .nh
 .SH NAME
-QIMEvent \- Parameters for input method events
+TQIMEvent \- Parameters for input method events
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQIMEvent\fR ( Type type, const TQString & text, int cursorPosition )"
+.BI "\fBTQIMEvent\fR ( Type type, const TQString & text, int cursorPosition )"
 .br
 .ti -1c
 .BI "const TQString & \fBtext\fR () const"
@@ -38,7 +38,7 @@ Inherits QEvent.
 .br
 .in -1c
 .SH DESCRIPTION
-The QIMEvent class provides parameters for input method events.
+The TQIMEvent class provides parameters for input method events.
 .PP
 Input method events are sent to widgets when an input method is used to enter text into a widget. Input methods are widely used to enter text in Asian and other complex languages.
 .PP
@@ -72,9 +72,9 @@ If the user clicks another widget, taking the focus out of the widget where the 
 .PP
 See also Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QIMEvent::QIMEvent ( Type type, const TQString & text, int cursorPosition )"
-Constructs a new QIMEvent with the accept flag set to FALSE. \fItype\fR can be one of QEvent::IMStartEvent, QEvent::IMComposeEvent or QEvent::IMEndEvent. \fItext\fR contains the current compostion string and \fIcursorPosition\fR the current position of the cursor inside \fItext\fR.
-.SH "void QIMEvent::accept ()"
+.SH "TQIMEvent::TQIMEvent ( Type type, const TQString & text, int cursorPosition )"
+Constructs a new TQIMEvent with the accept flag set to FALSE. \fItype\fR can be one of TQEvent::IMStartEvent, TQEvent::IMComposeEvent or TQEvent::IMEndEvent. \fItext\fR contains the current compostion string and \fIcursorPosition\fR the current position of the cursor inside \fItext\fR.
+.SH "void TQIMEvent::accept ()"
 Sets the accept flag of the input method event object.
 .PP
 Setting the accept parameter indicates that the receiver of the event processed the input method event.
@@ -82,9 +82,9 @@ Setting the accept parameter indicates that the receiver of the event processed 
 The accept flag is not set by default.
 .PP
 See also ignore().
-.SH "int QIMEvent::cursorPos () const"
+.SH "int TQIMEvent::cursorPos () const"
 Returns the current cursor position inside the composition string. Will return -1 for IMStartEvent and IMEndEvent.
-.SH "void QIMEvent::ignore ()"
+.SH "void TQIMEvent::ignore ()"
 Clears the accept flag parameter of the input method event object.
 .PP
 Clearing the accept parameter indicates that the event receiver does not want the input method event.
@@ -92,17 +92,17 @@ Clearing the accept parameter indicates that the event receiver does not want th
 The accept flag is cleared by default.
 .PP
 See also accept().
-.SH "bool QIMEvent::isAccepted () const"
+.SH "bool TQIMEvent::isAccepted () const"
 Returns TRUE if the receiver of the event processed the event; otherwise returns FALSE.
-.SH "int QIMEvent::selectionLength () const"
+.SH "int TQIMEvent::selectionLength () const"
 Returns the number of characters in the composition string ( starting at cursorPos() ) that should be marked as selected by the input widget receiving the event. Will return 0 for IMStartEvent and IMEndEvent.
-.SH "const TQString & QIMEvent::text () const"
+.SH "const TQString & TQIMEvent::text () const"
 Returns the composition text. This is a null string for an
 IMStartEvent, and contains the final accepted string (which may be
 empty) in the IMEndEvent.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qimevent.html
+.BR http://doc.trolltech.com/tqimevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

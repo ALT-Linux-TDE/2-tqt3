@@ -1,20 +1,20 @@
 /****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
+** ui.h extension file, included from the tquic-generated form implementation.
 **
 ** If you wish to add, delete or rename slots use TQt Designer which will
 ** update this file, preserving your code. Create an init() slot in place of
 ** a constructor, and a destroy() slot in place of a destructor.
 *****************************************************************************/
-#include <ntqsqldriver.h>
-#include <ntqmessagebox.h>
-#include <ntqsqldatabase.h>
-#include <ntqlineedit.h>
-#include <ntqcombobox.h>
-#include <ntqspinbox.h>
-#include <ntqsqlerror.h>
-#include <ntqsqlcursor.h>
-#include <ntqsqlselectcursor.h>
-#include <ntqdatatable.h>
+#include <tqsqldriver.h>
+#include <tqmessagebox.h>
+#include <tqsqldatabase.h>
+#include <tqlineedit.h>
+#include <tqcombobox.h>
+#include <tqspinbox.h>
+#include <tqsqlerror.h>
+#include <tqsqlcursor.h>
+#include <tqsqlselectcursor.h>
+#include <tqdatatable.h>
 #include "connect.h"
 
 static void showError( const TQSqlError& err, TQWidget* parent = 0 )

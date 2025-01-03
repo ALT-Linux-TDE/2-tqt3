@@ -11,11 +11,11 @@
 #define TQTETRIX_H
 
 #include "qtetrixb.h"
-#include <ntqframe.h>
-#include <ntqlcdnumber.h>
-#include <ntqlabel.h>
-#include <ntqpushbutton.h>
-#include <ntqpainter.h>
+#include <tqframe.h>
+#include <tqlcdnumber.h>
+#include <tqlabel.h>
+#include <tqpushbutton.h>
+#include <tqpainter.h>
 
 
 class ShowNextPiece : public TQFrame

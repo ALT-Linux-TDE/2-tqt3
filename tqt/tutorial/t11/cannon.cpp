@@ -5,9 +5,9 @@
 ****************************************************************/
 
 #include "cannon.h"
-#include <ntqtimer.h>
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
+#include <tqtimer.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
 
 #include <math.h>
 

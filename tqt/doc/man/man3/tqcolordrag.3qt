@@ -1,5 +1,5 @@
 '\" t
-.TH QColorDrag 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQColorDrag 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QColorDrag \- Drag and drop object for transferring colors
+TQColorDrag \- Drag and drop object for transferring colors
 .SH SYNOPSIS
-\fC#include <ntqdragobject.h>\fR
+\fC#include <tqdragobject.h>\fR
 .PP
-Inherits QStoredDrag.
+Inherits TQStoredDrag.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQColorDrag\fR ( const TQColor & col, TQWidget * dragsource = 0, const char * name = 0 )"
+.BI "\fBTQColorDrag\fR ( const TQColor & col, TQWidget * dragsource = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQColorDrag\fR ( TQWidget * dragsource = 0, const char * name = 0 )"
+.BI "\fBTQColorDrag\fR ( TQWidget * dragsource = 0, const char * name = 0 )"
 .br
 .ti -1c
 .BI "void \fBsetColor\fR ( const TQColor & col )"
@@ -28,36 +28,36 @@ Inherits QStoredDrag.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "bool \fBcanDecode\fR ( QMimeSource * e )"
+.BI "bool \fBcanDecode\fR ( TQMimeSource * e )"
 .br
 .ti -1c
-.BI "bool \fBdecode\fR ( QMimeSource * e, TQColor & col )"
+.BI "bool \fBdecode\fR ( TQMimeSource * e, TQColor & col )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QColorDrag class provides a drag and drop object for transferring colors.
+The TQColorDrag class provides a drag and drop object for transferring colors.
 .PP
-This class provides a drag object which can be used to transfer data about colors for drag and drop and in the clipboard. For example, it is used in QColorDialog.
+This class provides a drag object which can be used to transfer data about colors for drag and drop and in the clipboard. For example, it is used in TQColorDialog.
 .PP
 The color is set in the constructor but can be changed with setColor().
 .PP
-For more information about drag and drop, see the QDragObject class and the drag and drop documentation.
+For more information about drag and drop, see the TQDragObject class and the drag and drop documentation.
 .PP
 See also Drag And Drop Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QColorDrag::QColorDrag ( const TQColor & col, TQWidget * dragsource = 0, const char * name = 0 )"
-Constructs a color drag object with the color \fIcol\fR. Passes \fIdragsource\fR and \fIname\fR to the QStoredDrag constructor.
-.SH "QColorDrag::QColorDrag ( TQWidget * dragsource = 0, const char * name = 0 )"
-Constructs a color drag object with a white color. Passes \fIdragsource\fR and \fIname\fR to the QStoredDrag constructor.
-.SH "bool QColorDrag::canDecode ( QMimeSource * e )\fC [static]\fR"
+.SH "TQColorDrag::TQColorDrag ( const TQColor & col, TQWidget * dragsource = 0, const char * name = 0 )"
+Constructs a color drag object with the color \fIcol\fR. Passes \fIdragsource\fR and \fIname\fR to the TQStoredDrag constructor.
+.SH "TQColorDrag::TQColorDrag ( TQWidget * dragsource = 0, const char * name = 0 )"
+Constructs a color drag object with a white color. Passes \fIdragsource\fR and \fIname\fR to the TQStoredDrag constructor.
+.SH "bool TQColorDrag::canDecode ( TQMimeSource * e )\fC [static]\fR"
 Returns TRUE if the color drag object can decode the mime source \fIe\fR; otherwise returns FALSE.
-.SH "bool QColorDrag::decode ( QMimeSource * e, TQColor & col )\fC [static]\fR"
+.SH "bool TQColorDrag::decode ( TQMimeSource * e, TQColor & col )\fC [static]\fR"
 Decodes the mime source \fIe\fR and sets the decoded values to \fIcol\fR.
-.SH "void QColorDrag::setColor ( const TQColor & col )"
+.SH "void TQColorDrag::setColor ( const TQColor & col )"
 Sets the color of the color drag to \fIcol\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcolordrag.html
+.BR http://doc.trolltech.com/tqcolordrag.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

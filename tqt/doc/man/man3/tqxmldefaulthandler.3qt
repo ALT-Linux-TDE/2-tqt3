@@ -1,5 +1,5 @@
 '\" t
-.TH QXmlDefaultHandler 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQXmlDefaultHandler 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,39 +7,39 @@
 .ad l
 .nh
 .SH NAME
-QXmlDefaultHandler \- Default implementation of all the XML handler classes
+TQXmlDefaultHandler \- Default implementation of all the XML handler classes
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqxml.h>\fR
+\fC#include <tqxml.h>\fR
 .PP
-Inherits QXmlContentHandler, QXmlErrorHandler, QXmlDTDHandler, QXmlEntityResolver, QXmlLexicalHandler, and QXmlDeclHandler.
+Inherits TQXmlContentHandler, TQXmlErrorHandler, TQXmlDTDHandler, TQXmlEntityResolver, TQXmlLexicalHandler, and TQXmlDeclHandler.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQXmlDefaultHandler\fR ()"
+.BI "\fBTQXmlDefaultHandler\fR ()"
 .br
 .ti -1c
-.BI "virtual \fB~QXmlDefaultHandler\fR ()"
+.BI "virtual \fB~TQXmlDefaultHandler\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QXmlDefaultHandler class provides a default implementation of all the XML handler classes.
+The TQXmlDefaultHandler class provides a default implementation of all the XML handler classes.
 .PP
 Very often we are only interested in parts of the things that the reader reports. This class implements a default behaviour for the handler classes (i.e. most of the time do nothing). Usually this is the class you subclass for implementing your own customized handler.
 .PP
 See also the Introduction to SAX2.
 .PP
-See also QXmlDTDHandler, QXmlDeclHandler, QXmlContentHandler, QXmlEntityResolver, QXmlErrorHandler, QXmlLexicalHandler, and XML.
+See also TQXmlDTDHandler, TQXmlDeclHandler, TQXmlContentHandler, TQXmlEntityResolver, TQXmlErrorHandler, TQXmlLexicalHandler, and XML.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QXmlDefaultHandler::QXmlDefaultHandler ()"
+.SH "TQXmlDefaultHandler::TQXmlDefaultHandler ()"
 Constructor.
-.SH "QXmlDefaultHandler::~QXmlDefaultHandler ()\fC [virtual]\fR"
+.SH "TQXmlDefaultHandler::~TQXmlDefaultHandler ()\fC [virtual]\fR"
 Destructor.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qxmldefaulthandler.html
+.BR http://doc.trolltech.com/tqxmldefaulthandler.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -1,5 +1,5 @@
 '\" t
-.TH QFocusData 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQFocusData 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QFocusData \- Maintains the list of widgets in the focus chain
+TQFocusData \- Maintains the list of widgets in the focus chain
 .SH SYNOPSIS
-\fC#include <ntqfocusdata.h>\fR
+\fC#include <tqfocusdata.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -36,7 +36,7 @@ QFocusData \- Maintains the list of widgets in the focus chain
 .br
 .in -1c
 .SH DESCRIPTION
-The QFocusData class maintains the list of widgets in the focus chain.
+The TQFocusData class maintains the list of widgets in the focus chain.
 .PP
 This read-only list always contains at least one widget (i.e. the top-level widget). It provides a simple cursor which can be reset to the current focus widget using home(), or moved to its neighboring widgets using next() and prev(). You can also retrieve the count() of the number of widgets in the list. The list is a loop, so if you keep iterating, for example using next(), you will never come to the end.
 .PP
@@ -50,24 +50,24 @@ This class is \fInot\fR thread-safe.
 .PP
 See also TQWidget::focusNextPrevChild(), TQWidget::setTabOrder(), TQWidget::focusPolicy, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "int QFocusData::count () const"
+.SH "int TQFocusData::count () const"
 Returns the number of widgets in the focus chain.
-.SH "TQWidget * QFocusData::first () const"
+.SH "TQWidget * TQFocusData::first () const"
 Returns the first widget in the focus chain. The cursor is not modified.
-.SH "TQWidget * QFocusData::focusWidget () const"
+.SH "TQWidget * TQFocusData::focusWidget () const"
 Returns the widgets in the hierarchy that are in the focus chain.
-.SH "TQWidget * QFocusData::home ()"
+.SH "TQWidget * TQFocusData::home ()"
 Moves the cursor to the focusWidget() and returns that widget. You must call this before next() or prev() to iterate meaningfully.
-.SH "TQWidget * QFocusData::last () const"
+.SH "TQWidget * TQFocusData::last () const"
 Returns the last widget in the focus chain. The cursor is not modified.
-.SH "TQWidget * QFocusData::next ()"
+.SH "TQWidget * TQFocusData::next ()"
 Moves the cursor to the next widget in the focus chain. There is \fIalways\fR a next widget because the list is a loop.
-.SH "TQWidget * QFocusData::prev ()"
+.SH "TQWidget * TQFocusData::prev ()"
 Moves the cursor to the previous widget in the focus chain. There
 is \fIalways\fR a previous widget because the list is a loop.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqfocusdata.html
+.BR http://doc.trolltech.com/tqfocusdata.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

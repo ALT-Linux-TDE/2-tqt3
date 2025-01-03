@@ -34,8 +34,8 @@
 #ifndef LISTVIEWDND_H
 #define LISTVIEWDND_H
 
-#include <ntqptrlist.h>
-#include <ntqlistview.h>
+#include <tqptrlist.h>
+#include <tqlistview.h>
 #include "listdnd.h"
 
 class TQWidget;

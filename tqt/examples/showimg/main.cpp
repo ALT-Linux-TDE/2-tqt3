@@ -9,8 +9,8 @@
 
 #include "showimg.h"
 #include "imagefip.h"
-#include <ntqapplication.h>
-#include <ntqimage.h>
+#include <tqapplication.h>
+#include <tqimage.h>
 
 int main( int argc, char **argv )
 {

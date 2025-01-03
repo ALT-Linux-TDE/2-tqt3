@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/menu/menu.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -51,16 +50,16 @@ context menu.
 #ifndef MENU_H
 #define MENU_H
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
-#include &lt;<a href="qmenubar-h.html">ntqmenubar.h</a>&gt;
-#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
+#include &lt;<a href="tqmenubar-h.html">tqmenubar.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
 
 
-class MenuExample : public <a href="ntqwidget.html">TQWidget</a>
+class MenuExample : public <a href="tqwidget.html">TQWidget</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 public:
-    MenuExample( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    MenuExample( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
 
 public slots:
     void open();
@@ -80,17 +79,17 @@ public slots:
     void printerSetup();
 
 protected:
-    void    resizeEvent( <a href="qresizeevent.html">TQResizeEvent</a> * );
+    void    resizeEvent( <a href="tqresizeevent.html">TQResizeEvent</a> * );
 
 signals:
-    void    explain( const <a href="ntqstring.html">TQString</a>&amp; );
+    void    explain( const <a href="tqstring.html">TQString</a>&amp; );
 
 private:
-    void contextMenuEvent ( <a href="qcontextmenuevent.html">TQContextMenuEvent</a> * );
+    void contextMenuEvent ( <a href="tqcontextmenuevent.html">TQContextMenuEvent</a> * );
 
 
-    <a href="ntqmenubar.html">TQMenuBar</a> *menu;
-    <a href="ntqlabel.html">TQLabel</a>   *label;
+    <a href="tqmenubar.html">TQMenuBar</a> *menu;
+    <a href="tqlabel.html">TQLabel</a>   *label;
     bool isBold;
     bool isUnderline;
     int boldID, underlineID;
@@ -113,12 +112,12 @@ private:
 *****************************************************************************/
 
 #include "menu.h"
-#include &lt;<a href="qcursor-h.html">ntqcursor.h</a>&gt;
-#include &lt;<a href="qpopupmenu-h.html">ntqpopupmenu.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qmessagebox-h.html">ntqmessagebox.h</a>&gt;
-#include &lt;<a href="qpixmap-h.html">ntqpixmap.h</a>&gt;
-#include &lt;<a href="qpainter-h.html">ntqpainter.h</a>&gt;
+#include &lt;<a href="tqcursor-h.html">tqcursor.h</a>&gt;
+#include &lt;<a href="tqpopupmenu-h.html">tqpopupmenu.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqmessagebox-h.html">tqmessagebox.h</a>&gt;
+#include &lt;<a href="tqpixmap-h.html">tqpixmap.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
 
 /* XPM */
 static const char * p1_xpm[] = {
@@ -195,143 +194,143 @@ static const char * p3_xpm[] = {
   fonts. Used for the "bold" and "underline" menu items in the options
   menu.
  */
-class MyMenuItem : public <a href="qcustommenuitem.html">TQCustomMenuItem</a>
+class MyMenuItem : public <a href="tqcustommenuitem.html">TQCustomMenuItem</a>
 {
 public:
-    MyMenuItem( const <a href="ntqstring.html">TQString</a>&amp; s, const <a href="ntqfont.html">TQFont</a>&amp; f )
+    MyMenuItem( const <a href="tqstring.html">TQString</a>&amp; s, const <a href="tqfont.html">TQFont</a>&amp; f )
         : string( s ), font( f ){};
     ~MyMenuItem(){}
 
-    void paint( <a href="ntqpainter.html">TQPainter</a>* p, const TQColorGroup&amp; /*cg*/, bool /*act*/, bool /*enabled*/, int x, int y, int w, int h )
+    void paint( <a href="tqpainter.html">TQPainter</a>* p, const TQColorGroup&amp; /*cg*/, bool /*act*/, bool /*enabled*/, int x, int y, int w, int h )
     {
-        p-&gt;<a href="ntqpainter.html#setFont">setFont</a> ( font );
-        p-&gt;<a href="ntqpainter.html#drawText">drawText</a>( x, y, w, h, AlignLeft | AlignVCenter | DontClip | ShowPrefix, string );
+        p-&gt;<a href="tqpainter.html#setFont">setFont</a> ( font );
+        p-&gt;<a href="tqpainter.html#drawText">drawText</a>( x, y, w, h, AlignLeft | AlignVCenter | DontClip | ShowPrefix, string );
     }
 
-    <a href="ntqsize.html">TQSize</a> sizeHint()
+    <a href="tqsize.html">TQSize</a> sizeHint()
     {
         return TQFontMetrics( font ).size( AlignLeft | AlignVCenter | ShowPrefix | DontClip,  string );
     }
 private:
-    <a href="ntqstring.html">TQString</a> string;
-    <a href="ntqfont.html">TQFont</a> font;
+    <a href="tqstring.html">TQString</a> string;
+    <a href="tqfont.html">TQFont</a> font;
 };
 
 
-<a name="f501"></a>MenuExample::MenuExample( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-    : <a href="ntqwidget.html">TQWidget</a>( parent, name )
+<a name="f501"></a>MenuExample::MenuExample( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+    : <a href="tqwidget.html">TQWidget</a>( parent, name )
 {
-    <a href="ntqpixmap.html">TQPixmap</a> p1( p1_xpm );
-    <a href="ntqpixmap.html">TQPixmap</a> p2( p2_xpm );
-    <a href="ntqpixmap.html">TQPixmap</a> p3( p3_xpm );
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *print = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( print );
-<a name="x1879"></a>    print-&gt;<a href="ntqpopupmenu.html#insertTearOffHandle">insertTearOffHandle</a>();
-<a name="x1869"></a>    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print to printer", this, TQ_SLOT(printer()) );
-    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to &amp;file", this, TQ_SLOT(file()) );
-    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to fa&amp;x", this, TQ_SLOT(fax()) );
-<a name="x1870"></a>    print-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    print-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Printer &amp;Setup", this, TQ_SLOT(printerSetup()) );
+    <a href="tqpixmap.html">TQPixmap</a> p1( p1_xpm );
+    <a href="tqpixmap.html">TQPixmap</a> p2( p2_xpm );
+    <a href="tqpixmap.html">TQPixmap</a> p3( p3_xpm );
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *print = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( print );
+<a name="x1879"></a>    print-&gt;<a href="tqpopupmenu.html#insertTearOffHandle">insertTearOffHandle</a>();
+<a name="x1869"></a>    print-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Print to printer", this, TQ_SLOT(printer()) );
+    print-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Print to &amp;file", this, TQ_SLOT(file()) );
+    print-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Print to fa&amp;x", this, TQ_SLOT(fax()) );
+<a name="x1870"></a>    print-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    print-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Printer &amp;Setup", this, TQ_SLOT(printerSetup()) );
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *file = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( file );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p1, "&amp;Open",  this, TQ_SLOT(open()), CTRL+Key_O );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p2, "&amp;New", this, TQ_SLOT(news()), CTRL+Key_N );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( p3, "&amp;Save", this, TQ_SLOT(save()), CTRL+Key_S );
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, TQ_SLOT(closeDoc()), CTRL+Key_W );
-    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print", print, CTRL+Key_P );
-    file-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    file-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "E&amp;xit",  tqApp, TQ_SLOT(<a href="ntqapplication.html#quit">quit</a>()), CTRL+Key_Q );
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *file = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( file );
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( p1, "&amp;Open",  this, TQ_SLOT(open()), CTRL+Key_O );
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( p2, "&amp;New", this, TQ_SLOT(news()), CTRL+Key_N );
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( p3, "&amp;Save", this, TQ_SLOT(save()), CTRL+Key_S );
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Close", this, TQ_SLOT(closeDoc()), CTRL+Key_W );
+    file-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Print", print, CTRL+Key_P );
+    file-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    file-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "E&amp;xit",  tqApp, TQ_SLOT(<a href="tqapplication.html#quit">quit</a>()), CTRL+Key_Q );
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *edit = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( edit );
-    int undoID = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Undo", this, TQ_SLOT(undo()) );
-    int redoID = edit-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Redo", this, TQ_SLOT(redo()) );
-<a name="x1873"></a>    edit-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( undoID, FALSE );
-    edit-&gt;<a href="ntqmenudata.html#setItemEnabled">setItemEnabled</a>( redoID, FALSE );
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *edit = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( edit );
+    int undoID = edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Undo", this, TQ_SLOT(undo()) );
+    int redoID = edit-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Redo", this, TQ_SLOT(redo()) );
+<a name="x1873"></a>    edit-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( undoID, FALSE );
+    edit-&gt;<a href="tqmenudata.html#setItemEnabled">setItemEnabled</a>( redoID, FALSE );
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>* options = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( options );
-    options-&gt;<a href="ntqpopupmenu.html#insertTearOffHandle">insertTearOffHandle</a>();
-    options-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>("Options");
-    options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Normal Font", this, TQ_SLOT(normal()) );
-    options-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
+    <a href="tqpopupmenu.html">TQPopupMenu</a>* options = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( options );
+    options-&gt;<a href="tqpopupmenu.html#insertTearOffHandle">insertTearOffHandle</a>();
+    options-&gt;<a href="tqwidget.html#setCaption">setCaption</a>("Options");
+    options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Normal Font", this, TQ_SLOT(normal()) );
+    options-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
 
-<a name="x1883"></a>    options-&gt;<a href="ntqwidget.html#polish">polish</a>(); // adjust system settings
-<a name="x1882"></a>    <a href="ntqfont.html">TQFont</a> f = options-&gt;<a href="ntqwidget.html#font">font</a>();
-<a name="x1860"></a>    f.<a href="ntqfont.html#setBold">setBold</a>( TRUE );
-    boldID = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( new MyMenuItem( "Bold", f ) );
-<a name="x1871"></a>    options-&gt;<a href="ntqmenudata.html#setAccel">setAccel</a>( CTRL+Key_B, boldID );
-<a name="x1868"></a>    options-&gt;<a href="ntqmenudata.html#connectItem">connectItem</a>( boldID, this, TQ_SLOT(bold()) );
-    f = <a href="ntqwidget.html#font">font</a>();
-<a name="x1861"></a>    f.<a href="ntqfont.html#setUnderline">setUnderline</a>( TRUE );
-    underlineID = options-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( new MyMenuItem( "Underline", f ) );
-    options-&gt;<a href="ntqmenudata.html#setAccel">setAccel</a>( CTRL+Key_U, underlineID );
-    options-&gt;<a href="ntqmenudata.html#connectItem">connectItem</a>( underlineID, this, TQ_SLOT(underline()) );
+<a name="x1883"></a>    options-&gt;<a href="tqwidget.html#polish">polish</a>(); // adjust system settings
+<a name="x1882"></a>    <a href="tqfont.html">TQFont</a> f = options-&gt;<a href="tqwidget.html#font">font</a>();
+<a name="x1860"></a>    f.<a href="tqfont.html#setBold">setBold</a>( TRUE );
+    boldID = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( new MyMenuItem( "Bold", f ) );
+<a name="x1871"></a>    options-&gt;<a href="tqmenudata.html#setAccel">setAccel</a>( CTRL+Key_B, boldID );
+<a name="x1868"></a>    options-&gt;<a href="tqmenudata.html#connectItem">connectItem</a>( boldID, this, TQ_SLOT(bold()) );
+    f = <a href="tqwidget.html#font">font</a>();
+<a name="x1861"></a>    f.<a href="tqfont.html#setUnderline">setUnderline</a>( TRUE );
+    underlineID = options-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( new MyMenuItem( "Underline", f ) );
+    options-&gt;<a href="tqmenudata.html#setAccel">setAccel</a>( CTRL+Key_U, underlineID );
+    options-&gt;<a href="tqmenudata.html#connectItem">connectItem</a>( underlineID, this, TQ_SLOT(underline()) );
 
     isBold = FALSE;
     isUnderline = FALSE;
-<a name="x1880"></a>    options-&gt;<a href="ntqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
+<a name="x1880"></a>    options-&gt;<a href="tqpopupmenu.html#setCheckable">setCheckable</a>( TRUE );
 
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *help = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( help );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), CTRL+Key_H );
-    help-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()) );
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *help = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( help );
+    help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(about()), CTRL+Key_H );
+    help-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(aboutTQt()) );
 
     // If we used a TQMainWindow we could use its built-in menuBar().
-    menu = new <a href="ntqmenubar.html">TQMenuBar</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( menu );
-    menu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;File", file );
-    menu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Edit", edit );
-    menu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Options", options );
-    menu-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    menu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Help", help );
-<a name="x1867"></a>    menu-&gt;<a href="ntqmenubar.html#setSeparator">setSeparator</a>( TQMenuBar::InWindowsStyle );
+    menu = new <a href="tqmenubar.html">TQMenuBar</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( menu );
+    menu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;File", file );
+    menu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Edit", edit );
+    menu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Options", options );
+    menu-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    menu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Help", help );
+<a name="x1867"></a>    menu-&gt;<a href="tqmenubar.html#setSeparator">setSeparator</a>( TQMenuBar::InWindowsStyle );
 
 
-    <a href="ntqlabel.html">TQLabel</a> *msg = new <a href="ntqlabel.html">TQLabel</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( msg );
-    msg-&gt;<a href="ntqlabel.html#setText">setText</a>( "A context menu is available.\n"
+    <a href="tqlabel.html">TQLabel</a> *msg = new <a href="tqlabel.html">TQLabel</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( msg );
+    msg-&gt;<a href="tqlabel.html#setText">setText</a>( "A context menu is available.\n"
                   "Invoke it by right-clicking or by"
                   " pressing the 'context' button." );
-<a name="x1886"></a>    msg-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( 0, height() - 60, width(), 60 );
-<a name="x1864"></a>    msg-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
+<a name="x1886"></a>    msg-&gt;<a href="tqwidget.html#setGeometry">setGeometry</a>( 0, height() - 60, width(), 60 );
+<a name="x1864"></a>    msg-&gt;<a href="tqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
 
-    label = new <a href="ntqlabel.html">TQLabel</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( label );
-    label-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( 20, rect().center().y()-20, width()-40, 40 );
-    label-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Box | TQFrame::Raised );
-<a name="x1863"></a>    label-&gt;<a href="ntqframe.html#setLineWidth">setLineWidth</a>( 1 );
-    label-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
+    label = new <a href="tqlabel.html">TQLabel</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( label );
+    label-&gt;<a href="tqwidget.html#setGeometry">setGeometry</a>( 20, rect().center().y()-20, width()-40, 40 );
+    label-&gt;<a href="tqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Box | TQFrame::Raised );
+<a name="x1863"></a>    label-&gt;<a href="tqframe.html#setLineWidth">setLineWidth</a>( 1 );
+    label-&gt;<a href="tqlabel.html#setAlignment">setAlignment</a>( AlignCenter );
 
-    <a href="ntqobject.html#connect">connect</a>( this,  TQ_SIGNAL(explain(const <a href="ntqstring.html">TQString</a>&amp;)),
-             label, TQ_SLOT(<a href="ntqlabel.html#setText">setText</a>(const <a href="ntqstring.html">TQString</a>&amp;)) );
+    <a href="tqobject.html#connect">connect</a>( this,  TQ_SIGNAL(explain(const <a href="tqstring.html">TQString</a>&amp;)),
+             label, TQ_SLOT(<a href="tqlabel.html#setText">setText</a>(const <a href="tqstring.html">TQString</a>&amp;)) );
 
-    <a href="ntqwidget.html#setMinimumSize">setMinimumSize</a>( 100, 80 );
-    <a href="ntqwidget.html#setFocusPolicy">setFocusPolicy</a>( TQWidget::ClickFocus );
+    <a href="tqwidget.html#setMinimumSize">setMinimumSize</a>( 100, 80 );
+    <a href="tqwidget.html#setFocusPolicy">setFocusPolicy</a>( TQWidget::ClickFocus );
 }
 
 
-<a name="x1881"></a>void MenuExample::<a href="ntqwidget.html#contextMenuEvent">contextMenuEvent</a>( <a href="qcontextmenuevent.html">TQContextMenuEvent</a> * )
+<a name="x1881"></a>void MenuExample::<a href="tqwidget.html#contextMenuEvent">contextMenuEvent</a>( <a href="tqcontextmenuevent.html">TQContextMenuEvent</a> * )
 {
-    <a href="ntqpopupmenu.html">TQPopupMenu</a>* contextMenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( contextMenu );
-    <a href="ntqlabel.html">TQLabel</a> *caption = new <a href="ntqlabel.html">TQLabel</a>( "&lt;font color=darkblue&gt;&lt;u&gt;&lt;b&gt;"
+    <a href="tqpopupmenu.html">TQPopupMenu</a>* contextMenu = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( contextMenu );
+    <a href="tqlabel.html">TQLabel</a> *caption = new <a href="tqlabel.html">TQLabel</a>( "&lt;font color=darkblue&gt;&lt;u&gt;&lt;b&gt;"
         "Context Menu&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;", this );
-    caption-&gt;<a href="ntqlabel.html#setAlignment">setAlignment</a>( TQt::AlignCenter );
-    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( caption );
-    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;New",  this, TQ_SLOT(news()), CTRL+Key_N );
-    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Open...", this, TQ_SLOT(open()), CTRL+Key_O );
-    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Save", this, TQ_SLOT(save()), CTRL+Key_S );
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *submenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( submenu );
-    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print to printer", this, TQ_SLOT(printer()) );
-    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to &amp;file", this, TQ_SLOT(file()) );
-    submenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "Print to fa&amp;x", this, TQ_SLOT(fax()) );
-    contextMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Print", submenu );
-<a name="x1878"></a><a name="x1859"></a>    contextMenu-&gt;<a href="ntqpopupmenu.html#exec">exec</a>( TQCursor::<a href="ntqcursor.html#pos">pos</a>() );
+    caption-&gt;<a href="tqlabel.html#setAlignment">setAlignment</a>( TQt::AlignCenter );
+    contextMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( caption );
+    contextMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;New",  this, TQ_SLOT(news()), CTRL+Key_N );
+    contextMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Open...", this, TQ_SLOT(open()), CTRL+Key_O );
+    contextMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Save", this, TQ_SLOT(save()), CTRL+Key_S );
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *submenu = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqapplication.html#TQ_CHECK_PTR">TQ_CHECK_PTR</a>( submenu );
+    submenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Print to printer", this, TQ_SLOT(printer()) );
+    submenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Print to &amp;file", this, TQ_SLOT(file()) );
+    submenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "Print to fa&amp;x", this, TQ_SLOT(fax()) );
+    contextMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Print", submenu );
+<a name="x1878"></a><a name="x1859"></a>    contextMenu-&gt;<a href="tqpopupmenu.html#exec">exec</a>( TQCursor::<a href="tqcursor.html#pos">pos</a>() );
     delete contextMenu;
 }
 
@@ -375,10 +374,10 @@ void <a name="f508"></a>MenuExample::normal()
 {
     isBold = FALSE;
     isUnderline = FALSE;
-    <a href="ntqfont.html">TQFont</a> font;
-<a name="x1865"></a>    label-&gt;<a href="ntqlabel.html#setFont">setFont</a>( font );
-<a name="x1872"></a>    menu-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( boldID, isBold );
-    menu-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( underlineID, isUnderline );
+    <a href="tqfont.html">TQFont</a> font;
+<a name="x1865"></a>    label-&gt;<a href="tqlabel.html#setFont">setFont</a>( font );
+<a name="x1872"></a>    menu-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( boldID, isBold );
+    menu-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( underlineID, isUnderline );
     emit explain( "Options/Normal selected" );
 }
 
@@ -386,11 +385,11 @@ void <a name="f508"></a>MenuExample::normal()
 void <a name="f509"></a>MenuExample::bold()
 {
     isBold = !isBold;
-    <a href="ntqfont.html">TQFont</a> font;
-    font.<a href="ntqfont.html#setBold">setBold</a>( isBold );
-    font.<a href="ntqfont.html#setUnderline">setUnderline</a>( isUnderline );
-    label-&gt;<a href="ntqlabel.html#setFont">setFont</a>( font );
-    menu-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( boldID, isBold );
+    <a href="tqfont.html">TQFont</a> font;
+    font.<a href="tqfont.html#setBold">setBold</a>( isBold );
+    font.<a href="tqfont.html#setUnderline">setUnderline</a>( isUnderline );
+    label-&gt;<a href="tqlabel.html#setFont">setFont</a>( font );
+    menu-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( boldID, isBold );
     emit explain( "Options/Bold selected" );
 }
 
@@ -398,18 +397,18 @@ void <a name="f509"></a>MenuExample::bold()
 void <a name="f510"></a>MenuExample::underline()
 {
     isUnderline = !isUnderline;
-    <a href="ntqfont.html">TQFont</a> font;
-    font.<a href="ntqfont.html#setBold">setBold</a>( isBold );
-    font.<a href="ntqfont.html#setUnderline">setUnderline</a>( isUnderline );
-    label-&gt;<a href="ntqlabel.html#setFont">setFont</a>( font );
-    menu-&gt;<a href="ntqmenudata.html#setItemChecked">setItemChecked</a>( underlineID, isUnderline );
+    <a href="tqfont.html">TQFont</a> font;
+    font.<a href="tqfont.html#setBold">setBold</a>( isBold );
+    font.<a href="tqfont.html#setUnderline">setUnderline</a>( isUnderline );
+    label-&gt;<a href="tqlabel.html#setFont">setFont</a>( font );
+    menu-&gt;<a href="tqmenudata.html#setItemChecked">setItemChecked</a>( underlineID, isUnderline );
     emit explain( "Options/Underline selected" );
 }
 
 
 void <a name="f511"></a>MenuExample::about()
 {
-<a name="x1874"></a>    TQMessageBox::<a href="ntqmessagebox.html#about">about</a>( this, "TQt Menu Example",
+<a name="x1874"></a>    TQMessageBox::<a href="tqmessagebox.html#about">about</a>( this, "TQt Menu Example",
                         "This example demonstrates simple use of TQt menus.\n"
                         "You can cut and paste lines from it to your own\n"
                         "programs." );
@@ -418,7 +417,7 @@ void <a name="f511"></a>MenuExample::about()
 
 void <a name="f512"></a>MenuExample::aboutTQt()
 {
-<a name="x1875"></a>    TQMessageBox::<a href="ntqmessagebox.html#aboutTQt">aboutTQt</a>( this, "TQt Menu Example" );
+<a name="x1875"></a>    TQMessageBox::<a href="tqmessagebox.html#aboutTQt">aboutTQt</a>( this, "TQt Menu Example" );
 }
 
 
@@ -443,20 +442,20 @@ void <a name="f516"></a>MenuExample::printerSetup()
 }
 
 
-<a name="x1884"></a>void MenuExample::<a href="ntqwidget.html#resizeEvent">resizeEvent</a>( <a href="qresizeevent.html">TQResizeEvent</a> * )
+<a name="x1884"></a>void MenuExample::<a href="tqwidget.html#resizeEvent">resizeEvent</a>( <a href="tqresizeevent.html">TQResizeEvent</a> * )
 {
-    label-&gt;<a href="ntqwidget.html#setGeometry">setGeometry</a>( 20, rect().center().y()-20, width()-40, 40 );
+    label-&gt;<a href="tqwidget.html#setGeometry">setGeometry</a>( 20, rect().center().y()-20, width()-40, 40 );
 }
 
 
 int main( int argc, char ** argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
     MenuExample m;
-    m.<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Examples - Menus");
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;m );
-    m.<a href="ntqwidget.html#show">show</a>();
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    m.<a href="tqwidget.html#setCaption">setCaption</a>("TQt Examples - Menus");
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;m );
+    m.<a href="tqwidget.html#show">show</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

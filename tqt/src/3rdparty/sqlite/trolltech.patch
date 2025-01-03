@@ -3,8 +3,8 @@ diff -du ./config.h /home/harald/troll/qt-3.3/src/3rdparty/sqlite/config.h
 +++ /home/harald/troll/qt-3.3/src/3rdparty/sqlite/config.h	2004-01-08 14:29:23.000000000 +0100
 @@ -1 +1,23 @@
 -#define SQLITE_PTR_SZ 4
-+#include <ntqglobal.h>
-+#include <ntqconfig.h>
++#include <tqglobal.h>
++#include <tqconfig.h>
 +
 +#ifndef TQT_POINTER_SIZE
 +# ifdef Q_OS_WIN32

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/threads.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -83,24 +82,24 @@ against this library (with <tt>-ltqt-mt</tt>) rather than the standard TQt
 library.
 <p> On both platforms, you should compile with the macro <tt>TQT_THREAD_SUPPORT</tt> defined (e.g. compile with
 <tt>-DTQT_THREAD_SUPPORT</tt>). On Windows, this is usually done by an
-entry in <tt>ntqconfig.h</tt>.
+entry in <tt>tqconfig.h</tt>.
 <p> <h2> The Thread Classes
 </h2>
 <a name="3"></a><p> These classes are built into the TQt library when thread support is enabled:
 <p> <ul>
-<li> <a href="ntqthread.html">TQThread</a> - Provides the means to start a new thread, which begins
-execution in your reimplementation of <a href="ntqthread.html#run">TQThread::run</a>().  This is similar
+<li> <a href="tqthread.html">TQThread</a> - Provides the means to start a new thread, which begins
+execution in your reimplementation of <a href="tqthread.html#run">TQThread::run</a>().  This is similar
 to the Java thread class.
-<p> <li> <a href="ntqthreadstorage.html">TQThreadStorage</a> - Provides per-thread data storage. This class can
+<p> <li> <a href="tqthreadstorage.html">TQThreadStorage</a> - Provides per-thread data storage. This class can
 only be used with threads started with TQThread; it cannot be used with
 threads started with platform-specific APIs.
-<p> <li> <a href="ntqmutex.html">TQMutex</a> - Provides a mutual exclusion lock (also know as a mutex).
-<li> <a href="qmutexlocker.html">TQMutexLocker</a> - A convenience class which automatically locks and
+<p> <li> <a href="tqmutex.html">TQMutex</a> - Provides a mutual exclusion lock (also know as a mutex).
+<li> <a href="tqmutexlocker.html">TQMutexLocker</a> - A convenience class which automatically locks and
 unlocks a TQMutex.  TQMutexLocker is useful in complicated code, or in
 code which uses exceptions.  See the documentation for more details.
-<li> <a href="ntqwaitcondition.html">TQWaitCondition</a> - Provides a way for threads to go to sleep until
+<li> <a href="tqwaitcondition.html">TQWaitCondition</a> - Provides a way for threads to go to sleep until
 woken up by another thread.
-<li> <a href="ntqsemaphore.html">TQSemaphore</a> - Provides a simple integer semaphore.
+<li> <a href="tqsemaphore.html">TQSemaphore</a> - Provides a simple integer semaphore.
 </ul>
 <p> <h2> Important Definitions
 </h2>
@@ -145,7 +144,7 @@ reentrant, since they only reference unique data.  Only one thread at
 a time can call member functions on each instance of <tt>Number</tt>.
 However, multiple threads can call member functions on separate
 instances of <tt>Number</tt>.
-<p> Thread-safe functions usually use a mutex (e.g a <a href="ntqmutex.html">TQMutex</a>) to serialize
+<p> Thread-safe functions usually use a mutex (e.g a <a href="tqmutex.html">TQMutex</a>) to serialize
 access to shared data.  Because of this, thread-safe functions are
 usually slower than reentrant functions, because of the extra overhead
 of locking and unlocking the mutex.  For example, given the class <tt>Counter</tt> below:
@@ -185,8 +184,8 @@ mutex must be used:
 <p> <h2> Thread-safe Event Posting
 </h2>
 <a name="5"></a><p> In TQt, one thread is always the GUI or event thread.  This is the
-thread that creates a <a href="ntqapplication.html">TQApplication</a> object and calls
-<a href="ntqapplication.html#exec">TQApplication::exec</a>().  This is also the initial thread that calls
+thread that creates a <a href="tqapplication.html">TQApplication</a> object and calls
+<a href="tqapplication.html#exec">TQApplication::exec</a>().  This is also the initial thread that calls
 main() at program start.  This thread is the only thread that is
 allowed to perform GUI operations, including generating and receiving
 events from the window system.  TQt does not support creating
@@ -195,21 +194,21 @@ a secondary thread.  You must create the TQApplication object and call
 TQApplication::exec() from the main() function in your program.
 <p> Threads that wish to display data in a widget cannot modify the widget
 directly, so they must post an event to the widget using
-<a href="ntqapplication.html#postEvent">TQApplication::postEvent</a>().  The event will be delivered later on by
+<a href="tqapplication.html#postEvent">TQApplication::postEvent</a>().  The event will be delivered later on by
 the GUI thread.
 <p> Normally, the programmer would like to include some information in the
-event sent to the widget.  See the documentation for <a href="qcustomevent.html">TQCustomEvent</a> for
+event sent to the widget.  See the documentation for <a href="tqcustomevent.html">TQCustomEvent</a> for
 more information on user-defined events.
-<p> <h2> Threads and <a href="ntqobject.html">TQObject</a> subclasses
+<p> <h2> Threads and <a href="tqobject.html">TQObject</a> subclasses
 </h2>
 <a name="6"></a><p> The TQObject class itself is <em>reentrant</em>.  However, certain rules
 apply when creating and using TQObjects in a thread that is not the GUI
 thread.
 <p> <ol type=1>
 <p> <li> <em>None</em> of the TQObject based classes included in the TQt library are
-<em>reentrant</em>.  This includes all widgets (e.g. <a href="ntqwidget.html">TQWidget</a> and
-subclasses), OS kernel classes (e.g. <a href="ntqprocess.html">TQProcess</a>, <a href="ntqaccel.html">TQAccel</a>, <a href="ntqtimer.html">TQTimer</a>), and
-all networking classes (e.g. <a href="ntqsocket.html">TQSocket</a>, <a href="ntqdns.html">TQDns</a>).
+<em>reentrant</em>.  This includes all widgets (e.g. <a href="tqwidget.html">TQWidget</a> and
+subclasses), OS kernel classes (e.g. <a href="tqprocess.html">TQProcess</a>, <a href="tqaccel.html">TQAccel</a>, <a href="tqtimer.html">TQTimer</a>), and
+all networking classes (e.g. <a href="tqsocket.html">TQSocket</a>, <a href="tqdns.html">TQDns</a>).
 <p> <li> TQObject and all of its subclasses are <em>not</em> <em>thread-safe</em>.  This
 includes the entire event delivery system.  It is important to
 remember that the GUI thread may be delivering events to your TQObject
@@ -218,43 +217,43 @@ you are using TQObject in a thread that is not the GUI thread, and you
 are handling events sent to this object, you <em>must</em> protect all
 access to your data with a mutex; otherwise you may experience crashes
 or other undesired behavior.
-<p> <li> As a corollary to the above, deleting a <a href="ntqobject.html">TQObject</a> while pending
+<p> <li> As a corollary to the above, deleting a <a href="tqobject.html">TQObject</a> while pending
 events are waiting to be delivered can cause a crash.  You must not
 delete the TQObject directly from a thread that is not the GUI thread.
-Use the <a href="ntqobject.html#deleteLater">TQObject::deleteLater</a>() method instead, which will cause the
+Use the <a href="tqobject.html#deleteLater">TQObject::deleteLater</a>() method instead, which will cause the
 event loop to delete the object after all pending events have been
 delivered to the object.
 <p> </ol>
 <p> <h2> The TQt Library Mutex
 </h2>
-<a name="7"></a><p> <a href="ntqapplication.html">TQApplication</a> includes a mutex that is used to protect access to window
+<a name="7"></a><p> <a href="tqapplication.html">TQApplication</a> includes a mutex that is used to protect access to window
 system functions.  This mutex is locked while the event loop is
 running (e.g. during event delivery) and unlocked when the eventloop
 goes to sleep.  Note: The TQt event loop is recursive, and the library
 mutex is <em>not</em> unlocked when re-entering the event loop (e.g. when
-executing a modal dialog with <a href="ntqdialog.html#exec">TQDialog::exec</a>()).
+executing a modal dialog with <a href="tqdialog.html#exec">TQDialog::exec</a>()).
 <p> If another thread locks the TQt library mutex, then the event loop will
 stop processing events, and the locking thread may do simple GUI
-operations.  Operations such as creating a <a href="ntqpainter.html">TQPainter</a> and drawing a line
+operations.  Operations such as creating a <a href="tqpainter.html">TQPainter</a> and drawing a line
 are examples of simple GUI operations:
 <p> <pre>
     ...
-    tqApp-&gt;<a href="ntqapplication.html#lock">lock</a>();
+    tqApp-&gt;<a href="tqapplication.html#lock">lock</a>();
 
-    <a href="ntqpainter.html">TQPainter</a> p;
-    p.<a href="ntqpainter.html#begin">begin</a>( mywidget );
-    p.<a href="ntqpainter.html#setPen">setPen</a>( TQColor( "red" ) );
-    p.<a href="ntqpainter.html#drawLine">drawLine</a>( 0,0,100,100 );
-    p.<a href="ntqpainter.html#end">end</a>();
+    <a href="tqpainter.html">TQPainter</a> p;
+    p.<a href="tqpainter.html#begin">begin</a>( mywidget );
+    p.<a href="tqpainter.html#setPen">setPen</a>( TQColor( "red" ) );
+    p.<a href="tqpainter.html#drawLine">drawLine</a>( 0,0,100,100 );
+    p.<a href="tqpainter.html#end">end</a>();
 
-    tqApp-&gt;<a href="ntqapplication.html#unlock">unlock</a>();
+    tqApp-&gt;<a href="tqapplication.html#unlock">unlock</a>();
     ...
 </pre>
  
 <p> Any operations that generate events must not be called by any thread
 other than the GUI thread.  Examples of such operations are:
 <p> <ul>
-<li> creating a <a href="ntqwidget.html">TQWidget</a>, <a href="ntqtimer.html">TQTimer</a>, <a href="ntqsocketnotifier.html">TQSocketNotifier</a>, <a href="ntqsocket.html">TQSocket</a> or other network class.
+<li> creating a <a href="tqwidget.html">TQWidget</a>, <a href="tqtimer.html">TQTimer</a>, <a href="tqsocketnotifier.html">TQSocketNotifier</a>, <a href="tqsocket.html">TQSocket</a> or other network class.
 <li> moving, resizing, showing or hiding a TQWidget.
 <li> starting or stoping a TQTimer.
 <li> enabling or disabling a TQSocketNotifier.
@@ -264,7 +263,7 @@ other than the GUI thread.  Examples of such operations are:
 <p> <h2> Threads and Signals and Slots
 </h2>
 <a name="8"></a><p> The Signals and Slots mechanism can be used in separate threads, as
-long as the rules for <a href="ntqobject.html">TQObject</a> based classes are followed.  The Signals
+long as the rules for <a href="tqobject.html">TQObject</a> based classes are followed.  The Signals
 and Slots mechanism is synchronous: when a signal is emitted, all
 slots are called immediately.  The slots are executed in the thread
 context that emitted the signal.
@@ -278,7 +277,7 @@ above for more details.
 <a name="9"></a><p> TQt provides many <a href="shclass.html#implicitly-shared">implicitly shared</a> and explicitly shared classes.  In
 a multithreaded program, multiple instances of a shared class can
 reference shared data, which is dangerous if one or more threads
-attempt to modify the data.  TQt provides the <a href="ntqdeepcopy.html">TQDeepCopy</a> class, which
+attempt to modify the data.  TQt provides the <a href="tqdeepcopy.html">TQDeepCopy</a> class, which
 ensures that shared classes reference unique data.
 <p> See the description of <a href="shclass.html">implicit sharing</a> for more
 information.
@@ -295,19 +294,19 @@ Consult the manual of your database client for more information.
 </h2>
 <a name="11"></a><p> Some things to watch out for when programming with threads:
 <p> <ul>
-<p> <li> As mentioned above, <a href="ntqobject.html">TQObject</a> based classes are neither thread-safe
-nor reentrant.  This includes all widgets (e.g. <a href="ntqwidget.html">TQWidget</a> and
-subclasses), OS kernel classes (e.g. <a href="ntqprocess.html">TQProcess</a>, <a href="ntqaccel.html">TQAccel</a>), and all
-networking classes (e.g. <a href="ntqsocket.html">TQSocket</a>, <a href="ntqdns.html">TQDns</a>).
+<p> <li> As mentioned above, <a href="tqobject.html">TQObject</a> based classes are neither thread-safe
+nor reentrant.  This includes all widgets (e.g. <a href="tqwidget.html">TQWidget</a> and
+subclasses), OS kernel classes (e.g. <a href="tqprocess.html">TQProcess</a>, <a href="tqaccel.html">TQAccel</a>), and all
+networking classes (e.g. <a href="tqsocket.html">TQSocket</a>, <a href="tqdns.html">TQDns</a>).
 <p> <li> Deleting a TQObject while pending events are waiting to be delivered
 will cause a crash.  If you are creating TQObjects in a thread that is
 not the GUI thread and posting events to these objects, you should not
-delete the TQObject directly.  Use the <a href="ntqobject.html#deleteLater">TQObject::deleteLater</a>() method
+delete the TQObject directly.  Use the <a href="tqobject.html#deleteLater">TQObject::deleteLater</a>() method
 instead, which will cause the event loop to delete the object after
 all pending events have been delivered to the object.
 <p> <li> Don't do any blocking operations while holding the TQt library
 mutex.  This will freeze up the event loop.
-<p> <li> Make sure you unlock a recursive <a href="ntqmutex.html">TQMutex</a> as many times as you lock
+<p> <li> Make sure you unlock a recursive <a href="tqmutex.html">TQMutex</a> as many times as you lock
 it, no more and no less.
 <p> <li> Don't mix the normal TQt library and the threaded TQt library in your
 application.  This means that if your application uses the threaded TQt
@@ -315,8 +314,8 @@ library, you should not link with the normal TQt library, dynamically
 load the normal TQt library or dynamically load another library or
 plugin that depends on the normal TQt library.  On some systems, doing
 this can corrupt the static data used in the TQt library.
-<p> <li> TQt does not support creating <a href="ntqapplication.html">TQApplication</a> and running the event
-loop (with <a href="ntqapplication.html#exec">TQApplication::exec</a>()) in a secondary thread.  You must
+<p> <li> TQt does not support creating <a href="tqapplication.html">TQApplication</a> and running the event
+loop (with <a href="tqapplication.html#exec">TQApplication::exec</a>()) in a secondary thread.  You must
 create the TQApplication object and call TQApplication::exec() from the
 main() function in your program.
 <p> </ul>

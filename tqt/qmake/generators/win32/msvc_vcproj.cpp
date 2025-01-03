@@ -39,12 +39,12 @@
 #include "msvc_vcproj.h"
 #include "option.h"
 #include "qtmd5.h" // SG's MD5 addon
-#include <ntqdir.h>
-#include <ntqregexp.h>
-#include <ntqdict.h>
-#include <ntquuid.h>
+#include <tqdir.h>
+#include <tqregexp.h>
+#include <tqdict.h>
+#include <tquuid.h>
 #include <stdlib.h>
-#include <ntqsettings.h>
+#include <tqsettings.h>
 
 //#define DEBUG_SOLUTION_GEN
 //#define DEBUG_PROJECT_GEN
@@ -358,9 +358,9 @@ void VcprojGenerator::writeSubDirs(TQTextStream &t)
 			if(newDep->target.endsWith(".dll"))
 			    newDep->target = newDep->target.left(newDep->target.length()-3) + "lib";
 
-			// All projects using Forms are dependent on uic.exe
+			// All projects using Forms are dependent on tquic.exe
 			if(!tmp_proj.isEmpty("FORMS"))
-			    newDep->dependencies << "uic.exe";
+			    newDep->dependencies << "tquic.exe";
 
 			// Add all unknown libs to the deps
 			TQStringList where("QMAKE_LIBS");
@@ -822,38 +822,6 @@ void VcprojGenerator::initPostBuildEventTools()
 	RConf.postBuild.Description += var("MSVCPROJ_COPY_DLL_DESC");
 	RConf.postBuild.CommandLine += var("MSVCPROJ_COPY_DLL");
     }
-    if( project->isActiveConfig( "activeqt" ) ) {
-	TQString name = project->first( "QMAKE_ORIG_TARGET" );
-	TQString nameext = project->first( "TARGET" );
-	TQString objdir = project->first( "OBJECTS_DIR" );
-	TQString idc = project->first( "QMAKE_IDC" );
-
-	RConf.postBuild.Description = "Finalizing ActiveTQt server...";
-	if ( !RConf.postBuild.CommandLine.isEmpty() )
-	    RConf.postBuild.CommandLine += " &amp;&amp; ";
-
-	if( project->isActiveConfig( "dll" ) ) { // In process
-	    RConf.postBuild.CommandLine +=
-		// call idc to generate .idl file from .dll
-		idc + " &quot;$(TargetPath)&quot; -idl " + objdir + name + ".idl -version 1.0 &amp;&amp; " +
-		// call midl to create implementations of the .idl file
-		project->first( "QMAKE_IDL" ) + " /nologo " + objdir + name + ".idl /tlb " + objdir + name + ".tlb &amp;&amp; " +
-		// call idc to replace tlb...
-		idc + " &quot;$(TargetPath)&quot; /tlb " + objdir + name + ".tlb &amp;&amp; " +
-		// register server
-		idc + " &quot;$(TargetPath)&quot; /regserver";
-	} else { // out of process
-	    RConf.postBuild.CommandLine =
-		// call application to dump idl
-		"&quot;$(TargetPath)&quot; -dumpidl " + objdir + name + ".idl -version 1.0 &amp;&amp; " +
-		// call midl to create implementations of the .idl file
-		project->first( "QMAKE_IDL" ) + " /nologo " + objdir + name + ".idl /tlb " + objdir + name + ".tlb &amp;&amp; " +
-		// call idc to replace tlb...
-		idc + " &quot;$(TargetPath)&quot; /tlb " + objdir + name + ".tlb &amp;&amp; " +
-		// call app to register
-		"&quot;$(TargetPath)&quot; -regserver";
-	}
-    }
 }
 
 void VcprojGenerator::initPreLinkEventTools()
@@ -863,7 +831,7 @@ void VcprojGenerator::initPreLinkEventTools()
 
 // ------------------------------------------------------------------
 // Helper functions to do proper sorting of the
-// qstringlists, for both flat and non-flat modes.
+// tqstringlists, for both flat and non-flat modes.
 inline bool XLessThanY( TQString &x, TQString &y, bool flat_mode )
 {
     if ( flat_mode ) {
@@ -1002,7 +970,7 @@ void VcprojGenerator::initFormsFiles()
 			   vcProject.FormFiles.flat_files );
     vcProject.FormFiles.Project = this;
     vcProject.FormFiles.Config = &(vcProject.Configuration);
-    vcProject.FormFiles.CustomBuild = uic;
+    vcProject.FormFiles.CustomBuild = tquic;
 }
 
 void VcprojGenerator::initTranslationFiles()
@@ -1177,13 +1145,6 @@ void VcprojGenerator::initOld()
 			(*libit).replace(TQRegExp("qt(-mt)?\\.lib"), ver);
 		}
 	    }
-	    if ( project->isActiveConfig( "activeqt" ) ) {
-		project->variables().remove("QMAKE_LIBS_QT_ENTRY");
-		project->variables()["QMAKE_LIBS_QT_ENTRY"] = "qaxserver.lib";
-		if ( project->isActiveConfig( "dll" ) ) {
-		    project->variables()["QMAKE_LIBS"] += project->variables()["QMAKE_LIBS_QT_ENTRY"];
-		}
-	    }
 	    if ( !project->isActiveConfig("dll") && !project->isActiveConfig("plugin") ) {
 		project->variables()["QMAKE_LIBS"] +=project->variables()["QMAKE_LIBS_QT_ENTRY"];
 	    }
@@ -1253,7 +1214,7 @@ void VcprojGenerator::initOld()
 
     // MOC -----------------------------------------------------------
     if ( project->isActiveConfig("moc") )
-	setMocAware(TRUE);
+	setTQMocAware(TRUE);
 
     // /VERSION:x.yz -------------------------------------------------
     if ( !project->variables()["VERSION"].isEmpty() ) {
@@ -1401,53 +1362,6 @@ void VcprojGenerator::initOld()
 
 	project->variables()["MSVCPROJ_COPY_DLL"].append( copydll );
 	project->variables()["MSVCPROJ_COPY_DLL_DESC"].append( deststr );
-    }
-
-    // ACTIVEQT ------------------------------------------------------
-    if ( project->isActiveConfig("activeqt") ) {
-	TQString idl = project->variables()["QMAKE_IDL"].first();
-	TQString idc = project->variables()["QMAKE_IDC"].first();
-	TQString version = project->variables()["VERSION"].first();
-	if ( version.isEmpty() )
-	    version = "1.0";
-
-	TQString objdir = project->first( "OBJECTS_DIR" );
-	project->variables()["MSVCPROJ_IDLSOURCES"].append( objdir + targetfilename + ".idl" );
-	if ( project->isActiveConfig( "dll" ) ) {
-	    TQString regcmd = "# Begin Special Build Tool\n"
-			    "TargetPath=" + targetfilename + "\n"
-			    "SOURCE=$(InputPath)\n"
-			    "PostBuild_Desc=Finalizing ActiveTQt server...\n"
-			    "PostBuild_Cmds=" +
-			    idc + " %1 -idl " + objdir + targetfilename + ".idl -version " + version +
-			    "\t" + idl + " /nologo " + objdir + targetfilename + ".idl /tlb " + objdir + targetfilename + ".tlb" +
-			    "\t" + idc + " %1 /tlb " + objdir + targetfilename + ".tlb"
-			    "\tregsvr32 /s %1\n"
-			    "# End Special Build Tool";
-
-	    TQString executable = project->variables()["MSVCPROJ_TARGETDIRREL"].first() + "\\" + project->variables()["TARGET"].first();
-	    project->variables()["MSVCPROJ_COPY_DLL_REL"].append( regcmd.arg(executable).arg(executable).arg(executable) );
-
-	    executable = project->variables()["MSVCPROJ_TARGETDIRDEB"].first() + "\\" + project->variables()["TARGET"].first();
-	    project->variables()["MSVCPROJ_COPY_DLL_DBG"].append( regcmd.arg(executable).arg(executable).arg(executable) );
-	} else {
-	    TQString regcmd = "# Begin Special Build Tool\n"
-			    "TargetPath=" + targetfilename + "\n"
-			    "SOURCE=$(InputPath)\n"
-			    "PostBuild_Desc=Finalizing ActiveTQt server...\n"
-			    "PostBuild_Cmds="
-			    "%1 -dumpidl " + objdir + targetfilename + ".idl -version " + version +
-			    "\t" + idl + " /nologo " + objdir + targetfilename + ".idl /tlb " + objdir + targetfilename + ".tlb"
-			    "\t" + idc + " %1 /tlb " + objdir + targetfilename + ".tlb"
-			    "\t%1 -regserver\n"
-			    "# End Special Build Tool";
-
-	    TQString executable = project->variables()["MSVCPROJ_TARGETDIRREL"].first() + "\\" + project->variables()["TARGET"].first();
-	    project->variables()["MSVCPROJ_REGSVR_REL"].append( regcmd.arg(executable).arg(executable).arg(executable) );
-
-	    executable = project->variables()["MSVCPROJ_TARGETDIRDEB"].first() + "\\" + project->variables()["TARGET"].first();
-	    project->variables()["MSVCPROJ_REGSVR_DBG"].append( regcmd.arg(executable).arg(executable).arg(executable) );
-	}
     }
 
     if ( !project->variables()["DEF_FILE"].isEmpty() )

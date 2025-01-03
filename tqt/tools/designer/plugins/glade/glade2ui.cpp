@@ -36,14 +36,14 @@
 
 #include "glade2ui.h"
 
-#include <ntqapplication.h>
-#include <ntqfile.h>
-#include <ntqimage.h>
-#include <ntqprogressdialog.h>
-#include <ntqmessagebox.h>
-#include <ntqrect.h>
-#include <ntqregexp.h>
-#include <ntqsizepolicy.h>
+#include <tqapplication.h>
+#include <tqfile.h>
+#include <tqimage.h>
+#include <tqprogressdialog.h>
+#include <tqmessagebox.h>
+#include <tqrect.h>
+#include <tqregexp.h>
+#include <tqsizepolicy.h>
 
 #include <ctype.h>
 
@@ -1195,9 +1195,9 @@ void Glade2Ui::emitGtkNotebookChildWidgets(
     }
 }
 
-void Glade2Ui::emitTQListViewColumns( const TQDomElement& qlistview )
+void Glade2Ui::emitTQListViewColumns( const TQDomElement& tqlistview )
 {
-    TQDomNode n = qlistview.firstChild();
+    TQDomNode n = tqlistview.firstChild();
     while ( !n.isNull() ) {
 	TQString tagName = n.toElement().tagName();
 	if ( tagName == TQString("widget") ) {

@@ -42,9 +42,9 @@
 
 #include "qsimpleinputcontext.h"
 
-#include <ntqnamespace.h>
-#include <ntqevent.h>
-#include <ntqglobal.h>
+#include <tqnamespace.h>
+#include <tqevent.h>
+#include <tqglobal.h>
 #include <algorithm>
 
 static const int ignoreKeys[] = {

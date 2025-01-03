@@ -34,8 +34,8 @@
 #ifndef DOMTOOL_H
 #define DOMTOOL_H
 
-#include <ntqvariant.h>
-#include <ntqnamespace.h>
+#include <tqvariant.h>
+#include <tqnamespace.h>
 
 class TQDomElement;
 class TQDomDocument;

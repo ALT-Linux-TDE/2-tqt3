@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/listboxcombo/listboxcombo.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -50,26 +49,26 @@ and multi selection) and comboboxes (editable and non-editable).
 #ifndef LISTBOX_COMBO_H
 #define LISTBOX_COMBO_H
 
-#include &lt;<a href="qvbox-h.html">ntqvbox.h</a>&gt;
+#include &lt;<a href="tqvbox-h.html">tqvbox.h</a>&gt;
 
 class TQListBox;
 class TQLabel;
 
-class ListBoxCombo : public <a href="ntqvbox.html">TQVBox</a>
+class ListBoxCombo : public <a href="tqvbox.html">TQVBox</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 
 public:
-    ListBoxCombo( <a href="ntqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
+    ListBoxCombo( <a href="tqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
 
 protected:
-    <a href="ntqlistbox.html">TQListBox</a> *lb1, *lb2;
-    <a href="ntqlabel.html">TQLabel</a> *label1, *label2;
+    <a href="tqlistbox.html">TQListBox</a> *lb1, *lb2;
+    <a href="tqlabel.html">TQLabel</a> *label1, *label2;
 
 protected slots:
     void slotLeft2Right();
-    void slotCombo1Activated( const <a href="ntqstring.html">TQString</a> &amp;s );
-    void slotCombo2Activated( const <a href="ntqstring.html">TQString</a> &amp;s );
+    void slotCombo1Activated( const <a href="tqstring.html">TQString</a> &amp;s );
+    void slotCombo2Activated( const <a href="tqstring.html">TQString</a> &amp;s );
 
 };
 
@@ -90,43 +89,43 @@ protected slots:
 
 #include "listboxcombo.h"
 
-#include &lt;<a href="qcombobox-h.html">ntqcombobox.h</a>&gt;
-#include &lt;<a href="qlistbox-h.html">ntqlistbox.h</a>&gt;
-#include &lt;<a href="qhbox-h.html">ntqhbox.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qstring-h.html">ntqstring.h</a>&gt;
-#include &lt;<a href="qpixmap-h.html">ntqpixmap.h</a>&gt;
-#include &lt;<a href="qlabel-h.html">ntqlabel.h</a>&gt;
-#include &lt;<a href="qimage-h.html">ntqimage.h</a>&gt;
-#include &lt;<a href="qpainter-h.html">ntqpainter.h</a>&gt;
-#include &lt;<a href="qstyle-h.html">ntqstyle.h</a>&gt;
+#include &lt;<a href="tqcombobox-h.html">tqcombobox.h</a>&gt;
+#include &lt;<a href="tqlistbox-h.html">tqlistbox.h</a>&gt;
+#include &lt;<a href="tqhbox-h.html">tqhbox.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqstring-h.html">tqstring.h</a>&gt;
+#include &lt;<a href="tqpixmap-h.html">tqpixmap.h</a>&gt;
+#include &lt;<a href="tqlabel-h.html">tqlabel.h</a>&gt;
+#include &lt;<a href="tqimage-h.html">tqimage.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
+#include &lt;<a href="tqstyle-h.html">tqstyle.h</a>&gt;
 
 
-class MyListBoxItem : public <a href="qlistboxitem.html">TQListBoxItem</a>
+class MyListBoxItem : public <a href="tqlistboxitem.html">TQListBoxItem</a>
 {
 public:
     MyListBoxItem()
-        : <a href="qlistboxitem.html">TQListBoxItem</a>()
+        : <a href="tqlistboxitem.html">TQListBoxItem</a>()
     {
         setCustomHighlighting( TRUE );
     }
 
 protected:
-    virtual void paint( <a href="ntqpainter.html">TQPainter</a> * );
-    virtual int width( const <a href="ntqlistbox.html">TQListBox</a>* ) const { return 100; }
-    virtual int height( const <a href="ntqlistbox.html">TQListBox</a>* ) const { return 16; }
+    virtual void paint( <a href="tqpainter.html">TQPainter</a> * );
+    virtual int width( const <a href="tqlistbox.html">TQListBox</a>* ) const { return 100; }
+    virtual int height( const <a href="tqlistbox.html">TQListBox</a>* ) const { return 16; }
 
 };
 
-<a name="x1410"></a>void MyListBoxItem::<a href="qlistboxitem.html#paint">paint</a>( <a href="ntqpainter.html">TQPainter</a> *painter )
+<a name="x1410"></a>void MyListBoxItem::<a href="tqlistboxitem.html#paint">paint</a>( <a href="tqpainter.html">TQPainter</a> *painter )
 {
     // evil trick: find out whether we are painted onto our listbox
-<a name="x1413"></a>    bool in_list_box = <a href="qlistboxitem.html#listBox">listBox</a>() &amp;&amp; listBox()-&gt;viewport() == painter-&gt;<a href="ntqpainter.html#device">device</a>();
+<a name="x1413"></a>    bool in_list_box = <a href="tqlistboxitem.html#listBox">listBox</a>() &amp;&amp; listBox()-&gt;viewport() == painter-&gt;<a href="tqpainter.html#device">device</a>();
 
-    <a href="ntqrect.html">TQRect</a> r ( 0, 0, width( <a href="qlistboxitem.html#listBox">listBox</a>() ), height( <a href="qlistboxitem.html#listBox">listBox</a>() ) );
+    <a href="tqrect.html">TQRect</a> r ( 0, 0, width( <a href="tqlistboxitem.html#listBox">listBox</a>() ), height( <a href="tqlistboxitem.html#listBox">listBox</a>() ) );
     if ( in_list_box &amp;&amp; isSelected() )
-<a name="x1414"></a>        painter-&gt;<a href="ntqpainter.html#eraseRect">eraseRect</a>( r );
-<a name="x1415"></a>    painter-&gt;<a href="ntqpainter.html#fillRect">fillRect</a>( 5, 5, width( listBox() ) - 10, height( listBox() ) - 10, TQt::red );
+<a name="x1414"></a>        painter-&gt;<a href="tqpainter.html#eraseRect">eraseRect</a>( r );
+<a name="x1415"></a>    painter-&gt;<a href="tqpainter.html#fillRect">fillRect</a>( 5, 5, width( listBox() ) - 10, height( listBox() ) - 10, TQt::red );
     if ( in_list_box &amp;&amp; isCurrent() )
         listBox()-&gt;style().drawPrimitive( TQStyle::PE_FocusRect, painter, r, listBox()-&gt;colorGroup() );
 }
@@ -137,83 +136,83 @@ protected:
  * Creates child widgets of the ListBoxCombo widget
  */
 
-<a name="f437"></a>ListBoxCombo::ListBoxCombo( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-    : <a href="ntqvbox.html">TQVBox</a>( parent, name )
+<a name="f437"></a>ListBoxCombo::ListBoxCombo( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+    : <a href="tqvbox.html">TQVBox</a>( parent, name )
 {
-    <a href="ntqframe.html#setMargin">setMargin</a>( 5 );
-    <a href="ntqhbox.html#setSpacing">setSpacing</a>( 5 );
+    <a href="tqframe.html#setMargin">setMargin</a>( 5 );
+    <a href="tqhbox.html#setSpacing">setSpacing</a>( 5 );
 
     unsigned int i;
-    <a href="ntqstring.html">TQString</a> str;
+    <a href="tqstring.html">TQString</a> str;
 
-    <a href="ntqhbox.html">TQHBox</a> *row1 = new <a href="ntqhbox.html">TQHBox</a>( this );
-<a name="x1402"></a>    row1-&gt;<a href="ntqhbox.html#setSpacing">setSpacing</a>( 5 );
+    <a href="tqhbox.html">TQHBox</a> *row1 = new <a href="tqhbox.html">TQHBox</a>( this );
+<a name="x1402"></a>    row1-&gt;<a href="tqhbox.html#setSpacing">setSpacing</a>( 5 );
 
     // Create a multi-selection ListBox...
-    lb1 = new <a href="ntqlistbox.html">TQListBox</a>( row1 );
-<a name="x1408"></a>    lb1-&gt;<a href="ntqlistbox.html#setSelectionMode">setSelectionMode</a>( TQListBox::Multi );
+    lb1 = new <a href="tqlistbox.html">TQListBox</a>( row1 );
+<a name="x1408"></a>    lb1-&gt;<a href="tqlistbox.html#setSelectionMode">setSelectionMode</a>( TQListBox::Multi );
 
     // ...insert a pixmap item...
-<a name="x1406"></a>    lb1-&gt;<a href="ntqlistbox.html#insertItem">insertItem</a>( TQPixmap( "qtlogo.png" ) );
+<a name="x1406"></a>    lb1-&gt;<a href="tqlistbox.html#insertItem">insertItem</a>( TQPixmap( "qtlogo.png" ) );
     // ...and 100 text items
     for ( i = 0; i &lt; 100; i++ ) {
         str = TQString( "Listbox Item %1" ).arg( i );
         if ( !( i % 4 ) )
-            lb1-&gt;<a href="ntqlistbox.html#insertItem">insertItem</a>( TQPixmap( "fileopen.xpm" ), str );
+            lb1-&gt;<a href="tqlistbox.html#insertItem">insertItem</a>( TQPixmap( "fileopen.xpm" ), str );
         else
-            lb1-&gt;<a href="ntqlistbox.html#insertItem">insertItem</a>( str );
+            lb1-&gt;<a href="tqlistbox.html#insertItem">insertItem</a>( str );
     }
 
     // Create a pushbutton...
-    <a href="ntqpushbutton.html">TQPushButton</a> *arrow1 = new <a href="ntqpushbutton.html">TQPushButton</a>( " -&gt; ", row1 );
+    <a href="tqpushbutton.html">TQPushButton</a> *arrow1 = new <a href="tqpushbutton.html">TQPushButton</a>( " -&gt; ", row1 );
     // ...and connect the clicked TQ_SIGNAL with the TQ_SLOT slotLeft2Right
-    <a href="ntqobject.html#connect">connect</a>( arrow1, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotLeft2Right() ) );
+    <a href="tqobject.html#connect">connect</a>( arrow1, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotLeft2Right() ) );
 
     // create an empty single-selection ListBox
-    lb2 = new <a href="ntqlistbox.html">TQListBox</a>( row1 );
+    lb2 = new <a href="tqlistbox.html">TQListBox</a>( row1 );
 
-    <a href="ntqhbox.html">TQHBox</a> *row2 = new <a href="ntqhbox.html">TQHBox</a>( this );
-    row2-&gt;<a href="ntqhbox.html#setSpacing">setSpacing</a>( 5 );
+    <a href="tqhbox.html">TQHBox</a> *row2 = new <a href="tqhbox.html">TQHBox</a>( this );
+    row2-&gt;<a href="tqhbox.html#setSpacing">setSpacing</a>( 5 );
 
-    <a href="ntqvbox.html">TQVBox</a> *box1 = new <a href="ntqvbox.html">TQVBox</a>( row2 );
-    box1-&gt;<a href="ntqhbox.html#setSpacing">setSpacing</a>( 5 );
+    <a href="tqvbox.html">TQVBox</a> *box1 = new <a href="tqvbox.html">TQVBox</a>( row2 );
+    box1-&gt;<a href="tqhbox.html#setSpacing">setSpacing</a>( 5 );
 
     // Create a non-editable Combobox and a label below...
-    <a href="ntqcombobox.html">TQComboBox</a> *cb1 = new <a href="ntqcombobox.html">TQComboBox</a>( FALSE, box1 );
-    label1 = new <a href="ntqlabel.html">TQLabel</a>( "Current Item: Combobox Item 0", box1 );
-<a name="x1416"></a><a name="x1404"></a>    label1-&gt;<a href="ntqwidget.html#setMaximumHeight">setMaximumHeight</a>( label1-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>().height() * 2 );
-<a name="x1401"></a>    label1-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
+    <a href="tqcombobox.html">TQComboBox</a> *cb1 = new <a href="tqcombobox.html">TQComboBox</a>( FALSE, box1 );
+    label1 = new <a href="tqlabel.html">TQLabel</a>( "Current Item: Combobox Item 0", box1 );
+<a name="x1416"></a><a name="x1404"></a>    label1-&gt;<a href="tqwidget.html#setMaximumHeight">setMaximumHeight</a>( label1-&gt;<a href="tqwidget.html#sizeHint">sizeHint</a>().height() * 2 );
+<a name="x1401"></a>    label1-&gt;<a href="tqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
 
     //...and insert 50 items into the Combobox
     for ( i = 0; i &lt; 50; i++ ) {
         str = TQString( "Combobox Item %1" ).arg( i );
         if ( i % 9 )
-<a name="x1399"></a>            cb1-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( str );
+<a name="x1399"></a>            cb1-&gt;<a href="tqcombobox.html#insertItem">insertItem</a>( str );
         else
-<a name="x1400"></a>            cb1-&gt;<a href="ntqcombobox.html#listBox">listBox</a>()-&gt;insertItem( new MyListBoxItem );
+<a name="x1400"></a>            cb1-&gt;<a href="tqcombobox.html#listBox">listBox</a>()-&gt;insertItem( new MyListBoxItem );
     }
 
-    <a href="ntqvbox.html">TQVBox</a> *box2 = new <a href="ntqvbox.html">TQVBox</a>( row2 );
-    box2-&gt;<a href="ntqhbox.html#setSpacing">setSpacing</a>( 5 );
+    <a href="tqvbox.html">TQVBox</a> *box2 = new <a href="tqvbox.html">TQVBox</a>( row2 );
+    box2-&gt;<a href="tqhbox.html#setSpacing">setSpacing</a>( 5 );
 
     // Create an editable Combobox and a label below...
-    <a href="ntqcombobox.html">TQComboBox</a> *cb2 = new <a href="ntqcombobox.html">TQComboBox</a>( TRUE, box2 );
-    label2 = new <a href="ntqlabel.html">TQLabel</a>( "Current Item: Combobox Item 0", box2 );
-    label2-&gt;<a href="ntqwidget.html#setMaximumHeight">setMaximumHeight</a>( label2-&gt;<a href="ntqwidget.html#sizeHint">sizeHint</a>().height() * 2 );
-    label2-&gt;<a href="ntqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
+    <a href="tqcombobox.html">TQComboBox</a> *cb2 = new <a href="tqcombobox.html">TQComboBox</a>( TRUE, box2 );
+    label2 = new <a href="tqlabel.html">TQLabel</a>( "Current Item: Combobox Item 0", box2 );
+    label2-&gt;<a href="tqwidget.html#setMaximumHeight">setMaximumHeight</a>( label2-&gt;<a href="tqwidget.html#sizeHint">sizeHint</a>().height() * 2 );
+    label2-&gt;<a href="tqframe.html#setFrameStyle">setFrameStyle</a>( TQFrame::Panel | TQFrame::Sunken );
 
     // ... and insert 50 items into the Combobox
     for ( i = 0; i &lt; 50; i++ ) {
         str = TQString( "Combobox Item %1" ).arg( i );
         if ( !( i % 4 ) )
-            cb2-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( TQPixmap( "fileopen.xpm" ), str );
+            cb2-&gt;<a href="tqcombobox.html#insertItem">insertItem</a>( TQPixmap( "fileopen.xpm" ), str );
         else
-            cb2-&gt;<a href="ntqcombobox.html#insertItem">insertItem</a>( str );
+            cb2-&gt;<a href="tqcombobox.html#insertItem">insertItem</a>( str );
     }
 
     // Connect the activated SIGNALs of the Comboboxes with SLOTs
-<a name="x1398"></a>    <a href="ntqobject.html#connect">connect</a>( cb1, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ), this, TQ_SLOT( slotCombo1Activated( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
-    <a href="ntqobject.html#connect">connect</a>( cb2, TQ_SIGNAL( <a href="ntqcombobox.html#activated">activated</a>( const <a href="ntqstring.html">TQString</a> &amp; ) ), this, TQ_SLOT( slotCombo2Activated( const <a href="ntqstring.html">TQString</a> &amp; ) ) );
+<a name="x1398"></a>    <a href="tqobject.html#connect">connect</a>( cb1, TQ_SIGNAL( <a href="tqcombobox.html#activated">activated</a>( const <a href="tqstring.html">TQString</a> &amp; ) ), this, TQ_SLOT( slotCombo1Activated( const <a href="tqstring.html">TQString</a> &amp; ) ) );
+    <a href="tqobject.html#connect">connect</a>( cb2, TQ_SIGNAL( <a href="tqcombobox.html#activated">activated</a>( const <a href="tqstring.html">TQString</a> &amp; ) ), this, TQ_SLOT( slotCombo2Activated( const <a href="tqstring.html">TQString</a> &amp; ) ) );
 }
 
 /*
@@ -226,45 +225,45 @@ protected:
 void <a name="f438"></a>ListBoxCombo::slotLeft2Right()
 {
     // Go through all items of the first ListBox
-<a name="x1405"></a>    for ( unsigned int i = 0; i &lt; lb1-&gt;<a href="ntqlistbox.html#count">count</a>(); i++ ) {
-<a name="x1407"></a>        <a href="qlistboxitem.html">TQListBoxItem</a> *item = lb1-&gt;<a href="ntqlistbox.html#item">item</a>( i );
+<a name="x1405"></a>    for ( unsigned int i = 0; i &lt; lb1-&gt;<a href="tqlistbox.html#count">count</a>(); i++ ) {
+<a name="x1407"></a>        <a href="tqlistboxitem.html">TQListBoxItem</a> *item = lb1-&gt;<a href="tqlistbox.html#item">item</a>( i );
         // if the item is selected...
-<a name="x1409"></a>        if ( item-&gt;<a href="qlistboxitem.html#isSelected">isSelected</a>() ) {
+<a name="x1409"></a>        if ( item-&gt;<a href="tqlistboxitem.html#isSelected">isSelected</a>() ) {
             // ...and it is a text item...
-<a name="x1412"></a><a name="x1411"></a>            if ( item-&gt;<a href="qlistboxitem.html#pixmap">pixmap</a>() &amp;&amp; !item-&gt;<a href="qlistboxitem.html#text">text</a>().isEmpty() )
-                lb2-&gt;<a href="ntqlistbox.html#insertItem">insertItem</a>( *item-&gt;<a href="qlistboxitem.html#pixmap">pixmap</a>(), item-&gt;<a href="qlistboxitem.html#text">text</a>() );
-            else if ( !item-&gt;<a href="qlistboxitem.html#pixmap">pixmap</a>() )
-                lb2-&gt;<a href="ntqlistbox.html#insertItem">insertItem</a>( item-&gt;<a href="qlistboxitem.html#text">text</a>() );
-            else if ( item-&gt;<a href="qlistboxitem.html#text">text</a>().isEmpty() )
-                lb2-&gt;<a href="ntqlistbox.html#insertItem">insertItem</a>( *item-&gt;<a href="qlistboxitem.html#pixmap">pixmap</a>() );
+<a name="x1412"></a><a name="x1411"></a>            if ( item-&gt;<a href="tqlistboxitem.html#pixmap">pixmap</a>() &amp;&amp; !item-&gt;<a href="tqlistboxitem.html#text">text</a>().isEmpty() )
+                lb2-&gt;<a href="tqlistbox.html#insertItem">insertItem</a>( *item-&gt;<a href="tqlistboxitem.html#pixmap">pixmap</a>(), item-&gt;<a href="tqlistboxitem.html#text">text</a>() );
+            else if ( !item-&gt;<a href="tqlistboxitem.html#pixmap">pixmap</a>() )
+                lb2-&gt;<a href="tqlistbox.html#insertItem">insertItem</a>( item-&gt;<a href="tqlistboxitem.html#text">text</a>() );
+            else if ( item-&gt;<a href="tqlistboxitem.html#text">text</a>().isEmpty() )
+                lb2-&gt;<a href="tqlistbox.html#insertItem">insertItem</a>( *item-&gt;<a href="tqlistboxitem.html#pixmap">pixmap</a>() );
         }
     }
 }
 
 /*
- * TQ_SLOT slotCombo1Activated( const <a href="ntqstring.html">TQString</a> &amp;s )
+ * TQ_SLOT slotCombo1Activated( const <a href="tqstring.html">TQString</a> &amp;s )
  *
  * Sets the text of the item which the user just selected
  * in the first Combobox (and is now the value of s) to
  * the first Label.
  */
 
-void <a name="f439"></a>ListBoxCombo::slotCombo1Activated( const <a href="ntqstring.html">TQString</a> &amp;s )
+void <a name="f439"></a>ListBoxCombo::slotCombo1Activated( const <a href="tqstring.html">TQString</a> &amp;s )
 {
-<a name="x1403"></a>    label1-&gt;<a href="ntqlabel.html#setText">setText</a>( TQString( "Current Item: %1" ).arg( s ) );
+<a name="x1403"></a>    label1-&gt;<a href="tqlabel.html#setText">setText</a>( TQString( "Current Item: %1" ).arg( s ) );
 }
 
 /*
- * TQ_SLOT slotCombo2Activated( const <a href="ntqstring.html">TQString</a> &amp;s )
+ * TQ_SLOT slotCombo2Activated( const <a href="tqstring.html">TQString</a> &amp;s )
  *
  * Sets the text of the item which the user just selected
  * in the second Combobox (and is now the value of s) to
  * the second Label.
  */
 
-void <a name="f440"></a>ListBoxCombo::slotCombo2Activated( const <a href="ntqstring.html">TQString</a> &amp;s )
+void <a name="f440"></a>ListBoxCombo::slotCombo2Activated( const <a href="tqstring.html">TQString</a> &amp;s )
 {
-    label2-&gt;<a href="ntqlabel.html#setText">setText</a>( TQString( "Current Item: %1" ).arg( s ) );
+    label2-&gt;<a href="tqlabel.html#setText">setText</a>( TQString( "Current Item: %1" ).arg( s ) );
 }
 </pre>
 
@@ -281,19 +280,19 @@ void <a name="f440"></a>ListBoxCombo::slotCombo2Activated( const <a href="ntqstr
 *****************************************************************************/
 
 #include "listboxcombo.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     ListBoxCombo listboxcombo;
-    listboxcombo.<a href="ntqwidget.html#resize">resize</a>( 400, 270 );
-    listboxcombo.<a href="ntqwidget.html#setCaption">setCaption</a>( "TQt Example - Listboxes and Comboboxes" );
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( &amp;listboxcombo );
-    listboxcombo.<a href="ntqwidget.html#show">show</a>();
+    listboxcombo.<a href="tqwidget.html#resize">resize</a>( 400, 270 );
+    listboxcombo.<a href="tqwidget.html#setCaption">setCaption</a>( "TQt Example - Listboxes and Comboboxes" );
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( &amp;listboxcombo );
+    listboxcombo.<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

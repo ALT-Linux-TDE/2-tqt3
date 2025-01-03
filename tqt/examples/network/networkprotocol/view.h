@@ -10,9 +10,9 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include <ntqvbox.h>
-#include <ntqcstring.h>
-#include <ntqurloperator.h>
+#include <tqvbox.h>
+#include <tqcstring.h>
+#include <tqurloperator.h>
 
 class TQMultiLineEdit;
 

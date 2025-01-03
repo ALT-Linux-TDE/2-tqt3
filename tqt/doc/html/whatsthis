@@ -1,416 +1,384 @@
-2D area that can contain QCanvasItem objects. | QCanvas
-2D transformations of a coordinate system. | QWMatrix
-Abstract base class for accessing SQL databases. | QSqlDriver
-Abstract base class for custom menu items in popup menus. | QCustomMenuItem
-Abstract base class for implementations of additional COM interfaces. | QAxAggregated
-Abstract base class of internal layout iterators. | QGLayoutIterator
-Abstract base for Qt/Embedded graphics driver plugins. | QGfxDriverPlugin
-Abstract base for Qt/Embedded keyboard driver plugins. | QKbdDriverPlugin
-Abstract base for Qt/Embedded mouse driver plugins. | QMouseDriverPlugin
-Abstract base for custom QSqlDriver plugins. | QSqlDriverPlugin
-Abstract base for custom QStyle plugins. | QStylePlugin
-Abstract base for custom QTextCodec plugins. | QTextCodecPlugin
-Abstract base for custom TQWidget plugins. | QWidgetPlugin
-Abstract base for custom image format plugins. | QImageFormatPlugin
-Abstract base for fixed-size grids. | QGridView
-Abstract class that provides an API to initalize and access a COM object. | QAxBase
-Abstract graphic object on a QCanvas. | QCanvasItem
-Abstract interface for accessing data from SQL databases. | QSqlResult
-Abstract item that a QLayout manipulates. | QLayoutItem
-Abstract user interface action that can appear both in menus and tool bars. | QAction
-Abstraction for date and edit editors. | QDateTimeEditBase
+2D area that can contain TQCanvasItem objects. | TQCanvas
+2D transformations of a coordinate system. | TQWMatrix
+Abstract base class for accessing SQL databases. | TQSqlDriver
+Abstract base class for custom menu items in popup menus. | TQCustomMenuItem
+Abstract base class of internal layout iterators. | TQGLayoutIterator
+Abstract base for custom TQSqlDriver plugins. | TQSqlDriverPlugin
+Abstract base for custom TQStyle plugins. | TQStylePlugin
+Abstract base for custom TQTextCodec plugins. | TQTextCodecPlugin
+Abstract base for custom TQWidget plugins. | TQWidgetPlugin
+Abstract base for custom image format plugins. | TQImageFormatPlugin
+Abstract base for fixed-size grids. | TQGridView
+Abstract graphic object on a TQCanvas. | TQCanvasItem
+Abstract interface for accessing data from SQL databases. | TQSqlResult
+Abstract item that a TQLayout manipulates. | TQLayoutItem
+Abstract user interface action that can appear both in menus and tool bars. | TQAction
+Abstraction for date and edit editors. | TQDateTimeEditBase
 Abstraction of Unicode text and the classic C '&#92;0'-terminated char array. | TQString
-Abstraction of objects which provide formatted data of a certain MIME type. | QMimeSource
-Abstraction of the classic C zero-terminated char array (char *). | QCString
-Abstraction used by QImageDecoder. | QImageConsumer
-Access serialization between threads. | QMutex
-Access to a selected area in a QTable. | QTableSelection
-Access to directory structures and their contents in a platform-independent way. | QDir
-Access to screen information on multi-head systems. | QDesktopWidget
-Access to the platform audio facilities. | QSound
-Access to the session manager. | QSessionManager
-Access to the window system clipboard. | QClipboard
-Acts like a union for the most common TQt data types. | QVariant
-Allows the appearance of the Qt/Embedded Window Manager to be customized. | QWSDecoration
-Allows waiting/waking for conditions between threads. | QWaitCondition
-And its descendants manage the framebuffer and palette. | QScreen
-Animated canvas item on a QCanvas. | QCanvasSprite
-Application-global cache for pixmaps. | QPixmapCache
-Area with movable labelled icons. | QIconView
-Array of QCanvasPixmaps. | QCanvasPixmapArray
-Array of bits. | QBitArray
-Array of bytes. | QByteArray
-Array of points. | QPointArray
-Asynchronous DNS lookups. | QDns
-Base class for QMenuBar and QPopupMenu. | QMenuData
-Base class for implementing QTextEdit syntax highlighters. | QSyntaxHighlighter
-Basic functions for reading and writing text using a TQIODevice. | QTextStream
-Blank space in a layout. | QSpacerItem
-Bridge between application objects and script code. | QAxScriptManager
-Browsing and editing of SQL tables and views. | QSqlCursor
-Browsing of general SQL SELECT statements. | QSqlSelectCursor
-Buffered TCP connection. | QSocket
-Bundles signals from identifiable senders. | QSignalMapper
-CDE look and feel. | QCDEStyle
-Can be used to send signals for classes that don't inherit TQObject. | QSignal
-Checkable list view items. | QCheckListItem
-Checkbox with a text label. | QCheckBox
-Checkboxes in QTables. | QCheckTableItem
-Clip region for a painter. | QRegion
-Clock time functions. | QTime
-Collection of nodes that can be accessed by name. | QDomNamedNodeMap
-Collection of styles for rich text rendering and a generator of tags. | QStyleSheet
-Collects tool tips into related groups. | QToolTipGroup
-Color groups for each widget state. | QPalette
+Abstraction of objects which provide formatted data of a certain MIME type. | TQMimeSource
+Abstraction of the classic C zero-terminated char array (char *). | TQCString
+Abstraction used by TQImageDecoder. | TQImageConsumer
+Access serialization between threads. | TQMutex
+Access to a selected area in a TQTable. | TQTableSelection
+Access to directory structures and their contents in a platform-independent way. | TQDir
+Access to screen information on multi-head systems. | TQDesktopWidget
+Access to the platform audio facilities. | TQSound
+Access to the session manager. | TQSessionManager
+Access to the window system clipboard. | TQClipboard
+Acts like a union for the most common TQt data types. | TQVariant
+Allows waiting/waking for conditions between threads. | TQWaitCondition
+Animated canvas item on a TQCanvas. | TQCanvasSprite
+Application-global cache for pixmaps. | TQPixmapCache
+Area with movable labelled icons. | TQIconView
+Array of TQCanvasPixmaps. | TQCanvasPixmapArray
+Array of bits. | TQBitArray
+Array of bytes. | TQByteArray
+Array of points. | TQPointArray
+Asynchronous DNS lookups. | TQDns
+Base class for TQMenuBar and TQPopupMenu. | TQMenuData
+Base class for implementing TQTextEdit syntax highlighters. | TQSyntaxHighlighter
+Basic functions for reading and writing text using a TQIODevice. | TQTextStream
+Blank space in a layout. | TQSpacerItem
+Browsing and editing of SQL tables and views. | TQSqlCursor
+Browsing of general SQL SELECT statements. | TQSqlSelectCursor
+Buffered TCP connection. | TQSocket
+Bundles signals from identifiable senders. | TQSignalMapper
+CDE look and feel. | TQCDEStyle
+Can be used to send signals for classes that don't inherit TQObject. | TQSignal
+Checkable list view items. | TQCheckListItem
+Checkbox with a text label. | TQCheckBox
+Checkboxes in TQTables. | TQCheckTableItem
+Clip region for a painter. | TQRegion
+Clock time functions. | TQTime
+Collection of nodes that can be accessed by name. | TQDomNamedNodeMap
+Collection of styles for rich text rendering and a generator of tags. | TQStyleSheet
+Collects tool tips into related groups. | TQToolTipGroup
+Color groups for each widget state. | TQPalette
 Colors based on RGB or HSV values. | TQColor
-Column of tabbed widget items. | QToolBox
-Combined button and popup list. | QComboBox
-Combines a QDateEdit and QTimeEdit widget into a single widget for editing datetimes. | QDateTimeEdit
-Command button. | QPushButton
-Common API for network protocols. | QNetworkProtocol
-Common operations for network protocols. | QNetworkOperation
-Common operations on URLs. | QUrlOperator
-Communication capabilities between several clients. | QCopChannel
-Const iterator for QValueList. | QValueListConstIterator
-Convenience class for input streams. | QTextIStream
-Convenience class for output streams. | QTextOStream
-Conversion between text encodings. | QTextCodec
-Conversion to and from EUC-JP character sets. | QEucJpCodec
-Conversion to and from EUC-KR character sets. | QEucKrCodec
-Conversion to and from JIS character sets. | QJisCodec
-Conversion to and from Shift-JIS. | QSjisCodec
-Conversion to and from the Big5 encoding. | QBig5Codec
-Conversion to and from the Big5-HKSCS encoding. | QBig5hkscsCodec
-Conversion to and from the Chinese GB18030/GBK/GB2312 encoding. | QGb18030Codec
-Conversion to and from the Chinese GB2312 encoding. | QGb2312Codec
-Conversion to and from the Chinese GBK encoding. | QGbkCodec
-Conversion to and from the Tamil TSCII encoding. | QTsciiCodec
-Conversion to and from visually ordered Hebrew. | QHebrewCodec
-Converts between numbers and their string representations in various languages. | QLocale
-Corner-grip for resizing a top-level window. | QSizeGrip
-Creates QScreen objects for Qt/Embedded. | QGfxDriverFactory
-Creates QStyle objects. | QStyleFactory
-Creates QWSKeyboardHandler objects for Qt/Embedded. | QKbdDriverFactory
-Creates QWSMouseHandler objects for Qt/Embedded. | QMouseDriverFactory
-Creates and manages data entry forms tied to SQL databases. | QSqlForm
-Creates well-compressed PNG animations. | QPNGImagePacker
-Data manipulation and navigation for data entry forms. | QDataBrowser
-Date and time functions. | QDateTime
-Date editor. | QDateEdit
-Date functions. | QDate
-Default implementation of all the XML handler classes. | QXmlDefaultHandler
-Defines a Universally Unique Identifier (UUID). | QUuid
-Defines a factory for the creation of COM components. | QAxFactory
-Defines a point in the plane. | QPoint
-Defines a rectangle in the plane. | QRect
-Defines an interface that exposes information about accessible objects. | QAccessibleInterface
-Defines how a QPainter should draw lines and outlines of shapes. | QPen
-Defines the fill pattern of shapes drawn by a QPainter. | QBrush
-Defines the size of a two-dimensional object. | QSize
-Describes a key event. | QKeyEvent
-Dialog widget for selecting a font. | QFontDialog
-Dialog widget for specifying colors. | QColorDialog
-Dialogs that allow users to select files or directories. | QFileDialog
-Direct access to the video hardware. | QDirectPainter
-Displays a number with LCD-like digits. | QLCDNumber
-Does low-level painting e.g. on widgets. | QPainter
-Doubly-linked list of char*. | QStrList
-Doubly-linked list of char* with case-insensitive comparison. | QStrIList
-Drag and drop object for transferring colors. | QColorDrag
-Drag and drop object for transferring images. | QImageDrag
-Drag and drop object for transferring plain and Unicode text. | QTextDrag
-Drag object for a list of URI references. | QUriDrag
-Ellipse or ellipse segment on a QCanvas. | QCanvasEllipse
-Encapsulates MIME-based data transfer. | QDragObject
-Encapsulates a database record, i.e. a set of database fields. | QSqlRecord
-Encapsulates a drag item. | QIconDragItem
-Encapsulates a key sequence as used by accelerators. | QKeySequence
-Encapsulates a set of database field meta data. | QSqlRecordInfo
-Encapsulates an OpenGL rendering context. | QGLContext
-Encapsulates the common Look and Feel of a GUI. | QCommonStyle
-Encapsulation of a set of text styles. | QStyleSheetItem
-Enums and static functions relating to accessibility. | QAccessible
-Error message display dialog. | QErrorMessage
-Event parameters for child object events. | QChildEvent
-Event parameters for move events. | QMoveEvent
-Event parameters for paint events. | QPaintEvent
-Event parameters for resize events. | QResizeEvent
-Event parameters for widget focus events. | QFocusEvent
-Event which is sent after a widget is hidden. | QHideEvent
-Event which is sent to the widget when a drag and drop first drags onto the widget. | QDragEnterEvent
-Event which is sent to the widget when a drag and drop leaves the widget. | QDragLeaveEvent
-Event which is sent when a drag and drop is completed. | QDropEvent
-Event which is sent when a widget is shown. | QShowEvent
-Event which is sent while a drag and drop is in progress. | QDragMoveEvent
-Extensible provider of mime-typed data. | QMimeSourceFactory
-Factory that makes QImageFormat objects. | QImageFormatType
-Feedback on the progress of a slow operation. | QProgressDialog
-File previewing in QFileDialog. | QFilePreview
-Flexible SQL table widget that supports browsing and editing. | QDataTable
-Flexible editable table widget. | QTable
-Font metrics information. | QFontMetrics
-Font used for drawing text. | QFont
-For the dynamic creation of widgets from TQt Designer .ui files. | QWidgetFactory
-Framework for wizard dialogs. | QWizard
-Functions to manipulate and describe QSqlCursor and QSqlDatabase indexes. | QSqlIndex
-General information about fonts. | QFontInfo
-Group box frame with a title. | QGroupBox
-Group of widget colors. | QColorGroup
-Groups actions together. | QActionGroup
-Handles keyboard accelerator and shortcut keys. | QAccel
+Column of tabbed widget items. | TQToolBox
+Combined button and popup list. | TQComboBox
+Combines a TQDateEdit and TQTimeEdit widget into a single widget for editing datetimes. | TQDateTimeEdit
+Command button. | TQPushButton
+Common API for network protocols. | TQNetworkProtocol
+Common operations for network protocols. | TQNetworkOperation
+Common operations on URLs. | TQUrlOperator
+Const iterator for TQValueList. | TQValueListConstIterator
+Convenience class for input streams. | TQTextIStream
+Convenience class for output streams. | TQTextOStream
+Conversion between text encodings. | TQTextCodec
+Conversion to and from EUC-JP character sets. | TQEucJpCodec
+Conversion to and from EUC-KR character sets. | TQEucKrCodec
+Conversion to and from JIS character sets. | TQJisCodec
+Conversion to and from Shift-JIS. | TQSjisCodec
+Conversion to and from the Big5 encoding. | TQBig5Codec
+Conversion to and from the Big5-HKSCS encoding. | TQBig5hkscsCodec
+Conversion to and from the Chinese GB18030/GBK/GB2312 encoding. | TQGb18030Codec
+Conversion to and from the Chinese GB2312 encoding. | TQGb2312Codec
+Conversion to and from the Chinese GBK encoding. | TQGbkCodec
+Conversion to and from the Tamil TSCII encoding. | TQTsciiCodec
+Conversion to and from visually ordered Hebrew. | TQHebrewCodec
+Converts between numbers and their string representations in various languages. | TQLocale
+Corner-grip for resizing a top-level window. | TQSizeGrip
+Creates TQStyle objects. | TQStyleFactory
+Creates and manages data entry forms tied to SQL databases. | TQSqlForm
+Creates well-compressed PNG animations. | TQPNGImagePacker
+Data manipulation and navigation for data entry forms. | TQDataBrowser
+Date and time functions. | TQDateTime
+Date editor. | TQDateEdit
+Date functions. | TQDate
+Default implementation of all the XML handler classes. | TQXmlDefaultHandler
+Defines a Universally Unique Identifier (UUID). | TQUuid
+Defines a point in the plane. | TQPoint
+Defines a rectangle in the plane. | TQRect
+Defines an interface that exposes information about accessible objects. | TQAccessibleInterface
+Defines how a TQPainter should draw lines and outlines of shapes. | TQPen
+Defines the fill pattern of shapes drawn by a TQPainter. | TQBrush
+Defines the size of a two-dimensional object. | TQSize
+Describes a key event. | TQKeyEvent
+Dialog widget for selecting a font. | TQFontDialog
+Dialog widget for specifying colors. | TQColorDialog
+Dialogs that allow users to select files or directories. | TQFileDialog
+Displays a number with LCD-like digits. | TQLCDNumber
+Does low-level painting e.g. on widgets. | TQPainter
+Doubly-linked list of char*. | TQStrList
+Doubly-linked list of char* with case-insensitive comparison. | TQStrIList
+Drag and drop object for transferring colors. | TQColorDrag
+Drag and drop object for transferring images. | TQImageDrag
+Drag and drop object for transferring plain and Unicode text. | TQTextDrag
+Drag object for a list of URI references. | TQUriDrag
+Ellipse or ellipse segment on a TQCanvas. | TQCanvasEllipse
+Encapsulates MIME-based data transfer. | TQDragObject
+Encapsulates a database record, i.e. a set of database fields. | TQSqlRecord
+Encapsulates a drag item. | TQIconDragItem
+Encapsulates a key sequence as used by accelerators. | TQKeySequence
+Encapsulates a set of database field meta data. | TQSqlRecordInfo
+Encapsulates an OpenGL rendering context. | TQGLContext
+Encapsulates the common Look and Feel of a GUI. | TQCommonStyle
+Encapsulation of a set of text styles. | TQStyleSheetItem
+Enums and static functions relating to accessibility. | TQAccessible
+Error message display dialog. | TQErrorMessage
+Event parameters for child object events. | TQChildEvent
+Event parameters for move events. | TQMoveEvent
+Event parameters for paint events. | TQPaintEvent
+Event parameters for resize events. | TQResizeEvent
+Event parameters for widget focus events. | TQFocusEvent
+Event which is sent after a widget is hidden. | TQHideEvent
+Event which is sent to the widget when a drag and drop first drags onto the widget. | TQDragEnterEvent
+Event which is sent to the widget when a drag and drop leaves the widget. | TQDragLeaveEvent
+Event which is sent when a drag and drop is completed. | TQDropEvent
+Event which is sent when a widget is shown. | TQShowEvent
+Event which is sent while a drag and drop is in progress. | TQDragMoveEvent
+Extensible provider of mime-typed data. | TQMimeSourceFactory
+Factory that makes TQImageFormat objects. | TQImageFormatType
+Feedback on the progress of a slow operation. | TQProgressDialog
+File previewing in TQFileDialog. | TQFilePreview
+Flexible SQL table widget that supports browsing and editing. | TQDataTable
+Flexible editable table widget. | TQTable
+Font metrics information. | TQFontMetrics
+Font used for drawing text. | TQFont
+For the dynamic creation of widgets from TQt Designer .ui files. | TQWidgetFactory
+Framework for wizard dialogs. | TQWizard
+Functions to manipulate and describe TQSqlCursor and TQSqlDatabase indexes. | TQSqlIndex
+General information about fonts. | TQFontInfo
+Group box frame with a title. | TQGroupBox
+Group of widget colors. | TQColorGroup
+Groups actions together. | TQActionGroup
+Handles keyboard accelerator and shortcut keys. | TQAccel
 Hardware-independent pixmap representation with direct access to the pixel data. | TQImage
-Header information for HTTP. | QHttpHeader
-Header row or column, e.g. for tables and listviews. | QHeader
-Helper class for TQString. | QCharRef
-Helper class for XML readers which want to include namespace support. | QXmlNamespaceSupport
-Horizontal bar suitable for presenting status information. | QStatusBar
-Horizontal geometry management for its child widgets. | QHBox
-Horizontal menu bar. | QMenuBar
-Horizontal progress bar. | QProgressBar
-I/O device that operates on a QByteArray. | QBuffer
-I/O device that operates on files. | QFile
-IP address. | QHostAddress
-Icons for QFileDialog to use. | QFileIconProvider
-Implementation of a QNetworkProtocol that works on the local file system. | QLocalFs
-Implementation of a simple XML reader (parser). | QXmlSimpleReader
-Implementation of the FTP protocol. | QFtp
-Implementation of the HTTP protocol. | QHttp
-Implements a list view item. | QListViewItem
-Implements a list/tree view. | QListView
-Implements a splitter widget. | QSplitter
-Implements an Appearance Manager style. | QMacStyle
-Implements font management in Qt/Embedded. | QFontManager
-Implements parts of the QAccessibleInterface for QObjects. | QAccessibleObject
-Implements the keyboard driver for Qt/Embedded. | QWSKeyboardHandler
-Incremental image decoder for a specific image format. | QImageFormat
-Incremental image decoder for all supported image formats. | QImageDecoder
-Incremental loading of animations or images, signalling as it progresses. | QMovie
-Information about a paint device. | QPaintDeviceMetrics
-Information about the features of the DOM implementation. | QDomImplementation
-Information about the fonts available in the underlying window system. | QFontDatabase
-Integer value within a range. | QRangeControl
-Interface between a TQWidget and an ActiveX client. | QAxBindable
-Interface for XML readers (i.e. parsers). | QXmlReader
-Interface to report DTD content of XML data. | QXmlDTDHandler
-Interface to report declaration content of XML data. | QXmlDeclHandler
-Interface to report errors in XML data. | QXmlErrorHandler
-Interface to report the lexical content of XML data. | QXmlLexicalHandler
-Interface to report the logical content of XML data. | QXmlContentHandler
-Interface to resolve external entities contained in XML data. | QXmlEntityResolver
-Internal class, used with QBitArray. | QBitVal
-International input methods for Qt/Embedded. | QWSInputMethod
-Internationalization support for text output. | QTranslator
-Iterator for QAsciiCache collections. | QAsciiCacheIterator
-Iterator for QAsciiDict collections. | QAsciiDictIterator
-Iterator for QCache collections. | QCacheIterator
-Iterator for QDict collections. | QDictIterator
-Iterator for QIntCache collections. | QIntCacheIterator
-Iterator for QIntDict collections. | QIntDictIterator
-Iterator for QMap. | QMapConstIterator
-Iterator for QMap. | QMapIterator
-Iterator for QObjectLists. | QObjectListIterator
-Iterator for QPtrDict collections. | QPtrDictIterator
-Iterator for QPtrList collections. | QPtrListIterator
-Iterator for QValueList. | QValueListIterator
-Iterator for collections of QListViewItems. | QListViewItemIterator
-Iterator for the QStrList and QStrIList classes. | QStrListIterator
-Iterators over QLayoutItem. | QLayoutIterator
-Layout attribute describing horizontal and vertical resizing policy. | QSizePolicy
-Layout item that represents a widget. | QWidgetItem
-Lays out widgets in a grid. | QGridLayout
+Header information for HTTP. | TQHttpHeader
+Header row or column, e.g. for tables and listviews. | TQHeader
+Helper class for TQString. | TQCharRef
+Helper class for XML readers which want to include namespace support. | TQXmlNamespaceSupport
+Horizontal bar suitable for presenting status information. | TQStatusBar
+Horizontal geometry management for its child widgets. | TQHBox
+Horizontal menu bar. | TQMenuBar
+Horizontal progress bar. | TQProgressBar
+I/O device that operates on a TQByteArray. | TQBuffer
+I/O device that operates on files. | TQFile
+IP address. | TQHostAddress
+Icons for TQFileDialog to use. | TQFileIconProvider
+Implementation of a TQNetworkProtocol that works on the local file system. | TQLocalFs
+Implementation of a simple XML reader (parser). | TQXmlSimpleReader
+Implementation of the FTP protocol. | TQFtp
+Implementation of the HTTP protocol. | TQHttp
+Implements a list view item. | TQListViewItem
+Implements a list/tree view. | TQListView
+Implements a splitter widget. | TQSplitter
+Implements an Appearance Manager style. | TQMacStyle
+Implements parts of the TQAccessibleInterface for TQObjects. | TQAccessibleObject
+Incremental image decoder for a specific image format. | TQImageFormat
+Incremental image decoder for all supported image formats. | TQImageDecoder
+Incremental loading of animations or images, signalling as it progresses. | TQMovie
+Information about a paint device. | TQPaintDeviceMetrics
+Information about the features of the DOM implementation. | TQDomImplementation
+Information about the fonts available in the underlying window system. | TQFontDatabase
+Integer value within a range. | TQRangeControl
+Interface for XML readers (i.e. parsers). | TQXmlReader
+Interface to report DTD content of XML data. | TQXmlDTDHandler
+Interface to report declaration content of XML data. | TQXmlDeclHandler
+Interface to report errors in XML data. | TQXmlErrorHandler
+Interface to report the lexical content of XML data. | TQXmlLexicalHandler
+Interface to report the logical content of XML data. | TQXmlContentHandler
+Interface to resolve external entities contained in XML data. | TQXmlEntityResolver
+Internal class, used with TQBitArray. | TQBitVal
+Internationalization support for text output. | TQTranslator
+Iterator for TQAsciiCache collections. | TQAsciiCacheIterator
+Iterator for TQAsciiDict collections. | TQAsciiDictIterator
+Iterator for TQCache collections. | TQCacheIterator
+Iterator for TQDict collections. | TQDictIterator
+Iterator for TQIntCache collections. | TQIntCacheIterator
+Iterator for TQIntDict collections. | TQIntDictIterator
+Iterator for TQMap. | TQMapConstIterator
+Iterator for TQMap. | TQMapIterator
+Iterator for TQObjectLists. | TQObjectListIterator
+Iterator for TQPtrDict collections. | TQPtrDictIterator
+Iterator for TQPtrList collections. | TQPtrListIterator
+Iterator for TQValueList. | TQValueListIterator
+Iterator for collections of TQListViewItems. | TQListViewItemIterator
+Iterator for the TQStrList and TQStrIList classes. | TQStrListIterator
+Iterators over TQLayoutItem. | TQLayoutIterator
+Layout attribute describing horizontal and vertical resizing policy. | TQSizePolicy
+Layout item that represents a widget. | TQWidgetItem
+Lays out widgets in a grid. | TQGridLayout
 Lightweight Unicode character. | TQChar
-Line on a QCanvas. | QCanvasLine
-Lines up child widgets horizontally or vertically. | QBoxLayout
-Lines up widgets horizontally. | QHBoxLayout
-Lines up widgets vertically. | QVBoxLayout
-List box items that display text. | QListBoxText
-List box items with a pixmap and optional text. | QListBoxPixmap
-List of QCanvasItems. | QCanvasItemList
-List of QDomNode objects. | QDomNodeList
-List of selectable, read-only items. | QListBox
-List of strings. | QStringList
-Mac/Platinum look and feel. | QPlatinumStyle
-Main application window, with a menu bar, dock windows (e.g. for toolbars), and a status bar. | QMainWindow
-Maintains the list of widgets in the focus chain. | QFocusData
-Manages and lays out QDockWindows. | QDockArea
-Manages the GUI application's control flow and main settings. | QApplication
-Manages the event queue. | QEventLoop
-Manipulates the fields in SQL database tables and views. | QSqlField
-Maps open-standard MIME to Mac flavors. | QMacMime
-Maps open-standard MIME to Window Clipboard formats. | QWindowsMime
-Means of executing and manipulating SQL statements. | QSqlQuery
-Means of using TQt Assistant as an application's help tool. | QAssistantClient
-Means of using comboboxes in QTables. | QComboTableItem
-Meta information about TQt objects. | QMetaObject
-Microsoft Windows-like look and feel. | QWindowsStyle
-Modal dialog with a short message, an icon, and some buttons. | QMessageBox
-Monochrome (1-bit depth) pixmaps. | QBitmap
-More sophisticated Motif-ish look and feel. | QMotifPlusStyle
-Motif look and feel. | QMotifStyle
-Mouse cursor with an arbitrary shape. | QCursor
-Mouse driver for Qt/Embedded. | QWSMouseHandler
-Movable panel containing widgets such as tool buttons. | QToolBar
-Multi-bezier splines on a QCanvas. | QCanvasSpline
-Namespace for TQt SQL identifiers that need to be global-like. | QSql
-Namespace for miscellaneous identifiers in the TQt OpenGL module. | QGL
+Line on a TQCanvas. | TQCanvasLine
+Lines up child widgets horizontally or vertically. | TQBoxLayout
+Lines up widgets horizontally. | TQHBoxLayout
+Lines up widgets vertically. | TQVBoxLayout
+List box items that display text. | TQListBoxText
+List box items with a pixmap and optional text. | TQListBoxPixmap
+List of TQCanvasItems. | TQCanvasItemList
+List of TQDomNode objects. | TQDomNodeList
+List of selectable, read-only items. | TQListBox
+List of strings. | TQStringList
+Mac/Platinum look and feel. | TQPlatinumStyle
+Main application window, with a menu bar, dock windows (e.g. for toolbars), and a status bar. | TQMainWindow
+Maintains the list of widgets in the focus chain. | TQFocusData
+Manages and lays out TQDockWindows. | TQDockArea
+Manages the GUI application's control flow and main settings. | TQApplication
+Manages the event queue. | TQEventLoop
+Manipulates the fields in SQL database tables and views. | TQSqlField
+Maps open-standard MIME to Mac flavors. | TQMacMime
+Maps open-standard MIME to Window Clipboard formats. | TQWindowsMime
+Means of executing and manipulating SQL statements. | TQSqlQuery
+Means of using TQt Assistant as an application's help tool. | TQAssistantClient
+Means of using comboboxes in TQTables. | TQComboTableItem
+Meta information about TQt objects. | TQMetaObject
+Microsoft Windows-like look and feel. | TQWindowsStyle
+Modal dialog with a short message, an icon, and some buttons. | TQMessageBox
+Monochrome (1-bit depth) pixmaps. | TQBitmap
+More sophisticated Motif-ish look and feel. | TQMotifPlusStyle
+Motif look and feel. | TQMotifStyle
+Mouse cursor with an arbitrary shape. | TQCursor
+Movable panel containing widgets such as tool buttons. | TQToolBar
+Multi-bezier splines on a TQCanvas. | TQCanvasSpline
+Namespace for TQt SQL identifiers that need to be global-like. | TQSql
+Namespace for miscellaneous identifiers in the TQt OpenGL module. | TQGL
 Namespace for miscellaneous identifiers that need to be global-like. | Qt
-Off-screen, pixel-based paint device. | QPixmap
-On-screen view of a QCanvas. | QCanvasView
-One-line text editor. | QLineEdit
-Optional parameters for QStyle functions. | QStyleOption
-Organizes QButton widgets in a group. | QButtonGroup
-Organizes QButton widgets in a group with one horizontal row. | QHButtonGroup
-Organizes QButton widgets in a vertical column. | QVButtonGroup
-Organizes a group of widgets in a vertical column. | QVGroupBox
-Organizes widgets in a group with one horizontal row. | QHGroupBox
-Paint device that paints on a printer. | QPrinter
-Paint device that records and replays QPainter commands. | QPicture
-Parameters for input method events. | QIMEvent
-Parameters for loading and saving images. | QImageIO
-Parameters that describe a Tablet event. | QTabletEvent
-Parameters that describe a close event. | QCloseEvent
-Parameters that describe a context menu event. | QContextMenuEvent
-Parameters that describe a mouse event. | QMouseEvent
-Parameters that describe a timer event. | QTimerEvent
+Off-screen, pixel-based paint device. | TQPixmap
+On-screen view of a TQCanvas. | TQCanvasView
+One-line text editor. | TQLineEdit
+Optional parameters for TQStyle functions. | TQStyleOption
+Organizes TQButton widgets in a group. | TQButtonGroup
+Organizes TQButton widgets in a group with one horizontal row. | TQHButtonGroup
+Organizes TQButton widgets in a vertical column. | TQVButtonGroup
+Organizes a group of widgets in a vertical column. | TQVGroupBox
+Organizes widgets in a group with one horizontal row. | TQHGroupBox
+Paint device that paints on a printer. | TQPrinter
+Paint device that records and replays TQPainter commands. | TQPicture
+Parameters for input method events. | TQIMEvent
+Parameters for loading and saving images. | TQImageIO
+Parameters that describe a Tablet event. | TQTabletEvent
+Parameters that describe a close event. | TQCloseEvent
+Parameters that describe a context menu event. | TQContextMenuEvent
+Parameters that describe a mouse event. | TQMouseEvent
+Parameters that describe a timer event. | TQTimerEvent
 Parameters that describe a wheel event. | QWheelEvent
-Pattern matching using regular expressions. | QRegExp
-Per-thread data storage. | QThreadStorage
-Persistent platform-independent application settings. | QSettings
-Pixmaps for QCanvasSprites. | QCanvasPixmap
-Platform-independent low-level socket API. | QSocketDevice
-Platform-independent threads. | QThread
-Polygon on a QCanvas. | QCanvasPolygon
-Polygonal canvas item on a QCanvas. | QCanvasPolygonalItem
-Popup menu widget. | QPopupMenu
-Powerful single-page rich text editor. | QTextEdit
-TQObject that is a web browser plugin. | QNPInstance
-TQObject that wraps a COM object. | QAxObject
-QPtrList of QObjects. | QObjectList
-TQWidget that is a web browser plugin window. | QNPWidget
-TQWidget that wraps an ActiveX control. | QAxWidget
-Quick-access button to commands or options, usually used inside a QToolBar. | QToolButton
-Radio button with a text or pixmap label. | QRadioButton
-Range checking of floating-point numbers. | QDoubleValidator
-Read-only SQL forms. | QDataView
-Rectangle on a QCanvas. | QCanvasRectangle
-Represents a generic string in the DOM. | QDomCharacterData
-Represents an XML CDATA section. | QDomCDATASection
-Represents an XML comment. | QDomComment
-Represents an XML document. | QDomDocument
-Represents an XML entity. | QDomEntity
-Represents an XML entity reference. | QDomEntityReference
-Represents an XML notation. | QDomNotation
-Represents an XML processing instruction. | QDomProcessingInstruction
-Represents one attribute of a QDomElement. | QDomAttr
-Represents one element in the DOM tree. | QDomElement
-Represents text data in the parsed XML document. | QDomText
-Request header information for HTTP. | QHttpRequestHeader
-Response header information for HTTP. | QHttpResponseHeader
-Rich text browser with hypertext navigation. | QTextBrowser
-Robust integer semaphore. | QSemaphore
-Rounded range control (like a speedometer or potentiometer). | QDial
-SGI/Irix look and feel. | QSGIStyle
-SQL database error information. | QSqlError
-Scrolling area with on-demand scroll bars. | QScrollView
-Serialization of binary data to a TQIODevice. | QDataStream
-Server-specific functionality in Qt/Embedded. | QWSServer
-Server-specific functionality in Qt/Embedded. | QWSWindow
-Set of icons with different styles and sizes. | QIconSet
-Signals that a main icon drag has begun. | QIconDragEvent
-Simple convenience dialog to get a single value from the user. | QInputDialog
-Simple description of any widget, i.e. answering the question "What's this?". | QWhatsThis
-Simple geometry management of its children. | QGrid
-Simple stored-value drag object for arbitrary MIME data. | QStoredDrag
-Simplifies locking and unlocking QMutexes. | QMutexLocker
-Single item in a QIconView. | QIconViewItem
-Small displayable piece of rich text. | QSimpleRichText
-Spin box widget (spin button). | QSpinBox
-Splash screen that can be shown during application startup. | QSplashScreen
-Stack of tabbed widgets. | QTabDialog
-Stack of tabbed widgets. | QTabWidget
-Stack of widgets of which only the top widget is user-visible. | QWidgetStack
-State-based decoder. | QTextDecoder
-State-based encoder. | QTextEncoder
-Stores information about URLs. | QUrlInfo
-Stores meta data about a property. | QMetaProperty
-Stores meta data associated with a SQL field. | QSqlFieldInfo
-Stream of data provided to a QNPInstance by the browser. | QNPStream
-String objects using constant Unicode data. | QConstString
-Support for custom events. | QCustomEvent
-Support for socket callbacks. | QSocketNotifier
-Supports drag and drop operations within a QIconView. | QIconDrag
-System-independent file information. | QFileInfo
-TCP-based server. | QServerSocket
-Tab bar, e.g. for use in tabbed dialogs. | QTabBar
-Template class that provides a cache based on TQString keys. | QCache
-Template class that provides a cache based on char* keys. | QAsciiCache
-Template class that provides a cache based on long keys. | QIntCache
-Template class that provides a dictionary based on TQString keys. | QDict
-Template class that provides a dictionary based on char* keys. | QAsciiDict
-Template class that provides a dictionary based on long keys. | QIntDict
-Template class that provides a dictionary based on void* keys. | QPtrDict
-Template class that provides a list. | QPtrList
-Template class that provides a queue. | QPtrQueue
-Template class that provides a stack. | QPtrStack
-Template class that provides arrays of simple types. | QMemArray
-Template class that provides guarded pointers to QObjects. | QGuardedPtr
-Template class which ensures that implicitly shared and explicitly shared classes reference unique data. | QDeepCopy
-Template collection class that provides a vector (array). | QPtrVector
-Text object on a QCanvas. | QCanvasText
-Text or image display. | QLabel
-The QDialog API for Motif-based dialogs. | QMotifDialog
-The TQWidget API for Xt/Motif widgets. | QMotifWidget
-The XML handler classes with information about the parsing position within a file. | QXmlLocator
-The abstract base class of button widgets, providing functionality common to buttons. | QButton
-The base class for all the nodes in a DOM tree. | QDomNode
+Pattern matching using regular expressions. | TQRegExp
+Per-thread data storage. | TQThreadStorage
+Persistent platform-independent application settings. | TQSettings
+Pixmaps for TQCanvasSprites. | TQCanvasPixmap
+Platform-independent low-level socket API. | TQSocketDevice
+Platform-independent threads. | TQThread
+Polygon on a TQCanvas. | TQCanvasPolygon
+Polygonal canvas item on a TQCanvas. | TQCanvasPolygonalItem
+Popup menu widget. | TQPopupMenu
+Powerful single-page rich text editor. | TQTextEdit
+TQPtrList of TQObjects. | TQObjectList
+Quick-access button to commands or options, usually used inside a TQToolBar. | TQToolButton
+Radio button with a text or pixmap label. | TQRadioButton
+Range checking of floating-point numbers. | TQDoubleValidator
+Read-only SQL forms. | TQDataView
+Rectangle on a TQCanvas. | TQCanvasRectangle
+Represents a generic string in the DOM. | TQDomCharacterData
+Represents an XML CDATA section. | TQDomCDATASection
+Represents an XML comment. | TQDomComment
+Represents an XML document. | TQDomDocument
+Represents an XML entity. | TQDomEntity
+Represents an XML entity reference. | TQDomEntityReference
+Represents an XML notation. | TQDomNotation
+Represents an XML processing instruction. | TQDomProcessingInstruction
+Represents one attribute of a TQDomElement. | TQDomAttr
+Represents one element in the DOM tree. | TQDomElement
+Represents text data in the parsed XML document. | TQDomText
+Request header information for HTTP. | TQHttpRequestHeader
+Response header information for HTTP. | TQHttpResponseHeader
+Rich text browser with hypertext navigation. | TQTextBrowser
+Robust integer semaphore. | TQSemaphore
+Rounded range control (like a speedometer or potentiometer). | TQDial
+SGI/Irix look and feel. | TQSGIStyle
+SQL database error information. | TQSqlError
+Scrolling area with on-demand scroll bars. | TQScrollView
+Serialization of binary data to a TQIODevice. | TQDataStream
+Set of icons with different styles and sizes. | TQIconSet
+Signals that a main icon drag has begun. | TQIconDragEvent
+Simple convenience dialog to get a single value from the user. | TQInputDialog
+Simple description of any widget, i.e. answering the question "What's this?". | TQWhatsThis
+Simple geometry management of its children. | TQGrid
+Simple stored-value drag object for arbitrary MIME data. | TQStoredDrag
+Simplifies locking and unlocking TQMutexes. | TQMutexLocker
+Single item in a TQIconView. | TQIconViewItem
+Small displayable piece of rich text. | TQSimpleRichText
+Spin box widget (spin button). | TQSpinBox
+Splash screen that can be shown during application startup. | TQSplashScreen
+Stack of tabbed widgets. | TQTabDialog
+Stack of tabbed widgets. | TQTabWidget
+Stack of widgets of which only the top widget is user-visible. | TQWidgetStack
+State-based decoder. | TQTextDecoder
+State-based encoder. | TQTextEncoder
+Stores information about URLs. | TQUrlInfo
+Stores meta data about a property. | TQMetaProperty
+Stores meta data associated with a SQL field. | TQSqlFieldInfo
+String objects using constant Unicode data. | TQConstString
+Support for custom events. | TQCustomEvent
+Support for socket callbacks. | TQSocketNotifier
+Supports drag and drop operations within a TQIconView. | TQIconDrag
+System-independent file information. | TQFileInfo
+TCP-based server. | TQServerSocket
+Tab bar, e.g. for use in tabbed dialogs. | TQTabBar
+Template class that provides a cache based on TQString keys. | TQCache
+Template class that provides a cache based on char* keys. | TQAsciiCache
+Template class that provides a cache based on long keys. | TQIntCache
+Template class that provides a dictionary based on TQString keys. | TQDict
+Template class that provides a dictionary based on char* keys. | TQAsciiDict
+Template class that provides a dictionary based on long keys. | TQIntDict
+Template class that provides a dictionary based on void* keys. | TQPtrDict
+Template class that provides a list. | TQPtrList
+Template class that provides a queue. | TQPtrQueue
+Template class that provides a stack. | TQPtrStack
+Template class that provides arrays of simple types. | TQMemArray
+Template class that provides guarded pointers to TQObjects. | TQGuardedPtr
+Template class which ensures that implicitly shared and explicitly shared classes reference unique data. | TQDeepCopy
+Template collection class that provides a vector (array). | TQPtrVector
+Text object on a TQCanvas. | TQCanvasText
+Text or image display. | TQLabel
+The XML handler classes with information about the parsing position within a file. | TQXmlLocator
+The abstract base class of button widgets, providing functionality common to buttons. | TQButton
+The base class for all the nodes in a DOM tree. | TQDomNode
 The base class of I/O devices. | TQIODevice
 The base class of all TQt objects. | TQObject
-The base class of all event classes. Event objects contain event parameters. | QEvent
-The base class of all list box items. | QListBoxItem
+The base class of all event classes. Event objects contain event parameters. | TQEvent
+The base class of all list box items. | TQListBoxItem
 The base class of all user interface objects. | TQWidget
-The base class of dialog windows. | QDialog
-The base class of geometry managers. | QLayout
-The base class of most pointer-based TQt collections. | QPtrCollection
-The base class of objects that can be painted. | QPaintDevice
-The base class of widgets that can have a frame. | QFrame
-The basis of the Motif Extension. | QMotif
-The cell content for QTable cells. | QTableItem
-The display format of an OpenGL rendering context. | QGLFormat
-The input data for the QXmlReader subclasses. | QXmlInputSource
-The look and feel of a GUI. | QStyle
-The main factory for plugin objects. | QNPlugin
-The representation of the DTD in the document tree. | QDomDocumentType
-The structures in a QTabBar. | QTab
-Time editor. | QTimeEdit
-Timer signals and single-shot timers. | QTimer
-Tool tips (balloon help) for any widget or rectangular part of a widget. | QToolTip
-Translator message and its properties. | QTranslatorMessage
-Tree of QDomNodes which is not usually a complete QDomDocument. | QDomDocumentFragment
-URL parser and simplifies working with URLs. | QUrl
-Used for installing custom colormaps into QGLWidgets. | QGLColormap
-Used to check a string against a regular expression. | QRegExpValidator
-Used to create SQL database connections and to provide transaction handling. | QSqlDatabase
-Used to create editor widgets for QVariant data types. | QEditorFactory
-Used to create pixmaps for a QIconSet. | QIconFactory
-Used to create the editors used by QDataTable and QSqlForm. | QSqlEditorFactory
-Used to map widgets to SQL fields. | QSqlPropertyMap
-Used to report errors with the QXmlErrorHandler interface. | QXmlParseException
-Used to start external programs and to communicate with them. | QProcess
-Validation of input text. | QValidator
-Validator which ensures that a string contains a valid integer within a specified range. | QIntValidator
-Value-based template class that provides a dictionary. | QMap
-Value-based template class that provides a dynamic array. | QValueVector
+The base class of dialog windows. | TQDialog
+The base class of geometry managers. | TQLayout
+The base class of most pointer-based TQt collections. | TQPtrCollection
+The base class of objects that can be painted. | TQPaintDevice
+The base class of widgets that can have a frame. | TQFrame
+The cell content for TQTable cells. | TQTableItem
+The display format of an OpenGL rendering context. | TQGLFormat
+The input data for the TQXmlReader subclasses. | TQXmlInputSource
+The look and feel of a GUI. | TQStyle
+The representation of the DTD in the document tree. | TQDomDocumentType
+The structures in a TQTabBar. | TQTab
+Time editor. | TQTimeEdit
+Timer signals and single-shot timers. | TQTimer
+Tool tips (balloon help) for any widget or rectangular part of a widget. | TQToolTip
+Translator message and its properties. | TQTranslatorMessage
+Tree of TQDomNodes which is not usually a complete TQDomDocument. | TQDomDocumentFragment
+URL parser and simplifies working with URLs. | TQUrl
+Used for installing custom colormaps into TQGLWidgets. | TQGLColormap
+Used to check a string against a regular expression. | TQRegExpValidator
+Used to create SQL database connections and to provide transaction handling. | TQSqlDatabase
+Used to create editor widgets for TQVariant data types. | TQEditorFactory
+Used to create pixmaps for a TQIconSet. | TQIconFactory
+Used to create the editors used by TQDataTable and TQSqlForm. | TQSqlEditorFactory
+Used to map widgets to SQL fields. | TQSqlPropertyMap
+Used to report errors with the TQXmlErrorHandler interface. | TQXmlParseException
+Used to start external programs and to communicate with them. | TQProcess
+Validation of input text. | TQValidator
+Validator which ensures that a string contains a valid integer within a specified range. | TQIntValidator
+Value-based template class that provides a dictionary. | TQMap
+Value-based template class that provides a dynamic array. | TQValueVector
 Value-based template class that provides a pair of elements. | TQPair
-Value-based template class that provides a stack. | QValueStack
-Value-based template class that provides lists. | QValueList
-Vertical geometry management of its child widgets. | QVBox
-Vertical or horizontal scroll bar. | QScrollBar
-Vertical or horizontal slider. | QSlider
-Watches the lifetime of multiple QObjects. | QObjectCleanupHandler
-Widget for rendering OpenGL graphics. | QGLWidget
-Widget which can be docked inside a QDockArea or floated as a top level window on the desktop. | QDockWindow
-Workspace window that can contain decorated windows, e.g. for MDI. | QWorkspace
-Wrapper around a script engine. | QAxScriptEngine
-Wrapper around script code. | QAxScript
-Wrapper for handling shared libraries. | QLibrary
-XML attributes. | QXmlAttributes
+Value-based template class that provides a stack. | TQValueStack
+Value-based template class that provides lists. | TQValueList
+Vertical geometry management of its child widgets. | TQVBox
+Vertical or horizontal scroll bar. | TQScrollBar
+Vertical or horizontal slider. | TQSlider
+Watches the lifetime of multiple TQObjects. | TQObjectCleanupHandler
+Widget for rendering OpenGL graphics. | TQGLWidget
+Widget which can be docked inside a TQDockArea or floated as a top level window on the desktop. | TQDockWindow
+Workspace window that can contain decorated windows, e.g. for MDI. | TQWorkspace
+Wrapper for handling shared libraries. | TQLibrary
+XML attributes. | TQXmlAttributes

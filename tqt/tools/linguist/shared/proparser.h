@@ -34,8 +34,8 @@
 #ifndef PROPARSER_H
 #define PROPARSER_H
 
-#include <ntqmap.h>
-#include <ntqstring.h>
+#include <tqmap.h>
+#include <tqstring.h>
 
 TQMap<TQString, TQString> proFileTagMap( const TQString& text );
 

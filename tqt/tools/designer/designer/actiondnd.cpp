@@ -40,19 +40,19 @@
 #include "widgetfactory.h"
 #include "hierarchyview.h"
 
-#include <ntqaction.h>
-#include <ntqapplication.h>
-#include <ntqbitmap.h>
-#include <ntqdragobject.h>
-#include <ntqinputdialog.h>
-#include <ntqlayout.h>
-#include <ntqmainwindow.h>
-#include <ntqmenudata.h>
-#include <ntqmessagebox.h>
-#include <ntqobjectlist.h>
-#include <ntqpainter.h>
-#include <ntqstyle.h>
-#include <ntqtimer.h>
+#include <tqaction.h>
+#include <tqapplication.h>
+#include <tqbitmap.h>
+#include <tqdragobject.h>
+#include <tqinputdialog.h>
+#include <tqlayout.h>
+#include <tqmainwindow.h>
+#include <tqmenudata.h>
+#include <tqmessagebox.h>
+#include <tqobjectlist.h>
+#include <tqpainter.h>
+#include <tqstyle.h>
+#include <tqtimer.h>
 
 TQAction *ActionDrag::the_action = 0;
 

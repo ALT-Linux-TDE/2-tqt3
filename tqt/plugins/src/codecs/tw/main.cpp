@@ -1,9 +1,9 @@
-#include <ntqtextcodecplugin.h>
-#include <ntqtextcodec.h>
-#include <ntqptrlist.h>
+#include <tqtextcodecplugin.h>
+#include <tqtextcodec.h>
+#include <tqptrlist.h>
 
-#include <ntqbig5codec.h>
-#include <private/qfontcodecs_p.h>
+#include <tqbig5codec.h>
+#include <private/tqfontcodecs_p.h>
 
 
 class TWTextCodecs : public TQTextCodecPlugin

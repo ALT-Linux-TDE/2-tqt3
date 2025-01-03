@@ -1,7 +1,7 @@
 <!DOCTYPE TS>
 <TS>
   <context>
-    <name>QAccel</name>
+    <name>TQAccel</name>
     <message>
       <source>Space</source>
       <translation>Espai</translation>
@@ -284,7 +284,7 @@
     </message>
   </context>
   <context>
-    <name>QApplication</name>
+    <name>TQApplication</name>
     <message>
       <source>QT_LAYOUT_DIRECTION</source>
       <comment>Translate this string to the string 'LTR' in left-to-right languages or to 'RTL' in right-to-left languages (such as Hebrew and Arabic) to get proper widget layout.</comment>
@@ -311,7 +311,7 @@
     </message>
   </context>
   <context>
-    <name>QColorDialog</name>
+    <name>TQColorDialog</name>
     <message>
       <source>Hu&amp;e:</source>
       <translation>&amp;To:</translation>
@@ -370,7 +370,7 @@
     </message>
   </context>
   <context>
-    <name>QDataTable</name>
+    <name>TQDataTable</name>
     <message>
       <source>True</source>
       <translation>Cert</translation>
@@ -393,14 +393,14 @@
     </message>
   </context>
   <context>
-    <name>QDialog</name>
+    <name>TQDialog</name>
     <message>
       <source>What's This?</source>
       <translation>Què és això?</translation>
     </message>
   </context>
   <context>
-    <name>QErrorMessage</name>
+    <name>TQErrorMessage</name>
     <message>
       <source>&amp;Show this message again</source>
       <translation>Mo&amp;stra aquest missatge una altra vegada</translation>
@@ -423,7 +423,7 @@
     </message>
   </context>
   <context>
-    <name>QFileDialog</name>
+    <name>TQFileDialog</name>
     <message>
       <source>Copy or Move a File</source>
       <translation>Copia o mou un fitxer</translation>
@@ -682,7 +682,7 @@ Comprova la ruta i el nom de fitxer.</translation>
     </message>
   </context>
   <context>
-    <name>QFont</name>
+    <name>TQFont</name>
     <message>
       <source>Latin</source>
       <translation>Llatí</translation>
@@ -869,7 +869,7 @@ Comprova la ruta i el nom de fitxer.</translation>
     </message>
   </context>
   <context>
-    <name>QFontDialog</name>
+    <name>TQFontDialog</name>
     <message>
       <source>&amp;Font</source>
       <translation>&amp;Font</translation>
@@ -928,7 +928,7 @@ Comprova la ruta i el nom de fitxer.</translation>
     </message>
   </context>
   <context>
-    <name>QFtp</name>
+    <name>TQFtp</name>
     <message>
       <source>Host %1 found</source>
       <translation>Màtquina %1 trobada</translation>
@@ -1029,14 +1029,14 @@ Comprova la ruta i el nom de fitxer.</translation>
     </message>
   </context>
   <context>
-    <name>QHeader</name>
+    <name>TQHeader</name>
     <message>
       <source>%1</source>
       <translation>%1</translation>
     </message>
   </context>
   <context>
-    <name>QHttp</name>
+    <name>TQHttp</name>
     <message>
       <source>Connection refused</source>
       <translation>S'ha refusat la connexió</translation>
@@ -1103,7 +1103,7 @@ Comprova la ruta i el nom de fitxer.</translation>
     </message>
   </context>
   <context>
-    <name>QInputDialog</name>
+    <name>TQInputDialog</name>
     <message>
       <source>OK</source>
       <translation>Bé</translation>
@@ -1114,7 +1114,7 @@ Comprova la ruta i el nom de fitxer.</translation>
     </message>
   </context>
   <context>
-    <name>QLineEdit</name>
+    <name>TQLineEdit</name>
     <message>
       <source>&amp;Undo</source>
       <translation>&amp;Desfés</translation>
@@ -1145,7 +1145,7 @@ Comprova la ruta i el nom de fitxer.</translation>
     </message>
   </context>
   <context>
-    <name>QLocalFs</name>
+    <name>TQLocalFs</name>
     <message>
       <source>Could not rename
 %1
@@ -1188,7 +1188,7 @@ a
     </message>
   </context>
   <context>
-    <name>QMainWindow</name>
+    <name>TQMainWindow</name>
     <message>
       <source>Line up</source>
       <translation>Alínia</translation>
@@ -1199,7 +1199,7 @@ a
     </message>
   </context>
   <context>
-    <name>QMenuBar</name>
+    <name>TQMenuBar</name>
     <message>
       <source>About</source>
       <translation>Quant a</translation>
@@ -1234,7 +1234,7 @@ a
     </message>
   </context>
   <context>
-    <name>QMessageBox</name>
+    <name>TQMessageBox</name>
     <message>
       <source>OK</source>
       <translation>Bé</translation>
@@ -1264,27 +1264,26 @@ a
       <translation>&amp;Ignora</translation>
     </message>
     <message>
-      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses TQt version %1.&lt;/p>&lt;p>TQt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>TQt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br>TQt is also available for embedded devices.&lt;/p>&lt;p>TQt is a Trolltech product. See &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> for more information.&lt;/p></source>
+      <source>&lt;h3>About Qt&lt;/h3>&lt;p>This program uses TQt version %1.&lt;/p>&lt;p>TQt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p>&lt;p>TQt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;/p&gt;&lt;p&gt;See &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> for more information.&lt;/p></source>
       <translation>&lt;h3>Quant a Qt&lt;/h3>
 &lt;p>Aquest programa usa la versió %1 de Qt.&lt;/p> 
 &lt;p>TQt és un conjunt d'eines C++ per GUI multiplataforma i desenvolupament 
 d'aplicacions.&lt;/p>
 &lt;p>TQt proporciona portabilitat amb una sola font entre MS&amp;nbsp;Windows, 
 Mac&amp;nbsp;OS&amp;nbsp;X, Linux i les principals varietats comercials de Unix. 
-&lt;br>TQt també és disponible per a dispositius encastats&lt;/p>
-&lt;p>QT és un producte Trolltech. Consulteu &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> 
+&lt;/p&gt;&lt;p&gt;Consulteu &lt;tt>https://trinitydesktop.org/docs/qt3/&lt;/tt> 
 per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QNetworkProtocol</name>
+    <name>TQNetworkProtocol</name>
     <message>
       <source>Operation stopped by the user</source>
       <translation>L'usuari ha aturat l'operació</translation>
     </message>
   </context>
   <context>
-    <name>QPrintDialog</name>
+    <name>TQPrintDialog</name>
     <message>
       <source>locally connected</source>
       <translation>connectat localment</translation>
@@ -1523,14 +1522,14 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QProgressDialog</name>
+    <name>TQProgressDialog</name>
     <message>
       <source>Cancel</source>
       <translation>Cancel·la</translation>
     </message>
   </context>
   <context>
-    <name>QRegExp</name>
+    <name>TQRegExp</name>
     <message>
       <source>no error occurred</source>
       <translation>Sense errors</translation>
@@ -1569,7 +1568,7 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QSql</name>
+    <name>TQSql</name>
     <message>
       <source>Delete</source>
       <translation>Esborra</translation>
@@ -1612,7 +1611,7 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QTabDialog</name>
+    <name>TQTabDialog</name>
     <message>
       <source>OK</source>
       <translation>Bé</translation>
@@ -1635,7 +1634,7 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QTextEdit</name>
+    <name>TQTextEdit</name>
     <message>
       <source>&amp;Undo</source>
       <translation>&amp;Desfés</translation>
@@ -1666,7 +1665,7 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QTitleBar</name>
+    <name>TQTitleBar</name>
     <message>
       <source>System Menu</source>
       <translation>Menú del sistema</translation>
@@ -1697,14 +1696,14 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QToolBar</name>
+    <name>TQToolBar</name>
     <message>
       <source>More...</source>
       <translation>Més...</translation>
     </message>
   </context>
   <context>
-    <name>QUrlOperator</name>
+    <name>TQUrlOperator</name>
     <message>
       <source>The protocol `%1' is not supported</source>
       <translation>El protocol '%1' no està suportat</translation>
@@ -1743,65 +1742,14 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QWSDecoration</name>
-    <message>
-      <source>&amp;Restore</source>
-      <translation>&amp;Restaura</translation>
-    </message>
-    <message>
-      <source>&amp;Move</source>
-      <translation>&amp;Mou</translation>
-    </message>
-    <message>
-      <source>&amp;Size</source>
-      <translation>&amp;Mida</translation>
-    </message>
-    <message>
-      <source>Mi&amp;nimize</source>
-      <translation>Mi&amp;nimitza</translation>
-    </message>
-    <message>
-      <source>Ma&amp;ximize</source>
-      <translation>Ma&amp;ximitza</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Tanca</translation>
-    </message>
-    <message>
-      <source>Windows</source>
-      <translation>Finestres</translation>
-    </message>
-    <message>
-      <source>KDE</source>
-      <translation>KDE</translation>
-    </message>
-    <message>
-      <source>KDE2</source>
-      <translation>KDE2</translation>
-    </message>
-    <message>
-      <source>BeOS</source>
-      <translation>BeOS</translation>
-    </message>
-    <message>
-      <source>Hydro</source>
-      <translation>Balneari</translation>
-    </message>
-    <message>
-      <source>Default</source>
-      <translation>Omissió</translation>
-    </message>
-  </context>
-  <context>
-    <name>QWhatsThisButton</name>
+    <name>TQWhatsThisButton</name>
     <message>
       <source>What's this?</source>
       <translation>Què és això?</translation>
     </message>
   </context>
   <context>
-    <name>QWizard</name>
+    <name>TQWizard</name>
     <message>
       <source>&amp;Cancel</source>
       <translation>&amp;Cancel·la</translation>
@@ -1824,7 +1772,7 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QWorkspace</name>
+    <name>TQWorkspace</name>
     <message>
       <source>&amp;Restore</source>
       <translation>&amp;Restaura</translation>
@@ -1879,7 +1827,7 @@ per a més informació.&lt;/p></translation>
     </message>
   </context>
   <context>
-    <name>QXml</name>
+    <name>TQXml</name>
     <message>
       <source>no error occurred</source>
       <translation>Sense errors</translation>

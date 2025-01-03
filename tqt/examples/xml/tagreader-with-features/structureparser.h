@@ -4,8 +4,8 @@
 #ifndef STRUCTUREPARSER_H
 #define STRUCTUREPARSER_H
 
-#include <ntqxml.h>
-#include <ntqptrstack.h>
+#include <tqxml.h>
+#include <tqptrstack.h>
 
 class TQListView;
 class TQListViewItem;

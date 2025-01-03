@@ -1,5 +1,5 @@
 '\" t
-.TH QLocale 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQLocale 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QLocale \- Converts between numbers and their string representations in various languages
+TQLocale \- Converts between numbers and their string representations in various languages
 .SH SYNOPSIS
 Almost all the functions in this class are reentrant when TQt is built with thread support. The exception is \fBsetDefault\fR(). </p>
 .PP
-\fC#include <ntqlocale.h>\fR
+\fC#include <tqlocale.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -22,19 +22,19 @@ Almost all the functions in this class are reentrant when TQt is built with thre
 .BI "enum \fBCountry\fR { AnyCountry = 0, Afghanistan = 1, Albania = 2, Algeria = 3, AmericanSamoa = 4, Andorra = 5, Angola = 6, Anguilla = 7, Antarctica = 8, AntiguaAndBarbuda = 9, Argentina = 10, Armenia = 11, Aruba = 12, Australia = 13, Austria = 14, Azerbaijan = 15, Bahamas = 16, Bahrain = 17, Bangladesh = 18, Barbados = 19, Belarus = 20, Belgium = 21, Belize = 22, Benin = 23, Bermuda = 24, Bhutan = 25, Bolivia = 26, BosniaAndHerzegowina = 27, Botswana = 28, BouvetIsland = 29, Brazil = 30, BritishIndianOceanTerritory = 31, BruneiDarussalam = 32, Bulgaria = 33, BurkinaFaso = 34, Burundi = 35, Cambodia = 36, Cameroon = 37, Canada = 38, CapeVerde = 39, CaymanIslands = 40, CentralAfricanRepublic = 41, Chad = 42, Chile = 43, China = 44, ChristmasIsland = 45, CocosIslands = 46, Colombia = 47, Comoros = 48, DemocraticRepublicOfCongo = 49, PeoplesRepublicOfCongo = 50, CookIslands = 51, CostaRica = 52, IvoryCoast = 53, Croatia = 54, Cuba = 55, Cyprus = 56, CzechRepublic = 57, Denmark = 58, Djibouti = 59, Dominica = 60, DominicanRepublic = 61, EastTimor = 62, Ecuador = 63, Egypt = 64, ElSalvador = 65, EquatorialGuinea = 66, Eritrea = 67, Estonia = 68, Ethiopia = 69, FalklandIslands = 70, FaroeIslands = 71, FijiCountry = 72, Finland = 73, France = 74, MetropolitanFrance = 75, FrenchGuiana = 76, FrenchPolynesia = 77, FrenchSouthernTerritories = 78, Gabon = 79, Gambia = 80, Georgia = 81, Germany = 82, Ghana = 83, Gibraltar = 84, Greece = 85, Greenland = 86, Grenada = 87, Guadeloupe = 88, Guam = 89, Guatemala = 90, Guinea = 91, GuineaBissau = 92, Guyana = 93, Haiti = 94, HeardAndMcDonaldIslands = 95, Honduras = 96, HongKong = 97, Hungary = 98, Iceland = 99, India = 100, Indonesia = 101, Iran = 102, Iraq = 103, Ireland = 104, Israel = 105, Italy = 106, Jamaica = 107, Japan = 108, Jordan = 109, Kazakhstan = 110, Kenya = 111, Kiribati = 112, DemocraticRepublicOfKorea = 113, RepublicOfKorea = 114, Kuwait = 115, Kyrgyzstan = 116, Lao = 117, Latvia = 118, Lebanon = 119, Lesotho = 120, Liberia = 121, LibyanArabJamahiriya = 122, Liechtenstein = 123, Lithuania = 124, Luxembourg = 125, Macau = 126, Macedonia = 127, Madagascar = 128, Malawi = 129, Malaysia = 130, Maldives = 131, Mali = 132, Malta = 133, MarshallIslands = 134, Martinique = 135, Mauritania = 136, Mauritius = 137, Mayotte = 138, Mexico = 139, Micronesia = 140, Moldova = 141, Monaco = 142, Mongolia = 143, Montserrat = 144, Morocco = 145, Mozambique = 146, Myanmar = 147, Namibia = 148, NauruCountry = 149, Nepal = 150, Netherlands = 151, NetherlandsAntilles = 152, NewCaledonia = 153, NewZealand = 154, Nicaragua = 155, Niger = 156, Nigeria = 157, Niue = 158, NorfolkIsland = 159, NorthernMarianaIslands = 160, Norway = 161, Oman = 162, Pakistan = 163, Palau = 164, PalestinianTerritory = 165, Panama = 166, PapuaNewGuinea = 167, Paraguay = 168, Peru = 169, Philippines = 170, Pitcairn = 171, Poland = 172, Portugal = 173, PuertoRico = 174, Qatar = 175, Reunion = 176, Romania = 177, RussianFederation = 178, Rwanda = 179, SaintKittsAndNevis = 180, StLucia = 181, StVincentAndTheGrenadines = 182, Samoa = 183, SanMarino = 184, SaoTomeAndPrincipe = 185, SaudiArabia = 186, Senegal = 187, Seychelles = 188, SierraLeone = 189, Singapore = 190, Slovakia = 191, Slovenia = 192, SolomonIslands = 193, Somalia = 194, SouthAfrica = 195, SouthGeorgiaAndTheSouthSandwichIslands = 196, Spain = 197, SriLanka = 198, StHelena = 199, StPierreAndMiquelon = 200, Sudan = 201, Suriname = 202, SvalbardAndJanMayenIslands = 203, Swaziland = 204, Sweden = 205, Switzerland = 206, SyrianArabRepublic = 207, Taiwan = 208, Tajikistan = 209, Tanzania = 210, Thailand = 211, Togo = 212, Tokelau = 213, TongaCountry = 214, TrinidadAndTobago = 215, Tunisia = 216, Turkey = 217, Turkmenistan = 218, TurksAndCaicosIslands = 219, Tuvalu = 220, Uganda = 221, Ukraine = 222, UnitedArabEmirates = 223, UnitedKingdom = 224, UnitedStates = 225, UnitedStatesMinorOutlyingIslands = 226, Uruguay = 227, Uzbekistan = 228, Vanuatu = 229, VaticanCityState = 230, Venezuela = 231, VietNam = 232, BritishVirginIslands = 233, USVirginIslands = 234, WallisAndFutunaIslands = 235, WesternSahara = 236, Yemen = 237, Yugoslavia = 238, Zambia = 239, Zimbabwe = 240, LastCountry = Zimbabwe }"
 .br
 .ti -1c
-.BI "\fBQLocale\fR ()"
+.BI "\fBTQLocale\fR ()"
 .br
 .ti -1c
-.BI "\fBQLocale\fR ( const TQString & name )"
+.BI "\fBTQLocale\fR ( const TQString & name )"
 .br
 .ti -1c
-.BI "\fBQLocale\fR ( Language language, Country country = AnyCountry )"
+.BI "\fBTQLocale\fR ( Language language, Country country = AnyCountry )"
 .br
 .ti -1c
-.BI "\fBQLocale\fR ( const QLocale & other )"
+.BI "\fBTQLocale\fR ( const TQLocale & other )"
 .br
 .ti -1c
-.BI "QLocale & \fBoperator=\fR ( const QLocale & other )"
+.BI "TQLocale & \fBoperator=\fR ( const TQLocale & other )"
 .br
 .ti -1c
 .BI "Language \fBlanguage\fR () const"
@@ -115,23 +115,23 @@ Almost all the functions in this class are reentrant when TQt is built with thre
 .BI "TQString \fBcountryToString\fR ( Country country )"
 .br
 .ti -1c
-.BI "void \fBsetDefault\fR ( const QLocale & locale )"
+.BI "void \fBsetDefault\fR ( const TQLocale & locale )"
 .br
 .ti -1c
-.BI "QLocale \fBc\fR ()"
+.BI "TQLocale \fBc\fR ()"
 .br
 .ti -1c
-.BI "QLocale \fBsystem\fR ()"
+.BI "TQLocale \fBsystem\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QLocale class converts between numbers and their string representations in various languages.
+The TQLocale class converts between numbers and their string representations in various languages.
 .PP
 It is initialized with a country/language pair in its constructor and offers number-to-string and string-to-number conversion functions simmilar to those in TQString.
 .PP
 .nf
 .br
-    QLocale egyptian(QLocale::Arabic, QLocale::Egypt);
+    TQLocale egyptian(TQLocale::Arabic, TQLocale::Egypt);
 .br
     TQString s1 = egyptian.toString(1.571429E+07, 'e');
 .br
@@ -144,9 +144,9 @@ It is initialized with a country/language pair in its constructor and offers num
 .br
 .fi
 .PP
-QLocale supports the concept of a default locale, which is determined from the system's locale settings at application startup. The default locale can be changed by calling the static member setDefault(). The default locale has the following effects:
+TQLocale supports the concept of a default locale, which is determined from the system's locale settings at application startup. The default locale can be changed by calling the static member setDefault(). The default locale has the following effects:
 .TP
-If a QLocale object is constructed with the default constructor, it will use the default locale's settings.
+If a TQLocale object is constructed with the default constructor, it will use the default locale's settings.
 .TP
 TQString::toDouble() interprets the string according to the default locale. If this fails, it falls back on the "C" locale.
 .TP
@@ -154,9 +154,9 @@ TQString::arg() uses the default locale to format a number when its position spe
 .PP
 .nf
 .br
-    QLocale::setDefault(QLocale(QLocale::Hebrew, QLocale::Israel));
+    TQLocale::setDefault(TQLocale(TQLocale::Hebrew, TQLocale::Israel));
 .br
-    QLocale hebrew; // Constructs a default QLocale
+    TQLocale hebrew; // Constructs a default TQLocale
 .br
     TQString s1 = hebrew.toString(15714.3, 'e');
 .br
@@ -166,21 +166,21 @@ TQString::arg() uses the default locale to format a number when its position spe
     double d;
 .br
 .br
-    QLocale::setDefault(QLocale::C);
+    TQLocale::setDefault(TQLocale::C);
 .br
     d = TQString( "1234,56" ).toDouble(&ok); // ok == false
 .br
     d = TQString( "1234.56" ).toDouble(&ok); // ok == true, d == 1234.56
 .br
 .br
-    QLocale::setDefault(QLocale::German);
+    TQLocale::setDefault(TQLocale::German);
 .br
     d = TQString( "1234,56" ).toDouble(&ok); // ok == true, d == 1234.56
 .br
     d = TQString( "1234.56" ).toDouble(&ok); // ok == true, d == 1234.56
 .br
 .br
-    QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
+    TQLocale::setDefault(TQLocale(TQLocale::English, TQLocale::UnitedStates));
 .br
     str = TQString( "%1 %L2 %L3" )
 .br
@@ -200,25 +200,25 @@ If the language/country pair is found in the database, it is used.
 .TP
 If the language is found but the country is not, or if the country is AnyCountry, the language is used with the most appropriate available country (for example, Germany for German),
 .TP
-If neither the language nor the country are found, QLocale defaults to the default locale (see setDefault()).
+If neither the language nor the country are found, TQLocale defaults to the default locale (see setDefault()).
 .PP
 The "C" locale is identical to English/UnitedStates.
 .PP
 Use language() and country() to determine the actual language and country values used.
 .PP
-An alternative method for constructing a QLocale object is by specifying the locale name.
+An alternative method for constructing a TQLocale object is by specifying the locale name.
 .PP
 .nf
 .br
-    QLocale korean("ko");
+    TQLocale korean("ko");
 .br
-    QLocale swiss("de_CH");
+    TQLocale swiss("de_CH");
 .br
 .fi
 .PP
 This constructor converts the locale name to a language/country pair; it does not use the system locale database.
 .PP
-All the methods in QLocale, with the exception of setDefault(), are reentrant.
+All the methods in TQLocale, with the exception of setDefault(), are reentrant.
 .PP
 See also TQString::toDouble(), TQString::arg(), and Text Related Classes.
 .PP
@@ -232,779 +232,779 @@ THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED WARRANTY
 .PP
 This product includes software developed by the University of California, Berkeley and its contributors.
 .SS "Member Type Documentation"
-.SH "QLocale::Country"
+.SH "TQLocale::Country"
 This enumerated type is used to specify a country.
 .TP
-\fCQLocale::AnyCountry\fR
+\fCTQLocale::AnyCountry\fR
 .TP
-\fCQLocale::Afghanistan\fR
+\fCTQLocale::Afghanistan\fR
 .TP
-\fCQLocale::Albania\fR
+\fCTQLocale::Albania\fR
 .TP
-\fCQLocale::Algeria\fR
+\fCTQLocale::Algeria\fR
 .TP
-\fCQLocale::AmericanSamoa\fR
+\fCTQLocale::AmericanSamoa\fR
 .TP
-\fCQLocale::Andorra\fR
+\fCTQLocale::Andorra\fR
 .TP
-\fCQLocale::Angola\fR
+\fCTQLocale::Angola\fR
 .TP
-\fCQLocale::Anguilla\fR
+\fCTQLocale::Anguilla\fR
 .TP
-\fCQLocale::Antarctica\fR
+\fCTQLocale::Antarctica\fR
 .TP
-\fCQLocale::AntiguaAndBarbuda\fR
+\fCTQLocale::AntiguaAndBarbuda\fR
 .TP
-\fCQLocale::Argentina\fR
+\fCTQLocale::Argentina\fR
 .TP
-\fCQLocale::Armenia\fR
+\fCTQLocale::Armenia\fR
 .TP
-\fCQLocale::Aruba\fR
+\fCTQLocale::Aruba\fR
 .TP
-\fCQLocale::Australia\fR
+\fCTQLocale::Australia\fR
 .TP
-\fCQLocale::Austria\fR
+\fCTQLocale::Austria\fR
 .TP
-\fCQLocale::Azerbaijan\fR
+\fCTQLocale::Azerbaijan\fR
 .TP
-\fCQLocale::Bahamas\fR
+\fCTQLocale::Bahamas\fR
 .TP
-\fCQLocale::Bahrain\fR
+\fCTQLocale::Bahrain\fR
 .TP
-\fCQLocale::Bangladesh\fR
+\fCTQLocale::Bangladesh\fR
 .TP
-\fCQLocale::Barbados\fR
+\fCTQLocale::Barbados\fR
 .TP
-\fCQLocale::Belarus\fR
+\fCTQLocale::Belarus\fR
 .TP
-\fCQLocale::Belgium\fR
+\fCTQLocale::Belgium\fR
 .TP
-\fCQLocale::Belize\fR
+\fCTQLocale::Belize\fR
 .TP
-\fCQLocale::Benin\fR
+\fCTQLocale::Benin\fR
 .TP
-\fCQLocale::Bermuda\fR
+\fCTQLocale::Bermuda\fR
 .TP
-\fCQLocale::Bhutan\fR
+\fCTQLocale::Bhutan\fR
 .TP
-\fCQLocale::Bolivia\fR
+\fCTQLocale::Bolivia\fR
 .TP
-\fCQLocale::BosniaAndHerzegowina\fR
+\fCTQLocale::BosniaAndHerzegowina\fR
 .TP
-\fCQLocale::Botswana\fR
+\fCTQLocale::Botswana\fR
 .TP
-\fCQLocale::BouvetIsland\fR
+\fCTQLocale::BouvetIsland\fR
 .TP
-\fCQLocale::Brazil\fR
+\fCTQLocale::Brazil\fR
 .TP
-\fCQLocale::BritishIndianOceanTerritory\fR
+\fCTQLocale::BritishIndianOceanTerritory\fR
 .TP
-\fCQLocale::BruneiDarussalam\fR
+\fCTQLocale::BruneiDarussalam\fR
 .TP
-\fCQLocale::Bulgaria\fR
+\fCTQLocale::Bulgaria\fR
 .TP
-\fCQLocale::BurkinaFaso\fR
+\fCTQLocale::BurkinaFaso\fR
 .TP
-\fCQLocale::Burundi\fR
+\fCTQLocale::Burundi\fR
 .TP
-\fCQLocale::Cambodia\fR
+\fCTQLocale::Cambodia\fR
 .TP
-\fCQLocale::Cameroon\fR
+\fCTQLocale::Cameroon\fR
 .TP
-\fCQLocale::Canada\fR
+\fCTQLocale::Canada\fR
 .TP
-\fCQLocale::CapeVerde\fR
+\fCTQLocale::CapeVerde\fR
 .TP
-\fCQLocale::CaymanIslands\fR
+\fCTQLocale::CaymanIslands\fR
 .TP
-\fCQLocale::CentralAfricanRepublic\fR
+\fCTQLocale::CentralAfricanRepublic\fR
 .TP
-\fCQLocale::Chad\fR
+\fCTQLocale::Chad\fR
 .TP
-\fCQLocale::Chile\fR
+\fCTQLocale::Chile\fR
 .TP
-\fCQLocale::China\fR
+\fCTQLocale::China\fR
 .TP
-\fCQLocale::ChristmasIsland\fR
+\fCTQLocale::ChristmasIsland\fR
 .TP
-\fCQLocale::CocosIslands\fR
+\fCTQLocale::CocosIslands\fR
 .TP
-\fCQLocale::Colombia\fR
+\fCTQLocale::Colombia\fR
 .TP
-\fCQLocale::Comoros\fR
+\fCTQLocale::Comoros\fR
 .TP
-\fCQLocale::DemocraticRepublicOfCongo\fR
+\fCTQLocale::DemocraticRepublicOfCongo\fR
 .TP
-\fCQLocale::PeoplesRepublicOfCongo\fR
+\fCTQLocale::PeoplesRepublicOfCongo\fR
 .TP
-\fCQLocale::CookIslands\fR
+\fCTQLocale::CookIslands\fR
 .TP
-\fCQLocale::CostaRica\fR
+\fCTQLocale::CostaRica\fR
 .TP
-\fCQLocale::IvoryCoast\fR
+\fCTQLocale::IvoryCoast\fR
 .TP
-\fCQLocale::Croatia\fR
+\fCTQLocale::Croatia\fR
 .TP
-\fCQLocale::Cuba\fR
+\fCTQLocale::Cuba\fR
 .TP
-\fCQLocale::Cyprus\fR
+\fCTQLocale::Cyprus\fR
 .TP
-\fCQLocale::CzechRepublic\fR
+\fCTQLocale::CzechRepublic\fR
 .TP
-\fCQLocale::Denmark\fR
+\fCTQLocale::Denmark\fR
 .TP
-\fCQLocale::Djibouti\fR
+\fCTQLocale::Djibouti\fR
 .TP
-\fCQLocale::Dominica\fR
+\fCTQLocale::Dominica\fR
 .TP
-\fCQLocale::DominicanRepublic\fR
+\fCTQLocale::DominicanRepublic\fR
 .TP
-\fCQLocale::EastTimor\fR
+\fCTQLocale::EastTimor\fR
 .TP
-\fCQLocale::Ecuador\fR
+\fCTQLocale::Ecuador\fR
 .TP
-\fCQLocale::Egypt\fR
+\fCTQLocale::Egypt\fR
 .TP
-\fCQLocale::ElSalvador\fR
+\fCTQLocale::ElSalvador\fR
 .TP
-\fCQLocale::EquatorialGuinea\fR
+\fCTQLocale::EquatorialGuinea\fR
 .TP
-\fCQLocale::Eritrea\fR
+\fCTQLocale::Eritrea\fR
 .TP
-\fCQLocale::Estonia\fR
+\fCTQLocale::Estonia\fR
 .TP
-\fCQLocale::Ethiopia\fR
+\fCTQLocale::Ethiopia\fR
 .TP
-\fCQLocale::FalklandIslands\fR
+\fCTQLocale::FalklandIslands\fR
 .TP
-\fCQLocale::FaroeIslands\fR
+\fCTQLocale::FaroeIslands\fR
 .TP
-\fCQLocale::FijiCountry\fR
+\fCTQLocale::FijiCountry\fR
 .TP
-\fCQLocale::Finland\fR
+\fCTQLocale::Finland\fR
 .TP
-\fCQLocale::France\fR
+\fCTQLocale::France\fR
 .TP
-\fCQLocale::MetropolitanFrance\fR
+\fCTQLocale::MetropolitanFrance\fR
 .TP
-\fCQLocale::FrenchGuiana\fR
+\fCTQLocale::FrenchGuiana\fR
 .TP
-\fCQLocale::FrenchPolynesia\fR
+\fCTQLocale::FrenchPolynesia\fR
 .TP
-\fCQLocale::FrenchSouthernTerritories\fR
+\fCTQLocale::FrenchSouthernTerritories\fR
 .TP
-\fCQLocale::Gabon\fR
+\fCTQLocale::Gabon\fR
 .TP
-\fCQLocale::Gambia\fR
+\fCTQLocale::Gambia\fR
 .TP
-\fCQLocale::Georgia\fR
+\fCTQLocale::Georgia\fR
 .TP
-\fCQLocale::Germany\fR
+\fCTQLocale::Germany\fR
 .TP
-\fCQLocale::Ghana\fR
+\fCTQLocale::Ghana\fR
 .TP
-\fCQLocale::Gibraltar\fR
+\fCTQLocale::Gibraltar\fR
 .TP
-\fCQLocale::Greece\fR
+\fCTQLocale::Greece\fR
 .TP
-\fCQLocale::Greenland\fR
+\fCTQLocale::Greenland\fR
 .TP
-\fCQLocale::Grenada\fR
+\fCTQLocale::Grenada\fR
 .TP
-\fCQLocale::Guadeloupe\fR
+\fCTQLocale::Guadeloupe\fR
 .TP
-\fCQLocale::Guam\fR
+\fCTQLocale::Guam\fR
 .TP
-\fCQLocale::Guatemala\fR
+\fCTQLocale::Guatemala\fR
 .TP
-\fCQLocale::Guinea\fR
+\fCTQLocale::Guinea\fR
 .TP
-\fCQLocale::GuineaBissau\fR
+\fCTQLocale::GuineaBissau\fR
 .TP
-\fCQLocale::Guyana\fR
+\fCTQLocale::Guyana\fR
 .TP
-\fCQLocale::Haiti\fR
+\fCTQLocale::Haiti\fR
 .TP
-\fCQLocale::HeardAndMcDonaldIslands\fR
+\fCTQLocale::HeardAndMcDonaldIslands\fR
 .TP
-\fCQLocale::Honduras\fR
+\fCTQLocale::Honduras\fR
 .TP
-\fCQLocale::HongKong\fR
+\fCTQLocale::HongKong\fR
 .TP
-\fCQLocale::Hungary\fR
+\fCTQLocale::Hungary\fR
 .TP
-\fCQLocale::Iceland\fR
+\fCTQLocale::Iceland\fR
 .TP
-\fCQLocale::India\fR
+\fCTQLocale::India\fR
 .TP
-\fCQLocale::Indonesia\fR
+\fCTQLocale::Indonesia\fR
 .TP
-\fCQLocale::Iran\fR
+\fCTQLocale::Iran\fR
 .TP
-\fCQLocale::Iraq\fR
+\fCTQLocale::Iraq\fR
 .TP
-\fCQLocale::Ireland\fR
+\fCTQLocale::Ireland\fR
 .TP
-\fCQLocale::Israel\fR
+\fCTQLocale::Israel\fR
 .TP
-\fCQLocale::Italy\fR
+\fCTQLocale::Italy\fR
 .TP
-\fCQLocale::Jamaica\fR
+\fCTQLocale::Jamaica\fR
 .TP
-\fCQLocale::Japan\fR
+\fCTQLocale::Japan\fR
 .TP
-\fCQLocale::Jordan\fR
+\fCTQLocale::Jordan\fR
 .TP
-\fCQLocale::Kazakhstan\fR
+\fCTQLocale::Kazakhstan\fR
 .TP
-\fCQLocale::Kenya\fR
+\fCTQLocale::Kenya\fR
 .TP
-\fCQLocale::Kiribati\fR
+\fCTQLocale::Kiribati\fR
 .TP
-\fCQLocale::DemocraticRepublicOfKorea\fR
+\fCTQLocale::DemocraticRepublicOfKorea\fR
 .TP
-\fCQLocale::RepublicOfKorea\fR
+\fCTQLocale::RepublicOfKorea\fR
 .TP
-\fCQLocale::Kuwait\fR
+\fCTQLocale::Kuwait\fR
 .TP
-\fCQLocale::Kyrgyzstan\fR
+\fCTQLocale::Kyrgyzstan\fR
 .TP
-\fCQLocale::Lao\fR
+\fCTQLocale::Lao\fR
 .TP
-\fCQLocale::Latvia\fR
+\fCTQLocale::Latvia\fR
 .TP
-\fCQLocale::Lebanon\fR
+\fCTQLocale::Lebanon\fR
 .TP
-\fCQLocale::Lesotho\fR
+\fCTQLocale::Lesotho\fR
 .TP
-\fCQLocale::Liberia\fR
+\fCTQLocale::Liberia\fR
 .TP
-\fCQLocale::LibyanArabJamahiriya\fR
+\fCTQLocale::LibyanArabJamahiriya\fR
 .TP
-\fCQLocale::Liechtenstein\fR
+\fCTQLocale::Liechtenstein\fR
 .TP
-\fCQLocale::Lithuania\fR
+\fCTQLocale::Lithuania\fR
 .TP
-\fCQLocale::Luxembourg\fR
+\fCTQLocale::Luxembourg\fR
 .TP
-\fCQLocale::Macau\fR
+\fCTQLocale::Macau\fR
 .TP
-\fCQLocale::Macedonia\fR
+\fCTQLocale::Macedonia\fR
 .TP
-\fCQLocale::Madagascar\fR
+\fCTQLocale::Madagascar\fR
 .TP
-\fCQLocale::Malawi\fR
+\fCTQLocale::Malawi\fR
 .TP
-\fCQLocale::Malaysia\fR
+\fCTQLocale::Malaysia\fR
 .TP
-\fCQLocale::Maldives\fR
+\fCTQLocale::Maldives\fR
 .TP
-\fCQLocale::Mali\fR
+\fCTQLocale::Mali\fR
 .TP
-\fCQLocale::Malta\fR
+\fCTQLocale::Malta\fR
 .TP
-\fCQLocale::MarshallIslands\fR
+\fCTQLocale::MarshallIslands\fR
 .TP
-\fCQLocale::Martinique\fR
+\fCTQLocale::Martinique\fR
 .TP
-\fCQLocale::Mauritania\fR
+\fCTQLocale::Mauritania\fR
 .TP
-\fCQLocale::Mauritius\fR
+\fCTQLocale::Mauritius\fR
 .TP
-\fCQLocale::Mayotte\fR
+\fCTQLocale::Mayotte\fR
 .TP
-\fCQLocale::Mexico\fR
+\fCTQLocale::Mexico\fR
 .TP
-\fCQLocale::Micronesia\fR
+\fCTQLocale::Micronesia\fR
 .TP
-\fCQLocale::Moldova\fR
+\fCTQLocale::Moldova\fR
 .TP
-\fCQLocale::Monaco\fR
+\fCTQLocale::Monaco\fR
 .TP
-\fCQLocale::Mongolia\fR
+\fCTQLocale::Mongolia\fR
 .TP
-\fCQLocale::Montserrat\fR
+\fCTQLocale::Montserrat\fR
 .TP
-\fCQLocale::Morocco\fR
+\fCTQLocale::Morocco\fR
 .TP
-\fCQLocale::Mozambique\fR
+\fCTQLocale::Mozambique\fR
 .TP
-\fCQLocale::Myanmar\fR
+\fCTQLocale::Myanmar\fR
 .TP
-\fCQLocale::Namibia\fR
+\fCTQLocale::Namibia\fR
 .TP
-\fCQLocale::NauruCountry\fR
+\fCTQLocale::NauruCountry\fR
 .TP
-\fCQLocale::Nepal\fR
+\fCTQLocale::Nepal\fR
 .TP
-\fCQLocale::Netherlands\fR
+\fCTQLocale::Netherlands\fR
 .TP
-\fCQLocale::NetherlandsAntilles\fR
+\fCTQLocale::NetherlandsAntilles\fR
 .TP
-\fCQLocale::NewCaledonia\fR
+\fCTQLocale::NewCaledonia\fR
 .TP
-\fCQLocale::NewZealand\fR
+\fCTQLocale::NewZealand\fR
 .TP
-\fCQLocale::Nicaragua\fR
+\fCTQLocale::Nicaragua\fR
 .TP
-\fCQLocale::Niger\fR
+\fCTQLocale::Niger\fR
 .TP
-\fCQLocale::Nigeria\fR
+\fCTQLocale::Nigeria\fR
 .TP
-\fCQLocale::Niue\fR
+\fCTQLocale::Niue\fR
 .TP
-\fCQLocale::NorfolkIsland\fR
+\fCTQLocale::NorfolkIsland\fR
 .TP
-\fCQLocale::NorthernMarianaIslands\fR
+\fCTQLocale::NorthernMarianaIslands\fR
 .TP
-\fCQLocale::Norway\fR
+\fCTQLocale::Norway\fR
 .TP
-\fCQLocale::Oman\fR
+\fCTQLocale::Oman\fR
 .TP
-\fCQLocale::Pakistan\fR
+\fCTQLocale::Pakistan\fR
 .TP
-\fCQLocale::Palau\fR
+\fCTQLocale::Palau\fR
 .TP
-\fCQLocale::PalestinianTerritory\fR
+\fCTQLocale::PalestinianTerritory\fR
 .TP
-\fCQLocale::Panama\fR
+\fCTQLocale::Panama\fR
 .TP
-\fCQLocale::PapuaNewGuinea\fR
+\fCTQLocale::PapuaNewGuinea\fR
 .TP
-\fCQLocale::Paraguay\fR
+\fCTQLocale::Paraguay\fR
 .TP
-\fCQLocale::Peru\fR
+\fCTQLocale::Peru\fR
 .TP
-\fCQLocale::Philippines\fR
+\fCTQLocale::Philippines\fR
 .TP
-\fCQLocale::Pitcairn\fR
+\fCTQLocale::Pitcairn\fR
 .TP
-\fCQLocale::Poland\fR
+\fCTQLocale::Poland\fR
 .TP
-\fCQLocale::Portugal\fR
+\fCTQLocale::Portugal\fR
 .TP
-\fCQLocale::PuertoRico\fR
+\fCTQLocale::PuertoRico\fR
 .TP
-\fCQLocale::Qatar\fR
+\fCTQLocale::Qatar\fR
 .TP
-\fCQLocale::Reunion\fR
+\fCTQLocale::Reunion\fR
 .TP
-\fCQLocale::Romania\fR
+\fCTQLocale::Romania\fR
 .TP
-\fCQLocale::RussianFederation\fR
+\fCTQLocale::RussianFederation\fR
 .TP
-\fCQLocale::Rwanda\fR
+\fCTQLocale::Rwanda\fR
 .TP
-\fCQLocale::SaintKittsAndNevis\fR
+\fCTQLocale::SaintKittsAndNevis\fR
 .TP
-\fCQLocale::StLucia\fR
+\fCTQLocale::StLucia\fR
 .TP
-\fCQLocale::StVincentAndTheGrenadines\fR
+\fCTQLocale::StVincentAndTheGrenadines\fR
 .TP
-\fCQLocale::Samoa\fR
+\fCTQLocale::Samoa\fR
 .TP
-\fCQLocale::SanMarino\fR
+\fCTQLocale::SanMarino\fR
 .TP
-\fCQLocale::SaoTomeAndPrincipe\fR
+\fCTQLocale::SaoTomeAndPrincipe\fR
 .TP
-\fCQLocale::SaudiArabia\fR
+\fCTQLocale::SaudiArabia\fR
 .TP
-\fCQLocale::Senegal\fR
+\fCTQLocale::Senegal\fR
 .TP
-\fCQLocale::Seychelles\fR
+\fCTQLocale::Seychelles\fR
 .TP
-\fCQLocale::SierraLeone\fR
+\fCTQLocale::SierraLeone\fR
 .TP
-\fCQLocale::Singapore\fR
+\fCTQLocale::Singapore\fR
 .TP
-\fCQLocale::Slovakia\fR
+\fCTQLocale::Slovakia\fR
 .TP
-\fCQLocale::Slovenia\fR
+\fCTQLocale::Slovenia\fR
 .TP
-\fCQLocale::SolomonIslands\fR
+\fCTQLocale::SolomonIslands\fR
 .TP
-\fCQLocale::Somalia\fR
+\fCTQLocale::Somalia\fR
 .TP
-\fCQLocale::SouthAfrica\fR
+\fCTQLocale::SouthAfrica\fR
 .TP
-\fCQLocale::SouthGeorgiaAndTheSouthSandwichIslands\fR
+\fCTQLocale::SouthGeorgiaAndTheSouthSandwichIslands\fR
 .TP
-\fCQLocale::Spain\fR
+\fCTQLocale::Spain\fR
 .TP
-\fCQLocale::SriLanka\fR
+\fCTQLocale::SriLanka\fR
 .TP
-\fCQLocale::StHelena\fR
+\fCTQLocale::StHelena\fR
 .TP
-\fCQLocale::StPierreAndMiquelon\fR
+\fCTQLocale::StPierreAndMiquelon\fR
 .TP
-\fCQLocale::Sudan\fR
+\fCTQLocale::Sudan\fR
 .TP
-\fCQLocale::Suriname\fR
+\fCTQLocale::Suriname\fR
 .TP
-\fCQLocale::SvalbardAndJanMayenIslands\fR
+\fCTQLocale::SvalbardAndJanMayenIslands\fR
 .TP
-\fCQLocale::Swaziland\fR
+\fCTQLocale::Swaziland\fR
 .TP
-\fCQLocale::Sweden\fR
+\fCTQLocale::Sweden\fR
 .TP
-\fCQLocale::Switzerland\fR
+\fCTQLocale::Switzerland\fR
 .TP
-\fCQLocale::SyrianArabRepublic\fR
+\fCTQLocale::SyrianArabRepublic\fR
 .TP
-\fCQLocale::Taiwan\fR
+\fCTQLocale::Taiwan\fR
 .TP
-\fCQLocale::Tajikistan\fR
+\fCTQLocale::Tajikistan\fR
 .TP
-\fCQLocale::Tanzania\fR
+\fCTQLocale::Tanzania\fR
 .TP
-\fCQLocale::Thailand\fR
+\fCTQLocale::Thailand\fR
 .TP
-\fCQLocale::Togo\fR
+\fCTQLocale::Togo\fR
 .TP
-\fCQLocale::Tokelau\fR
+\fCTQLocale::Tokelau\fR
 .TP
-\fCQLocale::TongaCountry\fR
+\fCTQLocale::TongaCountry\fR
 .TP
-\fCQLocale::TrinidadAndTobago\fR
+\fCTQLocale::TrinidadAndTobago\fR
 .TP
-\fCQLocale::Tunisia\fR
+\fCTQLocale::Tunisia\fR
 .TP
-\fCQLocale::Turkey\fR
+\fCTQLocale::Turkey\fR
 .TP
-\fCQLocale::Turkmenistan\fR
+\fCTQLocale::Turkmenistan\fR
 .TP
-\fCQLocale::TurksAndCaicosIslands\fR
+\fCTQLocale::TurksAndCaicosIslands\fR
 .TP
-\fCQLocale::Tuvalu\fR
+\fCTQLocale::Tuvalu\fR
 .TP
-\fCQLocale::Uganda\fR
+\fCTQLocale::Uganda\fR
 .TP
-\fCQLocale::Ukraine\fR
+\fCTQLocale::Ukraine\fR
 .TP
-\fCQLocale::UnitedArabEmirates\fR
+\fCTQLocale::UnitedArabEmirates\fR
 .TP
-\fCQLocale::UnitedKingdom\fR
+\fCTQLocale::UnitedKingdom\fR
 .TP
-\fCQLocale::UnitedStates\fR
+\fCTQLocale::UnitedStates\fR
 .TP
-\fCQLocale::UnitedStatesMinorOutlyingIslands\fR
+\fCTQLocale::UnitedStatesMinorOutlyingIslands\fR
 .TP
-\fCQLocale::Uruguay\fR
+\fCTQLocale::Uruguay\fR
 .TP
-\fCQLocale::Uzbekistan\fR
+\fCTQLocale::Uzbekistan\fR
 .TP
-\fCQLocale::Vanuatu\fR
+\fCTQLocale::Vanuatu\fR
 .TP
-\fCQLocale::VaticanCityState\fR
+\fCTQLocale::VaticanCityState\fR
 .TP
-\fCQLocale::Venezuela\fR
+\fCTQLocale::Venezuela\fR
 .TP
-\fCQLocale::VietNam\fR
+\fCTQLocale::VietNam\fR
 .TP
-\fCQLocale::BritishVirginIslands\fR
+\fCTQLocale::BritishVirginIslands\fR
 .TP
-\fCQLocale::USVirginIslands\fR
+\fCTQLocale::USVirginIslands\fR
 .TP
-\fCQLocale::WallisAndFutunaIslands\fR
+\fCTQLocale::WallisAndFutunaIslands\fR
 .TP
-\fCQLocale::WesternSahara\fR
+\fCTQLocale::WesternSahara\fR
 .TP
-\fCQLocale::Yemen\fR
+\fCTQLocale::Yemen\fR
 .TP
-\fCQLocale::Yugoslavia\fR
+\fCTQLocale::Yugoslavia\fR
 .TP
-\fCQLocale::Zambia\fR
+\fCTQLocale::Zambia\fR
 .TP
-\fCQLocale::Zimbabwe\fR
-.SH "QLocale::Language"
+\fCTQLocale::Zimbabwe\fR
+.SH "TQLocale::Language"
 This enumerated type is used to specify a language.
 .TP
-\fCQLocale::C\fR - Identical to English/UnitedStates
+\fCTQLocale::C\fR - Identical to English/UnitedStates
 .TP
-\fCQLocale::Abkhazian\fR
+\fCTQLocale::Abkhazian\fR
 .TP
-\fCQLocale::Afan\fR
+\fCTQLocale::Afan\fR
 .TP
-\fCQLocale::Afar\fR
+\fCTQLocale::Afar\fR
 .TP
-\fCQLocale::Afrikaans\fR
+\fCTQLocale::Afrikaans\fR
 .TP
-\fCQLocale::Albanian\fR
+\fCTQLocale::Albanian\fR
 .TP
-\fCQLocale::Amharic\fR
+\fCTQLocale::Amharic\fR
 .TP
-\fCQLocale::Arabic\fR
+\fCTQLocale::Arabic\fR
 .TP
-\fCQLocale::Armenian\fR
+\fCTQLocale::Armenian\fR
 .TP
-\fCQLocale::Assamese\fR
+\fCTQLocale::Assamese\fR
 .TP
-\fCQLocale::Aymara\fR
+\fCTQLocale::Aymara\fR
 .TP
-\fCQLocale::Azerbaijani\fR
+\fCTQLocale::Azerbaijani\fR
 .TP
-\fCQLocale::Bashkir\fR
+\fCTQLocale::Bashkir\fR
 .TP
-\fCQLocale::Basque\fR
+\fCTQLocale::Basque\fR
 .TP
-\fCQLocale::Bengali\fR
+\fCTQLocale::Bengali\fR
 .TP
-\fCQLocale::Bhutani\fR
+\fCTQLocale::Bhutani\fR
 .TP
-\fCQLocale::Bihari\fR
+\fCTQLocale::Bihari\fR
 .TP
-\fCQLocale::Bislama\fR
+\fCTQLocale::Bislama\fR
 .TP
-\fCQLocale::Breton\fR
+\fCTQLocale::Breton\fR
 .TP
-\fCQLocale::Bulgarian\fR
+\fCTQLocale::Bulgarian\fR
 .TP
-\fCQLocale::Burmese\fR
+\fCTQLocale::Burmese\fR
 .TP
-\fCQLocale::Byelorussian\fR
+\fCTQLocale::Byelorussian\fR
 .TP
-\fCQLocale::Cambodian\fR
+\fCTQLocale::Cambodian\fR
 .TP
-\fCQLocale::Catalan\fR
+\fCTQLocale::Catalan\fR
 .TP
-\fCQLocale::Chinese\fR
+\fCTQLocale::Chinese\fR
 .TP
-\fCQLocale::Corsican\fR
+\fCTQLocale::Corsican\fR
 .TP
-\fCQLocale::Croatian\fR
+\fCTQLocale::Croatian\fR
 .TP
-\fCQLocale::Czech\fR
+\fCTQLocale::Czech\fR
 .TP
-\fCQLocale::Danish\fR
+\fCTQLocale::Danish\fR
 .TP
-\fCQLocale::Dutch\fR
+\fCTQLocale::Dutch\fR
 .TP
-\fCQLocale::English\fR
+\fCTQLocale::English\fR
 .TP
-\fCQLocale::Esperanto\fR
+\fCTQLocale::Esperanto\fR
 .TP
-\fCQLocale::Estonian\fR
+\fCTQLocale::Estonian\fR
 .TP
-\fCQLocale::Faroese\fR
+\fCTQLocale::Faroese\fR
 .TP
-\fCQLocale::FijiLanguage\fR
+\fCTQLocale::FijiLanguage\fR
 .TP
-\fCQLocale::Finnish\fR
+\fCTQLocale::Finnish\fR
 .TP
-\fCQLocale::French\fR
+\fCTQLocale::French\fR
 .TP
-\fCQLocale::Frisian\fR
+\fCTQLocale::Frisian\fR
 .TP
-\fCQLocale::Gaelic\fR
+\fCTQLocale::Gaelic\fR
 .TP
-\fCQLocale::Galician\fR
+\fCTQLocale::Galician\fR
 .TP
-\fCQLocale::Georgian\fR
+\fCTQLocale::Georgian\fR
 .TP
-\fCQLocale::German\fR
+\fCTQLocale::German\fR
 .TP
-\fCQLocale::Greek\fR
+\fCTQLocale::Greek\fR
 .TP
-\fCQLocale::Greenlandic\fR
+\fCTQLocale::Greenlandic\fR
 .TP
-\fCQLocale::Guarani\fR
+\fCTQLocale::Guarani\fR
 .TP
-\fCQLocale::Gujarati\fR
+\fCTQLocale::Gujarati\fR
 .TP
-\fCQLocale::Hausa\fR
+\fCTQLocale::Hausa\fR
 .TP
-\fCQLocale::Hebrew\fR
+\fCTQLocale::Hebrew\fR
 .TP
-\fCQLocale::Hindi\fR
+\fCTQLocale::Hindi\fR
 .TP
-\fCQLocale::Hungarian\fR
+\fCTQLocale::Hungarian\fR
 .TP
-\fCQLocale::Icelandic\fR
+\fCTQLocale::Icelandic\fR
 .TP
-\fCQLocale::Indonesian\fR
+\fCTQLocale::Indonesian\fR
 .TP
-\fCQLocale::Interlingua\fR
+\fCTQLocale::Interlingua\fR
 .TP
-\fCQLocale::Interlingue\fR
+\fCTQLocale::Interlingue\fR
 .TP
-\fCQLocale::Inuktitut\fR
+\fCTQLocale::Inuktitut\fR
 .TP
-\fCQLocale::Inupiak\fR
+\fCTQLocale::Inupiak\fR
 .TP
-\fCQLocale::Irish\fR
+\fCTQLocale::Irish\fR
 .TP
-\fCQLocale::Italian\fR
+\fCTQLocale::Italian\fR
 .TP
-\fCQLocale::Japanese\fR
+\fCTQLocale::Japanese\fR
 .TP
-\fCQLocale::Javanese\fR
+\fCTQLocale::Javanese\fR
 .TP
-\fCQLocale::Kannada\fR
+\fCTQLocale::Kannada\fR
 .TP
-\fCQLocale::Kashmiri\fR
+\fCTQLocale::Kashmiri\fR
 .TP
-\fCQLocale::Kazakh\fR
+\fCTQLocale::Kazakh\fR
 .TP
-\fCQLocale::Kinyarwanda\fR
+\fCTQLocale::Kinyarwanda\fR
 .TP
-\fCQLocale::Kirghiz\fR
+\fCTQLocale::Kirghiz\fR
 .TP
-\fCQLocale::Korean\fR
+\fCTQLocale::Korean\fR
 .TP
-\fCQLocale::Kurdish\fR
+\fCTQLocale::Kurdish\fR
 .TP
-\fCQLocale::Kurundi\fR
+\fCTQLocale::Kurundi\fR
 .TP
-\fCQLocale::Laothian\fR
+\fCTQLocale::Laothian\fR
 .TP
-\fCQLocale::Latin\fR
+\fCTQLocale::Latin\fR
 .TP
-\fCQLocale::Latvian\fR
+\fCTQLocale::Latvian\fR
 .TP
-\fCQLocale::Lingala\fR
+\fCTQLocale::Lingala\fR
 .TP
-\fCQLocale::Lithuanian\fR
+\fCTQLocale::Lithuanian\fR
 .TP
-\fCQLocale::Macedonian\fR
+\fCTQLocale::Macedonian\fR
 .TP
-\fCQLocale::Malagasy\fR
+\fCTQLocale::Malagasy\fR
 .TP
-\fCQLocale::Malay\fR
+\fCTQLocale::Malay\fR
 .TP
-\fCQLocale::Malayalam\fR
+\fCTQLocale::Malayalam\fR
 .TP
-\fCQLocale::Maltese\fR
+\fCTQLocale::Maltese\fR
 .TP
-\fCQLocale::Maori\fR
+\fCTQLocale::Maori\fR
 .TP
-\fCQLocale::Marathi\fR
+\fCTQLocale::Marathi\fR
 .TP
-\fCQLocale::Moldavian\fR
+\fCTQLocale::Moldavian\fR
 .TP
-\fCQLocale::Mongolian\fR
+\fCTQLocale::Mongolian\fR
 .TP
-\fCQLocale::NauruLanguage\fR
+\fCTQLocale::NauruLanguage\fR
 .TP
-\fCQLocale::Nepali\fR
+\fCTQLocale::Nepali\fR
 .TP
-\fCQLocale::Norwegian\fR
+\fCTQLocale::Norwegian\fR
 .TP
-\fCQLocale::Occitan\fR
+\fCTQLocale::Occitan\fR
 .TP
-\fCQLocale::Oriya\fR
+\fCTQLocale::Oriya\fR
 .TP
-\fCQLocale::Pashto\fR
+\fCTQLocale::Pashto\fR
 .TP
-\fCQLocale::Persian\fR
+\fCTQLocale::Persian\fR
 .TP
-\fCQLocale::Polish\fR
+\fCTQLocale::Polish\fR
 .TP
-\fCQLocale::Portuguese\fR
+\fCTQLocale::Portuguese\fR
 .TP
-\fCQLocale::Punjabi\fR
+\fCTQLocale::Punjabi\fR
 .TP
-\fCQLocale::Quechua\fR
+\fCTQLocale::Quechua\fR
 .TP
-\fCQLocale::RhaetoRomance\fR
+\fCTQLocale::RhaetoRomance\fR
 .TP
-\fCQLocale::Romanian\fR
+\fCTQLocale::Romanian\fR
 .TP
-\fCQLocale::Russian\fR
+\fCTQLocale::Russian\fR
 .TP
-\fCQLocale::Samoan\fR
+\fCTQLocale::Samoan\fR
 .TP
-\fCQLocale::Sangho\fR
+\fCTQLocale::Sangho\fR
 .TP
-\fCQLocale::Sanskrit\fR
+\fCTQLocale::Sanskrit\fR
 .TP
-\fCQLocale::Serbian\fR
+\fCTQLocale::Serbian\fR
 .TP
-\fCQLocale::SerboCroatian\fR
+\fCTQLocale::SerboCroatian\fR
 .TP
-\fCQLocale::Sesotho\fR
+\fCTQLocale::Sesotho\fR
 .TP
-\fCQLocale::Setswana\fR
+\fCTQLocale::Setswana\fR
 .TP
-\fCQLocale::Shona\fR
+\fCTQLocale::Shona\fR
 .TP
-\fCQLocale::Sindhi\fR
+\fCTQLocale::Sindhi\fR
 .TP
-\fCQLocale::Singhalese\fR
+\fCTQLocale::Singhalese\fR
 .TP
-\fCQLocale::Siswati\fR
+\fCTQLocale::Siswati\fR
 .TP
-\fCQLocale::Slovak\fR
+\fCTQLocale::Slovak\fR
 .TP
-\fCQLocale::Slovenian\fR
+\fCTQLocale::Slovenian\fR
 .TP
-\fCQLocale::Somali\fR
+\fCTQLocale::Somali\fR
 .TP
-\fCQLocale::Spanish\fR
+\fCTQLocale::Spanish\fR
 .TP
-\fCQLocale::Sundanese\fR
+\fCTQLocale::Sundanese\fR
 .TP
-\fCQLocale::Swahili\fR
+\fCTQLocale::Swahili\fR
 .TP
-\fCQLocale::Swedish\fR
+\fCTQLocale::Swedish\fR
 .TP
-\fCQLocale::Tagalog\fR
+\fCTQLocale::Tagalog\fR
 .TP
-\fCQLocale::Tajik\fR
+\fCTQLocale::Tajik\fR
 .TP
-\fCQLocale::Tamil\fR
+\fCTQLocale::Tamil\fR
 .TP
-\fCQLocale::Tatar\fR
+\fCTQLocale::Tatar\fR
 .TP
-\fCQLocale::Telugu\fR
+\fCTQLocale::Telugu\fR
 .TP
-\fCQLocale::Thai\fR
+\fCTQLocale::Thai\fR
 .TP
-\fCQLocale::Tibetan\fR
+\fCTQLocale::Tibetan\fR
 .TP
-\fCQLocale::Tigrinya\fR
+\fCTQLocale::Tigrinya\fR
 .TP
-\fCQLocale::TongaLanguage\fR
+\fCTQLocale::TongaLanguage\fR
 .TP
-\fCQLocale::Tsonga\fR
+\fCTQLocale::Tsonga\fR
 .TP
-\fCQLocale::Turkish\fR
+\fCTQLocale::Turkish\fR
 .TP
-\fCQLocale::Turkmen\fR
+\fCTQLocale::Turkmen\fR
 .TP
-\fCQLocale::Twi\fR
+\fCTQLocale::Twi\fR
 .TP
-\fCQLocale::Uigur\fR
+\fCTQLocale::Uigur\fR
 .TP
-\fCQLocale::Ukrainian\fR
+\fCTQLocale::Ukrainian\fR
 .TP
-\fCQLocale::Urdu\fR
+\fCTQLocale::Urdu\fR
 .TP
-\fCQLocale::Uzbek\fR
+\fCTQLocale::Uzbek\fR
 .TP
-\fCQLocale::Vietnamese\fR
+\fCTQLocale::Vietnamese\fR
 .TP
-\fCQLocale::Volapuk\fR
+\fCTQLocale::Volapuk\fR
 .TP
-\fCQLocale::Welsh\fR
+\fCTQLocale::Welsh\fR
 .TP
-\fCQLocale::Wolof\fR
+\fCTQLocale::Wolof\fR
 .TP
-\fCQLocale::Xhosa\fR
+\fCTQLocale::Xhosa\fR
 .TP
-\fCQLocale::Yiddish\fR
+\fCTQLocale::Yiddish\fR
 .TP
-\fCQLocale::Yoruba\fR
+\fCTQLocale::Yoruba\fR
 .TP
-\fCQLocale::Zhuang\fR
+\fCTQLocale::Zhuang\fR
 .TP
-\fCQLocale::Zulu\fR
+\fCTQLocale::Zulu\fR
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QLocale::QLocale ()"
-Constructs a QLocale object initialized with the default locale.
+.SH "TQLocale::TQLocale ()"
+Constructs a TQLocale object initialized with the default locale.
 .PP
 See also setDefault().
-.SH "QLocale::QLocale ( const TQString & name )"
-Constructs a QLocale object with the specified \fIname\fR, which has the format" language[_country][.codeset][@modifier]" or "C", where:
+.SH "TQLocale::TQLocale ( const TQString & name )"
+Constructs a TQLocale object with the specified \fIname\fR, which has the format" language[_country][.codeset][@modifier]" or "C", where:
 .TP
 language is a lowercase, two-letter, ISO 639 language code,
 .TP
@@ -1014,58 +1014,58 @@ and codeset and modifier are ignored.
 .PP
 If the string violates the locale format, or language is not a valid ISO 369 code, the "C" locale is used instead. If country is not present, or is not a valid ISO 3166 code, the most appropriate country is chosen for the specified language.
 .PP
-The language and country codes are converted to their respective Language and Country enums. After this conversion is performed the constructor behaves exactly like QLocale(Country, Language).
+The language and country codes are converted to their respective Language and Country enums. After this conversion is performed the constructor behaves exactly like TQLocale(Country, Language).
 .PP
-This constructor is much slower than QLocale(Country, Language).
+This constructor is much slower than TQLocale(Country, Language).
 .PP
 See also name().
-.SH "QLocale::QLocale ( Language language, Country country = AnyCountry )"
-Constructs a QLocale object with the specified \fIlanguage\fR and \fIcountry\fR.
+.SH "TQLocale::TQLocale ( Language language, Country country = AnyCountry )"
+Constructs a TQLocale object with the specified \fIlanguage\fR and \fIcountry\fR.
 .TP
 If the language/country pair is found in the database, it is used.
 .TP
 If the language is found but the country is not, or if the country is AnyCountry, the language is used with the most appropriate available country (for example, Germany for German),
 .TP
-If neither the language nor the country are found, QLocale defaults to the default locale (see setDefault()).
+If neither the language nor the country are found, TQLocale defaults to the default locale (see setDefault()).
 .PP
 The language and country that are actually used can be queried using language() and country().
 .PP
 See also setDefault(), language(), and country().
-.SH "QLocale::QLocale ( const QLocale & other )"
-Constructs a QLocale object as a copy of \fIother\fR.
-.SH "QLocale QLocale::c ()\fC [static]\fR"
-Returns a QLocale object initialized to the "C" locale.
+.SH "TQLocale::TQLocale ( const TQLocale & other )"
+Constructs a TQLocale object as a copy of \fIother\fR.
+.SH "TQLocale TQLocale::c ()\fC [static]\fR"
+Returns a TQLocale object initialized to the "C" locale.
 .PP
 See also system().
-.SH "Country QLocale::country () const"
+.SH "Country TQLocale::country () const"
 Returns the country of this locale.
 .PP
-See also QLocale().
-.SH "TQString QLocale::countryToString ( Country country )\fC [static]\fR"
+See also TQLocale().
+.SH "TQString TQLocale::countryToString ( Country country )\fC [static]\fR"
 Returns a TQString containing the name of \fIcountry\fR.
-.SH "Language QLocale::language () const"
+.SH "Language TQLocale::language () const"
 Returns the language of this locale.
 .PP
-See also QLocale().
-.SH "TQString QLocale::languageToString ( Language language )\fC [static]\fR"
+See also TQLocale().
+.SH "TQString TQLocale::languageToString ( Language language )\fC [static]\fR"
 Returns a TQString containing the name of \fIlanguage\fR.
-.SH "TQString QLocale::name () const"
+.SH "TQString TQLocale::name () const"
 Returns the language and country of this locale as a string of the form "language_country", where language is a lowercase, two-letter ISO 639 language code, and country is an uppercase, two-letter ISO 3166 country code.
 .PP
-See also QLocale().
-.SH "QLocale & QLocale::operator= ( const QLocale & other )"
-Assigns \fIother\fR to this QLocale object and returns a reference to this QLocale object.
-.SH "void QLocale::setDefault ( const QLocale & locale )\fC [static]\fR"
+See also TQLocale().
+.SH "TQLocale & TQLocale::operator= ( const TQLocale & other )"
+Assigns \fIother\fR to this TQLocale object and returns a reference to this TQLocale object.
+.SH "void TQLocale::setDefault ( const TQLocale & locale )\fC [static]\fR"
 \fBWarning:\fR This function is \fInot\fR reentrant.</p>
 .PP
-Sets the global default locale to \fIlocale\fR. These values are used when a QLocale object is constructed with no arguments. If this function is not called, the system's locale is used.
+Sets the global default locale to \fIlocale\fR. These values are used when a TQLocale object is constructed with no arguments. If this function is not called, the system's locale is used.
 .PP
 \fBWarning:\fR In a multithreaded application, the default locale should be set at application startup, before any non-GUI threads are created.
 .PP
 See also system() and c().
-.SH "QLocale QLocale::system ()\fC [static]\fR"
-Returns a QLocale object initialized to the system locale.
-.SH "double QLocale::toDouble ( const TQString & s, bool * ok = 0 ) const"
+.SH "TQLocale TQLocale::system ()\fC [static]\fR"
+Returns a TQLocale object initialized to the system locale.
+.SH "double TQLocale::toDouble ( const TQString & s, bool * ok = 0 ) const"
 Returns the double represented by the localized string \fIs\fR, or 0.0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1079,7 +1079,7 @@ Unlike TQString::toDouble(), this function does not fall back to the "C" locale 
         double d;
 .br
 .br
-        QLocale c(QLocale::C);
+        TQLocale c(TQLocale::C);
 .br
         d = c.toDouble( "1234.56", &ok );  // ok == true, d == 1234.56
 .br
@@ -1088,7 +1088,7 @@ Unlike TQString::toDouble(), this function does not fall back to the "C" locale 
         d = c.toDouble( "1234,56", &ok );  // ok == false
 .br
 .br
-        QLocale german(QLocale::German);
+        TQLocale german(TQLocale::German);
 .br
         d = german.toDouble( "1234,56", &ok );  // ok == true, d == 1234.56
 .br
@@ -1106,7 +1106,7 @@ Notice that the last conversion returns 1234.0, because '.' is the thousands gro
 This function ignores leading and trailing whitespace.
 .PP
 See also toString() and TQString::toDouble().
-.SH "float QLocale::toFloat ( const TQString & s, bool * ok = 0 ) const"
+.SH "float TQLocale::toFloat ( const TQString & s, bool * ok = 0 ) const"
 Returns the float represented by the localized string \fIs\fR, or 0.0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1114,7 +1114,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "int QLocale::toInt ( const TQString & s, bool * ok = 0 ) const"
+.SH "int TQLocale::toInt ( const TQString & s, bool * ok = 0 ) const"
 Returns the int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1122,7 +1122,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQ_LONG QLocale::toLong ( const TQString & s, bool * ok = 0 ) const"
+.SH "TQ_LONG TQLocale::toLong ( const TQString & s, bool * ok = 0 ) const"
 Returns the long int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1130,7 +1130,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQ_LLONG QLocale::toLongLong ( const TQString & s, bool * ok = 0 ) const"
+.SH "TQ_LLONG TQLocale::toLongLong ( const TQString & s, bool * ok = 0 ) const"
 Returns the long long int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1138,7 +1138,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "short QLocale::toShort ( const TQString & s, bool * ok = 0 ) const"
+.SH "short TQLocale::toShort ( const TQString & s, bool * ok = 0 ) const"
 Returns the short int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1146,51 +1146,51 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQString QLocale::toString ( TQ_LLONG i ) const"
+.SH "TQString TQLocale::toString ( TQ_LLONG i ) const"
 Returns a localized string representation of \fIi\fR.
 .PP
 See also toLongLong().
-.SH "TQString QLocale::toString ( short i ) const"
+.SH "TQString TQLocale::toString ( short i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toShort().
-.SH "TQString QLocale::toString ( ushort i ) const"
+.SH "TQString TQLocale::toString ( ushort i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toUShort().
-.SH "TQString QLocale::toString ( int i ) const"
+.SH "TQString TQLocale::toString ( int i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toInt().
-.SH "TQString QLocale::toString ( uint i ) const"
+.SH "TQString TQLocale::toString ( uint i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toUInt().
-.SH "TQString QLocale::toString ( TQ_LONG i ) const"
+.SH "TQString TQLocale::toString ( TQ_LONG i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toLong().
-.SH "TQString QLocale::toString ( TQ_ULONG i ) const"
+.SH "TQString TQLocale::toString ( TQ_ULONG i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toULong().
-.SH "TQString QLocale::toString ( TQ_ULLONG i ) const"
+.SH "TQString TQLocale::toString ( TQ_ULLONG i ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 See also toULongLong().
-.SH "TQString QLocale::toString ( float i, char f = 'g', int prec = 6 ) const"
+.SH "TQString TQLocale::toString ( float i, char f = 'g', int prec = 6 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIf\fR and \fIprec\fR have the same meaning as in TQString::number(double, char, int).
 .PP
 See also toDouble().
-.SH "TQString QLocale::toString ( double i, char f = 'g', int prec = 6 ) const"
+.SH "TQString TQLocale::toString ( double i, char f = 'g', int prec = 6 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fIf\fR and \fIprec\fR have the same meaning as in TQString::number(double, char, int).
 .PP
 See also toDouble().
-.SH "uint QLocale::toUInt ( const TQString & s, bool * ok = 0 ) const"
+.SH "uint TQLocale::toUInt ( const TQString & s, bool * ok = 0 ) const"
 Returns the unsigned int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1198,7 +1198,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQ_ULONG QLocale::toULong ( const TQString & s, bool * ok = 0 ) const"
+.SH "TQ_ULONG TQLocale::toULong ( const TQString & s, bool * ok = 0 ) const"
 Returns the unsigned long int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1206,7 +1206,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "TQ_ULLONG QLocale::toULongLong ( const TQString & s, bool * ok = 0 ) const"
+.SH "TQ_ULLONG TQLocale::toULongLong ( const TQString & s, bool * ok = 0 ) const"
 Returns the unsigned long long int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1214,7 +1214,7 @@ If \fIok\fR is not 0, reports failure by setting *ok to false and success by set
 This function ignores leading and trailing whitespace.
 .PP
 See also toString().
-.SH "ushort QLocale::toUShort ( const TQString & s, bool * ok = 0 ) const"
+.SH "ushort TQLocale::toUShort ( const TQString & s, bool * ok = 0 ) const"
 Returns the unsigned short int represented by the localized string \fIs\fR, or 0 if the conversion failed.
 .PP
 If \fIok\fR is not 0, reports failure by setting *ok to false and success by setting *ok to true.
@@ -1224,7 +1224,7 @@ This function ignores leading and trailing whitespace.
 See also toString().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqlocale.html
+.BR http://doc.trolltech.com/tqlocale.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

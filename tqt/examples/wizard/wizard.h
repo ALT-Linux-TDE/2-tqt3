@@ -10,7 +10,7 @@
 #ifndef WIZARD_H
 #define WIZARD_H
 
-#include <ntqwizard.h>
+#include <tqwizard.h>
 
 class TQWidget;
 class TQHBox;

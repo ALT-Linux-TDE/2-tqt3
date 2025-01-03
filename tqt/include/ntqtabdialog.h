@@ -1,1 +1,0 @@
-../src/dialogs/ntqtabdialog.h

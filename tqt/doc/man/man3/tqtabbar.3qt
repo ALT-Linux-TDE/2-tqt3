@@ -1,5 +1,5 @@
 '\" t
-.TH QTabBar 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQTabBar 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QTabBar \- Tab bar, e.g. for use in tabbed dialogs
+TQTabBar \- Tab bar, e.g. for use in tabbed dialogs
 .SH SYNOPSIS
-\fC#include <ntqtabbar.h>\fR
+\fC#include <tqtabbar.h>\fR
 .PP
 Inherits TQWidget.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTabBar\fR ( TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQTabBar\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QTabBar\fR ()"
+.BI "\fB~TQTabBar\fR ()"
 .br
 .ti -1c
 .BI "enum \fBShape\fR { RoundedAbove, RoundedBelow, TriangularAbove, TriangularBelow }"
@@ -31,13 +31,13 @@ Inherits TQWidget.
 .BI "virtual void \fBsetShape\fR ( Shape )"
 .br
 .ti -1c
-.BI "virtual int \fBaddTab\fR ( QTab * newTab )"
+.BI "virtual int \fBaddTab\fR ( TQTab * newTab )"
 .br
 .ti -1c
-.BI "virtual int \fBinsertTab\fR ( QTab * newTab, int index = -1 )"
+.BI "virtual int \fBinsertTab\fR ( TQTab * newTab, int index = -1 )"
 .br
 .ti -1c
-.BI "virtual void \fBremoveTab\fR ( QTab * t )"
+.BI "virtual void \fBremoveTab\fR ( TQTab * t )"
 .br
 .ti -1c
 .BI "virtual void \fBsetTabEnabled\fR ( int id, bool enabled )"
@@ -52,10 +52,10 @@ Inherits TQWidget.
 .BI "int \fBkeyboardFocusTab\fR () const"
 .br
 .ti -1c
-.BI "QTab * \fBtab\fR ( int id ) const"
+.BI "TQTab * \fBtab\fR ( int id ) const"
 .br
 .ti -1c
-.BI "QTab * \fBtabAt\fR ( int index ) const"
+.BI "TQTab * \fBtabAt\fR ( int index ) const"
 .br
 .ti -1c
 .BI "int \fBindexOf\fR ( int id ) const"
@@ -67,7 +67,7 @@ Inherits TQWidget.
 .BI "virtual void \fBlayoutTabs\fR ()"
 .br
 .ti -1c
-.BI "virtual QTab * \fBselectTab\fR ( const QPoint & p ) const"
+.BI "virtual TQTab * \fBselectTab\fR ( const TQPoint & p ) const"
 .br
 .ti -1c
 .BI "void \fBremoveToolTip\fR ( int index )"
@@ -85,7 +85,7 @@ Inherits TQWidget.
 .BI "virtual void \fBsetCurrentTab\fR ( int )"
 .br
 .ti -1c
-.BI "virtual void \fBsetCurrentTab\fR ( QTab * tab )"
+.BI "virtual void \fBsetCurrentTab\fR ( TQTab * tab )"
 .br
 .in -1c
 .SS "Signals"
@@ -115,28 +115,28 @@ Inherits TQWidget.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBpaint\fR ( QPainter * p, QTab * t, bool selected ) const"
+.BI "virtual void \fBpaint\fR ( TQPainter * p, TQTab * t, bool selected ) const"
 .br
 .ti -1c
-.BI "virtual void \fBpaintLabel\fR ( QPainter * p, const QRect & br, QTab * t, bool has_focus ) const"
+.BI "virtual void \fBpaintLabel\fR ( TQPainter * p, const TQRect & br, TQTab * t, bool has_focus ) const"
 .br
 .ti -1c
-.BI "virtual void \fBpaintEvent\fR ( QPaintEvent * e )"
+.BI "virtual void \fBpaintEvent\fR ( TQPaintEvent * e )"
 .br
 .ti -1c
-.BI "QPtrList<QTab> * \fBtabList\fR ()"
+.BI "TQPtrList<TQTab> * \fBtabList\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QTabBar class provides a tab bar, e.g. for use in tabbed dialogs.
+The TQTabBar class provides a tab bar, e.g. for use in tabbed dialogs.
 .PP
-QTabBar is straightforward to use; it draws the tabs using one of the predefined shapes, and emits a signal when a tab is selected. It can be subclassed to tailor the look and feel. TQt also provides a ready-made QTabWidget and a QTabDialog.
+TQTabBar is straightforward to use; it draws the tabs using one of the predefined shapes, and emits a signal when a tab is selected. It can be subclassed to tailor the look and feel. TQt also provides a ready-made TQTabWidget and a TQTabDialog.
 .PP
 The choice of tab shape is a matter of taste, although tab dialogs (for preferences and similar) invariably use RoundedAbove; nobody uses TriangularAbove. Tab controls in windows other than dialogs almost always use either RoundedBelow or TriangularBelow. Many spreadsheets and other tab controls in which all the pages are essentially similar use TriangularBelow, whereas RoundedBelow is used mostly when the pages are different (e.g. a multi-page tool palette).
 .PP
-The most important part of QTabBar's API is the selected() signal. This is emitted whenever the selected page changes (even at startup, when the selected page changes from 'none'). There is also a slot, setCurrentTab(), which can be used to select a page programmatically.
+The most important part of TQTabBar's API is the selected() signal. This is emitted whenever the selected page changes (even at startup, when the selected page changes from 'none'). There is also a slot, setCurrentTab(), which can be used to select a page programmatically.
 .PP
-QTabBar creates automatic accelerator keys in the manner of QButton; e.g. if a tab's label is "&Graphics", Alt+G becomes an accelerator key for switching to that tab.
+TQTabBar creates automatic accelerator keys in the manner of TQButton; e.g. if a tab's label is "&Graphics", Alt+G becomes an accelerator key for switching to that tab.
 .PP
 The following virtual functions may need to be reimplemented:
 .TP
@@ -157,36 +157,36 @@ The index of the current tab is returned by currentTab(). The tab with a particu
 .PP
 See also Advanced Widgets.
 .SS "Member Type Documentation"
-.SH "QTabBar::Shape"
-This enum type lists the built-in shapes supported by QTabBar:
+.SH "TQTabBar::Shape"
+This enum type lists the built-in shapes supported by TQTabBar:
 .TP
-\fCQTabBar::RoundedAbove\fR - the normal rounded look above the pages
+\fCTQTabBar::RoundedAbove\fR - the normal rounded look above the pages
 .TP
-\fCQTabBar::RoundedBelow\fR - the normal rounded look below the pages
+\fCTQTabBar::RoundedBelow\fR - the normal rounded look below the pages
 .TP
-\fCQTabBar::TriangularAbove\fR - triangular tabs above the pages (very unusual; included for completeness)
+\fCTQTabBar::TriangularAbove\fR - triangular tabs above the pages (very unusual; included for completeness)
 .TP
-\fCQTabBar::TriangularBelow\fR - triangular tabs similar to those used in the Excel spreadsheet, for example
+\fCTQTabBar::TriangularBelow\fR - triangular tabs similar to those used in the Excel spreadsheet, for example
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTabBar::QTabBar ( TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQTabBar::TQTabBar ( TQWidget * parent = 0, const char * name = 0 )"
 Constructs a new, empty tab bar; the \fIparent\fR and \fIname\fR arguments are passed on to the TQWidget constructor.
-.SH "QTabBar::~QTabBar ()"
+.SH "TQTabBar::~TQTabBar ()"
 Destroys the tab control, freeing memory used.
-.SH "int QTabBar::addTab ( QTab * newTab )\fC [virtual]\fR"
+.SH "int TQTabBar::addTab ( TQTab * newTab )\fC [virtual]\fR"
 Adds the tab, \fInewTab\fR, to the tab control.
 .PP
 Sets \fInewTab\fR's id to a new id and places the tab just to the right of the existing tabs. If the tab's label contains an ampersand, the letter following the ampersand is used as an accelerator for the tab, e.g. if the label is "Bro&wse" then Alt+W becomes an accelerator which will move the focus to this tab. Returns the id.
 .PP
 See also insertTab().
-.SH "int QTabBar::count () const"
+.SH "int TQTabBar::count () const"
 Returns the number of tabs in the tab bar. See the "count" property for details.
-.SH "int QTabBar::currentTab () const"
+.SH "int TQTabBar::currentTab () const"
 Returns the id of the tab bar's visible tab. See the "currentTab" property for details.
-.SH "int QTabBar::indexOf ( int id ) const"
+.SH "int TQTabBar::indexOf ( int id ) const"
 Returns the position index of the tab with id \fIid\fR or -1 if no tab has this \fIid\fR.
 .PP
 See also tabAt().
-.SH "int QTabBar::insertTab ( QTab * newTab, int index = -1 )\fC [virtual]\fR"
+.SH "int TQTabBar::insertTab ( TQTab * newTab, int index = -1 )\fC [virtual]\fR"
 Inserts the tab, \fInewTab\fR, into the tab control.
 .PP
 If \fIindex\fR is not specified, the tab is simply appended. Otherwise it's inserted at the specified position.
@@ -194,72 +194,72 @@ If \fIindex\fR is not specified, the tab is simply appended. Otherwise it's inse
 Sets \fInewTab\fR's id to a new id. If the tab's label contains an ampersand, the letter following the ampersand is used as an accelerator for the tab, e.g. if the label is "Bro&wse" then Alt+W becomes an accelerator which will move the focus to this tab. Returns the id.
 .PP
 See also addTab().
-.SH "bool QTabBar::isTabEnabled ( int id ) const"
+.SH "bool TQTabBar::isTabEnabled ( int id ) const"
 Returns TRUE if the tab with id \fIid\fR exists and is enabled; otherwise returns FALSE.
 .PP
 See also setTabEnabled().
-.SH "int QTabBar::keyboardFocusTab () const"
+.SH "int TQTabBar::keyboardFocusTab () const"
 Returns the id of the tab that has the keyboard focus. See the "keyboardFocusTab" property for details.
-.SH "void QTabBar::layoutChanged ()\fC [signal]\fR"
-QTabBar emits the signal whenever the layout of the tab bar has been recalculated, for example when the contents of a tab change.
-.SH "void QTabBar::layoutTabs ()\fC [virtual]\fR"
+.SH "void TQTabBar::layoutChanged ()\fC [signal]\fR"
+TQTabBar emits the signal whenever the layout of the tab bar has been recalculated, for example when the contents of a tab change.
+.SH "void TQTabBar::layoutTabs ()\fC [virtual]\fR"
 Lays out all existing tabs according to their label and their iconset.
-.SH "void QTabBar::paint ( QPainter * p, QTab * t, bool selected ) const\fC [virtual protected]\fR"
+.SH "void TQTabBar::paint ( TQPainter * p, TQTab * t, bool selected ) const\fC [virtual protected]\fR"
 Paints the tab \fIt\fR using painter \fIp\fR. If and only if \fIselected\fR is TRUE, \fIt\fR is drawn currently selected.
 .PP
-This virtual function may be reimplemented to change the look of QTabBar. If you decide to reimplement it, you may also need to reimplement sizeHint().
-.SH "void QTabBar::paintEvent ( QPaintEvent * e )\fC [virtual protected]\fR"
+This virtual function may be reimplemented to change the look of TQTabBar. If you decide to reimplement it, you may also need to reimplement sizeHint().
+.SH "void TQTabBar::paintEvent ( TQPaintEvent * e )\fC [virtual protected]\fR"
 Repaints the tab row. All the painting is done by paint(); paintEvent() only decides which tabs need painting and in what order. The event is passed in \fIe\fR.
 .PP
 See also paint().
 .PP
 Reimplemented from TQWidget.
-.SH "void QTabBar::paintLabel ( QPainter * p, const QRect & br, QTab * t, bool has_focus ) const\fC [virtual protected]\fR"
+.SH "void TQTabBar::paintLabel ( TQPainter * p, const TQRect & br, TQTab * t, bool has_focus ) const\fC [virtual protected]\fR"
 Paints the label of tab \fIt\fR centered in rectangle \fIbr\fR using painter \fIp\fR. A focus indication is drawn if \fIhas_focus\fR is TRUE.
-.SH "void QTabBar::removeTab ( QTab * t )\fC [virtual]\fR"
+.SH "void TQTabBar::removeTab ( TQTab * t )\fC [virtual]\fR"
 Removes tab \fIt\fR from the tab control, and deletes the tab.
-.SH "void QTabBar::removeToolTip ( int index )"
+.SH "void TQTabBar::removeToolTip ( int index )"
 Removes the tool tip for the tab at index position \fIindex\fR.
-.SH "QTab * QTabBar::selectTab ( const QPoint & p ) const\fC [virtual]\fR"
+.SH "TQTab * TQTabBar::selectTab ( const TQPoint & p ) const\fC [virtual]\fR"
 This virtual function is called by the mouse event handlers to determine which tab is pressed. The default implementation returns a pointer to the tab whose bounding rectangle contains \fIp\fR, if exactly one tab's bounding rectangle contains \fIp\fR. Otherwise it returns 0.
 .PP
 See also mousePressEvent() and mouseReleaseEvent().
-.SH "void QTabBar::selected ( int id )\fC [signal]\fR"
-QTabBar emits this signal whenever any tab is selected, whether by the program or by the user. The argument \fIid\fR is the id of the tab as returned by addTab().
+.SH "void TQTabBar::selected ( int id )\fC [signal]\fR"
+TQTabBar emits this signal whenever any tab is selected, whether by the program or by the user. The argument \fIid\fR is the id of the tab as returned by addTab().
 .PP
 show() is guaranteed to emit this signal; you can display your page in a slot connected to this signal.
-.SH "void QTabBar::setCurrentTab ( int )\fC [virtual slot]\fR"
+.SH "void TQTabBar::setCurrentTab ( int )\fC [virtual slot]\fR"
 Sets the id of the tab bar's visible tab. See the "currentTab" property for details.
-.SH "void QTabBar::setCurrentTab ( QTab * tab )\fC [virtual slot]\fR"
+.SH "void TQTabBar::setCurrentTab ( TQTab * tab )\fC [virtual slot]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Raises \fItab\fR and emits the selected() signal unless the tab was already current.
 .PP
 See also currentTab and selected().
-.SH "void QTabBar::setShape ( Shape )\fC [virtual]\fR"
+.SH "void TQTabBar::setShape ( Shape )\fC [virtual]\fR"
 Sets the shape of the tabs in the tab bar. See the "shape" property for details.
-.SH "void QTabBar::setTabEnabled ( int id, bool enabled )\fC [virtual]\fR"
+.SH "void TQTabBar::setTabEnabled ( int id, bool enabled )\fC [virtual]\fR"
 Enables tab \fIid\fR if \fIenabled\fR is TRUE or disables it if \fIenabled\fR is FALSE. If \fIid\fR is currently selected, setTabEnabled(FALSE) makes another tab selected.
 .PP
 setTabEnabled() updates the display if this causes a change in \fIid\fR's status.
 .PP
 See also update() and isTabEnabled().
-.SH "void QTabBar::setToolTip ( int index, const TQString & tip )"
+.SH "void TQTabBar::setToolTip ( int index, const TQString & tip )"
 Sets the tool tip for the tab at index position \fIindex\fR to \fItip\fR.
-.SH "Shape QTabBar::shape () const"
+.SH "Shape TQTabBar::shape () const"
 Returns the shape of the tabs in the tab bar. See the "shape" property for details.
-.SH "QTab * QTabBar::tab ( int id ) const"
+.SH "TQTab * TQTabBar::tab ( int id ) const"
 Returns the tab with id \fIid\fR or 0 if there is no such tab.
 .PP
 See also count.
-.SH "QTab * QTabBar::tabAt ( int index ) const"
+.SH "TQTab * TQTabBar::tabAt ( int index ) const"
 Returns the tab at position \fIindex\fR.
 .PP
 See also indexOf().
-.SH "QPtrList<QTab> * QTabBar::tabList ()\fC [protected]\fR"
-The list of QTab objects in the tab bar.
+.SH "TQPtrList<TQTab> * TQTabBar::tabList ()\fC [protected]\fR"
+The list of TQTab objects in the tab bar.
 .PP
-This list is unlikely to be in the order that the QTab elements appear visually. One way of iterating over the tabs is like this:
+This list is unlikely to be in the order that the TQTab elements appear visually. One way of iterating over the tabs is like this:
 .PP
 .nf
 .br
@@ -272,7 +272,7 @@ This list is unlikely to be in the order that the QTab elements appear visually.
     }
 .br
 .fi
-.SH "TQString QTabBar::toolTip ( int index ) const"
+.SH "TQString TQTabBar::toolTip ( int index ) const"
 Returns the tool tip for the tab at index position \fIindex\fR.
 .SS "Property Documentation"
 .SH "int count"
@@ -307,7 +307,7 @@ See also Shape.
 Set this property's value with setShape() and get this property's value with shape().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqtabbar.html
+.BR http://doc.trolltech.com/tqtabbar.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

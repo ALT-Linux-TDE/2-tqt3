@@ -36,13 +36,13 @@
 #include "metadatabase.h"
 #include "mainwindow.h"
 
-#include <ntqlistview.h>
-#include <ntqtextedit.h>
-#include <ntqapplication.h>
-#include <ntqheader.h>
+#include <tqlistview.h>
+#include <tqtextedit.h>
+#include <tqapplication.h>
+#include <tqheader.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <ntqpainter.h>
+#include <tqpainter.h>
 
 static TQTextEdit *debugoutput = 0;
 TQ_EXPORT bool debugToStderr = FALSE;

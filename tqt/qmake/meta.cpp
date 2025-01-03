@@ -39,7 +39,7 @@
 #include "meta.h"
 #include "project.h"
 #include "option.h"
-#include <ntqdir.h>
+#include <tqdir.h>
 
 TQMap<TQString, TQMap<TQString, TQStringList> > TQMakeMetaInfo::cache_vars;
 

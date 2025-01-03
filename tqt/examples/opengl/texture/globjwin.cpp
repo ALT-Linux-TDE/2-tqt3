@@ -7,14 +7,14 @@
 **
 *****************************************************************************/
 
-#include <ntqpushbutton.h>
-#include <ntqslider.h>
-#include <ntqlayout.h>
-#include <ntqframe.h>
-#include <ntqmenubar.h>
-#include <ntqpopupmenu.h>
-#include <ntqapplication.h>
-#include <ntqkeycode.h>
+#include <tqpushbutton.h>
+#include <tqslider.h>
+#include <tqlayout.h>
+#include <tqframe.h>
+#include <tqmenubar.h>
+#include <tqpopupmenu.h>
+#include <tqapplication.h>
+#include <tqkeycode.h>
 #include "globjwin.h"
 #include "gltexobj.h"
 

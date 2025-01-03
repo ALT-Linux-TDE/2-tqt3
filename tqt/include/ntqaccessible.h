@@ -1,1 +1,0 @@
-../src/kernel/ntqaccessible.h

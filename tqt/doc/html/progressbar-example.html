@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/progressbar/progressbar.doc:5 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -49,25 +48,25 @@ This example shows how to use a progress bar.
 #ifndef PROGRESSBAR_H
 #define PROGRESSBAR_H
 
-#include &lt;<a href="qbuttongroup-h.html">ntqbuttongroup.h</a>&gt;
-#include &lt;<a href="qtimer-h.html">ntqtimer.h</a>&gt;
+#include &lt;<a href="tqbuttongroup-h.html">tqbuttongroup.h</a>&gt;
+#include &lt;<a href="tqtimer-h.html">tqtimer.h</a>&gt;
 
 class TQRadioButton;
 class TQPushButton;
 class TQProgressBar;
 
-class ProgressBar : public <a href="ntqbuttongroup.html">TQButtonGroup</a>
+class ProgressBar : public <a href="tqbuttongroup.html">TQButtonGroup</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 
 public:
-    ProgressBar( <a href="ntqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
+    ProgressBar( <a href="tqwidget.html">TQWidget</a> *parent = 0, const char *name = 0 );
 
 protected:
-    <a href="ntqradiobutton.html">TQRadioButton</a> *slow, *normal, *fast;
-    <a href="ntqpushbutton.html">TQPushButton</a> *start, *pause, *reset;
-    <a href="ntqprogressbar.html">TQProgressBar</a> *progress;
-    <a href="ntqtimer.html">TQTimer</a> timer;
+    <a href="tqradiobutton.html">TQRadioButton</a> *slow, *normal, *fast;
+    <a href="tqpushbutton.html">TQPushButton</a> *start, *pause, *reset;
+    <a href="tqprogressbar.html">TQProgressBar</a> *progress;
+    <a href="tqtimer.html">TQTimer</a> timer;
 
 protected slots:
     void slotStart();
@@ -93,12 +92,12 @@ protected slots:
 
 #include "progressbar.h"
 
-#include &lt;<a href="qradiobutton-h.html">ntqradiobutton.h</a>&gt;
-#include &lt;<a href="qpushbutton-h.html">ntqpushbutton.h</a>&gt;
-#include &lt;<a href="qprogressbar-h.html">ntqprogressbar.h</a>&gt;
-#include &lt;<a href="qlayout-h.html">ntqlayout.h</a>&gt;
+#include &lt;<a href="tqradiobutton-h.html">tqradiobutton.h</a>&gt;
+#include &lt;<a href="tqpushbutton-h.html">tqpushbutton.h</a>&gt;
+#include &lt;<a href="tqprogressbar-h.html">tqprogressbar.h</a>&gt;
+#include &lt;<a href="tqlayout-h.html">tqlayout.h</a>&gt;
 
-#include &lt;<a href="qmotifstyle-h.html">ntqmotifstyle.h</a>&gt;
+#include &lt;<a href="tqmotifstyle-h.html">tqmotifstyle.h</a>&gt;
 
 /*
  * Constructor
@@ -106,54 +105,54 @@ protected slots:
  * Creates child widgets of the ProgressBar widget
  */
 
-<a name="f346"></a>ProgressBar::ProgressBar( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-    : <a href="ntqbuttongroup.html">TQButtonGroup</a>( 0, Horizontal, "Progress Bar", parent, name ), timer()
+<a name="f346"></a>ProgressBar::ProgressBar( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+    : <a href="tqbuttongroup.html">TQButtonGroup</a>( 0, Horizontal, "Progress Bar", parent, name ), timer()
 {
-    <a href="ntqframe.html#setMargin">setMargin</a>( 10 );
+    <a href="tqframe.html#setMargin">setMargin</a>( 10 );
 
-    <a href="qgridlayout.html">TQGridLayout</a>* toplayout = new <a href="qgridlayout.html">TQGridLayout</a>( <a href="ntqwidget.html#layout">layout</a>(), 2, 2, 5);
+    <a href="tqgridlayout.html">TQGridLayout</a>* toplayout = new <a href="tqgridlayout.html">TQGridLayout</a>( <a href="tqwidget.html#layout">layout</a>(), 2, 2, 5);
 
-    <a href="ntqbuttongroup.html#setRadioButtonExclusive">setRadioButtonExclusive</a>( TRUE );
+    <a href="tqbuttongroup.html#setRadioButtonExclusive">setRadioButtonExclusive</a>( TRUE );
 
     // insert three radiobuttons which the user can use
     // to set the speed of the progress and two pushbuttons
     // to start/pause/continue and reset the progress
-    slow = new <a href="ntqradiobutton.html">TQRadioButton</a>( "S&amp;low", this );
-    normal = new <a href="ntqradiobutton.html">TQRadioButton</a>( "&amp;Normal", this );
-    fast = new <a href="ntqradiobutton.html">TQRadioButton</a>( "&amp;Fast", this );
-    <a href="qvboxlayout.html">TQVBoxLayout</a>* vb1 = new <a href="qvboxlayout.html">TQVBoxLayout</a>;
-<a name="x964"></a>    toplayout-&gt;<a href="qgridlayout.html#addLayout">addLayout</a>( vb1, 0, 0 );
-    vb1-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( slow );
-    vb1-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( normal );
-    vb1-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( fast );
+    slow = new <a href="tqradiobutton.html">TQRadioButton</a>( "S&amp;low", this );
+    normal = new <a href="tqradiobutton.html">TQRadioButton</a>( "&amp;Normal", this );
+    fast = new <a href="tqradiobutton.html">TQRadioButton</a>( "&amp;Fast", this );
+    <a href="tqvboxlayout.html">TQVBoxLayout</a>* vb1 = new <a href="tqvboxlayout.html">TQVBoxLayout</a>;
+<a name="x964"></a>    toplayout-&gt;<a href="tqgridlayout.html#addLayout">addLayout</a>( vb1, 0, 0 );
+    vb1-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( slow );
+    vb1-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( normal );
+    vb1-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( fast );
 
     // two push buttons, one for start, for for reset.
-    start = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Start", this );
-    reset = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Reset", this );
-    <a href="qvboxlayout.html">TQVBoxLayout</a>* vb2 = new <a href="qvboxlayout.html">TQVBoxLayout</a>;
-    toplayout-&gt;<a href="qgridlayout.html#addLayout">addLayout</a>( vb2, 0, 1 );
-    vb2-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( start );
-    vb2-&gt;<a href="qboxlayout.html#addWidget">addWidget</a>( reset );
+    start = new <a href="tqpushbutton.html">TQPushButton</a>( "&amp;Start", this );
+    reset = new <a href="tqpushbutton.html">TQPushButton</a>( "&amp;Reset", this );
+    <a href="tqvboxlayout.html">TQVBoxLayout</a>* vb2 = new <a href="tqvboxlayout.html">TQVBoxLayout</a>;
+    toplayout-&gt;<a href="tqgridlayout.html#addLayout">addLayout</a>( vb2, 0, 1 );
+    vb2-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( start );
+    vb2-&gt;<a href="tqboxlayout.html#addWidget">addWidget</a>( reset );
 
     // Create the progressbar
-    progress = new <a href="ntqprogressbar.html">TQProgressBar</a>( 100, this );
-<a name="x975"></a>    //    progress-&gt;<a href="ntqwidget.html#setStyle">setStyle</a>( new <a href="ntqmotifstyle.html">TQMotifStyle</a>() );
-<a name="x965"></a>    toplayout-&gt;<a href="qgridlayout.html#addMultiCellWidget">addMultiCellWidget</a>( progress, 1, 1, 0, 1 );
+    progress = new <a href="tqprogressbar.html">TQProgressBar</a>( 100, this );
+<a name="x975"></a>    //    progress-&gt;<a href="tqwidget.html#setStyle">setStyle</a>( new <a href="tqmotifstyle.html">TQMotifStyle</a>() );
+<a name="x965"></a>    toplayout-&gt;<a href="tqgridlayout.html#addMultiCellWidget">addMultiCellWidget</a>( progress, 1, 1, 0, 1 );
 
     // connect the clicked() SIGNALs of the pushbuttons to SLOTs
-<a name="x962"></a>    <a href="ntqobject.html#connect">connect</a>( start, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotStart() ) );
-    <a href="ntqobject.html#connect">connect</a>( reset, TQ_SIGNAL( <a href="ntqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotReset() ) );
+<a name="x962"></a>    <a href="tqobject.html#connect">connect</a>( start, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotStart() ) );
+    <a href="tqobject.html#connect">connect</a>( reset, TQ_SIGNAL( <a href="tqbutton.html#clicked">clicked</a>() ), this, TQ_SLOT( slotReset() ) );
 
     // connect the timeout() TQ_SIGNAL of the progress-timer to a TQ_SLOT
-    <a href="ntqobject.html#connect">connect</a>( &amp;timer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( slotTimeout() ) );
+    <a href="tqobject.html#connect">connect</a>( &amp;timer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( slotTimeout() ) );
 
     // Let's start with normal speed...
-<a name="x972"></a>    normal-&gt;<a href="ntqradiobutton.html#setChecked">setChecked</a>( TRUE );
+<a name="x972"></a>    normal-&gt;<a href="tqradiobutton.html#setChecked">setChecked</a>( TRUE );
 
 
     // some contraints
-<a name="x974"></a>    start-&gt;<a href="ntqwidget.html#setFixedWidth">setFixedWidth</a>( 80 );
-    <a href="ntqwidget.html#setMinimumWidth">setMinimumWidth</a>( 300 );
+<a name="x974"></a>    start-&gt;<a href="tqwidget.html#setFixedWidth">setFixedWidth</a>( 80 );
+    <a href="tqwidget.html#setMinimumWidth">setMinimumWidth</a>( 300 );
 }
 
 /*
@@ -166,20 +165,20 @@ protected slots:
 void <a name="f347"></a>ProgressBar::slotStart()
 {
     // If the progress bar is at the beginning...
-<a name="x966"></a>    if ( progress-&gt;<a href="ntqprogressbar.html#progress">progress</a>() == -1 ) {
+<a name="x966"></a>    if ( progress-&gt;<a href="tqprogressbar.html#progress">progress</a>() == -1 ) {
         // ...set according to the checked speed-radiobutton
         // the number of steps which are needed to complete the process
-<a name="x971"></a>        if ( slow-&gt;<a href="ntqradiobutton.html#isChecked">isChecked</a>() )
-<a name="x969"></a>            progress-&gt;<a href="ntqprogressbar.html#setTotalSteps">setTotalSteps</a>( 10000 );
-        else if ( normal-&gt;<a href="ntqradiobutton.html#isChecked">isChecked</a>() )
-            progress-&gt;<a href="ntqprogressbar.html#setTotalSteps">setTotalSteps</a>( 1000 );
+<a name="x971"></a>        if ( slow-&gt;<a href="tqradiobutton.html#isChecked">isChecked</a>() )
+<a name="x969"></a>            progress-&gt;<a href="tqprogressbar.html#setTotalSteps">setTotalSteps</a>( 10000 );
+        else if ( normal-&gt;<a href="tqradiobutton.html#isChecked">isChecked</a>() )
+            progress-&gt;<a href="tqprogressbar.html#setTotalSteps">setTotalSteps</a>( 1000 );
         else
-            progress-&gt;<a href="ntqprogressbar.html#setTotalSteps">setTotalSteps</a>( 50 );
+            progress-&gt;<a href="tqprogressbar.html#setTotalSteps">setTotalSteps</a>( 50 );
 
         // disable the speed-radiobuttons
-<a name="x973"></a>        slow-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-        normal-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
-        fast-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
+<a name="x973"></a>        slow-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+        normal-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
+        fast-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
     }
 
     // If the progress is not running...
@@ -187,12 +186,12 @@ void <a name="f347"></a>ProgressBar::slotStart()
         // ...start the timer (and so the progress) with a interval of 1 ms...
         timer.start( 1 );
         // ...and rename the start/pause/continue button to Pause
-<a name="x963"></a>        start-&gt;<a href="ntqbutton.html#setText">setText</a>( "&amp;Pause" );
+<a name="x963"></a>        start-&gt;<a href="tqbutton.html#setText">setText</a>( "&amp;Pause" );
     } else { // if the prgress is running...
         // ...stop the timer (and so the prgress)...
         timer.stop();
         // ...and rename the start/pause/continue button to Continue
-        start-&gt;<a href="ntqbutton.html#setText">setText</a>( "&amp;Continue" );
+        start-&gt;<a href="tqbutton.html#setText">setText</a>( "&amp;Continue" );
     }
 }
 
@@ -208,17 +207,17 @@ void <a name="f348"></a>ProgressBar::slotReset()
     timer.stop();
 
     // rename the start/pause/continue button to Start...
-    start-&gt;<a href="ntqbutton.html#setText">setText</a>( "&amp;Start" );
+    start-&gt;<a href="tqbutton.html#setText">setText</a>( "&amp;Start" );
     // ...and enable this button
-    start-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
+    start-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( TRUE );
 
     // enable the speed-radiobuttons
-    slow-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
-    normal-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
-    fast-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( TRUE );
+    slow-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( TRUE );
+    normal-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( TRUE );
+    fast-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( TRUE );
 
     // reset the progressbar
-<a name="x967"></a>    progress-&gt;<a href="ntqprogressbar.html#reset">reset</a>();
+<a name="x967"></a>    progress-&gt;<a href="tqprogressbar.html#reset">reset</a>();
 }
 
 /*
@@ -230,22 +229,22 @@ void <a name="f348"></a>ProgressBar::slotReset()
 
 void <a name="f349"></a>ProgressBar::slotTimeout()
 {
-    int p = progress-&gt;<a href="ntqprogressbar.html#progress">progress</a>();
+    int p = progress-&gt;<a href="tqprogressbar.html#progress">progress</a>();
 
 #if 1
     // If the progress is complete...
-<a name="x970"></a>    if ( p == progress-&gt;<a href="ntqprogressbar.html#totalSteps">totalSteps</a>() )  {
+<a name="x970"></a>    if ( p == progress-&gt;<a href="tqprogressbar.html#totalSteps">totalSteps</a>() )  {
         // ...rename the start/pause/continue button to Start...
-        start-&gt;<a href="ntqbutton.html#setText">setText</a>( "&amp;Start" );
+        start-&gt;<a href="tqbutton.html#setText">setText</a>( "&amp;Start" );
         // ...and disable it...
-        start-&gt;<a href="ntqwidget.html#setEnabled">setEnabled</a>( FALSE );
+        start-&gt;<a href="tqwidget.html#setEnabled">setEnabled</a>( FALSE );
         // ...and return
         return;
     }
 #endif
 
     // If the process is not complete increase it
-<a name="x968"></a>    progress-&gt;<a href="ntqprogressbar.html#setProgress">setProgress</a>( ++p );
+<a name="x968"></a>    progress-&gt;<a href="tqprogressbar.html#setProgress">setProgress</a>( ++p );
 }
 </pre>
 
@@ -262,18 +261,18 @@ void <a name="f349"></a>ProgressBar::slotTimeout()
 *****************************************************************************/
 
 #include "progressbar.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 int main(int argc,char **argv)
 {
-    <a href="ntqapplication.html">TQApplication</a> a(argc,argv);
+    <a href="tqapplication.html">TQApplication</a> a(argc,argv);
 
     ProgressBar progressbar;
-    progressbar.<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - ProgressBar");
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>(&amp;progressbar);
-    progressbar.<a href="ntqwidget.html#show">show</a>();
+    progressbar.<a href="tqwidget.html#setCaption">setCaption</a>("TQt Example - ProgressBar");
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>(&amp;progressbar);
+    progressbar.<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

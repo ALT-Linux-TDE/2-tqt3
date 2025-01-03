@@ -4,9 +4,9 @@
 **
 ****************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqpushbutton.h>
-#include <ntqtranslator.h>
+#include <tqapplication.h>
+#include <tqpushbutton.h>
+#include <tqtranslator.h>
 
 
 int main( int argc, char **argv )

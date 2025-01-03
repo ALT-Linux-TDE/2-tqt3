@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:2024 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,17 +40,17 @@ body { background: #ffffff; color: black; }
 #ifndef LCDRANGE_H
 #define LCDRANGE_H
 
-#include &lt;<a href="qwidget-h.html">ntqwidget.h</a>&gt;
+#include &lt;<a href="tqwidget-h.html">tqwidget.h</a>&gt;
 
 class TQSlider;
 class TQLabel;
 
 
-class LCDRange : public <a href="ntqwidget.html">TQWidget</a>
+class LCDRange : public <a href="tqwidget.html">TQWidget</a>
 {
     TQ_OBJECT
 public:
-    LCDRange( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+    LCDRange( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
     LCDRange( const char *s, TQWidget *parent=0, const char *name=0 );
 
     int         value() const;
@@ -68,8 +67,8 @@ signals:
 private:
     void init();
 
-    <a href="ntqslider.html">TQSlider</a>     *slider;
-    <a href="ntqlabel.html">TQLabel</a>      *label;
+    <a href="tqslider.html">TQSlider</a>     *slider;
+    <a href="tqlabel.html">TQLabel</a>      *label;
 };
 
 

@@ -2,20 +2,20 @@
 #include "wrapper.h"
 #include "../textdrawing/textedit.h"
 
-#include <ntqaction.h>
-#include <ntqlayout.h>
-#include <ntqvbox.h>
-#include <ntqworkspace.h>
-#include <ntqpopupmenu.h>
-#include <ntqmenubar.h>
-#include <ntqtoolbar.h>
-#include <ntqtoolbutton.h>
-#include <ntqpixmap.h>
-#include <ntqiconset.h>
-#include <ntqapplication.h>
-#include <ntqwidgetlist.h>
-#include <ntqlabel.h>
-#include <ntqtextedit.h>
+#include <tqaction.h>
+#include <tqlayout.h>
+#include <tqvbox.h>
+#include <tqworkspace.h>
+#include <tqpopupmenu.h>
+#include <tqmenubar.h>
+#include <tqtoolbar.h>
+#include <tqtoolbutton.h>
+#include <tqpixmap.h>
+#include <tqiconset.h>
+#include <tqapplication.h>
+#include <tqwidgetlist.h>
+#include <tqlabel.h>
+#include <tqtextedit.h>
 
 
 static int windowIdNumber = 5000;

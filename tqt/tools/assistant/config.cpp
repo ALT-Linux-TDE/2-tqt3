@@ -35,12 +35,12 @@
 #include "profile.h"
 #include "docuparser.h"
 
-#include <ntqapplication.h>
-#include <ntqdir.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqsettings.h>
-#include <ntqxml.h>
+#include <tqapplication.h>
+#include <tqdir.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqsettings.h>
+#include <tqxml.h>
 
 static Config *static_configuration = 0;
 

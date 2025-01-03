@@ -10,7 +10,7 @@
 #ifndef LIFE_H
 #define LIFE_H
 
-#include <ntqframe.h>
+#include <tqframe.h>
 
 
 class LifeWidget : public TQFrame

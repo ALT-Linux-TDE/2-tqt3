@@ -1,5 +1,5 @@
 '\" t
-.TH QMutex 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMutex 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QMutex \- Access serialization between threads
+TQMutex \- Access serialization between threads
 .SH SYNOPSIS
 All the functions in this class are thread-safe when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqmutex.h>\fR
+\fC#include <tqmutex.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQMutex\fR ( bool recursive = FALSE )"
+.BI "\fBTQMutex\fR ( bool recursive = FALSE )"
 .br
 .ti -1c
-.BI "virtual \fB~QMutex\fR ()"
+.BI "virtual \fB~TQMutex\fR ()"
 .br
 .ti -1c
 .BI "void \fBlock\fR ()"
@@ -35,9 +35,9 @@ All the functions in this class are thread-safe when TQt is built with thread su
 .br
 .in -1c
 .SH DESCRIPTION
-The QMutex class provides access serialization between threads.
+The TQMutex class provides access serialization between threads.
 .PP
-The purpose of a QMutex is to protect an object, data structure or section of code so that only one thread can access it at a time (This is similar to the Java \fCsynchronized\fR keyword). For example, say there is a method which prints a message to the user on two lines:
+The purpose of a TQMutex is to protect an object, data structure or section of code so that only one thread can access it at a time (This is similar to the Java \fCsynchronized\fR keyword). For example, say there is a method which prints a message to the user on two lines:
 .PP
 .nf
 .br
@@ -118,7 +118,7 @@ If we add a mutex, we should get the result we want:
 .PP
 .nf
 .br
-    QMutex mutex;
+    TQMutex mutex;
 .br
     int number = 6;
 .br
@@ -160,35 +160,35 @@ When you call lock() in a thread, other threads that try to call lock() in the s
 .PP
 See also Environment Classes and Threading.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMutex::QMutex ( bool recursive = FALSE )"
+.SH "TQMutex::TQMutex ( bool recursive = FALSE )"
 Constructs a new mutex. The mutex is created in an unlocked state. A recursive mutex is created if \fIrecursive\fR is TRUE; a normal mutex is created if \fIrecursive\fR is FALSE (the default). With a recursive mutex, a thread can lock the same mutex multiple times and it will not be unlocked until a corresponding number of unlock() calls have been made.
-.SH "QMutex::~QMutex ()\fC [virtual]\fR"
+.SH "TQMutex::~TQMutex ()\fC [virtual]\fR"
 Destroys the mutex.
 .PP
 \fBWarning:\fR If you destroy a mutex that still holds a lock the resultant behavior is undefined.
-.SH "void QMutex::lock ()"
+.SH "void TQMutex::lock ()"
 Attempt to lock the mutex. If another thread has locked the mutex then this call will \fIblock\fR until that thread has unlocked it.
 .PP
 See also unlock() and locked().
-.SH "bool QMutex::locked ()"
+.SH "bool TQMutex::locked ()"
 Returns TRUE if the mutex is locked by another thread; otherwise returns FALSE.
 .PP
 \fBWarning:\fR Due to differing implementations of recursive mutexes on various platforms, calling this function from the same thread that previously locked the mutex will return undefined results.
 .PP
 See also lock() and unlock().
-.SH "bool QMutex::tryLock ()"
+.SH "bool TQMutex::tryLock ()"
 Attempt to lock the mutex. If the lock was obtained, this function returns TRUE. If another thread has locked the mutex, this function returns FALSE, instead of waiting for the mutex to become available, i.e. it does not block.
 .PP
 If the lock was obtained, the mutex must be unlocked with unlock() before another thread can successfully lock it.
 .PP
 See also lock(), unlock(), and locked().
-.SH "void QMutex::unlock ()"
+.SH "void TQMutex::unlock ()"
 Unlocks the mutex. Attempting to unlock a mutex in a different thread to the one that locked it results in an error. Unlocking a mutex that is not locked results in undefined behaviour (varies between different Operating Systems' thread implementations).
 .PP
 See also lock() and locked().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqmutex.html
+.BR http://doc.trolltech.com/tqmutex.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

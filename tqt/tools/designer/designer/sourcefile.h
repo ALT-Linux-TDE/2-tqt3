@@ -34,7 +34,7 @@
 #ifndef SOURCEFILE_H
 #define SOURCEFILE_H
 
-#include <ntqobject.h>
+#include <tqobject.h>
 #include "timestamp.h"
 
 struct DesignerSourceFile;

@@ -1,9 +1,9 @@
 #ifndef CATEGORYINTERFACE_H
 #define CATEGORYINTERFACE_H
 
-#include <ntqstring.h>
-#include <ntqiconset.h>
-#include <ntqobject.h>
+#include <tqstring.h>
+#include <tqiconset.h>
+#include <tqobject.h>
 
 class TQWidgetStack;
 

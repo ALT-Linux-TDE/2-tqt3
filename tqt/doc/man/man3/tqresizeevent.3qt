@@ -1,5 +1,5 @@
 '\" t
-.TH QResizeEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQResizeEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,26 +7,26 @@
 .ad l
 .nh
 .SH NAME
-QResizeEvent \- Event parameters for resize events
+TQResizeEvent \- Event parameters for resize events
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQResizeEvent\fR ( const QSize & size, const QSize & oldSize )"
+.BI "\fBTQResizeEvent\fR ( const TQSize & size, const TQSize & oldSize )"
 .br
 .ti -1c
-.BI "const QSize & \fBsize\fR () const"
+.BI "const TQSize & \fBsize\fR () const"
 .br
 .ti -1c
-.BI "const QSize & \fBoldSize\fR () const"
+.BI "const TQSize & \fBoldSize\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QResizeEvent class contains event parameters for resize events.
+The TQResizeEvent class contains event parameters for resize events.
 .PP
 Resize events are sent to widgets that have been resized.
 .PP
@@ -34,18 +34,18 @@ The event handler TQWidget::resizeEvent() receives resize events.
 .PP
 See also TQWidget::size, TQWidget::geometry, and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QResizeEvent::QResizeEvent ( const QSize & size, const QSize & oldSize )"
+.SH "TQResizeEvent::TQResizeEvent ( const TQSize & size, const TQSize & oldSize )"
 Constructs a resize event with the new and old widget sizes, \fIsize\fR and \fIoldSize\fR respectively.
-.SH "const QSize & QResizeEvent::oldSize () const"
+.SH "const TQSize & TQResizeEvent::oldSize () const"
 Returns the old size of the widget.
-.SH "const QSize & QResizeEvent::size () const"
+.SH "const TQSize & TQResizeEvent::size () const"
 Returns the new size of the widget, which is the same as TQWidget::size().
 .PP
 Examples:
 .)l chart/canvasview.cpp and life/life.cpp.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qresizeevent.html
+.BR http://doc.trolltech.com/tqresizeevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -11,30 +11,30 @@ TQString \- Abstraction of Unicode text and the classic C '&#92;0'-terminated ch
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqstring.h>\fR
+\fC#include <tqstring.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQString\fR ()"
+.BI "\fBTQString\fR ()"
 .br
 .ti -1c
-.BI "\fBQString\fR ( TQChar ch )"
+.BI "\fBTQString\fR ( TQChar ch )"
 .br
 .ti -1c
-.BI "\fBQString\fR ( const TQString & s )"
+.BI "\fBTQString\fR ( const TQString & s )"
 .br
 .ti -1c
-.BI "\fBQString\fR ( const QByteArray & ba )"
+.BI "\fBTQString\fR ( const TQByteArray & ba )"
 .br
 .ti -1c
-.BI "\fBQString\fR ( const TQChar * unicode, uint length )"
+.BI "\fBTQString\fR ( const TQChar * unicode, uint length )"
 .br
 .ti -1c
-.BI "\fBQString\fR ( const char * str )"
+.BI "\fBTQString\fR ( const char * str )"
 .br
 .ti -1c
-.BI "\fBQString\fR ( const std::string & str )"
+.BI "\fBTQString\fR ( const std::string & str )"
 .br
 .ti -1c
 .BI "\fB~TQString\fR ()"
@@ -49,7 +49,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString & \fBoperator=\fR ( const std::string & s )"
 .br
 .ti -1c
-.BI "TQString & \fBoperator=\fR ( const QCString & cstr )"
+.BI "TQString & \fBoperator=\fR ( const TQCString & cstr )"
 .br
 .ti -1c
 .BI "TQString & \fBoperator=\fR ( TQChar c )"
@@ -133,7 +133,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "int \fBfind\fR ( const TQString & str, int index = 0, bool cs = TRUE ) const"
 .br
 .ti -1c
-.BI "int \fBfind\fR ( const QRegExp & rx, int index = 0 ) const"
+.BI "int \fBfind\fR ( const TQRegExp & rx, int index = 0 ) const"
 .br
 .ti -1c
 .BI "int \fBfind\fR ( const char * str, int index = 0 ) const"
@@ -148,7 +148,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "int \fBfindRev\fR ( const TQString & str, int index = -1, bool cs = TRUE ) const"
 .br
 .ti -1c
-.BI "int \fBfindRev\fR ( const QRegExp & rx, int index = -1 ) const"
+.BI "int \fBfindRev\fR ( const TQRegExp & rx, int index = -1 ) const"
 .br
 .ti -1c
 .BI "int \fBfindRev\fR ( const char * str, int index = -1 ) const"
@@ -166,7 +166,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "int \fBcontains\fR ( const TQString & str, bool cs = TRUE ) const"
 .br
 .ti -1c
-.BI "int \fBcontains\fR ( const QRegExp & rx ) const"
+.BI "int \fBcontains\fR ( const TQRegExp & rx ) const"
 .br
 .ti -1c
 .BI "enum \fBSectionFlags\fR { SectionDefault = 0x00, SectionSkipEmpty = 0x01, SectionIncludeLeadingSep = 0x02, SectionIncludeTrailingSep = 0x04, SectionCaseInsensitiveSeps = 0x08 }"
@@ -184,7 +184,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString \fBsection\fR ( const TQString & sep, int start, int end = 0xffffffff, int flags = SectionDefault ) const"
 .br
 .ti -1c
-.BI "TQString \fBsection\fR ( const QRegExp & reg, int start, int end = 0xffffffff, int flags = SectionDefault ) const"
+.BI "TQString \fBsection\fR ( const TQRegExp & reg, int start, int end = 0xffffffff, int flags = SectionDefault ) const"
 .br
 .ti -1c
 .BI "TQString \fBleft\fR ( uint len ) const"
@@ -217,7 +217,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString & \fBinsert\fR ( uint index, const TQString & s )"
 .br
 .ti -1c
-.BI "TQString & \fBinsert\fR ( uint index, const QByteArray & s )"
+.BI "TQString & \fBinsert\fR ( uint index, const TQByteArray & s )"
 .br
 .ti -1c
 .BI "TQString & \fBinsert\fR ( uint index, const char * s )"
@@ -241,7 +241,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString & \fBappend\fR ( const TQString & str )"
 .br
 .ti -1c
-.BI "TQString & \fBappend\fR ( const QByteArray & str )"
+.BI "TQString & \fBappend\fR ( const TQByteArray & str )"
 .br
 .ti -1c
 .BI "TQString & \fBappend\fR ( const char * str )"
@@ -259,7 +259,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString & \fBprepend\fR ( const TQString & s )"
 .br
 .ti -1c
-.BI "TQString & \fBprepend\fR ( const QByteArray & s )"
+.BI "TQString & \fBprepend\fR ( const TQByteArray & s )"
 .br
 .ti -1c
 .BI "TQString & \fBprepend\fR ( const char * s )"
@@ -283,7 +283,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString & \fBremove\fR ( const char * str )"
 .br
 .ti -1c
-.BI "TQString & \fBremove\fR ( const QRegExp & rx )"
+.BI "TQString & \fBremove\fR ( const TQRegExp & rx )"
 .br
 .ti -1c
 .BI "TQString & \fBreplace\fR ( uint index, uint len, const TQString & s )"
@@ -307,7 +307,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString & \fBreplace\fR ( const TQString & before, const TQString & after, bool cs = TRUE )"
 .br
 .ti -1c
-.BI "TQString & \fBreplace\fR ( const QRegExp & rx, const TQString & after )"
+.BI "TQString & \fBreplace\fR ( const TQRegExp & rx, const TQString & after )"
 .br
 .ti -1c
 .BI "TQString & \fBreplace\fR ( TQChar c1, TQChar c2 )"
@@ -379,7 +379,7 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQString & \fBoperator+=\fR ( const TQString & str )"
 .br
 .ti -1c
-.BI "TQString & \fBoperator+=\fR ( const QByteArray & str )"
+.BI "TQString & \fBoperator+=\fR ( const TQByteArray & str )"
 .br
 .ti -1c
 .BI "TQString & \fBoperator+=\fR ( const char * str )"
@@ -400,10 +400,10 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "TQChar \fBoperator[]\fR ( int i ) const"
 .br
 .ti -1c
-.BI "QCharRef \fBat\fR ( uint i )"
+.BI "TQCharRef \fBat\fR ( uint i )"
 .br
 .ti -1c
-.BI "QCharRef \fBoperator[]\fR ( int i )"
+.BI "TQCharRef \fBoperator[]\fR ( int i )"
 .br
 .ti -1c
 .BI "TQChar \fBconstref\fR ( uint i ) const"
@@ -421,10 +421,10 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "const char * \fBlatin1\fR () const"
 .br
 .ti -1c
-.BI "QCString \fButf8\fR () const"
+.BI "TQCString \fButf8\fR () const"
 .br
 .ti -1c
-.BI "QCString \fBlocal8Bit\fR () const"
+.BI "TQCString \fBlocal8Bit\fR () const"
 .br
 .ti -1c
 .BI "bool \fBoperator!\fR () const"
@@ -586,10 +586,10 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .BI "const TQString \fBoperator+\fR ( char c, const TQString & s )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const TQString & str )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQString & str )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, TQString & str )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQString & str )"
 .br
 .in -1c
 .SH DESCRIPTION
@@ -599,15 +599,15 @@ TQString uses implicit sharing, which makes it very efficient and easy to use.
 .PP
 In all of the TQString methods that take \fCconst char *\fR parameters, the \fCconst char *\fR is interpreted as a classic C-style '&#92;0'-terminated ASCII string. It is legal for the \fCconst char *\fR parameter to be 0. If the \fCconst char *\fR is not '&#92;0'-terminated, the results are undefined. Functions that copy classic C strings into a TQString will not copy the terminating '&#92;0' character. The TQChar array of the TQString (as returned by unicode()) is generally not terminated by a '&#92;0'. If you need to pass a TQString to a function that requires a C '&#92;0'-terminated string use latin1().
 .PP
-A TQString that has not been assigned to anything is \fInull\fR, i.e. both the length and data pointer is 0. A TQString that references the empty string ("", a single '&#92;0' char) is \fIempty\fR. Both null and empty QStrings are legal parameters to the methods. Assigning \fC(const char *) 0\fR to TQString gives a null TQString. For convenience, TQString::null is a null TQString. When sorting, empty strings come first, followed by non-empty strings, followed by null strings. We recommend using \fCif ( !str.isNull() )\fR to check for a non-null string rather than \fCif ( !str )\fR; see operator!() for an explanation.
+A TQString that has not been assigned to anything is \fInull\fR, i.e. both the length and data pointer is 0. A TQString that references the empty string ("", a single '&#92;0' char) is \fIempty\fR. Both null and empty TQStrings are legal parameters to the methods. Assigning \fC(const char *) 0\fR to TQString gives a null TQString. For convenience, TQString::null is a null TQString. When sorting, empty strings come first, followed by non-empty strings, followed by null strings. We recommend using \fCif ( !str.isNull() )\fR to check for a non-null string rather than \fCif ( !str )\fR; see operator!() for an explanation.
 .PP
-Note that if you find that you are mixing usage of QCString, TQString, and QByteArray, this causes lots of unnecessary copying and might indicate that the true nature of the data you are dealing with is uncertain. If the data is '&#92;0'-terminated 8-bit data, use QCString; if it is unterminated (i.e. contains '&#92;0's) 8-bit data, use QByteArray; if it is text, use TQString.
+Note that if you find that you are mixing usage of TQCString, TQString, and TQByteArray, this causes lots of unnecessary copying and might indicate that the true nature of the data you are dealing with is uncertain. If the data is '&#92;0'-terminated 8-bit data, use TQCString; if it is unterminated (i.e. contains '&#92;0's) 8-bit data, use TQByteArray; if it is text, use TQString.
 .PP
-Lists of strings are handled by the QStringList class. You can split a string into a list of strings using QStringList::split(), and join a list of strings into a single string with an optional separator using QStringList::join(). You can obtain a list of strings from a string list that contain a particular substring or that match a particular regex using QStringList::grep().
+Lists of strings are handled by the TQStringList class. You can split a string into a list of strings using TQStringList::split(), and join a list of strings into a single string with an optional separator using TQStringList::join(). You can obtain a list of strings from a string list that contain a particular substring or that match a particular regex using TQStringList::grep().
 .PP
 \fBNote for C programmers\fR
 .PP
-Due to C++'s type system and the fact that TQString is implicitly shared, QStrings can be treated like ints or other simple base types. For example:
+Due to C++'s type system and the fact that TQString is implicitly shared, TQStrings can be treated like ints or other simple base types. For example:
 .PP
 .nf
 .br
@@ -653,21 +653,21 @@ Throughout Qt's source code you will encounter TQString usages like this:
 .PP
 The 'copying' of input to output is almost as fast as copying a pointer because behind the scenes copying is achieved by incrementing a reference count. TQString (like all Qt's implicitly shared classes) operates on a copy-on-write basis, only copying if an instance is actually changed.
 .PP
-If you wish to create a deep copy of a TQString without losing any Unicode information then you should use QDeepCopy.
+If you wish to create a deep copy of a TQString without losing any Unicode information then you should use TQDeepCopy.
 .PP
-See also TQChar, QCString, QByteArray, QConstString, Implicitly and Explicitly Shared Classes, Text Related Classes, and Non-GUI Classes.
+See also TQChar, TQCString, TQByteArray, TQConstString, Implicitly and Explicitly Shared Classes, Text Related Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
 .SH "TQString::SectionFlags"
 .TP
-\fCQString::SectionDefault\fR - Empty fields are counted, leading and trailing separators are not included, and the separator is compared case sensitively.
+\fCTQString::SectionDefault\fR - Empty fields are counted, leading and trailing separators are not included, and the separator is compared case sensitively.
 .TP
-\fCQString::SectionSkipEmpty\fR - Treat empty fields as if they don't exist, i.e. they are not considered as far as \fIstart\fR and \fIend\fR are concerned.
+\fCTQString::SectionSkipEmpty\fR - Treat empty fields as if they don't exist, i.e. they are not considered as far as \fIstart\fR and \fIend\fR are concerned.
 .TP
-\fCQString::SectionIncludeLeadingSep\fR - Include the leading separator (if any) in the result string.
+\fCTQString::SectionIncludeLeadingSep\fR - Include the leading separator (if any) in the result string.
 .TP
-\fCQString::SectionIncludeTrailingSep\fR - Include the trailing separator (if any) in the result string.
+\fCTQString::SectionIncludeTrailingSep\fR - Include the trailing separator (if any) in the result string.
 .TP
-\fCQString::SectionCaseInsensitiveSeps\fR - Compare the separator case-insensitively.
+\fCTQString::SectionCaseInsensitiveSeps\fR - Compare the separator case-insensitively.
 .PP
 Any of the last four values can be OR-ed together to form a flag.
 .PP
@@ -681,7 +681,7 @@ See also isNull().
 Constructs a string of length one, containing the character \fIch\fR.
 .SH "TQString::TQString ( const TQString & s )"
 Constructs an implicitly shared copy of \fIs\fR. This is very fast since it only involves incrementing a reference count.
-.SH "TQString::TQString ( const QByteArray & ba )"
+.SH "TQString::TQString ( const TQByteArray & ba )"
 Constructs a string that is a deep copy of \fIba\fR interpreted as a classic C string.
 .SH "TQString::TQString ( const TQChar * unicode, uint length )"
 Constructs a string that is a deep copy of the first \fIlength\fR characters in the TQChar array.
@@ -692,7 +692,7 @@ If only \fIunicode\fR is 0, the string is empty but has \fIlength\fR characters 
 .PP
 See also isNull() and setLength().
 .SH "TQString::TQString ( const char * str )"
-Constructs a string that is a deep copy of \fIstr\fR, interpreted as a classic C string. The encoding is assumed to be Latin-1, unless you change it using QTextCodec::setCodecForCStrings().
+Constructs a string that is a deep copy of \fIstr\fR, interpreted as a classic C string. The encoding is assumed to be Latin-1, unless you change it using TQTextCodec::setCodecForCStrings().
 .PP
 If \fIstr\fR is 0, then a null string is created.
 .PP
@@ -731,7 +731,7 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Appends character \fIch\fR to the string and returns a reference to the result.
 .PP
 Equivalent to operator+=().
-.SH "TQString & TQString::append ( const QByteArray & str )"
+.SH "TQString & TQString::append ( const TQByteArray & str )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Appends \fIstr\fR to the string and returns a reference to the result.
@@ -780,7 +780,7 @@ The \fIfieldWidth\fR value specifies the minimum amount of space that \fIa\fR is
 .PP
 \fIa\fR is expressed in base \fIbase\fR, which is 10 by default and must be between 2 and 36.
 .PP
-The '%' can be followed by an 'L', in which case the sequence is replaced with a localized representation of \fIa\fR. The conversion uses the default locale. The default locale is determined from the system's locale settings at application startup. It can be changed using QLocale::setDefault(). The 'L' flag is ignored if \fIbase\fR is not 10.
+The '%' can be followed by an 'L', in which case the sequence is replaced with a localized representation of \fIa\fR. The conversion uses the default locale. The default locale is determined from the system's locale settings at application startup. It can be changed using TQLocale::setDefault(). The 'L' flag is ignored if \fIbase\fR is not 10.
 .PP
 .nf
 .br
@@ -793,7 +793,7 @@ The '%' can be followed by an 'L', in which case the sequence is replaced with a
         // str == "Decimal 63 is 3f in hexadecimal"
 .br
 .br
-        QLocale::setDefault(QLocale::English, QLocale::UnitedStates);
+        TQLocale::setDefault(TQLocale::English, TQLocale::UnitedStates);
 .br
         str = TQString( "%1 %L2 %L3" )
 .br
@@ -897,7 +897,7 @@ This is the same as calling str.arg(\fIa1\fR).arg(\fIa2\fR).arg(\fIa3\fR).arg(\f
 .SH "const char * TQString::ascii () const"
 Returns an 8-bit ASCII representation of the string.
 .PP
-If a codec has been set using QTextCodec::codecForCStrings(), it is used to convert Unicode to 8-bit char. Otherwise, this function does the same as latin1().
+If a codec has been set using TQTextCodec::codecForCStrings(), it is used to convert Unicode to 8-bit char. Otherwise, this function does the same as latin1().
 .PP
 See also fromAscii(), latin1(), utf8(), and local8Bit().
 .PP
@@ -916,7 +916,7 @@ Returns the character at index \fIi\fR, or 0 if \fIi\fR is beyond the length of 
 .fi
 .PP
 If the TQString is not const (i.e. const TQString) or const& (i.e. const TQString &), then the non-const overload of at() will be used instead.
-.SH "QCharRef TQString::at ( uint i )"
+.SH "TQCharRef TQString::at ( uint i )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 The function returns a reference to the character at index \fIi\fR. The resulting reference can then be assigned to, or used immediately, but it will become invalid once further modifications are made to the original string.
@@ -970,7 +970,7 @@ If \fIcs\fR is TRUE (the default), the search is case sensitive; otherwise the s
 .fi
 .PP
 Examples:
-.)l fileiconview/qfileiconview.cpp and mdi/application.cpp.
+.)l fileiconview/tqfileiconview.cpp and mdi/application.cpp.
 .SH "int TQString::contains ( char c, bool cs = TRUE ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .SH "int TQString::contains ( const char * str, bool cs = TRUE ) const"
@@ -997,7 +997,7 @@ This function counts overlapping strings, so in the example below, there are two
 .fi
 .PP
 See also findRev().
-.SH "int TQString::contains ( const QRegExp & rx ) const"
+.SH "int TQString::contains ( const TQRegExp & rx ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns the number of times the regexp, \fIrx\fR, matches in the string.
@@ -1008,7 +1008,7 @@ This function counts overlapping matches, so in the example below, there are fou
 .br
         TQString str = "banana and panama";
 .br
-        QRegExp rxp = QRegExp( "a[nm]a", TRUE, FALSE );
+        TQRegExp rxp = TQRegExp( "a[nm]a", TRUE, FALSE );
 .br
         int i = str.contains( rxp );    // i == 4
 .br
@@ -1055,7 +1055,7 @@ If \fIlen\fR is negative (the default), the current string length is used.
         str.fill( 'g', 5 );      // string == "ggggg"
 .br
 .fi
-.SH "int TQString::find ( const QRegExp & rx, int index = 0 ) const"
+.SH "int TQString::find ( const TQRegExp & rx, int index = 0 ) const"
 Finds the first match of the regular expression \fIrx\fR, starting from position \fIindex\fR. If \fIindex\fR is -1, the search starts at the last character; if -2, at the next to last character and so on. (See findRev() for searching backwards.)
 .PP
 Returns the position of the first match of \fIrx\fR or -1 if no match was found.
@@ -1064,7 +1064,7 @@ Returns the position of the first match of \fIrx\fR or -1 if no match was found.
 .br
         TQString string( "bananas" );
 .br
-        int i = string.find( QRegExp("an"), 0 );    // i == 1
+        int i = string.find( TQRegExp("an"), 0 );    // i == 1
 .br
 .fi
 .PP
@@ -1137,7 +1137,7 @@ If \fIcs\fR is TRUE (the default), the search is case sensitive; otherwise the s
     int i = string.findRev( "ana" );      // i == 3
 .br
 .fi
-.SH "int TQString::findRev ( const QRegExp & rx, int index = -1 ) const"
+.SH "int TQString::findRev ( const TQRegExp & rx, int index = -1 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Finds the first match of the regexp \fIrx\fR, starting at position \fIindex\fR and searching backwards. If the index is -1, the search starts at the last character, if it is -2, at the next to last character and so on. (See findRev() for searching backwards.)
@@ -1148,7 +1148,7 @@ Returns the position of the match or -1 if no match was found.
 .br
         TQString string( "bananas" );
 .br
-        int i = string.findRev( QRegExp("an") );      // i == 3
+        int i = string.findRev( TQRegExp("an") );      // i == 3
 .br
 .fi
 .PP
@@ -1156,7 +1156,7 @@ See also find().
 .SH "TQString TQString::fromAscii ( const char * ascii, int len = -1 )\fC [static]\fR"
 Returns the Unicode string decoded from the first \fIlen\fR bytes of \fIascii\fR, ignoring the rest of \fIascii\fR. If \fIlen\fR is -1 then the length of \fIascii\fR is used. If \fIlen\fR is bigger than the length of \fIascii\fR then it will use the length of \fIascii\fR.
 .PP
-If a codec has been set using QTextCodec::codecForCStrings(), it is used to convert the string from 8-bit characters to Unicode. Otherwise, this function does the same as fromLatin1().
+If a codec has been set using TQTextCodec::codecForCStrings(), it is used to convert the string from 8-bit characters to Unicode. Otherwise, this function does the same as fromLatin1().
 .PP
 This is the same as the TQString(const char*) constructor, but you can make that constructor invisible if you compile with the define \fCTQT_NO_CAST_ASCII\fR, in which case you can explicitly create a TQString from 8-bit ASCII text using this function.
 .PP
@@ -1187,7 +1187,7 @@ Returns the Unicode string decoded from the first \fIlen\fR bytes of \fIlocal8Bi
 .PP
 \fIlocal8Bit\fR is assumed to be encoded in a locale-specific format.
 .PP
-See QTextCodec for more diverse coding/decoding of Unicode strings.
+See TQTextCodec for more diverse coding/decoding of Unicode strings.
 .SH "TQString TQString::fromUcs2 ( const unsigned short * str )\fC [static]\fR"
 Constructs a string that is a deep copy of \fIstr\fR, interpreted as a UCS2 encoded, zero terminated, Unicode string.
 .PP
@@ -1205,9 +1205,9 @@ Returns the Unicode string decoded from the first \fIlen\fR bytes of \fIutf8\fR,
 .br
 .fi
 .PP
-See QTextCodec for more diverse coding/decoding of Unicode strings.
+See TQTextCodec for more diverse coding/decoding of Unicode strings.
 .PP
-Example: fonts/simple-qfont-demo/viewer.cpp.
+Example: fonts/simple-tqfont-demo/viewer.cpp.
 .SH "TQString & TQString::insert ( uint index, const TQString & s )"
 Inserts \fIs\fR into the string at position \fIindex\fR.
 .PP
@@ -1227,7 +1227,7 @@ See also remove() and replace().
 .PP
 Examples:
 .)l themes/themes.cpp and xform/xform.cpp.
-.SH "TQString & TQString::insert ( uint index, const QByteArray & s )"
+.SH "TQString & TQString::insert ( uint index, const TQByteArray & s )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts \fIs\fR into the string at position \fIindex\fR and returns a reference to the string.
@@ -1289,9 +1289,9 @@ Returns TRUE if the string is null; otherwise returns FALSE. A null string is al
 See also isEmpty() and length().
 .PP
 Examples:
-.)l i18n/main.cpp, network/ftpclient/ftpmainwindow.ui.h, and qdir/qdir.cpp.
+.)l i18n/main.cpp, network/ftpclient/ftpmainwindow.ui.h, and tqdir/tqdir.cpp.
 .SH "const char * TQString::latin1 () const"
-Returns a Latin-1 representation of the string. The returned value is undefined if the string contains non-Latin-1 characters. If you want to convert strings into formats other than Unicode, see the QTextCodec classes.
+Returns a Latin-1 representation of the string. The returned value is undefined if the string contains non-Latin-1 characters. If you want to convert strings into formats other than Unicode, see the TQTextCodec classes.
 .PP
 This function is mainly useful for boot-strapping legacy code to use Unicode.
 .PP
@@ -1300,7 +1300,7 @@ The result remains valid so long as one unmodified copy of the source string exi
 See also fromLatin1(), ascii(), utf8(), and local8Bit().
 .PP
 Examples:
-.)l fileiconview/qfileiconview.cpp and network/networkprotocol/nntp.cpp.
+.)l fileiconview/tqfileiconview.cpp and network/networkprotocol/nntp.cpp.
 .SH "TQString TQString::left ( uint len ) const"
 Returns a substring that contains the \fIlen\fR leftmost characters of the string.
 .PP
@@ -1341,11 +1341,11 @@ Null strings and empty strings have zero length.
 See also isNull() and isEmpty().
 .PP
 Examples:
-.)l dirview/dirview.cpp, fileiconview/qfileiconview.cpp, network/networkprotocol/nntp.cpp, rot13/rot13.cpp, and themes/themes.cpp.
-.SH "QCString TQString::local8Bit () const"
-Returns the string encoded in a locale-specific format. On X11, this is the QTextCodec::codecForLocale(). On Windows, it is a system-defined encoding. On Mac OS X, this always uses UTF-8 as the encoding.
+.)l dirview/dirview.cpp, fileiconview/tqfileiconview.cpp, network/networkprotocol/nntp.cpp, rot13/rot13.cpp, and themes/themes.cpp.
+.SH "TQCString TQString::local8Bit () const"
+Returns the string encoded in a locale-specific format. On X11, this is the TQTextCodec::codecForLocale(). On Windows, it is a system-defined encoding. On Mac OS X, this always uses UTF-8 as the encoding.
 .PP
-See QTextCodec for more diverse coding/decoding of Unicode strings.
+See TQTextCodec for more diverse coding/decoding of Unicode strings.
 .PP
 See also fromLocal8Bit(), ascii(), latin1(), and utf8().
 .SH "int TQString::localeAwareCompare ( const TQString & s1, const TQString & s2 )\fC [static]\fR"
@@ -1353,7 +1353,7 @@ Compares \fIs1\fR with \fIs2\fR and returns an integer less than, equal to, or g
 .PP
 The comparison is performed in a locale- and also platform-dependent manner. Use this function to present sorted lists of strings to the user.
 .PP
-See also TQString::compare() and QTextCodec::locale().
+See also TQString::compare() and TQTextCodec::locale().
 .SH "int TQString::localeAwareCompare ( const TQString & s ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -1405,7 +1405,7 @@ A convenience function that returns a string equivalent of the number \fIn\fR to
 See also setNum().
 .PP
 Examples:
-.)l application/application.cpp, chart/chartform.cpp, fonts/simple-qfont-demo/viewer.cpp, helpviewer/helpwindow.cpp, mdi/application.cpp, regexptester/regexptester.cpp, and sql/overview/extract/main.cpp.
+.)l application/application.cpp, chart/chartform.cpp, fonts/simple-tqfont-demo/viewer.cpp, helpviewer/helpwindow.cpp, mdi/application.cpp, regexptester/regexptester.cpp, and sql/overview/extract/main.cpp.
 .SH "TQString TQString::number ( ulong n, int base = 10 )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -1503,7 +1503,7 @@ When you want the above semantics, use:
 See also isEmpty().
 .SH "TQString & TQString::operator+= ( const TQString & str )"
 Appends \fIstr\fR to the string and returns a reference to the string.
-.SH "TQString & TQString::operator+= ( const QByteArray & str )"
+.SH "TQString & TQString::operator+= ( const TQByteArray & str )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Appends \fIstr\fR to the string and returns a reference to the string.
@@ -1541,7 +1541,7 @@ See also isNull().
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Makes a deep copy of \fIs\fR and returns a reference to the deep copy.
-.SH "TQString & TQString::operator= ( const QCString & cstr )"
+.SH "TQString & TQString::operator= ( const TQCString & cstr )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Assigns a deep copy of \fIcstr\fR, interpreted as a classic C string, to this string. Returns a reference to this string.
@@ -1553,14 +1553,14 @@ Sets the string to contain just the single character \fIc\fR.
 Returns the character at index \fIi\fR, or TQChar::null if \fIi\fR is beyond the length of the string.
 .PP
 If the TQString is not const (i.e., const TQString) or const& (i.e., const TQString&), then the non-const overload of operator[] will be used instead.
-.SH "QCharRef TQString::operator[] ( int i )"
+.SH "TQCharRef TQString::operator[] ( int i )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 The function returns a reference to the character at index \fIi\fR. The resulting reference can then be assigned to, or used immediately, but it will become invalid once further modifications are made to the original string.
 .PP
-If \fIi\fR is beyond the length of the string then the string is expanded with TQChar::nulls, so that the QCharRef references a valid (null) character in the string.
+If \fIi\fR is beyond the length of the string then the string is expanded with TQChar::nulls, so that the TQCharRef references a valid (null) character in the string.
 .PP
-The QCharRef internal class can be used much like a constant TQChar, but if you assign to it, you change the original string (which will detach itself because of TQString's copy-on-write semantics). You will get compilation errors if you try to use the result as anything but a TQChar.
+The TQCharRef internal class can be used much like a constant TQChar, but if you assign to it, you change the original string (which will detach itself because of TQString's copy-on-write semantics). You will get compilation errors if you try to use the result as anything but a TQChar.
 .SH "TQString & TQString::prepend ( const TQString & s )"
 Inserts \fIs\fR at the beginning of the string and returns a reference to the string.
 .PP
@@ -1593,7 +1593,7 @@ Inserts \fIch\fR at the beginning of the string and returns a reference to the s
 Equivalent to insert(0, \fIch\fR).
 .PP
 See also insert().
-.SH "TQString & TQString::prepend ( const QByteArray & s )"
+.SH "TQString & TQString::prepend ( const TQByteArray & s )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Inserts \fIs\fR at the beginning of the string and returns a reference to the string.
@@ -1667,7 +1667,7 @@ This is the same as replace(\fIc\fR, "").
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Removes every occurrence of \fIstr\fR in the string. Returns a reference to the string.
-.SH "TQString & TQString::remove ( const QRegExp & rx )"
+.SH "TQString & TQString::remove ( const TQRegExp & rx )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Removes every occurrence of the regular expression \fIrx\fR in the string. Returns a reference to the string.
@@ -1750,7 +1750,7 @@ Example:
     // s == "English is English"
 .br
 .fi
-.SH "TQString & TQString::replace ( const QRegExp & rx, const TQString & after )"
+.SH "TQString & TQString::replace ( const TQRegExp & rx, const TQString & after )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Replaces every occurrence of the regexp \fIrx\fR in the string with \fIafter\fR. Returns a reference to the string. For example:
@@ -1759,7 +1759,7 @@ Replaces every occurrence of the regexp \fIrx\fR in the string with \fIafter\fR.
 .br
     TQString s = "banana";
 .br
-    s.replace( QRegExp("an"), "" );
+    s.replace( TQRegExp("an"), "" );
 .br
     // s == "ba"
 .br
@@ -1771,13 +1771,13 @@ For regexps containing capturing parentheses, occurrences of \fB&#92;1\fR, \fB&#
 .br
     TQString t = "A <i>bon mot</i>.";
 .br
-    t.replace( QRegExp("<i>([^<]*)</i>"), "\\\\emph{\\\\1}" );
+    t.replace( TQRegExp("<i>([^<]*)</i>"), "\\\\emph{\\\\1}" );
 .br
     // t == "A \\\\emph{bon mot}."
 .br
 .fi
 .PP
-See also find(), findRev(), and QRegExp::cap().
+See also find(), findRev(), and TQRegExp::cap().
 .SH "TQString & TQString::replace ( TQChar c1, TQChar c2 )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
@@ -1825,7 +1825,7 @@ If \fIlen\fR is greater than the length of the string then the whole string is r
 .PP
 See also left(), mid(), and isEmpty().
 .PP
-Example: fileiconview/qfileiconview.cpp.
+Example: fileiconview/tqfileiconview.cpp.
 .SH "TQString TQString::rightJustify ( uint width, TQChar fill = ' ', bool truncate = FALSE ) const"
 Returns a string of length \fIwidth\fR that contains the \fIfill\fR character followed by the string.
 .PP
@@ -1879,7 +1879,7 @@ If \fIstart\fR or \fIend\fR is negative, we count fields from the right of the s
 .br
 .fi
 .PP
-See also QStringList::split().
+See also TQStringList::split().
 .PP
 Examples:
 .)l chart/element.cpp and network/ftpclient/ftpmainwindow.ui.h.
@@ -1914,8 +1914,8 @@ If \fIstart\fR or \fIend\fR is negative, we count fields from the right of the s
 .br
 .fi
 .PP
-See also QStringList::split().
-.SH "TQString TQString::section ( const QRegExp & reg, int start, int end = 0xffffffff, int flags = SectionDefault ) const"
+See also TQStringList::split().
+.SH "TQString TQString::section ( const TQRegExp & reg, int start, int end = 0xffffffff, int flags = SectionDefault ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This function returns a section of the string.
@@ -1928,7 +1928,7 @@ The \fIflags\fR argument can be used to affect some aspects of the function's be
 .br
     TQString line( "forename\\tmiddlename  surname \\t \\t phone" );
 .br
-    QRegExp sep( "\\s+" );
+    TQRegExp sep( "\\s+" );
 .br
     TQString s = line.section( sep, 2, 2 ); // s == "surname"
 .br
@@ -1940,15 +1940,15 @@ If \fIstart\fR or \fIend\fR is negative, we count fields from the right of the s
 .br
     TQString line( "forename\\tmiddlename  surname \\t \\t phone" );
 .br
-    QRegExp sep( "\\\\s+" );
+    TQRegExp sep( "\\\\s+" );
 .br
     TQString s = line.section( sep, -3, -2 ); // s == "middlename  surname"
 .br
 .fi
 .PP
-\fBWarning:\fR Using this QRegExp version is much more expensive than the overloaded string and character versions.
+\fBWarning:\fR Using this TQRegExp version is much more expensive than the overloaded string and character versions.
 .PP
-See also QStringList::split() and simplifyWhiteSpace().
+See also TQStringList::split() and simplifyWhiteSpace().
 .SH "TQString & TQString::setAscii ( const char * str, int len = -1 )"
 Sets this string to \fIstr\fR, interpreted as a classic 8-bit ASCII C string. If \fIlen\fR is -1 (the default), then it is set to strlen(str).
 .PP
@@ -2058,7 +2058,7 @@ See also stripWhiteSpace().
 .SH "TQString & TQString::sprintf ( const char * cformat, ... )"
 Safely builds a formatted string from the format string \fIcformat\fR and an arbitrary list of arguments. The format string supports all the escape sequences of printf() in the standard C library.
 .PP
-The %s escape sequence expects a utf8() encoded string. The format string \fIcformat\fR is expected to be in latin1. If you need a Unicode format string, use arg() instead. For typesafe string building, with full Unicode support, you can use QTextOStream like this:
+The %s escape sequence expects a utf8() encoded string. The format string \fIcformat\fR is expected to be in latin1. If you need a Unicode format string, use arg() instead. For typesafe string building, with full Unicode support, you can use TQTextOStream like this:
 .PP
 .nf
 .br
@@ -2068,7 +2068,7 @@ The %s escape sequence expects a utf8() encoded string. The format string \fIcfo
 .br
         int x = ...;
 .br
-        QTextOStream( &str ) << s << " : " << x;
+        TQTextOStream( &str ) << s << " : " << x;
 .br
 .fi
 .PP
@@ -2147,7 +2147,7 @@ toULongLong()
 .TP
 toFloat()
 .TP
-toDouble() can handle numbers represented in various locales. These representations may use different characters for the decimal point, thousands group sepearator and even individual digits. TQString's functions try to interpret the string according to the current locale. The current locale is determined from the system at application startup and can be changed by calling QLocale::setDefault(). If the string cannot be interpreted according to the current locale, this function falls back on the "C" locale.
+toDouble() can handle numbers represented in various locales. These representations may use different characters for the decimal point, thousands group sepearator and even individual digits. TQString's functions try to interpret the string according to the current locale. The current locale is determined from the system at application startup and can be changed by calling TQLocale::setDefault(). If the string cannot be interpreted according to the current locale, this function falls back on the "C" locale.
 .PP
 .nf
 .br
@@ -2156,14 +2156,14 @@ toDouble() can handle numbers represented in various locales. These representati
         double d;
 .br
 .br
-        QLocale::setDefault(QLocale::C);
+        TQLocale::setDefault(TQLocale::C);
 .br
         d = TQString( "1234,56" ).toDouble(&ok); // ok == false
 .br
         d = TQString( "1234.56" ).toDouble(&ok); // ok == true, d == 1234.56
 .br
 .br
-        QLocale::setDefault(QLocale::German);
+        TQLocale::setDefault(TQLocale::German);
 .br
         d = TQString( "1234,56" ).toDouble(&ok); // ok == true, d == 1234.56
 .br
@@ -2171,13 +2171,13 @@ toDouble() can handle numbers represented in various locales. These representati
 .br
 .fi
 .PP
-Due to the ambiguity between the decimal point and thousands group separator in various locales, these functions do not handle thousands group separators. If you need to convert such numbers, use the corresponding function in QLocale.
+Due to the ambiguity between the decimal point and thousands group separator in various locales, these functions do not handle thousands group separators. If you need to convert such numbers, use the corresponding function in TQLocale.
 .PP
 .nf
 .br
         bool ok;
 .br
-        QLocale::setDefault(QLocale::C);
+        TQLocale::setDefault(TQLocale::C);
 .br
         double d = TQString( "1,234,567.89" ).toDouble(&ok); // ok == false
 .br
@@ -2185,7 +2185,7 @@ Due to the ambiguity between the decimal point and thousands group separator in 
 .PP
 \fBWarning:\fR If the string contains trailing whitespace this function will fail, and set \fI*ok\fR to false if \fIok\fR is not 0. Leading whitespace is ignored.
 .PP
-See also number(), QLocale::setDefault(), QLocale::toDouble(), and stripWhiteSpace().
+See also number(), TQLocale::setDefault(), TQLocale::toDouble(), and stripWhiteSpace().
 .SH "float TQString::toFloat ( bool * ok = 0 ) const"
 Returns the string converted to a \fCfloat\fR value.
 .PP
@@ -2391,10 +2391,10 @@ See also lower().
 .PP
 Examples:
 .)l scribble/scribble.cpp and sql/overview/custom1/main.cpp.
-.SH "QCString TQString::utf8 () const"
+.SH "TQCString TQString::utf8 () const"
 Returns the string encoded in UTF-8 format.
 .PP
-See QTextCodec for more diverse coding/decoding of Unicode strings.
+See TQTextCodec for more diverse coding/decoding of Unicode strings.
 .PP
 See also fromUtf8(), ascii(), latin1(), and local8Bit().
 .PP
@@ -2458,10 +2458,10 @@ This is an overloaded member function, provided for convenience. It behaves esse
 Returns TRUE if \fIs1\fR is lexically less than \fIs2\fR; otherwise returns FALSE. The comparison is case sensitive.
 .PP
 Equivalent to compare(\fIs1\fR, \fIs2\fR) < 0.
-.SH "QDataStream & operator<< ( QDataStream & s, const TQString & str )"
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQString & str )"
 Writes the string \fIstr\fR to the stream \fIs\fR.
 .PP
-See also Format of the QDataStream operators
+See also Format of the TQDataStream operators
 .SH "bool operator<= ( const TQString & s1, const char * s2 )"
 Returns TRUE if \fIs1\fR is lexically less than or equal to \fIs2\fR; otherwise returns FALSE. The comparison is case sensitive. Note that a null string is not equal to a not-null empty string.
 .PP
@@ -2522,13 +2522,13 @@ Returns TRUE if \fIs1\fR is lexically greater than or equal to \fIs2\fR; otherwi
 Equivalent to compare(\fIs1\fR, \fIs2\fR) >= 0.
 .PP
 See also isNull() and isEmpty().
-.SH "QDataStream & operator>> ( QDataStream & s, TQString & str )"
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQString & str )"
 Reads a string from the stream \fIs\fR into string \fIstr\fR.
 .PP
-See also Format of the QDataStream operators
+See also Format of the TQDataStream operators
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqstring.html
+.BR http://doc.trolltech.com/tqstring.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

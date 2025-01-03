@@ -36,11 +36,11 @@
 #include "mainwindow.h"
 #include "pixmapchooser.h"
 
-#include <ntqlineedit.h>
-#include <ntqlabel.h>
-#include <ntqiconview.h>
-#include <ntqpushbutton.h>
-#include <ntqcheckbox.h>
+#include <tqlineedit.h>
+#include <tqlabel.h>
+#include <tqiconview.h>
+#include <tqpushbutton.h>
+#include <tqcheckbox.h>
 
 IconViewEditor::IconViewEditor( TQWidget *parent, TQWidget *editWidget, FormWindow *fw )
     : IconViewEditorBase( parent, 0, TRUE ), formwindow( fw )

@@ -17,7 +17,7 @@
 #include "dnd/dnd.h"
 #include "i18n/i18n.h"
 
-#include <ntqmodules.h>
+#include <tqmodules.h>
 
 #if defined(TQT_MODULE_OPENGL)
 #include "opengl/glworkspace.h"
@@ -37,22 +37,22 @@
 
 #include <stdlib.h>
 
-#include <ntqapplication.h>
-#include <ntqimage.h>
+#include <tqapplication.h>
+#include <tqimage.h>
 
-#include <ntqtabwidget.h>
-#include <ntqfont.h>
-#include <ntqworkspace.h>
-#include <ntqwidgetstack.h>
+#include <tqtabwidget.h>
+#include <tqfont.h>
+#include <tqworkspace.h>
+#include <tqwidgetstack.h>
 
 #if defined(TQT_MODULE_SQL)
-#include <ntqsqldatabase.h>
+#include <tqsqldatabase.h>
 #include "sql/sqlex.h"
 #endif
 
 #if defined(Q_OS_MACX)
 #include <stdlib.h>
-#include <ntqdir.h>
+#include <tqdir.h>
 #endif
 
 #include "categoryinterface.h"

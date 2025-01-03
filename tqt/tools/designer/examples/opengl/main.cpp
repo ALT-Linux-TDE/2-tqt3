@@ -34,8 +34,8 @@
 
 #include <widgetinterface.h>
 
-#include <ntqobjectcleanuphandler.h>
-#include <ntqpixmap.h>
+#include <tqobjectcleanuphandler.h>
+#include <tqpixmap.h>
 
 #include "glwidget.h"
 
@@ -299,7 +299,7 @@ TQRESULT OpenGLWidgetInterface::queryInterface( const TQUuid& uuid, TQUnknownInt
     return TQS_OK;
 }
 
-Q_EXPORT_COMPONENT()
+TQ_EXPORT_COMPONENT()
 {
     Q_CREATE_INSTANCE( OpenGLWidgetInterface );
 }

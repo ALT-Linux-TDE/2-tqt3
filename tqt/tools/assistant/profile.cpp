@@ -31,11 +31,11 @@
 **
 **********************************************************************/
 #include "profile.h"
-#include <ntqxml.h>
-#include <ntqtextcodec.h>
-#include <ntqfileinfo.h>
-#include <ntqregexp.h>
-#include <ntqdir.h>
+#include <tqxml.h>
+#include <tqtextcodec.h>
+#include <tqfileinfo.h>
+#include <tqregexp.h>
+#include <tqdir.h>
 
 #define QT_TITLE "TQt Reference Documentation"
 #define DESIGNER_TITLE "TQt Designer Manual"

@@ -1353,7 +1353,7 @@ filename &apos;%1&apos;. Please choose a new filename.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <source>&lt;b&gt;Enter the name of the class that will be created.&lt;/b&gt;&lt;p&gt;&lt;em&gt;classname.h&lt;/em&gt; and &lt;em&gt;classname.cpp&lt;/em&gt; will be generated as C++-output when it is compiled with the uic.&lt;/p&gt;</source>
+        <source>&lt;b&gt;Enter the name of the class that will be created.&lt;/b&gt;&lt;p&gt;&lt;em&gt;classname.h&lt;/em&gt; and &lt;em&gt;classname.cpp&lt;/em&gt; will be generated as C++-output when it is compiled with the tquic.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -3829,7 +3829,7 @@ load these files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <source>QPixmap(</source>
+        <source>TQPixmap(</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -4444,7 +4444,7 @@ load these files?</source>
     </message>
 </context>
 <context>
-    <name>QApplication</name>
+    <name>TQApplication</name>
     <message>
         <source>Connection</source>
         <translation type="unfinished"></translation>

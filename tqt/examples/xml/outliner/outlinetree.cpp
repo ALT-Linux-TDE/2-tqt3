@@ -8,8 +8,8 @@
 *****************************************************************************/
 
 #include "outlinetree.h"
-#include <ntqfile.h>
-#include <ntqmessagebox.h>
+#include <tqfile.h>
+#include <tqmessagebox.h>
 
 OutlineTree::OutlineTree( const TQString fileName, TQWidget *parent, const char *name )
     : TQListView( parent, name )

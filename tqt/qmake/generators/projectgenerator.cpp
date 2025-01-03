@@ -38,10 +38,10 @@
 
 #include "projectgenerator.h"
 #include "option.h"
-#include <ntqdir.h>
-#include <ntqfile.h>
-#include <ntqfileinfo.h>
-#include <ntqregexp.h>
+#include <tqdir.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
+#include <tqregexp.h>
 
 TQString project_builtin_regx() //calculate the builtin regular expression..
 { 
@@ -274,7 +274,7 @@ ProjectGenerator::init()
 			if(!h_ext.isEmpty()) {
 			    if((*dep_it).left(1).lower() == "q") {
 				TQString qhdr = (*dep_it).lower();
-				if(file_no_path == "ntqthread.h")
+				if(file_no_path == "tqthread.h")
 				    addConfig("thread");
 			    }
 			    for(TQStringList::Iterator cppit = Option::cpp_ext.begin();

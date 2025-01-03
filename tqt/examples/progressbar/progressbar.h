@@ -10,8 +10,8 @@
 #ifndef PROGRESSBAR_H
 #define PROGRESSBAR_H
 
-#include <ntqbuttongroup.h>
-#include <ntqtimer.h>
+#include <tqbuttongroup.h>
+#include <tqtimer.h>
 
 class TQRadioButton;
 class TQPushButton;

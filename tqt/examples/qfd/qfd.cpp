@@ -9,10 +9,10 @@
 
 #include "fontdisplayer.h"
 
-#include <ntqapplication.h>
-#include <ntqslider.h>
-#include <ntqpainter.h>
-#include <ntqstatusbar.h>
+#include <tqapplication.h>
+#include <tqslider.h>
+#include <tqpainter.h>
+#include <tqstatusbar.h>
 
 
 

@@ -10,8 +10,8 @@
 #ifndef AB_CENTRALWIDGET_H
 #define AB_CENTRALWIDGET_H
 
-#include <ntqwidget.h>
-#include <ntqstring.h>
+#include <tqwidget.h>
+#include <tqstring.h>
 
 class TQTabWidget;
 class TQListView;

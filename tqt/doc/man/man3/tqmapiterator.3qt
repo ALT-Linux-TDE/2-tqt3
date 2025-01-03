@@ -1,5 +1,5 @@
 '\" t
-.TH QMapIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMapIterator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QMapIterator \- Iterator for QMap
+TQMapIterator \- Iterator for TQMap
 .SH SYNOPSIS
-\fC#include <ntqmap.h>\fR
+\fC#include <tqmap.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -26,19 +26,19 @@ QMapIterator \- Iterator for QMap
 .BI "typedef T & \fBreference\fR"
 .br
 .ti -1c
-.BI "\fBQMapIterator\fR ()"
+.BI "\fBTQMapIterator\fR ()"
 .br
 .ti -1c
-.BI "\fBQMapIterator\fR ( QMapNode<K, T> * p )"
+.BI "\fBTQMapIterator\fR ( TQMapNode<K, T> * p )"
 .br
 .ti -1c
-.BI "\fBQMapIterator\fR ( const QMapIterator<K, T> & it )"
+.BI "\fBTQMapIterator\fR ( const TQMapIterator<K, T> & it )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QMapIterator<K, T> & it ) const"
+.BI "bool \fBoperator==\fR ( const TQMapIterator<K, T> & it ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator!=\fR ( const QMapIterator<K, T> & it ) const"
+.BI "bool \fBoperator!=\fR ( const TQMapIterator<K, T> & it ) const"
 .br
 .ti -1c
 .BI "T & \fBoperator*\fR ()"
@@ -56,78 +56,78 @@ QMapIterator \- Iterator for QMap
 .BI "const T & \fBdata\fR () const"
 .br
 .ti -1c
-.BI "QMapIterator<K, T> & \fBoperator++\fR ()"
+.BI "TQMapIterator<K, T> & \fBoperator++\fR ()"
 .br
 .ti -1c
-.BI "QMapIterator<K, T> \fBoperator++\fR ( int )"
+.BI "TQMapIterator<K, T> \fBoperator++\fR ( int )"
 .br
 .ti -1c
-.BI "QMapIterator<K, T> & \fBoperator--\fR ()"
+.BI "TQMapIterator<K, T> & \fBoperator--\fR ()"
 .br
 .ti -1c
-.BI "QMapIterator<K, T> \fBoperator--\fR ( int )"
+.BI "TQMapIterator<K, T> \fBoperator--\fR ( int )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QMapIterator class provides an iterator for QMap.
+The TQMapIterator class provides an iterator for TQMap.
 .PP
-You cannot create an iterator by yourself. Instead, you must ask a map to give you one. An iterator is as big as a pointer; on 32-bit machines that means 4 bytes, on 64-bit machines, 8 bytes. That makes copying iterators very fast. Iterators behave in a similar way to pointers, and they are almost as fast as pointers. See the QMap example.
+You cannot create an iterator by yourself. Instead, you must ask a map to give you one. An iterator is as big as a pointer; on 32-bit machines that means 4 bytes, on 64-bit machines, 8 bytes. That makes copying iterators very fast. Iterators behave in a similar way to pointers, and they are almost as fast as pointers. See the TQMap example.
 .PP
-QMap is highly optimized for performance and memory usage, but the trade-off is that you must be more careful. The only way to traverse a map is to use iterators. QMap does not know about its iterators, and the iterators don't even know to which map they belong. That makes things fast but a bit dangerous because it is up to you to make sure that the iterators you are using are still valid. QDictIterator will be able to give warnings, whereas QMapIterator may end up in an undefined state.
+TQMap is highly optimized for performance and memory usage, but the trade-off is that you must be more careful. The only way to traverse a map is to use iterators. TQMap does not know about its iterators, and the iterators don't even know to which map they belong. That makes things fast but a bit dangerous because it is up to you to make sure that the iterators you are using are still valid. TQDictIterator will be able to give warnings, whereas TQMapIterator may end up in an undefined state.
 .PP
-For every Iterator there is also a ConstIterator. You must use the ConstIterator to access a QMap in a const environment or if the reference or pointer to the map is itself const. Its semantics are the same, but it only returns const references to the item it points to.
+For every Iterator there is also a ConstIterator. You must use the ConstIterator to access a TQMap in a const environment or if the reference or pointer to the map is itself const. Its semantics are the same, but it only returns const references to the item it points to.
 .PP
-See also QMap, QMapConstIterator, TQt Template Library Classes, and Non-GUI Classes.
+See also TQMap, TQMapConstIterator, TQt Template Library Classes, and Non-GUI Classes.
 .SS "Member Type Documentation"
-.SH "QMapIterator::iterator_category"
+.SH "TQMapIterator::iterator_category"
 The type of iterator category, \fCstd::bidirectional_iterator_tag\fR.
-.SH "QMapIterator::pointer"
+.SH "TQMapIterator::pointer"
 Pointer to value_type.
-.SH "QMapIterator::reference"
+.SH "TQMapIterator::reference"
 Reference to value_type.
-.SH "QMapIterator::value_type"
+.SH "TQMapIterator::value_type"
 The type of value.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMapIterator::QMapIterator ()"
+.SH "TQMapIterator::TQMapIterator ()"
 Creates an uninitialized iterator.
-.SH "QMapIterator::QMapIterator ( QMapNode<K, T> * p )"
+.SH "TQMapIterator::TQMapIterator ( TQMapNode<K, T> * p )"
 Constructs an iterator starting at node \fIp\fR.
-.SH "QMapIterator::QMapIterator ( const QMapIterator<K, T> & it )"
+.SH "TQMapIterator::TQMapIterator ( const TQMapIterator<K, T> & it )"
 Constructs a copy of the iterator, \fIit\fR.
-.SH "T & QMapIterator::data ()"
+.SH "T & TQMapIterator::data ()"
 Returns a reference to the current item's data.
-.SH "const T & QMapIterator::data () const"
+.SH "const T & TQMapIterator::data () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a const reference to the current item's data.
-.SH "const K & QMapIterator::key () const"
+.SH "const K & TQMapIterator::key () const"
 Returns a const reference to the current item's key.
-.SH "bool QMapIterator::operator!= ( const QMapIterator<K, T> & it ) const"
+.SH "bool TQMapIterator::operator!= ( const TQMapIterator<K, T> & it ) const"
 Compares the iterator to the \fIit\fR iterator and returns FALSE if they point to the same item; otherwise returns TRUE.
-.SH "T & QMapIterator::operator* ()"
+.SH "T & TQMapIterator::operator* ()"
 Dereference operator. Returns a reference to the current item's data. The same as data().
-.SH "const T & QMapIterator::operator* () const"
+.SH "const T & TQMapIterator::operator* () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Dereference operator. Returns a const reference to the current item's data. The same as data().
-.SH "QMapIterator<K, T> & QMapIterator::operator++ ()"
+.SH "TQMapIterator<K, T> & TQMapIterator::operator++ ()"
 Prefix ++ makes the succeeding item current and returns an iterator pointing to the new current item. The iterator cannot check whether it reached the end of the map. Incrementing the iterator returned by end() causes undefined results.
-.SH "QMapIterator<K, T> QMapIterator::operator++ ( int )"
+.SH "TQMapIterator<K, T> TQMapIterator::operator++ ( int )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Postfix ++ makes the succeeding item current and returns an iterator pointing to the new current item. The iterator cannot check whether it reached the end of the map. Incrementing the iterator returned by end() causes undefined results.
-.SH "QMapIterator<K, T> & QMapIterator::operator-- ()"
+.SH "TQMapIterator<K, T> & TQMapIterator::operator-- ()"
 Prefix -- makes the previous item current and returns an iterator pointing to the new current item. The iterator cannot check whether it reached the beginning of the map. Decrementing the iterator returned by begin() causes undefined results.
-.SH "QMapIterator<K, T> QMapIterator::operator-- ( int )"
+.SH "TQMapIterator<K, T> TQMapIterator::operator-- ( int )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Postfix -- makes the previous item current and returns an iterator pointing to the new current item. The iterator cannot check whether it reached the beginning of the map. Decrementing the iterator returned by begin() causes undefined results.
-.SH "bool QMapIterator::operator== ( const QMapIterator<K, T> & it ) const"
+.SH "bool TQMapIterator::operator== ( const TQMapIterator<K, T> & it ) const"
 Compares the iterator to the \fIit\fR iterator and returns TRUE if
 they point to the same item; otherwise returns FALSE.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qmapiterator.html
+.BR http://doc.trolltech.com/tqmapiterator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

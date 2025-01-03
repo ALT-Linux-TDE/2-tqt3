@@ -7,8 +7,8 @@
 #ifndef __LEDMETER_H__
 #define __LEDMETER_H__
 
-#include <ntqframe.h>
-#include <ntqptrlist.h>
+#include <tqframe.h>
+#include <tqptrlist.h>
 
 
 class KALedMeter : public TQFrame

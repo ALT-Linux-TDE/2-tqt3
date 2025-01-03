@@ -37,13 +37,13 @@
 #include "metadatabase.h"
 #include "widgetfactory.h"
 #include "project.h"
-#include <ntqpainter.h>
-#include <ntqcombobox.h>
-#include <ntqmetaobject.h>
-#include <ntqcombobox.h>
-#include <ntqlistbox.h>
-#include <ntqaction.h>
-#include <ntqdatabrowser.h>
+#include <tqpainter.h>
+#include <tqcombobox.h>
+#include <tqmetaobject.h>
+#include <tqcombobox.h>
+#include <tqlistbox.h>
+#include <tqaction.h>
+#include <tqdatabrowser.h>
 
 static const char* const ignore_slots[] = {
     "destroyed()",

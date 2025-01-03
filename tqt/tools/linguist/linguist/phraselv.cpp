@@ -39,9 +39,9 @@
 
 #include "phraselv.h"
 
-#include <ntqregexp.h>
-#include <ntqwhatsthis.h>
-#include <ntqheader.h>
+#include <tqregexp.h>
+#include <tqwhatsthis.h>
+#include <tqheader.h>
 
 class WhatPhrase : public TQWhatsThis
 {

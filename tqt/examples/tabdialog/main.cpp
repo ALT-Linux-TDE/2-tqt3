@@ -8,8 +8,8 @@
 *****************************************************************************/
 
 #include "tabdialog.h"
-#include <ntqapplication.h>
-#include <ntqstring.h>
+#include <tqapplication.h>
+#include <tqstring.h>
 
 int main( int argc, char **argv )
 {

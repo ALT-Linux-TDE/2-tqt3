@@ -33,9 +33,9 @@
 
 #include "topicchooserimpl.h"
 
-#include <ntqlabel.h>
-#include <ntqlistbox.h>
-#include <ntqpushbutton.h>
+#include <tqlabel.h>
+#include <tqlistbox.h>
+#include <tqpushbutton.h>
 
 TopicChooser::TopicChooser( TQWidget *parent, const TQStringList &lnkNames,
 			    const TQStringList &lnks, const TQString &title )

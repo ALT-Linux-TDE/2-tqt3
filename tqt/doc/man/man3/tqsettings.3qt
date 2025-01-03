@@ -1,5 +1,5 @@
 '\" t
-.TH QSettings 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSettings 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QSettings \- Persistent platform-independent application settings
+TQSettings \- Persistent platform-independent application settings
 .SH SYNOPSIS
-\fC#include <ntqsettings.h>\fR
+\fC#include <tqsettings.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
@@ -23,13 +23,13 @@ QSettings \- Persistent platform-independent application settings
 .BI "enum \fBScope\fR { User, Global }"
 .br
 .ti -1c
-.BI "\fBQSettings\fR ()"
+.BI "\fBTQSettings\fR ()"
 .br
 .ti -1c
-.BI "\fBQSettings\fR ( Format format )"
+.BI "\fBTQSettings\fR ( Format format )"
 .br
 .ti -1c
-.BI "\fB~QSettings\fR ()"
+.BI "\fB~TQSettings\fR ()"
 .br
 .ti -1c
 .BI "bool \fBwriteEntry\fR ( const TQString & key, bool value )"
@@ -44,22 +44,22 @@ QSettings \- Persistent platform-independent application settings
 .BI "bool \fBwriteEntry\fR ( const TQString & key, const TQString & value )"
 .br
 .ti -1c
-.BI "bool \fBwriteEntry\fR ( const TQString & key, const QStringList & value )"
+.BI "bool \fBwriteEntry\fR ( const TQString & key, const TQStringList & value )"
 .br
 .ti -1c
-.BI "bool writeEntry ( const TQString & key, const QStringList & value, const TQChar & separator )  \fI(obsolete)\fR"
+.BI "bool writeEntry ( const TQString & key, const TQStringList & value, const TQChar & separator )  \fI(obsolete)\fR"
 .br
 .ti -1c
-.BI "QStringList \fBentryList\fR ( const TQString & key ) const"
+.BI "TQStringList \fBentryList\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "QStringList \fBsubkeyList\fR ( const TQString & key ) const"
+.BI "TQStringList \fBsubkeyList\fR ( const TQString & key ) const"
 .br
 .ti -1c
-.BI "QStringList \fBreadListEntry\fR ( const TQString & key, bool * ok = 0 ) const"
+.BI "TQStringList \fBreadListEntry\fR ( const TQString & key, bool * ok = 0 ) const"
 .br
 .ti -1c
-.BI "QStringList readListEntry ( const TQString & key, const TQChar & separator, bool * ok = 0 ) const  \fI(obsolete)\fR"
+.BI "TQStringList readListEntry ( const TQString & key, const TQChar & separator, bool * ok = 0 ) const  \fI(obsolete)\fR"
 .br
 .ti -1c
 .BI "TQString \fBreadEntry\fR ( const TQString & key, const TQString & def = TQString::null, bool * ok = 0 ) const"
@@ -99,13 +99,13 @@ QSettings \- Persistent platform-independent application settings
 .br
 .in -1c
 .SH DESCRIPTION
-The QSettings class provides persistent platform-independent application settings.
+The TQSettings class provides persistent platform-independent application settings.
 .PP
-On Unix systems, QSettings uses text files to store settings. On Windows systems, QSettings uses the system registry. On Mac OS X, QSettings uses the Carbon preferences API.
+On Unix systems, TQSettings uses text files to store settings. On Windows systems, TQSettings uses the system registry. On Mac OS X, TQSettings uses the Carbon preferences API.
 .PP
 Each setting comprises an identifying key and the data associated with the key. A key is a unicode string which consists of \fItwo\fR or more subkeys. A subkey is a slash, '/', followed by one or more unicode characters (excluding slashes, newlines, carriage returns and equals, '=', signs). The associated data, called the entry or value, may be a boolean, an integer, a double, a string or a list of strings. Entry strings may contain any unicode characters.
 .PP
-If you want to save and restore the entire desktop's settings, i.e. which applications are running, use QSettings to save the settings for each individual application and QSessionManager to save the desktop's session.
+If you want to save and restore the entire desktop's settings, i.e. which applications are running, use TQSettings to save the settings for each individual application and TQSessionManager to save the desktop's session.
 .PP
 Example settings:
 .PP
@@ -136,7 +136,7 @@ A typical usage pattern for reading settings at application startup:
 .PP
 .nf
 .br
-    QSettings settings;
+    TQSettings settings;
 .br
     settings.setPath( "MyCompany.com", "MyApplication" );
 .br
@@ -153,7 +153,7 @@ A typical usage pattern for saving settings at application exit or 'save prefere
 .PP
 .nf
 .br
-    QSettings settings;
+    TQSettings settings;
 .br
     settings.setPath( "MyCompany.com", "MyApplication" );
 .br
@@ -170,7 +170,7 @@ A key prefix can be prepended to all keys using beginGroup(). The application of
 .PP
 .nf
 .br
-    QSettings settings;
+    TQSettings settings;
 .br
 .br
     settings.beginGroup( "/MainWindow" );
@@ -197,22 +197,22 @@ You can get a list of entry-holding keys by calling entryList(), and a list of k
 .PP
 .nf
 .br
-    QStringList keys = settings.entryList( "/MyApplication" );
+    TQStringList keys = settings.entryList( "/MyApplication" );
 .br
     // keys contains 'background color' and 'foreground color'.
 .br
 .br
-    QStringList keys = settings.entryList( "/MyApplication/recent files" );
+    TQStringList keys = settings.entryList( "/MyApplication/recent files" );
 .br
     // keys contains '1', '2' and '3'.
 .br
 .br
-    QStringList subkeys = settings.subkeyList( "/MyApplication" );
+    TQStringList subkeys = settings.subkeyList( "/MyApplication" );
 .br
     // subkeys contains 'geometry' and 'recent files'
 .br
 .br
-    QStringList subkeys = settings.subkeyList( "/MyApplication/recent files" );
+    TQStringList subkeys = settings.subkeyList( "/MyApplication/recent files" );
 .br
     // subkeys is empty.
 .br
@@ -228,11 +228,11 @@ All the values of a key (for example, all the 'recent files' subkeys values), ma
 .PP
 These limitations are not enforced on Unix or Mac OS X.
 .PP
-\fBWarning:\fR Creating multiple, simultaneous instances of QSettings writing to a text file may lead to data loss! This is a known issue which will be fixed in a future release of Qt.
+\fBWarning:\fR Creating multiple, simultaneous instances of TQSettings writing to a text file may lead to data loss! This is a known issue which will be fixed in a future release of Qt.
 .SH "Notes for Mac OS X Applications"
 The location where settings are stored is not formally defined by the CFPreferences API.
 .PP
-At the time of writing settings are stored (either on a global or user basis, preferring locally) into a plist file in \fC$ROOT/System/Library/Preferences\fR (in XML format). QSettings will create an appropriate plist file (\fCcom.<first group name>.plist\fR) out of the full path to a key.
+At the time of writing settings are stored (either on a global or user basis, preferring locally) into a plist file in \fC$ROOT/System/Library/Preferences\fR (in XML format). TQSettings will create an appropriate plist file (\fCcom.<first group name>.plist\fR) out of the full path to a key.
 .PP
 For further information on CFPreferences see Apple's Specifications
 .SH "Notes for Unix Applications"
@@ -244,13 +244,13 @@ There is no universally accepted place for storing application settings under Un
 .TP
 \fC/opt/MyCompany/share/MyApplication/etc\fR
 .TP
-\fC$HOME/.qt\fR When reading settings the files are searched in the order shown above, with later settings overriding earlier settings. Files for which the user doesn't have read permission are ignored. When saving settings QSettings works in the order shown above, writing to the first settings file for which the user has write permission. (\fCINSTALL\fR is the directory where TQt was installed. This can be modified by using the configure script's -prefix argument )
+\fC$HOME/.qt\fR When reading settings the files are searched in the order shown above, with later settings overriding earlier settings. Files for which the user doesn't have read permission are ignored. When saving settings TQSettings works in the order shown above, writing to the first settings file for which the user has write permission. (\fCINSTALL\fR is the directory where TQt was installed. This can be modified by using the configure script's -prefix argument )
 .PP
 If you want to put the settings in a particular place in the filesystem you could do this:
 .PP
 .nf
 .br
-    settings.insertSearchPath( QSettings::Unix, "/opt/MyCompany/share" );
+    settings.insertSearchPath( TQSettings::Unix, "/opt/MyCompany/share" );
 .br
 .fi
 .PP
@@ -265,44 +265,44 @@ will end up writing the "geometry/width" setting to the file \fC$HOME/.qt/myappl
 .PP
 For cross-platform applications you should ensure that the Windows size limitations are not exceeded.
 .PP
-\fBWarning:\fR QSettings doesn't write the settings until it is destroyed so you should construct the QSettings object on the stack.
+\fBWarning:\fR TQSettings doesn't write the settings until it is destroyed so you should construct the TQSettings object on the stack.
 .PP
 See also Input/Output and Networking and Miscellaneous Classes.
 .SS "Member Type Documentation"
-.SH "QSettings::Format"
+.SH "TQSettings::Format"
 .TP
-\fCQSettings::Native\fR - Store the settings in a platform dependent location
+\fCTQSettings::Native\fR - Store the settings in a platform dependent location
 .TP
-\fCQSettings::Ini\fR - Store the settings in a text file
-.SH "QSettings::Scope"
+\fCTQSettings::Ini\fR - Store the settings in a text file
+.SH "TQSettings::Scope"
 .TP
-\fCQSettings::Global\fR - Save settings as global as possible
+\fCTQSettings::Global\fR - Save settings as global as possible
 .TP
-\fCQSettings::User\fR - Save settings in user space
-.SH "QSettings::System"
+\fCTQSettings::User\fR - Save settings in user space
+.SH "TQSettings::System"
 .TP
-\fCQSettings::Mac\fR - Macintosh execution environments
+\fCTQSettings::Mac\fR - Macintosh execution environments
 .TP
-\fCQSettings::Unix\fR - Mac OS X, Unix, Linux and Unix-like execution environments
+\fCTQSettings::Unix\fR - Mac OS X, Unix, Linux and Unix-like execution environments
 .TP
-\fCQSettings::Windows\fR - Windows execution environments
+\fCTQSettings::Windows\fR - Windows execution environments
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSettings::QSettings ()"
+.SH "TQSettings::TQSettings ()"
 Creates a settings object.
 .PP
-Be aware that you must call setPath() or insertSearchPath() before you can use the QSettings object.
-.SH "QSettings::QSettings ( Format format )"
+Be aware that you must call setPath() or insertSearchPath() before you can use the TQSettings object.
+.SH "TQSettings::TQSettings ( Format format )"
 Creates a settings object. If \fIformat\fR is 'Ini' the settings will be stored in a text file, using the Unix strategy (see above). If \fIformat\fR is 'Native', the settings will be stored in a platform specific way (ie. the Windows registry).
 .PP
-Be aware that you must call setPath() or insertSearchPath() before you can use the QSettings object.
-.SH "QSettings::~QSettings ()"
+Be aware that you must call setPath() or insertSearchPath() before you can use the TQSettings object.
+.SH "TQSettings::~TQSettings ()"
 Destroys the settings object. All modifications made to the settings will automatically be saved.
-.SH "void QSettings::beginGroup ( const TQString & group )"
+.SH "void TQSettings::beginGroup ( const TQString & group )"
 Appends \fIgroup\fR to the current key prefix.
 .PP
 .nf
 .br
-    QSettings settings;
+    TQSettings settings;
 .br
     settings.beginGroup( "/MainWindow" );
 .br
@@ -311,12 +311,12 @@ Appends \fIgroup\fR to the current key prefix.
     settings.endGroup();
 .br
 .fi
-.SH "void QSettings::endGroup ()"
+.SH "void TQSettings::endGroup ()"
 Undo previous calls to beginGroup(). Note that a single beginGroup("a/b/c") is undone by a single call to endGroup().
 .PP
 .nf
 .br
-    QSettings settings;
+    TQSettings settings;
 .br
     settings.beginGroup( "/MainWindow/Geometry" );
 .br
@@ -325,7 +325,7 @@ Undo previous calls to beginGroup(). Note that a single beginGroup("a/b/c") is u
     settings.endGroup();
 .br
 .fi
-.SH "QStringList QSettings::entryList ( const TQString & key ) const"
+.SH "TQStringList TQSettings::entryList ( const TQString & key ) const"
 Returns a list of the keys which contain entries under \fIkey\fR. Does \fInot\fR return any keys that contain subkeys.
 .PP
 Example settings:
@@ -348,7 +348,7 @@ Example settings:
 .PP
 .nf
 .br
-    QStringList keys = settings.entryList( "/MyCompany/MyApplication" );
+    TQStringList keys = settings.entryList( "/MyCompany/MyApplication" );
 .br
 .fi
 .PP
@@ -357,11 +357,11 @@ In the above example, \fCkeys\fR will contain 'background color' and 'foreground
 To access the geometry values, you could either use subkeyList() to read the keys then read each entry, or simply read each entry directly by specifying its full key, e.g." /MyCompany/MyApplication/geometry/y".
 .PP
 See also subkeyList().
-.SH "TQString QSettings::group () const"
+.SH "TQString TQSettings::group () const"
 Returns the current key prefix, or a null string if there is no key prefix set.
 .PP
 See also beginGroup().
-.SH "void QSettings::insertSearchPath ( System s, const TQString & path )"
+.SH "void TQSettings::insertSearchPath ( System s, const TQString & path )"
 Inserts \fIpath\fR into the settings search path. The semantics of \fIpath\fR depends on the system \fIs\fR. It is usually easier and better to use setPath() instead of this function.
 .PP
 When \fIs\fR is \fIWindows\fR and the execution environment is \fInot\fR Windows the function does nothing. Similarly when \fIs\fR is \fIUnix\fR and the execution environment is \fInot\fR Unix the function does nothing.
@@ -380,9 +380,9 @@ HKEY_LOCAL_MACHINE/Software/MyApplication
 .PP
 .nf
 .br
-  QSettings settings;
+  TQSettings settings;
 .br
-  settings.insertSearchPath( QSettings::Windows, "/MyCompany" );
+  settings.insertSearchPath( TQSettings::Windows, "/MyCompany" );
 .br
   settings.writeEntry( "/MyApplication/Tip of the day", TRUE );
 .br
@@ -409,11 +409,11 @@ All insertions into the search path will go before $HOME/.qt/. For example:
 .PP
 .nf
 .br
-  QSettings settings;
+  TQSettings settings;
 .br
-  settings.insertSearchPath( QSettings::Unix, "/opt/MyCompany/share/etc" );
+  settings.insertSearchPath( TQSettings::Unix, "/opt/MyCompany/share/etc" );
 .br
-  settings.insertSearchPath( QSettings::Unix, "/opt/MyCompany/share/MyApplication/etc" );
+  settings.insertSearchPath( TQSettings::Unix, "/opt/MyCompany/share/MyApplication/etc" );
 .br
   // ...
 .br
@@ -426,7 +426,7 @@ SYSCONF
 .TP
 /opt/MyCompany/share/MyApplication/etc
 .TP
-$HOME/.qt When reading settings the files are searched in the order shown above, with later settings overriding earlier settings. Files for which the user doesn't have read permission are ignored. When saving settings QSettings works in the order shown above, writing to the first settings file for which the user has write permission.
+$HOME/.qt When reading settings the files are searched in the order shown above, with later settings overriding earlier settings. Files for which the user doesn't have read permission are ignored. When saving settings TQSettings works in the order shown above, writing to the first settings file for which the user has write permission.
 .PP
 Note that paths in the file system are not created by this function, so they must already exist to be useful.
 .PP
@@ -435,28 +435,28 @@ Settings under Unix are stored in files whose names are based on the first subke
 See also removeSearchPath().
 .PP
 Example: chart/chartform.cpp.
-.SH "bool QSettings::readBoolEntry ( const TQString & key, bool def = FALSE, bool * ok = 0 ) const"
+.SH "bool TQSettings::readBoolEntry ( const TQString & key, bool def = FALSE, bool * ok = 0 ) const"
 Reads the entry specified by \fIkey\fR, and returns a bool, or the default value, \fIdef\fR, if the entry couldn't be read. If \fIok\fR is non-null, *ok is set to TRUE if the key was read, FALSE otherwise.
 .PP
 See also readEntry(), readNumEntry(), readDoubleEntry(), writeEntry(), and removeEntry().
-.SH "double QSettings::readDoubleEntry ( const TQString & key, double def = 0, bool * ok = 0 ) const"
+.SH "double TQSettings::readDoubleEntry ( const TQString & key, double def = 0, bool * ok = 0 ) const"
 Reads the entry specified by \fIkey\fR, and returns a double, or the default value, \fIdef\fR, if the entry couldn't be read. If \fIok\fR is non-null, *ok is set to TRUE if the key was read, FALSE otherwise.
 .PP
 See also readEntry(), readNumEntry(), readBoolEntry(), writeEntry(), and removeEntry().
-.SH "TQString QSettings::readEntry ( const TQString & key, const TQString & def = TQString::null, bool * ok = 0 ) const"
+.SH "TQString TQSettings::readEntry ( const TQString & key, const TQString & def = TQString::null, bool * ok = 0 ) const"
 Reads the entry specified by \fIkey\fR, and returns a TQString, or the default value, \fIdef\fR, if the entry couldn't be read. If \fIok\fR is non-null, *ok is set to TRUE if the key was read, FALSE otherwise.
 .PP
 See also readListEntry(), readNumEntry(), readDoubleEntry(), readBoolEntry(), writeEntry(), and removeEntry().
-.SH "QStringList QSettings::readListEntry ( const TQString & key, bool * ok = 0 ) const"
+.SH "TQStringList TQSettings::readListEntry ( const TQString & key, bool * ok = 0 ) const"
 Reads the entry specified by \fIkey\fR as a string. If \fIok\fR is not 0, \fI*ok\fR is set to TRUE if the key was read, otherwise \fI*ok\fR is set to FALSE.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = mySettings.readListEntry( "recentfiles" );
+    TQStringList list = mySettings.readListEntry( "recentfiles" );
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -468,23 +468,23 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .br
 .fi
 .PP
-See also readEntry(), readDoubleEntry(), readBoolEntry(), writeEntry(), removeEntry(), and QStringList::split().
-.SH "QStringList QSettings::readListEntry ( const TQString & key, const TQChar & separator, bool * ok = 0 ) const"
+See also readEntry(), readDoubleEntry(), readBoolEntry(), writeEntry(), removeEntry(), and TQStringList::split().
+.SH "TQStringList TQSettings::readListEntry ( const TQString & key, const TQChar & separator, bool * ok = 0 ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Reads the entry specified by \fIkey\fR as a string. The \fIseparator\fR is used to create a QStringList by calling QStringList::split(\fIseparator\fR, entry). If \fIok\fR is not 0: \fI*ok\fR is set to TRUE if the key was read, otherwise \fI*ok\fR is set to FALSE.
+Reads the entry specified by \fIkey\fR as a string. The \fIseparator\fR is used to create a TQStringList by calling TQStringList::split(\fIseparator\fR, entry). If \fIok\fR is not 0: \fI*ok\fR is set to TRUE if the key was read, otherwise \fI*ok\fR is set to FALSE.
 .PP
-\fBWarning:\fR As the documentation states, QStringList::split() will omit empty strings from the list. Because of this, it is impossible to retrieve identical list data with this function. We recommend using the readListEntry() and writeEntry() overloads that do not take a \fIseparator\fR argument.
+\fBWarning:\fR As the documentation states, TQStringList::split() will omit empty strings from the list. Because of this, it is impossible to retrieve identical list data with this function. We recommend using the readListEntry() and writeEntry() overloads that do not take a \fIseparator\fR argument.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = mySettings.readListEntry( "size", " " );
+    TQStringList list = mySettings.readListEntry( "size", " " );
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -496,34 +496,34 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .br
 .fi
 .PP
-See also readEntry(), readDoubleEntry(), readBoolEntry(), writeEntry(), removeEntry(), and QStringList::split().
-.SH "int QSettings::readNumEntry ( const TQString & key, int def = 0, bool * ok = 0 ) const"
+See also readEntry(), readDoubleEntry(), readBoolEntry(), writeEntry(), removeEntry(), and TQStringList::split().
+.SH "int TQSettings::readNumEntry ( const TQString & key, int def = 0, bool * ok = 0 ) const"
 Reads the entry specified by \fIkey\fR, and returns an integer, or the default value, \fIdef\fR, if the entry couldn't be read. If \fIok\fR is non-null, *ok is set to TRUE if the key was read, FALSE otherwise.
 .PP
 See also readEntry(), readDoubleEntry(), readBoolEntry(), writeEntry(), and removeEntry().
-.SH "bool QSettings::removeEntry ( const TQString & key )"
+.SH "bool TQSettings::removeEntry ( const TQString & key )"
 Removes the entry specified by \fIkey\fR.
 .PP
 Returns true if the entry was successfully removed; otherwise returns false. Note that removing the last entry in any given folder, will also remove the folder.
 .PP
 See also readEntry() and writeEntry().
-.SH "void QSettings::removeSearchPath ( System s, const TQString & path )"
+.SH "void TQSettings::removeSearchPath ( System s, const TQString & path )"
 Removes all occurrences of \fIpath\fR (using exact matching) from the settings search path for system \fIs\fR. Note that the default search paths cannot be removed.
 .PP
 See also insertSearchPath().
-.SH "void QSettings::resetGroup ()"
+.SH "void TQSettings::resetGroup ()"
 Set the current key prefix to the empty string.
-.SH "void QSettings::setPath ( const TQString & domain, const TQString & product, Scope scope = Global )"
+.SH "void TQSettings::setPath ( const TQString & domain, const TQString & product, Scope scope = Global )"
 Insert platform-dependent paths from platform-independent information.
 .PP
 The \fIdomain\fR should be an Internet domain name controlled by the producer of the software, eg. Trolltech products use "trolltech.com".
 .PP
 The \fIproduct\fR should be the official name of the product.
 .PP
-The \fIscope\fR should be QSettings::User for user-specific settings, or QSettings::Global for system-wide settings (generally these will be read-only to many users).
+The \fIscope\fR should be TQSettings::User for user-specific settings, or TQSettings::Global for system-wide settings (generally these will be read-only to many users).
 .PP
 Not all information is relevant on all systems.
-.SH "QStringList QSettings::subkeyList ( const TQString & key ) const"
+.SH "TQStringList TQSettings::subkeyList ( const TQString & key ) const"
 Returns a list of the keys which contain subkeys under \fIkey\fR. Does \fInot\fR return any keys that contain entries.
 .PP
 Example settings:
@@ -552,13 +552,13 @@ Example settings:
 .PP
 .nf
 .br
-    QStringList keys = settings.subkeyList( "/MyCompany/MyApplication" );
+    TQStringList keys = settings.subkeyList( "/MyCompany/MyApplication" );
 .br
 .fi
 .PP
 In the above example, \fCkeys\fR will contain 'geometry' and 'recent files'. It will not contain 'background color' or 'foreground color' because those keys contain entries not subkeys. To get a list of keys that contain entries rather than subkeys use entryList() instead.
 .PP
-\fBWarning:\fR In the above example, if QSettings is writing to an Ini file, then a call to
+\fBWarning:\fR In the above example, if TQSettings is writing to an Ini file, then a call to
 .PP
 .nf
 .br
@@ -570,10 +570,10 @@ will return an empty list. This happens because a key like
 .br
  /MyCompany/MyApplication/background color 
 .fi
-is written to the file \fI"mycompanyrc"\fR, under the section \fI[MyApplication]\fR. This call is therefore a request to list the sections in an ini file, which is not supported in this version of QSettings. This is a known issue which will be fixed in Qt-4.
+is written to the file \fI"mycompanyrc"\fR, under the section \fI[MyApplication]\fR. This call is therefore a request to list the sections in an ini file, which is not supported in this version of TQSettings. This is a known issue which will be fixed in Qt-4.
 .PP
 See also entryList().
-.SH "bool QSettings::writeEntry ( const TQString & key, bool value )"
+.SH "bool TQSettings::writeEntry ( const TQString & key, bool value )"
 Writes the boolean entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created if it doesn't exist. Any previous value is overwritten by \fIvalue\fR.
 .PP
 If an error occurs the settings are left unchanged and FALSE is returned; otherwise TRUE is returned.
@@ -583,7 +583,7 @@ If an error occurs the settings are left unchanged and FALSE is returned; otherw
 See also readListEntry(), readNumEntry(), readDoubleEntry(), readBoolEntry(), and removeEntry().
 .PP
 Example: chart/chartform.cpp.
-.SH "bool QSettings::writeEntry ( const TQString & key, double value )"
+.SH "bool TQSettings::writeEntry ( const TQString & key, double value )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Writes the double entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created if it doesn't exist. Any previous value is overwritten by \fIvalue\fR.
@@ -591,7 +591,7 @@ Writes the double entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created
 If an error occurs the settings are left unchanged and FALSE is returned; otherwise TRUE is returned.
 .PP
 See also readListEntry(), readNumEntry(), readDoubleEntry(), readBoolEntry(), and removeEntry().
-.SH "bool QSettings::writeEntry ( const TQString & key, int value )"
+.SH "bool TQSettings::writeEntry ( const TQString & key, int value )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Writes the integer entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created if it doesn't exist. Any previous value is overwritten by \fIvalue\fR.
@@ -599,7 +599,7 @@ Writes the integer entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is create
 If an error occurs the settings are left unchanged and FALSE is returned; otherwise TRUE is returned.
 .PP
 See also readListEntry(), readNumEntry(), readDoubleEntry(), readBoolEntry(), and removeEntry().
-.SH "bool QSettings::writeEntry ( const TQString & key, const TQString & value )"
+.SH "bool TQSettings::writeEntry ( const TQString & key, const TQString & value )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Writes the string entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created if it doesn't exist. Any previous value is overwritten by \fIvalue\fR. If \fIvalue\fR is an empty string or a null string the key's value will be an empty string.
@@ -607,7 +607,7 @@ Writes the string entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created
 If an error occurs the settings are left unchanged and FALSE is returned; otherwise TRUE is returned.
 .PP
 See also readListEntry(), readNumEntry(), readDoubleEntry(), readBoolEntry(), and removeEntry().
-.SH "bool QSettings::writeEntry ( const TQString & key, const QStringList & value )"
+.SH "bool TQSettings::writeEntry ( const TQString & key, const TQStringList & value )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Writes the string list entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created if it doesn't exist. Any previous value is overwritten by \fIvalue\fR.
@@ -615,21 +615,21 @@ Writes the string list entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is cr
 If an error occurs the settings are left unchanged and FALSE is returned; otherwise returns TRUE.
 .PP
 See also readListEntry(), readNumEntry(), readDoubleEntry(), readBoolEntry(), and removeEntry().
-.SH "bool QSettings::writeEntry ( const TQString & key, const QStringList & value, const TQChar & separator )"
+.SH "bool TQSettings::writeEntry ( const TQString & key, const TQStringList & value, const TQChar & separator )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 \fBThis function is obsolete.\fR It is provided to keep old source working. We strongly advise against using it in new code.
 .PP
-Writes the string list entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created if it doesn't exist. Any previous value is overwritten by \fIvalue\fR. The list is stored as a sequence of strings separated by \fIseparator\fR (using QStringList::join()), so none of the strings in the list should contain the separator. If the list is empty or null the key's value will be an empty string.
+Writes the string list entry \fIvalue\fR into key \fIkey\fR. The \fIkey\fR is created if it doesn't exist. Any previous value is overwritten by \fIvalue\fR. The list is stored as a sequence of strings separated by \fIseparator\fR (using TQStringList::join()), so none of the strings in the list should contain the separator. If the list is empty or null the key's value will be an empty string.
 .PP
-\fBWarning:\fR The list should not contain empty or null strings, as readListEntry() will use QStringList::split() to recreate the list. As the documentation states, QStringList::split() will omit empty strings from the list. Because of this, it is impossible to retrieve identical list data that is stored with this function. We recommend using the writeEntry() and readListEntry() overloads that do not take a \fIseparator\fR argument.
+\fBWarning:\fR The list should not contain empty or null strings, as readListEntry() will use TQStringList::split() to recreate the list. As the documentation states, TQStringList::split() will omit empty strings from the list. Because of this, it is impossible to retrieve identical list data that is stored with this function. We recommend using the writeEntry() and readListEntry() overloads that do not take a \fIseparator\fR argument.
 .PP
 If an error occurs the settings are left unchanged and FALSE is returned; otherwise returns TRUE.
 .PP
-See also readListEntry(), readNumEntry(), readDoubleEntry(), readBoolEntry(), removeEntry(), and QStringList::join().
+See also readListEntry(), readNumEntry(), readDoubleEntry(), readBoolEntry(), removeEntry(), and TQStringList::join().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsettings.html
+.BR http://doc.trolltech.com/tqsettings.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

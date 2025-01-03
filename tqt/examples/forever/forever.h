@@ -14,7 +14,7 @@
 #ifndef FOREVER_H
 #define FOREVER_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 
 const int numColors = 120;

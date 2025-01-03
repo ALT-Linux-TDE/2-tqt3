@@ -1,5 +1,5 @@
 '\" t
-.TH QCanvasPixmap 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQCanvasPixmap 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QCanvasPixmap \- Pixmaps for QCanvasSprites
+TQCanvasPixmap \- Pixmaps for TQCanvasSprites
 .SH SYNOPSIS
-\fC#include <ntqcanvas.h>\fR
+\fC#include <tqcanvas.h>\fR
 .PP
-Inherits QPixmap.
+Inherits TQPixmap.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQCanvasPixmap\fR ( const TQString & datafilename )"
+.BI "\fBTQCanvasPixmap\fR ( const TQString & datafilename )"
 .br
 .ti -1c
-.BI "\fBQCanvasPixmap\fR ( const TQImage & image )"
+.BI "\fBTQCanvasPixmap\fR ( const TQImage & image )"
 .br
 .ti -1c
-.BI "\fBQCanvasPixmap\fR ( const QPixmap & pm, const QPoint & offset )"
+.BI "\fBTQCanvasPixmap\fR ( const TQPixmap & pm, const TQPoint & offset )"
 .br
 .ti -1c
-.BI "\fB~QCanvasPixmap\fR ()"
+.BI "\fB~TQCanvasPixmap\fR ()"
 .br
 .ti -1c
 .BI "int \fBoffsetX\fR () const"
@@ -38,44 +38,44 @@ Inherits QPixmap.
 .br
 .in -1c
 .SH DESCRIPTION
-The QCanvasPixmap class provides pixmaps for QCanvasSprites.
+The TQCanvasPixmap class provides pixmaps for TQCanvasSprites.
 .PP
-If you want to show a single pixmap on a QCanvas use a QCanvasSprite with just one pixmap.
+If you want to show a single pixmap on a TQCanvas use a TQCanvasSprite with just one pixmap.
 .PP
-When pixmaps are inserted into a QCanvasPixmapArray they are held as QCanvasPixmaps. QCanvasSprites are used to show pixmaps on QCanvases and hold their pixmaps in a QCanvasPixmapArray. If you retrieve a frame (pixmap) from a QCanvasSprite it will be returned as a QCanvasPixmap.
+When pixmaps are inserted into a TQCanvasPixmapArray they are held as TQCanvasPixmaps. TQCanvasSprites are used to show pixmaps on TQCanvases and hold their pixmaps in a TQCanvasPixmapArray. If you retrieve a frame (pixmap) from a TQCanvasSprite it will be returned as a TQCanvasPixmap.
 .PP
-The pixmap is a QPixmap and can only be set in the constructor. There are three different constructors, one taking a QPixmap, one a TQImage and one a file name that refers to a file in any supported file format (see QImageIO).
+The pixmap is a TQPixmap and can only be set in the constructor. There are three different constructors, one taking a TQPixmap, one a TQImage and one a file name that refers to a file in any supported file format (see TQImageIO).
 .PP
-QCanvasPixmap can have a hotspot which is defined in terms of an (x, y) offset. When you create a QCanvasPixmap from a PNG file or from a TQImage that has a TQImage::offset(), the offset() is initialized appropriately, otherwise the constructor leaves it at (0, 0). You can set it later using setOffset(). When the QCanvasPixmap is used in a QCanvasSprite, the offset position is the point at QCanvasItem::x() and QCanvasItem::y(), not the top-left corner of the pixmap.
+TQCanvasPixmap can have a hotspot which is defined in terms of an (x, y) offset. When you create a TQCanvasPixmap from a PNG file or from a TQImage that has a TQImage::offset(), the offset() is initialized appropriately, otherwise the constructor leaves it at (0, 0). You can set it later using setOffset(). When the TQCanvasPixmap is used in a TQCanvasSprite, the offset position is the point at TQCanvasItem::x() and TQCanvasItem::y(), not the top-left corner of the pixmap.
 .PP
-Note that for QCanvasPixmap objects created by a QCanvasSprite, the position of each QCanvasPixmap object is set so that the hotspot stays in the same position.
+Note that for TQCanvasPixmap objects created by a TQCanvasSprite, the position of each TQCanvasPixmap object is set so that the hotspot stays in the same position.
 .PP
-See also QCanvasPixmapArray, QCanvasItem, QCanvasSprite, Graphics Classes, and Image Processing Classes.
+See also TQCanvasPixmapArray, TQCanvasItem, TQCanvasSprite, Graphics Classes, and Image Processing Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QCanvasPixmap::QCanvasPixmap ( const TQString & datafilename )"
-Constructs a QCanvasPixmap that uses the image stored in \fIdatafilename\fR.
-.SH "QCanvasPixmap::QCanvasPixmap ( const TQImage & image )"
-Constructs a QCanvasPixmap from the image \fIimage\fR.
-.SH "QCanvasPixmap::QCanvasPixmap ( const QPixmap & pm, const QPoint & offset )"
-Constructs a QCanvasPixmap from the pixmap \fIpm\fR using the offset \fIoffset\fR.
-.SH "QCanvasPixmap::~QCanvasPixmap ()"
+.SH "TQCanvasPixmap::TQCanvasPixmap ( const TQString & datafilename )"
+Constructs a TQCanvasPixmap that uses the image stored in \fIdatafilename\fR.
+.SH "TQCanvasPixmap::TQCanvasPixmap ( const TQImage & image )"
+Constructs a TQCanvasPixmap from the image \fIimage\fR.
+.SH "TQCanvasPixmap::TQCanvasPixmap ( const TQPixmap & pm, const TQPoint & offset )"
+Constructs a TQCanvasPixmap from the pixmap \fIpm\fR using the offset \fIoffset\fR.
+.SH "TQCanvasPixmap::~TQCanvasPixmap ()"
 Destroys the pixmap.
-.SH "int QCanvasPixmap::offsetX () const"
+.SH "int TQCanvasPixmap::offsetX () const"
 Returns the x-offset of the pixmap's hotspot.
 .PP
 See also setOffset().
-.SH "int QCanvasPixmap::offsetY () const"
+.SH "int TQCanvasPixmap::offsetY () const"
 Returns the y-offset of the pixmap's hotspot.
 .PP
 See also setOffset().
-.SH "void QCanvasPixmap::setOffset ( int x, int y )"
+.SH "void TQCanvasPixmap::setOffset ( int x, int y )"
 Sets the offset of the pixmap's hotspot to (\fIx\fR, \fIy\fR).
 .PP
-\fBWarning:\fR Do not call this function if any QCanvasSprites are
+\fBWarning:\fR Do not call this function if any TQCanvasSprites are
 currently showing this pixmap.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qcanvaspixmap.html
+.BR http://doc.trolltech.com/tqcanvaspixmap.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -10,8 +10,8 @@
 #ifndef NNTP_H
 #define NNTP_H
 
-#include <ntqsocket.h>
-#include <ntqnetworkprotocol.h>
+#include <tqsocket.h>
+#include <tqnetworkprotocol.h>
 
 class Nntp : public TQNetworkProtocol
 {

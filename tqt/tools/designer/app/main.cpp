@@ -43,11 +43,11 @@
 
 #include "designerapp.h"
 
-#include <ntqtextstream.h>
-#include <ntqobjectlist.h>
-#include <ntqsettings.h>
-#include <ntqsplashscreen.h>
-#include <ntqdir.h>
+#include <tqtextstream.h>
+#include <tqobjectlist.h>
+#include <tqsettings.h>
+#include <tqsplashscreen.h>
+#include <tqdir.h>
 
 #include <stdlib.h>
 #include <signal.h>

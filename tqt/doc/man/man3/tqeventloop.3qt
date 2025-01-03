@@ -1,5 +1,5 @@
 '\" t
-.TH QEventLoop 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQEventLoop 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,21 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QEventLoop \- Manages the event queue
+TQEventLoop \- Manages the event queue
 .SH SYNOPSIS
-\fC#include <ntqeventloop.h>\fR
+\fC#include <tqeventloop.h>\fR
 .PP
 Inherits TQObject.
-.PP
-Inherited by QMotif.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQEventLoop\fR ( TQObject * parent = 0, const char * name = 0 )"
+.BI "\fBTQEventLoop\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QEventLoop\fR ()"
+.BI "\fB~TQEventLoop\fR ()"
 .br
 .ti -1c
 .BI "enum \fBProcessEvents\fR { AllEvents = 0x00, ExcludeUserInput = 0x01, ExcludeSocketNotifiers = 0x02, WaitForMore = 0x04 }"
@@ -39,13 +37,13 @@ Inherited by QMotif.
 .BI "virtual bool \fBhasPendingEvents\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBregisterSocketNotifier\fR ( QSocketNotifier * notifier )"
+.BI "virtual void \fBregisterSocketNotifier\fR ( TQSocketNotifier * notifier )"
 .br
 .ti -1c
-.BI "virtual void \fBunregisterSocketNotifier\fR ( QSocketNotifier * notifier )"
+.BI "virtual void \fBunregisterSocketNotifier\fR ( TQSocketNotifier * notifier )"
 .br
 .ti -1c
-.BI "void \fBsetSocketNotifierPending\fR ( QSocketNotifier * notifier )"
+.BI "void \fBsetSocketNotifierPending\fR ( TQSocketNotifier * notifier )"
 .br
 .ti -1c
 .BI "int \fBactivateSocketNotifiers\fR ()"
@@ -85,70 +83,70 @@ Inherited by QMotif.
 .br
 .in -1c
 .SH DESCRIPTION
-The QEventLoop class manages the event queue.
+The TQEventLoop class manages the event queue.
 .PP
-It receives events from the window system and other sources. It then sends them to QApplication for processing and delivery.
+It receives events from the window system and other sources. It then sends them to TQApplication for processing and delivery.
 .PP
-QEventLoop allows the application programmer to have more control over event delivery. Programs that perform long operations can call either processOneEvent() or processEvents() with various ProcessEvent values OR'ed together to control which events should be delivered.
+TQEventLoop allows the application programmer to have more control over event delivery. Programs that perform long operations can call either processOneEvent() or processEvents() with various ProcessEvent values OR'ed together to control which events should be delivered.
 .PP
-QEventLoop also allows the integration of an external event loop with the TQt event loop. The Motif Extension included with TQt includes a reimplementation of QEventLoop for merging TQt and Motif events together.
+TQEventLoop also allows the integration of an external event loop with the TQt event loop.
 .PP
-To use your own instance of QEventLoop or QEventLoop subclass create it before you create the QApplication object.
+To use your own instance of TQEventLoop or TQEventLoop subclass create it before you create the TQApplication object.
 .PP
 See also Main Window and Related Classes and Event Classes.
 .SS "Member Type Documentation"
-.SH "QEventLoop::ProcessEvents"
+.SH "TQEventLoop::ProcessEvents"
 This enum controls the types of events processed by the processEvents() functions.
 .TP
-\fCQEventLoop::AllEvents\fR - All events are processed
+\fCTQEventLoop::AllEvents\fR - All events are processed
 .TP
-\fCQEventLoop::ExcludeUserInput\fR - Do not process user input events. ( ButtonPress, KeyPress, etc. )
+\fCTQEventLoop::ExcludeUserInput\fR - Do not process user input events. ( ButtonPress, KeyPress, etc. )
 .TP
-\fCQEventLoop::ExcludeSocketNotifiers\fR - Do not process socket notifier events.
+\fCTQEventLoop::ExcludeSocketNotifiers\fR - Do not process socket notifier events.
 .TP
-\fCQEventLoop::WaitForMore\fR - Wait for events if no pending events are available.
+\fCTQEventLoop::WaitForMore\fR - Wait for events if no pending events are available.
 .PP
 See also processEvents().
-.SH "QEventLoop::ProcessEventsFlags"
+.SH "TQEventLoop::ProcessEventsFlags"
 A \fCtypedef\fR to allow various ProcessEvents values to be OR'ed together.
 .PP
 See also ProcessEvents.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QEventLoop::QEventLoop ( TQObject * parent = 0, const char * name = 0 )"
-Creates a QEventLoop object, this object becomes the global event loop object. There can only be one event loop object. The QEventLoop is usually constructed by calling QApplication::eventLoop(). To create your own event loop object create it before you instantiate the QApplication object.
+.SH "TQEventLoop::TQEventLoop ( TQObject * parent = 0, const char * name = 0 )"
+Creates a TQEventLoop object, this object becomes the global event loop object. There can only be one event loop object. The TQEventLoop is usually constructed by calling TQApplication::eventLoop(). To create your own event loop object create it before you instantiate the TQApplication object.
 .PP
 The \fIparent\fR and \fIname\fR arguments are passed on to the TQObject constructor.
-.SH "QEventLoop::~QEventLoop ()"
-Destructs the QEventLoop object.
-.SH "void QEventLoop::aboutToBlock ()\fC [signal]\fR"
+.SH "TQEventLoop::~TQEventLoop ()"
+Destructs the TQEventLoop object.
+.SH "void TQEventLoop::aboutToBlock ()\fC [signal]\fR"
 This signal is emitted before the event loop calls a function that could block.
 .PP
 See also awake().
-.SH "int QEventLoop::activateSocketNotifiers ()"
+.SH "int TQEventLoop::activateSocketNotifiers ()"
 Activates all pending socket notifiers and returns the number of socket notifiers that were activated.
-.SH "int QEventLoop::activateTimers ()"
+.SH "int TQEventLoop::activateTimers ()"
 Activates all TQt timers and returns the number of timers that were activated.
 .PP
-QEventLoop subclasses that do their own timer handling need to call this after the time returned by timeToWait() has elapsed.
+TQEventLoop subclasses that do their own timer handling need to call this after the time returned by timeToWait() has elapsed.
 .PP
 Note: This function is only useful on systems where \fCselect()\fR is used to block the eventloop. On Windows, this function always returns 0. On MacOS X, this function always returns 0 when the GUI is enabled. On MacOS X, this function returns the documented value when the GUI is disabled.
-.SH "void QEventLoop::awake ()\fC [signal]\fR"
+.SH "void TQEventLoop::awake ()\fC [signal]\fR"
 This signal is emitted after the event loop returns from a function that could block.
 .PP
 See also wakeUp() and aboutToBlock().
-.SH "int QEventLoop::enterLoop ()\fC [virtual]\fR"
+.SH "int TQEventLoop::enterLoop ()\fC [virtual]\fR"
 This function enters the main event loop (recursively). Do not call it unless you really know what you are doing.
-.SH "int QEventLoop::exec ()\fC [virtual]\fR"
+.SH "int TQEventLoop::exec ()\fC [virtual]\fR"
 Enters the main event loop and waits until exit() is called, and returns the value that was set to exit().
 .PP
 It is necessary to call this function to start event handling. The main event loop receives events from the window system and dispatches these to the application widgets.
 .PP
-Generally speaking, no user interaction can take place before calling exec(). As a special case, modal widgets like QMessageBox can be used before calling exec(), because modal widgets call exec() to start a local event loop.
+Generally speaking, no user interaction can take place before calling exec(). As a special case, modal widgets like TQMessageBox can be used before calling exec(), because modal widgets call exec() to start a local event loop.
 .PP
-To make your application perform idle processing, i.e. executing a special function whenever there are no pending events, use a QTimer with 0 timeout. More advanced idle processing schemes can be achieved using processEvents().
+To make your application perform idle processing, i.e. executing a special function whenever there are no pending events, use a TQTimer with 0 timeout. More advanced idle processing schemes can be achieved using processEvents().
 .PP
-See also QApplication::quit(), exit(), and processEvents().
-.SH "void QEventLoop::exit ( int retcode = 0 )\fC [virtual]\fR"
+See also TQApplication::quit(), exit(), and processEvents().
+.SH "void TQEventLoop::exit ( int retcode = 0 )\fC [virtual]\fR"
 Tells the event loop to exit with a return code.
 .PP
 After this function has been called, the event loop returns from the call to exec(). The exec() function returns \fIretcode\fR.
@@ -157,14 +155,14 @@ By convention, a \fIretcode\fR of 0 means success, and any non-zero value indica
 .PP
 Note that unlike the C library function of the same name, this function \fIdoes\fR return to the caller -- it is event processing that stops.
 .PP
-See also QApplication::quit() and exec().
-.SH "void QEventLoop::exitLoop ()\fC [virtual]\fR"
+See also TQApplication::quit() and exec().
+.SH "void TQEventLoop::exitLoop ()\fC [virtual]\fR"
 This function exits from a recursive call to the main event loop. Do not call it unless you really know what you are doing.
-.SH "bool QEventLoop::hasPendingEvents () const\fC [virtual]\fR"
+.SH "bool TQEventLoop::hasPendingEvents () const\fC [virtual]\fR"
 Returns TRUE if there is an event waiting, otherwise it returns FALSE.
-.SH "int QEventLoop::loopLevel () const\fC [virtual]\fR"
+.SH "int TQEventLoop::loopLevel () const\fC [virtual]\fR"
 Returns the current loop level.
-.SH "void QEventLoop::processEvents ( ProcessEventsFlags flags, int maxTime )"
+.SH "void TQEventLoop::processEvents ( ProcessEventsFlags flags, int maxTime )"
 Process pending events that match \fIflags\fR for a maximum of \fImaxTime\fR milliseconds, or until there are no more events to process, which ever is shorter.
 .PP
 This function is especially useful if you have a long running operation and want to show its progress without allowing user input, i.e. by using the ExcludeUserInput flag.
@@ -172,7 +170,7 @@ This function is especially useful if you have a long running operation and want
 NOTE: This function will not process events continuously; it returns after all available events are processed.
 .PP
 NOTE: Specifying the WaitForMore flag makes no sense and will be ignored.
-.SH "bool QEventLoop::processEvents ( ProcessEventsFlags flags )\fC [virtual]\fR"
+.SH "bool TQEventLoop::processEvents ( ProcessEventsFlags flags )\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Processes pending events that match \fIflags\fR until there are no more events to process.
@@ -195,19 +193,19 @@ NOTE: This function will not process events continuously; it returns after all a
 This function returns TRUE if an event was processed; otherwise it returns FALSE.
 .PP
 See also ProcessEvents and hasPendingEvents().
-.SH "void QEventLoop::registerSocketNotifier ( QSocketNotifier * notifier )\fC [virtual]\fR"
+.SH "void TQEventLoop::registerSocketNotifier ( TQSocketNotifier * notifier )\fC [virtual]\fR"
 Registers \fInotifier\fR with the event loop. Subclasses need to reimplement this method to tie a socket notifier into another event loop. Reimplementations \fIMUST\fR call the base implementation.
-.SH "void QEventLoop::setSocketNotifierPending ( QSocketNotifier * notifier )"
+.SH "void TQEventLoop::setSocketNotifierPending ( TQSocketNotifier * notifier )"
 Marks \fInotifier\fR as pending. The socket notifier will be activated the next time activateSocketNotifiers() is called.
-.SH "int QEventLoop::timeToWait () const"
+.SH "int TQEventLoop::timeToWait () const"
 Returns the number of milliseconds that TQt needs to handle its timers or -1 if there are no timers running.
 .PP
-QEventLoop subclasses that do their own timer handling need to use this to make sure that Qt's timers continue to work.
+TQEventLoop subclasses that do their own timer handling need to use this to make sure that Qt's timers continue to work.
 .PP
 Note: This function is only useful on systems where \fCselect()\fR is used to block the eventloop. On Windows, this function always returns -1. On MacOS X, this function always returns -1 when the GUI is enabled. On MacOS X, this function returns the documented value when the GUI is disabled.
-.SH "void QEventLoop::unregisterSocketNotifier ( QSocketNotifier * notifier )\fC [virtual]\fR"
+.SH "void TQEventLoop::unregisterSocketNotifier ( TQSocketNotifier * notifier )\fC [virtual]\fR"
 Unregisters \fInotifier\fR from the event loop. Subclasses need to reimplement this method to tie a socket notifier into another event loop. Reimplementations \fIMUST\fR call the base implementation.
-.SH "void QEventLoop::wakeUp ()\fC [virtual]\fR"
+.SH "void TQEventLoop::wakeUp ()\fC [virtual]\fR"
 \fBNote:\fR This function is thread-safe when TQt is built withthread support.</p>
 .PP
 Wakes up the event loop.
@@ -215,7 +213,7 @@ Wakes up the event loop.
 See also awake().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqeventloop.html
+.BR http://doc.trolltech.com/tqeventloop.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

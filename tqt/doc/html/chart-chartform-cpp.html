@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial2.doc:9 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -37,24 +36,24 @@ body { background: #ffffff; color: black; }
 #include "optionsform.h"
 #include "setdataform.h"
 
-#include &lt;<a href="qaction-h.html">ntqaction.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qcombobox-h.html">ntqcombobox.h</a>&gt;
-#include &lt;<a href="qfile-h.html">ntqfile.h</a>&gt;
-#include &lt;<a href="qfiledialog-h.html">ntqfiledialog.h</a>&gt;
-#include &lt;<a href="qfont-h.html">ntqfont.h</a>&gt;
-#include &lt;<a href="qfontdialog-h.html">ntqfontdialog.h</a>&gt;
-#include &lt;<a href="qmenubar-h.html">ntqmenubar.h</a>&gt;
-#include &lt;<a href="qmessagebox-h.html">ntqmessagebox.h</a>&gt;
-#include &lt;<a href="qpixmap-h.html">ntqpixmap.h</a>&gt;
-#include &lt;<a href="qpopupmenu-h.html">ntqpopupmenu.h</a>&gt;
-#include &lt;<a href="qprinter-h.html">ntqprinter.h</a>&gt;
-#include &lt;<a href="qradiobutton-h.html">ntqradiobutton.h</a>&gt;
-#include &lt;<a href="qsettings-h.html">ntqsettings.h</a>&gt;
-#include &lt;<a href="qspinbox-h.html">ntqspinbox.h</a>&gt;
-#include &lt;<a href="qstatusbar-h.html">ntqstatusbar.h</a>&gt;
-#include &lt;<a href="qtoolbar-h.html">ntqtoolbar.h</a>&gt;
-#include &lt;<a href="qtoolbutton-h.html">ntqtoolbutton.h</a>&gt;
+#include &lt;<a href="tqaction-h.html">tqaction.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqcombobox-h.html">tqcombobox.h</a>&gt;
+#include &lt;<a href="tqfile-h.html">tqfile.h</a>&gt;
+#include &lt;<a href="tqfiledialog-h.html">tqfiledialog.h</a>&gt;
+#include &lt;<a href="tqfont-h.html">tqfont.h</a>&gt;
+#include &lt;<a href="tqfontdialog-h.html">tqfontdialog.h</a>&gt;
+#include &lt;<a href="tqmenubar-h.html">tqmenubar.h</a>&gt;
+#include &lt;<a href="tqmessagebox-h.html">tqmessagebox.h</a>&gt;
+#include &lt;<a href="tqpixmap-h.html">tqpixmap.h</a>&gt;
+#include &lt;<a href="tqpopupmenu-h.html">tqpopupmenu.h</a>&gt;
+#include &lt;<a href="tqprinter-h.html">tqprinter.h</a>&gt;
+#include &lt;<a href="tqradiobutton-h.html">tqradiobutton.h</a>&gt;
+#include &lt;<a href="tqsettings-h.html">tqsettings.h</a>&gt;
+#include &lt;<a href="tqspinbox-h.html">tqspinbox.h</a>&gt;
+#include &lt;<a href="tqstatusbar-h.html">tqstatusbar.h</a>&gt;
+#include &lt;<a href="tqtoolbar-h.html">tqtoolbar.h</a>&gt;
+#include &lt;<a href="tqtoolbutton-h.html">tqtoolbutton.h</a>&gt;
 
 #include "images/file_new.xpm"
 #include "images/file_open.xpm"
@@ -68,177 +67,177 @@ body { background: #ffffff; color: black; }
 #include "images/options_verticalbarchart.xpm"
 
 
-const <a href="ntqstring.html">TQString</a> WINDOWS_REGISTRY = "/Trolltech/TQtExamples";
-const <a href="ntqstring.html">TQString</a> APP_KEY = "/Chart/";
+const <a href="tqstring.html">TQString</a> WINDOWS_REGISTRY = "/Trolltech/TQtExamples";
+const <a href="tqstring.html">TQString</a> APP_KEY = "/Chart/";
 
 
-<a name="f148"></a>ChartForm::ChartForm( const <a href="ntqstring.html">TQString</a>&amp; filename )
-    : <a href="ntqmainwindow.html">TQMainWindow</a>( 0, 0, WDestructiveClose )
+<a name="f148"></a>ChartForm::ChartForm( const <a href="tqstring.html">TQString</a>&amp; filename )
+    : <a href="tqmainwindow.html">TQMainWindow</a>( 0, 0, WDestructiveClose )
 {
-    <a href="ntqwidget.html#setIcon">setIcon</a>( TQPixmap( options_piechart ) );
+    <a href="tqwidget.html#setIcon">setIcon</a>( TQPixmap( options_piechart ) );
 
-    <a href="ntqaction.html">TQAction</a> *fileNewAction;
-    <a href="ntqaction.html">TQAction</a> *fileOpenAction;
-    <a href="ntqaction.html">TQAction</a> *fileSaveAction;
-    <a href="ntqaction.html">TQAction</a> *fileSaveAsAction;
-    <a href="ntqaction.html">TQAction</a> *fileSaveAsPixmapAction;
-    <a href="ntqaction.html">TQAction</a> *filePrintAction;
-    <a href="ntqaction.html">TQAction</a> *fileQuitAction;
-    <a href="ntqaction.html">TQAction</a> *optionsSetDataAction;
-    <a href="ntqaction.html">TQAction</a> *optionsSetFontAction;
-    <a href="ntqaction.html">TQAction</a> *optionsSetOptionsAction;
+    <a href="tqaction.html">TQAction</a> *fileNewAction;
+    <a href="tqaction.html">TQAction</a> *fileOpenAction;
+    <a href="tqaction.html">TQAction</a> *fileSaveAction;
+    <a href="tqaction.html">TQAction</a> *fileSaveAsAction;
+    <a href="tqaction.html">TQAction</a> *fileSaveAsPixmapAction;
+    <a href="tqaction.html">TQAction</a> *filePrintAction;
+    <a href="tqaction.html">TQAction</a> *fileQuitAction;
+    <a href="tqaction.html">TQAction</a> *optionsSetDataAction;
+    <a href="tqaction.html">TQAction</a> *optionsSetFontAction;
+    <a href="tqaction.html">TQAction</a> *optionsSetOptionsAction;
 
-    fileNewAction = new <a href="ntqaction.html">TQAction</a>(
+    fileNewAction = new <a href="tqaction.html">TQAction</a>(
             "New Chart", TQPixmap( file_new ),
             "&amp;New", CTRL+Key_N, this, "new" );
-<a name="x2869"></a>    <a href="ntqobject.html#connect">connect</a>( fileNewAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileNew() ) );
+<a name="x2869"></a>    <a href="tqobject.html#connect">connect</a>( fileNewAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileNew() ) );
 
-    fileOpenAction = new <a href="ntqaction.html">TQAction</a>(
+    fileOpenAction = new <a href="tqaction.html">TQAction</a>(
             "Open Chart", TQPixmap( file_open ),
             "&amp;Open...", CTRL+Key_O, this, "open" );
-    <a href="ntqobject.html#connect">connect</a>( fileOpenAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileOpen() ) );
+    <a href="tqobject.html#connect">connect</a>( fileOpenAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileOpen() ) );
 
-    fileSaveAction = new <a href="ntqaction.html">TQAction</a>(
+    fileSaveAction = new <a href="tqaction.html">TQAction</a>(
             "Save Chart", TQPixmap( file_save ),
             "&amp;Save", CTRL+Key_S, this, "save" );
-    <a href="ntqobject.html#connect">connect</a>( fileSaveAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileSave() ) );
+    <a href="tqobject.html#connect">connect</a>( fileSaveAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileSave() ) );
 
-    fileSaveAsAction = new <a href="ntqaction.html">TQAction</a>(
+    fileSaveAsAction = new <a href="tqaction.html">TQAction</a>(
             "Save Chart As", TQPixmap( file_save ),
             "Save &amp;As...", 0, this, "save as" );
-    <a href="ntqobject.html#connect">connect</a>( fileSaveAsAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+    <a href="tqobject.html#connect">connect</a>( fileSaveAsAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ),
              this, TQ_SLOT( fileSaveAs() ) );
 
-    fileSaveAsPixmapAction = new <a href="ntqaction.html">TQAction</a>(
+    fileSaveAsPixmapAction = new <a href="tqaction.html">TQAction</a>(
             "Save Chart As Bitmap", TQPixmap( file_save ),
             "Save As &amp;Bitmap...", CTRL+Key_B, this, "save as bitmap" );
-    <a href="ntqobject.html#connect">connect</a>( fileSaveAsPixmapAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+    <a href="tqobject.html#connect">connect</a>( fileSaveAsPixmapAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ),
              this, TQ_SLOT( fileSaveAsPixmap() ) );
 
-    filePrintAction = new <a href="ntqaction.html">TQAction</a>(
+    filePrintAction = new <a href="tqaction.html">TQAction</a>(
             "Print Chart", TQPixmap( file_print ),
             "&amp;Print Chart...", CTRL+Key_P, this, "print chart" );
-    <a href="ntqobject.html#connect">connect</a>( filePrintAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+    <a href="tqobject.html#connect">connect</a>( filePrintAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ),
              this, TQ_SLOT( filePrint() ) );
 
-    optionsSetDataAction = new <a href="ntqaction.html">TQAction</a>(
+    optionsSetDataAction = new <a href="tqaction.html">TQAction</a>(
             "Set Data", TQPixmap( options_setdata ),
             "Set &amp;Data...", CTRL+Key_D, this, "set data" );
-    <a href="ntqobject.html#connect">connect</a>( optionsSetDataAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+    <a href="tqobject.html#connect">connect</a>( optionsSetDataAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ),
              this, TQ_SLOT( optionsSetData() ) );
 
 
-    <a href="qactiongroup.html">TQActionGroup</a> *chartGroup = new <a href="qactiongroup.html">TQActionGroup</a>( this ); // Connected later
-<a name="x2874"></a>    chartGroup-&gt;<a href="qactiongroup.html#setExclusive">setExclusive</a>( TRUE );
+    <a href="tqactiongroup.html">TQActionGroup</a> *chartGroup = new <a href="tqactiongroup.html">TQActionGroup</a>( this ); // Connected later
+<a name="x2874"></a>    chartGroup-&gt;<a href="tqactiongroup.html#setExclusive">setExclusive</a>( TRUE );
 
-    optionsPieChartAction = new <a href="ntqaction.html">TQAction</a>(
+    optionsPieChartAction = new <a href="tqaction.html">TQAction</a>(
             "Pie Chart", TQPixmap( options_piechart ),
             "&amp;Pie Chart", CTRL+Key_I, chartGroup, "pie chart" );
-<a name="x2872"></a>    optionsPieChartAction-&gt;<a href="ntqaction.html#setToggleAction">setToggleAction</a>( TRUE );
+<a name="x2872"></a>    optionsPieChartAction-&gt;<a href="tqaction.html#setToggleAction">setToggleAction</a>( TRUE );
 
-    optionsHorizontalBarChartAction = new <a href="ntqaction.html">TQAction</a>(
+    optionsHorizontalBarChartAction = new <a href="tqaction.html">TQAction</a>(
             "Horizontal Bar Chart", TQPixmap( options_horizontalbarchart ),
             "&amp;Horizontal Bar Chart", CTRL+Key_H, chartGroup,
             "horizontal bar chart" );
-    optionsHorizontalBarChartAction-&gt;<a href="ntqaction.html#setToggleAction">setToggleAction</a>( TRUE );
+    optionsHorizontalBarChartAction-&gt;<a href="tqaction.html#setToggleAction">setToggleAction</a>( TRUE );
 
-    optionsVerticalBarChartAction = new <a href="ntqaction.html">TQAction</a>(
+    optionsVerticalBarChartAction = new <a href="tqaction.html">TQAction</a>(
             "Vertical Bar Chart", TQPixmap( options_verticalbarchart ),
             "&amp;Vertical Bar Chart", CTRL+Key_V, chartGroup, "Vertical bar chart" );
-    optionsVerticalBarChartAction-&gt;<a href="ntqaction.html#setToggleAction">setToggleAction</a>( TRUE );
+    optionsVerticalBarChartAction-&gt;<a href="tqaction.html#setToggleAction">setToggleAction</a>( TRUE );
 
 
-    optionsSetFontAction = new <a href="ntqaction.html">TQAction</a>(
+    optionsSetFontAction = new <a href="tqaction.html">TQAction</a>(
             "Set Font", TQPixmap( options_setfont ),
             "Set &amp;Font...", CTRL+Key_F, this, "set font" );
-    <a href="ntqobject.html#connect">connect</a>( optionsSetFontAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+    <a href="tqobject.html#connect">connect</a>( optionsSetFontAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ),
              this, TQ_SLOT( optionsSetFont() ) );
 
-    optionsSetOptionsAction = new <a href="ntqaction.html">TQAction</a>(
+    optionsSetOptionsAction = new <a href="tqaction.html">TQAction</a>(
             "Set Options", TQPixmap( options_setoptions ),
             "Set &amp;Options...", 0, this, "set options" );
-    <a href="ntqobject.html#connect">connect</a>( optionsSetOptionsAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ),
+    <a href="tqobject.html#connect">connect</a>( optionsSetOptionsAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ),
              this, TQ_SLOT( optionsSetOptions() ) );
 
-    fileQuitAction = new <a href="ntqaction.html">TQAction</a>( "Quit", "&amp;Quit", CTRL+Key_Q, this, "quit" );
-    <a href="ntqobject.html#connect">connect</a>( fileQuitAction, TQ_SIGNAL( <a href="ntqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileQuit() ) );
+    fileQuitAction = new <a href="tqaction.html">TQAction</a>( "Quit", "&amp;Quit", CTRL+Key_Q, this, "quit" );
+    <a href="tqobject.html#connect">connect</a>( fileQuitAction, TQ_SIGNAL( <a href="tqaction.html#activated">activated</a>() ), this, TQ_SLOT( fileQuit() ) );
 
 
-    <a href="ntqtoolbar.html">TQToolBar</a>* fileTools = new <a href="ntqtoolbar.html">TQToolBar</a>( this, "file operations" );
-<a name="x2895"></a>    fileTools-&gt;<a href="ntqtoolbar.html#setLabel">setLabel</a>( "File Operations" );
-<a name="x2870"></a>    fileNewAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileTools );
-    fileOpenAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileTools );
-    fileSaveAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileTools );
-<a name="x2894"></a>    fileTools-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
-    filePrintAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileTools );
+    <a href="tqtoolbar.html">TQToolBar</a>* fileTools = new <a href="tqtoolbar.html">TQToolBar</a>( this, "file operations" );
+<a name="x2895"></a>    fileTools-&gt;<a href="tqtoolbar.html#setLabel">setLabel</a>( "File Operations" );
+<a name="x2870"></a>    fileNewAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileTools );
+    fileOpenAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileTools );
+    fileSaveAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileTools );
+<a name="x2894"></a>    fileTools-&gt;<a href="tqtoolbar.html#addSeparator">addSeparator</a>();
+    filePrintAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileTools );
 
-    <a href="ntqtoolbar.html">TQToolBar</a> *optionsTools = new <a href="ntqtoolbar.html">TQToolBar</a>( this, "options operations" );
-    optionsTools-&gt;<a href="ntqtoolbar.html#setLabel">setLabel</a>( "Options Operations" );
-    optionsSetDataAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsTools );
-    optionsTools-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
-    optionsPieChartAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsTools );
-    optionsHorizontalBarChartAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsTools );
-    optionsVerticalBarChartAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsTools );
-    optionsTools-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
-    optionsSetFontAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsTools );
-    optionsTools-&gt;<a href="ntqtoolbar.html#addSeparator">addSeparator</a>();
-    optionsSetOptionsAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsTools );
+    <a href="tqtoolbar.html">TQToolBar</a> *optionsTools = new <a href="tqtoolbar.html">TQToolBar</a>( this, "options operations" );
+    optionsTools-&gt;<a href="tqtoolbar.html#setLabel">setLabel</a>( "Options Operations" );
+    optionsSetDataAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsTools );
+    optionsTools-&gt;<a href="tqtoolbar.html#addSeparator">addSeparator</a>();
+    optionsPieChartAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsTools );
+    optionsHorizontalBarChartAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsTools );
+    optionsVerticalBarChartAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsTools );
+    optionsTools-&gt;<a href="tqtoolbar.html#addSeparator">addSeparator</a>();
+    optionsSetFontAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsTools );
+    optionsTools-&gt;<a href="tqtoolbar.html#addSeparator">addSeparator</a>();
+    optionsSetOptionsAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsTools );
 
-    fileMenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;File", fileMenu );
-    fileNewAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileMenu );
-    fileOpenAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileMenu );
-    fileSaveAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileMenu );
-    fileSaveAsAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileMenu );
-    fileMenu-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    fileSaveAsPixmapAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileMenu );
-    fileMenu-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    filePrintAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileMenu );
-    fileMenu-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    fileQuitAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( fileMenu );
+    fileMenu = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;File", fileMenu );
+    fileNewAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileMenu );
+    fileOpenAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileMenu );
+    fileSaveAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileMenu );
+    fileSaveAsAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileMenu );
+    fileMenu-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    fileSaveAsPixmapAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileMenu );
+    fileMenu-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    filePrintAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileMenu );
+    fileMenu-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    fileQuitAction-&gt;<a href="tqaction.html#addTo">addTo</a>( fileMenu );
 
-    optionsMenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Options", optionsMenu );
-    optionsSetDataAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsMenu );
-    optionsMenu-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    optionsPieChartAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsMenu );
-    optionsHorizontalBarChartAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsMenu );
-    optionsVerticalBarChartAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsMenu );
-    optionsMenu-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    optionsSetFontAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsMenu );
-    optionsMenu-&gt;<a href="ntqmenudata.html#insertSeparator">insertSeparator</a>();
-    optionsSetOptionsAction-&gt;<a href="ntqaction.html#addTo">addTo</a>( optionsMenu );
+    optionsMenu = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Options", optionsMenu );
+    optionsSetDataAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsMenu );
+    optionsMenu-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    optionsPieChartAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsMenu );
+    optionsHorizontalBarChartAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsMenu );
+    optionsVerticalBarChartAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsMenu );
+    optionsMenu-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    optionsSetFontAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsMenu );
+    optionsMenu-&gt;<a href="tqmenudata.html#insertSeparator">insertSeparator</a>();
+    optionsSetOptionsAction-&gt;<a href="tqaction.html#addTo">addTo</a>( optionsMenu );
 
-    <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertSeparator();
 
-    <a href="ntqpopupmenu.html">TQPopupMenu</a> *helpMenu = new <a href="ntqpopupmenu.html">TQPopupMenu</a>( this );
-    <a href="ntqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", helpMenu );
-    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;Help", this, TQ_SLOT(helpHelp()), Key_F1 );
-    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(helpAbout()) );
-    helpMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(helpAboutTQt()) );
+    <a href="tqpopupmenu.html">TQPopupMenu</a> *helpMenu = new <a href="tqpopupmenu.html">TQPopupMenu</a>( this );
+    <a href="tqmainwindow.html#menuBar">menuBar</a>()-&gt;insertItem( "&amp;Help", helpMenu );
+    helpMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;Help", this, TQ_SLOT(helpHelp()), Key_F1 );
+    helpMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "&amp;About", this, TQ_SLOT(helpAbout()) );
+    helpMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( "About &amp;TQt", this, TQ_SLOT(helpAboutTQt()) );
 
 
     m_printer = 0;
     m_elements.resize( MAX_ELEMENTS );
 
-    <a href="ntqsettings.html">TQSettings</a> settings;
-<a name="x2890"></a>    settings.<a href="ntqsettings.html#insertSearchPath">insertSearchPath</a>( TQSettings::Windows, WINDOWS_REGISTRY );
-    int windowWidth = settings.<a href="ntqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "WindowWidth", 460 );
-    int windowHeight = settings.<a href="ntqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "WindowHeight", 530 );
-    int windowX = settings.<a href="ntqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "WindowX", -1 );
-    int windowY = settings.<a href="ntqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "WindowY", -1 );
+    <a href="tqsettings.html">TQSettings</a> settings;
+<a name="x2890"></a>    settings.<a href="tqsettings.html#insertSearchPath">insertSearchPath</a>( TQSettings::Windows, WINDOWS_REGISTRY );
+    int windowWidth = settings.<a href="tqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "WindowWidth", 460 );
+    int windowHeight = settings.<a href="tqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "WindowHeight", 530 );
+    int windowX = settings.<a href="tqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "WindowX", -1 );
+    int windowY = settings.<a href="tqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "WindowY", -1 );
     setChartType( ChartType(
-            settings.<a href="ntqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "ChartType", int(PIE) ) ) );
+            settings.<a href="tqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "ChartType", int(PIE) ) ) );
     m_addValues = AddValuesType(
-                    settings.<a href="ntqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "AddValues", int(NO) ));
-    m_decimalPlaces = settings.<a href="ntqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "Decimals", 2 );
+                    settings.<a href="tqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "AddValues", int(NO) ));
+    m_decimalPlaces = settings.<a href="tqsettings.html#readNumEntry">readNumEntry</a>( APP_KEY + "Decimals", 2 );
     m_font = TQFont( "Helvetica", 18, TQFont::Bold );
     m_font.fromString(
-            settings.<a href="ntqsettings.html#readEntry">readEntry</a>( APP_KEY + "Font", m_font.toString() ) );
+            settings.<a href="tqsettings.html#readEntry">readEntry</a>( APP_KEY + "Font", m_font.toString() ) );
     for ( int i = 0; i &lt; MAX_RECENTFILES; ++i ) {
-        <a href="ntqstring.html">TQString</a> filename = settings.<a href="ntqsettings.html#readEntry">readEntry</a>( APP_KEY + "File" +
-<a name="x2893"></a>                                               TQString::<a href="ntqstring.html#number">number</a>( i + 1 ) );
-<a name="x2892"></a>        if ( !filename.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
+        <a href="tqstring.html">TQString</a> filename = settings.<a href="tqsettings.html#readEntry">readEntry</a>( APP_KEY + "File" +
+<a name="x2893"></a>                                               TQString::<a href="tqstring.html#number">number</a>( i + 1 ) );
+<a name="x2892"></a>        if ( !filename.<a href="tqstring.html#isEmpty">isEmpty</a>() )
             m_recentFiles.push_back( filename );
     }
     if ( m_recentFiles.count() )
@@ -247,20 +246,20 @@ const <a href="ntqstring.html">TQString</a> APP_KEY = "/Chart/";
 
     // Connect *after* we've set the chart type on so we don't call
     // drawElements() prematurely.
-<a name="x2873"></a>    <a href="ntqobject.html#connect">connect</a>( chartGroup, TQ_SIGNAL( <a href="qactiongroup.html#selected">selected</a>(TQAction*) ),
+<a name="x2873"></a>    <a href="tqobject.html#connect">connect</a>( chartGroup, TQ_SIGNAL( <a href="tqactiongroup.html#selected">selected</a>(TQAction*) ),
              this, TQ_SLOT( updateChartType(TQAction*) ) );
 
-    <a href="ntqwidget.html#resize">resize</a>( windowWidth, windowHeight );
+    <a href="tqwidget.html#resize">resize</a>( windowWidth, windowHeight );
     if ( windowX != -1 || windowY != -1 )
-        <a href="ntqwidget.html#move">move</a>( windowX, windowY );
+        <a href="tqwidget.html#move">move</a>( windowX, windowY );
 
-    m_canvas = new <a href="ntqcanvas.html">TQCanvas</a>( this );
-<a name="x2876"></a>    m_canvas-&gt;<a href="ntqcanvas.html#resize">resize</a>( <a href="ntqwidget.html#width">width</a>(), height() );
+    m_canvas = new <a href="tqcanvas.html">TQCanvas</a>( this );
+<a name="x2876"></a>    m_canvas-&gt;<a href="tqcanvas.html#resize">resize</a>( <a href="tqwidget.html#width">width</a>(), height() );
     m_canvasView = new CanvasView( m_canvas, &amp;m_elements, this );
-    <a href="ntqmainwindow.html#setCentralWidget">setCentralWidget</a>( m_canvasView );
-    m_canvasView-&gt;<a href="ntqwidget.html#show">show</a>();
+    <a href="tqmainwindow.html#setCentralWidget">setCentralWidget</a>( m_canvasView );
+    m_canvasView-&gt;<a href="tqwidget.html#show">show</a>();
 
-    if ( !filename.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
+    if ( !filename.<a href="tqstring.html#isEmpty">isEmpty</a>() )
         load( filename );
     else {
         init();
@@ -272,7 +271,7 @@ const <a href="ntqstring.html">TQString</a> APP_KEY = "/Chart/";
         drawElements();
     }
 
-    <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Ready", 2000 );
+    <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Ready", 2000 );
 }
 
 
@@ -284,7 +283,7 @@ ChartForm::~ChartForm()
 
 void <a name="f149"></a>ChartForm::init()
 {
-    <a href="ntqwidget.html#setCaption">setCaption</a>( "Chart" );
+    <a href="tqwidget.html#setCaption">setCaption</a>( "Chart" );
     m_filename = TQString::null;
     m_changed = FALSE;
 
@@ -308,7 +307,7 @@ void <a name="f149"></a>ChartForm::init()
     }
 }
 
-<a name="x2896"></a>void ChartForm::<a href="ntqwidget.html#closeEvent">closeEvent</a>( <a href="qcloseevent.html">TQCloseEvent</a> * )
+<a name="x2896"></a>void ChartForm::<a href="tqwidget.html#closeEvent">closeEvent</a>( <a href="tqcloseevent.html">TQCloseEvent</a> * )
 {
     fileQuit();
 }
@@ -328,25 +327,25 @@ void <a name="f151"></a>ChartForm::fileOpen()
     if ( !okToClear() )
         return;
 
-    <a href="ntqstring.html">TQString</a> filename = TQFileDialog::<a href="ntqfiledialog.html#getOpenFileName">getOpenFileName</a>(
+    <a href="tqstring.html">TQString</a> filename = TQFileDialog::<a href="tqfiledialog.html#getOpenFileName">getOpenFileName</a>(
                             TQString::null, "Charts (*.cht)", this,
                             "file open", "Chart -- File Open" );
-    if ( !filename.<a href="ntqstring.html#isEmpty">isEmpty</a>() )
+    if ( !filename.<a href="tqstring.html#isEmpty">isEmpty</a>() )
         load( filename );
     else
-        <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "File Open abandoned", 2000 );
+        <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "File Open abandoned", 2000 );
 }
 
 
 void <a name="f152"></a>ChartForm::fileSaveAs()
 {
-    <a href="ntqstring.html">TQString</a> filename = TQFileDialog::<a href="ntqfiledialog.html#getSaveFileName">getSaveFileName</a>(
+    <a href="tqstring.html">TQString</a> filename = TQFileDialog::<a href="tqfiledialog.html#getSaveFileName">getSaveFileName</a>(
                             TQString::null, "Charts (*.cht)", this,
                             "file save as", "Chart -- File Save As" );
-    if ( !filename.<a href="ntqstring.html#isEmpty">isEmpty</a>() ) {
+    if ( !filename.<a href="tqstring.html#isEmpty">isEmpty</a>() ) {
         int answer = 0;
-<a name="x2878"></a>        if ( TQFile::<a href="ntqfile.html#exists">exists</a>( filename ) )
-<a name="x2889"></a>            answer = TQMessageBox::<a href="ntqmessagebox.html#warning">warning</a>(
+<a name="x2878"></a>        if ( TQFile::<a href="tqfile.html#exists">exists</a>( filename ) )
+<a name="x2889"></a>            answer = TQMessageBox::<a href="tqmessagebox.html#warning">warning</a>(
                             this, "Chart -- Overwrite File",
                             TQString( "Overwrite\n\'%1\'?" ).
                                 arg( filename ),
@@ -358,7 +357,7 @@ void <a name="f152"></a>ChartForm::fileSaveAs()
             return;
         }
     }
-    <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Saving abandoned", 2000 );
+    <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Saving abandoned", 2000 );
 }
 
 
@@ -371,7 +370,7 @@ void <a name="f153"></a>ChartForm::fileOpenRecent( int index )
 }
 
 
-void <a name="f154"></a>ChartForm::updateRecentFiles( const <a href="ntqstring.html">TQString</a>&amp; filename )
+void <a name="f154"></a>ChartForm::updateRecentFiles( const <a href="tqstring.html">TQString</a>&amp; filename )
 {
     if ( m_recentFiles.find( filename ) != m_recentFiles.end() )
         return;
@@ -387,10 +386,10 @@ void <a name="f154"></a>ChartForm::updateRecentFiles( const <a href="ntqstring.h
 void <a name="f155"></a>ChartForm::updateRecentFilesMenu()
 {
     for ( int i = 0; i &lt; MAX_RECENTFILES; ++i ) {
-<a name="x2882"></a>        if ( fileMenu-&gt;<a href="ntqmenudata.html#findItem">findItem</a>( i ) )
-<a name="x2885"></a>            fileMenu-&gt;<a href="ntqmenudata.html#removeItem">removeItem</a>( i );
+<a name="x2882"></a>        if ( fileMenu-&gt;<a href="tqmenudata.html#findItem">findItem</a>( i ) )
+<a name="x2885"></a>            fileMenu-&gt;<a href="tqmenudata.html#removeItem">removeItem</a>( i );
         if ( i &lt; int(m_recentFiles.count()) )
-            fileMenu-&gt;<a href="ntqmenudata.html#insertItem">insertItem</a>( TQString( "&amp;%1 %2" ).
+            fileMenu-&gt;<a href="tqmenudata.html#insertItem">insertItem</a>( TQString( "&amp;%1 %2" ).
                                     arg( i + 1 ).arg( m_recentFiles[i] ),
                                   this, TQ_SLOT( fileOpenRecent(int) ),
                                   0, i );
@@ -402,7 +401,7 @@ void <a name="f156"></a>ChartForm::fileQuit()
 {
     if ( okToClear() ) {
         saveOptions();
-<a name="x2875"></a>        tqApp-&gt;<a href="ntqapplication.html#exit">exit</a>( 0 );
+<a name="x2875"></a>        tqApp-&gt;<a href="tqapplication.html#exit">exit</a>( 0 );
     }
 }
 
@@ -410,14 +409,14 @@ void <a name="f156"></a>ChartForm::fileQuit()
 bool <a name="f157"></a>ChartForm::okToClear()
 {
     if ( m_changed ) {
-        <a href="ntqstring.html">TQString</a> msg;
+        <a href="tqstring.html">TQString</a> msg;
         if ( m_filename.isEmpty() )
             msg = "Unnamed chart ";
         else
             msg = TQString( "Chart '%1'\n" ).arg( m_filename );
         msg += "has been changed.";
 
-        int x = TQMessageBox::<a href="ntqmessagebox.html#information">information</a>( this, "Chart -- Unsaved Changes",
+        int x = TQMessageBox::<a href="tqmessagebox.html#information">information</a>( this, "Chart -- Unsaved Changes",
                                           msg, "&amp;Save", "Cancel", "&amp;Abandon",
                                           0, 1 );
         switch( x ) {
@@ -438,18 +437,18 @@ bool <a name="f157"></a>ChartForm::okToClear()
 
 void <a name="f158"></a>ChartForm::saveOptions()
 {
-    <a href="ntqsettings.html">TQSettings</a> settings;
-    settings.<a href="ntqsettings.html#insertSearchPath">insertSearchPath</a>( TQSettings::Windows, WINDOWS_REGISTRY );
-<a name="x2891"></a>    settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "WindowWidth", width() );
-    settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "WindowHeight", height() );
-    settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "WindowX", x() );
-    settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "WindowY", y() );
-    settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "ChartType", int(m_chartType) );
-    settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "AddValues", int(m_addValues) );
-    settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "Decimals", m_decimalPlaces );
-    settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "Font", m_font.toString() );
+    <a href="tqsettings.html">TQSettings</a> settings;
+    settings.<a href="tqsettings.html#insertSearchPath">insertSearchPath</a>( TQSettings::Windows, WINDOWS_REGISTRY );
+<a name="x2891"></a>    settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "WindowWidth", width() );
+    settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "WindowHeight", height() );
+    settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "WindowX", x() );
+    settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "WindowY", y() );
+    settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "ChartType", int(m_chartType) );
+    settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "AddValues", int(m_addValues) );
+    settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "Decimals", m_decimalPlaces );
+    settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "Font", m_font.toString() );
     for ( int i = 0; i &lt; int(m_recentFiles.count()); ++i )
-        settings.<a href="ntqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "File" + TQString::number( i + 1 ),
+        settings.<a href="tqsettings.html#writeEntry">writeEntry</a>( APP_KEY + "File" + TQString::number( i + 1 ),
                              m_recentFiles[i] );
 }
 
@@ -457,7 +456,7 @@ void <a name="f158"></a>ChartForm::saveOptions()
 void <a name="f159"></a>ChartForm::optionsSetData()
 {
     SetDataForm *setDataForm = new SetDataForm( &amp;m_elements, m_decimalPlaces, this );
-<a name="x2877"></a>    if ( setDataForm-&gt;<a href="ntqdialog.html#exec">exec</a>() ) {
+<a name="x2877"></a>    if ( setDataForm-&gt;<a href="tqdialog.html#exec">exec</a>() ) {
         m_changed = TRUE;
         drawElements();
     }
@@ -470,19 +469,19 @@ void <a name="f160"></a>ChartForm::setChartType( ChartType chartType )
     m_chartType = chartType;
     switch ( m_chartType ) {
         case PIE:
-<a name="x2871"></a>            optionsPieChartAction-&gt;<a href="ntqaction.html#setOn">setOn</a>( TRUE );
+<a name="x2871"></a>            optionsPieChartAction-&gt;<a href="tqaction.html#setOn">setOn</a>( TRUE );
             break;
         case VERTICAL_BAR:
-            optionsVerticalBarChartAction-&gt;<a href="ntqaction.html#setOn">setOn</a>( TRUE );
+            optionsVerticalBarChartAction-&gt;<a href="tqaction.html#setOn">setOn</a>( TRUE );
             break;
         case HORIZONTAL_BAR:
-            optionsHorizontalBarChartAction-&gt;<a href="ntqaction.html#setOn">setOn</a>( TRUE );
+            optionsHorizontalBarChartAction-&gt;<a href="tqaction.html#setOn">setOn</a>( TRUE );
             break;
     }
 }
 
 
-void <a name="f161"></a>ChartForm::updateChartType( <a href="ntqaction.html">TQAction</a> *action )
+void <a name="f161"></a>ChartForm::updateChartType( <a href="tqaction.html">TQAction</a> *action )
 {
     if ( action == optionsPieChartAction ) {
         m_chartType = PIE;
@@ -501,7 +500,7 @@ void <a name="f161"></a>ChartForm::updateChartType( <a href="ntqaction.html">TQA
 void <a name="f162"></a>ChartForm::optionsSetFont()
 {
     bool ok;
-<a name="x2881"></a>    <a href="ntqfont.html">TQFont</a> font = TQFontDialog::<a href="ntqfontdialog.html#getFont">getFont</a>( &amp;ok, m_font, this );
+<a name="x2881"></a>    <a href="tqfont.html">TQFont</a> font = TQFontDialog::<a href="tqfontdialog.html#getFont">getFont</a>( &amp;ok, m_font, this );
     if ( ok ) {
         m_font = font;
         drawElements();
@@ -513,7 +512,7 @@ void <a name="f163"></a>ChartForm::optionsSetOptions()
 {
     OptionsForm *optionsForm = new OptionsForm( this );
     optionsForm-&gt;chartTypeComboBox-&gt;setCurrentItem( m_chartType );
-    optionsForm-&gt;<a href="ntqwidget.html#setFont">setFont</a>( m_font );
+    optionsForm-&gt;<a href="tqwidget.html#setFont">setFont</a>( m_font );
     switch ( m_addValues ) {
         case NO:
             optionsForm-&gt;noRadioButton-&gt;setChecked( TRUE );
@@ -526,10 +525,10 @@ void <a name="f163"></a>ChartForm::optionsSetOptions()
             break;
     }
     optionsForm-&gt;decimalPlacesSpinBox-&gt;setValue( m_decimalPlaces );
-    if ( optionsForm-&gt;<a href="ntqdialog.html#exec">exec</a>() ) {
+    if ( optionsForm-&gt;<a href="tqdialog.html#exec">exec</a>() ) {
         setChartType( ChartType(
                 optionsForm-&gt;chartTypeComboBox-&gt;currentItem()) );
-<a name="x2897"></a>        m_font = optionsForm-&gt;<a href="ntqwidget.html#font">font</a>();
+<a name="x2897"></a>        m_font = optionsForm-&gt;<a href="tqwidget.html#font">font</a>();
         if ( optionsForm-&gt;noRadioButton-&gt;isChecked() )
             m_addValues = NO;
         else if ( optionsForm-&gt;yesRadioButton-&gt;isChecked() )
@@ -545,13 +544,13 @@ void <a name="f163"></a>ChartForm::optionsSetOptions()
 
 void <a name="f164"></a>ChartForm::helpHelp()
 {
-    <a href="ntqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Help is not implemented yet", 2000 );
+    <a href="tqmainwindow.html#statusBar">statusBar</a>()-&gt;message( "Help is not implemented yet", 2000 );
 }
 
 
 void <a name="f165"></a>ChartForm::helpAbout()
 {
-<a name="x2886"></a>    TQMessageBox::<a href="ntqmessagebox.html#about">about</a>( this, "Chart -- About",
+<a name="x2886"></a>    TQMessageBox::<a href="tqmessagebox.html#about">about</a>( this, "Chart -- About",
                         "&lt;center&gt;&lt;h1&gt;&lt;font color=blue&gt;Chart&lt;font&gt;&lt;/h1&gt;&lt;/center&gt;"
                         "&lt;p&gt;Chart your data with &lt;i&gt;chart&lt;/i&gt;.&lt;/p&gt;"
                         );
@@ -560,7 +559,7 @@ void <a name="f165"></a>ChartForm::helpAbout()
 
 void <a name="f166"></a>ChartForm::helpAboutTQt()
 {
-<a name="x2887"></a>    TQMessageBox::<a href="ntqmessagebox.html#aboutTQt">aboutTQt</a>( this, "Chart -- About TQt" );
+<a name="x2887"></a>    TQMessageBox::<a href="tqmessagebox.html#aboutTQt">aboutTQt</a>( this, "Chart -- About TQt" );
 }
 
 </pre><!-- eof -->

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/changes.doc:36 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -53,10 +52,10 @@ Arabic and Hebrew) and also provides improved support for Asian
 languages.
 <p> Many new classes have been added to the TQt Library. Amongst them are
 classes that provide a docking architecture
-(<a href="ntqdockarea.html">TQDockArea</a>/<a href="ntqdockwindow.html">TQDockWindow</a>), a powerful rich text editor
-(<a href="ntqtextedit.html">TQTextEdit</a>), a class to store and access application settings
-(<a href="ntqsettings.html">TQSettings</a>) and a class to create and communicate with processes
-(<a href="ntqprocess.html">TQProcess</a>).
+(<a href="tqdockarea.html">TQDockArea</a>/<a href="tqdockwindow.html">TQDockWindow</a>), a powerful rich text editor
+(<a href="tqtextedit.html">TQTextEdit</a>), a class to store and access application settings
+(<a href="tqsettings.html">TQSettings</a>) and a class to create and communicate with processes
+(<a href="tqprocess.html">TQProcess</a>).
 <p> Apart from the changes in the library itself a lot has been done to
 make the development of TQt applications with TQt 3.0 even easier than
 before. Two new applications have been added: TQt Linguist is a tool to
@@ -101,7 +100,7 @@ terms of TQt's signals/slots mechanism directly in TQt Designer.
 <p> 
 <h3> Plugins
 </h3>
-<a name="1-2"></a><p> The <a href="ntqlibrary.html">TQLibrary</a> class provides a platform independent wrapper for runtime
+<a name="1-2"></a><p> The <a href="tqlibrary.html">TQLibrary</a> class provides a platform independent wrapper for runtime
 loading of shared libraries. TQPluginManager makes it trivial to implement
 plugin support in applications. The TQt library is able to load
 additional styles, database drivers and text codecs from plugins. 
@@ -115,7 +114,7 @@ optimized and extended to support editing. It allows editing formatted
 text with different fonts, colors, paragraph styles, tables and
 images. The editor supports different word wrap modes, command-based
 undo/redo, multiple selections, drag and drop, and many other
-features.  The new <a href="ntqtextedit.html">TQTextEdit</a> engine is highly optimized for proccesing
+features.  The new <a href="tqtextedit.html">TQTextEdit</a> engine is highly optimized for proccesing
 and displaying large documents quickly and efficiently. 
 <p> <h3> Unicode
 </h3>
@@ -139,35 +138,35 @@ these scripts, as TQt takes care of this automatically.
 windows are widgets, that can be attached to, and detached from, dock
 areas. The commonest kind of dock window is a tool bar. Any number of
 dock windows may be placed in a dock area. A main window can have dock
-areas, for example, <a href="ntqmainwindow.html">TQMainWindow</a> provides four dock areas (top, left,
+areas, for example, <a href="tqmainwindow.html">TQMainWindow</a> provides four dock areas (top, left,
 bottom, right) by default. The user can freely move dock windows and
 place them at a convenient place in a dock area, or drag them out of
 the application and have them float freely as top level windows in
 their own right. Dock windows can also be minimized or hidden.
 <p> For developers, dock windows behave just like ordinary widgets. TQToolbar
 for example is now a specialized subclass of a dock window.  The API
-of TQMainWindow and <a href="ntqtoolbar.html">TQToolBar</a> is source compatible with TQt 2.x, so
+of TQMainWindow and <a href="tqtoolbar.html">TQToolBar</a> is source compatible with TQt 2.x, so
 existing code which uses these classes will continue to work.
 <p> <h3> Regular Expressions
 </h3>
-<a name="1-6"></a><p> TQt has always provided <a href="ntqregexp.html#regular-expression">regular expression</a> support, but that support
+<a name="1-6"></a><p> TQt has always provided <a href="tqregexp.html#regular-expression">regular expression</a> support, but that support
 was pretty much limited to what was required in common GUI control
 elements such as file dialogs. TQt 3.0 introduces a new regular
-expression engine, <a href="ntqregexp.html">TQRegExp</a>, that supports most of Perl's regex
+expression engine, <a href="tqregexp.html">TQRegExp</a>, that supports most of Perl's regex
 features and is Unicode based. The most useful additions are support
 for parentheses (capturing and non-capturing) and backreferences.
 <p> <h3> Storing application settings
 </h3>
 <a name="1-7"></a><p> Most programs will need to store some settings between runs, for
 example, user selected fonts, colors and other preferences, or a list
-of recently used files.  The new <a href="ntqsettings.html">TQSettings</a> class provides a platform
+of recently used files.  The new <a href="tqsettings.html">TQSettings</a> class provides a platform
 independent way to achieve this goal. The API makes it easy to store
 and retrieve most of the basic data types used in TQt (such as basic
 C++ types, strings, lists, colors, etc). The class uses the registry
 on the Windows platform and traditional resource files on Unix.
 <p> <h3> Creating and controlling other processes
 </h3>
-<a name="1-8"></a><p> <a href="ntqprocess.html">TQProcess</a> is a class that allows you to start other programs from
+<a name="1-8"></a><p> <a href="tqprocess.html">TQProcess</a> is a class that allows you to start other programs from
 within a TQt application in a platform independent manner. It gives you
 full control over the started program, for example you can redirect
 the input and output of console applications.
@@ -178,7 +177,7 @@ range of users, including those with disabilities. In TQt 3.0, most
 widgets provide accessibility information for assistive tools that can
 be used by a wide range of disabled users. TQt standard widgets like
 buttons or range controls are fully supported. Support for complex
-widgets, like e.g. <a href="ntqlistview.html">TQListView</a>, is in development. Existing applications
+widgets, like e.g. <a href="tqlistview.html">TQListView</a>, is in development. Existing applications
 that make use of standard widgets will become accessible just by using
 TQt 3.0.
 <p> TQt uses the Active Accessibility infrastructure on Windows, and needs
@@ -201,13 +200,13 @@ stage.
 <p> <h3> SVG support
 </h3>
 <a name="1-11"></a><p> SVG is a W3C standard for "Scalable Vector Graphics". TQt 3.0's XML
-support means that <a href="ntqpicture.html">TQPicture</a> can optionally generate and import static
+support means that <a href="tqpicture.html">TQPicture</a> can optionally generate and import static
 SVG documents. All the SVG features that have an equivalent in
-<a href="ntqpainter.html">TQPainter</a> are supported.
+<a href="tqpainter.html">TQPainter</a> are supported.
 <p> <h3> Multihead support
 </h3>
 <a name="1-12"></a><p> Many professional applications, such as DTP and CAD software, are able
-to display data on two or more monitors. In TQt 3.0 the <a href="ntqdesktopwidget.html">TQDesktopWidget</a>
+to display data on two or more monitors. In TQt 3.0 the <a href="tqdesktopwidget.html">TQDesktopWidget</a>
 class provides the application with runtime information about the
 number and geometry of the desktops on the different monitors and such
 allows applications to efficiently use a multi-monitor setup.
@@ -219,7 +218,7 @@ X11.
 <a name="1-13"></a><p> TQt 3.0 now complies with the NET WM Specification, recently adopted
 by KDE 2.0.  This allows easy integration and proper execution with
 desktop environments that support the NET WM specification.
-<p> The font handling on X11 has undergone major changes.  <a href="ntqfont.html">TQFont</a> no longer
+<p> The font handling on X11 has undergone major changes.  <a href="tqfont.html">TQFont</a> no longer
 has a one-to-one relation with window system fonts.  TQFont is now a
 logical font that can load multiple window system fonts to simplify
 Unicode text display.  This completely removes the burden of
@@ -233,7 +232,7 @@ alpha channel (semi transparency) on the systems that support the
 rendering extension (at the moment XFree 4.0.3 and later).
 <p> <h3> Printing
 </h3>
-<a name="1-14"></a><p> Printing support has been enhanced on all platforms. The <a href="ntqprinter.html">TQPrinter</a>
+<a name="1-14"></a><p> Printing support has been enhanced on all platforms. The <a href="tqprinter.html">TQPrinter</a>
 class now supports setting a virtual resolution for the painting
 process. This makes WYSIWYG printing trivial, and also allows you to
 take full advantage of the high resolution of a printer when painting
@@ -243,7 +242,7 @@ enhanced. It supports the embedding of true/open type and type1 fonts
 into the document, and can correctly handle and display Unicode.
 Support for fonts built into the printer has been enhanced and TQt now
 knows about the most common printer fonts used for Asian languages.
-<p> <h3> <a href="ntqhttp.html">TQHttp</a>
+<p> <h3> <a href="tqhttp.html">TQHttp</a>
 </h3>
 <a name="1-15"></a><p> This class provides a simple interface for HTTP downloads and uploads.
 <p> <h3> Compatibility with the Standard Template Library (STL)
@@ -281,12 +280,12 @@ to read and edit *.pro files, add and remove files to/from the project
 and do some global operations on the project. You can now open the
 project file and have one-click access to all the *.ui forms in the
 project.
-<p> In addition to generating code via uic, TQt Designer now supports the
+<p> In addition to generating code via tquic, TQt Designer now supports the
 dynamic creation of widgets directly from XML user interface
 description files (*.ui files) at runtime. This eliminates the need of
 recompiling your application when the GUI changes, and could be used
 to enable your customers to do their own customizations. Technically,
-the feature is provided by a new class, <a href="ntqwidgetfactory.html">TQWidgetFactory</a> in the
+the feature is provided by a new class, <a href="tqwidgetfactory.html">TQWidgetFactory</a> in the
 TQResource library.
 <p> <h2> TQt Linguist
 </h2>

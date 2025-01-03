@@ -1,23 +1,23 @@
 # TQt network module
 
 network {
-	HEADERS += $$NETWORK_H/ntqdns.h \
-		    $$NETWORK_H/ntqftp.h \
-		    $$NETWORK_H/ntqhttp.h \
-		    $$NETWORK_H/ntqhostaddress.h \
-		    $$NETWORK_H/ntqnetwork.h \
-		    $$NETWORK_H/ntqserversocket.h \
-		    $$NETWORK_H/ntqsocket.h \
-		    $$NETWORK_H/ntqsocketdevice.h
-	NETWORK_SOURCES	= $$NETWORK_CPP/qdns.cpp \
-		    $$NETWORK_CPP/qftp.cpp \
-		    $$NETWORK_CPP/qhttp.cpp \
-		    $$NETWORK_CPP/qhostaddress.cpp \
-		    $$NETWORK_CPP/qnetwork.cpp \
-		    $$NETWORK_CPP/qserversocket.cpp \
-		    $$NETWORK_CPP/qsocket.cpp \
-		    $$NETWORK_CPP/qsocketdevice.cpp
-	unix:NETWORK_SOURCES += $$NETWORK_CPP/qsocketdevice_unix.cpp
-	win32:NETWORK_SOURCES += $$NETWORK_CPP/qsocketdevice_win.cpp
+	HEADERS += $$NETWORK_H/tqdns.h \
+		    $$NETWORK_H/tqftp.h \
+		    $$NETWORK_H/tqhttp.h \
+		    $$NETWORK_H/tqhostaddress.h \
+		    $$NETWORK_H/tqnetwork.h \
+		    $$NETWORK_H/tqserversocket.h \
+		    $$NETWORK_H/tqsocket.h \
+		    $$NETWORK_H/tqsocketdevice.h
+	NETWORK_SOURCES	= $$NETWORK_CPP/tqdns.cpp \
+		    $$NETWORK_CPP/tqftp.cpp \
+		    $$NETWORK_CPP/tqhttp.cpp \
+		    $$NETWORK_CPP/tqhostaddress.cpp \
+		    $$NETWORK_CPP/tqnetwork.cpp \
+		    $$NETWORK_CPP/tqserversocket.cpp \
+		    $$NETWORK_CPP/tqsocket.cpp \
+		    $$NETWORK_CPP/tqsocketdevice.cpp
+	unix:NETWORK_SOURCES += $$NETWORK_CPP/tqsocketdevice_unix.cpp
+	win32:NETWORK_SOURCES += $$NETWORK_CPP/tqsocketdevice_win.cpp
 	SOURCES    += $$NETWORK_SOURCES
 }

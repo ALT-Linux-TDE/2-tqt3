@@ -1,5 +1,5 @@
 '\" t
-.TH QBrush 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQBrush 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,34 +7,34 @@
 .ad l
 .nh
 .SH NAME
-QBrush \- Defines the fill pattern of shapes drawn by a QPainter
+TQBrush \- Defines the fill pattern of shapes drawn by a TQPainter
 .SH SYNOPSIS
-\fC#include <ntqbrush.h>\fR
+\fC#include <tqbrush.h>\fR
 .PP
 Inherits Qt.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQBrush\fR ()"
+.BI "\fBTQBrush\fR ()"
 .br
 .ti -1c
-.BI "\fBQBrush\fR ( BrushStyle style )"
+.BI "\fBTQBrush\fR ( BrushStyle style )"
 .br
 .ti -1c
-.BI "\fBQBrush\fR ( const TQColor & color, BrushStyle style = SolidPattern )"
+.BI "\fBTQBrush\fR ( const TQColor & color, BrushStyle style = SolidPattern )"
 .br
 .ti -1c
-.BI "\fBQBrush\fR ( const TQColor & color, const QPixmap & pixmap )"
+.BI "\fBTQBrush\fR ( const TQColor & color, const TQPixmap & pixmap )"
 .br
 .ti -1c
-.BI "\fBQBrush\fR ( const QBrush & b )"
+.BI "\fBTQBrush\fR ( const TQBrush & b )"
 .br
 .ti -1c
-.BI "\fB~QBrush\fR ()"
+.BI "\fB~TQBrush\fR ()"
 .br
 .ti -1c
-.BI "QBrush & \fBoperator=\fR ( const QBrush & b )"
+.BI "TQBrush & \fBoperator=\fR ( const TQBrush & b )"
 .br
 .ti -1c
 .BI "BrushStyle \fBstyle\fR () const"
@@ -49,45 +49,45 @@ Inherits Qt.
 .BI "void \fBsetColor\fR ( const TQColor & c )"
 .br
 .ti -1c
-.BI "QPixmap * \fBpixmap\fR () const"
+.BI "TQPixmap * \fBpixmap\fR () const"
 .br
 .ti -1c
-.BI "void \fBsetPixmap\fR ( const QPixmap & pixmap )"
+.BI "void \fBsetPixmap\fR ( const TQPixmap & pixmap )"
 .br
 .ti -1c
-.BI "bool \fBoperator==\fR ( const QBrush & b ) const"
+.BI "bool \fBoperator==\fR ( const TQBrush & b ) const"
 .br
 .ti -1c
-.BI "bool \fBoperator!=\fR ( const QBrush & b ) const"
+.BI "bool \fBoperator!=\fR ( const TQBrush & b ) const"
 .br
 .in -1c
 .SH RELATED FUNCTION DOCUMENTATION
 .in +1c
 .ti -1c
-.BI "QDataStream & \fBoperator<<\fR ( QDataStream & s, const QBrush & b )"
+.BI "TQDataStream & \fBoperator<<\fR ( TQDataStream & s, const TQBrush & b )"
 .br
 .ti -1c
-.BI "QDataStream & \fBoperator>>\fR ( QDataStream & s, QBrush & b )"
+.BI "TQDataStream & \fBoperator>>\fR ( TQDataStream & s, TQBrush & b )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QBrush class defines the fill pattern of shapes drawn by a QPainter.
+The TQBrush class defines the fill pattern of shapes drawn by a TQPainter.
 .PP
-A brush has a style and a color. One of the brush styles is a custom pattern, which is defined by a QPixmap.
+A brush has a style and a color. One of the brush styles is a custom pattern, which is defined by a TQPixmap.
 .PP
 The brush style defines the fill pattern. The default brush style is NoBrush (depending on how you construct a brush). This style tells the painter to not fill shapes. The standard style for filling is SolidPattern.
 .PP
 The brush color defines the color of the fill pattern. The TQColor documentation lists the predefined colors.
 .PP
-Use the QPen class for specifying line/outline styles.
+Use the TQPen class for specifying line/outline styles.
 .PP
 Example:
 .PP
 .nf
 .br
-        QPainter painter;
+        TQPainter painter;
 .br
-        QBrush   brush( yellow );           // yellow solid pattern
+        TQBrush   brush( yellow );           // yellow solid pattern
 .br
         painter.begin( &anyPaintDevice );   // paint something
 .br
@@ -115,71 +115,71 @@ See the setStyle() function for a complete list of brush styles.
 .PP
 </center>
 .PP
-See also QPainter, QPainter::setBrush(), QPainter::setBrushOrigin(), Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
+See also TQPainter, TQPainter::setBrush(), TQPainter::setBrushOrigin(), Graphics Classes, Image Processing Classes, and Implicitly and Explicitly Shared Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QBrush::QBrush ()"
+.SH "TQBrush::TQBrush ()"
 Constructs a default black brush with the style NoBrush (will not fill shapes).
-.SH "QBrush::QBrush ( BrushStyle style )"
+.SH "TQBrush::TQBrush ( BrushStyle style )"
 Constructs a black brush with the style \fIstyle\fR.
 .PP
 See also setStyle().
-.SH "QBrush::QBrush ( const TQColor & color, BrushStyle style = SolidPattern )"
+.SH "TQBrush::TQBrush ( const TQColor & color, BrushStyle style = SolidPattern )"
 Constructs a brush with the color \fIcolor\fR and the style \fIstyle\fR.
 .PP
 See also setColor() and setStyle().
-.SH "QBrush::QBrush ( const TQColor & color, const QPixmap & pixmap )"
+.SH "TQBrush::TQBrush ( const TQColor & color, const TQPixmap & pixmap )"
 Constructs a brush with the color \fIcolor\fR and a custom pattern stored in \fIpixmap\fR.
 .PP
-The color will only have an effect for monochrome pixmaps, i.e. for QPixmap::depth() == 1.
+The color will only have an effect for monochrome pixmaps, i.e. for TQPixmap::depth() == 1.
 .PP
 Pixmap brushes are currently not supported when printing on X11.
 .PP
 See also setColor() and setPixmap().
-.SH "QBrush::QBrush ( const QBrush & b )"
+.SH "TQBrush::TQBrush ( const TQBrush & b )"
 Constructs a brush that is a shallow copy of \fIb\fR.
-.SH "QBrush::~QBrush ()"
+.SH "TQBrush::~TQBrush ()"
 Destroys the brush.
-.SH "const TQColor & QBrush::color () const"
+.SH "const TQColor & TQBrush::color () const"
 Returns the brush color.
 .PP
 See also setColor().
-.SH "bool QBrush::operator!= ( const QBrush & b ) const"
+.SH "bool TQBrush::operator!= ( const TQBrush & b ) const"
 Returns TRUE if the brush is different from \fIb\fR; otherwise returns FALSE.
 .PP
 Two brushes are different if they have different styles, colors or pixmaps.
 .PP
 See also operator==().
-.SH "QBrush & QBrush::operator= ( const QBrush & b )"
+.SH "TQBrush & TQBrush::operator= ( const TQBrush & b )"
 Assigns \fIb\fR to this brush and returns a reference to this brush.
-.SH "bool QBrush::operator== ( const QBrush & b ) const"
+.SH "bool TQBrush::operator== ( const TQBrush & b ) const"
 Returns TRUE if the brush is equal to \fIb\fR; otherwise returns FALSE.
 .PP
 Two brushes are equal if they have equal styles, colors and pixmaps.
 .PP
 See also operator!=().
-.SH "QPixmap * QBrush::pixmap () const"
+.SH "TQPixmap * TQBrush::pixmap () const"
 Returns a pointer to the custom brush pattern, or 0 if no custom brush pattern has been set.
 .PP
 See also setPixmap().
 .PP
 Example: richtext/richtext.cpp.
-.SH "void QBrush::setColor ( const TQColor & c )"
+.SH "void TQBrush::setColor ( const TQColor & c )"
 Sets the brush color to \fIc\fR.
 .PP
 See also color() and setStyle().
 .PP
 Example: picture/picture.cpp.
-.SH "void QBrush::setPixmap ( const QPixmap & pixmap )"
+.SH "void TQBrush::setPixmap ( const TQPixmap & pixmap )"
 Sets the brush pixmap to \fIpixmap\fR. The style is set to CustomPattern.
 .PP
-The current brush color will only have an effect for monochrome pixmaps, i.e. for QPixmap::depth() == 1.
+The current brush color will only have an effect for monochrome pixmaps, i.e. for TQPixmap::depth() == 1.
 .PP
 Pixmap brushes are currently not supported when printing on X11.
 .PP
 See also pixmap() and color().
 .PP
 Example: richtext/richtext.cpp.
-.SH "void QBrush::setStyle ( BrushStyle s )"
+.SH "void TQBrush::setStyle ( BrushStyle s )"
 Sets the brush style to \fIs\fR.
 .PP
 The brush styles are: <center>.nf
@@ -194,22 +194,22 @@ On Windows, dense and custom patterns cannot be transparent.
 See the Detailed Description for a picture of all the styles.
 .PP
 See also style().
-.SH "BrushStyle QBrush::style () const"
+.SH "BrushStyle TQBrush::style () const"
 Returns the brush style.
 .PP
 See also setStyle().
 .SH RELATED FUNCTION DOCUMENTATION
-.SH "QDataStream & operator<< ( QDataStream & s, const QBrush & b )"
+.SH "TQDataStream & operator<< ( TQDataStream & s, const TQBrush & b )"
 Writes the brush \fIb\fR to the stream \fIs\fR and returns a reference to the stream.
 .PP
-See also Format of the QDataStream operators.
-.SH "QDataStream & operator>> ( QDataStream & s, QBrush & b )"
+See also Format of the TQDataStream operators.
+.SH "TQDataStream & operator>> ( TQDataStream & s, TQBrush & b )"
 Reads the brush \fIb\fR from the stream \fIs\fR and returns a reference to the stream.
 .PP
-See also Format of the QDataStream operators.
+See also Format of the TQDataStream operators.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqbrush.html
+.BR http://doc.trolltech.com/tqbrush.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

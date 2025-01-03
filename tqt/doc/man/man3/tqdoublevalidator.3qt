@@ -1,5 +1,5 @@
 '\" t
-.TH QDoubleValidator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQDoubleValidator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QDoubleValidator \- Range checking of floating-point numbers
+TQDoubleValidator \- Range checking of floating-point numbers
 .SH SYNOPSIS
-\fC#include <ntqvalidator.h>\fR
+\fC#include <tqvalidator.h>\fR
 .PP
-Inherits QValidator.
+Inherits TQValidator.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDoubleValidator\fR ( TQObject * parent, const char * name = 0 )"
+.BI "\fBTQDoubleValidator\fR ( TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQDoubleValidator\fR ( double bottom, double top, int decimals, TQObject * parent, const char * name = 0 )"
+.BI "\fBTQDoubleValidator\fR ( double bottom, double top, int decimals, TQObject * parent, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QDoubleValidator\fR ()"
+.BI "\fB~TQDoubleValidator\fR ()"
 .br
 .ti -1c
-.BI "virtual QValidator::State \fBvalidate\fR ( TQString & input, int & ) const"
+.BI "virtual TQValidator::State \fBvalidate\fR ( TQString & input, int & ) const"
 .br
 .ti -1c
 .BI "virtual void \fBsetRange\fR ( double minimum, double maximum, int decimals = 0 )"
@@ -62,35 +62,35 @@ Inherits QValidator.
 .br
 .in -1c
 .SH DESCRIPTION
-The QDoubleValidator class provides range checking of floating-point numbers.
+The TQDoubleValidator class provides range checking of floating-point numbers.
 .PP
-QDoubleValidator provides an upper bound, a lower bound and a limit on the number of digits after the decimal point. It does not provide a fixup() function.
+TQDoubleValidator provides an upper bound, a lower bound and a limit on the number of digits after the decimal point. It does not provide a fixup() function.
 .PP
 You can set the acceptable range in one call with setRange(), or with setBottom() and setTop(). Set the number of decimal places with setDecimals(). The validate() function returns the validation state.
 .PP
-See also QIntValidator, QRegExpValidator, and Miscellaneous Classes.
+See also TQIntValidator, TQRegExpValidator, and Miscellaneous Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDoubleValidator::QDoubleValidator ( TQObject * parent, const char * name = 0 )"
+.SH "TQDoubleValidator::TQDoubleValidator ( TQObject * parent, const char * name = 0 )"
 Constructs a validator object with parent \fIparent\fR, called \fIname\fR, which accepts any double.
-.SH "QDoubleValidator::QDoubleValidator ( double bottom, double top, int decimals, TQObject * parent, const char * name = 0 )"
+.SH "TQDoubleValidator::TQDoubleValidator ( double bottom, double top, int decimals, TQObject * parent, const char * name = 0 )"
 Constructs a validator object with parent \fIparent\fR, called \fIname\fR. This validator will accept doubles from \fIbottom\fR to \fItop\fR inclusive, with up to \fIdecimals\fR digits after the decimal point.
-.SH "QDoubleValidator::~QDoubleValidator ()"
+.SH "TQDoubleValidator::~TQDoubleValidator ()"
 Destroys the validator, freeing any resources used.
-.SH "double QDoubleValidator::bottom () const"
+.SH "double TQDoubleValidator::bottom () const"
 Returns the validator's minimum acceptable value. See the "bottom" property for details.
-.SH "int QDoubleValidator::decimals () const"
+.SH "int TQDoubleValidator::decimals () const"
 Returns the validator's maximum number of digits after the decimal point. See the "decimals" property for details.
-.SH "void QDoubleValidator::setBottom ( double )"
+.SH "void TQDoubleValidator::setBottom ( double )"
 Sets the validator's minimum acceptable value. See the "bottom" property for details.
-.SH "void QDoubleValidator::setDecimals ( int )"
+.SH "void TQDoubleValidator::setDecimals ( int )"
 Sets the validator's maximum number of digits after the decimal point. See the "decimals" property for details.
-.SH "void QDoubleValidator::setRange ( double minimum, double maximum, int decimals = 0 )\fC [virtual]\fR"
+.SH "void TQDoubleValidator::setRange ( double minimum, double maximum, int decimals = 0 )\fC [virtual]\fR"
 Sets the validator to accept doubles from \fIminimum\fR to \fImaximum\fR inclusive, with at most \fIdecimals\fR digits after the decimal point.
-.SH "void QDoubleValidator::setTop ( double )"
+.SH "void TQDoubleValidator::setTop ( double )"
 Sets the validator's maximum acceptable value. See the "top" property for details.
-.SH "double QDoubleValidator::top () const"
+.SH "double TQDoubleValidator::top () const"
 Returns the validator's maximum acceptable value. See the "top" property for details.
-.SH "QValidator::State QDoubleValidator::validate ( TQString & input, int & ) const\fC [virtual]\fR"
+.SH "TQValidator::State TQDoubleValidator::validate ( TQString & input, int & ) const\fC [virtual]\fR"
 Returns Acceptable if the string \fIinput\fR contains a double that is within the valid range and is in the correct format.
 .PP
 Returns Intermediate if \fIinput\fR contains a double that is outside the range or is in the wrong format, e.g. with too many digits after the decimal point or is empty.
@@ -99,7 +99,7 @@ Returns Invalid if the \fIinput\fR is not a double.
 .PP
 Note: If the valid range consists of just positive doubles (e.g. 0.0 - 100.0) and \fIinput\fR is a negative double then Invalid is returned.
 .PP
-Reimplemented from QValidator.
+Reimplemented from TQValidator.
 .SS "Property Documentation"
 .SH "double bottom"
 This property holds the validator's minimum acceptable value.
@@ -121,7 +121,7 @@ Set this property's value with setTop() and get this property's value with top()
 See also setRange().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qdoublevalidator.html
+.BR http://doc.trolltech.com/tqdoublevalidator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

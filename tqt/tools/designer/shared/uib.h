@@ -34,7 +34,7 @@
 #ifndef UIB_H
 #define UIB_H
 
-#include <ntqdatastream.h>
+#include <tqdatastream.h>
 
 const TQ_UINT32 UibMagic = 0xb77c61d8;
 
@@ -89,7 +89,7 @@ private:
 };
 
 /*
-  uic uses insertCString(), insertString(), and block();
+  tquic uses insertCString(), insertString(), and block();
   TQWidgetFactory uses readBlock(), asCString(), and asString(). By
   implementing these functions inline, we ensure that the binaries
   don't contain needless code.

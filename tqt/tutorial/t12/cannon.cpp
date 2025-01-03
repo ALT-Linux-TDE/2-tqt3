@@ -5,10 +5,10 @@
 ****************************************************************/
 
 #include "cannon.h"
-#include <ntqtimer.h>
-#include <ntqpainter.h>
-#include <ntqpixmap.h>
-#include <ntqdatetime.h>
+#include <tqtimer.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
+#include <tqdatetime.h>
 
 #include <math.h>
 #include <stdlib.h>

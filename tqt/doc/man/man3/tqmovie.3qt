@@ -1,5 +1,5 @@
 '\" t
-.TH QMovie 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQMovie 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,35 +7,35 @@
 .ad l
 .nh
 .SH NAME
-QMovie \- Incremental loading of animations or images, signalling as it progresses
+TQMovie \- Incremental loading of animations or images, signalling as it progresses
 .SH SYNOPSIS
-\fC#include <ntqmovie.h>\fR
+\fC#include <tqmovie.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQMovie\fR ()"
+.BI "\fBTQMovie\fR ()"
 .br
 .ti -1c
-.BI "\fBQMovie\fR ( int bufsize )"
+.BI "\fBTQMovie\fR ( int bufsize )"
 .br
 .ti -1c
-.BI "\fBQMovie\fR ( QDataSource * src, int bufsize = 1024 )"
+.BI "\fBTQMovie\fR ( TQDataSource * src, int bufsize = 1024 )"
 .br
 .ti -1c
-.BI "\fBQMovie\fR ( const TQString & fileName, int bufsize = 1024 )"
+.BI "\fBTQMovie\fR ( const TQString & fileName, int bufsize = 1024 )"
 .br
 .ti -1c
-.BI "\fBQMovie\fR ( QByteArray data, int bufsize = 1024 )"
+.BI "\fBTQMovie\fR ( TQByteArray data, int bufsize = 1024 )"
 .br
 .ti -1c
-.BI "\fBQMovie\fR ( const QMovie & movie )"
+.BI "\fBTQMovie\fR ( const TQMovie & movie )"
 .br
 .ti -1c
-.BI "\fB~QMovie\fR ()"
+.BI "\fB~TQMovie\fR ()"
 .br
 .ti -1c
-.BI "QMovie & \fBoperator=\fR ( const QMovie & movie )"
+.BI "TQMovie & \fBoperator=\fR ( const TQMovie & movie )"
 .br
 .ti -1c
 .BI "int \fBpushSpace\fR () const"
@@ -50,10 +50,10 @@ QMovie \- Incremental loading of animations or images, signalling as it progress
 .BI "void \fBsetBackgroundColor\fR ( const TQColor & c )"
 .br
 .ti -1c
-.BI "const QRect & \fBgetValidRect\fR () const"
+.BI "const TQRect & \fBgetValidRect\fR () const"
 .br
 .ti -1c
-.BI "const QPixmap & \fBframePixmap\fR () const"
+.BI "const TQPixmap & \fBframePixmap\fR () const"
 .br
 .ti -1c
 .BI "const TQImage & \fBframeImage\fR () const"
@@ -120,19 +120,19 @@ QMovie \- Incremental loading of animations or images, signalling as it progress
 .br
 .in -1c
 .SH DESCRIPTION
-The QMovie class provides incremental loading of animations or images, signalling as it progresses.
+The TQMovie class provides incremental loading of animations or images, signalling as it progresses.
 .PP
-The simplest way to display a QMovie is to use a QLabel and QLabel::setMovie().
+The simplest way to display a TQMovie is to use a TQLabel and TQLabel::setMovie().
 .PP
-A QMovie provides a QPixmap as the framePixmap(); connections can be made via connectResize() and connectUpdate() to receive notification of size and pixmap changes. All decoding is driven by the normal event-processing mechanisms.
+A TQMovie provides a TQPixmap as the framePixmap(); connections can be made via connectResize() and connectUpdate() to receive notification of size and pixmap changes. All decoding is driven by the normal event-processing mechanisms.
 .PP
-The movie begins playing as soon as the QMovie is created (actually, once control returns to the event loop). When the last frame in the movie has been played, it may loop back to the start if such looping is defined in the input source.
+The movie begins playing as soon as the TQMovie is created (actually, once control returns to the event loop). When the last frame in the movie has been played, it may loop back to the start if such looping is defined in the input source.
 .PP
-QMovie objects are explicitly shared. This means that a QMovie copied from another QMovie will be displaying the same frame at all times. If one shared movie pauses, all pause. To make \fIindependent\fR movies, they must be constructed separately.
+TQMovie objects are explicitly shared. This means that a TQMovie copied from another TQMovie will be displaying the same frame at all times. If one shared movie pauses, all pause. To make \fIindependent\fR movies, they must be constructed separately.
 .PP
-The set of data formats supported by QMovie is determined by the decoder factories that have been installed; the format of the input is determined as the input is decoded.
+The set of data formats supported by TQMovie is determined by the decoder factories that have been installed; the format of the input is determined as the input is decoded.
 .PP
-The supported formats are MNG (if TQt is configured with MNG support enabled) and GIF (if TQt is configured with GIF support enabled, see ntqgif.h).
+The supported formats are MNG (if TQt is configured with MNG support enabled) and GIF (if TQt is configured with GIF support enabled, see tqgif.h).
 .PP
 If TQt is configured to support GIF reading, we are required to state that "The Graphics Interchange Format(c) is the Copyright property of CompuServe Incorporated. GIF(sm) is a Service Mark property of CompuServe Incorporated.
 .PP
@@ -146,150 +146,150 @@ GIF support may be removed completely in a future version of Qt. We recommend us
 .PP
 </center>
 .PP
-See also QLabel::setMovie(), Graphics Classes, Image Processing Classes, and Multimedia Classes.
+See also TQLabel::setMovie(), Graphics Classes, Image Processing Classes, and Multimedia Classes.
 .SS "Member Type Documentation"
-.SH "QMovie::Status"
+.SH "TQMovie::Status"
 .TP
-\fCQMovie::SourceEmpty\fR
+\fCTQMovie::SourceEmpty\fR
 .TP
-\fCQMovie::UnrecognizedFormat\fR
+\fCTQMovie::UnrecognizedFormat\fR
 .TP
-\fCQMovie::Paused\fR
+\fCTQMovie::Paused\fR
 .TP
-\fCQMovie::EndOfFrame\fR
+\fCTQMovie::EndOfFrame\fR
 .TP
-\fCQMovie::EndOfLoop\fR
+\fCTQMovie::EndOfLoop\fR
 .TP
-\fCQMovie::EndOfMovie\fR
+\fCTQMovie::EndOfMovie\fR
 .TP
-\fCQMovie::SpeedChanged\fR
+\fCTQMovie::SpeedChanged\fR
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QMovie::QMovie ()"
-Constructs a null QMovie. The only interesting thing to do with such a movie is to assign another movie to it.
+.SH "TQMovie::TQMovie ()"
+Constructs a null TQMovie. The only interesting thing to do with such a movie is to assign another movie to it.
 .PP
 See also isNull().
-.SH "QMovie::QMovie ( int bufsize )"
-Constructs a QMovie with an external data source. You should later call pushData() to send incoming animation data to the movie.
+.SH "TQMovie::TQMovie ( int bufsize )"
+Constructs a TQMovie with an external data source. You should later call pushData() to send incoming animation data to the movie.
 .PP
 The \fIbufsize\fR argument sets the maximum amount of data the movie will transfer from the data source per event loop. The lower this value, the better interleaved the movie playback will be with other event processing, but the slower the overall processing will be.
 .PP
 See also pushData().
-.SH "QMovie::QMovie ( QDataSource * src, int bufsize = 1024 )"
-Constructs a QMovie that reads an image sequence from the given data source, \fIsrc\fR. The source must be allocated dynamically, because QMovie will take ownership of it and will destroy it when the movie is destroyed. The movie starts playing as soon as event processing continues.
+.SH "TQMovie::TQMovie ( TQDataSource * src, int bufsize = 1024 )"
+Constructs a TQMovie that reads an image sequence from the given data source, \fIsrc\fR. The source must be allocated dynamically, because TQMovie will take ownership of it and will destroy it when the movie is destroyed. The movie starts playing as soon as event processing continues.
 .PP
 The \fIbufsize\fR argument sets the maximum amount of data the movie will transfer from the data source per event loop. The lower this value, the better interleaved the movie playback will be with other event processing, but the slower the overall processing will be.
-.SH "QMovie::QMovie ( const TQString & fileName, int bufsize = 1024 )"
-Constructs a QMovie that reads an image sequence from the file, \fIfileName\fR.
+.SH "TQMovie::TQMovie ( const TQString & fileName, int bufsize = 1024 )"
+Constructs a TQMovie that reads an image sequence from the file, \fIfileName\fR.
 .PP
 The \fIbufsize\fR argument sets the maximum amount of data the movie will transfer from the data source per event loop. The lower this value, the better interleaved the movie playback will be with other event processing, but the slower the overall processing will be.
-.SH "QMovie::QMovie ( QByteArray data, int bufsize = 1024 )"
-Constructs a QMovie that reads an image sequence from the byte array, \fIdata\fR.
+.SH "TQMovie::TQMovie ( TQByteArray data, int bufsize = 1024 )"
+Constructs a TQMovie that reads an image sequence from the byte array, \fIdata\fR.
 .PP
 The \fIbufsize\fR argument sets the maximum amount of data the movie will transfer from the data source per event loop. The lower this value, the better interleaved the movie playback will be with other event processing, but the slower the overall processing will be.
-.SH "QMovie::QMovie ( const QMovie & movie )"
-Constructs a movie that uses the same data as movie \fImovie\fR. QMovies use explicit sharing, so operations on the copy will affect both.
-.SH "QMovie::~QMovie ()"
-Destroys the QMovie. If this is the last reference to the data of the movie, the data is deallocated.
-.SH "const TQColor & QMovie::backgroundColor () const"
+.SH "TQMovie::TQMovie ( const TQMovie & movie )"
+Constructs a movie that uses the same data as movie \fImovie\fR. TQMovies use explicit sharing, so operations on the copy will affect both.
+.SH "TQMovie::~TQMovie ()"
+Destroys the TQMovie. If this is the last reference to the data of the movie, the data is deallocated.
+.SH "const TQColor & TQMovie::backgroundColor () const"
 Returns the background color of the movie set by setBackgroundColor().
-.SH "void QMovie::connectResize ( TQObject * receiver, const char * member )"
-Connects the \fIreceiver\fR's \fImember\fR of type \fCvoid member(const QSize&)\fR so that it is signalled when the movie changes size.
+.SH "void TQMovie::connectResize ( TQObject * receiver, const char * member )"
+Connects the \fIreceiver\fR's \fImember\fR of type \fCvoid member(const TQSize&)\fR so that it is signalled when the movie changes size.
 .PP
-Note that due to the explicit sharing of QMovie objects, these connections persist until they are explicitly disconnected with disconnectResize() or until \fIevery\fR shared copy of the movie is deleted.
+Note that due to the explicit sharing of TQMovie objects, these connections persist until they are explicitly disconnected with disconnectResize() or until \fIevery\fR shared copy of the movie is deleted.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::connectStatus ( TQObject * receiver, const char * member )"
+.SH "void TQMovie::connectStatus ( TQObject * receiver, const char * member )"
 Connects the \fIreceiver\fR's \fImember\fR, of type \fCvoid member(int)\fR so that it is signalled when the movie changes status. The status codes are negative for errors and positive for information.
 .PP
 <center>.nf
 .TS
-l - l. Status Code Meaning QMovie::SourceEmpty signalled if the input cannot be read. QMovie::UnrecognizedFormat signalled if the input data is unrecognized. QMovie::Paused signalled when the movie is paused by a call to paused() or by after stepping pauses. QMovie::EndOfFrame signalled at end-of-frame after any update and Paused signals. QMovie::EndOfLoop signalled at end-of-loop, after any update signals, EndOfFrame - but before EndOfMovie. QMovie::EndOfMovie
+l - l. Status Code Meaning TQMovie::SourceEmpty signalled if the input cannot be read. TQMovie::UnrecognizedFormat signalled if the input data is unrecognized. TQMovie::Paused signalled when the movie is paused by a call to paused() or by after stepping pauses. TQMovie::EndOfFrame signalled at end-of-frame after any update and Paused signals. TQMovie::EndOfLoop signalled at end-of-loop, after any update signals, EndOfFrame - but before EndOfMovie. TQMovie::EndOfMovie
 .TE
 .fi
 </center>
 .PP
 More status messages may be added in the future, so a general test for errors would test for negative.
 .PP
-Note that due to the explicit sharing of QMovie objects, these connections persist until they are explicitly disconnected with disconnectStatus() or until \fIevery\fR shared copy of the movie is deleted.
+Note that due to the explicit sharing of TQMovie objects, these connections persist until they are explicitly disconnected with disconnectStatus() or until \fIevery\fR shared copy of the movie is deleted.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::connectUpdate ( TQObject * receiver, const char * member )"
-Connects the \fIreceiver\fR's \fImember\fR of type \fCvoid member(const QRect&)\fR so that it is signalled when an area of the framePixmap() has changed since the previous frame.
+.SH "void TQMovie::connectUpdate ( TQObject * receiver, const char * member )"
+Connects the \fIreceiver\fR's \fImember\fR of type \fCvoid member(const TQRect&)\fR so that it is signalled when an area of the framePixmap() has changed since the previous frame.
 .PP
-Note that due to the explicit sharing of QMovie objects, these connections persist until they are explicitly disconnected with disconnectUpdate() or until \fIevery\fR shared copy of the movie is deleted.
+Note that due to the explicit sharing of TQMovie objects, these connections persist until they are explicitly disconnected with disconnectUpdate() or until \fIevery\fR shared copy of the movie is deleted.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::disconnectResize ( TQObject * receiver, const char * member = 0 )"
+.SH "void TQMovie::disconnectResize ( TQObject * receiver, const char * member = 0 )"
 Disconnects the \fIreceiver\fR's \fImember\fR (or all members if \fImember\fR is zero) that were previously connected by connectResize().
-.SH "void QMovie::disconnectStatus ( TQObject * receiver, const char * member = 0 )"
+.SH "void TQMovie::disconnectStatus ( TQObject * receiver, const char * member = 0 )"
 Disconnects the \fIreceiver\fR's \fImember\fR (or all members if \fImember\fR is zero) that were previously connected by connectStatus().
-.SH "void QMovie::disconnectUpdate ( TQObject * receiver, const char * member = 0 )"
+.SH "void TQMovie::disconnectUpdate ( TQObject * receiver, const char * member = 0 )"
 Disconnects the \fIreceiver\fR's \fImember\fR (or all members if \\q member is zero) that were previously connected by connectUpdate().
-.SH "bool QMovie::finished () const"
+.SH "bool TQMovie::finished () const"
 Returns TRUE if the image is no longer playing: this happens when all loops of all frames are complete; otherwise returns FALSE.
 .PP
 Example: movies/main.cpp.
-.SH "const TQImage & QMovie::frameImage () const"
+.SH "const TQImage & TQMovie::frameImage () const"
 Returns the current frame of the movie, as a TQImage. It is not generally useful to keep a copy of this image. Also note that you must not call this function if the movie is finished(), since by then the image will not be available.
 .PP
 See also framePixmap().
-.SH "int QMovie::frameNumber () const"
+.SH "int TQMovie::frameNumber () const"
 Returns the number of times EndOfFrame has been emitted since the start of the current loop of the movie. Thus, before any EndOfFrame has been emitted the value will be 0; within slots processing the first signal, frameNumber() will be 1, and so on.
-.SH "const QPixmap & QMovie::framePixmap () const"
-Returns the current frame of the movie, as a QPixmap. It is not generally useful to keep a copy of this pixmap. It is better to keep a copy of the QMovie and get the framePixmap() only when needed for drawing.
+.SH "const TQPixmap & TQMovie::framePixmap () const"
+Returns the current frame of the movie, as a TQPixmap. It is not generally useful to keep a copy of this pixmap. It is better to keep a copy of the TQMovie and get the framePixmap() only when needed for drawing.
 .PP
 See also frameImage().
 .PP
 Example: movies/main.cpp.
-.SH "const QRect & QMovie::getValidRect () const"
+.SH "const TQRect & TQMovie::getValidRect () const"
 Returns the area of the pixmap for which pixels have been generated.
-.SH "bool QMovie::isNull () const"
+.SH "bool TQMovie::isNull () const"
 Returns TRUE if the movie is null; otherwise returns FALSE.
-.SH "QMovie & QMovie::operator= ( const QMovie & movie )"
-Makes this movie use the same data as movie \fImovie\fR. QMovies use explicit sharing.
-.SH "void QMovie::pause ()"
+.SH "TQMovie & TQMovie::operator= ( const TQMovie & movie )"
+Makes this movie use the same data as movie \fImovie\fR. TQMovies use explicit sharing.
+.SH "void TQMovie::pause ()"
 Pauses the progress of the animation.
 .PP
 See also unpause().
 .PP
 Example: movies/main.cpp.
-.SH "bool QMovie::paused () const"
+.SH "bool TQMovie::paused () const"
 Returns TRUE if the image is paused; otherwise returns FALSE.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::pushData ( const uchar * data, int length )"
+.SH "void TQMovie::pushData ( const uchar * data, int length )"
 Pushes \fIlength\fR bytes from \fIdata\fR into the movie. \fIlength\fR must be no more than the amount returned by pushSpace() since the previous call to pushData().
-.SH "int QMovie::pushSpace () const"
+.SH "int TQMovie::pushSpace () const"
 Returns the maximum amount of data that can currently be pushed into the movie by a call to pushData(). This is affected by the initial buffer size, but varies as the movie plays and data is consumed.
-.SH "void QMovie::restart ()"
+.SH "void TQMovie::restart ()"
 Rewinds the movie to the beginning. If the movie has not been paused, it begins playing again.
 .PP
 Example: movies/main.cpp.
-.SH "bool QMovie::running () const"
+.SH "bool TQMovie::running () const"
 Returns TRUE if the image is not single-stepping, not paused, and not finished; otherwise returns FALSE.
-.SH "void QMovie::setBackgroundColor ( const TQColor & c )"
+.SH "void TQMovie::setBackgroundColor ( const TQColor & c )"
 Sets the background color of the pixmap to \fIc\fR. If the background color isValid(), the pixmap will never have a mask because the background color will be used in transparent regions of the image.
 .PP
 See also backgroundColor().
-.SH "void QMovie::setSpeed ( int percent )"
+.SH "void TQMovie::setSpeed ( int percent )"
 Sets the movie's play speed as a percentage, to \fIpercent\fR. This is a percentage of the speed dictated by the input data format. The default is 100 percent.
-.SH "int QMovie::speed () const"
+.SH "int TQMovie::speed () const"
 Returns the movie's play speed as a percentage. The default is 100 percent.
 .PP
 See also setSpeed().
-.SH "void QMovie::step ()"
+.SH "void TQMovie::step ()"
 Steps forward 1 frame and then pauses.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::step ( int steps )"
+.SH "void TQMovie::step ( int steps )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Steps forward, showing \fIsteps\fR frames, and then pauses.
-.SH "int QMovie::steps () const"
+.SH "int TQMovie::steps () const"
 Returns the number of steps remaining after a call to step(). If the movie is paused, steps() returns 0. If it's running normally or is finished, steps() returns a negative number.
 .PP
 Example: movies/main.cpp.
-.SH "void QMovie::unpause ()"
+.SH "void TQMovie::unpause ()"
 Unpauses the progress of the animation.
 .PP
 See also pause().
@@ -297,7 +297,7 @@ See also pause().
 Example: movies/main.cpp.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqmovie.html
+.BR http://doc.trolltech.com/tqmovie.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

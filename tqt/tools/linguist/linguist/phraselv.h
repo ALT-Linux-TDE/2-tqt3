@@ -36,7 +36,7 @@
 
 #include "phrase.h"
 
-#include <ntqlistview.h>
+#include <tqlistview.h>
 
 class TQWhatsThis;
 

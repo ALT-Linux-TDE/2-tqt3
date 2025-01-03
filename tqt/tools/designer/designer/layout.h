@@ -34,13 +34,13 @@
 #ifndef LAYOUT_H
 #define LAYOUT_H
 
-#include <ntqwidget.h>
-#include <ntqmap.h>
-#include <ntqguardedptr.h>
-#include <ntqobject.h>
-#include <ntqlayout.h>
-#include <ntqmap.h>
-#include <ntqwidgetlist.h>
+#include <tqwidget.h>
+#include <tqmap.h>
+#include <tqguardedptr.h>
+#include <tqobject.h>
+#include <tqlayout.h>
+#include <tqmap.h>
+#include <tqwidgetlist.h>
 
 class FormWindow;
 class TQPaintEvent;

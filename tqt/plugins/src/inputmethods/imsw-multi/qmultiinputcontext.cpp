@@ -42,11 +42,11 @@
 
 #ifndef TQT_NO_IM
 #include "qmultiinputcontext.h"
-#include <ntqinputcontextfactory.h>
-#include <ntqstringlist.h>
-#include <ntqpopupmenu.h>
+#include <tqinputcontextfactory.h>
+#include <tqstringlist.h>
+#include <tqpopupmenu.h>
 #ifndef TQT_NO_IM_EXTENSIONS
-#include <ntqsettings.h>
+#include <tqsettings.h>
 #endif
 
 #include <cstdlib>

@@ -3,12 +3,12 @@
 
 #include "tqttdeintegration_x11_p.h"
 
-#include <ntqcolordialog.h>
-#include <ntqfiledialog.h>
-#include <ntqfontdialog.h>
-#include <ntqlibrary.h>
-#include <ntqregexp.h>
-#include <ntqmessagebox.h>
+#include <tqcolordialog.h>
+#include <tqfiledialog.h>
+#include <tqfontdialog.h>
+#include <tqlibrary.h>
+#include <tqregexp.h>
+#include <tqmessagebox.h>
 #include <stdlib.h>
 
 bool TQTDEIntegration::inited = false;

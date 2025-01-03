@@ -1,12 +1,12 @@
 #include "setdataform.h"
 #include "chartform.h"
 
-#include <ntqcolordialog.h>
-#include <ntqcombobox.h>
-#include <ntqlayout.h>
-#include <ntqpixmap.h>
-#include <ntqpushbutton.h>
-#include <ntqtable.h>
+#include <tqcolordialog.h>
+#include <tqcombobox.h>
+#include <tqlayout.h>
+#include <tqpixmap.h>
+#include <tqpushbutton.h>
+#include <tqtable.h>
 
 #include "images/pattern01.xpm"
 #include "images/pattern02.xpm"

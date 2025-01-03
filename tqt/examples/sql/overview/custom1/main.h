@@ -7,16 +7,16 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqdialog.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqlineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqsqldatabase.h>
-#include <ntqsqlcursor.h>
-#include <ntqsqlform.h>
-#include <ntqsqlpropertymap.h>
+#include <tqapplication.h>
+#include <tqdialog.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqlineedit.h>
+#include <tqpushbutton.h>
+#include <tqsqldatabase.h>
+#include <tqsqlcursor.h>
+#include <tqsqlform.h>
+#include <tqsqlpropertymap.h>
 #include "../connection.h"
 
 class CustomEdit : public TQLineEdit

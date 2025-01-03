@@ -1,5 +1,5 @@
 '\" t
-.TH QTimer 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQTimer 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QTimer \- Timer signals and single-shot timers
+TQTimer \- Timer signals and single-shot timers
 .SH SYNOPSIS
-\fC#include <ntqtimer.h>\fR
+\fC#include <tqtimer.h>\fR
 .PP
 Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTimer\fR ( TQObject * parent = 0, const char * name = 0 )"
+.BI "\fBTQTimer\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QTimer\fR ()"
+.BI "\fB~TQTimer\fR ()"
 .br
 .ti -1c
 .BI "bool \fBisActive\fR () const"
@@ -50,17 +50,17 @@ Inherits TQObject.
 .br
 .in -1c
 .SH DESCRIPTION
-The QTimer class provides timer signals and single-shot timers.
+The TQTimer class provides timer signals and single-shot timers.
 .PP
-It uses timer events internally to provide a more versatile timer. QTimer is very easy to use: create a QTimer, call start() to start it and connect its timeout() to the appropriate slots. When the time is up it will emit the timeout() signal.
+It uses timer events internally to provide a more versatile timer. TQTimer is very easy to use: create a TQTimer, call start() to start it and connect its timeout() to the appropriate slots. When the time is up it will emit the timeout() signal.
 .PP
-Note that a QTimer object is destroyed automatically when its parent object is destroyed.
+Note that a TQTimer object is destroyed automatically when its parent object is destroyed.
 .PP
 Example:
 .PP
 .nf
 .br
-        QTimer *timer = new QTimer( myObject );
+        TQTimer *timer = new TQTimer( myObject );
 .br
         connect( timer, TQ_SIGNAL(timeout()), myObject, TQ_SLOT(timerDone()) );
 .br
@@ -70,13 +70,13 @@ Example:
 .PP
 You can also use the static singleShot() function to create a single shot timer.
 .PP
-As a special case, a QTimer with timeout 0 times out as soon as all the events in the window system's event queue have been processed.
+As a special case, a TQTimer with timeout 0 times out as soon as all the events in the window system's event queue have been processed.
 .PP
 This can be used to do heavy work while providing a snappy user interface:
 .PP
 .nf
 .br
-        QTimer *t = new QTimer( myObject );
+        TQTimer *t = new TQTimer( myObject );
 .br
         connect( t, TQ_SIGNAL(timeout()), TQ_SLOT(processOneThing()) );
 .br
@@ -86,51 +86,51 @@ This can be used to do heavy work while providing a snappy user interface:
 .PP
 myObject->processOneThing() will be called repeatedly and should return quickly (typically after processing one data item) so that TQt can deliver events to widgets and stop the timer as soon as it has done all its work. This is the traditional way of implementing heavy work in GUI applications; multi-threading is now becoming available on more and more platforms, and we expect that null events will eventually be replaced by threading.
 .PP
-Note that QTimer's accuracy depends on the underlying operating system and hardware. Most platforms support an accuracy of 20ms; some provide more. If TQt is unable to deliver the requested number of timer clicks, it will silently discard some.
+Note that TQTimer's accuracy depends on the underlying operating system and hardware. Most platforms support an accuracy of 20ms; some provide more. If TQt is unable to deliver the requested number of timer clicks, it will silently discard some.
 .PP
-An alternative to using QTimer is to call TQObject::startTimer() for your object and reimplement the TQObject::timerEvent() event handler in your class (which must, of course, inherit TQObject). The disadvantage is that timerEvent() does not support such high-level features as single-shot timers or signals.
+An alternative to using TQTimer is to call TQObject::startTimer() for your object and reimplement the TQObject::timerEvent() event handler in your class (which must, of course, inherit TQObject). The disadvantage is that timerEvent() does not support such high-level features as single-shot timers or signals.
 .PP
 Some operating systems limit the number of timers that may be used; TQt tries to work around these limitations.
 .PP
 See also Event Classes and Time and Date.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTimer::QTimer ( TQObject * parent = 0, const char * name = 0 )"
+.SH "TQTimer::TQTimer ( TQObject * parent = 0, const char * name = 0 )"
 Constructs a timer called \fIname\fR, with the parent \fIparent\fR.
 .PP
 Note that the parent object's destructor will destroy this timer object.
-.SH "QTimer::~QTimer ()"
+.SH "TQTimer::~TQTimer ()"
 Destroys the timer.
-.SH "void QTimer::changeInterval ( int msec )"
+.SH "void TQTimer::changeInterval ( int msec )"
 Changes the timeout interval to \fImsec\fR milliseconds.
 .PP
 If the timer signal is pending, it will be stopped and restarted; otherwise it will be started.
 .PP
 See also start() and isActive().
-.SH "bool QTimer::isActive () const"
+.SH "bool TQTimer::isActive () const"
 Returns TRUE if the timer is running (pending); otherwise returns FALSE.
 .PP
 Example: t11/cannon.cpp.
-.SH "void QTimer::singleShot ( int msec, TQObject * receiver, const char * member )\fC [static]\fR"
+.SH "void TQTimer::singleShot ( int msec, TQObject * receiver, const char * member )\fC [static]\fR"
 This static function calls a slot after a given time interval.
 .PP
-It is very convenient to use this function because you do not need to bother with a timerEvent or to create a local QTimer object.
+It is very convenient to use this function because you do not need to bother with a timerEvent or to create a local TQTimer object.
 .PP
 Example:
 .PP
 .nf
 .br
-        #include <ntqapplication.h>
+        #include <tqapplication.h>
 .br
-        #include <ntqtimer.h>
+        #include <tqtimer.h>
 .br
 .br
         int main( int argc, char **argv )
 .br
         {
 .br
-            QApplication a( argc, argv );
+            TQApplication a( argc, argv );
 .br
-            QTimer::singleShot( 10*60*1000, &a, TQ_SLOT(quit()) );
+            TQTimer::singleShot( 10*60*1000, &a, TQ_SLOT(quit()) );
 .br
                 ... // create and show your widgets
 .br
@@ -143,7 +143,7 @@ Example:
 This sample program automatically terminates after 10 minutes (i.e. 600000 milliseconds).
 .PP
 The \fIreceiver\fR is the receiving object and the \fImember\fR is the slot. The time interval is \fImsec\fR.
-.SH "int QTimer::start ( int msec, bool sshot = FALSE )"
+.SH "int TQTimer::start ( int msec, bool sshot = FALSE )"
 Starts the timer with a \fImsec\fR milliseconds timeout, and returns the ID of the timer, or zero when starting the timer failed.
 .PP
 If \fIsshot\fR is TRUE, the timer will be activated only once; otherwise it will continue until it is stopped.
@@ -154,24 +154,24 @@ See also singleShot(), stop(), changeInterval(), and isActive().
 .PP
 Examples:
 .)l aclock/aclock.cpp, dirview/dirview.cpp, distributor/distributor.ui.h, forever/forever.cpp, hello/hello.cpp, t11/cannon.cpp, and t13/cannon.cpp.
-.SH "void QTimer::stop ()"
+.SH "void TQTimer::stop ()"
 Stops the timer.
 .PP
 See also start().
 .PP
 Examples:
 .)l dirview/dirview.cpp, t11/cannon.cpp, t12/cannon.cpp, and t13/cannon.cpp.
-.SH "void QTimer::timeout ()\fC [signal]\fR"
+.SH "void TQTimer::timeout ()\fC [signal]\fR"
 This signal is emitted when the timer is activated.
 .PP
 Examples:
 .)l aclock/aclock.cpp, dirview/dirview.cpp, distributor/distributor.ui.h, forever/forever.cpp, hello/hello.cpp, and t11/cannon.cpp.
-.SH "int QTimer::timerId () const"
+.SH "int TQTimer::timerId () const"
 Returns the ID of the timer if the timer is running; otherwise returns
 -1.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqtimer.html
+.BR http://doc.trolltech.com/tqtimer.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

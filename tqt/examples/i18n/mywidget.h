@@ -10,8 +10,8 @@
 #ifndef MYWIDGET_H
 #define MYWIDGET_H
 
-#include <ntqmainwindow.h>
-#include <ntqstring.h>
+#include <tqmainwindow.h>
+#include <tqstring.h>
 
 class MyWidget : public TQMainWindow
 {

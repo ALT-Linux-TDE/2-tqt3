@@ -1132,13 +1132,6 @@ case $os in
 	-nsk*)
 		os=-nsk
 		;;
-	# Preserve the version number of sinix5.
-	-sinix5.*)
-		os=`echo $os | sed -e 's|sinix|sysv|'`
-		;;
-	-sinix*)
-		os=-sysv4
-		;;
 	-triton*)
 		os=-sysv3
 		;;

@@ -1,8 +1,8 @@
 #ifndef FILECHOOSER_H
 #define FILECHOOSER_H
 
-#include <ntqwidget.h>
-#include <ntqwidgetplugin.h>
+#include <tqwidget.h>
+#include <tqwidgetplugin.h>
 
 class TQLineEdit;
 class TQPushButton;

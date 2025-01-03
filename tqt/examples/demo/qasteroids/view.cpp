@@ -6,10 +6,10 @@
 
 #include <stdlib.h>
 #include <math.h>
-#include <ntqapplication.h>
-#include <ntqkeycode.h>
-#include <ntqaccel.h>
-#include <ntqmessagebox.h>
+#include <tqapplication.h>
+#include <tqkeycode.h>
+#include <tqaccel.h>
+#include <tqmessagebox.h>
 
 #include "view.h"
 

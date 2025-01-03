@@ -34,10 +34,10 @@
 #ifndef OUTPUTWINDOW_H
 #define OUTPUTWINDOW_H
 
-#include <ntqtabwidget.h>
-#include <ntqstringlist.h>
-#include <ntqvaluelist.h>
-#include <ntqlistview.h>
+#include <tqtabwidget.h>
+#include <tqstringlist.h>
+#include <tqvaluelist.h>
+#include <tqlistview.h>
 
 struct DesignerOutputDock;
 class TQTextEdit;

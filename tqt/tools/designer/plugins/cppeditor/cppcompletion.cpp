@@ -33,10 +33,10 @@
 **********************************************************************/
 
 #include "cppcompletion.h"
-#include <ntqobject.h>
-#include <ntqmetaobject.h>
-#include <ntqobjectlist.h>
-#include <ntqregexp.h>
+#include <tqobject.h>
+#include <tqmetaobject.h>
+#include <tqobjectlist.h>
+#include <tqregexp.h>
 
 CppEditorCompletion::CppEditorCompletion( Editor *e )
     : EditorCompletion( e )

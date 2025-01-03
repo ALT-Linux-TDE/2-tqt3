@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/life/life.doc:4 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -48,10 +47,10 @@ body { background: #ffffff; color: black; }
 #ifndef LIFE_H
 #define LIFE_H
 
-#include &lt;<a href="qframe-h.html">ntqframe.h</a>&gt;
+#include &lt;<a href="tqframe-h.html">tqframe.h</a>&gt;
 
 
-class LifeWidget : public <a href="ntqframe.html">TQFrame</a>
+class LifeWidget : public <a href="tqframe.html">TQFrame</a>
 {
     <a href="metaobjects.html#TQ_OBJECT">TQ_OBJECT</a>
 public:
@@ -67,11 +66,11 @@ public slots:
     void        clear();
 
 protected:
-    virtual void paintEvent( <a href="qpaintevent.html">TQPaintEvent</a> * );
-    virtual void mouseMoveEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-    virtual void mousePressEvent( <a href="qmouseevent.html">TQMouseEvent</a> * );
-    virtual void resizeEvent( <a href="qresizeevent.html">TQResizeEvent</a> * );
-    void         mouseHandle( const <a href="ntqpoint.html">TQPoint</a> &amp;pos );
+    virtual void paintEvent( <a href="tqpaintevent.html">TQPaintEvent</a> * );
+    virtual void mouseMoveEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+    virtual void mousePressEvent( <a href="tqmouseevent.html">TQMouseEvent</a> * );
+    virtual void resizeEvent( <a href="tqresizeevent.html">TQResizeEvent</a> * );
+    void         mouseHandle( const <a href="tqpoint.html">TQPoint</a> &amp;pos );
 
 private:
     enum { MAXSIZE = 50, MINSIZE = 10, BORDER = 5 };
@@ -110,28 +109,28 @@ private:
 
 #include "life.h"
 
-#include &lt;<a href="qpainter-h.html">ntqpainter.h</a>&gt;
-#include &lt;<a href="qdrawutil-h.html">ntqdrawutil.h</a>&gt;
-#include &lt;<a href="qcheckbox-h.html">ntqcheckbox.h</a>&gt;
-#include &lt;<a href="qevent-h.html">ntqevent.h</a>&gt;
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqpainter-h.html">tqpainter.h</a>&gt;
+#include &lt;<a href="tqdrawutil-h.html">tqdrawutil.h</a>&gt;
+#include &lt;<a href="tqcheckbox-h.html">tqcheckbox.h</a>&gt;
+#include &lt;<a href="tqevent-h.html">tqevent.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 
 // The main game of life widget
 
 <a name="f517"></a>LifeWidget::LifeWidget( int s, TQWidget *parent, const char *name )
-    : <a href="ntqframe.html">TQFrame</a>( parent, name )
+    : <a href="tqframe.html">TQFrame</a>( parent, name )
 {
     SCALE = s;
 
     maxi = maxj = 50;
-    <a href="ntqwidget.html#setMinimumSize">setMinimumSize</a>( MINSIZE * SCALE + 2 * BORDER,
+    <a href="tqwidget.html#setMinimumSize">setMinimumSize</a>( MINSIZE * SCALE + 2 * BORDER,
                    MINSIZE * SCALE + 2 * BORDER );
-    <a href="ntqwidget.html#setMaximumSize">setMaximumSize</a>( MAXSIZE * SCALE + 2 * BORDER,
+    <a href="tqwidget.html#setMaximumSize">setMaximumSize</a>( MAXSIZE * SCALE + 2 * BORDER,
                    MAXSIZE * SCALE + 2 * BORDER );
-    <a href="ntqwidget.html#setSizeIncrement">setSizeIncrement</a>( SCALE, SCALE);
+    <a href="tqwidget.html#setSizeIncrement">setSizeIncrement</a>( SCALE, SCALE);
 
     clear();
-    <a href="ntqwidget.html#resize">resize</a>( maxi * SCALE + 2 * BORDER , maxj * SCALE + 2 * BORDER );
+    <a href="tqwidget.html#resize">resize</a>( maxi * SCALE + 2 * BORDER , maxj * SCALE + 2 * BORDER );
 
 }
 
@@ -144,7 +143,7 @@ void <a name="f518"></a>LifeWidget::clear()
             for ( int j = 0; j &lt; MAXSIZE + 2; j++ )
                 cells[t][i][j] = FALSE;
 
-    <a href="ntqwidget.html#repaint">repaint</a>();
+    <a href="tqwidget.html#repaint">repaint</a>();
 }
 
 
@@ -152,10 +151,10 @@ void <a name="f518"></a>LifeWidget::clear()
 // this is not in general TRUE, but in practice it's good enough for
 // this program
 
-<a name="x1889"></a>void LifeWidget::<a href="ntqframe.html#resizeEvent">resizeEvent</a>( <a href="qresizeevent.html">TQResizeEvent</a> * e )
+<a name="x1889"></a>void LifeWidget::<a href="tqframe.html#resizeEvent">resizeEvent</a>( <a href="tqresizeevent.html">TQResizeEvent</a> * e )
 {
-<a name="x1895"></a>    maxi = (e-&gt;<a href="qresizeevent.html#size">size</a>().width()  - 2 * BORDER) / SCALE;
-    maxj = (e-&gt;<a href="qresizeevent.html#size">size</a>().height() - 2 * BORDER) / SCALE;
+<a name="x1895"></a>    maxi = (e-&gt;<a href="tqresizeevent.html#size">size</a>().width()  - 2 * BORDER) / SCALE;
+    maxj = (e-&gt;<a href="tqresizeevent.html#size">size</a>().height() - 2 * BORDER) / SCALE;
 }
 
 
@@ -164,28 +163,28 @@ void <a name="f519"></a>LifeWidget::setPoint( int i, int j )
     if ( i &lt; 1 || i &gt; maxi || j &lt; 1 || j &gt; maxi )
         return;
     cells[current][i][j] = TRUE;
-    <a href="ntqwidget.html#repaint">repaint</a>( index2pos(i), index2pos(j), SCALE, SCALE, FALSE );
+    <a href="tqwidget.html#repaint">repaint</a>( index2pos(i), index2pos(j), SCALE, SCALE, FALSE );
 }
 
 
-void <a name="f520"></a>LifeWidget::mouseHandle( const <a href="ntqpoint.html">TQPoint</a> &amp;pos )
+void <a name="f520"></a>LifeWidget::mouseHandle( const <a href="tqpoint.html">TQPoint</a> &amp;pos )
 {
-<a name="x1893"></a>    int i = pos2index( pos.<a href="ntqpoint.html#x">x</a>() );
-<a name="x1894"></a>    int j = pos2index( pos.<a href="ntqpoint.html#y">y</a>() );
+<a name="x1893"></a>    int i = pos2index( pos.<a href="tqpoint.html#x">x</a>() );
+<a name="x1894"></a>    int j = pos2index( pos.<a href="tqpoint.html#y">y</a>() );
     setPoint( i, j );
 }
 
 
-<a name="x1896"></a>void LifeWidget::<a href="ntqwidget.html#mouseMoveEvent">mouseMoveEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+<a name="x1896"></a>void LifeWidget::<a href="tqwidget.html#mouseMoveEvent">mouseMoveEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
 {
-<a name="x1891"></a>    mouseHandle( e-&gt;<a href="qmouseevent.html#pos">pos</a>() );
+<a name="x1891"></a>    mouseHandle( e-&gt;<a href="tqmouseevent.html#pos">pos</a>() );
 }
 
 
-<a name="x1897"></a>void LifeWidget::<a href="ntqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="qmouseevent.html">TQMouseEvent</a> *e )
+<a name="x1897"></a>void LifeWidget::<a href="tqwidget.html#mousePressEvent">mousePressEvent</a>( <a href="tqmouseevent.html">TQMouseEvent</a> *e )
 {
-<a name="x1890"></a>    if ( e-&gt;<a href="qmouseevent.html#button">button</a>() == TQMouseEvent::LeftButton )
-        mouseHandle( e-&gt;<a href="qmouseevent.html#pos">pos</a>() );
+<a name="x1890"></a>    if ( e-&gt;<a href="tqmouseevent.html#button">button</a>() == TQMouseEvent::LeftButton )
+        mouseHandle( e-&gt;<a href="tqmouseevent.html#pos">pos</a>() );
 }
 
 
@@ -207,33 +206,33 @@ void <a name="f521"></a>LifeWidget::nextGeneration()
         }
     }
     current = !current;
-    <a href="ntqwidget.html#repaint">repaint</a>( FALSE );           // repaint without erase
+    <a href="tqwidget.html#repaint">repaint</a>( FALSE );           // repaint without erase
 }
 
 
-<a name="x1888"></a>void LifeWidget::<a href="ntqframe.html#paintEvent">paintEvent</a>( <a href="qpaintevent.html">TQPaintEvent</a> * e )
+<a name="x1888"></a>void LifeWidget::<a href="tqframe.html#paintEvent">paintEvent</a>( <a href="tqpaintevent.html">TQPaintEvent</a> * e )
 {
-<a name="x1892"></a>    int starti = pos2index( e-&gt;<a href="qpaintevent.html#rect">rect</a>().left() );
-    int stopi  = pos2index( e-&gt;<a href="qpaintevent.html#rect">rect</a>().right() );
-    int startj = pos2index( e-&gt;<a href="qpaintevent.html#rect">rect</a>().top() );
-    int stopj  = pos2index( e-&gt;<a href="qpaintevent.html#rect">rect</a>().bottom() );
+<a name="x1892"></a>    int starti = pos2index( e-&gt;<a href="tqpaintevent.html#rect">rect</a>().left() );
+    int stopi  = pos2index( e-&gt;<a href="tqpaintevent.html#rect">rect</a>().right() );
+    int startj = pos2index( e-&gt;<a href="tqpaintevent.html#rect">rect</a>().top() );
+    int stopj  = pos2index( e-&gt;<a href="tqpaintevent.html#rect">rect</a>().bottom() );
 
     if (stopi &gt; maxi)
         stopi = maxi;
     if (stopj &gt; maxj)
         stopj = maxj;
 
-    <a href="ntqpainter.html">TQPainter</a> paint( this );
+    <a href="tqpainter.html">TQPainter</a> paint( this );
     for ( int i = starti; i &lt;= stopi; i++ ) {
         for ( int j = startj; j &lt;= stopj; j++ ) {
             if ( cells[current][i][j] )
-                <a href="ntqpainter.html#qDrawShadePanel">qDrawShadePanel</a>( &amp;paint, index2pos( i ), index2pos( j ),
+                <a href="tqpainter.html#qDrawShadePanel">qDrawShadePanel</a>( &amp;paint, index2pos( i ), index2pos( j ),
                                  SCALE - 1, SCALE - 1, colorGroup() );
             else if ( cells[!current][i][j] )
-                <a href="ntqwidget.html#erase">erase</a>(index2pos( i ), index2pos( j ), SCALE - 1, SCALE - 1);
+                <a href="tqwidget.html#erase">erase</a>(index2pos( i ), index2pos( j ), SCALE - 1, SCALE - 1);
         }
     }
-    <a href="ntqframe.html#drawFrame">drawFrame</a>( &amp;paint );
+    <a href="tqframe.html#drawFrame">drawFrame</a>( &amp;paint );
 }
 </pre>
 
@@ -250,22 +249,22 @@ void <a name="f521"></a>LifeWidget::nextGeneration()
 *****************************************************************************/
 
 #include "lifedlg.h"
-#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
+#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
 #include &lt;stdlib.h&gt;
 
 void usage()
 {
-    <a href="ntqapplication.html#qWarning">tqWarning</a>( "Usage: life [-scale scale]" );
+    <a href="tqapplication.html#qWarning">tqWarning</a>( "Usage: life [-scale scale]" );
 }
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> a( argc, argv );
+    <a href="tqapplication.html">TQApplication</a> a( argc, argv );
 
     int scale = 10;
 
     for ( int i = 1; i &lt; argc; i++ ){
-        <a href="ntqstring.html">TQString</a> arg = argv[i];
+        <a href="tqstring.html">TQString</a> arg = argv[i];
         if ( arg == "-scale" )
             scale = atoi( argv[++i] );
         else {
@@ -278,11 +277,11 @@ int main( int argc, char **argv )
         scale = 2;
 
     LifeDialog *life = new LifeDialog( scale );
-    a.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( life );
-    life-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - Life");
-    life-&gt;<a href="ntqwidget.html#show">show</a>();
+    a.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( life );
+    life-&gt;<a href="tqwidget.html#setCaption">setCaption</a>("TQt Example - Life");
+    life-&gt;<a href="tqwidget.html#show">show</a>();
 
-    return a.<a href="ntqapplication.html#exec">exec</a>();
+    return a.<a href="tqapplication.html#exec">exec</a>();
 }
 </pre>
 

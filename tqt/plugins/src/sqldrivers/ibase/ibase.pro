@@ -4,9 +4,9 @@ TARGET	 = qsqlibase
 CONFIG	+= qt plugin
 DESTDIR	 = ../../../sqldrivers
 
-HEADERS		= ../../../../src/sql/drivers/ibase/qsql_ibase.h
+HEADERS		= ../../../../src/sql/drivers/ibase/tqsql_ibase.h
 SOURCES		= main.cpp \
-		  ../../../../src/sql/drivers/ibase/qsql_ibase.cpp
+		  ../../../../src/sql/drivers/ibase/tqsql_ibase.cpp
 
 unix {
 	OBJECTS_DIR = .obj
@@ -17,8 +17,7 @@ unix {
 }
 win32 {
 	OBJECTS_DIR = obj
-	!win32-borland:LIBS *= gds32_ms.lib
-	win32-borland:LIBS  += gds32.lib
+	LIBS *= gds32_ms.lib
 }
 
 REQUIRES	= sql

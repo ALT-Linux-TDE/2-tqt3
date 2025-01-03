@@ -7,7 +7,7 @@
 #ifndef LCDRANGE_H
 #define LCDRANGE_H
 
-#include <ntqvbox.h>
+#include <tqvbox.h>
 
 class TQSlider;
 

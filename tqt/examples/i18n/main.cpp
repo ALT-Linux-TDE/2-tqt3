@@ -7,17 +7,17 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqtranslator.h>
-#include <ntqfileinfo.h>
-#include <ntqmessagebox.h>
-#include <ntqcheckbox.h>
-#include <ntqvbox.h>
-#include <ntqlayout.h>
-#include <ntqbuttongroup.h>
-#include <ntqpushbutton.h>
-#include <ntqsignalmapper.h>
-#include <ntqtextcodec.h>
+#include <tqapplication.h>
+#include <tqtranslator.h>
+#include <tqfileinfo.h>
+#include <tqmessagebox.h>
+#include <tqcheckbox.h>
+#include <tqvbox.h>
+#include <tqlayout.h>
+#include <tqbuttongroup.h>
+#include <tqpushbutton.h>
+#include <tqsignalmapper.h>
+#include <tqtextcodec.h>
 #include <stdlib.h>
 
 #if defined(Q_OS_UNIX)

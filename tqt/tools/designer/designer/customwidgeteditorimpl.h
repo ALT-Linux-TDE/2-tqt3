@@ -37,8 +37,8 @@
 #include "customwidgeteditor.h"
 #include "metadatabase.h"
 
-#include <ntqmap.h>
-#include <ntqobjectlist.h>
+#include <tqmap.h>
+#include <tqobjectlist.h>
 
 class TQTimer;
 class TQListBoxItem;

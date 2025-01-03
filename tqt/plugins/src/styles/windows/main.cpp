@@ -1,5 +1,5 @@
-#include <ntqstyleplugin.h>
-#include <ntqwindowsstyle.h>
+#include <tqstyleplugin.h>
+#include <tqwindowsstyle.h>
 
 class WindowsStyle : public TQStylePlugin
 {

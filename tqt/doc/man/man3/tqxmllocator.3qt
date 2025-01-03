@@ -1,5 +1,5 @@
 '\" t
-.TH QXmlLocator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQXmlLocator 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,19 +7,19 @@
 .ad l
 .nh
 .SH NAME
-QXmlLocator \- The XML handler classes with information about the parsing position within a file
+TQXmlLocator \- The XML handler classes with information about the parsing position within a file
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqxml.h>\fR
+\fC#include <tqxml.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQXmlLocator\fR ()"
+.BI "\fBTQXmlLocator\fR ()"
 .br
 .ti -1c
-.BI "virtual \fB~QXmlLocator\fR ()"
+.BI "virtual \fB~TQXmlLocator\fR ()"
 .br
 .ti -1c
 .BI "virtual int \fBcolumnNumber\fR () = 0"
@@ -29,24 +29,24 @@ All the functions in this class are reentrant when TQt is built with thread supp
 .br
 .in -1c
 .SH DESCRIPTION
-The QXmlLocator class provides the XML handler classes with information about the parsing position within a file.
+The TQXmlLocator class provides the XML handler classes with information about the parsing position within a file.
 .PP
-The reader reports a QXmlLocator to the content handler before it starts to parse the document. This is done with the QXmlContentHandler::setDocumentLocator() function. The handler classes can now use this locator to get the position (lineNumber() and columnNumber()) that the reader has reached.
+The reader reports a TQXmlLocator to the content handler before it starts to parse the document. This is done with the TQXmlContentHandler::setDocumentLocator() function. The handler classes can now use this locator to get the position (lineNumber() and columnNumber()) that the reader has reached.
 .PP
 See also XML.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QXmlLocator::QXmlLocator ()"
+.SH "TQXmlLocator::TQXmlLocator ()"
 Constructor.
-.SH "QXmlLocator::~QXmlLocator ()\fC [virtual]\fR"
+.SH "TQXmlLocator::~TQXmlLocator ()\fC [virtual]\fR"
 Destructor.
-.SH "int QXmlLocator::columnNumber ()\fC [pure virtual]\fR"
+.SH "int TQXmlLocator::columnNumber ()\fC [pure virtual]\fR"
 Returns the column number (starting at 1) or -1 if there is no column number available.
-.SH "int QXmlLocator::lineNumber ()\fC [pure virtual]\fR"
+.SH "int TQXmlLocator::lineNumber ()\fC [pure virtual]\fR"
 Returns the line number (starting at 1) or -1 if there is no line
 number available.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qxmllocator.html
+.BR http://doc.trolltech.com/tqxmllocator.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

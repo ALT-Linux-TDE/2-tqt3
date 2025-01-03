@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/examples/action/toggleaction/toggleaction.doc:1 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -33,44 +32,44 @@ body { background: #ffffff; color: black; }
 
  
 <p> 
-<p> This example program demonstrates the use of <a href="ntqaction.html">TQAction</a>
+<p> This example program demonstrates the use of <a href="tqaction.html">TQAction</a>
 in its incarnation as a toggle action.
 <p> <hr>
 <p> Main:
-<p> <pre>#include &lt;<a href="qapplication-h.html">ntqapplication.h</a>&gt;
-#include &lt;<a href="qmainwindow-h.html">ntqmainwindow.h</a>&gt;
-#include &lt;<a href="qtoolbar-h.html">ntqtoolbar.h</a>&gt;
-#include &lt;<a href="qaction-h.html">ntqaction.h</a>&gt;
+<p> <pre>#include &lt;<a href="tqapplication-h.html">tqapplication.h</a>&gt;
+#include &lt;<a href="tqmainwindow-h.html">tqmainwindow.h</a>&gt;
+#include &lt;<a href="tqtoolbar-h.html">tqtoolbar.h</a>&gt;
+#include &lt;<a href="tqaction-h.html">tqaction.h</a>&gt;
 
 #include "labelonoff.xpm"
 
 int main( int argc, char **argv )
 {
-    <a href="ntqapplication.html">TQApplication</a> app( argc, argv );
-    <a href="ntqmainwindow.html">TQMainWindow</a> * window = new <a href="ntqmainwindow.html">TQMainWindow</a>;
-    window-&gt;<a href="ntqwidget.html#setCaption">setCaption</a>("TQt Example - Toggleaction");
-    <a href="ntqtoolbar.html">TQToolBar</a> * toolbar = new <a href="ntqtoolbar.html">TQToolBar</a>( window );
+    <a href="tqapplication.html">TQApplication</a> app( argc, argv );
+    <a href="tqmainwindow.html">TQMainWindow</a> * window = new <a href="tqmainwindow.html">TQMainWindow</a>;
+    window-&gt;<a href="tqwidget.html#setCaption">setCaption</a>("TQt Example - Toggleaction");
+    <a href="tqtoolbar.html">TQToolBar</a> * toolbar = new <a href="tqtoolbar.html">TQToolBar</a>( window );
 
-    <a href="ntqaction.html">TQAction</a> * labelonoffaction = new <a href="ntqaction.html">TQAction</a>( window, "labelonoff" );
-<a name="x2975"></a>    labelonoffaction-&gt;<a href="ntqaction.html#setToggleAction">setToggleAction</a>( TRUE );
+    <a href="tqaction.html">TQAction</a> * labelonoffaction = new <a href="tqaction.html">TQAction</a>( window, "labelonoff" );
+<a name="x2975"></a>    labelonoffaction-&gt;<a href="tqaction.html#setToggleAction">setToggleAction</a>( TRUE );
 
-<a name="x2974"></a>    labelonoffaction-&gt;<a href="ntqaction.html#setText">setText</a>( "labels on/off" );
-<a name="x2972"></a>    labelonoffaction-&gt;<a href="ntqaction.html#setAccel">setAccel</a>( TQt::ALT+TQt::Key_L );
-<a name="x2973"></a>    labelonoffaction-&gt;<a href="ntqaction.html#setIconSet">setIconSet</a>( (TQPixmap) labelonoff_xpm );
+<a name="x2974"></a>    labelonoffaction-&gt;<a href="tqaction.html#setText">setText</a>( "labels on/off" );
+<a name="x2972"></a>    labelonoffaction-&gt;<a href="tqaction.html#setAccel">setAccel</a>( TQt::ALT+TQt::Key_L );
+<a name="x2973"></a>    labelonoffaction-&gt;<a href="tqaction.html#setIconSet">setIconSet</a>( (TQPixmap) labelonoff_xpm );
 
-<a name="x2976"></a>    TQObject::<a href="ntqobject.html#connect">connect</a>( labelonoffaction, TQ_SIGNAL( <a href="ntqaction.html#toggled">toggled</a>( bool ) ),
-<a name="x2979"></a>                      window, TQ_SLOT( <a href="ntqmainwindow.html#setUsesTextLabel">setUsesTextLabel</a>( bool ) ) );
+<a name="x2976"></a>    TQObject::<a href="tqobject.html#connect">connect</a>( labelonoffaction, TQ_SIGNAL( <a href="tqaction.html#toggled">toggled</a>( bool ) ),
+<a name="x2979"></a>                      window, TQ_SLOT( <a href="tqmainwindow.html#setUsesTextLabel">setUsesTextLabel</a>( bool ) ) );
 
-<a name="x2971"></a>    labelonoffaction-&gt;<a href="ntqaction.html#addTo">addTo</a>( toolbar );
+<a name="x2971"></a>    labelonoffaction-&gt;<a href="tqaction.html#addTo">addTo</a>( toolbar );
 
-    app.<a href="ntqapplication.html#setMainWidget">setMainWidget</a>( window );
-    window-&gt;<a href="ntqwidget.html#show">show</a>();
-    return app.<a href="ntqapplication.html#exec">exec</a>();
+    app.<a href="tqapplication.html#setMainWidget">setMainWidget</a>( window );
+    window-&gt;<a href="tqwidget.html#show">show</a>();
+    return app.<a href="tqapplication.html#exec">exec</a>();
 }
 
 </pre>
 
-<p>See also <a href="qaction-examples.html">TQAction Examples</a>.
+<p>See also <a href="tqaction-examples.html">TQAction Examples</a>.
 
 <!-- eof -->
 <p><address><hr><div align=center>

@@ -14,8 +14,8 @@
 #ifndef BORDER_H
 #define BORDER_H
 
-#include <ntqlayout.h>
-#include <ntqptrlist.h>
+#include <tqlayout.h>
+#include <tqptrlist.h>
 
 class BorderWidgetItem : public TQWidgetItem
 {

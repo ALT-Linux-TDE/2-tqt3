@@ -1,0 +1,1 @@
+../../src/tools/tqpluginmanager_p.h

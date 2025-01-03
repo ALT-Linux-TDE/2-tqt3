@@ -9,14 +9,14 @@
 
 #include "listbox.h"
 
-#include <ntqlabel.h>
-#include <ntqradiobutton.h>
-#include <ntqcheckbox.h>
-#include <ntqspinbox.h>
-#include <ntqlistbox.h>
-#include <ntqbuttongroup.h>
-#include <ntqlayout.h>
-#include <ntqpushbutton.h>
+#include <tqlabel.h>
+#include <tqradiobutton.h>
+#include <tqcheckbox.h>
+#include <tqspinbox.h>
+#include <tqlistbox.h>
+#include <tqbuttongroup.h>
+#include <tqlayout.h>
+#include <tqpushbutton.h>
 
 
 ListBoxDemo::ListBoxDemo()

@@ -9,7 +9,7 @@
 
 // Get TQt defines/settings
 
-#include "ntqglobal.h"
+#include "tqglobal.h"
 
 #include <tchar.h>
 #include <io.h>

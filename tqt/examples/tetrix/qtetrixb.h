@@ -11,7 +11,7 @@
 #define TQTETRIXB_H
 
 #include "gtetrix.h"
-#include <ntqframe.h>
+#include <tqframe.h>
 
 class TQTimer;
 

@@ -34,7 +34,7 @@
 #ifndef ARGHINTWIDGET_H
 #define ARGHINTWIDGET_H
 
-#include <ntqframe.h>
+#include <tqframe.h>
 
 class TQLabel;
 class ArrowButton;

@@ -39,11 +39,11 @@
 #include "sizehandle.h"
 #include "actiondnd.h"
 
-#include <ntqwidget.h>
-#include <ntqptrdict.h>
-#include <ntqpixmap.h>
-#include <ntqwidgetlist.h>
-#include <ntqmap.h>
+#include <tqwidget.h>
+#include <tqptrdict.h>
+#include <tqpixmap.h>
+#include <tqwidgetlist.h>
+#include <tqmap.h>
 
 class TQPaintEvent;
 class TQMouseEvent;

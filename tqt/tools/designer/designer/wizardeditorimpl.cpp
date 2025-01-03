@@ -38,10 +38,10 @@
 #include "listboxdnd.h"
 #include "listboxrename.h"
 
-#include <ntqwizard.h>
-#include <ntqlistbox.h>
-#include <ntqpushbutton.h>
-#include <ntqinputdialog.h>
+#include <tqwizard.h>
+#include <tqlistbox.h>
+#include <tqpushbutton.h>
+#include <tqinputdialog.h>
 
 WizardEditor::WizardEditor( TQWidget *parent, TQWizard *w, FormWindow *fw )
     : WizardEditorBase( parent, 0 ), formwindow( fw ), wizard( w ), draggedItem( 0 )

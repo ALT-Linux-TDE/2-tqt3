@@ -13,7 +13,7 @@
 #ifndef RUBBERBANDWIDGET_H
 #define RUBBERBANDWIDGET_H
 
-#include <ntqwidget.h>
+#include <tqwidget.h>
 
 
 class RubberbandWidget : public TQWidget

@@ -1,11 +1,11 @@
 #include "canvasview.h"
 #include "chartform.h"
 
-#include <ntqfile.h>
-#include <ntqfiledialog.h>
-#include <ntqpainter.h>
-#include <ntqprinter.h>
-#include <ntqstatusbar.h>
+#include <tqfile.h>
+#include <tqfiledialog.h>
+#include <tqpainter.h>
+#include <tqprinter.h>
+#include <tqstatusbar.h>
 
 
 void ChartForm::load( const TQString& filename )

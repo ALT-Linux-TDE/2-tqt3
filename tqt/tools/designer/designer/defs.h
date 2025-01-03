@@ -34,8 +34,8 @@
 #ifndef DEFS_H
 #define DEFS_H
 
-#include <ntqsizepolicy.h>
-#include <ntqstring.h>
+#include <tqsizepolicy.h>
+#include <tqstring.h>
 
 #define POINTER_TOOL 32000
 #define CONNECT_TOOL 32001

@@ -1,5 +1,5 @@
 '\" t
-.TH QTimerEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQTimerEvent 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,41 +7,41 @@
 .ad l
 .nh
 .SH NAME
-QTimerEvent \- Parameters that describe a timer event
+TQTimerEvent \- Parameters that describe a timer event
 .SH SYNOPSIS
-\fC#include <ntqevent.h>\fR
+\fC#include <tqevent.h>\fR
 .PP
-Inherits QEvent.
+Inherits TQEvent.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQTimerEvent\fR ( int timerId )"
+.BI "\fBTQTimerEvent\fR ( int timerId )"
 .br
 .ti -1c
 .BI "int \fBtimerId\fR () const"
 .br
 .in -1c
 .SH DESCRIPTION
-The QTimerEvent class contains parameters that describe a timer event.
+The TQTimerEvent class contains parameters that describe a timer event.
 .PP
 Timer events are sent at regular intervals to objects that have started one or more timers. Each timer has a unique identifier. A timer is started with TQObject::startTimer().
 .PP
-The QTimer class provides a high-level programming interface that uses signals instead of events. It also provides one-shot timers.
+The TQTimer class provides a high-level programming interface that uses signals instead of events. It also provides one-shot timers.
 .PP
 The event handler TQObject::timerEvent() receives timer events.
 .PP
-See also QTimer, TQObject::timerEvent(), TQObject::startTimer(), TQObject::killTimer(), TQObject::killTimers(), and Event Classes.
+See also TQTimer, TQObject::timerEvent(), TQObject::startTimer(), TQObject::killTimer(), TQObject::killTimers(), and Event Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QTimerEvent::QTimerEvent ( int timerId )"
+.SH "TQTimerEvent::TQTimerEvent ( int timerId )"
 Constructs a timer event object with the timer identifier set to \fItimerId\fR.
-.SH "int QTimerEvent::timerId () const"
+.SH "int TQTimerEvent::timerId () const"
 Returns the unique timer identifier, which is the same identifier as returned from TQObject::startTimer().
 .PP
 Example: dclock/dclock.cpp.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qtimerevent.html
+.BR http://doc.trolltech.com/tqtimerevent.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

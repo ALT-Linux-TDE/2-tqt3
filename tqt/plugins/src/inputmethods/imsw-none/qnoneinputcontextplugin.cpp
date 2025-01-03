@@ -42,8 +42,8 @@
 
 #ifndef TQT_NO_IM
 #include "qnoneinputcontextplugin.h"
-#include <ntqinputcontextfactory.h>
-#include <ntqsettings.h>
+#include <tqinputcontextfactory.h>
+#include <tqsettings.h>
 #include <cstdlib>
 
 

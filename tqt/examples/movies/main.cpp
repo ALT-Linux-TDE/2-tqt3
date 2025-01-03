@@ -7,14 +7,14 @@
 **
 *****************************************************************************/
 
-#include <ntqapplication.h>
-#include <ntqfiledialog.h>
-#include <ntqpushbutton.h>
-#include <ntqlabel.h>
-#include <ntqpainter.h>
-#include <ntqmessagebox.h>
-#include <ntqmovie.h>
-#include <ntqvbox.h>
+#include <tqapplication.h>
+#include <tqfiledialog.h>
+#include <tqpushbutton.h>
+#include <tqlabel.h>
+#include <tqpainter.h>
+#include <tqmessagebox.h>
+#include <tqmovie.h>
+#include <tqvbox.h>
 
 
 class MovieScreen : public TQFrame {

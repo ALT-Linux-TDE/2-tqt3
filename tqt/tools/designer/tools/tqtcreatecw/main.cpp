@@ -31,12 +31,12 @@
 **
 **********************************************************************/
 
-#include <ntqfile.h>
-#include <ntqtextstream.h>
-#include <ntqvaluelist.h>
-#include <ntqstrlist.h>
-#include <ntqmetaobject.h>
-#include <ntqapplication.h>
+#include <tqfile.h>
+#include <tqtextstream.h>
+#include <tqvaluelist.h>
+#include <tqstrlist.h>
+#include <tqmetaobject.h>
+#include <tqapplication.h>
 
 // STEP1: Include header files of the widgets for which a description
 // should be created here. If you have a widget which is defined in

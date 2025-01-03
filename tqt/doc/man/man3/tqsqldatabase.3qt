@@ -1,5 +1,5 @@
 '\" t
-.TH QSqlDatabase 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSqlDatabase 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,16 +7,16 @@
 .ad l
 .nh
 .SH NAME
-QSqlDatabase \- Used to create SQL database connections and to provide transaction handling
+TQSqlDatabase \- Used to create SQL database connections and to provide transaction handling
 .SH SYNOPSIS
-\fC#include <ntqsqldatabase.h>\fR
+\fC#include <tqsqldatabase.h>\fR
 .PP
 Inherits TQObject.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fB~QSqlDatabase\fR ()"
+.BI "\fB~TQSqlDatabase\fR ()"
 .br
 .ti -1c
 .BI "bool \fBopen\fR ()"
@@ -34,31 +34,31 @@ Inherits TQObject.
 .BI "bool \fBisOpenError\fR () const"
 .br
 .ti -1c
-.BI "QStringList \fBtables\fR () const"
+.BI "TQStringList \fBtables\fR () const"
 .br
 .ti -1c
-.BI "QStringList \fBtables\fR ( QSql::TableType type ) const"
+.BI "TQStringList \fBtables\fR ( TQSql::TableType type ) const"
 .br
 .ti -1c
-.BI "QSqlIndex \fBprimaryIndex\fR ( const TQString & tablename ) const"
+.BI "TQSqlIndex \fBprimaryIndex\fR ( const TQString & tablename ) const"
 .br
 .ti -1c
-.BI "QSqlRecord \fBrecord\fR ( const TQString & tablename ) const"
+.BI "TQSqlRecord \fBrecord\fR ( const TQString & tablename ) const"
 .br
 .ti -1c
-.BI "QSqlRecord \fBrecord\fR ( const QSqlQuery & query ) const"
+.BI "TQSqlRecord \fBrecord\fR ( const TQSqlQuery & query ) const"
 .br
 .ti -1c
-.BI "QSqlRecordInfo \fBrecordInfo\fR ( const TQString & tablename ) const"
+.BI "TQSqlRecordInfo \fBrecordInfo\fR ( const TQString & tablename ) const"
 .br
 .ti -1c
-.BI "QSqlRecordInfo \fBrecordInfo\fR ( const QSqlQuery & query ) const"
+.BI "TQSqlRecordInfo \fBrecordInfo\fR ( const TQSqlQuery & query ) const"
 .br
 .ti -1c
-.BI "QSqlQuery \fBexec\fR ( const TQString & query = TQString::null ) const"
+.BI "TQSqlQuery \fBexec\fR ( const TQString & query = TQString::null ) const"
 .br
 .ti -1c
-.BI "QSqlError \fBlastError\fR () const"
+.BI "TQSqlError \fBlastError\fR () const"
 .br
 .ti -1c
 .BI "bool \fBtransaction\fR ()"
@@ -109,34 +109,34 @@ Inherits TQObject.
 .BI "TQString \fBconnectOptions\fR () const"
 .br
 .ti -1c
-.BI "QSqlDriver * \fBdriver\fR () const"
+.BI "TQSqlDriver * \fBdriver\fR () const"
 .br
 .in -1c
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QSqlDatabase * \fBaddDatabase\fR ( const TQString & type, const TQString & connectionName = defaultConnection )"
+.BI "TQSqlDatabase * \fBaddDatabase\fR ( const TQString & type, const TQString & connectionName = defaultConnection )"
 .br
 .ti -1c
-.BI "QSqlDatabase * \fBaddDatabase\fR ( QSqlDriver * driver, const TQString & connectionName = defaultConnection )"
+.BI "TQSqlDatabase * \fBaddDatabase\fR ( TQSqlDriver * driver, const TQString & connectionName = defaultConnection )"
 .br
 .ti -1c
-.BI "QSqlDatabase * \fBdatabase\fR ( const TQString & connectionName = defaultConnection, bool open = TRUE )"
+.BI "TQSqlDatabase * \fBdatabase\fR ( const TQString & connectionName = defaultConnection, bool open = TRUE )"
 .br
 .ti -1c
 .BI "void \fBremoveDatabase\fR ( const TQString & connectionName )"
 .br
 .ti -1c
-.BI "void \fBremoveDatabase\fR ( QSqlDatabase * db )"
+.BI "void \fBremoveDatabase\fR ( TQSqlDatabase * db )"
 .br
 .ti -1c
 .BI "bool \fBcontains\fR ( const TQString & connectionName = defaultConnection )"
 .br
 .ti -1c
-.BI "QStringList \fBdrivers\fR ()"
+.BI "TQStringList \fBdrivers\fR ()"
 .br
 .ti -1c
-.BI "void \fBregisterSqlDriver\fR ( const TQString & name, const QSqlDriverCreatorBase * creator )"
+.BI "void \fBregisterSqlDriver\fR ( const TQString & name, const TQSqlDriverCreatorBase * creator )"
 .br
 .ti -1c
 .BI "bool \fBisDriverAvailable\fR ( const TQString & name )"
@@ -166,23 +166,23 @@ Inherits TQObject.
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlDatabase\fR ( const TQString & type, const TQString & name, TQObject * parent = 0, const char * objname = 0 )"
+.BI "\fBTQSqlDatabase\fR ( const TQString & type, const TQString & name, TQObject * parent = 0, const char * objname = 0 )"
 .br
 .ti -1c
-.BI "\fBQSqlDatabase\fR ( QSqlDriver * driver, TQObject * parent = 0, const char * objname = 0 )"
+.BI "\fBTQSqlDatabase\fR ( TQSqlDriver * driver, TQObject * parent = 0, const char * objname = 0 )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSqlDatabase class is used to create SQL database connections and to provide transaction handling.
+The TQSqlDatabase class is used to create SQL database connections and to provide transaction handling.
 .PP
-Note that transaction handling is not supported by every SQL database. You can find out whether transactions are supported using QSqlDriver::hasFeature().
+Note that transaction handling is not supported by every SQL database. You can find out whether transactions are supported using TQSqlDriver::hasFeature().
 .PP
-The QSqlDatabase class provides an abstract interface for accessing many types of database backends. Database-specific drivers are used internally to actually access and manipulate data, (see QSqlDriver). Result set objects provide the interface for executing and manipulating SQL queries (see QSqlQuery).
+The TQSqlDatabase class provides an abstract interface for accessing many types of database backends. Database-specific drivers are used internally to actually access and manipulate data, (see TQSqlDriver). Result set objects provide the interface for executing and manipulating SQL queries (see TQSqlQuery).
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlDatabase::QSqlDatabase ( const TQString & type, const TQString & name, TQObject * parent = 0, const char * objname = 0 )\fC [protected]\fR"
-Creates a QSqlDatabase connection called \fIname\fR that uses the driver referred to by \fItype\fR, with the parent \fIparent\fR and the object name \fIobjname\fR. If the \fItype\fR is not recognized, the database connection will have no functionality.
+.SH "TQSqlDatabase::TQSqlDatabase ( const TQString & type, const TQString & name, TQObject * parent = 0, const char * objname = 0 )\fC [protected]\fR"
+Creates a TQSqlDatabase connection called \fIname\fR that uses the driver referred to by \fItype\fR, with the parent \fIparent\fR and the object name \fIobjname\fR. If the \fItype\fR is not recognized, the database connection will have no functionality.
 .PP
 The currently available drivers are:
 .PP
@@ -196,18 +196,18 @@ l - l. Driver Type Description QODBC3 ODBC Driver (includes Microsoft SQL Server
 Additional third party drivers, including your own custom drivers, can be loaded dynamically.
 .PP
 See also registerSqlDriver().
-.SH "QSqlDatabase::QSqlDatabase ( QSqlDriver * driver, TQObject * parent = 0, const char * objname = 0 )\fC [protected]\fR"
+.SH "TQSqlDatabase::TQSqlDatabase ( TQSqlDriver * driver, TQObject * parent = 0, const char * objname = 0 )\fC [protected]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Creates a database connection using the driver \fIdriver\fR, with the parent \fIparent\fR and the object name \fIobjname\fR.
 .PP
 \fBWarning:\fR The framework takes ownership of the \fIdriver\fR pointer, so it should not be deleted.
-.SH "QSqlDatabase::~QSqlDatabase ()"
+.SH "TQSqlDatabase::~TQSqlDatabase ()"
 Destroys the object and frees any allocated resources.
-.SH "QSqlDatabase * QSqlDatabase::addDatabase ( const TQString & type, const TQString & connectionName = defaultConnection )\fC [static]\fR"
+.SH "TQSqlDatabase * TQSqlDatabase::addDatabase ( const TQString & type, const TQString & connectionName = defaultConnection )\fC [static]\fR"
 Adds a database to the list of database connections using the driver \fItype\fR and the connection name \fIconnectionName\fR.
 .PP
-The database connection is referred to by \fIconnectionName\fR. The newly added database connection is returned. This pointer is owned by QSqlDatabase and will be deleted on program exit or when removeDatabase() is called.
+The database connection is referred to by \fIconnectionName\fR. The newly added database connection is returned. This pointer is owned by TQSqlDatabase and will be deleted on program exit or when removeDatabase() is called.
 .PP
 If \fIconnectionName\fR is not specified, the newly added database connection becomes the default database connection for the application, and subsequent calls to database() (without a database name parameter) will return a pointer to it. If \fIconnectionName\fR is given, use database(connectionName) to retrieve a pointer to the database connection.
 .PP
@@ -217,14 +217,14 @@ See also database() and removeDatabase().
 .PP
 Examples:
 .)l sql/overview/connect1/main.cpp, sql/overview/connection.cpp, and sql/sqltable/main.cpp.
-.SH "QSqlDatabase * QSqlDatabase::addDatabase ( QSqlDriver * driver, const TQString & connectionName = defaultConnection )\fC [static]\fR"
+.SH "TQSqlDatabase * TQSqlDatabase::addDatabase ( TQSqlDriver * driver, const TQString & connectionName = defaultConnection )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This function is useful if you need to set up the database connection and instantiate the driver yourself. If you do this, it is recommended that you include the driver code in your own application. For example, setting up a custom PostgreSQL connection and instantiating the QPSQL7 driver can be done the following way:
 .PP
 .nf
 .br
-    #include "qtdir/src/sql/drivers/psql/qsql_psql.cpp"
+    #include "qtdir/src/sql/drivers/psql/tqsql_psql.cpp"
 .br
 .fi
 (We assume that \fCqtdir\fR is the directory where TQt is installed.) This will pull in the code that is needed to use the PostgreSQL client library and to instantiate a QPSQLDriver object, assuming that you have the PostgreSQL headers somewhere in your include search path.
@@ -235,9 +235,9 @@ This function is useful if you need to set up the database connection and instan
 .br
     QPSQLDriver* drv =  new QPSQLDriver( con );
 .br
-    QSqlDatabase* db = QSqlDatabase::addDatabase( drv ); // becomes the new default connection
+    TQSqlDatabase* db = TQSqlDatabase::addDatabase( drv ); // becomes the new default connection
 .br
-    QSqlQuery q;
+    TQSqlQuery q;
 .br
     q.exec( "SELECT * FROM people" );
 .br
@@ -268,46 +268,46 @@ l - l. Driver Class name Constructor arguments File to include QPSQL7 QPSQLDrive
 .fi
 </center>
 .PP
-Note: The host name (or service name) is needed when constructing the QTDSDriver for creating new connections for internal queries. This is to prevent the simultaneous usage of several QSqlQuery/QSqlCursor objects from blocking each other.
+Note: The host name (or service name) is needed when constructing the QTDSDriver for creating new connections for internal queries. This is to prevent the simultaneous usage of several TQSqlQuery/TQSqlCursor objects from blocking each other.
 .PP
-\fBWarning:\fR The SQL framework takes ownership of the \fIdriver\fR pointer, and it should not be deleted. The returned QSqlDatabase object is owned by the framework and must not be deleted. If you want to explicitly remove the connection, use removeDatabase()
+\fBWarning:\fR The SQL framework takes ownership of the \fIdriver\fR pointer, and it should not be deleted. The returned TQSqlDatabase object is owned by the framework and must not be deleted. If you want to explicitly remove the connection, use removeDatabase()
 .PP
 See also drivers().
-.SH "void QSqlDatabase::close ()"
+.SH "void TQSqlDatabase::close ()"
 Closes the database connection, freeing any resources acquired.
 .PP
 See also removeDatabase().
-.SH "bool QSqlDatabase::commit ()"
+.SH "bool TQSqlDatabase::commit ()"
 Commits a transaction to the database if the driver supports transactions. Returns TRUE if the operation succeeded; otherwise returns FALSE.
 .PP
-See also QSqlDriver::hasFeature() and rollback().
-.SH "TQString QSqlDatabase::connectOptions () const"
+See also TQSqlDriver::hasFeature() and rollback().
+.SH "TQString TQSqlDatabase::connectOptions () const"
 Returns the database connect options. See the "connectOptions" property for details.
-.SH "bool QSqlDatabase::contains ( const TQString & connectionName = defaultConnection )\fC [static]\fR"
+.SH "bool TQSqlDatabase::contains ( const TQString & connectionName = defaultConnection )\fC [static]\fR"
 Returns TRUE if the list of database connections contains \fIconnectionName\fR; otherwise returns FALSE.
-.SH "QSqlDatabase * QSqlDatabase::database ( const TQString & connectionName = defaultConnection, bool open = TRUE )\fC [static]\fR"
-Returns the database connection called \fIconnectionName\fR. The database connection must have been previously added with addDatabase(). If \fIopen\fR is TRUE (the default) and the database connection is not already open it is opened now. If no \fIconnectionName\fR is specified the default connection is used. If \fIconnectionName\fR does not exist in the list of databases, 0 is returned. The pointer returned is owned by QSqlDatabase and should \fInot\fR be deleted.
+.SH "TQSqlDatabase * TQSqlDatabase::database ( const TQString & connectionName = defaultConnection, bool open = TRUE )\fC [static]\fR"
+Returns the database connection called \fIconnectionName\fR. The database connection must have been previously added with addDatabase(). If \fIopen\fR is TRUE (the default) and the database connection is not already open it is opened now. If no \fIconnectionName\fR is specified the default connection is used. If \fIconnectionName\fR does not exist in the list of databases, 0 is returned. The pointer returned is owned by TQSqlDatabase and should \fInot\fR be deleted.
 .PP
 \fBWarning:\fR There are restrictions on the use of database connections in threaded applications. Please see the Thread Support in TQt document for more information about threading and SQL databases.
 .PP
 Examples:
 .)l sql/overview/basicbrowsing/main.cpp and sql/overview/create_connections/main.cpp.
-.SH "TQString QSqlDatabase::databaseName () const"
+.SH "TQString TQSqlDatabase::databaseName () const"
 Returns the name of the database. See the "databaseName" property for details.
-.SH "QSqlDriver * QSqlDatabase::driver () const"
+.SH "TQSqlDriver * TQSqlDatabase::driver () const"
 Returns the database driver used to access the database connection.
-.SH "TQString QSqlDatabase::driverName () const"
+.SH "TQString TQSqlDatabase::driverName () const"
 Returns the name of the driver used by the database connection.
-.SH "QStringList QSqlDatabase::drivers ()\fC [static]\fR"
+.SH "TQStringList TQSqlDatabase::drivers ()\fC [static]\fR"
 Returns a list of all the available database drivers.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = QSqlDatabase::drivers();
+    TQStringList list = TQSqlDatabase::drivers();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -318,33 +318,33 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "QSqlQuery QSqlDatabase::exec ( const TQString & query = TQString::null ) const"
-Executes a SQL statement (e.g. an \fCINSERT\fR, \fCUPDATE\fR or \fCDELETE\fR statement) on the database, and returns a QSqlQuery object. Use lastError() to retrieve error information. If \fIquery\fR is TQString::null, an empty, invalid query is returned and lastError() is not affected.
+.SH "TQSqlQuery TQSqlDatabase::exec ( const TQString & query = TQString::null ) const"
+Executes a SQL statement (e.g. an \fCINSERT\fR, \fCUPDATE\fR or \fCDELETE\fR statement) on the database, and returns a TQSqlQuery object. Use lastError() to retrieve error information. If \fIquery\fR is TQString::null, an empty, invalid query is returned and lastError() is not affected.
 .PP
-See also QSqlQuery and lastError().
-.SH "TQString QSqlDatabase::hostName () const"
+See also TQSqlQuery and lastError().
+.SH "TQString TQSqlDatabase::hostName () const"
 Returns the host name where the database resides. See the "hostName" property for details.
-.SH "bool QSqlDatabase::isDriverAvailable ( const TQString & name )\fC [static]\fR"
+.SH "bool TQSqlDatabase::isDriverAvailable ( const TQString & name )\fC [static]\fR"
 Returns TRUE if a driver called \fIname\fR is available; otherwise returns FALSE.
 .PP
 See also drivers().
-.SH "bool QSqlDatabase::isOpen () const"
+.SH "bool TQSqlDatabase::isOpen () const"
 Returns TRUE if the database connection is currently open; otherwise returns FALSE.
-.SH "bool QSqlDatabase::isOpenError () const"
+.SH "bool TQSqlDatabase::isOpenError () const"
 Returns TRUE if there was an error opening the database connection; otherwise returns FALSE. Error information can be retrieved using the lastError() function.
-.SH "QSqlError QSqlDatabase::lastError () const"
-Returns information about the last error that occurred on the database. See QSqlError for more information.
+.SH "TQSqlError TQSqlDatabase::lastError () const"
+Returns information about the last error that occurred on the database. See TQSqlError for more information.
 .PP
 Examples:
 .)l sql/overview/connection.cpp and sql/sqltable/main.cpp.
-.SH "bool QSqlDatabase::open ()"
+.SH "bool TQSqlDatabase::open ()"
 Opens the database connection using the current connection values. Returns TRUE on success; otherwise returns FALSE. Error information can be retrieved using the lastError() function.
 .PP
 See also lastError().
 .PP
 Examples:
 .)l sql/overview/connect1/main.cpp, sql/overview/connection.cpp, and sql/sqltable/main.cpp.
-.SH "bool QSqlDatabase::open ( const TQString & user, const TQString & password )"
+.SH "bool TQSqlDatabase::open ( const TQString & user, const TQString & password )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Opens the database connection using the given \fIuser\fR name and \fIpassword\fR. Returns TRUE on success; otherwise returns FALSE. Error information can be retrieved using the lastError() function.
@@ -352,84 +352,84 @@ Opens the database connection using the given \fIuser\fR name and \fIpassword\fR
 This function does not store the password it is given. Instead, the password is passed directly to the driver for opening a connection and is then discarded.
 .PP
 See also lastError().
-.SH "TQString QSqlDatabase::password () const"
+.SH "TQString TQSqlDatabase::password () const"
 Returns the password used to connect to the database. See the "password" property for details.
-.SH "int QSqlDatabase::port () const"
+.SH "int TQSqlDatabase::port () const"
 Returns the port used to connect to the database. See the "port" property for details.
-.SH "QSqlIndex QSqlDatabase::primaryIndex ( const TQString & tablename ) const"
-Returns the primary index for table \fItablename\fR. If no primary index exists an empty QSqlIndex will be returned.
-.SH "QSqlRecord QSqlDatabase::record ( const TQString & tablename ) const"
-Returns a QSqlRecord populated with the names of all the fields in the table (or view) called \fItablename\fR. The order in which the fields appear in the record is undefined. If no such table (or view) exists, an empty record is returned.
+.SH "TQSqlIndex TQSqlDatabase::primaryIndex ( const TQString & tablename ) const"
+Returns the primary index for table \fItablename\fR. If no primary index exists an empty TQSqlIndex will be returned.
+.SH "TQSqlRecord TQSqlDatabase::record ( const TQString & tablename ) const"
+Returns a TQSqlRecord populated with the names of all the fields in the table (or view) called \fItablename\fR. The order in which the fields appear in the record is undefined. If no such table (or view) exists, an empty record is returned.
 .PP
 See also recordInfo().
-.SH "QSqlRecord QSqlDatabase::record ( const QSqlQuery & query ) const"
+.SH "TQSqlRecord TQSqlDatabase::record ( const TQSqlQuery & query ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Returns a QSqlRecord populated with the names of all the fields used in the SQL \fIquery\fR. If the query is a "SELECT *" the order in which fields appear in the record is undefined.
+Returns a TQSqlRecord populated with the names of all the fields used in the SQL \fIquery\fR. If the query is a "SELECT *" the order in which fields appear in the record is undefined.
 .PP
 See also recordInfo().
-.SH "QSqlRecordInfo QSqlDatabase::recordInfo ( const TQString & tablename ) const"
-Returns a QSqlRecordInfo populated with meta data about the table or view \fItablename\fR. If no such table (or view) exists, an empty record is returned.
+.SH "TQSqlRecordInfo TQSqlDatabase::recordInfo ( const TQString & tablename ) const"
+Returns a TQSqlRecordInfo populated with meta data about the table or view \fItablename\fR. If no such table (or view) exists, an empty record is returned.
 .PP
-See also QSqlRecordInfo, QSqlFieldInfo, and record().
-.SH "QSqlRecordInfo QSqlDatabase::recordInfo ( const QSqlQuery & query ) const"
+See also TQSqlRecordInfo, TQSqlFieldInfo, and record().
+.SH "TQSqlRecordInfo TQSqlDatabase::recordInfo ( const TQSqlQuery & query ) const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Returns a QSqlRecordInfo object with meta data for the QSqlQuery \fIquery\fR. Note that this overloaded function may return less information than the recordInfo() function which takes the name of a table as parameter.
+Returns a TQSqlRecordInfo object with meta data for the TQSqlQuery \fIquery\fR. Note that this overloaded function may return less information than the recordInfo() function which takes the name of a table as parameter.
 .PP
-See also QSqlRecordInfo, QSqlFieldInfo, and record().
-.SH "void QSqlDatabase::registerSqlDriver ( const TQString & name, const QSqlDriverCreatorBase * creator )\fC [static]\fR"
+See also TQSqlRecordInfo, TQSqlFieldInfo, and record().
+.SH "void TQSqlDatabase::registerSqlDriver ( const TQString & name, const TQSqlDriverCreatorBase * creator )\fC [static]\fR"
 This function registers a new SQL driver called \fIname\fR, within the SQL framework. This is useful if you have a custom SQL driver and don't want to compile it as a plugin.
 .PP
 Example usage:
 .PP
 .nf
 .br
-    QSqlDatabase::registerSqlDriver( "MYDRIVER", new QSqlDriverCreator<MyDatabaseDriver> );
+    TQSqlDatabase::registerSqlDriver( "MYDRIVER", new TQSqlDriverCreator<MyDatabaseDriver> );
 .br
-    QSqlDatabase* db = QSqlDatabase::addDatabase( "MYDRIVER" );
+    TQSqlDatabase* db = TQSqlDatabase::addDatabase( "MYDRIVER" );
 .br
     ...
 .br
 .fi
 .PP
 \fBWarning:\fR The framework takes ownership of the \fIcreator\fR pointer, so it should not be deleted.
-.SH "void QSqlDatabase::removeDatabase ( const TQString & connectionName )\fC [static]\fR"
+.SH "void TQSqlDatabase::removeDatabase ( const TQString & connectionName )\fC [static]\fR"
 Removes the database connection \fIconnectionName\fR from the list of database connections.
 .PP
 \fBWarning:\fR There should be no open queries on the database connection when this function is called, otherwise a resource leak will occur.
-.SH "void QSqlDatabase::removeDatabase ( QSqlDatabase * db )\fC [static]\fR"
+.SH "void TQSqlDatabase::removeDatabase ( TQSqlDatabase * db )\fC [static]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Removes the database connection \fIdb\fR from the list of database connections. The QSqlDatabase object is destroyed when it is removed from the list.
+Removes the database connection \fIdb\fR from the list of database connections. The TQSqlDatabase object is destroyed when it is removed from the list.
 .PP
 \fBWarning:\fR The \fIdb\fR pointer is not valid after this function has been called. There should be no open queries on the database connection when this function is called, otherwise a resource leak will occur.
-.SH "bool QSqlDatabase::rollback ()"
+.SH "bool TQSqlDatabase::rollback ()"
 Rolls a transaction back on the database if the driver supports transactions. Returns TRUE if the operation succeeded; otherwise returns FALSE.
 .PP
-See also QSqlDriver::hasFeature(), commit(), and transaction().
-.SH "void QSqlDatabase::setConnectOptions ( const TQString & options = TQString::null )"
+See also TQSqlDriver::hasFeature(), commit(), and transaction().
+.SH "void TQSqlDatabase::setConnectOptions ( const TQString & options = TQString::null )"
 Sets the database connect options to \fIoptions\fR. See the "connectOptions" property for details.
-.SH "void QSqlDatabase::setDatabaseName ( const TQString & name )\fC [virtual]\fR"
+.SH "void TQSqlDatabase::setDatabaseName ( const TQString & name )\fC [virtual]\fR"
 Sets the name of the database to \fIname\fR. See the "databaseName" property for details.
-.SH "void QSqlDatabase::setHostName ( const TQString & host )\fC [virtual]\fR"
+.SH "void TQSqlDatabase::setHostName ( const TQString & host )\fC [virtual]\fR"
 Sets the host name where the database resides to \fIhost\fR. See the "hostName" property for details.
-.SH "void QSqlDatabase::setPassword ( const TQString & password )\fC [virtual]\fR"
+.SH "void TQSqlDatabase::setPassword ( const TQString & password )\fC [virtual]\fR"
 Sets the password used to connect to the database to \fIpassword\fR. See the "password" property for details.
-.SH "void QSqlDatabase::setPort ( int p )\fC [virtual]\fR"
+.SH "void TQSqlDatabase::setPort ( int p )\fC [virtual]\fR"
 Sets the port used to connect to the database to \fIp\fR. See the "port" property for details.
-.SH "void QSqlDatabase::setUserName ( const TQString & name )\fC [virtual]\fR"
+.SH "void TQSqlDatabase::setUserName ( const TQString & name )\fC [virtual]\fR"
 Sets the user name connected to the database to \fIname\fR. See the "userName" property for details.
-.SH "QStringList QSqlDatabase::tables ( QSql::TableType type ) const"
+.SH "TQStringList TQSqlDatabase::tables ( TQSql::TableType type ) const"
 Returns a list of the database's tables, system tables and views, as specified by the parameter \fItype\fR.
 .PP
 Note that if you want to iterate over the list, you should iterate over a copy, e.g.
 .PP
 .nf
 .br
-    QStringList list = myDatabase.tables( QSql::Tables | QSql::Views );
+    TQStringList list = myDatabase.tables( TQSql::Tables | TQSql::Views );
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -442,7 +442,7 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .fi
 .PP
 Example: sql/sqltable/main.cpp.
-.SH "QStringList QSqlDatabase::tables () const"
+.SH "TQStringList TQSqlDatabase::tables () const"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Returns a list of the database's tables that are visible to the user. To include views or system tables, use the version of this function that takes a table \fCtype\fR parameter.
@@ -451,9 +451,9 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
 .PP
 .nf
 .br
-    QStringList list = myDatabase.tables();
+    TQStringList list = myDatabase.tables();
 .br
-    QStringList::Iterator it = list.begin();
+    TQStringList::Iterator it = list.begin();
 .br
     while( it != list.end() ) {
 .br
@@ -464,11 +464,11 @@ Note that if you want to iterate over the list, you should iterate over a copy, 
     }
 .br
 .fi
-.SH "bool QSqlDatabase::transaction ()"
+.SH "bool TQSqlDatabase::transaction ()"
 Begins a transaction on the database if the driver supports transactions. Returns TRUE if the operation succeeded; otherwise returns FALSE.
 .PP
-See also QSqlDriver::hasFeature(), commit(), and rollback().
-.SH "TQString QSqlDatabase::userName () const"
+See also TQSqlDriver::hasFeature(), commit(), and rollback().
+.SH "TQString TQSqlDatabase::userName () const"
 Returns the user name connected to the database. See the "userName" property for details.
 .SS "Property Documentation"
 .SH "TQString connectOptions"
@@ -593,7 +593,7 @@ For the QODBC3 driver it can either be a DSN, a DSN filename (the file must have
 .br
     ...
 .br
-    db = QSqlDatabase::addDatabase( "QODBC3" );
+    db = TQSqlDatabase::addDatabase( "QODBC3" );
 .br
     db->setDatabaseName( "DRIVER={Microsoft Access Driver (*.mdb)};FIL={MS Access};DBQ=myaccessfile.mdb" );
 .br
@@ -641,7 +641,7 @@ There is no default value.
 Set this property's value with setUserName() and get this property's value with userName().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsqldatabase.html
+.BR http://doc.trolltech.com/tqsqldatabase.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

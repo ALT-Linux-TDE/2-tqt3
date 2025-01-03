@@ -1,5 +1,5 @@
 '\" t
-.TH QSpinBox 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSpinBox 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,22 +7,22 @@
 .ad l
 .nh
 .SH NAME
-QSpinBox \- Spin box widget (spin button)
+TQSpinBox \- Spin box widget (spin button)
 .SH SYNOPSIS
-\fC#include <ntqspinbox.h>\fR
+\fC#include <tqspinbox.h>\fR
 .PP
-Inherits TQWidget and QRangeControl.
+Inherits TQWidget and TQRangeControl.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSpinBox\fR ( TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQSpinBox\fR ( TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fBQSpinBox\fR ( int minValue, int maxValue, int step = 1, TQWidget * parent = 0, const char * name = 0 )"
+.BI "\fBTQSpinBox\fR ( int minValue, int maxValue, int step = 1, TQWidget * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QSpinBox\fR ()"
+.BI "\fB~TQSpinBox\fR ()"
 .br
 .ti -1c
 .BI "TQString \fBtext\fR () const"
@@ -58,10 +58,10 @@ Inherits TQWidget and QRangeControl.
 .BI "ButtonSymbols \fBbuttonSymbols\fR () const"
 .br
 .ti -1c
-.BI "virtual void \fBsetValidator\fR ( const QValidator * v )"
+.BI "virtual void \fBsetValidator\fR ( const TQValidator * v )"
 .br
 .ti -1c
-.BI "const QValidator * \fBvalidator\fR () const"
+.BI "const TQValidator * \fBvalidator\fR () const"
 .br
 .ti -1c
 .BI "int \fBminValue\fR () const"
@@ -85,10 +85,10 @@ Inherits TQWidget and QRangeControl.
 .BI "int \fBvalue\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBupRect\fR () const"
+.BI "TQRect \fBupRect\fR () const"
 .br
 .ti -1c
-.BI "QRect \fBdownRect\fR () const"
+.BI "TQRect \fBdownRect\fR () const"
 .br
 .in -1c
 .SS "Public Slots"
@@ -175,7 +175,7 @@ Inherits TQWidget and QRangeControl.
 .BI "virtual void \fBinterpretText\fR ()"
 .br
 .ti -1c
-.BI "QLineEdit * \fBeditor\fR () const"
+.BI "TQLineEdit * \fBeditor\fR () const"
 .br
 .ti -1c
 .BI "virtual void \fBvalueChange\fR ()"
@@ -184,7 +184,7 @@ Inherits TQWidget and QRangeControl.
 .BI "virtual void \fBrangeChange\fR ()"
 .br
 .ti -1c
-.BI "virtual bool \fBeventFilter\fR ( TQObject * o, QEvent * ev )"
+.BI "virtual bool \fBeventFilter\fR ( TQObject * o, TQEvent * ev )"
 .br
 .in -1c
 .SS "Protected Slots"
@@ -194,33 +194,33 @@ Inherits TQWidget and QRangeControl.
 .br
 .in -1c
 .SH DESCRIPTION
-The QSpinBox class provides a spin box widget (spin button).
+The TQSpinBox class provides a spin box widget (spin button).
 .PP
-QSpinBox allows the user to choose a value either by clicking the up/down buttons to increase/decrease the value currently displayed or by typing the value directly into the spin box. If the value is entered directly into the spin box, Enter (or Return) must be pressed to apply the new value. The value is usually an integer.
+TQSpinBox allows the user to choose a value either by clicking the up/down buttons to increase/decrease the value currently displayed or by typing the value directly into the spin box. If the value is entered directly into the spin box, Enter (or Return) must be pressed to apply the new value. The value is usually an integer.
 .PP
-Every time the value changes QSpinBox emits the valueChanged() signal. The current value can be fetched with value() and set with setValue().
+Every time the value changes TQSpinBox emits the valueChanged() signal. The current value can be fetched with value() and set with setValue().
 .PP
-The spin box keeps the value within a numeric range, and to multiples of the lineStep() size (see QRangeControl for details). Clicking the up/down buttons or using the keyboard accelerator's up and down arrows will increase or decrease the current value in steps of size lineStep(). The minimum and maximum value and the step size can be set using one of the constructors, and can be changed later with setMinValue(), setMaxValue() and setLineStep().
+The spin box keeps the value within a numeric range, and to multiples of the lineStep() size (see TQRangeControl for details). Clicking the up/down buttons or using the keyboard accelerator's up and down arrows will increase or decrease the current value in steps of size lineStep(). The minimum and maximum value and the step size can be set using one of the constructors, and can be changed later with setMinValue(), setMaxValue() and setLineStep().
 .PP
-Most spin boxes are directional, but QSpinBox can also operate as a circular spin box, i.e. if the range is 0-99 and the current value is 99, clicking "up" will give 0. Use setWrapping() if you want circular behavior.
+Most spin boxes are directional, but TQSpinBox can also operate as a circular spin box, i.e. if the range is 0-99 and the current value is 99, clicking "up" will give 0. Use setWrapping() if you want circular behavior.
 .PP
 The displayed value can be prepended and appended with arbitrary strings indicating, for example, currency or the unit of measurement. See setPrefix() and setSuffix(). The text in the spin box is retrieved with text() (which includes any prefix() and suffix()), or with cleanText() (which has no prefix(), no suffix() and no leading or trailing whitespace). currentValueText() returns the spin box's current value as text.
 .PP
 Normally the spin box displays up and down arrows in the buttons. You can use setButtonSymbols() to change the display to show \fB+\fR and \fB-\fR symbols if you prefer. In either case the up and down arrow keys work as expected.
 .PP
-It is often desirable to give the user a special (often default) choice in addition to the range of numeric values. See setSpecialValueText() for how to do this with QSpinBox.
+It is often desirable to give the user a special (often default) choice in addition to the range of numeric values. See setSpecialValueText() for how to do this with TQSpinBox.
 .PP
 The default TQWidget::focusPolicy() is StrongFocus.
 .PP
-If using prefix(), suffix() and specialValueText() don't provide enough control, you can ignore them and subclass QSpinBox instead.
+If using prefix(), suffix() and specialValueText() don't provide enough control, you can ignore them and subclass TQSpinBox instead.
 .PP
-QSpinBox can easily be subclassed to allow the user to input things other than an integer value as long as the allowed input can be mapped to a range of integers. This can be done by overriding the virtual functions mapValueToText() and mapTextToValue(), and setting another suitable validator using setValidator().
+TQSpinBox can easily be subclassed to allow the user to input things other than an integer value as long as the allowed input can be mapped to a range of integers. This can be done by overriding the virtual functions mapValueToText() and mapTextToValue(), and setting another suitable validator using setValidator().
 .PP
 For example, these functions could be changed so that the user provided values from 0.0 to 10.0, or -1 to signify 'Auto', while the range of integers used inside the program would be -1 to 100:
 .PP
 .nf
 .br
-        class MySpinBox : public QSpinBox
+        class MySpinBox : public TQSpinBox
 .br
         {
 .br
@@ -271,52 +271,52 @@ For example, these functions could be changed so that the user provided values f
 .ce 1
 .B "[Image Omitted]"
 .PP
-See also QScrollBar, QSlider, GUI Design Handbook: Spin Box, and Basic Widgets.
+See also TQScrollBar, TQSlider, GUI Design Handbook: Spin Box, and Basic Widgets.
 .SS "Member Type Documentation"
-.SH "QSpinBox::ButtonSymbols"
+.SH "TQSpinBox::ButtonSymbols"
 This enum type determines what the buttons in a spin box show.
 .TP
-\fCQSpinBox::UpDownArrows\fR - the buttons show little arrows in the classic style.
+\fCTQSpinBox::UpDownArrows\fR - the buttons show little arrows in the classic style.
 .TP
-\fCQSpinBox::PlusMinus\fR - the buttons show \fB+\fR and \fB-\fR symbols.
+\fCTQSpinBox::PlusMinus\fR - the buttons show \fB+\fR and \fB-\fR symbols.
 .PP
-See also QSpinBox::buttonSymbols.
+See also TQSpinBox::buttonSymbols.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSpinBox::QSpinBox ( TQWidget * parent = 0, const char * name = 0 )"
-Constructs a spin box with the default QRangeControl range and step values. It is called \fIname\fR and has parent \fIparent\fR.
+.SH "TQSpinBox::TQSpinBox ( TQWidget * parent = 0, const char * name = 0 )"
+Constructs a spin box with the default TQRangeControl range and step values. It is called \fIname\fR and has parent \fIparent\fR.
 .PP
 See also minValue, maxValue, setRange(), lineStep, and setSteps().
-.SH "QSpinBox::QSpinBox ( int minValue, int maxValue, int step = 1, TQWidget * parent = 0, const char * name = 0 )"
+.SH "TQSpinBox::TQSpinBox ( int minValue, int maxValue, int step = 1, TQWidget * parent = 0, const char * name = 0 )"
 Constructs a spin box that allows values from \fIminValue\fR to \fImaxValue\fR inclusive, with step amount \fIstep\fR. The value is initially set to \fIminValue\fR.
 .PP
 The spin box is called \fIname\fR and has parent \fIparent\fR.
 .PP
 See also minValue, maxValue, setRange(), lineStep, and setSteps().
-.SH "QSpinBox::~QSpinBox ()"
+.SH "TQSpinBox::~TQSpinBox ()"
 Destroys the spin box, freeing all memory and other resources.
-.SH "ButtonSymbols QSpinBox::buttonSymbols () const"
+.SH "ButtonSymbols TQSpinBox::buttonSymbols () const"
 Returns the current button symbol mode. See the "buttonSymbols" property for details.
-.SH "TQString QSpinBox::cleanText () const\fC [virtual]\fR"
+.SH "TQString TQSpinBox::cleanText () const\fC [virtual]\fR"
 Returns the spin box's text with no prefix(), suffix() or leading or trailing whitespace. See the "cleanText" property for details.
-.SH "TQString QSpinBox::currentValueText ()\fC [protected]\fR"
+.SH "TQString TQSpinBox::currentValueText ()\fC [protected]\fR"
 Returns the full text calculated from the current value, including any prefix and suffix. If there is special value text and the value is minValue() the specialValueText() is returned.
-.SH "QRect QSpinBox::downRect () const"
+.SH "TQRect TQSpinBox::downRect () const"
 Returns the geometry of the "down" button.
-.SH "QLineEdit * QSpinBox::editor () const\fC [protected]\fR"
-Returns a pointer to the embedded QLineEdit.
-.SH "bool QSpinBox::eventFilter ( TQObject * o, QEvent * ev )\fC [virtual protected]\fR"
-Intercepts and handles the events coming to the embedded QLineEdit that have special meaning for the QSpinBox. The object is passed as \fIo\fR and the event is passed as \fIev\fR.
+.SH "TQLineEdit * TQSpinBox::editor () const\fC [protected]\fR"
+Returns a pointer to the embedded TQLineEdit.
+.SH "bool TQSpinBox::eventFilter ( TQObject * o, TQEvent * ev )\fC [virtual protected]\fR"
+Intercepts and handles the events coming to the embedded TQLineEdit that have special meaning for the TQSpinBox. The object is passed as \fIo\fR and the event is passed as \fIev\fR.
 .PP
 Reimplemented from TQObject.
-.SH "void QSpinBox::interpretText ()\fC [virtual protected]\fR"
-QSpinBox calls this after the user has manually edited the contents of the spin box (i.e. by typing in the embedded QLineEdit, rather than using the up/down buttons/keys).
+.SH "void TQSpinBox::interpretText ()\fC [virtual protected]\fR"
+TQSpinBox calls this after the user has manually edited the contents of the spin box (i.e. by typing in the embedded TQLineEdit, rather than using the up/down buttons/keys).
 .PP
 The default implementation of this function interprets the new text using mapTextToValue(). If mapTextToValue() is successful, it changes the spin box's value; if not, the value is left unchanged.
 .PP
 See also editor().
-.SH "int QSpinBox::lineStep () const"
+.SH "int TQSpinBox::lineStep () const"
 Returns the line step. See the "lineStep" property for details.
-.SH "int QSpinBox::mapTextToValue ( bool * ok )\fC [virtual protected]\fR"
+.SH "int TQSpinBox::mapTextToValue ( bool * ok )\fC [virtual protected]\fR"
 This virtual function is used by the spin box whenever it needs to interpret text entered by the user as a value. The text is available as text() and as cleanText(), and this function must parse it if possible. If \fIok\fR is not 0: if it parses the text successfully, \fI*ok\fR is set to TRUE; otherwise \fI*ok\fR is set to FALSE.
 .PP
 Subclasses that need to display spin box values in a non-numeric way need to reimplement this function.
@@ -326,7 +326,7 @@ Note that TQt handles specialValueText() separately; this function is only conce
 The default implementation tries to interpret the text() as an integer in the standard way and returns the integer value.
 .PP
 See also interpretText() and mapValueToText().
-.SH "TQString QSpinBox::mapValueToText ( int v )\fC [virtual protected]\fR"
+.SH "TQString TQSpinBox::mapValueToText ( int v )\fC [virtual protected]\fR"
 This virtual function is used by the spin box whenever it needs to display value \fIv\fR. The default implementation returns a string containing \fIv\fR printed in the standard way. Reimplementations may return anything. (See the example in the detailed description.)
 .PP
 Note that TQt does not call this function for specialValueText() and that neither prefix() nor suffix() are included in the return value.
@@ -334,73 +334,73 @@ Note that TQt does not call this function for specialValueText() and that neithe
 If you reimplement this, you may also need to reimplement mapTextToValue().
 .PP
 See also updateDisplay() and mapTextToValue().
-.SH "int QSpinBox::maxValue () const"
+.SH "int TQSpinBox::maxValue () const"
 Returns the maximum value of the spin box. See the "maxValue" property for details.
-.SH "int QSpinBox::minValue () const"
+.SH "int TQSpinBox::minValue () const"
 Returns the minimum value of the spin box. See the "minValue" property for details.
-.SH "TQString QSpinBox::prefix () const\fC [virtual]\fR"
+.SH "TQString TQSpinBox::prefix () const\fC [virtual]\fR"
 Returns the spin box's prefix. See the "prefix" property for details.
-.SH "void QSpinBox::rangeChange ()\fC [virtual protected]\fR"
-This virtual function is called by QRangeControl whenever the range has changed. It adjusts the default validator and updates the display; if you need additional processing, you can reimplement this function.
+.SH "void TQSpinBox::rangeChange ()\fC [virtual protected]\fR"
+This virtual function is called by TQRangeControl whenever the range has changed. It adjusts the default validator and updates the display; if you need additional processing, you can reimplement this function.
 .PP
-Reimplemented from QRangeControl.
-.SH "void QSpinBox::selectAll ()\fC [virtual slot]\fR"
+Reimplemented from TQRangeControl.
+.SH "void TQSpinBox::selectAll ()\fC [virtual slot]\fR"
 Selects all the text in the spin box's editor.
-.SH "void QSpinBox::setButtonSymbols ( ButtonSymbols )\fC [virtual]\fR"
+.SH "void TQSpinBox::setButtonSymbols ( ButtonSymbols )\fC [virtual]\fR"
 Sets the current button symbol mode. See the "buttonSymbols" property for details.
-.SH "void QSpinBox::setLineStep ( int )"
+.SH "void TQSpinBox::setLineStep ( int )"
 Sets the line step. See the "lineStep" property for details.
-.SH "void QSpinBox::setMaxValue ( int )"
+.SH "void TQSpinBox::setMaxValue ( int )"
 Sets the maximum value of the spin box. See the "maxValue" property for details.
-.SH "void QSpinBox::setMinValue ( int )"
+.SH "void TQSpinBox::setMinValue ( int )"
 Sets the minimum value of the spin box. See the "minValue" property for details.
-.SH "void QSpinBox::setPrefix ( const TQString & text )\fC [virtual slot]\fR"
+.SH "void TQSpinBox::setPrefix ( const TQString & text )\fC [virtual slot]\fR"
 Sets the spin box's prefix to \fItext\fR. See the "prefix" property for details.
-.SH "void QSpinBox::setSpecialValueText ( const TQString & text )\fC [virtual]\fR"
+.SH "void TQSpinBox::setSpecialValueText ( const TQString & text )\fC [virtual]\fR"
 Sets the special-value text to \fItext\fR. See the "specialValueText" property for details.
-.SH "void QSpinBox::setSuffix ( const TQString & text )\fC [virtual slot]\fR"
+.SH "void TQSpinBox::setSuffix ( const TQString & text )\fC [virtual slot]\fR"
 Sets the suffix of the spin box to \fItext\fR. See the "suffix" property for details.
-.SH "void QSpinBox::setValidator ( const QValidator * v )\fC [virtual]\fR"
-Sets the validator to \fIv\fR. The validator controls what keyboard input is accepted when the user is editing in the value field. The default is to use a suitable QIntValidator.
+.SH "void TQSpinBox::setValidator ( const TQValidator * v )\fC [virtual]\fR"
+Sets the validator to \fIv\fR. The validator controls what keyboard input is accepted when the user is editing in the value field. The default is to use a suitable TQIntValidator.
 .PP
 Use setValidator(0) to turn off input validation (entered input will still be kept within the spin box's range).
-.SH "void QSpinBox::setValue ( int value )\fC [virtual slot]\fR"
+.SH "void TQSpinBox::setValue ( int value )\fC [virtual slot]\fR"
 Sets the value of the spin box to \fIvalue\fR. See the "value" property for details.
-.SH "void QSpinBox::setWrapping ( bool on )\fC [virtual]\fR"
+.SH "void TQSpinBox::setWrapping ( bool on )\fC [virtual]\fR"
 Sets whether it is possible to step the value from the highest value to the lowest value and vice versa to \fIon\fR. See the "wrapping" property for details.
-.SH "TQString QSpinBox::specialValueText () const"
+.SH "TQString TQSpinBox::specialValueText () const"
 Returns the special-value text. See the "specialValueText" property for details.
-.SH "void QSpinBox::stepDown ()\fC [virtual slot]\fR"
+.SH "void TQSpinBox::stepDown ()\fC [virtual slot]\fR"
 Decreases the spin box's value one lineStep(), wrapping as necessary if wrapping() is TRUE. This is the same as clicking on the pointing-down button and can be used for keyboard accelerators, for example.
 .PP
 See also stepUp(), subtractLine(), lineStep, setSteps(), value, and value.
-.SH "void QSpinBox::stepUp ()\fC [virtual slot]\fR"
+.SH "void TQSpinBox::stepUp ()\fC [virtual slot]\fR"
 Increases the spin box's value by one lineStep(), wrapping as necessary if wrapping() is TRUE. This is the same as clicking on the pointing-up button and can be used for keyboard accelerators, for example.
 .PP
 See also stepDown(), addLine(), lineStep, setSteps(), value, and value.
-.SH "TQString QSpinBox::suffix () const\fC [virtual]\fR"
+.SH "TQString TQSpinBox::suffix () const\fC [virtual]\fR"
 Returns the suffix of the spin box. See the "suffix" property for details.
-.SH "TQString QSpinBox::text () const"
+.SH "TQString TQSpinBox::text () const"
 Returns the spin box's text, including any prefix() and suffix(). See the "text" property for details.
-.SH "void QSpinBox::textChanged ()\fC [protected slot]\fR"
+.SH "void TQSpinBox::textChanged ()\fC [protected slot]\fR"
 This slot is called whenever the user edits the spin box's text.
-.SH "QRect QSpinBox::upRect () const"
+.SH "TQRect TQSpinBox::upRect () const"
 Returns the geometry of the "up" button.
-.SH "void QSpinBox::updateDisplay ()\fC [virtual protected]\fR"
-Updates the contents of the embedded QLineEdit to reflect the current value using mapValueToText(). Also enables/disables the up/down push buttons accordingly.
+.SH "void TQSpinBox::updateDisplay ()\fC [virtual protected]\fR"
+Updates the contents of the embedded TQLineEdit to reflect the current value using mapValueToText(). Also enables/disables the up/down push buttons accordingly.
 .PP
 See also mapValueToText().
-.SH "const QValidator * QSpinBox::validator () const"
+.SH "const TQValidator * TQSpinBox::validator () const"
 Returns the validator that constrains editing for this spin box if there is any; otherwise returns 0.
 .PP
-See also setValidator() and QValidator.
-.SH "int QSpinBox::value () const"
+See also setValidator() and TQValidator.
+.SH "int TQSpinBox::value () const"
 Returns the value of the spin box. See the "value" property for details.
-.SH "void QSpinBox::valueChange ()\fC [virtual protected]\fR"
-This virtual function is called by QRangeControl whenever the value has changed. The QSpinBox reimplementation updates the display and emits the valueChanged() signals; if you need additional processing, either reimplement this or connect to one of the valueChanged() signals.
+.SH "void TQSpinBox::valueChange ()\fC [virtual protected]\fR"
+This virtual function is called by TQRangeControl whenever the value has changed. The TQSpinBox reimplementation updates the display and emits the valueChanged() signals; if you need additional processing, either reimplement this or connect to one of the valueChanged() signals.
 .PP
-Reimplemented from QRangeControl.
-.SH "void QSpinBox::valueChanged ( int value )\fC [signal]\fR"
+Reimplemented from TQRangeControl.
+.SH "void TQSpinBox::valueChanged ( int value )\fC [signal]\fR"
 This signal is emitted every time the value of the spin box changes; the new value is passed in \fIvalue\fR. This signal will be emitted as a result of a call to setValue(), or because the user changed the value by using a keyboard accelerator or mouse click, etc.
 .PP
 Note that the valueChanged() signal is emitted \fIevery\fR time, not just for the "last" step; i.e. if the user clicks "up" three times, this signal is emitted three times.
@@ -409,7 +409,7 @@ See also value.
 .PP
 Examples:
 .)l listbox/listbox.cpp, qfd/fontdisplayer.cpp, and scribble/scribble.cpp.
-.SH "void QSpinBox::valueChanged ( const TQString & valueText )\fC [signal]\fR"
+.SH "void TQSpinBox::valueChanged ( const TQString & valueText )\fC [signal]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 This signal is emitted whenever the valueChanged( int ) signal is emitted, i.e. every time the value of the spin box changes (whatever the cause, e.g. by setValue(), by a keyboard accelerator, by mouse clicks, etc.).
@@ -417,7 +417,7 @@ This signal is emitted whenever the valueChanged( int ) signal is emitted, i.e. 
 The \fIvalueText\fR parameter is the same string that is displayed in the edit field of the spin box.
 .PP
 See also value, prefix, suffix, and specialValueText.
-.SH "bool QSpinBox::wrapping () const"
+.SH "bool TQSpinBox::wrapping () const"
 Returns TRUE if it is possible to step the value from the highest value to the lowest value and vice versa; otherwise returns FALSE. See the "wrapping" property for details.
 .SS "Property Documentation"
 .SH "ButtonSymbols buttonSymbols"
@@ -441,13 +441,13 @@ When the user uses the arrows to change the spin box's value the value will be i
 .PP
 The setLineStep() function calls the virtual stepChange() function if the new line step is different from the previous setting.
 .PP
-See also QRangeControl::setSteps() and setRange().
+See also TQRangeControl::setSteps() and setRange().
 .PP
 Set this property's value with setLineStep() and get this property's value with lineStep().
 .SH "int maxValue"
 This property holds the maximum value of the spin box.
 .PP
-When setting this property, QSpinBox::minValue is adjusted, if necessary, to ensure that the range remains valid.
+When setting this property, TQSpinBox::minValue is adjusted, if necessary, to ensure that the range remains valid.
 .PP
 See also setRange() and specialValueText.
 .PP
@@ -455,7 +455,7 @@ Set this property's value with setMaxValue() and get this property's value with 
 .SH "int minValue"
 This property holds the minimum value of the spin box.
 .PP
-When setting this property, QSpinBox::maxValue is adjusted, if necessary, to ensure that the range remains valid.
+When setting this property, TQSpinBox::maxValue is adjusted, if necessary, to ensure that the range remains valid.
 .PP
 See also setRange() and specialValueText.
 .PP
@@ -487,7 +487,7 @@ For example, if your spin box allows the user to choose the margin width in a pr
 .PP
 .nf
 .br
-        QSpinBox marginBox( -1, 20, 1, parent, "marginBox" );
+        TQSpinBox marginBox( -1, 20, 1, parent, "marginBox" );
 .br
         marginBox->setSuffix( " mm" );
 .br
@@ -534,7 +534,7 @@ This property holds the value of the spin box.
 .PP
 Set this property's value with setValue() and get this property's value with value().
 .PP
-See also QRangeControl::setValue().
+See also TQRangeControl::setValue().
 .SH "bool wrapping"
 This property holds whether it is possible to step the value from the highest value to the lowest value and vice versa.
 .PP
@@ -547,7 +547,7 @@ See also minValue, maxValue, and setRange().
 Set this property's value with setWrapping() and get this property's value with wrapping().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqspinbox.html
+.BR http://doc.trolltech.com/tqspinbox.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

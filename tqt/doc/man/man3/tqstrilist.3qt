@@ -1,5 +1,5 @@
 '\" t
-.TH QStrIList 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQStrIList 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,39 +7,39 @@
 .ad l
 .nh
 .SH NAME
-QStrIList \- Doubly-linked list of char* with case-insensitive comparison
+TQStrIList \- Doubly-linked list of char* with case-insensitive comparison
 .SH SYNOPSIS
-\fC#include <ntqstrlist.h>\fR
+\fC#include <tqstrlist.h>\fR
 .PP
-Inherits QStrList.
+Inherits TQStrList.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQStrIList\fR ( bool deepCopies = TRUE )"
+.BI "\fBTQStrIList\fR ( bool deepCopies = TRUE )"
 .br
 .ti -1c
-.BI "\fB~QStrIList\fR ()"
+.BI "\fB~TQStrIList\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QStrIList class provides a doubly-linked list of char* with case-insensitive comparison.
+The TQStrIList class provides a doubly-linked list of char* with case-insensitive comparison.
 .PP
-This class is a QPtrList<char> instance (a list of char*).
+This class is a TQPtrList<char> instance (a list of char*).
 .PP
-QStrIList is identical to QStrList except that the virtual compareItems() function is reimplemented to compare strings case-insensitively. The inSort() function inserts strings in a sorted order. In general it is fastest to insert the strings as they come and sort() at the end; inSort() is useful when you just have to add a few extra strings to an already sorted list.
+TQStrIList is identical to TQStrList except that the virtual compareItems() function is reimplemented to compare strings case-insensitively. The inSort() function inserts strings in a sorted order. In general it is fastest to insert the strings as they come and sort() at the end; inSort() is useful when you just have to add a few extra strings to an already sorted list.
 .PP
-The QStrListIterator class works for QStrIList.
+The TQStrListIterator class works for TQStrIList.
 .PP
-See also QStringList, Collection Classes, and Non-GUI Classes.
+See also TQStringList, Collection Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QStrIList::QStrIList ( bool deepCopies = TRUE )"
+.SH "TQStrIList::TQStrIList ( bool deepCopies = TRUE )"
 Constructs a list of strings. Will make deep copies of all inserted strings if \fIdeepCopies\fR is TRUE, or use shallow copies if \fIdeepCopies\fR is FALSE.
-.SH "QStrIList::~QStrIList ()"
+.SH "TQStrIList::~TQStrIList ()"
 Destroys the list. All strings are removed.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qstrilist.html
+.BR http://doc.trolltech.com/tqstrilist.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

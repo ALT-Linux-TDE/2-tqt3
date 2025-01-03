@@ -13,13 +13,13 @@
 #include "border.h"
 #include "card.h"
 
-#include <ntqapplication.h>
-#include <ntqlabel.h>
-#include <ntqcolor.h>
-#include <ntqgroupbox.h>
-#include <ntqpushbutton.h>
-#include <ntqmultilineedit.h>
-#include <ntqcolor.h>
+#include <tqapplication.h>
+#include <tqlabel.h>
+#include <tqcolor.h>
+#include <tqgroupbox.h>
+#include <tqpushbutton.h>
+#include <tqmultilineedit.h>
+#include <tqcolor.h>
 
 int main( int argc, char **argv )
 {

@@ -13,7 +13,7 @@
     </message>
 </context>
 <context>
-    <name>QAccel</name>
+    <name>TQAccel</name>
     <message>
         <source>Space</source>
         <translation>Leertaste</translation>
@@ -296,7 +296,7 @@
     </message>
 </context>
 <context>
-    <name>QApplication</name>
+    <name>TQApplication</name>
     <message>
         <source>QT_LAYOUT_DIRECTION</source>
         <comment>Translate this string to the string &apos;LTR&apos; in left-to-right languages or to &apos;RTL&apos; in right-to-left languages (such as Hebrew and Arabic) to get proper widget layout.</comment>
@@ -323,7 +323,7 @@
     </message>
 </context>
 <context>
-    <name>QColorDialog</name>
+    <name>TQColorDialog</name>
     <message>
         <source>Hu&amp;e:</source>
         <translation>Farb&amp;ton:</translation>
@@ -382,7 +382,7 @@
     </message>
 </context>
 <context>
-    <name>QDataManager</name>
+    <name>TQDataManager</name>
     <message>
         <source>Delete this record?</source>
         <translation type="obsolete">Diesen Datensatz löschen?</translation>
@@ -413,7 +413,7 @@
     </message>
 </context>
 <context>
-    <name>QDataTable</name>
+    <name>TQDataTable</name>
     <message>
         <source>True</source>
         <translation>Wahr</translation>
@@ -436,14 +436,14 @@
     </message>
 </context>
 <context>
-    <name>QDialog</name>
+    <name>TQDialog</name>
     <message>
         <source>What&apos;s This?</source>
         <translation>Direkthilfe</translation>
     </message>
 </context>
 <context>
-    <name>QErrorMessage</name>
+    <name>TQErrorMessage</name>
     <message>
         <source>&amp;Show this message again</source>
         <translation>Diese Meldungen noch einmal an&amp;zeigen</translation>
@@ -466,7 +466,7 @@
     </message>
 </context>
 <context>
-    <name>QFileDialog</name>
+    <name>TQFileDialog</name>
     <message>
         <source>Copy or Move a File</source>
         <translation>Datei kopieren oder verschieben</translation>
@@ -725,7 +725,7 @@ Datei wurde nicht gefunden.
     </message>
 </context>
 <context>
-    <name>QFont</name>
+    <name>TQFont</name>
     <message>
         <source>Latin</source>
         <translation>Latein</translation>
@@ -936,7 +936,7 @@ Datei wurde nicht gefunden.
     </message>
 </context>
 <context>
-    <name>QFontDialog</name>
+    <name>TQFontDialog</name>
     <message>
         <source>&amp;Font</source>
         <translation>&amp;Schriftart</translation>
@@ -995,7 +995,7 @@ Datei wurde nicht gefunden.
     </message>
 </context>
 <context>
-    <name>QFtp</name>
+    <name>TQFtp</name>
     <message>
         <source>Host %1 found</source>
         <translation>Rechner %1 gefunden</translation>
@@ -1100,7 +1100,7 @@ Datei wurde nicht gefunden.
     </message>
 </context>
 <context>
-    <name>QFtpPI</name>
+    <name>TQFtpPI</name>
     <message>
         <source>Host %1 not found</source>
         <translation type="obsolete">Rechner %1 nicht gefunden</translation>
@@ -1115,14 +1115,14 @@ Datei wurde nicht gefunden.
     </message>
 </context>
 <context>
-    <name>QHeader</name>
+    <name>TQHeader</name>
     <message>
         <source>%1</source>
         <translation>%1</translation>
     </message>
 </context>
 <context>
-    <name>QHttp</name>
+    <name>TQHttp</name>
     <message>
         <source>Connection refused</source>
         <translation>Verbindung verweigert</translation>
@@ -1197,7 +1197,7 @@ Datei wurde nicht gefunden.
     </message>
 </context>
 <context>
-    <name>QInputDialog</name>
+    <name>TQInputDialog</name>
     <message>
         <source>OK</source>
         <translation>OK</translation>
@@ -1208,7 +1208,7 @@ Datei wurde nicht gefunden.
     </message>
 </context>
 <context>
-    <name>QLineEdit</name>
+    <name>TQLineEdit</name>
     <message>
         <source>Clear</source>
         <translation>Löschen</translation>
@@ -1239,7 +1239,7 @@ Datei wurde nicht gefunden.
     </message>
 </context>
 <context>
-    <name>QLocalFs</name>
+    <name>TQLocalFs</name>
     <message>
         <source>Could not rename
 %1
@@ -1282,7 +1282,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QMainWindow</name>
+    <name>TQMainWindow</name>
     <message>
         <source>Line up</source>
         <translation>Ausrichten</translation>
@@ -1293,7 +1293,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QMenuBar</name>
+    <name>TQMenuBar</name>
     <message>
         <source>About</source>
         <translation>Info</translation>
@@ -1328,7 +1328,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QMessageBox</name>
+    <name>TQMessageBox</name>
     <message>
         <source>OK</source>
         <translation>OK</translation>
@@ -1362,27 +1362,19 @@ nach
         <translation type="obsolete">&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;Dieses Programm wurde mit der TQt Version %1 erstellt.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p&gt;Dieses Programm verwendet TQt Version %1&lt;/p&gt;&lt;p&gt;Qt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;Qt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf  Windows 95/98/NT/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX und vielen anderen Unix-Versionen, die X11 verwenden.&lt;br&gt;Qt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;Qt ist ein Produkt von Trolltech. Weitere Informationen finden Sie unter &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for cross-platform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across Windows 95/98/NT4/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX and many other versions of Unix with X11.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;Dieses Programm verwendet TQt Version %1&lt;/p&gt;&lt;p&gt;Qt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;Qt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf Windows 95/98/NT/ME/2000, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, Solaris, HP-UX und vielen anderen Unix-Versionen, die X11 verwenden.&lt;br&gt;Qt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;Qt ist ein Produkt von Trolltech. Weitere Informationen finden Sie unter &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;br&gt;Qt is also available for embedded devices.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Über TQt&lt;/h3&gt;&lt;p&gt;Dieses Programm verwendet TQt Version %1&lt;/p&gt;&lt;p&gt;TQt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;TQt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux und allen anderen großen kommerziellen Unix-Versionen.&lt;br&gt;TQt ist auch für eingebettete Systeme erhältlich.&lt;/p&gt;&lt;p&gt;TQt ist ein Produkt von TDE. Weitere Informationen finden Sie unter &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses TQt version %1.&lt;/p&gt;&lt;p&gt;Qt is a C++ toolkit for multiplatform GUI &amp;amp; application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants.&lt;/p&gt;&lt;p&gt;See &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt; for more information.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Über TQt&lt;/h3&gt;&lt;p&gt;Dieses Programm verwendet TQt Version %1&lt;/p&gt;&lt;p&gt;TQt ist ein multi-platform Framework zum Erstellen von GUI-Programmen in C++.&lt;/p&gt;&lt;p&gt;TQt bietet Portierungsmöglichkeiten mit nur einer Quellcode-Basis auf MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux und allen anderen großen kommerziellen Unix-Versionen.&lt;br&gt;&lt;/p&gt;&lt;p&gt;Weitere Informationen finden Sie unter &lt;tt&gt;https://trinitydesktop.org/docs/qt3/&lt;/tt&gt;.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
-    <name>QNetworkProtocol</name>
+    <name>TQNetworkProtocol</name>
     <message>
         <source>Operation stopped by the user</source>
         <translation>Operation von Benutzer angehalten</translation>
     </message>
 </context>
 <context>
-    <name>QPrintDialog</name>
+    <name>TQPrintDialog</name>
     <message>
         <source>locally connected</source>
         <translation>direkt verbunden</translation>
@@ -1621,14 +1613,14 @@ nach
     </message>
 </context>
 <context>
-    <name>QProgressDialog</name>
+    <name>TQProgressDialog</name>
     <message>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
-    <name>QRegExp</name>
+    <name>TQRegExp</name>
     <message>
         <source>no error occurred</source>
         <translation>kein Fehler</translation>
@@ -1667,7 +1659,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QSql</name>
+    <name>TQSql</name>
     <message>
         <source>Delete</source>
         <translation>Löschen</translation>
@@ -1710,7 +1702,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QTabDialog</name>
+    <name>TQTabDialog</name>
     <message>
         <source>OK</source>
         <translation>OK</translation>
@@ -1733,7 +1725,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QTextEdit</name>
+    <name>TQTextEdit</name>
     <message>
         <source>Clear</source>
         <translation>Löschen</translation>
@@ -1764,7 +1756,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QTitleBar</name>
+    <name>TQTitleBar</name>
     <message>
         <source>System Menu</source>
         <translation>System-Menü</translation>
@@ -1795,14 +1787,14 @@ nach
     </message>
 </context>
 <context>
-    <name>QToolBar</name>
+    <name>TQToolBar</name>
     <message>
         <source>More...</source>
         <translation>Mehr...</translation>
     </message>
 </context>
 <context>
-    <name>QUrlOperator</name>
+    <name>TQUrlOperator</name>
     <message>
         <source>The protocol `%1&apos; is not supported</source>
         <translation>Das Protokoll `%1&apos; wird nicht unterstützt</translation>
@@ -1841,72 +1833,14 @@ nach
     </message>
 </context>
 <context>
-    <name>QWSDecoration</name>
-    <message>
-        <source>&amp;Restore</source>
-        <translation>Wieder&amp;herstellen</translation>
-    </message>
-    <message>
-        <source>&amp;Move</source>
-        <translation>Ver&amp;schieben</translation>
-    </message>
-    <message>
-        <source>&amp;Size</source>
-        <translation>&amp;Größe</translation>
-    </message>
-    <message>
-        <source>Mi&amp;nimize</source>
-        <translation>M&amp;inimieren</translation>
-    </message>
-    <message>
-        <source>Ma&amp;ximize</source>
-        <translation>Ma&amp;ximieren</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Schließen</translation>
-    </message>
-    <message>
-        <source>Windows</source>
-        <translation>Windows</translation>
-    </message>
-    <message>
-        <source>KDE</source>
-        <translation>KDE</translation>
-    </message>
-    <message>
-        <source>KDE2</source>
-        <translation>KDE2</translation>
-    </message>
-    <message>
-        <source>Hydro</source>
-        <translation>Hydro</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>Standard</translation>
-    </message>
-    <message>
-        <source>BeOS</source>
-        <translation>BeOS</translation>
-    </message>
-</context>
-<context>
-    <name>QWSManager</name>
-    <message>
-        <source>Style</source>
-        <translation type="obsolete">Stil</translation>
-    </message>
-</context>
-<context>
-    <name>QWhatsThisButton</name>
+    <name>TQWhatsThisButton</name>
     <message>
         <source>What&apos;s this?</source>
         <translation>Direkthilfe</translation>
     </message>
 </context>
 <context>
-    <name>QWizard</name>
+    <name>TQWizard</name>
     <message>
         <source>Cancel</source>
         <translation type="obsolete">Abbrechen</translation>
@@ -1949,7 +1883,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QWorkspace</name>
+    <name>TQWorkspace</name>
     <message>
         <source>&amp;Restore</source>
         <translation>Wieder&amp;herstellen</translation>
@@ -2004,7 +1938,7 @@ nach
     </message>
 </context>
 <context>
-    <name>QXml</name>
+    <name>TQXml</name>
     <message>
         <source>no error occurred</source>
         <translation>kein Fehler</translation>

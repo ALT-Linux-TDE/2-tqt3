@@ -1,5 +1,5 @@
 '\" t
-.TH QBitVal 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQBitVal 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,47 +7,47 @@
 .ad l
 .nh
 .SH NAME
-QBitVal \- Internal class, used with QBitArray
+TQBitVal \- Internal class, used with TQBitArray
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqbitarray.h>\fR
+\fC#include <tqbitarray.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQBitVal\fR ( QBitArray * a, uint i )"
+.BI "\fBTQBitVal\fR ( TQBitArray * a, uint i )"
 .br
 .ti -1c
 .BI "\fBoperator int\fR ()"
 .br
 .ti -1c
-.BI "QBitVal & \fBoperator=\fR ( const QBitVal & v )"
+.BI "TQBitVal & \fBoperator=\fR ( const TQBitVal & v )"
 .br
 .ti -1c
-.BI "QBitVal & \fBoperator=\fR ( bool v )"
+.BI "TQBitVal & \fBoperator=\fR ( bool v )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QBitVal class is an internal class, used with QBitArray.
+The TQBitVal class is an internal class, used with TQBitArray.
 .PP
-The QBitVal is required by the indexing [] operator on bit arrays. It is not for use in any other context.
+The TQBitVal is required by the indexing [] operator on bit arrays. It is not for use in any other context.
 .PP
 See also Collection Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QBitVal::QBitVal ( QBitArray * a, uint i )"
-Constructs a reference to element \fIi\fR in the QBitArray \fIa\fR. This is what QBitArray::operator[] constructs its return value with.
-.SH "QBitVal::operator int ()"
-Returns the value referenced by the QBitVal.
-.SH "QBitVal & QBitVal::operator= ( const QBitVal & v )"
-Sets the value referenced by the QBitVal to that referenced by QBitVal \fIv\fR.
-.SH "QBitVal & QBitVal::operator= ( bool v )"
+.SH "TQBitVal::TQBitVal ( TQBitArray * a, uint i )"
+Constructs a reference to element \fIi\fR in the TQBitArray \fIa\fR. This is what TQBitArray::operator[] constructs its return value with.
+.SH "TQBitVal::operator int ()"
+Returns the value referenced by the TQBitVal.
+.SH "TQBitVal & TQBitVal::operator= ( const TQBitVal & v )"
+Sets the value referenced by the TQBitVal to that referenced by TQBitVal \fIv\fR.
+.SH "TQBitVal & TQBitVal::operator= ( bool v )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Sets the value referenced by the QBitVal to \fIv\fR.
+Sets the value referenced by the TQBitVal to \fIv\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qbitval.html
+.BR http://doc.trolltech.com/tqbitval.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

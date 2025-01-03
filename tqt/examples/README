@@ -13,15 +13,15 @@ them assume they are run from there.
 aclock
     This example displays an analog clock widget.
     It shows how to create a custom widget (TQWidget subclass) and how
-    to create a timer using QTimer.
+    to create a timer using TQTimer.
 
 action
     A single document interface application example with a menu bar,
     tool bar and status bar that provides simple text editing.
     It shows how to implement a typical modern application, how to
-    create a QMainWindow subclass, and how to create actions that can
-    be assigned to menus (QPopupMenu) and toolbars (QToolBar) using
-    QAction. It also shows how to print using QSimpleRichText.
+    create a TQMainWindow subclass, and how to create actions that can
+    be assigned to menus (TQPopupMenu) and toolbars (TQToolBar) using
+    TQAction. It also shows how to print using TQSimpleRichText.
 
 addressbook [obsolete]
 
@@ -32,16 +32,16 @@ biff [Unix-specific]
     new mail; it looks like xbiff but is much shorter.
 
 buttongroups
-    This examples shows different types of group boxes (QButtonGroup,
-    and QGroupBox), and different kinds of buttons (QCheckBox,
-    QRadioButton, and QPushButton). It also shows how to add a
-    QPopupMenu to a button.
+    This examples shows different types of group boxes (TQButtonGroup,
+    and TQGroupBox), and different kinds of buttons (TQCheckBox,
+    TQRadioButton, and TQPushButton). It also shows how to add a
+    TQPopupMenu to a button.
 
 canvas
-    This examples demonstrates many of QCanvasView's facilities, but
-    by no means all of them. It uses QCanvasItem, QCanvasLine,
-    QCanvasRectangle, QCanvasEllipse, QCanvasSprite, and of course
-    QCanvas.
+    This examples demonstrates many of TQCanvasView's facilities, but
+    by no means all of them. It uses TQCanvasItem, TQCanvasLine,
+    TQCanvasRectangle, TQCanvasEllipse, TQCanvasSprite, and of course
+    TQCanvas.
 
 chart
     An application for maintaining simple numeric data and visualising
@@ -51,12 +51,12 @@ chart
 checklists
     Shows two list views with check box and radio button items. (These
     kinds of lists are often used with setup programs.)
-    Shows the use of QListView, QListViewItem, QCheckListItem,
-    QListViewItemIterator, and QValueList.
+    Shows the use of TQListView, TQListViewItem, TQCheckListItem,
+    TQListViewItemIterator, and TQValueList.
 
 cursor
     This example shows how to set the mouse cursor for a widget. Shows
-    Qt's cursors and a custom cursor using QLabel and QCursor.
+    Qt's cursors and a custom cursor using TQLabel and TQCursor.
 
 customlayout
     This examples demonstrates how to write a customized layout
@@ -66,7 +66,7 @@ customlayout
 dclock
     This example displays a digital LCD clock and can switch between
     time and date.
-    It uses the QLCDNumber widget and a couple of QTimers.
+    It uses the TQLCDNumber widget and a couple of TQTimers.
 
 demo
     Run this to see almost all of Qt's widgets in action, including
@@ -74,18 +74,15 @@ demo
 
 desktop
     The desktop demo contains three routines, each of which draws
-    something on the desktop. It does some nice stuff with QPainter,
+    something on the desktop. It does some nice stuff with TQPainter,
     and also demonstrates how one can treat the desktop as a widget
     like any other.
 
-directpainter [Qt/Embedded-specific]
-    Shows the use of QDirectPainter.
-
 dirview
-    This example program demonstrates how to use a QListView and
-    QListViewItems to build a multi-column hierarchical, memory- and
+    This example program demonstrates how to use a TQListView and
+    TQListViewItems to build a multi-column hierarchical, memory- and
     CPU-efficient directory browser. It also demonstrates how to use
-    Drag'n'Drop in a QListview. (See also the fileiconview example.)
+    Drag'n'Drop in a TQListview. (See also the fileiconview example.)
 
 distributor
     This is a utility program that can be used to modify the paths
@@ -97,8 +94,8 @@ dragdrop
 
 drawdemo
     Draws a color wheel, text and shapes. This example demonstrates
-    several drawing functions and printer output using QPainter,
-    QWMatrix, QFont, QFontMetrics, TQColor, QBrush, and QPrinter. You
+    several drawing functions and printer output using TQPainter,
+    TQWMatrix, TQFont, TQFontMetrics, TQColor, TQBrush, and TQPrinter. You
     can easily add you own drawing functions. See "ourDrawFunctions".
 
 drawlines
@@ -113,11 +110,11 @@ extension
 
 fileiconview
     This example partially implements a very basic file manager using
-    a widget derived from QIconView to display the current directory.
+    a widget derived from TQIconView to display the current directory.
     It uses the DirectoryView widget from the dirview example to
     display the directory tree.
-    It also shows how to add a QComboBox to a QToolBar and how to
-    implement a context menu using QPopupMenu.
+    It also shows how to add a TQComboBox to a TQToolBar and how to
+    implement a context menu using TQPopupMenu.
 
 fonts [obsolete; see the qfd example instead]
 
@@ -128,7 +125,7 @@ forever
     that counts the number of rectangles that are drawn per second.
 
 gridview
-    A QGridView with 100x100 cells.
+    A TQGridView with 100x100 cells.
 
 hello
     Hello world with colored animated wavy text.
@@ -139,8 +136,8 @@ helpdemo
 
 helpsystem
     This example shows how to implement context-sensitive help in
-    various ways in a TQt application using QToolTip, QWhatsThis, and
-    QAssistantClient to control TQt Assistant.
+    various ways in a TQt application using TQToolTip, TQWhatsThis, and
+    TQAssistantClient to control TQt Assistant.
 
 helpviewer
     The HelpViewer example implements a simple HTML help browser using
@@ -159,40 +156,34 @@ i18n
 iconview
     This example implements a flexible icon view which can store lots
     of icon items. It supports Drag'n'Drop and different selection
-    modes using QIconView.
-
-kiosk [Qt/Embedded-specific]
-    An MPEG player.
-
-launcher [Qt/Embedded-specific]
-    A program launcher.
+    modes using TQIconView.
 
 layout [obsolete]
     This example shows simple and intermediate use of Qt's layout
-    classes, QGridLaout, QBoxLayout etc.
+    classes, TQGridLaout, TQBoxLayout etc.
 
 life
     An implementation of the life game with a Unix-flavor GUI. 
 
 lineedits
-    This example shows how to use various properties of QLineEdit
+    This example shows how to use various properties of TQLineEdit
     including echo modes, input masks, and validators.
 
 listbox
-    Shows QListBox options.
+    Shows TQListBox options.
 
 listboxcombo
-    This example shows how to use QListBox (with single selection and
-    multi selection) and QComboBox (editable and non-editable).
+    This example shows how to use TQListBox (with single selection and
+    multi selection) and TQComboBox (editable and non-editable).
 
 listviews
-    This examples shows how to work with QListView (a tree view
+    This examples shows how to work with TQListView (a tree view
     widget)
 
 mdi
     Similar to the action example, but this time using MDI (Multiple
-    Document Interface). It subclasses QMainWindow and uses the
-    QWorkspace class to provide MDI and shows how to implement an MDI
+    Document Interface). It subclasses TQMainWindow and uses the
+    TQWorkspace class to provide MDI and shows how to implement an MDI
     Window menu.
 
 menu
@@ -201,53 +192,53 @@ menu
     example.)
 
 movies
-    The Movies example displays animated GIF files using the QMovie
-    and QLabel classes.
+    The Movies example displays animated GIF files using the TQMovie
+    and TQLabel classes.
 
 network/archivesearch
-    Shows how to use QHttp to request and receive data from a web
+    Shows how to use TQHttp to request and receive data from a web
     site.
 
 network/clientserver
     Provides a client application and a server application that
-    communicate using QSocket and QServerSocket.
+    communicate using TQSocket and TQServerSocket.
 
 network/ftpclient
-    A simple FTP client that uses QFtp to retrieve directory listings
+    A simple FTP client that uses TQFtp to retrieve directory listings
     and to download and upload files.
 
 network/httpd
-    An extremely simple HTTP daemon built using QServerSocket.
+    An extremely simple HTTP daemon built using TQServerSocket.
 
 network/infoprotocol
     A more complex client/server example.
 
 network/mail
-    A simple mail client that can send email using the QSocket class.
+    A simple mail client that can send email using the TQSocket class.
 
 network/networkprotocol
     A simple implementation of a subset of the NNTP protocol. This
     shows how to implement your own network protocols by subclassing
-    QNetworkProtocol.
+    TQNetworkProtocol.
 
 network/remotecontrol
-    Controlling one application from another using QSocket-based IPC.
+    Controlling one application from another using TQSocket-based IPC.
 
 opengl/box
-    Shows how to use OpenGL in TQt using QGLWidget.
+    Shows how to use OpenGL in TQt using TQGLWidget.
 
 opengl/gear
     Shows how to build OpenGL display lists.
 
 opengl/glpixmap
     This is based on the box example. It shows how to render an OpenGL
-    scene into a QPixmap.
+    scene into a TQPixmap.
 
 opengl/overlay
     Demonstrates the use of OpenGL overlays (where supported).
 
 opengl/sharedbox
-    Demonstrates how to share OpenGL display lists with QGLWidgets.
+    Demonstrates how to share OpenGL display lists with TQGLWidgets.
 
 opengl/texture
     Shows how to use OpenGL textures.
@@ -266,22 +257,22 @@ process
 progress
     WARNING: this program has a strobe effect.
     This example presents a long-running process (drawing lots of
-    rectangles) and a QProgressDialog. Two types of progress dialog
+    rectangles) and a TQProgressDialog. Two types of progress dialog
     are offered, one that simply shows text, and a custom one that
-    shows an animation using a QLabel and a QTimer.
+    shows an animation using a TQLabel and a TQTimer.
 
 progressbar
-    Shows how to use a QProgressBar.
+    Shows how to use a TQProgressBar.
 
-qdir
-    Shows how to use and customize QFileDialog. Run
-  	qdir --help
-    for details. Also shows QFileInfo.
+tqdir
+    Shows how to use and customize TQFileDialog. Run
+  	tqdir --help
+    for details. Also shows TQFileInfo.
 
 qfd
     This example program displays all the characters of a selected
-    font. It shows the use of QFontDialog, QFontMetrics and QFontInfo,
-    and a QTable subclass.
+    font. It shows the use of TQFontDialog, TQFontMetrics and TQFontInfo,
+    and a TQTable subclass.
 
 qmag
     This is a simple magnifier-type program. It shows how one can do
@@ -291,13 +282,13 @@ qwerty
     Simple text editor for testing different character encodings.
 
 rangecontrols
-    This examples shows how to use QSpinBox and QSlider.
+    This examples shows how to use TQSpinBox and TQSlider.
 
 regexptester
     This little application is useful for testing regular expressions.
 
 richtext
-    This example shows the use of QTextView (a read/only QTextEdit
+    This example shows the use of TQTextView (a read/only TQTextEdit
     subclass).
 
 rot13
@@ -307,13 +298,13 @@ scribble
     An implementation of the well known scribble program. You can draw
     with different pen colors and widths and save the result as a
     pixmap in various formats. It shows how to do drawing using a
-    TQWidget subclass (rather than a QCanvas for example). It also
-    shows how to add a QSpinBox to a QToolBar and how to implement a
-    button that pops up a menu (using QPushButton and QPopupMenu), and
-    also how to use the QColorDialog.
+    TQWidget subclass (rather than a TQCanvas for example). It also
+    shows how to add a TQSpinBox to a TQToolBar and how to implement a
+    button that pops up a menu (using TQPushButton and TQPopupMenu), and
+    also how to use the TQColorDialog.
 
 scrollview
-    This example shows one way of using a QScrollview. This widget is
+    This example shows one way of using a TQScrollview. This widget is
     highly optimized for showing very large contents including child
     widgets.
 
@@ -323,10 +314,10 @@ showimg
 
 sound
     Shows how to play sounds from a TQt application (and how to see if
-    sound is supported) using QSound.
+    sound is supported) using TQSound.
 
 splitter
-    This example shows how to use QSplitter to give the user control
+    This example shows how to use TQSplitter to give the user control
     over how much vertical or horizontal space is given to child
     widgets.
 
@@ -340,23 +331,23 @@ sql/overview [to be withdrawn]
 
 sql/sqltable
     A very simple example that shows how to relate a database table to
-    a QDataTable.
+    a TQDataTable.
 
 tabdialog
     This example shows how to use a dialog with multiple tabs (pages).
-    It shows the use of QTabDialog and QFileInfo.
+    It shows the use of TQTabDialog and TQFileInfo.
 
 table/bigtable
     This shows how to create a sparse very large (1M x 1M cells)
-    QTable by avoiding the use of table items.
+    TQTable by avoiding the use of table items.
 
 table/small-table-demo
-    A small, simple QTable example that uses QTableItems to show text
-    and pixmaps, and QComboTableItems and QCheckTableItems to show how
+    A small, simple TQTable example that uses TQTableItems to show text
+    and pixmaps, and TQComboTableItems and TQCheckTableItems to show how
     they work.
 
 table/statistics
-    A QTable example that shows how to subclass QTableItem.
+    A TQTable example that shows how to subclass TQTableItem.
 
 tablet
     This shows how to interact with a tablet device. It will only run
@@ -368,13 +359,13 @@ tetrix
     work of art.
 
 textedit
-    A simple text editor based on QTextEdit.
+    A simple text editor based on TQTextEdit.
 
 themes
     This examples demonstrates how to draw widgets in different styles
     (themes). Example themes looking like wood and metal are
     implemented. You can switch between the different styles at
-    runtime using the menu. Shows how to create a QStyle subclass. Not
+    runtime using the menu. Shows how to create a TQStyle subclass. Not
     for the faint-hearted.
 
 tictac
@@ -382,7 +373,7 @@ tictac
 
 tooltip
     This example widget demonstrates how to use tool tips for static
-    and dynamic regions within a widget using a QToolTip subclass.
+    and dynamic regions within a widget using a TQToolTip subclass.
 
 toplevel
     This program allows you to set all the flags for a widget and then
@@ -397,11 +388,11 @@ widgets
     Shows many TQt widgets (See also the demo example).
 
 wizard
-    This example shows how to use QWizard.
+    This example shows how to use TQWizard.
 
 xform
     Demonstrates how to arbitrarily rotate, shear and scale text and
-    graphics using QWMatrix.
+    graphics using TQWMatrix.
 
 xml/outliner
     Shows how to read in an XML file using Qt's DOM classes and

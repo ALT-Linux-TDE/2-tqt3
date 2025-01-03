@@ -1,5 +1,5 @@
 '\" t
-.TH QSqlSelectCursor 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSqlSelectCursor 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,30 +7,30 @@
 .ad l
 .nh
 .SH NAME
-QSqlSelectCursor \- Browsing of general SQL SELECT statements
+TQSqlSelectCursor \- Browsing of general SQL SELECT statements
 .SH SYNOPSIS
-\fC#include <ntqsqlselectcursor.h>\fR
+\fC#include <tqsqlselectcursor.h>\fR
 .PP
-Inherits QSqlCursor.
+Inherits TQSqlCursor.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQSqlSelectCursor\fR ( const TQString & query = TQString::null, QSqlDatabase * db = 0 )"
+.BI "\fBTQSqlSelectCursor\fR ( const TQString & query = TQString::null, TQSqlDatabase * db = 0 )"
 .br
 .ti -1c
-.BI "\fBQSqlSelectCursor\fR ( const QSqlSelectCursor & other )"
+.BI "\fBTQSqlSelectCursor\fR ( const TQSqlSelectCursor & other )"
 .br
 .ti -1c
-.BI "\fB~QSqlSelectCursor\fR ()"
+.BI "\fB~TQSqlSelectCursor\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSqlSelectCursor class provides browsing of general SQL SELECT statements.
+The TQSqlSelectCursor class provides browsing of general SQL SELECT statements.
 .PP
-QSqlSelectCursor is a convenience class that makes it possible to display result sets from general SQL \fCSELECT\fR statements in data-aware TQt widgets. QSqlSelectCursor is read-only and does not support \fCINSERT\fR, \fCUPDATE\fR or \fCDELETE\fR operations.
+TQSqlSelectCursor is a convenience class that makes it possible to display result sets from general SQL \fCSELECT\fR statements in data-aware TQt widgets. TQSqlSelectCursor is read-only and does not support \fCINSERT\fR, \fCUPDATE\fR or \fCDELETE\fR operations.
 .PP
-Pass the query in at construction time, or use the QSqlSelectCursor::exec() function.
+Pass the query in at construction time, or use the TQSqlSelectCursor::exec() function.
 .PP
 Example:
 .PP
@@ -38,9 +38,9 @@ Example:
 .br
     ...
 .br
-    QSqlSelectCursor* cur = new QSqlSelectCursor( "SELECT id, firstname, lastname FROM author" );
+    TQSqlSelectCursor* cur = new TQSqlSelectCursor( "SELECT id, firstname, lastname FROM author" );
 .br
-    QDataTable* table = new QDataTable( this );
+    TQDataTable* table = new TQDataTable( this );
 .br
     table->setSqlCursor( cur, TRUE, TRUE );
 .br
@@ -58,15 +58,15 @@ Example:
 .PP
 See also Database Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlSelectCursor::QSqlSelectCursor ( const TQString & query = TQString::null, QSqlDatabase * db = 0 )"
+.SH "TQSqlSelectCursor::TQSqlSelectCursor ( const TQString & query = TQString::null, TQSqlDatabase * db = 0 )"
 Constructs a read only cursor on database \fIdb\fR using the query \fIquery\fR.
-.SH "QSqlSelectCursor::QSqlSelectCursor ( const QSqlSelectCursor & other )"
+.SH "TQSqlSelectCursor::TQSqlSelectCursor ( const TQSqlSelectCursor & other )"
 Constructs a copy of \fIother\fR
-.SH "QSqlSelectCursor::~QSqlSelectCursor ()"
+.SH "TQSqlSelectCursor::~TQSqlSelectCursor ()"
 Destroys the object and frees any allocated resources 
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsqlselectcursor.html
+.BR http://doc.trolltech.com/tqsqlselectcursor.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

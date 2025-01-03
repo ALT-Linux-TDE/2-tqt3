@@ -1,5 +1,5 @@
 '\" t
-.TH QDeepCopy 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQDeepCopy 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,29 +7,29 @@
 .ad l
 .nh
 .SH NAME
-QDeepCopy \- Template class which ensures that
+TQDeepCopy \- Template class which ensures that
 .SH SYNOPSIS
 All the functions in this class are reentrant when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqdeepcopy.h>\fR
+\fC#include <tqdeepcopy.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQDeepCopy\fR ()"
+.BI "\fBTQDeepCopy\fR ()"
 .br
 .ti -1c
-.BI "\fBQDeepCopy\fR ( const T & t )"
+.BI "\fBTQDeepCopy\fR ( const T & t )"
 .br
 .ti -1c
-.BI "QDeepCopy<T> & \fBoperator=\fR ( const T & t )"
+.BI "TQDeepCopy<T> & \fBoperator=\fR ( const T & t )"
 .br
 .ti -1c
 .BI "\fBoperator T\fR ()"
 .br
 .in -1c
 .SH DESCRIPTION
-The QDeepCopy class is a template class which ensures that implicitly shared and explicitly shared classes reference unique data.
+The TQDeepCopy class is a template class which ensures that implicitly shared and explicitly shared classes reference unique data.
 .PP
 Normally, shared copies reference the same data to optimize memory use and for maximum speed. In the example below, \fCs1\fR, \fCs2\fR, \fCs3\fR, \fCs4\fR and \fCs5\fR share data.
 .PP
@@ -49,7 +49,7 @@ Normally, shared copies reference the same data to optimize memory use and for m
 .br
 .fi
 .PP
-QDeepCopy can be used several ways to ensure that an object references unique, unshared data. In the example below, \fCs1\fR, \fCs2\fR and \fCs5\fR share data, while neither \fCs3\fR nor \fCs4\fR share data.
+TQDeepCopy can be used several ways to ensure that an object references unique, unshared data. In the example below, \fCs1\fR, \fCs2\fR and \fCs5\fR share data, while neither \fCs3\fR nor \fCs4\fR share data.
 .PP
 .nf
 .br
@@ -59,7 +59,7 @@ QDeepCopy can be used several ways to ensure that an object references unique, u
 .br
     TQString s2 = s1;
 .br
-    QDeepCopy<TQString> s3 = s2;  // s3 is a deep copy of s2
+    TQDeepCopy<TQString> s3 = s2;  // s3 is a deep copy of s2
 .br
     TQString s4 = s3;             // s4 is a deep copy of s3
 .br
@@ -77,7 +77,7 @@ In the example below, \fCs1\fR, \fCs2\fR and \fCs5\fR share data, and \fCs3\fR a
 .br
     TQString s2 = s1;
 .br
-    TQString s3 = QDeepCopy<TQString>( s2 );  // s3 is a deep copy of s2
+    TQString s3 = TQDeepCopy<TQString>( s2 );  // s3 is a deep copy of s2
 .br
     TQString s4 = s3;                        // s4 is a shallow copy of s3
 .br
@@ -85,13 +85,13 @@ In the example below, \fCs1\fR, \fCs2\fR and \fCs5\fR share data, and \fCs3\fR a
 .br
 .fi
 .PP
-QDeepCopy can also provide safety in multithreaded applications that use shared classes. In the example below, the variable \fCglobal_string\fR is used safely since the data contained in \fCglobal_string\fR is always a deep copy. This ensures that all threads get a unique copy of the data, and that any assignments to \fCglobal_string\fR will result in a deep copy.
+TQDeepCopy can also provide safety in multithreaded applications that use shared classes. In the example below, the variable \fCglobal_string\fR is used safely since the data contained in \fCglobal_string\fR is always a deep copy. This ensures that all threads get a unique copy of the data, and that any assignments to \fCglobal_string\fR will result in a deep copy.
 .PP
 .nf
 .br
-    QDeepCopy<TQString> global_string;  // global string data
+    TQDeepCopy<TQString> global_string;  // global string data
 .br
-    QMutex global_mutex;               // mutex to protext global_string
+    TQMutex global_mutex;               // mutex to protext global_string
 .br
 .br
     ...
@@ -139,33 +139,33 @@ QDeepCopy can also provide safety in multithreaded applications that use shared 
 .PP
 \fBWarning:\fR It is the application developer's responsibility to protect the object shared across multiple threads.
 .PP
-The examples above use TQString, which is an implicitly shared class. The behavior of QDeepCopy is the same when using explicitly shared classes like QByteArray.
+The examples above use TQString, which is an implicitly shared class. The behavior of TQDeepCopy is the same when using explicitly shared classes like TQByteArray.
 .PP
-Currently, QDeepCopy works with the following classes:
+Currently, TQDeepCopy works with the following classes:
 .TP
-QMemArray (including subclasses like QByteArray and QCString)
+TQMemArray (including subclasses like TQByteArray and TQCString)
 .TP
-QMap
+TQMap
 .TP
 TQString
 .TP
-QValueList (including subclasses like QStringList and QValueStack)
+TQValueList (including subclasses like TQStringList and TQValueStack)
 .TP
-QValueVector
+TQValueVector
 .PP
 See also Thread Support in Qt, Implicitly and Explicitly Shared Classes, and Non-GUI Classes.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QDeepCopy::QDeepCopy ()"
+.SH "TQDeepCopy::TQDeepCopy ()"
 Constructs an empty instance of type \fIT\fR.
-.SH "QDeepCopy::QDeepCopy ( const T & t )"
+.SH "TQDeepCopy::TQDeepCopy ( const T & t )"
 Constructs a deep copy of \fIt\fR.
-.SH "QDeepCopy::operator T ()"
+.SH "TQDeepCopy::operator T ()"
 Returns a deep copy of the encapsulated data.
-.SH "QDeepCopy<T> & QDeepCopy::operator= ( const T & t )"
+.SH "TQDeepCopy<T> & TQDeepCopy::operator= ( const T & t )"
 Assigns a deep copy of \fIt\fR.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqdeepcopy.html
+.BR http://doc.trolltech.com/tqdeepcopy.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

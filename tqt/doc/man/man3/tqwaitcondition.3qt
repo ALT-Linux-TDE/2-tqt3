@@ -1,5 +1,5 @@
 '\" t
-.TH QWaitCondition 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQWaitCondition 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,25 +7,25 @@
 .ad l
 .nh
 .SH NAME
-QWaitCondition \- Allows waiting/waking for conditions between threads
+TQWaitCondition \- Allows waiting/waking for conditions between threads
 .SH SYNOPSIS
 All the functions in this class are thread-safe when TQt is built with thread support.</p>
 .PP
-\fC#include <ntqwaitcondition.h>\fR
+\fC#include <tqwaitcondition.h>\fR
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQWaitCondition\fR ()"
+.BI "\fBTQWaitCondition\fR ()"
 .br
 .ti -1c
-.BI "virtual \fB~QWaitCondition\fR ()"
+.BI "virtual \fB~TQWaitCondition\fR ()"
 .br
 .ti -1c
 .BI "bool \fBwait\fR ( unsigned long time = ULONG_MAX )"
 .br
 .ti -1c
-.BI "bool \fBwait\fR ( QMutex * mutex, unsigned long time = ULONG_MAX )"
+.BI "bool \fBwait\fR ( TQMutex * mutex, unsigned long time = ULONG_MAX )"
 .br
 .ti -1c
 .BI "void \fBwakeOne\fR ()"
@@ -35,18 +35,18 @@ All the functions in this class are thread-safe when TQt is built with thread su
 .br
 .in -1c
 .SH DESCRIPTION
-The QWaitCondition class allows waiting/waking for conditions between threads.
+The TQWaitCondition class allows waiting/waking for conditions between threads.
 .PP
-QWaitConditions allow a thread to tell other threads that some sort of condition has been met; one or many threads can block waiting for a QWaitCondition to set a condition with wakeOne() or wakeAll(). Use wakeOne() to wake one randomly selected event or wakeAll() to wake them all. For example, say we have three tasks that should be performed every time the user presses a key; each task could be split into a thread, each of which would have a run() body like this:
+TQWaitConditions allow a thread to tell other threads that some sort of condition has been met; one or many threads can block waiting for a TQWaitCondition to set a condition with wakeOne() or wakeAll(). Use wakeOne() to wake one randomly selected event or wakeAll() to wake them all. For example, say we have three tasks that should be performed every time the user presses a key; each task could be split into a thread, each of which would have a run() body like this:
 .PP
 .nf
 .br
-    QWaitCondition key_pressed;
+    TQWaitCondition key_pressed;
 .br
 .br
     for (;;) {
 .br
-        key_pressed.wait(); // This is a QWaitCondition global variable
+        key_pressed.wait(); // This is a TQWaitCondition global variable
 .br
         // Key was pressed, do something interesting
 .br
@@ -60,7 +60,7 @@ A fourth thread would read key presses and wake the other three threads up every
 .PP
 .nf
 .br
-    QWaitCondition key_pressed;
+    TQWaitCondition key_pressed;
 .br
 .br
     for (;;) {
@@ -81,9 +81,9 @@ Note that the order the three threads are woken up in is undefined, and that if 
 .PP
 .nf
 .br
-    QMutex mymutex;
+    TQMutex mymutex;
 .br
-    QWaitCondition key_pressed;
+    TQWaitCondition key_pressed;
 .br
     int mycount=0;
 .br
@@ -92,7 +92,7 @@ Note that the order the three threads are woken up in is undefined, and that if 
 .br
     for (;;) {
 .br
-        key_pressed.wait(); // This is a QWaitCondition global variable
+        key_pressed.wait(); // This is a TQWaitCondition global variable
 .br
         mymutex.lock();
 .br
@@ -143,11 +143,11 @@ The mutexes are necessary because the results of two threads attempting to chang
 .PP
 See also Environment Classes and Threading.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QWaitCondition::QWaitCondition ()"
+.SH "TQWaitCondition::TQWaitCondition ()"
 Constructs a new event signalling, i.e. wait condition, object.
-.SH "QWaitCondition::~QWaitCondition ()\fC [virtual]\fR"
+.SH "TQWaitCondition::~TQWaitCondition ()\fC [virtual]\fR"
 Deletes the event signalling, i.e. wait condition, object.
-.SH "bool QWaitCondition::wait ( unsigned long time = ULONG_MAX )"
+.SH "bool TQWaitCondition::wait ( unsigned long time = ULONG_MAX )"
 Wait on the thread event object. The thread calling this will block until either of these conditions is met:
 .TP
 Another thread signals it using wakeOne() or wakeAll(). This function will return TRUE in this case.
@@ -155,7 +155,7 @@ Another thread signals it using wakeOne() or wakeAll(). This function will retur
 \fItime\fR milliseconds has elapsed. If \fItime\fR is ULONG_MAX (the default), then the wait will never timeout (the event must be signalled). This function will return FALSE if the wait timed out.
 .PP
 See also wakeOne() and wakeAll().
-.SH "bool QWaitCondition::wait ( QMutex * mutex, unsigned long time = ULONG_MAX )"
+.SH "bool TQWaitCondition::wait ( TQMutex * mutex, unsigned long time = ULONG_MAX )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Release the locked \fImutex\fR and wait on the thread event object. The \fImutex\fR must be initially locked by the calling thread. If \fImutex\fR is not in a locked state, this function returns immediately. If \fImutex\fR is a recursive mutex, this function returns immediately. The \fImutex\fR will be unlocked, and the calling thread will block until either of these conditions is met:
@@ -167,17 +167,17 @@ Another thread signals it using wakeOne() or wakeAll(). This function will retur
 The mutex will be returned to the same locked state. This function is provided to allow the atomic transition from the locked state to the wait state.
 .PP
 See also wakeOne() and wakeAll().
-.SH "void QWaitCondition::wakeAll ()"
-This wakes all threads waiting on the QWaitCondition. The order in which the threads are woken up depends on the operating system's scheduling policies, and cannot be controlled or predicted.
+.SH "void TQWaitCondition::wakeAll ()"
+This wakes all threads waiting on the TQWaitCondition. The order in which the threads are woken up depends on the operating system's scheduling policies, and cannot be controlled or predicted.
 .PP
 See also wakeOne().
-.SH "void QWaitCondition::wakeOne ()"
-This wakes one thread waiting on the QWaitCondition. The thread that is woken up depends on the operating system's scheduling policies, and cannot be controlled or predicted.
+.SH "void TQWaitCondition::wakeOne ()"
+This wakes one thread waiting on the TQWaitCondition. The thread that is woken up depends on the operating system's scheduling policies, and cannot be controlled or predicted.
 .PP
 See also wakeAll().
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqwaitcondition.html
+.BR http://doc.trolltech.com/tqwaitcondition.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

@@ -1,5 +1,5 @@
-#include <ntqplatinumstyle.h>
-#include <ntqstyleplugin.h>
+#include <tqplatinumstyle.h>
+#include <tqstyleplugin.h>
 
 class PlatinumStyle : public TQStylePlugin
 {

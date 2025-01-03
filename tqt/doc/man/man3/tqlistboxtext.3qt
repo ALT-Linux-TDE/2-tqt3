@@ -1,5 +1,5 @@
 '\" t
-.TH QListBoxText 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQListBoxText 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,73 +7,73 @@
 .ad l
 .nh
 .SH NAME
-QListBoxText \- List box items that display text
+TQListBoxText \- List box items that display text
 .SH SYNOPSIS
-\fC#include <ntqlistbox.h>\fR
+\fC#include <tqlistbox.h>\fR
 .PP
-Inherits QListBoxItem.
+Inherits TQListBoxItem.
 .PP
 .SS "Public Members"
 .in +1c
 .ti -1c
-.BI "\fBQListBoxText\fR ( QListBox * listbox, const TQString & text = TQString::null )"
+.BI "\fBTQListBoxText\fR ( TQListBox * listbox, const TQString & text = TQString::null )"
 .br
 .ti -1c
-.BI "\fBQListBoxText\fR ( const TQString & text = TQString::null )"
+.BI "\fBTQListBoxText\fR ( const TQString & text = TQString::null )"
 .br
 .ti -1c
-.BI "\fBQListBoxText\fR ( QListBox * listbox, const TQString & text, QListBoxItem * after )"
+.BI "\fBTQListBoxText\fR ( TQListBox * listbox, const TQString & text, TQListBoxItem * after )"
 .br
 .ti -1c
-.BI "\fB~QListBoxText\fR ()"
+.BI "\fB~TQListBoxText\fR ()"
 .br
 .ti -1c
-.BI "virtual int \fBheight\fR ( const QListBox * lb ) const"
+.BI "virtual int \fBheight\fR ( const TQListBox * lb ) const"
 .br
 .ti -1c
-.BI "virtual int \fBwidth\fR ( const QListBox * lb ) const"
+.BI "virtual int \fBwidth\fR ( const TQListBox * lb ) const"
 .br
 .in -1c
 .SS "Protected Members"
 .in +1c
 .ti -1c
-.BI "virtual void \fBpaint\fR ( QPainter * painter )"
+.BI "virtual void \fBpaint\fR ( TQPainter * painter )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QListBoxText class provides list box items that display text.
+The TQListBoxText class provides list box items that display text.
 .PP
-The text is drawn in the widget's current font. If you need several different fonts, you must implement your own subclass of QListBoxItem.
+The text is drawn in the widget's current font. If you need several different fonts, you must implement your own subclass of TQListBoxItem.
 .PP
-See also QListBox, QListBoxItem, and Advanced Widgets.
+See also TQListBox, TQListBoxItem, and Advanced Widgets.
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QListBoxText::QListBoxText ( QListBox * listbox, const TQString & text = TQString::null )"
+.SH "TQListBoxText::TQListBoxText ( TQListBox * listbox, const TQString & text = TQString::null )"
 Constructs a list box item in list box \fIlistbox\fR showing the text \fItext\fR.
-.SH "QListBoxText::QListBoxText ( const TQString & text = TQString::null )"
+.SH "TQListBoxText::TQListBoxText ( const TQString & text = TQString::null )"
 Constructs a list box item showing the text \fItext\fR.
-.SH "QListBoxText::QListBoxText ( QListBox * listbox, const TQString & text, QListBoxItem * after )"
+.SH "TQListBoxText::TQListBoxText ( TQListBox * listbox, const TQString & text, TQListBoxItem * after )"
 Constructs a list box item in list box \fIlistbox\fR showing the text \fItext\fR. The item is inserted after the item \fIafter\fR, or at the beginning if \fIafter\fR is 0.
-.SH "QListBoxText::~QListBoxText ()"
+.SH "TQListBoxText::~TQListBoxText ()"
 Destroys the item.
-.SH "int QListBoxText::height ( const QListBox * lb ) const\fC [virtual]\fR"
+.SH "int TQListBoxText::height ( const TQListBox * lb ) const\fC [virtual]\fR"
 Returns the height of a line of text in list box \fIlb\fR.
 .PP
 See also paint() and width().
 .PP
-Reimplemented from QListBoxItem.
-.SH "void QListBoxText::paint ( QPainter * painter )\fC [virtual protected]\fR"
+Reimplemented from TQListBoxItem.
+.SH "void TQListBoxText::paint ( TQPainter * painter )\fC [virtual protected]\fR"
 Draws the text using \fIpainter\fR.
 .PP
-Reimplemented from QListBoxItem.
-.SH "int QListBoxText::width ( const QListBox * lb ) const\fC [virtual]\fR"
+Reimplemented from TQListBoxItem.
+.SH "int TQListBoxText::width ( const TQListBox * lb ) const\fC [virtual]\fR"
 Returns the width of this line in list box \fIlb\fR.
 .PP
 See also paint() and height().
 .PP
-Reimplemented from QListBoxItem.
+Reimplemented from TQListBoxItem.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/qlistboxtext.html
+.BR http://doc.trolltech.com/tqlistboxtext.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

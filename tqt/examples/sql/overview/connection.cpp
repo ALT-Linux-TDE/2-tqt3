@@ -6,7 +6,7 @@
 ** program may be used, distributed and modified without limitation.
 **
 *****************************************************************************/
-#include <ntqsqldatabase.h>
+#include <tqsqldatabase.h>
 #include "connection.h"
 
 bool createConnections()

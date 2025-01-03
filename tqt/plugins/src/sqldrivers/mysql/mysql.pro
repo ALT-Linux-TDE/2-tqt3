@@ -4,9 +4,9 @@ TARGET	 = qsqlmysql
 CONFIG	+= qt plugin
 DESTDIR	 = ../../../sqldrivers
 
-HEADERS		= ../../../../src/sql/drivers/mysql/qsql_mysql.h
+HEADERS		= ../../../../src/sql/drivers/mysql/tqsql_mysql.h
 SOURCES		= main.cpp \
-		  ../../../../src/sql/drivers/mysql/qsql_mysql.cpp
+		  ../../../../src/sql/drivers/mysql/tqsql_mysql.cpp
 
 unix {
 	OBJECTS_DIR = .obj
@@ -21,9 +21,6 @@ win32 {
 #	win32-msvc: {
 #		LIBS *= delayimp.lib
 #		QMAKE_LFLAGS += /DELAYLOAD:libmysql.dll
-#	}
-#	win32-borland: {
-#		QMAKE_LFLAGS += /dlibmysql.dll
 #	}
 }
 

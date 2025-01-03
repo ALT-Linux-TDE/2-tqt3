@@ -34,8 +34,8 @@
 #ifndef GLOBALDEFS_H
 #define GLOBALDEFS_H
 
-#include <ntqcolor.h>
-#include <ntqapplication.h>
+#include <tqcolor.h>
+#include <tqapplication.h>
 
 #define BOXLAYOUT_DEFAULT_MARGIN 11
 #define BOXLAYOUT_DEFAULT_SPACING 6

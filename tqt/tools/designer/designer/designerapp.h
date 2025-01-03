@@ -36,7 +36,7 @@
 
 class TQSplashScreen;
 
-#include <ntqapplication.h>
+#include <tqapplication.h>
 
 class DesignerApplication : public TQApplication
 {

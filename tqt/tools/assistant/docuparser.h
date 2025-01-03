@@ -34,9 +34,9 @@
 #ifndef DOCUPARSER_H
 #define DOCUPARSER_H
 
-#include <ntqxml.h>
-#include <ntqptrlist.h>
-#include <ntqmap.h>
+#include <tqxml.h>
+#include <tqptrlist.h>
+#include <tqmap.h>
 
 class Profile;
 

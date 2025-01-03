@@ -9,10 +9,10 @@
 
 #include "rot13.h"
 
-#include <ntqmultilineedit.h>
-#include <ntqpushbutton.h>
-#include <ntqapplication.h>
-#include <ntqlayout.h>
+#include <tqmultilineedit.h>
+#include <tqpushbutton.h>
+#include <tqapplication.h>
+#include <tqlayout.h>
 
 Rot13::Rot13()
 {

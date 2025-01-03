@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- /home/espenr/tmp/qt-3.3.8-espenr-2499/qt-x11-free-3.3.8/doc/tutorial.doc:1506 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -59,17 +58,17 @@ implementation.
         void  moveShot();
 </pre>
 <p> This private slot is used to move the shot while it is in the air,
-using a <a href="ntqtimer.html">TQTimer</a>.
+using a <a href="tqtimer.html">TQTimer</a>.
 <p> <pre>    private:
-        void  paintShot( <a href="ntqpainter.html">TQPainter</a> * );
+        void  paintShot( <a href="tqpainter.html">TQPainter</a> * );
 </pre>
 <p> This private function paints the shot.
-<p> <pre>        <a href="ntqrect.html">TQRect</a> shotRect() const;
+<p> <pre>        <a href="tqrect.html">TQRect</a> shotRect() const;
 </pre>
 <p> This private function returns the shot's enclosing rectangle if
 one is in the air; otherwise the returned rectangle is undefined.
 <p> <pre>        int timerCount;
-        <a href="ntqtimer.html">TQTimer</a> * autoShootTimer;
+        <a href="tqtimer.html">TQTimer</a> * autoShootTimer;
         float shoot_ang;
         float shoot_f;
     };
@@ -85,30 +84,30 @@ when the shot was fired.
 <p> <pre>    #include &lt;math.h&gt;
 </pre>
 <p> We include the math library because we need the sin() and cos() functions.
-<p> <pre>    CannonField::CannonField( <a href="ntqwidget.html">TQWidget</a> *parent, const char *name )
-            : <a href="ntqwidget.html">TQWidget</a>( parent, name )
+<p> <pre>    CannonField::CannonField( <a href="tqwidget.html">TQWidget</a> *parent, const char *name )
+            : <a href="tqwidget.html">TQWidget</a>( parent, name )
     {
         ang = 45;
         f = 0;
         timerCount = 0;
-        autoShootTimer = new <a href="ntqtimer.html">TQTimer</a>( this, "movement handler" );
-    <a name="x2379"></a>    <a href="ntqobject.html#connect">connect</a>( autoShootTimer, TQ_SIGNAL(<a href="ntqtimer.html#timeout">timeout</a>()),
+        autoShootTimer = new <a href="tqtimer.html">TQTimer</a>( this, "movement handler" );
+    <a name="x2379"></a>    <a href="tqobject.html#connect">connect</a>( autoShootTimer, TQ_SIGNAL(<a href="tqtimer.html#timeout">timeout</a>()),
                  this, TQ_SLOT(moveShot()) );
         shoot_ang = 0;
         shoot_f = 0;
-        <a href="ntqwidget.html#setPalette">setPalette</a>( TQPalette( TQColor( 250, 250, 200) ) );
+        <a href="tqwidget.html#setPalette">setPalette</a>( TQPalette( TQColor( 250, 250, 200) ) );
     }
 </pre>
-<p> We initialize our new private variables and connect the <a href="ntqtimer.html#timeout">TQTimer::timeout</a>() signal to our moveShot() slot. We'll move the
+<p> We initialize our new private variables and connect the <a href="tqtimer.html#timeout">TQTimer::timeout</a>() signal to our moveShot() slot. We'll move the
 shot every time the timer times out.
 <p> <pre>    void CannonField::shoot()
     {
-    <a name="x2376"></a>    if ( autoShootTimer-&gt;<a href="ntqtimer.html#isActive">isActive</a>() )
+    <a name="x2376"></a>    if ( autoShootTimer-&gt;<a href="tqtimer.html#isActive">isActive</a>() )
             return;
         timerCount = 0;
         shoot_ang = ang;
         shoot_f = f;
-    <a name="x2377"></a>    autoShootTimer-&gt;<a href="ntqtimer.html#start">start</a>( 50 );
+    <a name="x2377"></a>    autoShootTimer-&gt;<a href="tqtimer.html#start">start</a>( 50 );
     }
 </pre>
 <p> This function shoots a shot unless a shot is in the air. The <tt>timerCount</tt>
@@ -116,23 +115,23 @@ is reset to zero. The <tt>shoot_ang</tt> and <tt>shoot_f</tt> are set to the cur
 cannon angle and force. Finally, we start the timer.
 <p> <pre>    void CannonField::moveShot()
     {
-        <a href="ntqregion.html">TQRegion</a> r( shotRect() );
+        <a href="tqregion.html">TQRegion</a> r( shotRect() );
         timerCount++;
 
-        <a href="ntqrect.html">TQRect</a> shotR = shotRect();
+        <a href="tqrect.html">TQRect</a> shotR = shotRect();
 
-        if ( shotR.<a href="ntqrect.html#x">x</a>() &gt; width() || shotR.<a href="ntqrect.html#y">y</a>() &gt; height() )
-    <a name="x2378"></a>        autoShootTimer-&gt;<a href="ntqtimer.html#stop">stop</a>();
+        if ( shotR.<a href="tqrect.html#x">x</a>() &gt; width() || shotR.<a href="tqrect.html#y">y</a>() &gt; height() )
+    <a name="x2378"></a>        autoShootTimer-&gt;<a href="tqtimer.html#stop">stop</a>();
         else
-    <a name="x2373"></a>        r = r.<a href="ntqrect.html#unite">unite</a>( TQRegion( shotR ) );
-        <a href="ntqwidget.html#repaint">repaint</a>( r );
+    <a name="x2373"></a>        r = r.<a href="tqrect.html#unite">unite</a>( TQRegion( shotR ) );
+        <a href="tqwidget.html#repaint">repaint</a>( r );
     }
 </pre>
 <p> moveShot() is the slot that moves the shot, called every 50
-milliseconds when the <a href="ntqtimer.html">TQTimer</a> fires.
+milliseconds when the <a href="tqtimer.html">TQTimer</a> fires.
 <p> Its tasks are to compute the new position, repaint the screen with the
 shot in the new position, and if necessary, stop the timer.
-<p> First we make a <a href="ntqregion.html">TQRegion</a> that holds the old shotRect(). A <a href="ntqregion.html">TQRegion</a>
+<p> First we make a <a href="tqregion.html">TQRegion</a> that holds the old shotRect(). A <a href="tqregion.html">TQRegion</a>
 is capable of holding any sort of region, and we'll use it here to
 simplify the painting. ShotRect() returns the rectangle where the
 shot is now - it is explained in detail later.
@@ -143,15 +142,15 @@ shot one step along its trajectory.
 stop the timer or we add the new shotRect() to the TQRegion.
 <p> Finally, we repaint the TQRegion. This will send a single paint event
 for just the one or two rectangles that need updating.
-<p> <pre>    void CannonField::<a href="ntqwidget.html#paintEvent">paintEvent</a>( <a href="qpaintevent.html">TQPaintEvent</a> *e )
+<p> <pre>    void CannonField::<a href="tqwidget.html#paintEvent">paintEvent</a>( <a href="tqpaintevent.html">TQPaintEvent</a> *e )
     {
-    <a name="x2369"></a>    <a href="ntqrect.html">TQRect</a> updateR = e-&gt;<a href="qpaintevent.html#rect">rect</a>();
-        <a href="ntqpainter.html">TQPainter</a> p( this );
+    <a name="x2369"></a>    <a href="tqrect.html">TQRect</a> updateR = e-&gt;<a href="tqpaintevent.html#rect">rect</a>();
+        <a href="tqpainter.html">TQPainter</a> p( this );
 
-    <a name="x2370"></a>    if ( updateR.<a href="ntqrect.html#intersects">intersects</a>( cannonRect() ) )
+    <a name="x2370"></a>    if ( updateR.<a href="tqrect.html#intersects">intersects</a>( cannonRect() ) )
             paintCannon( &amp;p );
-        if ( autoShootTimer-&gt;<a href="ntqtimer.html#isActive">isActive</a>() &amp;&amp;
-             updateR.<a href="ntqrect.html#intersects">intersects</a>( shotRect() ) )
+        if ( autoShootTimer-&gt;<a href="tqtimer.html#isActive">isActive</a>() &amp;&amp;
+             updateR.<a href="tqrect.html#intersects">intersects</a>( shotRect() ) )
             paintShot( &amp;p );
     }
 </pre>
@@ -159,11 +158,11 @@ for just the one or two rectangles that need updating.
 chapter. Now we fetch the bounding rectangle of the region that
 needs painting, check whether it intersects either the cannon and/or
 the shot, and if necessary, call paintCannon() and/or paintShot().
-<p> <pre>    void CannonField::paintShot( <a href="ntqpainter.html">TQPainter</a> *p )
+<p> <pre>    void CannonField::paintShot( <a href="tqpainter.html">TQPainter</a> *p )
     {
-        p-&gt;<a href="ntqpainter.html#setBrush">setBrush</a>( black );
-        p-&gt;<a href="ntqpainter.html#setPen">setPen</a>( NoPen );
-    <a name="x2366"></a>    p-&gt;<a href="ntqpainter.html#drawRect">drawRect</a>( shotRect() );
+        p-&gt;<a href="tqpainter.html#setBrush">setBrush</a>( black );
+        p-&gt;<a href="tqpainter.html#setPen">setPen</a>( NoPen );
+    <a name="x2366"></a>    p-&gt;<a href="tqpainter.html#drawRect">drawRect</a>( shotRect() );
     }
 </pre>
 <p> This private function paints the shot by drawing a black filled rectangle.
@@ -179,13 +178,13 @@ the paintEvent() from the previous chapter.
 
         double velx      = velocity*cos( radians );
         double vely      = velocity*sin( radians );
-    <a name="x2372"></a>    double x0        = ( barrelRect.<a href="ntqrect.html#right">right</a>()  + 5 )*cos(radians);
-        double y0        = ( barrelRect.<a href="ntqrect.html#right">right</a>()  + 5 )*sin(radians);
+    <a name="x2372"></a>    double x0        = ( barrelRect.<a href="tqrect.html#right">right</a>()  + 5 )*cos(radians);
+        double y0        = ( barrelRect.<a href="tqrect.html#right">right</a>()  + 5 )*sin(radians);
         double x         = x0 + velx*time;
         double y         = y0 + vely*time - 0.5*gravity*time*time;
 
-        <a href="ntqrect.html">TQRect</a> r = TQRect( 0, 0, 6, 6 );
-    <a name="x2371"></a>    r.<a href="ntqrect.html#moveCenter">moveCenter</a>( TQPoint( tqRound(x), height() - 1 - tqRound(y) ) );
+        <a href="tqrect.html">TQRect</a> r = TQRect( 0, 0, 6, 6 );
+    <a name="x2371"></a>    r.<a href="tqrect.html#moveCenter">moveCenter</a>( TQPoint( tqRound(x), height() - 1 - tqRound(y) ) );
         return r;
     }
 </pre>
@@ -197,31 +196,31 @@ movement in a gravity field. For simplicity, we've chosen to
 disregard any Einsteinian effects.
 <p> We calculate the center point in a coordinate system where y
 coordinates increase upward. After we have calculated the center
-point, we construct a <a href="ntqrect.html">TQRect</a> with size 6x6 and move its center point to
+point, we construct a <a href="tqrect.html">TQRect</a> with size 6x6 and move its center point to
 the point calculated above. In the same operation we convert the
 point into the widget's coordinate system (see <a href="coordsys.html">The
 Coordinate System</a>).
-<p> The tqRound() function is an inline function defined in ntqglobal.h (included
+<p> The tqRound() function is an inline function defined in tqglobal.h (included
 by all other TQt header files). tqRound() rounds a double to the closest
 integer.
 <p> <h3> <a href="t11-main-cpp.html">t11/main.cpp</a>
 </h3>
 <a name="1-3"></a><p> 
 
-<p> <pre>    class MyWidget: public <a href="ntqwidget.html">TQWidget</a>
+<p> <pre>    class MyWidget: public <a href="tqwidget.html">TQWidget</a>
     {
     public:
-        MyWidget( <a href="ntqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
+        MyWidget( <a href="tqwidget.html">TQWidget</a> *parent=0, const char *name=0 );
     };
 </pre>
 <p> The only addition is the Shoot button.
-<p> <pre>        <a href="ntqpushbutton.html">TQPushButton</a> *shoot = new <a href="ntqpushbutton.html">TQPushButton</a>( "&amp;Shoot", this, "shoot" );
-    <a name="x2382"></a>    shoot-&gt;<a href="ntqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
+<p> <pre>        <a href="tqpushbutton.html">TQPushButton</a> *shoot = new <a href="tqpushbutton.html">TQPushButton</a>( "&amp;Shoot", this, "shoot" );
+    <a name="x2382"></a>    shoot-&gt;<a href="tqwidget.html#setFont">setFont</a>( TQFont( "Times", 18, TQFont::Bold ) );
 </pre>
 <p> In the constructor we create and set up the Shoot button exactly like we
 did with the Quit button. Note that the first argument to the constructor
 is the button text, and the third is the widget's name.
-<p> <pre>        <a href="ntqobject.html#connect">connect</a>( shoot, TQ_SIGNAL(<a href="ntqbutton.html#clicked">clicked</a>()), cannonField, TQ_SLOT(shoot()) );
+<p> <pre>        <a href="tqobject.html#connect">connect</a>( shoot, TQ_SIGNAL(<a href="tqbutton.html#clicked">clicked</a>()), cannonField, TQ_SLOT(shoot()) );
 </pre>
 <p> Connects the clicked() signal of the Shoot button to the shoot() slot
 of the CannonField.
@@ -232,7 +231,7 @@ of the CannonField.
 makefile and build the application.)
 <p> <h2> Exercises
 </h2>
-<a name="3"></a><p> Make the shot a filled circle. Hint: <a href="ntqpainter.html#drawEllipse">TQPainter::drawEllipse</a>() may
+<a name="3"></a><p> Make the shot a filled circle. Hint: <a href="tqpainter.html#drawEllipse">TQPainter::drawEllipse</a>() may
 help.
 <p> Change the color of the cannon when a shot is in the air.
 <p> You're now ready for <a href="tutorial1-12.html">Chapter 12.</a>

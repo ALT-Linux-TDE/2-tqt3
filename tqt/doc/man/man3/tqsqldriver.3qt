@@ -1,5 +1,5 @@
 '\" t
-.TH QSqlDriver 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQSqlDriver 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,9 +7,9 @@
 .ad l
 .nh
 .SH NAME
-QSqlDriver \- Abstract base class for accessing SQL databases
+TQSqlDriver \- Abstract base class for accessing SQL databases
 .SH SYNOPSIS
-\fC#include <ntqsqldriver.h>\fR
+\fC#include <tqsqldriver.h>\fR
 .PP
 Inherits TQObject.
 .PP
@@ -19,10 +19,10 @@ Inherits TQObject.
 .BI "enum \fBDriverFeature\fR { Transactions, QuerySize, BLOB, Unicode, PreparedQueries, NamedPlaceholders, PositionalPlaceholders }"
 .br
 .ti -1c
-.BI "\fBQSqlDriver\fR ( TQObject * parent = 0, const char * name = 0 )"
+.BI "\fBTQSqlDriver\fR ( TQObject * parent = 0, const char * name = 0 )"
 .br
 .ti -1c
-.BI "\fB~QSqlDriver\fR ()"
+.BI "\fB~TQSqlDriver\fR ()"
 .br
 .ti -1c
 .BI "bool \fBisOpen\fR () const"
@@ -40,31 +40,31 @@ Inherits TQObject.
 .BI "virtual bool \fBrollbackTransaction\fR ()"
 .br
 .ti -1c
-.BI "virtual QStringList \fBtables\fR ( const TQString & tableType ) const"
+.BI "virtual TQStringList \fBtables\fR ( const TQString & tableType ) const"
 .br
 .ti -1c
-.BI "virtual QSqlIndex \fBprimaryIndex\fR ( const TQString & tableName ) const"
+.BI "virtual TQSqlIndex \fBprimaryIndex\fR ( const TQString & tableName ) const"
 .br
 .ti -1c
-.BI "virtual QSqlRecord \fBrecord\fR ( const TQString & tableName ) const"
+.BI "virtual TQSqlRecord \fBrecord\fR ( const TQString & tableName ) const"
 .br
 .ti -1c
-.BI "virtual QSqlRecord \fBrecord\fR ( const QSqlQuery & query ) const"
+.BI "virtual TQSqlRecord \fBrecord\fR ( const TQSqlQuery & query ) const"
 .br
 .ti -1c
-.BI "virtual QSqlRecordInfo \fBrecordInfo\fR ( const TQString & tablename ) const"
+.BI "virtual TQSqlRecordInfo \fBrecordInfo\fR ( const TQString & tablename ) const"
 .br
 .ti -1c
-.BI "virtual QSqlRecordInfo \fBrecordInfo\fR ( const QSqlQuery & query ) const"
+.BI "virtual TQSqlRecordInfo \fBrecordInfo\fR ( const TQSqlQuery & query ) const"
 .br
 .ti -1c
 .BI "virtual TQString \fBnullText\fR () const"
 .br
 .ti -1c
-.BI "virtual TQString \fBformatValue\fR ( const QSqlField * field, bool trimStrings = FALSE ) const"
+.BI "virtual TQString \fBformatValue\fR ( const TQSqlField * field, bool trimStrings = FALSE ) const"
 .br
 .ti -1c
-.BI "QSqlError \fBlastError\fR () const"
+.BI "TQSqlError \fBlastError\fR () const"
 .br
 .ti -1c
 .BI "virtual bool \fBhasFeature\fR ( DriverFeature f ) const = 0"
@@ -76,7 +76,7 @@ Inherits TQObject.
 .BI "virtual void \fBclose\fR () = 0"
 .br
 .ti -1c
-.BI "virtual QSqlQuery \fBcreateQuery\fR () const = 0"
+.BI "virtual TQSqlQuery \fBcreateQuery\fR () const = 0"
 .br
 .ti -1c
 .BI "bool \fBopen\fR ( const TQString & db, const TQString & user, const TQString & password, const TQString & host, int port, const TQString & connOpts )"
@@ -91,56 +91,56 @@ Inherits TQObject.
 .BI "virtual void \fBsetOpenError\fR ( bool e )"
 .br
 .ti -1c
-.BI "virtual void \fBsetLastError\fR ( const QSqlError & e )"
+.BI "virtual void \fBsetLastError\fR ( const TQSqlError & e )"
 .br
 .in -1c
 .SH DESCRIPTION
-The QSqlDriver class is an abstract base class for accessing SQL databases.
+The TQSqlDriver class is an abstract base class for accessing SQL databases.
 .PP
-This class should not be used directly. Use QSqlDatabase instead.
+This class should not be used directly. Use TQSqlDatabase instead.
 .PP
 See also Database Classes.
 .SS "Member Type Documentation"
-.SH "QSqlDriver::DriverFeature"
+.SH "TQSqlDriver::DriverFeature"
 This enum contains a list of features a driver may support. Use hasFeature() to query whether a feature is supported or not.
 .TP
-\fCQSqlDriver::Transactions\fR - whether the driver supports SQL transactions
+\fCTQSqlDriver::Transactions\fR - whether the driver supports SQL transactions
 .TP
-\fCQSqlDriver::QuerySize\fR - whether the database is capable of reporting the size of a query. Note that some databases do not support returning the size (i.e. number of rows returned) of a query, in which case QSqlQuery::size() will return -1
+\fCTQSqlDriver::QuerySize\fR - whether the database is capable of reporting the size of a query. Note that some databases do not support returning the size (i.e. number of rows returned) of a query, in which case TQSqlQuery::size() will return -1
 .TP
-\fCQSqlDriver::BLOB\fR - whether the driver supports Binary Large Object fields
+\fCTQSqlDriver::BLOB\fR - whether the driver supports Binary Large Object fields
 .TP
-\fCQSqlDriver::Unicode\fR - whether the driver supports Unicode strings if the database server does
+\fCTQSqlDriver::Unicode\fR - whether the driver supports Unicode strings if the database server does
 .TP
-\fCQSqlDriver::PreparedQueries\fR - whether the driver supports prepared query execution
+\fCTQSqlDriver::PreparedQueries\fR - whether the driver supports prepared query execution
 .TP
-\fCQSqlDriver::NamedPlaceholders\fR - whether the driver supports usage of named placeholders
+\fCTQSqlDriver::NamedPlaceholders\fR - whether the driver supports usage of named placeholders
 .TP
-\fCQSqlDriver::PositionalPlaceholders\fR - whether the driver supports usage of positional placeholders
+\fCTQSqlDriver::PositionalPlaceholders\fR - whether the driver supports usage of positional placeholders
 .PP
 More information about supported features can be found in the TQt SQL driver documentation.
 .PP
 See also hasFeature().
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "QSqlDriver::QSqlDriver ( TQObject * parent = 0, const char * name = 0 )"
+.SH "TQSqlDriver::TQSqlDriver ( TQObject * parent = 0, const char * name = 0 )"
 Default constructor. Creates a new driver with parent \fIparent\fR, called \fIname\fR.
-.SH "QSqlDriver::~QSqlDriver ()"
+.SH "TQSqlDriver::~TQSqlDriver ()"
 Destroys the object and frees any allocated resources.
-.SH "bool QSqlDriver::beginTransaction ()\fC [virtual]\fR"
+.SH "bool TQSqlDriver::beginTransaction ()\fC [virtual]\fR"
 Protected function which derived classes can reimplement to begin a transaction. If successful, return TRUE, otherwise return FALSE. The default implementation returns FALSE.
 .PP
 See also commitTransaction() and rollbackTransaction().
-.SH "void QSqlDriver::close ()\fC [pure virtual]\fR"
+.SH "void TQSqlDriver::close ()\fC [pure virtual]\fR"
 Derived classes must reimplement this abstract virtual function in order to close the database connection. Return TRUE on success, FALSE on failure.
 .PP
 See also setOpen().
-.SH "bool QSqlDriver::commitTransaction ()\fC [virtual]\fR"
+.SH "bool TQSqlDriver::commitTransaction ()\fC [virtual]\fR"
 Protected function which derived classes can reimplement to commit a transaction. If successful, return TRUE, otherwise return FALSE. The default implementation returns FALSE.
 .PP
 See also beginTransaction() and rollbackTransaction().
-.SH "QSqlQuery QSqlDriver::createQuery () const\fC [pure virtual]\fR"
-Creates an empty SQL result on the database. Derived classes must reimplement this function and return a QSqlQuery object appropriate for their database to the caller.
-.SH "TQString QSqlDriver::formatValue ( const QSqlField * field, bool trimStrings = FALSE ) const\fC [virtual]\fR"
+.SH "TQSqlQuery TQSqlDriver::createQuery () const\fC [pure virtual]\fR"
+Creates an empty SQL result on the database. Derived classes must reimplement this function and return a TQSqlQuery object appropriate for their database to the caller.
+.SH "TQString TQSqlDriver::formatValue ( const TQSqlField * field, bool trimStrings = FALSE ) const\fC [virtual]\fR"
 Returns a string representation of the \fIfield\fR value for the database. This is used, for example, when constructing INSERT and UPDATE statements.
 .PP
 The default implementation returns the value formatted as a string according to the following rules:
@@ -161,28 +161,28 @@ If \fIfield\fR is bytearray data, and the driver can edit binary fields, the val
 For any other field type toString() will be called on its value and the result returned.
 .IP
 .PP
-See also QVariant::toString().
-.SH "bool QSqlDriver::hasFeature ( DriverFeature f ) const\fC [pure virtual]\fR"
+See also TQVariant::toString().
+.SH "bool TQSqlDriver::hasFeature ( DriverFeature f ) const\fC [pure virtual]\fR"
 Returns TRUE if the driver supports feature \fIf\fR; otherwise returns FALSE.
 .PP
 Note that some databases need to be open() before this can be determined.
 .PP
 See also DriverFeature.
-.SH "bool QSqlDriver::isOpen () const"
+.SH "bool TQSqlDriver::isOpen () const"
 Returns TRUE if the database connection is open; otherwise returns FALSE.
-.SH "bool QSqlDriver::isOpenError () const"
+.SH "bool TQSqlDriver::isOpenError () const"
 Returns TRUE if the there was an error opening the database connection; otherwise returns FALSE.
-.SH "QSqlError QSqlDriver::lastError () const"
-Returns a QSqlError object which contains information about the last error that occurred on the database.
-.SH "TQString QSqlDriver::nullText () const\fC [virtual]\fR"
+.SH "TQSqlError TQSqlDriver::lastError () const"
+Returns a TQSqlError object which contains information about the last error that occurred on the database.
+.SH "TQString TQSqlDriver::nullText () const\fC [virtual]\fR"
 Returns a string representation of the NULL value for the database. This is used, for example, when constructing INSERT and UPDATE statements. The default implementation returns the string" NULL".
-.SH "bool QSqlDriver::open ( const TQString & db, const TQString & user = TQString::null, const TQString & password = TQString::null, const TQString & host = TQString::null, int port = -1 )\fC [pure virtual]\fR"
+.SH "bool TQSqlDriver::open ( const TQString & db, const TQString & user = TQString::null, const TQString & password = TQString::null, const TQString & host = TQString::null, int port = -1 )\fC [pure virtual]\fR"
 Derived classes must reimplement this abstract virtual function in order to open a database connection on database \fIdb\fR, using user name \fIuser\fR, password \fIpassword\fR, host \fIhost\fR and port \fIport\fR.
 .PP
 The function \fImust\fR return TRUE on success and FALSE on failure.
 .PP
 See also setOpen().
-.SH "bool QSqlDriver::open ( const TQString & db, const TQString & user, const TQString & password, const TQString & host, int port, const TQString & connOpts )"
+.SH "bool TQSqlDriver::open ( const TQString & db, const TQString & user, const TQString & password, const TQString & host, int port, const TQString & connOpts )"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
 Open a database connection on database \fIdb\fR, using user name \fIuser\fR, password \fIpassword\fR, host \fIhost\fR, port \fIport\fR and connection options \fIconnOpts\fR.
@@ -190,45 +190,45 @@ Open a database connection on database \fIdb\fR, using user name \fIuser\fR, pas
 Returns TRUE on success and FALSE on failure.
 .PP
 See also setOpen().
-.SH "QSqlIndex QSqlDriver::primaryIndex ( const TQString & tableName ) const\fC [virtual]\fR"
-Returns the primary index for table \fItableName\fR. Returns an empty QSqlIndex if the table doesn't have a primary index. The default implementation returns an empty index.
-.SH "QSqlRecord QSqlDriver::record ( const TQString & tableName ) const\fC [virtual]\fR"
-Returns a QSqlRecord populated with the names of the fields in table \fItableName\fR. If no such table exists, an empty record is returned. The default implementation returns an empty record.
-.SH "QSqlRecord QSqlDriver::record ( const QSqlQuery & query ) const\fC [virtual]\fR"
+.SH "TQSqlIndex TQSqlDriver::primaryIndex ( const TQString & tableName ) const\fC [virtual]\fR"
+Returns the primary index for table \fItableName\fR. Returns an empty TQSqlIndex if the table doesn't have a primary index. The default implementation returns an empty index.
+.SH "TQSqlRecord TQSqlDriver::record ( const TQString & tableName ) const\fC [virtual]\fR"
+Returns a TQSqlRecord populated with the names of the fields in table \fItableName\fR. If no such table exists, an empty record is returned. The default implementation returns an empty record.
+.SH "TQSqlRecord TQSqlDriver::record ( const TQSqlQuery & query ) const\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Returns a QSqlRecord populated with the names of the fields in the SQL \fIquery\fR. The default implementation returns an empty record.
-.SH "QSqlRecordInfo QSqlDriver::recordInfo ( const TQString & tablename ) const\fC [virtual]\fR"
-Returns a QSqlRecordInfo object with meta data about the table \fItablename\fR.
-.SH "QSqlRecordInfo QSqlDriver::recordInfo ( const QSqlQuery & query ) const\fC [virtual]\fR"
+Returns a TQSqlRecord populated with the names of the fields in the SQL \fIquery\fR. The default implementation returns an empty record.
+.SH "TQSqlRecordInfo TQSqlDriver::recordInfo ( const TQString & tablename ) const\fC [virtual]\fR"
+Returns a TQSqlRecordInfo object with meta data about the table \fItablename\fR.
+.SH "TQSqlRecordInfo TQSqlDriver::recordInfo ( const TQSqlQuery & query ) const\fC [virtual]\fR"
 This is an overloaded member function, provided for convenience. It behaves essentially like the above function.
 .PP
-Returns a QSqlRecordInfo object with meta data for the QSqlQuery \fIquery\fR. Note that this overloaded function may return less information than the recordInfo() function which takes the name of a table as parameter.
-.SH "bool QSqlDriver::rollbackTransaction ()\fC [virtual]\fR"
+Returns a TQSqlRecordInfo object with meta data for the TQSqlQuery \fIquery\fR. Note that this overloaded function may return less information than the recordInfo() function which takes the name of a table as parameter.
+.SH "bool TQSqlDriver::rollbackTransaction ()\fC [virtual]\fR"
 Protected function which derived classes can reimplement to rollback a transaction. If successful, return TRUE, otherwise return FALSE. The default implementation returns FALSE.
 .PP
 See also beginTransaction() and commitTransaction().
-.SH "void QSqlDriver::setLastError ( const QSqlError & e )\fC [virtual protected]\fR"
+.SH "void TQSqlDriver::setLastError ( const TQSqlError & e )\fC [virtual protected]\fR"
 Protected function which allows derived classes to set the value of the last error, \fIe\fR, that occurred on the database.
 .PP
 See also lastError().
-.SH "void QSqlDriver::setOpen ( bool o )\fC [virtual protected]\fR"
+.SH "void TQSqlDriver::setOpen ( bool o )\fC [virtual protected]\fR"
 Protected function which sets the open state of the database to \fIo\fR. Derived classes can use this function to report the status of open().
 .PP
 See also open() and setOpenError().
-.SH "void QSqlDriver::setOpenError ( bool e )\fC [virtual protected]\fR"
+.SH "void TQSqlDriver::setOpenError ( bool e )\fC [virtual protected]\fR"
 Protected function which sets the open error state of the database to \fIe\fR. Derived classes can use this function to report the status of open(). Note that if \fIe\fR is TRUE the open state of the database is set to closed (i.e. isOpen() returns FALSE).
 .PP
 See also open().
-.SH "QStringList QSqlDriver::tables ( const TQString & tableType ) const\fC [virtual]\fR"
+.SH "TQStringList TQSqlDriver::tables ( const TQString & tableType ) const\fC [virtual]\fR"
 Returns a list of tables in the database. The default implementation returns an empty list.
 .PP
-The \fItableType\fR argument describes what types of tables should be returned. Due to binary compatibility, the string contains the value of the enum QSql::TableTypes as text. An empty string should be treated as QSql::Tables for downward compatibility.
+The \fItableType\fR argument describes what types of tables should be returned. Due to binary compatibility, the string contains the value of the enum TQSql::TableTypes as text. An empty string should be treated as TQSql::Tables for downward compatibility.
 .PP
-See also QSql::TableType.
+See also TQSql::TableType.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqsqldriver.html
+.BR http://doc.trolltech.com/tqsqldriver.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

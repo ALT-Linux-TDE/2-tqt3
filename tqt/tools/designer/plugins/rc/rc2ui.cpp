@@ -33,7 +33,7 @@
 **********************************************************************/
 
 #include "rc2ui.h"
-#include <ntqdir.h>
+#include <tqdir.h>
 
 /// some little helpers ///
 
@@ -845,8 +845,8 @@ bool RC2UI::makeStringTable()
 	*out << "#ifndef STRINGTABLE_H" << endl;
 	*out << "#define STRINGTABLE_H" << endl;
 	*out << endl;
-	*out << "#include <ntqstring.h>" << endl;
-	*out << "#include <ntqobject.h>" << endl;
+	*out << "#include <tqstring.h>" << endl;
+	*out << "#include <tqobject.h>" << endl;
 	*out << endl;
 
 	TQString ID;

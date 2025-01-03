@@ -1,15 +1,15 @@
 #include "optionsform.h"
 
-#include <ntqbuttongroup.h>
-#include <ntqcombobox.h>
-#include <ntqfontdialog.h>
-#include <ntqframe.h>
-#include <ntqimage.h>
-#include <ntqlabel.h>
-#include <ntqlayout.h>
-#include <ntqpushbutton.h>
-#include <ntqradiobutton.h>
-#include <ntqspinbox.h>
+#include <tqbuttongroup.h>
+#include <tqcombobox.h>
+#include <tqfontdialog.h>
+#include <tqframe.h>
+#include <tqimage.h>
+#include <tqlabel.h>
+#include <tqlayout.h>
+#include <tqpushbutton.h>
+#include <tqradiobutton.h>
+#include <tqspinbox.h>
 
 #include "images/options_horizontalbarchart.xpm"
 #include "images/options_piechart.xpm"

@@ -10,9 +10,9 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <ntqwidget.h>
-#include <ntqmenubar.h>
-#include <ntqlabel.h>
+#include <tqwidget.h>
+#include <tqmenubar.h>
+#include <tqlabel.h>
 
 
 class MenuExample : public TQWidget

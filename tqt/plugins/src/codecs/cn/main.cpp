@@ -1,10 +1,10 @@
-#include <ntqtextcodecplugin.h>
-#include <ntqtextcodec.h>
-#include <ntqptrlist.h>
-#include <ntqapplication.h>
+#include <tqtextcodecplugin.h>
+#include <tqtextcodec.h>
+#include <tqptrlist.h>
+#include <tqapplication.h>
 
-#include <ntqgb18030codec.h>
-#include <private/qfontcodecs_p.h>
+#include <tqgb18030codec.h>
+#include <private/tqfontcodecs_p.h>
 
 
 class CNTextCodecs : public TQTextCodecPlugin

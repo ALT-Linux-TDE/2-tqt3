@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Documentation for creating custom styles with QStyle
+** Documentation for creating custom styles with TQStyle
 **
 ** Copyright (C) 1992-2008 Trolltech ASA.  All rights reserved.
 **
@@ -64,39 +64,39 @@ applications.
 The first step is to pick one of the base styles provided with TQt to
 build your custom style from. The choice will depend on what look and
 feel you are trying to achieve. We recommend that you choose from the
-QWindowsStyle derived classes or the QMotifStyle derived classes.
+TQWindowsStyle derived classes or the TQMotifStyle derived classes.
 These are the two base look and feel classes in the TQt style engine.
-Inheriting directly from QCommonStyle is also an option if you want to
+Inheriting directly from TQCommonStyle is also an option if you want to
 start almost from scratch when implementing your style. In this simple
-example we will inherit from QWindowsStyle.
+example we will inherit from TQWindowsStyle.
 
 \section2 2. Re-implement the necessary functions in your derived class.
 
 Depending on which parts of the base style you want to change, you
 must re-implement the functions that are used to draw those parts
-of the interface. If you take a look at the \l{QStyle} documentation,
+of the interface. If you take a look at the \l{TQStyle} documentation,
 you will find a list of the different primitives, controls and complex
 controls. In this example we will first change the look of the
-standard arrows that are used in the QWindowsStyle. The arrows are
+standard arrows that are used in the TQWindowsStyle. The arrows are
 PrimitiveElements that are drawn by the drawPrimitive() function,
 so we need to re-implement that function. We need the following class
 declaration:
 
 \code
-#include <ntqwindowsstyle.h>
+#include <tqwindowsstyle.h>
 
-class CustomStyle : public QWindowsStyle {
+class CustomStyle : public TQWindowsStyle {
     TQ_OBJECT
 public:
     CustomStyle();
     ~CustomStyle();
 
     void drawPrimitive( PrimitiveElement pe,
-			QPainter *p,
-			const QRect & r,
-			const QColorGroup & cg,
+			TQPainter *p,
+			const TQRect & r,
+			const TQColorGroup & cg,
 			SFlags flags = Style_Default,
-			const QStyleOption & = QStyleOption::Default ) const;
+			const TQStyleOption & = TQStyleOption::Default ) const;
 
 private:
     // Disabled copy constructor and operator=
@@ -110,7 +110,7 @@ style. TQObject is the base class for all style classes in Qt, and a
 TQObject inherently cannot be copied since there are some aspects of it
 that are not copyable.
 
-From the QStyle docs we see that \c PE_ArrowUp, \c PE_ArrowDown, \c
+From the TQStyle docs we see that \c PE_ArrowUp, \c PE_ArrowDown, \c
 PE_ArrowLeft and \c PE_ArrowRight are the primitives we need to do
 something with. We get the following in our drawPrimitive() function:
 
@@ -124,15 +124,15 @@ CustomStyle::~CustomStyle()
 }
 
 void CustomStyle::drawPrimitive( PrimitiveElement pe,
-				 QPainter * p,
-				 const QRect & r,
-				 const QColorGroup & cg,
+				 TQPainter * p,
+				 const TQRect & r,
+				 const TQColorGroup & cg,
 				 SFlags flags,
-				 const QStyleOption & opt ) const
+				 const TQStyleOption & opt ) const
 {
     // we are only interested in the arrows
     if (pe >= PE_ArrowUp && pe <= PE_ArrowLeft) {
-	QPointArray pa( 3 );
+	TQPointArray pa( 3 );
 	// make the arrow cover half the area it is supposed to be 
 	// painted on
 	int x = r.x();
@@ -171,15 +171,15 @@ void CustomStyle::drawPrimitive( PrimitiveElement pe,
 	// enabled/disabled
 	if ( flags & Style_Enabled ) {
 	    p->setPen( cg.mid() );
-	    p->setBrush( cg.brush( QColorGroup::ButtonText ) );
+	    p->setBrush( cg.brush( TQColorGroup::ButtonText ) );
 	} else {
 	    p->setPen( cg.buttonText() );
-	    p->setBrush( cg.brush( QColorGroup::Mid ) );
+	    p->setBrush( cg.brush( TQColorGroup::Mid ) );
 	}
 	p->drawPolygon( pa );
     } else {
 	// let the base style handle the other primitives
-	QWindowsStyle::drawPrimitive( pe, p, r, cg, flags, data );
+	TQWindowsStyle::drawPrimitive( pe, p, r, cg, flags, data );
     }
 }
 \endcode
@@ -195,8 +195,8 @@ application's main() function:
 
 int main( int argc, char ** argv )
 {
-    QApplication::setStyle( new CustomStyle() );
-    // do the usual routine on creating your QApplication object etc.
+    TQApplication::setStyle( new CustomStyle() );
+    // do the usual routine on creating your TQApplication object etc.
 }
 \endcode
 

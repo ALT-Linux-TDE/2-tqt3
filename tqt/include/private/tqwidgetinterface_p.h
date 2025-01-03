@@ -1,0 +1,1 @@
+../../src/widgets/tqwidgetinterface_p.h

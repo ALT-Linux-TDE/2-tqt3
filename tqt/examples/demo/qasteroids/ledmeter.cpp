@@ -4,7 +4,7 @@
  * Part of the KDE project
  */
 
-#include <ntqpainter.h>
+#include <tqpainter.h>
 #include "ledmeter.h"
 
 KALedMeter::KALedMeter( TQWidget *parent ) : TQFrame( parent )

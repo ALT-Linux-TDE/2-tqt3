@@ -1,5 +1,5 @@
 '\" t
-.TH QAccessible 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
+.TH TQAccessible 3qt "2 February 2007" "Trolltech AS" \" -*- nroff -*-
 .\" Copyright 1992-2007 Trolltech ASA.  All rights reserved.  See the
 .\" license file included in the distribution for a complete license
 .\" statement.
@@ -7,11 +7,11 @@
 .ad l
 .nh
 .SH NAME
-QAccessible \- Enums and static functions relating to accessibility
+TQAccessible \- Enums and static functions relating to accessibility
 .SH SYNOPSIS
-\fC#include <ntqaccessible.h>\fR
+\fC#include <tqaccessible.h>\fR
 .PP
-Inherited by QAccessibleInterface.
+Inherited by TQAccessibleInterface.
 .PP
 .SS "Public Members"
 .in +1c
@@ -34,7 +34,7 @@ Inherited by QAccessibleInterface.
 .SS "Static Public Members"
 .in +1c
 .ti -1c
-.BI "QRESULT \fBqueryAccessibleInterface\fR ( TQObject * object, QAccessibleInterface ** iface )"
+.BI "QRESULT \fBqueryAccessibleInterface\fR ( TQObject * object, TQAccessibleInterface ** iface )"
 .br
 .ti -1c
 .BI "void \fBupdateAccessibility\fR ( TQObject * object, int control, Event reason )"
@@ -44,329 +44,329 @@ Inherited by QAccessibleInterface.
 .br
 .in -1c
 .SH DESCRIPTION
-The QAccessible class provides enums and static functions relating to accessibility.
+The TQAccessible class provides enums and static functions relating to accessibility.
 .PP
-Accessibility clients use implementations of the QAccessibleInterface to read the information an accessible object exposes, or to call functions to manipulate the accessible object.
+Accessibility clients use implementations of the TQAccessibleInterface to read the information an accessible object exposes, or to call functions to manipulate the accessible object.
 .PP
 See the plugin documentation for more details about how to redistribute TQt plugins.
 .PP
 See also Miscellaneous Classes.
 .SS "Member Type Documentation"
-.SH "QAccessible::Event"
+.SH "TQAccessible::Event"
 This enum type defines event types when the state of the accessible object has changed. The event types are:
 .TP
-\fCQAccessible::SoundPlayed\fR
+\fCTQAccessible::SoundPlayed\fR
 .TP
-\fCQAccessible::Alert\fR
+\fCTQAccessible::Alert\fR
 .TP
-\fCQAccessible::ForegroundChanged\fR
+\fCTQAccessible::ForegroundChanged\fR
 .TP
-\fCQAccessible::MenuStart\fR
+\fCTQAccessible::MenuStart\fR
 .TP
-\fCQAccessible::MenuEnd\fR
+\fCTQAccessible::MenuEnd\fR
 .TP
-\fCQAccessible::PopupMenuStart\fR
+\fCTQAccessible::PopupMenuStart\fR
 .TP
-\fCQAccessible::PopupMenuEnd\fR
+\fCTQAccessible::PopupMenuEnd\fR
 .TP
-\fCQAccessible::ContextHelpStart\fR
+\fCTQAccessible::ContextHelpStart\fR
 .TP
-\fCQAccessible::ContextHelpEnd\fR
+\fCTQAccessible::ContextHelpEnd\fR
 .TP
-\fCQAccessible::DragDropStart\fR
+\fCTQAccessible::DragDropStart\fR
 .TP
-\fCQAccessible::DragDropEnd\fR
+\fCTQAccessible::DragDropEnd\fR
 .TP
-\fCQAccessible::DialogStart\fR
+\fCTQAccessible::DialogStart\fR
 .TP
-\fCQAccessible::DialogEnd\fR
+\fCTQAccessible::DialogEnd\fR
 .TP
-\fCQAccessible::ScrollingStart\fR
+\fCTQAccessible::ScrollingStart\fR
 .TP
-\fCQAccessible::ScrollingEnd\fR
+\fCTQAccessible::ScrollingEnd\fR
 .TP
-\fCQAccessible::ObjectCreated\fR
+\fCTQAccessible::ObjectCreated\fR
 .TP
-\fCQAccessible::ObjectDestroyed\fR
+\fCTQAccessible::ObjectDestroyed\fR
 .TP
-\fCQAccessible::ObjectShow\fR
+\fCTQAccessible::ObjectShow\fR
 .TP
-\fCQAccessible::ObjectHide\fR
+\fCTQAccessible::ObjectHide\fR
 .TP
-\fCQAccessible::ObjectReorder\fR
+\fCTQAccessible::ObjectReorder\fR
 .TP
-\fCQAccessible::Focus\fR
+\fCTQAccessible::Focus\fR
 .TP
-\fCQAccessible::Selection\fR
+\fCTQAccessible::Selection\fR
 .TP
-\fCQAccessible::SelectionAdd\fR
+\fCTQAccessible::SelectionAdd\fR
 .TP
-\fCQAccessible::SelectionRemove\fR
+\fCTQAccessible::SelectionRemove\fR
 .TP
-\fCQAccessible::SelectionWithin\fR
+\fCTQAccessible::SelectionWithin\fR
 .TP
-\fCQAccessible::StateChanged\fR
+\fCTQAccessible::StateChanged\fR
 .TP
-\fCQAccessible::LocationChanged\fR
+\fCTQAccessible::LocationChanged\fR
 .TP
-\fCQAccessible::NameChanged\fR
+\fCTQAccessible::NameChanged\fR
 .TP
-\fCQAccessible::DescriptionChanged\fR
+\fCTQAccessible::DescriptionChanged\fR
 .TP
-\fCQAccessible::ValueChanged\fR
+\fCTQAccessible::ValueChanged\fR
 .TP
-\fCQAccessible::ParentChanged\fR
+\fCTQAccessible::ParentChanged\fR
 .TP
-\fCQAccessible::HelpChanged\fR
+\fCTQAccessible::HelpChanged\fR
 .TP
-\fCQAccessible::DefaultActionChanged\fR
+\fCTQAccessible::DefaultActionChanged\fR
 .TP
-\fCQAccessible::AcceleratorChanged\fR
+\fCTQAccessible::AcceleratorChanged\fR
 .TP
-\fCQAccessible::MenuCommand\fR
-.SH "QAccessible::NavDirection"
+\fCTQAccessible::MenuCommand\fR
+.SH "TQAccessible::NavDirection"
 This enum specifies which item to move to when navigating.
 .TP
-\fCQAccessible::NavUp\fR - sibling above
+\fCTQAccessible::NavUp\fR - sibling above
 .TP
-\fCQAccessible::NavDown\fR - sibling below
+\fCTQAccessible::NavDown\fR - sibling below
 .TP
-\fCQAccessible::NavLeft\fR - left sibling
+\fCTQAccessible::NavLeft\fR - left sibling
 .TP
-\fCQAccessible::NavRight\fR - right sibling
+\fCTQAccessible::NavRight\fR - right sibling
 .TP
-\fCQAccessible::NavNext\fR - next sibling
+\fCTQAccessible::NavNext\fR - next sibling
 .TP
-\fCQAccessible::NavPrevious\fR - previous sibling
+\fCTQAccessible::NavPrevious\fR - previous sibling
 .TP
-\fCQAccessible::NavFirstChild\fR - first child
+\fCTQAccessible::NavFirstChild\fR - first child
 .TP
-\fCQAccessible::NavLastChild\fR - last child
+\fCTQAccessible::NavLastChild\fR - last child
 .TP
-\fCQAccessible::NavFocusChild\fR - child with focus
-.SH "QAccessible::Role"
+\fCTQAccessible::NavFocusChild\fR - child with focus
+.SH "TQAccessible::Role"
 This enum defines a number of roles an accessible object can have. The roles are:
 .TP
-\fCQAccessible::NoRole\fR
+\fCTQAccessible::NoRole\fR
 .TP
-\fCQAccessible::TitleBar\fR
+\fCTQAccessible::TitleBar\fR
 .TP
-\fCQAccessible::MenuBar\fR
+\fCTQAccessible::MenuBar\fR
 .TP
-\fCQAccessible::ScrollBar\fR
+\fCTQAccessible::ScrollBar\fR
 .TP
-\fCQAccessible::Grip\fR
+\fCTQAccessible::Grip\fR
 .TP
-\fCQAccessible::Sound\fR
+\fCTQAccessible::Sound\fR
 .TP
-\fCQAccessible::Cursor\fR
+\fCTQAccessible::Cursor\fR
 .TP
-\fCQAccessible::Caret\fR
+\fCTQAccessible::Caret\fR
 .TP
-\fCQAccessible::AlertMessage\fR
+\fCTQAccessible::AlertMessage\fR
 .TP
-\fCQAccessible::Window\fR
+\fCTQAccessible::Window\fR
 .TP
-\fCQAccessible::Client\fR
+\fCTQAccessible::Client\fR
 .TP
-\fCQAccessible::PopupMenu\fR
+\fCTQAccessible::PopupMenu\fR
 .TP
-\fCQAccessible::MenuItem\fR
+\fCTQAccessible::MenuItem\fR
 .TP
-\fCQAccessible::ToolTip\fR
+\fCTQAccessible::ToolTip\fR
 .TP
-\fCQAccessible::Application\fR
+\fCTQAccessible::Application\fR
 .TP
-\fCQAccessible::Document\fR
+\fCTQAccessible::Document\fR
 .TP
-\fCQAccessible::Pane\fR
+\fCTQAccessible::Pane\fR
 .TP
-\fCQAccessible::Chart\fR
+\fCTQAccessible::Chart\fR
 .TP
-\fCQAccessible::Dialog\fR
+\fCTQAccessible::Dialog\fR
 .TP
-\fCQAccessible::Border\fR
+\fCTQAccessible::Border\fR
 .TP
-\fCQAccessible::Grouping\fR
+\fCTQAccessible::Grouping\fR
 .TP
-\fCQAccessible::Separator\fR
+\fCTQAccessible::Separator\fR
 .TP
-\fCQAccessible::ToolBar\fR
+\fCTQAccessible::ToolBar\fR
 .TP
-\fCQAccessible::StatusBar\fR
+\fCTQAccessible::StatusBar\fR
 .TP
-\fCQAccessible::Table\fR
+\fCTQAccessible::Table\fR
 .TP
-\fCQAccessible::ColumnHeader\fR
+\fCTQAccessible::ColumnHeader\fR
 .TP
-\fCQAccessible::RowHeader\fR
+\fCTQAccessible::RowHeader\fR
 .TP
-\fCQAccessible::Column\fR
+\fCTQAccessible::Column\fR
 .TP
-\fCQAccessible::Row\fR
+\fCTQAccessible::Row\fR
 .TP
-\fCQAccessible::Cell\fR
+\fCTQAccessible::Cell\fR
 .TP
-\fCQAccessible::Link\fR
+\fCTQAccessible::Link\fR
 .TP
-\fCQAccessible::HelpBalloon\fR
+\fCTQAccessible::HelpBalloon\fR
 .TP
-\fCQAccessible::Character\fR
+\fCTQAccessible::Character\fR
 .TP
-\fCQAccessible::List\fR
+\fCTQAccessible::List\fR
 .TP
-\fCQAccessible::ListItem\fR
+\fCTQAccessible::ListItem\fR
 .TP
-\fCQAccessible::Outline\fR
+\fCTQAccessible::Outline\fR
 .TP
-\fCQAccessible::OutlineItem\fR
+\fCTQAccessible::OutlineItem\fR
 .TP
-\fCQAccessible::PageTab\fR
+\fCTQAccessible::PageTab\fR
 .TP
-\fCQAccessible::PropertyPage\fR
+\fCTQAccessible::PropertyPage\fR
 .TP
-\fCQAccessible::Indicator\fR
+\fCTQAccessible::Indicator\fR
 .TP
-\fCQAccessible::Graphic\fR
+\fCTQAccessible::Graphic\fR
 .TP
-\fCQAccessible::StaticText\fR
+\fCTQAccessible::StaticText\fR
 .TP
-\fCQAccessible::EditableText\fR
+\fCTQAccessible::EditableText\fR
 .TP
-\fCQAccessible::PushButton\fR
+\fCTQAccessible::PushButton\fR
 .TP
-\fCQAccessible::CheckBox\fR
+\fCTQAccessible::CheckBox\fR
 .TP
-\fCQAccessible::RadioButton\fR
+\fCTQAccessible::RadioButton\fR
 .TP
-\fCQAccessible::ComboBox\fR
+\fCTQAccessible::ComboBox\fR
 .TP
-\fCQAccessible::DropLest\fR
+\fCTQAccessible::DropLest\fR
 .TP
-\fCQAccessible::ProgressBar\fR
+\fCTQAccessible::ProgressBar\fR
 .TP
-\fCQAccessible::Dial\fR
+\fCTQAccessible::Dial\fR
 .TP
-\fCQAccessible::HotkeyField\fR
+\fCTQAccessible::HotkeyField\fR
 .TP
-\fCQAccessible::Slider\fR
+\fCTQAccessible::Slider\fR
 .TP
-\fCQAccessible::SpinBox\fR
+\fCTQAccessible::SpinBox\fR
 .TP
-\fCQAccessible::Diagram\fR
+\fCTQAccessible::Diagram\fR
 .TP
-\fCQAccessible::Animation\fR
+\fCTQAccessible::Animation\fR
 .TP
-\fCQAccessible::Equation\fR
+\fCTQAccessible::Equation\fR
 .TP
-\fCQAccessible::ButtonDropDown\fR
+\fCTQAccessible::ButtonDropDown\fR
 .TP
-\fCQAccessible::ButtonMenu\fR
+\fCTQAccessible::ButtonMenu\fR
 .TP
-\fCQAccessible::ButtonDropGrid\fR
+\fCTQAccessible::ButtonDropGrid\fR
 .TP
-\fCQAccessible::Whitespace\fR
+\fCTQAccessible::Whitespace\fR
 .TP
-\fCQAccessible::PageTabList\fR
+\fCTQAccessible::PageTabList\fR
 .TP
-\fCQAccessible::Clock\fR
-.SH "QAccessible::State"
+\fCTQAccessible::Clock\fR
+.SH "TQAccessible::State"
 This enum type defines bitflags that can be combined to indicate the state of the accessible object. The values are:
 .TP
-\fCQAccessible::Normal\fR
+\fCTQAccessible::Normal\fR
 .TP
-\fCQAccessible::Unavailable\fR
+\fCTQAccessible::Unavailable\fR
 .TP
-\fCQAccessible::Selected\fR
+\fCTQAccessible::Selected\fR
 .TP
-\fCQAccessible::Focused\fR
+\fCTQAccessible::Focused\fR
 .TP
-\fCQAccessible::Pressed\fR
+\fCTQAccessible::Pressed\fR
 .TP
-\fCQAccessible::Checked\fR
+\fCTQAccessible::Checked\fR
 .TP
-\fCQAccessible::Mixed\fR
+\fCTQAccessible::Mixed\fR
 .TP
-\fCQAccessible::ReadOnly\fR
+\fCTQAccessible::ReadOnly\fR
 .TP
-\fCQAccessible::HotTracked\fR
+\fCTQAccessible::HotTracked\fR
 .TP
-\fCQAccessible::Default\fR
+\fCTQAccessible::Default\fR
 .TP
-\fCQAccessible::Expanded\fR
+\fCTQAccessible::Expanded\fR
 .TP
-\fCQAccessible::Collapsed\fR
+\fCTQAccessible::Collapsed\fR
 .TP
-\fCQAccessible::Busy\fR
+\fCTQAccessible::Busy\fR
 .TP
-\fCQAccessible::Floating\fR
+\fCTQAccessible::Floating\fR
 .TP
-\fCQAccessible::Marqueed\fR
+\fCTQAccessible::Marqueed\fR
 .TP
-\fCQAccessible::Animated\fR
+\fCTQAccessible::Animated\fR
 .TP
-\fCQAccessible::Invisible\fR
+\fCTQAccessible::Invisible\fR
 .TP
-\fCQAccessible::Offscreen\fR
+\fCTQAccessible::Offscreen\fR
 .TP
-\fCQAccessible::Sizeable\fR
+\fCTQAccessible::Sizeable\fR
 .TP
-\fCQAccessible::Moveable\fR
+\fCTQAccessible::Moveable\fR
 .TP
-\fCQAccessible::SelfVoicing\fR
+\fCTQAccessible::SelfVoicing\fR
 .TP
-\fCQAccessible::Focusable\fR
+\fCTQAccessible::Focusable\fR
 .TP
-\fCQAccessible::Selectable\fR
+\fCTQAccessible::Selectable\fR
 .TP
-\fCQAccessible::Linked\fR
+\fCTQAccessible::Linked\fR
 .TP
-\fCQAccessible::Traversed\fR
+\fCTQAccessible::Traversed\fR
 .TP
-\fCQAccessible::MultiSelectable\fR
+\fCTQAccessible::MultiSelectable\fR
 .TP
-\fCQAccessible::ExtSelectable\fR
+\fCTQAccessible::ExtSelectable\fR
 .TP
-\fCQAccessible::AlertLow\fR
+\fCTQAccessible::AlertLow\fR
 .TP
-\fCQAccessible::AlertMedium\fR
+\fCTQAccessible::AlertMedium\fR
 .TP
-\fCQAccessible::AlertHigh\fR
+\fCTQAccessible::AlertHigh\fR
 .TP
-\fCQAccessible::Protected\fR
+\fCTQAccessible::Protected\fR
 .TP
-\fCQAccessible::Valid\fR
-.SH "QAccessible::Text"
+\fCTQAccessible::Valid\fR
+.SH "TQAccessible::Text"
 This enum specifies string information that an accessible object returns.
 .TP
-\fCQAccessible::Name\fR - The name of the object
+\fCTQAccessible::Name\fR - The name of the object
 .TP
-\fCQAccessible::Description\fR - A short text describing the object
+\fCTQAccessible::Description\fR - A short text describing the object
 .TP
-\fCQAccessible::Value\fR - The value of the object
+\fCTQAccessible::Value\fR - The value of the object
 .TP
-\fCQAccessible::Help\fR - A longer text giving information about how to use the object
+\fCTQAccessible::Help\fR - A longer text giving information about how to use the object
 .TP
-\fCQAccessible::DefaultAction\fR - The default method to interact with the object
+\fCTQAccessible::DefaultAction\fR - The default method to interact with the object
 .TP
-\fCQAccessible::Accelerator\fR - The keyboard shortcut that executes the default action
+\fCTQAccessible::Accelerator\fR - The keyboard shortcut that executes the default action
 .SH MEMBER FUNCTION DOCUMENTATION
-.SH "bool QAccessible::isActive ()\fC [static]\fR"
+.SH "bool TQAccessible::isActive ()\fC [static]\fR"
 Returns TRUE if an accessibility implementation has been requested, during the runtime of the application, otherwise returns FALSE.
 .PP
 Use this function to prevent potentially expensive notifications via updateAccessibility().
-.SH "QRESULT QAccessible::queryAccessibleInterface ( TQObject * object, QAccessibleInterface ** iface )\fC [static]\fR"
-Sets \fIiface\fR to point to the implementation of the QAccessibleInterface for \fIobject\fR, and returns \fCQS_OK\fR if successfull, or sets \fIiface\fR to 0 and returns \fCQE_NOCOMPONENT\fR if no accessibility implementation for \fIobject\fR exists.
+.SH "QRESULT TQAccessible::queryAccessibleInterface ( TQObject * object, TQAccessibleInterface ** iface )\fC [static]\fR"
+Sets \fIiface\fR to point to the implementation of the TQAccessibleInterface for \fIobject\fR, and returns \fCQS_OK\fR if successfull, or sets \fIiface\fR to 0 and returns \fCQE_NOCOMPONENT\fR if no accessibility implementation for \fIobject\fR exists.
 .PP
 The function uses the classname of \fIobject\fR to find a suitable implementation. If no implementation for the object's class is available the function tries to find an implementation for the object's parent class.
 .PP
 This function is called to answer an accessibility client's request for object information. You should never need to call this function yourself.
-.SH "void QAccessible::updateAccessibility ( TQObject * object, int control, Event reason )\fC [static]\fR"
+.SH "void TQAccessible::updateAccessibility ( TQObject * object, int control, Event reason )\fC [static]\fR"
 Notifies accessibility clients about a change in \fIobject\fR's accessibility information.
 .PP
 \fIreason\fR specifies the cause of the change, for example, ValueChange when the position of a slider has been changed. \fIcontrol\fR is the ID of the child element that has changed. When \fIcontrol\fR is 0, the object itself has changed.
 .PP
-Call this function whenever the state of your accessible object or one of it's sub-elements has been changed either programmatically (e.g. by calling QLabel::setText()) or by user interaction.
+Call this function whenever the state of your accessible object or one of it's sub-elements has been changed either programmatically (e.g. by calling TQLabel::setText()) or by user interaction.
 .PP
 If there are no accessibility tools listening to this event, the
 performance penalty for calling this function is minor, but if determining
@@ -374,7 +374,7 @@ the parameters of the call is expensive you can use isActive() to
 avoid unnecessary performance penalties if no client is listening.
 
 .SH "SEE ALSO"
-.BR http://doc.trolltech.com/ntqaccessible.html
+.BR http://doc.trolltech.com/tqaccessible.html
 .BR http://www.trolltech.com/faq/tech.html
 .SH COPYRIGHT
 Copyright 1992-2007 Trolltech ASA, http://www.trolltech.com.  See the

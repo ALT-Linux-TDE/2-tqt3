@@ -36,14 +36,14 @@
 #include <widgetdatabase.h>
 #include "widgetfactory.h"
 
-#include <ntqlayout.h>
-#include <ntqevent.h>
-#include <ntqpainter.h>
-#include <ntqpen.h>
-#include <ntqbitmap.h>
-#include <ntqsplitter.h>
-#include <ntqvaluevector.h>
-#include <ntqmainwindow.h>
+#include <tqlayout.h>
+#include <tqevent.h>
+#include <tqpainter.h>
+#include <tqpen.h>
+#include <tqbitmap.h>
+#include <tqsplitter.h>
+#include <tqvaluevector.h>
+#include <tqmainwindow.h>
 
 bool operator<( const TQGuardedPtr<TQWidget> &p1, const TQGuardedPtr<TQWidget> &p2 )
 {

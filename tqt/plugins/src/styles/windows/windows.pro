@@ -1,12 +1,12 @@
 TEMPLATE = lib
-TARGET	 = qwindowsstyle
+TARGET	 = tqwindowsstyle
 
 CONFIG  += qt warn_off release plugin
 DESTDIR	 = ../../../styles
 
-HEADERS		= ../../../../include/ntqwindowsstyle.h
+HEADERS		= ../../../../include/tqwindowsstyle.h
 SOURCES		= main.cpp \
-		  ../../../../src/styles/qwindowsstyle.cpp
+		  ../../../../src/styles/tqwindowsstyle.cpp
 
 unix:OBJECTS_DIR	= .obj
 win32:OBJECTS_DIR	= obj

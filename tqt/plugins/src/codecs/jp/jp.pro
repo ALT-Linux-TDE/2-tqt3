@@ -1,22 +1,22 @@
 TEMPLATE = lib
-TARGET	 = qjpcodecs
+TARGET	 = tqjpcodecs
 
 CONFIG	+= qt warn_on plugin
 DESTDIR	 = ../../../codecs
 
 REQUIRES	= !bigcodecs
 
-HEADERS		= ../../../../include/ntqeucjpcodec.h \
-		  ../../../../include/ntqjiscodec.h \
-		  ../../../../include/ntqsjiscodec.h \
-		  ../../../../include/ntqjpunicode.h \
-		  ../../../../include/private/qfontcodecs_p.h
+HEADERS		= ../../../../include/tqeucjpcodec.h \
+		  ../../../../include/tqjiscodec.h \
+		  ../../../../include/tqsjiscodec.h \
+		  ../../../../include/tqjpunicode.h \
+		  ../../../../include/private/tqfontcodecs_p.h
 
-SOURCES		= ../../../../src/codecs/qeucjpcodec.cpp \
-		  ../../../../src/codecs/qjiscodec.cpp \
-		  ../../../../src/codecs/qsjiscodec.cpp \
-		  ../../../../src/codecs/qjpunicode.cpp \
-		  ../../../../src/codecs/qfontjpcodec.cpp \
+SOURCES		= ../../../../src/codecs/tqeucjpcodec.cpp \
+		  ../../../../src/codecs/tqjiscodec.cpp \
+		  ../../../../src/codecs/tqsjiscodec.cpp \
+		  ../../../../src/codecs/tqjpunicode.cpp \
+		  ../../../../src/codecs/tqfontjpcodec.cpp \
 		  main.cpp
 
 
