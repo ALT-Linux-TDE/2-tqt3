@@ -541,7 +541,7 @@ libtqt3-headers.
 %_includedir/tqt3/ntqwidcoll.h
 %_includedir/tqt3/ntqwindefs.h
 %dir %_docdir/tqt3-compat-headers
-%_docdir/tqt3-compat-headers/attic.tar.gz
+#%_docdir/tqt3-compat-headers/attic.tar.gz
 
 ###########
 
