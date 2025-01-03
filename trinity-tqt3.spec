@@ -367,11 +367,11 @@ before you send a bugreport.
 %_libdir/libtqui.prl
 %_libdir/pkgconfig/tqt-mt.pc
 
-%dir %_includedir
-%_includedir/*.h
+%dir %_includedir/tqt3/
+%_includedir/tqt3/*.h
 
-%dir %_includedir/private/
-%_includedir/private/*.h
+%dir %_includedir/tqt3/private/
+%_includedir/tqt3/private/*.h
 
 ##########
 
