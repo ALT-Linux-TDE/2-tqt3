@@ -1405,7 +1405,7 @@ export LD_LIBRARY_PATH=${QTDIR}/lib
 %__make INSTALL_ROOT=%{?buildroot} plugins-install
 
 %__install -m755 "bin/tqtrename140" "%{?buildroot}%_bindir"
-%__install -m755 "bin/tqt20fix" "%{?buildroot}%_bindir"
+#%__install -m755 "bin/tqt20fix" "%{?buildroot}%_bindir"
 %__install -m755 "bin/tqtfindtr" "%{?buildroot}%_bindir"
 
 # install tqtconv2ui
