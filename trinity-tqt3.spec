@@ -264,7 +264,6 @@ Patch76: 9004-qt-x11-free-3.3.4-uridrag.patch
 Patch77: 9005-qt-x11-free-3.3.8b-codecs.patch
 Patch78: 9006-qt-x11-free-3.3.3-codecs-utf8.patch
 Patch79: 9100-qt-x11-free-3.3.8-fix_shortcuts.patch
-Patch80: trinnity-tqt3_DEFAULT_SOURCE-3.5.patch
 
 %description
 This is the Trolltech TQt library, version 3. It's necessary for
@@ -1235,7 +1234,6 @@ things that are possible with TQt3.
 %patch53 -p0
 %patch56 -p0
 %patch68 -p1
-%patch80 -p1
 #patch79 -p1
 #patch78 -p1
 #patch77 -p1
