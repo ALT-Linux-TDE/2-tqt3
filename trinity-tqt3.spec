@@ -1278,7 +1278,7 @@ things that are possible with TQt3.
   -e "s|^QMAKE_INCDIR_QT		=.*|QMAKE_INCDIR_QT		= %_includedir/tqt3|" \
   -e "s|^QMAKE_LIBDIR_QT         =.*|QMAKE_LIBDIR_QT         = %_libdir|" \
 
-%patch35 -p18
+%patch35 -p1
 %patch37 -p1
 %patch44 -p1
 %patch48 -p1
