@@ -1,1 +1,0 @@
-../src/kernel/ntqurlinfo.h

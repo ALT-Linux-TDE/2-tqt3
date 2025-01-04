@@ -1,1 +1,0 @@
-../src/sql/ntqsqlpropertymap.h

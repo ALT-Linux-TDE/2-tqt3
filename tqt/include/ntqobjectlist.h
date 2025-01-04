@@ -1,1 +1,0 @@
-../src/kernel/ntqobjectlist.h

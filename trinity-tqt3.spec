@@ -368,7 +368,7 @@ before you send a bugreport.
 %_libdir/pkgconfig/tqt-mt.pc
 
 %dir %_includedir/tqt3
-%_includedir/tqt3/ntqgl.h
+%_includedir/tqt3/tqgl.h
 %_includedir/tqt3/ntqglcolormap.h
 %_includedir/tqt3/ntqwidgetfactory.h
 %_includedir/tqt3/actioninterface.h
@@ -519,7 +519,7 @@ before you send a bugreport.
 %_includedir/tqt3/ntqnetwork.h
 %_includedir/tqt3/ntqnetworkprotocol.h
 %_includedir/tqt3/ntqnp.h
-%_includedir/tqt3/ntqobject.h
+%_includedir/tqt3/tqobject.h
 %_includedir/tqt3/ntqobjectcleanuphandler.h
 %_includedir/tqt3/ntqobjectdefs.h
 %_includedir/tqt3/ntqobjectdict.h
@@ -1202,7 +1202,7 @@ things that are possible with TQt3.
 
 # Fix strange FTBFS on RHEL5
 %if 0%{?rhel} == 5
-%__sed -i "src/kernel/ntqstyle.h" -e "s|#ifdef ENABLE_T*QSTYLECONTROLELEMENTDATA_SLOW_COPY|#if 1|"
+%__sed -i "src/kernel/tqstyle.h" -e "s|#ifdef ENABLE_T*QSTYLECONTROLELEMENTDATA_SLOW_COPY|#if 1|"
 %endif
 
 # Add missing sqlite3 header

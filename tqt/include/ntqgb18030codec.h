@@ -1,1 +1,0 @@
-../src/codecs/ntqgb18030codec.h

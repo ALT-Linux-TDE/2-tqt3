@@ -1,1 +1,0 @@
-../src/kernel/ntqpngio.h

@@ -1,1 +1,0 @@
-../src/widgets/ntqsplashscreen.h

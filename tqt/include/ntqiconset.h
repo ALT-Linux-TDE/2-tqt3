@@ -1,1 +1,0 @@
-../src/kernel/ntqiconset.h

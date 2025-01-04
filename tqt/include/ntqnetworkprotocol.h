@@ -1,1 +1,0 @@
-../src/kernel/ntqnetworkprotocol.h

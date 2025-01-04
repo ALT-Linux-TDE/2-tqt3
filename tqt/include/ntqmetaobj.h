@@ -1,1 +1,0 @@
-../src/compat/ntqmetaobj.h

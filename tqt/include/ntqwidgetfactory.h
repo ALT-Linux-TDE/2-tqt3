@@ -1,1 +1,0 @@
-../tools/designer/uilib/ntqwidgetfactory.h

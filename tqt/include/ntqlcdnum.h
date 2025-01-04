@@ -1,1 +1,0 @@
-../src/compat/ntqlcdnum.h

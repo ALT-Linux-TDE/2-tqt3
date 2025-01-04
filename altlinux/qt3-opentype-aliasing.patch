@@ -1,9 +1,8 @@
---- qt-x11-free-3.3.6/src/qt.pro--	2006-05-03 10:05:21.000000000 +0200
+--- qt-x11-free-3.3.6/src/qt.pro	2006-05-03 10:05:21.000000000 +0200
 +++ qt-x11-free-3.3.6/src/qt.pro	2006-05-03 10:05:29.000000000 +0200
 @@ -40,6 +40,8 @@
  XML_CPP	        = xml
  STYLES_CPP	= styles
- EMBEDDED_CPP	= embedded
 +QMAKE_CFLAGS += -fno-strict-aliasing
 +QMAKE_CFLAGS_MT += -fno-strict-aliasing
  

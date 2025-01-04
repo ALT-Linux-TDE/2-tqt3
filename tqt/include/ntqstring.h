@@ -1,1 +1,0 @@
-../src/tools/ntqstring.h
