@@ -4,7 +4,7 @@
  install: FORCE
  	@$(MAKE) qt.install
  
--all: symlinks src-qmake src-tqmoc sub-src sub-tools sub-tutorial sub-examples
+-all: symlinks src-qmake src-moc sub-src sub-tools sub-tutorial sub-examples
 +all: symlinks src-qmake src-tqmoc sub-src sub-tools
  	@echo
  	@echo "The Qt library is now built in ./lib"
