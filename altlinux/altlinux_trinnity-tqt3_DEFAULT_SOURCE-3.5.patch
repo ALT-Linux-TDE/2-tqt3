@@ -1,0 +1,69 @@
+diff -uNrBbwp trinity-tqt3-14.0.3/mkspecs/linux-g++/qplatformdefs.h trinity-tqt3-14.0.3-new/mkspecs/linux-g++/qplatformdefs.h
+--- trinity-tqt3-14.0.3/mkspecs/linux-g++/qplatformdefs.h	2016-07-31 22:28:23.000000000 +0300
++++ trinity-tqt3-14.0.3-new/mkspecs/linux-g++/qplatformdefs.h	2016-07-31 22:35:49.043386942 +0300
+@@ -12,10 +12,11 @@
+ // 'u_char' and includes <sys/types.h>.  Now the problem is that
+ // <sys/types.h> defines 'u_char' only if __USE_BSD is defined.
+ // __USE_BSD is defined in <features.h> if _BSD_SOURCE is defined.
+-#ifndef _BSD_SOURCE
+-#  define _BSD_SOURCE
++#ifndef _DEFAULT_SOURCE
++#  define _DEFAULT_SOURCE
+ #endif
+ 
++
+ // 1) need to reset default environment if _BSD_SOURCE is defined
+ // 2) need to specify POSIX thread interfaces explicitly in glibc 2.0
+ // 3) it seems older glibc need this to include the X/Open stuff
+diff -uNrBbwp trinity-tqt3-14.0.3/mkspecs/linux-g++-32/qplatformdefs.h trinity-tqt3-14.0.3-new/mkspecs/linux-g++-32/qplatformdefs.h
+--- trinity-tqt3-14.0.3/mkspecs/linux-g++-32/qplatformdefs.h	2016-07-31 22:28:23.000000000 +0300
++++ trinity-tqt3-14.0.3-new/mkspecs/linux-g++-32/qplatformdefs.h	2016-07-31 22:35:21.977390454 +0300
+@@ -12,10 +12,12 @@
+ // 'u_char' and includes <sys/types.h>.  Now the problem is that
+ // <sys/types.h> defines 'u_char' only if __USE_BSD is defined.
+ // __USE_BSD is defined in <features.h> if _BSD_SOURCE is defined.
+-#ifndef _BSD_SOURCE
+-#  define _BSD_SOURCE
++#ifndef _DEFAULT_SOURCE
++#  define _DEFAULT_SOURCE
+ #endif
+ 
++
++
+ // 1) need to reset default environment if _BSD_SOURCE is defined
+ // 2) need to specify POSIX thread interfaces explicitly in glibc 2.0
+ // 3) it seems older glibc need this to include the X/Open stuff
+diff -uNrBbwp trinity-tqt3-14.0.3/mkspecs/linux-g++-64/qplatformdefs.h trinity-tqt3-14.0.3-new/mkspecs/linux-g++-64/qplatformdefs.h
+--- trinity-tqt3-14.0.3/mkspecs/linux-g++-64/qplatformdefs.h	2016-07-31 22:28:23.000000000 +0300
++++ trinity-tqt3-14.0.3-new/mkspecs/linux-g++-64/qplatformdefs.h	2016-07-31 22:35:36.401388582 +0300
+@@ -12,10 +12,11 @@
+ // 'u_char' and includes <sys/types.h>.  Now the problem is that
+ // <sys/types.h> defines 'u_char' only if __USE_BSD is defined.
+ // __USE_BSD is defined in <features.h> if _BSD_SOURCE is defined.
+-#ifndef _BSD_SOURCE
+-#  define _BSD_SOURCE
++#ifndef _DEFAULT_SOURCE
++#  define _DEFAULT_SOURCE
+ #endif
+ 
++
+ // 1) need to reset default environment if _BSD_SOURCE is defined
+ // 2) need to specify POSIX thread interfaces explicitly in glibc 2.0
+ // 3) it seems older glibc need this to include the X/Open stuff
+diff -uNrBbwp trinity-tqt3-14.0.3/mkspecs/linux-g++-sparc/qplatformdefs.h trinity-tqt3-14.0.3-new/mkspecs/linux-g++-sparc/qplatformdefs.h
+--- trinity-tqt3-14.0.3/mkspecs/linux-g++-sparc/qplatformdefs.h	2016-07-31 22:28:23.000000000 +0300
++++ trinity-tqt3-14.0.3-new/mkspecs/linux-g++-sparc/qplatformdefs.h	2016-07-31 22:36:04.452384942 +0300
+@@ -12,10 +12,11 @@
+ // 'u_char' and includes <sys/types.h>.  Now the problem is that
+ // <sys/types.h> defines 'u_char' only if __USE_BSD is defined.
+ // __USE_BSD is defined in <features.h> if _BSD_SOURCE is defined.
+-#ifndef _BSD_SOURCE
+-#  define _BSD_SOURCE
++#ifndef _DEFAULT_SOURCE
++#  define _DEFAULT_SOURCE
+ #endif
+ 
++
+ // 1) need to reset default environment if _BSD_SOURCE is defined
+ // 2) need to specify POSIX thread interfaces explicitly in glibc 2.0
+ // 3) it seems older glibc need this to include the X/Open stuff
