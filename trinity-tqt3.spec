@@ -35,7 +35,7 @@ BuildRequires: libaudio-devel libfreetds-devel libjpeg-devel libpng-devel
 
 
 Name:		trinity-tqt3
-Version:	3.5.0
+Version:	14.1.3
 Release:	alt1_%{?tde_version}_%{?!preversion:1}%{?preversion:0_%{preversion}}
 Summary:	TQt GUI Library, Version 3
 Group:		Graphical desktop/Other
@@ -52,7 +52,7 @@ License:	GPLv2+
 
 Prefix:		/usr
 
-Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar.gz
+Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
 Source1:	build-examples.sh
 Source2:	trinity-tqt3-rpmlintrc
 
