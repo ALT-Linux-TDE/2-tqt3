@@ -278,7 +278,7 @@ Patch76: 9004-qt-x11-free-3.3.4-uridrag.patch
 Patch77: 9005-qt-x11-free-3.3.8b-codecs.patch
 Patch78: 9006-qt-x11-free-3.3.3-codecs-utf8.patch
 Patch79: 9100-qt-x11-free-3.3.8-fix_shortcuts.patch
-Patch80: trinnity-tqt3_DEFAULT_SOURCE-3.5.patch
+Patch80: altlinux_trinnity-tqt3_DEFAULT_SOURCE-3.5.patch
 
 %description
 This is the Trolltech TQt library, version 3. It's necessary for
