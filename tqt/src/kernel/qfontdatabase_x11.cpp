@@ -861,7 +861,7 @@ static void loadXft()
     const XftDefaultFont defaults[] = {
 	{ "Serif", "serif", FALSE },
 	{ "Sans Serif", "sans-serif", FALSE },
-    { "Monospace", "monospace", TRUE },
+        { "Monospace", "monospace", TRUE },
 	{ 0, 0, FALSE }
     };
     const XftDefaultFont *f = defaults;
