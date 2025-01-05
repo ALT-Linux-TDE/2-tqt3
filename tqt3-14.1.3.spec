@@ -1264,7 +1264,7 @@ things that are possible with TQt3.
 
 # fix variables in 'qmake.conf'
 %__sed -i mkspecs/*/qmake.conf \
-  -e "s|^QMAKE_INCDIR_TQT.*|QMAKE_INCDIR_TQT		= %_includedir/tqt3|" \
+  -e "s|^QMAKE_INCDIR_TQT		=.*|QMAKE_INCDIR_TQT		= %_includedir/tqt3|" \
   -e "s|\$(TQTDIR)|/usr|g" \
   -e "s|-lqt|-ltqt|g" \
   -e "s|^QMAKE_CFLAGS		=.*|QMAKE_CFLAGS		= %{?optflags}|" \
