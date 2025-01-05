@@ -1264,8 +1264,8 @@ things that are possible with TQt3.
 
 # fix variables in 'qmake.conf'
 %__sed -i mkspecs/*/qmake.conf \
-  -e "s|^QMAKE_INCDIR_QT.*|QMAKE_INCDIR_QT		= %_includedir/tqt3|" \
-  -e "s|\$(QTDIR)|/usr|g" \
+  -e "s|^QMAKE_INCDIR_TQT.*|QMAKE_INCDIR_TQT		= %_includedir/tqt3|" \
+  -e "s|\$(TQTDIR)|/usr|g" \
   -e "s|-lqt|-ltqt|g" \
   -e "s|^QMAKE_CFLAGS		=.*|QMAKE_CFLAGS		= %{?optflags}|" \
   -e "s|^QMAKE_INCDIR		=.*|QMAKE_INCDIR		= %_includedir|" \
@@ -1275,8 +1275,8 @@ things that are possible with TQt3.
   -e "s|^QMAKE_STRIPFLAGS_LIB 	+=.*|QMAKE_STRIPFLAGS_LIB 	+=|" \
   -e "s|^QMAKE_MOC		=.*|QMAKE_MOC		= %_bindir/tqmoc|" \
   -e "s|^QMAKE_UIC		=.*|QMAKE_UIC		= %_bindir/tquic|" \
-  -e "s|^QMAKE_INCDIR_QT		=.*|QMAKE_INCDIR_QT		= %_includedir/tqt3|" \
-  -e "s|^QMAKE_LIBDIR_QT         =.*|QMAKE_LIBDIR_QT         = %_libdir|" \
+  -e "s|^QMAKE_INCDIR_TQT		=.*|QMAKE_INCDIR_TQT		= %_includedir/tqt3|" \
+  -e "s|^QMAKE_LIBDIR_TQT         =.*|QMAKE_LIBDIR_TQT         = %_libdir|" \
 
 #%patch35 -p1
 #%patch37 -p1
