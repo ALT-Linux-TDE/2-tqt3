@@ -1,0 +1,14 @@
+--- tqt/src/kernel/qscriptengine_x11.cpp	Sun Jan  5 10:14:52 2025
++++ tqt/src/kernel/qscriptengine_x11.cpp	Sun Jan  5 12:49:08 2025
+@@ -1416,7 +1416,10 @@
+                     toPos += 2;
+                 if (script == TQFont::Devanagari || script == TQFont::Gujarati || script == TQFont::Bengali) {
+                     if (matra_position == Post || matra_position == Split) {
+-                        toPos = matra+1;
++                        if (matra_position == Post )
++			toPos = matra;
++			else
++			toPos = matra+1;
+                         matra -= 2;
+                     }
+                 } else if (script == TQFont::Kannada) {

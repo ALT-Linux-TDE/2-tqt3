@@ -1,0 +1,11 @@
+--- tqt/src/tools/qgpluginmanager.cpp	Sun Jan  5 10:14:52 2025
++++ tqt/src/tools/qgpluginmanager.cpp	Sun Jan  5 13:25:34 2025
+@@ -388,6 +388,8 @@
+ 		sameBasename << (*git).mid( (*git).find( TQChar(0xfffd) ) + 1 );
+ 		++git;
+ 	    }
++	    if( !sameBasename.isEmpty())
++		sameBasename.prepend( lib );
+ 
+ 	    if ( sameBasename.isEmpty() ) {
+ 		that->addLibrary( new TQComLibrary( lib ) );
