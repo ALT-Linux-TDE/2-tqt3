@@ -1282,7 +1282,7 @@ things that are possible with TQt3.
 #%patch37 -p1
 #%patch44 -p1
 %patch48 -p1
-%patch50 -p1
+#%patch50 -p1
 %patch52 -p1
 %patch53 -p0
 %patch56 -p0
