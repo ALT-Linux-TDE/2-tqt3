@@ -237,7 +237,7 @@ Patch40: qt-x11-free-3.3.8b-uic-multilib-ALT.patch
 Patch41: qt-x11-free-3.1.0-header.patch
 Patch42: qt-x11-free-3.3.4-mono.patch
 Patch43: qt-x11-free-3.3.8d-strip.patch
-Patch44: qt-x11-free-3.3.4-qfontdatabase_x11.patch
+Patch44: qt-x11-free-3.3.4-qfontdatabase_x11-25.patch
 Patch45: qt-x11-free-3.3.8d-gcc4-buildkey.patch
 Patch46: qt-visibility-alt.patch
 Patch47: qt-x11-free-3.3.7-umask.patch
