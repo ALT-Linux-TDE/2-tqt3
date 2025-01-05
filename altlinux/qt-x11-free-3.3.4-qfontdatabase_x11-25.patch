@@ -1,19 +1,11 @@
-*** tqt/src/kernel/qfontdatabase_x11.cpp	Sun Jan  5 10:47:14 2025
---- tqt/src/kernel/qfontdatabase_x11.cpp	Sun Jan  5 10:26:16 2025
-***************
-*** 859,865 ****
-  	bool fixed;
-      };
-      const XftDefaultFont defaults[] = {
-! 	{ "Sans Serif", "sans-serif", FALSE },
-  	{ "Sans", "sans-serif", FALSE },
-          { "Monospace", "monospace", TRUE },
-  	{ 0, 0, FALSE }
---- 859,865 ----
-  	bool fixed;
-      };
-      const XftDefaultFont defaults[] = {
-! 	{ "Serif", "serif", FALSE },
-  	{ "Sans", "sans-serif", FALSE },
-          { "Monospace", "monospace", TRUE },
-  	{ 0, 0, FALSE }
+--- tqt/src/kernel/qfontdatabase_x11.cpp	Sun Jan  5 10:47:14 2025
++++ tqt/src/kernel/qfontdatabase_x11.cpp	Sun Jan  5 10:26:16 2025
+@@ -859,7 +859,7 @@
+ 	bool fixed;
+     };
+     const XftDefaultFont defaults[] = {
+-	{ "Sans Serif", "sans-serif", FALSE },
++	{ "Serif", "serif", FALSE },
+ 	{ "Sans", "sans-serif", FALSE },
+         { "Monospace", "monospace", TRUE },
+ 	{ 0, 0, FALSE }
