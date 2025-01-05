@@ -1280,7 +1280,7 @@ things that are possible with TQt3.
 
 #%patch35 -p1
 #%patch37 -p1
-%patch44 -p1
+%patch44 -p1 --binary
 %patch48 -p1
 %patch50 -p1
 %patch52 -p1
