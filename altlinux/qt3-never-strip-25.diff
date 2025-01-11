@@ -1,6 +1,6 @@
---- tqt/qmake/generators/unix/unixmake.cpp	Sun Jan  5 10:14:51 2025
-+++ tqt/qmake/generators/unix/unixmake.cpp	Sun Jan  5 13:16:59 2025
-@@ -837,7 +837,7 @@
+--- a/tqt/qmake/generators/unix/unixmake.cpp
++++ b/tqt/qmake/generators/unix/unixmake.cpp
+@@ -837,7 +837,7 @@ UnixMakefileGenerator::defaultInstall(const TQString &t)
  	    ret += "\n\t";
  	ret += TQString(resource ? "-$(INSTALL_DIR)" : "-$(INSTALL_FILE)") + " \"" +
  	       src_targ + "\" \"" + dst_targ + "\"";
