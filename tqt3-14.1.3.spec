@@ -904,7 +904,6 @@ libtqt3-headers.
 %_includedir/tqt3/ntqwidcoll.h
 %_includedir/tqt3/ntqwindefs.h
 %dir %_docdir/tqt3-compat-headers
-%_docdir/tqt3-compat-headers/attic.tar.gz
 
 ###########
 
@@ -1495,12 +1494,6 @@ done
 %__install -m644 -D "tools/designer/designer/images/designer_appicon.png" "%{?buildroot}%_niconsdir/tqdesigner.png"
 %__install -m644 -D "tools/linguist/linguist/images/appicon.png" "%{?buildroot}%_niconsdir/tqlinguist.png"
 %__install -m644 -D "tools/qtconfig/images/appicon.png" "%{?buildroot}%_niconsdir/tqtconfig.png"
-
-# build attic package and copy it to tqt3-compat-headers
-pushd src
-tar cvvfz "attic.tar.gz" attic/
-install -D -m644 "attic.tar.gz" "%{?buildroot}%_docdir/tqt3-compat-headers/attic.tar.gz"
-popd
 
 # install the man pages
 install -D -m644 "doc/man/man1/moc.1" "%{?buildroot}%_mandir/man1/moc-tqt3.1"
