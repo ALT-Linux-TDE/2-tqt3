@@ -1285,7 +1285,7 @@ things that are possible with TQt3.
 #%patch50 -p1
 %patch52 -p1
 %patch53 -p1
-%patch56 -p0
+%patch56 -p1
 %patch68 -p1
 #%patch80 -p1
 #patch79 -p1
