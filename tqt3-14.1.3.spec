@@ -577,7 +577,6 @@ before you send a bugreport.
 %_includedir/tqt3/ntqobjectdict.h
 %_includedir/tqt3/ntqobjectlist.h
 %_includedir/tqt3/ntqpaintdevice.h
-%_includedir/tqt3/ntqpaintdevicedefs.h
 %_includedir/tqt3/ntqpaintdevicemetrics.h
 %_includedir/tqt3/ntqpainter.h
 %_includedir/tqt3/ntqpair.h
@@ -855,7 +854,6 @@ subject to be changed to use the new header files which are in
 libtqt3-headers.
 
 %files -n tqt3-compat-headers
-%_includedir/tqt3/ntq1xcompatibility.h
 %_includedir/tqt3/ntqapp.h
 %_includedir/tqt3/ntqarray.h
 %_includedir/tqt3/ntqbitarry.h
@@ -879,7 +877,6 @@ libtqt3-headers.
 %_includedir/tqt3/ntqiodev.h
 %_includedir/tqt3/ntqlcdnum.h
 %_includedir/tqt3/ntqlined.h
-%_includedir/tqt3/ntqlist.h
 %_includedir/tqt3/ntqmenudta.h
 %_includedir/tqt3/ntqmetaobj.h
 %_includedir/tqt3/ntqmlined.h
@@ -887,8 +884,6 @@ libtqt3-headers.
 %_includedir/tqt3/ntqmultilinedit.h
 %_includedir/tqt3/ntqobjcoll.h
 %_includedir/tqt3/ntqobjdefs.h
-%_includedir/tqt3/ntqpaintd.h
-%_includedir/tqt3/ntqpaintdc.h
 %_includedir/tqt3/ntqpdevmet.h
 %_includedir/tqt3/ntqpmcache.h
 %_includedir/tqt3/ntqpntarry.h
@@ -906,7 +901,6 @@ libtqt3-headers.
 %_includedir/tqt3/ntqstack.h
 %_includedir/tqt3/ntqtabdlg.h
 %_includedir/tqt3/ntqtstream.h
-%_includedir/tqt3/ntqvector.h
 %_includedir/tqt3/ntqwidcoll.h
 %_includedir/tqt3/ntqwindefs.h
 %dir %_docdir/tqt3-compat-headers
@@ -1153,7 +1147,7 @@ Group: Graphical desktop/Other
 # Requires:	%libtqt3-mt-devel = %version-%release
 
 %description -n tqt3-dev-tools-compat
-This package contains some older TQt tools (namely tqt20fix tqtrename140,
+This package contains some older TQt tools (namely tqtrename140,
 tqm2ts, tqtmergetr, tqtfindtr and msg2tqm). These tools are needed only by
 application developers who need to migrate any TQt application written
 for TQt 1.x or 2.x over to TQt 3.x. The purpose of the tools are to
@@ -1162,7 +1156,6 @@ the message file format of TQt 2 translation files or any gettext-based
 translation system to the TQt 3 system.
 
 %files -n tqt3-dev-tools-compat
-%_bindir/tqt20fix
 %_bindir/tqtrename140
 %_bindir/tqm2ts
 %_bindir/tqtmergetr
@@ -1459,7 +1452,6 @@ export LD_LIBRARY_PATH=${QTDIR}/lib
 %__make INSTALL_ROOT=%{?buildroot} plugins-install
 
 %__install -m755 "bin/tqtrename140" "%{?buildroot}%_bindir"
-%__install -m755 "bin/tqt20fix" "%{?buildroot}%_bindir"
 %__install -m755 "bin/tqtfindtr" "%{?buildroot}%_bindir"
 
 # install tqtconv2ui
