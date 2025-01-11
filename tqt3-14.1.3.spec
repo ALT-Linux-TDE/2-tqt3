@@ -1496,10 +1496,10 @@ done
 %__install -m644 -D "tools/qtconfig/images/appicon.png" "%{?buildroot}%_niconsdir/tqtconfig.png"
 
 # install the man pages
-install -D -m644 "doc/man/man1/moc.1" "%{?buildroot}%_mandir/man1/moc-tqt3.1"
-install -D -m644 "doc/man/man1/uic.1" "%{?buildroot}%_mandir/man1/uic-tqt3.1"
-install -D -m644 "doc/man/man1/lrelease.1" "%{?buildroot}%_mandir/man1/lrelease-tqt3.1"
-install -D -m644 "doc/man/man1/lupdate.1" "%{?buildroot}%_mandir/man1/lupdate-tqt3.1"
+install -D -m644 "doc/man/man1/tqmoc.1" "%{?buildroot}%_mandir/man1/moc-tqt3.1"
+install -D -m644 "doc/man/man1/tquic.1" "%{?buildroot}%_mandir/man1/uic-tqt3.1"
+install -D -m644 "doc/man/man1/tqlrelease.1" "%{?buildroot}%_mandir/man1/lrelease-tqt3.1"
+install -D -m644 "doc/man/man1/tqlupdate.1" "%{?buildroot}%_mandir/man1/lupdate-tqt3.1"
 
 # Install source for the designer tools, such as tqtcreatecw.
 cp -ra tools/designer/tools %{?buildroot}%_datadir/tqt3/tools
