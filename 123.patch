@@ -1,0 +1,68 @@
+diff --git a/altlinux/pluginmanager-fix-25.diff b/altlinux/pluginmanager-fix-25.diff
+index f6e66de..e82a06e 100644
+--- a/altlinux/pluginmanager-fix-25.diff
++++ b/altlinux/pluginmanager-fix-25.diff
+@@ -1,11 +1,11 @@
+---- tqt/src/tools/qgpluginmanager.cpp	Sun Jan  5 10:14:52 2025
+-+++ tqt/src/tools/qgpluginmanager.cpp	Sun Jan  5 13:25:34 2025
+-@@ -388,6 +388,8 @@
+- 		sameBasename << (*git).mid( (*git).find( TQChar(0xfffd) ) + 1 );
+- 		++git;
+- 	    }
+-+	    if( !sameBasename.isEmpty())
+-+		sameBasename.prepend( lib );
+- 
+- 	    if ( sameBasename.isEmpty() ) {
+- 		that->addLibrary( new TQComLibrary( lib ) );
++--- tqt/src/tools/qgpluginmanager.cpp	Sun Jan  5 10:14:52 2025
+++++ tqt/src/tools/qgpluginmanager.cpp	Sun Jan  5 13:25:34 2025
++@@ -388,6 +388,8 @@
++ 		sameBasename << (*git).mid( (*git).find( TQChar(0xfffd) ) + 1 );
++ 		++git;
++ 	    }
+++	    if( !sameBasename.isEmpty())
+++		sameBasename.prepend( lib );
++ 
++ 	    if ( sameBasename.isEmpty() ) {
++ 		that->addLibrary( new TQComLibrary( lib ) );
+diff --git a/altlinux/qt3-never-strip-25.diff b/altlinux/qt3-never-strip-25.diff
+index d06d063..191f138 100644
+--- a/altlinux/qt3-never-strip-25.diff
++++ b/altlinux/qt3-never-strip-25.diff
+@@ -1,5 +1,5 @@
+---- a/tqt/qmake/generators/unix/unixmake.cpp
+-+++ b/tqt/qmake/generators/unix/unixmake.cpp
++--- tqt/qmake/generators/unix/unixmake.cpp
+++++ tqt/qmake/generators/unix/unixmake.cpp
+ @@ -837,7 +837,7 @@ UnixMakefileGenerator::defaultInstall(const TQString &t)
+  	    ret += "\n\t";
+  	ret += TQString(resource ? "-$(INSTALL_DIR)" : "-$(INSTALL_FILE)") + " \"" +
+diff --git a/tqt/src/kernel/qscriptengine_x11.cpp b/tqt/src/kernel/qscriptengine_x11.cpp
+index 97ae682..2e4d9d1 100644
+--- a/tqt/src/kernel/qscriptengine_x11.cpp
++++ b/tqt/src/kernel/qscriptengine_x11.cpp
+@@ -1416,7 +1416,10 @@ static bool indic_shape_syllable(TQOpenType *openType, TQShaperItem *item, bool
+                     toPos += 2;
+                 if (script == TQFont::Devanagari || script == TQFont::Gujarati || script == TQFont::Bengali) {
+                     if (matra_position == Post || matra_position == Split) {
+-                        toPos = matra+1;
++                        if (matra_position == Post )
++			toPos = matra;
++			else
++			toPos = matra+1;
+                         matra -= 2;
+                     }
+                 } else if (script == TQFont::Kannada) {
+diff --git a/tqt/src/tools/qgpluginmanager.cpp b/tqt/src/tools/qgpluginmanager.cpp
+index c1d6e15..448936b 100644
+--- a/tqt/src/tools/qgpluginmanager.cpp
++++ b/tqt/src/tools/qgpluginmanager.cpp
+@@ -388,6 +388,8 @@ const TQLibrary* TQGPluginManager::library( const TQString& feature ) const
+ 		sameBasename << (*git).mid( (*git).find( TQChar(0xfffd) ) + 1 );
+ 		++git;
+ 	    }
++	    if( !sameBasename.isEmpty())
++		sameBasename.prepend( lib );
+ 
+ 	    if ( sameBasename.isEmpty() ) {
+ 		that->addLibrary( new TQComLibrary( lib ) );

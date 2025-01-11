@@ -39,8 +39,7 @@ WORKSPACE_CPP	= workspace
 INPUTMETHOD_CPP	= inputmethod
 XML_CPP	        = xml
 STYLES_CPP	= styles
-QMAKE_CFLAGS += -fno-strict-aliasing
-QMAKE_CFLAGS_MT += -fno-strict-aliasing
+
 EMBEDDED_CPP	= embedded
 
 win32 {
