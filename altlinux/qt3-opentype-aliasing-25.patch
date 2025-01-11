@@ -1,12 +1,12 @@
-diff -urN /home/user/_MYPROJECTS/TDE-github/2-tqt3/tqt/src/qt.pro "/home/user/_MYPROJECTS/TDE-github/2-tqt3 (копия)/tqt/src/qt.pro"
+diff -urN /home/user/_MYPROJECTS/TDE-github/2-tqt3/tqt/src/qt.pro "/home/user/_MYPROJECTS/TDE-github/2-tqt3_xp/tqt/src/qt.pro"
 --- /home/user/_MYPROJECTS/TDE-github/2-tqt3/tqt/src/qt.pro	2025-01-04 17:05:37.919450031 +0300
-+++ "/home/user/_MYPROJECTS/TDE-github/2-tqt3 (копия)/tqt/src/qt.pro"	2025-01-11 11:19:09.719611625 +0300
++++ "/home/user/_MYPROJECTS/TDE-github/2-tqt3_xp/tqt/src/qt.pro"	2025-01-11 11:19:09.719611625 +0300
 @@ -39,6 +39,8 @@
- INPUTMETHOD_CPP	= inputmethod
- XML_CPP	        = xml
- STYLES_CPP	= styles
+INPUTMETHOD_CPP	= inputmethod
+XML_CPP	        = xml
+STYLES_CPP	= styles
 +QMAKE_CFLAGS += -fno-strict-aliasing
 +QMAKE_CFLAGS_MT += -fno-strict-aliasing
- EMBEDDED_CPP	= embedded
+EMBEDDED_CPP	= embedded
  
- win32 {
+win32 {
