@@ -1062,7 +1062,6 @@ development files by the translator.
 %_datadir/tqt3/doc/html/linguist*html
 %_datadir/tqt3/doc/html/linguist*dcf
 %dir %_docdir/tqt3-linguist
-%_docdir/tqt3-linguist/qt_untranslated.ts
 %_datadir/applications/tqlinguist.desktop
 %_datadir/icons/hicolor/32x32/apps/tqlinguist.png
 
@@ -1466,9 +1465,6 @@ export LD_LIBRARY_PATH=${QTDIR}/lib
 ## create tqt3-apps-dev-package
 cp tools/designer/interfaces/*.h "%{?buildroot}%{?_includedir}/tqt3/"
 cp tools/designer/editor/*.h "%{?buildroot}%{?_includedir}/tqt3/"
-
-# language file for linguist
-%__install -D -m644 "translations/qt_untranslated.ts" "%{?buildroot}%{?_docdir}/tqt3-linguist/qt_untranslated.ts"
 
 # fix that stupid friggin professional file
 perl -pi -e 's{\$$\$$QT_SOURCE_TREE}{$(QTDIR)}' "src/qt_professional.pri"
