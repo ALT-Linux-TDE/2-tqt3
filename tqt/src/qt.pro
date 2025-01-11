@@ -39,6 +39,7 @@ WORKSPACE_CPP	= workspace
 INPUTMETHOD_CPP	= inputmethod
 XML_CPP	        = xml
 STYLES_CPP	= styles
+
 EMBEDDED_CPP	= embedded
 
 win32 {
