@@ -730,8 +730,8 @@ before you send a bugreport.
 %_includedir/tqt3/qsql_sqlite3.h
 %_includedir/tqt3/qsqlcachedresult.h
 %_includedir/tqt3/qt_pch.h
-%_includedir/tqt3/qtmultilineedit.h
-%_includedir/tqt3/qttableview.h
+#%_includedir/tqt3/ntqmultilineedit.h # Attic/Qt2/устарело
+#%_includedir/tqt3/qttableview.h # Attic/Qt2/устарело
 %_includedir/tqt3/qwindow.h
 %_includedir/tqt3/sourcetemplateiface.h
 %_includedir/tqt3/templatewizardiface.h
