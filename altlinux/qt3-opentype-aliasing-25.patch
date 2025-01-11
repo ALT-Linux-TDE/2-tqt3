@@ -1,11 +1,14 @@
---- tqt/src/qt.pro	2025-01-04 17:05:37.919450031 +0300
-+++ tqt/src/qt.pro"	2025-01-11 11:19:09.719611625 +0300
-@@ -39,6 +39,8 @@
-INPUTMETHOD_CPP	= inputmethod
-XML_CPP	        = xml
-STYLES_CPP	= styles
+diff --git a/tqt/src/qt.pro b/tqt/src/qt.pro
+index a6a965f..c4f94bb 100644
+--- a/tqt/src/qt.pro
++++ b/tqt/src/qt.pro
+@@ -39,7 +39,8 @@ WORKSPACE_CPP	= workspace
+ INPUTMETHOD_CPP	= inputmethod
+ XML_CPP	        = xml
+ STYLES_CPP	= styles
+-
 +QMAKE_CFLAGS += -fno-strict-aliasing
 +QMAKE_CFLAGS_MT += -fno-strict-aliasing
-EMBEDDED_CPP	= embedded
+ EMBEDDED_CPP	= embedded
  
-win32 {
+ win32 {
