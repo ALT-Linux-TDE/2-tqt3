@@ -986,9 +986,10 @@ development files by the translator.
 %files -n tqt3-linguist
 %_bindir/tqlinguist
 %dir %_datadir/tqt3/phrasebooks/
-#%_docdir/html/linguist/*.html
-#%_docdir/html/linguist/*.dcf
-#%dir 
+%_datadir/tqt3/phrasebooks/*
+%_datadir/tqt3/doc/html/linguist*html
+%_datadir/tqt3/doc/html/linguist*dcf
+%dir %_docdir/tqt3-linguist
 %_datadir/applications/tqlinguist.desktop
 %_datadir/icons/hicolor/32x32/apps/tqlinguist.png
 
