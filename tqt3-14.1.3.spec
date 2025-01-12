@@ -738,6 +738,9 @@ before you send a bugreport.
 %_includedir/tqt3/viewmanager.h
 %_includedir/tqt3/widgetinterface.h
 
+%dir %_includedir/tqt3/private/
+%_includedir/tqt3/private/*.h
+
 ##########
 
 %package -n libtqt3-mysql
