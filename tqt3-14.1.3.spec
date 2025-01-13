@@ -336,7 +336,7 @@ Summary:	TQt development files (Threaded)
 Group:		Development/C
 Provides:	trinity-tqt3-devel = %{version}-%{release}
 Provides:	libtqt3-mt-devel = %{version}-%{release}
-Requires:	%{libtqt3}-mt = %{version}-%{release}
+Requires:	libtqt3-mt = %{version}-%{release}
 
 Requires: glibc-utils
 
@@ -354,7 +354,7 @@ Requires: glibc-utils
 %{?ice_devel:Requires: %{ice_devel}}
 %{?libaudio_devel:Requires: %{libaudio_devel}}
 
-%description -n %{libtqt3}-mt-devel
+%description -n libtqt3-mt-devel
 TQt is a C++ class library optimized for graphical user interface
 development. This package contains the libtqt-mt.so symlink, necessary
 for building threaded TQt applications as well as the libtqui.so symlink
