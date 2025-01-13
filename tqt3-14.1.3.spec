@@ -222,7 +222,7 @@ Source14: tqtconfig.desktop
 %endif
 
 # GCC visibility stuff
-%define EXTRA_CFLAGS -fvisibility=hidden -fvisibility-inlines-hidden
+#%define EXTRA_CFLAGS -fvisibility=hidden -fvisibility-inlines-hidden
 Source44: import.info
 
 # FC
