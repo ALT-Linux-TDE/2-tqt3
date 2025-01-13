@@ -331,7 +331,7 @@ applications.
 
 ###########
 
-%package -n %{libtqt3}-mt-devel
+%package -n libtqt3-mt-devel
 Summary:	TQt development files (Threaded)
 Group:		Development/C
 Provides:	trinity-tqt3-devel = %{version}-%{release}
