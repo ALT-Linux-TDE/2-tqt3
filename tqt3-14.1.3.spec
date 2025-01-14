@@ -224,8 +224,6 @@ Source14: tqtconfig.desktop
 # GCC visibility stuff
 #V все функции скрытые
 #%define EXTRA_CFLAGS -fvisibility=hidden -fvisibility-inlines-hidden
-#V Все показываем
-%define EXTRA_CFLAGS -fvisibility=default
 Source44: import.info
 
 # FC
@@ -1192,7 +1190,7 @@ things that are possible with TQt3.
   -e "s|^QMAKE_INCDIR_TQT		=.*|QMAKE_INCDIR_TQT		= %_includedir/tqt3|" \
   -e "s|\$(TQTDIR)|/usr|g" \
   -e "s|-lqt|-ltqt|g" \
-  -e "s|^QMAKE_CFLAGS		=.*|QMAKE_CFLAGS		= %{?optflags}|" \
+  -e "s|^QMAKE_CFLAGS		=.*|QMAKE_CFLAGS		= %{?optflags} -pipe -fvisibility=hidden -fvisibility-inlines-hidden|"
   -e "s|^QMAKE_INCDIR		=.*|QMAKE_INCDIR		= %_includedir|" \
   -e "s|^QMAKE_LIBDIR		=.*|QMAKE_LIBDIR		= %_libdir|" \
   -e "s|^QMAKE_RPATH		= .*|QMAKE_RPATH		=|" \
